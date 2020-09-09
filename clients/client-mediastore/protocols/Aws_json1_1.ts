@@ -379,7 +379,6 @@ export const deserializeAws_json1_1CreateContainerCommand = async (
   contents = deserializeAws_json1_1CreateContainerOutput(data, context);
   const response: CreateContainerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateContainerOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -451,7 +450,6 @@ export const deserializeAws_json1_1DeleteContainerCommand = async (
   contents = deserializeAws_json1_1DeleteContainerOutput(data, context);
   const response: DeleteContainerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteContainerOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -523,7 +521,6 @@ export const deserializeAws_json1_1DeleteContainerPolicyCommand = async (
   contents = deserializeAws_json1_1DeleteContainerPolicyOutput(data, context);
   const response: DeleteContainerPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteContainerPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -603,7 +600,6 @@ export const deserializeAws_json1_1DeleteCorsPolicyCommand = async (
   contents = deserializeAws_json1_1DeleteCorsPolicyOutput(data, context);
   const response: DeleteCorsPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCorsPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -683,7 +679,6 @@ export const deserializeAws_json1_1DeleteLifecyclePolicyCommand = async (
   contents = deserializeAws_json1_1DeleteLifecyclePolicyOutput(data, context);
   const response: DeleteLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLifecyclePolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -763,7 +758,6 @@ export const deserializeAws_json1_1DeleteMetricPolicyCommand = async (
   contents = deserializeAws_json1_1DeleteMetricPolicyOutput(data, context);
   const response: DeleteMetricPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMetricPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -843,7 +837,6 @@ export const deserializeAws_json1_1DescribeContainerCommand = async (
   contents = deserializeAws_json1_1DescribeContainerOutput(data, context);
   const response: DescribeContainerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeContainerOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -907,7 +900,6 @@ export const deserializeAws_json1_1GetContainerPolicyCommand = async (
   contents = deserializeAws_json1_1GetContainerPolicyOutput(data, context);
   const response: GetContainerPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetContainerPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -987,7 +979,6 @@ export const deserializeAws_json1_1GetCorsPolicyCommand = async (
   contents = deserializeAws_json1_1GetCorsPolicyOutput(data, context);
   const response: GetCorsPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCorsPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1067,7 +1058,6 @@ export const deserializeAws_json1_1GetLifecyclePolicyCommand = async (
   contents = deserializeAws_json1_1GetLifecyclePolicyOutput(data, context);
   const response: GetLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLifecyclePolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1147,7 +1137,6 @@ export const deserializeAws_json1_1GetMetricPolicyCommand = async (
   contents = deserializeAws_json1_1GetMetricPolicyOutput(data, context);
   const response: GetMetricPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMetricPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1227,7 +1216,6 @@ export const deserializeAws_json1_1ListContainersCommand = async (
   contents = deserializeAws_json1_1ListContainersOutput(data, context);
   const response: ListContainersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListContainersOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1283,7 +1271,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1355,7 +1342,6 @@ export const deserializeAws_json1_1PutContainerPolicyCommand = async (
   contents = deserializeAws_json1_1PutContainerPolicyOutput(data, context);
   const response: PutContainerPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutContainerPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1427,7 +1413,6 @@ export const deserializeAws_json1_1PutCorsPolicyCommand = async (
   contents = deserializeAws_json1_1PutCorsPolicyOutput(data, context);
   const response: PutCorsPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutCorsPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1499,7 +1484,6 @@ export const deserializeAws_json1_1PutLifecyclePolicyCommand = async (
   contents = deserializeAws_json1_1PutLifecyclePolicyOutput(data, context);
   const response: PutLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutLifecyclePolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1571,7 +1555,6 @@ export const deserializeAws_json1_1PutMetricPolicyCommand = async (
   contents = deserializeAws_json1_1PutMetricPolicyOutput(data, context);
   const response: PutMetricPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutMetricPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1643,7 +1626,6 @@ export const deserializeAws_json1_1StartAccessLoggingCommand = async (
   contents = deserializeAws_json1_1StartAccessLoggingOutput(data, context);
   const response: StartAccessLoggingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartAccessLoggingOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1715,7 +1697,6 @@ export const deserializeAws_json1_1StopAccessLoggingCommand = async (
   contents = deserializeAws_json1_1StopAccessLoggingOutput(data, context);
   const response: StopAccessLoggingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopAccessLoggingOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1787,7 +1768,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1859,7 +1839,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2241,7 +2220,6 @@ const deserializeAws_json1_1AllowedOrigins = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Container = (output: any, context: __SerdeContext): Container => {
   return {
-    __type: "Container",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     AccessLoggingEnabled:
       output.AccessLoggingEnabled !== undefined && output.AccessLoggingEnabled !== null
@@ -2262,7 +2240,6 @@ const deserializeAws_json1_1ContainerInUseException = (
   context: __SerdeContext
 ): ContainerInUseException => {
   return {
-    __type: "ContainerInUseException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2276,7 +2253,6 @@ const deserializeAws_json1_1ContainerNotFoundException = (
   context: __SerdeContext
 ): ContainerNotFoundException => {
   return {
-    __type: "ContainerNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2290,14 +2266,12 @@ const deserializeAws_json1_1CorsPolicyNotFoundException = (
   context: __SerdeContext
 ): CorsPolicyNotFoundException => {
   return {
-    __type: "CorsPolicyNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CorsRule = (output: any, context: __SerdeContext): CorsRule => {
   return {
-    __type: "CorsRule",
     AllowedHeaders:
       output.AllowedHeaders !== undefined && output.AllowedHeaders !== null
         ? deserializeAws_json1_1AllowedHeaders(output.AllowedHeaders, context)
@@ -2321,7 +2295,6 @@ const deserializeAws_json1_1CorsRule = (output: any, context: __SerdeContext): C
 
 const deserializeAws_json1_1CreateContainerOutput = (output: any, context: __SerdeContext): CreateContainerOutput => {
   return {
-    __type: "CreateContainerOutput",
     Container:
       output.Container !== undefined && output.Container !== null
         ? deserializeAws_json1_1Container(output.Container, context)
@@ -2330,42 +2303,32 @@ const deserializeAws_json1_1CreateContainerOutput = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1DeleteContainerOutput = (output: any, context: __SerdeContext): DeleteContainerOutput => {
-  return {
-    __type: "DeleteContainerOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteContainerPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteContainerPolicyOutput => {
-  return {
-    __type: "DeleteContainerPolicyOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteCorsPolicyOutput = (output: any, context: __SerdeContext): DeleteCorsPolicyOutput => {
-  return {
-    __type: "DeleteCorsPolicyOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteLifecyclePolicyOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteLifecyclePolicyOutput => {
-  return {
-    __type: "DeleteLifecyclePolicyOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteMetricPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteMetricPolicyOutput => {
-  return {
-    __type: "DeleteMetricPolicyOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeContainerOutput = (
@@ -2373,7 +2336,6 @@ const deserializeAws_json1_1DescribeContainerOutput = (
   context: __SerdeContext
 ): DescribeContainerOutput => {
   return {
-    __type: "DescribeContainerOutput",
     Container:
       output.Container !== undefined && output.Container !== null
         ? deserializeAws_json1_1Container(output.Container, context)
@@ -2390,14 +2352,12 @@ const deserializeAws_json1_1GetContainerPolicyOutput = (
   context: __SerdeContext
 ): GetContainerPolicyOutput => {
   return {
-    __type: "GetContainerPolicyOutput",
     Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetCorsPolicyOutput = (output: any, context: __SerdeContext): GetCorsPolicyOutput => {
   return {
-    __type: "GetCorsPolicyOutput",
     CorsPolicy:
       output.CorsPolicy !== undefined && output.CorsPolicy !== null
         ? deserializeAws_json1_1CorsPolicy(output.CorsPolicy, context)
@@ -2410,7 +2370,6 @@ const deserializeAws_json1_1GetLifecyclePolicyOutput = (
   context: __SerdeContext
 ): GetLifecyclePolicyOutput => {
   return {
-    __type: "GetLifecyclePolicyOutput",
     LifecyclePolicy:
       output.LifecyclePolicy !== undefined && output.LifecyclePolicy !== null ? output.LifecyclePolicy : undefined,
   } as any;
@@ -2418,7 +2377,6 @@ const deserializeAws_json1_1GetLifecyclePolicyOutput = (
 
 const deserializeAws_json1_1GetMetricPolicyOutput = (output: any, context: __SerdeContext): GetMetricPolicyOutput => {
   return {
-    __type: "GetMetricPolicyOutput",
     MetricPolicy:
       output.MetricPolicy !== undefined && output.MetricPolicy !== null
         ? deserializeAws_json1_1MetricPolicy(output.MetricPolicy, context)
@@ -2428,21 +2386,18 @@ const deserializeAws_json1_1GetMetricPolicyOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    __type: "InternalServerError",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListContainersOutput = (output: any, context: __SerdeContext): ListContainersOutput => {
   return {
-    __type: "ListContainersOutput",
     Containers:
       output.Containers !== undefined && output.Containers !== null
         ? deserializeAws_json1_1ContainerList(output.Containers, context)
@@ -2456,7 +2411,6 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    __type: "ListTagsForResourceOutput",
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -2466,7 +2420,6 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
 
 const deserializeAws_json1_1MetricPolicy = (output: any, context: __SerdeContext): MetricPolicy => {
   return {
-    __type: "MetricPolicy",
     ContainerLevelMetrics:
       output.ContainerLevelMetrics !== undefined && output.ContainerLevelMetrics !== null
         ? output.ContainerLevelMetrics
@@ -2480,7 +2433,6 @@ const deserializeAws_json1_1MetricPolicy = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1MetricPolicyRule = (output: any, context: __SerdeContext): MetricPolicyRule => {
   return {
-    __type: "MetricPolicyRule",
     ObjectGroup: output.ObjectGroup !== undefined && output.ObjectGroup !== null ? output.ObjectGroup : undefined,
     ObjectGroupName:
       output.ObjectGroupName !== undefined && output.ObjectGroupName !== null ? output.ObjectGroupName : undefined,
@@ -2496,7 +2448,6 @@ const deserializeAws_json1_1PolicyNotFoundException = (
   context: __SerdeContext
 ): PolicyNotFoundException => {
   return {
-    __type: "PolicyNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2505,53 +2456,40 @@ const deserializeAws_json1_1PutContainerPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): PutContainerPolicyOutput => {
-  return {
-    __type: "PutContainerPolicyOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutCorsPolicyOutput = (output: any, context: __SerdeContext): PutCorsPolicyOutput => {
-  return {
-    __type: "PutCorsPolicyOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutLifecyclePolicyOutput = (
   output: any,
   context: __SerdeContext
 ): PutLifecyclePolicyOutput => {
-  return {
-    __type: "PutLifecyclePolicyOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutMetricPolicyOutput = (output: any, context: __SerdeContext): PutMetricPolicyOutput => {
-  return {
-    __type: "PutMetricPolicyOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StartAccessLoggingOutput = (
   output: any,
   context: __SerdeContext
 ): StartAccessLoggingOutput => {
-  return {
-    __type: "StartAccessLoggingOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StopAccessLoggingOutput = (
   output: any,
   context: __SerdeContext
 ): StopAccessLoggingOutput => {
-  return {
-    __type: "StopAccessLoggingOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -2562,15 +2500,11 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
-  return {
-    __type: "TagResourceOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
-  return {
-    __type: "UntagResourceOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

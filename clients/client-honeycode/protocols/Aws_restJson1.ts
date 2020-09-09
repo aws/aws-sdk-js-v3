@@ -135,7 +135,6 @@ export const deserializeAws_restJson1GetScreenDataCommand = async (
   }
   const contents: GetScreenDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetScreenDataResult",
     nextToken: undefined,
     results: undefined,
     workbookCursor: undefined,
@@ -247,7 +246,6 @@ export const deserializeAws_restJson1InvokeScreenAutomationCommand = async (
   }
   const contents: InvokeScreenAutomationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InvokeScreenAutomationResult",
     workbookCursor: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -532,7 +530,6 @@ const serializeAws_restJson1VariableValueMap = (
 
 const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
   return {
-    __type: "ColumnMetadata",
     format: output.format !== undefined && output.format !== null ? output.format : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
@@ -540,7 +537,6 @@ const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1DataItem = (output: any, context: __SerdeContext): DataItem => {
   return {
-    __type: "DataItem",
     formattedValue:
       output.formattedValue !== undefined && output.formattedValue !== null ? output.formattedValue : undefined,
     overrideFormat:
@@ -559,7 +555,6 @@ const deserializeAws_restJson1ResultHeader = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ResultRow = (output: any, context: __SerdeContext): ResultRow => {
   return {
-    __type: "ResultRow",
     dataItems:
       output.dataItems !== undefined && output.dataItems !== null
         ? deserializeAws_restJson1DataItems(output.dataItems, context)
@@ -574,7 +569,6 @@ const deserializeAws_restJson1ResultRows = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1ResultSet = (output: any, context: __SerdeContext): ResultSet => {
   return {
-    __type: "ResultSet",
     headers:
       output.headers !== undefined && output.headers !== null
         ? deserializeAws_restJson1ResultHeader(output.headers, context)

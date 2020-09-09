@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *         </p>
  */
 export interface AcceleratorType {
-  __type?: "AcceleratorType";
   /**
    * <p>
    *             The throughput information of the Elastic Inference Accelerator type.
@@ -34,7 +33,6 @@ export namespace AcceleratorType {
   export const filterSensitiveLog = (obj: AcceleratorType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceleratorType => __isa(o, "AcceleratorType");
 }
 
 /**
@@ -43,7 +41,6 @@ export namespace AcceleratorType {
  *         </p>
  */
 export interface AcceleratorTypeOffering {
-  __type?: "AcceleratorTypeOffering";
   /**
    * <p>
    *             The name of the Elastic Inference Accelerator type.
@@ -74,7 +71,6 @@ export namespace AcceleratorTypeOffering {
   export const filterSensitiveLog = (obj: AcceleratorTypeOffering): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceleratorTypeOffering => __isa(o, "AcceleratorTypeOffering");
 }
 
 /**
@@ -92,11 +88,9 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export interface DescribeAcceleratorOfferingsRequest {
-  __type?: "DescribeAcceleratorOfferingsRequest";
   /**
    * <p>
    *             The location type that you want to describe accelerator type offerings for. It can assume the following values:
@@ -119,12 +113,9 @@ export namespace DescribeAcceleratorOfferingsRequest {
   export const filterSensitiveLog = (obj: DescribeAcceleratorOfferingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAcceleratorOfferingsRequest =>
-    __isa(o, "DescribeAcceleratorOfferingsRequest");
 }
 
 export interface DescribeAcceleratorOfferingsResponse {
-  __type?: "DescribeAcceleratorOfferingsResponse";
   /**
    * <p>
    *             The list of accelerator type offerings for a specific location.
@@ -137,12 +128,9 @@ export namespace DescribeAcceleratorOfferingsResponse {
   export const filterSensitiveLog = (obj: DescribeAcceleratorOfferingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAcceleratorOfferingsResponse =>
-    __isa(o, "DescribeAcceleratorOfferingsResponse");
 }
 
 export interface DescribeAcceleratorsRequest {
-  __type?: "DescribeAcceleratorsRequest";
   /**
    * <p>
    *             One or more filters. Filter names and values are case-sensitive. Valid filter names are:
@@ -180,11 +168,9 @@ export namespace DescribeAcceleratorsRequest {
   export const filterSensitiveLog = (obj: DescribeAcceleratorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAcceleratorsRequest => __isa(o, "DescribeAcceleratorsRequest");
 }
 
 export interface DescribeAcceleratorsResponse {
-  __type?: "DescribeAcceleratorsResponse";
   /**
    * <p>
    *             The details of the Elastic Inference Accelerators.
@@ -204,22 +190,17 @@ export namespace DescribeAcceleratorsResponse {
   export const filterSensitiveLog = (obj: DescribeAcceleratorsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAcceleratorsResponse => __isa(o, "DescribeAcceleratorsResponse");
 }
 
-export interface DescribeAcceleratorTypesRequest {
-  __type?: "DescribeAcceleratorTypesRequest";
-}
+export interface DescribeAcceleratorTypesRequest {}
 
 export namespace DescribeAcceleratorTypesRequest {
   export const filterSensitiveLog = (obj: DescribeAcceleratorTypesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAcceleratorTypesRequest => __isa(o, "DescribeAcceleratorTypesRequest");
 }
 
 export interface DescribeAcceleratorTypesResponse {
-  __type?: "DescribeAcceleratorTypesResponse";
   /**
    * <p>
    *             The available accelerator types.
@@ -232,7 +213,6 @@ export namespace DescribeAcceleratorTypesResponse {
   export const filterSensitiveLog = (obj: DescribeAcceleratorTypesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAcceleratorTypesResponse => __isa(o, "DescribeAcceleratorTypesResponse");
 }
 
 /**
@@ -241,7 +221,6 @@ export namespace DescribeAcceleratorTypesResponse {
  *         </p>
  */
 export interface ElasticInferenceAccelerator {
-  __type?: "ElasticInferenceAccelerator";
   /**
    * <p>
    *             The type of the Elastic Inference Accelerator.
@@ -282,7 +261,6 @@ export namespace ElasticInferenceAccelerator {
   export const filterSensitiveLog = (obj: ElasticInferenceAccelerator): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticInferenceAccelerator => __isa(o, "ElasticInferenceAccelerator");
 }
 
 /**
@@ -291,7 +269,6 @@ export namespace ElasticInferenceAccelerator {
  *         </p>
  */
 export interface ElasticInferenceAcceleratorHealth {
-  __type?: "ElasticInferenceAcceleratorHealth";
   /**
    * <p>
    *             The health status of the Elastic Inference Accelerator.
@@ -304,7 +281,6 @@ export namespace ElasticInferenceAcceleratorHealth {
   export const filterSensitiveLog = (obj: ElasticInferenceAcceleratorHealth): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticInferenceAcceleratorHealth => __isa(o, "ElasticInferenceAcceleratorHealth");
 }
 
 /**
@@ -313,7 +289,6 @@ export namespace ElasticInferenceAcceleratorHealth {
  *         </p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>
    *             The values for the filter of the Elastic Inference Accelerator list.
@@ -335,7 +310,6 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 /**
@@ -353,7 +327,6 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
@@ -362,7 +335,6 @@ export namespace InternalServerException {
  *         </p>
  */
 export interface KeyValuePair {
-  __type?: "KeyValuePair";
   /**
    * <p>
    *             The throughput value of the Elastic Inference Accelerator type. It can assume the following values:
@@ -384,11 +356,9 @@ export namespace KeyValuePair {
   export const filterSensitiveLog = (obj: KeyValuePair): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyValuePair => __isa(o, "KeyValuePair");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>
    *             The ARN of the Elastic Inference Accelerator to list the tags for.
@@ -401,11 +371,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResult {
-  __type?: "ListTagsForResourceResult";
   /**
    * <p>
    *             The tags of the Elastic Inference Accelerator.
@@ -418,7 +386,6 @@ export namespace ListTagsForResourceResult {
   export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResult => __isa(o, "ListTagsForResourceResult");
 }
 
 export type LocationType = "availability-zone" | "availability-zone-id" | "region";
@@ -429,7 +396,6 @@ export type LocationType = "availability-zone" | "availability-zone-id" | "regio
  *         </p>
  */
 export interface MemoryInfo {
-  __type?: "MemoryInfo";
   /**
    * <p>
    *             The size in mebibytes of the Elastic Inference Accelerator type.
@@ -442,7 +408,6 @@ export namespace MemoryInfo {
   export const filterSensitiveLog = (obj: MemoryInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MemoryInfo => __isa(o, "MemoryInfo");
 }
 
 /**
@@ -460,11 +425,9 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>
    *             The tags to add to the Elastic Inference Accelerator.
@@ -484,22 +447,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResult {
-  __type?: "TagResourceResult";
-}
+export interface TagResourceResult {}
 
 export namespace TagResourceResult {
   export const filterSensitiveLog = (obj: TagResourceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResult => __isa(o, "TagResourceResult");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>
    *             The list of tags to remove from the Elastic Inference Accelerator.
@@ -519,16 +477,12 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResult {
-  __type?: "UntagResourceResult";
-}
+export interface UntagResourceResult {}
 
 export namespace UntagResourceResult {
   export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResult => __isa(o, "UntagResourceResult");
 }

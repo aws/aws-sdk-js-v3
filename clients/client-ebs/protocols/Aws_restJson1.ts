@@ -271,7 +271,6 @@ export const deserializeAws_restJson1CompleteSnapshotCommand = async (
   }
   const contents: CompleteSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CompleteSnapshotResponse",
     Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -367,7 +366,6 @@ export const deserializeAws_restJson1GetSnapshotBlockCommand = async (
   }
   const contents: GetSnapshotBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSnapshotBlockResponse",
     BlockData: undefined,
     Checksum: undefined,
     ChecksumAlgorithm: undefined,
@@ -473,7 +471,6 @@ export const deserializeAws_restJson1ListChangedBlocksCommand = async (
   }
   const contents: ListChangedBlocksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListChangedBlocksResponse",
     BlockSize: undefined,
     ChangedBlocks: undefined,
     ExpiryTime: undefined,
@@ -585,7 +582,6 @@ export const deserializeAws_restJson1ListSnapshotBlocksCommand = async (
   }
   const contents: ListSnapshotBlocksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSnapshotBlocksResponse",
     BlockSize: undefined,
     Blocks: undefined,
     ExpiryTime: undefined,
@@ -697,7 +693,6 @@ export const deserializeAws_restJson1PutSnapshotBlockCommand = async (
   }
   const contents: PutSnapshotBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutSnapshotBlockResponse",
     Checksum: undefined,
     ChecksumAlgorithm: undefined,
   };
@@ -797,7 +792,6 @@ export const deserializeAws_restJson1StartSnapshotCommand = async (
   }
   const contents: StartSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartSnapshotResponse",
     BlockSize: undefined,
     Description: undefined,
     KmsKeyArn: undefined,
@@ -1105,7 +1099,6 @@ const serializeAws_restJson1Tags = (input: Tag[], context: __SerdeContext): any 
 
 const deserializeAws_restJson1Block = (output: any, context: __SerdeContext): Block => {
   return {
-    __type: "Block",
     BlockIndex: output.BlockIndex !== undefined && output.BlockIndex !== null ? output.BlockIndex : undefined,
     BlockToken: output.BlockToken !== undefined && output.BlockToken !== null ? output.BlockToken : undefined,
   } as any;
@@ -1117,7 +1110,6 @@ const deserializeAws_restJson1Blocks = (output: any, context: __SerdeContext): B
 
 const deserializeAws_restJson1ChangedBlock = (output: any, context: __SerdeContext): ChangedBlock => {
   return {
-    __type: "ChangedBlock",
     BlockIndex: output.BlockIndex !== undefined && output.BlockIndex !== null ? output.BlockIndex : undefined,
     FirstBlockToken:
       output.FirstBlockToken !== undefined && output.FirstBlockToken !== null ? output.FirstBlockToken : undefined,
@@ -1132,7 +1124,6 @@ const deserializeAws_restJson1ChangedBlocks = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;

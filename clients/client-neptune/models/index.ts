@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddRoleToDBClusterMessage {
-  __type?: "AddRoleToDBClusterMessage";
   /**
    * <p>The name of the DB cluster to associate the IAM role with.</p>
    */
@@ -19,11 +18,9 @@ export namespace AddRoleToDBClusterMessage {
   export const filterSensitiveLog = (obj: AddRoleToDBClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddRoleToDBClusterMessage => __isa(o, "AddRoleToDBClusterMessage");
 }
 
 export interface AddSourceIdentifierToSubscriptionMessage {
-  __type?: "AddSourceIdentifierToSubscriptionMessage";
   /**
    * <p>The identifier of the event source to be added.</p>
    *          <p>Constraints:</p>
@@ -59,12 +56,9 @@ export namespace AddSourceIdentifierToSubscriptionMessage {
   export const filterSensitiveLog = (obj: AddSourceIdentifierToSubscriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddSourceIdentifierToSubscriptionMessage =>
-    __isa(o, "AddSourceIdentifierToSubscriptionMessage");
 }
 
 export interface AddSourceIdentifierToSubscriptionResult {
-  __type?: "AddSourceIdentifierToSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
    */
@@ -75,12 +69,9 @@ export namespace AddSourceIdentifierToSubscriptionResult {
   export const filterSensitiveLog = (obj: AddSourceIdentifierToSubscriptionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddSourceIdentifierToSubscriptionResult =>
-    __isa(o, "AddSourceIdentifierToSubscriptionResult");
 }
 
 export interface AddTagsToResourceMessage {
-  __type?: "AddTagsToResourceMessage";
   /**
    * <p>The tags to be assigned to the Amazon Neptune resource.</p>
    */
@@ -98,13 +89,11 @@ export namespace AddTagsToResourceMessage {
   export const filterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsToResourceMessage => __isa(o, "AddTagsToResourceMessage");
 }
 
 export type ApplyMethod = "immediate" | "pending-reboot";
 
 export interface ApplyPendingMaintenanceActionMessage {
-  __type?: "ApplyPendingMaintenanceActionMessage";
   /**
    * <p>The pending maintenance action to apply to this resource.</p>
    *          <p>Valid values: <code>system-update</code>, <code>db-upgrade</code>
@@ -147,12 +136,9 @@ export namespace ApplyPendingMaintenanceActionMessage {
   export const filterSensitiveLog = (obj: ApplyPendingMaintenanceActionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplyPendingMaintenanceActionMessage =>
-    __isa(o, "ApplyPendingMaintenanceActionMessage");
 }
 
 export interface ApplyPendingMaintenanceActionResult {
-  __type?: "ApplyPendingMaintenanceActionResult";
   /**
    * <p>Describes the pending maintenance actions for a resource.</p>
    */
@@ -163,8 +149,6 @@ export namespace ApplyPendingMaintenanceActionResult {
   export const filterSensitiveLog = (obj: ApplyPendingMaintenanceActionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplyPendingMaintenanceActionResult =>
-    __isa(o, "ApplyPendingMaintenanceActionResult");
 }
 
 /**
@@ -184,14 +168,12 @@ export namespace AuthorizationNotFoundFault {
   export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizationNotFoundFault => __isa(o, "AuthorizationNotFoundFault");
 }
 
 /**
  * <p>Specifies an Availability Zone.</p>
  */
 export interface AvailabilityZone {
-  __type?: "AvailabilityZone";
   /**
    * <p>The name of the availability zone.</p>
    */
@@ -202,7 +184,6 @@ export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 /**
@@ -222,14 +203,12 @@ export namespace CertificateNotFoundFault {
   export const filterSensitiveLog = (obj: CertificateNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateNotFoundFault => __isa(o, "CertificateNotFoundFault");
 }
 
 /**
  * <p>Specifies a character set.</p>
  */
 export interface CharacterSet {
-  __type?: "CharacterSet";
   /**
    * <p>The name of the character set.</p>
    */
@@ -245,7 +224,6 @@ export namespace CharacterSet {
   export const filterSensitiveLog = (obj: CharacterSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CharacterSet => __isa(o, "CharacterSet");
 }
 
 /**
@@ -256,7 +234,6 @@ export namespace CharacterSet {
  *       determine which logs will be exported (or not exported) to CloudWatch Logs.</p>
  */
 export interface CloudwatchLogsExportConfiguration {
-  __type?: "CloudwatchLogsExportConfiguration";
   /**
    * <p>The list of log types to enable.</p>
    */
@@ -272,11 +249,9 @@ export namespace CloudwatchLogsExportConfiguration {
   export const filterSensitiveLog = (obj: CloudwatchLogsExportConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudwatchLogsExportConfiguration => __isa(o, "CloudwatchLogsExportConfiguration");
 }
 
 export interface CopyDBClusterParameterGroupMessage {
-  __type?: "CopyDBClusterParameterGroupMessage";
   /**
    * <p>The tags to be assigned to the copied DB cluster parameter group.</p>
    */
@@ -337,12 +312,9 @@ export namespace CopyDBClusterParameterGroupMessage {
   export const filterSensitiveLog = (obj: CopyDBClusterParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyDBClusterParameterGroupMessage =>
-    __isa(o, "CopyDBClusterParameterGroupMessage");
 }
 
 export interface CopyDBClusterParameterGroupResult {
-  __type?: "CopyDBClusterParameterGroupResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster parameter group.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusterParameterGroups</a> action.</p>
@@ -354,11 +326,9 @@ export namespace CopyDBClusterParameterGroupResult {
   export const filterSensitiveLog = (obj: CopyDBClusterParameterGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyDBClusterParameterGroupResult => __isa(o, "CopyDBClusterParameterGroupResult");
 }
 
 export interface CopyDBClusterSnapshotMessage {
-  __type?: "CopyDBClusterSnapshotMessage";
   /**
    * <p>The tags to assign to the new DB cluster snapshot copy.</p>
    */
@@ -438,11 +408,9 @@ export namespace CopyDBClusterSnapshotMessage {
   export const filterSensitiveLog = (obj: CopyDBClusterSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyDBClusterSnapshotMessage => __isa(o, "CopyDBClusterSnapshotMessage");
 }
 
 export interface CopyDBClusterSnapshotResult {
-  __type?: "CopyDBClusterSnapshotResult";
   /**
    * <p>Contains the details for an Amazon Neptune DB cluster snapshot</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusterSnapshots</a> action.</p>
@@ -454,11 +422,9 @@ export namespace CopyDBClusterSnapshotResult {
   export const filterSensitiveLog = (obj: CopyDBClusterSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyDBClusterSnapshotResult => __isa(o, "CopyDBClusterSnapshotResult");
 }
 
 export interface CopyDBParameterGroupMessage {
-  __type?: "CopyDBParameterGroupMessage";
   /**
    * <p>A description for the copied DB parameter group.</p>
    */
@@ -516,11 +482,9 @@ export namespace CopyDBParameterGroupMessage {
   export const filterSensitiveLog = (obj: CopyDBParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyDBParameterGroupMessage => __isa(o, "CopyDBParameterGroupMessage");
 }
 
 export interface CopyDBParameterGroupResult {
-  __type?: "CopyDBParameterGroupResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB parameter group.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBParameterGroups</a> action.</p>
@@ -532,11 +496,9 @@ export namespace CopyDBParameterGroupResult {
   export const filterSensitiveLog = (obj: CopyDBParameterGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyDBParameterGroupResult => __isa(o, "CopyDBParameterGroupResult");
 }
 
 export interface CreateDBClusterMessage {
-  __type?: "CreateDBClusterMessage";
   /**
    * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
    *       accounts, and otherwise false.</p>
@@ -779,11 +741,9 @@ export namespace CreateDBClusterMessage {
   export const filterSensitiveLog = (obj: CreateDBClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDBClusterMessage => __isa(o, "CreateDBClusterMessage");
 }
 
 export interface CreateDBClusterParameterGroupMessage {
-  __type?: "CreateDBClusterParameterGroupMessage";
   /**
    * <p>The description for the DB cluster parameter group.</p>
    */
@@ -821,12 +781,9 @@ export namespace CreateDBClusterParameterGroupMessage {
   export const filterSensitiveLog = (obj: CreateDBClusterParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDBClusterParameterGroupMessage =>
-    __isa(o, "CreateDBClusterParameterGroupMessage");
 }
 
 export interface CreateDBClusterParameterGroupResult {
-  __type?: "CreateDBClusterParameterGroupResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster parameter group.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusterParameterGroups</a> action.</p>
@@ -838,12 +795,9 @@ export namespace CreateDBClusterParameterGroupResult {
   export const filterSensitiveLog = (obj: CreateDBClusterParameterGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDBClusterParameterGroupResult =>
-    __isa(o, "CreateDBClusterParameterGroupResult");
 }
 
 export interface CreateDBClusterResult {
-  __type?: "CreateDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
@@ -855,11 +809,9 @@ export namespace CreateDBClusterResult {
   export const filterSensitiveLog = (obj: CreateDBClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDBClusterResult => __isa(o, "CreateDBClusterResult");
 }
 
 export interface CreateDBClusterSnapshotMessage {
-  __type?: "CreateDBClusterSnapshotMessage";
   /**
    * <p>The tags to be assigned to the DB cluster snapshot.</p>
    */
@@ -904,11 +856,9 @@ export namespace CreateDBClusterSnapshotMessage {
   export const filterSensitiveLog = (obj: CreateDBClusterSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDBClusterSnapshotMessage => __isa(o, "CreateDBClusterSnapshotMessage");
 }
 
 export interface CreateDBClusterSnapshotResult {
-  __type?: "CreateDBClusterSnapshotResult";
   /**
    * <p>Contains the details for an Amazon Neptune DB cluster snapshot</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusterSnapshots</a> action.</p>
@@ -920,11 +870,9 @@ export namespace CreateDBClusterSnapshotResult {
   export const filterSensitiveLog = (obj: CreateDBClusterSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDBClusterSnapshotResult => __isa(o, "CreateDBClusterSnapshotResult");
 }
 
 export interface CreateDBInstanceMessage {
-  __type?: "CreateDBInstanceMessage";
   /**
    * <p>Specify the name of the IAM role to be used when making API calls to the Directory
    *       Service.</p>
@@ -1275,11 +1223,9 @@ export namespace CreateDBInstanceMessage {
   export const filterSensitiveLog = (obj: CreateDBInstanceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDBInstanceMessage => __isa(o, "CreateDBInstanceMessage");
 }
 
 export interface CreateDBInstanceResult {
-  __type?: "CreateDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB instance.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action.</p>
@@ -1291,11 +1237,9 @@ export namespace CreateDBInstanceResult {
   export const filterSensitiveLog = (obj: CreateDBInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDBInstanceResult => __isa(o, "CreateDBInstanceResult");
 }
 
 export interface CreateDBParameterGroupMessage {
-  __type?: "CreateDBParameterGroupMessage";
   /**
    * <p>The name of the DB parameter group.</p>
    *          <p>Constraints:</p>
@@ -1338,11 +1282,9 @@ export namespace CreateDBParameterGroupMessage {
   export const filterSensitiveLog = (obj: CreateDBParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDBParameterGroupMessage => __isa(o, "CreateDBParameterGroupMessage");
 }
 
 export interface CreateDBParameterGroupResult {
-  __type?: "CreateDBParameterGroupResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB parameter group.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBParameterGroups</a> action.</p>
@@ -1354,11 +1296,9 @@ export namespace CreateDBParameterGroupResult {
   export const filterSensitiveLog = (obj: CreateDBParameterGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDBParameterGroupResult => __isa(o, "CreateDBParameterGroupResult");
 }
 
 export interface CreateDBSubnetGroupMessage {
-  __type?: "CreateDBSubnetGroupMessage";
   /**
    * <p>The description for the DB subnet group.</p>
    */
@@ -1388,11 +1328,9 @@ export namespace CreateDBSubnetGroupMessage {
   export const filterSensitiveLog = (obj: CreateDBSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDBSubnetGroupMessage => __isa(o, "CreateDBSubnetGroupMessage");
 }
 
 export interface CreateDBSubnetGroupResult {
-  __type?: "CreateDBSubnetGroupResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB subnet group.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action.</p>
@@ -1404,11 +1342,9 @@ export namespace CreateDBSubnetGroupResult {
   export const filterSensitiveLog = (obj: CreateDBSubnetGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDBSubnetGroupResult => __isa(o, "CreateDBSubnetGroupResult");
 }
 
 export interface CreateEventSubscriptionMessage {
-  __type?: "CreateEventSubscriptionMessage";
   /**
    * <p>The name of the subscription.</p>
    *          <p>Constraints: The name must be less than 255 characters.</p>
@@ -1486,11 +1422,9 @@ export namespace CreateEventSubscriptionMessage {
   export const filterSensitiveLog = (obj: CreateEventSubscriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEventSubscriptionMessage => __isa(o, "CreateEventSubscriptionMessage");
 }
 
 export interface CreateEventSubscriptionResult {
-  __type?: "CreateEventSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
    */
@@ -1501,7 +1435,6 @@ export namespace CreateEventSubscriptionResult {
   export const filterSensitiveLog = (obj: CreateEventSubscriptionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEventSubscriptionResult => __isa(o, "CreateEventSubscriptionResult");
 }
 
 /**
@@ -1509,7 +1442,6 @@ export namespace CreateEventSubscriptionResult {
  *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
  */
 export interface DBCluster {
-  __type?: "DBCluster";
   /**
    * <p>Specifies the latest time to which a database can be restored with point-in-time
    *       restore.</p>
@@ -1730,7 +1662,6 @@ export namespace DBCluster {
   export const filterSensitiveLog = (obj: DBCluster): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBCluster => __isa(o, "DBCluster");
 }
 
 /**
@@ -1749,14 +1680,12 @@ export namespace DBClusterAlreadyExistsFault {
   export const filterSensitiveLog = (obj: DBClusterAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterAlreadyExistsFault => __isa(o, "DBClusterAlreadyExistsFault");
 }
 
 /**
  * <p>Contains information about an instance that is part of a DB cluster.</p>
  */
 export interface DBClusterMember {
-  __type?: "DBClusterMember";
   /**
    * <p>Value that is <code>true</code> if the cluster member is the primary instance for the DB
    *       cluster and <code>false</code> otherwise.</p>
@@ -1785,11 +1714,9 @@ export namespace DBClusterMember {
   export const filterSensitiveLog = (obj: DBClusterMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterMember => __isa(o, "DBClusterMember");
 }
 
 export interface DBClusterMessage {
-  __type?: "DBClusterMessage";
   /**
    * <p>Contains a list of DB clusters for the user.</p>
    */
@@ -1805,7 +1732,6 @@ export namespace DBClusterMessage {
   export const filterSensitiveLog = (obj: DBClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterMessage => __isa(o, "DBClusterMessage");
 }
 
 /**
@@ -1825,14 +1751,12 @@ export namespace DBClusterNotFoundFault {
   export const filterSensitiveLog = (obj: DBClusterNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterNotFoundFault => __isa(o, "DBClusterNotFoundFault");
 }
 
 /**
  * <p>Contains status information for a DB cluster option group.</p>
  */
 export interface DBClusterOptionGroupStatus {
-  __type?: "DBClusterOptionGroupStatus";
   /**
    * <p>Specifies the name of the DB cluster option group.</p>
    */
@@ -1848,7 +1772,6 @@ export namespace DBClusterOptionGroupStatus {
   export const filterSensitiveLog = (obj: DBClusterOptionGroupStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterOptionGroupStatus => __isa(o, "DBClusterOptionGroupStatus");
 }
 
 /**
@@ -1856,7 +1779,6 @@ export namespace DBClusterOptionGroupStatus {
  *          <p>This data type is used as a response element in the <a>DescribeDBClusterParameterGroups</a> action.</p>
  */
 export interface DBClusterParameterGroup {
-  __type?: "DBClusterParameterGroup";
   /**
    * <p>Provides the name of the DB cluster parameter group.</p>
    */
@@ -1883,11 +1805,9 @@ export namespace DBClusterParameterGroup {
   export const filterSensitiveLog = (obj: DBClusterParameterGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterParameterGroup => __isa(o, "DBClusterParameterGroup");
 }
 
 export interface DBClusterParameterGroupDetails {
-  __type?: "DBClusterParameterGroupDetails";
   /**
    * <p> An optional pagination token provided by a previous DescribeDBClusterParameters request.
    *       If this parameter is specified, the response includes only records beyond the marker, up to
@@ -1905,11 +1825,9 @@ export namespace DBClusterParameterGroupDetails {
   export const filterSensitiveLog = (obj: DBClusterParameterGroupDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterParameterGroupDetails => __isa(o, "DBClusterParameterGroupDetails");
 }
 
 export interface DBClusterParameterGroupNameMessage {
-  __type?: "DBClusterParameterGroupNameMessage";
   /**
    * <p>The name of the DB cluster parameter group.</p>
    *          <p>Constraints:</p>
@@ -1935,8 +1853,6 @@ export namespace DBClusterParameterGroupNameMessage {
   export const filterSensitiveLog = (obj: DBClusterParameterGroupNameMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterParameterGroupNameMessage =>
-    __isa(o, "DBClusterParameterGroupNameMessage");
 }
 
 /**
@@ -1957,12 +1873,9 @@ export namespace DBClusterParameterGroupNotFoundFault {
   export const filterSensitiveLog = (obj: DBClusterParameterGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterParameterGroupNotFoundFault =>
-    __isa(o, "DBClusterParameterGroupNotFoundFault");
 }
 
 export interface DBClusterParameterGroupsMessage {
-  __type?: "DBClusterParameterGroupsMessage";
   /**
    * <p> An optional pagination token provided by a previous
    *       <code>DescribeDBClusterParameterGroups</code> request. If this parameter is specified, the
@@ -1981,7 +1894,6 @@ export namespace DBClusterParameterGroupsMessage {
   export const filterSensitiveLog = (obj: DBClusterParameterGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterParameterGroupsMessage => __isa(o, "DBClusterParameterGroupsMessage");
 }
 
 /**
@@ -2000,7 +1912,6 @@ export namespace DBClusterQuotaExceededFault {
   export const filterSensitiveLog = (obj: DBClusterQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterQuotaExceededFault => __isa(o, "DBClusterQuotaExceededFault");
 }
 
 /**
@@ -2008,7 +1919,6 @@ export namespace DBClusterQuotaExceededFault {
  *       cluster.</p>
  */
 export interface DBClusterRole {
-  __type?: "DBClusterRole";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that is associated with the DB
    *       cluster.</p>
@@ -2044,7 +1954,6 @@ export namespace DBClusterRole {
   export const filterSensitiveLog = (obj: DBClusterRole): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterRole => __isa(o, "DBClusterRole");
 }
 
 /**
@@ -2063,7 +1972,6 @@ export namespace DBClusterRoleAlreadyExistsFault {
   export const filterSensitiveLog = (obj: DBClusterRoleAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterRoleAlreadyExistsFault => __isa(o, "DBClusterRoleAlreadyExistsFault");
 }
 
 /**
@@ -2082,7 +1990,6 @@ export namespace DBClusterRoleNotFoundFault {
   export const filterSensitiveLog = (obj: DBClusterRoleNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterRoleNotFoundFault => __isa(o, "DBClusterRoleNotFoundFault");
 }
 
 /**
@@ -2101,7 +2008,6 @@ export namespace DBClusterRoleQuotaExceededFault {
   export const filterSensitiveLog = (obj: DBClusterRoleQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterRoleQuotaExceededFault => __isa(o, "DBClusterRoleQuotaExceededFault");
 }
 
 /**
@@ -2109,7 +2015,6 @@ export namespace DBClusterRoleQuotaExceededFault {
  *          <p>This data type is used as a response element in the <a>DescribeDBClusterSnapshots</a> action.</p>
  */
 export interface DBClusterSnapshot {
-  __type?: "DBClusterSnapshot";
   /**
    * <p>Specifies the time when the DB cluster was created, in Universal Coordinated Time
    *       (UTC).</p>
@@ -2235,7 +2140,6 @@ export namespace DBClusterSnapshot {
   export const filterSensitiveLog = (obj: DBClusterSnapshot): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterSnapshot => __isa(o, "DBClusterSnapshot");
 }
 
 /**
@@ -2254,8 +2158,6 @@ export namespace DBClusterSnapshotAlreadyExistsFault {
   export const filterSensitiveLog = (obj: DBClusterSnapshotAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterSnapshotAlreadyExistsFault =>
-    __isa(o, "DBClusterSnapshotAlreadyExistsFault");
 }
 
 /**
@@ -2264,7 +2166,6 @@ export namespace DBClusterSnapshotAlreadyExistsFault {
  *       a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
  */
 export interface DBClusterSnapshotAttribute {
-  __type?: "DBClusterSnapshotAttribute";
   /**
    * <p>The name of the manual DB cluster snapshot attribute.</p>
    *          <p>The attribute named <code>restore</code> refers to the list of AWS accounts that have
@@ -2287,7 +2188,6 @@ export namespace DBClusterSnapshotAttribute {
   export const filterSensitiveLog = (obj: DBClusterSnapshotAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterSnapshotAttribute => __isa(o, "DBClusterSnapshotAttribute");
 }
 
 /**
@@ -2296,7 +2196,6 @@ export namespace DBClusterSnapshotAttribute {
  *       restore a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
  */
 export interface DBClusterSnapshotAttributesResult {
-  __type?: "DBClusterSnapshotAttributesResult";
   /**
    * <p>The list of attributes and values for the manual DB cluster snapshot.</p>
    */
@@ -2312,11 +2211,9 @@ export namespace DBClusterSnapshotAttributesResult {
   export const filterSensitiveLog = (obj: DBClusterSnapshotAttributesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterSnapshotAttributesResult => __isa(o, "DBClusterSnapshotAttributesResult");
 }
 
 export interface DBClusterSnapshotMessage {
-  __type?: "DBClusterSnapshotMessage";
   /**
    * <p> An optional pagination token provided by a previous <a>DescribeDBClusterSnapshots</a> request. If this parameter is specified, the response
    *       includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.
@@ -2334,7 +2231,6 @@ export namespace DBClusterSnapshotMessage {
   export const filterSensitiveLog = (obj: DBClusterSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterSnapshotMessage => __isa(o, "DBClusterSnapshotMessage");
 }
 
 /**
@@ -2355,14 +2251,12 @@ export namespace DBClusterSnapshotNotFoundFault {
   export const filterSensitiveLog = (obj: DBClusterSnapshotNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBClusterSnapshotNotFoundFault => __isa(o, "DBClusterSnapshotNotFoundFault");
 }
 
 /**
  * <p> This data type is used as a response element in the action <a>DescribeDBEngineVersions</a>.</p>
  */
 export interface DBEngineVersion {
-  __type?: "DBEngineVersion";
   /**
    * <p>
    *             <i>(Not supported by Neptune)</i>
@@ -2435,11 +2329,9 @@ export namespace DBEngineVersion {
   export const filterSensitiveLog = (obj: DBEngineVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBEngineVersion => __isa(o, "DBEngineVersion");
 }
 
 export interface DBEngineVersionMessage {
-  __type?: "DBEngineVersionMessage";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *       specified, the response includes only records beyond the marker, up to the value specified by
@@ -2457,7 +2349,6 @@ export namespace DBEngineVersionMessage {
   export const filterSensitiveLog = (obj: DBEngineVersionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBEngineVersionMessage => __isa(o, "DBEngineVersionMessage");
 }
 
 /**
@@ -2465,7 +2356,6 @@ export namespace DBEngineVersionMessage {
  *          <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action.</p>
  */
 export interface DBInstance {
-  __type?: "DBInstance";
   /**
    * <p>Specifies the name of the Availability Zone the DB instance is located in.</p>
    */
@@ -2769,7 +2659,6 @@ export namespace DBInstance {
   export const filterSensitiveLog = (obj: DBInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBInstance => __isa(o, "DBInstance");
 }
 
 /**
@@ -2788,11 +2677,9 @@ export namespace DBInstanceAlreadyExistsFault {
   export const filterSensitiveLog = (obj: DBInstanceAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBInstanceAlreadyExistsFault => __isa(o, "DBInstanceAlreadyExistsFault");
 }
 
 export interface DBInstanceMessage {
-  __type?: "DBInstanceMessage";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *       specified, the response includes only records beyond the marker, up to the value specified by
@@ -2810,7 +2697,6 @@ export namespace DBInstanceMessage {
   export const filterSensitiveLog = (obj: DBInstanceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBInstanceMessage => __isa(o, "DBInstanceMessage");
 }
 
 /**
@@ -2830,14 +2716,12 @@ export namespace DBInstanceNotFoundFault {
   export const filterSensitiveLog = (obj: DBInstanceNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBInstanceNotFoundFault => __isa(o, "DBInstanceNotFoundFault");
 }
 
 /**
  * <p>Provides a list of status information for a DB instance.</p>
  */
 export interface DBInstanceStatusInfo {
-  __type?: "DBInstanceStatusInfo";
   /**
    * <p>Status of the DB instance. For a StatusType of read replica, the values can be
    *       replicating, error, stopped, or terminated.</p>
@@ -2866,7 +2750,6 @@ export namespace DBInstanceStatusInfo {
   export const filterSensitiveLog = (obj: DBInstanceStatusInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBInstanceStatusInfo => __isa(o, "DBInstanceStatusInfo");
 }
 
 /**
@@ -2874,7 +2757,6 @@ export namespace DBInstanceStatusInfo {
  *          <p>This data type is used as a response element in the <a>DescribeDBParameterGroups</a> action.</p>
  */
 export interface DBParameterGroup {
-  __type?: "DBParameterGroup";
   /**
    * <p>Provides the customer-specified description for this DB parameter group.</p>
    */
@@ -2901,7 +2783,6 @@ export namespace DBParameterGroup {
   export const filterSensitiveLog = (obj: DBParameterGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBParameterGroup => __isa(o, "DBParameterGroup");
 }
 
 /**
@@ -2920,12 +2801,9 @@ export namespace DBParameterGroupAlreadyExistsFault {
   export const filterSensitiveLog = (obj: DBParameterGroupAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBParameterGroupAlreadyExistsFault =>
-    __isa(o, "DBParameterGroupAlreadyExistsFault");
 }
 
 export interface DBParameterGroupDetails {
-  __type?: "DBParameterGroupDetails";
   /**
    * <p>A list of <a>Parameter</a> values.</p>
    */
@@ -2943,11 +2821,9 @@ export namespace DBParameterGroupDetails {
   export const filterSensitiveLog = (obj: DBParameterGroupDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBParameterGroupDetails => __isa(o, "DBParameterGroupDetails");
 }
 
 export interface DBParameterGroupNameMessage {
-  __type?: "DBParameterGroupNameMessage";
   /**
    * <p>Provides the name of the DB parameter group.</p>
    */
@@ -2958,7 +2834,6 @@ export namespace DBParameterGroupNameMessage {
   export const filterSensitiveLog = (obj: DBParameterGroupNameMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBParameterGroupNameMessage => __isa(o, "DBParameterGroupNameMessage");
 }
 
 /**
@@ -2979,7 +2854,6 @@ export namespace DBParameterGroupNotFoundFault {
   export const filterSensitiveLog = (obj: DBParameterGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBParameterGroupNotFoundFault => __isa(o, "DBParameterGroupNotFoundFault");
 }
 
 /**
@@ -2998,12 +2872,9 @@ export namespace DBParameterGroupQuotaExceededFault {
   export const filterSensitiveLog = (obj: DBParameterGroupQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBParameterGroupQuotaExceededFault =>
-    __isa(o, "DBParameterGroupQuotaExceededFault");
 }
 
 export interface DBParameterGroupsMessage {
-  __type?: "DBParameterGroupsMessage";
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is
    *       specified, the response includes only records beyond the marker, up to the value specified by
@@ -3021,7 +2892,6 @@ export namespace DBParameterGroupsMessage {
   export const filterSensitiveLog = (obj: DBParameterGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBParameterGroupsMessage => __isa(o, "DBParameterGroupsMessage");
 }
 
 /**
@@ -3051,7 +2921,6 @@ export namespace DBParameterGroupsMessage {
  *          </ul>
  */
 export interface DBParameterGroupStatus {
-  __type?: "DBParameterGroupStatus";
   /**
    * <p>The status of parameter updates.</p>
    */
@@ -3067,14 +2936,12 @@ export namespace DBParameterGroupStatus {
   export const filterSensitiveLog = (obj: DBParameterGroupStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBParameterGroupStatus => __isa(o, "DBParameterGroupStatus");
 }
 
 /**
  * <p>Specifies membership in a designated DB security group.</p>
  */
 export interface DBSecurityGroupMembership {
-  __type?: "DBSecurityGroupMembership";
   /**
    * <p>The name of the DB security group.</p>
    */
@@ -3090,7 +2957,6 @@ export namespace DBSecurityGroupMembership {
   export const filterSensitiveLog = (obj: DBSecurityGroupMembership): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBSecurityGroupMembership => __isa(o, "DBSecurityGroupMembership");
 }
 
 /**
@@ -3111,7 +2977,6 @@ export namespace DBSecurityGroupNotFoundFault {
   export const filterSensitiveLog = (obj: DBSecurityGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBSecurityGroupNotFoundFault => __isa(o, "DBSecurityGroupNotFoundFault");
 }
 
 /**
@@ -3131,7 +2996,6 @@ export namespace DBSnapshotAlreadyExistsFault {
   export const filterSensitiveLog = (obj: DBSnapshotAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBSnapshotAlreadyExistsFault => __isa(o, "DBSnapshotAlreadyExistsFault");
 }
 
 /**
@@ -3151,7 +3015,6 @@ export namespace DBSnapshotNotFoundFault {
   export const filterSensitiveLog = (obj: DBSnapshotNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBSnapshotNotFoundFault => __isa(o, "DBSnapshotNotFoundFault");
 }
 
 /**
@@ -3159,7 +3022,6 @@ export namespace DBSnapshotNotFoundFault {
  *          <p>This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action.</p>
  */
 export interface DBSubnetGroup {
-  __type?: "DBSubnetGroup";
   /**
    * <p>Provides the VpcId of the DB subnet group.</p>
    */
@@ -3195,7 +3057,6 @@ export namespace DBSubnetGroup {
   export const filterSensitiveLog = (obj: DBSubnetGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBSubnetGroup => __isa(o, "DBSubnetGroup");
 }
 
 /**
@@ -3215,7 +3076,6 @@ export namespace DBSubnetGroupAlreadyExistsFault {
   export const filterSensitiveLog = (obj: DBSubnetGroupAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBSubnetGroupAlreadyExistsFault => __isa(o, "DBSubnetGroupAlreadyExistsFault");
 }
 
 /**
@@ -3235,12 +3095,9 @@ export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
   export const filterSensitiveLog = (obj: DBSubnetGroupDoesNotCoverEnoughAZs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBSubnetGroupDoesNotCoverEnoughAZs =>
-    __isa(o, "DBSubnetGroupDoesNotCoverEnoughAZs");
 }
 
 export interface DBSubnetGroupMessage {
-  __type?: "DBSubnetGroupMessage";
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *       specified, the response includes only records beyond the marker, up to the value specified by
@@ -3258,7 +3115,6 @@ export namespace DBSubnetGroupMessage {
   export const filterSensitiveLog = (obj: DBSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBSubnetGroupMessage => __isa(o, "DBSubnetGroupMessage");
 }
 
 /**
@@ -3279,7 +3135,6 @@ export namespace DBSubnetGroupNotFoundFault {
   export const filterSensitiveLog = (obj: DBSubnetGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBSubnetGroupNotFoundFault => __isa(o, "DBSubnetGroupNotFoundFault");
 }
 
 /**
@@ -3298,7 +3153,6 @@ export namespace DBSubnetGroupQuotaExceededFault {
   export const filterSensitiveLog = (obj: DBSubnetGroupQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBSubnetGroupQuotaExceededFault => __isa(o, "DBSubnetGroupQuotaExceededFault");
 }
 
 /**
@@ -3317,7 +3171,6 @@ export namespace DBSubnetQuotaExceededFault {
   export const filterSensitiveLog = (obj: DBSubnetQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBSubnetQuotaExceededFault => __isa(o, "DBSubnetQuotaExceededFault");
 }
 
 /**
@@ -3336,11 +3189,9 @@ export namespace DBUpgradeDependencyFailureFault {
   export const filterSensitiveLog = (obj: DBUpgradeDependencyFailureFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DBUpgradeDependencyFailureFault => __isa(o, "DBUpgradeDependencyFailureFault");
 }
 
 export interface DeleteDBClusterMessage {
-  __type?: "DeleteDBClusterMessage";
   /**
    * <p> Determines whether a final DB cluster snapshot is created before the DB cluster is
    *       deleted. If <code>true</code> is specified, no DB cluster snapshot is created. If
@@ -3394,11 +3245,9 @@ export namespace DeleteDBClusterMessage {
   export const filterSensitiveLog = (obj: DeleteDBClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDBClusterMessage => __isa(o, "DeleteDBClusterMessage");
 }
 
 export interface DeleteDBClusterParameterGroupMessage {
-  __type?: "DeleteDBClusterParameterGroupMessage";
   /**
    * <p>The name of the DB cluster parameter group.</p>
    *          <p>Constraints:</p>
@@ -3421,12 +3270,9 @@ export namespace DeleteDBClusterParameterGroupMessage {
   export const filterSensitiveLog = (obj: DeleteDBClusterParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDBClusterParameterGroupMessage =>
-    __isa(o, "DeleteDBClusterParameterGroupMessage");
 }
 
 export interface DeleteDBClusterResult {
-  __type?: "DeleteDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
@@ -3438,11 +3284,9 @@ export namespace DeleteDBClusterResult {
   export const filterSensitiveLog = (obj: DeleteDBClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDBClusterResult => __isa(o, "DeleteDBClusterResult");
 }
 
 export interface DeleteDBClusterSnapshotMessage {
-  __type?: "DeleteDBClusterSnapshotMessage";
   /**
    * <p>The identifier of the DB cluster snapshot to delete.</p>
    *          <p>Constraints: Must be the name of an existing DB cluster snapshot in the
@@ -3455,11 +3299,9 @@ export namespace DeleteDBClusterSnapshotMessage {
   export const filterSensitiveLog = (obj: DeleteDBClusterSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDBClusterSnapshotMessage => __isa(o, "DeleteDBClusterSnapshotMessage");
 }
 
 export interface DeleteDBClusterSnapshotResult {
-  __type?: "DeleteDBClusterSnapshotResult";
   /**
    * <p>Contains the details for an Amazon Neptune DB cluster snapshot</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusterSnapshots</a> action.</p>
@@ -3471,11 +3313,9 @@ export namespace DeleteDBClusterSnapshotResult {
   export const filterSensitiveLog = (obj: DeleteDBClusterSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDBClusterSnapshotResult => __isa(o, "DeleteDBClusterSnapshotResult");
 }
 
 export interface DeleteDBInstanceMessage {
-  __type?: "DeleteDBInstanceMessage";
   /**
    * <p> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to
    *       <code>false</code>.</p>
@@ -3535,11 +3375,9 @@ export namespace DeleteDBInstanceMessage {
   export const filterSensitiveLog = (obj: DeleteDBInstanceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDBInstanceMessage => __isa(o, "DeleteDBInstanceMessage");
 }
 
 export interface DeleteDBInstanceResult {
-  __type?: "DeleteDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB instance.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action.</p>
@@ -3551,11 +3389,9 @@ export namespace DeleteDBInstanceResult {
   export const filterSensitiveLog = (obj: DeleteDBInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDBInstanceResult => __isa(o, "DeleteDBInstanceResult");
 }
 
 export interface DeleteDBParameterGroupMessage {
-  __type?: "DeleteDBParameterGroupMessage";
   /**
    * <p>The name of the DB parameter group.</p>
    *          <p>Constraints:</p>
@@ -3578,11 +3414,9 @@ export namespace DeleteDBParameterGroupMessage {
   export const filterSensitiveLog = (obj: DeleteDBParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDBParameterGroupMessage => __isa(o, "DeleteDBParameterGroupMessage");
 }
 
 export interface DeleteDBSubnetGroupMessage {
-  __type?: "DeleteDBSubnetGroupMessage";
   /**
    * <p>The name of the database subnet group to delete.</p>
    *          <note>
@@ -3600,11 +3434,9 @@ export namespace DeleteDBSubnetGroupMessage {
   export const filterSensitiveLog = (obj: DeleteDBSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDBSubnetGroupMessage => __isa(o, "DeleteDBSubnetGroupMessage");
 }
 
 export interface DeleteEventSubscriptionMessage {
-  __type?: "DeleteEventSubscriptionMessage";
   /**
    * <p>The name of the event notification subscription you want to delete.</p>
    */
@@ -3615,11 +3447,9 @@ export namespace DeleteEventSubscriptionMessage {
   export const filterSensitiveLog = (obj: DeleteEventSubscriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEventSubscriptionMessage => __isa(o, "DeleteEventSubscriptionMessage");
 }
 
 export interface DeleteEventSubscriptionResult {
-  __type?: "DeleteEventSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
    */
@@ -3630,11 +3460,9 @@ export namespace DeleteEventSubscriptionResult {
   export const filterSensitiveLog = (obj: DeleteEventSubscriptionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEventSubscriptionResult => __isa(o, "DeleteEventSubscriptionResult");
 }
 
 export interface DescribeDBClusterParameterGroupsMessage {
-  __type?: "DescribeDBClusterParameterGroupsMessage";
   /**
    * <p>The name of a specific DB cluster parameter group to return details for.</p>
    *          <p>Constraints:</p>
@@ -3673,12 +3501,9 @@ export namespace DescribeDBClusterParameterGroupsMessage {
   export const filterSensitiveLog = (obj: DescribeDBClusterParameterGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDBClusterParameterGroupsMessage =>
-    __isa(o, "DescribeDBClusterParameterGroupsMessage");
 }
 
 export interface DescribeDBClusterParametersMessage {
-  __type?: "DescribeDBClusterParametersMessage";
   /**
    * <p> An optional pagination token provided by a previous
    *       <code>DescribeDBClusterParameters</code> request. If this parameter is specified, the response
@@ -3723,12 +3548,9 @@ export namespace DescribeDBClusterParametersMessage {
   export const filterSensitiveLog = (obj: DescribeDBClusterParametersMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDBClusterParametersMessage =>
-    __isa(o, "DescribeDBClusterParametersMessage");
 }
 
 export interface DescribeDBClustersMessage {
-  __type?: "DescribeDBClustersMessage";
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
@@ -3784,11 +3606,9 @@ export namespace DescribeDBClustersMessage {
   export const filterSensitiveLog = (obj: DescribeDBClustersMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDBClustersMessage => __isa(o, "DescribeDBClustersMessage");
 }
 
 export interface DescribeDBClusterSnapshotAttributesMessage {
-  __type?: "DescribeDBClusterSnapshotAttributesMessage";
   /**
    * <p>The identifier for the DB cluster snapshot to describe the attributes for.</p>
    */
@@ -3799,12 +3619,9 @@ export namespace DescribeDBClusterSnapshotAttributesMessage {
   export const filterSensitiveLog = (obj: DescribeDBClusterSnapshotAttributesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDBClusterSnapshotAttributesMessage =>
-    __isa(o, "DescribeDBClusterSnapshotAttributesMessage");
 }
 
 export interface DescribeDBClusterSnapshotAttributesResult {
-  __type?: "DescribeDBClusterSnapshotAttributesResult";
   /**
    * <p>Contains the results of a successful call to the <a>DescribeDBClusterSnapshotAttributes</a> API action.</p>
    *          <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to copy or
@@ -3817,12 +3634,9 @@ export namespace DescribeDBClusterSnapshotAttributesResult {
   export const filterSensitiveLog = (obj: DescribeDBClusterSnapshotAttributesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDBClusterSnapshotAttributesResult =>
-    __isa(o, "DescribeDBClusterSnapshotAttributesResult");
 }
 
 export interface DescribeDBClusterSnapshotsMessage {
-  __type?: "DescribeDBClusterSnapshotsMessage";
   /**
    * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter
    *       can't be used in conjunction with the <code>DBClusterSnapshotIdentifier</code> parameter. This
@@ -3936,11 +3750,9 @@ export namespace DescribeDBClusterSnapshotsMessage {
   export const filterSensitiveLog = (obj: DescribeDBClusterSnapshotsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDBClusterSnapshotsMessage => __isa(o, "DescribeDBClusterSnapshotsMessage");
 }
 
 export interface DescribeDBEngineVersionsMessage {
-  __type?: "DescribeDBEngineVersionsMessage";
   /**
    * <p>If this parameter is specified and the requested engine supports the <code>TimeZone</code>
    *       parameter for <code>CreateDBInstance</code>, the response includes a list of supported time
@@ -4010,11 +3822,9 @@ export namespace DescribeDBEngineVersionsMessage {
   export const filterSensitiveLog = (obj: DescribeDBEngineVersionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDBEngineVersionsMessage => __isa(o, "DescribeDBEngineVersionsMessage");
 }
 
 export interface DescribeDBInstancesMessage {
-  __type?: "DescribeDBInstancesMessage";
   /**
    * <p>A filter that specifies one or more DB instances to describe.</p>
    *          <p>Supported filters:</p>
@@ -4070,11 +3880,9 @@ export namespace DescribeDBInstancesMessage {
   export const filterSensitiveLog = (obj: DescribeDBInstancesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDBInstancesMessage => __isa(o, "DescribeDBInstancesMessage");
 }
 
 export interface DescribeDBParameterGroupsMessage {
-  __type?: "DescribeDBParameterGroupsMessage";
   /**
    * <p>This parameter is not currently supported.</p>
    */
@@ -4112,11 +3920,9 @@ export namespace DescribeDBParameterGroupsMessage {
   export const filterSensitiveLog = (obj: DescribeDBParameterGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDBParameterGroupsMessage => __isa(o, "DescribeDBParameterGroupsMessage");
 }
 
 export interface DescribeDBParametersMessage {
-  __type?: "DescribeDBParametersMessage";
   /**
    * <p>The name of a specific DB parameter group to return details for.</p>
    *          <p>Constraints:</p>
@@ -4162,11 +3968,9 @@ export namespace DescribeDBParametersMessage {
   export const filterSensitiveLog = (obj: DescribeDBParametersMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDBParametersMessage => __isa(o, "DescribeDBParametersMessage");
 }
 
 export interface DescribeDBSubnetGroupsMessage {
-  __type?: "DescribeDBSubnetGroupsMessage";
   /**
    * <p>This parameter is not currently supported.</p>
    */
@@ -4198,11 +4002,9 @@ export namespace DescribeDBSubnetGroupsMessage {
   export const filterSensitiveLog = (obj: DescribeDBSubnetGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDBSubnetGroupsMessage => __isa(o, "DescribeDBSubnetGroupsMessage");
 }
 
 export interface DescribeEngineDefaultClusterParametersMessage {
-  __type?: "DescribeEngineDefaultClusterParametersMessage";
   /**
    * <p>The name of the DB cluster parameter group family to return engine parameter information
    *       for.</p>
@@ -4236,12 +4038,9 @@ export namespace DescribeEngineDefaultClusterParametersMessage {
   export const filterSensitiveLog = (obj: DescribeEngineDefaultClusterParametersMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEngineDefaultClusterParametersMessage =>
-    __isa(o, "DescribeEngineDefaultClusterParametersMessage");
 }
 
 export interface DescribeEngineDefaultClusterParametersResult {
-  __type?: "DescribeEngineDefaultClusterParametersResult";
   /**
    * <p> Contains the result of a successful invocation of the <a>DescribeEngineDefaultParameters</a> action.</p>
    */
@@ -4252,12 +4051,9 @@ export namespace DescribeEngineDefaultClusterParametersResult {
   export const filterSensitiveLog = (obj: DescribeEngineDefaultClusterParametersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEngineDefaultClusterParametersResult =>
-    __isa(o, "DescribeEngineDefaultClusterParametersResult");
 }
 
 export interface DescribeEngineDefaultParametersMessage {
-  __type?: "DescribeEngineDefaultParametersMessage";
   /**
    * <p>Not currently supported.</p>
    */
@@ -4290,12 +4086,9 @@ export namespace DescribeEngineDefaultParametersMessage {
   export const filterSensitiveLog = (obj: DescribeEngineDefaultParametersMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEngineDefaultParametersMessage =>
-    __isa(o, "DescribeEngineDefaultParametersMessage");
 }
 
 export interface DescribeEngineDefaultParametersResult {
-  __type?: "DescribeEngineDefaultParametersResult";
   /**
    * <p> Contains the result of a successful invocation of the <a>DescribeEngineDefaultParameters</a> action.</p>
    */
@@ -4306,12 +4099,9 @@ export namespace DescribeEngineDefaultParametersResult {
   export const filterSensitiveLog = (obj: DescribeEngineDefaultParametersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEngineDefaultParametersResult =>
-    __isa(o, "DescribeEngineDefaultParametersResult");
 }
 
 export interface DescribeEventCategoriesMessage {
-  __type?: "DescribeEventCategoriesMessage";
   /**
    * <p>This parameter is not currently supported.</p>
    */
@@ -4328,11 +4118,9 @@ export namespace DescribeEventCategoriesMessage {
   export const filterSensitiveLog = (obj: DescribeEventCategoriesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventCategoriesMessage => __isa(o, "DescribeEventCategoriesMessage");
 }
 
 export interface DescribeEventsMessage {
-  __type?: "DescribeEventsMessage";
   /**
    * <p> The end of the time interval for which to retrieve events, specified in ISO 8601 format.
    *       For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
@@ -4424,11 +4212,9 @@ export namespace DescribeEventsMessage {
   export const filterSensitiveLog = (obj: DescribeEventsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventsMessage => __isa(o, "DescribeEventsMessage");
 }
 
 export interface DescribeEventSubscriptionsMessage {
-  __type?: "DescribeEventSubscriptionsMessage";
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
    *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
@@ -4460,11 +4246,9 @@ export namespace DescribeEventSubscriptionsMessage {
   export const filterSensitiveLog = (obj: DescribeEventSubscriptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventSubscriptionsMessage => __isa(o, "DescribeEventSubscriptionsMessage");
 }
 
 export interface DescribeOrderableDBInstanceOptionsMessage {
-  __type?: "DescribeOrderableDBInstanceOptionsMessage";
   /**
    * <p> An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions
    *       request. If this parameter is specified, the response includes only records beyond the marker,
@@ -4520,12 +4304,9 @@ export namespace DescribeOrderableDBInstanceOptionsMessage {
   export const filterSensitiveLog = (obj: DescribeOrderableDBInstanceOptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOrderableDBInstanceOptionsMessage =>
-    __isa(o, "DescribeOrderableDBInstanceOptionsMessage");
 }
 
 export interface DescribePendingMaintenanceActionsMessage {
-  __type?: "DescribePendingMaintenanceActionsMessage";
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
    *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
@@ -4574,12 +4355,9 @@ export namespace DescribePendingMaintenanceActionsMessage {
   export const filterSensitiveLog = (obj: DescribePendingMaintenanceActionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePendingMaintenanceActionsMessage =>
-    __isa(o, "DescribePendingMaintenanceActionsMessage");
 }
 
 export interface DescribeValidDBInstanceModificationsMessage {
-  __type?: "DescribeValidDBInstanceModificationsMessage";
   /**
    * <p>The customer identifier or the ARN of your DB instance.</p>
    */
@@ -4590,12 +4368,9 @@ export namespace DescribeValidDBInstanceModificationsMessage {
   export const filterSensitiveLog = (obj: DescribeValidDBInstanceModificationsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeValidDBInstanceModificationsMessage =>
-    __isa(o, "DescribeValidDBInstanceModificationsMessage");
 }
 
 export interface DescribeValidDBInstanceModificationsResult {
-  __type?: "DescribeValidDBInstanceModificationsResult";
   /**
    * <p>Information about valid modifications that you can make to your DB instance. Contains the
    *       result of a successful call to the <a>DescribeValidDBInstanceModifications</a>
@@ -4609,15 +4384,12 @@ export namespace DescribeValidDBInstanceModificationsResult {
   export const filterSensitiveLog = (obj: DescribeValidDBInstanceModificationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeValidDBInstanceModificationsResult =>
-    __isa(o, "DescribeValidDBInstanceModificationsResult");
 }
 
 /**
  * <p>An Active Directory Domain membership record associated with a DB instance.</p>
  */
 export interface DomainMembership {
-  __type?: "DomainMembership";
   /**
    * <p>The identifier of the Active Directory Domain.</p>
    */
@@ -4644,7 +4416,6 @@ export namespace DomainMembership {
   export const filterSensitiveLog = (obj: DomainMembership): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainMembership => __isa(o, "DomainMembership");
 }
 
 /**
@@ -4664,14 +4435,12 @@ export namespace DomainNotFoundFault {
   export const filterSensitiveLog = (obj: DomainNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainNotFoundFault => __isa(o, "DomainNotFoundFault");
 }
 
 /**
  * <p>A range of double values.</p>
  */
 export interface DoubleRange {
-  __type?: "DoubleRange";
   /**
    * <p>The maximum value in the range.</p>
    */
@@ -4687,14 +4456,12 @@ export namespace DoubleRange {
   export const filterSensitiveLog = (obj: DoubleRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DoubleRange => __isa(o, "DoubleRange");
 }
 
 /**
  * <p>Specifies a connection endpoint.</p>
  */
 export interface Endpoint {
-  __type?: "Endpoint";
   /**
    * <p>Specifies the port that the database engine is listening on.</p>
    */
@@ -4715,14 +4482,12 @@ export namespace Endpoint {
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
 
 /**
  * <p> Contains the result of a successful invocation of the <a>DescribeEngineDefaultParameters</a> action.</p>
  */
 export interface EngineDefaults {
-  __type?: "EngineDefaults";
   /**
    * <p> An optional pagination token provided by a previous EngineDefaults request. If this
    *       parameter is specified, the response includes only records beyond the marker, up to the value
@@ -4746,7 +4511,6 @@ export namespace EngineDefaults {
   export const filterSensitiveLog = (obj: EngineDefaults): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EngineDefaults => __isa(o, "EngineDefaults");
 }
 
 /**
@@ -4754,7 +4518,6 @@ export namespace EngineDefaults {
  *       action.</p>
  */
 export interface Event {
-  __type?: "Event";
   /**
    * <p>Specifies the date and time of the event.</p>
    */
@@ -4790,14 +4553,12 @@ export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 /**
  * <p>Contains the results of a successful invocation of the <a>DescribeEventCategories</a> action.</p>
  */
 export interface EventCategoriesMap {
-  __type?: "EventCategoriesMap";
   /**
    * <p>The event categories for the specified source type</p>
    */
@@ -4813,11 +4574,9 @@ export namespace EventCategoriesMap {
   export const filterSensitiveLog = (obj: EventCategoriesMap): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventCategoriesMap => __isa(o, "EventCategoriesMap");
 }
 
 export interface EventCategoriesMessage {
-  __type?: "EventCategoriesMessage";
   /**
    * <p>A list of EventCategoriesMap data types.</p>
    */
@@ -4828,11 +4587,9 @@ export namespace EventCategoriesMessage {
   export const filterSensitiveLog = (obj: EventCategoriesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventCategoriesMessage => __isa(o, "EventCategoriesMessage");
 }
 
 export interface EventsMessage {
-  __type?: "EventsMessage";
   /**
    * <p> An optional pagination token provided by a previous Events request. If this parameter is
    *       specified, the response includes only records beyond the marker, up to the value specified by
@@ -4850,14 +4607,12 @@ export namespace EventsMessage {
   export const filterSensitiveLog = (obj: EventsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventsMessage => __isa(o, "EventsMessage");
 }
 
 /**
  * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
  */
 export interface EventSubscription {
-  __type?: "EventSubscription";
   /**
    * <p>A Boolean value indicating if the subscription is enabled. True indicates the subscription
    *       is enabled.</p>
@@ -4920,7 +4675,6 @@ export namespace EventSubscription {
   export const filterSensitiveLog = (obj: EventSubscription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventSubscription => __isa(o, "EventSubscription");
 }
 
 /**
@@ -4939,12 +4693,9 @@ export namespace EventSubscriptionQuotaExceededFault {
   export const filterSensitiveLog = (obj: EventSubscriptionQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventSubscriptionQuotaExceededFault =>
-    __isa(o, "EventSubscriptionQuotaExceededFault");
 }
 
 export interface EventSubscriptionsMessage {
-  __type?: "EventSubscriptionsMessage";
   /**
    * <p>A list of EventSubscriptions data types.</p>
    */
@@ -4962,11 +4713,9 @@ export namespace EventSubscriptionsMessage {
   export const filterSensitiveLog = (obj: EventSubscriptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventSubscriptionsMessage => __isa(o, "EventSubscriptionsMessage");
 }
 
 export interface FailoverDBClusterMessage {
-  __type?: "FailoverDBClusterMessage";
   /**
    * <p>A DB cluster identifier to force a failover for. This parameter is not
    *       case-sensitive.</p>
@@ -4991,11 +4740,9 @@ export namespace FailoverDBClusterMessage {
   export const filterSensitiveLog = (obj: FailoverDBClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailoverDBClusterMessage => __isa(o, "FailoverDBClusterMessage");
 }
 
 export interface FailoverDBClusterResult {
-  __type?: "FailoverDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
@@ -5007,14 +4754,12 @@ export namespace FailoverDBClusterResult {
   export const filterSensitiveLog = (obj: FailoverDBClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailoverDBClusterResult => __isa(o, "FailoverDBClusterResult");
 }
 
 /**
  * <p>This type is not currently supported.</p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>This parameter is not currently supported.</p>
    */
@@ -5030,7 +4775,6 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 /**
@@ -5049,7 +4793,6 @@ export namespace InstanceQuotaExceededFault {
   export const filterSensitiveLog = (obj: InstanceQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceQuotaExceededFault => __isa(o, "InstanceQuotaExceededFault");
 }
 
 /**
@@ -5068,8 +4811,6 @@ export namespace InsufficientDBClusterCapacityFault {
   export const filterSensitiveLog = (obj: InsufficientDBClusterCapacityFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientDBClusterCapacityFault =>
-    __isa(o, "InsufficientDBClusterCapacityFault");
 }
 
 /**
@@ -5088,8 +4829,6 @@ export namespace InsufficientDBInstanceCapacityFault {
   export const filterSensitiveLog = (obj: InsufficientDBInstanceCapacityFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientDBInstanceCapacityFault =>
-    __isa(o, "InsufficientDBInstanceCapacityFault");
 }
 
 /**
@@ -5110,8 +4849,6 @@ export namespace InsufficientStorageClusterCapacityFault {
   export const filterSensitiveLog = (obj: InsufficientStorageClusterCapacityFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientStorageClusterCapacityFault =>
-    __isa(o, "InsufficientStorageClusterCapacityFault");
 }
 
 /**
@@ -5130,8 +4867,6 @@ export namespace InvalidDBClusterSnapshotStateFault {
   export const filterSensitiveLog = (obj: InvalidDBClusterSnapshotStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDBClusterSnapshotStateFault =>
-    __isa(o, "InvalidDBClusterSnapshotStateFault");
 }
 
 /**
@@ -5150,7 +4885,6 @@ export namespace InvalidDBClusterStateFault {
   export const filterSensitiveLog = (obj: InvalidDBClusterStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDBClusterStateFault => __isa(o, "InvalidDBClusterStateFault");
 }
 
 /**
@@ -5169,7 +4903,6 @@ export namespace InvalidDBInstanceStateFault {
   export const filterSensitiveLog = (obj: InvalidDBInstanceStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDBInstanceStateFault => __isa(o, "InvalidDBInstanceStateFault");
 }
 
 /**
@@ -5189,7 +4922,6 @@ export namespace InvalidDBParameterGroupStateFault {
   export const filterSensitiveLog = (obj: InvalidDBParameterGroupStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDBParameterGroupStateFault => __isa(o, "InvalidDBParameterGroupStateFault");
 }
 
 /**
@@ -5208,7 +4940,6 @@ export namespace InvalidDBSecurityGroupStateFault {
   export const filterSensitiveLog = (obj: InvalidDBSecurityGroupStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDBSecurityGroupStateFault => __isa(o, "InvalidDBSecurityGroupStateFault");
 }
 
 /**
@@ -5227,7 +4958,6 @@ export namespace InvalidDBSnapshotStateFault {
   export const filterSensitiveLog = (obj: InvalidDBSnapshotStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDBSnapshotStateFault => __isa(o, "InvalidDBSnapshotStateFault");
 }
 
 /**
@@ -5246,7 +4976,6 @@ export namespace InvalidDBSubnetGroupStateFault {
   export const filterSensitiveLog = (obj: InvalidDBSubnetGroupStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDBSubnetGroupStateFault => __isa(o, "InvalidDBSubnetGroupStateFault");
 }
 
 /**
@@ -5265,7 +4994,6 @@ export namespace InvalidDBSubnetStateFault {
   export const filterSensitiveLog = (obj: InvalidDBSubnetStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDBSubnetStateFault => __isa(o, "InvalidDBSubnetStateFault");
 }
 
 /**
@@ -5284,8 +5012,6 @@ export namespace InvalidEventSubscriptionStateFault {
   export const filterSensitiveLog = (obj: InvalidEventSubscriptionStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEventSubscriptionStateFault =>
-    __isa(o, "InvalidEventSubscriptionStateFault");
 }
 
 /**
@@ -5304,7 +5030,6 @@ export namespace InvalidRestoreFault {
   export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRestoreFault => __isa(o, "InvalidRestoreFault");
 }
 
 /**
@@ -5324,7 +5049,6 @@ export namespace InvalidSubnet {
   export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
 }
 
 /**
@@ -5344,7 +5068,6 @@ export namespace InvalidVPCNetworkStateFault {
   export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidVPCNetworkStateFault => __isa(o, "InvalidVPCNetworkStateFault");
 }
 
 /**
@@ -5363,11 +5086,9 @@ export namespace KMSKeyNotAccessibleFault {
   export const filterSensitiveLog = (obj: KMSKeyNotAccessibleFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSKeyNotAccessibleFault => __isa(o, "KMSKeyNotAccessibleFault");
 }
 
 export interface ListTagsForResourceMessage {
-  __type?: "ListTagsForResourceMessage";
   /**
    * <p>This parameter is not currently supported.</p>
    */
@@ -5385,11 +5106,9 @@ export namespace ListTagsForResourceMessage {
   export const filterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceMessage => __isa(o, "ListTagsForResourceMessage");
 }
 
 export interface ModifyDBClusterMessage {
-  __type?: "ModifyDBClusterMessage";
   /**
    * <p>The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is
    *       stored as a lowercase string.</p>
@@ -5556,11 +5275,9 @@ export namespace ModifyDBClusterMessage {
   export const filterSensitiveLog = (obj: ModifyDBClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyDBClusterMessage => __isa(o, "ModifyDBClusterMessage");
 }
 
 export interface ModifyDBClusterParameterGroupMessage {
-  __type?: "ModifyDBClusterParameterGroupMessage";
   /**
    * <p>A list of parameters in the DB cluster parameter group to modify.</p>
    */
@@ -5576,12 +5293,9 @@ export namespace ModifyDBClusterParameterGroupMessage {
   export const filterSensitiveLog = (obj: ModifyDBClusterParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyDBClusterParameterGroupMessage =>
-    __isa(o, "ModifyDBClusterParameterGroupMessage");
 }
 
 export interface ModifyDBClusterResult {
-  __type?: "ModifyDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
@@ -5593,11 +5307,9 @@ export namespace ModifyDBClusterResult {
   export const filterSensitiveLog = (obj: ModifyDBClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyDBClusterResult => __isa(o, "ModifyDBClusterResult");
 }
 
 export interface ModifyDBClusterSnapshotAttributeMessage {
-  __type?: "ModifyDBClusterSnapshotAttributeMessage";
   /**
    * <p>The name of the DB cluster snapshot attribute to modify.</p>
    *          <p>To manage authorization for other AWS accounts to copy or restore a manual DB cluster
@@ -5637,12 +5349,9 @@ export namespace ModifyDBClusterSnapshotAttributeMessage {
   export const filterSensitiveLog = (obj: ModifyDBClusterSnapshotAttributeMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyDBClusterSnapshotAttributeMessage =>
-    __isa(o, "ModifyDBClusterSnapshotAttributeMessage");
 }
 
 export interface ModifyDBClusterSnapshotAttributeResult {
-  __type?: "ModifyDBClusterSnapshotAttributeResult";
   /**
    * <p>Contains the results of a successful call to the <a>DescribeDBClusterSnapshotAttributes</a> API action.</p>
    *          <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to copy or
@@ -5655,12 +5364,9 @@ export namespace ModifyDBClusterSnapshotAttributeResult {
   export const filterSensitiveLog = (obj: ModifyDBClusterSnapshotAttributeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyDBClusterSnapshotAttributeResult =>
-    __isa(o, "ModifyDBClusterSnapshotAttributeResult");
 }
 
 export interface ModifyDBInstanceMessage {
-  __type?: "ModifyDBInstanceMessage";
   /**
    * <p>A value that indicates whether the DB instance has deletion protection enabled.
    *       The database can't be deleted when deletion protection is enabled. By default,
@@ -5999,11 +5705,9 @@ export namespace ModifyDBInstanceMessage {
   export const filterSensitiveLog = (obj: ModifyDBInstanceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyDBInstanceMessage => __isa(o, "ModifyDBInstanceMessage");
 }
 
 export interface ModifyDBInstanceResult {
-  __type?: "ModifyDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB instance.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action.</p>
@@ -6015,11 +5719,9 @@ export namespace ModifyDBInstanceResult {
   export const filterSensitiveLog = (obj: ModifyDBInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyDBInstanceResult => __isa(o, "ModifyDBInstanceResult");
 }
 
 export interface ModifyDBParameterGroupMessage {
-  __type?: "ModifyDBParameterGroupMessage";
   /**
    * <p>An array of parameter names, values, and the apply method for the parameter update. At
    *       least one parameter name, value, and apply method must be supplied; subsequent arguments are
@@ -6050,11 +5752,9 @@ export namespace ModifyDBParameterGroupMessage {
   export const filterSensitiveLog = (obj: ModifyDBParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyDBParameterGroupMessage => __isa(o, "ModifyDBParameterGroupMessage");
 }
 
 export interface ModifyDBSubnetGroupMessage {
-  __type?: "ModifyDBSubnetGroupMessage";
   /**
    * <p>The name for the DB subnet group. This value is stored as a lowercase string. You can't
    *       modify the default subnet group.</p>
@@ -6079,11 +5779,9 @@ export namespace ModifyDBSubnetGroupMessage {
   export const filterSensitiveLog = (obj: ModifyDBSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyDBSubnetGroupMessage => __isa(o, "ModifyDBSubnetGroupMessage");
 }
 
 export interface ModifyDBSubnetGroupResult {
-  __type?: "ModifyDBSubnetGroupResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB subnet group.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action.</p>
@@ -6095,11 +5793,9 @@ export namespace ModifyDBSubnetGroupResult {
   export const filterSensitiveLog = (obj: ModifyDBSubnetGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyDBSubnetGroupResult => __isa(o, "ModifyDBSubnetGroupResult");
 }
 
 export interface ModifyEventSubscriptionMessage {
-  __type?: "ModifyEventSubscriptionMessage";
   /**
    * <p>The name of the event notification subscription.</p>
    */
@@ -6138,11 +5834,9 @@ export namespace ModifyEventSubscriptionMessage {
   export const filterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyEventSubscriptionMessage => __isa(o, "ModifyEventSubscriptionMessage");
 }
 
 export interface ModifyEventSubscriptionResult {
-  __type?: "ModifyEventSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
    */
@@ -6153,14 +5847,12 @@ export namespace ModifyEventSubscriptionResult {
   export const filterSensitiveLog = (obj: ModifyEventSubscriptionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyEventSubscriptionResult => __isa(o, "ModifyEventSubscriptionResult");
 }
 
 /**
  * <p>Provides information on the option groups the DB instance is a member of.</p>
  */
 export interface OptionGroupMembership {
-  __type?: "OptionGroupMembership";
   /**
    * <p>The status of the DB instance's option group membership. Valid values are:
    *       <code>in-sync</code>, <code>pending-apply</code>, <code>pending-removal</code>,
@@ -6179,7 +5871,6 @@ export namespace OptionGroupMembership {
   export const filterSensitiveLog = (obj: OptionGroupMembership): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OptionGroupMembership => __isa(o, "OptionGroupMembership");
 }
 
 /**
@@ -6198,7 +5889,6 @@ export namespace OptionGroupNotFoundFault {
   export const filterSensitiveLog = (obj: OptionGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OptionGroupNotFoundFault => __isa(o, "OptionGroupNotFoundFault");
 }
 
 /**
@@ -6206,7 +5896,6 @@ export namespace OptionGroupNotFoundFault {
  *          <p> This data type is used as a response element in the <a>DescribeOrderableDBInstanceOptions</a> action.</p>
  */
 export interface OrderableDBInstanceOption {
-  __type?: "OrderableDBInstanceOption";
   /**
    * <p>The DB instance class for a DB instance.</p>
    */
@@ -6315,11 +6004,9 @@ export namespace OrderableDBInstanceOption {
   export const filterSensitiveLog = (obj: OrderableDBInstanceOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrderableDBInstanceOption => __isa(o, "OrderableDBInstanceOption");
 }
 
 export interface OrderableDBInstanceOptionsMessage {
-  __type?: "OrderableDBInstanceOptionsMessage";
   /**
    * <p>An <a>OrderableDBInstanceOption</a> structure
    *       containing information about orderable options for the DB instance.</p>
@@ -6338,14 +6025,12 @@ export namespace OrderableDBInstanceOptionsMessage {
   export const filterSensitiveLog = (obj: OrderableDBInstanceOptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrderableDBInstanceOptionsMessage => __isa(o, "OrderableDBInstanceOptionsMessage");
 }
 
 /**
  * <p>Specifies a parameter.</p>
  */
 export interface Parameter {
-  __type?: "Parameter";
   /**
    * <p>Provides a description of the parameter.</p>
    */
@@ -6403,7 +6088,6 @@ export namespace Parameter {
   export const filterSensitiveLog = (obj: Parameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Parameter => __isa(o, "Parameter");
 }
 
 /**
@@ -6411,7 +6095,6 @@ export namespace Parameter {
  *       words, these log types are in the process of being activated or deactivated.</p>
  */
 export interface PendingCloudwatchLogsExports {
-  __type?: "PendingCloudwatchLogsExports";
   /**
    * <p>Log types that are in the process of being enabled. After they are
    *       enabled, these log types are exported to CloudWatch Logs.</p>
@@ -6429,14 +6112,12 @@ export namespace PendingCloudwatchLogsExports {
   export const filterSensitiveLog = (obj: PendingCloudwatchLogsExports): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PendingCloudwatchLogsExports => __isa(o, "PendingCloudwatchLogsExports");
 }
 
 /**
  * <p>Provides information about a pending maintenance action for a resource.</p>
  */
 export interface PendingMaintenanceAction {
-  __type?: "PendingMaintenanceAction";
   /**
    * <p>Indicates the type of opt-in request that has been received for the resource.</p>
    */
@@ -6480,11 +6161,9 @@ export namespace PendingMaintenanceAction {
   export const filterSensitiveLog = (obj: PendingMaintenanceAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PendingMaintenanceAction => __isa(o, "PendingMaintenanceAction");
 }
 
 export interface PendingMaintenanceActionsMessage {
-  __type?: "PendingMaintenanceActionsMessage";
   /**
    * <p> An optional pagination token provided by a previous
    *       <code>DescribePendingMaintenanceActions</code> request. If this parameter is specified, the
@@ -6503,7 +6182,6 @@ export namespace PendingMaintenanceActionsMessage {
   export const filterSensitiveLog = (obj: PendingMaintenanceActionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PendingMaintenanceActionsMessage => __isa(o, "PendingMaintenanceActionsMessage");
 }
 
 /**
@@ -6511,7 +6189,6 @@ export namespace PendingMaintenanceActionsMessage {
  *       action.</p>
  */
 export interface PendingModifiedValues {
-  __type?: "PendingModifiedValues";
   /**
    * <p>Specifies the storage type to be associated with the DB instance.</p>
    */
@@ -6596,11 +6273,9 @@ export namespace PendingModifiedValues {
   export const filterSensitiveLog = (obj: PendingModifiedValues): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PendingModifiedValues => __isa(o, "PendingModifiedValues");
 }
 
 export interface PromoteReadReplicaDBClusterMessage {
-  __type?: "PromoteReadReplicaDBClusterMessage";
   /**
    * <p>Not supported.</p>
    */
@@ -6611,12 +6286,9 @@ export namespace PromoteReadReplicaDBClusterMessage {
   export const filterSensitiveLog = (obj: PromoteReadReplicaDBClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PromoteReadReplicaDBClusterMessage =>
-    __isa(o, "PromoteReadReplicaDBClusterMessage");
 }
 
 export interface PromoteReadReplicaDBClusterResult {
-  __type?: "PromoteReadReplicaDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
@@ -6628,7 +6300,6 @@ export namespace PromoteReadReplicaDBClusterResult {
   export const filterSensitiveLog = (obj: PromoteReadReplicaDBClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PromoteReadReplicaDBClusterResult => __isa(o, "PromoteReadReplicaDBClusterResult");
 }
 
 /**
@@ -6647,15 +6318,12 @@ export namespace ProvisionedIopsNotAvailableInAZFault {
   export const filterSensitiveLog = (obj: ProvisionedIopsNotAvailableInAZFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionedIopsNotAvailableInAZFault =>
-    __isa(o, "ProvisionedIopsNotAvailableInAZFault");
 }
 
 /**
  * <p>A range of integer values.</p>
  */
 export interface Range {
-  __type?: "Range";
   /**
    * <p>The step value for the range. For example, if you have a range of 5,000 to 10,000, with a
    *       step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500
@@ -6679,11 +6347,9 @@ export namespace Range {
   export const filterSensitiveLog = (obj: Range): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Range => __isa(o, "Range");
 }
 
 export interface RebootDBInstanceMessage {
-  __type?: "RebootDBInstanceMessage";
   /**
    * <p>The DB instance identifier. This parameter is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
@@ -6707,11 +6373,9 @@ export namespace RebootDBInstanceMessage {
   export const filterSensitiveLog = (obj: RebootDBInstanceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootDBInstanceMessage => __isa(o, "RebootDBInstanceMessage");
 }
 
 export interface RebootDBInstanceResult {
-  __type?: "RebootDBInstanceResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB instance.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBInstances</a> action.</p>
@@ -6723,11 +6387,9 @@ export namespace RebootDBInstanceResult {
   export const filterSensitiveLog = (obj: RebootDBInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootDBInstanceResult => __isa(o, "RebootDBInstanceResult");
 }
 
 export interface RemoveRoleFromDBClusterMessage {
-  __type?: "RemoveRoleFromDBClusterMessage";
   /**
    * <p>The name of the DB cluster to disassociate the IAM role from.</p>
    */
@@ -6744,11 +6406,9 @@ export namespace RemoveRoleFromDBClusterMessage {
   export const filterSensitiveLog = (obj: RemoveRoleFromDBClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveRoleFromDBClusterMessage => __isa(o, "RemoveRoleFromDBClusterMessage");
 }
 
 export interface RemoveSourceIdentifierFromSubscriptionMessage {
-  __type?: "RemoveSourceIdentifierFromSubscriptionMessage";
   /**
    * <p>The name of the event notification subscription you want to remove a source identifier
    *       from.</p>
@@ -6766,12 +6426,9 @@ export namespace RemoveSourceIdentifierFromSubscriptionMessage {
   export const filterSensitiveLog = (obj: RemoveSourceIdentifierFromSubscriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveSourceIdentifierFromSubscriptionMessage =>
-    __isa(o, "RemoveSourceIdentifierFromSubscriptionMessage");
 }
 
 export interface RemoveSourceIdentifierFromSubscriptionResult {
-  __type?: "RemoveSourceIdentifierFromSubscriptionResult";
   /**
    * <p>Contains the results of a successful invocation of the <a>DescribeEventSubscriptions</a> action.</p>
    */
@@ -6782,12 +6439,9 @@ export namespace RemoveSourceIdentifierFromSubscriptionResult {
   export const filterSensitiveLog = (obj: RemoveSourceIdentifierFromSubscriptionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveSourceIdentifierFromSubscriptionResult =>
-    __isa(o, "RemoveSourceIdentifierFromSubscriptionResult");
 }
 
 export interface RemoveTagsFromResourceMessage {
-  __type?: "RemoveTagsFromResourceMessage";
   /**
    * <p>The Amazon Neptune resource that the tags are removed from. This value is an Amazon
    *       Resource Name (ARN). For information about creating an ARN, see <a href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing"> Constructing an
@@ -6805,11 +6459,9 @@ export namespace RemoveTagsFromResourceMessage {
   export const filterSensitiveLog = (obj: RemoveTagsFromResourceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromResourceMessage => __isa(o, "RemoveTagsFromResourceMessage");
 }
 
 export interface ResetDBClusterParameterGroupMessage {
-  __type?: "ResetDBClusterParameterGroupMessage";
   /**
    * <p>A value that is set to <code>true</code> to reset all parameters in the DB cluster
    *       parameter group to their default values, and <code>false</code> otherwise. You can't use this
@@ -6835,12 +6487,9 @@ export namespace ResetDBClusterParameterGroupMessage {
   export const filterSensitiveLog = (obj: ResetDBClusterParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetDBClusterParameterGroupMessage =>
-    __isa(o, "ResetDBClusterParameterGroupMessage");
 }
 
 export interface ResetDBParameterGroupMessage {
-  __type?: "ResetDBParameterGroupMessage";
   /**
    * <p>The name of the DB parameter group.</p>
    *          <p>Constraints:</p>
@@ -6875,7 +6524,6 @@ export namespace ResetDBParameterGroupMessage {
   export const filterSensitiveLog = (obj: ResetDBParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetDBParameterGroupMessage => __isa(o, "ResetDBParameterGroupMessage");
 }
 
 /**
@@ -6894,14 +6542,12 @@ export namespace ResourceNotFoundFault {
   export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundFault => __isa(o, "ResourceNotFoundFault");
 }
 
 /**
  * <p>Describes the pending maintenance actions for a resource.</p>
  */
 export interface ResourcePendingMaintenanceActions {
-  __type?: "ResourcePendingMaintenanceActions";
   /**
    * <p>A list that provides details about the pending maintenance actions for the
    *       resource.</p>
@@ -6918,11 +6564,9 @@ export namespace ResourcePendingMaintenanceActions {
   export const filterSensitiveLog = (obj: ResourcePendingMaintenanceActions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourcePendingMaintenanceActions => __isa(o, "ResourcePendingMaintenanceActions");
 }
 
 export interface RestoreDBClusterFromSnapshotMessage {
-  __type?: "RestoreDBClusterFromSnapshotMessage";
   /**
    * <p>The tags to be assigned to the restored DB cluster.</p>
    */
@@ -7072,12 +6716,9 @@ export namespace RestoreDBClusterFromSnapshotMessage {
   export const filterSensitiveLog = (obj: RestoreDBClusterFromSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreDBClusterFromSnapshotMessage =>
-    __isa(o, "RestoreDBClusterFromSnapshotMessage");
 }
 
 export interface RestoreDBClusterFromSnapshotResult {
-  __type?: "RestoreDBClusterFromSnapshotResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
@@ -7089,12 +6730,9 @@ export namespace RestoreDBClusterFromSnapshotResult {
   export const filterSensitiveLog = (obj: RestoreDBClusterFromSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreDBClusterFromSnapshotResult =>
-    __isa(o, "RestoreDBClusterFromSnapshotResult");
 }
 
 export interface RestoreDBClusterToPointInTimeMessage {
-  __type?: "RestoreDBClusterToPointInTimeMessage";
   /**
    * <p>The tags to be applied to the restored DB cluster.</p>
    */
@@ -7275,12 +6913,9 @@ export namespace RestoreDBClusterToPointInTimeMessage {
   export const filterSensitiveLog = (obj: RestoreDBClusterToPointInTimeMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreDBClusterToPointInTimeMessage =>
-    __isa(o, "RestoreDBClusterToPointInTimeMessage");
 }
 
 export interface RestoreDBClusterToPointInTimeResult {
-  __type?: "RestoreDBClusterToPointInTimeResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
@@ -7292,8 +6927,6 @@ export namespace RestoreDBClusterToPointInTimeResult {
   export const filterSensitiveLog = (obj: RestoreDBClusterToPointInTimeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreDBClusterToPointInTimeResult =>
-    __isa(o, "RestoreDBClusterToPointInTimeResult");
 }
 
 /**
@@ -7312,7 +6945,6 @@ export namespace SharedSnapshotQuotaExceededFault {
   export const filterSensitiveLog = (obj: SharedSnapshotQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SharedSnapshotQuotaExceededFault => __isa(o, "SharedSnapshotQuotaExceededFault");
 }
 
 /**
@@ -7331,7 +6963,6 @@ export namespace SnapshotQuotaExceededFault {
   export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotQuotaExceededFault => __isa(o, "SnapshotQuotaExceededFault");
 }
 
 /**
@@ -7350,7 +6981,6 @@ export namespace SNSInvalidTopicFault {
   export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SNSInvalidTopicFault => __isa(o, "SNSInvalidTopicFault");
 }
 
 /**
@@ -7369,7 +6999,6 @@ export namespace SNSNoAuthorizationFault {
   export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SNSNoAuthorizationFault => __isa(o, "SNSNoAuthorizationFault");
 }
 
 /**
@@ -7388,7 +7017,6 @@ export namespace SNSTopicArnNotFoundFault {
   export const filterSensitiveLog = (obj: SNSTopicArnNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SNSTopicArnNotFoundFault => __isa(o, "SNSTopicArnNotFoundFault");
 }
 
 /**
@@ -7407,7 +7035,6 @@ export namespace SourceNotFoundFault {
   export const filterSensitiveLog = (obj: SourceNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceNotFoundFault => __isa(o, "SourceNotFoundFault");
 }
 
 export type SourceType =
@@ -7419,7 +7046,6 @@ export type SourceType =
   | "db-snapshot";
 
 export interface StartDBClusterMessage {
-  __type?: "StartDBClusterMessage";
   /**
    * <p>The DB cluster identifier of the Neptune DB cluster to be started.
    *       This parameter is stored as a lowercase string.</p>
@@ -7431,11 +7057,9 @@ export namespace StartDBClusterMessage {
   export const filterSensitiveLog = (obj: StartDBClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDBClusterMessage => __isa(o, "StartDBClusterMessage");
 }
 
 export interface StartDBClusterResult {
-  __type?: "StartDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
@@ -7447,11 +7071,9 @@ export namespace StartDBClusterResult {
   export const filterSensitiveLog = (obj: StartDBClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDBClusterResult => __isa(o, "StartDBClusterResult");
 }
 
 export interface StopDBClusterMessage {
-  __type?: "StopDBClusterMessage";
   /**
    * <p>The DB cluster identifier of the Neptune DB cluster to be stopped.
    *       This parameter is stored as a lowercase string.</p>
@@ -7463,11 +7085,9 @@ export namespace StopDBClusterMessage {
   export const filterSensitiveLog = (obj: StopDBClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopDBClusterMessage => __isa(o, "StopDBClusterMessage");
 }
 
 export interface StopDBClusterResult {
-  __type?: "StopDBClusterResult";
   /**
    * <p>Contains the details of an Amazon Neptune DB cluster.</p>
    *          <p>This data type is used as a response element in the <a>DescribeDBClusters</a> action.</p>
@@ -7479,7 +7099,6 @@ export namespace StopDBClusterResult {
   export const filterSensitiveLog = (obj: StopDBClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopDBClusterResult => __isa(o, "StopDBClusterResult");
 }
 
 /**
@@ -7498,7 +7117,6 @@ export namespace StorageQuotaExceededFault {
   export const filterSensitiveLog = (obj: StorageQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StorageQuotaExceededFault => __isa(o, "StorageQuotaExceededFault");
 }
 
 /**
@@ -7518,7 +7136,6 @@ export namespace StorageTypeNotSupportedFault {
   export const filterSensitiveLog = (obj: StorageTypeNotSupportedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StorageTypeNotSupportedFault => __isa(o, "StorageTypeNotSupportedFault");
 }
 
 /**
@@ -7526,7 +7143,6 @@ export namespace StorageTypeNotSupportedFault {
  *          <p> This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action.</p>
  */
 export interface Subnet {
-  __type?: "Subnet";
   /**
    * <p>Specifies the status of the subnet.</p>
    */
@@ -7547,7 +7163,6 @@ export namespace Subnet {
   export const filterSensitiveLog = (obj: Subnet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
 }
 
 /**
@@ -7566,7 +7181,6 @@ export namespace SubnetAlreadyInUse {
   export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubnetAlreadyInUse => __isa(o, "SubnetAlreadyInUse");
 }
 
 /**
@@ -7585,7 +7199,6 @@ export namespace SubscriptionAlreadyExistFault {
   export const filterSensitiveLog = (obj: SubscriptionAlreadyExistFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscriptionAlreadyExistFault => __isa(o, "SubscriptionAlreadyExistFault");
 }
 
 /**
@@ -7604,7 +7217,6 @@ export namespace SubscriptionCategoryNotFoundFault {
   export const filterSensitiveLog = (obj: SubscriptionCategoryNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscriptionCategoryNotFoundFault => __isa(o, "SubscriptionCategoryNotFoundFault");
 }
 
 /**
@@ -7623,14 +7235,12 @@ export namespace SubscriptionNotFoundFault {
   export const filterSensitiveLog = (obj: SubscriptionNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscriptionNotFoundFault => __isa(o, "SubscriptionNotFoundFault");
 }
 
 /**
  * <p>Metadata assigned to an Amazon Neptune resource consisting of a key-value pair.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>A key is the required name of the tag. The string value can be from 1 to 128 Unicode
    *       characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain
@@ -7652,11 +7262,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagListMessage {
-  __type?: "TagListMessage";
   /**
    * <p>List of tags returned by the ListTagsForResource operation.</p>
    */
@@ -7667,14 +7275,12 @@ export namespace TagListMessage {
   export const filterSensitiveLog = (obj: TagListMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagListMessage => __isa(o, "TagListMessage");
 }
 
 /**
  * <p>A time zone associated with a <a>DBInstance</a>.</p>
  */
 export interface Timezone {
-  __type?: "Timezone";
   /**
    * <p>The name of the time zone.</p>
    */
@@ -7685,14 +7291,12 @@ export namespace Timezone {
   export const filterSensitiveLog = (obj: Timezone): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Timezone => __isa(o, "Timezone");
 }
 
 /**
  * <p>The version of the database engine that a DB instance can be upgraded to.</p>
  */
 export interface UpgradeTarget {
-  __type?: "UpgradeTarget";
   /**
    * <p>The version of the database engine that a DB instance can be upgraded to.</p>
    */
@@ -7724,7 +7328,6 @@ export namespace UpgradeTarget {
   export const filterSensitiveLog = (obj: UpgradeTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpgradeTarget => __isa(o, "UpgradeTarget");
 }
 
 /**
@@ -7734,7 +7337,6 @@ export namespace UpgradeTarget {
  *    </p>
  */
 export interface ValidDBInstanceModificationsMessage {
-  __type?: "ValidDBInstanceModificationsMessage";
   /**
    * <p>Valid storage options for your DB instance.</p>
    */
@@ -7745,8 +7347,6 @@ export namespace ValidDBInstanceModificationsMessage {
   export const filterSensitiveLog = (obj: ValidDBInstanceModificationsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidDBInstanceModificationsMessage =>
-    __isa(o, "ValidDBInstanceModificationsMessage");
 }
 
 /**
@@ -7755,7 +7355,6 @@ export namespace ValidDBInstanceModificationsMessage {
  *          <p>Contains the result of a successful call to the <a>DescribeValidDBInstanceModifications</a> action.</p>
  */
 export interface ValidStorageOptions {
-  __type?: "ValidStorageOptions";
   /**
    * <p>The valid range of Provisioned IOPS to gibibytes of storage multiplier. For example, 3-10,
    *       which means that provisioned IOPS can be between 3 and 10 times storage.</p>
@@ -7782,7 +7381,6 @@ export namespace ValidStorageOptions {
   export const filterSensitiveLog = (obj: ValidStorageOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidStorageOptions => __isa(o, "ValidStorageOptions");
 }
 
 /**
@@ -7790,7 +7388,6 @@ export namespace ValidStorageOptions {
  *       membership.</p>
  */
 export interface VpcSecurityGroupMembership {
-  __type?: "VpcSecurityGroupMembership";
   /**
    * <p>The status of the VPC security group.</p>
    */
@@ -7806,5 +7403,4 @@ export namespace VpcSecurityGroupMembership {
   export const filterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcSecurityGroupMembership => __isa(o, "VpcSecurityGroupMembership");
 }

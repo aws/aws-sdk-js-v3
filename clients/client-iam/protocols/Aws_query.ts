@@ -3461,7 +3461,6 @@ export const deserializeAws_queryCreateAccessKeyCommand = async (
   contents = deserializeAws_queryCreateAccessKeyResponse(data.CreateAccessKeyResult, context);
   const response: CreateAccessKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAccessKeyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3599,7 +3598,6 @@ export const deserializeAws_queryCreateGroupCommand = async (
   contents = deserializeAws_queryCreateGroupResponse(data.CreateGroupResult, context);
   const response: CreateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3678,7 +3676,6 @@ export const deserializeAws_queryCreateInstanceProfileCommand = async (
   contents = deserializeAws_queryCreateInstanceProfileResponse(data.CreateInstanceProfileResult, context);
   const response: CreateInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInstanceProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3749,7 +3746,6 @@ export const deserializeAws_queryCreateLoginProfileCommand = async (
   contents = deserializeAws_queryCreateLoginProfileResponse(data.CreateLoginProfileResult, context);
   const response: CreateLoginProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLoginProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3836,7 +3832,6 @@ export const deserializeAws_queryCreateOpenIDConnectProviderCommand = async (
   contents = deserializeAws_queryCreateOpenIDConnectProviderResponse(data.CreateOpenIDConnectProviderResult, context);
   const response: CreateOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateOpenIDConnectProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3915,7 +3910,6 @@ export const deserializeAws_queryCreatePolicyCommand = async (
   contents = deserializeAws_queryCreatePolicyResponse(data.CreatePolicyResult, context);
   const response: CreatePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4002,7 +3996,6 @@ export const deserializeAws_queryCreatePolicyVersionCommand = async (
   contents = deserializeAws_queryCreatePolicyVersionResponse(data.CreatePolicyVersionResult, context);
   const response: CreatePolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePolicyVersionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4089,7 +4082,6 @@ export const deserializeAws_queryCreateRoleCommand = async (
   contents = deserializeAws_queryCreateRoleResponse(data.CreateRoleResult, context);
   const response: CreateRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRoleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4184,7 +4176,6 @@ export const deserializeAws_queryCreateSAMLProviderCommand = async (
   contents = deserializeAws_queryCreateSAMLProviderResponse(data.CreateSAMLProviderResult, context);
   const response: CreateSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSAMLProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4263,7 +4254,6 @@ export const deserializeAws_queryCreateServiceLinkedRoleCommand = async (
   contents = deserializeAws_queryCreateServiceLinkedRoleResponse(data.CreateServiceLinkedRoleResult, context);
   const response: CreateServiceLinkedRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateServiceLinkedRoleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4345,7 +4335,6 @@ export const deserializeAws_queryCreateServiceSpecificCredentialCommand = async 
   );
   const response: CreateServiceSpecificCredentialCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateServiceSpecificCredentialResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4416,7 +4405,6 @@ export const deserializeAws_queryCreateUserCommand = async (
   contents = deserializeAws_queryCreateUserResponse(data.CreateUserResult, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4511,7 +4499,6 @@ export const deserializeAws_queryCreateVirtualMFADeviceCommand = async (
   contents = deserializeAws_queryCreateVirtualMFADeviceResponse(data.CreateVirtualMFADeviceResult, context);
   const response: CreateVirtualMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVirtualMFADeviceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5766,7 +5753,6 @@ export const deserializeAws_queryDeleteServiceLinkedRoleCommand = async (
   contents = deserializeAws_queryDeleteServiceLinkedRoleResponse(data.DeleteServiceLinkedRoleResult, context);
   const response: DeleteServiceLinkedRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteServiceLinkedRoleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6614,7 +6600,6 @@ export const deserializeAws_queryGenerateCredentialReportCommand = async (
   contents = deserializeAws_queryGenerateCredentialReportResponse(data.GenerateCredentialReportResult, context);
   const response: GenerateCredentialReportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GenerateCredentialReportResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6680,7 +6665,6 @@ export const deserializeAws_queryGenerateOrganizationsAccessReportCommand = asyn
   );
   const response: GenerateOrganizationsAccessReportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GenerateOrganizationsAccessReportResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6738,7 +6722,6 @@ export const deserializeAws_queryGenerateServiceLastAccessedDetailsCommand = asy
   );
   const response: GenerateServiceLastAccessedDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GenerateServiceLastAccessedDetailsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6801,7 +6784,6 @@ export const deserializeAws_queryGetAccessKeyLastUsedCommand = async (
   contents = deserializeAws_queryGetAccessKeyLastUsedResponse(data.GetAccessKeyLastUsedResult, context);
   const response: GetAccessKeyLastUsedCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccessKeyLastUsedResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6851,7 +6833,6 @@ export const deserializeAws_queryGetAccountAuthorizationDetailsCommand = async (
   );
   const response: GetAccountAuthorizationDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccountAuthorizationDetailsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6906,7 +6887,6 @@ export const deserializeAws_queryGetAccountPasswordPolicyCommand = async (
   contents = deserializeAws_queryGetAccountPasswordPolicyResponse(data.GetAccountPasswordPolicyResult, context);
   const response: GetAccountPasswordPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccountPasswordPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6969,7 +6949,6 @@ export const deserializeAws_queryGetAccountSummaryCommand = async (
   contents = deserializeAws_queryGetAccountSummaryResponse(data.GetAccountSummaryResult, context);
   const response: GetAccountSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccountSummaryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7024,7 +7003,6 @@ export const deserializeAws_queryGetContextKeysForCustomPolicyCommand = async (
   contents = deserializeAws_queryGetContextKeysForPolicyResponse(data.GetContextKeysForCustomPolicyResult, context);
   const response: GetContextKeysForCustomPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetContextKeysForPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7079,7 +7057,6 @@ export const deserializeAws_queryGetContextKeysForPrincipalPolicyCommand = async
   contents = deserializeAws_queryGetContextKeysForPolicyResponse(data.GetContextKeysForPrincipalPolicyResult, context);
   const response: GetContextKeysForPrincipalPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetContextKeysForPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7142,7 +7119,6 @@ export const deserializeAws_queryGetCredentialReportCommand = async (
   contents = deserializeAws_queryGetCredentialReportResponse(data.GetCredentialReportResult, context);
   const response: GetCredentialReportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCredentialReportResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7221,7 +7197,6 @@ export const deserializeAws_queryGetGroupCommand = async (
   contents = deserializeAws_queryGetGroupResponse(data.GetGroupResult, context);
   const response: GetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7284,7 +7259,6 @@ export const deserializeAws_queryGetGroupPolicyCommand = async (
   contents = deserializeAws_queryGetGroupPolicyResponse(data.GetGroupPolicyResult, context);
   const response: GetGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGroupPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7347,7 +7321,6 @@ export const deserializeAws_queryGetInstanceProfileCommand = async (
   contents = deserializeAws_queryGetInstanceProfileResponse(data.GetInstanceProfileResult, context);
   const response: GetInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInstanceProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7410,7 +7383,6 @@ export const deserializeAws_queryGetLoginProfileCommand = async (
   contents = deserializeAws_queryGetLoginProfileResponse(data.GetLoginProfileResult, context);
   const response: GetLoginProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLoginProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7473,7 +7445,6 @@ export const deserializeAws_queryGetOpenIDConnectProviderCommand = async (
   contents = deserializeAws_queryGetOpenIDConnectProviderResponse(data.GetOpenIDConnectProviderResult, context);
   const response: GetOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOpenIDConnectProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7544,7 +7515,6 @@ export const deserializeAws_queryGetOrganizationsAccessReportCommand = async (
   contents = deserializeAws_queryGetOrganizationsAccessReportResponse(data.GetOrganizationsAccessReportResult, context);
   const response: GetOrganizationsAccessReportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOrganizationsAccessReportResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7599,7 +7569,6 @@ export const deserializeAws_queryGetPolicyCommand = async (
   contents = deserializeAws_queryGetPolicyResponse(data.GetPolicyResult, context);
   const response: GetPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7670,7 +7639,6 @@ export const deserializeAws_queryGetPolicyVersionCommand = async (
   contents = deserializeAws_queryGetPolicyVersionResponse(data.GetPolicyVersionResult, context);
   const response: GetPolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPolicyVersionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7741,7 +7709,6 @@ export const deserializeAws_queryGetRoleCommand = async (
   contents = deserializeAws_queryGetRoleResponse(data.GetRoleResult, context);
   const response: GetRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRoleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7804,7 +7771,6 @@ export const deserializeAws_queryGetRolePolicyCommand = async (
   contents = deserializeAws_queryGetRolePolicyResponse(data.GetRolePolicyResult, context);
   const response: GetRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRolePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7867,7 +7833,6 @@ export const deserializeAws_queryGetSAMLProviderCommand = async (
   contents = deserializeAws_queryGetSAMLProviderResponse(data.GetSAMLProviderResult, context);
   const response: GetSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSAMLProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7938,7 +7903,6 @@ export const deserializeAws_queryGetServerCertificateCommand = async (
   contents = deserializeAws_queryGetServerCertificateResponse(data.GetServerCertificateResult, context);
   const response: GetServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetServerCertificateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8004,7 +7968,6 @@ export const deserializeAws_queryGetServiceLastAccessedDetailsCommand = async (
   );
   const response: GetServiceLastAccessedDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetServiceLastAccessedDetailsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8070,7 +8033,6 @@ export const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesComman
   );
   const response: GetServiceLastAccessedDetailsWithEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetServiceLastAccessedDetailsWithEntitiesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8136,7 +8098,6 @@ export const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand = asy
   );
   const response: GetServiceLinkedRoleDeletionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetServiceLinkedRoleDeletionStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8207,7 +8168,6 @@ export const deserializeAws_queryGetSSHPublicKeyCommand = async (
   contents = deserializeAws_queryGetSSHPublicKeyResponse(data.GetSSHPublicKeyResult, context);
   const response: GetSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSSHPublicKeyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8270,7 +8230,6 @@ export const deserializeAws_queryGetUserCommand = async (
   contents = deserializeAws_queryGetUserResponse(data.GetUserResult, context);
   const response: GetUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8333,7 +8292,6 @@ export const deserializeAws_queryGetUserPolicyCommand = async (
   contents = deserializeAws_queryGetUserPolicyResponse(data.GetUserPolicyResult, context);
   const response: GetUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUserPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8396,7 +8354,6 @@ export const deserializeAws_queryListAccessKeysCommand = async (
   contents = deserializeAws_queryListAccessKeysResponse(data.ListAccessKeysResult, context);
   const response: ListAccessKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAccessKeysResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8459,7 +8416,6 @@ export const deserializeAws_queryListAccountAliasesCommand = async (
   contents = deserializeAws_queryListAccountAliasesResponse(data.ListAccountAliasesResult, context);
   const response: ListAccountAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAccountAliasesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8514,7 +8470,6 @@ export const deserializeAws_queryListAttachedGroupPoliciesCommand = async (
   contents = deserializeAws_queryListAttachedGroupPoliciesResponse(data.ListAttachedGroupPoliciesResult, context);
   const response: ListAttachedGroupPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAttachedGroupPoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8585,7 +8540,6 @@ export const deserializeAws_queryListAttachedRolePoliciesCommand = async (
   contents = deserializeAws_queryListAttachedRolePoliciesResponse(data.ListAttachedRolePoliciesResult, context);
   const response: ListAttachedRolePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAttachedRolePoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8656,7 +8610,6 @@ export const deserializeAws_queryListAttachedUserPoliciesCommand = async (
   contents = deserializeAws_queryListAttachedUserPoliciesResponse(data.ListAttachedUserPoliciesResult, context);
   const response: ListAttachedUserPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAttachedUserPoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8727,7 +8680,6 @@ export const deserializeAws_queryListEntitiesForPolicyCommand = async (
   contents = deserializeAws_queryListEntitiesForPolicyResponse(data.ListEntitiesForPolicyResult, context);
   const response: ListEntitiesForPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEntitiesForPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8798,7 +8750,6 @@ export const deserializeAws_queryListGroupPoliciesCommand = async (
   contents = deserializeAws_queryListGroupPoliciesResponse(data.ListGroupPoliciesResult, context);
   const response: ListGroupPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGroupPoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8861,7 +8812,6 @@ export const deserializeAws_queryListGroupsCommand = async (
   contents = deserializeAws_queryListGroupsResponse(data.ListGroupsResult, context);
   const response: ListGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8916,7 +8866,6 @@ export const deserializeAws_queryListGroupsForUserCommand = async (
   contents = deserializeAws_queryListGroupsForUserResponse(data.ListGroupsForUserResult, context);
   const response: ListGroupsForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGroupsForUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8979,7 +8928,6 @@ export const deserializeAws_queryListInstanceProfilesCommand = async (
   contents = deserializeAws_queryListInstanceProfilesResponse(data.ListInstanceProfilesResult, context);
   const response: ListInstanceProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInstanceProfilesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9034,7 +8982,6 @@ export const deserializeAws_queryListInstanceProfilesForRoleCommand = async (
   contents = deserializeAws_queryListInstanceProfilesForRoleResponse(data.ListInstanceProfilesForRoleResult, context);
   const response: ListInstanceProfilesForRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInstanceProfilesForRoleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9097,7 +9044,6 @@ export const deserializeAws_queryListMFADevicesCommand = async (
   contents = deserializeAws_queryListMFADevicesResponse(data.ListMFADevicesResult, context);
   const response: ListMFADevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMFADevicesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9160,7 +9106,6 @@ export const deserializeAws_queryListOpenIDConnectProvidersCommand = async (
   contents = deserializeAws_queryListOpenIDConnectProvidersResponse(data.ListOpenIDConnectProvidersResult, context);
   const response: ListOpenIDConnectProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOpenIDConnectProvidersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9215,7 +9160,6 @@ export const deserializeAws_queryListPoliciesCommand = async (
   contents = deserializeAws_queryListPoliciesResponse(data.ListPoliciesResult, context);
   const response: ListPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9273,7 +9217,6 @@ export const deserializeAws_queryListPoliciesGrantingServiceAccessCommand = asyn
   );
   const response: ListPoliciesGrantingServiceAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPoliciesGrantingServiceAccessResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9336,7 +9279,6 @@ export const deserializeAws_queryListPolicyVersionsCommand = async (
   contents = deserializeAws_queryListPolicyVersionsResponse(data.ListPolicyVersionsResult, context);
   const response: ListPolicyVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPolicyVersionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9407,7 +9349,6 @@ export const deserializeAws_queryListRolePoliciesCommand = async (
   contents = deserializeAws_queryListRolePoliciesResponse(data.ListRolePoliciesResult, context);
   const response: ListRolePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRolePoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9470,7 +9411,6 @@ export const deserializeAws_queryListRolesCommand = async (
   contents = deserializeAws_queryListRolesResponse(data.ListRolesResult, context);
   const response: ListRolesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRolesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9525,7 +9465,6 @@ export const deserializeAws_queryListRoleTagsCommand = async (
   contents = deserializeAws_queryListRoleTagsResponse(data.ListRoleTagsResult, context);
   const response: ListRoleTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRoleTagsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9588,7 +9527,6 @@ export const deserializeAws_queryListSAMLProvidersCommand = async (
   contents = deserializeAws_queryListSAMLProvidersResponse(data.ListSAMLProvidersResult, context);
   const response: ListSAMLProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSAMLProvidersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9643,7 +9581,6 @@ export const deserializeAws_queryListServerCertificatesCommand = async (
   contents = deserializeAws_queryListServerCertificatesResponse(data.ListServerCertificatesResult, context);
   const response: ListServerCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListServerCertificatesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9701,7 +9638,6 @@ export const deserializeAws_queryListServiceSpecificCredentialsCommand = async (
   );
   const response: ListServiceSpecificCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListServiceSpecificCredentialsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9764,7 +9700,6 @@ export const deserializeAws_queryListSigningCertificatesCommand = async (
   contents = deserializeAws_queryListSigningCertificatesResponse(data.ListSigningCertificatesResult, context);
   const response: ListSigningCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSigningCertificatesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9827,7 +9762,6 @@ export const deserializeAws_queryListSSHPublicKeysCommand = async (
   contents = deserializeAws_queryListSSHPublicKeysResponse(data.ListSSHPublicKeysResult, context);
   const response: ListSSHPublicKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSSHPublicKeysResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9882,7 +9816,6 @@ export const deserializeAws_queryListUserPoliciesCommand = async (
   contents = deserializeAws_queryListUserPoliciesResponse(data.ListUserPoliciesResult, context);
   const response: ListUserPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUserPoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9945,7 +9878,6 @@ export const deserializeAws_queryListUsersCommand = async (
   contents = deserializeAws_queryListUsersResponse(data.ListUsersResult, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUsersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10000,7 +9932,6 @@ export const deserializeAws_queryListUserTagsCommand = async (
   contents = deserializeAws_queryListUserTagsResponse(data.ListUserTagsResult, context);
   const response: ListUserTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUserTagsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10063,7 +9994,6 @@ export const deserializeAws_queryListVirtualMFADevicesCommand = async (
   contents = deserializeAws_queryListVirtualMFADevicesResponse(data.ListVirtualMFADevicesResult, context);
   const response: ListVirtualMFADevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVirtualMFADevicesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10713,7 +10643,6 @@ export const deserializeAws_queryResetServiceSpecificCredentialCommand = async (
   );
   const response: ResetServiceSpecificCredentialCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResetServiceSpecificCredentialResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10969,7 +10898,6 @@ export const deserializeAws_querySimulateCustomPolicyCommand = async (
   contents = deserializeAws_querySimulatePolicyResponse(data.SimulateCustomPolicyResult, context);
   const response: SimulateCustomPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SimulatePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11032,7 +10960,6 @@ export const deserializeAws_querySimulatePrincipalPolicyCommand = async (
   contents = deserializeAws_querySimulatePolicyResponse(data.SimulatePrincipalPolicyResult, context);
   const response: SimulatePrincipalPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SimulatePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11853,7 +11780,6 @@ export const deserializeAws_queryUpdateRoleCommand = async (
   contents = deserializeAws_queryUpdateRoleResponse(data.UpdateRoleResult, context);
   const response: UpdateRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRoleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11924,7 +11850,6 @@ export const deserializeAws_queryUpdateRoleDescriptionCommand = async (
   contents = deserializeAws_queryUpdateRoleDescriptionResponse(data.UpdateRoleDescriptionResult, context);
   const response: UpdateRoleDescriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRoleDescriptionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11995,7 +11920,6 @@ export const deserializeAws_queryUpdateSAMLProviderCommand = async (
   contents = deserializeAws_queryUpdateSAMLProviderResponse(data.UpdateSAMLProviderResult, context);
   const response: UpdateSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSAMLProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12409,7 +12333,6 @@ export const deserializeAws_queryUploadServerCertificateCommand = async (
   contents = deserializeAws_queryUploadServerCertificateResponse(data.UploadServerCertificateResult, context);
   const response: UploadServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UploadServerCertificateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12496,7 +12419,6 @@ export const deserializeAws_queryUploadSigningCertificateCommand = async (
   contents = deserializeAws_queryUploadSigningCertificateResponse(data.UploadSigningCertificateResult, context);
   const response: UploadSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UploadSigningCertificateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12599,7 +12521,6 @@ export const deserializeAws_queryUploadSSHPublicKeyCommand = async (
   contents = deserializeAws_queryUploadSSHPublicKeyResponse(data.UploadSSHPublicKeyResult, context);
   const response: UploadSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UploadSSHPublicKeyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15232,7 +15153,6 @@ const serializeAws_queryUploadSSHPublicKeyRequest = (
 
 const deserializeAws_queryAccessDetail = (output: any, context: __SerdeContext): AccessDetail => {
   let contents: any = {
-    __type: "AccessDetail",
     ServiceName: undefined,
     EntityPath: undefined,
     TotalAuthenticatedEntities: undefined,
@@ -15267,7 +15187,6 @@ const deserializeAws_queryAccessDetails = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryAccessKey = (output: any, context: __SerdeContext): AccessKey => {
   let contents: any = {
-    __type: "AccessKey",
     AccessKeyId: undefined,
     Status: undefined,
     SecretAccessKey: undefined,
@@ -15294,7 +15213,6 @@ const deserializeAws_queryAccessKey = (output: any, context: __SerdeContext): Ac
 
 const deserializeAws_queryAccessKeyLastUsed = (output: any, context: __SerdeContext): AccessKeyLastUsed => {
   let contents: any = {
-    __type: "AccessKeyLastUsed",
     ServiceName: undefined,
     LastUsedDate: undefined,
     Region: undefined,
@@ -15313,7 +15231,6 @@ const deserializeAws_queryAccessKeyLastUsed = (output: any, context: __SerdeCont
 
 const deserializeAws_queryAccessKeyMetadata = (output: any, context: __SerdeContext): AccessKeyMetadata => {
   let contents: any = {
-    __type: "AccessKeyMetadata",
     AccessKeyId: undefined,
     UserName: undefined,
     Status: undefined,
@@ -15351,7 +15268,6 @@ const deserializeAws_queryAttachedPermissionsBoundary = (
   context: __SerdeContext
 ): AttachedPermissionsBoundary => {
   let contents: any = {
-    __type: "AttachedPermissionsBoundary",
     PermissionsBoundaryArn: undefined,
     PermissionsBoundaryType: undefined,
   };
@@ -15370,7 +15286,6 @@ const deserializeAws_queryattachedPoliciesListType = (output: any, context: __Se
 
 const deserializeAws_queryAttachedPolicy = (output: any, context: __SerdeContext): AttachedPolicy => {
   let contents: any = {
-    __type: "AttachedPolicy",
     PolicyName: undefined,
     PolicyArn: undefined,
   };
@@ -15396,7 +15311,6 @@ const deserializeAws_queryConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   let contents: any = {
-    __type: "ConcurrentModificationException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15411,7 +15325,6 @@ const deserializeAws_queryContextKeyNamesResultListType = (output: any, context:
 
 const deserializeAws_queryCreateAccessKeyResponse = (output: any, context: __SerdeContext): CreateAccessKeyResponse => {
   let contents: any = {
-    __type: "CreateAccessKeyResponse",
     AccessKey: undefined,
   };
   if (output["AccessKey"] !== undefined) {
@@ -15422,7 +15335,6 @@ const deserializeAws_queryCreateAccessKeyResponse = (output: any, context: __Ser
 
 const deserializeAws_queryCreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
   let contents: any = {
-    __type: "CreateGroupResponse",
     Group: undefined,
   };
   if (output["Group"] !== undefined) {
@@ -15436,7 +15348,6 @@ const deserializeAws_queryCreateInstanceProfileResponse = (
   context: __SerdeContext
 ): CreateInstanceProfileResponse => {
   let contents: any = {
-    __type: "CreateInstanceProfileResponse",
     InstanceProfile: undefined,
   };
   if (output["InstanceProfile"] !== undefined) {
@@ -15450,7 +15361,6 @@ const deserializeAws_queryCreateLoginProfileResponse = (
   context: __SerdeContext
 ): CreateLoginProfileResponse => {
   let contents: any = {
-    __type: "CreateLoginProfileResponse",
     LoginProfile: undefined,
   };
   if (output["LoginProfile"] !== undefined) {
@@ -15464,7 +15374,6 @@ const deserializeAws_queryCreateOpenIDConnectProviderResponse = (
   context: __SerdeContext
 ): CreateOpenIDConnectProviderResponse => {
   let contents: any = {
-    __type: "CreateOpenIDConnectProviderResponse",
     OpenIDConnectProviderArn: undefined,
   };
   if (output["OpenIDConnectProviderArn"] !== undefined) {
@@ -15475,7 +15384,6 @@ const deserializeAws_queryCreateOpenIDConnectProviderResponse = (
 
 const deserializeAws_queryCreatePolicyResponse = (output: any, context: __SerdeContext): CreatePolicyResponse => {
   let contents: any = {
-    __type: "CreatePolicyResponse",
     Policy: undefined,
   };
   if (output["Policy"] !== undefined) {
@@ -15489,7 +15397,6 @@ const deserializeAws_queryCreatePolicyVersionResponse = (
   context: __SerdeContext
 ): CreatePolicyVersionResponse => {
   let contents: any = {
-    __type: "CreatePolicyVersionResponse",
     PolicyVersion: undefined,
   };
   if (output["PolicyVersion"] !== undefined) {
@@ -15500,7 +15407,6 @@ const deserializeAws_queryCreatePolicyVersionResponse = (
 
 const deserializeAws_queryCreateRoleResponse = (output: any, context: __SerdeContext): CreateRoleResponse => {
   let contents: any = {
-    __type: "CreateRoleResponse",
     Role: undefined,
   };
   if (output["Role"] !== undefined) {
@@ -15514,7 +15420,6 @@ const deserializeAws_queryCreateSAMLProviderResponse = (
   context: __SerdeContext
 ): CreateSAMLProviderResponse => {
   let contents: any = {
-    __type: "CreateSAMLProviderResponse",
     SAMLProviderArn: undefined,
   };
   if (output["SAMLProviderArn"] !== undefined) {
@@ -15528,7 +15433,6 @@ const deserializeAws_queryCreateServiceLinkedRoleResponse = (
   context: __SerdeContext
 ): CreateServiceLinkedRoleResponse => {
   let contents: any = {
-    __type: "CreateServiceLinkedRoleResponse",
     Role: undefined,
   };
   if (output["Role"] !== undefined) {
@@ -15542,7 +15446,6 @@ const deserializeAws_queryCreateServiceSpecificCredentialResponse = (
   context: __SerdeContext
 ): CreateServiceSpecificCredentialResponse => {
   let contents: any = {
-    __type: "CreateServiceSpecificCredentialResponse",
     ServiceSpecificCredential: undefined,
   };
   if (output["ServiceSpecificCredential"] !== undefined) {
@@ -15556,7 +15459,6 @@ const deserializeAws_queryCreateServiceSpecificCredentialResponse = (
 
 const deserializeAws_queryCreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
   let contents: any = {
-    __type: "CreateUserResponse",
     User: undefined,
   };
   if (output["User"] !== undefined) {
@@ -15570,7 +15472,6 @@ const deserializeAws_queryCreateVirtualMFADeviceResponse = (
   context: __SerdeContext
 ): CreateVirtualMFADeviceResponse => {
   let contents: any = {
-    __type: "CreateVirtualMFADeviceResponse",
     VirtualMFADevice: undefined,
   };
   if (output["VirtualMFADevice"] !== undefined) {
@@ -15584,7 +15485,6 @@ const deserializeAws_queryCredentialReportExpiredException = (
   context: __SerdeContext
 ): CredentialReportExpiredException => {
   let contents: any = {
-    __type: "CredentialReportExpiredException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15598,7 +15498,6 @@ const deserializeAws_queryCredentialReportNotPresentException = (
   context: __SerdeContext
 ): CredentialReportNotPresentException => {
   let contents: any = {
-    __type: "CredentialReportNotPresentException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15612,7 +15511,6 @@ const deserializeAws_queryCredentialReportNotReadyException = (
   context: __SerdeContext
 ): CredentialReportNotReadyException => {
   let contents: any = {
-    __type: "CredentialReportNotReadyException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15623,7 +15521,6 @@ const deserializeAws_queryCredentialReportNotReadyException = (
 
 const deserializeAws_queryDeleteConflictException = (output: any, context: __SerdeContext): DeleteConflictException => {
   let contents: any = {
-    __type: "DeleteConflictException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15637,7 +15534,6 @@ const deserializeAws_queryDeleteServiceLinkedRoleResponse = (
   context: __SerdeContext
 ): DeleteServiceLinkedRoleResponse => {
   let contents: any = {
-    __type: "DeleteServiceLinkedRoleResponse",
     DeletionTaskId: undefined,
   };
   if (output["DeletionTaskId"] !== undefined) {
@@ -15651,7 +15547,6 @@ const deserializeAws_queryDeletionTaskFailureReasonType = (
   context: __SerdeContext
 ): DeletionTaskFailureReasonType => {
   let contents: any = {
-    __type: "DeletionTaskFailureReasonType",
     Reason: undefined,
     RoleUsageList: undefined,
   };
@@ -15675,7 +15570,6 @@ const deserializeAws_queryDuplicateCertificateException = (
   context: __SerdeContext
 ): DuplicateCertificateException => {
   let contents: any = {
-    __type: "DuplicateCertificateException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15689,7 +15583,6 @@ const deserializeAws_queryDuplicateSSHPublicKeyException = (
   context: __SerdeContext
 ): DuplicateSSHPublicKeyException => {
   let contents: any = {
-    __type: "DuplicateSSHPublicKeyException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15703,7 +15596,6 @@ const deserializeAws_queryEntityAlreadyExistsException = (
   context: __SerdeContext
 ): EntityAlreadyExistsException => {
   let contents: any = {
-    __type: "EntityAlreadyExistsException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15714,7 +15606,6 @@ const deserializeAws_queryEntityAlreadyExistsException = (
 
 const deserializeAws_queryEntityDetails = (output: any, context: __SerdeContext): EntityDetails => {
   let contents: any = {
-    __type: "EntityDetails",
     EntityInfo: undefined,
     LastAuthenticated: undefined,
   };
@@ -15733,7 +15624,6 @@ const deserializeAws_queryentityDetailsListType = (output: any, context: __Serde
 
 const deserializeAws_queryEntityInfo = (output: any, context: __SerdeContext): EntityInfo => {
   let contents: any = {
-    __type: "EntityInfo",
     Name: undefined,
     Id: undefined,
     Path: undefined,
@@ -15763,7 +15653,6 @@ const deserializeAws_queryEntityTemporarilyUnmodifiableException = (
   context: __SerdeContext
 ): EntityTemporarilyUnmodifiableException => {
   let contents: any = {
-    __type: "EntityTemporarilyUnmodifiableException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -15774,7 +15663,6 @@ const deserializeAws_queryEntityTemporarilyUnmodifiableException = (
 
 const deserializeAws_queryErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
   let contents: any = {
-    __type: "ErrorDetails",
     Code: undefined,
     Message: undefined,
   };
@@ -15802,7 +15690,6 @@ const deserializeAws_queryEvalDecisionDetailsType = (
 
 const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   let contents: any = {
-    __type: "EvaluationResult",
     EvalDecision: undefined,
     EvalActionName: undefined,
     EvalDecisionDetails: undefined,
@@ -15882,7 +15769,6 @@ const deserializeAws_queryGenerateCredentialReportResponse = (
   context: __SerdeContext
 ): GenerateCredentialReportResponse => {
   let contents: any = {
-    __type: "GenerateCredentialReportResponse",
     State: undefined,
     Description: undefined,
   };
@@ -15900,7 +15786,6 @@ const deserializeAws_queryGenerateOrganizationsAccessReportResponse = (
   context: __SerdeContext
 ): GenerateOrganizationsAccessReportResponse => {
   let contents: any = {
-    __type: "GenerateOrganizationsAccessReportResponse",
     JobId: undefined,
   };
   if (output["JobId"] !== undefined) {
@@ -15914,7 +15799,6 @@ const deserializeAws_queryGenerateServiceLastAccessedDetailsResponse = (
   context: __SerdeContext
 ): GenerateServiceLastAccessedDetailsResponse => {
   let contents: any = {
-    __type: "GenerateServiceLastAccessedDetailsResponse",
     JobId: undefined,
   };
   if (output["JobId"] !== undefined) {
@@ -15928,7 +15812,6 @@ const deserializeAws_queryGetAccessKeyLastUsedResponse = (
   context: __SerdeContext
 ): GetAccessKeyLastUsedResponse => {
   let contents: any = {
-    __type: "GetAccessKeyLastUsedResponse",
     AccessKeyLastUsed: undefined,
     UserName: undefined,
   };
@@ -15946,7 +15829,6 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
   context: __SerdeContext
 ): GetAccountAuthorizationDetailsResponse => {
   let contents: any = {
-    __type: "GetAccountAuthorizationDetailsResponse",
     RoleDetailList: undefined,
     IsTruncated: undefined,
     UserDetailList: undefined,
@@ -16004,7 +15886,6 @@ const deserializeAws_queryGetAccountPasswordPolicyResponse = (
   context: __SerdeContext
 ): GetAccountPasswordPolicyResponse => {
   let contents: any = {
-    __type: "GetAccountPasswordPolicyResponse",
     PasswordPolicy: undefined,
   };
   if (output["PasswordPolicy"] !== undefined) {
@@ -16018,7 +15899,6 @@ const deserializeAws_queryGetAccountSummaryResponse = (
   context: __SerdeContext
 ): GetAccountSummaryResponse => {
   let contents: any = {
-    __type: "GetAccountSummaryResponse",
     SummaryMap: undefined,
   };
   if (output.SummaryMap === "") {
@@ -16038,7 +15918,6 @@ const deserializeAws_queryGetContextKeysForPolicyResponse = (
   context: __SerdeContext
 ): GetContextKeysForPolicyResponse => {
   let contents: any = {
-    __type: "GetContextKeysForPolicyResponse",
     ContextKeyNames: undefined,
   };
   if (output.ContextKeyNames === "") {
@@ -16058,7 +15937,6 @@ const deserializeAws_queryGetCredentialReportResponse = (
   context: __SerdeContext
 ): GetCredentialReportResponse => {
   let contents: any = {
-    __type: "GetCredentialReportResponse",
     Content: undefined,
     ReportFormat: undefined,
     GeneratedTime: undefined,
@@ -16077,7 +15955,6 @@ const deserializeAws_queryGetCredentialReportResponse = (
 
 const deserializeAws_queryGetGroupPolicyResponse = (output: any, context: __SerdeContext): GetGroupPolicyResponse => {
   let contents: any = {
-    __type: "GetGroupPolicyResponse",
     PolicyDocument: undefined,
     PolicyName: undefined,
     GroupName: undefined,
@@ -16096,7 +15973,6 @@ const deserializeAws_queryGetGroupPolicyResponse = (output: any, context: __Serd
 
 const deserializeAws_queryGetGroupResponse = (output: any, context: __SerdeContext): GetGroupResponse => {
   let contents: any = {
-    __type: "GetGroupResponse",
     Group: undefined,
     Marker: undefined,
     Users: undefined,
@@ -16125,7 +16001,6 @@ const deserializeAws_queryGetInstanceProfileResponse = (
   context: __SerdeContext
 ): GetInstanceProfileResponse => {
   let contents: any = {
-    __type: "GetInstanceProfileResponse",
     InstanceProfile: undefined,
   };
   if (output["InstanceProfile"] !== undefined) {
@@ -16136,7 +16011,6 @@ const deserializeAws_queryGetInstanceProfileResponse = (
 
 const deserializeAws_queryGetLoginProfileResponse = (output: any, context: __SerdeContext): GetLoginProfileResponse => {
   let contents: any = {
-    __type: "GetLoginProfileResponse",
     LoginProfile: undefined,
   };
   if (output["LoginProfile"] !== undefined) {
@@ -16150,7 +16024,6 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
   context: __SerdeContext
 ): GetOpenIDConnectProviderResponse => {
   let contents: any = {
-    __type: "GetOpenIDConnectProviderResponse",
     ThumbprintList: undefined,
     Url: undefined,
     CreateDate: undefined,
@@ -16188,7 +16061,6 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
   context: __SerdeContext
 ): GetOrganizationsAccessReportResponse => {
   let contents: any = {
-    __type: "GetOrganizationsAccessReportResponse",
     JobCreationDate: undefined,
     JobStatus: undefined,
     IsTruncated: undefined,
@@ -16237,7 +16109,6 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
 
 const deserializeAws_queryGetPolicyResponse = (output: any, context: __SerdeContext): GetPolicyResponse => {
   let contents: any = {
-    __type: "GetPolicyResponse",
     Policy: undefined,
   };
   if (output["Policy"] !== undefined) {
@@ -16251,7 +16122,6 @@ const deserializeAws_queryGetPolicyVersionResponse = (
   context: __SerdeContext
 ): GetPolicyVersionResponse => {
   let contents: any = {
-    __type: "GetPolicyVersionResponse",
     PolicyVersion: undefined,
   };
   if (output["PolicyVersion"] !== undefined) {
@@ -16262,7 +16132,6 @@ const deserializeAws_queryGetPolicyVersionResponse = (
 
 const deserializeAws_queryGetRolePolicyResponse = (output: any, context: __SerdeContext): GetRolePolicyResponse => {
   let contents: any = {
-    __type: "GetRolePolicyResponse",
     PolicyName: undefined,
     PolicyDocument: undefined,
     RoleName: undefined,
@@ -16281,7 +16150,6 @@ const deserializeAws_queryGetRolePolicyResponse = (output: any, context: __Serde
 
 const deserializeAws_queryGetRoleResponse = (output: any, context: __SerdeContext): GetRoleResponse => {
   let contents: any = {
-    __type: "GetRoleResponse",
     Role: undefined,
   };
   if (output["Role"] !== undefined) {
@@ -16292,7 +16160,6 @@ const deserializeAws_queryGetRoleResponse = (output: any, context: __SerdeContex
 
 const deserializeAws_queryGetSAMLProviderResponse = (output: any, context: __SerdeContext): GetSAMLProviderResponse => {
   let contents: any = {
-    __type: "GetSAMLProviderResponse",
     ValidUntil: undefined,
     SAMLMetadataDocument: undefined,
     CreateDate: undefined,
@@ -16314,7 +16181,6 @@ const deserializeAws_queryGetServerCertificateResponse = (
   context: __SerdeContext
 ): GetServerCertificateResponse => {
   let contents: any = {
-    __type: "GetServerCertificateResponse",
     ServerCertificate: undefined,
   };
   if (output["ServerCertificate"] !== undefined) {
@@ -16328,7 +16194,6 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
   context: __SerdeContext
 ): GetServiceLastAccessedDetailsResponse => {
   let contents: any = {
-    __type: "GetServiceLastAccessedDetailsResponse",
     JobCreationDate: undefined,
     ServicesLastAccessed: undefined,
     JobStatus: undefined,
@@ -16376,7 +16241,6 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse = (
   context: __SerdeContext
 ): GetServiceLastAccessedDetailsWithEntitiesResponse => {
   let contents: any = {
-    __type: "GetServiceLastAccessedDetailsWithEntitiesResponse",
     IsTruncated: undefined,
     Error: undefined,
     JobCompletionDate: undefined,
@@ -16420,7 +16284,6 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusResponse = (
   context: __SerdeContext
 ): GetServiceLinkedRoleDeletionStatusResponse => {
   let contents: any = {
-    __type: "GetServiceLinkedRoleDeletionStatusResponse",
     Reason: undefined,
     Status: undefined,
   };
@@ -16435,7 +16298,6 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusResponse = (
 
 const deserializeAws_queryGetSSHPublicKeyResponse = (output: any, context: __SerdeContext): GetSSHPublicKeyResponse => {
   let contents: any = {
-    __type: "GetSSHPublicKeyResponse",
     SSHPublicKey: undefined,
   };
   if (output["SSHPublicKey"] !== undefined) {
@@ -16446,7 +16308,6 @@ const deserializeAws_queryGetSSHPublicKeyResponse = (output: any, context: __Ser
 
 const deserializeAws_queryGetUserPolicyResponse = (output: any, context: __SerdeContext): GetUserPolicyResponse => {
   let contents: any = {
-    __type: "GetUserPolicyResponse",
     PolicyDocument: undefined,
     PolicyName: undefined,
     UserName: undefined,
@@ -16465,7 +16326,6 @@ const deserializeAws_queryGetUserPolicyResponse = (output: any, context: __Serde
 
 const deserializeAws_queryGetUserResponse = (output: any, context: __SerdeContext): GetUserResponse => {
   let contents: any = {
-    __type: "GetUserResponse",
     User: undefined,
   };
   if (output["User"] !== undefined) {
@@ -16476,7 +16336,6 @@ const deserializeAws_queryGetUserResponse = (output: any, context: __SerdeContex
 
 const deserializeAws_queryGroup = (output: any, context: __SerdeContext): Group => {
   let contents: any = {
-    __type: "Group",
     CreateDate: undefined,
     GroupId: undefined,
     GroupName: undefined,
@@ -16503,7 +16362,6 @@ const deserializeAws_queryGroup = (output: any, context: __SerdeContext): Group 
 
 const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): GroupDetail => {
   let contents: any = {
-    __type: "GroupDetail",
     Arn: undefined,
     GroupPolicyList: undefined,
     Path: undefined,
@@ -16562,7 +16420,6 @@ const deserializeAws_querygroupNameListType = (output: any, context: __SerdeCont
 
 const deserializeAws_queryInstanceProfile = (output: any, context: __SerdeContext): InstanceProfile => {
   let contents: any = {
-    __type: "InstanceProfile",
     Arn: undefined,
     InstanceProfileName: undefined,
     Path: undefined,
@@ -16603,7 +16460,6 @@ const deserializeAws_queryInvalidAuthenticationCodeException = (
   context: __SerdeContext
 ): InvalidAuthenticationCodeException => {
   let contents: any = {
-    __type: "InvalidAuthenticationCodeException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16617,7 +16473,6 @@ const deserializeAws_queryInvalidCertificateException = (
   context: __SerdeContext
 ): InvalidCertificateException => {
   let contents: any = {
-    __type: "InvalidCertificateException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16628,7 +16483,6 @@ const deserializeAws_queryInvalidCertificateException = (
 
 const deserializeAws_queryInvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   let contents: any = {
-    __type: "InvalidInputException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16642,7 +16496,6 @@ const deserializeAws_queryInvalidPublicKeyException = (
   context: __SerdeContext
 ): InvalidPublicKeyException => {
   let contents: any = {
-    __type: "InvalidPublicKeyException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16656,7 +16509,6 @@ const deserializeAws_queryInvalidUserTypeException = (
   context: __SerdeContext
 ): InvalidUserTypeException => {
   let contents: any = {
-    __type: "InvalidUserTypeException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16670,7 +16522,6 @@ const deserializeAws_queryKeyPairMismatchException = (
   context: __SerdeContext
 ): KeyPairMismatchException => {
   let contents: any = {
-    __type: "KeyPairMismatchException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16681,7 +16532,6 @@ const deserializeAws_queryKeyPairMismatchException = (
 
 const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   let contents: any = {
-    __type: "LimitExceededException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -16692,7 +16542,6 @@ const deserializeAws_queryLimitExceededException = (output: any, context: __Serd
 
 const deserializeAws_queryListAccessKeysResponse = (output: any, context: __SerdeContext): ListAccessKeysResponse => {
   let contents: any = {
-    __type: "ListAccessKeysResponse",
     AccessKeyMetadata: undefined,
     Marker: undefined,
     IsTruncated: undefined,
@@ -16720,7 +16569,6 @@ const deserializeAws_queryListAccountAliasesResponse = (
   context: __SerdeContext
 ): ListAccountAliasesResponse => {
   let contents: any = {
-    __type: "ListAccountAliasesResponse",
     IsTruncated: undefined,
     AccountAliases: undefined,
     Marker: undefined,
@@ -16748,7 +16596,6 @@ const deserializeAws_queryListAttachedGroupPoliciesResponse = (
   context: __SerdeContext
 ): ListAttachedGroupPoliciesResponse => {
   let contents: any = {
-    __type: "ListAttachedGroupPoliciesResponse",
     Marker: undefined,
     IsTruncated: undefined,
     AttachedPolicies: undefined,
@@ -16776,7 +16623,6 @@ const deserializeAws_queryListAttachedRolePoliciesResponse = (
   context: __SerdeContext
 ): ListAttachedRolePoliciesResponse => {
   let contents: any = {
-    __type: "ListAttachedRolePoliciesResponse",
     AttachedPolicies: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -16804,7 +16650,6 @@ const deserializeAws_queryListAttachedUserPoliciesResponse = (
   context: __SerdeContext
 ): ListAttachedUserPoliciesResponse => {
   let contents: any = {
-    __type: "ListAttachedUserPoliciesResponse",
     Marker: undefined,
     AttachedPolicies: undefined,
     IsTruncated: undefined,
@@ -16832,7 +16677,6 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
   context: __SerdeContext
 ): ListEntitiesForPolicyResponse => {
   let contents: any = {
-    __type: "ListEntitiesForPolicyResponse",
     Marker: undefined,
     PolicyUsers: undefined,
     IsTruncated: undefined,
@@ -16880,7 +16724,6 @@ const deserializeAws_queryListGroupPoliciesResponse = (
   context: __SerdeContext
 ): ListGroupPoliciesResponse => {
   let contents: any = {
-    __type: "ListGroupPoliciesResponse",
     PolicyNames: undefined,
     Marker: undefined,
     IsTruncated: undefined,
@@ -16908,7 +16751,6 @@ const deserializeAws_queryListGroupsForUserResponse = (
   context: __SerdeContext
 ): ListGroupsForUserResponse => {
   let contents: any = {
-    __type: "ListGroupsForUserResponse",
     IsTruncated: undefined,
     Groups: undefined,
     Marker: undefined,
@@ -16930,7 +16772,6 @@ const deserializeAws_queryListGroupsForUserResponse = (
 
 const deserializeAws_queryListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
   let contents: any = {
-    __type: "ListGroupsResponse",
     Marker: undefined,
     IsTruncated: undefined,
     Groups: undefined,
@@ -16955,7 +16796,6 @@ const deserializeAws_queryListInstanceProfilesForRoleResponse = (
   context: __SerdeContext
 ): ListInstanceProfilesForRoleResponse => {
   let contents: any = {
-    __type: "ListInstanceProfilesForRoleResponse",
     InstanceProfiles: undefined,
     Marker: undefined,
     IsTruncated: undefined,
@@ -16983,7 +16823,6 @@ const deserializeAws_queryListInstanceProfilesResponse = (
   context: __SerdeContext
 ): ListInstanceProfilesResponse => {
   let contents: any = {
-    __type: "ListInstanceProfilesResponse",
     Marker: undefined,
     InstanceProfiles: undefined,
     IsTruncated: undefined,
@@ -17008,7 +16847,6 @@ const deserializeAws_queryListInstanceProfilesResponse = (
 
 const deserializeAws_queryListMFADevicesResponse = (output: any, context: __SerdeContext): ListMFADevicesResponse => {
   let contents: any = {
-    __type: "ListMFADevicesResponse",
     MFADevices: undefined,
     Marker: undefined,
     IsTruncated: undefined,
@@ -17036,7 +16874,6 @@ const deserializeAws_queryListOpenIDConnectProvidersResponse = (
   context: __SerdeContext
 ): ListOpenIDConnectProvidersResponse => {
   let contents: any = {
-    __type: "ListOpenIDConnectProvidersResponse",
     OpenIDConnectProviderList: undefined,
   };
   if (output.OpenIDConnectProviderList === "") {
@@ -17059,7 +16896,6 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessEntry = (
   context: __SerdeContext
 ): ListPoliciesGrantingServiceAccessEntry => {
   let contents: any = {
-    __type: "ListPoliciesGrantingServiceAccessEntry",
     ServiceNamespace: undefined,
     Policies: undefined,
   };
@@ -17083,7 +16919,6 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessResponse = (
   context: __SerdeContext
 ): ListPoliciesGrantingServiceAccessResponse => {
   let contents: any = {
-    __type: "ListPoliciesGrantingServiceAccessResponse",
     PoliciesGrantingServiceAccess: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -17111,7 +16946,6 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessResponse = (
 
 const deserializeAws_queryListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
   let contents: any = {
-    __type: "ListPoliciesResponse",
     Marker: undefined,
     IsTruncated: undefined,
     Policies: undefined,
@@ -17146,7 +16980,6 @@ const deserializeAws_queryListPolicyVersionsResponse = (
   context: __SerdeContext
 ): ListPolicyVersionsResponse => {
   let contents: any = {
-    __type: "ListPolicyVersionsResponse",
     IsTruncated: undefined,
     Versions: undefined,
     Marker: undefined,
@@ -17174,7 +17007,6 @@ const deserializeAws_queryListRolePoliciesResponse = (
   context: __SerdeContext
 ): ListRolePoliciesResponse => {
   let contents: any = {
-    __type: "ListRolePoliciesResponse",
     PolicyNames: undefined,
     Marker: undefined,
     IsTruncated: undefined,
@@ -17199,7 +17031,6 @@ const deserializeAws_queryListRolePoliciesResponse = (
 
 const deserializeAws_queryListRolesResponse = (output: any, context: __SerdeContext): ListRolesResponse => {
   let contents: any = {
-    __type: "ListRolesResponse",
     Marker: undefined,
     IsTruncated: undefined,
     Roles: undefined,
@@ -17221,7 +17052,6 @@ const deserializeAws_queryListRolesResponse = (output: any, context: __SerdeCont
 
 const deserializeAws_queryListRoleTagsResponse = (output: any, context: __SerdeContext): ListRoleTagsResponse => {
   let contents: any = {
-    __type: "ListRoleTagsResponse",
     IsTruncated: undefined,
     Marker: undefined,
     Tags: undefined,
@@ -17246,7 +17076,6 @@ const deserializeAws_queryListSAMLProvidersResponse = (
   context: __SerdeContext
 ): ListSAMLProvidersResponse => {
   let contents: any = {
-    __type: "ListSAMLProvidersResponse",
     SAMLProviderList: undefined,
   };
   if (output.SAMLProviderList === "") {
@@ -17266,7 +17095,6 @@ const deserializeAws_queryListServerCertificatesResponse = (
   context: __SerdeContext
 ): ListServerCertificatesResponse => {
   let contents: any = {
-    __type: "ListServerCertificatesResponse",
     ServerCertificateMetadataList: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -17297,7 +17125,6 @@ const deserializeAws_queryListServiceSpecificCredentialsResponse = (
   context: __SerdeContext
 ): ListServiceSpecificCredentialsResponse => {
   let contents: any = {
-    __type: "ListServiceSpecificCredentialsResponse",
     ServiceSpecificCredentials: undefined,
   };
   if (output.ServiceSpecificCredentials === "") {
@@ -17320,7 +17147,6 @@ const deserializeAws_queryListSigningCertificatesResponse = (
   context: __SerdeContext
 ): ListSigningCertificatesResponse => {
   let contents: any = {
-    __type: "ListSigningCertificatesResponse",
     Marker: undefined,
     Certificates: undefined,
     IsTruncated: undefined,
@@ -17348,7 +17174,6 @@ const deserializeAws_queryListSSHPublicKeysResponse = (
   context: __SerdeContext
 ): ListSSHPublicKeysResponse => {
   let contents: any = {
-    __type: "ListSSHPublicKeysResponse",
     IsTruncated: undefined,
     Marker: undefined,
     SSHPublicKeys: undefined,
@@ -17376,7 +17201,6 @@ const deserializeAws_queryListUserPoliciesResponse = (
   context: __SerdeContext
 ): ListUserPoliciesResponse => {
   let contents: any = {
-    __type: "ListUserPoliciesResponse",
     PolicyNames: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -17401,7 +17225,6 @@ const deserializeAws_queryListUserPoliciesResponse = (
 
 const deserializeAws_queryListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   let contents: any = {
-    __type: "ListUsersResponse",
     Users: undefined,
     Marker: undefined,
     IsTruncated: undefined,
@@ -17423,7 +17246,6 @@ const deserializeAws_queryListUsersResponse = (output: any, context: __SerdeCont
 
 const deserializeAws_queryListUserTagsResponse = (output: any, context: __SerdeContext): ListUserTagsResponse => {
   let contents: any = {
-    __type: "ListUserTagsResponse",
     Tags: undefined,
     IsTruncated: undefined,
     Marker: undefined,
@@ -17448,7 +17270,6 @@ const deserializeAws_queryListVirtualMFADevicesResponse = (
   context: __SerdeContext
 ): ListVirtualMFADevicesResponse => {
   let contents: any = {
-    __type: "ListVirtualMFADevicesResponse",
     IsTruncated: undefined,
     VirtualMFADevices: undefined,
     Marker: undefined,
@@ -17473,7 +17294,6 @@ const deserializeAws_queryListVirtualMFADevicesResponse = (
 
 const deserializeAws_queryLoginProfile = (output: any, context: __SerdeContext): LoginProfile => {
   let contents: any = {
-    __type: "LoginProfile",
     CreateDate: undefined,
     PasswordResetRequired: undefined,
     UserName: undefined,
@@ -17495,7 +17315,6 @@ const deserializeAws_queryMalformedCertificateException = (
   context: __SerdeContext
 ): MalformedCertificateException => {
   let contents: any = {
-    __type: "MalformedCertificateException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17509,7 +17328,6 @@ const deserializeAws_queryMalformedPolicyDocumentException = (
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
   let contents: any = {
-    __type: "MalformedPolicyDocumentException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17520,7 +17338,6 @@ const deserializeAws_queryMalformedPolicyDocumentException = (
 
 const deserializeAws_queryManagedPolicyDetail = (output: any, context: __SerdeContext): ManagedPolicyDetail => {
   let contents: any = {
-    __type: "ManagedPolicyDetail",
     PolicyName: undefined,
     CreateDate: undefined,
     IsAttachable: undefined,
@@ -17588,7 +17405,6 @@ const deserializeAws_queryManagedPolicyDetailListType = (
 
 const deserializeAws_queryMFADevice = (output: any, context: __SerdeContext): MFADevice => {
   let contents: any = {
-    __type: "MFADevice",
     UserName: undefined,
     SerialNumber: undefined,
     EnableDate: undefined,
@@ -17611,7 +17427,6 @@ const deserializeAws_querymfaDeviceListType = (output: any, context: __SerdeCont
 
 const deserializeAws_queryNoSuchEntityException = (output: any, context: __SerdeContext): NoSuchEntityException => {
   let contents: any = {
-    __type: "NoSuchEntityException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17625,7 +17440,6 @@ const deserializeAws_queryOpenIDConnectProviderListEntry = (
   context: __SerdeContext
 ): OpenIDConnectProviderListEntry => {
   let contents: any = {
-    __type: "OpenIDConnectProviderListEntry",
     Arn: undefined,
   };
   if (output["Arn"] !== undefined) {
@@ -17646,7 +17460,6 @@ const deserializeAws_queryOrganizationsDecisionDetail = (
   context: __SerdeContext
 ): OrganizationsDecisionDetail => {
   let contents: any = {
-    __type: "OrganizationsDecisionDetail",
     AllowedByOrganizations: undefined,
   };
   if (output["AllowedByOrganizations"] !== undefined) {
@@ -17657,7 +17470,6 @@ const deserializeAws_queryOrganizationsDecisionDetail = (
 
 const deserializeAws_queryPasswordPolicy = (output: any, context: __SerdeContext): PasswordPolicy => {
   let contents: any = {
-    __type: "PasswordPolicy",
     RequireLowercaseCharacters: undefined,
     MinimumPasswordLength: undefined,
     RequireNumbers: undefined,
@@ -17707,7 +17519,6 @@ const deserializeAws_queryPasswordPolicyViolationException = (
   context: __SerdeContext
 ): PasswordPolicyViolationException => {
   let contents: any = {
-    __type: "PasswordPolicyViolationException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17721,7 +17532,6 @@ const deserializeAws_queryPermissionsBoundaryDecisionDetail = (
   context: __SerdeContext
 ): PermissionsBoundaryDecisionDetail => {
   let contents: any = {
-    __type: "PermissionsBoundaryDecisionDetail",
     AllowedByPermissionsBoundary: undefined,
   };
   if (output["AllowedByPermissionsBoundary"] !== undefined) {
@@ -17732,7 +17542,6 @@ const deserializeAws_queryPermissionsBoundaryDecisionDetail = (
 
 const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Policy => {
   let contents: any = {
-    __type: "Policy",
     Arn: undefined,
     PolicyId: undefined,
     CreateDate: undefined,
@@ -17783,7 +17592,6 @@ const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Polic
 
 const deserializeAws_queryPolicyDetail = (output: any, context: __SerdeContext): PolicyDetail => {
   let contents: any = {
-    __type: "PolicyDetail",
     PolicyDocument: undefined,
     PolicyName: undefined,
   };
@@ -17809,7 +17617,6 @@ const deserializeAws_queryPolicyEvaluationException = (
   context: __SerdeContext
 ): PolicyEvaluationException => {
   let contents: any = {
-    __type: "PolicyEvaluationException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17823,7 +17630,6 @@ const deserializeAws_queryPolicyGrantingServiceAccess = (
   context: __SerdeContext
 ): PolicyGrantingServiceAccess => {
   let contents: any = {
-    __type: "PolicyGrantingServiceAccess",
     PolicyType: undefined,
     PolicyName: undefined,
     EntityName: undefined,
@@ -17857,7 +17663,6 @@ const deserializeAws_querypolicyGrantingServiceAccessListType = (
 
 const deserializeAws_queryPolicyGroup = (output: any, context: __SerdeContext): PolicyGroup => {
   let contents: any = {
-    __type: "PolicyGroup",
     GroupId: undefined,
     GroupName: undefined,
   };
@@ -17887,7 +17692,6 @@ const deserializeAws_queryPolicyNotAttachableException = (
   context: __SerdeContext
 ): PolicyNotAttachableException => {
   let contents: any = {
-    __type: "PolicyNotAttachableException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17898,7 +17702,6 @@ const deserializeAws_queryPolicyNotAttachableException = (
 
 const deserializeAws_queryPolicyRole = (output: any, context: __SerdeContext): PolicyRole => {
   let contents: any = {
-    __type: "PolicyRole",
     RoleName: undefined,
     RoleId: undefined,
   };
@@ -17917,7 +17720,6 @@ const deserializeAws_queryPolicyRoleListType = (output: any, context: __SerdeCon
 
 const deserializeAws_queryPolicyUser = (output: any, context: __SerdeContext): PolicyUser => {
   let contents: any = {
-    __type: "PolicyUser",
     UserName: undefined,
     UserId: undefined,
   };
@@ -17936,7 +17738,6 @@ const deserializeAws_queryPolicyUserListType = (output: any, context: __SerdeCon
 
 const deserializeAws_queryPolicyVersion = (output: any, context: __SerdeContext): PolicyVersion => {
   let contents: any = {
-    __type: "PolicyVersion",
     IsDefaultVersion: undefined,
     Document: undefined,
     CreateDate: undefined,
@@ -17959,7 +17760,6 @@ const deserializeAws_queryPolicyVersion = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryPosition = (output: any, context: __SerdeContext): Position => {
   let contents: any = {
-    __type: "Position",
     Column: undefined,
     Line: undefined,
   };
@@ -17977,7 +17777,6 @@ const deserializeAws_queryReportGenerationLimitExceededException = (
   context: __SerdeContext
 ): ReportGenerationLimitExceededException => {
   let contents: any = {
-    __type: "ReportGenerationLimitExceededException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -17991,7 +17790,6 @@ const deserializeAws_queryResetServiceSpecificCredentialResponse = (
   context: __SerdeContext
 ): ResetServiceSpecificCredentialResponse => {
   let contents: any = {
-    __type: "ResetServiceSpecificCredentialResponse",
     ServiceSpecificCredential: undefined,
   };
   if (output["ServiceSpecificCredential"] !== undefined) {
@@ -18005,7 +17803,6 @@ const deserializeAws_queryResetServiceSpecificCredentialResponse = (
 
 const deserializeAws_queryResourceSpecificResult = (output: any, context: __SerdeContext): ResourceSpecificResult => {
   let contents: any = {
-    __type: "ResourceSpecificResult",
     PermissionsBoundaryDecisionDetail: undefined,
     MissingContextValues: undefined,
     EvalDecisionDetails: undefined,
@@ -18064,7 +17861,6 @@ const deserializeAws_queryResourceSpecificResultListType = (
 
 const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role => {
   let contents: any = {
-    __type: "Role",
     CreateDate: undefined,
     Tags: undefined,
     AssumeRolePolicyDocument: undefined,
@@ -18121,7 +17917,6 @@ const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role =>
 
 const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): RoleDetail => {
   let contents: any = {
-    __type: "RoleDetail",
     PermissionsBoundary: undefined,
     RoleName: undefined,
     Arn: undefined,
@@ -18204,7 +17999,6 @@ const deserializeAws_queryroleDetailListType = (output: any, context: __SerdeCon
 
 const deserializeAws_queryRoleLastUsed = (output: any, context: __SerdeContext): RoleLastUsed => {
   let contents: any = {
-    __type: "RoleLastUsed",
     Region: undefined,
     LastUsedDate: undefined,
   };
@@ -18227,7 +18021,6 @@ const deserializeAws_queryRoleUsageListType = (output: any, context: __SerdeCont
 
 const deserializeAws_queryRoleUsageType = (output: any, context: __SerdeContext): RoleUsageType => {
   let contents: any = {
-    __type: "RoleUsageType",
     Resources: undefined,
     Region: undefined,
   };
@@ -18248,7 +18041,6 @@ const deserializeAws_queryRoleUsageType = (output: any, context: __SerdeContext)
 
 const deserializeAws_querySAMLProviderListEntry = (output: any, context: __SerdeContext): SAMLProviderListEntry => {
   let contents: any = {
-    __type: "SAMLProviderListEntry",
     Arn: undefined,
     CreateDate: undefined,
     ValidUntil: undefined,
@@ -18271,7 +18063,6 @@ const deserializeAws_querySAMLProviderListType = (output: any, context: __SerdeC
 
 const deserializeAws_queryServerCertificate = (output: any, context: __SerdeContext): ServerCertificate => {
   let contents: any = {
-    __type: "ServerCertificate",
     ServerCertificateMetadata: undefined,
     CertificateChain: undefined,
     CertificateBody: undefined,
@@ -18296,7 +18087,6 @@ const deserializeAws_queryServerCertificateMetadata = (
   context: __SerdeContext
 ): ServerCertificateMetadata => {
   let contents: any = {
-    __type: "ServerCertificateMetadata",
     ServerCertificateId: undefined,
     ServerCertificateName: undefined,
     Expiration: undefined,
@@ -18334,7 +18124,6 @@ const deserializeAws_queryserverCertificateMetadataListType = (
 
 const deserializeAws_queryServiceFailureException = (output: any, context: __SerdeContext): ServiceFailureException => {
   let contents: any = {
-    __type: "ServiceFailureException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18345,7 +18134,6 @@ const deserializeAws_queryServiceFailureException = (output: any, context: __Ser
 
 const deserializeAws_queryServiceLastAccessed = (output: any, context: __SerdeContext): ServiceLastAccessed => {
   let contents: any = {
-    __type: "ServiceLastAccessed",
     TrackedActionsLastAccessed: undefined,
     ServiceName: undefined,
     LastAuthenticated: undefined,
@@ -18392,7 +18180,6 @@ const deserializeAws_queryServiceNotSupportedException = (
   context: __SerdeContext
 ): ServiceNotSupportedException => {
   let contents: any = {
-    __type: "ServiceNotSupportedException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18410,7 +18197,6 @@ const deserializeAws_queryServiceSpecificCredential = (
   context: __SerdeContext
 ): ServiceSpecificCredential => {
   let contents: any = {
-    __type: "ServiceSpecificCredential",
     UserName: undefined,
     CreateDate: undefined,
     ServiceUserName: undefined,
@@ -18448,7 +18234,6 @@ const deserializeAws_queryServiceSpecificCredentialMetadata = (
   context: __SerdeContext
 ): ServiceSpecificCredentialMetadata => {
   let contents: any = {
-    __type: "ServiceSpecificCredentialMetadata",
     ServiceSpecificCredentialId: undefined,
     ServiceUserName: undefined,
     ServiceName: undefined,
@@ -18486,7 +18271,6 @@ const deserializeAws_queryServiceSpecificCredentialsListType = (
 
 const deserializeAws_querySigningCertificate = (output: any, context: __SerdeContext): SigningCertificate => {
   let contents: any = {
-    __type: "SigningCertificate",
     CertificateBody: undefined,
     CertificateId: undefined,
     Status: undefined,
@@ -18513,7 +18297,6 @@ const deserializeAws_querySigningCertificate = (output: any, context: __SerdeCon
 
 const deserializeAws_querySimulatePolicyResponse = (output: any, context: __SerdeContext): SimulatePolicyResponse => {
   let contents: any = {
-    __type: "SimulatePolicyResponse",
     IsTruncated: undefined,
     Marker: undefined,
     EvaluationResults: undefined,
@@ -18538,7 +18321,6 @@ const deserializeAws_querySimulatePolicyResponse = (output: any, context: __Serd
 
 const deserializeAws_querySSHPublicKey = (output: any, context: __SerdeContext): SSHPublicKey => {
   let contents: any = {
-    __type: "SSHPublicKey",
     UploadDate: undefined,
     UserName: undefined,
     Status: undefined,
@@ -18573,7 +18355,6 @@ const deserializeAws_querySSHPublicKeyListType = (output: any, context: __SerdeC
 
 const deserializeAws_querySSHPublicKeyMetadata = (output: any, context: __SerdeContext): SSHPublicKeyMetadata => {
   let contents: any = {
-    __type: "SSHPublicKeyMetadata",
     UploadDate: undefined,
     Status: undefined,
     UserName: undefined,
@@ -18596,7 +18377,6 @@ const deserializeAws_querySSHPublicKeyMetadata = (output: any, context: __SerdeC
 
 const deserializeAws_queryStatement = (output: any, context: __SerdeContext): Statement => {
   let contents: any = {
-    __type: "Statement",
     SourcePolicyId: undefined,
     EndPosition: undefined,
     SourcePolicyType: undefined,
@@ -18633,7 +18413,6 @@ const deserializeAws_querysummaryMapType = (output: any, context: __SerdeContext
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    __type: "Tag",
     Key: undefined,
     Value: undefined,
   };
@@ -18659,7 +18438,6 @@ const deserializeAws_queryTrackedActionLastAccessed = (
   context: __SerdeContext
 ): TrackedActionLastAccessed => {
   let contents: any = {
-    __type: "TrackedActionLastAccessed",
     LastAccessedTime: undefined,
     LastAccessedEntity: undefined,
     LastAccessedRegion: undefined,
@@ -18692,7 +18470,6 @@ const deserializeAws_queryUnmodifiableEntityException = (
   context: __SerdeContext
 ): UnmodifiableEntityException => {
   let contents: any = {
-    __type: "UnmodifiableEntityException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18706,7 +18483,6 @@ const deserializeAws_queryUnrecognizedPublicKeyEncodingException = (
   context: __SerdeContext
 ): UnrecognizedPublicKeyEncodingException => {
   let contents: any = {
-    __type: "UnrecognizedPublicKeyEncodingException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -18720,7 +18496,6 @@ const deserializeAws_queryUpdateRoleDescriptionResponse = (
   context: __SerdeContext
 ): UpdateRoleDescriptionResponse => {
   let contents: any = {
-    __type: "UpdateRoleDescriptionResponse",
     Role: undefined,
   };
   if (output["Role"] !== undefined) {
@@ -18730,9 +18505,7 @@ const deserializeAws_queryUpdateRoleDescriptionResponse = (
 };
 
 const deserializeAws_queryUpdateRoleResponse = (output: any, context: __SerdeContext): UpdateRoleResponse => {
-  let contents: any = {
-    __type: "UpdateRoleResponse",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -18741,7 +18514,6 @@ const deserializeAws_queryUpdateSAMLProviderResponse = (
   context: __SerdeContext
 ): UpdateSAMLProviderResponse => {
   let contents: any = {
-    __type: "UpdateSAMLProviderResponse",
     SAMLProviderArn: undefined,
   };
   if (output["SAMLProviderArn"] !== undefined) {
@@ -18755,7 +18527,6 @@ const deserializeAws_queryUploadServerCertificateResponse = (
   context: __SerdeContext
 ): UploadServerCertificateResponse => {
   let contents: any = {
-    __type: "UploadServerCertificateResponse",
     ServerCertificateMetadata: undefined,
   };
   if (output["ServerCertificateMetadata"] !== undefined) {
@@ -18772,7 +18543,6 @@ const deserializeAws_queryUploadSigningCertificateResponse = (
   context: __SerdeContext
 ): UploadSigningCertificateResponse => {
   let contents: any = {
-    __type: "UploadSigningCertificateResponse",
     Certificate: undefined,
   };
   if (output["Certificate"] !== undefined) {
@@ -18786,7 +18556,6 @@ const deserializeAws_queryUploadSSHPublicKeyResponse = (
   context: __SerdeContext
 ): UploadSSHPublicKeyResponse => {
   let contents: any = {
-    __type: "UploadSSHPublicKeyResponse",
     SSHPublicKey: undefined,
   };
   if (output["SSHPublicKey"] !== undefined) {
@@ -18797,7 +18566,6 @@ const deserializeAws_queryUploadSSHPublicKeyResponse = (
 
 const deserializeAws_queryUser = (output: any, context: __SerdeContext): User => {
   let contents: any = {
-    __type: "User",
     UserId: undefined,
     UserName: undefined,
     PasswordLastUsed: undefined,
@@ -18842,7 +18610,6 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
 
 const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): UserDetail => {
   let contents: any = {
-    __type: "UserDetail",
     Arn: undefined,
     PermissionsBoundary: undefined,
     Tags: undefined,
@@ -18921,7 +18688,6 @@ const deserializeAws_queryuserListType = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryVirtualMFADevice = (output: any, context: __SerdeContext): VirtualMFADevice => {
   let contents: any = {
-    __type: "VirtualMFADevice",
     QRCodePNG: undefined,
     EnableDate: undefined,
     SerialNumber: undefined,

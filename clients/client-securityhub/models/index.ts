@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptInvitationRequest {
-  __type?: "AcceptInvitationRequest";
   /**
    * <p>The account ID of the Security Hub master account that sent the invitation.</p>
    */
@@ -18,18 +17,14 @@ export namespace AcceptInvitationRequest {
   export const filterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptInvitationRequest => __isa(o, "AcceptInvitationRequest");
 }
 
-export interface AcceptInvitationResponse {
-  __type?: "AcceptInvitationResponse";
-}
+export interface AcceptInvitationResponse {}
 
 export namespace AcceptInvitationResponse {
   export const filterSensitiveLog = (obj: AcceptInvitationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptInvitationResponse => __isa(o, "AcceptInvitationResponse");
 }
 
 /**
@@ -46,14 +41,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>The details of an AWS account.</p>
  */
 export interface AccountDetails {
-  __type?: "AccountDetails";
   /**
    * <p>The ID of an AWS account.</p>
    */
@@ -69,14 +62,12 @@ export namespace AccountDetails {
   export const filterSensitiveLog = (obj: AccountDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountDetails => __isa(o, "AccountDetails");
 }
 
 /**
  * <p>An <code>ActionTarget</code> object.</p>
  */
 export interface ActionTarget {
-  __type?: "ActionTarget";
   /**
    * <p>The ARN for the target action.</p>
    */
@@ -97,14 +88,12 @@ export namespace ActionTarget {
   export const filterSensitiveLog = (obj: ActionTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActionTarget => __isa(o, "ActionTarget");
 }
 
 /**
  * <p>Information about an Availability Zone.</p>
  */
 export interface AvailabilityZone {
-  __type?: "AvailabilityZone";
   /**
    * <p>The ID of the subnet. You can specify one subnet per Availability Zone.</p>
    */
@@ -120,14 +109,12 @@ export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 /**
  * <p>Provides details about an auto scaling group.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupDetails {
-  __type?: "AwsAutoScalingAutoScalingGroupDetails";
   /**
    * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before it checks the
    *          health status of an EC2 instance that has come into service.</p>
@@ -159,15 +146,12 @@ export namespace AwsAutoScalingAutoScalingGroupDetails {
   export const filterSensitiveLog = (obj: AwsAutoScalingAutoScalingGroupDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsAutoScalingAutoScalingGroupDetails =>
-    __isa(o, "AwsAutoScalingAutoScalingGroupDetails");
 }
 
 /**
  * <p>A distribution configuration.</p>
  */
 export interface AwsCloudFrontDistributionDetails {
-  __type?: "AwsCloudFrontDistributionDetails";
   /**
    * <p>The date and time that the distribution was last modified.</p>
    */
@@ -208,14 +192,12 @@ export namespace AwsCloudFrontDistributionDetails {
   export const filterSensitiveLog = (obj: AwsCloudFrontDistributionDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsCloudFrontDistributionDetails => __isa(o, "AwsCloudFrontDistributionDetails");
 }
 
 /**
  * <p>A complex type that controls whether access logs are written for the distribution.</p>
  */
 export interface AwsCloudFrontDistributionLogging {
-  __type?: "AwsCloudFrontDistributionLogging";
   /**
    * <p>With this field, you can enable or disable the selected distribution.</p>
    */
@@ -242,7 +224,6 @@ export namespace AwsCloudFrontDistributionLogging {
   export const filterSensitiveLog = (obj: AwsCloudFrontDistributionLogging): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsCloudFrontDistributionLogging => __isa(o, "AwsCloudFrontDistributionLogging");
 }
 
 /**
@@ -251,7 +232,6 @@ export namespace AwsCloudFrontDistributionLogging {
  *          files.</p>
  */
 export interface AwsCloudFrontDistributionOriginItem {
-  __type?: "AwsCloudFrontDistributionOriginItem";
   /**
    * <p>A unique identifier for the origin or origin group.</p>
    */
@@ -272,15 +252,12 @@ export namespace AwsCloudFrontDistributionOriginItem {
   export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOriginItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsCloudFrontDistributionOriginItem =>
-    __isa(o, "AwsCloudFrontDistributionOriginItem");
 }
 
 /**
  * <p>A complex type that contains information about origins and origin groups for this distribution.</p>
  */
 export interface AwsCloudFrontDistributionOrigins {
-  __type?: "AwsCloudFrontDistributionOrigins";
   /**
    * <p>A complex type that contains origins or origin groups for this distribution.</p>
    */
@@ -291,14 +268,12 @@ export namespace AwsCloudFrontDistributionOrigins {
   export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOrigins): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsCloudFrontDistributionOrigins => __isa(o, "AwsCloudFrontDistributionOrigins");
 }
 
 /**
  * <p>Information about an AWS CodeBuild project.</p>
  */
 export interface AwsCodeBuildProjectDetails {
-  __type?: "AwsCodeBuildProjectDetails";
   /**
    * <p>Information about the build environment for this build project.</p>
    */
@@ -338,14 +313,12 @@ export namespace AwsCodeBuildProjectDetails {
   export const filterSensitiveLog = (obj: AwsCodeBuildProjectDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsCodeBuildProjectDetails => __isa(o, "AwsCodeBuildProjectDetails");
 }
 
 /**
  * <p>Information about the build environment for this build project.</p>
  */
 export interface AwsCodeBuildProjectEnvironment {
-  __type?: "AwsCodeBuildProjectEnvironment";
   /**
    * <p>The certificate to use with this build project.</p>
    */
@@ -404,14 +377,12 @@ export namespace AwsCodeBuildProjectEnvironment {
   export const filterSensitiveLog = (obj: AwsCodeBuildProjectEnvironment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsCodeBuildProjectEnvironment => __isa(o, "AwsCodeBuildProjectEnvironment");
 }
 
 /**
  * <p>The credentials for access to a private registry.</p>
  */
 export interface AwsCodeBuildProjectEnvironmentRegistryCredential {
-  __type?: "AwsCodeBuildProjectEnvironmentRegistryCredential";
   /**
    * <p>The service that created the credentials to access a private Docker registry.</p>
    *          <p>The valid value,<code> SECRETS_MANAGER</code>, is for AWS Secrets Manager.</p>
@@ -433,15 +404,12 @@ export namespace AwsCodeBuildProjectEnvironmentRegistryCredential {
   export const filterSensitiveLog = (obj: AwsCodeBuildProjectEnvironmentRegistryCredential): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsCodeBuildProjectEnvironmentRegistryCredential =>
-    __isa(o, "AwsCodeBuildProjectEnvironmentRegistryCredential");
 }
 
 /**
  * <p>Information about the build input source code for this build project.</p>
  */
 export interface AwsCodeBuildProjectSource {
-  __type?: "AwsCodeBuildProjectSource";
   /**
    * <p>Information about the location of the source code to be built.</p>
    *          <p>Valid values include:</p>
@@ -537,14 +505,12 @@ export namespace AwsCodeBuildProjectSource {
   export const filterSensitiveLog = (obj: AwsCodeBuildProjectSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsCodeBuildProjectSource => __isa(o, "AwsCodeBuildProjectSource");
 }
 
 /**
  * <p>Information about the VPC configuration that AWS CodeBuild accesses.</p>
  */
 export interface AwsCodeBuildProjectVpcConfig {
-  __type?: "AwsCodeBuildProjectVpcConfig";
   /**
    * <p>A list of one or more subnet IDs in your Amazon VPC.</p>
    */
@@ -565,14 +531,12 @@ export namespace AwsCodeBuildProjectVpcConfig {
   export const filterSensitiveLog = (obj: AwsCodeBuildProjectVpcConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsCodeBuildProjectVpcConfig => __isa(o, "AwsCodeBuildProjectVpcConfig");
 }
 
 /**
  * <p>The details of an Amazon EC2 instance.</p>
  */
 export interface AwsEc2InstanceDetails {
-  __type?: "AwsEc2InstanceDetails";
   /**
    * <p>The date/time the instance was launched.</p>
    */
@@ -623,14 +587,12 @@ export namespace AwsEc2InstanceDetails {
   export const filterSensitiveLog = (obj: AwsEc2InstanceDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2InstanceDetails => __isa(o, "AwsEc2InstanceDetails");
 }
 
 /**
  * <p>Information about the network interface attachment.</p>
  */
 export interface AwsEc2NetworkInterfaceAttachment {
-  __type?: "AwsEc2NetworkInterfaceAttachment";
   /**
    * <p>The attachment state.</p>
    *          <p>Valid values: <code>attaching</code> | <code>attached</code> | <code>detaching</code> |
@@ -675,14 +637,12 @@ export namespace AwsEc2NetworkInterfaceAttachment {
   export const filterSensitiveLog = (obj: AwsEc2NetworkInterfaceAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2NetworkInterfaceAttachment => __isa(o, "AwsEc2NetworkInterfaceAttachment");
 }
 
 /**
  * <p>Details about the network interface</p>
  */
 export interface AwsEc2NetworkInterfaceDetails {
-  __type?: "AwsEc2NetworkInterfaceDetails";
   /**
    * <p>The network interface attachment.</p>
    */
@@ -708,14 +668,12 @@ export namespace AwsEc2NetworkInterfaceDetails {
   export const filterSensitiveLog = (obj: AwsEc2NetworkInterfaceDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2NetworkInterfaceDetails => __isa(o, "AwsEc2NetworkInterfaceDetails");
 }
 
 /**
  * <p>A security group associated with the network interface.</p>
  */
 export interface AwsEc2NetworkInterfaceSecurityGroup {
-  __type?: "AwsEc2NetworkInterfaceSecurityGroup";
   /**
    * <p>The name of the security group.</p>
    */
@@ -731,15 +689,12 @@ export namespace AwsEc2NetworkInterfaceSecurityGroup {
   export const filterSensitiveLog = (obj: AwsEc2NetworkInterfaceSecurityGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2NetworkInterfaceSecurityGroup =>
-    __isa(o, "AwsEc2NetworkInterfaceSecurityGroup");
 }
 
 /**
  * <p>Details about an EC2 security group.</p>
  */
 export interface AwsEc2SecurityGroupDetails {
-  __type?: "AwsEc2SecurityGroupDetails";
   /**
    * <p>The inbound rules associated with the security group.</p>
    */
@@ -775,14 +730,12 @@ export namespace AwsEc2SecurityGroupDetails {
   export const filterSensitiveLog = (obj: AwsEc2SecurityGroupDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2SecurityGroupDetails => __isa(o, "AwsEc2SecurityGroupDetails");
 }
 
 /**
  * <p>An IP permission for an EC2 security group.</p>
  */
 export interface AwsEc2SecurityGroupIpPermission {
-  __type?: "AwsEc2SecurityGroupIpPermission";
   /**
    * <p>[VPC only] The prefix list IDs for an AWS service. With outbound rules, this is the AWS
    *          service to access through a VPC endpoint from instances associated with the security
@@ -839,14 +792,12 @@ export namespace AwsEc2SecurityGroupIpPermission {
   export const filterSensitiveLog = (obj: AwsEc2SecurityGroupIpPermission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2SecurityGroupIpPermission => __isa(o, "AwsEc2SecurityGroupIpPermission");
 }
 
 /**
  * <p>A range of IPv4 addresses.</p>
  */
 export interface AwsEc2SecurityGroupIpRange {
-  __type?: "AwsEc2SecurityGroupIpRange";
   /**
    * <p>The IPv4 CIDR range. You can specify either a CIDR range or a source security group, but
    *          not both. To specify a single IPv4 address, use the /32 prefix length.</p>
@@ -858,14 +809,12 @@ export namespace AwsEc2SecurityGroupIpRange {
   export const filterSensitiveLog = (obj: AwsEc2SecurityGroupIpRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2SecurityGroupIpRange => __isa(o, "AwsEc2SecurityGroupIpRange");
 }
 
 /**
  * <p>A range of IPv6 addresses.</p>
  */
 export interface AwsEc2SecurityGroupIpv6Range {
-  __type?: "AwsEc2SecurityGroupIpv6Range";
   /**
    * <p>The IPv6 CIDR range. You can specify either a CIDR range or a source security group, but
    *          not both. To specify a single IPv6 address, use the /128 prefix length.</p>
@@ -877,14 +826,12 @@ export namespace AwsEc2SecurityGroupIpv6Range {
   export const filterSensitiveLog = (obj: AwsEc2SecurityGroupIpv6Range): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2SecurityGroupIpv6Range => __isa(o, "AwsEc2SecurityGroupIpv6Range");
 }
 
 /**
  * <p>A prefix list ID.</p>
  */
 export interface AwsEc2SecurityGroupPrefixListId {
-  __type?: "AwsEc2SecurityGroupPrefixListId";
   /**
    * <p>The ID of the prefix.</p>
    */
@@ -895,14 +842,12 @@ export namespace AwsEc2SecurityGroupPrefixListId {
   export const filterSensitiveLog = (obj: AwsEc2SecurityGroupPrefixListId): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2SecurityGroupPrefixListId => __isa(o, "AwsEc2SecurityGroupPrefixListId");
 }
 
 /**
  * <p>A relationship between a security group and a user.</p>
  */
 export interface AwsEc2SecurityGroupUserIdGroupPair {
-  __type?: "AwsEc2SecurityGroupUserIdGroupPair";
   /**
    * <p>The status of a VPC peering connection, if applicable.</p>
    */
@@ -943,15 +888,12 @@ export namespace AwsEc2SecurityGroupUserIdGroupPair {
   export const filterSensitiveLog = (obj: AwsEc2SecurityGroupUserIdGroupPair): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2SecurityGroupUserIdGroupPair =>
-    __isa(o, "AwsEc2SecurityGroupUserIdGroupPair");
 }
 
 /**
  * <p>An attachment to an AWS EC2 volume.</p>
  */
 export interface AwsEc2VolumeAttachment {
-  __type?: "AwsEc2VolumeAttachment";
   /**
    * <p>The identifier of the EC2 instance.</p>
    */
@@ -977,14 +919,12 @@ export namespace AwsEc2VolumeAttachment {
   export const filterSensitiveLog = (obj: AwsEc2VolumeAttachment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2VolumeAttachment => __isa(o, "AwsEc2VolumeAttachment");
 }
 
 /**
  * <p>Details about an EC2 volume.</p>
  */
 export interface AwsEc2VolumeDetails {
-  __type?: "AwsEc2VolumeDetails";
   /**
    * <p>The volume attachments.</p>
    */
@@ -1026,14 +966,12 @@ export namespace AwsEc2VolumeDetails {
   export const filterSensitiveLog = (obj: AwsEc2VolumeDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2VolumeDetails => __isa(o, "AwsEc2VolumeDetails");
 }
 
 /**
  * <p>Details about an EC2 VPC.</p>
  */
 export interface AwsEc2VpcDetails {
-  __type?: "AwsEc2VpcDetails";
   /**
    * <p>The identifier of the set of Dynamic Host Configuration Protocol (DHCP) options that are
    *          associated with the VPC. If the default options are associated with the VPC, then this is
@@ -1061,14 +999,12 @@ export namespace AwsEc2VpcDetails {
   export const filterSensitiveLog = (obj: AwsEc2VpcDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2VpcDetails => __isa(o, "AwsEc2VpcDetails");
 }
 
 /**
  * <p>Information about an Elasticsearch domain.</p>
  */
 export interface AwsElasticsearchDomainDetails {
-  __type?: "AwsElasticsearchDomainDetails";
   /**
    * <p>Domain-specific endpoint used to submit index, search, and data upload requests to an
    *          Amazon ES domain.</p>
@@ -1132,7 +1068,6 @@ export namespace AwsElasticsearchDomainDetails {
   export const filterSensitiveLog = (obj: AwsElasticsearchDomainDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsElasticsearchDomainDetails => __isa(o, "AwsElasticsearchDomainDetails");
 }
 
 /**
@@ -1140,7 +1075,6 @@ export namespace AwsElasticsearchDomainDetails {
  *          traffic.</p>
  */
 export interface AwsElasticsearchDomainDomainEndpointOptions {
-  __type?: "AwsElasticsearchDomainDomainEndpointOptions";
   /**
    * <p>Whether to require that all traffic to the domain arrive over HTTPS.</p>
    */
@@ -1168,15 +1102,12 @@ export namespace AwsElasticsearchDomainDomainEndpointOptions {
   export const filterSensitiveLog = (obj: AwsElasticsearchDomainDomainEndpointOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsElasticsearchDomainDomainEndpointOptions =>
-    __isa(o, "AwsElasticsearchDomainDomainEndpointOptions");
 }
 
 /**
  * <p>Details about the configuration for encryption at rest.</p>
  */
 export interface AwsElasticsearchDomainEncryptionAtRestOptions {
-  __type?: "AwsElasticsearchDomainEncryptionAtRestOptions";
   /**
    * <p>The KMS key ID. Takes the form 1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a.</p>
    */
@@ -1192,15 +1123,12 @@ export namespace AwsElasticsearchDomainEncryptionAtRestOptions {
   export const filterSensitiveLog = (obj: AwsElasticsearchDomainEncryptionAtRestOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsElasticsearchDomainEncryptionAtRestOptions =>
-    __isa(o, "AwsElasticsearchDomainEncryptionAtRestOptions");
 }
 
 /**
  * <p>Details about the configuration for node-to-node encryption.</p>
  */
 export interface AwsElasticsearchDomainNodeToNodeEncryptionOptions {
-  __type?: "AwsElasticsearchDomainNodeToNodeEncryptionOptions";
   /**
    * <p>Whether node-to-node encryption is enabled.</p>
    */
@@ -1211,8 +1139,6 @@ export namespace AwsElasticsearchDomainNodeToNodeEncryptionOptions {
   export const filterSensitiveLog = (obj: AwsElasticsearchDomainNodeToNodeEncryptionOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsElasticsearchDomainNodeToNodeEncryptionOptions =>
-    __isa(o, "AwsElasticsearchDomainNodeToNodeEncryptionOptions");
 }
 
 /**
@@ -1220,7 +1146,6 @@ export namespace AwsElasticsearchDomainNodeToNodeEncryptionOptions {
  *          domain.</p>
  */
 export interface AwsElasticsearchDomainVPCOptions {
-  __type?: "AwsElasticsearchDomainVPCOptions";
   /**
    * <p>The list of Availability Zones associated with the VPC subnets.</p>
    */
@@ -1246,14 +1171,12 @@ export namespace AwsElasticsearchDomainVPCOptions {
   export const filterSensitiveLog = (obj: AwsElasticsearchDomainVPCOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsElasticsearchDomainVPCOptions => __isa(o, "AwsElasticsearchDomainVPCOptions");
 }
 
 /**
  * <p>Information about a load balancer.</p>
  */
 export interface AwsElbv2LoadBalancerDetails {
-  __type?: "AwsElbv2LoadBalancerDetails";
   /**
    * <p>The state of the load balancer.</p>
    */
@@ -1311,14 +1234,12 @@ export namespace AwsElbv2LoadBalancerDetails {
   export const filterSensitiveLog = (obj: AwsElbv2LoadBalancerDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsElbv2LoadBalancerDetails => __isa(o, "AwsElbv2LoadBalancerDetails");
 }
 
 /**
  * <p>IAM access key details related to a finding.</p>
  */
 export interface AwsIamAccessKeyDetails {
-  __type?: "AwsIamAccessKeyDetails";
   /**
    * <p>The name of the principal.</p>
    */
@@ -1355,7 +1276,6 @@ export namespace AwsIamAccessKeyDetails {
   export const filterSensitiveLog = (obj: AwsIamAccessKeyDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsIamAccessKeyDetails => __isa(o, "AwsIamAccessKeyDetails");
 }
 
 export enum AwsIamAccessKeyStatus {
@@ -1367,7 +1287,6 @@ export enum AwsIamAccessKeyStatus {
  * <p>Contains information about an IAM role, including all of the role's policies.</p>
  */
 export interface AwsIamRoleDetails {
-  __type?: "AwsIamRoleDetails";
   /**
    * <p>The trust policy that grants permission to assume the role.</p>
    */
@@ -1403,14 +1322,12 @@ export namespace AwsIamRoleDetails {
   export const filterSensitiveLog = (obj: AwsIamRoleDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsIamRoleDetails => __isa(o, "AwsIamRoleDetails");
 }
 
 /**
  * <p>Contains metadata about a customer master key (CMK).</p>
  */
 export interface AwsKmsKeyDetails {
-  __type?: "AwsKmsKeyDetails";
   /**
    * <p>The date and time when the CMK was created.</p>
    */
@@ -1451,14 +1368,12 @@ export namespace AwsKmsKeyDetails {
   export const filterSensitiveLog = (obj: AwsKmsKeyDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsKmsKeyDetails => __isa(o, "AwsKmsKeyDetails");
 }
 
 /**
  * <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.</p>
  */
 export interface AwsLambdaFunctionCode {
-  __type?: "AwsLambdaFunctionCode";
   /**
    * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
    */
@@ -1484,14 +1399,12 @@ export namespace AwsLambdaFunctionCode {
   export const filterSensitiveLog = (obj: AwsLambdaFunctionCode): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsLambdaFunctionCode => __isa(o, "AwsLambdaFunctionCode");
 }
 
 /**
  * <p>The dead-letter queue for failed asynchronous invocations.</p>
  */
 export interface AwsLambdaFunctionDeadLetterConfig {
-  __type?: "AwsLambdaFunctionDeadLetterConfig";
   /**
    * <p>The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.</p>
    */
@@ -1502,14 +1415,12 @@ export namespace AwsLambdaFunctionDeadLetterConfig {
   export const filterSensitiveLog = (obj: AwsLambdaFunctionDeadLetterConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsLambdaFunctionDeadLetterConfig => __isa(o, "AwsLambdaFunctionDeadLetterConfig");
 }
 
 /**
  * <p>Details about a function's configuration.</p>
  */
 export interface AwsLambdaFunctionDetails {
-  __type?: "AwsLambdaFunctionDetails";
   /**
    * <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.</p>
    */
@@ -1605,14 +1516,12 @@ export namespace AwsLambdaFunctionDetails {
   export const filterSensitiveLog = (obj: AwsLambdaFunctionDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsLambdaFunctionDetails => __isa(o, "AwsLambdaFunctionDetails");
 }
 
 /**
  * <p>A function's environment variable settings.</p>
  */
 export interface AwsLambdaFunctionEnvironment {
-  __type?: "AwsLambdaFunctionEnvironment";
   /**
    * <p>Environment variable key-value pairs.</p>
    */
@@ -1628,14 +1537,12 @@ export namespace AwsLambdaFunctionEnvironment {
   export const filterSensitiveLog = (obj: AwsLambdaFunctionEnvironment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsLambdaFunctionEnvironment => __isa(o, "AwsLambdaFunctionEnvironment");
 }
 
 /**
  * <p>Error messages for environment variables that couldn't be applied.</p>
  */
 export interface AwsLambdaFunctionEnvironmentError {
-  __type?: "AwsLambdaFunctionEnvironmentError";
   /**
    * <p>The error code.</p>
    */
@@ -1651,14 +1558,12 @@ export namespace AwsLambdaFunctionEnvironmentError {
   export const filterSensitiveLog = (obj: AwsLambdaFunctionEnvironmentError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsLambdaFunctionEnvironmentError => __isa(o, "AwsLambdaFunctionEnvironmentError");
 }
 
 /**
  * <p>An AWS Lambda layer.</p>
  */
 export interface AwsLambdaFunctionLayer {
-  __type?: "AwsLambdaFunctionLayer";
   /**
    * <p>The size of the layer archive in bytes.</p>
    */
@@ -1674,14 +1579,12 @@ export namespace AwsLambdaFunctionLayer {
   export const filterSensitiveLog = (obj: AwsLambdaFunctionLayer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsLambdaFunctionLayer => __isa(o, "AwsLambdaFunctionLayer");
 }
 
 /**
  * <p>The function's AWS X-Ray tracing configuration.</p>
  */
 export interface AwsLambdaFunctionTracingConfig {
-  __type?: "AwsLambdaFunctionTracingConfig";
   /**
    * <p>The tracing mode.</p>
    */
@@ -1692,14 +1595,12 @@ export namespace AwsLambdaFunctionTracingConfig {
   export const filterSensitiveLog = (obj: AwsLambdaFunctionTracingConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsLambdaFunctionTracingConfig => __isa(o, "AwsLambdaFunctionTracingConfig");
 }
 
 /**
  * <p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see VPC Settings.</p>
  */
 export interface AwsLambdaFunctionVpcConfig {
-  __type?: "AwsLambdaFunctionVpcConfig";
   /**
    * <p>A list of VPC security groups IDs.</p>
    */
@@ -1720,14 +1621,12 @@ export namespace AwsLambdaFunctionVpcConfig {
   export const filterSensitiveLog = (obj: AwsLambdaFunctionVpcConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsLambdaFunctionVpcConfig => __isa(o, "AwsLambdaFunctionVpcConfig");
 }
 
 /**
  * <p>Details about a Lambda layer version.</p>
  */
 export interface AwsLambdaLayerVersionDetails {
-  __type?: "AwsLambdaLayerVersionDetails";
   /**
    * <p>The version number.</p>
    */
@@ -1755,14 +1654,12 @@ export namespace AwsLambdaLayerVersionDetails {
   export const filterSensitiveLog = (obj: AwsLambdaLayerVersionDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsLambdaLayerVersionDetails => __isa(o, "AwsLambdaLayerVersionDetails");
 }
 
 /**
  * <p>An AWS Identity and Access Management (IAM) role associated with the DB instance.</p>
  */
 export interface AwsRdsDbInstanceAssociatedRole {
-  __type?: "AwsRdsDbInstanceAssociatedRole";
   /**
    * <p>The name of the feature associated with the IAM)role.</p>
    */
@@ -1803,14 +1700,12 @@ export namespace AwsRdsDbInstanceAssociatedRole {
   export const filterSensitiveLog = (obj: AwsRdsDbInstanceAssociatedRole): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsRdsDbInstanceAssociatedRole => __isa(o, "AwsRdsDbInstanceAssociatedRole");
 }
 
 /**
  * <p>Contains the details of an Amazon RDS DB instance.</p>
  */
 export interface AwsRdsDbInstanceDetails {
-  __type?: "AwsRdsDbInstanceDetails";
   /**
    * <p>Specifies the connection endpoint.</p>
    */
@@ -1948,14 +1843,12 @@ export namespace AwsRdsDbInstanceDetails {
   export const filterSensitiveLog = (obj: AwsRdsDbInstanceDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsRdsDbInstanceDetails => __isa(o, "AwsRdsDbInstanceDetails");
 }
 
 /**
  * <p>Specifies the connection endpoint.</p>
  */
 export interface AwsRdsDbInstanceEndpoint {
-  __type?: "AwsRdsDbInstanceEndpoint";
   /**
    * <p>Specifies the DNS address of the DB instance.</p>
    */
@@ -1976,14 +1869,12 @@ export namespace AwsRdsDbInstanceEndpoint {
   export const filterSensitiveLog = (obj: AwsRdsDbInstanceEndpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsRdsDbInstanceEndpoint => __isa(o, "AwsRdsDbInstanceEndpoint");
 }
 
 /**
  * <p>A VPC security groups that the DB instance belongs to.</p>
  */
 export interface AwsRdsDbInstanceVpcSecurityGroup {
-  __type?: "AwsRdsDbInstanceVpcSecurityGroup";
   /**
    * <p>The name of the VPC security group.</p>
    */
@@ -1999,14 +1890,12 @@ export namespace AwsRdsDbInstanceVpcSecurityGroup {
   export const filterSensitiveLog = (obj: AwsRdsDbInstanceVpcSecurityGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsRdsDbInstanceVpcSecurityGroup => __isa(o, "AwsRdsDbInstanceVpcSecurityGroup");
 }
 
 /**
  * <p>The details of an Amazon S3 bucket.</p>
  */
 export interface AwsS3BucketDetails {
-  __type?: "AwsS3BucketDetails";
   /**
    * <p>The encryption rules that are applied to the S3 bucket.</p>
    */
@@ -2032,7 +1921,6 @@ export namespace AwsS3BucketDetails {
   export const filterSensitiveLog = (obj: AwsS3BucketDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsS3BucketDetails => __isa(o, "AwsS3BucketDetails");
 }
 
 /**
@@ -2040,7 +1928,6 @@ export namespace AwsS3BucketDetails {
  *          bucket.</p>
  */
 export interface AwsS3BucketServerSideEncryptionByDefault {
-  __type?: "AwsS3BucketServerSideEncryptionByDefault";
   /**
    * <p>Server-side encryption algorithm to use for the default encryption.</p>
    */
@@ -2056,15 +1943,12 @@ export namespace AwsS3BucketServerSideEncryptionByDefault {
   export const filterSensitiveLog = (obj: AwsS3BucketServerSideEncryptionByDefault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsS3BucketServerSideEncryptionByDefault =>
-    __isa(o, "AwsS3BucketServerSideEncryptionByDefault");
 }
 
 /**
  * <p>The encryption configuration for the S3 bucket.</p>
  */
 export interface AwsS3BucketServerSideEncryptionConfiguration {
-  __type?: "AwsS3BucketServerSideEncryptionConfiguration";
   /**
    * <p>The encryption rules that are applied to the S3 bucket.</p>
    */
@@ -2075,15 +1959,12 @@ export namespace AwsS3BucketServerSideEncryptionConfiguration {
   export const filterSensitiveLog = (obj: AwsS3BucketServerSideEncryptionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsS3BucketServerSideEncryptionConfiguration =>
-    __isa(o, "AwsS3BucketServerSideEncryptionConfiguration");
 }
 
 /**
  * <p>An encryption rule to apply to the S3 bucket.</p>
  */
 export interface AwsS3BucketServerSideEncryptionRule {
-  __type?: "AwsS3BucketServerSideEncryptionRule";
   /**
    * <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a
    *             <code>PUT</code> object request doesn't specify any server-side encryption, this default
@@ -2096,15 +1977,12 @@ export namespace AwsS3BucketServerSideEncryptionRule {
   export const filterSensitiveLog = (obj: AwsS3BucketServerSideEncryptionRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsS3BucketServerSideEncryptionRule =>
-    __isa(o, "AwsS3BucketServerSideEncryptionRule");
 }
 
 /**
  * <p>Details about an Amazon S3 object.</p>
  */
 export interface AwsS3ObjectDetails {
-  __type?: "AwsS3ObjectDetails";
   /**
    * <p>If the object is stored using server-side encryption, the value of the server-side
    *          encryption algorithm used when storing this object in Amazon S3.</p>
@@ -2143,7 +2021,6 @@ export namespace AwsS3ObjectDetails {
   export const filterSensitiveLog = (obj: AwsS3ObjectDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsS3ObjectDetails => __isa(o, "AwsS3ObjectDetails");
 }
 
 /**
@@ -2157,7 +2034,6 @@ export namespace AwsS3ObjectDetails {
  *          </note>
  */
 export interface AwsSecurityFinding {
-  __type?: "AwsSecurityFinding";
   /**
    * <p>One or more finding types in the format of <code>namespace/category/classifier</code>
    *          that classify a finding.</p>
@@ -2357,7 +2233,6 @@ export namespace AwsSecurityFinding {
   export const filterSensitiveLog = (obj: AwsSecurityFinding): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsSecurityFinding => __isa(o, "AwsSecurityFinding");
 }
 
 /**
@@ -2365,7 +2240,6 @@ export namespace AwsSecurityFinding {
  *          that result in a subset of findings that are included in this insight.</p>
  */
 export interface AwsSecurityFindingFilters {
-  __type?: "AwsSecurityFindingFilters";
   /**
    * <p>The path to the process executable.</p>
    */
@@ -2839,14 +2713,12 @@ export namespace AwsSecurityFindingFilters {
   export const filterSensitiveLog = (obj: AwsSecurityFindingFilters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsSecurityFindingFilters => __isa(o, "AwsSecurityFindingFilters");
 }
 
 /**
  * <p>Identifies a finding to update using <code>BatchUpdateFindings</code>.</p>
  */
 export interface AwsSecurityFindingIdentifier {
-  __type?: "AwsSecurityFindingIdentifier";
   /**
    * <p>The identifier of the finding that was specified by the finding provider.</p>
    */
@@ -2864,14 +2736,12 @@ export namespace AwsSecurityFindingIdentifier {
   export const filterSensitiveLog = (obj: AwsSecurityFindingIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsSecurityFindingIdentifier => __isa(o, "AwsSecurityFindingIdentifier");
 }
 
 /**
  * <p>A wrapper type for the topic's Amazon Resource Name (ARN).</p>
  */
 export interface AwsSnsTopicDetails {
-  __type?: "AwsSnsTopicDetails";
   /**
    * <p>The ID of an AWS managed customer master key (CMK) for Amazon SNS or a custom
    *          CMK.</p>
@@ -2898,14 +2768,12 @@ export namespace AwsSnsTopicDetails {
   export const filterSensitiveLog = (obj: AwsSnsTopicDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsSnsTopicDetails => __isa(o, "AwsSnsTopicDetails");
 }
 
 /**
  * <p>A wrapper type for the attributes of an Amazon SNS subscription.</p>
  */
 export interface AwsSnsTopicSubscription {
-  __type?: "AwsSnsTopicSubscription";
   /**
    * <p>The subscription's endpoint (format depends on the protocol).</p>
    */
@@ -2921,14 +2789,12 @@ export namespace AwsSnsTopicSubscription {
   export const filterSensitiveLog = (obj: AwsSnsTopicSubscription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsSnsTopicSubscription => __isa(o, "AwsSnsTopicSubscription");
 }
 
 /**
  * <p>Data about a queue.</p>
  */
 export interface AwsSqsQueueDetails {
-  __type?: "AwsSqsQueueDetails";
   /**
    * <p>The name of the new queue.</p>
    */
@@ -2956,14 +2822,12 @@ export namespace AwsSqsQueueDetails {
   export const filterSensitiveLog = (obj: AwsSqsQueueDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsSqsQueueDetails => __isa(o, "AwsSqsQueueDetails");
 }
 
 /**
  * <p>Details about a WAF WebACL.</p>
  */
 export interface AwsWafWebAclDetails {
-  __type?: "AwsWafWebAclDetails";
   /**
    * <p>A unique identifier for a WebACL.</p>
    */
@@ -2991,14 +2855,12 @@ export namespace AwsWafWebAclDetails {
   export const filterSensitiveLog = (obj: AwsWafWebAclDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsWafWebAclDetails => __isa(o, "AwsWafWebAclDetails");
 }
 
 /**
  * <p>Details for a rule in a WAF WebACL.</p>
  */
 export interface AwsWafWebAclRule {
-  __type?: "AwsWafWebAclRule";
   /**
    * <p>Use the <code>OverrideAction</code> to test your RuleGroup.</p>
    *          <p>Any rule in a RuleGroup can potentially block a request. If you set the
@@ -3055,11 +2917,9 @@ export namespace AwsWafWebAclRule {
   export const filterSensitiveLog = (obj: AwsWafWebAclRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsWafWebAclRule => __isa(o, "AwsWafWebAclRule");
 }
 
 export interface BatchDisableStandardsRequest {
-  __type?: "BatchDisableStandardsRequest";
   /**
    * <p>The ARNs of the standards subscriptions to disable.</p>
    */
@@ -3070,11 +2930,9 @@ export namespace BatchDisableStandardsRequest {
   export const filterSensitiveLog = (obj: BatchDisableStandardsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDisableStandardsRequest => __isa(o, "BatchDisableStandardsRequest");
 }
 
 export interface BatchDisableStandardsResponse {
-  __type?: "BatchDisableStandardsResponse";
   /**
    * <p>The details of the standards subscriptions that were disabled.</p>
    */
@@ -3085,11 +2943,9 @@ export namespace BatchDisableStandardsResponse {
   export const filterSensitiveLog = (obj: BatchDisableStandardsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDisableStandardsResponse => __isa(o, "BatchDisableStandardsResponse");
 }
 
 export interface BatchEnableStandardsRequest {
-  __type?: "BatchEnableStandardsRequest";
   /**
    * <p>The list of standards checks to enable.</p>
    */
@@ -3100,11 +2956,9 @@ export namespace BatchEnableStandardsRequest {
   export const filterSensitiveLog = (obj: BatchEnableStandardsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchEnableStandardsRequest => __isa(o, "BatchEnableStandardsRequest");
 }
 
 export interface BatchEnableStandardsResponse {
-  __type?: "BatchEnableStandardsResponse";
   /**
    * <p>The details of the standards subscriptions that were enabled.</p>
    */
@@ -3115,11 +2969,9 @@ export namespace BatchEnableStandardsResponse {
   export const filterSensitiveLog = (obj: BatchEnableStandardsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchEnableStandardsResponse => __isa(o, "BatchEnableStandardsResponse");
 }
 
 export interface BatchImportFindingsRequest {
-  __type?: "BatchImportFindingsRequest";
   /**
    * <p>A list of findings to import. To successfully import a finding, it must follow the
    *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">AWS Security Finding Format</a>. Maximum of 100 findings per request.</p>
@@ -3131,11 +2983,9 @@ export namespace BatchImportFindingsRequest {
   export const filterSensitiveLog = (obj: BatchImportFindingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchImportFindingsRequest => __isa(o, "BatchImportFindingsRequest");
 }
 
 export interface BatchImportFindingsResponse {
-  __type?: "BatchImportFindingsResponse";
   /**
    * <p>The number of findings that failed to import.</p>
    */
@@ -3156,11 +3006,9 @@ export namespace BatchImportFindingsResponse {
   export const filterSensitiveLog = (obj: BatchImportFindingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchImportFindingsResponse => __isa(o, "BatchImportFindingsResponse");
 }
 
 export interface BatchUpdateFindingsRequest {
-  __type?: "BatchUpdateFindingsRequest";
   /**
    * <p>Indicates the veracity of a finding.</p>
    *          <p>The available values for <code>VerificationState</code> are  as follows.</p>
@@ -3268,11 +3116,9 @@ export namespace BatchUpdateFindingsRequest {
   export const filterSensitiveLog = (obj: BatchUpdateFindingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchUpdateFindingsRequest => __isa(o, "BatchUpdateFindingsRequest");
 }
 
 export interface BatchUpdateFindingsResponse {
-  __type?: "BatchUpdateFindingsResponse";
   /**
    * <p>The list of findings that were updated successfully.</p>
    */
@@ -3288,7 +3134,6 @@ export namespace BatchUpdateFindingsResponse {
   export const filterSensitiveLog = (obj: BatchUpdateFindingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchUpdateFindingsResponse => __isa(o, "BatchUpdateFindingsResponse");
 }
 
 /**
@@ -3296,7 +3141,6 @@ export namespace BatchUpdateFindingsResponse {
  *          update.</p>
  */
 export interface BatchUpdateFindingsUnprocessedFinding {
-  __type?: "BatchUpdateFindingsUnprocessedFinding";
   /**
    * <p>The identifier of the finding that was not updated.</p>
    */
@@ -3317,15 +3161,12 @@ export namespace BatchUpdateFindingsUnprocessedFinding {
   export const filterSensitiveLog = (obj: BatchUpdateFindingsUnprocessedFinding): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchUpdateFindingsUnprocessedFinding =>
-    __isa(o, "BatchUpdateFindingsUnprocessedFinding");
 }
 
 /**
  * <p>An IPv4 CIDR block association.</p>
  */
 export interface CidrBlockAssociation {
-  __type?: "CidrBlockAssociation";
   /**
    * <p>The association ID for the IPv4 CIDR block.</p>
    */
@@ -3346,7 +3187,6 @@ export namespace CidrBlockAssociation {
   export const filterSensitiveLog = (obj: CidrBlockAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CidrBlockAssociation => __isa(o, "CidrBlockAssociation");
 }
 
 /**
@@ -3354,7 +3194,6 @@ export namespace CidrBlockAssociation {
  *          findings generated from controls.</p>
  */
 export interface Compliance {
-  __type?: "Compliance";
   /**
    * <p>The result of a standards check.</p>
    *          <p>The valid values for <code>Status</code> are as follows.</p>
@@ -3408,7 +3247,6 @@ export namespace Compliance {
   export const filterSensitiveLog = (obj: Compliance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Compliance => __isa(o, "Compliance");
 }
 
 export enum ComplianceStatus {
@@ -3422,7 +3260,6 @@ export enum ComplianceStatus {
  * <p>Container details related to a finding.</p>
  */
 export interface ContainerDetails {
-  __type?: "ContainerDetails";
   /**
    * <p>The name of the container related to a finding.</p>
    */
@@ -3448,7 +3285,6 @@ export namespace ContainerDetails {
   export const filterSensitiveLog = (obj: ContainerDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerDetails => __isa(o, "ContainerDetails");
 }
 
 export enum ControlStatus {
@@ -3457,7 +3293,6 @@ export enum ControlStatus {
 }
 
 export interface CreateActionTargetRequest {
-  __type?: "CreateActionTargetRequest";
   /**
    * <p>The ID for the custom action target.</p>
    */
@@ -3478,11 +3313,9 @@ export namespace CreateActionTargetRequest {
   export const filterSensitiveLog = (obj: CreateActionTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateActionTargetRequest => __isa(o, "CreateActionTargetRequest");
 }
 
 export interface CreateActionTargetResponse {
-  __type?: "CreateActionTargetResponse";
   /**
    * <p>The ARN for the custom action target.</p>
    */
@@ -3493,11 +3326,9 @@ export namespace CreateActionTargetResponse {
   export const filterSensitiveLog = (obj: CreateActionTargetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateActionTargetResponse => __isa(o, "CreateActionTargetResponse");
 }
 
 export interface CreateInsightRequest {
-  __type?: "CreateInsightRequest";
   /**
    * <p>The name of the custom insight to create.</p>
    */
@@ -3522,11 +3353,9 @@ export namespace CreateInsightRequest {
   export const filterSensitiveLog = (obj: CreateInsightRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInsightRequest => __isa(o, "CreateInsightRequest");
 }
 
 export interface CreateInsightResponse {
-  __type?: "CreateInsightResponse";
   /**
    * <p>The ARN of the insight created.</p>
    */
@@ -3537,11 +3366,9 @@ export namespace CreateInsightResponse {
   export const filterSensitiveLog = (obj: CreateInsightResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInsightResponse => __isa(o, "CreateInsightResponse");
 }
 
 export interface CreateMembersRequest {
-  __type?: "CreateMembersRequest";
   /**
    * <p>The list of accounts to associate with the Security Hub master account. For each account, the
    *          list includes the account ID and the email address.</p>
@@ -3553,11 +3380,9 @@ export namespace CreateMembersRequest {
   export const filterSensitiveLog = (obj: CreateMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMembersRequest => __isa(o, "CreateMembersRequest");
 }
 
 export interface CreateMembersResponse {
-  __type?: "CreateMembersResponse";
   /**
    * <p>The list of AWS accounts that were not processed. For each account, the list includes
    *          the account ID and the email address.</p>
@@ -3569,14 +3394,12 @@ export namespace CreateMembersResponse {
   export const filterSensitiveLog = (obj: CreateMembersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMembersResponse => __isa(o, "CreateMembersResponse");
 }
 
 /**
  * <p>CVSS scores from the advisory related to the vulnerability.</p>
  */
 export interface Cvss {
-  __type?: "Cvss";
   /**
    * <p>The version of CVSS for the CVSS score.</p>
    */
@@ -3597,14 +3420,12 @@ export namespace Cvss {
   export const filterSensitiveLog = (obj: Cvss): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Cvss => __isa(o, "Cvss");
 }
 
 /**
  * <p>A date filter for querying findings.</p>
  */
 export interface DateFilter {
-  __type?: "DateFilter";
   /**
    * <p>A start date for the date filter.</p>
    */
@@ -3625,14 +3446,12 @@ export namespace DateFilter {
   export const filterSensitiveLog = (obj: DateFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DateFilter => __isa(o, "DateFilter");
 }
 
 /**
  * <p>A date range for the date filter.</p>
  */
 export interface DateRange {
-  __type?: "DateRange";
   /**
    * <p>A date range unit for the date filter.</p>
    */
@@ -3648,7 +3467,6 @@ export namespace DateRange {
   export const filterSensitiveLog = (obj: DateRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DateRange => __isa(o, "DateRange");
 }
 
 export enum DateRangeUnit {
@@ -3656,7 +3474,6 @@ export enum DateRangeUnit {
 }
 
 export interface DeclineInvitationsRequest {
-  __type?: "DeclineInvitationsRequest";
   /**
    * <p>The list of account IDs for the accounts from which to decline the invitations to
    *          Security Hub.</p>
@@ -3668,11 +3485,9 @@ export namespace DeclineInvitationsRequest {
   export const filterSensitiveLog = (obj: DeclineInvitationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeclineInvitationsRequest => __isa(o, "DeclineInvitationsRequest");
 }
 
 export interface DeclineInvitationsResponse {
-  __type?: "DeclineInvitationsResponse";
   /**
    * <p>The list of AWS accounts that were not processed. For each account, the list includes
    *          the account ID and the email address.</p>
@@ -3684,11 +3499,9 @@ export namespace DeclineInvitationsResponse {
   export const filterSensitiveLog = (obj: DeclineInvitationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeclineInvitationsResponse => __isa(o, "DeclineInvitationsResponse");
 }
 
 export interface DeleteActionTargetRequest {
-  __type?: "DeleteActionTargetRequest";
   /**
    * <p>The ARN of the custom action target to delete.</p>
    */
@@ -3699,11 +3512,9 @@ export namespace DeleteActionTargetRequest {
   export const filterSensitiveLog = (obj: DeleteActionTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteActionTargetRequest => __isa(o, "DeleteActionTargetRequest");
 }
 
 export interface DeleteActionTargetResponse {
-  __type?: "DeleteActionTargetResponse";
   /**
    * <p>The ARN of the custom action target that was deleted.</p>
    */
@@ -3714,11 +3525,9 @@ export namespace DeleteActionTargetResponse {
   export const filterSensitiveLog = (obj: DeleteActionTargetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteActionTargetResponse => __isa(o, "DeleteActionTargetResponse");
 }
 
 export interface DeleteInsightRequest {
-  __type?: "DeleteInsightRequest";
   /**
    * <p>The ARN of the insight to delete.</p>
    */
@@ -3729,11 +3538,9 @@ export namespace DeleteInsightRequest {
   export const filterSensitiveLog = (obj: DeleteInsightRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInsightRequest => __isa(o, "DeleteInsightRequest");
 }
 
 export interface DeleteInsightResponse {
-  __type?: "DeleteInsightResponse";
   /**
    * <p>The ARN of the insight that was deleted.</p>
    */
@@ -3744,11 +3551,9 @@ export namespace DeleteInsightResponse {
   export const filterSensitiveLog = (obj: DeleteInsightResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInsightResponse => __isa(o, "DeleteInsightResponse");
 }
 
 export interface DeleteInvitationsRequest {
-  __type?: "DeleteInvitationsRequest";
   /**
    * <p>The list of the account IDs that sent the invitations to delete.</p>
    */
@@ -3759,11 +3564,9 @@ export namespace DeleteInvitationsRequest {
   export const filterSensitiveLog = (obj: DeleteInvitationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInvitationsRequest => __isa(o, "DeleteInvitationsRequest");
 }
 
 export interface DeleteInvitationsResponse {
-  __type?: "DeleteInvitationsResponse";
   /**
    * <p>The list of AWS accounts for which the invitations were not deleted. For each account,
    *          the list includes the account ID and the email address.</p>
@@ -3775,11 +3578,9 @@ export namespace DeleteInvitationsResponse {
   export const filterSensitiveLog = (obj: DeleteInvitationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInvitationsResponse => __isa(o, "DeleteInvitationsResponse");
 }
 
 export interface DeleteMembersRequest {
-  __type?: "DeleteMembersRequest";
   /**
    * <p>The list of account IDs for the member accounts to delete.</p>
    */
@@ -3790,11 +3591,9 @@ export namespace DeleteMembersRequest {
   export const filterSensitiveLog = (obj: DeleteMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMembersRequest => __isa(o, "DeleteMembersRequest");
 }
 
 export interface DeleteMembersResponse {
-  __type?: "DeleteMembersResponse";
   /**
    * <p>The list of AWS accounts that were not deleted. For each account, the list includes the
    *          account ID and the email address.</p>
@@ -3806,11 +3605,9 @@ export namespace DeleteMembersResponse {
   export const filterSensitiveLog = (obj: DeleteMembersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMembersResponse => __isa(o, "DeleteMembersResponse");
 }
 
 export interface DescribeActionTargetsRequest {
-  __type?: "DescribeActionTargetsRequest";
   /**
    * <p>The maximum number of results to return.</p>
    */
@@ -3835,11 +3632,9 @@ export namespace DescribeActionTargetsRequest {
   export const filterSensitiveLog = (obj: DescribeActionTargetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeActionTargetsRequest => __isa(o, "DescribeActionTargetsRequest");
 }
 
 export interface DescribeActionTargetsResponse {
-  __type?: "DescribeActionTargetsResponse";
   /**
    * <p>The pagination token to use to request the next page of results.</p>
    */
@@ -3857,11 +3652,9 @@ export namespace DescribeActionTargetsResponse {
   export const filterSensitiveLog = (obj: DescribeActionTargetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeActionTargetsResponse => __isa(o, "DescribeActionTargetsResponse");
 }
 
 export interface DescribeHubRequest {
-  __type?: "DescribeHubRequest";
   /**
    * <p>The ARN of the Hub resource to retrieve.</p>
    */
@@ -3872,11 +3665,9 @@ export namespace DescribeHubRequest {
   export const filterSensitiveLog = (obj: DescribeHubRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHubRequest => __isa(o, "DescribeHubRequest");
 }
 
 export interface DescribeHubResponse {
-  __type?: "DescribeHubResponse";
   /**
    * <p>Whether to automatically enable new controls when they are added to standards that are
    *          enabled.</p>
@@ -3900,11 +3691,9 @@ export namespace DescribeHubResponse {
   export const filterSensitiveLog = (obj: DescribeHubResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHubResponse => __isa(o, "DescribeHubResponse");
 }
 
 export interface DescribeProductsRequest {
-  __type?: "DescribeProductsRequest";
   /**
    * <p>The maximum number of results to return.</p>
    */
@@ -3924,11 +3713,9 @@ export namespace DescribeProductsRequest {
   export const filterSensitiveLog = (obj: DescribeProductsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProductsRequest => __isa(o, "DescribeProductsRequest");
 }
 
 export interface DescribeProductsResponse {
-  __type?: "DescribeProductsResponse";
   /**
    * <p>A list of products, including details for each product.</p>
    */
@@ -3944,11 +3731,9 @@ export namespace DescribeProductsResponse {
   export const filterSensitiveLog = (obj: DescribeProductsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProductsResponse => __isa(o, "DescribeProductsResponse");
 }
 
 export interface DescribeStandardsControlsRequest {
-  __type?: "DescribeStandardsControlsRequest";
   /**
    * <p>The maximum number of security standard controls to return.</p>
    */
@@ -3973,11 +3758,9 @@ export namespace DescribeStandardsControlsRequest {
   export const filterSensitiveLog = (obj: DescribeStandardsControlsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStandardsControlsRequest => __isa(o, "DescribeStandardsControlsRequest");
 }
 
 export interface DescribeStandardsControlsResponse {
-  __type?: "DescribeStandardsControlsResponse";
   /**
    * <p>A list of security standards controls.</p>
    */
@@ -3993,11 +3776,9 @@ export namespace DescribeStandardsControlsResponse {
   export const filterSensitiveLog = (obj: DescribeStandardsControlsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStandardsControlsResponse => __isa(o, "DescribeStandardsControlsResponse");
 }
 
 export interface DescribeStandardsRequest {
-  __type?: "DescribeStandardsRequest";
   /**
    * <p>The maximum number of standards to return.</p>
    */
@@ -4017,11 +3798,9 @@ export namespace DescribeStandardsRequest {
   export const filterSensitiveLog = (obj: DescribeStandardsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStandardsRequest => __isa(o, "DescribeStandardsRequest");
 }
 
 export interface DescribeStandardsResponse {
-  __type?: "DescribeStandardsResponse";
   /**
    * <p>A list of available standards.</p>
    */
@@ -4037,11 +3816,9 @@ export namespace DescribeStandardsResponse {
   export const filterSensitiveLog = (obj: DescribeStandardsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStandardsResponse => __isa(o, "DescribeStandardsResponse");
 }
 
 export interface DisableImportFindingsForProductRequest {
-  __type?: "DisableImportFindingsForProductRequest";
   /**
    * <p>The ARN of the integrated product to disable the integration for.</p>
    */
@@ -4052,70 +3829,49 @@ export namespace DisableImportFindingsForProductRequest {
   export const filterSensitiveLog = (obj: DisableImportFindingsForProductRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableImportFindingsForProductRequest =>
-    __isa(o, "DisableImportFindingsForProductRequest");
 }
 
-export interface DisableImportFindingsForProductResponse {
-  __type?: "DisableImportFindingsForProductResponse";
-}
+export interface DisableImportFindingsForProductResponse {}
 
 export namespace DisableImportFindingsForProductResponse {
   export const filterSensitiveLog = (obj: DisableImportFindingsForProductResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableImportFindingsForProductResponse =>
-    __isa(o, "DisableImportFindingsForProductResponse");
 }
 
-export interface DisableSecurityHubRequest {
-  __type?: "DisableSecurityHubRequest";
-}
+export interface DisableSecurityHubRequest {}
 
 export namespace DisableSecurityHubRequest {
   export const filterSensitiveLog = (obj: DisableSecurityHubRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableSecurityHubRequest => __isa(o, "DisableSecurityHubRequest");
 }
 
-export interface DisableSecurityHubResponse {
-  __type?: "DisableSecurityHubResponse";
-}
+export interface DisableSecurityHubResponse {}
 
 export namespace DisableSecurityHubResponse {
   export const filterSensitiveLog = (obj: DisableSecurityHubResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableSecurityHubResponse => __isa(o, "DisableSecurityHubResponse");
 }
 
-export interface DisassociateFromMasterAccountRequest {
-  __type?: "DisassociateFromMasterAccountRequest";
-}
+export interface DisassociateFromMasterAccountRequest {}
 
 export namespace DisassociateFromMasterAccountRequest {
   export const filterSensitiveLog = (obj: DisassociateFromMasterAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateFromMasterAccountRequest =>
-    __isa(o, "DisassociateFromMasterAccountRequest");
 }
 
-export interface DisassociateFromMasterAccountResponse {
-  __type?: "DisassociateFromMasterAccountResponse";
-}
+export interface DisassociateFromMasterAccountResponse {}
 
 export namespace DisassociateFromMasterAccountResponse {
   export const filterSensitiveLog = (obj: DisassociateFromMasterAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateFromMasterAccountResponse =>
-    __isa(o, "DisassociateFromMasterAccountResponse");
 }
 
 export interface DisassociateMembersRequest {
-  __type?: "DisassociateMembersRequest";
   /**
    * <p>The account IDs of the member accounts to disassociate from the master account.</p>
    */
@@ -4126,22 +3882,17 @@ export namespace DisassociateMembersRequest {
   export const filterSensitiveLog = (obj: DisassociateMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateMembersRequest => __isa(o, "DisassociateMembersRequest");
 }
 
-export interface DisassociateMembersResponse {
-  __type?: "DisassociateMembersResponse";
-}
+export interface DisassociateMembersResponse {}
 
 export namespace DisassociateMembersResponse {
   export const filterSensitiveLog = (obj: DisassociateMembersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateMembersResponse => __isa(o, "DisassociateMembersResponse");
 }
 
 export interface EnableImportFindingsForProductRequest {
-  __type?: "EnableImportFindingsForProductRequest";
   /**
    * <p>The ARN of the product to enable the integration for.</p>
    */
@@ -4152,12 +3903,9 @@ export namespace EnableImportFindingsForProductRequest {
   export const filterSensitiveLog = (obj: EnableImportFindingsForProductRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableImportFindingsForProductRequest =>
-    __isa(o, "EnableImportFindingsForProductRequest");
 }
 
 export interface EnableImportFindingsForProductResponse {
-  __type?: "EnableImportFindingsForProductResponse";
   /**
    * <p>The ARN of your subscription to the product to enable integrations for.</p>
    */
@@ -4168,12 +3916,9 @@ export namespace EnableImportFindingsForProductResponse {
   export const filterSensitiveLog = (obj: EnableImportFindingsForProductResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableImportFindingsForProductResponse =>
-    __isa(o, "EnableImportFindingsForProductResponse");
 }
 
 export interface EnableSecurityHubRequest {
-  __type?: "EnableSecurityHubRequest";
   /**
    * <p>The tags to add to the hub resource when you enable Security Hub.</p>
    */
@@ -4192,22 +3937,17 @@ export namespace EnableSecurityHubRequest {
   export const filterSensitiveLog = (obj: EnableSecurityHubRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableSecurityHubRequest => __isa(o, "EnableSecurityHubRequest");
 }
 
-export interface EnableSecurityHubResponse {
-  __type?: "EnableSecurityHubResponse";
-}
+export interface EnableSecurityHubResponse {}
 
 export namespace EnableSecurityHubResponse {
   export const filterSensitiveLog = (obj: EnableSecurityHubResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableSecurityHubResponse => __isa(o, "EnableSecurityHubResponse");
 }
 
 export interface GetEnabledStandardsRequest {
-  __type?: "GetEnabledStandardsRequest";
   /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>GetEnabledStandards</code> operation, set the value of this parameter to
@@ -4232,11 +3972,9 @@ export namespace GetEnabledStandardsRequest {
   export const filterSensitiveLog = (obj: GetEnabledStandardsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEnabledStandardsRequest => __isa(o, "GetEnabledStandardsRequest");
 }
 
 export interface GetEnabledStandardsResponse {
-  __type?: "GetEnabledStandardsResponse";
   /**
    * <p>The list of <code>StandardsSubscriptions</code> objects that include information about
    *          the enabled standards.</p>
@@ -4253,11 +3991,9 @@ export namespace GetEnabledStandardsResponse {
   export const filterSensitiveLog = (obj: GetEnabledStandardsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEnabledStandardsResponse => __isa(o, "GetEnabledStandardsResponse");
 }
 
 export interface GetFindingsRequest {
-  __type?: "GetFindingsRequest";
   /**
    * <p>The finding attributes used to define a condition to filter the returned
    *          findings.</p>
@@ -4290,11 +4026,9 @@ export namespace GetFindingsRequest {
   export const filterSensitiveLog = (obj: GetFindingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFindingsRequest => __isa(o, "GetFindingsRequest");
 }
 
 export interface GetFindingsResponse {
-  __type?: "GetFindingsResponse";
   /**
    * <p>The pagination token to use to request the next page of results.</p>
    */
@@ -4310,11 +4044,9 @@ export namespace GetFindingsResponse {
   export const filterSensitiveLog = (obj: GetFindingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFindingsResponse => __isa(o, "GetFindingsResponse");
 }
 
 export interface GetInsightResultsRequest {
-  __type?: "GetInsightResultsRequest";
   /**
    * <p>The ARN of the insight for which to return results.</p>
    */
@@ -4325,11 +4057,9 @@ export namespace GetInsightResultsRequest {
   export const filterSensitiveLog = (obj: GetInsightResultsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInsightResultsRequest => __isa(o, "GetInsightResultsRequest");
 }
 
 export interface GetInsightResultsResponse {
-  __type?: "GetInsightResultsResponse";
   /**
    * <p>The insight results returned by the operation.</p>
    */
@@ -4340,11 +4070,9 @@ export namespace GetInsightResultsResponse {
   export const filterSensitiveLog = (obj: GetInsightResultsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInsightResultsResponse => __isa(o, "GetInsightResultsResponse");
 }
 
 export interface GetInsightsRequest {
-  __type?: "GetInsightsRequest";
   /**
    * <p>The ARNs of the insights to describe. If you do not provide any insight ARNs, then
    *             <code>GetInsights</code> returns all of your custom insights. It does not return any
@@ -4371,11 +4099,9 @@ export namespace GetInsightsRequest {
   export const filterSensitiveLog = (obj: GetInsightsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInsightsRequest => __isa(o, "GetInsightsRequest");
 }
 
 export interface GetInsightsResponse {
-  __type?: "GetInsightsResponse";
   /**
    * <p>The pagination token to use to request the next page of results.</p>
    */
@@ -4391,22 +4117,17 @@ export namespace GetInsightsResponse {
   export const filterSensitiveLog = (obj: GetInsightsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInsightsResponse => __isa(o, "GetInsightsResponse");
 }
 
-export interface GetInvitationsCountRequest {
-  __type?: "GetInvitationsCountRequest";
-}
+export interface GetInvitationsCountRequest {}
 
 export namespace GetInvitationsCountRequest {
   export const filterSensitiveLog = (obj: GetInvitationsCountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInvitationsCountRequest => __isa(o, "GetInvitationsCountRequest");
 }
 
 export interface GetInvitationsCountResponse {
-  __type?: "GetInvitationsCountResponse";
   /**
    * <p>The number of all membership invitations sent to this Security Hub member account, not
    *          including the currently accepted invitation.</p>
@@ -4418,22 +4139,17 @@ export namespace GetInvitationsCountResponse {
   export const filterSensitiveLog = (obj: GetInvitationsCountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInvitationsCountResponse => __isa(o, "GetInvitationsCountResponse");
 }
 
-export interface GetMasterAccountRequest {
-  __type?: "GetMasterAccountRequest";
-}
+export interface GetMasterAccountRequest {}
 
 export namespace GetMasterAccountRequest {
   export const filterSensitiveLog = (obj: GetMasterAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMasterAccountRequest => __isa(o, "GetMasterAccountRequest");
 }
 
 export interface GetMasterAccountResponse {
-  __type?: "GetMasterAccountResponse";
   /**
    * <p>A list of details about the Security Hub master account for the current member account.
    *       </p>
@@ -4445,11 +4161,9 @@ export namespace GetMasterAccountResponse {
   export const filterSensitiveLog = (obj: GetMasterAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMasterAccountResponse => __isa(o, "GetMasterAccountResponse");
 }
 
 export interface GetMembersRequest {
-  __type?: "GetMembersRequest";
   /**
    * <p>The list of account IDs for the Security Hub member accounts to return the details for. </p>
    */
@@ -4460,11 +4174,9 @@ export namespace GetMembersRequest {
   export const filterSensitiveLog = (obj: GetMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMembersRequest => __isa(o, "GetMembersRequest");
 }
 
 export interface GetMembersResponse {
-  __type?: "GetMembersResponse";
   /**
    * <p>The list of details about the Security Hub member accounts.</p>
    */
@@ -4481,7 +4193,6 @@ export namespace GetMembersResponse {
   export const filterSensitiveLog = (obj: GetMembersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMembersResponse => __isa(o, "GetMembersResponse");
 }
 
 /**
@@ -4489,7 +4200,6 @@ export namespace GetMembersResponse {
  *          the error.</p>
  */
 export interface ImportFindingsError {
-  __type?: "ImportFindingsError";
   /**
    * <p>The message of the error returned by the <code>BatchImportFindings</code>
    *          operation.</p>
@@ -4511,14 +4221,12 @@ export namespace ImportFindingsError {
   export const filterSensitiveLog = (obj: ImportFindingsError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportFindingsError => __isa(o, "ImportFindingsError");
 }
 
 /**
  * <p>Contains information about a Security Hub insight.</p>
  */
 export interface Insight {
-  __type?: "Insight";
   /**
    * <p>The name of a Security Hub insight.</p>
    */
@@ -4548,14 +4256,12 @@ export namespace Insight {
   export const filterSensitiveLog = (obj: Insight): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Insight => __isa(o, "Insight");
 }
 
 /**
  * <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>
  */
 export interface InsightResults {
-  __type?: "InsightResults";
   /**
    * <p>The ARN of the insight whose results are returned by the <code>GetInsightResults</code>
    *          operation.</p>
@@ -4579,7 +4285,6 @@ export namespace InsightResults {
   export const filterSensitiveLog = (obj: InsightResults): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsightResults => __isa(o, "InsightResults");
 }
 
 /**
@@ -4587,7 +4292,6 @@ export namespace InsightResults {
  *          operation.</p>
  */
 export interface InsightResultValue {
-  __type?: "InsightResultValue";
   /**
    * <p>The value of the attribute that the findings are grouped by for the insight whose
    *          results are returned by the <code>GetInsightResults</code> operation.</p>
@@ -4604,7 +4308,6 @@ export namespace InsightResultValue {
   export const filterSensitiveLog = (obj: InsightResultValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsightResultValue => __isa(o, "InsightResultValue");
 }
 
 export enum IntegrationType {
@@ -4626,7 +4329,6 @@ export namespace InternalException {
   export const filterSensitiveLog = (obj: InternalException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 /**
@@ -4643,7 +4345,6 @@ export namespace InvalidAccessException {
   export const filterSensitiveLog = (obj: InvalidAccessException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidAccessException => __isa(o, "InvalidAccessException");
 }
 
 /**
@@ -4661,14 +4362,12 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
  * <p>Details about an invitation.</p>
  */
 export interface Invitation {
-  __type?: "Invitation";
   /**
    * <p>The account ID of the Security Hub master account that the invitation was sent from.</p>
    */
@@ -4694,11 +4393,9 @@ export namespace Invitation {
   export const filterSensitiveLog = (obj: Invitation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Invitation => __isa(o, "Invitation");
 }
 
 export interface InviteMembersRequest {
-  __type?: "InviteMembersRequest";
   /**
    * <p>The list of account IDs of the AWS accounts to invite to Security Hub as members. </p>
    */
@@ -4709,11 +4406,9 @@ export namespace InviteMembersRequest {
   export const filterSensitiveLog = (obj: InviteMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InviteMembersRequest => __isa(o, "InviteMembersRequest");
 }
 
 export interface InviteMembersResponse {
-  __type?: "InviteMembersResponse";
   /**
    * <p>The list of AWS accounts that could not be processed. For each account, the list
    *          includes the account ID and the email address.</p>
@@ -4725,14 +4420,12 @@ export namespace InviteMembersResponse {
   export const filterSensitiveLog = (obj: InviteMembersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InviteMembersResponse => __isa(o, "InviteMembersResponse");
 }
 
 /**
  * <p>The IP filter for querying findings.</p>
  */
 export interface IpFilter {
-  __type?: "IpFilter";
   /**
    * <p>A finding's CIDR value.</p>
    */
@@ -4743,14 +4436,12 @@ export namespace IpFilter {
   export const filterSensitiveLog = (obj: IpFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IpFilter => __isa(o, "IpFilter");
 }
 
 /**
  * <p>An IPV6 CIDR block association.</p>
  */
 export interface Ipv6CidrBlockAssociation {
-  __type?: "Ipv6CidrBlockAssociation";
   /**
    * <p>The association ID for the IPv6 CIDR block.</p>
    */
@@ -4771,14 +4462,12 @@ export namespace Ipv6CidrBlockAssociation {
   export const filterSensitiveLog = (obj: Ipv6CidrBlockAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ipv6CidrBlockAssociation => __isa(o, "Ipv6CidrBlockAssociation");
 }
 
 /**
  * <p>A keyword filter for querying findings.</p>
  */
 export interface KeywordFilter {
-  __type?: "KeywordFilter";
   /**
    * <p>A value for the keyword.</p>
    */
@@ -4789,7 +4478,6 @@ export namespace KeywordFilter {
   export const filterSensitiveLog = (obj: KeywordFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeywordFilter => __isa(o, "KeywordFilter");
 }
 
 /**
@@ -4807,11 +4495,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListEnabledProductsForImportRequest {
-  __type?: "ListEnabledProductsForImportRequest";
   /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
@@ -4831,12 +4517,9 @@ export namespace ListEnabledProductsForImportRequest {
   export const filterSensitiveLog = (obj: ListEnabledProductsForImportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEnabledProductsForImportRequest =>
-    __isa(o, "ListEnabledProductsForImportRequest");
 }
 
 export interface ListEnabledProductsForImportResponse {
-  __type?: "ListEnabledProductsForImportResponse";
   /**
    * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
    */
@@ -4852,12 +4535,9 @@ export namespace ListEnabledProductsForImportResponse {
   export const filterSensitiveLog = (obj: ListEnabledProductsForImportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEnabledProductsForImportResponse =>
-    __isa(o, "ListEnabledProductsForImportResponse");
 }
 
 export interface ListInvitationsRequest {
-  __type?: "ListInvitationsRequest";
   /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>ListInvitations</code> operation, set the value of this parameter to
@@ -4877,11 +4557,9 @@ export namespace ListInvitationsRequest {
   export const filterSensitiveLog = (obj: ListInvitationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInvitationsRequest => __isa(o, "ListInvitationsRequest");
 }
 
 export interface ListInvitationsResponse {
-  __type?: "ListInvitationsResponse";
   /**
    * <p>The pagination token to use to request the next page of results.</p>
    */
@@ -4897,11 +4575,9 @@ export namespace ListInvitationsResponse {
   export const filterSensitiveLog = (obj: ListInvitationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInvitationsResponse => __isa(o, "ListInvitationsResponse");
 }
 
 export interface ListMembersRequest {
-  __type?: "ListMembersRequest";
   /**
    * <p>Specifies which member accounts to include in the response based on their relationship
    *          status with the master account. The default value is <code>TRUE</code>.</p>
@@ -4932,11 +4608,9 @@ export namespace ListMembersRequest {
   export const filterSensitiveLog = (obj: ListMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMembersRequest => __isa(o, "ListMembersRequest");
 }
 
 export interface ListMembersResponse {
-  __type?: "ListMembersResponse";
   /**
    * <p>Member details returned by the operation.</p>
    */
@@ -4952,11 +4626,9 @@ export namespace ListMembersResponse {
   export const filterSensitiveLog = (obj: ListMembersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMembersResponse => __isa(o, "ListMembersResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The ARN of the resource to retrieve tags for.</p>
    */
@@ -4967,11 +4639,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags associated with a resource.</p>
    */
@@ -4982,14 +4652,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>Information about the state of the load balancer.</p>
  */
 export interface LoadBalancerState {
-  __type?: "LoadBalancerState";
   /**
    * <p>The state code. The initial state of the load balancer is provisioning.</p>
    *          <p>After the load balancer is fully set up and ready to route traffic, its state is
@@ -5008,14 +4676,12 @@ export namespace LoadBalancerState {
   export const filterSensitiveLog = (obj: LoadBalancerState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerState => __isa(o, "LoadBalancerState");
 }
 
 /**
  * <p>A list of malware related to a finding.</p>
  */
 export interface Malware {
-  __type?: "Malware";
   /**
    * <p>The file system path of the malware that was observed.</p>
    */
@@ -5041,7 +4707,6 @@ export namespace Malware {
   export const filterSensitiveLog = (obj: Malware): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Malware => __isa(o, "Malware");
 }
 
 export enum MalwareState {
@@ -5072,7 +4737,6 @@ export enum MalwareType {
  * <p>The map filter for querying findings.</p>
  */
 export interface MapFilter {
-  __type?: "MapFilter";
   /**
    * <p>The value for the key in the map filter.</p>
    */
@@ -5094,7 +4758,6 @@ export namespace MapFilter {
   export const filterSensitiveLog = (obj: MapFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MapFilter => __isa(o, "MapFilter");
 }
 
 export enum MapFilterComparison {
@@ -5105,7 +4768,6 @@ export enum MapFilterComparison {
  * <p>The details about a member account.</p>
  */
 export interface Member {
-  __type?: "Member";
   /**
    * <p>The AWS account ID of the Security Hub master account associated with this member account.</p>
    */
@@ -5143,14 +4805,12 @@ export namespace Member {
   export const filterSensitiveLog = (obj: Member): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Member => __isa(o, "Member");
 }
 
 /**
  * <p>The details of network-related information about a finding.</p>
  */
 export interface Network {
-  __type?: "Network";
   /**
    * <p>The source port of network-related information about a finding.</p>
    */
@@ -5217,7 +4877,6 @@ export namespace Network {
   export const filterSensitiveLog = (obj: Network): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Network => __isa(o, "Network");
 }
 
 export enum NetworkDirection {
@@ -5230,7 +4889,6 @@ export enum NetworkDirection {
  *          component.</p>
  */
 export interface NetworkHeader {
-  __type?: "NetworkHeader";
   /**
    * <p>The protocol used for the component.</p>
    */
@@ -5251,14 +4909,12 @@ export namespace NetworkHeader {
   export const filterSensitiveLog = (obj: NetworkHeader): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkHeader => __isa(o, "NetworkHeader");
 }
 
 /**
  * <p>Information about a network path component.</p>
  */
 export interface NetworkPathComponent {
-  __type?: "NetworkPathComponent";
   /**
    * <p>The type of component.</p>
    */
@@ -5286,14 +4942,12 @@ export namespace NetworkPathComponent {
   export const filterSensitiveLog = (obj: NetworkPathComponent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkPathComponent => __isa(o, "NetworkPathComponent");
 }
 
 /**
  * <p>Information about the destination of the next component in the network path.</p>
  */
 export interface NetworkPathComponentDetails {
-  __type?: "NetworkPathComponentDetails";
   /**
    * <p>A list of port ranges for the destination.</p>
    */
@@ -5309,14 +4963,12 @@ export namespace NetworkPathComponentDetails {
   export const filterSensitiveLog = (obj: NetworkPathComponentDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkPathComponentDetails => __isa(o, "NetworkPathComponentDetails");
 }
 
 /**
  * <p>A user-defined note added to a finding.</p>
  */
 export interface Note {
-  __type?: "Note";
   /**
    * <p>The text of a note.</p>
    */
@@ -5337,14 +4989,12 @@ export namespace Note {
   export const filterSensitiveLog = (obj: Note): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Note => __isa(o, "Note");
 }
 
 /**
  * <p>The updated note.</p>
  */
 export interface NoteUpdate {
-  __type?: "NoteUpdate";
   /**
    * <p>The principal that updated the note.</p>
    */
@@ -5360,14 +5010,12 @@ export namespace NoteUpdate {
   export const filterSensitiveLog = (obj: NoteUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoteUpdate => __isa(o, "NoteUpdate");
 }
 
 /**
  * <p>A number filter for querying findings.</p>
  */
 export interface NumberFilter {
-  __type?: "NumberFilter";
   /**
    * <p>The greater-than-equal condition to be applied to a single field when querying for
    *          findings. </p>
@@ -5391,7 +5039,6 @@ export namespace NumberFilter {
   export const filterSensitiveLog = (obj: NumberFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NumberFilter => __isa(o, "NumberFilter");
 }
 
 export enum Partition {
@@ -5404,7 +5051,6 @@ export enum Partition {
  * <p>A range of ports.</p>
  */
 export interface PortRange {
-  __type?: "PortRange";
   /**
    * <p>The last port in the port range.</p>
    */
@@ -5420,14 +5066,12 @@ export namespace PortRange {
   export const filterSensitiveLog = (obj: PortRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PortRange => __isa(o, "PortRange");
 }
 
 /**
  * <p>The details of process-related information about a finding.</p>
  */
 export interface ProcessDetails {
-  __type?: "ProcessDetails";
   /**
    * <p>The process ID.</p>
    */
@@ -5463,14 +5107,12 @@ export namespace ProcessDetails {
   export const filterSensitiveLog = (obj: ProcessDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessDetails => __isa(o, "ProcessDetails");
 }
 
 /**
  * <p>Contains details about a product.</p>
  */
 export interface Product {
-  __type?: "Product";
   /**
    * <p>The name of the product.</p>
    */
@@ -5534,14 +5176,12 @@ export namespace Product {
   export const filterSensitiveLog = (obj: Product): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Product => __isa(o, "Product");
 }
 
 /**
  * <p>A recommendation on how to remediate the issue identified in a finding.</p>
  */
 export interface Recommendation {
-  __type?: "Recommendation";
   /**
    * <p>Describes the recommended steps to take to remediate an issue identified in a finding.</p>
    */
@@ -5557,7 +5197,6 @@ export namespace Recommendation {
   export const filterSensitiveLog = (obj: Recommendation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Recommendation => __isa(o, "Recommendation");
 }
 
 export enum RecordState {
@@ -5569,7 +5208,6 @@ export enum RecordState {
  * <p>Details about a related finding.</p>
  */
 export interface RelatedFinding {
-  __type?: "RelatedFinding";
   /**
    * <p>The ARN of the product that generated a related finding.</p>
    */
@@ -5585,14 +5223,12 @@ export namespace RelatedFinding {
   export const filterSensitiveLog = (obj: RelatedFinding): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelatedFinding => __isa(o, "RelatedFinding");
 }
 
 /**
  * <p>Details about the remediation steps for a finding.</p>
  */
 export interface Remediation {
-  __type?: "Remediation";
   /**
    * <p>A recommendation on the steps to take to remediate the issue identified by a finding.</p>
    */
@@ -5603,14 +5239,12 @@ export namespace Remediation {
   export const filterSensitiveLog = (obj: Remediation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Remediation => __isa(o, "Remediation");
 }
 
 /**
  * <p>A resource related to a finding.</p>
  */
 export interface Resource {
-  __type?: "Resource";
   /**
    * <p>The canonical AWS external Region name where this resource is located.</p>
    */
@@ -5651,7 +5285,6 @@ export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
 /**
@@ -5668,7 +5301,6 @@ export namespace ResourceConflictException {
   export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceConflictException => __isa(o, "ResourceConflictException");
 }
 
 /**
@@ -5682,7 +5314,6 @@ export namespace ResourceConflictException {
  *          type does not have a corresponding object.</p>
  */
 export interface ResourceDetails {
-  __type?: "ResourceDetails";
   /**
    * <p>Details about an Amazon S3 object related to a finding.</p>
    */
@@ -5816,7 +5447,6 @@ export namespace ResourceDetails {
   export const filterSensitiveLog = (obj: ResourceDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceDetails => __isa(o, "ResourceDetails");
 }
 
 /**
@@ -5833,14 +5463,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>Details about the account that was not processed.</p>
  */
 export interface Result {
-  __type?: "Result";
   /**
    * <p>The reason that the account was not processed.</p>
    */
@@ -5856,7 +5484,6 @@ export namespace Result {
   export const filterSensitiveLog = (obj: Result): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Result => __isa(o, "Result");
 }
 
 /**
@@ -5870,7 +5497,6 @@ export namespace Result {
  *          the preferred attribute.</p>
  */
 export interface Severity {
-  __type?: "Severity";
   /**
    * <p>The native severity from the finding product that generated the finding.</p>
    */
@@ -5971,7 +5597,6 @@ export namespace Severity {
   export const filterSensitiveLog = (obj: Severity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Severity => __isa(o, "Severity");
 }
 
 export enum SeverityLabel {
@@ -5993,7 +5618,6 @@ export enum SeverityRating {
  * <p>Updates to the severity information for a finding.</p>
  */
 export interface SeverityUpdate {
-  __type?: "SeverityUpdate";
   /**
    * <p>The normalized severity for the finding. This attribute is to be deprecated in favor of
    *             <code>Label</code>.</p>
@@ -6063,14 +5687,12 @@ export namespace SeverityUpdate {
   export const filterSensitiveLog = (obj: SeverityUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SeverityUpdate => __isa(o, "SeverityUpdate");
 }
 
 /**
  * <p>Information about a software package.</p>
  */
 export interface SoftwarePackage {
-  __type?: "SoftwarePackage";
   /**
    * <p>The name of the software package.</p>
    */
@@ -6101,14 +5723,12 @@ export namespace SoftwarePackage {
   export const filterSensitiveLog = (obj: SoftwarePackage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SoftwarePackage => __isa(o, "SoftwarePackage");
 }
 
 /**
  * <p>A collection of finding attributes used to sort findings.</p>
  */
 export interface SortCriterion {
-  __type?: "SortCriterion";
   /**
    * <p>The finding attribute used to sort findings.</p>
    */
@@ -6124,7 +5744,6 @@ export namespace SortCriterion {
   export const filterSensitiveLog = (obj: SortCriterion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SortCriterion => __isa(o, "SortCriterion");
 }
 
 export enum SortOrder {
@@ -6136,7 +5755,6 @@ export enum SortOrder {
  * <p>Provides information about a specific standard.</p>
  */
 export interface Standard {
-  __type?: "Standard";
   /**
    * <p>The ARN of a standard.</p>
    */
@@ -6167,14 +5785,12 @@ export namespace Standard {
   export const filterSensitiveLog = (obj: Standard): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Standard => __isa(o, "Standard");
 }
 
 /**
  * <p>Details for an individual security standard control.</p>
  */
 export interface StandardsControl {
-  __type?: "StandardsControl";
   /**
    * <p>A link to remediation information for the control in the Security Hub user
    *          documentation.</p>
@@ -6236,7 +5852,6 @@ export namespace StandardsControl {
   export const filterSensitiveLog = (obj: StandardsControl): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StandardsControl => __isa(o, "StandardsControl");
 }
 
 export enum StandardsStatus {
@@ -6251,7 +5866,6 @@ export enum StandardsStatus {
  * <p>A resource that represents your subscription to a supported standard.</p>
  */
 export interface StandardsSubscription {
-  __type?: "StandardsSubscription";
   /**
    * <p>The status of the standards subscription.</p>
    */
@@ -6277,14 +5891,12 @@ export namespace StandardsSubscription {
   export const filterSensitiveLog = (obj: StandardsSubscription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StandardsSubscription => __isa(o, "StandardsSubscription");
 }
 
 /**
  * <p>The standard that you want to enable.</p>
  */
 export interface StandardsSubscriptionRequest {
-  __type?: "StandardsSubscriptionRequest";
   /**
    * <p>A key-value pair of input for the standard.</p>
    */
@@ -6303,14 +5915,12 @@ export namespace StandardsSubscriptionRequest {
   export const filterSensitiveLog = (obj: StandardsSubscriptionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StandardsSubscriptionRequest => __isa(o, "StandardsSubscriptionRequest");
 }
 
 /**
  * <p>Provides additional context for the value of <code>Compliance.Status</code>.</p>
  */
 export interface StatusReason {
-  __type?: "StatusReason";
   /**
    * <p>A code that represents a reason for the control status. For the list of status reason
    *          codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
@@ -6328,14 +5938,12 @@ export namespace StatusReason {
   export const filterSensitiveLog = (obj: StatusReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StatusReason => __isa(o, "StatusReason");
 }
 
 /**
  * <p>A string filter for querying findings.</p>
  */
 export interface StringFilter {
-  __type?: "StringFilter";
   /**
    * <p>The condition to be applied to a string value when querying for findings. </p>
    */
@@ -6351,7 +5959,6 @@ export namespace StringFilter {
   export const filterSensitiveLog = (obj: StringFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StringFilter => __isa(o, "StringFilter");
 }
 
 export enum StringFilterComparison {
@@ -6360,7 +5967,6 @@ export enum StringFilterComparison {
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The ARN of the resource to apply the tags to.</p>
    */
@@ -6376,25 +5982,20 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>Details about the threat intelligence related to a finding.</p>
  */
 export interface ThreatIntelIndicator {
-  __type?: "ThreatIntelIndicator";
   /**
    * <p>The value of a threat intelligence indicator.</p>
    */
@@ -6432,7 +6033,6 @@ export namespace ThreatIntelIndicator {
   export const filterSensitiveLog = (obj: ThreatIntelIndicator): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThreatIntelIndicator => __isa(o, "ThreatIntelIndicator");
 }
 
 export enum ThreatIntelIndicatorCategory {
@@ -6459,7 +6059,6 @@ export enum ThreatIntelIndicatorType {
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The tag keys associated with the tags to remove from the resource.</p>
    */
@@ -6475,22 +6074,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateActionTargetRequest {
-  __type?: "UpdateActionTargetRequest";
   /**
    * <p>The ARN of the custom action target to update.</p>
    */
@@ -6511,22 +6105,17 @@ export namespace UpdateActionTargetRequest {
   export const filterSensitiveLog = (obj: UpdateActionTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateActionTargetRequest => __isa(o, "UpdateActionTargetRequest");
 }
 
-export interface UpdateActionTargetResponse {
-  __type?: "UpdateActionTargetResponse";
-}
+export interface UpdateActionTargetResponse {}
 
 export namespace UpdateActionTargetResponse {
   export const filterSensitiveLog = (obj: UpdateActionTargetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateActionTargetResponse => __isa(o, "UpdateActionTargetResponse");
 }
 
 export interface UpdateFindingsRequest {
-  __type?: "UpdateFindingsRequest";
   /**
    * <p>The updated record state for the finding.</p>
    */
@@ -6547,22 +6136,17 @@ export namespace UpdateFindingsRequest {
   export const filterSensitiveLog = (obj: UpdateFindingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFindingsRequest => __isa(o, "UpdateFindingsRequest");
 }
 
-export interface UpdateFindingsResponse {
-  __type?: "UpdateFindingsResponse";
-}
+export interface UpdateFindingsResponse {}
 
 export namespace UpdateFindingsResponse {
   export const filterSensitiveLog = (obj: UpdateFindingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFindingsResponse => __isa(o, "UpdateFindingsResponse");
 }
 
 export interface UpdateInsightRequest {
-  __type?: "UpdateInsightRequest";
   /**
    * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
    */
@@ -6588,22 +6172,17 @@ export namespace UpdateInsightRequest {
   export const filterSensitiveLog = (obj: UpdateInsightRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateInsightRequest => __isa(o, "UpdateInsightRequest");
 }
 
-export interface UpdateInsightResponse {
-  __type?: "UpdateInsightResponse";
-}
+export interface UpdateInsightResponse {}
 
 export namespace UpdateInsightResponse {
   export const filterSensitiveLog = (obj: UpdateInsightResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateInsightResponse => __isa(o, "UpdateInsightResponse");
 }
 
 export interface UpdateSecurityHubConfigurationRequest {
-  __type?: "UpdateSecurityHubConfigurationRequest";
   /**
    * <p>Whether to automatically enable new controls when they are added to standards that are
    *          enabled.</p>
@@ -6618,24 +6197,17 @@ export namespace UpdateSecurityHubConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateSecurityHubConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSecurityHubConfigurationRequest =>
-    __isa(o, "UpdateSecurityHubConfigurationRequest");
 }
 
-export interface UpdateSecurityHubConfigurationResponse {
-  __type?: "UpdateSecurityHubConfigurationResponse";
-}
+export interface UpdateSecurityHubConfigurationResponse {}
 
 export namespace UpdateSecurityHubConfigurationResponse {
   export const filterSensitiveLog = (obj: UpdateSecurityHubConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSecurityHubConfigurationResponse =>
-    __isa(o, "UpdateSecurityHubConfigurationResponse");
 }
 
 export interface UpdateStandardsControlRequest {
-  __type?: "UpdateStandardsControlRequest";
   /**
    * <p>The updated status of the security standard control.</p>
    */
@@ -6657,18 +6229,14 @@ export namespace UpdateStandardsControlRequest {
   export const filterSensitiveLog = (obj: UpdateStandardsControlRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStandardsControlRequest => __isa(o, "UpdateStandardsControlRequest");
 }
 
-export interface UpdateStandardsControlResponse {
-  __type?: "UpdateStandardsControlResponse";
-}
+export interface UpdateStandardsControlResponse {}
 
 export namespace UpdateStandardsControlResponse {
   export const filterSensitiveLog = (obj: UpdateStandardsControlResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStandardsControlResponse => __isa(o, "UpdateStandardsControlResponse");
 }
 
 export enum VerificationState {
@@ -6682,7 +6250,6 @@ export enum VerificationState {
  * <p>A vulnerability associated with a finding.</p>
  */
 export interface Vulnerability {
-  __type?: "Vulnerability";
   /**
    * <p>List of vulnerabilities that are related to this vulnerability.</p>
    */
@@ -6718,14 +6285,12 @@ export namespace Vulnerability {
   export const filterSensitiveLog = (obj: Vulnerability): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Vulnerability => __isa(o, "Vulnerability");
 }
 
 /**
  * <p>A vendor that generates a vulnerability report.</p>
  */
 export interface VulnerabilityVendor {
-  __type?: "VulnerabilityVendor";
   /**
    * <p>The datetime when the vulnerability advisory was created.</p>
    */
@@ -6756,7 +6321,6 @@ export namespace VulnerabilityVendor {
   export const filterSensitiveLog = (obj: VulnerabilityVendor): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VulnerabilityVendor => __isa(o, "VulnerabilityVendor");
 }
 
 /**
@@ -6764,7 +6328,6 @@ export namespace VulnerabilityVendor {
  *          conditions in the rule. </p>
  */
 export interface WafAction {
-  __type?: "WafAction";
   /**
    * <p>Specifies how you want AWS WAF to respond to requests that match the settings in a
    *          rule.</p>
@@ -6794,14 +6357,12 @@ export namespace WafAction {
   export const filterSensitiveLog = (obj: WafAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WafAction => __isa(o, "WafAction");
 }
 
 /**
  * <p>Details about a rule to exclude from a rule group.</p>
  */
 export interface WafExcludedRule {
-  __type?: "WafExcludedRule";
   /**
    * <p>The unique identifier for the rule to exclude from the rule group.</p>
    */
@@ -6812,14 +6373,12 @@ export namespace WafExcludedRule {
   export const filterSensitiveLog = (obj: WafExcludedRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WafExcludedRule => __isa(o, "WafExcludedRule");
 }
 
 /**
  * <p>Details about an override action for a rule.</p>
  */
 export interface WafOverrideAction {
-  __type?: "WafOverrideAction";
   /**
    * <p>
    *             <code>COUNT</code> overrides the action specified by the individual rule within a
@@ -6833,14 +6392,12 @@ export namespace WafOverrideAction {
   export const filterSensitiveLog = (obj: WafOverrideAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WafOverrideAction => __isa(o, "WafOverrideAction");
 }
 
 /**
  * <p>Provides information about the status of the investigation into a finding.</p>
  */
 export interface Workflow {
-  __type?: "Workflow";
   /**
    * <p>The status of the investigation into the finding. The allowed values are the
    *          following.</p>
@@ -6874,7 +6431,6 @@ export namespace Workflow {
   export const filterSensitiveLog = (obj: Workflow): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Workflow => __isa(o, "Workflow");
 }
 
 export enum WorkflowState {
@@ -6896,7 +6452,6 @@ export enum WorkflowStatus {
  * <p>Used to update information about the investigation into the finding.</p>
  */
 export interface WorkflowUpdate {
-  __type?: "WorkflowUpdate";
   /**
    * <p>The status of the investigation into the finding. The allowed values are the
    *          following.</p>
@@ -6930,5 +6485,4 @@ export namespace WorkflowUpdate {
   export const filterSensitiveLog = (obj: WorkflowUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowUpdate => __isa(o, "WorkflowUpdate");
 }

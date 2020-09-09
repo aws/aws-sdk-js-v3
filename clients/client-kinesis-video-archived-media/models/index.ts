@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -16,7 +16,6 @@ export namespace ClientLimitExceededException {
   export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientLimitExceededException => __isa(o, "ClientLimitExceededException");
 }
 
 /**
@@ -29,7 +28,6 @@ export namespace ClientLimitExceededException {
  *             fragments are returned.</p>
  */
 export interface ClipFragmentSelector {
-  __type?: "ClipFragmentSelector";
   /**
    * <p>The range of timestamps to return.</p>
    */
@@ -45,7 +43,6 @@ export namespace ClipFragmentSelector {
   export const filterSensitiveLog = (obj: ClipFragmentSelector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClipFragmentSelector => __isa(o, "ClipFragmentSelector");
 }
 
 export enum ClipFragmentSelectorType {
@@ -60,7 +57,6 @@ export enum ClipFragmentSelectorType {
  *             but continue past it, are included in the session. </p>
  */
 export interface ClipTimestampRange {
-  __type?: "ClipTimestampRange";
   /**
    * <p>The starting timestamp in the range of timestamps for which to return fragments. </p>
    *         <p>This value is inclusive. Fragments that start before the <code>StartTimestamp</code>
@@ -87,7 +83,6 @@ export namespace ClipTimestampRange {
   export const filterSensitiveLog = (obj: ClipTimestampRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClipTimestampRange => __isa(o, "ClipTimestampRange");
 }
 
 export enum ContainerFormat {
@@ -110,7 +105,6 @@ export enum DASHDisplayFragmentTimestamp {
  *             timestamps. </p>
  */
 export interface DASHFragmentSelector {
-  __type?: "DASHFragmentSelector";
   /**
    * <p>The start and end of the timestamp range for the requested media.</p>
    *         <p>This value should not be present if <code>PlaybackType</code> is
@@ -148,7 +142,6 @@ export namespace DASHFragmentSelector {
   export const filterSensitiveLog = (obj: DASHFragmentSelector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DASHFragmentSelector => __isa(o, "DASHFragmentSelector");
 }
 
 export enum DASHFragmentSelectorType {
@@ -173,7 +166,6 @@ export enum DASHPlaybackMode {
  *         </note>
  */
 export interface DASHTimestampRange {
-  __type?: "DASHTimestampRange";
   /**
    * <p>The start of the timestamp range for the requested media.</p>
    *         <p>If the <code>DASHTimestampRange</code> value is specified, the
@@ -212,14 +204,12 @@ export namespace DASHTimestampRange {
   export const filterSensitiveLog = (obj: DASHTimestampRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DASHTimestampRange => __isa(o, "DASHTimestampRange");
 }
 
 /**
  * <p>Represents a segment of video or other time-delimited data.</p>
  */
 export interface Fragment {
-  __type?: "Fragment";
   /**
    * <p>The timestamp from the AWS server corresponding to the fragment.</p>
    */
@@ -252,7 +242,6 @@ export namespace Fragment {
   export const filterSensitiveLog = (obj: Fragment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Fragment => __isa(o, "Fragment");
 }
 
 /**
@@ -278,7 +267,6 @@ export namespace Fragment {
  *             would return the fragments with start times of 00:00:02 and 00:00:04. </p>
  */
 export interface FragmentSelector {
-  __type?: "FragmentSelector";
   /**
    * <p>The origin of the timestamps to use (Server or Producer).</p>
    */
@@ -294,7 +282,6 @@ export namespace FragmentSelector {
   export const filterSensitiveLog = (obj: FragmentSelector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FragmentSelector => __isa(o, "FragmentSelector");
 }
 
 export enum FragmentSelectorType {
@@ -303,7 +290,6 @@ export enum FragmentSelectorType {
 }
 
 export interface GetClipInput {
-  __type?: "GetClipInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the stream for which to retrieve the media clip. </p>
    *         <p>You must specify either the StreamName or the StreamARN. </p>
@@ -326,11 +312,9 @@ export namespace GetClipInput {
   export const filterSensitiveLog = (obj: GetClipInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetClipInput => __isa(o, "GetClipInput");
 }
 
 export interface GetClipOutput {
-  __type?: "GetClipOutput";
   /**
    * <p>Traditional MP4 file that contains the media clip from the specified video stream. The
    *             output will contain the first 100 MB or the first 200 fragments from the specified start
@@ -349,11 +333,9 @@ export namespace GetClipOutput {
   export const filterSensitiveLog = (obj: GetClipOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetClipOutput => __isa(o, "GetClipOutput");
 }
 
 export interface GetDASHStreamingSessionURLInput {
-  __type?: "GetDASHStreamingSessionURLInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH
    *             manifest URL.</p>
@@ -510,11 +492,9 @@ export namespace GetDASHStreamingSessionURLInput {
   export const filterSensitiveLog = (obj: GetDASHStreamingSessionURLInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDASHStreamingSessionURLInput => __isa(o, "GetDASHStreamingSessionURLInput");
 }
 
 export interface GetDASHStreamingSessionURLOutput {
-  __type?: "GetDASHStreamingSessionURLOutput";
   /**
    * <p>The URL (containing the session token) that a media player can use to retrieve the
    *             MPEG-DASH manifest.</p>
@@ -526,11 +506,9 @@ export namespace GetDASHStreamingSessionURLOutput {
   export const filterSensitiveLog = (obj: GetDASHStreamingSessionURLOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDASHStreamingSessionURLOutput => __isa(o, "GetDASHStreamingSessionURLOutput");
 }
 
 export interface GetHLSStreamingSessionURLInput {
-  __type?: "GetHLSStreamingSessionURLInput";
   /**
    * <p>Specifies when flags marking discontinuities between fragments are added to the media
    *             playlists.</p>
@@ -728,11 +706,9 @@ export namespace GetHLSStreamingSessionURLInput {
   export const filterSensitiveLog = (obj: GetHLSStreamingSessionURLInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHLSStreamingSessionURLInput => __isa(o, "GetHLSStreamingSessionURLInput");
 }
 
 export interface GetHLSStreamingSessionURLOutput {
-  __type?: "GetHLSStreamingSessionURLOutput";
   /**
    * <p>The URL (containing the session token) that a media player can use to retrieve the HLS
    *             master playlist.</p>
@@ -744,11 +720,9 @@ export namespace GetHLSStreamingSessionURLOutput {
   export const filterSensitiveLog = (obj: GetHLSStreamingSessionURLOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHLSStreamingSessionURLOutput => __isa(o, "GetHLSStreamingSessionURLOutput");
 }
 
 export interface GetMediaForFragmentListInput {
-  __type?: "GetMediaForFragmentListInput";
   /**
    * <p>The name of the stream from which to retrieve fragment media.</p>
    */
@@ -765,11 +739,9 @@ export namespace GetMediaForFragmentListInput {
   export const filterSensitiveLog = (obj: GetMediaForFragmentListInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMediaForFragmentListInput => __isa(o, "GetMediaForFragmentListInput");
 }
 
 export interface GetMediaForFragmentListOutput {
-  __type?: "GetMediaForFragmentListOutput";
   /**
    * <p>The content type of the requested media.</p>
    */
@@ -817,7 +789,6 @@ export namespace GetMediaForFragmentListOutput {
   export const filterSensitiveLog = (obj: GetMediaForFragmentListOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMediaForFragmentListOutput => __isa(o, "GetMediaForFragmentListOutput");
 }
 
 export enum HLSDiscontinuityMode {
@@ -836,7 +807,6 @@ export enum HLSDisplayFragmentTimestamp {
  *             timestamps.</p>
  */
 export interface HLSFragmentSelector {
-  __type?: "HLSFragmentSelector";
   /**
    * <p>The start and end of the timestamp range for the requested media.</p>
    *         <p>This value should not be present if <code>PlaybackType</code> is
@@ -874,7 +844,6 @@ export namespace HLSFragmentSelector {
   export const filterSensitiveLog = (obj: HLSFragmentSelector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HLSFragmentSelector => __isa(o, "HLSFragmentSelector");
 }
 
 export enum HLSFragmentSelectorType {
@@ -899,7 +868,6 @@ export enum HLSPlaybackMode {
  *         </note>
  */
 export interface HLSTimestampRange {
-  __type?: "HLSTimestampRange";
   /**
    * <p>The start of the timestamp range for the requested media.</p>
    *         <p>If the <code>HLSTimestampRange</code> value is specified, the
@@ -937,7 +905,6 @@ export namespace HLSTimestampRange {
   export const filterSensitiveLog = (obj: HLSTimestampRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HLSTimestampRange => __isa(o, "HLSTimestampRange");
 }
 
 /**
@@ -954,7 +921,6 @@ export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -971,7 +937,6 @@ export namespace InvalidCodecPrivateDataException {
   export const filterSensitiveLog = (obj: InvalidCodecPrivateDataException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCodecPrivateDataException => __isa(o, "InvalidCodecPrivateDataException");
 }
 
 /**
@@ -988,11 +953,9 @@ export namespace InvalidMediaFrameException {
   export const filterSensitiveLog = (obj: InvalidMediaFrameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidMediaFrameException => __isa(o, "InvalidMediaFrameException");
 }
 
 export interface ListFragmentsInput {
-  __type?: "ListFragmentsInput";
   /**
    * <p>The name of the stream from which to retrieve a fragment list.</p>
    */
@@ -1022,11 +985,9 @@ export namespace ListFragmentsInput {
   export const filterSensitiveLog = (obj: ListFragmentsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFragmentsInput => __isa(o, "ListFragmentsInput");
 }
 
 export interface ListFragmentsOutput {
-  __type?: "ListFragmentsOutput";
   /**
    * <p>A list of archived <a>Fragment</a> objects from the stream that meet the
    *             selector criteria. Results are in no specific order, even across pages.</p>
@@ -1045,7 +1006,6 @@ export namespace ListFragmentsOutput {
   export const filterSensitiveLog = (obj: ListFragmentsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFragmentsOutput => __isa(o, "ListFragmentsOutput");
 }
 
 /**
@@ -1061,7 +1021,6 @@ export namespace MissingCodecPrivateDataException {
   export const filterSensitiveLog = (obj: MissingCodecPrivateDataException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MissingCodecPrivateDataException => __isa(o, "MissingCodecPrivateDataException");
 }
 
 /**
@@ -1078,7 +1037,6 @@ export namespace NoDataRetentionException {
   export const filterSensitiveLog = (obj: NoDataRetentionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoDataRetentionException => __isa(o, "NoDataRetentionException");
 }
 
 /**
@@ -1095,7 +1053,6 @@ export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -1120,14 +1077,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The range of timestamps for which to return fragments.</p>
  */
 export interface TimestampRange {
-  __type?: "TimestampRange";
   /**
    * <p>The starting timestamp in the range of timestamps for which to return
    *             fragments.</p>
@@ -1144,7 +1099,6 @@ export namespace TimestampRange {
   export const filterSensitiveLog = (obj: TimestampRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimestampRange => __isa(o, "TimestampRange");
 }
 
 /**
@@ -1163,6 +1117,4 @@ export namespace UnsupportedStreamMediaTypeException {
   export const filterSensitiveLog = (obj: UnsupportedStreamMediaTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedStreamMediaTypeException =>
-    __isa(o, "UnsupportedStreamMediaTypeException");
 }

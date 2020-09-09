@@ -788,7 +788,6 @@ export const deserializeAws_json1_1AssociateWebACLCommand = async (
   contents = deserializeAws_json1_1AssociateWebACLResponse(data, context);
   const response: AssociateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateWebACLResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -876,7 +875,6 @@ export const deserializeAws_json1_1CheckCapacityCommand = async (
   contents = deserializeAws_json1_1CheckCapacityResponse(data, context);
   const response: CheckCapacityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CheckCapacityResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -980,7 +978,6 @@ export const deserializeAws_json1_1CreateIPSetCommand = async (
   contents = deserializeAws_json1_1CreateIPSetResponse(data, context);
   const response: CreateIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateIPSetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1092,7 +1089,6 @@ export const deserializeAws_json1_1CreateRegexPatternSetCommand = async (
   contents = deserializeAws_json1_1CreateRegexPatternSetResponse(data, context);
   const response: CreateRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRegexPatternSetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1204,7 +1200,6 @@ export const deserializeAws_json1_1CreateRuleGroupCommand = async (
   contents = deserializeAws_json1_1CreateRuleGroupResponse(data, context);
   const response: CreateRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRuleGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1340,7 +1335,6 @@ export const deserializeAws_json1_1CreateWebACLCommand = async (
   contents = deserializeAws_json1_1CreateWebACLResponse(data, context);
   const response: CreateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateWebACLResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1484,7 +1478,6 @@ export const deserializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand = asyn
   contents = deserializeAws_json1_1DeleteFirewallManagerRuleGroupsResponse(data, context);
   const response: DeleteFirewallManagerRuleGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFirewallManagerRuleGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1572,7 +1565,6 @@ export const deserializeAws_json1_1DeleteIPSetCommand = async (
   contents = deserializeAws_json1_1DeleteIPSetResponse(data, context);
   const response: DeleteIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteIPSetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1684,7 +1676,6 @@ export const deserializeAws_json1_1DeleteLoggingConfigurationCommand = async (
   contents = deserializeAws_json1_1DeleteLoggingConfigurationResponse(data, context);
   const response: DeleteLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLoggingConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1772,7 +1763,6 @@ export const deserializeAws_json1_1DeletePermissionPolicyCommand = async (
   contents = deserializeAws_json1_1DeletePermissionPolicyResponse(data, context);
   const response: DeletePermissionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePermissionPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1844,7 +1834,6 @@ export const deserializeAws_json1_1DeleteRegexPatternSetCommand = async (
   contents = deserializeAws_json1_1DeleteRegexPatternSetResponse(data, context);
   const response: DeleteRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRegexPatternSetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1956,7 +1945,6 @@ export const deserializeAws_json1_1DeleteRuleGroupCommand = async (
   contents = deserializeAws_json1_1DeleteRuleGroupResponse(data, context);
   const response: DeleteRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRuleGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2068,7 +2056,6 @@ export const deserializeAws_json1_1DeleteWebACLCommand = async (
   contents = deserializeAws_json1_1DeleteWebACLResponse(data, context);
   const response: DeleteWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteWebACLResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2180,7 +2167,6 @@ export const deserializeAws_json1_1DescribeManagedRuleGroupCommand = async (
   contents = deserializeAws_json1_1DescribeManagedRuleGroupResponse(data, context);
   const response: DescribeManagedRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeManagedRuleGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2268,7 +2254,6 @@ export const deserializeAws_json1_1DisassociateWebACLCommand = async (
   contents = deserializeAws_json1_1DisassociateWebACLResponse(data, context);
   const response: DisassociateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateWebACLResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2348,7 +2333,6 @@ export const deserializeAws_json1_1GetIPSetCommand = async (
   contents = deserializeAws_json1_1GetIPSetResponse(data, context);
   const response: GetIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetIPSetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2428,7 +2412,6 @@ export const deserializeAws_json1_1GetLoggingConfigurationCommand = async (
   contents = deserializeAws_json1_1GetLoggingConfigurationResponse(data, context);
   const response: GetLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLoggingConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2508,7 +2491,6 @@ export const deserializeAws_json1_1GetPermissionPolicyCommand = async (
   contents = deserializeAws_json1_1GetPermissionPolicyResponse(data, context);
   const response: GetPermissionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPermissionPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2580,7 +2562,6 @@ export const deserializeAws_json1_1GetRateBasedStatementManagedKeysCommand = asy
   contents = deserializeAws_json1_1GetRateBasedStatementManagedKeysResponse(data, context);
   const response: GetRateBasedStatementManagedKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRateBasedStatementManagedKeysResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2660,7 +2641,6 @@ export const deserializeAws_json1_1GetRegexPatternSetCommand = async (
   contents = deserializeAws_json1_1GetRegexPatternSetResponse(data, context);
   const response: GetRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRegexPatternSetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2740,7 +2720,6 @@ export const deserializeAws_json1_1GetRuleGroupCommand = async (
   contents = deserializeAws_json1_1GetRuleGroupResponse(data, context);
   const response: GetRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRuleGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2820,7 +2799,6 @@ export const deserializeAws_json1_1GetSampledRequestsCommand = async (
   contents = deserializeAws_json1_1GetSampledRequestsResponse(data, context);
   const response: GetSampledRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSampledRequestsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2892,7 +2870,6 @@ export const deserializeAws_json1_1GetWebACLCommand = async (
   contents = deserializeAws_json1_1GetWebACLResponse(data, context);
   const response: GetWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetWebACLResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2972,7 +2949,6 @@ export const deserializeAws_json1_1GetWebACLForResourceCommand = async (
   contents = deserializeAws_json1_1GetWebACLForResourceResponse(data, context);
   const response: GetWebACLForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetWebACLForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3060,7 +3036,6 @@ export const deserializeAws_json1_1ListAvailableManagedRuleGroupsCommand = async
   contents = deserializeAws_json1_1ListAvailableManagedRuleGroupsResponse(data, context);
   const response: ListAvailableManagedRuleGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAvailableManagedRuleGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3132,7 +3107,6 @@ export const deserializeAws_json1_1ListIPSetsCommand = async (
   contents = deserializeAws_json1_1ListIPSetsResponse(data, context);
   const response: ListIPSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListIPSetsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3204,7 +3178,6 @@ export const deserializeAws_json1_1ListLoggingConfigurationsCommand = async (
   contents = deserializeAws_json1_1ListLoggingConfigurationsResponse(data, context);
   const response: ListLoggingConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLoggingConfigurationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3276,7 +3249,6 @@ export const deserializeAws_json1_1ListRegexPatternSetsCommand = async (
   contents = deserializeAws_json1_1ListRegexPatternSetsResponse(data, context);
   const response: ListRegexPatternSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRegexPatternSetsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3348,7 +3320,6 @@ export const deserializeAws_json1_1ListResourcesForWebACLCommand = async (
   contents = deserializeAws_json1_1ListResourcesForWebACLResponse(data, context);
   const response: ListResourcesForWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourcesForWebACLResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3428,7 +3399,6 @@ export const deserializeAws_json1_1ListRuleGroupsCommand = async (
   contents = deserializeAws_json1_1ListRuleGroupsResponse(data, context);
   const response: ListRuleGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRuleGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3500,7 +3470,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3596,7 +3565,6 @@ export const deserializeAws_json1_1ListWebACLsCommand = async (
   contents = deserializeAws_json1_1ListWebACLsResponse(data, context);
   const response: ListWebACLsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListWebACLsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3668,7 +3636,6 @@ export const deserializeAws_json1_1PutLoggingConfigurationCommand = async (
   contents = deserializeAws_json1_1PutLoggingConfigurationResponse(data, context);
   const response: PutLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutLoggingConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3772,7 +3739,6 @@ export const deserializeAws_json1_1PutPermissionPolicyCommand = async (
   contents = deserializeAws_json1_1PutPermissionPolicyResponse(data, context);
   const response: PutPermissionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutPermissionPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3852,7 +3818,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3956,7 +3921,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4052,7 +4016,6 @@ export const deserializeAws_json1_1UpdateIPSetCommand = async (
   contents = deserializeAws_json1_1UpdateIPSetResponse(data, context);
   const response: UpdateIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateIPSetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4156,7 +4119,6 @@ export const deserializeAws_json1_1UpdateRegexPatternSetCommand = async (
   contents = deserializeAws_json1_1UpdateRegexPatternSetResponse(data, context);
   const response: UpdateRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRegexPatternSetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4260,7 +4222,6 @@ export const deserializeAws_json1_1UpdateRuleGroupCommand = async (
   contents = deserializeAws_json1_1UpdateRuleGroupResponse(data, context);
   const response: UpdateRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRuleGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4380,7 +4341,6 @@ export const deserializeAws_json1_1UpdateWebACLCommand = async (
   contents = deserializeAws_json1_1UpdateWebACLResponse(data, context);
   const response: UpdateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateWebACLResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5546,20 +5506,15 @@ const serializeAws_json1_1XssMatchStatement = (input: XssMatchStatement, context
 };
 
 const deserializeAws_json1_1AllowAction = (output: any, context: __SerdeContext): AllowAction => {
-  return {
-    __type: "AllowAction",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AllQueryArguments = (output: any, context: __SerdeContext): AllQueryArguments => {
-  return {
-    __type: "AllQueryArguments",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AndStatement = (output: any, context: __SerdeContext): AndStatement => {
   return {
-    __type: "AndStatement",
     Statements:
       output.Statements !== undefined && output.Statements !== null
         ? deserializeAws_json1_1Statements(output.Statements, context)
@@ -5571,26 +5526,19 @@ const deserializeAws_json1_1AssociateWebACLResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateWebACLResponse => {
-  return {
-    __type: "AssociateWebACLResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1BlockAction = (output: any, context: __SerdeContext): BlockAction => {
-  return {
-    __type: "BlockAction",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Body = (output: any, context: __SerdeContext): Body => {
-  return {
-    __type: "Body",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ByteMatchStatement = (output: any, context: __SerdeContext): ByteMatchStatement => {
   return {
-    __type: "ByteMatchStatement",
     FieldToMatch:
       output.FieldToMatch !== undefined && output.FieldToMatch !== null
         ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
@@ -5612,15 +5560,12 @@ const deserializeAws_json1_1ByteMatchStatement = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1CheckCapacityResponse = (output: any, context: __SerdeContext): CheckCapacityResponse => {
   return {
-    __type: "CheckCapacityResponse",
     Capacity: output.Capacity !== undefined && output.Capacity !== null ? output.Capacity : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CountAction = (output: any, context: __SerdeContext): CountAction => {
-  return {
-    __type: "CountAction",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CountryCodes = (output: any, context: __SerdeContext): (CountryCode | string)[] => {
@@ -5629,7 +5574,6 @@ const deserializeAws_json1_1CountryCodes = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1CreateIPSetResponse = (output: any, context: __SerdeContext): CreateIPSetResponse => {
   return {
-    __type: "CreateIPSetResponse",
     Summary:
       output.Summary !== undefined && output.Summary !== null
         ? deserializeAws_json1_1IPSetSummary(output.Summary, context)
@@ -5642,7 +5586,6 @@ const deserializeAws_json1_1CreateRegexPatternSetResponse = (
   context: __SerdeContext
 ): CreateRegexPatternSetResponse => {
   return {
-    __type: "CreateRegexPatternSetResponse",
     Summary:
       output.Summary !== undefined && output.Summary !== null
         ? deserializeAws_json1_1RegexPatternSetSummary(output.Summary, context)
@@ -5655,7 +5598,6 @@ const deserializeAws_json1_1CreateRuleGroupResponse = (
   context: __SerdeContext
 ): CreateRuleGroupResponse => {
   return {
-    __type: "CreateRuleGroupResponse",
     Summary:
       output.Summary !== undefined && output.Summary !== null
         ? deserializeAws_json1_1RuleGroupSummary(output.Summary, context)
@@ -5665,7 +5607,6 @@ const deserializeAws_json1_1CreateRuleGroupResponse = (
 
 const deserializeAws_json1_1CreateWebACLResponse = (output: any, context: __SerdeContext): CreateWebACLResponse => {
   return {
-    __type: "CreateWebACLResponse",
     Summary:
       output.Summary !== undefined && output.Summary !== null
         ? deserializeAws_json1_1WebACLSummary(output.Summary, context)
@@ -5675,7 +5616,6 @@ const deserializeAws_json1_1CreateWebACLResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1DefaultAction = (output: any, context: __SerdeContext): DefaultAction => {
   return {
-    __type: "DefaultAction",
     Allow:
       output.Allow !== undefined && output.Allow !== null
         ? deserializeAws_json1_1AllowAction(output.Allow, context)
@@ -5692,7 +5632,6 @@ const deserializeAws_json1_1DeleteFirewallManagerRuleGroupsResponse = (
   context: __SerdeContext
 ): DeleteFirewallManagerRuleGroupsResponse => {
   return {
-    __type: "DeleteFirewallManagerRuleGroupsResponse",
     NextWebACLLockToken:
       output.NextWebACLLockToken !== undefined && output.NextWebACLLockToken !== null
         ? output.NextWebACLLockToken
@@ -5701,51 +5640,39 @@ const deserializeAws_json1_1DeleteFirewallManagerRuleGroupsResponse = (
 };
 
 const deserializeAws_json1_1DeleteIPSetResponse = (output: any, context: __SerdeContext): DeleteIPSetResponse => {
-  return {
-    __type: "DeleteIPSetResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteLoggingConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteLoggingConfigurationResponse => {
-  return {
-    __type: "DeleteLoggingConfigurationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeletePermissionPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): DeletePermissionPolicyResponse => {
-  return {
-    __type: "DeletePermissionPolicyResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteRegexPatternSetResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteRegexPatternSetResponse => {
-  return {
-    __type: "DeleteRegexPatternSetResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteRuleGroupResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteRuleGroupResponse => {
-  return {
-    __type: "DeleteRuleGroupResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteWebACLResponse = (output: any, context: __SerdeContext): DeleteWebACLResponse => {
-  return {
-    __type: "DeleteWebACLResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeManagedRuleGroupResponse = (
@@ -5753,7 +5680,6 @@ const deserializeAws_json1_1DescribeManagedRuleGroupResponse = (
   context: __SerdeContext
 ): DescribeManagedRuleGroupResponse => {
   return {
-    __type: "DescribeManagedRuleGroupResponse",
     Capacity: output.Capacity !== undefined && output.Capacity !== null ? output.Capacity : undefined,
     Rules:
       output.Rules !== undefined && output.Rules !== null
@@ -5766,14 +5692,11 @@ const deserializeAws_json1_1DisassociateWebACLResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateWebACLResponse => {
-  return {
-    __type: "DisassociateWebACLResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ExcludedRule = (output: any, context: __SerdeContext): ExcludedRule => {
   return {
-    __type: "ExcludedRule",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
@@ -5784,7 +5707,6 @@ const deserializeAws_json1_1ExcludedRules = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1FieldToMatch = (output: any, context: __SerdeContext): FieldToMatch => {
   return {
-    __type: "FieldToMatch",
     AllQueryArguments:
       output.AllQueryArguments !== undefined && output.AllQueryArguments !== null
         ? deserializeAws_json1_1AllQueryArguments(output.AllQueryArguments, context)
@@ -5819,7 +5741,6 @@ const deserializeAws_json1_1FirewallManagerRuleGroup = (
   context: __SerdeContext
 ): FirewallManagerRuleGroup => {
   return {
-    __type: "FirewallManagerRuleGroup",
     FirewallManagerStatement:
       output.FirewallManagerStatement !== undefined && output.FirewallManagerStatement !== null
         ? deserializeAws_json1_1FirewallManagerStatement(output.FirewallManagerStatement, context)
@@ -5849,7 +5770,6 @@ const deserializeAws_json1_1FirewallManagerStatement = (
   context: __SerdeContext
 ): FirewallManagerStatement => {
   return {
-    __type: "FirewallManagerStatement",
     ManagedRuleGroupStatement:
       output.ManagedRuleGroupStatement !== undefined && output.ManagedRuleGroupStatement !== null
         ? deserializeAws_json1_1ManagedRuleGroupStatement(output.ManagedRuleGroupStatement, context)
@@ -5863,7 +5783,6 @@ const deserializeAws_json1_1FirewallManagerStatement = (
 
 const deserializeAws_json1_1ForwardedIPConfig = (output: any, context: __SerdeContext): ForwardedIPConfig => {
   return {
-    __type: "ForwardedIPConfig",
     FallbackBehavior:
       output.FallbackBehavior !== undefined && output.FallbackBehavior !== null ? output.FallbackBehavior : undefined,
     HeaderName: output.HeaderName !== undefined && output.HeaderName !== null ? output.HeaderName : undefined,
@@ -5872,7 +5791,6 @@ const deserializeAws_json1_1ForwardedIPConfig = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1GeoMatchStatement = (output: any, context: __SerdeContext): GeoMatchStatement => {
   return {
-    __type: "GeoMatchStatement",
     CountryCodes:
       output.CountryCodes !== undefined && output.CountryCodes !== null
         ? deserializeAws_json1_1CountryCodes(output.CountryCodes, context)
@@ -5886,7 +5804,6 @@ const deserializeAws_json1_1GeoMatchStatement = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1GetIPSetResponse = (output: any, context: __SerdeContext): GetIPSetResponse => {
   return {
-    __type: "GetIPSetResponse",
     IPSet:
       output.IPSet !== undefined && output.IPSet !== null
         ? deserializeAws_json1_1IPSet(output.IPSet, context)
@@ -5900,7 +5817,6 @@ const deserializeAws_json1_1GetLoggingConfigurationResponse = (
   context: __SerdeContext
 ): GetLoggingConfigurationResponse => {
   return {
-    __type: "GetLoggingConfigurationResponse",
     LoggingConfiguration:
       output.LoggingConfiguration !== undefined && output.LoggingConfiguration !== null
         ? deserializeAws_json1_1LoggingConfiguration(output.LoggingConfiguration, context)
@@ -5913,7 +5829,6 @@ const deserializeAws_json1_1GetPermissionPolicyResponse = (
   context: __SerdeContext
 ): GetPermissionPolicyResponse => {
   return {
-    __type: "GetPermissionPolicyResponse",
     Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined,
   } as any;
 };
@@ -5923,7 +5838,6 @@ const deserializeAws_json1_1GetRateBasedStatementManagedKeysResponse = (
   context: __SerdeContext
 ): GetRateBasedStatementManagedKeysResponse => {
   return {
-    __type: "GetRateBasedStatementManagedKeysResponse",
     ManagedKeysIPV4:
       output.ManagedKeysIPV4 !== undefined && output.ManagedKeysIPV4 !== null
         ? deserializeAws_json1_1RateBasedStatementManagedKeysIPSet(output.ManagedKeysIPV4, context)
@@ -5940,7 +5854,6 @@ const deserializeAws_json1_1GetRegexPatternSetResponse = (
   context: __SerdeContext
 ): GetRegexPatternSetResponse => {
   return {
-    __type: "GetRegexPatternSetResponse",
     LockToken: output.LockToken !== undefined && output.LockToken !== null ? output.LockToken : undefined,
     RegexPatternSet:
       output.RegexPatternSet !== undefined && output.RegexPatternSet !== null
@@ -5951,7 +5864,6 @@ const deserializeAws_json1_1GetRegexPatternSetResponse = (
 
 const deserializeAws_json1_1GetRuleGroupResponse = (output: any, context: __SerdeContext): GetRuleGroupResponse => {
   return {
-    __type: "GetRuleGroupResponse",
     LockToken: output.LockToken !== undefined && output.LockToken !== null ? output.LockToken : undefined,
     RuleGroup:
       output.RuleGroup !== undefined && output.RuleGroup !== null
@@ -5965,7 +5877,6 @@ const deserializeAws_json1_1GetSampledRequestsResponse = (
   context: __SerdeContext
 ): GetSampledRequestsResponse => {
   return {
-    __type: "GetSampledRequestsResponse",
     PopulationSize:
       output.PopulationSize !== undefined && output.PopulationSize !== null ? output.PopulationSize : undefined,
     SampledRequests:
@@ -5984,7 +5895,6 @@ const deserializeAws_json1_1GetWebACLForResourceResponse = (
   context: __SerdeContext
 ): GetWebACLForResourceResponse => {
   return {
-    __type: "GetWebACLForResourceResponse",
     WebACL:
       output.WebACL !== undefined && output.WebACL !== null
         ? deserializeAws_json1_1WebACL(output.WebACL, context)
@@ -5994,7 +5904,6 @@ const deserializeAws_json1_1GetWebACLForResourceResponse = (
 
 const deserializeAws_json1_1GetWebACLResponse = (output: any, context: __SerdeContext): GetWebACLResponse => {
   return {
-    __type: "GetWebACLResponse",
     LockToken: output.LockToken !== undefined && output.LockToken !== null ? output.LockToken : undefined,
     WebACL:
       output.WebACL !== undefined && output.WebACL !== null
@@ -6005,7 +5914,6 @@ const deserializeAws_json1_1GetWebACLResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1HTTPHeader = (output: any, context: __SerdeContext): HTTPHeader => {
   return {
-    __type: "HTTPHeader",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -6017,7 +5925,6 @@ const deserializeAws_json1_1HTTPHeaders = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1HTTPRequest = (output: any, context: __SerdeContext): HTTPRequest => {
   return {
-    __type: "HTTPRequest",
     ClientIP: output.ClientIP !== undefined && output.ClientIP !== null ? output.ClientIP : undefined,
     Country: output.Country !== undefined && output.Country !== null ? output.Country : undefined,
     HTTPVersion: output.HTTPVersion !== undefined && output.HTTPVersion !== null ? output.HTTPVersion : undefined,
@@ -6036,7 +5943,6 @@ const deserializeAws_json1_1IPAddresses = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1IPSet = (output: any, context: __SerdeContext): IPSet => {
   return {
-    __type: "IPSet",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Addresses:
       output.Addresses !== undefined && output.Addresses !== null
@@ -6052,7 +5958,6 @@ const deserializeAws_json1_1IPSet = (output: any, context: __SerdeContext): IPSe
 
 const deserializeAws_json1_1IPSetForwardedIPConfig = (output: any, context: __SerdeContext): IPSetForwardedIPConfig => {
   return {
-    __type: "IPSetForwardedIPConfig",
     FallbackBehavior:
       output.FallbackBehavior !== undefined && output.FallbackBehavior !== null ? output.FallbackBehavior : undefined,
     HeaderName: output.HeaderName !== undefined && output.HeaderName !== null ? output.HeaderName : undefined,
@@ -6065,7 +5970,6 @@ const deserializeAws_json1_1IPSetReferenceStatement = (
   context: __SerdeContext
 ): IPSetReferenceStatement => {
   return {
-    __type: "IPSetReferenceStatement",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     IPSetForwardedIPConfig:
       output.IPSetForwardedIPConfig !== undefined && output.IPSetForwardedIPConfig !== null
@@ -6080,7 +5984,6 @@ const deserializeAws_json1_1IPSetSummaries = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1IPSetSummary = (output: any, context: __SerdeContext): IPSetSummary => {
   return {
-    __type: "IPSetSummary",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -6094,7 +5997,6 @@ const deserializeAws_json1_1ListAvailableManagedRuleGroupsResponse = (
   context: __SerdeContext
 ): ListAvailableManagedRuleGroupsResponse => {
   return {
-    __type: "ListAvailableManagedRuleGroupsResponse",
     ManagedRuleGroups:
       output.ManagedRuleGroups !== undefined && output.ManagedRuleGroups !== null
         ? deserializeAws_json1_1ManagedRuleGroupSummaries(output.ManagedRuleGroups, context)
@@ -6105,7 +6007,6 @@ const deserializeAws_json1_1ListAvailableManagedRuleGroupsResponse = (
 
 const deserializeAws_json1_1ListIPSetsResponse = (output: any, context: __SerdeContext): ListIPSetsResponse => {
   return {
-    __type: "ListIPSetsResponse",
     IPSets:
       output.IPSets !== undefined && output.IPSets !== null
         ? deserializeAws_json1_1IPSetSummaries(output.IPSets, context)
@@ -6119,7 +6020,6 @@ const deserializeAws_json1_1ListLoggingConfigurationsResponse = (
   context: __SerdeContext
 ): ListLoggingConfigurationsResponse => {
   return {
-    __type: "ListLoggingConfigurationsResponse",
     LoggingConfigurations:
       output.LoggingConfigurations !== undefined && output.LoggingConfigurations !== null
         ? deserializeAws_json1_1LoggingConfigurations(output.LoggingConfigurations, context)
@@ -6133,7 +6033,6 @@ const deserializeAws_json1_1ListRegexPatternSetsResponse = (
   context: __SerdeContext
 ): ListRegexPatternSetsResponse => {
   return {
-    __type: "ListRegexPatternSetsResponse",
     NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
     RegexPatternSets:
       output.RegexPatternSets !== undefined && output.RegexPatternSets !== null
@@ -6147,7 +6046,6 @@ const deserializeAws_json1_1ListResourcesForWebACLResponse = (
   context: __SerdeContext
 ): ListResourcesForWebACLResponse => {
   return {
-    __type: "ListResourcesForWebACLResponse",
     ResourceArns:
       output.ResourceArns !== undefined && output.ResourceArns !== null
         ? deserializeAws_json1_1ResourceArns(output.ResourceArns, context)
@@ -6157,7 +6055,6 @@ const deserializeAws_json1_1ListResourcesForWebACLResponse = (
 
 const deserializeAws_json1_1ListRuleGroupsResponse = (output: any, context: __SerdeContext): ListRuleGroupsResponse => {
   return {
-    __type: "ListRuleGroupsResponse",
     NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
     RuleGroups:
       output.RuleGroups !== undefined && output.RuleGroups !== null
@@ -6171,7 +6068,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
     TagInfoForResource:
       output.TagInfoForResource !== undefined && output.TagInfoForResource !== null
@@ -6182,7 +6078,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1ListWebACLsResponse = (output: any, context: __SerdeContext): ListWebACLsResponse => {
   return {
-    __type: "ListWebACLsResponse",
     NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
     WebACLs:
       output.WebACLs !== undefined && output.WebACLs !== null
@@ -6197,7 +6092,6 @@ const deserializeAws_json1_1LogDestinationConfigs = (output: any, context: __Ser
 
 const deserializeAws_json1_1LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
   return {
-    __type: "LoggingConfiguration",
     LogDestinationConfigs:
       output.LogDestinationConfigs !== undefined && output.LogDestinationConfigs !== null
         ? deserializeAws_json1_1LogDestinationConfigs(output.LogDestinationConfigs, context)
@@ -6219,7 +6113,6 @@ const deserializeAws_json1_1ManagedRuleGroupStatement = (
   context: __SerdeContext
 ): ManagedRuleGroupStatement => {
   return {
-    __type: "ManagedRuleGroupStatement",
     ExcludedRules:
       output.ExcludedRules !== undefined && output.ExcludedRules !== null
         ? deserializeAws_json1_1ExcludedRules(output.ExcludedRules, context)
@@ -6241,7 +6134,6 @@ const deserializeAws_json1_1ManagedRuleGroupSummary = (
   context: __SerdeContext
 ): ManagedRuleGroupSummary => {
   return {
-    __type: "ManagedRuleGroupSummary",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     VendorName: output.VendorName !== undefined && output.VendorName !== null ? output.VendorName : undefined,
@@ -6249,20 +6141,15 @@ const deserializeAws_json1_1ManagedRuleGroupSummary = (
 };
 
 const deserializeAws_json1_1Method = (output: any, context: __SerdeContext): Method => {
-  return {
-    __type: "Method",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1NoneAction = (output: any, context: __SerdeContext): NoneAction => {
-  return {
-    __type: "NoneAction",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1NotStatement = (output: any, context: __SerdeContext): NotStatement => {
   return {
-    __type: "NotStatement",
     Statement:
       output.Statement !== undefined && output.Statement !== null
         ? deserializeAws_json1_1Statement(output.Statement, context)
@@ -6272,7 +6159,6 @@ const deserializeAws_json1_1NotStatement = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1OrStatement = (output: any, context: __SerdeContext): OrStatement => {
   return {
-    __type: "OrStatement",
     Statements:
       output.Statements !== undefined && output.Statements !== null
         ? deserializeAws_json1_1Statements(output.Statements, context)
@@ -6282,7 +6168,6 @@ const deserializeAws_json1_1OrStatement = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1OverrideAction = (output: any, context: __SerdeContext): OverrideAction => {
   return {
-    __type: "OverrideAction",
     Count:
       output.Count !== undefined && output.Count !== null
         ? deserializeAws_json1_1CountAction(output.Count, context)
@@ -6299,7 +6184,6 @@ const deserializeAws_json1_1PutLoggingConfigurationResponse = (
   context: __SerdeContext
 ): PutLoggingConfigurationResponse => {
   return {
-    __type: "PutLoggingConfigurationResponse",
     LoggingConfiguration:
       output.LoggingConfiguration !== undefined && output.LoggingConfiguration !== null
         ? deserializeAws_json1_1LoggingConfiguration(output.LoggingConfiguration, context)
@@ -6311,20 +6195,15 @@ const deserializeAws_json1_1PutPermissionPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): PutPermissionPolicyResponse => {
-  return {
-    __type: "PutPermissionPolicyResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1QueryString = (output: any, context: __SerdeContext): QueryString => {
-  return {
-    __type: "QueryString",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RateBasedStatement = (output: any, context: __SerdeContext): RateBasedStatement => {
   return {
-    __type: "RateBasedStatement",
     AggregateKeyType:
       output.AggregateKeyType !== undefined && output.AggregateKeyType !== null ? output.AggregateKeyType : undefined,
     ForwardedIPConfig:
@@ -6344,7 +6223,6 @@ const deserializeAws_json1_1RateBasedStatementManagedKeysIPSet = (
   context: __SerdeContext
 ): RateBasedStatementManagedKeysIPSet => {
   return {
-    __type: "RateBasedStatementManagedKeysIPSet",
     Addresses:
       output.Addresses !== undefined && output.Addresses !== null
         ? deserializeAws_json1_1IPAddresses(output.Addresses, context)
@@ -6360,14 +6238,12 @@ const deserializeAws_json1_1RedactedFields = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Regex = (output: any, context: __SerdeContext): Regex => {
   return {
-    __type: "Regex",
     RegexString: output.RegexString !== undefined && output.RegexString !== null ? output.RegexString : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RegexPatternSet = (output: any, context: __SerdeContext): RegexPatternSet => {
   return {
-    __type: "RegexPatternSet",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -6384,7 +6260,6 @@ const deserializeAws_json1_1RegexPatternSetReferenceStatement = (
   context: __SerdeContext
 ): RegexPatternSetReferenceStatement => {
   return {
-    __type: "RegexPatternSetReferenceStatement",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     FieldToMatch:
       output.FieldToMatch !== undefined && output.FieldToMatch !== null
@@ -6406,7 +6281,6 @@ const deserializeAws_json1_1RegexPatternSetSummaries = (
 
 const deserializeAws_json1_1RegexPatternSetSummary = (output: any, context: __SerdeContext): RegexPatternSetSummary => {
   return {
-    __type: "RegexPatternSetSummary",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -6425,7 +6299,6 @@ const deserializeAws_json1_1ResourceArns = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule => {
   return {
-    __type: "Rule",
     Action:
       output.Action !== undefined && output.Action !== null
         ? deserializeAws_json1_1RuleAction(output.Action, context)
@@ -6449,7 +6322,6 @@ const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule 
 
 const deserializeAws_json1_1RuleAction = (output: any, context: __SerdeContext): RuleAction => {
   return {
-    __type: "RuleAction",
     Allow:
       output.Allow !== undefined && output.Allow !== null
         ? deserializeAws_json1_1AllowAction(output.Allow, context)
@@ -6467,7 +6339,6 @@ const deserializeAws_json1_1RuleAction = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1RuleGroup = (output: any, context: __SerdeContext): RuleGroup => {
   return {
-    __type: "RuleGroup",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Capacity: output.Capacity !== undefined && output.Capacity !== null ? output.Capacity : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -6489,7 +6360,6 @@ const deserializeAws_json1_1RuleGroupReferenceStatement = (
   context: __SerdeContext
 ): RuleGroupReferenceStatement => {
   return {
-    __type: "RuleGroupReferenceStatement",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     ExcludedRules:
       output.ExcludedRules !== undefined && output.ExcludedRules !== null
@@ -6504,7 +6374,6 @@ const deserializeAws_json1_1RuleGroupSummaries = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1RuleGroupSummary = (output: any, context: __SerdeContext): RuleGroupSummary => {
   return {
-    __type: "RuleGroupSummary",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -6523,7 +6392,6 @@ const deserializeAws_json1_1RuleSummaries = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1RuleSummary = (output: any, context: __SerdeContext): RuleSummary => {
   return {
-    __type: "RuleSummary",
     Action:
       output.Action !== undefined && output.Action !== null
         ? deserializeAws_json1_1RuleAction(output.Action, context)
@@ -6534,7 +6402,6 @@ const deserializeAws_json1_1RuleSummary = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1SampledHTTPRequest = (output: any, context: __SerdeContext): SampledHTTPRequest => {
   return {
-    __type: "SampledHTTPRequest",
     Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
     Request:
       output.Request !== undefined && output.Request !== null
@@ -6558,14 +6425,12 @@ const deserializeAws_json1_1SampledHTTPRequests = (output: any, context: __Serde
 
 const deserializeAws_json1_1SingleHeader = (output: any, context: __SerdeContext): SingleHeader => {
   return {
-    __type: "SingleHeader",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SingleQueryArgument = (output: any, context: __SerdeContext): SingleQueryArgument => {
   return {
-    __type: "SingleQueryArgument",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
@@ -6575,7 +6440,6 @@ const deserializeAws_json1_1SizeConstraintStatement = (
   context: __SerdeContext
 ): SizeConstraintStatement => {
   return {
-    __type: "SizeConstraintStatement",
     ComparisonOperator:
       output.ComparisonOperator !== undefined && output.ComparisonOperator !== null
         ? output.ComparisonOperator
@@ -6594,7 +6458,6 @@ const deserializeAws_json1_1SizeConstraintStatement = (
 
 const deserializeAws_json1_1SqliMatchStatement = (output: any, context: __SerdeContext): SqliMatchStatement => {
   return {
-    __type: "SqliMatchStatement",
     FieldToMatch:
       output.FieldToMatch !== undefined && output.FieldToMatch !== null
         ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
@@ -6608,7 +6471,6 @@ const deserializeAws_json1_1SqliMatchStatement = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1Statement = (output: any, context: __SerdeContext): Statement => {
   return {
-    __type: "Statement",
     AndStatement:
       output.AndStatement !== undefined && output.AndStatement !== null
         ? deserializeAws_json1_1AndStatement(output.AndStatement, context)
@@ -6670,7 +6532,6 @@ const deserializeAws_json1_1Statements = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -6678,7 +6539,6 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 
 const deserializeAws_json1_1TagInfoForResource = (output: any, context: __SerdeContext): TagInfoForResource => {
   return {
-    __type: "TagInfoForResource",
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
     TagList:
       output.TagList !== undefined && output.TagList !== null
@@ -6692,14 +6552,11 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TextTransformation = (output: any, context: __SerdeContext): TextTransformation => {
   return {
-    __type: "TextTransformation",
     Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -6711,7 +6568,6 @@ const deserializeAws_json1_1TextTransformations = (output: any, context: __Serde
 
 const deserializeAws_json1_1TimeWindow = (output: any, context: __SerdeContext): TimeWindow => {
   return {
-    __type: "TimeWindow",
     EndTime:
       output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
     StartTime:
@@ -6722,14 +6578,11 @@ const deserializeAws_json1_1TimeWindow = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateIPSetResponse = (output: any, context: __SerdeContext): UpdateIPSetResponse => {
   return {
-    __type: "UpdateIPSetResponse",
     NextLockToken:
       output.NextLockToken !== undefined && output.NextLockToken !== null ? output.NextLockToken : undefined,
   } as any;
@@ -6740,7 +6593,6 @@ const deserializeAws_json1_1UpdateRegexPatternSetResponse = (
   context: __SerdeContext
 ): UpdateRegexPatternSetResponse => {
   return {
-    __type: "UpdateRegexPatternSetResponse",
     NextLockToken:
       output.NextLockToken !== undefined && output.NextLockToken !== null ? output.NextLockToken : undefined,
   } as any;
@@ -6751,7 +6603,6 @@ const deserializeAws_json1_1UpdateRuleGroupResponse = (
   context: __SerdeContext
 ): UpdateRuleGroupResponse => {
   return {
-    __type: "UpdateRuleGroupResponse",
     NextLockToken:
       output.NextLockToken !== undefined && output.NextLockToken !== null ? output.NextLockToken : undefined,
   } as any;
@@ -6759,21 +6610,17 @@ const deserializeAws_json1_1UpdateRuleGroupResponse = (
 
 const deserializeAws_json1_1UpdateWebACLResponse = (output: any, context: __SerdeContext): UpdateWebACLResponse => {
   return {
-    __type: "UpdateWebACLResponse",
     NextLockToken:
       output.NextLockToken !== undefined && output.NextLockToken !== null ? output.NextLockToken : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UriPath = (output: any, context: __SerdeContext): UriPath => {
-  return {
-    __type: "UriPath",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1VisibilityConfig = (output: any, context: __SerdeContext): VisibilityConfig => {
   return {
-    __type: "VisibilityConfig",
     CloudWatchMetricsEnabled:
       output.CloudWatchMetricsEnabled !== undefined && output.CloudWatchMetricsEnabled !== null
         ? output.CloudWatchMetricsEnabled
@@ -6791,7 +6638,6 @@ const deserializeAws_json1_1WAFAssociatedItemException = (
   context: __SerdeContext
 ): WAFAssociatedItemException => {
   return {
-    __type: "WAFAssociatedItemException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6801,7 +6647,6 @@ const deserializeAws_json1_1WAFDuplicateItemException = (
   context: __SerdeContext
 ): WAFDuplicateItemException => {
   return {
-    __type: "WAFDuplicateItemException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6811,7 +6656,6 @@ const deserializeAws_json1_1WAFInternalErrorException = (
   context: __SerdeContext
 ): WAFInternalErrorException => {
   return {
-    __type: "WAFInternalErrorException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6821,7 +6665,6 @@ const deserializeAws_json1_1WAFInvalidOperationException = (
   context: __SerdeContext
 ): WAFInvalidOperationException => {
   return {
-    __type: "WAFInvalidOperationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6831,7 +6674,6 @@ const deserializeAws_json1_1WAFInvalidParameterException = (
   context: __SerdeContext
 ): WAFInvalidParameterException => {
   return {
-    __type: "WAFInvalidParameterException",
     Field: output.Field !== undefined && output.Field !== null ? output.Field : undefined,
     Parameter: output.Parameter !== undefined && output.Parameter !== null ? output.Parameter : undefined,
     Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
@@ -6844,7 +6686,6 @@ const deserializeAws_json1_1WAFInvalidPermissionPolicyException = (
   context: __SerdeContext
 ): WAFInvalidPermissionPolicyException => {
   return {
-    __type: "WAFInvalidPermissionPolicyException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6854,7 +6695,6 @@ const deserializeAws_json1_1WAFInvalidResourceException = (
   context: __SerdeContext
 ): WAFInvalidResourceException => {
   return {
-    __type: "WAFInvalidResourceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6864,7 +6704,6 @@ const deserializeAws_json1_1WAFLimitsExceededException = (
   context: __SerdeContext
 ): WAFLimitsExceededException => {
   return {
-    __type: "WAFLimitsExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6874,7 +6713,6 @@ const deserializeAws_json1_1WAFNonexistentItemException = (
   context: __SerdeContext
 ): WAFNonexistentItemException => {
   return {
-    __type: "WAFNonexistentItemException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6884,7 +6722,6 @@ const deserializeAws_json1_1WAFOptimisticLockException = (
   context: __SerdeContext
 ): WAFOptimisticLockException => {
   return {
-    __type: "WAFOptimisticLockException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6894,7 +6731,6 @@ const deserializeAws_json1_1WAFServiceLinkedRoleErrorException = (
   context: __SerdeContext
 ): WAFServiceLinkedRoleErrorException => {
   return {
-    __type: "WAFServiceLinkedRoleErrorException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6904,7 +6740,6 @@ const deserializeAws_json1_1WAFSubscriptionNotFoundException = (
   context: __SerdeContext
 ): WAFSubscriptionNotFoundException => {
   return {
-    __type: "WAFSubscriptionNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6914,7 +6749,6 @@ const deserializeAws_json1_1WAFTagOperationException = (
   context: __SerdeContext
 ): WAFTagOperationException => {
   return {
-    __type: "WAFTagOperationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6924,7 +6758,6 @@ const deserializeAws_json1_1WAFTagOperationInternalErrorException = (
   context: __SerdeContext
 ): WAFTagOperationInternalErrorException => {
   return {
-    __type: "WAFTagOperationInternalErrorException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6934,14 +6767,12 @@ const deserializeAws_json1_1WAFUnavailableEntityException = (
   context: __SerdeContext
 ): WAFUnavailableEntityException => {
   return {
-    __type: "WAFUnavailableEntityException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1WebACL = (output: any, context: __SerdeContext): WebACL => {
   return {
-    __type: "WebACL",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Capacity: output.Capacity !== undefined && output.Capacity !== null ? output.Capacity : undefined,
     DefaultAction:
@@ -6980,7 +6811,6 @@ const deserializeAws_json1_1WebACLSummaries = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1WebACLSummary = (output: any, context: __SerdeContext): WebACLSummary => {
   return {
-    __type: "WebACLSummary",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -6991,7 +6821,6 @@ const deserializeAws_json1_1WebACLSummary = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1XssMatchStatement = (output: any, context: __SerdeContext): XssMatchStatement => {
   return {
-    __type: "XssMatchStatement",
     FieldToMatch:
       output.FieldToMatch !== undefined && output.FieldToMatch !== null
         ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)

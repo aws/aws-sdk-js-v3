@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -22,7 +21,6 @@ export namespace AccessDeniedException {
  *          Discovery Connector, or the AWS Application Discovery Agent.</p>
  */
 export interface ApplicationState {
-  __type?: "ApplicationState";
   /**
    * <p>The current status of an application.</p>
    */
@@ -44,7 +42,6 @@ export namespace ApplicationState {
   export const filterSensitiveLog = (obj: ApplicationState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationState => __isa(o, "ApplicationState");
 }
 
 export enum ApplicationStatus {
@@ -54,7 +51,6 @@ export enum ApplicationStatus {
 }
 
 export interface AssociateCreatedArtifactRequest {
-  __type?: "AssociateCreatedArtifactRequest";
   /**
    * <p>Unique identifier that references the migration task. <i>Do not store personal
    *             data in this field.</i>
@@ -84,22 +80,17 @@ export namespace AssociateCreatedArtifactRequest {
   export const filterSensitiveLog = (obj: AssociateCreatedArtifactRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateCreatedArtifactRequest => __isa(o, "AssociateCreatedArtifactRequest");
 }
 
-export interface AssociateCreatedArtifactResult {
-  __type?: "AssociateCreatedArtifactResult";
-}
+export interface AssociateCreatedArtifactResult {}
 
 export namespace AssociateCreatedArtifactResult {
   export const filterSensitiveLog = (obj: AssociateCreatedArtifactResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateCreatedArtifactResult => __isa(o, "AssociateCreatedArtifactResult");
 }
 
 export interface AssociateDiscoveredResourceRequest {
-  __type?: "AssociateDiscoveredResourceRequest";
   /**
    * <p>Object representing a Resource.</p>
    */
@@ -128,19 +119,14 @@ export namespace AssociateDiscoveredResourceRequest {
   export const filterSensitiveLog = (obj: AssociateDiscoveredResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateDiscoveredResourceRequest =>
-    __isa(o, "AssociateDiscoveredResourceRequest");
 }
 
-export interface AssociateDiscoveredResourceResult {
-  __type?: "AssociateDiscoveredResourceResult";
-}
+export interface AssociateDiscoveredResourceResult {}
 
 export namespace AssociateDiscoveredResourceResult {
   export const filterSensitiveLog = (obj: AssociateDiscoveredResourceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateDiscoveredResourceResult => __isa(o, "AssociateDiscoveredResourceResult");
 }
 
 /**
@@ -148,7 +134,6 @@ export namespace AssociateDiscoveredResourceResult {
  *          instance, RDS instance, etc.).</p>
  */
 export interface CreatedArtifact {
-  __type?: "CreatedArtifact";
   /**
    * <p>An ARN that uniquely identifies the result of a migration task.</p>
    */
@@ -165,11 +150,9 @@ export namespace CreatedArtifact {
   export const filterSensitiveLog = (obj: CreatedArtifact): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatedArtifact => __isa(o, "CreatedArtifact");
 }
 
 export interface CreateProgressUpdateStreamRequest {
-  __type?: "CreateProgressUpdateStreamRequest";
   /**
    * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
    *          the caller has permission to make the call.</p>
@@ -188,22 +171,17 @@ export namespace CreateProgressUpdateStreamRequest {
   export const filterSensitiveLog = (obj: CreateProgressUpdateStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProgressUpdateStreamRequest => __isa(o, "CreateProgressUpdateStreamRequest");
 }
 
-export interface CreateProgressUpdateStreamResult {
-  __type?: "CreateProgressUpdateStreamResult";
-}
+export interface CreateProgressUpdateStreamResult {}
 
 export namespace CreateProgressUpdateStreamResult {
   export const filterSensitiveLog = (obj: CreateProgressUpdateStreamResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProgressUpdateStreamResult => __isa(o, "CreateProgressUpdateStreamResult");
 }
 
 export interface DeleteProgressUpdateStreamRequest {
-  __type?: "DeleteProgressUpdateStreamRequest";
   /**
    * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
    *          the caller has permission to make the call.</p>
@@ -222,22 +200,17 @@ export namespace DeleteProgressUpdateStreamRequest {
   export const filterSensitiveLog = (obj: DeleteProgressUpdateStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProgressUpdateStreamRequest => __isa(o, "DeleteProgressUpdateStreamRequest");
 }
 
-export interface DeleteProgressUpdateStreamResult {
-  __type?: "DeleteProgressUpdateStreamResult";
-}
+export interface DeleteProgressUpdateStreamResult {}
 
 export namespace DeleteProgressUpdateStreamResult {
   export const filterSensitiveLog = (obj: DeleteProgressUpdateStreamResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProgressUpdateStreamResult => __isa(o, "DeleteProgressUpdateStreamResult");
 }
 
 export interface DescribeApplicationStateRequest {
-  __type?: "DescribeApplicationStateRequest";
   /**
    * <p>The configurationId in Application Discovery Service that uniquely identifies the
    *          grouped application.</p>
@@ -249,11 +222,9 @@ export namespace DescribeApplicationStateRequest {
   export const filterSensitiveLog = (obj: DescribeApplicationStateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeApplicationStateRequest => __isa(o, "DescribeApplicationStateRequest");
 }
 
 export interface DescribeApplicationStateResult {
-  __type?: "DescribeApplicationStateResult";
   /**
    * <p>Status of the application - Not Started, In-Progress, Complete.</p>
    */
@@ -269,11 +240,9 @@ export namespace DescribeApplicationStateResult {
   export const filterSensitiveLog = (obj: DescribeApplicationStateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeApplicationStateResult => __isa(o, "DescribeApplicationStateResult");
 }
 
 export interface DescribeMigrationTaskRequest {
-  __type?: "DescribeMigrationTaskRequest";
   /**
    * <p>The identifier given to the MigrationTask. <i>Do not store personal data in this
    *             field.</i>
@@ -291,11 +260,9 @@ export namespace DescribeMigrationTaskRequest {
   export const filterSensitiveLog = (obj: DescribeMigrationTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMigrationTaskRequest => __isa(o, "DescribeMigrationTaskRequest");
 }
 
 export interface DescribeMigrationTaskResult {
-  __type?: "DescribeMigrationTaskResult";
   /**
    * <p>Object encapsulating information about the migration task.</p>
    */
@@ -306,11 +273,9 @@ export namespace DescribeMigrationTaskResult {
   export const filterSensitiveLog = (obj: DescribeMigrationTaskResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMigrationTaskResult => __isa(o, "DescribeMigrationTaskResult");
 }
 
 export interface DisassociateCreatedArtifactRequest {
-  __type?: "DisassociateCreatedArtifactRequest";
   /**
    * <p>Unique identifier that references the migration task to be disassociated with the
    *          artifact. <i>Do not store personal data in this field.</i>
@@ -340,23 +305,17 @@ export namespace DisassociateCreatedArtifactRequest {
   export const filterSensitiveLog = (obj: DisassociateCreatedArtifactRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateCreatedArtifactRequest =>
-    __isa(o, "DisassociateCreatedArtifactRequest");
 }
 
-export interface DisassociateCreatedArtifactResult {
-  __type?: "DisassociateCreatedArtifactResult";
-}
+export interface DisassociateCreatedArtifactResult {}
 
 export namespace DisassociateCreatedArtifactResult {
   export const filterSensitiveLog = (obj: DisassociateCreatedArtifactResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateCreatedArtifactResult => __isa(o, "DisassociateCreatedArtifactResult");
 }
 
 export interface DisassociateDiscoveredResourceRequest {
-  __type?: "DisassociateDiscoveredResourceRequest";
   /**
    * <p>The name of the ProgressUpdateStream.</p>
    */
@@ -386,27 +345,20 @@ export namespace DisassociateDiscoveredResourceRequest {
   export const filterSensitiveLog = (obj: DisassociateDiscoveredResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateDiscoveredResourceRequest =>
-    __isa(o, "DisassociateDiscoveredResourceRequest");
 }
 
-export interface DisassociateDiscoveredResourceResult {
-  __type?: "DisassociateDiscoveredResourceResult";
-}
+export interface DisassociateDiscoveredResourceResult {}
 
 export namespace DisassociateDiscoveredResourceResult {
   export const filterSensitiveLog = (obj: DisassociateDiscoveredResourceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateDiscoveredResourceResult =>
-    __isa(o, "DisassociateDiscoveredResourceResult");
 }
 
 /**
  * <p>Object representing the on-premises resource being migrated.</p>
  */
 export interface DiscoveredResource {
-  __type?: "DiscoveredResource";
   /**
    * <p>A description that can be free-form text to record additional detail about the
    *          discovered resource for clarity or later reference.</p>
@@ -424,7 +376,6 @@ export namespace DiscoveredResource {
   export const filterSensitiveLog = (obj: DiscoveredResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiscoveredResource => __isa(o, "DiscoveredResource");
 }
 
 /**
@@ -441,7 +392,6 @@ export namespace DryRunOperation {
   export const filterSensitiveLog = (obj: DryRunOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DryRunOperation => __isa(o, "DryRunOperation");
 }
 
 /**
@@ -457,11 +407,9 @@ export namespace HomeRegionNotSetException {
   export const filterSensitiveLog = (obj: HomeRegionNotSetException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HomeRegionNotSetException => __isa(o, "HomeRegionNotSetException");
 }
 
 export interface ImportMigrationTaskRequest {
-  __type?: "ImportMigrationTaskRequest";
   /**
    * <p>Unique identifier that references the migration task. <i>Do not store personal
    *             data in this field.</i>
@@ -485,18 +433,14 @@ export namespace ImportMigrationTaskRequest {
   export const filterSensitiveLog = (obj: ImportMigrationTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportMigrationTaskRequest => __isa(o, "ImportMigrationTaskRequest");
 }
 
-export interface ImportMigrationTaskResult {
-  __type?: "ImportMigrationTaskResult";
-}
+export interface ImportMigrationTaskResult {}
 
 export namespace ImportMigrationTaskResult {
   export const filterSensitiveLog = (obj: ImportMigrationTaskResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportMigrationTaskResult => __isa(o, "ImportMigrationTaskResult");
 }
 
 /**
@@ -513,7 +457,6 @@ export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -530,11 +473,9 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 export interface ListApplicationStatesRequest {
-  __type?: "ListApplicationStatesRequest";
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
    *          available. To retrieve the next page of results, make the call again using the returned
@@ -558,11 +499,9 @@ export namespace ListApplicationStatesRequest {
   export const filterSensitiveLog = (obj: ListApplicationStatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationStatesRequest => __isa(o, "ListApplicationStatesRequest");
 }
 
 export interface ListApplicationStatesResult {
-  __type?: "ListApplicationStatesResult";
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
    *          available. To retrieve the next page of results, make the call again using the returned
@@ -580,11 +519,9 @@ export namespace ListApplicationStatesResult {
   export const filterSensitiveLog = (obj: ListApplicationStatesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationStatesResult => __isa(o, "ListApplicationStatesResult");
 }
 
 export interface ListCreatedArtifactsRequest {
-  __type?: "ListCreatedArtifactsRequest";
   /**
    * <p>Unique identifier that references the migration task. <i>Do not store personal
    *             data in this field.</i>
@@ -614,11 +551,9 @@ export namespace ListCreatedArtifactsRequest {
   export const filterSensitiveLog = (obj: ListCreatedArtifactsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCreatedArtifactsRequest => __isa(o, "ListCreatedArtifactsRequest");
 }
 
 export interface ListCreatedArtifactsResult {
-  __type?: "ListCreatedArtifactsResult";
   /**
    * <p>List of created artifacts up to the maximum number of results specified in the
    *          request.</p>
@@ -636,11 +571,9 @@ export namespace ListCreatedArtifactsResult {
   export const filterSensitiveLog = (obj: ListCreatedArtifactsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCreatedArtifactsResult => __isa(o, "ListCreatedArtifactsResult");
 }
 
 export interface ListDiscoveredResourcesRequest {
-  __type?: "ListDiscoveredResourcesRequest";
   /**
    * <p>The name of the MigrationTask. <i>Do not store personal data in this
    *             field.</i>
@@ -670,11 +603,9 @@ export namespace ListDiscoveredResourcesRequest {
   export const filterSensitiveLog = (obj: ListDiscoveredResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDiscoveredResourcesRequest => __isa(o, "ListDiscoveredResourcesRequest");
 }
 
 export interface ListDiscoveredResourcesResult {
-  __type?: "ListDiscoveredResourcesResult";
   /**
    * <p>Returned list of discovered resources associated with the given MigrationTask.</p>
    */
@@ -691,11 +622,9 @@ export namespace ListDiscoveredResourcesResult {
   export const filterSensitiveLog = (obj: ListDiscoveredResourcesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDiscoveredResourcesResult => __isa(o, "ListDiscoveredResourcesResult");
 }
 
 export interface ListMigrationTasksRequest {
-  __type?: "ListMigrationTasksRequest";
   /**
    * <p>Value to specify how many results are returned per page.</p>
    */
@@ -718,11 +647,9 @@ export namespace ListMigrationTasksRequest {
   export const filterSensitiveLog = (obj: ListMigrationTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMigrationTasksRequest => __isa(o, "ListMigrationTasksRequest");
 }
 
 export interface ListMigrationTasksResult {
-  __type?: "ListMigrationTasksResult";
   /**
    * <p>Lists the migration task's summary which includes: <code>MigrationTaskName</code>,
    *             <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>,
@@ -741,11 +668,9 @@ export namespace ListMigrationTasksResult {
   export const filterSensitiveLog = (obj: ListMigrationTasksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMigrationTasksResult => __isa(o, "ListMigrationTasksResult");
 }
 
 export interface ListProgressUpdateStreamsRequest {
-  __type?: "ListProgressUpdateStreamsRequest";
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
    *          available. To retrieve the next page of results, make the call again using the returned
@@ -763,11 +688,9 @@ export namespace ListProgressUpdateStreamsRequest {
   export const filterSensitiveLog = (obj: ListProgressUpdateStreamsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProgressUpdateStreamsRequest => __isa(o, "ListProgressUpdateStreamsRequest");
 }
 
 export interface ListProgressUpdateStreamsResult {
-  __type?: "ListProgressUpdateStreamsResult";
   /**
    * <p>If there are more streams created than the max result, return the next token to be
    *          passed to the next call as a bookmark of where to start from.</p>
@@ -785,14 +708,12 @@ export namespace ListProgressUpdateStreamsResult {
   export const filterSensitiveLog = (obj: ListProgressUpdateStreamsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProgressUpdateStreamsResult => __isa(o, "ListProgressUpdateStreamsResult");
 }
 
 /**
  * <p>Represents a migration task in a migration tool.</p>
  */
 export interface MigrationTask {
-  __type?: "MigrationTask";
   /**
    * <p>Unique identifier that references the migration task. <i>Do not store personal
    *             data in this field.</i>
@@ -826,7 +747,6 @@ export namespace MigrationTask {
   export const filterSensitiveLog = (obj: MigrationTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MigrationTask => __isa(o, "MigrationTask");
 }
 
 /**
@@ -835,7 +755,6 @@ export namespace MigrationTask {
  *          and <code>UpdateDateTime</code> for each task.</p>
  */
 export interface MigrationTaskSummary {
-  __type?: "MigrationTaskSummary";
   /**
    * <p>Detail information of what is being done within the overall status state.</p>
    */
@@ -874,11 +793,9 @@ export namespace MigrationTaskSummary {
   export const filterSensitiveLog = (obj: MigrationTaskSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MigrationTaskSummary => __isa(o, "MigrationTaskSummary");
 }
 
 export interface NotifyApplicationStateRequest {
-  __type?: "NotifyApplicationStateRequest";
   /**
    * <p>Status of the application - Not Started, In-Progress, Complete.</p>
    */
@@ -906,22 +823,17 @@ export namespace NotifyApplicationStateRequest {
   export const filterSensitiveLog = (obj: NotifyApplicationStateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotifyApplicationStateRequest => __isa(o, "NotifyApplicationStateRequest");
 }
 
-export interface NotifyApplicationStateResult {
-  __type?: "NotifyApplicationStateResult";
-}
+export interface NotifyApplicationStateResult {}
 
 export namespace NotifyApplicationStateResult {
   export const filterSensitiveLog = (obj: NotifyApplicationStateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotifyApplicationStateResult => __isa(o, "NotifyApplicationStateResult");
 }
 
 export interface NotifyMigrationTaskStateRequest {
-  __type?: "NotifyMigrationTaskStateRequest";
   /**
    * <p>The timestamp when the task was gathered.</p>
    */
@@ -962,18 +874,14 @@ export namespace NotifyMigrationTaskStateRequest {
   export const filterSensitiveLog = (obj: NotifyMigrationTaskStateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotifyMigrationTaskStateRequest => __isa(o, "NotifyMigrationTaskStateRequest");
 }
 
-export interface NotifyMigrationTaskStateResult {
-  __type?: "NotifyMigrationTaskStateResult";
-}
+export interface NotifyMigrationTaskStateResult {}
 
 export namespace NotifyMigrationTaskStateResult {
   export const filterSensitiveLog = (obj: NotifyMigrationTaskStateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotifyMigrationTaskStateResult => __isa(o, "NotifyMigrationTaskStateResult");
 }
 
 /**
@@ -991,7 +899,6 @@ export namespace PolicyErrorException {
   export const filterSensitiveLog = (obj: PolicyErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyErrorException => __isa(o, "PolicyErrorException");
 }
 
 /**
@@ -999,7 +906,6 @@ export namespace PolicyErrorException {
  *          AWS account.</p>
  */
 export interface ProgressUpdateStreamSummary {
-  __type?: "ProgressUpdateStreamSummary";
   /**
    * <p>The name of the ProgressUpdateStream. <i>Do not store personal data in this
    *             field.</i>
@@ -1012,11 +918,9 @@ export namespace ProgressUpdateStreamSummary {
   export const filterSensitiveLog = (obj: ProgressUpdateStreamSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProgressUpdateStreamSummary => __isa(o, "ProgressUpdateStreamSummary");
 }
 
 export interface PutResourceAttributesRequest {
-  __type?: "PutResourceAttributesRequest";
   /**
    * <p>The name of the ProgressUpdateStream. </p>
    */
@@ -1072,18 +976,14 @@ export namespace PutResourceAttributesRequest {
   export const filterSensitiveLog = (obj: PutResourceAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutResourceAttributesRequest => __isa(o, "PutResourceAttributesRequest");
 }
 
-export interface PutResourceAttributesResult {
-  __type?: "PutResourceAttributesResult";
-}
+export interface PutResourceAttributesResult {}
 
 export namespace PutResourceAttributesResult {
   export const filterSensitiveLog = (obj: PutResourceAttributesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutResourceAttributesResult => __isa(o, "PutResourceAttributesResult");
 }
 
 /**
@@ -1126,7 +1026,6 @@ export namespace PutResourceAttributesResult {
  *          </dl>
  */
 export interface ResourceAttribute {
-  __type?: "ResourceAttribute";
   /**
    * <p>Type of resource.</p>
    */
@@ -1142,7 +1041,6 @@ export namespace ResourceAttribute {
   export const filterSensitiveLog = (obj: ResourceAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAttribute => __isa(o, "ResourceAttribute");
 }
 
 export enum ResourceAttributeType {
@@ -1173,7 +1071,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1190,7 +1087,6 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export enum Status {
@@ -1204,7 +1100,6 @@ export enum Status {
  * <p>Task object encapsulating task information.</p>
  */
 export interface Task {
-  __type?: "Task";
   /**
    * <p>Indication of the percentage completion of the task.</p>
    */
@@ -1227,7 +1122,6 @@ export namespace Task {
   export const filterSensitiveLog = (obj: Task): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Task => __isa(o, "Task");
 }
 
 /**
@@ -1251,7 +1145,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -1268,5 +1161,4 @@ export namespace UnauthorizedOperation {
   export const filterSensitiveLog = (obj: UnauthorizedOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedOperation => __isa(o, "UnauthorizedOperation");
 }

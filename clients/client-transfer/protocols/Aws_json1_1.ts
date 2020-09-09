@@ -328,7 +328,6 @@ export const deserializeAws_json1_1CreateServerCommand = async (
   contents = deserializeAws_json1_1CreateServerResponse(data, context);
   const response: CreateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateServerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -424,7 +423,6 @@ export const deserializeAws_json1_1CreateUserCommand = async (
   contents = deserializeAws_json1_1CreateUserResponse(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -756,7 +754,6 @@ export const deserializeAws_json1_1DescribeServerCommand = async (
   contents = deserializeAws_json1_1DescribeServerResponse(data, context);
   const response: DescribeServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeServerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -836,7 +833,6 @@ export const deserializeAws_json1_1DescribeUserCommand = async (
   contents = deserializeAws_json1_1DescribeUserResponse(data, context);
   const response: DescribeUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -916,7 +912,6 @@ export const deserializeAws_json1_1ImportSshPublicKeyCommand = async (
   contents = deserializeAws_json1_1ImportSshPublicKeyResponse(data, context);
   const response: ImportSshPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportSshPublicKeyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1012,7 +1007,6 @@ export const deserializeAws_json1_1ListServersCommand = async (
   contents = deserializeAws_json1_1ListServersResponse(data, context);
   const response: ListServersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListServersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1092,7 +1086,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1172,7 +1165,6 @@ export const deserializeAws_json1_1ListUsersCommand = async (
   contents = deserializeAws_json1_1ListUsersResponse(data, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUsersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1504,7 +1496,6 @@ export const deserializeAws_json1_1TestIdentityProviderCommand = async (
   contents = deserializeAws_json1_1TestIdentityProviderResponse(data, context);
   const response: TestIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TestIdentityProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1660,7 +1651,6 @@ export const deserializeAws_json1_1UpdateServerCommand = async (
   contents = deserializeAws_json1_1UpdateServerResponse(data, context);
   const response: UpdateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateServerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1772,7 +1762,6 @@ export const deserializeAws_json1_1UpdateUserCommand = async (
   contents = deserializeAws_json1_1UpdateUserResponse(data, context);
   const response: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2219,7 +2208,6 @@ const serializeAws_json1_1UpdateUserRequest = (input: UpdateUserRequest, context
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2230,21 +2218,18 @@ const deserializeAws_json1_1AddressAllocationIds = (output: any, context: __Serd
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    __type: "ConflictException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateServerResponse = (output: any, context: __SerdeContext): CreateServerResponse => {
   return {
-    __type: "CreateServerResponse",
     ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
   return {
-    __type: "CreateUserResponse",
     ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
     UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
   } as any;
@@ -2252,7 +2237,6 @@ const deserializeAws_json1_1CreateUserResponse = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1DescribedServer = (output: any, context: __SerdeContext): DescribedServer => {
   return {
-    __type: "DescribedServer",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Certificate: output.Certificate !== undefined && output.Certificate !== null ? output.Certificate : undefined,
     EndpointDetails:
@@ -2287,7 +2271,6 @@ const deserializeAws_json1_1DescribedServer = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1DescribedUser = (output: any, context: __SerdeContext): DescribedUser => {
   return {
-    __type: "DescribedUser",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     HomeDirectory:
       output.HomeDirectory !== undefined && output.HomeDirectory !== null ? output.HomeDirectory : undefined,
@@ -2313,7 +2296,6 @@ const deserializeAws_json1_1DescribedUser = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1DescribeServerResponse = (output: any, context: __SerdeContext): DescribeServerResponse => {
   return {
-    __type: "DescribeServerResponse",
     Server:
       output.Server !== undefined && output.Server !== null
         ? deserializeAws_json1_1DescribedServer(output.Server, context)
@@ -2323,7 +2305,6 @@ const deserializeAws_json1_1DescribeServerResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
   return {
-    __type: "DescribeUserResponse",
     ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
     User:
       output.User !== undefined && output.User !== null
@@ -2334,7 +2315,6 @@ const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1EndpointDetails = (output: any, context: __SerdeContext): EndpointDetails => {
   return {
-    __type: "EndpointDetails",
     AddressAllocationIds:
       output.AddressAllocationIds !== undefined && output.AddressAllocationIds !== null
         ? deserializeAws_json1_1AddressAllocationIds(output.AddressAllocationIds, context)
@@ -2351,7 +2331,6 @@ const deserializeAws_json1_1EndpointDetails = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1HomeDirectoryMapEntry = (output: any, context: __SerdeContext): HomeDirectoryMapEntry => {
   return {
-    __type: "HomeDirectoryMapEntry",
     Entry: output.Entry !== undefined && output.Entry !== null ? output.Entry : undefined,
     Target: output.Target !== undefined && output.Target !== null ? output.Target : undefined,
   } as any;
@@ -2366,7 +2345,6 @@ const deserializeAws_json1_1IdentityProviderDetails = (
   context: __SerdeContext
 ): IdentityProviderDetails => {
   return {
-    __type: "IdentityProviderDetails",
     InvocationRole:
       output.InvocationRole !== undefined && output.InvocationRole !== null ? output.InvocationRole : undefined,
     Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined,
@@ -2378,7 +2356,6 @@ const deserializeAws_json1_1ImportSshPublicKeyResponse = (
   context: __SerdeContext
 ): ImportSshPublicKeyResponse => {
   return {
-    __type: "ImportSshPublicKeyResponse",
     ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
     SshPublicKeyId:
       output.SshPublicKeyId !== undefined && output.SshPublicKeyId !== null ? output.SshPublicKeyId : undefined,
@@ -2388,7 +2365,6 @@ const deserializeAws_json1_1ImportSshPublicKeyResponse = (
 
 const deserializeAws_json1_1InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
   return {
-    __type: "InternalServiceError",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2398,7 +2374,6 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2408,14 +2383,12 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListedServer = (output: any, context: __SerdeContext): ListedServer => {
   return {
-    __type: "ListedServer",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     EndpointType: output.EndpointType !== undefined && output.EndpointType !== null ? output.EndpointType : undefined,
     IdentityProviderType:
@@ -2435,7 +2408,6 @@ const deserializeAws_json1_1ListedServers = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ListedUser = (output: any, context: __SerdeContext): ListedUser => {
   return {
-    __type: "ListedUser",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     HomeDirectory:
       output.HomeDirectory !== undefined && output.HomeDirectory !== null ? output.HomeDirectory : undefined,
@@ -2458,7 +2430,6 @@ const deserializeAws_json1_1ListedUsers = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ListServersResponse = (output: any, context: __SerdeContext): ListServersResponse => {
   return {
-    __type: "ListServersResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Servers:
       output.Servers !== undefined && output.Servers !== null
@@ -2472,7 +2443,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
@@ -2482,7 +2452,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   return {
-    __type: "ListUsersResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
     Users:
@@ -2501,7 +2470,6 @@ const deserializeAws_json1_1ResourceExistsException = (
   context: __SerdeContext
 ): ResourceExistsException => {
   return {
-    __type: "ResourceExistsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Resource: output.Resource !== undefined && output.Resource !== null ? output.Resource : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
@@ -2513,7 +2481,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Resource: output.Resource !== undefined && output.Resource !== null ? output.Resource : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
@@ -2525,14 +2492,12 @@ const deserializeAws_json1_1ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    __type: "ServiceUnavailableException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SshPublicKey = (output: any, context: __SerdeContext): SshPublicKey => {
   return {
-    __type: "SshPublicKey",
     DateImported:
       output.DateImported !== undefined && output.DateImported !== null
         ? new Date(Math.round(output.DateImported * 1000))
@@ -2554,7 +2519,6 @@ const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -2569,7 +2533,6 @@ const deserializeAws_json1_1TestIdentityProviderResponse = (
   context: __SerdeContext
 ): TestIdentityProviderResponse => {
   return {
-    __type: "TestIdentityProviderResponse",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Response: output.Response !== undefined && output.Response !== null ? output.Response : undefined,
     StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
@@ -2579,7 +2542,6 @@ const deserializeAws_json1_1TestIdentityProviderResponse = (
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    __type: "ThrottlingException",
     RetryAfterSeconds:
       output.RetryAfterSeconds !== undefined && output.RetryAfterSeconds !== null
         ? output.RetryAfterSeconds
@@ -2589,14 +2551,12 @@ const deserializeAws_json1_1ThrottlingException = (output: any, context: __Serde
 
 const deserializeAws_json1_1UpdateServerResponse = (output: any, context: __SerdeContext): UpdateServerResponse => {
   return {
-    __type: "UpdateServerResponse",
     ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UpdateUserResponse = (output: any, context: __SerdeContext): UpdateUserResponse => {
   return {
-    __type: "UpdateUserResponse",
     ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
     UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
   } as any;

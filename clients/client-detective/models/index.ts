@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptInvitationRequest {
-  __type?: "AcceptInvitationRequest";
   /**
    * <p>The ARN of the behavior graph that the member account is accepting the invitation
    *          for.</p>
@@ -15,14 +14,12 @@ export namespace AcceptInvitationRequest {
   export const filterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptInvitationRequest => __isa(o, "AcceptInvitationRequest");
 }
 
 /**
  * <p>An AWS account that is the master of or a member of a behavior graph.</p>
  */
 export interface Account {
-  __type?: "Account";
   /**
    * <p>The AWS account root user email address for the AWS account.</p>
    */
@@ -38,7 +35,6 @@ export namespace Account {
   export const filterSensitiveLog = (obj: Account): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Account => __isa(o, "Account");
 }
 
 /**
@@ -54,11 +50,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateGraphResponse {
-  __type?: "CreateGraphResponse";
   /**
    * <p>The ARN of the new behavior graph.</p>
    */
@@ -69,11 +63,9 @@ export namespace CreateGraphResponse {
   export const filterSensitiveLog = (obj: CreateGraphResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGraphResponse => __isa(o, "CreateGraphResponse");
 }
 
 export interface CreateMembersRequest {
-  __type?: "CreateMembersRequest";
   /**
    * <p>Customized message text to include in the invitation email message to the invited member
    *          accounts.</p>
@@ -98,11 +90,9 @@ export namespace CreateMembersRequest {
   export const filterSensitiveLog = (obj: CreateMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMembersRequest => __isa(o, "CreateMembersRequest");
 }
 
 export interface CreateMembersResponse {
-  __type?: "CreateMembersResponse";
   /**
    * <p>The list of accounts for which Detective was unable to process the invitation request. For
    *          each account, the list provides the reason why the request could not be processed. The list
@@ -122,11 +112,9 @@ export namespace CreateMembersResponse {
   export const filterSensitiveLog = (obj: CreateMembersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMembersResponse => __isa(o, "CreateMembersResponse");
 }
 
 export interface DeleteGraphRequest {
-  __type?: "DeleteGraphRequest";
   /**
    * <p>The ARN of the behavior graph to disable.</p>
    */
@@ -137,11 +125,9 @@ export namespace DeleteGraphRequest {
   export const filterSensitiveLog = (obj: DeleteGraphRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGraphRequest => __isa(o, "DeleteGraphRequest");
 }
 
 export interface DeleteMembersRequest {
-  __type?: "DeleteMembersRequest";
   /**
    * <p>The ARN of the behavior graph to delete members from.</p>
    */
@@ -158,11 +144,9 @@ export namespace DeleteMembersRequest {
   export const filterSensitiveLog = (obj: DeleteMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMembersRequest => __isa(o, "DeleteMembersRequest");
 }
 
 export interface DeleteMembersResponse {
-  __type?: "DeleteMembersResponse";
   /**
    * <p>The list of AWS account identifiers for the member accounts that Detective successfully
    *          deleted from the behavior graph.</p>
@@ -181,11 +165,9 @@ export namespace DeleteMembersResponse {
   export const filterSensitiveLog = (obj: DeleteMembersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMembersResponse => __isa(o, "DeleteMembersResponse");
 }
 
 export interface DisassociateMembershipRequest {
-  __type?: "DisassociateMembershipRequest";
   /**
    * <p>The ARN of the behavior graph to remove the member account from.</p>
    *          <p>The member account's member status in the behavior graph must be
@@ -198,11 +180,9 @@ export namespace DisassociateMembershipRequest {
   export const filterSensitiveLog = (obj: DisassociateMembershipRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateMembershipRequest => __isa(o, "DisassociateMembershipRequest");
 }
 
 export interface GetMembersRequest {
-  __type?: "GetMembersRequest";
   /**
    * <p>The ARN of the behavior graph for which to request the member details.</p>
    */
@@ -221,11 +201,9 @@ export namespace GetMembersRequest {
   export const filterSensitiveLog = (obj: GetMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMembersRequest => __isa(o, "GetMembersRequest");
 }
 
 export interface GetMembersResponse {
-  __type?: "GetMembersResponse";
   /**
    * <p>The member account details that Detective is returning in response to the request.</p>
    */
@@ -243,14 +221,12 @@ export namespace GetMembersResponse {
   export const filterSensitiveLog = (obj: GetMembersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMembersResponse => __isa(o, "GetMembersResponse");
 }
 
 /**
  * <p>A behavior graph in Detective.</p>
  */
 export interface Graph {
-  __type?: "Graph";
   /**
    * <p>The date and time that the behavior graph was created. The value is in milliseconds
    *          since the epoch.</p>
@@ -267,7 +243,6 @@ export namespace Graph {
   export const filterSensitiveLog = (obj: Graph): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Graph => __isa(o, "Graph");
 }
 
 /**
@@ -283,11 +258,9 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListGraphsRequest {
-  __type?: "ListGraphsRequest";
   /**
    * <p>The maximum number of graphs to return at a time. The total must be less than the
    *          overall limit on the number of results to return, which is currently 200.</p>
@@ -306,11 +279,9 @@ export namespace ListGraphsRequest {
   export const filterSensitiveLog = (obj: ListGraphsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGraphsRequest => __isa(o, "ListGraphsRequest");
 }
 
 export interface ListGraphsResponse {
-  __type?: "ListGraphsResponse";
   /**
    * <p>A list of behavior graphs that the account is a master for.</p>
    */
@@ -327,11 +298,9 @@ export namespace ListGraphsResponse {
   export const filterSensitiveLog = (obj: ListGraphsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGraphsResponse => __isa(o, "ListGraphsResponse");
 }
 
 export interface ListInvitationsRequest {
-  __type?: "ListInvitationsRequest";
   /**
    * <p>For requests to retrieve the next page of results, the pagination token that was
    *          returned with the previous page of results.  The initial request does not include a
@@ -351,11 +320,9 @@ export namespace ListInvitationsRequest {
   export const filterSensitiveLog = (obj: ListInvitationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInvitationsRequest => __isa(o, "ListInvitationsRequest");
 }
 
 export interface ListInvitationsResponse {
-  __type?: "ListInvitationsResponse";
   /**
    * <p>The list of behavior graphs for which the member account has open or accepted
    *          invitations.</p>
@@ -373,11 +340,9 @@ export namespace ListInvitationsResponse {
   export const filterSensitiveLog = (obj: ListInvitationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInvitationsResponse => __isa(o, "ListInvitationsResponse");
 }
 
 export interface ListMembersRequest {
-  __type?: "ListMembersRequest";
   /**
    * <p>For requests to retrieve the next page of member account results, the pagination token
    *          that was returned with the previous page of results. The initial request does not include a
@@ -401,11 +366,9 @@ export namespace ListMembersRequest {
   export const filterSensitiveLog = (obj: ListMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMembersRequest => __isa(o, "ListMembersRequest");
 }
 
 export interface ListMembersResponse {
-  __type?: "ListMembersResponse";
   /**
    * <p>The list of member accounts in the behavior graph.</p>
    *          <p>The results include member accounts that did not pass verification and member accounts
@@ -425,7 +388,6 @@ export namespace ListMembersResponse {
   export const filterSensitiveLog = (obj: ListMembersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMembersResponse => __isa(o, "ListMembersResponse");
 }
 
 /**
@@ -433,7 +395,6 @@ export namespace ListMembersResponse {
  *          graph.</p>
  */
 export interface MemberDetail {
-  __type?: "MemberDetail";
   /**
    * <p>The date and time that the member account was last updated. The value is in milliseconds
    *          since the epoch.</p>
@@ -547,7 +508,6 @@ export namespace MemberDetail {
   export const filterSensitiveLog = (obj: MemberDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MemberDetail => __isa(o, "MemberDetail");
 }
 
 export enum MemberDisabledReason {
@@ -564,7 +524,6 @@ export enum MemberStatus {
 }
 
 export interface RejectInvitationRequest {
-  __type?: "RejectInvitationRequest";
   /**
    * <p>The ARN of the behavior graph to reject the invitation to.</p>
    *          <p>The member account's current member status in the behavior graph must be
@@ -577,7 +536,6 @@ export namespace RejectInvitationRequest {
   export const filterSensitiveLog = (obj: RejectInvitationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectInvitationRequest => __isa(o, "RejectInvitationRequest");
 }
 
 /**
@@ -593,7 +551,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -624,11 +581,9 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 export interface StartMonitoringMemberRequest {
-  __type?: "StartMonitoringMemberRequest";
   /**
    * <p>The ARN of the behavior graph.</p>
    */
@@ -646,7 +601,6 @@ export namespace StartMonitoringMemberRequest {
   export const filterSensitiveLog = (obj: StartMonitoringMemberRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMonitoringMemberRequest => __isa(o, "StartMonitoringMemberRequest");
 }
 
 /**
@@ -654,7 +608,6 @@ export namespace StartMonitoringMemberRequest {
  *          processed.</p>
  */
 export interface UnprocessedAccount {
-  __type?: "UnprocessedAccount";
   /**
    * <p>The AWS account identifier of the member account that was not processed.</p>
    */
@@ -670,7 +623,6 @@ export namespace UnprocessedAccount {
   export const filterSensitiveLog = (obj: UnprocessedAccount): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnprocessedAccount => __isa(o, "UnprocessedAccount");
 }
 
 /**
@@ -686,5 +638,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

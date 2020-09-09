@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AccountRoleStatus {
@@ -13,7 +13,6 @@ export enum AccountRoleStatus {
  * <p>An individual AWS Firewall Manager application.</p>
  */
 export interface App {
-  __type?: "App";
   /**
    * <p>The IP protocol name or number. The name can be one of <code>tcp</code>, <code>udp</code>, or <code>icmp</code>. For information on possible numbers, see <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>.</p>
    */
@@ -34,14 +33,12 @@ export namespace App {
   export const filterSensitiveLog = (obj: App): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is App => __isa(o, "App");
 }
 
 /**
  * <p>An AWS Firewall Manager applications list.</p>
  */
 export interface AppsListData {
-  __type?: "AppsListData";
   /**
    * <p>A map of previous version numbers to their corresponding <code>App</code> object arrays.</p>
    */
@@ -84,14 +81,12 @@ export namespace AppsListData {
   export const filterSensitiveLog = (obj: AppsListData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AppsListData => __isa(o, "AppsListData");
 }
 
 /**
  * <p>Details of the AWS Firewall Manager applications list.</p>
  */
 export interface AppsListDataSummary {
-  __type?: "AppsListDataSummary";
   /**
    * <p>The name of the applications list.</p>
    */
@@ -117,11 +112,9 @@ export namespace AppsListDataSummary {
   export const filterSensitiveLog = (obj: AppsListDataSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AppsListDataSummary => __isa(o, "AppsListDataSummary");
 }
 
 export interface AssociateAdminAccountRequest {
-  __type?: "AssociateAdminAccountRequest";
   /**
    * <p>The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager
    *       administrator account. This can be an AWS Organizations master account or a member account.
@@ -135,14 +128,12 @@ export namespace AssociateAdminAccountRequest {
   export const filterSensitiveLog = (obj: AssociateAdminAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateAdminAccountRequest => __isa(o, "AssociateAdminAccountRequest");
 }
 
 /**
  * <p>Violations for an EC2 instance resource.</p>
  */
 export interface AwsEc2InstanceViolation {
-  __type?: "AwsEc2InstanceViolation";
   /**
    * <p>Violations for network interfaces associated with the EC2 instance.</p>
    */
@@ -158,14 +149,12 @@ export namespace AwsEc2InstanceViolation {
   export const filterSensitiveLog = (obj: AwsEc2InstanceViolation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2InstanceViolation => __isa(o, "AwsEc2InstanceViolation");
 }
 
 /**
  * <p>Violations for network interfaces associated with an EC2 instance.</p>
  */
 export interface AwsEc2NetworkInterfaceViolation {
-  __type?: "AwsEc2NetworkInterfaceViolation";
   /**
    * <p>List of security groups that violate the rules specified in the master security group of the AWS Firewall Manager policy.</p>
    */
@@ -181,14 +170,12 @@ export namespace AwsEc2NetworkInterfaceViolation {
   export const filterSensitiveLog = (obj: AwsEc2NetworkInterfaceViolation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsEc2NetworkInterfaceViolation => __isa(o, "AwsEc2NetworkInterfaceViolation");
 }
 
 /**
  * <p>Details of the rule violation in a security group when compared to the master security group of the AWS Firewall Manager policy.</p>
  */
 export interface AwsVPCSecurityGroupViolation {
-  __type?: "AwsVPCSecurityGroupViolation";
   /**
    * <p>A description of the security group that violates the policy.</p>
    */
@@ -214,14 +201,12 @@ export namespace AwsVPCSecurityGroupViolation {
   export const filterSensitiveLog = (obj: AwsVPCSecurityGroupViolation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsVPCSecurityGroupViolation => __isa(o, "AwsVPCSecurityGroupViolation");
 }
 
 /**
  * <p>Details of the resource that is not protected by the policy.</p>
  */
 export interface ComplianceViolator {
-  __type?: "ComplianceViolator";
   /**
    * <p>The reason that the resource is not protected by the policy.</p>
    */
@@ -244,7 +229,6 @@ export namespace ComplianceViolator {
   export const filterSensitiveLog = (obj: ComplianceViolator): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComplianceViolator => __isa(o, "ComplianceViolator");
 }
 
 export enum CustomerPolicyScopeIdType {
@@ -253,7 +237,6 @@ export enum CustomerPolicyScopeIdType {
 }
 
 export interface DeleteAppsListRequest {
-  __type?: "DeleteAppsListRequest";
   /**
    * <p>The ID of the applications list that you want to delete. You can retrieve this ID from
    *       <code>PutAppsList</code>, <code>ListAppsLists</code>, and <code>GetAppsList</code>.</p>
@@ -265,22 +248,17 @@ export namespace DeleteAppsListRequest {
   export const filterSensitiveLog = (obj: DeleteAppsListRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAppsListRequest => __isa(o, "DeleteAppsListRequest");
 }
 
-export interface DeleteNotificationChannelRequest {
-  __type?: "DeleteNotificationChannelRequest";
-}
+export interface DeleteNotificationChannelRequest {}
 
 export namespace DeleteNotificationChannelRequest {
   export const filterSensitiveLog = (obj: DeleteNotificationChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNotificationChannelRequest => __isa(o, "DeleteNotificationChannelRequest");
 }
 
 export interface DeletePolicyRequest {
-  __type?: "DeletePolicyRequest";
   /**
    * <p>If <code>True</code>, the request performs cleanup according to the policy type. </p>
    *          <p>For AWS WAF and Shield Advanced policies, the cleanup does the following:</p>
@@ -326,11 +304,9 @@ export namespace DeletePolicyRequest {
   export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePolicyRequest => __isa(o, "DeletePolicyRequest");
 }
 
 export interface DeleteProtocolsListRequest {
-  __type?: "DeleteProtocolsListRequest";
   /**
    * <p>The ID of the protocols list that you want to delete. You can retrieve this ID from
    *       <code>PutProtocolsList</code>, <code>ListProtocolsLists</code>, and <code>GetProtocolsLost</code>.</p>
@@ -342,7 +318,6 @@ export namespace DeleteProtocolsListRequest {
   export const filterSensitiveLog = (obj: DeleteProtocolsListRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProtocolsListRequest => __isa(o, "DeleteProtocolsListRequest");
 }
 
 export enum DependentServiceName {
@@ -352,15 +327,12 @@ export enum DependentServiceName {
   AWSWAF = "AWSWAF",
 }
 
-export interface DisassociateAdminAccountRequest {
-  __type?: "DisassociateAdminAccountRequest";
-}
+export interface DisassociateAdminAccountRequest {}
 
 export namespace DisassociateAdminAccountRequest {
   export const filterSensitiveLog = (obj: DisassociateAdminAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateAdminAccountRequest => __isa(o, "DisassociateAdminAccountRequest");
 }
 
 /**
@@ -369,7 +341,6 @@ export namespace DisassociateAdminAccountRequest {
  *       the policy.</p>
  */
 export interface EvaluationResult {
-  __type?: "EvaluationResult";
   /**
    * <p>Describes an AWS account's compliance with the AWS Firewall Manager policy.</p>
    */
@@ -394,22 +365,17 @@ export namespace EvaluationResult {
   export const filterSensitiveLog = (obj: EvaluationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EvaluationResult => __isa(o, "EvaluationResult");
 }
 
-export interface GetAdminAccountRequest {
-  __type?: "GetAdminAccountRequest";
-}
+export interface GetAdminAccountRequest {}
 
 export namespace GetAdminAccountRequest {
   export const filterSensitiveLog = (obj: GetAdminAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAdminAccountRequest => __isa(o, "GetAdminAccountRequest");
 }
 
 export interface GetAdminAccountResponse {
-  __type?: "GetAdminAccountResponse";
   /**
    * <p>The AWS account that is set as the AWS Firewall Manager administrator.</p>
    */
@@ -426,11 +392,9 @@ export namespace GetAdminAccountResponse {
   export const filterSensitiveLog = (obj: GetAdminAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAdminAccountResponse => __isa(o, "GetAdminAccountResponse");
 }
 
 export interface GetAppsListRequest {
-  __type?: "GetAppsListRequest";
   /**
    * <p>The ID of the AWS Firewall Manager applications list that you want the details for.</p>
    */
@@ -446,11 +410,9 @@ export namespace GetAppsListRequest {
   export const filterSensitiveLog = (obj: GetAppsListRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAppsListRequest => __isa(o, "GetAppsListRequest");
 }
 
 export interface GetAppsListResponse {
-  __type?: "GetAppsListResponse";
   /**
    * <p>Information about the specified AWS Firewall Manager applications list.</p>
    */
@@ -466,11 +428,9 @@ export namespace GetAppsListResponse {
   export const filterSensitiveLog = (obj: GetAppsListResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAppsListResponse => __isa(o, "GetAppsListResponse");
 }
 
 export interface GetComplianceDetailRequest {
-  __type?: "GetComplianceDetailRequest";
   /**
    * <p>The ID of the policy that you want to get the details for. <code>PolicyId</code> is
    *       returned by <code>PutPolicy</code> and by <code>ListPolicies</code>.</p>
@@ -487,11 +447,9 @@ export namespace GetComplianceDetailRequest {
   export const filterSensitiveLog = (obj: GetComplianceDetailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetComplianceDetailRequest => __isa(o, "GetComplianceDetailRequest");
 }
 
 export interface GetComplianceDetailResponse {
-  __type?: "GetComplianceDetailResponse";
   /**
    * <p>Information about the resources and the policy that you specified in the
    *         <code>GetComplianceDetail</code> request.</p>
@@ -503,22 +461,17 @@ export namespace GetComplianceDetailResponse {
   export const filterSensitiveLog = (obj: GetComplianceDetailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetComplianceDetailResponse => __isa(o, "GetComplianceDetailResponse");
 }
 
-export interface GetNotificationChannelRequest {
-  __type?: "GetNotificationChannelRequest";
-}
+export interface GetNotificationChannelRequest {}
 
 export namespace GetNotificationChannelRequest {
   export const filterSensitiveLog = (obj: GetNotificationChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetNotificationChannelRequest => __isa(o, "GetNotificationChannelRequest");
 }
 
 export interface GetNotificationChannelResponse {
-  __type?: "GetNotificationChannelResponse";
   /**
    * <p>The SNS topic that records AWS Firewall Manager activity. </p>
    */
@@ -534,11 +487,9 @@ export namespace GetNotificationChannelResponse {
   export const filterSensitiveLog = (obj: GetNotificationChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetNotificationChannelResponse => __isa(o, "GetNotificationChannelResponse");
 }
 
 export interface GetPolicyRequest {
-  __type?: "GetPolicyRequest";
   /**
    * <p>The ID of the AWS Firewall Manager policy that you want the details for.</p>
    */
@@ -549,11 +500,9 @@ export namespace GetPolicyRequest {
   export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPolicyRequest => __isa(o, "GetPolicyRequest");
 }
 
 export interface GetPolicyResponse {
-  __type?: "GetPolicyResponse";
   /**
    * <p>Information about the specified AWS Firewall Manager policy.</p>
    */
@@ -569,11 +518,9 @@ export namespace GetPolicyResponse {
   export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPolicyResponse => __isa(o, "GetPolicyResponse");
 }
 
 export interface GetProtectionStatusRequest {
-  __type?: "GetProtectionStatusRequest";
   /**
    * <p>Specifies the number of objects that you want AWS Firewall Manager to return for this request. If you have more
    *         objects than the number that you specify for <code>MaxResults</code>, the response includes a
@@ -621,11 +568,9 @@ export namespace GetProtectionStatusRequest {
   export const filterSensitiveLog = (obj: GetProtectionStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProtectionStatusRequest => __isa(o, "GetProtectionStatusRequest");
 }
 
 export interface GetProtectionStatusResponse {
-  __type?: "GetProtectionStatusResponse";
   /**
    * <p>If you have more objects than the number that you specified for <code>MaxResults</code> in the request,
    *          the response includes a <code>NextToken</code> value. To list more objects, submit another
@@ -677,11 +622,9 @@ export namespace GetProtectionStatusResponse {
   export const filterSensitiveLog = (obj: GetProtectionStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProtectionStatusResponse => __isa(o, "GetProtectionStatusResponse");
 }
 
 export interface GetProtocolsListRequest {
-  __type?: "GetProtocolsListRequest";
   /**
    * <p>The ID of the AWS Firewall Manager protocols list that you want the details for.</p>
    */
@@ -697,11 +640,9 @@ export namespace GetProtocolsListRequest {
   export const filterSensitiveLog = (obj: GetProtocolsListRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProtocolsListRequest => __isa(o, "GetProtocolsListRequest");
 }
 
 export interface GetProtocolsListResponse {
-  __type?: "GetProtocolsListResponse";
   /**
    * <p>Information about the specified AWS Firewall Manager protocols list.</p>
    */
@@ -717,11 +658,9 @@ export namespace GetProtocolsListResponse {
   export const filterSensitiveLog = (obj: GetProtocolsListResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProtocolsListResponse => __isa(o, "GetProtocolsListResponse");
 }
 
 export interface GetViolationDetailsRequest {
-  __type?: "GetViolationDetailsRequest";
   /**
    * <p>The ID of the resource that has violations.</p>
    */
@@ -752,11 +691,9 @@ export namespace GetViolationDetailsRequest {
   export const filterSensitiveLog = (obj: GetViolationDetailsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetViolationDetailsRequest => __isa(o, "GetViolationDetailsRequest");
 }
 
 export interface GetViolationDetailsResponse {
-  __type?: "GetViolationDetailsResponse";
   /**
    * <p>Violation detail for a resource.</p>
    */
@@ -767,7 +704,6 @@ export namespace GetViolationDetailsResponse {
   export const filterSensitiveLog = (obj: GetViolationDetailsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetViolationDetailsResponse => __isa(o, "GetViolationDetailsResponse");
 }
 
 /**
@@ -784,7 +720,6 @@ export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
@@ -800,7 +735,6 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
@@ -820,7 +754,6 @@ export namespace InvalidOperationException {
   export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOperationException => __isa(o, "InvalidOperationException");
 }
 
 /**
@@ -836,7 +769,6 @@ export namespace InvalidTypeException {
   export const filterSensitiveLog = (obj: InvalidTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTypeException => __isa(o, "InvalidTypeException");
 }
 
 /**
@@ -855,11 +787,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAppsListsRequest {
-  __type?: "ListAppsListsRequest";
   /**
    * <p>If you specify a value for <code>MaxResults</code> in your list request, and you have more objects than the maximum,
    *         AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request
@@ -885,11 +815,9 @@ export namespace ListAppsListsRequest {
   export const filterSensitiveLog = (obj: ListAppsListsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAppsListsRequest => __isa(o, "ListAppsListsRequest");
 }
 
 export interface ListAppsListsResponse {
-  __type?: "ListAppsListsResponse";
   /**
    * <p>An array of <code>AppsListDataSummary</code> objects.</p>
    */
@@ -906,11 +834,9 @@ export namespace ListAppsListsResponse {
   export const filterSensitiveLog = (obj: ListAppsListsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAppsListsResponse => __isa(o, "ListAppsListsResponse");
 }
 
 export interface ListComplianceStatusRequest {
-  __type?: "ListComplianceStatusRequest";
   /**
    * <p>The ID of the AWS Firewall Manager policy that you want the details for.</p>
    */
@@ -941,11 +867,9 @@ export namespace ListComplianceStatusRequest {
   export const filterSensitiveLog = (obj: ListComplianceStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListComplianceStatusRequest => __isa(o, "ListComplianceStatusRequest");
 }
 
 export interface ListComplianceStatusResponse {
-  __type?: "ListComplianceStatusResponse";
   /**
    * <p>If you have more <code>PolicyComplianceStatus</code> objects than the number that you
    *       specified for <code>MaxResults</code> in the request, the response includes a
@@ -966,11 +890,9 @@ export namespace ListComplianceStatusResponse {
   export const filterSensitiveLog = (obj: ListComplianceStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListComplianceStatusResponse => __isa(o, "ListComplianceStatusResponse");
 }
 
 export interface ListMemberAccountsRequest {
-  __type?: "ListMemberAccountsRequest";
   /**
    * <p>Specifies the number of member account IDs that you want AWS Firewall Manager to return
    *       for this request. If you have more IDs than the number that you specify for
@@ -994,11 +916,9 @@ export namespace ListMemberAccountsRequest {
   export const filterSensitiveLog = (obj: ListMemberAccountsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMemberAccountsRequest => __isa(o, "ListMemberAccountsRequest");
 }
 
 export interface ListMemberAccountsResponse {
-  __type?: "ListMemberAccountsResponse";
   /**
    * <p>If you have more member account IDs than the number that you specified for
    *         <code>MaxResults</code> in the request, the response includes a <code>NextToken</code>
@@ -1018,11 +938,9 @@ export namespace ListMemberAccountsResponse {
   export const filterSensitiveLog = (obj: ListMemberAccountsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMemberAccountsResponse => __isa(o, "ListMemberAccountsResponse");
 }
 
 export interface ListPoliciesRequest {
-  __type?: "ListPoliciesRequest";
   /**
    * <p>Specifies the number of <code>PolicySummary</code> objects that you want AWS Firewall
    *       Manager to return for this request. If you have more <code>PolicySummary</code> objects than
@@ -1048,11 +966,9 @@ export namespace ListPoliciesRequest {
   export const filterSensitiveLog = (obj: ListPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesRequest => __isa(o, "ListPoliciesRequest");
 }
 
 export interface ListPoliciesResponse {
-  __type?: "ListPoliciesResponse";
   /**
    * <p>An array of <code>PolicySummary</code> objects.</p>
    */
@@ -1072,11 +988,9 @@ export namespace ListPoliciesResponse {
   export const filterSensitiveLog = (obj: ListPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPoliciesResponse => __isa(o, "ListPoliciesResponse");
 }
 
 export interface ListProtocolsListsRequest {
-  __type?: "ListProtocolsListsRequest";
   /**
    * <p>The maximum number of objects that you want AWS Firewall Manager to return for this request. If more
    *             objects are available, in the response, AWS Firewall Manager provides a
@@ -1102,11 +1016,9 @@ export namespace ListProtocolsListsRequest {
   export const filterSensitiveLog = (obj: ListProtocolsListsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProtocolsListsRequest => __isa(o, "ListProtocolsListsRequest");
 }
 
 export interface ListProtocolsListsResponse {
-  __type?: "ListProtocolsListsResponse";
   /**
    * <p>An array of <code>ProtocolsListDataSummary</code> objects.</p>
    */
@@ -1123,11 +1035,9 @@ export namespace ListProtocolsListsResponse {
   export const filterSensitiveLog = (obj: ListProtocolsListsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProtocolsListsResponse => __isa(o, "ListProtocolsListsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
    */
@@ -1138,11 +1048,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags associated with the resource.</p>
    */
@@ -1153,14 +1061,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>The reference rule that partially matches the <code>ViolationTarget</code> rule and violation reason.</p>
  */
 export interface PartialMatch {
-  __type?: "PartialMatch";
   /**
    * <p>The violation reason.</p>
    */
@@ -1176,14 +1082,12 @@ export namespace PartialMatch {
   export const filterSensitiveLog = (obj: PartialMatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PartialMatch => __isa(o, "PartialMatch");
 }
 
 /**
  * <p>An AWS Firewall Manager policy.</p>
  */
 export interface Policy {
-  __type?: "Policy";
   /**
    * <p>A unique identifier for each update to the policy. When issuing a <code>PutPolicy</code>
    *       request, the <code>PolicyUpdateToken</code> in the request must match the
@@ -1299,7 +1203,6 @@ export namespace Policy {
   export const filterSensitiveLog = (obj: Policy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Policy => __isa(o, "Policy");
 }
 
 /**
@@ -1309,7 +1212,6 @@ export namespace Policy {
  *       noncompliant, <code>EvaluationLimitExceeded</code> is set to <code>True</code>.</p>
  */
 export interface PolicyComplianceDetail {
-  __type?: "PolicyComplianceDetail";
   /**
    * <p>The AWS account ID.</p>
    */
@@ -1355,7 +1257,6 @@ export namespace PolicyComplianceDetail {
   export const filterSensitiveLog = (obj: PolicyComplianceDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyComplianceDetail => __isa(o, "PolicyComplianceDetail");
 }
 
 /**
@@ -1365,7 +1266,6 @@ export namespace PolicyComplianceDetail {
  *       policies.</p>
  */
 export interface PolicyComplianceStatus {
-  __type?: "PolicyComplianceStatus";
   /**
    * <p>The member account ID.</p>
    */
@@ -1408,7 +1308,6 @@ export namespace PolicyComplianceStatus {
   export const filterSensitiveLog = (obj: PolicyComplianceStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyComplianceStatus => __isa(o, "PolicyComplianceStatus");
 }
 
 export enum PolicyComplianceStatusType {
@@ -1420,7 +1319,6 @@ export enum PolicyComplianceStatusType {
  * <p>Details of the AWS Firewall Manager policy. </p>
  */
 export interface PolicySummary {
-  __type?: "PolicySummary";
   /**
    * <p>The ID of the specified policy.</p>
    */
@@ -1466,14 +1364,12 @@ export namespace PolicySummary {
   export const filterSensitiveLog = (obj: PolicySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicySummary => __isa(o, "PolicySummary");
 }
 
 /**
  * <p>An AWS Firewall Manager protocols list.</p>
  */
 export interface ProtocolsListData {
-  __type?: "ProtocolsListData";
   /**
    * <p>A map of previous version numbers to their corresponding protocol arrays.</p>
    */
@@ -1516,14 +1412,12 @@ export namespace ProtocolsListData {
   export const filterSensitiveLog = (obj: ProtocolsListData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProtocolsListData => __isa(o, "ProtocolsListData");
 }
 
 /**
  * <p>Details of the AWS Firewall Manager protocols list.</p>
  */
 export interface ProtocolsListDataSummary {
-  __type?: "ProtocolsListDataSummary";
   /**
    * <p>An array of protocols in the AWS Firewall Manager protocols list.</p>
    */
@@ -1549,11 +1443,9 @@ export namespace ProtocolsListDataSummary {
   export const filterSensitiveLog = (obj: ProtocolsListDataSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProtocolsListDataSummary => __isa(o, "ProtocolsListDataSummary");
 }
 
 export interface PutAppsListRequest {
-  __type?: "PutAppsListRequest";
   /**
    * <p>The details of the AWS Firewall Manager applications list to be created.</p>
    */
@@ -1569,11 +1461,9 @@ export namespace PutAppsListRequest {
   export const filterSensitiveLog = (obj: PutAppsListRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAppsListRequest => __isa(o, "PutAppsListRequest");
 }
 
 export interface PutAppsListResponse {
-  __type?: "PutAppsListResponse";
   /**
    * <p>The details of the AWS Firewall Manager applications list.</p>
    */
@@ -1589,11 +1479,9 @@ export namespace PutAppsListResponse {
   export const filterSensitiveLog = (obj: PutAppsListResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAppsListResponse => __isa(o, "PutAppsListResponse");
 }
 
 export interface PutNotificationChannelRequest {
-  __type?: "PutNotificationChannelRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS
    *       Firewall Manager.</p>
@@ -1611,11 +1499,9 @@ export namespace PutNotificationChannelRequest {
   export const filterSensitiveLog = (obj: PutNotificationChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutNotificationChannelRequest => __isa(o, "PutNotificationChannelRequest");
 }
 
 export interface PutPolicyRequest {
-  __type?: "PutPolicyRequest";
   /**
    * <p>The details of the AWS Firewall Manager policy to be created.</p>
    */
@@ -1631,11 +1517,9 @@ export namespace PutPolicyRequest {
   export const filterSensitiveLog = (obj: PutPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPolicyRequest => __isa(o, "PutPolicyRequest");
 }
 
 export interface PutPolicyResponse {
-  __type?: "PutPolicyResponse";
   /**
    * <p>The details of the AWS Firewall Manager policy.</p>
    */
@@ -1651,11 +1535,9 @@ export namespace PutPolicyResponse {
   export const filterSensitiveLog = (obj: PutPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPolicyResponse => __isa(o, "PutPolicyResponse");
 }
 
 export interface PutProtocolsListRequest {
-  __type?: "PutProtocolsListRequest";
   /**
    * <p>The details of the AWS Firewall Manager protocols list to be created.</p>
    */
@@ -1671,11 +1553,9 @@ export namespace PutProtocolsListRequest {
   export const filterSensitiveLog = (obj: PutProtocolsListRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutProtocolsListRequest => __isa(o, "PutProtocolsListRequest");
 }
 
 export interface PutProtocolsListResponse {
-  __type?: "PutProtocolsListResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the protocols list.</p>
    */
@@ -1691,7 +1571,6 @@ export namespace PutProtocolsListResponse {
   export const filterSensitiveLog = (obj: PutProtocolsListResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutProtocolsListResponse => __isa(o, "PutProtocolsListResponse");
 }
 
 export enum RemediationActionType {
@@ -1712,7 +1591,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1725,7 +1603,6 @@ export namespace ResourceNotFoundException {
  *     <a href="https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html">Working with Tag Editor</a>.</p>
  */
 export interface ResourceTag {
-  __type?: "ResourceTag";
   /**
    * <p>The resource tag value.</p>
    */
@@ -1741,14 +1618,12 @@ export namespace ResourceTag {
   export const filterSensitiveLog = (obj: ResourceTag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceTag => __isa(o, "ResourceTag");
 }
 
 /**
  * <p>Violation detail based on resource type.</p>
  */
 export interface ResourceViolation {
-  __type?: "ResourceViolation";
   /**
    * <p>Violation details for an EC2 instance.</p>
    */
@@ -1769,14 +1644,12 @@ export namespace ResourceViolation {
   export const filterSensitiveLog = (obj: ResourceViolation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceViolation => __isa(o, "ResourceViolation");
 }
 
 /**
  * <p>Remediation option for the rule specified in the <code>ViolationTarget</code>.</p>
  */
 export interface SecurityGroupRemediationAction {
-  __type?: "SecurityGroupRemediationAction";
   /**
    * <p>The remediation action that will be performed.</p>
    */
@@ -1802,14 +1675,12 @@ export namespace SecurityGroupRemediationAction {
   export const filterSensitiveLog = (obj: SecurityGroupRemediationAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityGroupRemediationAction => __isa(o, "SecurityGroupRemediationAction");
 }
 
 /**
  * <p>Describes a set of permissions for a security group rule.</p>
  */
 export interface SecurityGroupRuleDescription {
-  __type?: "SecurityGroupRuleDescription";
   /**
    * <p>The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of <code>-1</code> indicates all ICMP/ICMPv6 types.</p>
    */
@@ -1845,14 +1716,12 @@ export namespace SecurityGroupRuleDescription {
   export const filterSensitiveLog = (obj: SecurityGroupRuleDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityGroupRuleDescription => __isa(o, "SecurityGroupRuleDescription");
 }
 
 /**
  * <p>Details about the security service that is being used to protect the resources.</p>
  */
 export interface SecurityServicePolicyData {
-  __type?: "SecurityServicePolicyData";
   /**
    * <p>The service that the policy is using to protect the resources. This specifies the type of
    *       policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security
@@ -1920,7 +1789,6 @@ export namespace SecurityServicePolicyData {
   export const filterSensitiveLog = (obj: SecurityServicePolicyData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityServicePolicyData => __isa(o, "SecurityServicePolicyData");
 }
 
 export enum SecurityServiceType {
@@ -1936,7 +1804,6 @@ export enum SecurityServiceType {
  * <p>A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.  </p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.</p>
    */
@@ -1952,11 +1819,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The tags to add to the resource.</p>
    */
@@ -1972,22 +1837,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
    */
@@ -2003,25 +1863,20 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
  * <p>Violations for a resource based on the specified AWS Firewall Manager policy and AWS account.</p>
  */
 export interface ViolationDetail {
-  __type?: "ViolationDetail";
   /**
    * <p>The resource type that the violation details were requested for.</p>
    */
@@ -2062,7 +1917,6 @@ export namespace ViolationDetail {
   export const filterSensitiveLog = (obj: ViolationDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ViolationDetail => __isa(o, "ViolationDetail");
 }
 
 export enum ViolationReason {

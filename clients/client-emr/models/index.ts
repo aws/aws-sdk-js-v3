@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum ActionOnFailure {
@@ -9,7 +9,6 @@ export enum ActionOnFailure {
 }
 
 export interface AddInstanceFleetInput {
-  __type?: "AddInstanceFleetInput";
   /**
    * <p>Specifies the configuration of the instance fleet.</p>
    */
@@ -25,11 +24,9 @@ export namespace AddInstanceFleetInput {
   export const filterSensitiveLog = (obj: AddInstanceFleetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddInstanceFleetInput => __isa(o, "AddInstanceFleetInput");
 }
 
 export interface AddInstanceFleetOutput {
-  __type?: "AddInstanceFleetOutput";
   /**
    * <p>The Amazon Resource Name of the cluster.</p>
    */
@@ -50,14 +47,12 @@ export namespace AddInstanceFleetOutput {
   export const filterSensitiveLog = (obj: AddInstanceFleetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddInstanceFleetOutput => __isa(o, "AddInstanceFleetOutput");
 }
 
 /**
  * <p>Input to an AddInstanceGroups call.</p>
  */
 export interface AddInstanceGroupsInput {
-  __type?: "AddInstanceGroupsInput";
   /**
    * <p>Job flow in which to add the instance groups.</p>
    */
@@ -73,14 +68,12 @@ export namespace AddInstanceGroupsInput {
   export const filterSensitiveLog = (obj: AddInstanceGroupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddInstanceGroupsInput => __isa(o, "AddInstanceGroupsInput");
 }
 
 /**
  * <p>Output from an AddInstanceGroups call.</p>
  */
 export interface AddInstanceGroupsOutput {
-  __type?: "AddInstanceGroupsOutput";
   /**
    * <p>The job flow ID in which the instance groups are added.</p>
    */
@@ -101,14 +94,12 @@ export namespace AddInstanceGroupsOutput {
   export const filterSensitiveLog = (obj: AddInstanceGroupsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddInstanceGroupsOutput => __isa(o, "AddInstanceGroupsOutput");
 }
 
 /**
  * <p> The input argument to the <a>AddJobFlowSteps</a> operation. </p>
  */
 export interface AddJobFlowStepsInput {
-  __type?: "AddJobFlowStepsInput";
   /**
    * <p>A string that uniquely identifies the job flow. This identifier is returned by
    *             <a>RunJobFlow</a> and can also be obtained from <a>ListClusters</a>. </p>
@@ -125,14 +116,12 @@ export namespace AddJobFlowStepsInput {
   export const filterSensitiveLog = (obj: AddJobFlowStepsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddJobFlowStepsInput => __isa(o, "AddJobFlowStepsInput");
 }
 
 /**
  * <p> The output for the <a>AddJobFlowSteps</a> operation. </p>
  */
 export interface AddJobFlowStepsOutput {
-  __type?: "AddJobFlowStepsOutput";
   /**
    * <p>The identifiers of the list of steps added to the job flow.</p>
    */
@@ -143,14 +132,12 @@ export namespace AddJobFlowStepsOutput {
   export const filterSensitiveLog = (obj: AddJobFlowStepsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddJobFlowStepsOutput => __isa(o, "AddJobFlowStepsOutput");
 }
 
 /**
  * <p>This input identifies a cluster and a list of tags to attach.</p>
  */
 export interface AddTagsInput {
-  __type?: "AddTagsInput";
   /**
    * <p>A list of tags to associate with a cluster and propagate to EC2 instances. Tags are user-defined key/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.</p>
    */
@@ -166,21 +153,17 @@ export namespace AddTagsInput {
   export const filterSensitiveLog = (obj: AddTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
 
 /**
  * <p>This output indicates the result of adding tags to a resource.</p>
  */
-export interface AddTagsOutput {
-  __type?: "AddTagsOutput";
-}
+export interface AddTagsOutput {}
 
 export namespace AddTagsOutput {
   export const filterSensitiveLog = (obj: AddTagsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsOutput => __isa(o, "AddTagsOutput");
 }
 
 export enum AdjustmentType {
@@ -194,7 +177,6 @@ export enum AdjustmentType {
  *          <p>With earlier Amazon EMR releases, the application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument.</p>
  */
 export interface Application {
-  __type?: "Application";
   /**
    * <p>This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.</p>
    */
@@ -220,14 +202,12 @@ export namespace Application {
   export const filterSensitiveLog = (obj: Application): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Application => __isa(o, "Application");
 }
 
 /**
  * <p>An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. An automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See <a>PutAutoScalingPolicy</a>.</p>
  */
 export interface AutoScalingPolicy {
-  __type?: "AutoScalingPolicy";
   /**
    * <p>The scale-in and scale-out rules that comprise the automatic scaling policy.</p>
    */
@@ -243,14 +223,12 @@ export namespace AutoScalingPolicy {
   export const filterSensitiveLog = (obj: AutoScalingPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingPolicy => __isa(o, "AutoScalingPolicy");
 }
 
 /**
  * <p>An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See <a>PutAutoScalingPolicy</a>.</p>
  */
 export interface AutoScalingPolicyDescription {
-  __type?: "AutoScalingPolicyDescription";
   /**
    * <p>The status of an automatic scaling policy. </p>
    */
@@ -271,7 +249,6 @@ export namespace AutoScalingPolicyDescription {
   export const filterSensitiveLog = (obj: AutoScalingPolicyDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingPolicyDescription => __isa(o, "AutoScalingPolicyDescription");
 }
 
 export enum AutoScalingPolicyState {
@@ -287,7 +264,6 @@ export enum AutoScalingPolicyState {
  * <p>The reason for an <a>AutoScalingPolicyStatus</a> change.</p>
  */
 export interface AutoScalingPolicyStateChangeReason {
-  __type?: "AutoScalingPolicyStateChangeReason";
   /**
    * <p>The code indicating the reason for the change in status.<code>USER_REQUEST</code> indicates that the scaling policy status was changed by a user. <code>PROVISION_FAILURE</code> indicates that the status change was because the policy failed to provision. <code>CLEANUP_FAILURE</code> indicates an error.</p>
    */
@@ -303,8 +279,6 @@ export namespace AutoScalingPolicyStateChangeReason {
   export const filterSensitiveLog = (obj: AutoScalingPolicyStateChangeReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingPolicyStateChangeReason =>
-    __isa(o, "AutoScalingPolicyStateChangeReason");
 }
 
 export enum AutoScalingPolicyStateChangeReasonCode {
@@ -317,7 +291,6 @@ export enum AutoScalingPolicyStateChangeReasonCode {
  * <p>The status of an automatic scaling policy. </p>
  */
 export interface AutoScalingPolicyStatus {
-  __type?: "AutoScalingPolicyStatus";
   /**
    * <p>The reason for a change in status.</p>
    */
@@ -333,14 +306,12 @@ export namespace AutoScalingPolicyStatus {
   export const filterSensitiveLog = (obj: AutoScalingPolicyStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingPolicyStatus => __isa(o, "AutoScalingPolicyStatus");
 }
 
 /**
  * <p>A configuration for Amazon EMR block public access. When <code>BlockPublicSecurityGroupRules</code> is set to <code>true</code>, Amazon EMR prevents cluster creation if one of the cluster's security groups has a rule that allows inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using <code>PermittedPublicSecurityGroupRuleRanges</code>.</p>
  */
 export interface BlockPublicAccessConfiguration {
-  __type?: "BlockPublicAccessConfiguration";
   /**
    * <p>A set of properties specified within a configuration classification.</p>
    */
@@ -372,14 +343,12 @@ export namespace BlockPublicAccessConfiguration {
   export const filterSensitiveLog = (obj: BlockPublicAccessConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlockPublicAccessConfiguration => __isa(o, "BlockPublicAccessConfiguration");
 }
 
 /**
  * <p>Properties that describe the AWS principal that created the <code>BlockPublicAccessConfiguration</code> using the <code>PutBlockPublicAccessConfiguration</code> action as well as the date and time that the configuration was created. Each time a configuration for block public access is updated, Amazon EMR updates this metadata.</p>
  */
 export interface BlockPublicAccessConfigurationMetadata {
-  __type?: "BlockPublicAccessConfigurationMetadata";
   /**
    * <p>The Amazon Resource Name that created or last modified the configuration.</p>
    */
@@ -395,15 +364,12 @@ export namespace BlockPublicAccessConfigurationMetadata {
   export const filterSensitiveLog = (obj: BlockPublicAccessConfigurationMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlockPublicAccessConfigurationMetadata =>
-    __isa(o, "BlockPublicAccessConfigurationMetadata");
 }
 
 /**
  * <p>Configuration of a bootstrap action.</p>
  */
 export interface BootstrapActionConfig {
-  __type?: "BootstrapActionConfig";
   /**
    * <p>The script run by the bootstrap action.</p>
    */
@@ -419,14 +385,12 @@ export namespace BootstrapActionConfig {
   export const filterSensitiveLog = (obj: BootstrapActionConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BootstrapActionConfig => __isa(o, "BootstrapActionConfig");
 }
 
 /**
  * <p>Reports the configuration of a bootstrap action in a cluster (job flow).</p>
  */
 export interface BootstrapActionDetail {
-  __type?: "BootstrapActionDetail";
   /**
    * <p>A description of the bootstrap action.</p>
    */
@@ -437,14 +401,12 @@ export namespace BootstrapActionDetail {
   export const filterSensitiveLog = (obj: BootstrapActionDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BootstrapActionDetail => __isa(o, "BootstrapActionDetail");
 }
 
 /**
  * <p>Specification of the status of a CancelSteps request. Available only in Amazon EMR version 4.8.0 and later, excluding version 5.0.0.</p>
  */
 export interface CancelStepsInfo {
-  __type?: "CancelStepsInfo";
   /**
    * <p>The encrypted StepId of a step.</p>
    */
@@ -465,14 +427,12 @@ export namespace CancelStepsInfo {
   export const filterSensitiveLog = (obj: CancelStepsInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelStepsInfo => __isa(o, "CancelStepsInfo");
 }
 
 /**
  * <p>The input argument to the <a>CancelSteps</a> operation.</p>
  */
 export interface CancelStepsInput {
-  __type?: "CancelStepsInput";
   /**
    * <p>The <code>ClusterID</code> for which specified steps will be canceled. Use <a>RunJobFlow</a> and <a>ListClusters</a> to get ClusterIDs. </p>
    */
@@ -493,14 +453,12 @@ export namespace CancelStepsInput {
   export const filterSensitiveLog = (obj: CancelStepsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelStepsInput => __isa(o, "CancelStepsInput");
 }
 
 /**
  * <p> The output for the <a>CancelSteps</a> operation. </p>
  */
 export interface CancelStepsOutput {
-  __type?: "CancelStepsOutput";
   /**
    * <p>A list of <a>CancelStepsInfo</a>, which shows the status of specified cancel requests for each <code>StepID</code> specified.</p>
    */
@@ -511,7 +469,6 @@ export namespace CancelStepsOutput {
   export const filterSensitiveLog = (obj: CancelStepsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelStepsOutput => __isa(o, "CancelStepsOutput");
 }
 
 export enum CancelStepsRequestStatus {
@@ -523,7 +480,6 @@ export enum CancelStepsRequestStatus {
  * <p>The definition of a CloudWatch metric alarm, which determines when an automatic scaling activity is triggered. When the defined alarm conditions are satisfied, scaling activity begins.</p>
  */
 export interface CloudWatchAlarmDefinition {
-  __type?: "CloudWatchAlarmDefinition";
   /**
    * <p>The period, in seconds, over which the statistic is applied. EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify <code>300</code>.</p>
    */
@@ -574,14 +530,12 @@ export namespace CloudWatchAlarmDefinition {
   export const filterSensitiveLog = (obj: CloudWatchAlarmDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchAlarmDefinition => __isa(o, "CloudWatchAlarmDefinition");
 }
 
 /**
  * <p>The detailed description of the cluster.</p>
  */
 export interface Cluster {
-  __type?: "Cluster";
   /**
    * <p>A list of tags associated with a cluster.</p>
    */
@@ -737,7 +691,6 @@ export namespace Cluster {
   export const filterSensitiveLog = (obj: Cluster): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Cluster => __isa(o, "Cluster");
 }
 
 export enum ClusterState {
@@ -754,7 +707,6 @@ export enum ClusterState {
  * <p>The reason that the cluster changed to its current state.</p>
  */
 export interface ClusterStateChangeReason {
-  __type?: "ClusterStateChangeReason";
   /**
    * <p>The programmatic code for the state change reason.</p>
    */
@@ -770,7 +722,6 @@ export namespace ClusterStateChangeReason {
   export const filterSensitiveLog = (obj: ClusterStateChangeReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterStateChangeReason => __isa(o, "ClusterStateChangeReason");
 }
 
 export enum ClusterStateChangeReasonCode {
@@ -788,7 +739,6 @@ export enum ClusterStateChangeReasonCode {
  * <p>The detailed status of the cluster.</p>
  */
 export interface ClusterStatus {
-  __type?: "ClusterStatus";
   /**
    * <p>The current state of the cluster.</p>
    */
@@ -809,14 +759,12 @@ export namespace ClusterStatus {
   export const filterSensitiveLog = (obj: ClusterStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterStatus => __isa(o, "ClusterStatus");
 }
 
 /**
  * <p>The summary description of the cluster.</p>
  */
 export interface ClusterSummary {
-  __type?: "ClusterSummary";
   /**
    * <p>An approximation of the cost of the cluster, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.</p>
    */
@@ -854,14 +802,12 @@ export namespace ClusterSummary {
   export const filterSensitiveLog = (obj: ClusterSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSummary => __isa(o, "ClusterSummary");
 }
 
 /**
  * <p>Represents the timeline of the cluster's lifecycle.</p>
  */
 export interface ClusterTimeline {
-  __type?: "ClusterTimeline";
   /**
    * <p>The date and time when the cluster was ready to execute steps.</p>
    */
@@ -882,14 +828,12 @@ export namespace ClusterTimeline {
   export const filterSensitiveLog = (obj: ClusterTimeline): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterTimeline => __isa(o, "ClusterTimeline");
 }
 
 /**
  * <p>An entity describing an executable that runs on a cluster.</p>
  */
 export interface Command {
-  __type?: "Command";
   /**
    * <p>The name of the command.</p>
    */
@@ -910,7 +854,6 @@ export namespace Command {
   export const filterSensitiveLog = (obj: Command): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Command => __isa(o, "Command");
 }
 
 export enum ComparisonOperator {
@@ -926,7 +869,6 @@ export enum ComparisonOperator {
  *       </p>
  */
 export interface ComputeLimits {
-  __type?: "ComputeLimits";
   /**
    * <p>
    *          The unit type used for specifying a managed scaling policy.
@@ -967,7 +909,6 @@ export namespace ComputeLimits {
   export const filterSensitiveLog = (obj: ComputeLimits): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComputeLimits => __isa(o, "ComputeLimits");
 }
 
 export enum ComputeLimitsUnitType {
@@ -983,7 +924,6 @@ export enum ComputeLimitsUnitType {
  *          <p>An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html">Configuring Applications</a>.</p>
  */
 export interface Configuration {
-  __type?: "Configuration";
   /**
    * <p>The classification within a configuration.</p>
    */
@@ -1004,11 +944,9 @@ export namespace Configuration {
   export const filterSensitiveLog = (obj: Configuration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Configuration => __isa(o, "Configuration");
 }
 
 export interface CreateSecurityConfigurationInput {
-  __type?: "CreateSecurityConfigurationInput";
   /**
    * <p>The security configuration details in JSON format. For JSON parameters and examples, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use Security Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR Management Guide</i>.</p>
    */
@@ -1024,11 +962,9 @@ export namespace CreateSecurityConfigurationInput {
   export const filterSensitiveLog = (obj: CreateSecurityConfigurationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSecurityConfigurationInput => __isa(o, "CreateSecurityConfigurationInput");
 }
 
 export interface CreateSecurityConfigurationOutput {
-  __type?: "CreateSecurityConfigurationOutput";
   /**
    * <p>The date and time the security configuration was created.</p>
    */
@@ -1044,11 +980,9 @@ export namespace CreateSecurityConfigurationOutput {
   export const filterSensitiveLog = (obj: CreateSecurityConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSecurityConfigurationOutput => __isa(o, "CreateSecurityConfigurationOutput");
 }
 
 export interface DeleteSecurityConfigurationInput {
-  __type?: "DeleteSecurityConfigurationInput";
   /**
    * <p>The name of the security configuration.</p>
    */
@@ -1059,25 +993,20 @@ export namespace DeleteSecurityConfigurationInput {
   export const filterSensitiveLog = (obj: DeleteSecurityConfigurationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSecurityConfigurationInput => __isa(o, "DeleteSecurityConfigurationInput");
 }
 
-export interface DeleteSecurityConfigurationOutput {
-  __type?: "DeleteSecurityConfigurationOutput";
-}
+export interface DeleteSecurityConfigurationOutput {}
 
 export namespace DeleteSecurityConfigurationOutput {
   export const filterSensitiveLog = (obj: DeleteSecurityConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSecurityConfigurationOutput => __isa(o, "DeleteSecurityConfigurationOutput");
 }
 
 /**
  * <p>This input determines which cluster to describe.</p>
  */
 export interface DescribeClusterInput {
-  __type?: "DescribeClusterInput";
   /**
    * <p>The identifier of the cluster to describe.</p>
    */
@@ -1088,14 +1017,12 @@ export namespace DescribeClusterInput {
   export const filterSensitiveLog = (obj: DescribeClusterInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterInput => __isa(o, "DescribeClusterInput");
 }
 
 /**
  * <p>This output contains the description of the cluster.</p>
  */
 export interface DescribeClusterOutput {
-  __type?: "DescribeClusterOutput";
   /**
    * <p>This output contains the details for the requested cluster.</p>
    */
@@ -1106,14 +1033,12 @@ export namespace DescribeClusterOutput {
   export const filterSensitiveLog = (obj: DescribeClusterOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterOutput => __isa(o, "DescribeClusterOutput");
 }
 
 /**
  * <p> The input for the <a>DescribeJobFlows</a> operation. </p>
  */
 export interface DescribeJobFlowsInput {
-  __type?: "DescribeJobFlowsInput";
   /**
    * <p>Return only job flows whose state is contained in this list.</p>
    */
@@ -1139,14 +1064,12 @@ export namespace DescribeJobFlowsInput {
   export const filterSensitiveLog = (obj: DescribeJobFlowsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobFlowsInput => __isa(o, "DescribeJobFlowsInput");
 }
 
 /**
  * <p> The output for the <a>DescribeJobFlows</a> operation. </p>
  */
 export interface DescribeJobFlowsOutput {
-  __type?: "DescribeJobFlowsOutput";
   /**
    * <p>A list of job flows matching the parameters supplied.</p>
    */
@@ -1157,11 +1080,9 @@ export namespace DescribeJobFlowsOutput {
   export const filterSensitiveLog = (obj: DescribeJobFlowsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobFlowsOutput => __isa(o, "DescribeJobFlowsOutput");
 }
 
 export interface DescribeSecurityConfigurationInput {
-  __type?: "DescribeSecurityConfigurationInput";
   /**
    * <p>The name of the security configuration.</p>
    */
@@ -1172,12 +1093,9 @@ export namespace DescribeSecurityConfigurationInput {
   export const filterSensitiveLog = (obj: DescribeSecurityConfigurationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSecurityConfigurationInput =>
-    __isa(o, "DescribeSecurityConfigurationInput");
 }
 
 export interface DescribeSecurityConfigurationOutput {
-  __type?: "DescribeSecurityConfigurationOutput";
   /**
    * <p>The name of the security configuration.</p>
    */
@@ -1198,15 +1116,12 @@ export namespace DescribeSecurityConfigurationOutput {
   export const filterSensitiveLog = (obj: DescribeSecurityConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSecurityConfigurationOutput =>
-    __isa(o, "DescribeSecurityConfigurationOutput");
 }
 
 /**
  * <p>This input determines which step to describe.</p>
  */
 export interface DescribeStepInput {
-  __type?: "DescribeStepInput";
   /**
    * <p>The identifier of the step to describe.</p>
    */
@@ -1222,14 +1137,12 @@ export namespace DescribeStepInput {
   export const filterSensitiveLog = (obj: DescribeStepInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStepInput => __isa(o, "DescribeStepInput");
 }
 
 /**
  * <p>This output contains the description of the cluster step.</p>
  */
 export interface DescribeStepOutput {
-  __type?: "DescribeStepOutput";
   /**
    * <p>The step details for the requested step identifier.</p>
    */
@@ -1240,14 +1153,12 @@ export namespace DescribeStepOutput {
   export const filterSensitiveLog = (obj: DescribeStepOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStepOutput => __isa(o, "DescribeStepOutput");
 }
 
 /**
  * <p>Configuration of requested EBS block device associated with the instance group.</p>
  */
 export interface EbsBlockDevice {
-  __type?: "EbsBlockDevice";
   /**
    * <p>EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.</p>
    */
@@ -1263,14 +1174,12 @@ export namespace EbsBlockDevice {
   export const filterSensitiveLog = (obj: EbsBlockDevice): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EbsBlockDevice => __isa(o, "EbsBlockDevice");
 }
 
 /**
  * <p>Configuration of requested EBS block device associated with the instance group with count of volumes that will be associated to every instance.</p>
  */
 export interface EbsBlockDeviceConfig {
-  __type?: "EbsBlockDeviceConfig";
   /**
    * <p>EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.</p>
    */
@@ -1286,14 +1195,12 @@ export namespace EbsBlockDeviceConfig {
   export const filterSensitiveLog = (obj: EbsBlockDeviceConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EbsBlockDeviceConfig => __isa(o, "EbsBlockDeviceConfig");
 }
 
 /**
  * <p>The Amazon EBS configuration of a cluster instance.</p>
  */
 export interface EbsConfiguration {
-  __type?: "EbsConfiguration";
   /**
    * <p>Indicates whether an Amazon EBS volume is EBS-optimized.</p>
    */
@@ -1309,14 +1216,12 @@ export namespace EbsConfiguration {
   export const filterSensitiveLog = (obj: EbsConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EbsConfiguration => __isa(o, "EbsConfiguration");
 }
 
 /**
  * <p>EBS block device that's attached to an EC2 instance.</p>
  */
 export interface EbsVolume {
-  __type?: "EbsVolume";
   /**
    * <p>The device name that is exposed to the instance, such as /dev/sdh.</p>
    */
@@ -1332,14 +1237,12 @@ export namespace EbsVolume {
   export const filterSensitiveLog = (obj: EbsVolume): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EbsVolume => __isa(o, "EbsVolume");
 }
 
 /**
  * <p>Provides information about the EC2 instances in a cluster grouped by category. For example, key name, subnet ID, IAM instance profile, and so on.</p>
  */
 export interface Ec2InstanceAttributes {
-  __type?: "Ec2InstanceAttributes";
   /**
    * <p>Set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value, and your account supports EC2-Classic, the cluster launches in EC2-Classic.</p>
    */
@@ -1400,14 +1303,12 @@ export namespace Ec2InstanceAttributes {
   export const filterSensitiveLog = (obj: Ec2InstanceAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ec2InstanceAttributes => __isa(o, "Ec2InstanceAttributes");
 }
 
 /**
  * <p>The details of the step failure. The service attempts to detect the root cause for many common failures.</p>
  */
 export interface FailureDetails {
-  __type?: "FailureDetails";
   /**
    * <p>The path to the log file where the step failure root cause was originally recorded.</p>
    */
@@ -1428,23 +1329,17 @@ export namespace FailureDetails {
   export const filterSensitiveLog = (obj: FailureDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailureDetails => __isa(o, "FailureDetails");
 }
 
-export interface GetBlockPublicAccessConfigurationInput {
-  __type?: "GetBlockPublicAccessConfigurationInput";
-}
+export interface GetBlockPublicAccessConfigurationInput {}
 
 export namespace GetBlockPublicAccessConfigurationInput {
   export const filterSensitiveLog = (obj: GetBlockPublicAccessConfigurationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBlockPublicAccessConfigurationInput =>
-    __isa(o, "GetBlockPublicAccessConfigurationInput");
 }
 
 export interface GetBlockPublicAccessConfigurationOutput {
-  __type?: "GetBlockPublicAccessConfigurationOutput";
   /**
    * <p>Properties that describe the AWS principal that created the <code>BlockPublicAccessConfiguration</code> using the <code>PutBlockPublicAccessConfiguration</code> action as well as the date and time that the configuration was created. Each time a configuration for block public access is updated, Amazon EMR updates this metadata.</p>
    */
@@ -1463,12 +1358,9 @@ export namespace GetBlockPublicAccessConfigurationOutput {
   export const filterSensitiveLog = (obj: GetBlockPublicAccessConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBlockPublicAccessConfigurationOutput =>
-    __isa(o, "GetBlockPublicAccessConfigurationOutput");
 }
 
 export interface GetManagedScalingPolicyInput {
-  __type?: "GetManagedScalingPolicyInput";
   /**
    * <p>
    *          Specifies the ID of the cluster for which the managed scaling policy will be fetched.
@@ -1481,11 +1373,9 @@ export namespace GetManagedScalingPolicyInput {
   export const filterSensitiveLog = (obj: GetManagedScalingPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetManagedScalingPolicyInput => __isa(o, "GetManagedScalingPolicyInput");
 }
 
 export interface GetManagedScalingPolicyOutput {
-  __type?: "GetManagedScalingPolicyOutput";
   /**
    * <p>
    *          Specifies the managed scaling policy that is attached to an Amazon EMR cluster.
@@ -1498,14 +1388,12 @@ export namespace GetManagedScalingPolicyOutput {
   export const filterSensitiveLog = (obj: GetManagedScalingPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetManagedScalingPolicyOutput => __isa(o, "GetManagedScalingPolicyOutput");
 }
 
 /**
  * <p>A job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.</p>
  */
 export interface HadoopJarStepConfig {
-  __type?: "HadoopJarStepConfig";
   /**
    * <p>The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.</p>
    */
@@ -1531,14 +1419,12 @@ export namespace HadoopJarStepConfig {
   export const filterSensitiveLog = (obj: HadoopJarStepConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HadoopJarStepConfig => __isa(o, "HadoopJarStepConfig");
 }
 
 /**
  * <p>A cluster step consisting of a JAR file whose main function will be executed. The main function submits a job for Hadoop to execute and waits for the job to finish or fail.</p>
  */
 export interface HadoopStepConfig {
-  __type?: "HadoopStepConfig";
   /**
    * <p>The list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.</p>
    */
@@ -1564,14 +1450,12 @@ export namespace HadoopStepConfig {
   export const filterSensitiveLog = (obj: HadoopStepConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HadoopStepConfig => __isa(o, "HadoopStepConfig");
 }
 
 /**
  * <p>Represents an EC2 instance provisioned as part of cluster.</p>
  */
 export interface Instance {
-  __type?: "Instance";
   /**
    * <p>The identifier of the instance group to which this instance belongs.</p>
    */
@@ -1638,7 +1522,6 @@ export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
 
 export enum InstanceCollectionType {
@@ -1654,7 +1537,6 @@ export enum InstanceCollectionType {
  *          </note>
  */
 export interface InstanceFleet {
-  __type?: "InstanceFleet";
   /**
    * <p>The number of Spot units that have been provisioned for this instance fleet to fulfill <code>TargetSpotCapacity</code>. This provisioned capacity might be less than or greater than <code>TargetSpotCapacity</code>.</p>
    */
@@ -1720,7 +1602,6 @@ export namespace InstanceFleet {
   export const filterSensitiveLog = (obj: InstanceFleet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceFleet => __isa(o, "InstanceFleet");
 }
 
 /**
@@ -1730,7 +1611,6 @@ export namespace InstanceFleet {
  *          </note>
  */
 export interface InstanceFleetConfig {
-  __type?: "InstanceFleetConfig";
   /**
    * <p>The friendly name of the instance fleet.</p>
    */
@@ -1772,7 +1652,6 @@ export namespace InstanceFleetConfig {
   export const filterSensitiveLog = (obj: InstanceFleetConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceFleetConfig => __isa(o, "InstanceFleetConfig");
 }
 
 /**
@@ -1782,7 +1661,6 @@ export namespace InstanceFleetConfig {
  *          </note>
  */
 export interface InstanceFleetModifyConfig {
-  __type?: "InstanceFleetModifyConfig";
   /**
    * <p>A unique identifier for the instance fleet.</p>
    */
@@ -1803,7 +1681,6 @@ export namespace InstanceFleetModifyConfig {
   export const filterSensitiveLog = (obj: InstanceFleetModifyConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceFleetModifyConfig => __isa(o, "InstanceFleetModifyConfig");
 }
 
 /**
@@ -1813,7 +1690,6 @@ export namespace InstanceFleetModifyConfig {
  *          </note>
  */
 export interface InstanceFleetProvisioningSpecifications {
-  __type?: "InstanceFleetProvisioningSpecifications";
   /**
    * <p>
    *          The launch specification for On-Demand instances in the instance fleet, which determines the allocation strategy.
@@ -1834,8 +1710,6 @@ export namespace InstanceFleetProvisioningSpecifications {
   export const filterSensitiveLog = (obj: InstanceFleetProvisioningSpecifications): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceFleetProvisioningSpecifications =>
-    __isa(o, "InstanceFleetProvisioningSpecifications");
 }
 
 export enum InstanceFleetState {
@@ -1855,7 +1729,6 @@ export enum InstanceFleetState {
  *          </note>
  */
 export interface InstanceFleetStateChangeReason {
-  __type?: "InstanceFleetStateChangeReason";
   /**
    * <p>An explanatory message.</p>
    */
@@ -1871,7 +1744,6 @@ export namespace InstanceFleetStateChangeReason {
   export const filterSensitiveLog = (obj: InstanceFleetStateChangeReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceFleetStateChangeReason => __isa(o, "InstanceFleetStateChangeReason");
 }
 
 export enum InstanceFleetStateChangeReasonCode {
@@ -1888,7 +1760,6 @@ export enum InstanceFleetStateChangeReasonCode {
  *          </note>
  */
 export interface InstanceFleetStatus {
-  __type?: "InstanceFleetStatus";
   /**
    * <p>A code representing the instance fleet status.</p>
    *          <ul>
@@ -1939,7 +1810,6 @@ export namespace InstanceFleetStatus {
   export const filterSensitiveLog = (obj: InstanceFleetStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceFleetStatus => __isa(o, "InstanceFleetStatus");
 }
 
 /**
@@ -1949,7 +1819,6 @@ export namespace InstanceFleetStatus {
  *          </note>
  */
 export interface InstanceFleetTimeline {
-  __type?: "InstanceFleetTimeline";
   /**
    * <p>The time and date the instance fleet was created.</p>
    */
@@ -1970,7 +1839,6 @@ export namespace InstanceFleetTimeline {
   export const filterSensitiveLog = (obj: InstanceFleetTimeline): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceFleetTimeline => __isa(o, "InstanceFleetTimeline");
 }
 
 export enum InstanceFleetType {
@@ -1983,7 +1851,6 @@ export enum InstanceFleetType {
  * <p>This entity represents an instance group, which is a group of instances that have common purpose. For example, CORE instance group is used for HDFS.</p>
  */
 export interface InstanceGroup {
-  __type?: "InstanceGroup";
   /**
    * <p>The marketplace to provision instances for this group. Valid values are ON_DEMAND or SPOT.</p>
    */
@@ -2079,14 +1946,12 @@ export namespace InstanceGroup {
   export const filterSensitiveLog = (obj: InstanceGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceGroup => __isa(o, "InstanceGroup");
 }
 
 /**
  * <p>Configuration defining a new instance group.</p>
  */
 export interface InstanceGroupConfig {
-  __type?: "InstanceGroupConfig";
   /**
    * <p>An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See <a>PutAutoScalingPolicy</a>.</p>
    */
@@ -2140,14 +2005,12 @@ export namespace InstanceGroupConfig {
   export const filterSensitiveLog = (obj: InstanceGroupConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceGroupConfig => __isa(o, "InstanceGroupConfig");
 }
 
 /**
  * <p>Detailed information about an instance group.</p>
  */
 export interface InstanceGroupDetail {
-  __type?: "InstanceGroupDetail";
   /**
    * <p>Details regarding the state of the instance group.</p>
    */
@@ -2223,14 +2086,12 @@ export namespace InstanceGroupDetail {
   export const filterSensitiveLog = (obj: InstanceGroupDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceGroupDetail => __isa(o, "InstanceGroupDetail");
 }
 
 /**
  * <p>Modify the size or configurations of an instance group.</p>
  */
 export interface InstanceGroupModifyConfig {
-  __type?: "InstanceGroupModifyConfig";
   /**
    * <p>Target size for the instance group.</p>
    */
@@ -2261,7 +2122,6 @@ export namespace InstanceGroupModifyConfig {
   export const filterSensitiveLog = (obj: InstanceGroupModifyConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceGroupModifyConfig => __isa(o, "InstanceGroupModifyConfig");
 }
 
 export enum InstanceGroupState {
@@ -2282,7 +2142,6 @@ export enum InstanceGroupState {
  * <p>The status change reason details for the instance group.</p>
  */
 export interface InstanceGroupStateChangeReason {
-  __type?: "InstanceGroupStateChangeReason";
   /**
    * <p>The status change reason description.</p>
    */
@@ -2298,7 +2157,6 @@ export namespace InstanceGroupStateChangeReason {
   export const filterSensitiveLog = (obj: InstanceGroupStateChangeReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceGroupStateChangeReason => __isa(o, "InstanceGroupStateChangeReason");
 }
 
 export enum InstanceGroupStateChangeReasonCode {
@@ -2312,7 +2170,6 @@ export enum InstanceGroupStateChangeReasonCode {
  * <p>The details of the instance group status.</p>
  */
 export interface InstanceGroupStatus {
-  __type?: "InstanceGroupStatus";
   /**
    * <p>The status change reason details for the instance group.</p>
    */
@@ -2333,14 +2190,12 @@ export namespace InstanceGroupStatus {
   export const filterSensitiveLog = (obj: InstanceGroupStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceGroupStatus => __isa(o, "InstanceGroupStatus");
 }
 
 /**
  * <p>The timeline of the instance group lifecycle.</p>
  */
 export interface InstanceGroupTimeline {
-  __type?: "InstanceGroupTimeline";
   /**
    * <p>The date and time when the instance group terminated.</p>
    */
@@ -2361,7 +2216,6 @@ export namespace InstanceGroupTimeline {
   export const filterSensitiveLog = (obj: InstanceGroupTimeline): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceGroupTimeline => __isa(o, "InstanceGroupTimeline");
 }
 
 export enum InstanceGroupType {
@@ -2374,7 +2228,6 @@ export enum InstanceGroupType {
  * <p>Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.</p>
  */
 export interface InstanceResizePolicy {
-  __type?: "InstanceResizePolicy";
   /**
    * <p>Decommissioning timeout override for the specific list of instances to be terminated.</p>
    */
@@ -2395,7 +2248,6 @@ export namespace InstanceResizePolicy {
   export const filterSensitiveLog = (obj: InstanceResizePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceResizePolicy => __isa(o, "InstanceResizePolicy");
 }
 
 export type InstanceRoleType = "CORE" | "MASTER" | "TASK";
@@ -2412,7 +2264,6 @@ export enum InstanceState {
  * <p>The details of the status change reason for the instance.</p>
  */
 export interface InstanceStateChangeReason {
-  __type?: "InstanceStateChangeReason";
   /**
    * <p>The programmable code for the state change reason.</p>
    */
@@ -2428,7 +2279,6 @@ export namespace InstanceStateChangeReason {
   export const filterSensitiveLog = (obj: InstanceStateChangeReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceStateChangeReason => __isa(o, "InstanceStateChangeReason");
 }
 
 export enum InstanceStateChangeReasonCode {
@@ -2443,7 +2293,6 @@ export enum InstanceStateChangeReasonCode {
  * <p>The instance status details.</p>
  */
 export interface InstanceStatus {
-  __type?: "InstanceStatus";
   /**
    * <p>The current state of the instance.</p>
    */
@@ -2464,14 +2313,12 @@ export namespace InstanceStatus {
   export const filterSensitiveLog = (obj: InstanceStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceStatus => __isa(o, "InstanceStatus");
 }
 
 /**
  * <p>The timeline of the instance lifecycle.</p>
  */
 export interface InstanceTimeline {
-  __type?: "InstanceTimeline";
   /**
    * <p>The creation date and time of the instance.</p>
    */
@@ -2492,7 +2339,6 @@ export namespace InstanceTimeline {
   export const filterSensitiveLog = (obj: InstanceTimeline): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceTimeline => __isa(o, "InstanceTimeline");
 }
 
 /**
@@ -2502,7 +2348,6 @@ export namespace InstanceTimeline {
  *          </note>
  */
 export interface InstanceTypeConfig {
-  __type?: "InstanceTypeConfig";
   /**
    * <p>The configuration of Amazon Elastic Block Storage (EBS) attached to each instance as defined by <code>InstanceType</code>.
    *       </p>
@@ -2542,7 +2387,6 @@ export namespace InstanceTypeConfig {
   export const filterSensitiveLog = (obj: InstanceTypeConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceTypeConfig => __isa(o, "InstanceTypeConfig");
 }
 
 /**
@@ -2552,7 +2396,6 @@ export namespace InstanceTypeConfig {
  *          </note>
  */
 export interface InstanceTypeSpecification {
-  __type?: "InstanceTypeSpecification";
   /**
    * <p>Evaluates to <code>TRUE</code> when the specified <code>InstanceType</code> is EBS-optimized.</p>
    */
@@ -2593,7 +2436,6 @@ export namespace InstanceTypeSpecification {
   export const filterSensitiveLog = (obj: InstanceTypeSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceTypeSpecification => __isa(o, "InstanceTypeSpecification");
 }
 
 /**
@@ -2608,7 +2450,6 @@ export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -2627,7 +2468,6 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
@@ -2651,14 +2491,12 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>A description of a cluster (job flow).</p>
  */
 export interface JobFlowDetail {
-  __type?: "JobFlowDetail";
   /**
    * <p>Describes the execution status of the job flow.</p>
    */
@@ -2739,7 +2577,6 @@ export namespace JobFlowDetail {
   export const filterSensitiveLog = (obj: JobFlowDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobFlowDetail => __isa(o, "JobFlowDetail");
 }
 
 export enum JobFlowExecutionState {
@@ -2757,7 +2594,6 @@ export enum JobFlowExecutionState {
  * <p>Describes the status of the cluster (job flow).</p>
  */
 export interface JobFlowExecutionStatusDetail {
-  __type?: "JobFlowExecutionStatusDetail";
   /**
    * <p>The state of the job flow.</p>
    */
@@ -2793,14 +2629,12 @@ export namespace JobFlowExecutionStatusDetail {
   export const filterSensitiveLog = (obj: JobFlowExecutionStatusDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobFlowExecutionStatusDetail => __isa(o, "JobFlowExecutionStatusDetail");
 }
 
 /**
  * <p>A description of the Amazon EC2 instance on which the cluster (job flow) runs. A valid JobFlowInstancesConfig must contain either InstanceGroups or InstanceFleets, which is the recommended configuration. They cannot be used together. You may also have MasterInstanceType, SlaveInstanceType, and InstanceCount (all three must be present), but we don't recommend this configuration.</p>
  */
 export interface JobFlowInstancesConfig {
-  __type?: "JobFlowInstancesConfig";
   /**
    * <note>
    *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and later, excluding 5.0.x versions.</p>
@@ -2897,14 +2731,12 @@ export namespace JobFlowInstancesConfig {
   export const filterSensitiveLog = (obj: JobFlowInstancesConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobFlowInstancesConfig => __isa(o, "JobFlowInstancesConfig");
 }
 
 /**
  * <p>Specify the type of Amazon EC2 instances that the cluster (job flow) runs on.</p>
  */
 export interface JobFlowInstancesDetail {
-  __type?: "JobFlowInstancesDetail";
   /**
    * <p>The Hadoop version for the cluster.</p>
    */
@@ -2975,14 +2807,12 @@ export namespace JobFlowInstancesDetail {
   export const filterSensitiveLog = (obj: JobFlowInstancesDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobFlowInstancesDetail => __isa(o, "JobFlowInstancesDetail");
 }
 
 /**
  * <p>Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use Kerberos Authentication</a> in the <i>EMR Management Guide</i>.</p>
  */
 export interface KerberosAttributes {
-  __type?: "KerberosAttributes";
   /**
    * <p>The name of the Kerberos realm to which all nodes in a cluster belong. For example, <code>EC2.INTERNAL</code>.
    *       </p>
@@ -3014,14 +2844,12 @@ export namespace KerberosAttributes {
   export const filterSensitiveLog = (obj: KerberosAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KerberosAttributes => __isa(o, "KerberosAttributes");
 }
 
 /**
  * <p>A key value pair.</p>
  */
 export interface KeyValue {
-  __type?: "KeyValue";
   /**
    * <p>The unique identifier of a key value pair.</p>
    */
@@ -3037,14 +2865,12 @@ export namespace KeyValue {
   export const filterSensitiveLog = (obj: KeyValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyValue => __isa(o, "KeyValue");
 }
 
 /**
  * <p>This input determines which bootstrap actions to retrieve.</p>
  */
 export interface ListBootstrapActionsInput {
-  __type?: "ListBootstrapActionsInput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
@@ -3060,14 +2886,12 @@ export namespace ListBootstrapActionsInput {
   export const filterSensitiveLog = (obj: ListBootstrapActionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBootstrapActionsInput => __isa(o, "ListBootstrapActionsInput");
 }
 
 /**
  * <p>This output contains the bootstrap actions detail.</p>
  */
 export interface ListBootstrapActionsOutput {
-  __type?: "ListBootstrapActionsOutput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
@@ -3083,14 +2907,12 @@ export namespace ListBootstrapActionsOutput {
   export const filterSensitiveLog = (obj: ListBootstrapActionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBootstrapActionsOutput => __isa(o, "ListBootstrapActionsOutput");
 }
 
 /**
  * <p>This input determines how the ListClusters action filters the list of clusters that it returns.</p>
  */
 export interface ListClustersInput {
-  __type?: "ListClustersInput";
   /**
    * <p>The creation date and time beginning value filter for listing clusters.</p>
    */
@@ -3116,14 +2938,12 @@ export namespace ListClustersInput {
   export const filterSensitiveLog = (obj: ListClustersInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListClustersInput => __isa(o, "ListClustersInput");
 }
 
 /**
  * <p>This contains a ClusterSummaryList with the cluster details; for example, the cluster IDs, names, and status.</p>
  */
 export interface ListClustersOutput {
-  __type?: "ListClustersOutput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
@@ -3139,11 +2959,9 @@ export namespace ListClustersOutput {
   export const filterSensitiveLog = (obj: ListClustersOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListClustersOutput => __isa(o, "ListClustersOutput");
 }
 
 export interface ListInstanceFleetsInput {
-  __type?: "ListInstanceFleetsInput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
@@ -3159,11 +2977,9 @@ export namespace ListInstanceFleetsInput {
   export const filterSensitiveLog = (obj: ListInstanceFleetsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstanceFleetsInput => __isa(o, "ListInstanceFleetsInput");
 }
 
 export interface ListInstanceFleetsOutput {
-  __type?: "ListInstanceFleetsOutput";
   /**
    * <p>The list of instance fleets for the cluster and given filters.</p>
    */
@@ -3179,14 +2995,12 @@ export namespace ListInstanceFleetsOutput {
   export const filterSensitiveLog = (obj: ListInstanceFleetsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstanceFleetsOutput => __isa(o, "ListInstanceFleetsOutput");
 }
 
 /**
  * <p>This input determines which instance groups to retrieve.</p>
  */
 export interface ListInstanceGroupsInput {
-  __type?: "ListInstanceGroupsInput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
@@ -3202,14 +3016,12 @@ export namespace ListInstanceGroupsInput {
   export const filterSensitiveLog = (obj: ListInstanceGroupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstanceGroupsInput => __isa(o, "ListInstanceGroupsInput");
 }
 
 /**
  * <p>This input determines which instance groups to retrieve.</p>
  */
 export interface ListInstanceGroupsOutput {
-  __type?: "ListInstanceGroupsOutput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
@@ -3225,14 +3037,12 @@ export namespace ListInstanceGroupsOutput {
   export const filterSensitiveLog = (obj: ListInstanceGroupsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstanceGroupsOutput => __isa(o, "ListInstanceGroupsOutput");
 }
 
 /**
  * <p>This input determines which instances to list.</p>
  */
 export interface ListInstancesInput {
-  __type?: "ListInstancesInput";
   /**
    * <p>The node type of the instance fleet. For example MASTER, CORE, or TASK.</p>
    */
@@ -3273,14 +3083,12 @@ export namespace ListInstancesInput {
   export const filterSensitiveLog = (obj: ListInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstancesInput => __isa(o, "ListInstancesInput");
 }
 
 /**
  * <p>This output contains the list of instances.</p>
  */
 export interface ListInstancesOutput {
-  __type?: "ListInstancesOutput";
   /**
    * <p>The list of instances for the cluster and given filters.</p>
    */
@@ -3296,11 +3104,9 @@ export namespace ListInstancesOutput {
   export const filterSensitiveLog = (obj: ListInstancesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstancesOutput => __isa(o, "ListInstancesOutput");
 }
 
 export interface ListSecurityConfigurationsInput {
-  __type?: "ListSecurityConfigurationsInput";
   /**
    * <p>The pagination token that indicates the set of results to retrieve.</p>
    */
@@ -3311,11 +3117,9 @@ export namespace ListSecurityConfigurationsInput {
   export const filterSensitiveLog = (obj: ListSecurityConfigurationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSecurityConfigurationsInput => __isa(o, "ListSecurityConfigurationsInput");
 }
 
 export interface ListSecurityConfigurationsOutput {
-  __type?: "ListSecurityConfigurationsOutput";
   /**
    * <p>The creation date and time, and name, of each security configuration.</p>
    */
@@ -3331,14 +3135,12 @@ export namespace ListSecurityConfigurationsOutput {
   export const filterSensitiveLog = (obj: ListSecurityConfigurationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSecurityConfigurationsOutput => __isa(o, "ListSecurityConfigurationsOutput");
 }
 
 /**
  * <p>This input determines which steps to list.</p>
  */
 export interface ListStepsInput {
-  __type?: "ListStepsInput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
@@ -3364,14 +3166,12 @@ export namespace ListStepsInput {
   export const filterSensitiveLog = (obj: ListStepsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStepsInput => __isa(o, "ListStepsInput");
 }
 
 /**
  * <p>This output contains the list of steps returned in reverse order. This means that the last step is the first element in the list.</p>
  */
 export interface ListStepsOutput {
-  __type?: "ListStepsOutput";
   /**
    * <p>The filtered list of steps for the cluster.</p>
    */
@@ -3387,7 +3187,6 @@ export namespace ListStepsOutput {
   export const filterSensitiveLog = (obj: ListStepsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStepsOutput => __isa(o, "ListStepsOutput");
 }
 
 /**
@@ -3396,7 +3195,6 @@ export namespace ListStepsOutput {
  *       </p>
  */
 export interface ManagedScalingPolicy {
-  __type?: "ManagedScalingPolicy";
   /**
    * <p>
    *          The EC2 unit limits for a managed scaling policy. The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
@@ -3409,7 +3207,6 @@ export namespace ManagedScalingPolicy {
   export const filterSensitiveLog = (obj: ManagedScalingPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManagedScalingPolicy => __isa(o, "ManagedScalingPolicy");
 }
 
 export enum MarketType {
@@ -3421,7 +3218,6 @@ export enum MarketType {
  * <p>A CloudWatch dimension, which is specified using a <code>Key</code> (known as a <code>Name</code> in CloudWatch), <code>Value</code> pair. By default, Amazon EMR uses one dimension whose <code>Key</code> is <code>JobFlowID</code> and <code>Value</code> is a variable representing the cluster ID, which is <code>${emr.clusterId}</code>. This enables the rule to bootstrap when the cluster ID becomes available.</p>
  */
 export interface MetricDimension {
-  __type?: "MetricDimension";
   /**
    * <p>The dimension name.</p>
    */
@@ -3437,11 +3233,9 @@ export namespace MetricDimension {
   export const filterSensitiveLog = (obj: MetricDimension): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricDimension => __isa(o, "MetricDimension");
 }
 
 export interface ModifyClusterInput {
-  __type?: "ModifyClusterInput";
   /**
    * <p>The unique identifier of the cluster.</p>
    */
@@ -3457,11 +3251,9 @@ export namespace ModifyClusterInput {
   export const filterSensitiveLog = (obj: ModifyClusterInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterInput => __isa(o, "ModifyClusterInput");
 }
 
 export interface ModifyClusterOutput {
-  __type?: "ModifyClusterOutput";
   /**
    * <p>The number of steps that can be executed concurrently.</p>
    */
@@ -3472,11 +3264,9 @@ export namespace ModifyClusterOutput {
   export const filterSensitiveLog = (obj: ModifyClusterOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterOutput => __isa(o, "ModifyClusterOutput");
 }
 
 export interface ModifyInstanceFleetInput {
-  __type?: "ModifyInstanceFleetInput";
   /**
    * <p>The unique identifier of the cluster.</p>
    */
@@ -3492,14 +3282,12 @@ export namespace ModifyInstanceFleetInput {
   export const filterSensitiveLog = (obj: ModifyInstanceFleetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstanceFleetInput => __isa(o, "ModifyInstanceFleetInput");
 }
 
 /**
  * <p>Change the size of some instance groups.</p>
  */
 export interface ModifyInstanceGroupsInput {
-  __type?: "ModifyInstanceGroupsInput";
   /**
    * <p>The ID of the cluster to which the instance group belongs.</p>
    */
@@ -3515,7 +3303,6 @@ export namespace ModifyInstanceGroupsInput {
   export const filterSensitiveLog = (obj: ModifyInstanceGroupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyInstanceGroupsInput => __isa(o, "ModifyInstanceGroupsInput");
 }
 
 export enum OnDemandProvisioningAllocationStrategy {
@@ -3531,7 +3318,6 @@ export enum OnDemandProvisioningAllocationStrategy {
  *          </note>
  */
 export interface OnDemandProvisioningSpecification {
-  __type?: "OnDemandProvisioningSpecification";
   /**
    * <p>
    *          Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
@@ -3544,14 +3330,12 @@ export namespace OnDemandProvisioningSpecification {
   export const filterSensitiveLog = (obj: OnDemandProvisioningSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OnDemandProvisioningSpecification => __isa(o, "OnDemandProvisioningSpecification");
 }
 
 /**
  * <p>The Amazon EC2 Availability Zone configuration of the cluster (job flow).</p>
  */
 export interface PlacementType {
-  __type?: "PlacementType";
   /**
    * <p>The Amazon EC2 Availability Zone for the cluster. <code>AvailabilityZone</code> is used for uniform instance groups, while <code>AvailabilityZones</code> (plural) is used for instance fleets.</p>
    */
@@ -3570,14 +3354,12 @@ export namespace PlacementType {
   export const filterSensitiveLog = (obj: PlacementType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlacementType => __isa(o, "PlacementType");
 }
 
 /**
  * <p>A list of port ranges that are permitted to allow inbound traffic from all public IP addresses. To specify a single port, use the same value for <code>MinRange</code> and <code>MaxRange</code>.</p>
  */
 export interface PortRange {
-  __type?: "PortRange";
   /**
    * <p>The smallest port number in a specified range of port numbers.</p>
    */
@@ -3593,11 +3375,9 @@ export namespace PortRange {
   export const filterSensitiveLog = (obj: PortRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PortRange => __isa(o, "PortRange");
 }
 
 export interface PutAutoScalingPolicyInput {
-  __type?: "PutAutoScalingPolicyInput";
   /**
    * <p>Specifies the ID of the instance group to which the automatic scaling policy is applied.</p>
    */
@@ -3618,11 +3398,9 @@ export namespace PutAutoScalingPolicyInput {
   export const filterSensitiveLog = (obj: PutAutoScalingPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAutoScalingPolicyInput => __isa(o, "PutAutoScalingPolicyInput");
 }
 
 export interface PutAutoScalingPolicyOutput {
-  __type?: "PutAutoScalingPolicyOutput";
   /**
    * <p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.</p>
    */
@@ -3648,11 +3426,9 @@ export namespace PutAutoScalingPolicyOutput {
   export const filterSensitiveLog = (obj: PutAutoScalingPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAutoScalingPolicyOutput => __isa(o, "PutAutoScalingPolicyOutput");
 }
 
 export interface PutBlockPublicAccessConfigurationInput {
-  __type?: "PutBlockPublicAccessConfigurationInput";
   /**
    * <p>A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using <code>PermittedPublicSecurityGroupRuleRanges</code> in the <code>BlockPublicAccessConfiguration</code>. By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating <code>BlockPublicSecurityGroupRules</code> to remove the exception.</p>
    *          <note>
@@ -3666,24 +3442,17 @@ export namespace PutBlockPublicAccessConfigurationInput {
   export const filterSensitiveLog = (obj: PutBlockPublicAccessConfigurationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBlockPublicAccessConfigurationInput =>
-    __isa(o, "PutBlockPublicAccessConfigurationInput");
 }
 
-export interface PutBlockPublicAccessConfigurationOutput {
-  __type?: "PutBlockPublicAccessConfigurationOutput";
-}
+export interface PutBlockPublicAccessConfigurationOutput {}
 
 export namespace PutBlockPublicAccessConfigurationOutput {
   export const filterSensitiveLog = (obj: PutBlockPublicAccessConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBlockPublicAccessConfigurationOutput =>
-    __isa(o, "PutBlockPublicAccessConfigurationOutput");
 }
 
 export interface PutManagedScalingPolicyInput {
-  __type?: "PutManagedScalingPolicyInput";
   /**
    * <p>
    *          Specifies the constraints for the managed scaling policy.
@@ -3703,22 +3472,17 @@ export namespace PutManagedScalingPolicyInput {
   export const filterSensitiveLog = (obj: PutManagedScalingPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutManagedScalingPolicyInput => __isa(o, "PutManagedScalingPolicyInput");
 }
 
-export interface PutManagedScalingPolicyOutput {
-  __type?: "PutManagedScalingPolicyOutput";
-}
+export interface PutManagedScalingPolicyOutput {}
 
 export namespace PutManagedScalingPolicyOutput {
   export const filterSensitiveLog = (obj: PutManagedScalingPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutManagedScalingPolicyOutput => __isa(o, "PutManagedScalingPolicyOutput");
 }
 
 export interface RemoveAutoScalingPolicyInput {
-  __type?: "RemoveAutoScalingPolicyInput";
   /**
    * <p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.</p>
    */
@@ -3734,22 +3498,17 @@ export namespace RemoveAutoScalingPolicyInput {
   export const filterSensitiveLog = (obj: RemoveAutoScalingPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveAutoScalingPolicyInput => __isa(o, "RemoveAutoScalingPolicyInput");
 }
 
-export interface RemoveAutoScalingPolicyOutput {
-  __type?: "RemoveAutoScalingPolicyOutput";
-}
+export interface RemoveAutoScalingPolicyOutput {}
 
 export namespace RemoveAutoScalingPolicyOutput {
   export const filterSensitiveLog = (obj: RemoveAutoScalingPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveAutoScalingPolicyOutput => __isa(o, "RemoveAutoScalingPolicyOutput");
 }
 
 export interface RemoveManagedScalingPolicyInput {
-  __type?: "RemoveManagedScalingPolicyInput";
   /**
    * <p>
    *          Specifies the ID of the cluster from which the managed scaling policy will be removed.
@@ -3762,25 +3521,20 @@ export namespace RemoveManagedScalingPolicyInput {
   export const filterSensitiveLog = (obj: RemoveManagedScalingPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveManagedScalingPolicyInput => __isa(o, "RemoveManagedScalingPolicyInput");
 }
 
-export interface RemoveManagedScalingPolicyOutput {
-  __type?: "RemoveManagedScalingPolicyOutput";
-}
+export interface RemoveManagedScalingPolicyOutput {}
 
 export namespace RemoveManagedScalingPolicyOutput {
   export const filterSensitiveLog = (obj: RemoveManagedScalingPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveManagedScalingPolicyOutput => __isa(o, "RemoveManagedScalingPolicyOutput");
 }
 
 /**
  * <p>This input identifies a cluster and a list of tags to remove.</p>
  */
 export interface RemoveTagsInput {
-  __type?: "RemoveTagsInput";
   /**
    * <p>The Amazon EMR resource identifier from which tags will be removed. This value must be a cluster identifier.</p>
    */
@@ -3796,21 +3550,17 @@ export namespace RemoveTagsInput {
   export const filterSensitiveLog = (obj: RemoveTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsInput => __isa(o, "RemoveTagsInput");
 }
 
 /**
  * <p>This output indicates the result of removing tags from a resource.</p>
  */
-export interface RemoveTagsOutput {
-  __type?: "RemoveTagsOutput";
-}
+export interface RemoveTagsOutput {}
 
 export namespace RemoveTagsOutput {
   export const filterSensitiveLog = (obj: RemoveTagsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsOutput => __isa(o, "RemoveTagsOutput");
 }
 
 export enum RepoUpgradeOnBoot {
@@ -3822,7 +3572,6 @@ export enum RepoUpgradeOnBoot {
  * <p> Input to the <a>RunJobFlow</a> operation. </p>
  */
 export interface RunJobFlowInput {
-  __type?: "RunJobFlowInput";
   /**
    * <p>The AWS KMS customer master key (CMK) used for encrypting log files. If a value is not provided, the logs will remain encrypted by AES-256. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.</p>
    */
@@ -4001,14 +3750,12 @@ export namespace RunJobFlowInput {
   export const filterSensitiveLog = (obj: RunJobFlowInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RunJobFlowInput => __isa(o, "RunJobFlowInput");
 }
 
 /**
  * <p> The result of the <a>RunJobFlow</a> operation. </p>
  */
 export interface RunJobFlowOutput {
-  __type?: "RunJobFlowOutput";
   /**
    * <p>The Amazon Resource Name of the cluster.</p>
    */
@@ -4024,7 +3771,6 @@ export namespace RunJobFlowOutput {
   export const filterSensitiveLog = (obj: RunJobFlowOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RunJobFlowOutput => __isa(o, "RunJobFlowOutput");
 }
 
 export enum ScaleDownBehavior {
@@ -4036,7 +3782,6 @@ export enum ScaleDownBehavior {
  * <p>The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.</p>
  */
 export interface ScalingAction {
-  __type?: "ScalingAction";
   /**
    * <p>Not available for instance groups. Instance groups use the market type specified for the group.</p>
    */
@@ -4052,14 +3797,12 @@ export namespace ScalingAction {
   export const filterSensitiveLog = (obj: ScalingAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingAction => __isa(o, "ScalingAction");
 }
 
 /**
  * <p>The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activities triggered by automatic scaling rules will not cause an instance group to grow above or below these limits.</p>
  */
 export interface ScalingConstraints {
-  __type?: "ScalingConstraints";
   /**
    * <p>The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.</p>
    */
@@ -4075,14 +3818,12 @@ export namespace ScalingConstraints {
   export const filterSensitiveLog = (obj: ScalingConstraints): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingConstraints => __isa(o, "ScalingConstraints");
 }
 
 /**
  * <p>A scale-in or scale-out rule that defines scaling activity, including the CloudWatch metric alarm that triggers activity, how EC2 instances are added or removed, and the periodicity of adjustments. The automatic scaling policy for an instance group can comprise one or more automatic scaling rules.</p>
  */
 export interface ScalingRule {
-  __type?: "ScalingRule";
   /**
    * <p>The CloudWatch alarm definition that determines when automatic scaling activity is triggered.</p>
    */
@@ -4108,14 +3849,12 @@ export namespace ScalingRule {
   export const filterSensitiveLog = (obj: ScalingRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingRule => __isa(o, "ScalingRule");
 }
 
 /**
  * <p>The conditions that trigger an automatic scaling activity.</p>
  */
 export interface ScalingTrigger {
-  __type?: "ScalingTrigger";
   /**
    * <p>The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.</p>
    */
@@ -4126,14 +3865,12 @@ export namespace ScalingTrigger {
   export const filterSensitiveLog = (obj: ScalingTrigger): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingTrigger => __isa(o, "ScalingTrigger");
 }
 
 /**
  * <p>Configuration of the script to run during a bootstrap action.</p>
  */
 export interface ScriptBootstrapActionConfig {
-  __type?: "ScriptBootstrapActionConfig";
   /**
    * <p>A list of command line arguments to pass to the bootstrap action script.</p>
    */
@@ -4149,14 +3886,12 @@ export namespace ScriptBootstrapActionConfig {
   export const filterSensitiveLog = (obj: ScriptBootstrapActionConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScriptBootstrapActionConfig => __isa(o, "ScriptBootstrapActionConfig");
 }
 
 /**
  * <p>The creation date and time, and name, of a security configuration.</p>
  */
 export interface SecurityConfigurationSummary {
-  __type?: "SecurityConfigurationSummary";
   /**
    * <p>The date and time the security configuration was created.</p>
    */
@@ -4172,14 +3907,12 @@ export namespace SecurityConfigurationSummary {
   export const filterSensitiveLog = (obj: SecurityConfigurationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityConfigurationSummary => __isa(o, "SecurityConfigurationSummary");
 }
 
 /**
  * <p> The input argument to the <a>TerminationProtection</a> operation. </p>
  */
 export interface SetTerminationProtectionInput {
-  __type?: "SetTerminationProtectionInput";
   /**
    * <p>A Boolean that indicates whether to protect the cluster and prevent the Amazon EC2 instances in the cluster from shutting down due to API calls, user intervention, or job-flow error.</p>
    */
@@ -4196,14 +3929,12 @@ export namespace SetTerminationProtectionInput {
   export const filterSensitiveLog = (obj: SetTerminationProtectionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetTerminationProtectionInput => __isa(o, "SetTerminationProtectionInput");
 }
 
 /**
  * <p>The input to the SetVisibleToAllUsers action.</p>
  */
 export interface SetVisibleToAllUsersInput {
-  __type?: "SetVisibleToAllUsersInput";
   /**
    * <p>The unique identifier of the job flow (cluster).</p>
    */
@@ -4219,14 +3950,12 @@ export namespace SetVisibleToAllUsersInput {
   export const filterSensitiveLog = (obj: SetVisibleToAllUsersInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetVisibleToAllUsersInput => __isa(o, "SetVisibleToAllUsersInput");
 }
 
 /**
  * <p>Policy for customizing shrink operations. Allows configuration of decommissioning timeout and targeted instance shrinking.</p>
  */
 export interface ShrinkPolicy {
-  __type?: "ShrinkPolicy";
   /**
    * <p>Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.</p>
    */
@@ -4242,14 +3971,12 @@ export namespace ShrinkPolicy {
   export const filterSensitiveLog = (obj: ShrinkPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ShrinkPolicy => __isa(o, "ShrinkPolicy");
 }
 
 /**
  * <p>An automatic scaling configuration, which describes how the policy adds or removes instances, the cooldown period, and the number of EC2 instances that will be added each time the CloudWatch metric alarm condition is satisfied.</p>
  */
 export interface SimpleScalingPolicyConfiguration {
-  __type?: "SimpleScalingPolicyConfiguration";
   /**
    * <p>The way in which EC2 instances are added (if <code>ScalingAdjustment</code> is a positive number) or terminated (if <code>ScalingAdjustment</code> is a negative number) each time the scaling activity is triggered. <code>CHANGE_IN_CAPACITY</code> is the default. <code>CHANGE_IN_CAPACITY</code> indicates that the EC2 instance count increments or decrements by <code>ScalingAdjustment</code>, which should be expressed as an integer. <code>PERCENT_CHANGE_IN_CAPACITY</code> indicates the instance count increments or decrements by the percentage specified by <code>ScalingAdjustment</code>, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. <code>EXACT_CAPACITY</code> indicates the scaling activity results in an instance group with the number of EC2 instances specified by <code>ScalingAdjustment</code>, which should be expressed as a positive integer.</p>
    */
@@ -4270,7 +3997,6 @@ export namespace SimpleScalingPolicyConfiguration {
   export const filterSensitiveLog = (obj: SimpleScalingPolicyConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SimpleScalingPolicyConfiguration => __isa(o, "SimpleScalingPolicyConfiguration");
 }
 
 export enum SpotProvisioningAllocationStrategy {
@@ -4284,7 +4010,6 @@ export enum SpotProvisioningAllocationStrategy {
  *          </note>
  */
 export interface SpotProvisioningSpecification {
-  __type?: "SpotProvisioningSpecification";
   /**
    * <p>The action to take when <code>TargetSpotCapacity</code> has not been fulfilled when the <code>TimeoutDurationMinutes</code> has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are <code>TERMINATE_CLUSTER</code> and <code>SWITCH_TO_ON_DEMAND</code>. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.</p>
    */
@@ -4313,7 +4038,6 @@ export namespace SpotProvisioningSpecification {
   export const filterSensitiveLog = (obj: SpotProvisioningSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpotProvisioningSpecification => __isa(o, "SpotProvisioningSpecification");
 }
 
 export type SpotProvisioningTimeoutAction = "SWITCH_TO_ON_DEMAND" | "TERMINATE_CLUSTER";
@@ -4330,7 +4054,6 @@ export enum Statistic {
  * <p>This represents a step in a cluster.</p>
  */
 export interface Step {
-  __type?: "Step";
   /**
    * <p>The Hadoop job configuration of the cluster step.</p>
    */
@@ -4361,7 +4084,6 @@ export namespace Step {
   export const filterSensitiveLog = (obj: Step): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Step => __isa(o, "Step");
 }
 
 export type StepCancellationOption = "SEND_INTERRUPT" | "TERMINATE_PROCESS";
@@ -4370,7 +4092,6 @@ export type StepCancellationOption = "SEND_INTERRUPT" | "TERMINATE_PROCESS";
  * <p>Specification of a cluster (job flow) step.</p>
  */
 export interface StepConfig {
-  __type?: "StepConfig";
   /**
    * <p>The JAR file used for the step.</p>
    */
@@ -4391,14 +4112,12 @@ export namespace StepConfig {
   export const filterSensitiveLog = (obj: StepConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StepConfig => __isa(o, "StepConfig");
 }
 
 /**
  * <p>Combines the execution state and configuration of a step.</p>
  */
 export interface StepDetail {
-  __type?: "StepDetail";
   /**
    * <p>The description of the step status.</p>
    */
@@ -4414,7 +4133,6 @@ export namespace StepDetail {
   export const filterSensitiveLog = (obj: StepDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StepDetail => __isa(o, "StepDetail");
 }
 
 export type StepExecutionState =
@@ -4430,7 +4148,6 @@ export type StepExecutionState =
  * <p>The execution state of a step.</p>
  */
 export interface StepExecutionStatusDetail {
-  __type?: "StepExecutionStatusDetail";
   /**
    * <p>The start date and time of the step.</p>
    */
@@ -4461,7 +4178,6 @@ export namespace StepExecutionStatusDetail {
   export const filterSensitiveLog = (obj: StepExecutionStatusDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StepExecutionStatusDetail => __isa(o, "StepExecutionStatusDetail");
 }
 
 export enum StepState {
@@ -4478,7 +4194,6 @@ export enum StepState {
  * <p>The details of the step state change reason.</p>
  */
 export interface StepStateChangeReason {
-  __type?: "StepStateChangeReason";
   /**
    * <p>The programmable code for the state change reason. Note: Currently, the service provides no code for the state change.</p>
    */
@@ -4494,7 +4209,6 @@ export namespace StepStateChangeReason {
   export const filterSensitiveLog = (obj: StepStateChangeReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StepStateChangeReason => __isa(o, "StepStateChangeReason");
 }
 
 export type StepStateChangeReasonCode = "NONE";
@@ -4503,7 +4217,6 @@ export type StepStateChangeReasonCode = "NONE";
  * <p>The execution status details of the cluster step.</p>
  */
 export interface StepStatus {
-  __type?: "StepStatus";
   /**
    * <p>The reason for the step execution status change.</p>
    */
@@ -4529,14 +4242,12 @@ export namespace StepStatus {
   export const filterSensitiveLog = (obj: StepStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StepStatus => __isa(o, "StepStatus");
 }
 
 /**
  * <p>The summary of the cluster step.</p>
  */
 export interface StepSummary {
-  __type?: "StepSummary";
   /**
    * <p>The current execution status details of the cluster step.</p>
    */
@@ -4567,14 +4278,12 @@ export namespace StepSummary {
   export const filterSensitiveLog = (obj: StepSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StepSummary => __isa(o, "StepSummary");
 }
 
 /**
  * <p>The timeline of the cluster step lifecycle.</p>
  */
 export interface StepTimeline {
-  __type?: "StepTimeline";
   /**
    * <p>The date and time when the cluster step execution started.</p>
    */
@@ -4595,14 +4304,12 @@ export namespace StepTimeline {
   export const filterSensitiveLog = (obj: StepTimeline): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StepTimeline => __isa(o, "StepTimeline");
 }
 
 /**
  * <p>The list of supported product configurations which allow user-supplied arguments. EMR accepts these arguments and forwards them to the corresponding installation script as bootstrap action arguments.</p>
  */
 export interface SupportedProductConfig {
-  __type?: "SupportedProductConfig";
   /**
    * <p>The name of the product configuration.</p>
    */
@@ -4618,7 +4325,6 @@ export namespace SupportedProductConfig {
   export const filterSensitiveLog = (obj: SupportedProductConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SupportedProductConfig => __isa(o, "SupportedProductConfig");
 }
 
 /**
@@ -4627,7 +4333,6 @@ export namespace SupportedProductConfig {
  *       </p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>A user-defined value, which is optional in a tag.
    *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>.
@@ -4647,14 +4352,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p> Input to the <a>TerminateJobFlows</a> operation. </p>
  */
 export interface TerminateJobFlowsInput {
-  __type?: "TerminateJobFlowsInput";
   /**
    * <p>A list of job flows to be shutdown.</p>
    */
@@ -4665,7 +4368,6 @@ export namespace TerminateJobFlowsInput {
   export const filterSensitiveLog = (obj: TerminateJobFlowsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateJobFlowsInput => __isa(o, "TerminateJobFlowsInput");
 }
 
 export enum Unit {
@@ -4702,7 +4404,6 @@ export enum Unit {
  * <p>EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.</p>
  */
 export interface VolumeSpecification {
-  __type?: "VolumeSpecification";
   /**
    * <p>The volume type. Volume types supported are gp2, io1, standard.</p>
    */
@@ -4723,5 +4424,4 @@ export namespace VolumeSpecification {
   export const filterSensitiveLog = (obj: VolumeSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeSpecification => __isa(o, "VolumeSpecification");
 }

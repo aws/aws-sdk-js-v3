@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>A nested application summary.</p>
  */
 export interface ApplicationDependencySummary {
-  __type?: "ApplicationDependencySummary";
   /**
    * <p>The Amazon Resource Name (ARN) of the nested application.</p>
    */
@@ -21,14 +20,12 @@ export namespace ApplicationDependencySummary {
   export const filterSensitiveLog = (obj: ApplicationDependencySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationDependencySummary => __isa(o, "ApplicationDependencySummary");
 }
 
 /**
  * <p>Policy statement applied to the application.</p>
  */
 export interface ApplicationPolicyStatement {
-  __type?: "ApplicationPolicyStatement";
   /**
    * <p>An array of PrinciplalOrgIDs, which corresponds to AWS IAM <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#principal-org-id">aws:PrincipalOrgID</a> global condition key.</p>
    */
@@ -55,14 +52,12 @@ export namespace ApplicationPolicyStatement {
   export const filterSensitiveLog = (obj: ApplicationPolicyStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationPolicyStatement => __isa(o, "ApplicationPolicyStatement");
 }
 
 /**
  * <p>Summary of details about the application.</p>
  */
 export interface ApplicationSummary {
-  __type?: "ApplicationSummary";
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
    */
@@ -108,7 +103,6 @@ export namespace ApplicationSummary {
   export const filterSensitiveLog = (obj: ApplicationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationSummary => __isa(o, "ApplicationSummary");
 }
 
 /**
@@ -132,7 +126,6 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export enum Capability {
@@ -163,11 +156,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateApplicationRequest {
-  __type?: "CreateApplicationRequest";
   /**
    * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
    */
@@ -253,11 +244,9 @@ export namespace CreateApplicationRequest {
   export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationRequest => __isa(o, "CreateApplicationRequest");
 }
 
 export interface CreateApplicationResponse {
-  __type?: "CreateApplicationResponse";
   /**
    * <p>The description of the application.</p><p>Minimum length=1. Maximum length=256</p>
    */
@@ -328,11 +317,9 @@ export namespace CreateApplicationResponse {
   export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationResponse => __isa(o, "CreateApplicationResponse");
 }
 
 export interface CreateApplicationVersionRequest {
-  __type?: "CreateApplicationVersionRequest";
   /**
    * <p>The semantic version of the new version.</p>
    */
@@ -368,11 +355,9 @@ export namespace CreateApplicationVersionRequest {
   export const filterSensitiveLog = (obj: CreateApplicationVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationVersionRequest => __isa(o, "CreateApplicationVersionRequest");
 }
 
 export interface CreateApplicationVersionResponse {
-  __type?: "CreateApplicationVersionResponse";
   /**
    * <p>A link to the S3 object that contains the ZIP archive of the source code for this version of your application.</p><p>Maximum size 50 MB</p>
    */
@@ -448,11 +433,9 @@ export namespace CreateApplicationVersionResponse {
   export const filterSensitiveLog = (obj: CreateApplicationVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationVersionResponse => __isa(o, "CreateApplicationVersionResponse");
 }
 
 export interface CreateCloudFormationChangeSetRequest {
-  __type?: "CreateCloudFormationChangeSetRequest";
   /**
    * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
    */
@@ -555,12 +538,9 @@ export namespace CreateCloudFormationChangeSetRequest {
   export const filterSensitiveLog = (obj: CreateCloudFormationChangeSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCloudFormationChangeSetRequest =>
-    __isa(o, "CreateCloudFormationChangeSetRequest");
 }
 
 export interface CreateCloudFormationChangeSetResponse {
-  __type?: "CreateCloudFormationChangeSetResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the change set.</p><p>Length constraints: Minimum length of 1.</p><p>Pattern: ARN:[-a-zA-Z0-9:/]*</p>
    */
@@ -588,12 +568,9 @@ export namespace CreateCloudFormationChangeSetResponse {
   export const filterSensitiveLog = (obj: CreateCloudFormationChangeSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCloudFormationChangeSetResponse =>
-    __isa(o, "CreateCloudFormationChangeSetResponse");
 }
 
 export interface CreateCloudFormationTemplateRequest {
-  __type?: "CreateCloudFormationTemplateRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    */
@@ -611,12 +588,9 @@ export namespace CreateCloudFormationTemplateRequest {
   export const filterSensitiveLog = (obj: CreateCloudFormationTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCloudFormationTemplateRequest =>
-    __isa(o, "CreateCloudFormationTemplateRequest");
 }
 
 export interface CreateCloudFormationTemplateResponse {
-  __type?: "CreateCloudFormationTemplateResponse";
   /**
    * <p>The date and time this template expires. Templates
    *  expire 1 hour after creation.</p>
@@ -662,12 +636,9 @@ export namespace CreateCloudFormationTemplateResponse {
   export const filterSensitiveLog = (obj: CreateCloudFormationTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCloudFormationTemplateResponse =>
-    __isa(o, "CreateCloudFormationTemplateResponse");
 }
 
 export interface DeleteApplicationRequest {
-  __type?: "DeleteApplicationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    */
@@ -678,7 +649,6 @@ export namespace DeleteApplicationRequest {
   export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationRequest => __isa(o, "DeleteApplicationRequest");
 }
 
 /**
@@ -702,11 +672,9 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 export interface GetApplicationPolicyRequest {
-  __type?: "GetApplicationPolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    */
@@ -717,11 +685,9 @@ export namespace GetApplicationPolicyRequest {
   export const filterSensitiveLog = (obj: GetApplicationPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationPolicyRequest => __isa(o, "GetApplicationPolicyRequest");
 }
 
 export interface GetApplicationPolicyResponse {
-  __type?: "GetApplicationPolicyResponse";
   /**
    * <p>An array of policy statements applied to the application.</p>
    */
@@ -732,11 +698,9 @@ export namespace GetApplicationPolicyResponse {
   export const filterSensitiveLog = (obj: GetApplicationPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationPolicyResponse => __isa(o, "GetApplicationPolicyResponse");
 }
 
 export interface GetApplicationRequest {
-  __type?: "GetApplicationRequest";
   /**
    * <p>The semantic version of the application to get.</p>
    */
@@ -752,11 +716,9 @@ export namespace GetApplicationRequest {
   export const filterSensitiveLog = (obj: GetApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationRequest => __isa(o, "GetApplicationRequest");
 }
 
 export interface GetApplicationResponse {
-  __type?: "GetApplicationResponse";
   /**
    * <p>The URL to the public profile of a verified author. This URL is submitted by the author.</p>
    */
@@ -827,11 +789,9 @@ export namespace GetApplicationResponse {
   export const filterSensitiveLog = (obj: GetApplicationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationResponse => __isa(o, "GetApplicationResponse");
 }
 
 export interface GetCloudFormationTemplateRequest {
-  __type?: "GetCloudFormationTemplateRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    */
@@ -847,11 +807,9 @@ export namespace GetCloudFormationTemplateRequest {
   export const filterSensitiveLog = (obj: GetCloudFormationTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCloudFormationTemplateRequest => __isa(o, "GetCloudFormationTemplateRequest");
 }
 
 export interface GetCloudFormationTemplateResponse {
-  __type?: "GetCloudFormationTemplateResponse";
   /**
    * <p>The semantic version of the application:</p><p>
    *  <a href="https://semver.org/">https://semver.org/</a>
@@ -897,7 +855,6 @@ export namespace GetCloudFormationTemplateResponse {
   export const filterSensitiveLog = (obj: GetCloudFormationTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCloudFormationTemplateResponse => __isa(o, "GetCloudFormationTemplateResponse");
 }
 
 /**
@@ -921,11 +878,9 @@ export namespace InternalServerErrorException {
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 export interface ListApplicationDependenciesRequest {
-  __type?: "ListApplicationDependenciesRequest";
   /**
    * <p>The total number of items to return.</p>
    */
@@ -951,12 +906,9 @@ export namespace ListApplicationDependenciesRequest {
   export const filterSensitiveLog = (obj: ListApplicationDependenciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationDependenciesRequest =>
-    __isa(o, "ListApplicationDependenciesRequest");
 }
 
 export interface ListApplicationDependenciesResponse {
-  __type?: "ListApplicationDependenciesResponse";
   /**
    * <p>An array of application summaries nested in the application.</p>
    */
@@ -972,12 +924,9 @@ export namespace ListApplicationDependenciesResponse {
   export const filterSensitiveLog = (obj: ListApplicationDependenciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationDependenciesResponse =>
-    __isa(o, "ListApplicationDependenciesResponse");
 }
 
 export interface ListApplicationsRequest {
-  __type?: "ListApplicationsRequest";
   /**
    * <p>A token to specify where to start paginating.</p>
    */
@@ -993,11 +942,9 @@ export namespace ListApplicationsRequest {
   export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationsRequest => __isa(o, "ListApplicationsRequest");
 }
 
 export interface ListApplicationsResponse {
-  __type?: "ListApplicationsResponse";
   /**
    * <p>An array of application summaries.</p>
    */
@@ -1013,11 +960,9 @@ export namespace ListApplicationsResponse {
   export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationsResponse => __isa(o, "ListApplicationsResponse");
 }
 
 export interface ListApplicationVersionsRequest {
-  __type?: "ListApplicationVersionsRequest";
   /**
    * <p>The total number of items to return.</p>
    */
@@ -1038,11 +983,9 @@ export namespace ListApplicationVersionsRequest {
   export const filterSensitiveLog = (obj: ListApplicationVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationVersionsRequest => __isa(o, "ListApplicationVersionsRequest");
 }
 
 export interface ListApplicationVersionsResponse {
-  __type?: "ListApplicationVersionsResponse";
   /**
    * <p>The token to request the next page of results.</p>
    */
@@ -1058,7 +1001,6 @@ export namespace ListApplicationVersionsResponse {
   export const filterSensitiveLog = (obj: ListApplicationVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationVersionsResponse => __isa(o, "ListApplicationVersionsResponse");
 }
 
 /**
@@ -1082,14 +1024,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * <p>Parameters supported by the application.</p>
  */
 export interface ParameterDefinition {
-  __type?: "ParameterDefinition";
   /**
    * <p>An integer value that determines the smallest number of characters that you want to allow for String types.</p>
    */
@@ -1177,14 +1117,12 @@ export namespace ParameterDefinition {
   export const filterSensitiveLog = (obj: ParameterDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParameterDefinition => __isa(o, "ParameterDefinition");
 }
 
 /**
  * <p>Parameter value of the application.</p>
  */
 export interface ParameterValue {
-  __type?: "ParameterValue";
   /**
    * <p>The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation
    *  uses the default value that is specified in your template.</p>
@@ -1201,11 +1139,9 @@ export namespace ParameterValue {
   export const filterSensitiveLog = (obj: ParameterValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParameterValue => __isa(o, "ParameterValue");
 }
 
 export interface PutApplicationPolicyRequest {
-  __type?: "PutApplicationPolicyRequest";
   /**
    * <p>An array of policy statements applied to the application.</p>
    */
@@ -1221,11 +1157,9 @@ export namespace PutApplicationPolicyRequest {
   export const filterSensitiveLog = (obj: PutApplicationPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutApplicationPolicyRequest => __isa(o, "PutApplicationPolicyRequest");
 }
 
 export interface PutApplicationPolicyResponse {
-  __type?: "PutApplicationPolicyResponse";
   /**
    * <p>An array of policy statements applied to the application.</p>
    */
@@ -1236,7 +1170,6 @@ export namespace PutApplicationPolicyResponse {
   export const filterSensitiveLog = (obj: PutApplicationPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutApplicationPolicyResponse => __isa(o, "PutApplicationPolicyResponse");
 }
 
 /**
@@ -1244,7 +1177,6 @@ export namespace PutApplicationPolicyResponse {
  *  </i> Data Type.</p>
  */
 export interface RollbackConfiguration {
-  __type?: "RollbackConfiguration";
   /**
    * <p>This property corresponds to the content of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a>
    *  </i> Data Type.</p>
@@ -1262,7 +1194,6 @@ export namespace RollbackConfiguration {
   export const filterSensitiveLog = (obj: RollbackConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RollbackConfiguration => __isa(o, "RollbackConfiguration");
 }
 
 /**
@@ -1270,7 +1201,6 @@ export namespace RollbackConfiguration {
  *  </i> Data Type.</p>
  */
 export interface RollbackTrigger {
-  __type?: "RollbackTrigger";
   /**
    * <p>This property corresponds to the content of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackTrigger">RollbackTrigger</a>
    *  </i> Data Type.</p>
@@ -1288,7 +1218,6 @@ export namespace RollbackTrigger {
   export const filterSensitiveLog = (obj: RollbackTrigger): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RollbackTrigger => __isa(o, "RollbackTrigger");
 }
 
 export enum Status {
@@ -1302,7 +1231,6 @@ export enum Status {
  *  </i> Data Type.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>This property corresponds to the content of the same name for the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/Tag">Tag</a>
    *  </i> Data Type.</p>
@@ -1322,7 +1250,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -1346,11 +1273,9 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 export interface UnshareApplicationRequest {
-  __type?: "UnshareApplicationRequest";
   /**
    * <p>The AWS Organization ID to unshare the application from.</p>
    */
@@ -1366,11 +1291,9 @@ export namespace UnshareApplicationRequest {
   export const filterSensitiveLog = (obj: UnshareApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnshareApplicationRequest => __isa(o, "UnshareApplicationRequest");
 }
 
 export interface UpdateApplicationRequest {
-  __type?: "UpdateApplicationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    */
@@ -1411,11 +1334,9 @@ export namespace UpdateApplicationRequest {
   export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationRequest => __isa(o, "UpdateApplicationRequest");
 }
 
 export interface UpdateApplicationResponse {
-  __type?: "UpdateApplicationResponse";
   /**
    * <p>The date and time this resource was created.</p>
    */
@@ -1486,14 +1407,12 @@ export namespace UpdateApplicationResponse {
   export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationResponse => __isa(o, "UpdateApplicationResponse");
 }
 
 /**
  * <p>Application version details.</p>
  */
 export interface Version {
-  __type?: "Version";
   /**
    * <p>A list of values that you must specify before you can deploy certain applications.
    *  Some applications might include resources that can affect permissions in your AWS
@@ -1569,14 +1488,12 @@ export namespace Version {
   export const filterSensitiveLog = (obj: Version): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Version => __isa(o, "Version");
 }
 
 /**
  * <p>An application version summary.</p>
  */
 export interface VersionSummary {
-  __type?: "VersionSummary";
   /**
    * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
    */
@@ -1604,5 +1521,4 @@ export namespace VersionSummary {
   export const filterSensitiveLog = (obj: VersionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VersionSummary => __isa(o, "VersionSummary");
 }

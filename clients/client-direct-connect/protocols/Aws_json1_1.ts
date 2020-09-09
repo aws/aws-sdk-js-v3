@@ -1040,7 +1040,6 @@ export const deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposal
   contents = deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalResult(data, context);
   const response: AcceptDirectConnectGatewayAssociationProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptDirectConnectGatewayAssociationProposalResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1104,7 +1103,6 @@ export const deserializeAws_json1_1AllocateConnectionOnInterconnectCommand = asy
   contents = deserializeAws_json1_1Connection(data, context);
   const response: AllocateConnectionOnInterconnectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Connection",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1168,7 +1166,6 @@ export const deserializeAws_json1_1AllocateHostedConnectionCommand = async (
   contents = deserializeAws_json1_1Connection(data, context);
   const response: AllocateHostedConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Connection",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1248,7 +1245,6 @@ export const deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommand = asyn
   contents = deserializeAws_json1_1VirtualInterface(data, context);
   const response: AllocatePrivateVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VirtualInterface",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1328,7 +1324,6 @@ export const deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand = async
   contents = deserializeAws_json1_1VirtualInterface(data, context);
   const response: AllocatePublicVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VirtualInterface",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1408,7 +1403,6 @@ export const deserializeAws_json1_1AllocateTransitVirtualInterfaceCommand = asyn
   contents = deserializeAws_json1_1AllocateTransitVirtualInterfaceResult(data, context);
   const response: AllocateTransitVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AllocateTransitVirtualInterfaceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1488,7 +1482,6 @@ export const deserializeAws_json1_1AssociateConnectionWithLagCommand = async (
   contents = deserializeAws_json1_1Connection(data, context);
   const response: AssociateConnectionWithLagCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Connection",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1552,7 +1545,6 @@ export const deserializeAws_json1_1AssociateHostedConnectionCommand = async (
   contents = deserializeAws_json1_1Connection(data, context);
   const response: AssociateHostedConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Connection",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1616,7 +1608,6 @@ export const deserializeAws_json1_1AssociateVirtualInterfaceCommand = async (
   contents = deserializeAws_json1_1VirtualInterface(data, context);
   const response: AssociateVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VirtualInterface",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1680,7 +1671,6 @@ export const deserializeAws_json1_1ConfirmConnectionCommand = async (
   contents = deserializeAws_json1_1ConfirmConnectionResponse(data, context);
   const response: ConfirmConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfirmConnectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1744,7 +1734,6 @@ export const deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand = async
   contents = deserializeAws_json1_1ConfirmPrivateVirtualInterfaceResponse(data, context);
   const response: ConfirmPrivateVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfirmPrivateVirtualInterfaceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1808,7 +1797,6 @@ export const deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand = async 
   contents = deserializeAws_json1_1ConfirmPublicVirtualInterfaceResponse(data, context);
   const response: ConfirmPublicVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfirmPublicVirtualInterfaceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1872,7 +1860,6 @@ export const deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommand = async
   contents = deserializeAws_json1_1ConfirmTransitVirtualInterfaceResponse(data, context);
   const response: ConfirmTransitVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfirmTransitVirtualInterfaceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1936,7 +1923,6 @@ export const deserializeAws_json1_1CreateBGPPeerCommand = async (
   contents = deserializeAws_json1_1CreateBGPPeerResponse(data, context);
   const response: CreateBGPPeerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBGPPeerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2000,7 +1986,6 @@ export const deserializeAws_json1_1CreateConnectionCommand = async (
   contents = deserializeAws_json1_1Connection(data, context);
   const response: CreateConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Connection",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2080,7 +2065,6 @@ export const deserializeAws_json1_1CreateDirectConnectGatewayCommand = async (
   contents = deserializeAws_json1_1CreateDirectConnectGatewayResult(data, context);
   const response: CreateDirectConnectGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDirectConnectGatewayResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2144,7 +2128,6 @@ export const deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommand 
   contents = deserializeAws_json1_1CreateDirectConnectGatewayAssociationResult(data, context);
   const response: CreateDirectConnectGatewayAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDirectConnectGatewayAssociationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2208,7 +2191,6 @@ export const deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposal
   contents = deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalResult(data, context);
   const response: CreateDirectConnectGatewayAssociationProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDirectConnectGatewayAssociationProposalResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2272,7 +2254,6 @@ export const deserializeAws_json1_1CreateInterconnectCommand = async (
   contents = deserializeAws_json1_1Interconnect(data, context);
   const response: CreateInterconnectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Interconnect",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2352,7 +2333,6 @@ export const deserializeAws_json1_1CreateLagCommand = async (
   contents = deserializeAws_json1_1Lag(data, context);
   const response: CreateLagCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Lag",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2432,7 +2412,6 @@ export const deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand = async 
   contents = deserializeAws_json1_1VirtualInterface(data, context);
   const response: CreatePrivateVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VirtualInterface",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2512,7 +2491,6 @@ export const deserializeAws_json1_1CreatePublicVirtualInterfaceCommand = async (
   contents = deserializeAws_json1_1VirtualInterface(data, context);
   const response: CreatePublicVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VirtualInterface",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2592,7 +2570,6 @@ export const deserializeAws_json1_1CreateTransitVirtualInterfaceCommand = async 
   contents = deserializeAws_json1_1CreateTransitVirtualInterfaceResult(data, context);
   const response: CreateTransitVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTransitVirtualInterfaceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2672,7 +2649,6 @@ export const deserializeAws_json1_1DeleteBGPPeerCommand = async (
   contents = deserializeAws_json1_1DeleteBGPPeerResponse(data, context);
   const response: DeleteBGPPeerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBGPPeerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2736,7 +2712,6 @@ export const deserializeAws_json1_1DeleteConnectionCommand = async (
   contents = deserializeAws_json1_1Connection(data, context);
   const response: DeleteConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Connection",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2800,7 +2775,6 @@ export const deserializeAws_json1_1DeleteDirectConnectGatewayCommand = async (
   contents = deserializeAws_json1_1DeleteDirectConnectGatewayResult(data, context);
   const response: DeleteDirectConnectGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDirectConnectGatewayResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2864,7 +2838,6 @@ export const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand 
   contents = deserializeAws_json1_1DeleteDirectConnectGatewayAssociationResult(data, context);
   const response: DeleteDirectConnectGatewayAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDirectConnectGatewayAssociationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2928,7 +2901,6 @@ export const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposal
   contents = deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalResult(data, context);
   const response: DeleteDirectConnectGatewayAssociationProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDirectConnectGatewayAssociationProposalResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2992,7 +2964,6 @@ export const deserializeAws_json1_1DeleteInterconnectCommand = async (
   contents = deserializeAws_json1_1DeleteInterconnectResponse(data, context);
   const response: DeleteInterconnectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteInterconnectResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3056,7 +3027,6 @@ export const deserializeAws_json1_1DeleteLagCommand = async (
   contents = deserializeAws_json1_1Lag(data, context);
   const response: DeleteLagCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Lag",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3120,7 +3090,6 @@ export const deserializeAws_json1_1DeleteVirtualInterfaceCommand = async (
   contents = deserializeAws_json1_1DeleteVirtualInterfaceResponse(data, context);
   const response: DeleteVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVirtualInterfaceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3184,7 +3153,6 @@ export const deserializeAws_json1_1DescribeConnectionLoaCommand = async (
   contents = deserializeAws_json1_1DescribeConnectionLoaResponse(data, context);
   const response: DescribeConnectionLoaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConnectionLoaResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3248,7 +3216,6 @@ export const deserializeAws_json1_1DescribeConnectionsCommand = async (
   contents = deserializeAws_json1_1Connections(data, context);
   const response: DescribeConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Connections",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3312,7 +3279,6 @@ export const deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand = as
   contents = deserializeAws_json1_1Connections(data, context);
   const response: DescribeConnectionsOnInterconnectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Connections",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3376,7 +3342,6 @@ export const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationPropos
   contents = deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsResult(data, context);
   const response: DescribeDirectConnectGatewayAssociationProposalsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDirectConnectGatewayAssociationProposalsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3440,7 +3405,6 @@ export const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsComma
   contents = deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsResult(data, context);
   const response: DescribeDirectConnectGatewayAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDirectConnectGatewayAssociationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3504,7 +3468,6 @@ export const deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsComman
   contents = deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsResult(data, context);
   const response: DescribeDirectConnectGatewayAttachmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDirectConnectGatewayAttachmentsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3568,7 +3531,6 @@ export const deserializeAws_json1_1DescribeDirectConnectGatewaysCommand = async 
   contents = deserializeAws_json1_1DescribeDirectConnectGatewaysResult(data, context);
   const response: DescribeDirectConnectGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDirectConnectGatewaysResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3632,7 +3594,6 @@ export const deserializeAws_json1_1DescribeHostedConnectionsCommand = async (
   contents = deserializeAws_json1_1Connections(data, context);
   const response: DescribeHostedConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Connections",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3696,7 +3657,6 @@ export const deserializeAws_json1_1DescribeInterconnectLoaCommand = async (
   contents = deserializeAws_json1_1DescribeInterconnectLoaResponse(data, context);
   const response: DescribeInterconnectLoaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInterconnectLoaResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3760,7 +3720,6 @@ export const deserializeAws_json1_1DescribeInterconnectsCommand = async (
   contents = deserializeAws_json1_1Interconnects(data, context);
   const response: DescribeInterconnectsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Interconnects",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3824,7 +3783,6 @@ export const deserializeAws_json1_1DescribeLagsCommand = async (
   contents = deserializeAws_json1_1Lags(data, context);
   const response: DescribeLagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Lags",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3888,7 +3846,6 @@ export const deserializeAws_json1_1DescribeLoaCommand = async (
   contents = deserializeAws_json1_1Loa(data, context);
   const response: DescribeLoaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Loa",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3952,7 +3909,6 @@ export const deserializeAws_json1_1DescribeLocationsCommand = async (
   contents = deserializeAws_json1_1Locations(data, context);
   const response: DescribeLocationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Locations",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4016,7 +3972,6 @@ export const deserializeAws_json1_1DescribeTagsCommand = async (
   contents = deserializeAws_json1_1DescribeTagsResponse(data, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTagsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4080,7 +4035,6 @@ export const deserializeAws_json1_1DescribeVirtualGatewaysCommand = async (
   contents = deserializeAws_json1_1VirtualGateways(data, context);
   const response: DescribeVirtualGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VirtualGateways",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4144,7 +4098,6 @@ export const deserializeAws_json1_1DescribeVirtualInterfacesCommand = async (
   contents = deserializeAws_json1_1VirtualInterfaces(data, context);
   const response: DescribeVirtualInterfacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VirtualInterfaces",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4208,7 +4161,6 @@ export const deserializeAws_json1_1DisassociateConnectionFromLagCommand = async 
   contents = deserializeAws_json1_1Connection(data, context);
   const response: DisassociateConnectionFromLagCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Connection",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4272,7 +4224,6 @@ export const deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommand = asyn
   contents = deserializeAws_json1_1ListVirtualInterfaceTestHistoryResponse(data, context);
   const response: ListVirtualInterfaceTestHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVirtualInterfaceTestHistoryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4336,7 +4287,6 @@ export const deserializeAws_json1_1StartBgpFailoverTestCommand = async (
   contents = deserializeAws_json1_1StartBgpFailoverTestResponse(data, context);
   const response: StartBgpFailoverTestCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartBgpFailoverTestResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4400,7 +4350,6 @@ export const deserializeAws_json1_1StopBgpFailoverTestCommand = async (
   contents = deserializeAws_json1_1StopBgpFailoverTestResponse(data, context);
   const response: StopBgpFailoverTestCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopBgpFailoverTestResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4464,7 +4413,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4544,7 +4492,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4608,7 +4555,6 @@ export const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand 
   contents = deserializeAws_json1_1UpdateDirectConnectGatewayAssociationResult(data, context);
   const response: UpdateDirectConnectGatewayAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDirectConnectGatewayAssociationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4672,7 +4618,6 @@ export const deserializeAws_json1_1UpdateLagCommand = async (
   contents = deserializeAws_json1_1Lag(data, context);
   const response: UpdateLagCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Lag",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4736,7 +4681,6 @@ export const deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand = asy
   contents = deserializeAws_json1_1VirtualInterface(data, context);
   const response: UpdateVirtualInterfaceAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VirtualInterface",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5617,7 +5561,6 @@ const deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalResult 
   context: __SerdeContext
 ): AcceptDirectConnectGatewayAssociationProposalResult => {
   return {
-    __type: "AcceptDirectConnectGatewayAssociationProposalResult",
     directConnectGatewayAssociation:
       output.directConnectGatewayAssociation !== undefined && output.directConnectGatewayAssociation !== null
         ? deserializeAws_json1_1DirectConnectGatewayAssociation(output.directConnectGatewayAssociation, context)
@@ -5630,7 +5573,6 @@ const deserializeAws_json1_1AllocateTransitVirtualInterfaceResult = (
   context: __SerdeContext
 ): AllocateTransitVirtualInterfaceResult => {
   return {
-    __type: "AllocateTransitVirtualInterfaceResult",
     virtualInterface:
       output.virtualInterface !== undefined && output.virtualInterface !== null
         ? deserializeAws_json1_1VirtualInterface(output.virtualInterface, context)
@@ -5640,7 +5582,6 @@ const deserializeAws_json1_1AllocateTransitVirtualInterfaceResult = (
 
 const deserializeAws_json1_1AssociatedGateway = (output: any, context: __SerdeContext): AssociatedGateway => {
   return {
-    __type: "AssociatedGateway",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     ownerAccount: output.ownerAccount !== undefined && output.ownerAccount !== null ? output.ownerAccount : undefined,
     region: output.region !== undefined && output.region !== null ? output.region : undefined,
@@ -5654,7 +5595,6 @@ const deserializeAws_json1_1AvailablePortSpeeds = (output: any, context: __Serde
 
 const deserializeAws_json1_1BGPPeer = (output: any, context: __SerdeContext): BGPPeer => {
   return {
-    __type: "BGPPeer",
     addressFamily:
       output.addressFamily !== undefined && output.addressFamily !== null ? output.addressFamily : undefined,
     amazonAddress:
@@ -5683,7 +5623,6 @@ const deserializeAws_json1_1ConfirmConnectionResponse = (
   context: __SerdeContext
 ): ConfirmConnectionResponse => {
   return {
-    __type: "ConfirmConnectionResponse",
     connectionState:
       output.connectionState !== undefined && output.connectionState !== null ? output.connectionState : undefined,
   } as any;
@@ -5694,7 +5633,6 @@ const deserializeAws_json1_1ConfirmPrivateVirtualInterfaceResponse = (
   context: __SerdeContext
 ): ConfirmPrivateVirtualInterfaceResponse => {
   return {
-    __type: "ConfirmPrivateVirtualInterfaceResponse",
     virtualInterfaceState:
       output.virtualInterfaceState !== undefined && output.virtualInterfaceState !== null
         ? output.virtualInterfaceState
@@ -5707,7 +5645,6 @@ const deserializeAws_json1_1ConfirmPublicVirtualInterfaceResponse = (
   context: __SerdeContext
 ): ConfirmPublicVirtualInterfaceResponse => {
   return {
-    __type: "ConfirmPublicVirtualInterfaceResponse",
     virtualInterfaceState:
       output.virtualInterfaceState !== undefined && output.virtualInterfaceState !== null
         ? output.virtualInterfaceState
@@ -5720,7 +5657,6 @@ const deserializeAws_json1_1ConfirmTransitVirtualInterfaceResponse = (
   context: __SerdeContext
 ): ConfirmTransitVirtualInterfaceResponse => {
   return {
-    __type: "ConfirmTransitVirtualInterfaceResponse",
     virtualInterfaceState:
       output.virtualInterfaceState !== undefined && output.virtualInterfaceState !== null
         ? output.virtualInterfaceState
@@ -5730,7 +5666,6 @@ const deserializeAws_json1_1ConfirmTransitVirtualInterfaceResponse = (
 
 const deserializeAws_json1_1Connection = (output: any, context: __SerdeContext): Connection => {
   return {
-    __type: "Connection",
     awsDevice: output.awsDevice !== undefined && output.awsDevice !== null ? output.awsDevice : undefined,
     awsDeviceV2: output.awsDeviceV2 !== undefined && output.awsDeviceV2 !== null ? output.awsDeviceV2 : undefined,
     bandwidth: output.bandwidth !== undefined && output.bandwidth !== null ? output.bandwidth : undefined,
@@ -5771,7 +5706,6 @@ const deserializeAws_json1_1ConnectionList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Connections = (output: any, context: __SerdeContext): Connections => {
   return {
-    __type: "Connections",
     connections:
       output.connections !== undefined && output.connections !== null
         ? deserializeAws_json1_1ConnectionList(output.connections, context)
@@ -5781,7 +5715,6 @@ const deserializeAws_json1_1Connections = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1CreateBGPPeerResponse = (output: any, context: __SerdeContext): CreateBGPPeerResponse => {
   return {
-    __type: "CreateBGPPeerResponse",
     virtualInterface:
       output.virtualInterface !== undefined && output.virtualInterface !== null
         ? deserializeAws_json1_1VirtualInterface(output.virtualInterface, context)
@@ -5794,7 +5727,6 @@ const deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalResult 
   context: __SerdeContext
 ): CreateDirectConnectGatewayAssociationProposalResult => {
   return {
-    __type: "CreateDirectConnectGatewayAssociationProposalResult",
     directConnectGatewayAssociationProposal:
       output.directConnectGatewayAssociationProposal !== undefined &&
       output.directConnectGatewayAssociationProposal !== null
@@ -5811,7 +5743,6 @@ const deserializeAws_json1_1CreateDirectConnectGatewayAssociationResult = (
   context: __SerdeContext
 ): CreateDirectConnectGatewayAssociationResult => {
   return {
-    __type: "CreateDirectConnectGatewayAssociationResult",
     directConnectGatewayAssociation:
       output.directConnectGatewayAssociation !== undefined && output.directConnectGatewayAssociation !== null
         ? deserializeAws_json1_1DirectConnectGatewayAssociation(output.directConnectGatewayAssociation, context)
@@ -5824,7 +5755,6 @@ const deserializeAws_json1_1CreateDirectConnectGatewayResult = (
   context: __SerdeContext
 ): CreateDirectConnectGatewayResult => {
   return {
-    __type: "CreateDirectConnectGatewayResult",
     directConnectGateway:
       output.directConnectGateway !== undefined && output.directConnectGateway !== null
         ? deserializeAws_json1_1DirectConnectGateway(output.directConnectGateway, context)
@@ -5837,7 +5767,6 @@ const deserializeAws_json1_1CreateTransitVirtualInterfaceResult = (
   context: __SerdeContext
 ): CreateTransitVirtualInterfaceResult => {
   return {
-    __type: "CreateTransitVirtualInterfaceResult",
     virtualInterface:
       output.virtualInterface !== undefined && output.virtualInterface !== null
         ? deserializeAws_json1_1VirtualInterface(output.virtualInterface, context)
@@ -5847,7 +5776,6 @@ const deserializeAws_json1_1CreateTransitVirtualInterfaceResult = (
 
 const deserializeAws_json1_1DeleteBGPPeerResponse = (output: any, context: __SerdeContext): DeleteBGPPeerResponse => {
   return {
-    __type: "DeleteBGPPeerResponse",
     virtualInterface:
       output.virtualInterface !== undefined && output.virtualInterface !== null
         ? deserializeAws_json1_1VirtualInterface(output.virtualInterface, context)
@@ -5860,7 +5788,6 @@ const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalResult 
   context: __SerdeContext
 ): DeleteDirectConnectGatewayAssociationProposalResult => {
   return {
-    __type: "DeleteDirectConnectGatewayAssociationProposalResult",
     directConnectGatewayAssociationProposal:
       output.directConnectGatewayAssociationProposal !== undefined &&
       output.directConnectGatewayAssociationProposal !== null
@@ -5877,7 +5804,6 @@ const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationResult = (
   context: __SerdeContext
 ): DeleteDirectConnectGatewayAssociationResult => {
   return {
-    __type: "DeleteDirectConnectGatewayAssociationResult",
     directConnectGatewayAssociation:
       output.directConnectGatewayAssociation !== undefined && output.directConnectGatewayAssociation !== null
         ? deserializeAws_json1_1DirectConnectGatewayAssociation(output.directConnectGatewayAssociation, context)
@@ -5890,7 +5816,6 @@ const deserializeAws_json1_1DeleteDirectConnectGatewayResult = (
   context: __SerdeContext
 ): DeleteDirectConnectGatewayResult => {
   return {
-    __type: "DeleteDirectConnectGatewayResult",
     directConnectGateway:
       output.directConnectGateway !== undefined && output.directConnectGateway !== null
         ? deserializeAws_json1_1DirectConnectGateway(output.directConnectGateway, context)
@@ -5903,7 +5828,6 @@ const deserializeAws_json1_1DeleteInterconnectResponse = (
   context: __SerdeContext
 ): DeleteInterconnectResponse => {
   return {
-    __type: "DeleteInterconnectResponse",
     interconnectState:
       output.interconnectState !== undefined && output.interconnectState !== null
         ? output.interconnectState
@@ -5916,7 +5840,6 @@ const deserializeAws_json1_1DeleteVirtualInterfaceResponse = (
   context: __SerdeContext
 ): DeleteVirtualInterfaceResponse => {
   return {
-    __type: "DeleteVirtualInterfaceResponse",
     virtualInterfaceState:
       output.virtualInterfaceState !== undefined && output.virtualInterfaceState !== null
         ? output.virtualInterfaceState
@@ -5929,7 +5852,6 @@ const deserializeAws_json1_1DescribeConnectionLoaResponse = (
   context: __SerdeContext
 ): DescribeConnectionLoaResponse => {
   return {
-    __type: "DescribeConnectionLoaResponse",
     loa: output.loa !== undefined && output.loa !== null ? deserializeAws_json1_1Loa(output.loa, context) : undefined,
   } as any;
 };
@@ -5939,7 +5861,6 @@ const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsResu
   context: __SerdeContext
 ): DescribeDirectConnectGatewayAssociationProposalsResult => {
   return {
-    __type: "DescribeDirectConnectGatewayAssociationProposalsResult",
     directConnectGatewayAssociationProposals:
       output.directConnectGatewayAssociationProposals !== undefined &&
       output.directConnectGatewayAssociationProposals !== null
@@ -5957,7 +5878,6 @@ const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsResult = (
   context: __SerdeContext
 ): DescribeDirectConnectGatewayAssociationsResult => {
   return {
-    __type: "DescribeDirectConnectGatewayAssociationsResult",
     directConnectGatewayAssociations:
       output.directConnectGatewayAssociations !== undefined && output.directConnectGatewayAssociations !== null
         ? deserializeAws_json1_1DirectConnectGatewayAssociationList(output.directConnectGatewayAssociations, context)
@@ -5971,7 +5891,6 @@ const deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsResult = (
   context: __SerdeContext
 ): DescribeDirectConnectGatewayAttachmentsResult => {
   return {
-    __type: "DescribeDirectConnectGatewayAttachmentsResult",
     directConnectGatewayAttachments:
       output.directConnectGatewayAttachments !== undefined && output.directConnectGatewayAttachments !== null
         ? deserializeAws_json1_1DirectConnectGatewayAttachmentList(output.directConnectGatewayAttachments, context)
@@ -5985,7 +5904,6 @@ const deserializeAws_json1_1DescribeDirectConnectGatewaysResult = (
   context: __SerdeContext
 ): DescribeDirectConnectGatewaysResult => {
   return {
-    __type: "DescribeDirectConnectGatewaysResult",
     directConnectGateways:
       output.directConnectGateways !== undefined && output.directConnectGateways !== null
         ? deserializeAws_json1_1DirectConnectGatewayList(output.directConnectGateways, context)
@@ -5999,14 +5917,12 @@ const deserializeAws_json1_1DescribeInterconnectLoaResponse = (
   context: __SerdeContext
 ): DescribeInterconnectLoaResponse => {
   return {
-    __type: "DescribeInterconnectLoaResponse",
     loa: output.loa !== undefined && output.loa !== null ? deserializeAws_json1_1Loa(output.loa, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribeTagsResponse = (output: any, context: __SerdeContext): DescribeTagsResponse => {
   return {
-    __type: "DescribeTagsResponse",
     resourceTags:
       output.resourceTags !== undefined && output.resourceTags !== null
         ? deserializeAws_json1_1ResourceTagList(output.resourceTags, context)
@@ -6019,14 +5935,12 @@ const deserializeAws_json1_1DirectConnectClientException = (
   context: __SerdeContext
 ): DirectConnectClientException => {
   return {
-    __type: "DirectConnectClientException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DirectConnectGateway = (output: any, context: __SerdeContext): DirectConnectGateway => {
   return {
-    __type: "DirectConnectGateway",
     amazonSideAsn:
       output.amazonSideAsn !== undefined && output.amazonSideAsn !== null ? output.amazonSideAsn : undefined,
     directConnectGatewayId:
@@ -6052,7 +5966,6 @@ const deserializeAws_json1_1DirectConnectGatewayAssociation = (
   context: __SerdeContext
 ): DirectConnectGatewayAssociation => {
   return {
-    __type: "DirectConnectGatewayAssociation",
     allowedPrefixesToDirectConnectGateway:
       output.allowedPrefixesToDirectConnectGateway !== undefined &&
       output.allowedPrefixesToDirectConnectGateway !== null
@@ -6101,7 +6014,6 @@ const deserializeAws_json1_1DirectConnectGatewayAssociationProposal = (
   context: __SerdeContext
 ): DirectConnectGatewayAssociationProposal => {
   return {
-    __type: "DirectConnectGatewayAssociationProposal",
     associatedGateway:
       output.associatedGateway !== undefined && output.associatedGateway !== null
         ? deserializeAws_json1_1AssociatedGateway(output.associatedGateway, context)
@@ -6144,7 +6056,6 @@ const deserializeAws_json1_1DirectConnectGatewayAttachment = (
   context: __SerdeContext
 ): DirectConnectGatewayAttachment => {
   return {
-    __type: "DirectConnectGatewayAttachment",
     attachmentState:
       output.attachmentState !== undefined && output.attachmentState !== null ? output.attachmentState : undefined,
     attachmentType:
@@ -6189,7 +6100,6 @@ const deserializeAws_json1_1DirectConnectServerException = (
   context: __SerdeContext
 ): DirectConnectServerException => {
   return {
-    __type: "DirectConnectServerException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6199,14 +6109,12 @@ const deserializeAws_json1_1DuplicateTagKeysException = (
   context: __SerdeContext
 ): DuplicateTagKeysException => {
   return {
-    __type: "DuplicateTagKeysException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Interconnect = (output: any, context: __SerdeContext): Interconnect => {
   return {
-    __type: "Interconnect",
     awsDevice: output.awsDevice !== undefined && output.awsDevice !== null ? output.awsDevice : undefined,
     awsDeviceV2: output.awsDeviceV2 !== undefined && output.awsDeviceV2 !== null ? output.awsDeviceV2 : undefined,
     bandwidth: output.bandwidth !== undefined && output.bandwidth !== null ? output.bandwidth : undefined,
@@ -6247,7 +6155,6 @@ const deserializeAws_json1_1InterconnectList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Interconnects = (output: any, context: __SerdeContext): Interconnects => {
   return {
-    __type: "Interconnects",
     interconnects:
       output.interconnects !== undefined && output.interconnects !== null
         ? deserializeAws_json1_1InterconnectList(output.interconnects, context)
@@ -6257,7 +6164,6 @@ const deserializeAws_json1_1Interconnects = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Lag = (output: any, context: __SerdeContext): Lag => {
   return {
-    __type: "Lag",
     allowsHostedConnections:
       output.allowsHostedConnections !== undefined && output.allowsHostedConnections !== null
         ? output.allowsHostedConnections
@@ -6305,7 +6211,6 @@ const deserializeAws_json1_1LagList = (output: any, context: __SerdeContext): La
 
 const deserializeAws_json1_1Lags = (output: any, context: __SerdeContext): Lags => {
   return {
-    __type: "Lags",
     lags:
       output.lags !== undefined && output.lags !== null
         ? deserializeAws_json1_1LagList(output.lags, context)
@@ -6318,7 +6223,6 @@ const deserializeAws_json1_1ListVirtualInterfaceTestHistoryResponse = (
   context: __SerdeContext
 ): ListVirtualInterfaceTestHistoryResponse => {
   return {
-    __type: "ListVirtualInterfaceTestHistoryResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     virtualInterfaceTestHistory:
       output.virtualInterfaceTestHistory !== undefined && output.virtualInterfaceTestHistory !== null
@@ -6329,7 +6233,6 @@ const deserializeAws_json1_1ListVirtualInterfaceTestHistoryResponse = (
 
 const deserializeAws_json1_1Loa = (output: any, context: __SerdeContext): Loa => {
   return {
-    __type: "Loa",
     loaContent:
       output.loaContent !== undefined && output.loaContent !== null
         ? context.base64Decoder(output.loaContent)
@@ -6341,7 +6244,6 @@ const deserializeAws_json1_1Loa = (output: any, context: __SerdeContext): Loa =>
 
 const deserializeAws_json1_1Location = (output: any, context: __SerdeContext): Location => {
   return {
-    __type: "Location",
     availablePortSpeeds:
       output.availablePortSpeeds !== undefined && output.availablePortSpeeds !== null
         ? deserializeAws_json1_1AvailablePortSpeeds(output.availablePortSpeeds, context)
@@ -6362,7 +6264,6 @@ const deserializeAws_json1_1LocationList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1Locations = (output: any, context: __SerdeContext): Locations => {
   return {
-    __type: "Locations",
     locations:
       output.locations !== undefined && output.locations !== null
         ? deserializeAws_json1_1LocationList(output.locations, context)
@@ -6376,7 +6277,6 @@ const deserializeAws_json1_1ProviderList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
   return {
-    __type: "ResourceTag",
     resourceArn: output.resourceArn !== undefined && output.resourceArn !== null ? output.resourceArn : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
@@ -6391,7 +6291,6 @@ const deserializeAws_json1_1ResourceTagList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1RouteFilterPrefix = (output: any, context: __SerdeContext): RouteFilterPrefix => {
   return {
-    __type: "RouteFilterPrefix",
     cidr: output.cidr !== undefined && output.cidr !== null ? output.cidr : undefined,
   } as any;
 };
@@ -6405,7 +6304,6 @@ const deserializeAws_json1_1StartBgpFailoverTestResponse = (
   context: __SerdeContext
 ): StartBgpFailoverTestResponse => {
   return {
-    __type: "StartBgpFailoverTestResponse",
     virtualInterfaceTest:
       output.virtualInterfaceTest !== undefined && output.virtualInterfaceTest !== null
         ? deserializeAws_json1_1VirtualInterfaceTestHistory(output.virtualInterfaceTest, context)
@@ -6418,7 +6316,6 @@ const deserializeAws_json1_1StopBgpFailoverTestResponse = (
   context: __SerdeContext
 ): StopBgpFailoverTestResponse => {
   return {
-    __type: "StopBgpFailoverTestResponse",
     virtualInterfaceTest:
       output.virtualInterfaceTest !== undefined && output.virtualInterfaceTest !== null
         ? deserializeAws_json1_1VirtualInterfaceTestHistory(output.virtualInterfaceTest, context)
@@ -6428,7 +6325,6 @@ const deserializeAws_json1_1StopBgpFailoverTestResponse = (
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -6439,22 +6335,17 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
-    __type: "TooManyTagsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationResult = (
@@ -6462,7 +6353,6 @@ const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationResult = (
   context: __SerdeContext
 ): UpdateDirectConnectGatewayAssociationResult => {
   return {
-    __type: "UpdateDirectConnectGatewayAssociationResult",
     directConnectGatewayAssociation:
       output.directConnectGatewayAssociation !== undefined && output.directConnectGatewayAssociation !== null
         ? deserializeAws_json1_1DirectConnectGatewayAssociation(output.directConnectGatewayAssociation, context)
@@ -6472,7 +6362,6 @@ const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationResult = (
 
 const deserializeAws_json1_1VirtualGateway = (output: any, context: __SerdeContext): VirtualGateway => {
   return {
-    __type: "VirtualGateway",
     virtualGatewayId:
       output.virtualGatewayId !== undefined && output.virtualGatewayId !== null ? output.virtualGatewayId : undefined,
     virtualGatewayState:
@@ -6488,7 +6377,6 @@ const deserializeAws_json1_1VirtualGatewayList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1VirtualGateways = (output: any, context: __SerdeContext): VirtualGateways => {
   return {
-    __type: "VirtualGateways",
     virtualGateways:
       output.virtualGateways !== undefined && output.virtualGateways !== null
         ? deserializeAws_json1_1VirtualGatewayList(output.virtualGateways, context)
@@ -6498,7 +6386,6 @@ const deserializeAws_json1_1VirtualGateways = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1VirtualInterface = (output: any, context: __SerdeContext): VirtualInterface => {
   return {
-    __type: "VirtualInterface",
     addressFamily:
       output.addressFamily !== undefined && output.addressFamily !== null ? output.addressFamily : undefined,
     amazonAddress:
@@ -6567,7 +6454,6 @@ const deserializeAws_json1_1VirtualInterfaceList = (output: any, context: __Serd
 
 const deserializeAws_json1_1VirtualInterfaces = (output: any, context: __SerdeContext): VirtualInterfaces => {
   return {
-    __type: "VirtualInterfaces",
     virtualInterfaces:
       output.virtualInterfaces !== undefined && output.virtualInterfaces !== null
         ? deserializeAws_json1_1VirtualInterfaceList(output.virtualInterfaces, context)
@@ -6580,7 +6466,6 @@ const deserializeAws_json1_1VirtualInterfaceTestHistory = (
   context: __SerdeContext
 ): VirtualInterfaceTestHistory => {
   return {
-    __type: "VirtualInterfaceTestHistory",
     bgpPeers:
       output.bgpPeers !== undefined && output.bgpPeers !== null
         ? deserializeAws_json1_1BGPPeerIdList(output.bgpPeers, context)

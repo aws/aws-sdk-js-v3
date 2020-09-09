@@ -1726,7 +1726,6 @@ export const deserializeAws_restJson1CreateBackupPlanCommand = async (
   }
   const contents: CreateBackupPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBackupPlanOutput",
     BackupPlanArn: undefined,
     BackupPlanId: undefined,
     CreationDate: undefined,
@@ -1826,7 +1825,6 @@ export const deserializeAws_restJson1CreateBackupSelectionCommand = async (
   }
   const contents: CreateBackupSelectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBackupSelectionOutput",
     BackupPlanId: undefined,
     CreationDate: undefined,
     SelectionId: undefined,
@@ -1922,7 +1920,6 @@ export const deserializeAws_restJson1CreateBackupVaultCommand = async (
   }
   const contents: CreateBackupVaultCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBackupVaultOutput",
     BackupVaultArn: undefined,
     BackupVaultName: undefined,
     CreationDate: undefined,
@@ -2018,7 +2015,6 @@ export const deserializeAws_restJson1DeleteBackupPlanCommand = async (
   }
   const contents: DeleteBackupPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBackupPlanOutput",
     BackupPlanArn: undefined,
     BackupPlanId: undefined,
     DeletionDate: undefined,
@@ -2509,7 +2505,6 @@ export const deserializeAws_restJson1DescribeBackupJobCommand = async (
   }
   const contents: DescribeBackupJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBackupJobOutput",
     AccountId: undefined,
     BackupJobId: undefined,
     BackupSizeInBytes: undefined,
@@ -2665,7 +2660,6 @@ export const deserializeAws_restJson1DescribeBackupVaultCommand = async (
   }
   const contents: DescribeBackupVaultCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBackupVaultOutput",
     BackupVaultArn: undefined,
     BackupVaultName: undefined,
     CreationDate: undefined,
@@ -2765,7 +2759,6 @@ export const deserializeAws_restJson1DescribeCopyJobCommand = async (
   }
   const contents: DescribeCopyJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCopyJobOutput",
     CopyJob: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2845,7 +2838,6 @@ export const deserializeAws_restJson1DescribeProtectedResourceCommand = async (
   }
   const contents: DescribeProtectedResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProtectedResourceOutput",
     LastBackupTime: undefined,
     ResourceArn: undefined,
     ResourceType: undefined,
@@ -2933,7 +2925,6 @@ export const deserializeAws_restJson1DescribeRecoveryPointCommand = async (
   }
   const contents: DescribeRecoveryPointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRecoveryPointOutput",
     BackupSizeInBytes: undefined,
     BackupVaultArn: undefined,
     BackupVaultName: undefined,
@@ -3077,7 +3068,6 @@ export const deserializeAws_restJson1DescribeRegionSettingsCommand = async (
   }
   const contents: DescribeRegionSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRegionSettingsOutput",
     ResourceTypeOptInPreference: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3136,7 +3126,6 @@ export const deserializeAws_restJson1DescribeRestoreJobCommand = async (
   }
   const contents: DescribeRestoreJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRestoreJobOutput",
     AccountId: undefined,
     BackupSizeInBytes: undefined,
     CompletionDate: undefined,
@@ -3272,7 +3261,6 @@ export const deserializeAws_restJson1ExportBackupPlanTemplateCommand = async (
   }
   const contents: ExportBackupPlanTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportBackupPlanTemplateOutput",
     BackupPlanTemplateJson: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3352,7 +3340,6 @@ export const deserializeAws_restJson1GetBackupPlanCommand = async (
   }
   const contents: GetBackupPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBackupPlanOutput",
     BackupPlan: undefined,
     BackupPlanArn: undefined,
     BackupPlanId: undefined,
@@ -3460,7 +3447,6 @@ export const deserializeAws_restJson1GetBackupPlanFromJSONCommand = async (
   }
   const contents: GetBackupPlanFromJSONCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBackupPlanFromJSONOutput",
     BackupPlan: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3548,7 +3534,6 @@ export const deserializeAws_restJson1GetBackupPlanFromTemplateCommand = async (
   }
   const contents: GetBackupPlanFromTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBackupPlanFromTemplateOutput",
     BackupPlanDocument: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3628,7 +3613,6 @@ export const deserializeAws_restJson1GetBackupSelectionCommand = async (
   }
   const contents: GetBackupSelectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBackupSelectionOutput",
     BackupPlanId: undefined,
     BackupSelection: undefined,
     CreationDate: undefined,
@@ -3724,7 +3708,6 @@ export const deserializeAws_restJson1GetBackupVaultAccessPolicyCommand = async (
   }
   const contents: GetBackupVaultAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBackupVaultAccessPolicyOutput",
     BackupVaultArn: undefined,
     BackupVaultName: undefined,
     Policy: undefined,
@@ -3812,7 +3795,6 @@ export const deserializeAws_restJson1GetBackupVaultNotificationsCommand = async 
   }
   const contents: GetBackupVaultNotificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBackupVaultNotificationsOutput",
     BackupVaultArn: undefined,
     BackupVaultEvents: undefined,
     BackupVaultName: undefined,
@@ -3904,7 +3886,6 @@ export const deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommand = as
   }
   const contents: GetRecoveryPointRestoreMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRecoveryPointRestoreMetadataOutput",
     BackupVaultArn: undefined,
     RecoveryPointArn: undefined,
     RestoreMetadata: undefined,
@@ -3992,7 +3973,6 @@ export const deserializeAws_restJson1GetSupportedResourceTypesCommand = async (
   }
   const contents: GetSupportedResourceTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSupportedResourceTypesOutput",
     ResourceTypes: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4048,7 +4028,6 @@ export const deserializeAws_restJson1ListBackupJobsCommand = async (
   }
   const contents: ListBackupJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBackupJobsOutput",
     BackupJobs: undefined,
     NextToken: undefined,
   };
@@ -4116,7 +4095,6 @@ export const deserializeAws_restJson1ListBackupPlansCommand = async (
   }
   const contents: ListBackupPlansCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBackupPlansOutput",
     BackupPlansList: undefined,
     NextToken: undefined,
   };
@@ -4200,7 +4178,6 @@ export const deserializeAws_restJson1ListBackupPlanTemplatesCommand = async (
   }
   const contents: ListBackupPlanTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBackupPlanTemplatesOutput",
     BackupPlanTemplatesList: undefined,
     NextToken: undefined,
   };
@@ -4287,7 +4264,6 @@ export const deserializeAws_restJson1ListBackupPlanVersionsCommand = async (
   }
   const contents: ListBackupPlanVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBackupPlanVersionsOutput",
     BackupPlanVersionsList: undefined,
     NextToken: undefined,
   };
@@ -4374,7 +4350,6 @@ export const deserializeAws_restJson1ListBackupSelectionsCommand = async (
   }
   const contents: ListBackupSelectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBackupSelectionsOutput",
     BackupSelectionsList: undefined,
     NextToken: undefined,
   };
@@ -4458,7 +4433,6 @@ export const deserializeAws_restJson1ListBackupVaultsCommand = async (
   }
   const contents: ListBackupVaultsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBackupVaultsOutput",
     BackupVaultList: undefined,
     NextToken: undefined,
   };
@@ -4542,7 +4516,6 @@ export const deserializeAws_restJson1ListCopyJobsCommand = async (
   }
   const contents: ListCopyJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCopyJobsOutput",
     CopyJobs: undefined,
     NextToken: undefined,
   };
@@ -4610,7 +4583,6 @@ export const deserializeAws_restJson1ListProtectedResourcesCommand = async (
   }
   const contents: ListProtectedResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProtectedResourcesOutput",
     NextToken: undefined,
     Results: undefined,
   };
@@ -4678,7 +4650,6 @@ export const deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommand = as
   }
   const contents: ListRecoveryPointsByBackupVaultCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRecoveryPointsByBackupVaultOutput",
     NextToken: undefined,
     RecoveryPoints: undefined,
   };
@@ -4762,7 +4733,6 @@ export const deserializeAws_restJson1ListRecoveryPointsByResourceCommand = async
   }
   const contents: ListRecoveryPointsByResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRecoveryPointsByResourceOutput",
     NextToken: undefined,
     RecoveryPoints: undefined,
   };
@@ -4846,7 +4816,6 @@ export const deserializeAws_restJson1ListRestoreJobsCommand = async (
   }
   const contents: ListRestoreJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRestoreJobsOutput",
     NextToken: undefined,
     RestoreJobs: undefined,
   };
@@ -4930,7 +4899,6 @@ export const deserializeAws_restJson1ListTagsCommand = async (
   }
   const contents: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsOutput",
     NextToken: undefined,
     Tags: undefined,
   };
@@ -5164,7 +5132,6 @@ export const deserializeAws_restJson1StartBackupJobCommand = async (
   }
   const contents: StartBackupJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartBackupJobOutput",
     BackupJobId: undefined,
     CreationDate: undefined,
     RecoveryPointArn: undefined,
@@ -5260,7 +5227,6 @@ export const deserializeAws_restJson1StartCopyJobCommand = async (
   }
   const contents: StartCopyJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartCopyJobOutput",
     CopyJobId: undefined,
     CreationDate: undefined,
   };
@@ -5352,7 +5318,6 @@ export const deserializeAws_restJson1StartRestoreJobCommand = async (
   }
   const contents: StartRestoreJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartRestoreJobOutput",
     RestoreJobId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5673,7 +5638,6 @@ export const deserializeAws_restJson1UpdateBackupPlanCommand = async (
   }
   const contents: UpdateBackupPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateBackupPlanOutput",
     BackupPlanArn: undefined,
     BackupPlanId: undefined,
     CreationDate: undefined,
@@ -5765,7 +5729,6 @@ export const deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async
   }
   const contents: UpdateRecoveryPointLifecycleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRecoveryPointLifecycleOutput",
     BackupVaultArn: undefined,
     CalculatedLifecycle: undefined,
     Lifecycle: undefined,
@@ -6276,7 +6239,6 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
 
 const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext): BackupJob => {
   return {
-    __type: "BackupJob",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     BackupJobId: output.BackupJobId !== undefined && output.BackupJobId !== null ? output.BackupJobId : undefined,
     BackupSizeInBytes:
@@ -6325,7 +6287,6 @@ const deserializeAws_restJson1BackupJobsList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1BackupPlan = (output: any, context: __SerdeContext): BackupPlan => {
   return {
-    __type: "BackupPlan",
     BackupPlanName:
       output.BackupPlanName !== undefined && output.BackupPlanName !== null ? output.BackupPlanName : undefined,
     Rules:
@@ -6341,7 +6302,6 @@ const deserializeAws_restJson1BackupPlansList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1BackupPlansListMember = (output: any, context: __SerdeContext): BackupPlansListMember => {
   return {
-    __type: "BackupPlansListMember",
     BackupPlanArn:
       output.BackupPlanArn !== undefined && output.BackupPlanArn !== null ? output.BackupPlanArn : undefined,
     BackupPlanId: output.BackupPlanId !== undefined && output.BackupPlanId !== null ? output.BackupPlanId : undefined,
@@ -6377,7 +6337,6 @@ const deserializeAws_restJson1BackupPlanTemplatesListMember = (
   context: __SerdeContext
 ): BackupPlanTemplatesListMember => {
   return {
-    __type: "BackupPlanTemplatesListMember",
     BackupPlanTemplateId:
       output.BackupPlanTemplateId !== undefined && output.BackupPlanTemplateId !== null
         ? output.BackupPlanTemplateId
@@ -6398,7 +6357,6 @@ const deserializeAws_restJson1BackupPlanVersionsList = (
 
 const deserializeAws_restJson1BackupRule = (output: any, context: __SerdeContext): BackupRule => {
   return {
-    __type: "BackupRule",
     CompletionWindowMinutes:
       output.CompletionWindowMinutes !== undefined && output.CompletionWindowMinutes !== null
         ? output.CompletionWindowMinutes
@@ -6438,7 +6396,6 @@ const deserializeAws_restJson1BackupRules = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1BackupSelection = (output: any, context: __SerdeContext): BackupSelection => {
   return {
-    __type: "BackupSelection",
     IamRoleArn: output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
     ListOfTags:
       output.ListOfTags !== undefined && output.ListOfTags !== null
@@ -6465,7 +6422,6 @@ const deserializeAws_restJson1BackupSelectionsListMember = (
   context: __SerdeContext
 ): BackupSelectionsListMember => {
   return {
-    __type: "BackupSelectionsListMember",
     BackupPlanId: output.BackupPlanId !== undefined && output.BackupPlanId !== null ? output.BackupPlanId : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
@@ -6493,7 +6449,6 @@ const deserializeAws_restJson1BackupVaultList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1BackupVaultListMember = (output: any, context: __SerdeContext): BackupVaultListMember => {
   return {
-    __type: "BackupVaultListMember",
     BackupVaultArn:
       output.BackupVaultArn !== undefined && output.BackupVaultArn !== null ? output.BackupVaultArn : undefined,
     BackupVaultName:
@@ -6515,7 +6470,6 @@ const deserializeAws_restJson1BackupVaultListMember = (output: any, context: __S
 
 const deserializeAws_restJson1CalculatedLifecycle = (output: any, context: __SerdeContext): CalculatedLifecycle => {
   return {
-    __type: "CalculatedLifecycle",
     DeleteAt:
       output.DeleteAt !== undefined && output.DeleteAt !== null
         ? new Date(Math.round(output.DeleteAt * 1000))
@@ -6529,7 +6483,6 @@ const deserializeAws_restJson1CalculatedLifecycle = (output: any, context: __Ser
 
 const deserializeAws_restJson1Condition = (output: any, context: __SerdeContext): Condition => {
   return {
-    __type: "Condition",
     ConditionKey: output.ConditionKey !== undefined && output.ConditionKey !== null ? output.ConditionKey : undefined,
     ConditionType:
       output.ConditionType !== undefined && output.ConditionType !== null ? output.ConditionType : undefined,
@@ -6540,7 +6493,6 @@ const deserializeAws_restJson1Condition = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1CopyAction = (output: any, context: __SerdeContext): CopyAction => {
   return {
-    __type: "CopyAction",
     DestinationBackupVaultArn:
       output.DestinationBackupVaultArn !== undefined && output.DestinationBackupVaultArn !== null
         ? output.DestinationBackupVaultArn
@@ -6558,7 +6510,6 @@ const deserializeAws_restJson1CopyActions = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1CopyJob = (output: any, context: __SerdeContext): CopyJob => {
   return {
-    __type: "CopyJob",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     BackupSizeInBytes:
       output.BackupSizeInBytes !== undefined && output.BackupSizeInBytes !== null
@@ -6608,7 +6559,6 @@ const deserializeAws_restJson1CopyJobsList = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Lifecycle = (output: any, context: __SerdeContext): Lifecycle => {
   return {
-    __type: "Lifecycle",
     DeleteAfterDays:
       output.DeleteAfterDays !== undefined && output.DeleteAfterDays !== null ? output.DeleteAfterDays : undefined,
     MoveToColdStorageAfterDays:
@@ -6634,7 +6584,6 @@ const deserializeAws_restJson1Metadata = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1ProtectedResource = (output: any, context: __SerdeContext): ProtectedResource => {
   return {
-    __type: "ProtectedResource",
     LastBackupTime:
       output.LastBackupTime !== undefined && output.LastBackupTime !== null
         ? new Date(Math.round(output.LastBackupTime * 1000))
@@ -6653,7 +6602,6 @@ const deserializeAws_restJson1RecoveryPointByBackupVault = (
   context: __SerdeContext
 ): RecoveryPointByBackupVault => {
   return {
-    __type: "RecoveryPointByBackupVault",
     BackupSizeInBytes:
       output.BackupSizeInBytes !== undefined && output.BackupSizeInBytes !== null
         ? output.BackupSizeInBytes
@@ -6710,7 +6658,6 @@ const deserializeAws_restJson1RecoveryPointByResource = (
   context: __SerdeContext
 ): RecoveryPointByResource => {
   return {
-    __type: "RecoveryPointByResource",
     BackupSizeBytes:
       output.BackupSizeBytes !== undefined && output.BackupSizeBytes !== null ? output.BackupSizeBytes : undefined,
     BackupVaultName:
@@ -6736,7 +6683,6 @@ const deserializeAws_restJson1RecoveryPointByResourceList = (
 
 const deserializeAws_restJson1RecoveryPointCreator = (output: any, context: __SerdeContext): RecoveryPointCreator => {
   return {
-    __type: "RecoveryPointCreator",
     BackupPlanArn:
       output.BackupPlanArn !== undefined && output.BackupPlanArn !== null ? output.BackupPlanArn : undefined,
     BackupPlanId: output.BackupPlanId !== undefined && output.BackupPlanId !== null ? output.BackupPlanId : undefined,
@@ -6775,7 +6721,6 @@ const deserializeAws_restJson1RestoreJobsList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1RestoreJobsListMember = (output: any, context: __SerdeContext): RestoreJobsListMember => {
   return {
-    __type: "RestoreJobsListMember",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     BackupSizeInBytes:
       output.BackupSizeInBytes !== undefined && output.BackupSizeInBytes !== null

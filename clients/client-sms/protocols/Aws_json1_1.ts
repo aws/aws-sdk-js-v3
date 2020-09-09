@@ -542,7 +542,6 @@ export const deserializeAws_json1_1CreateAppCommand = async (
   contents = deserializeAws_json1_1CreateAppResponse(data, context);
   const response: CreateAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAppResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -630,7 +629,6 @@ export const deserializeAws_json1_1CreateReplicationJobCommand = async (
   contents = deserializeAws_json1_1CreateReplicationJobResponse(data, context);
   const response: CreateReplicationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateReplicationJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -750,7 +748,6 @@ export const deserializeAws_json1_1DeleteAppCommand = async (
   contents = deserializeAws_json1_1DeleteAppResponse(data, context);
   const response: DeleteAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAppResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -838,7 +835,6 @@ export const deserializeAws_json1_1DeleteAppLaunchConfigurationCommand = async (
   contents = deserializeAws_json1_1DeleteAppLaunchConfigurationResponse(data, context);
   const response: DeleteAppLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAppLaunchConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -926,7 +922,6 @@ export const deserializeAws_json1_1DeleteAppReplicationConfigurationCommand = as
   contents = deserializeAws_json1_1DeleteAppReplicationConfigurationResponse(data, context);
   const response: DeleteAppReplicationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAppReplicationConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1014,7 +1009,6 @@ export const deserializeAws_json1_1DeleteReplicationJobCommand = async (
   contents = deserializeAws_json1_1DeleteReplicationJobResponse(data, context);
   const response: DeleteReplicationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteReplicationJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1102,7 +1096,6 @@ export const deserializeAws_json1_1DeleteServerCatalogCommand = async (
   contents = deserializeAws_json1_1DeleteServerCatalogResponse(data, context);
   const response: DeleteServerCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteServerCatalogResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1182,7 +1175,6 @@ export const deserializeAws_json1_1DisassociateConnectorCommand = async (
   contents = deserializeAws_json1_1DisassociateConnectorResponse(data, context);
   const response: DisassociateConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateConnectorResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1262,7 +1254,6 @@ export const deserializeAws_json1_1GenerateChangeSetCommand = async (
   contents = deserializeAws_json1_1GenerateChangeSetResponse(data, context);
   const response: GenerateChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GenerateChangeSetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1350,7 +1341,6 @@ export const deserializeAws_json1_1GenerateTemplateCommand = async (
   contents = deserializeAws_json1_1GenerateTemplateResponse(data, context);
   const response: GenerateTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GenerateTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1438,7 +1428,6 @@ export const deserializeAws_json1_1GetAppCommand = async (
   contents = deserializeAws_json1_1GetAppResponse(data, context);
   const response: GetAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAppResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1526,7 +1515,6 @@ export const deserializeAws_json1_1GetAppLaunchConfigurationCommand = async (
   contents = deserializeAws_json1_1GetAppLaunchConfigurationResponse(data, context);
   const response: GetAppLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAppLaunchConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1614,7 +1602,6 @@ export const deserializeAws_json1_1GetAppReplicationConfigurationCommand = async
   contents = deserializeAws_json1_1GetAppReplicationConfigurationResponse(data, context);
   const response: GetAppReplicationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAppReplicationConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1702,7 +1689,6 @@ export const deserializeAws_json1_1GetConnectorsCommand = async (
   contents = deserializeAws_json1_1GetConnectorsResponse(data, context);
   const response: GetConnectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConnectorsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1758,7 +1744,6 @@ export const deserializeAws_json1_1GetReplicationJobsCommand = async (
   contents = deserializeAws_json1_1GetReplicationJobsResponse(data, context);
   const response: GetReplicationJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetReplicationJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1830,7 +1815,6 @@ export const deserializeAws_json1_1GetReplicationRunsCommand = async (
   contents = deserializeAws_json1_1GetReplicationRunsResponse(data, context);
   const response: GetReplicationRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetReplicationRunsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1902,7 +1886,6 @@ export const deserializeAws_json1_1GetServersCommand = async (
   contents = deserializeAws_json1_1GetServersResponse(data, context);
   const response: GetServersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetServersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1958,7 +1941,6 @@ export const deserializeAws_json1_1ImportServerCatalogCommand = async (
   contents = deserializeAws_json1_1ImportServerCatalogResponse(data, context);
   const response: ImportServerCatalogCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportServerCatalogResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2046,7 +2028,6 @@ export const deserializeAws_json1_1LaunchAppCommand = async (
   contents = deserializeAws_json1_1LaunchAppResponse(data, context);
   const response: LaunchAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "LaunchAppResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2134,7 +2115,6 @@ export const deserializeAws_json1_1ListAppsCommand = async (
   contents = deserializeAws_json1_1ListAppsResponse(data, context);
   const response: ListAppsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAppsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2222,7 +2202,6 @@ export const deserializeAws_json1_1PutAppLaunchConfigurationCommand = async (
   contents = deserializeAws_json1_1PutAppLaunchConfigurationResponse(data, context);
   const response: PutAppLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutAppLaunchConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2310,7 +2289,6 @@ export const deserializeAws_json1_1PutAppReplicationConfigurationCommand = async
   contents = deserializeAws_json1_1PutAppReplicationConfigurationResponse(data, context);
   const response: PutAppReplicationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutAppReplicationConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2398,7 +2376,6 @@ export const deserializeAws_json1_1StartAppReplicationCommand = async (
   contents = deserializeAws_json1_1StartAppReplicationResponse(data, context);
   const response: StartAppReplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartAppReplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2486,7 +2463,6 @@ export const deserializeAws_json1_1StartOnDemandReplicationRunCommand = async (
   contents = deserializeAws_json1_1StartOnDemandReplicationRunResponse(data, context);
   const response: StartOnDemandReplicationRunCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartOnDemandReplicationRunResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2574,7 +2550,6 @@ export const deserializeAws_json1_1StopAppReplicationCommand = async (
   contents = deserializeAws_json1_1StopAppReplicationResponse(data, context);
   const response: StopAppReplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopAppReplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2662,7 +2637,6 @@ export const deserializeAws_json1_1TerminateAppCommand = async (
   contents = deserializeAws_json1_1TerminateAppResponse(data, context);
   const response: TerminateAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TerminateAppResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2750,7 +2724,6 @@ export const deserializeAws_json1_1UpdateAppCommand = async (
   contents = deserializeAws_json1_1UpdateAppResponse(data, context);
   const response: UpdateAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAppResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2838,7 +2811,6 @@ export const deserializeAws_json1_1UpdateReplicationJobCommand = async (
   contents = deserializeAws_json1_1UpdateReplicationJobResponse(data, context);
   const response: UpdateReplicationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateReplicationJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3574,7 +3546,6 @@ const deserializeAws_json1_1Apps = (output: any, context: __SerdeContext): AppSu
 
 const deserializeAws_json1_1AppSummary = (output: any, context: __SerdeContext): AppSummary => {
   return {
-    __type: "AppSummary",
     appId: output.appId !== undefined && output.appId !== null ? output.appId : undefined,
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
@@ -3621,7 +3592,6 @@ const deserializeAws_json1_1AppSummary = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1Connector = (output: any, context: __SerdeContext): Connector => {
   return {
-    __type: "Connector",
     associatedOn:
       output.associatedOn !== undefined && output.associatedOn !== null
         ? new Date(Math.round(output.associatedOn * 1000))
@@ -3656,7 +3626,6 @@ const deserializeAws_json1_1ConnectorList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1CreateAppResponse = (output: any, context: __SerdeContext): CreateAppResponse => {
   return {
-    __type: "CreateAppResponse",
     appSummary:
       output.appSummary !== undefined && output.appSummary !== null
         ? deserializeAws_json1_1AppSummary(output.appSummary, context)
@@ -3675,7 +3644,6 @@ const deserializeAws_json1_1CreateReplicationJobResponse = (
   context: __SerdeContext
 ): CreateReplicationJobResponse => {
   return {
-    __type: "CreateReplicationJobResponse",
     replicationJobId:
       output.replicationJobId !== undefined && output.replicationJobId !== null ? output.replicationJobId : undefined,
   } as any;
@@ -3685,51 +3653,39 @@ const deserializeAws_json1_1DeleteAppLaunchConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteAppLaunchConfigurationResponse => {
-  return {
-    __type: "DeleteAppLaunchConfigurationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteAppReplicationConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteAppReplicationConfigurationResponse => {
-  return {
-    __type: "DeleteAppReplicationConfigurationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteAppResponse = (output: any, context: __SerdeContext): DeleteAppResponse => {
-  return {
-    __type: "DeleteAppResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteReplicationJobResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteReplicationJobResponse => {
-  return {
-    __type: "DeleteReplicationJobResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteServerCatalogResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteServerCatalogResponse => {
-  return {
-    __type: "DeleteServerCatalogResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateConnectorResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateConnectorResponse => {
-  return {
-    __type: "DisassociateConnectorResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1GenerateChangeSetResponse = (
@@ -3737,7 +3693,6 @@ const deserializeAws_json1_1GenerateChangeSetResponse = (
   context: __SerdeContext
 ): GenerateChangeSetResponse => {
   return {
-    __type: "GenerateChangeSetResponse",
     s3Location:
       output.s3Location !== undefined && output.s3Location !== null
         ? deserializeAws_json1_1S3Location(output.s3Location, context)
@@ -3750,7 +3705,6 @@ const deserializeAws_json1_1GenerateTemplateResponse = (
   context: __SerdeContext
 ): GenerateTemplateResponse => {
   return {
-    __type: "GenerateTemplateResponse",
     s3Location:
       output.s3Location !== undefined && output.s3Location !== null
         ? deserializeAws_json1_1S3Location(output.s3Location, context)
@@ -3763,7 +3717,6 @@ const deserializeAws_json1_1GetAppLaunchConfigurationResponse = (
   context: __SerdeContext
 ): GetAppLaunchConfigurationResponse => {
   return {
-    __type: "GetAppLaunchConfigurationResponse",
     appId: output.appId !== undefined && output.appId !== null ? output.appId : undefined,
     roleName: output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined,
     serverGroupLaunchConfigurations:
@@ -3778,7 +3731,6 @@ const deserializeAws_json1_1GetAppReplicationConfigurationResponse = (
   context: __SerdeContext
 ): GetAppReplicationConfigurationResponse => {
   return {
-    __type: "GetAppReplicationConfigurationResponse",
     serverGroupReplicationConfigurations:
       output.serverGroupReplicationConfigurations !== undefined && output.serverGroupReplicationConfigurations !== null
         ? deserializeAws_json1_1ServerGroupReplicationConfigurations(
@@ -3791,7 +3743,6 @@ const deserializeAws_json1_1GetAppReplicationConfigurationResponse = (
 
 const deserializeAws_json1_1GetAppResponse = (output: any, context: __SerdeContext): GetAppResponse => {
   return {
-    __type: "GetAppResponse",
     appSummary:
       output.appSummary !== undefined && output.appSummary !== null
         ? deserializeAws_json1_1AppSummary(output.appSummary, context)
@@ -3807,7 +3758,6 @@ const deserializeAws_json1_1GetAppResponse = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1GetConnectorsResponse = (output: any, context: __SerdeContext): GetConnectorsResponse => {
   return {
-    __type: "GetConnectorsResponse",
     connectorList:
       output.connectorList !== undefined && output.connectorList !== null
         ? deserializeAws_json1_1ConnectorList(output.connectorList, context)
@@ -3821,7 +3771,6 @@ const deserializeAws_json1_1GetReplicationJobsResponse = (
   context: __SerdeContext
 ): GetReplicationJobsResponse => {
   return {
-    __type: "GetReplicationJobsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     replicationJobList:
       output.replicationJobList !== undefined && output.replicationJobList !== null
@@ -3835,7 +3784,6 @@ const deserializeAws_json1_1GetReplicationRunsResponse = (
   context: __SerdeContext
 ): GetReplicationRunsResponse => {
   return {
-    __type: "GetReplicationRunsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     replicationJob:
       output.replicationJob !== undefined && output.replicationJob !== null
@@ -3850,7 +3798,6 @@ const deserializeAws_json1_1GetReplicationRunsResponse = (
 
 const deserializeAws_json1_1GetServersResponse = (output: any, context: __SerdeContext): GetServersResponse => {
   return {
-    __type: "GetServersResponse",
     lastModifiedOn:
       output.lastModifiedOn !== undefined && output.lastModifiedOn !== null
         ? new Date(Math.round(output.lastModifiedOn * 1000))
@@ -3871,14 +3818,11 @@ const deserializeAws_json1_1ImportServerCatalogResponse = (
   output: any,
   context: __SerdeContext
 ): ImportServerCatalogResponse => {
-  return {
-    __type: "ImportServerCatalogResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1InternalError = (output: any, context: __SerdeContext): InternalError => {
   return {
-    __type: "InternalError",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3888,20 +3832,16 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LaunchAppResponse = (output: any, context: __SerdeContext): LaunchAppResponse => {
-  return {
-    __type: "LaunchAppResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1LaunchDetails = (output: any, context: __SerdeContext): LaunchDetails => {
   return {
-    __type: "LaunchDetails",
     latestLaunchTime:
       output.latestLaunchTime !== undefined && output.latestLaunchTime !== null
         ? new Date(Math.round(output.latestLaunchTime * 1000))
@@ -3913,7 +3853,6 @@ const deserializeAws_json1_1LaunchDetails = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ListAppsResponse = (output: any, context: __SerdeContext): ListAppsResponse => {
   return {
-    __type: "ListAppsResponse",
     apps:
       output.apps !== undefined && output.apps !== null ? deserializeAws_json1_1Apps(output.apps, context) : undefined,
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
@@ -3925,7 +3864,6 @@ const deserializeAws_json1_1MissingRequiredParameterException = (
   context: __SerdeContext
 ): MissingRequiredParameterException => {
   return {
-    __type: "MissingRequiredParameterException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3935,7 +3873,6 @@ const deserializeAws_json1_1NoConnectorsAvailableException = (
   context: __SerdeContext
 ): NoConnectorsAvailableException => {
   return {
-    __type: "NoConnectorsAvailableException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3945,7 +3882,6 @@ const deserializeAws_json1_1OperationNotPermittedException = (
   context: __SerdeContext
 ): OperationNotPermittedException => {
   return {
-    __type: "OperationNotPermittedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3954,23 +3890,18 @@ const deserializeAws_json1_1PutAppLaunchConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): PutAppLaunchConfigurationResponse => {
-  return {
-    __type: "PutAppLaunchConfigurationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutAppReplicationConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): PutAppReplicationConfigurationResponse => {
-  return {
-    __type: "PutAppReplicationConfigurationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ReplicationJob = (output: any, context: __SerdeContext): ReplicationJob => {
   return {
-    __type: "ReplicationJob",
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     encrypted: output.encrypted !== undefined && output.encrypted !== null ? output.encrypted : undefined,
     frequency: output.frequency !== undefined && output.frequency !== null ? output.frequency : undefined,
@@ -4014,7 +3945,6 @@ const deserializeAws_json1_1ReplicationJobAlreadyExistsException = (
   context: __SerdeContext
 ): ReplicationJobAlreadyExistsException => {
   return {
-    __type: "ReplicationJobAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -4028,14 +3958,12 @@ const deserializeAws_json1_1ReplicationJobNotFoundException = (
   context: __SerdeContext
 ): ReplicationJobNotFoundException => {
   return {
-    __type: "ReplicationJobNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ReplicationRun = (output: any, context: __SerdeContext): ReplicationRun => {
   return {
-    __type: "ReplicationRun",
     amiId: output.amiId !== undefined && output.amiId !== null ? output.amiId : undefined,
     completedTime:
       output.completedTime !== undefined && output.completedTime !== null
@@ -4066,7 +3994,6 @@ const deserializeAws_json1_1ReplicationRunLimitExceededException = (
   context: __SerdeContext
 ): ReplicationRunLimitExceededException => {
   return {
-    __type: "ReplicationRunLimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -4080,7 +4007,6 @@ const deserializeAws_json1_1ReplicationRunStageDetails = (
   context: __SerdeContext
 ): ReplicationRunStageDetails => {
   return {
-    __type: "ReplicationRunStageDetails",
     stage: output.stage !== undefined && output.stage !== null ? output.stage : undefined,
     stageProgress:
       output.stageProgress !== undefined && output.stageProgress !== null ? output.stageProgress : undefined,
@@ -4089,7 +4015,6 @@ const deserializeAws_json1_1ReplicationRunStageDetails = (
 
 const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
-    __type: "S3Location",
     bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
   } as any;
@@ -4097,7 +4022,6 @@ const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1Server = (output: any, context: __SerdeContext): Server => {
   return {
-    __type: "Server",
     replicationJobId:
       output.replicationJobId !== undefined && output.replicationJobId !== null ? output.replicationJobId : undefined,
     replicationJobTerminated:
@@ -4118,14 +4042,12 @@ const deserializeAws_json1_1ServerCannotBeReplicatedException = (
   context: __SerdeContext
 ): ServerCannotBeReplicatedException => {
   return {
-    __type: "ServerCannotBeReplicatedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ServerGroup = (output: any, context: __SerdeContext): ServerGroup => {
   return {
-    __type: "ServerGroup",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     serverGroupId:
       output.serverGroupId !== undefined && output.serverGroupId !== null ? output.serverGroupId : undefined,
@@ -4141,7 +4063,6 @@ const deserializeAws_json1_1ServerGroupLaunchConfiguration = (
   context: __SerdeContext
 ): ServerGroupLaunchConfiguration => {
   return {
-    __type: "ServerGroupLaunchConfiguration",
     launchOrder: output.launchOrder !== undefined && output.launchOrder !== null ? output.launchOrder : undefined,
     serverGroupId:
       output.serverGroupId !== undefined && output.serverGroupId !== null ? output.serverGroupId : undefined,
@@ -4164,7 +4085,6 @@ const deserializeAws_json1_1ServerGroupReplicationConfiguration = (
   context: __SerdeContext
 ): ServerGroupReplicationConfiguration => {
   return {
-    __type: "ServerGroupReplicationConfiguration",
     serverGroupId:
       output.serverGroupId !== undefined && output.serverGroupId !== null ? output.serverGroupId : undefined,
     serverReplicationConfigurations:
@@ -4190,7 +4110,6 @@ const deserializeAws_json1_1ServerLaunchConfiguration = (
   context: __SerdeContext
 ): ServerLaunchConfiguration => {
   return {
-    __type: "ServerLaunchConfiguration",
     associatePublicIpAddress:
       output.associatePublicIpAddress !== undefined && output.associatePublicIpAddress !== null
         ? output.associatePublicIpAddress
@@ -4229,7 +4148,6 @@ const deserializeAws_json1_1ServerReplicationConfiguration = (
   context: __SerdeContext
 ): ServerReplicationConfiguration => {
   return {
-    __type: "ServerReplicationConfiguration",
     server:
       output.server !== undefined && output.server !== null
         ? deserializeAws_json1_1Server(output.server, context)
@@ -4253,7 +4171,6 @@ const deserializeAws_json1_1ServerReplicationParameters = (
   context: __SerdeContext
 ): ServerReplicationParameters => {
   return {
-    __type: "ServerReplicationParameters",
     encrypted: output.encrypted !== undefined && output.encrypted !== null ? output.encrypted : undefined,
     frequency: output.frequency !== undefined && output.frequency !== null ? output.frequency : undefined,
     kmsKeyId: output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
@@ -4274,9 +4191,7 @@ const deserializeAws_json1_1StartAppReplicationResponse = (
   output: any,
   context: __SerdeContext
 ): StartAppReplicationResponse => {
-  return {
-    __type: "StartAppReplicationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StartOnDemandReplicationRunResponse = (
@@ -4284,7 +4199,6 @@ const deserializeAws_json1_1StartOnDemandReplicationRunResponse = (
   context: __SerdeContext
 ): StartOnDemandReplicationRunResponse => {
   return {
-    __type: "StartOnDemandReplicationRunResponse",
     replicationRunId:
       output.replicationRunId !== undefined && output.replicationRunId !== null ? output.replicationRunId : undefined,
   } as any;
@@ -4294,14 +4208,11 @@ const deserializeAws_json1_1StopAppReplicationResponse = (
   output: any,
   context: __SerdeContext
 ): StopAppReplicationResponse => {
-  return {
-    __type: "StopAppReplicationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -4315,15 +4226,11 @@ const deserializeAws_json1_1TemporarilyUnavailableException = (
   output: any,
   context: __SerdeContext
 ): TemporarilyUnavailableException => {
-  return {
-    __type: "TemporarilyUnavailableException",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TerminateAppResponse = (output: any, context: __SerdeContext): TerminateAppResponse => {
-  return {
-    __type: "TerminateAppResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UnauthorizedOperationException = (
@@ -4331,14 +4238,12 @@ const deserializeAws_json1_1UnauthorizedOperationException = (
   context: __SerdeContext
 ): UnauthorizedOperationException => {
   return {
-    __type: "UnauthorizedOperationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UpdateAppResponse = (output: any, context: __SerdeContext): UpdateAppResponse => {
   return {
-    __type: "UpdateAppResponse",
     appSummary:
       output.appSummary !== undefined && output.appSummary !== null
         ? deserializeAws_json1_1AppSummary(output.appSummary, context)
@@ -4356,14 +4261,11 @@ const deserializeAws_json1_1UpdateReplicationJobResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateReplicationJobResponse => {
-  return {
-    __type: "UpdateReplicationJobResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UserData = (output: any, context: __SerdeContext): UserData => {
   return {
-    __type: "UserData",
     s3Location:
       output.s3Location !== undefined && output.s3Location !== null
         ? deserializeAws_json1_1S3Location(output.s3Location, context)
@@ -4373,7 +4275,6 @@ const deserializeAws_json1_1UserData = (output: any, context: __SerdeContext): U
 
 const deserializeAws_json1_1VmServer = (output: any, context: __SerdeContext): VmServer => {
   return {
-    __type: "VmServer",
     vmManagerName:
       output.vmManagerName !== undefined && output.vmManagerName !== null ? output.vmManagerName : undefined,
     vmManagerType:
@@ -4389,7 +4290,6 @@ const deserializeAws_json1_1VmServer = (output: any, context: __SerdeContext): V
 
 const deserializeAws_json1_1VmServerAddress = (output: any, context: __SerdeContext): VmServerAddress => {
   return {
-    __type: "VmServerAddress",
     vmId: output.vmId !== undefined && output.vmId !== null ? output.vmId : undefined,
     vmManagerId: output.vmManagerId !== undefined && output.vmManagerId !== null ? output.vmManagerId : undefined,
   } as any;

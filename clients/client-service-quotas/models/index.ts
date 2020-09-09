@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,31 +14,22 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
-export interface AssociateServiceQuotaTemplateRequest {
-  __type?: "AssociateServiceQuotaTemplateRequest";
-}
+export interface AssociateServiceQuotaTemplateRequest {}
 
 export namespace AssociateServiceQuotaTemplateRequest {
   export const filterSensitiveLog = (obj: AssociateServiceQuotaTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateServiceQuotaTemplateRequest =>
-    __isa(o, "AssociateServiceQuotaTemplateRequest");
 }
 
-export interface AssociateServiceQuotaTemplateResponse {
-  __type?: "AssociateServiceQuotaTemplateResponse";
-}
+export interface AssociateServiceQuotaTemplateResponse {}
 
 export namespace AssociateServiceQuotaTemplateResponse {
   export const filterSensitiveLog = (obj: AssociateServiceQuotaTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateServiceQuotaTemplateResponse =>
-    __isa(o, "AssociateServiceQuotaTemplateResponse");
 }
 
 /**
@@ -55,12 +46,9 @@ export namespace AWSServiceAccessNotEnabledException {
   export const filterSensitiveLog = (obj: AWSServiceAccessNotEnabledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AWSServiceAccessNotEnabledException =>
-    __isa(o, "AWSServiceAccessNotEnabledException");
 }
 
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
-  __type?: "DeleteServiceQuotaIncreaseRequestFromTemplateRequest";
   /**
    * <p>Specifies the code for the quota that you want to delete.</p>
    */
@@ -81,20 +69,14 @@ export namespace DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteServiceQuotaIncreaseRequestFromTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServiceQuotaIncreaseRequestFromTemplateRequest =>
-    __isa(o, "DeleteServiceQuotaIncreaseRequestFromTemplateRequest");
 }
 
-export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
-  __type?: "DeleteServiceQuotaIncreaseRequestFromTemplateResponse";
-}
+export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse {}
 
 export namespace DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
   export const filterSensitiveLog = (obj: DeleteServiceQuotaIncreaseRequestFromTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServiceQuotaIncreaseRequestFromTemplateResponse =>
-    __isa(o, "DeleteServiceQuotaIncreaseRequestFromTemplateResponse");
 }
 
 /**
@@ -110,31 +92,22 @@ export namespace DependencyAccessDeniedException {
   export const filterSensitiveLog = (obj: DependencyAccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DependencyAccessDeniedException => __isa(o, "DependencyAccessDeniedException");
 }
 
-export interface DisassociateServiceQuotaTemplateRequest {
-  __type?: "DisassociateServiceQuotaTemplateRequest";
-}
+export interface DisassociateServiceQuotaTemplateRequest {}
 
 export namespace DisassociateServiceQuotaTemplateRequest {
   export const filterSensitiveLog = (obj: DisassociateServiceQuotaTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateServiceQuotaTemplateRequest =>
-    __isa(o, "DisassociateServiceQuotaTemplateRequest");
 }
 
-export interface DisassociateServiceQuotaTemplateResponse {
-  __type?: "DisassociateServiceQuotaTemplateResponse";
-}
+export interface DisassociateServiceQuotaTemplateResponse {}
 
 export namespace DisassociateServiceQuotaTemplateResponse {
   export const filterSensitiveLog = (obj: DisassociateServiceQuotaTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateServiceQuotaTemplateResponse =>
-    __isa(o, "DisassociateServiceQuotaTemplateResponse");
 }
 
 export enum ErrorCode {
@@ -148,7 +121,6 @@ export enum ErrorCode {
  * <p>Returns an error that explains why the action did not succeed.</p>
  */
 export interface ErrorReason {
-  __type?: "ErrorReason";
   /**
    * <p>Service Quotas returns the following error values.
    *     </p>
@@ -178,23 +150,17 @@ export namespace ErrorReason {
   export const filterSensitiveLog = (obj: ErrorReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorReason => __isa(o, "ErrorReason");
 }
 
-export interface GetAssociationForServiceQuotaTemplateRequest {
-  __type?: "GetAssociationForServiceQuotaTemplateRequest";
-}
+export interface GetAssociationForServiceQuotaTemplateRequest {}
 
 export namespace GetAssociationForServiceQuotaTemplateRequest {
   export const filterSensitiveLog = (obj: GetAssociationForServiceQuotaTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssociationForServiceQuotaTemplateRequest =>
-    __isa(o, "GetAssociationForServiceQuotaTemplateRequest");
 }
 
 export interface GetAssociationForServiceQuotaTemplateResponse {
-  __type?: "GetAssociationForServiceQuotaTemplateResponse";
   /**
    * <p>Specifies whether the template is <code>ASSOCIATED</code> or <code>DISASSOCIATED</code>.
    *       If the template is <code>ASSOCIATED</code>, then it requests service quota increases for all
@@ -207,12 +173,9 @@ export namespace GetAssociationForServiceQuotaTemplateResponse {
   export const filterSensitiveLog = (obj: GetAssociationForServiceQuotaTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssociationForServiceQuotaTemplateResponse =>
-    __isa(o, "GetAssociationForServiceQuotaTemplateResponse");
 }
 
 export interface GetAWSDefaultServiceQuotaRequest {
-  __type?: "GetAWSDefaultServiceQuotaRequest";
   /**
    * <p>Identifies the service quota you want to select.</p>
    */
@@ -228,11 +191,9 @@ export namespace GetAWSDefaultServiceQuotaRequest {
   export const filterSensitiveLog = (obj: GetAWSDefaultServiceQuotaRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAWSDefaultServiceQuotaRequest => __isa(o, "GetAWSDefaultServiceQuotaRequest");
 }
 
 export interface GetAWSDefaultServiceQuotaResponse {
-  __type?: "GetAWSDefaultServiceQuotaResponse";
   /**
    * <p>Returns the <a>ServiceQuota</a> object which contains all values for a
    *       quota.</p>
@@ -244,11 +205,9 @@ export namespace GetAWSDefaultServiceQuotaResponse {
   export const filterSensitiveLog = (obj: GetAWSDefaultServiceQuotaResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAWSDefaultServiceQuotaResponse => __isa(o, "GetAWSDefaultServiceQuotaResponse");
 }
 
 export interface GetRequestedServiceQuotaChangeRequest {
-  __type?: "GetRequestedServiceQuotaChangeRequest";
   /**
    * <p>Identifies the quota increase request.</p>
    */
@@ -259,12 +218,9 @@ export namespace GetRequestedServiceQuotaChangeRequest {
   export const filterSensitiveLog = (obj: GetRequestedServiceQuotaChangeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRequestedServiceQuotaChangeRequest =>
-    __isa(o, "GetRequestedServiceQuotaChangeRequest");
 }
 
 export interface GetRequestedServiceQuotaChangeResponse {
-  __type?: "GetRequestedServiceQuotaChangeResponse";
   /**
    * <p>Returns the <code>RequestedServiceQuotaChange</code> object for the specific increase
    *       request.</p>
@@ -276,12 +232,9 @@ export namespace GetRequestedServiceQuotaChangeResponse {
   export const filterSensitiveLog = (obj: GetRequestedServiceQuotaChangeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRequestedServiceQuotaChangeResponse =>
-    __isa(o, "GetRequestedServiceQuotaChangeResponse");
 }
 
 export interface GetServiceQuotaIncreaseRequestFromTemplateRequest {
-  __type?: "GetServiceQuotaIncreaseRequestFromTemplateRequest";
   /**
    * <p>Specifies the quota you want.</p>
    */
@@ -302,12 +255,9 @@ export namespace GetServiceQuotaIncreaseRequestFromTemplateRequest {
   export const filterSensitiveLog = (obj: GetServiceQuotaIncreaseRequestFromTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceQuotaIncreaseRequestFromTemplateRequest =>
-    __isa(o, "GetServiceQuotaIncreaseRequestFromTemplateRequest");
 }
 
 export interface GetServiceQuotaIncreaseRequestFromTemplateResponse {
-  __type?: "GetServiceQuotaIncreaseRequestFromTemplateResponse";
   /**
    * <p>This object contains the details about the quota increase request.</p>
    */
@@ -318,12 +268,9 @@ export namespace GetServiceQuotaIncreaseRequestFromTemplateResponse {
   export const filterSensitiveLog = (obj: GetServiceQuotaIncreaseRequestFromTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceQuotaIncreaseRequestFromTemplateResponse =>
-    __isa(o, "GetServiceQuotaIncreaseRequestFromTemplateResponse");
 }
 
 export interface GetServiceQuotaRequest {
-  __type?: "GetServiceQuotaRequest";
   /**
    * <p>Specifies the service that you want to use.</p>
    */
@@ -339,11 +286,9 @@ export namespace GetServiceQuotaRequest {
   export const filterSensitiveLog = (obj: GetServiceQuotaRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceQuotaRequest => __isa(o, "GetServiceQuotaRequest");
 }
 
 export interface GetServiceQuotaResponse {
-  __type?: "GetServiceQuotaResponse";
   /**
    * <p>Returns the <a>ServiceQuota</a> object which contains all values for a
    *       quota.</p>
@@ -355,7 +300,6 @@ export namespace GetServiceQuotaResponse {
   export const filterSensitiveLog = (obj: GetServiceQuotaResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceQuotaResponse => __isa(o, "GetServiceQuotaResponse");
 }
 
 /**
@@ -371,7 +315,6 @@ export namespace IllegalArgumentException {
   export const filterSensitiveLog = (obj: IllegalArgumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IllegalArgumentException => __isa(o, "IllegalArgumentException");
 }
 
 /**
@@ -387,7 +330,6 @@ export namespace InvalidPaginationTokenException {
   export const filterSensitiveLog = (obj: InvalidPaginationTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPaginationTokenException => __isa(o, "InvalidPaginationTokenException");
 }
 
 /**
@@ -403,11 +345,9 @@ export namespace InvalidResourceStateException {
   export const filterSensitiveLog = (obj: InvalidResourceStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidResourceStateException => __isa(o, "InvalidResourceStateException");
 }
 
 export interface ListAWSDefaultServiceQuotasRequest {
-  __type?: "ListAWSDefaultServiceQuotasRequest";
   /**
    * <p>(Optional) Limits the number of results that you want to include in the response. If you
    *       don't include this parameter, the response defaults to a value that's specific to the
@@ -441,12 +381,9 @@ export namespace ListAWSDefaultServiceQuotasRequest {
   export const filterSensitiveLog = (obj: ListAWSDefaultServiceQuotasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAWSDefaultServiceQuotasRequest =>
-    __isa(o, "ListAWSDefaultServiceQuotasRequest");
 }
 
 export interface ListAWSDefaultServiceQuotasResponse {
-  __type?: "ListAWSDefaultServiceQuotasResponse";
   /**
    * <p>A list of the quotas in the account with the AWS default values. </p>
    */
@@ -465,12 +402,9 @@ export namespace ListAWSDefaultServiceQuotasResponse {
   export const filterSensitiveLog = (obj: ListAWSDefaultServiceQuotasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAWSDefaultServiceQuotasResponse =>
-    __isa(o, "ListAWSDefaultServiceQuotasResponse");
 }
 
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
-  __type?: "ListRequestedServiceQuotaChangeHistoryByQuotaRequest";
   /**
    * <p>Specifies the service that you want to use.</p>
    */
@@ -510,12 +444,9 @@ export namespace ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
   export const filterSensitiveLog = (obj: ListRequestedServiceQuotaChangeHistoryByQuotaRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRequestedServiceQuotaChangeHistoryByQuotaRequest =>
-    __isa(o, "ListRequestedServiceQuotaChangeHistoryByQuotaRequest");
 }
 
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
-  __type?: "ListRequestedServiceQuotaChangeHistoryByQuotaResponse";
   /**
    * <p>If present in the response, this value indicates there's more output available that what's
    *       included in the current response. This can occur even when the response includes no values at
@@ -536,12 +467,9 @@ export namespace ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
   export const filterSensitiveLog = (obj: ListRequestedServiceQuotaChangeHistoryByQuotaResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRequestedServiceQuotaChangeHistoryByQuotaResponse =>
-    __isa(o, "ListRequestedServiceQuotaChangeHistoryByQuotaResponse");
 }
 
 export interface ListRequestedServiceQuotaChangeHistoryRequest {
-  __type?: "ListRequestedServiceQuotaChangeHistoryRequest";
   /**
    * <p>Specifies the status value of the quota increase request.</p>
    */
@@ -576,12 +504,9 @@ export namespace ListRequestedServiceQuotaChangeHistoryRequest {
   export const filterSensitiveLog = (obj: ListRequestedServiceQuotaChangeHistoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRequestedServiceQuotaChangeHistoryRequest =>
-    __isa(o, "ListRequestedServiceQuotaChangeHistoryRequest");
 }
 
 export interface ListRequestedServiceQuotaChangeHistoryResponse {
-  __type?: "ListRequestedServiceQuotaChangeHistoryResponse";
   /**
    * <p>If present in the response, this value indicates there's more output available that what's
    *       included in the current response. This can occur even when the response includes no values at
@@ -602,12 +527,9 @@ export namespace ListRequestedServiceQuotaChangeHistoryResponse {
   export const filterSensitiveLog = (obj: ListRequestedServiceQuotaChangeHistoryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRequestedServiceQuotaChangeHistoryResponse =>
-    __isa(o, "ListRequestedServiceQuotaChangeHistoryResponse");
 }
 
 export interface ListServiceQuotaIncreaseRequestsInTemplateRequest {
-  __type?: "ListServiceQuotaIncreaseRequestsInTemplateRequest";
   /**
    * <p>(Optional) Limits the number of results that you want to include in the response. If you
    *       don't include this parameter, the response defaults to a value that's specific to the
@@ -643,12 +565,9 @@ export namespace ListServiceQuotaIncreaseRequestsInTemplateRequest {
   export const filterSensitiveLog = (obj: ListServiceQuotaIncreaseRequestsInTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServiceQuotaIncreaseRequestsInTemplateRequest =>
-    __isa(o, "ListServiceQuotaIncreaseRequestsInTemplateRequest");
 }
 
 export interface ListServiceQuotaIncreaseRequestsInTemplateResponse {
-  __type?: "ListServiceQuotaIncreaseRequestsInTemplateResponse";
   /**
    * <p>If present in the response, this value indicates there's more output available that what's
    *       included in the current response. This can occur even when the response includes no values at
@@ -669,12 +588,9 @@ export namespace ListServiceQuotaIncreaseRequestsInTemplateResponse {
   export const filterSensitiveLog = (obj: ListServiceQuotaIncreaseRequestsInTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServiceQuotaIncreaseRequestsInTemplateResponse =>
-    __isa(o, "ListServiceQuotaIncreaseRequestsInTemplateResponse");
 }
 
 export interface ListServiceQuotasRequest {
-  __type?: "ListServiceQuotasRequest";
   /**
    * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
    *       response in a previous request that indicates that there's more output available. In a
@@ -705,11 +621,9 @@ export namespace ListServiceQuotasRequest {
   export const filterSensitiveLog = (obj: ListServiceQuotasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServiceQuotasRequest => __isa(o, "ListServiceQuotasRequest");
 }
 
 export interface ListServiceQuotasResponse {
-  __type?: "ListServiceQuotasResponse";
   /**
    * <p>If present in the response, this value indicates there's more output available that what's
    *       included in the current response. This can occur even when the response includes no values at
@@ -731,11 +645,9 @@ export namespace ListServiceQuotasResponse {
   export const filterSensitiveLog = (obj: ListServiceQuotasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServiceQuotasResponse => __isa(o, "ListServiceQuotasResponse");
 }
 
 export interface ListServicesRequest {
-  __type?: "ListServicesRequest";
   /**
    * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
    *       response in a previous request that indicates that there's more output available. In a
@@ -760,11 +672,9 @@ export namespace ListServicesRequest {
   export const filterSensitiveLog = (obj: ListServicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServicesRequest => __isa(o, "ListServicesRequest");
 }
 
 export interface ListServicesResponse {
-  __type?: "ListServicesResponse";
   /**
    * <p>Returns a list of services. </p>
    */
@@ -785,14 +695,12 @@ export namespace ListServicesResponse {
   export const filterSensitiveLog = (obj: ListServicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServicesResponse => __isa(o, "ListServicesResponse");
 }
 
 /**
  * <p>A structure that uses CloudWatch metrics to gather data about the service quota.</p>
  */
 export interface MetricInfo {
-  __type?: "MetricInfo";
   /**
    * <p>The namespace of the metric. The namespace is a container for CloudWatch metrics. You can
    *       specify a name for the namespace when you create a metric.</p>
@@ -825,7 +733,6 @@ export namespace MetricInfo {
   export const filterSensitiveLog = (obj: MetricInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricInfo => __isa(o, "MetricInfo");
 }
 
 /**
@@ -841,7 +748,6 @@ export namespace NoAvailableOrganizationException {
   export const filterSensitiveLog = (obj: NoAvailableOrganizationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoAvailableOrganizationException => __isa(o, "NoAvailableOrganizationException");
 }
 
 /**
@@ -857,7 +763,6 @@ export namespace NoSuchResourceException {
   export const filterSensitiveLog = (obj: NoSuchResourceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchResourceException => __isa(o, "NoSuchResourceException");
 }
 
 /**
@@ -874,8 +779,6 @@ export namespace OrganizationNotInAllFeaturesModeException {
   export const filterSensitiveLog = (obj: OrganizationNotInAllFeaturesModeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrganizationNotInAllFeaturesModeException =>
-    __isa(o, "OrganizationNotInAllFeaturesModeException");
 }
 
 export enum PeriodUnit {
@@ -889,7 +792,6 @@ export enum PeriodUnit {
 }
 
 export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
-  __type?: "PutServiceQuotaIncreaseRequestIntoTemplateRequest";
   /**
    * <p>Specifies the new, increased value for the quota. </p>
    */
@@ -915,12 +817,9 @@ export namespace PutServiceQuotaIncreaseRequestIntoTemplateRequest {
   export const filterSensitiveLog = (obj: PutServiceQuotaIncreaseRequestIntoTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutServiceQuotaIncreaseRequestIntoTemplateRequest =>
-    __isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateRequest");
 }
 
 export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse {
-  __type?: "PutServiceQuotaIncreaseRequestIntoTemplateResponse";
   /**
    * <p>A structure that contains information about one service quota increase request.</p>
    */
@@ -931,8 +830,6 @@ export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
   export const filterSensitiveLog = (obj: PutServiceQuotaIncreaseRequestIntoTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutServiceQuotaIncreaseRequestIntoTemplateResponse =>
-    __isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateResponse");
 }
 
 /**
@@ -949,14 +846,12 @@ export namespace QuotaExceededException {
   export const filterSensitiveLog = (obj: QuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QuotaExceededException => __isa(o, "QuotaExceededException");
 }
 
 /**
  * <p>A structure that contains information about the quota period.</p>
  */
 export interface QuotaPeriod {
-  __type?: "QuotaPeriod";
   /**
    * <p>The time unit of a period.</p>
    */
@@ -972,14 +867,12 @@ export namespace QuotaPeriod {
   export const filterSensitiveLog = (obj: QuotaPeriod): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QuotaPeriod => __isa(o, "QuotaPeriod");
 }
 
 /**
  * <p>A structure that contains information about a requested change for a quota.</p>
  */
 export interface RequestedServiceQuotaChange {
-  __type?: "RequestedServiceQuotaChange";
   /**
    * <p>The IAM identity who submitted the service quota increase request.</p>
    */
@@ -1056,11 +949,9 @@ export namespace RequestedServiceQuotaChange {
   export const filterSensitiveLog = (obj: RequestedServiceQuotaChange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestedServiceQuotaChange => __isa(o, "RequestedServiceQuotaChange");
 }
 
 export interface RequestServiceQuotaIncreaseRequest {
-  __type?: "RequestServiceQuotaIncreaseRequest";
   /**
    * <p>Specifies the value submitted in the service quota increase request. </p>
    */
@@ -1081,12 +972,9 @@ export namespace RequestServiceQuotaIncreaseRequest {
   export const filterSensitiveLog = (obj: RequestServiceQuotaIncreaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestServiceQuotaIncreaseRequest =>
-    __isa(o, "RequestServiceQuotaIncreaseRequest");
 }
 
 export interface RequestServiceQuotaIncreaseResponse {
-  __type?: "RequestServiceQuotaIncreaseResponse";
   /**
    * <p>Returns a list of service quota requests.</p>
    */
@@ -1097,8 +985,6 @@ export namespace RequestServiceQuotaIncreaseResponse {
   export const filterSensitiveLog = (obj: RequestServiceQuotaIncreaseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestServiceQuotaIncreaseResponse =>
-    __isa(o, "RequestServiceQuotaIncreaseResponse");
 }
 
 export enum RequestStatus {
@@ -1122,7 +1008,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -1138,7 +1023,6 @@ export namespace ServiceException {
   export const filterSensitiveLog = (obj: ServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceException => __isa(o, "ServiceException");
 }
 
 /**
@@ -1146,7 +1030,6 @@ export namespace ServiceException {
  *       does not include all details of the service quota. To get those values, use the <a>ListServiceQuotas</a> operation. </p>
  */
 export interface ServiceInfo {
-  __type?: "ServiceInfo";
   /**
    * <p>The name of the AWS service specified in the increase request. </p>
    */
@@ -1162,14 +1045,12 @@ export namespace ServiceInfo {
   export const filterSensitiveLog = (obj: ServiceInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceInfo => __isa(o, "ServiceInfo");
 }
 
 /**
  * <p>A structure that contains the full set of details that define the service quota.</p>
  */
 export interface ServiceQuota {
-  __type?: "ServiceQuota";
   /**
    * <p>The unit of measurement for the value of the service quota.</p>
    */
@@ -1236,14 +1117,12 @@ export namespace ServiceQuota {
   export const filterSensitiveLog = (obj: ServiceQuota): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuota => __isa(o, "ServiceQuota");
 }
 
 /**
  * <p>A structure that contains information about one service quota increase request.</p>
  */
 export interface ServiceQuotaIncreaseRequestInTemplate {
-  __type?: "ServiceQuotaIncreaseRequestInTemplate";
   /**
    * <p>The code identifier for the service quota specified in the increase request.</p>
    */
@@ -1289,8 +1168,6 @@ export namespace ServiceQuotaIncreaseRequestInTemplate {
   export const filterSensitiveLog = (obj: ServiceQuotaIncreaseRequestInTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaIncreaseRequestInTemplate =>
-    __isa(o, "ServiceQuotaIncreaseRequestInTemplate");
 }
 
 export enum ServiceQuotaTemplateAssociationStatus {
@@ -1312,8 +1189,6 @@ export namespace ServiceQuotaTemplateNotInUseException {
   export const filterSensitiveLog = (obj: ServiceQuotaTemplateNotInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaTemplateNotInUseException =>
-    __isa(o, "ServiceQuotaTemplateNotInUseException");
 }
 
 /**
@@ -1330,8 +1205,6 @@ export namespace TemplatesNotAvailableInRegionException {
   export const filterSensitiveLog = (obj: TemplatesNotAvailableInRegionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplatesNotAvailableInRegionException =>
-    __isa(o, "TemplatesNotAvailableInRegionException");
 }
 
 /**
@@ -1348,5 +1221,4 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }

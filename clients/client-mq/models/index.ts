@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AuthenticationStrategy {
@@ -10,7 +10,6 @@ export enum AuthenticationStrategy {
  * Name of the availability zone.
  */
 export interface AvailabilityZone {
-  __type?: "AvailabilityZone";
   /**
    * Id for the availability zone.
    */
@@ -21,7 +20,6 @@ export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 /**
@@ -45,14 +43,12 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
  * Types of broker engines.
  */
 export interface BrokerEngineType {
-  __type?: "BrokerEngineType";
   /**
    * The type of broker engine.
    */
@@ -68,14 +64,12 @@ export namespace BrokerEngineType {
   export const filterSensitiveLog = (obj: BrokerEngineType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BrokerEngineType => __isa(o, "BrokerEngineType");
 }
 
 /**
  * Returns information about all brokers.
  */
 export interface BrokerInstance {
-  __type?: "BrokerInstance";
   /**
    * The URL of the broker's ActiveMQ Web Console.
    */
@@ -96,14 +90,12 @@ export namespace BrokerInstance {
   export const filterSensitiveLog = (obj: BrokerInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BrokerInstance => __isa(o, "BrokerInstance");
 }
 
 /**
  * Option for host instance type.
  */
 export interface BrokerInstanceOption {
-  __type?: "BrokerInstanceOption";
   /**
    * The list of available az.
    */
@@ -139,7 +131,6 @@ export namespace BrokerInstanceOption {
   export const filterSensitiveLog = (obj: BrokerInstanceOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BrokerInstanceOption => __isa(o, "BrokerInstanceOption");
 }
 
 export enum BrokerState {
@@ -159,7 +150,6 @@ export enum BrokerStorageType {
  * The Amazon Resource Name (ARN) of the broker.
  */
 export interface BrokerSummary {
-  __type?: "BrokerSummary";
   /**
    * The unique ID that Amazon MQ generates for the broker.
    */
@@ -200,7 +190,6 @@ export namespace BrokerSummary {
   export const filterSensitiveLog = (obj: BrokerSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BrokerSummary => __isa(o, "BrokerSummary");
 }
 
 export enum ChangeType {
@@ -213,7 +202,6 @@ export enum ChangeType {
  * Returns information about all configurations.
  */
 export interface Configuration {
-  __type?: "Configuration";
   /**
    * Required. The date and time of the configuration revision.
    */
@@ -269,14 +257,12 @@ export namespace Configuration {
   export const filterSensitiveLog = (obj: Configuration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Configuration => __isa(o, "Configuration");
 }
 
 /**
  * A list of information about the configuration.
  */
 export interface ConfigurationId {
-  __type?: "ConfigurationId";
   /**
    * Required. The unique ID that Amazon MQ generates for the configuration.
    */
@@ -292,14 +278,12 @@ export namespace ConfigurationId {
   export const filterSensitiveLog = (obj: ConfigurationId): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationId => __isa(o, "ConfigurationId");
 }
 
 /**
  * Returns information about the specified configuration revision.
  */
 export interface ConfigurationRevision {
-  __type?: "ConfigurationRevision";
   /**
    * Required. The revision number of the configuration.
    */
@@ -320,14 +304,12 @@ export namespace ConfigurationRevision {
   export const filterSensitiveLog = (obj: ConfigurationRevision): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationRevision => __isa(o, "ConfigurationRevision");
 }
 
 /**
  * Broker configuration information
  */
 export interface Configurations {
-  __type?: "Configurations";
   /**
    * The current configuration of the broker.
    */
@@ -348,7 +330,6 @@ export namespace Configurations {
   export const filterSensitiveLog = (obj: Configurations): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Configurations => __isa(o, "Configurations");
 }
 
 /**
@@ -372,14 +353,12 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
  * Creates a broker using the specified properties.
  */
 export interface CreateBrokerRequest {
-  __type?: "CreateBrokerRequest";
   /**
    * A list of information about the configuration.
    */
@@ -480,11 +459,9 @@ export namespace CreateBrokerRequest {
   export const filterSensitiveLog = (obj: CreateBrokerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBrokerRequest => __isa(o, "CreateBrokerRequest");
 }
 
 export interface CreateBrokerResponse {
-  __type?: "CreateBrokerResponse";
   /**
    * The unique ID that Amazon MQ generates for the broker.
    */
@@ -500,14 +477,12 @@ export namespace CreateBrokerResponse {
   export const filterSensitiveLog = (obj: CreateBrokerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBrokerResponse => __isa(o, "CreateBrokerResponse");
 }
 
 /**
  * Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).
  */
 export interface CreateConfigurationRequest {
-  __type?: "CreateConfigurationRequest";
   /**
    * Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
    */
@@ -538,11 +513,9 @@ export namespace CreateConfigurationRequest {
   export const filterSensitiveLog = (obj: CreateConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationRequest => __isa(o, "CreateConfigurationRequest");
 }
 
 export interface CreateConfigurationResponse {
-  __type?: "CreateConfigurationResponse";
   /**
    * The authentication strategy associated with the configuration.
    */
@@ -578,14 +551,12 @@ export namespace CreateConfigurationResponse {
   export const filterSensitiveLog = (obj: CreateConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationResponse => __isa(o, "CreateConfigurationResponse");
 }
 
 /**
  * A map of the key-value pairs for the resource tag.
  */
 export interface CreateTagsRequest {
-  __type?: "CreateTagsRequest";
   /**
    * The key-value pair for the resource tag.
    */
@@ -601,14 +572,12 @@ export namespace CreateTagsRequest {
   export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTagsRequest => __isa(o, "CreateTagsRequest");
 }
 
 /**
  * Creates a new ActiveMQ user.
  */
 export interface CreateUserRequest {
-  __type?: "CreateUserRequest";
   /**
    * Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
    */
@@ -639,18 +608,14 @@ export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
-export interface CreateUserResponse {
-  __type?: "CreateUserResponse";
-}
+export interface CreateUserResponse {}
 
 export namespace CreateUserResponse {
   export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserResponse => __isa(o, "CreateUserResponse");
 }
 
 export enum DayOfWeek {
@@ -664,7 +629,6 @@ export enum DayOfWeek {
 }
 
 export interface DeleteBrokerRequest {
-  __type?: "DeleteBrokerRequest";
   /**
    * The unique ID that Amazon MQ generates for the broker.
    */
@@ -675,11 +639,9 @@ export namespace DeleteBrokerRequest {
   export const filterSensitiveLog = (obj: DeleteBrokerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBrokerRequest => __isa(o, "DeleteBrokerRequest");
 }
 
 export interface DeleteBrokerResponse {
-  __type?: "DeleteBrokerResponse";
   /**
    * The unique ID that Amazon MQ generates for the broker.
    */
@@ -690,11 +652,9 @@ export namespace DeleteBrokerResponse {
   export const filterSensitiveLog = (obj: DeleteBrokerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBrokerResponse => __isa(o, "DeleteBrokerResponse");
 }
 
 export interface DeleteTagsRequest {
-  __type?: "DeleteTagsRequest";
   /**
    * The Amazon Resource Name (ARN) of the resource tag.
    */
@@ -710,11 +670,9 @@ export namespace DeleteTagsRequest {
   export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsRequest => __isa(o, "DeleteTagsRequest");
 }
 
 export interface DeleteUserRequest {
-  __type?: "DeleteUserRequest";
   /**
    * The unique ID that Amazon MQ generates for the broker.
    */
@@ -730,18 +688,14 @@ export namespace DeleteUserRequest {
   export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
-export interface DeleteUserResponse {
-  __type?: "DeleteUserResponse";
-}
+export interface DeleteUserResponse {}
 
 export namespace DeleteUserResponse {
   export const filterSensitiveLog = (obj: DeleteUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserResponse => __isa(o, "DeleteUserResponse");
 }
 
 export enum DeploymentMode {
@@ -750,7 +704,6 @@ export enum DeploymentMode {
 }
 
 export interface DescribeBrokerEngineTypesRequest {
-  __type?: "DescribeBrokerEngineTypesRequest";
   /**
    * The maximum number of engine types that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
    */
@@ -771,11 +724,9 @@ export namespace DescribeBrokerEngineTypesRequest {
   export const filterSensitiveLog = (obj: DescribeBrokerEngineTypesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBrokerEngineTypesRequest => __isa(o, "DescribeBrokerEngineTypesRequest");
 }
 
 export interface DescribeBrokerEngineTypesResponse {
-  __type?: "DescribeBrokerEngineTypesResponse";
   /**
    * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
    */
@@ -796,11 +747,9 @@ export namespace DescribeBrokerEngineTypesResponse {
   export const filterSensitiveLog = (obj: DescribeBrokerEngineTypesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBrokerEngineTypesResponse => __isa(o, "DescribeBrokerEngineTypesResponse");
 }
 
 export interface DescribeBrokerInstanceOptionsRequest {
-  __type?: "DescribeBrokerInstanceOptionsRequest";
   /**
    * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
    */
@@ -831,12 +780,9 @@ export namespace DescribeBrokerInstanceOptionsRequest {
   export const filterSensitiveLog = (obj: DescribeBrokerInstanceOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBrokerInstanceOptionsRequest =>
-    __isa(o, "DescribeBrokerInstanceOptionsRequest");
 }
 
 export interface DescribeBrokerInstanceOptionsResponse {
-  __type?: "DescribeBrokerInstanceOptionsResponse";
   /**
    * List of available broker instance options.
    */
@@ -857,12 +803,9 @@ export namespace DescribeBrokerInstanceOptionsResponse {
   export const filterSensitiveLog = (obj: DescribeBrokerInstanceOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBrokerInstanceOptionsResponse =>
-    __isa(o, "DescribeBrokerInstanceOptionsResponse");
 }
 
 export interface DescribeBrokerRequest {
-  __type?: "DescribeBrokerRequest";
   /**
    * The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
    */
@@ -873,11 +816,9 @@ export namespace DescribeBrokerRequest {
   export const filterSensitiveLog = (obj: DescribeBrokerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBrokerRequest => __isa(o, "DescribeBrokerRequest");
 }
 
 export interface DescribeBrokerResponse {
-  __type?: "DescribeBrokerResponse";
   /**
    * The status of the broker.
    */
@@ -1023,11 +964,9 @@ export namespace DescribeBrokerResponse {
   export const filterSensitiveLog = (obj: DescribeBrokerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBrokerResponse => __isa(o, "DescribeBrokerResponse");
 }
 
 export interface DescribeConfigurationRequest {
-  __type?: "DescribeConfigurationRequest";
   /**
    * The unique ID that Amazon MQ generates for the configuration.
    */
@@ -1038,11 +977,9 @@ export namespace DescribeConfigurationRequest {
   export const filterSensitiveLog = (obj: DescribeConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationRequest => __isa(o, "DescribeConfigurationRequest");
 }
 
 export interface DescribeConfigurationResponse {
-  __type?: "DescribeConfigurationResponse";
   /**
    * Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
    */
@@ -1098,11 +1035,9 @@ export namespace DescribeConfigurationResponse {
   export const filterSensitiveLog = (obj: DescribeConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationResponse => __isa(o, "DescribeConfigurationResponse");
 }
 
 export interface DescribeConfigurationRevisionRequest {
-  __type?: "DescribeConfigurationRevisionRequest";
   /**
    * The revision of the configuration.
    */
@@ -1118,12 +1053,9 @@ export namespace DescribeConfigurationRevisionRequest {
   export const filterSensitiveLog = (obj: DescribeConfigurationRevisionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationRevisionRequest =>
-    __isa(o, "DescribeConfigurationRevisionRequest");
 }
 
 export interface DescribeConfigurationRevisionResponse {
-  __type?: "DescribeConfigurationRevisionResponse";
   /**
    * Required. The unique ID that Amazon MQ generates for the configuration.
    */
@@ -1149,12 +1081,9 @@ export namespace DescribeConfigurationRevisionResponse {
   export const filterSensitiveLog = (obj: DescribeConfigurationRevisionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationRevisionResponse =>
-    __isa(o, "DescribeConfigurationRevisionResponse");
 }
 
 export interface DescribeUserRequest {
-  __type?: "DescribeUserRequest";
   /**
    * The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
    */
@@ -1170,11 +1099,9 @@ export namespace DescribeUserRequest {
   export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserRequest => __isa(o, "DescribeUserRequest");
 }
 
 export interface DescribeUserResponse {
-  __type?: "DescribeUserResponse";
   /**
    * Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
    */
@@ -1205,14 +1132,12 @@ export namespace DescribeUserResponse {
   export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserResponse => __isa(o, "DescribeUserResponse");
 }
 
 /**
  * Encryption options for the broker.
  */
 export interface EncryptionOptions {
-  __type?: "EncryptionOptions";
   /**
    * Enables the use of an AWS owned CMK using AWS Key Management Service (KMS).
    */
@@ -1228,7 +1153,6 @@ export namespace EncryptionOptions {
   export const filterSensitiveLog = (obj: EncryptionOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionOptions => __isa(o, "EncryptionOptions");
 }
 
 export enum EngineType {
@@ -1239,7 +1163,6 @@ export enum EngineType {
  * Id of the engine version.
  */
 export interface EngineVersion {
-  __type?: "EngineVersion";
   /**
    * Id for the version.
    */
@@ -1250,7 +1173,6 @@ export namespace EngineVersion {
   export const filterSensitiveLog = (obj: EngineVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EngineVersion => __isa(o, "EngineVersion");
 }
 
 /**
@@ -1274,7 +1196,6 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
@@ -1298,14 +1219,12 @@ export namespace InternalServerErrorException {
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 /**
  * The metadata of the LDAP server used to authenticate and authorize connections to the broker.
  */
 export interface LdapServerMetadataInput {
-  __type?: "LdapServerMetadataInput";
   /**
    * Service account username.
    */
@@ -1366,14 +1285,12 @@ export namespace LdapServerMetadataInput {
   export const filterSensitiveLog = (obj: LdapServerMetadataInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LdapServerMetadataInput => __isa(o, "LdapServerMetadataInput");
 }
 
 /**
  * The metadata of the LDAP server used to authenticate and authorize connections to the broker.
  */
 export interface LdapServerMetadataOutput {
-  __type?: "LdapServerMetadataOutput";
   /**
    * Fully qualified domain name of the LDAP server. Optional failover server.
    */
@@ -1429,11 +1346,9 @@ export namespace LdapServerMetadataOutput {
   export const filterSensitiveLog = (obj: LdapServerMetadataOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LdapServerMetadataOutput => __isa(o, "LdapServerMetadataOutput");
 }
 
 export interface ListBrokersRequest {
-  __type?: "ListBrokersRequest";
   /**
    * The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
    */
@@ -1449,11 +1364,9 @@ export namespace ListBrokersRequest {
   export const filterSensitiveLog = (obj: ListBrokersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBrokersRequest => __isa(o, "ListBrokersRequest");
 }
 
 export interface ListBrokersResponse {
-  __type?: "ListBrokersResponse";
   /**
    * A list of information about all brokers.
    */
@@ -1469,11 +1382,9 @@ export namespace ListBrokersResponse {
   export const filterSensitiveLog = (obj: ListBrokersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBrokersResponse => __isa(o, "ListBrokersResponse");
 }
 
 export interface ListConfigurationRevisionsRequest {
-  __type?: "ListConfigurationRevisionsRequest";
   /**
    * The unique ID that Amazon MQ generates for the configuration.
    */
@@ -1494,11 +1405,9 @@ export namespace ListConfigurationRevisionsRequest {
   export const filterSensitiveLog = (obj: ListConfigurationRevisionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationRevisionsRequest => __isa(o, "ListConfigurationRevisionsRequest");
 }
 
 export interface ListConfigurationRevisionsResponse {
-  __type?: "ListConfigurationRevisionsResponse";
   /**
    * The maximum number of configuration revisions that can be returned per page (20 by default). This value must be an integer from 5 to 100.
    */
@@ -1524,12 +1433,9 @@ export namespace ListConfigurationRevisionsResponse {
   export const filterSensitiveLog = (obj: ListConfigurationRevisionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationRevisionsResponse =>
-    __isa(o, "ListConfigurationRevisionsResponse");
 }
 
 export interface ListConfigurationsRequest {
-  __type?: "ListConfigurationsRequest";
   /**
    * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
    */
@@ -1545,11 +1451,9 @@ export namespace ListConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationsRequest => __isa(o, "ListConfigurationsRequest");
 }
 
 export interface ListConfigurationsResponse {
-  __type?: "ListConfigurationsResponse";
   /**
    * The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
    */
@@ -1570,11 +1474,9 @@ export namespace ListConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationsResponse => __isa(o, "ListConfigurationsResponse");
 }
 
 export interface ListTagsRequest {
-  __type?: "ListTagsRequest";
   /**
    * The Amazon Resource Name (ARN) of the resource tag.
    */
@@ -1585,11 +1487,9 @@ export namespace ListTagsRequest {
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 export interface ListTagsResponse {
-  __type?: "ListTagsResponse";
   /**
    * The key-value pair for the resource tag.
    */
@@ -1600,11 +1500,9 @@ export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 export interface ListUsersRequest {
-  __type?: "ListUsersRequest";
   /**
    * The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
    */
@@ -1625,11 +1523,9 @@ export namespace ListUsersRequest {
   export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersRequest => __isa(o, "ListUsersRequest");
 }
 
 export interface ListUsersResponse {
-  __type?: "ListUsersResponse";
   /**
    * Required. The unique ID that Amazon MQ generates for the broker.
    */
@@ -1655,14 +1551,12 @@ export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersResponse => __isa(o, "ListUsersResponse");
 }
 
 /**
  * The list of information about logs to be enabled for the specified broker.
  */
 export interface Logs {
-  __type?: "Logs";
   /**
    * Enables general logging.
    */
@@ -1678,14 +1572,12 @@ export namespace Logs {
   export const filterSensitiveLog = (obj: Logs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Logs => __isa(o, "Logs");
 }
 
 /**
  * The list of information about logs currently enabled and pending to be deployed for the specified broker.
  */
 export interface LogsSummary {
-  __type?: "LogsSummary";
   /**
    * Enables general logging.
    */
@@ -1716,7 +1608,6 @@ export namespace LogsSummary {
   export const filterSensitiveLog = (obj: LogsSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogsSummary => __isa(o, "LogsSummary");
 }
 
 /**
@@ -1740,14 +1631,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * The list of information about logs to be enabled for the specified broker.
  */
 export interface PendingLogs {
-  __type?: "PendingLogs";
   /**
    * Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
    */
@@ -1763,11 +1652,9 @@ export namespace PendingLogs {
   export const filterSensitiveLog = (obj: PendingLogs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PendingLogs => __isa(o, "PendingLogs");
 }
 
 export interface RebootBrokerRequest {
-  __type?: "RebootBrokerRequest";
   /**
    * The unique ID that Amazon MQ generates for the broker.
    */
@@ -1778,25 +1665,20 @@ export namespace RebootBrokerRequest {
   export const filterSensitiveLog = (obj: RebootBrokerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootBrokerRequest => __isa(o, "RebootBrokerRequest");
 }
 
-export interface RebootBrokerResponse {
-  __type?: "RebootBrokerResponse";
-}
+export interface RebootBrokerResponse {}
 
 export namespace RebootBrokerResponse {
   export const filterSensitiveLog = (obj: RebootBrokerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootBrokerResponse => __isa(o, "RebootBrokerResponse");
 }
 
 /**
  * Returns information about the XML element or attribute that was sanitized in the configuration.
  */
 export interface SanitizationWarning {
-  __type?: "SanitizationWarning";
   /**
    * The name of the XML element that has been sanitized.
    */
@@ -1817,7 +1699,6 @@ export namespace SanitizationWarning {
   export const filterSensitiveLog = (obj: SanitizationWarning): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SanitizationWarning => __isa(o, "SanitizationWarning");
 }
 
 export enum SanitizationWarningReason {
@@ -1847,14 +1728,12 @@ export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 /**
  * Updates the broker using the specified properties.
  */
 export interface UpdateBrokerRequest {
-  __type?: "UpdateBrokerRequest";
   /**
    * The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
    */
@@ -1905,11 +1784,9 @@ export namespace UpdateBrokerRequest {
   export const filterSensitiveLog = (obj: UpdateBrokerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBrokerRequest => __isa(o, "UpdateBrokerRequest");
 }
 
 export interface UpdateBrokerResponse {
-  __type?: "UpdateBrokerResponse";
   /**
    * The ID of the updated configuration.
    */
@@ -1960,14 +1837,12 @@ export namespace UpdateBrokerResponse {
   export const filterSensitiveLog = (obj: UpdateBrokerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBrokerResponse => __isa(o, "UpdateBrokerResponse");
 }
 
 /**
  * Updates the specified configuration.
  */
 export interface UpdateConfigurationRequest {
-  __type?: "UpdateConfigurationRequest";
   /**
    * The unique ID that Amazon MQ generates for the configuration.
    */
@@ -1988,11 +1863,9 @@ export namespace UpdateConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationRequest => __isa(o, "UpdateConfigurationRequest");
 }
 
 export interface UpdateConfigurationResponse {
-  __type?: "UpdateConfigurationResponse";
   /**
    * Required. The date and time of the configuration.
    */
@@ -2028,14 +1901,12 @@ export namespace UpdateConfigurationResponse {
   export const filterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationResponse => __isa(o, "UpdateConfigurationResponse");
 }
 
 /**
  * Updates the information for an ActiveMQ user.
  */
 export interface UpdateUserRequest {
-  __type?: "UpdateUserRequest";
   /**
    * Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
    */
@@ -2066,25 +1937,20 @@ export namespace UpdateUserRequest {
   export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserRequest => __isa(o, "UpdateUserRequest");
 }
 
-export interface UpdateUserResponse {
-  __type?: "UpdateUserResponse";
-}
+export interface UpdateUserResponse {}
 
 export namespace UpdateUserResponse {
   export const filterSensitiveLog = (obj: UpdateUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserResponse => __isa(o, "UpdateUserResponse");
 }
 
 /**
  * An ActiveMQ user associated with the broker.
  */
 export interface User {
-  __type?: "User";
   /**
    * The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
    */
@@ -2110,14 +1976,12 @@ export namespace User {
   export const filterSensitiveLog = (obj: User): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is User => __isa(o, "User");
 }
 
 /**
  * Returns information about the status of the changes pending for the ActiveMQ user.
  */
 export interface UserPendingChanges {
-  __type?: "UserPendingChanges";
   /**
    * Required. The type of change pending for the ActiveMQ user.
    */
@@ -2138,14 +2002,12 @@ export namespace UserPendingChanges {
   export const filterSensitiveLog = (obj: UserPendingChanges): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserPendingChanges => __isa(o, "UserPendingChanges");
 }
 
 /**
  * Returns a list of all ActiveMQ users.
  */
 export interface UserSummary {
-  __type?: "UserSummary";
   /**
    * The type of change pending for the ActiveMQ user.
    */
@@ -2161,14 +2023,12 @@ export namespace UserSummary {
   export const filterSensitiveLog = (obj: UserSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserSummary => __isa(o, "UserSummary");
 }
 
 /**
  * The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker.
  */
 export interface WeeklyStartTime {
-  __type?: "WeeklyStartTime";
   /**
    * Required. The day of the week.
    */
@@ -2189,5 +2049,4 @@ export namespace WeeklyStartTime {
   export const filterSensitiveLog = (obj: WeeklyStartTime): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WeeklyStartTime => __isa(o, "WeeklyStartTime");
 }

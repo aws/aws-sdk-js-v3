@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -8,7 +8,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       and SourceRegion paramters. A backup that is pending deletion will include the DeleteTimestamp parameter.</p>
  */
 export interface Backup {
-  __type?: "Backup";
   /**
    * <p>The AWS Region that contains the source backup from which the new backup was
    *       copied.</p>
@@ -67,7 +66,6 @@ export namespace Backup {
   export const filterSensitiveLog = (obj: Backup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Backup => __isa(o, "Backup");
 }
 
 export enum BackupPolicy {
@@ -85,7 +83,6 @@ export enum BackupState {
  * <p>Contains one or more certificates or a certificate signing request (CSR).</p>
  */
 export interface Certificates {
-  __type?: "Certificates";
   /**
    * <p>The cluster's certificate signing request (CSR). The CSR exists only when the cluster's
    *       state is <code>UNINITIALIZED</code>.</p>
@@ -118,7 +115,6 @@ export namespace Certificates {
   export const filterSensitiveLog = (obj: Certificates): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Certificates => __isa(o, "Certificates");
 }
 
 /**
@@ -135,7 +131,6 @@ export namespace CloudHsmAccessDeniedException {
   export const filterSensitiveLog = (obj: CloudHsmAccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudHsmAccessDeniedException => __isa(o, "CloudHsmAccessDeniedException");
 }
 
 /**
@@ -152,7 +147,6 @@ export namespace CloudHsmInternalFailureException {
   export const filterSensitiveLog = (obj: CloudHsmInternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudHsmInternalFailureException => __isa(o, "CloudHsmInternalFailureException");
 }
 
 /**
@@ -168,7 +162,6 @@ export namespace CloudHsmInvalidRequestException {
   export const filterSensitiveLog = (obj: CloudHsmInvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudHsmInvalidRequestException => __isa(o, "CloudHsmInvalidRequestException");
 }
 
 /**
@@ -185,7 +178,6 @@ export namespace CloudHsmResourceNotFoundException {
   export const filterSensitiveLog = (obj: CloudHsmResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudHsmResourceNotFoundException => __isa(o, "CloudHsmResourceNotFoundException");
 }
 
 /**
@@ -201,7 +193,6 @@ export namespace CloudHsmServiceException {
   export const filterSensitiveLog = (obj: CloudHsmServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudHsmServiceException => __isa(o, "CloudHsmServiceException");
 }
 
 /**
@@ -217,14 +208,12 @@ export namespace CloudHsmTagException {
   export const filterSensitiveLog = (obj: CloudHsmTagException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudHsmTagException => __isa(o, "CloudHsmTagException");
 }
 
 /**
  * <p>Contains information about an AWS CloudHSM cluster.</p>
  */
 export interface Cluster {
-  __type?: "Cluster";
   /**
    * <p>Contains one or more certificates or a certificate signing request (CSR).</p>
    */
@@ -302,7 +291,6 @@ export namespace Cluster {
   export const filterSensitiveLog = (obj: Cluster): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Cluster => __isa(o, "Cluster");
 }
 
 export enum ClusterState {
@@ -318,7 +306,6 @@ export enum ClusterState {
 }
 
 export interface CopyBackupToRegionRequest {
-  __type?: "CopyBackupToRegionRequest";
   /**
    * <p>Tags to apply to the destination backup during creation. If you specify tags, only these tags will be applied to the destination backup. If you do not specify tags, the service copies tags from the source backup to the destination backup.</p>
    */
@@ -339,11 +326,9 @@ export namespace CopyBackupToRegionRequest {
   export const filterSensitiveLog = (obj: CopyBackupToRegionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyBackupToRegionRequest => __isa(o, "CopyBackupToRegionRequest");
 }
 
 export interface CopyBackupToRegionResponse {
-  __type?: "CopyBackupToRegionResponse";
   /**
    * <p>Information on the backup that will be copied to the destination region, including
    *       CreateTimestamp, SourceBackup, SourceCluster, and Source Region. CreateTimestamp of the
@@ -359,11 +344,9 @@ export namespace CopyBackupToRegionResponse {
   export const filterSensitiveLog = (obj: CopyBackupToRegionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyBackupToRegionResponse => __isa(o, "CopyBackupToRegionResponse");
 }
 
 export interface CreateClusterRequest {
-  __type?: "CreateClusterRequest";
   /**
    * <p>The identifier (ID) of the cluster backup to restore. Use this value to restore the
    *       cluster from a backup instead of creating a new cluster. To find the backup ID, use <a>DescribeBackups</a>.</p>
@@ -401,11 +384,9 @@ export namespace CreateClusterRequest {
   export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterRequest => __isa(o, "CreateClusterRequest");
 }
 
 export interface CreateClusterResponse {
-  __type?: "CreateClusterResponse";
   /**
    * <p>Information about the cluster that was created.</p>
    */
@@ -416,11 +397,9 @@ export namespace CreateClusterResponse {
   export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterResponse => __isa(o, "CreateClusterResponse");
 }
 
 export interface CreateHsmRequest {
-  __type?: "CreateHsmRequest";
   /**
    * <p>The Availability Zone where you are creating the HSM. To find the cluster's
    *       Availability Zones, use <a>DescribeClusters</a>.</p>
@@ -444,11 +423,9 @@ export namespace CreateHsmRequest {
   export const filterSensitiveLog = (obj: CreateHsmRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHsmRequest => __isa(o, "CreateHsmRequest");
 }
 
 export interface CreateHsmResponse {
-  __type?: "CreateHsmResponse";
   /**
    * <p>Information about the HSM that was created.</p>
    */
@@ -459,11 +436,9 @@ export namespace CreateHsmResponse {
   export const filterSensitiveLog = (obj: CreateHsmResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHsmResponse => __isa(o, "CreateHsmResponse");
 }
 
 export interface DeleteBackupRequest {
-  __type?: "DeleteBackupRequest";
   /**
    * <p>The ID of the backup to be deleted. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>
    */
@@ -474,11 +449,9 @@ export namespace DeleteBackupRequest {
   export const filterSensitiveLog = (obj: DeleteBackupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupRequest => __isa(o, "DeleteBackupRequest");
 }
 
 export interface DeleteBackupResponse {
-  __type?: "DeleteBackupResponse";
   /**
    * <p>Information on the <code>Backup</code> object deleted.</p>
    */
@@ -489,11 +462,9 @@ export namespace DeleteBackupResponse {
   export const filterSensitiveLog = (obj: DeleteBackupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupResponse => __isa(o, "DeleteBackupResponse");
 }
 
 export interface DeleteClusterRequest {
-  __type?: "DeleteClusterRequest";
   /**
    * <p>The identifier (ID) of the cluster that you are deleting. To find the cluster ID, use
    *       <a>DescribeClusters</a>.</p>
@@ -505,11 +476,9 @@ export namespace DeleteClusterRequest {
   export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterRequest => __isa(o, "DeleteClusterRequest");
 }
 
 export interface DeleteClusterResponse {
-  __type?: "DeleteClusterResponse";
   /**
    * <p>Information about the cluster that was deleted.</p>
    */
@@ -520,11 +489,9 @@ export namespace DeleteClusterResponse {
   export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterResponse => __isa(o, "DeleteClusterResponse");
 }
 
 export interface DeleteHsmRequest {
-  __type?: "DeleteHsmRequest";
   /**
    * <p>The IP address of the elastic network interface (ENI) of the HSM that you are
    *       deleting.</p>
@@ -553,11 +520,9 @@ export namespace DeleteHsmRequest {
   export const filterSensitiveLog = (obj: DeleteHsmRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHsmRequest => __isa(o, "DeleteHsmRequest");
 }
 
 export interface DeleteHsmResponse {
-  __type?: "DeleteHsmResponse";
   /**
    * <p>The identifier (ID) of the HSM that was deleted.</p>
    */
@@ -568,11 +533,9 @@ export namespace DeleteHsmResponse {
   export const filterSensitiveLog = (obj: DeleteHsmResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHsmResponse => __isa(o, "DeleteHsmResponse");
 }
 
 export interface DescribeBackupsRequest {
-  __type?: "DescribeBackupsRequest";
   /**
    * <p>The <code>NextToken</code> value that you received in the previous response. Use this
    *       value to get more backups.</p>
@@ -609,11 +572,9 @@ export namespace DescribeBackupsRequest {
   export const filterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupsRequest => __isa(o, "DescribeBackupsRequest");
 }
 
 export interface DescribeBackupsResponse {
-  __type?: "DescribeBackupsResponse";
   /**
    * <p>An opaque string that indicates that the response contains only a subset of backups.
    *       Use this value in a subsequent <code>DescribeBackups</code> request to get more
@@ -631,11 +592,9 @@ export namespace DescribeBackupsResponse {
   export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupsResponse => __isa(o, "DescribeBackupsResponse");
 }
 
 export interface DescribeClustersRequest {
-  __type?: "DescribeClustersRequest";
   /**
    * <p>One or more filters to limit the items returned in the response.</p>
    *          <p>Use the <code>clusterIds</code> filter to return only the specified clusters. Specify
@@ -664,11 +623,9 @@ export namespace DescribeClustersRequest {
   export const filterSensitiveLog = (obj: DescribeClustersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClustersRequest => __isa(o, "DescribeClustersRequest");
 }
 
 export interface DescribeClustersResponse {
-  __type?: "DescribeClustersResponse";
   /**
    * <p>An opaque string that indicates that the response contains only a subset of clusters.
    *       Use this value in a subsequent <code>DescribeClusters</code> request to get more
@@ -686,14 +643,12 @@ export namespace DescribeClustersResponse {
   export const filterSensitiveLog = (obj: DescribeClustersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClustersResponse => __isa(o, "DescribeClustersResponse");
 }
 
 /**
  * <p>Contains information about the backup that will be copied and created by the <a>CopyBackupToRegion</a> operation.</p>
  */
 export interface DestinationBackup {
-  __type?: "DestinationBackup";
   /**
    * <p>The identifier (ID) of the cluster containing the source backup from which the new backup was copied.</p>
    */
@@ -719,7 +674,6 @@ export namespace DestinationBackup {
   export const filterSensitiveLog = (obj: DestinationBackup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DestinationBackup => __isa(o, "DestinationBackup");
 }
 
 /**
@@ -727,7 +681,6 @@ export namespace DestinationBackup {
  *       cluster.</p>
  */
 export interface Hsm {
-  __type?: "Hsm";
   /**
    * <p>The subnet that contains the HSM's elastic network interface (ENI).</p>
    */
@@ -773,7 +726,6 @@ export namespace Hsm {
   export const filterSensitiveLog = (obj: Hsm): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Hsm => __isa(o, "Hsm");
 }
 
 export enum HsmState {
@@ -785,7 +737,6 @@ export enum HsmState {
 }
 
 export interface InitializeClusterRequest {
-  __type?: "InitializeClusterRequest";
   /**
    * <p>The cluster certificate issued (signed) by your issuing certificate authority (CA). The
    *       certificate must be in PEM format and can contain a maximum of 5000 characters.</p>
@@ -811,11 +762,9 @@ export namespace InitializeClusterRequest {
   export const filterSensitiveLog = (obj: InitializeClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InitializeClusterRequest => __isa(o, "InitializeClusterRequest");
 }
 
 export interface InitializeClusterResponse {
-  __type?: "InitializeClusterResponse";
   /**
    * <p>A description of the cluster's state.</p>
    */
@@ -831,11 +780,9 @@ export namespace InitializeClusterResponse {
   export const filterSensitiveLog = (obj: InitializeClusterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InitializeClusterResponse => __isa(o, "InitializeClusterResponse");
 }
 
 export interface ListTagsRequest {
-  __type?: "ListTagsRequest";
   /**
    * <p>The <code>NextToken</code> value that you received in the previous response. Use this
    *       value to get more tags.</p>
@@ -859,11 +806,9 @@ export namespace ListTagsRequest {
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 export interface ListTagsResponse {
-  __type?: "ListTagsResponse";
   /**
    * <p>An opaque string that indicates that the response contains only a subset of tags. Use
    *       this value in a subsequent <code>ListTags</code> request to get more tags.</p>
@@ -880,11 +825,9 @@ export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 export interface RestoreBackupRequest {
-  __type?: "RestoreBackupRequest";
   /**
    * <p>The ID of the backup to be restored. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>
    */
@@ -895,11 +838,9 @@ export namespace RestoreBackupRequest {
   export const filterSensitiveLog = (obj: RestoreBackupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreBackupRequest => __isa(o, "RestoreBackupRequest");
 }
 
 export interface RestoreBackupResponse {
-  __type?: "RestoreBackupResponse";
   /**
    * <p>Information on the <code>Backup</code> object created.</p>
    */
@@ -910,14 +851,12 @@ export namespace RestoreBackupResponse {
   export const filterSensitiveLog = (obj: RestoreBackupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreBackupResponse => __isa(o, "RestoreBackupResponse");
 }
 
 /**
  * <p>Contains a tag. A tag is a key-value pair.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The key of the tag.</p>
    */
@@ -933,11 +872,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The cluster identifier (ID) for the cluster that you are tagging. To find the cluster
    *       ID, use <a>DescribeClusters</a>.</p>
@@ -954,22 +891,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The cluster identifier (ID) for the cluster whose tags you are removing. To find the
    *       cluster ID, use <a>DescribeClusters</a>.</p>
@@ -987,16 +919,12 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }

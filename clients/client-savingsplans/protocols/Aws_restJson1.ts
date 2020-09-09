@@ -334,7 +334,6 @@ export const deserializeAws_restJson1CreateSavingsPlanCommand = async (
   }
   const contents: CreateSavingsPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSavingsPlanResponse",
     savingsPlanId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -414,7 +413,6 @@ export const deserializeAws_restJson1DescribeSavingsPlanRatesCommand = async (
   }
   const contents: DescribeSavingsPlanRatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSavingsPlanRatesResponse",
     nextToken: undefined,
     savingsPlanId: undefined,
     searchResults: undefined,
@@ -486,7 +484,6 @@ export const deserializeAws_restJson1DescribeSavingsPlansCommand = async (
   }
   const contents: DescribeSavingsPlansCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSavingsPlansResponse",
     nextToken: undefined,
     savingsPlans: undefined,
   };
@@ -554,7 +551,6 @@ export const deserializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand = 
   }
   const contents: DescribeSavingsPlansOfferingRatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSavingsPlansOfferingRatesResponse",
     nextToken: undefined,
     searchResults: undefined,
   };
@@ -622,7 +618,6 @@ export const deserializeAws_restJson1DescribeSavingsPlansOfferingsCommand = asyn
   }
   const contents: DescribeSavingsPlansOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSavingsPlansOfferingsResponse",
     nextToken: undefined,
     searchResults: undefined,
   };
@@ -690,7 +685,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -762,7 +756,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -838,7 +831,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1130,7 +1122,6 @@ const deserializeAws_restJson1ParentSavingsPlanOffering = (
   context: __SerdeContext
 ): ParentSavingsPlanOffering => {
   return {
-    __type: "ParentSavingsPlanOffering",
     currency: output.currency !== undefined && output.currency !== null ? output.currency : undefined,
     durationSeconds:
       output.durationSeconds !== undefined && output.durationSeconds !== null ? output.durationSeconds : undefined,
@@ -1145,7 +1136,6 @@ const deserializeAws_restJson1ParentSavingsPlanOffering = (
 
 const deserializeAws_restJson1SavingsPlan = (output: any, context: __SerdeContext): SavingsPlan => {
   return {
-    __type: "SavingsPlan",
     commitment: output.commitment !== undefined && output.commitment !== null ? output.commitment : undefined,
     currency: output.currency !== undefined && output.currency !== null ? output.currency : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -1195,7 +1185,6 @@ const deserializeAws_restJson1SavingsPlanList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1SavingsPlanOffering = (output: any, context: __SerdeContext): SavingsPlanOffering => {
   return {
-    __type: "SavingsPlanOffering",
     currency: output.currency !== undefined && output.currency !== null ? output.currency : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     durationSeconds:
@@ -1223,7 +1212,6 @@ const deserializeAws_restJson1SavingsPlanOfferingProperty = (
   context: __SerdeContext
 ): SavingsPlanOfferingProperty => {
   return {
-    __type: "SavingsPlanOfferingProperty",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -1241,7 +1229,6 @@ const deserializeAws_restJson1SavingsPlanOfferingRate = (
   context: __SerdeContext
 ): SavingsPlanOfferingRate => {
   return {
-    __type: "SavingsPlanOfferingRate",
     operation: output.operation !== undefined && output.operation !== null ? output.operation : undefined,
     productType: output.productType !== undefined && output.productType !== null ? output.productType : undefined,
     properties:
@@ -1264,7 +1251,6 @@ const deserializeAws_restJson1SavingsPlanOfferingRateProperty = (
   context: __SerdeContext
 ): SavingsPlanOfferingRateProperty => {
   return {
-    __type: "SavingsPlanOfferingRateProperty",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -1300,7 +1286,6 @@ const deserializeAws_restJson1SavingsPlanProductTypeList = (
 
 const deserializeAws_restJson1SavingsPlanRate = (output: any, context: __SerdeContext): SavingsPlanRate => {
   return {
-    __type: "SavingsPlanRate",
     currency: output.currency !== undefined && output.currency !== null ? output.currency : undefined,
     operation: output.operation !== undefined && output.operation !== null ? output.operation : undefined,
     productType: output.productType !== undefined && output.productType !== null ? output.productType : undefined,
@@ -1324,7 +1309,6 @@ const deserializeAws_restJson1SavingsPlanRateProperty = (
   context: __SerdeContext
 ): SavingsPlanRateProperty => {
   return {
-    __type: "SavingsPlanRateProperty",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;

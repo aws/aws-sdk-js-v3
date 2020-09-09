@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Represents an application source.</p>
  */
 export interface ApplicationSource {
-  __type?: "ApplicationSource";
   /**
    * <p>A set of tags (up to 50).</p>
    */
@@ -21,7 +20,6 @@ export namespace ApplicationSource {
   export const filterSensitiveLog = (obj: ApplicationSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationSource => __isa(o, "ApplicationSource");
 }
 
 /**
@@ -38,11 +36,9 @@ export namespace ConcurrentUpdateException {
   export const filterSensitiveLog = (obj: ConcurrentUpdateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentUpdateException => __isa(o, "ConcurrentUpdateException");
 }
 
 export interface CreateScalingPlanRequest {
-  __type?: "CreateScalingPlanRequest";
   /**
    * <p>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward
    *          slashes.</p>
@@ -65,11 +61,9 @@ export namespace CreateScalingPlanRequest {
   export const filterSensitiveLog = (obj: CreateScalingPlanRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateScalingPlanRequest => __isa(o, "CreateScalingPlanRequest");
 }
 
 export interface CreateScalingPlanResponse {
-  __type?: "CreateScalingPlanResponse";
   /**
    * <p>The version number of the scaling plan. This value is always 1.</p>
    *          <p>Currently, you cannot specify multiple scaling plan versions.</p>
@@ -81,7 +75,6 @@ export namespace CreateScalingPlanResponse {
   export const filterSensitiveLog = (obj: CreateScalingPlanResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateScalingPlanResponse => __isa(o, "CreateScalingPlanResponse");
 }
 
 /**
@@ -104,7 +97,6 @@ export namespace CreateScalingPlanResponse {
  *             Concepts</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
  */
 export interface CustomizedLoadMetricSpecification {
-  __type?: "CustomizedLoadMetricSpecification";
   /**
    * <p>The namespace of the metric.</p>
    */
@@ -138,7 +130,6 @@ export namespace CustomizedLoadMetricSpecification {
   export const filterSensitiveLog = (obj: CustomizedLoadMetricSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomizedLoadMetricSpecification => __isa(o, "CustomizedLoadMetricSpecification");
 }
 
 /**
@@ -162,7 +153,6 @@ export namespace CustomizedLoadMetricSpecification {
  *             Concepts</a>. </p>
  */
 export interface CustomizedScalingMetricSpecification {
-  __type?: "CustomizedScalingMetricSpecification";
   /**
    * <p>The dimensions of the metric.</p>
    *          <p>Conditional: If you published your metric with dimensions, you must specify the same
@@ -195,15 +185,12 @@ export namespace CustomizedScalingMetricSpecification {
   export const filterSensitiveLog = (obj: CustomizedScalingMetricSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomizedScalingMetricSpecification =>
-    __isa(o, "CustomizedScalingMetricSpecification");
 }
 
 /**
  * <p>Represents a single value in the forecast data used for predictive scaling.</p>
  */
 export interface Datapoint {
-  __type?: "Datapoint";
   /**
    * <p>The value of the data point.</p>
    */
@@ -219,11 +206,9 @@ export namespace Datapoint {
   export const filterSensitiveLog = (obj: Datapoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Datapoint => __isa(o, "Datapoint");
 }
 
 export interface DeleteScalingPlanRequest {
-  __type?: "DeleteScalingPlanRequest";
   /**
    * <p>The name of the scaling plan.</p>
    */
@@ -239,22 +224,17 @@ export namespace DeleteScalingPlanRequest {
   export const filterSensitiveLog = (obj: DeleteScalingPlanRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteScalingPlanRequest => __isa(o, "DeleteScalingPlanRequest");
 }
 
-export interface DeleteScalingPlanResponse {
-  __type?: "DeleteScalingPlanResponse";
-}
+export interface DeleteScalingPlanResponse {}
 
 export namespace DeleteScalingPlanResponse {
   export const filterSensitiveLog = (obj: DeleteScalingPlanResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteScalingPlanResponse => __isa(o, "DeleteScalingPlanResponse");
 }
 
 export interface DescribeScalingPlanResourcesRequest {
-  __type?: "DescribeScalingPlanResourcesRequest";
   /**
    * <p>The name of the scaling plan.</p>
    */
@@ -281,12 +261,9 @@ export namespace DescribeScalingPlanResourcesRequest {
   export const filterSensitiveLog = (obj: DescribeScalingPlanResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalingPlanResourcesRequest =>
-    __isa(o, "DescribeScalingPlanResourcesRequest");
 }
 
 export interface DescribeScalingPlanResourcesResponse {
-  __type?: "DescribeScalingPlanResourcesResponse";
   /**
    * <p>Information about the scalable resources.</p>
    */
@@ -303,12 +280,9 @@ export namespace DescribeScalingPlanResourcesResponse {
   export const filterSensitiveLog = (obj: DescribeScalingPlanResourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalingPlanResourcesResponse =>
-    __isa(o, "DescribeScalingPlanResourcesResponse");
 }
 
 export interface DescribeScalingPlansRequest {
-  __type?: "DescribeScalingPlansRequest";
   /**
    * <p>The version number of the scaling plan. If you specify a scaling plan version, you must
    *          also specify a scaling plan name.</p>
@@ -343,11 +317,9 @@ export namespace DescribeScalingPlansRequest {
   export const filterSensitiveLog = (obj: DescribeScalingPlansRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalingPlansRequest => __isa(o, "DescribeScalingPlansRequest");
 }
 
 export interface DescribeScalingPlansResponse {
-  __type?: "DescribeScalingPlansResponse";
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
@@ -364,7 +336,6 @@ export namespace DescribeScalingPlansResponse {
   export const filterSensitiveLog = (obj: DescribeScalingPlansResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalingPlansResponse => __isa(o, "DescribeScalingPlansResponse");
 }
 
 export enum ForecastDataType {
@@ -375,7 +346,6 @@ export enum ForecastDataType {
 }
 
 export interface GetScalingPlanResourceForecastDataRequest {
-  __type?: "GetScalingPlanResourceForecastDataRequest";
   /**
    * <p>The name of the scaling plan.</p>
    */
@@ -475,12 +445,9 @@ export namespace GetScalingPlanResourceForecastDataRequest {
   export const filterSensitiveLog = (obj: GetScalingPlanResourceForecastDataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetScalingPlanResourceForecastDataRequest =>
-    __isa(o, "GetScalingPlanResourceForecastDataRequest");
 }
 
 export interface GetScalingPlanResourceForecastDataResponse {
-  __type?: "GetScalingPlanResourceForecastDataResponse";
   /**
    * <p>The data points to return.</p>
    */
@@ -491,8 +458,6 @@ export namespace GetScalingPlanResourceForecastDataResponse {
   export const filterSensitiveLog = (obj: GetScalingPlanResourceForecastDataResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetScalingPlanResourceForecastDataResponse =>
-    __isa(o, "GetScalingPlanResourceForecastDataResponse");
 }
 
 /**
@@ -508,7 +473,6 @@ export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
@@ -524,7 +488,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -541,7 +504,6 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export enum LoadMetricType {
@@ -555,7 +517,6 @@ export enum LoadMetricType {
  * <p>Represents a dimension for a customized metric.</p>
  */
 export interface MetricDimension {
-  __type?: "MetricDimension";
   /**
    * <p>The name of the dimension.</p>
    */
@@ -571,7 +532,6 @@ export namespace MetricDimension {
   export const filterSensitiveLog = (obj: MetricDimension): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricDimension => __isa(o, "MetricDimension");
 }
 
 export enum MetricStatistic {
@@ -595,7 +555,6 @@ export namespace ObjectNotFoundException {
   export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectNotFoundException => __isa(o, "ObjectNotFoundException");
 }
 
 export enum PolicyType {
@@ -606,7 +565,6 @@ export enum PolicyType {
  * <p>Represents a predefined metric that can be used for predictive scaling. </p>
  */
 export interface PredefinedLoadMetricSpecification {
-  __type?: "PredefinedLoadMetricSpecification";
   /**
    * <p>The metric type.</p>
    */
@@ -637,7 +595,6 @@ export namespace PredefinedLoadMetricSpecification {
   export const filterSensitiveLog = (obj: PredefinedLoadMetricSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PredefinedLoadMetricSpecification => __isa(o, "PredefinedLoadMetricSpecification");
 }
 
 /**
@@ -645,7 +602,6 @@ export namespace PredefinedLoadMetricSpecification {
  *          tracking scaling policy.</p>
  */
 export interface PredefinedScalingMetricSpecification {
-  __type?: "PredefinedScalingMetricSpecification";
   /**
    * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
    *          Auto Scaling groups, Spot Fleet requests, and ECS services.</p>
@@ -678,8 +634,6 @@ export namespace PredefinedScalingMetricSpecification {
   export const filterSensitiveLog = (obj: PredefinedScalingMetricSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PredefinedScalingMetricSpecification =>
-    __isa(o, "PredefinedScalingMetricSpecification");
 }
 
 export enum PredictiveScalingMaxCapacityBehavior {
@@ -726,7 +680,6 @@ export enum ScalableDimension {
  *             AWS Auto Scaling</a>.</p>
  */
 export interface ScalingInstruction {
-  __type?: "ScalingInstruction";
   /**
    * <p>The minimum capacity of the resource. </p>
    */
@@ -925,7 +878,6 @@ export namespace ScalingInstruction {
   export const filterSensitiveLog = (obj: ScalingInstruction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingInstruction => __isa(o, "ScalingInstruction");
 }
 
 export enum ScalingMetricType {
@@ -948,7 +900,6 @@ export enum ScalingMetricType {
  * <p>Represents a scaling plan.</p>
  */
 export interface ScalingPlan {
-  __type?: "ScalingPlan";
   /**
    * <p>The scaling instructions.</p>
    */
@@ -1029,14 +980,12 @@ export namespace ScalingPlan {
   export const filterSensitiveLog = (obj: ScalingPlan): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingPlan => __isa(o, "ScalingPlan");
 }
 
 /**
  * <p>Represents a scalable resource.</p>
  */
 export interface ScalingPlanResource {
-  __type?: "ScalingPlanResource";
   /**
    * <p>The name of the scaling plan.</p>
    */
@@ -1161,7 +1110,6 @@ export namespace ScalingPlanResource {
   export const filterSensitiveLog = (obj: ScalingPlanResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingPlanResource => __isa(o, "ScalingPlanResource");
 }
 
 export enum ScalingPlanStatusCode {
@@ -1179,7 +1127,6 @@ export enum ScalingPlanStatusCode {
  * <p>Represents a scaling policy.</p>
  */
 export interface ScalingPolicy {
-  __type?: "ScalingPolicy";
   /**
    * <p>The target tracking scaling policy. Includes support for predefined or customized
    *          metrics.</p>
@@ -1201,7 +1148,6 @@ export namespace ScalingPolicy {
   export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingPolicy => __isa(o, "ScalingPolicy");
 }
 
 export enum ScalingPolicyUpdateBehavior {
@@ -1227,7 +1173,6 @@ export enum ServiceNamespace {
  * <p>Represents a tag.</p>
  */
 export interface TagFilter {
-  __type?: "TagFilter";
   /**
    * <p>The tag values (0 to 20).</p>
    */
@@ -1243,14 +1188,12 @@ export namespace TagFilter {
   export const filterSensitiveLog = (obj: TagFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
 /**
  * <p>Describes a target tracking configuration to use with AWS Auto Scaling. Used with <a>ScalingInstruction</a> and <a>ScalingPolicy</a>.</p>
  */
 export interface TargetTrackingConfiguration {
-  __type?: "TargetTrackingConfiguration";
   /**
    * <p>The amount of time, in seconds, after a scale-out activity completes before another
    *          scale-out activity can start. This value is not used if the scalable resource is an Auto
@@ -1311,11 +1254,9 @@ export namespace TargetTrackingConfiguration {
   export const filterSensitiveLog = (obj: TargetTrackingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetTrackingConfiguration => __isa(o, "TargetTrackingConfiguration");
 }
 
 export interface UpdateScalingPlanRequest {
-  __type?: "UpdateScalingPlanRequest";
   /**
    * <p>The scaling instructions.</p>
    */
@@ -1341,18 +1282,14 @@ export namespace UpdateScalingPlanRequest {
   export const filterSensitiveLog = (obj: UpdateScalingPlanRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateScalingPlanRequest => __isa(o, "UpdateScalingPlanRequest");
 }
 
-export interface UpdateScalingPlanResponse {
-  __type?: "UpdateScalingPlanResponse";
-}
+export interface UpdateScalingPlanResponse {}
 
 export namespace UpdateScalingPlanResponse {
   export const filterSensitiveLog = (obj: UpdateScalingPlanResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateScalingPlanResponse => __isa(o, "UpdateScalingPlanResponse");
 }
 
 /**
@@ -1368,5 +1305,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

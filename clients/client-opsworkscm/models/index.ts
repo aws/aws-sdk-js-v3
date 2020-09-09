@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +6,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *     </p>
  */
 export interface AccountAttribute {
-  __type?: "AccountAttribute";
   /**
    * <p>
    *       The attribute name. The following are supported attribute names.
@@ -46,11 +45,9 @@ export namespace AccountAttribute {
   export const filterSensitiveLog = (obj: AccountAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountAttribute => __isa(o, "AccountAttribute");
 }
 
 export interface AssociateNodeRequest {
-  __type?: "AssociateNodeRequest";
   /**
    * <p>Engine attributes used for associating the node.
    *     </p>
@@ -104,11 +101,9 @@ export namespace AssociateNodeRequest {
       EngineAttributes: obj.EngineAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is AssociateNodeRequest => __isa(o, "AssociateNodeRequest");
 }
 
 export interface AssociateNodeResponse {
-  __type?: "AssociateNodeResponse";
   /**
    * <p>Contains a token which can be passed to the <code>DescribeNodeAssociationStatus</code> API call to get the status of the association request.
    *     </p>
@@ -120,7 +115,6 @@ export namespace AssociateNodeResponse {
   export const filterSensitiveLog = (obj: AssociateNodeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateNodeResponse => __isa(o, "AssociateNodeResponse");
 }
 
 /**
@@ -128,7 +122,6 @@ export namespace AssociateNodeResponse {
  *     </p>
  */
 export interface Backup {
-  __type?: "Backup";
   /**
    * <p>
    *       The generated ID of the backup. Example: <code>myServerName-yyyyMMddHHmmssSSS</code>
@@ -301,7 +294,6 @@ export namespace Backup {
   export const filterSensitiveLog = (obj: Backup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Backup => __isa(o, "Backup");
 }
 
 export enum BackupStatus {
@@ -317,7 +309,6 @@ export enum BackupType {
 }
 
 export interface CreateBackupRequest {
-  __type?: "CreateBackupRequest";
   /**
    * <p>The name of the server that you want to back up.
    *     </p>
@@ -360,11 +351,9 @@ export namespace CreateBackupRequest {
   export const filterSensitiveLog = (obj: CreateBackupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBackupRequest => __isa(o, "CreateBackupRequest");
 }
 
 export interface CreateBackupResponse {
-  __type?: "CreateBackupResponse";
   /**
    * <p>Backup created by request.</p>
    */
@@ -375,11 +364,9 @@ export namespace CreateBackupResponse {
   export const filterSensitiveLog = (obj: CreateBackupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBackupResponse => __isa(o, "CreateBackupResponse");
 }
 
 export interface CreateServerRequest {
-  __type?: "CreateServerRequest";
   /**
    * <p>
    *       A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups
@@ -660,11 +647,9 @@ export namespace CreateServerRequest {
       EngineAttributes: obj.EngineAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is CreateServerRequest => __isa(o, "CreateServerRequest");
 }
 
 export interface CreateServerResponse {
-  __type?: "CreateServerResponse";
   /**
    * <p>The server that is created by the request.
    *     </p>
@@ -677,11 +662,9 @@ export namespace CreateServerResponse {
     ...obj,
     ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) }),
   });
-  export const isa = (o: any): o is CreateServerResponse => __isa(o, "CreateServerResponse");
 }
 
 export interface DeleteBackupRequest {
-  __type?: "DeleteBackupRequest";
   /**
    * <p>The ID of the backup to delete. Run the DescribeBackups command to get a list of backup IDs.
    *       Backup IDs are in the format <code>ServerName-yyyyMMddHHmmssSSS</code>.
@@ -694,22 +677,17 @@ export namespace DeleteBackupRequest {
   export const filterSensitiveLog = (obj: DeleteBackupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupRequest => __isa(o, "DeleteBackupRequest");
 }
 
-export interface DeleteBackupResponse {
-  __type?: "DeleteBackupResponse";
-}
+export interface DeleteBackupResponse {}
 
 export namespace DeleteBackupResponse {
   export const filterSensitiveLog = (obj: DeleteBackupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupResponse => __isa(o, "DeleteBackupResponse");
 }
 
 export interface DeleteServerRequest {
-  __type?: "DeleteServerRequest";
   /**
    * <p>The ID of the server to delete.</p>
    */
@@ -720,33 +698,25 @@ export namespace DeleteServerRequest {
   export const filterSensitiveLog = (obj: DeleteServerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServerRequest => __isa(o, "DeleteServerRequest");
 }
 
-export interface DeleteServerResponse {
-  __type?: "DeleteServerResponse";
-}
+export interface DeleteServerResponse {}
 
 export namespace DeleteServerResponse {
   export const filterSensitiveLog = (obj: DeleteServerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServerResponse => __isa(o, "DeleteServerResponse");
 }
 
-export interface DescribeAccountAttributesRequest {
-  __type?: "DescribeAccountAttributesRequest";
-}
+export interface DescribeAccountAttributesRequest {}
 
 export namespace DescribeAccountAttributesRequest {
   export const filterSensitiveLog = (obj: DescribeAccountAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAttributesRequest => __isa(o, "DescribeAccountAttributesRequest");
 }
 
 export interface DescribeAccountAttributesResponse {
-  __type?: "DescribeAccountAttributesResponse";
   /**
    * <p>
    *       The attributes that are currently set for the account.
@@ -759,11 +729,9 @@ export namespace DescribeAccountAttributesResponse {
   export const filterSensitiveLog = (obj: DescribeAccountAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAttributesResponse => __isa(o, "DescribeAccountAttributesResponse");
 }
 
 export interface DescribeBackupsRequest {
-  __type?: "DescribeBackupsRequest";
   /**
    * <p>Describes a single backup.
    *     </p>
@@ -791,11 +759,9 @@ export namespace DescribeBackupsRequest {
   export const filterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupsRequest => __isa(o, "DescribeBackupsRequest");
 }
 
 export interface DescribeBackupsResponse {
-  __type?: "DescribeBackupsResponse";
   /**
    * <p>Contains the response to a <code>DescribeBackups</code> request.
    *     </p>
@@ -812,11 +778,9 @@ export namespace DescribeBackupsResponse {
   export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupsResponse => __isa(o, "DescribeBackupsResponse");
 }
 
 export interface DescribeEventsRequest {
-  __type?: "DescribeEventsRequest";
   /**
    * <p>The name of the server for which you want to view events.</p>
    */
@@ -848,11 +812,9 @@ export namespace DescribeEventsRequest {
   export const filterSensitiveLog = (obj: DescribeEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventsRequest => __isa(o, "DescribeEventsRequest");
 }
 
 export interface DescribeEventsResponse {
-  __type?: "DescribeEventsResponse";
   /**
    * <p>Contains the response to a <code>DescribeEvents</code> request.
    *     </p>
@@ -876,11 +838,9 @@ export namespace DescribeEventsResponse {
   export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventsResponse => __isa(o, "DescribeEventsResponse");
 }
 
 export interface DescribeNodeAssociationStatusRequest {
-  __type?: "DescribeNodeAssociationStatusRequest";
   /**
    * <p>The name of the server from which to disassociate the node.
    *     </p>
@@ -898,12 +858,9 @@ export namespace DescribeNodeAssociationStatusRequest {
   export const filterSensitiveLog = (obj: DescribeNodeAssociationStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNodeAssociationStatusRequest =>
-    __isa(o, "DescribeNodeAssociationStatusRequest");
 }
 
 export interface DescribeNodeAssociationStatusResponse {
-  __type?: "DescribeNodeAssociationStatusResponse";
   /**
    * <p>The status of the association or disassociation request.
    *     </p>
@@ -945,12 +902,9 @@ export namespace DescribeNodeAssociationStatusResponse {
       EngineAttributes: obj.EngineAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is DescribeNodeAssociationStatusResponse =>
-    __isa(o, "DescribeNodeAssociationStatusResponse");
 }
 
 export interface DescribeServersRequest {
-  __type?: "DescribeServersRequest";
   /**
    * <p>This is not currently implemented for <code>DescribeServers</code> requests.
    *     </p>
@@ -973,11 +927,9 @@ export namespace DescribeServersRequest {
   export const filterSensitiveLog = (obj: DescribeServersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeServersRequest => __isa(o, "DescribeServersRequest");
 }
 
 export interface DescribeServersResponse {
-  __type?: "DescribeServersResponse";
   /**
    * <p>Contains the response to a <code>DescribeServers</code> request.</p>
    *          <p>
@@ -1003,11 +955,9 @@ export namespace DescribeServersResponse {
   export const filterSensitiveLog = (obj: DescribeServersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeServersResponse => __isa(o, "DescribeServersResponse");
 }
 
 export interface DisassociateNodeRequest {
-  __type?: "DisassociateNodeRequest";
   /**
    * <p>The name of the client node.
    *     </p>
@@ -1046,11 +996,9 @@ export namespace DisassociateNodeRequest {
       EngineAttributes: obj.EngineAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is DisassociateNodeRequest => __isa(o, "DisassociateNodeRequest");
 }
 
 export interface DisassociateNodeResponse {
-  __type?: "DisassociateNodeResponse";
   /**
    * <p>Contains a token which can be passed to the
    *       <code>DescribeNodeAssociationStatus</code> API call to get the status of
@@ -1064,7 +1012,6 @@ export namespace DisassociateNodeResponse {
   export const filterSensitiveLog = (obj: DisassociateNodeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateNodeResponse => __isa(o, "DisassociateNodeResponse");
 }
 
 /**
@@ -1072,7 +1019,6 @@ export namespace DisassociateNodeResponse {
  *     </p>
  */
 export interface EngineAttribute {
-  __type?: "EngineAttribute";
   /**
    * <p>The name of the engine attribute.
    *     </p>
@@ -1091,11 +1037,9 @@ export namespace EngineAttribute {
     ...obj,
     ...(obj.Value && { Value: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is EngineAttribute => __isa(o, "EngineAttribute");
 }
 
 export interface ExportServerEngineAttributeRequest {
-  __type?: "ExportServerEngineAttributeRequest";
   /**
    * <p>The name of the export attribute. Currently, the supported export attribute is <code>Userdata</code>.
    *       This exports a user data script that includes parameters and values provided in the <code>InputAttributes</code> list.</p>
@@ -1145,12 +1089,9 @@ export namespace ExportServerEngineAttributeRequest {
       InputAttributes: obj.InputAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is ExportServerEngineAttributeRequest =>
-    __isa(o, "ExportServerEngineAttributeRequest");
 }
 
 export interface ExportServerEngineAttributeResponse {
-  __type?: "ExportServerEngineAttributeResponse";
   /**
    * <p>The requested engine attribute pair with attribute name and value.</p>
    */
@@ -1167,8 +1108,6 @@ export namespace ExportServerEngineAttributeResponse {
     ...obj,
     ...(obj.EngineAttribute && { EngineAttribute: EngineAttribute.filterSensitiveLog(obj.EngineAttribute) }),
   });
-  export const isa = (o: any): o is ExportServerEngineAttributeResponse =>
-    __isa(o, "ExportServerEngineAttributeResponse");
 }
 
 /**
@@ -1189,7 +1128,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -1211,7 +1149,6 @@ export namespace InvalidStateException {
   export const filterSensitiveLog = (obj: InvalidStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidStateException => __isa(o, "InvalidStateException");
 }
 
 /**
@@ -1232,11 +1169,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>NextToken is a string that is returned in some command responses. It indicates that
    *         not all entries have been returned, and that you must run at least one more request to get remaining
@@ -1267,11 +1202,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>A token that you can use as the value of <code>NextToken</code> in subsequent calls to the API to show more results.</p>
    */
@@ -1287,7 +1220,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum MaintenanceStatus {
@@ -1319,7 +1251,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -1340,11 +1271,9 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface RestoreServerRequest {
-  __type?: "RestoreServerRequest";
   /**
    * <p> The name of the server that you want to restore.
    *     </p>
@@ -1377,18 +1306,14 @@ export namespace RestoreServerRequest {
   export const filterSensitiveLog = (obj: RestoreServerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreServerRequest => __isa(o, "RestoreServerRequest");
 }
 
-export interface RestoreServerResponse {
-  __type?: "RestoreServerResponse";
-}
+export interface RestoreServerResponse {}
 
 export namespace RestoreServerResponse {
   export const filterSensitiveLog = (obj: RestoreServerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreServerResponse => __isa(o, "RestoreServerResponse");
 }
 
 /**
@@ -1396,7 +1321,6 @@ export namespace RestoreServerResponse {
  *     </p>
  */
 export interface Server {
-  __type?: "Server";
   /**
    * <p>
    *       A DNS name that can be used to access the engine. Example: <code>myserver-asdfghjkl.us-east-1.opsworks.io</code>.
@@ -1596,7 +1520,6 @@ export namespace Server {
       EngineAttributes: obj.EngineAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is Server => __isa(o, "Server");
 }
 
 /**
@@ -1604,7 +1527,6 @@ export namespace Server {
  *     </p>
  */
 export interface ServerEvent {
-  __type?: "ServerEvent";
   /**
    * <p>The time when the event occurred.
    *     </p>
@@ -1632,7 +1554,6 @@ export namespace ServerEvent {
   export const filterSensitiveLog = (obj: ServerEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServerEvent => __isa(o, "ServerEvent");
 }
 
 export enum ServerStatus {
@@ -1652,7 +1573,6 @@ export enum ServerStatus {
 }
 
 export interface StartMaintenanceRequest {
-  __type?: "StartMaintenanceRequest";
   /**
    * <p>Engine attributes that are specific to the server on which you want to run maintenance.</p>
    *          <p class="title">
@@ -1684,11 +1604,9 @@ export namespace StartMaintenanceRequest {
       EngineAttributes: obj.EngineAttributes.map((item) => EngineAttribute.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is StartMaintenanceRequest => __isa(o, "StartMaintenanceRequest");
 }
 
 export interface StartMaintenanceResponse {
-  __type?: "StartMaintenanceResponse";
   /**
    * <p>Contains the response to a <code>StartMaintenance</code> request.
    *     </p>
@@ -1701,7 +1619,6 @@ export namespace StartMaintenanceResponse {
     ...obj,
     ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) }),
   });
-  export const isa = (o: any): o is StartMaintenanceResponse => __isa(o, "StartMaintenanceResponse");
 }
 
 /**
@@ -1710,7 +1627,6 @@ export namespace StartMaintenanceResponse {
  *       A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>A tag key, such as <code>Stage</code> or <code>Name</code>. A tag key cannot be empty. The key can be a maximum of 127 characters,
    *       and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>
@@ -1730,11 +1646,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The Amazon Resource Number (ARN) of a resource to which you want to apply tags. For example,
    *       <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>
@@ -1770,22 +1684,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The keys of tags that you want to remove.</p>
    */
@@ -1802,22 +1711,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateServerEngineAttributesRequest {
-  __type?: "UpdateServerEngineAttributesRequest";
   /**
    * <p>The name of the engine attribute to update.
    *     </p>
@@ -1841,12 +1745,9 @@ export namespace UpdateServerEngineAttributesRequest {
   export const filterSensitiveLog = (obj: UpdateServerEngineAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServerEngineAttributesRequest =>
-    __isa(o, "UpdateServerEngineAttributesRequest");
 }
 
 export interface UpdateServerEngineAttributesResponse {
-  __type?: "UpdateServerEngineAttributesResponse";
   /**
    * <p>Contains the response to an <code>UpdateServerEngineAttributes</code> request.
    *     </p>
@@ -1859,12 +1760,9 @@ export namespace UpdateServerEngineAttributesResponse {
     ...obj,
     ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) }),
   });
-  export const isa = (o: any): o is UpdateServerEngineAttributesResponse =>
-    __isa(o, "UpdateServerEngineAttributesResponse");
 }
 
 export interface UpdateServerRequest {
-  __type?: "UpdateServerRequest";
   /**
    * <p>
    *             <code>DDD:HH:MM</code> (weekly start time) or
@@ -1910,11 +1808,9 @@ export namespace UpdateServerRequest {
   export const filterSensitiveLog = (obj: UpdateServerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServerRequest => __isa(o, "UpdateServerRequest");
 }
 
 export interface UpdateServerResponse {
-  __type?: "UpdateServerResponse";
   /**
    * <p>Contains the response to a <code>UpdateServer</code> request.
    *     </p>
@@ -1927,7 +1823,6 @@ export namespace UpdateServerResponse {
     ...obj,
     ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) }),
   });
-  export const isa = (o: any): o is UpdateServerResponse => __isa(o, "UpdateServerResponse");
 }
 
 /**
@@ -1948,5 +1843,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

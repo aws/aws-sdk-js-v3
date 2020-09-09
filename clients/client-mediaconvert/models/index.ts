@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AacAudioDescriptionBroadcasterMix {
@@ -34,7 +34,6 @@ export enum AacRawFormat {
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
  */
 export interface AacSettings {
-  __type?: "AacSettings";
   /**
    * Enables LATM/LOAS AAC output. Note that if you use LATM/LOAS AAC in an output, you must choose "No container" for the output container.
    */
@@ -85,7 +84,6 @@ export namespace AacSettings {
   export const filterSensitiveLog = (obj: AacSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AacSettings => __isa(o, "AacSettings");
 }
 
 export enum AacSpecification {
@@ -137,7 +135,6 @@ export enum Ac3MetadataControl {
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AC3.
  */
 export interface Ac3Settings {
-  __type?: "Ac3Settings";
   /**
    * Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.
    */
@@ -183,7 +180,6 @@ export namespace Ac3Settings {
   export const filterSensitiveLog = (obj: Ac3Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ac3Settings => __isa(o, "Ac3Settings");
 }
 
 export enum AccelerationMode {
@@ -196,7 +192,6 @@ export enum AccelerationMode {
  * Accelerated transcoding can significantly speed up jobs with long, visually complex content.
  */
 export interface AccelerationSettings {
-  __type?: "AccelerationSettings";
   /**
    * Specify the conditions when the service will run your job with accelerated transcoding.
    */
@@ -207,7 +202,6 @@ export namespace AccelerationSettings {
   export const filterSensitiveLog = (obj: AccelerationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccelerationSettings => __isa(o, "AccelerationSettings");
 }
 
 export enum AccelerationStatus {
@@ -227,7 +221,6 @@ export enum AfdSignaling {
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.
  */
 export interface AiffSettings {
-  __type?: "AiffSettings";
   /**
    * Sample rate in hz.
    */
@@ -248,7 +241,6 @@ export namespace AiffSettings {
   export const filterSensitiveLog = (obj: AiffSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AiffSettings => __isa(o, "AiffSettings");
 }
 
 export enum AlphaBehavior {
@@ -265,7 +257,6 @@ export enum AncillaryConvert608To708 {
  * Settings for ancillary captions source.
  */
 export interface AncillarySourceSettings {
-  __type?: "AncillarySourceSettings";
   /**
    * Specifies the 608 channel number in the ancillary data track from which to extract captions. Unused for passthrough.
    */
@@ -286,7 +277,6 @@ export namespace AncillarySourceSettings {
   export const filterSensitiveLog = (obj: AncillarySourceSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AncillarySourceSettings => __isa(o, "AncillarySourceSettings");
 }
 
 export enum AncillaryTerminateCaptions {
@@ -300,7 +290,6 @@ export enum AntiAlias {
 }
 
 export interface AssociateCertificateRequest {
-  __type?: "AssociateCertificateRequest";
   /**
    * The ARN of the ACM certificate that you want to associate with your MediaConvert resource.
    */
@@ -311,18 +300,14 @@ export namespace AssociateCertificateRequest {
   export const filterSensitiveLog = (obj: AssociateCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateCertificateRequest => __isa(o, "AssociateCertificateRequest");
 }
 
-export interface AssociateCertificateResponse {
-  __type?: "AssociateCertificateResponse";
-}
+export interface AssociateCertificateResponse {}
 
 export namespace AssociateCertificateResponse {
   export const filterSensitiveLog = (obj: AssociateCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateCertificateResponse => __isa(o, "AssociateCertificateResponse");
 }
 
 export enum AudioCodec {
@@ -343,7 +328,6 @@ export enum AudioCodec {
  * Audio codec settings (CodecSettings) under (AudioDescriptions) contains the group of settings related to audio encoding. The settings in this group vary depending on the value that you choose for Audio codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings * VORBIS, VorbisSettings * OPUS, OpusSettings
  */
 export interface AudioCodecSettings {
-  __type?: "AudioCodecSettings";
   /**
    * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
    */
@@ -404,7 +388,6 @@ export namespace AudioCodecSettings {
   export const filterSensitiveLog = (obj: AudioCodecSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AudioCodecSettings => __isa(o, "AudioCodecSettings");
 }
 
 export enum AudioDefaultSelection {
@@ -416,7 +399,6 @@ export enum AudioDefaultSelection {
  * Description of audio output
  */
 export interface AudioDescription {
-  __type?: "AudioDescription";
   /**
    * Audio codec settings (CodecSettings) under (AudioDescriptions) contains the group of settings related to audio encoding. The settings in this group vary depending on the value that you choose for Audio codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings * VORBIS, VorbisSettings * OPUS, OpusSettings
    */
@@ -472,7 +454,6 @@ export namespace AudioDescription {
   export const filterSensitiveLog = (obj: AudioDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AudioDescription => __isa(o, "AudioDescription");
 }
 
 export enum AudioLanguageCodeControl {
@@ -506,7 +487,6 @@ export enum AudioNormalizationPeakCalculation {
  * Advanced audio normalization settings. Ignore these settings unless you need to comply with a loudness standard.
  */
 export interface AudioNormalizationSettings {
-  __type?: "AudioNormalizationSettings";
   /**
    * Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected.
    */
@@ -542,14 +522,12 @@ export namespace AudioNormalizationSettings {
   export const filterSensitiveLog = (obj: AudioNormalizationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AudioNormalizationSettings => __isa(o, "AudioNormalizationSettings");
 }
 
 /**
  * Selector for Audio
  */
 export interface AudioSelector {
-  __type?: "AudioSelector";
   /**
    * Selects a specific language code from within an audio source.
    */
@@ -605,14 +583,12 @@ export namespace AudioSelector {
   export const filterSensitiveLog = (obj: AudioSelector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AudioSelector => __isa(o, "AudioSelector");
 }
 
 /**
  * Group of Audio Selectors
  */
 export interface AudioSelectorGroup {
-  __type?: "AudioSelectorGroup";
   /**
    * Name of an Audio Selector within the same input to include in the group.  Audio selector names are standardized, based on their order within the input (e.g., "Audio Selector 1"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.
    */
@@ -623,7 +599,6 @@ export namespace AudioSelectorGroup {
   export const filterSensitiveLog = (obj: AudioSelectorGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AudioSelectorGroup => __isa(o, "AudioSelectorGroup");
 }
 
 export enum AudioSelectorType {
@@ -660,7 +635,6 @@ export enum Av1FramerateConversionAlgorithm {
  * Settings for quality-defined variable bitrate encoding with the AV1 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
  */
 export interface Av1QvbrSettings {
-  __type?: "Av1QvbrSettings";
   /**
    * Required when you use QVBR rate control mode. That is, when you specify qvbrSettings within av1Settings. Specify the general target quality level for this output, from 1 to 10. Use higher numbers for greater quality. Level 10 results in nearly lossless compression. The quality level for most broadcast-quality transcodes is between 6 and 9. Optionally, to specify a value between whole numbers, also provide a value for the setting qvbrQualityLevelFineTune. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33.
    */
@@ -676,7 +650,6 @@ export namespace Av1QvbrSettings {
   export const filterSensitiveLog = (obj: Av1QvbrSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Av1QvbrSettings => __isa(o, "Av1QvbrSettings");
 }
 
 export enum Av1RateControlMode {
@@ -687,7 +660,6 @@ export enum Av1RateControlMode {
  * Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
  */
 export interface Av1Settings {
-  __type?: "Av1Settings";
   /**
    * Specify the GOP length (keyframe interval) in frames. With AV1, MediaConvert doesn't support GOP length in seconds. This value must be greater than zero and preferably equal to 1 + ((numberBFrames + 1) * x), where x is an integer value.
    */
@@ -753,7 +725,6 @@ export namespace Av1Settings {
   export const filterSensitiveLog = (obj: Av1Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Av1Settings => __isa(o, "Av1Settings");
 }
 
 export enum Av1SpatialAdaptiveQuantization {
@@ -765,7 +736,6 @@ export enum Av1SpatialAdaptiveQuantization {
  * Settings for Avail Blanking
  */
 export interface AvailBlanking {
-  __type?: "AvailBlanking";
   /**
    * Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
    */
@@ -776,7 +746,6 @@ export namespace AvailBlanking {
   export const filterSensitiveLog = (obj: AvailBlanking): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AvailBlanking => __isa(o, "AvailBlanking");
 }
 
 /**
@@ -792,7 +761,6 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export enum BillingTagsSource {
@@ -806,7 +774,6 @@ export enum BillingTagsSource {
  * Burn-In Destination Settings.
  */
 export interface BurninDestinationSettings {
-  __type?: "BurninDestinationSettings";
   /**
    * A positive integer indicates the exact font size in points. Set to 0 for automatic font size selection. All burn-in and DVB-Sub font settings must match.
    */
@@ -901,7 +868,6 @@ export namespace BurninDestinationSettings {
   export const filterSensitiveLog = (obj: BurninDestinationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BurninDestinationSettings => __isa(o, "BurninDestinationSettings");
 }
 
 export enum BurninSubtitleAlignment {
@@ -945,7 +911,6 @@ export enum BurninSubtitleTeletextSpacing {
 }
 
 export interface CancelJobRequest {
-  __type?: "CancelJobRequest";
   /**
    * The Job ID of the job to be cancelled.
    */
@@ -956,25 +921,20 @@ export namespace CancelJobRequest {
   export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJobRequest => __isa(o, "CancelJobRequest");
 }
 
-export interface CancelJobResponse {
-  __type?: "CancelJobResponse";
-}
+export interface CancelJobResponse {}
 
 export namespace CancelJobResponse {
   export const filterSensitiveLog = (obj: CancelJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJobResponse => __isa(o, "CancelJobResponse");
 }
 
 /**
  * Description of Caption output
  */
 export interface CaptionDescription {
-  __type?: "CaptionDescription";
   /**
    * Specific settings required by destination type. Note that burnin_destination_settings are not available if the source of the caption data is Embedded or Teletext.
    */
@@ -1005,14 +965,12 @@ export namespace CaptionDescription {
   export const filterSensitiveLog = (obj: CaptionDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaptionDescription => __isa(o, "CaptionDescription");
 }
 
 /**
  * Caption Description for preset
  */
 export interface CaptionDescriptionPreset {
-  __type?: "CaptionDescriptionPreset";
   /**
    * Specify the language for this captions output track. For most captions output formats, the encoder puts this language information in the output captions metadata. If your output captions format is DVB-Sub or Burn in, the encoder uses this language information when automatically selecting the font script for rendering the captions text. For all outputs, you can use an ISO 639-2 or ISO 639-3 code. For streaming outputs, you can also use any other code in the full RFC-5646 specification. Streaming outputs are those that are in one of the following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth Streaming.
    */
@@ -1038,14 +996,12 @@ export namespace CaptionDescriptionPreset {
   export const filterSensitiveLog = (obj: CaptionDescriptionPreset): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaptionDescriptionPreset => __isa(o, "CaptionDescriptionPreset");
 }
 
 /**
  * Specific settings required by destination type. Note that burnin_destination_settings are not available if the source of the caption data is Embedded or Teletext.
  */
 export interface CaptionDestinationSettings {
-  __type?: "CaptionDestinationSettings";
   /**
    * Specify the format for this set of captions on this output. The default format is embedded without SCTE-20. Other options are embedded with SCTE-20, burn-in, DVB-sub, IMSC, SCC, SRT, teletext, TTML, and web-VTT. If you are using SCTE-20, choose SCTE-20 plus embedded (SCTE20_PLUS_EMBEDDED) to create an output that complies with the SCTE-43 spec. To create a non-compliant output where the embedded captions come first, choose Embedded plus SCTE-20 (EMBEDDED_PLUS_SCTE20).
    */
@@ -1091,7 +1047,6 @@ export namespace CaptionDestinationSettings {
   export const filterSensitiveLog = (obj: CaptionDestinationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaptionDestinationSettings => __isa(o, "CaptionDestinationSettings");
 }
 
 export enum CaptionDestinationType {
@@ -1113,7 +1068,6 @@ export enum CaptionDestinationType {
  * Set up captions in your outputs by first selecting them from your input here.
  */
 export interface CaptionSelector {
-  __type?: "CaptionSelector";
   /**
    * The specific language to extract from source. If input is SCTE-27, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub that is being passed through, omit this field (and PID field); there is no way to extract a specific language with pass-through captions.
    */
@@ -1134,14 +1088,12 @@ export namespace CaptionSelector {
   export const filterSensitiveLog = (obj: CaptionSelector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaptionSelector => __isa(o, "CaptionSelector");
 }
 
 /**
  * Ignore this setting unless your input captions format is SCC. To have the service compensate for differing frame rates between your input captions and input video, specify the frame rate of the captions file. Specify this value as a fraction, using the settings Framerate numerator (framerateNumerator) and Framerate denominator (framerateDenominator). For example, you might specify 24 / 1 for 24 fps, 25 / 1 for 25 fps, 24000 / 1001 for 23.976 fps, or 30000 / 1001 for 29.97 fps.
  */
 export interface CaptionSourceFramerate {
-  __type?: "CaptionSourceFramerate";
   /**
    * Specify the denominator of the fraction that represents the frame rate for the setting Caption source frame rate (CaptionSourceFramerate). Use this setting along with the setting Framerate numerator (framerateNumerator).
    */
@@ -1157,14 +1109,12 @@ export namespace CaptionSourceFramerate {
   export const filterSensitiveLog = (obj: CaptionSourceFramerate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaptionSourceFramerate => __isa(o, "CaptionSourceFramerate");
 }
 
 /**
  * If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml file, specify the URI of the input captions source file. If your input captions are IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
  */
 export interface CaptionSourceSettings {
-  __type?: "CaptionSourceSettings";
   /**
    * Settings specific to Teletext caption sources, including Page number.
    */
@@ -1205,7 +1155,6 @@ export namespace CaptionSourceSettings {
   export const filterSensitiveLog = (obj: CaptionSourceSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaptionSourceSettings => __isa(o, "CaptionSourceSettings");
 }
 
 export enum CaptionSourceType {
@@ -1227,7 +1176,6 @@ export enum CaptionSourceType {
  * Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel. Units are in dB. Acceptable values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification).
  */
 export interface ChannelMapping {
-  __type?: "ChannelMapping";
   /**
    * List of output channels
    */
@@ -1238,14 +1186,12 @@ export namespace ChannelMapping {
   export const filterSensitiveLog = (obj: ChannelMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelMapping => __isa(o, "ChannelMapping");
 }
 
 /**
  * Specify the details for each pair of HLS and DASH additional manifests that you want the service to generate for this CMAF output group. Each pair of manifests can reference a different subset of outputs in the group.
  */
 export interface CmafAdditionalManifest {
-  __type?: "CmafAdditionalManifest";
   /**
    * Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your HLS group is film-name.m3u8. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.m3u8. For HLS output groups, specify a manifestNameModifier that is different from the nameModifier of the output. The service uses the output name modifier to create unique names for the individual variant manifests.
    */
@@ -1261,7 +1207,6 @@ export namespace CmafAdditionalManifest {
   export const filterSensitiveLog = (obj: CmafAdditionalManifest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CmafAdditionalManifest => __isa(o, "CmafAdditionalManifest");
 }
 
 export enum CmafClientCache {
@@ -1278,7 +1223,6 @@ export enum CmafCodecSpecification {
  * Settings for CMAF encryption
  */
 export interface CmafEncryptionSettings {
-  __type?: "CmafEncryptionSettings";
   /**
    * Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
    */
@@ -1314,7 +1258,6 @@ export namespace CmafEncryptionSettings {
   export const filterSensitiveLog = (obj: CmafEncryptionSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CmafEncryptionSettings => __isa(o, "CmafEncryptionSettings");
 }
 
 export enum CmafEncryptionType {
@@ -1326,7 +1269,6 @@ export enum CmafEncryptionType {
  * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to CMAF_GROUP_SETTINGS. Each output in a CMAF Output Group may only contain a single video, audio, or caption output.
  */
 export interface CmafGroupSettings {
-  __type?: "CmafGroupSettings";
   /**
    * When you enable Precise segment duration in DASH manifests (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment durations. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When this feature isn't enabled, the segment durations in your DASH manifest are approximate. The segment duration information appears in the duration attribute of the SegmentTemplate element.
    */
@@ -1427,7 +1369,6 @@ export namespace CmafGroupSettings {
   export const filterSensitiveLog = (obj: CmafGroupSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CmafGroupSettings => __isa(o, "CmafGroupSettings");
 }
 
 export enum CmafInitializationVectorInManifest {
@@ -1494,7 +1435,6 @@ export enum CmfcScte35Source {
  * Settings for MP4 segments in CMAF
  */
 export interface CmfcSettings {
-  __type?: "CmfcSettings";
   /**
    * Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
    */
@@ -1510,14 +1450,12 @@ export namespace CmfcSettings {
   export const filterSensitiveLog = (obj: CmfcSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CmfcSettings => __isa(o, "CmfcSettings");
 }
 
 /**
  * Settings for color correction.
  */
 export interface ColorCorrector {
-  __type?: "ColorCorrector";
   /**
    * Contrast level.
    */
@@ -1553,7 +1491,6 @@ export namespace ColorCorrector {
   export const filterSensitiveLog = (obj: ColorCorrector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColorCorrector => __isa(o, "ColorCorrector");
 }
 
 export enum ColorMetadata {
@@ -1599,14 +1536,12 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
  * Container specific settings.
  */
 export interface ContainerSettings {
-  __type?: "ContainerSettings";
   /**
    * Settings for TS segments in HLS
    */
@@ -1657,7 +1592,6 @@ export namespace ContainerSettings {
   export const filterSensitiveLog = (obj: ContainerSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerSettings => __isa(o, "ContainerSettings");
 }
 
 export enum ContainerType {
@@ -1675,7 +1609,6 @@ export enum ContainerType {
 }
 
 export interface CreateJobRequest {
-  __type?: "CreateJobRequest";
   /**
    * Optional. Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
    */
@@ -1746,11 +1679,9 @@ export namespace CreateJobRequest {
   export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobRequest => __isa(o, "CreateJobRequest");
 }
 
 export interface CreateJobResponse {
-  __type?: "CreateJobResponse";
   /**
    * Each job converts an input file into an output file or files. For more information, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    */
@@ -1761,11 +1692,9 @@ export namespace CreateJobResponse {
   export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobResponse => __isa(o, "CreateJobResponse");
 }
 
 export interface CreateJobTemplateRequest {
-  __type?: "CreateJobTemplateRequest";
   /**
    * The name of the job template you are creating.
    */
@@ -1821,11 +1750,9 @@ export namespace CreateJobTemplateRequest {
   export const filterSensitiveLog = (obj: CreateJobTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobTemplateRequest => __isa(o, "CreateJobTemplateRequest");
 }
 
 export interface CreateJobTemplateResponse {
-  __type?: "CreateJobTemplateResponse";
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
    */
@@ -1836,11 +1763,9 @@ export namespace CreateJobTemplateResponse {
   export const filterSensitiveLog = (obj: CreateJobTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobTemplateResponse => __isa(o, "CreateJobTemplateResponse");
 }
 
 export interface CreatePresetRequest {
-  __type?: "CreatePresetRequest";
   /**
    * Optional. A description of the preset you are creating.
    */
@@ -1871,11 +1796,9 @@ export namespace CreatePresetRequest {
   export const filterSensitiveLog = (obj: CreatePresetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePresetRequest => __isa(o, "CreatePresetRequest");
 }
 
 export interface CreatePresetResponse {
-  __type?: "CreatePresetResponse";
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
    */
@@ -1886,11 +1809,9 @@ export namespace CreatePresetResponse {
   export const filterSensitiveLog = (obj: CreatePresetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePresetResponse => __isa(o, "CreatePresetResponse");
 }
 
 export interface CreateQueueRequest {
-  __type?: "CreateQueueRequest";
   /**
    * Optional. A description of the queue that you are creating.
    */
@@ -1926,11 +1847,9 @@ export namespace CreateQueueRequest {
   export const filterSensitiveLog = (obj: CreateQueueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateQueueRequest => __isa(o, "CreateQueueRequest");
 }
 
 export interface CreateQueueResponse {
-  __type?: "CreateQueueResponse";
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
    */
@@ -1941,14 +1860,12 @@ export namespace CreateQueueResponse {
   export const filterSensitiveLog = (obj: CreateQueueResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateQueueResponse => __isa(o, "CreateQueueResponse");
 }
 
 /**
  * Specify the details for each additional DASH manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
  */
 export interface DashAdditionalManifest {
-  __type?: "DashAdditionalManifest";
   /**
    * Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your DASH group is film-name.mpd. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.mpd.
    */
@@ -1964,14 +1881,12 @@ export namespace DashAdditionalManifest {
   export const filterSensitiveLog = (obj: DashAdditionalManifest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashAdditionalManifest => __isa(o, "DashAdditionalManifest");
 }
 
 /**
  * Specifies DRM settings for DASH outputs.
  */
 export interface DashIsoEncryptionSettings {
-  __type?: "DashIsoEncryptionSettings";
   /**
    * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
    */
@@ -1987,14 +1902,12 @@ export namespace DashIsoEncryptionSettings {
   export const filterSensitiveLog = (obj: DashIsoEncryptionSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashIsoEncryptionSettings => __isa(o, "DashIsoEncryptionSettings");
 }
 
 /**
  * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to DASH_ISO_GROUP_SETTINGS.
  */
 export interface DashIsoGroupSettings {
-  __type?: "DashIsoGroupSettings";
   /**
    * When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.
    */
@@ -2060,7 +1973,6 @@ export namespace DashIsoGroupSettings {
   export const filterSensitiveLog = (obj: DashIsoGroupSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashIsoGroupSettings => __isa(o, "DashIsoGroupSettings");
 }
 
 export enum DashIsoHbbtvCompliance {
@@ -2105,7 +2017,6 @@ export enum DeinterlaceAlgorithm {
  * Settings for deinterlacer
  */
 export interface Deinterlacer {
-  __type?: "Deinterlacer";
   /**
    * - When set to NORMAL (default), the deinterlacer does not convert frames that are tagged  in metadata as progressive. It will only convert those that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the deinterlacer converts every frame to progressive - even those that are already tagged as progressive. Turn Force mode on only if there is  a good chance that the metadata has tagged frames as progressive when they are not  progressive. Do not turn on otherwise; processing frames that are already progressive  into progressive will probably result in lower quality video.
    */
@@ -2126,7 +2037,6 @@ export namespace Deinterlacer {
   export const filterSensitiveLog = (obj: Deinterlacer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Deinterlacer => __isa(o, "Deinterlacer");
 }
 
 export enum DeinterlacerControl {
@@ -2141,7 +2051,6 @@ export enum DeinterlacerMode {
 }
 
 export interface DeleteJobTemplateRequest {
-  __type?: "DeleteJobTemplateRequest";
   /**
    * The name of the job template to be deleted.
    */
@@ -2152,22 +2061,17 @@ export namespace DeleteJobTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteJobTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJobTemplateRequest => __isa(o, "DeleteJobTemplateRequest");
 }
 
-export interface DeleteJobTemplateResponse {
-  __type?: "DeleteJobTemplateResponse";
-}
+export interface DeleteJobTemplateResponse {}
 
 export namespace DeleteJobTemplateResponse {
   export const filterSensitiveLog = (obj: DeleteJobTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJobTemplateResponse => __isa(o, "DeleteJobTemplateResponse");
 }
 
 export interface DeletePresetRequest {
-  __type?: "DeletePresetRequest";
   /**
    * The name of the preset to be deleted.
    */
@@ -2178,22 +2082,17 @@ export namespace DeletePresetRequest {
   export const filterSensitiveLog = (obj: DeletePresetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePresetRequest => __isa(o, "DeletePresetRequest");
 }
 
-export interface DeletePresetResponse {
-  __type?: "DeletePresetResponse";
-}
+export interface DeletePresetResponse {}
 
 export namespace DeletePresetResponse {
   export const filterSensitiveLog = (obj: DeletePresetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePresetResponse => __isa(o, "DeletePresetResponse");
 }
 
 export interface DeleteQueueRequest {
-  __type?: "DeleteQueueRequest";
   /**
    * The name of the queue that you want to delete.
    */
@@ -2204,18 +2103,14 @@ export namespace DeleteQueueRequest {
   export const filterSensitiveLog = (obj: DeleteQueueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteQueueRequest => __isa(o, "DeleteQueueRequest");
 }
 
-export interface DeleteQueueResponse {
-  __type?: "DeleteQueueResponse";
-}
+export interface DeleteQueueResponse {}
 
 export namespace DeleteQueueResponse {
   export const filterSensitiveLog = (obj: DeleteQueueResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteQueueResponse => __isa(o, "DeleteQueueResponse");
 }
 
 export enum DescribeEndpointsMode {
@@ -2227,7 +2122,6 @@ export enum DescribeEndpointsMode {
  * DescribeEndpointsRequest
  */
 export interface DescribeEndpointsRequest {
-  __type?: "DescribeEndpointsRequest";
   /**
    * Use this string, provided with the response to a previous request, to request the next batch of endpoints.
    */
@@ -2248,11 +2142,9 @@ export namespace DescribeEndpointsRequest {
   export const filterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointsRequest => __isa(o, "DescribeEndpointsRequest");
 }
 
 export interface DescribeEndpointsResponse {
-  __type?: "DescribeEndpointsResponse";
   /**
    * Use this string to request the next batch of endpoints.
    */
@@ -2268,14 +2160,12 @@ export namespace DescribeEndpointsResponse {
   export const filterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointsResponse => __isa(o, "DescribeEndpointsResponse");
 }
 
 /**
  * Settings associated with the destination. Will vary based on the type of destination
  */
 export interface DestinationSettings {
-  __type?: "DestinationSettings";
   /**
    * Settings associated with S3 destination
    */
@@ -2286,11 +2176,9 @@ export namespace DestinationSettings {
   export const filterSensitiveLog = (obj: DestinationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DestinationSettings => __isa(o, "DestinationSettings");
 }
 
 export interface DisassociateCertificateRequest {
-  __type?: "DisassociateCertificateRequest";
   /**
    * The ARN of the ACM certificate that you want to disassociate from your MediaConvert resource.
    */
@@ -2301,25 +2189,20 @@ export namespace DisassociateCertificateRequest {
   export const filterSensitiveLog = (obj: DisassociateCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateCertificateRequest => __isa(o, "DisassociateCertificateRequest");
 }
 
-export interface DisassociateCertificateResponse {
-  __type?: "DisassociateCertificateResponse";
-}
+export interface DisassociateCertificateResponse {}
 
 export namespace DisassociateCertificateResponse {
   export const filterSensitiveLog = (obj: DisassociateCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateCertificateResponse => __isa(o, "DisassociateCertificateResponse");
 }
 
 /**
  * Settings for Dolby Vision
  */
 export interface DolbyVision {
-  __type?: "DolbyVision";
   /**
    * Use Dolby Vision Mode to choose how the service will handle Dolby Vision MaxCLL and MaxFALL properies.
    */
@@ -2340,14 +2223,12 @@ export namespace DolbyVision {
   export const filterSensitiveLog = (obj: DolbyVision): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DolbyVision => __isa(o, "DolbyVision");
 }
 
 /**
  * Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
  */
 export interface DolbyVisionLevel6Metadata {
-  __type?: "DolbyVisionLevel6Metadata";
   /**
    * Maximum Content Light Level. Static HDR metadata that corresponds to the brightest pixel in the entire stream. Measured in nits.
    */
@@ -2363,7 +2244,6 @@ export namespace DolbyVisionLevel6Metadata {
   export const filterSensitiveLog = (obj: DolbyVisionLevel6Metadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DolbyVisionLevel6Metadata => __isa(o, "DolbyVisionLevel6Metadata");
 }
 
 export enum DolbyVisionLevel6Mode {
@@ -2385,7 +2265,6 @@ export enum DropFrameTimecode {
  * Inserts DVB Network Information Table (NIT) at the specified table repetition interval.
  */
 export interface DvbNitSettings {
-  __type?: "DvbNitSettings";
   /**
    * The numeric value placed in the Network Information Table (NIT).
    */
@@ -2406,14 +2285,12 @@ export namespace DvbNitSettings {
   export const filterSensitiveLog = (obj: DvbNitSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DvbNitSettings => __isa(o, "DvbNitSettings");
 }
 
 /**
  * Inserts DVB Service Description Table (NIT) at the specified table repetition interval.
  */
 export interface DvbSdtSettings {
-  __type?: "DvbSdtSettings";
   /**
    * The number of milliseconds between instances of this table in the output transport stream.
    */
@@ -2439,14 +2316,12 @@ export namespace DvbSdtSettings {
   export const filterSensitiveLog = (obj: DvbSdtSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DvbSdtSettings => __isa(o, "DvbSdtSettings");
 }
 
 /**
  * DVB-Sub Destination Settings
  */
 export interface DvbSubDestinationSettings {
-  __type?: "DvbSubDestinationSettings";
   /**
    * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
    */
@@ -2546,14 +2421,12 @@ export namespace DvbSubDestinationSettings {
   export const filterSensitiveLog = (obj: DvbSubDestinationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DvbSubDestinationSettings => __isa(o, "DvbSubDestinationSettings");
 }
 
 /**
  * DVB Sub Source Settings
  */
 export interface DvbSubSourceSettings {
-  __type?: "DvbSubSourceSettings";
   /**
    * When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
    */
@@ -2564,7 +2437,6 @@ export namespace DvbSubSourceSettings {
   export const filterSensitiveLog = (obj: DvbSubSourceSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DvbSubSourceSettings => __isa(o, "DvbSubSourceSettings");
 }
 
 export enum DvbSubtitleAlignment {
@@ -2616,7 +2488,6 @@ export enum DvbSubtitlingType {
  * Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
  */
 export interface DvbTdtSettings {
-  __type?: "DvbTdtSettings";
   /**
    * The number of milliseconds between instances of this table in the output transport stream.
    */
@@ -2627,7 +2498,6 @@ export namespace DvbTdtSettings {
   export const filterSensitiveLog = (obj: DvbTdtSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DvbTdtSettings => __isa(o, "DvbTdtSettings");
 }
 
 export enum Eac3AtmosBitstreamMode {
@@ -2673,7 +2543,6 @@ export enum Eac3AtmosMeteringMode {
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3_ATMOS.
  */
 export interface Eac3AtmosSettings {
-  __type?: "Eac3AtmosSettings";
   /**
    * Specify a value for the following Dolby Atmos setting: Left total/Right total center mix (Lt/Rt center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, and -6.0.
    */
@@ -2758,7 +2627,6 @@ export namespace Eac3AtmosSettings {
   export const filterSensitiveLog = (obj: Eac3AtmosSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Eac3AtmosSettings => __isa(o, "Eac3AtmosSettings");
 }
 
 export enum Eac3AtmosStereoDownmix {
@@ -2845,7 +2713,6 @@ export enum Eac3PhaseControl {
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3.
  */
 export interface Eac3Settings {
-  __type?: "Eac3Settings";
   /**
    * Choose how the service does stereo downmixing. This setting only applies if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Stereo downmix (Eac3StereoDownmix).
    */
@@ -2956,7 +2823,6 @@ export namespace Eac3Settings {
   export const filterSensitiveLog = (obj: Eac3Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Eac3Settings => __isa(o, "Eac3Settings");
 }
 
 export enum Eac3StereoDownmix {
@@ -2987,7 +2853,6 @@ export enum EmbeddedConvert608To708 {
  * Settings specific to embedded/ancillary caption outputs, including 608/708 Channel destination number.
  */
 export interface EmbeddedDestinationSettings {
-  __type?: "EmbeddedDestinationSettings";
   /**
    * Ignore this setting unless your input captions are SCC format and you want both 608 and 708 captions embedded in your output stream. Optionally, specify the 708 service number for each output captions channel. Choose a different number for each channel. To use this setting, also set Force 608 to 708 upconvert (Convert608To708) to Upconvert (UPCONVERT) in your input captions selector settings. If you choose to upconvert but don't specify a 708 service number, MediaConvert uses the number that you specify for CC channel number (destination608ChannelNumber) for the 708 service number. For more information, see https://docs.aws.amazon.com/console/mediaconvert/dual-scc-to-embedded.
    */
@@ -3003,14 +2868,12 @@ export namespace EmbeddedDestinationSettings {
   export const filterSensitiveLog = (obj: EmbeddedDestinationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmbeddedDestinationSettings => __isa(o, "EmbeddedDestinationSettings");
 }
 
 /**
  * Settings for embedded captions Source
  */
 export interface EmbeddedSourceSettings {
-  __type?: "EmbeddedSourceSettings";
   /**
    * Specifies the video track index used for extracting captions. The system only supports one input video track, so this should always be set to '1'.
    */
@@ -3036,7 +2899,6 @@ export namespace EmbeddedSourceSettings {
   export const filterSensitiveLog = (obj: EmbeddedSourceSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmbeddedSourceSettings => __isa(o, "EmbeddedSourceSettings");
 }
 
 export enum EmbeddedTerminateCaptions {
@@ -3048,7 +2910,6 @@ export enum EmbeddedTerminateCaptions {
  * Describes an account-specific API endpoint.
  */
 export interface Endpoint {
-  __type?: "Endpoint";
   /**
    * URL of endpoint
    */
@@ -3059,14 +2920,12 @@ export namespace Endpoint {
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
 
 /**
  * ESAM ManifestConfirmConditionNotification defined by OC-SP-ESAM-API-I03-131025.
  */
 export interface EsamManifestConfirmConditionNotification {
-  __type?: "EsamManifestConfirmConditionNotification";
   /**
    * Provide your ESAM ManifestConfirmConditionNotification XML document inside your JSON job settings. Form the XML document as per OC-SP-ESAM-API-I03-131025. The transcoder will use the Manifest Conditioning instructions in the message that you supply.
    */
@@ -3077,15 +2936,12 @@ export namespace EsamManifestConfirmConditionNotification {
   export const filterSensitiveLog = (obj: EsamManifestConfirmConditionNotification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EsamManifestConfirmConditionNotification =>
-    __isa(o, "EsamManifestConfirmConditionNotification");
 }
 
 /**
  * Settings for Event Signaling And Messaging (ESAM). If you don't do ad insertion, you can ignore these settings.
  */
 export interface EsamSettings {
-  __type?: "EsamSettings";
   /**
    * Specifies an ESAM SignalProcessingNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing instructions that you provide in the setting SCC XML (sccXml).
    */
@@ -3106,14 +2962,12 @@ export namespace EsamSettings {
   export const filterSensitiveLog = (obj: EsamSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EsamSettings => __isa(o, "EsamSettings");
 }
 
 /**
  * ESAM SignalProcessingNotification data defined by OC-SP-ESAM-API-I03-131025.
  */
 export interface EsamSignalProcessingNotification {
-  __type?: "EsamSignalProcessingNotification";
   /**
    * Provide your ESAM SignalProcessingNotification XML document inside your JSON job settings. Form the XML document as per OC-SP-ESAM-API-I03-131025. The transcoder will use the signal processing instructions in the message that you supply. Provide your ESAM SignalProcessingNotification XML document inside your JSON job settings. For your MPEG2-TS file outputs, if you want the service to place SCTE-35 markers at the insertion points you specify in the XML document, you must also enable SCTE-35 ESAM (scte35Esam). Note that you can either specify an ESAM XML document or enable SCTE-35 passthrough. You can't do both.
    */
@@ -3124,7 +2978,6 @@ export namespace EsamSignalProcessingNotification {
   export const filterSensitiveLog = (obj: EsamSignalProcessingNotification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EsamSignalProcessingNotification => __isa(o, "EsamSignalProcessingNotification");
 }
 
 export enum F4vMoovPlacement {
@@ -3136,7 +2989,6 @@ export enum F4vMoovPlacement {
  * Settings for F4v container
  */
 export interface F4vSettings {
-  __type?: "F4vSettings";
   /**
    * If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
    */
@@ -3147,14 +2999,12 @@ export namespace F4vSettings {
   export const filterSensitiveLog = (obj: F4vSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is F4vSettings => __isa(o, "F4vSettings");
 }
 
 /**
  * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to FILE_GROUP_SETTINGS.
  */
 export interface FileGroupSettings {
-  __type?: "FileGroupSettings";
   /**
    * Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
    */
@@ -3170,7 +3020,6 @@ export namespace FileGroupSettings {
   export const filterSensitiveLog = (obj: FileGroupSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileGroupSettings => __isa(o, "FileGroupSettings");
 }
 
 export enum FileSourceConvert608To708 {
@@ -3182,7 +3031,6 @@ export enum FileSourceConvert608To708 {
  * If your input captions are SCC, SMI, SRT, STL, TTML, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
  */
 export interface FileSourceSettings {
-  __type?: "FileSourceSettings";
   /**
    * External caption file used for loading captions. Accepted file extensions are 'scc', 'ttml', 'dfxp', 'stl', 'srt', 'xml', and 'smi'.
    */
@@ -3208,7 +3056,6 @@ export namespace FileSourceSettings {
   export const filterSensitiveLog = (obj: FileSourceSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSourceSettings => __isa(o, "FileSourceSettings");
 }
 
 export enum FontScript {
@@ -3230,14 +3077,12 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
  */
 export interface FrameCaptureSettings {
-  __type?: "FrameCaptureSettings";
   /**
    * Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is the 0-based frame sequence number zero padded to 7 decimal places.
    */
@@ -3263,11 +3108,9 @@ export namespace FrameCaptureSettings {
   export const filterSensitiveLog = (obj: FrameCaptureSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FrameCaptureSettings => __isa(o, "FrameCaptureSettings");
 }
 
 export interface GetJobRequest {
-  __type?: "GetJobRequest";
   /**
    * the job ID of the job.
    */
@@ -3278,11 +3121,9 @@ export namespace GetJobRequest {
   export const filterSensitiveLog = (obj: GetJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobRequest => __isa(o, "GetJobRequest");
 }
 
 export interface GetJobResponse {
-  __type?: "GetJobResponse";
   /**
    * Each job converts an input file into an output file or files. For more information, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    */
@@ -3293,11 +3134,9 @@ export namespace GetJobResponse {
   export const filterSensitiveLog = (obj: GetJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobResponse => __isa(o, "GetJobResponse");
 }
 
 export interface GetJobTemplateRequest {
-  __type?: "GetJobTemplateRequest";
   /**
    * The name of the job template.
    */
@@ -3308,11 +3147,9 @@ export namespace GetJobTemplateRequest {
   export const filterSensitiveLog = (obj: GetJobTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobTemplateRequest => __isa(o, "GetJobTemplateRequest");
 }
 
 export interface GetJobTemplateResponse {
-  __type?: "GetJobTemplateResponse";
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
    */
@@ -3323,11 +3160,9 @@ export namespace GetJobTemplateResponse {
   export const filterSensitiveLog = (obj: GetJobTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobTemplateResponse => __isa(o, "GetJobTemplateResponse");
 }
 
 export interface GetPresetRequest {
-  __type?: "GetPresetRequest";
   /**
    * The name of the preset.
    */
@@ -3338,11 +3173,9 @@ export namespace GetPresetRequest {
   export const filterSensitiveLog = (obj: GetPresetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPresetRequest => __isa(o, "GetPresetRequest");
 }
 
 export interface GetPresetResponse {
-  __type?: "GetPresetResponse";
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
    */
@@ -3353,11 +3186,9 @@ export namespace GetPresetResponse {
   export const filterSensitiveLog = (obj: GetPresetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPresetResponse => __isa(o, "GetPresetResponse");
 }
 
 export interface GetQueueRequest {
-  __type?: "GetQueueRequest";
   /**
    * The name of the queue that you want information about.
    */
@@ -3368,11 +3199,9 @@ export namespace GetQueueRequest {
   export const filterSensitiveLog = (obj: GetQueueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQueueRequest => __isa(o, "GetQueueRequest");
 }
 
 export interface GetQueueResponse {
-  __type?: "GetQueueResponse";
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
    */
@@ -3383,7 +3212,6 @@ export namespace GetQueueResponse {
   export const filterSensitiveLog = (obj: GetQueueResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQueueResponse => __isa(o, "GetQueueResponse");
 }
 
 export enum H264AdaptiveQuantization {
@@ -3487,7 +3315,6 @@ export enum H264QualityTuningLevel {
  * Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
  */
 export interface H264QvbrSettings {
-  __type?: "H264QvbrSettings";
   /**
    * Optional. Specify a value here to set the QVBR quality to a level that is between whole numbers. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality level to the nearest third of a whole number. For example, if you set qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your actual QVBR quality level is 7.33.
    */
@@ -3508,7 +3335,6 @@ export namespace H264QvbrSettings {
   export const filterSensitiveLog = (obj: H264QvbrSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is H264QvbrSettings => __isa(o, "H264QvbrSettings");
 }
 
 export enum H264RateControlMode {
@@ -3532,7 +3358,6 @@ export enum H264SceneChangeDetect {
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value H_264.
  */
 export interface H264Settings {
-  __type?: "H264Settings";
   /**
    * GOP Length (keyframe interval) in frames or seconds. Must be greater than zero.
    */
@@ -3735,7 +3560,6 @@ export namespace H264Settings {
   export const filterSensitiveLog = (obj: H264Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is H264Settings => __isa(o, "H264Settings");
 }
 
 export enum H264SlowPal {
@@ -3864,7 +3688,6 @@ export enum H265QualityTuningLevel {
  * Settings for quality-defined variable bitrate encoding with the H.265 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
  */
 export interface H265QvbrSettings {
-  __type?: "H265QvbrSettings";
   /**
    * Use this setting only when Rate control mode is QVBR and Quality tuning level is Multi-pass HQ. For Max average bitrate values suited to the complexity of your input video, the service limits the average bitrate of the video part of this output to the value that you choose. That is, the total size of the video element is less than or equal to the value you set multiplied by the number of seconds of encoded output.
    */
@@ -3885,7 +3708,6 @@ export namespace H265QvbrSettings {
   export const filterSensitiveLog = (obj: H265QvbrSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is H265QvbrSettings => __isa(o, "H265QvbrSettings");
 }
 
 export enum H265RateControlMode {
@@ -3910,7 +3732,6 @@ export enum H265SceneChangeDetect {
  * Settings for H265 codec
  */
 export interface H265Settings {
-  __type?: "H265Settings";
   /**
    * Choose the scan line type for the output. Choose Progressive (PROGRESSIVE) to create a progressive output, regardless of the scan type of your input. Choose Top Field First (TOP_FIELD) or Bottom Field First (BOTTOM_FIELD) to create an output that's interlaced with the same field polarity throughout. Choose Follow, Default Top (FOLLOW_TOP_FIELD) or Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) to create an interlaced output with the same field polarity as the source. If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". If the source is progressive, your output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose. If you don't choose a value, the service will default to Progressive (PROGRESSIVE).
    */
@@ -4111,7 +3932,6 @@ export namespace H265Settings {
   export const filterSensitiveLog = (obj: H265Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is H265Settings => __isa(o, "H265Settings");
 }
 
 export enum H265SlowPal {
@@ -4159,7 +3979,6 @@ export enum H265WriteMp4PackagingType {
  * Use these settings to specify static color calibration metadata, as defined by SMPTE ST 2086. These values don't affect the pixel values that are encoded in the video stream. They are intended to help the downstream video player display content in a way that reflects the intentions of the the content creator.
  */
 export interface Hdr10Metadata {
-  __type?: "Hdr10Metadata";
   /**
    * HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
    */
@@ -4225,14 +4044,12 @@ export namespace Hdr10Metadata {
   export const filterSensitiveLog = (obj: Hdr10Metadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Hdr10Metadata => __isa(o, "Hdr10Metadata");
 }
 
 /**
  * Specify the details for each additional HLS manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
  */
 export interface HlsAdditionalManifest {
-  __type?: "HlsAdditionalManifest";
   /**
    * Specify the outputs that you want this additional top-level manifest to reference.
    */
@@ -4248,7 +4065,6 @@ export namespace HlsAdditionalManifest {
   export const filterSensitiveLog = (obj: HlsAdditionalManifest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsAdditionalManifest => __isa(o, "HlsAdditionalManifest");
 }
 
 export enum HlsAdMarkers {
@@ -4272,7 +4088,6 @@ export enum HlsAudioTrackType {
  * Caption Language Mapping
  */
 export interface HlsCaptionLanguageMapping {
-  __type?: "HlsCaptionLanguageMapping";
   /**
    * Specify the language for this captions channel, using the ISO 639-2 or ISO 639-3 three-letter language code
    */
@@ -4298,7 +4113,6 @@ export namespace HlsCaptionLanguageMapping {
   export const filterSensitiveLog = (obj: HlsCaptionLanguageMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsCaptionLanguageMapping => __isa(o, "HlsCaptionLanguageMapping");
 }
 
 export enum HlsCaptionLanguageSetting {
@@ -4326,7 +4140,6 @@ export enum HlsDirectoryStructure {
  * Settings for HLS encryption
  */
 export interface HlsEncryptionSettings {
-  __type?: "HlsEncryptionSettings";
   /**
    * Enable this setting to insert the EXT-X-SESSION-KEY element into the master playlist. This allows for offline Apple HLS FairPlay content protection.
    */
@@ -4367,7 +4180,6 @@ export namespace HlsEncryptionSettings {
   export const filterSensitiveLog = (obj: HlsEncryptionSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsEncryptionSettings => __isa(o, "HlsEncryptionSettings");
 }
 
 export enum HlsEncryptionType {
@@ -4379,7 +4191,6 @@ export enum HlsEncryptionType {
  * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to HLS_GROUP_SETTINGS.
  */
 export interface HlsGroupSettings {
-  __type?: "HlsGroupSettings";
   /**
    * Indicates ID3 frame that has the timecode.
    */
@@ -4510,7 +4321,6 @@ export namespace HlsGroupSettings {
   export const filterSensitiveLog = (obj: HlsGroupSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsGroupSettings => __isa(o, "HlsGroupSettings");
 }
 
 export enum HlsIFrameOnlyManifest {
@@ -4562,7 +4372,6 @@ export enum HlsSegmentControl {
  * Settings for HLS output groups
  */
 export interface HlsSettings {
-  __type?: "HlsSettings";
   /**
    * Use this setting to add an identifying string to the filename of each segment. The service adds this string between the name modifier and segment index number. You can use format identifiers in the string. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/using-variables-in-your-job-settings.html
    */
@@ -4598,7 +4407,6 @@ export namespace HlsSettings {
   export const filterSensitiveLog = (obj: HlsSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsSettings => __isa(o, "HlsSettings");
 }
 
 export enum HlsStreamInfResolution {
@@ -4616,7 +4424,6 @@ export enum HlsTimedMetadataId3Frame {
  * Optional. Configuration for a destination queue to which the job can hop once a customer-defined minimum wait time has passed.
  */
 export interface HopDestination {
-  __type?: "HopDestination";
   /**
    * Optional. When you set up a job to use queue hopping, you can specify a different relative priority for the job in the destination queue. If you don't specify, the relative priority will remain the same as in the previous queue.
    */
@@ -4637,14 +4444,12 @@ export namespace HopDestination {
   export const filterSensitiveLog = (obj: HopDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HopDestination => __isa(o, "HopDestination");
 }
 
 /**
  * To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3) to specify the base 64 encoded string and use Timecode (TimeCode) to specify the time when the tag should be inserted. To insert multiple ID3 tags in your output, create multiple instances of ID3 insertion (Id3Insertion).
  */
 export interface Id3Insertion {
-  __type?: "Id3Insertion";
   /**
    * Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
    */
@@ -4660,14 +4465,12 @@ export namespace Id3Insertion {
   export const filterSensitiveLog = (obj: Id3Insertion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Id3Insertion => __isa(o, "Id3Insertion");
 }
 
 /**
  * Enable the image inserter feature to include a graphic overlay on your video. Enable or disable this feature for each input or output individually. This setting is disabled by default.
  */
 export interface ImageInserter {
-  __type?: "ImageInserter";
   /**
    * Specify the images that you want to overlay on your video. The images must be PNG or TGA files.
    */
@@ -4678,14 +4481,12 @@ export namespace ImageInserter {
   export const filterSensitiveLog = (obj: ImageInserter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageInserter => __isa(o, "ImageInserter");
 }
 
 /**
  * Settings specific to IMSC caption outputs.
  */
 export interface ImscDestinationSettings {
-  __type?: "ImscDestinationSettings";
   /**
    * Keep this setting enabled to have MediaConvert use the font style and position information from the captions source in the output. This option is available only when your input captions are IMSC, SMPTE-TT, or TTML. Disable this setting for simplified output captions.
    */
@@ -4696,7 +4497,6 @@ export namespace ImscDestinationSettings {
   export const filterSensitiveLog = (obj: ImscDestinationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImscDestinationSettings => __isa(o, "ImscDestinationSettings");
 }
 
 export enum ImscStylePassthrough {
@@ -4708,7 +4508,6 @@ export enum ImscStylePassthrough {
  * Specifies media input
  */
 export interface Input {
-  __type?: "Input";
   /**
    * Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.
    */
@@ -4809,14 +4608,12 @@ export namespace Input {
   export const filterSensitiveLog = (obj: Input): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Input => __isa(o, "Input");
 }
 
 /**
  * To transcode only portions of your input (clips), include one Input clipping (one instance of InputClipping in the JSON job file) for each input clip. All input clips you specify will be included in every output of the job.
  */
 export interface InputClipping {
-  __type?: "InputClipping";
   /**
    * Set Start timecode (StartTimecode) to the beginning of the portion of the input you are clipping. The frame corresponding to the Start timecode value is included in the clip. Start timecode or End timecode may be left blank, but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When choosing this value, take into account your setting for Input timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your clip to begin five minutes into the video, use 01:05:00:00.
    */
@@ -4832,7 +4629,6 @@ export namespace InputClipping {
   export const filterSensitiveLog = (obj: InputClipping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputClipping => __isa(o, "InputClipping");
 }
 
 export enum InputDeblockFilter {
@@ -4844,7 +4640,6 @@ export enum InputDeblockFilter {
  * Settings for decrypting any input files that you encrypt before you upload them to Amazon S3. MediaConvert can decrypt files only when you use AWS Key Management Service (KMS) to encrypt the data key that you use to encrypt your content.
  */
 export interface InputDecryptionSettings {
-  __type?: "InputDecryptionSettings";
   /**
    * Specify the encryption mode that you used to encrypt your input files.
    */
@@ -4870,7 +4665,6 @@ export namespace InputDecryptionSettings {
   export const filterSensitiveLog = (obj: InputDecryptionSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputDecryptionSettings => __isa(o, "InputDecryptionSettings");
 }
 
 export enum InputDenoiseFilter {
@@ -4901,7 +4695,6 @@ export enum InputRotate {
  * Specified video input in a template.
  */
 export interface InputTemplate {
-  __type?: "InputTemplate";
   /**
    * Specify the timecode that you want the service to use for this input's initial frame. To use this setting, you must set the Timecode source setting, located under the input settings (InputTimecodeSource), to Specified start (SPECIFIEDSTART). For more information about timecodes, see https://docs.aws.amazon.com/console/mediaconvert/timecode.
    */
@@ -4987,7 +4780,6 @@ export namespace InputTemplate {
   export const filterSensitiveLog = (obj: InputTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputTemplate => __isa(o, "InputTemplate");
 }
 
 export enum InputTimecodeSource {
@@ -5000,7 +4792,6 @@ export enum InputTimecodeSource {
  * Settings that specify how your still graphic overlay appears.
  */
 export interface InsertableImage {
-  __type?: "InsertableImage";
   /**
    * Specify the distance, in pixels, between the overlaid image and the top edge of the video frame. Required for any image overlay that you specify.
    */
@@ -5061,7 +4852,6 @@ export namespace InsertableImage {
   export const filterSensitiveLog = (obj: InsertableImage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsertableImage => __isa(o, "InsertableImage");
 }
 
 /**
@@ -5077,14 +4867,12 @@ export namespace InternalServerErrorException {
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 /**
  * Each job converts an input file into an output file or files. For more information, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
  */
 export interface Job {
-  __type?: "Job";
   /**
    * Error code for the job
    */
@@ -5215,14 +5003,12 @@ export namespace Job {
   export const filterSensitiveLog = (obj: Job): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Job => __isa(o, "Job");
 }
 
 /**
  * Provides messages from the service about jobs that you have already successfully submitted.
  */
 export interface JobMessages {
-  __type?: "JobMessages";
   /**
    * List of messages that are informational only and don't indicate a problem with your job.
    */
@@ -5238,7 +5024,6 @@ export namespace JobMessages {
   export const filterSensitiveLog = (obj: JobMessages): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobMessages => __isa(o, "JobMessages");
 }
 
 export enum JobPhase {
@@ -5251,7 +5036,6 @@ export enum JobPhase {
  * JobSettings contains all the transcode settings for a job.
  */
 export interface JobSettings {
-  __type?: "JobSettings";
   /**
    * Contains settings used to acquire and adjust timecode information from inputs.
    */
@@ -5302,7 +5086,6 @@ export namespace JobSettings {
   export const filterSensitiveLog = (obj: JobSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobSettings => __isa(o, "JobSettings");
 }
 
 export enum JobStatus {
@@ -5317,7 +5100,6 @@ export enum JobStatus {
  * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
  */
 export interface JobTemplate {
-  __type?: "JobTemplate";
   /**
    * Optional list of hop destinations.
    */
@@ -5388,7 +5170,6 @@ export namespace JobTemplate {
   export const filterSensitiveLog = (obj: JobTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobTemplate => __isa(o, "JobTemplate");
 }
 
 export enum JobTemplateListBy {
@@ -5401,7 +5182,6 @@ export enum JobTemplateListBy {
  * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
  */
 export interface JobTemplateSettings {
-  __type?: "JobTemplateSettings";
   /**
    * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time.
    */
@@ -5452,7 +5232,6 @@ export namespace JobTemplateSettings {
   export const filterSensitiveLog = (obj: JobTemplateSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobTemplateSettings => __isa(o, "JobTemplateSettings");
 }
 
 export enum LanguageCode {
@@ -5650,7 +5429,6 @@ export enum LanguageCode {
 }
 
 export interface ListJobsRequest {
-  __type?: "ListJobsRequest";
   /**
    * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
    */
@@ -5681,11 +5459,9 @@ export namespace ListJobsRequest {
   export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 export interface ListJobsResponse {
-  __type?: "ListJobsResponse";
   /**
    * Use this string to request the next batch of jobs.
    */
@@ -5701,11 +5477,9 @@ export namespace ListJobsResponse {
   export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsResponse => __isa(o, "ListJobsResponse");
 }
 
 export interface ListJobTemplatesRequest {
-  __type?: "ListJobTemplatesRequest";
   /**
    * Use this string, provided with the response to a previous request, to request the next batch of job templates.
    */
@@ -5736,11 +5510,9 @@ export namespace ListJobTemplatesRequest {
   export const filterSensitiveLog = (obj: ListJobTemplatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobTemplatesRequest => __isa(o, "ListJobTemplatesRequest");
 }
 
 export interface ListJobTemplatesResponse {
-  __type?: "ListJobTemplatesResponse";
   /**
    * List of Job templates.
    */
@@ -5756,11 +5528,9 @@ export namespace ListJobTemplatesResponse {
   export const filterSensitiveLog = (obj: ListJobTemplatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobTemplatesResponse => __isa(o, "ListJobTemplatesResponse");
 }
 
 export interface ListPresetsRequest {
-  __type?: "ListPresetsRequest";
   /**
    * Optional. Number of presets, up to twenty, that will be returned at one time
    */
@@ -5791,11 +5561,9 @@ export namespace ListPresetsRequest {
   export const filterSensitiveLog = (obj: ListPresetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPresetsRequest => __isa(o, "ListPresetsRequest");
 }
 
 export interface ListPresetsResponse {
-  __type?: "ListPresetsResponse";
   /**
    * Use this string to request the next batch of presets.
    */
@@ -5811,11 +5579,9 @@ export namespace ListPresetsResponse {
   export const filterSensitiveLog = (obj: ListPresetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPresetsResponse => __isa(o, "ListPresetsResponse");
 }
 
 export interface ListQueuesRequest {
-  __type?: "ListQueuesRequest";
   /**
    * Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
    */
@@ -5841,11 +5607,9 @@ export namespace ListQueuesRequest {
   export const filterSensitiveLog = (obj: ListQueuesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQueuesRequest => __isa(o, "ListQueuesRequest");
 }
 
 export interface ListQueuesResponse {
-  __type?: "ListQueuesResponse";
   /**
    * List of queues.
    */
@@ -5861,11 +5625,9 @@ export namespace ListQueuesResponse {
   export const filterSensitiveLog = (obj: ListQueuesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQueuesResponse => __isa(o, "ListQueuesResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * The Amazon Resource Name (ARN) of the resource that you want to list tags for. To get the ARN, send a GET request with the resource name.
    */
@@ -5876,11 +5638,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
    */
@@ -5891,7 +5651,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum M2tsAudioBufferModel {
@@ -5943,7 +5702,6 @@ export enum M2tsRateMode {
  * Settings for SCTE-35 signals from ESAM. Include this in your job settings to put SCTE-35 markers in your HLS and transport stream outputs at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
  */
 export interface M2tsScte35Esam {
-  __type?: "M2tsScte35Esam";
   /**
    * Packet Identifier (PID) of the SCTE-35 stream in the transport stream generated by ESAM.
    */
@@ -5954,7 +5712,6 @@ export namespace M2tsScte35Esam {
   export const filterSensitiveLog = (obj: M2tsScte35Esam): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is M2tsScte35Esam => __isa(o, "M2tsScte35Esam");
 }
 
 export enum M2tsScte35Source {
@@ -5980,7 +5737,6 @@ export enum M2tsSegmentationStyle {
  * MPEG-2 TS container settings. These apply to outputs in a File output group when the output's container (ContainerType) is MPEG-2 Transport Stream (M2TS). In these assets, data is organized by the program map table (PMT). Each transport stream program contains subsets of data, including audio, video, and metadata. Each of these subsets of data has a numerical label called a packet identifier (PID). Each transport stream program corresponds to one MediaConvert output. The PMT lists the types of data in a program along with their PID. Downstream systems and players use the program map table to look up the PID for each type of data it accesses and then uses the PIDs to locate specific data within the asset.
  */
 export interface M2tsSettings {
-  __type?: "M2tsSettings";
   /**
    * Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
    */
@@ -6166,7 +5922,6 @@ export namespace M2tsSettings {
   export const filterSensitiveLog = (obj: M2tsSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is M2tsSettings => __isa(o, "M2tsSettings");
 }
 
 export enum M3u8NielsenId3 {
@@ -6188,7 +5943,6 @@ export enum M3u8Scte35Source {
  * Settings for TS segments in HLS
  */
 export interface M3u8Settings {
-  __type?: "M3u8Settings";
   /**
    * When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
    */
@@ -6274,14 +6028,12 @@ export namespace M3u8Settings {
   export const filterSensitiveLog = (obj: M3u8Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is M3u8Settings => __isa(o, "M3u8Settings");
 }
 
 /**
  * Overlay motion graphics on top of your video at the time that you specify.
  */
 export interface MotionImageInserter {
-  __type?: "MotionImageInserter";
   /**
    * Specify whether your motion graphic overlay repeats on a loop or plays only once.
    */
@@ -6317,14 +6069,12 @@ export namespace MotionImageInserter {
   export const filterSensitiveLog = (obj: MotionImageInserter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MotionImageInserter => __isa(o, "MotionImageInserter");
 }
 
 /**
  * For motion overlays that don't have a built-in frame rate, specify the frame rate of the overlay in frames per second, as a fraction. For example, specify 24 fps as 24/1. The overlay frame rate doesn't need to match the frame rate of the underlying video.
  */
 export interface MotionImageInsertionFramerate {
-  __type?: "MotionImageInsertionFramerate";
   /**
    * The top of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 24.
    */
@@ -6340,7 +6090,6 @@ export namespace MotionImageInsertionFramerate {
   export const filterSensitiveLog = (obj: MotionImageInsertionFramerate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MotionImageInsertionFramerate => __isa(o, "MotionImageInsertionFramerate");
 }
 
 export enum MotionImageInsertionMode {
@@ -6352,7 +6101,6 @@ export enum MotionImageInsertionMode {
  * Specify the offset between the upper-left corner of the video frame and the top left corner of the overlay.
  */
 export interface MotionImageInsertionOffset {
-  __type?: "MotionImageInsertionOffset";
   /**
    * Set the distance, in pixels, between the overlay and the top edge of the video frame.
    */
@@ -6368,7 +6116,6 @@ export namespace MotionImageInsertionOffset {
   export const filterSensitiveLog = (obj: MotionImageInsertionOffset): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MotionImageInsertionOffset => __isa(o, "MotionImageInsertionOffset");
 }
 
 export enum MotionImagePlayback {
@@ -6405,7 +6152,6 @@ export enum MovReference {
  * Settings for MOV Container.
  */
 export interface MovSettings {
-  __type?: "MovSettings";
   /**
    * When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
    */
@@ -6436,14 +6182,12 @@ export namespace MovSettings {
   export const filterSensitiveLog = (obj: MovSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MovSettings => __isa(o, "MovSettings");
 }
 
 /**
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
  */
 export interface Mp2Settings {
-  __type?: "Mp2Settings";
   /**
    * Set Channels to specify the number of channels in this output audio track. Choosing Mono in the console will give you 1 output channel; choosing Stereo will give you 2. In the API, valid values are 1 and 2.
    */
@@ -6464,7 +6208,6 @@ export namespace Mp2Settings {
   export const filterSensitiveLog = (obj: Mp2Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Mp2Settings => __isa(o, "Mp2Settings");
 }
 
 export enum Mp3RateControlMode {
@@ -6476,7 +6219,6 @@ export enum Mp3RateControlMode {
  * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
  */
 export interface Mp3Settings {
-  __type?: "Mp3Settings";
   /**
    * Specify whether the service encodes this MP3 audio output with a constant bitrate (CBR) or a variable bitrate (VBR).
    */
@@ -6507,7 +6249,6 @@ export namespace Mp3Settings {
   export const filterSensitiveLog = (obj: Mp3Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Mp3Settings => __isa(o, "Mp3Settings");
 }
 
 export enum Mp4CslgAtom {
@@ -6529,7 +6270,6 @@ export enum Mp4MoovPlacement {
  * Settings for MP4 container. You can create audio-only AAC outputs with this container.
  */
 export interface Mp4Settings {
-  __type?: "Mp4Settings";
   /**
    * Inserts a free-space box immediately after the moov box.
    */
@@ -6560,7 +6300,6 @@ export namespace Mp4Settings {
   export const filterSensitiveLog = (obj: Mp4Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Mp4Settings => __isa(o, "Mp4Settings");
 }
 
 export enum MpdCaptionContainerType {
@@ -6582,7 +6321,6 @@ export enum MpdScte35Source {
  * Settings for MP4 segments in DASH
  */
 export interface MpdSettings {
-  __type?: "MpdSettings";
   /**
    * Use this setting only in DASH output groups that include sidecar TTML or IMSC captions.  You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.
    */
@@ -6603,7 +6341,6 @@ export namespace MpdSettings {
   export const filterSensitiveLog = (obj: MpdSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MpdSettings => __isa(o, "MpdSettings");
 }
 
 export enum Mpeg2AdaptiveQuantization {
@@ -6686,7 +6423,6 @@ export enum Mpeg2SceneChangeDetect {
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value MPEG2.
  */
 export interface Mpeg2Settings {
-  __type?: "Mpeg2Settings";
   /**
    * Only use Telecine (Mpeg2Telecine) when you set Framerate (Framerate) to 29.970. Set Telecine (Mpeg2Telecine) to Hard (hard) to produce a 29.97i output from a 23.976 input. Set it to Soft (soft) to produce 23.976 output and leave converstion to the player.
    */
@@ -6849,7 +6585,6 @@ export namespace Mpeg2Settings {
   export const filterSensitiveLog = (obj: Mpeg2Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Mpeg2Settings => __isa(o, "Mpeg2Settings");
 }
 
 export enum Mpeg2SlowPal {
@@ -6882,7 +6617,6 @@ export enum Mpeg2TemporalAdaptiveQuantization {
  * Specify the details for each additional Microsoft Smooth Streaming manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
  */
 export interface MsSmoothAdditionalManifest {
-  __type?: "MsSmoothAdditionalManifest";
   /**
    * Specify the outputs that you want this additional top-level manifest to reference.
    */
@@ -6898,7 +6632,6 @@ export namespace MsSmoothAdditionalManifest {
   export const filterSensitiveLog = (obj: MsSmoothAdditionalManifest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MsSmoothAdditionalManifest => __isa(o, "MsSmoothAdditionalManifest");
 }
 
 export enum MsSmoothAudioDeduplication {
@@ -6910,7 +6643,6 @@ export enum MsSmoothAudioDeduplication {
  * If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
  */
 export interface MsSmoothEncryptionSettings {
-  __type?: "MsSmoothEncryptionSettings";
   /**
    * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
    */
@@ -6921,14 +6653,12 @@ export namespace MsSmoothEncryptionSettings {
   export const filterSensitiveLog = (obj: MsSmoothEncryptionSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MsSmoothEncryptionSettings => __isa(o, "MsSmoothEncryptionSettings");
 }
 
 /**
  * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to MS_SMOOTH_GROUP_SETTINGS.
  */
 export interface MsSmoothGroupSettings {
-  __type?: "MsSmoothGroupSettings";
   /**
    * Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be compatible with GOP size and frame rate.
    */
@@ -6969,7 +6699,6 @@ export namespace MsSmoothGroupSettings {
   export const filterSensitiveLog = (obj: MsSmoothGroupSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MsSmoothGroupSettings => __isa(o, "MsSmoothGroupSettings");
 }
 
 export enum MsSmoothManifestEncoding {
@@ -6986,7 +6715,6 @@ export enum MxfAfdSignaling {
  * MXF settings
  */
 export interface MxfSettings {
-  __type?: "MxfSettings";
   /**
    * Optional. When you have AFD signaling set up in your output video stream, use this setting to choose whether to also include it in the MXF wrapper. Choose Don't copy (NO_COPY) to exclude AFD signaling from the MXF wrapper. Choose Copy from video stream (COPY_FROM_VIDEO) to copy the AFD values from the video stream for this output to the MXF wrapper. Regardless of which option you choose, the AFD values remain in the video stream. Related settings: To set up your output to include or exclude AFD values, see AfdSignaling, under VideoDescription. On the console, find AFD signaling under the output's video encoding settings.
    */
@@ -6997,14 +6725,12 @@ export namespace MxfSettings {
   export const filterSensitiveLog = (obj: MxfSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MxfSettings => __isa(o, "MxfSettings");
 }
 
 /**
  * For forensic video watermarking, MediaConvert supports Nagra NexGuard File Marker watermarking. MediaConvert supports both PreRelease Content (NGPR/G2) and OTT Streaming workflows.
  */
 export interface NexGuardFileMarkerSettings {
-  __type?: "NexGuardFileMarkerSettings";
   /**
    * Optional. Ignore this setting unless Nagra support directs you to specify a value. When you don't specify a value here, the Nagra NexGuard library uses its default value.
    */
@@ -7030,14 +6756,12 @@ export namespace NexGuardFileMarkerSettings {
   export const filterSensitiveLog = (obj: NexGuardFileMarkerSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NexGuardFileMarkerSettings => __isa(o, "NexGuardFileMarkerSettings");
 }
 
 /**
  * Settings for your Nielsen configuration. If you don't do Nielsen measurement and analytics, ignore these settings. When you enable Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM to ID3 tagging for all outputs in the job. To enable Nielsen configuration programmatically, include an instance of nielsenConfiguration in your JSON job specification. Even if you don't include any children of nielsenConfiguration, you still enable the setting.
  */
 export interface NielsenConfiguration {
-  __type?: "NielsenConfiguration";
   /**
    * Nielsen has discontinued the use of breakout code functionality. If you must include this property, set the value to zero.
    */
@@ -7053,7 +6777,6 @@ export namespace NielsenConfiguration {
   export const filterSensitiveLog = (obj: NielsenConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NielsenConfiguration => __isa(o, "NielsenConfiguration");
 }
 
 export enum NoiseFilterPostTemporalSharpening {
@@ -7066,7 +6789,6 @@ export enum NoiseFilterPostTemporalSharpening {
  * Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer (NoiseReducer), you must also select a value for Noise reducer filter (NoiseReducerFilter).
  */
 export interface NoiseReducer {
-  __type?: "NoiseReducer";
   /**
    * Noise reducer filter settings for temporal filter.
    */
@@ -7092,7 +6814,6 @@ export namespace NoiseReducer {
   export const filterSensitiveLog = (obj: NoiseReducer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoiseReducer => __isa(o, "NoiseReducer");
 }
 
 export enum NoiseReducerFilter {
@@ -7110,7 +6831,6 @@ export enum NoiseReducerFilter {
  * Settings for a noise reducer filter
  */
 export interface NoiseReducerFilterSettings {
-  __type?: "NoiseReducerFilterSettings";
   /**
    * Relative strength of noise reducing filter. Higher values produce stronger filtering.
    */
@@ -7121,14 +6841,12 @@ export namespace NoiseReducerFilterSettings {
   export const filterSensitiveLog = (obj: NoiseReducerFilterSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoiseReducerFilterSettings => __isa(o, "NoiseReducerFilterSettings");
 }
 
 /**
  * Noise reducer filter settings for spatial filter.
  */
 export interface NoiseReducerSpatialFilterSettings {
-  __type?: "NoiseReducerSpatialFilterSettings";
   /**
    * Specify strength of post noise reduction sharpening filter, with 0 disabling the filter and 3 enabling it at maximum strength.
    */
@@ -7149,14 +6867,12 @@ export namespace NoiseReducerSpatialFilterSettings {
   export const filterSensitiveLog = (obj: NoiseReducerSpatialFilterSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoiseReducerSpatialFilterSettings => __isa(o, "NoiseReducerSpatialFilterSettings");
 }
 
 /**
  * Noise reducer filter settings for temporal filter.
  */
 export interface NoiseReducerTemporalFilterSettings {
-  __type?: "NoiseReducerTemporalFilterSettings";
   /**
    * Use Aggressive mode for content that has complex motion. Higher values produce stronger temporal filtering. This filters highly complex scenes more aggressively and creates better VQ for low bitrate outputs.
    */
@@ -7182,8 +6898,6 @@ export namespace NoiseReducerTemporalFilterSettings {
   export const filterSensitiveLog = (obj: NoiseReducerTemporalFilterSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoiseReducerTemporalFilterSettings =>
-    __isa(o, "NoiseReducerTemporalFilterSettings");
 }
 
 /**
@@ -7199,14 +6913,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value OPUS.
  */
 export interface OpusSettings {
-  __type?: "OpusSettings";
   /**
    * Optional. Specify the average bitrate in bits per second. Valid values are multiples of 8000, from 32000 through 192000. The default value is 96000, which we recommend for quality and bandwidth.
    */
@@ -7227,7 +6939,6 @@ export namespace OpusSettings {
   export const filterSensitiveLog = (obj: OpusSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OpusSettings => __isa(o, "OpusSettings");
 }
 
 export enum Order {
@@ -7239,7 +6950,6 @@ export enum Order {
  * An output object describes the settings for a single output file or stream in an output group.
  */
 export interface Output {
-  __type?: "Output";
   /**
    * Use Preset (Preset) to specifiy a preset for your transcoding settings. Provide the system or custom preset name. You can specify either Preset (Preset) or Container settings (ContainerSettings), but not both.
    */
@@ -7285,14 +6995,12 @@ export namespace Output {
   export const filterSensitiveLog = (obj: Output): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Output => __isa(o, "Output");
 }
 
 /**
  * OutputChannel mapping settings.
  */
 export interface OutputChannelMapping {
-  __type?: "OutputChannelMapping";
   /**
    * List of input channels
    */
@@ -7303,14 +7011,12 @@ export namespace OutputChannelMapping {
   export const filterSensitiveLog = (obj: OutputChannelMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputChannelMapping => __isa(o, "OutputChannelMapping");
 }
 
 /**
  * Details regarding output
  */
 export interface OutputDetail {
-  __type?: "OutputDetail";
   /**
    * Contains details about the output's video stream
    */
@@ -7326,14 +7032,12 @@ export namespace OutputDetail {
   export const filterSensitiveLog = (obj: OutputDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputDetail => __isa(o, "OutputDetail");
 }
 
 /**
  * Group of outputs
  */
 export interface OutputGroup {
-  __type?: "OutputGroup";
   /**
    * Output Group settings, including type
    */
@@ -7359,14 +7063,12 @@ export namespace OutputGroup {
   export const filterSensitiveLog = (obj: OutputGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputGroup => __isa(o, "OutputGroup");
 }
 
 /**
  * Contains details about the output groups specified in the job settings.
  */
 export interface OutputGroupDetail {
-  __type?: "OutputGroupDetail";
   /**
    * Details about the output
    */
@@ -7377,14 +7079,12 @@ export namespace OutputGroupDetail {
   export const filterSensitiveLog = (obj: OutputGroupDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputGroupDetail => __isa(o, "OutputGroupDetail");
 }
 
 /**
  * Output Group settings, including type
  */
 export interface OutputGroupSettings {
-  __type?: "OutputGroupSettings";
   /**
    * Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)
    */
@@ -7420,7 +7120,6 @@ export namespace OutputGroupSettings {
   export const filterSensitiveLog = (obj: OutputGroupSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputGroupSettings => __isa(o, "OutputGroupSettings");
 }
 
 export enum OutputGroupType {
@@ -7442,7 +7141,6 @@ export enum OutputSdt {
  * Specific settings for this type of output.
  */
 export interface OutputSettings {
-  __type?: "OutputSettings";
   /**
    * Settings for HLS output groups
    */
@@ -7453,14 +7151,12 @@ export namespace OutputSettings {
   export const filterSensitiveLog = (obj: OutputSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputSettings => __isa(o, "OutputSettings");
 }
 
 /**
  * If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
  */
 export interface PartnerWatermarking {
-  __type?: "PartnerWatermarking";
   /**
    * For forensic video watermarking, MediaConvert supports Nagra NexGuard File Marker watermarking. MediaConvert supports both PreRelease Content (NGPR/G2) and OTT Streaming workflows.
    */
@@ -7471,14 +7167,12 @@ export namespace PartnerWatermarking {
   export const filterSensitiveLog = (obj: PartnerWatermarking): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PartnerWatermarking => __isa(o, "PartnerWatermarking");
 }
 
 /**
  * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
  */
 export interface Preset {
-  __type?: "Preset";
   /**
    * The timestamp in epoch seconds when the preset was last updated.
    */
@@ -7524,7 +7218,6 @@ export namespace Preset {
   export const filterSensitiveLog = (obj: Preset): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Preset => __isa(o, "Preset");
 }
 
 export enum PresetListBy {
@@ -7537,7 +7230,6 @@ export enum PresetListBy {
  * Settings for preset
  */
 export interface PresetSettings {
-  __type?: "PresetSettings";
   /**
    * Caption settings for this preset. There can be multiple caption settings in a single output.
    */
@@ -7563,7 +7255,6 @@ export namespace PresetSettings {
   export const filterSensitiveLog = (obj: PresetSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PresetSettings => __isa(o, "PresetSettings");
 }
 
 export enum PricingPlan {
@@ -7605,7 +7296,6 @@ export enum ProresParControl {
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value PRORES.
  */
 export interface ProresSettings {
-  __type?: "ProresSettings";
   /**
    * Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parDenominator is 33.
    */
@@ -7668,7 +7358,6 @@ export namespace ProresSettings {
   export const filterSensitiveLog = (obj: ProresSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProresSettings => __isa(o, "ProresSettings");
 }
 
 export enum ProresSlowPal {
@@ -7685,7 +7374,6 @@ export enum ProresTelecine {
  * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
  */
 export interface Queue {
-  __type?: "Queue";
   /**
    * The estimated number of jobs with a SUBMITTED status.
    */
@@ -7746,7 +7434,6 @@ export namespace Queue {
   export const filterSensitiveLog = (obj: Queue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Queue => __isa(o, "Queue");
 }
 
 export enum QueueListBy {
@@ -7763,7 +7450,6 @@ export enum QueueStatus {
  * Description of the source and destination queues between which the job has moved, along with the timestamp of the move
  */
 export interface QueueTransition {
-  __type?: "QueueTransition";
   /**
    * The queue that the job was on after the transition.
    */
@@ -7784,14 +7470,12 @@ export namespace QueueTransition {
   export const filterSensitiveLog = (obj: QueueTransition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueueTransition => __isa(o, "QueueTransition");
 }
 
 /**
  * Use Rectangle to identify a specific area of the video frame.
  */
 export interface Rectangle {
-  __type?: "Rectangle";
   /**
    * The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even numbers.
    */
@@ -7817,14 +7501,12 @@ export namespace Rectangle {
   export const filterSensitiveLog = (obj: Rectangle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Rectangle => __isa(o, "Rectangle");
 }
 
 /**
  * Use Manual audio remixing (RemixSettings) to adjust audio levels for each audio channel in each output of your job. With audio remixing, you can output more or fewer audio channels than your input audio source provides.
  */
 export interface RemixSettings {
-  __type?: "RemixSettings";
   /**
    * Specify the number of channels in this output after remixing. Valid values: 1, 2, 4, 6, 8... 64. (1 and even numbers to 64.)
    */
@@ -7845,7 +7527,6 @@ export namespace RemixSettings {
   export const filterSensitiveLog = (obj: RemixSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemixSettings => __isa(o, "RemixSettings");
 }
 
 export enum RenewalType {
@@ -7857,7 +7538,6 @@ export enum RenewalType {
  * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
  */
 export interface ReservationPlan {
-  __type?: "ReservationPlan";
   /**
    * The timestamp in epoch seconds for when you set up the current pricing plan for this reserved queue.
    */
@@ -7893,14 +7573,12 @@ export namespace ReservationPlan {
   export const filterSensitiveLog = (obj: ReservationPlan): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservationPlan => __isa(o, "ReservationPlan");
 }
 
 /**
  * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
  */
 export interface ReservationPlanSettings {
-  __type?: "ReservationPlanSettings";
   /**
    * Specifies whether the term of your reserved queue pricing plan is automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of the term. When your term is auto renewed, you extend your commitment by 12 months from the auto renew date. You can cancel this commitment.
    */
@@ -7921,7 +7599,6 @@ export namespace ReservationPlanSettings {
   export const filterSensitiveLog = (obj: ReservationPlanSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservationPlanSettings => __isa(o, "ReservationPlanSettings");
 }
 
 export enum ReservationPlanStatus {
@@ -7933,7 +7610,6 @@ export enum ReservationPlanStatus {
  * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
  */
 export interface ResourceTags {
-  __type?: "ResourceTags";
   /**
    * The Amazon Resource Name (ARN) of the resource.
    */
@@ -7949,7 +7625,6 @@ export namespace ResourceTags {
   export const filterSensitiveLog = (obj: ResourceTags): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceTags => __isa(o, "ResourceTags");
 }
 
 export enum RespondToAfd {
@@ -7962,7 +7637,6 @@ export enum RespondToAfd {
  * Optional. Have MediaConvert automatically apply Amazon S3 access control for the outputs in this output group. When you don't use this setting, S3 automatically applies the default access control list PRIVATE.
  */
 export interface S3DestinationAccessControl {
-  __type?: "S3DestinationAccessControl";
   /**
    * Choose an Amazon S3 canned ACL for MediaConvert to apply to this output.
    */
@@ -7973,14 +7647,12 @@ export namespace S3DestinationAccessControl {
   export const filterSensitiveLog = (obj: S3DestinationAccessControl): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3DestinationAccessControl => __isa(o, "S3DestinationAccessControl");
 }
 
 /**
  * Settings associated with S3 destination
  */
 export interface S3DestinationSettings {
-  __type?: "S3DestinationSettings";
   /**
    * Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
    */
@@ -7996,14 +7668,12 @@ export namespace S3DestinationSettings {
   export const filterSensitiveLog = (obj: S3DestinationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3DestinationSettings => __isa(o, "S3DestinationSettings");
 }
 
 /**
  * Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
  */
 export interface S3EncryptionSettings {
-  __type?: "S3EncryptionSettings";
   /**
    * Specify how you want your data keys managed. AWS uses data keys to encrypt your content. AWS also encrypts the data keys themselves, using a customer master key (CMK), and then stores the encrypted data keys alongside your encrypted content. Use this setting to specify which AWS service manages the CMK. For simplest set up, choose Amazon S3 (SERVER_SIDE_ENCRYPTION_S3). If you want your master key to be managed by AWS Key Management Service (KMS), choose AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). By default, when you choose AWS KMS, KMS uses the AWS managed customer master key (CMK) associated with Amazon S3 to encrypt your data keys. You can optionally choose to specify a different, customer managed CMK. Do so by specifying the Amazon Resource Name (ARN) of the key for the setting  KMS ARN (kmsKeyArn).
    */
@@ -8019,7 +7689,6 @@ export namespace S3EncryptionSettings {
   export const filterSensitiveLog = (obj: S3EncryptionSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3EncryptionSettings => __isa(o, "S3EncryptionSettings");
 }
 
 export enum S3ObjectCannedAcl {
@@ -8051,7 +7720,6 @@ export enum SccDestinationFramerate {
  * Settings for SCC caption output.
  */
 export interface SccDestinationSettings {
-  __type?: "SccDestinationSettings";
   /**
    * Set Framerate (SccDestinationFramerate) to make sure that the captions and the video are synchronized in the output. Specify a frame rate that matches the frame rate of the associated video. If the video frame rate is 29.97, choose 29.97 dropframe (FRAMERATE_29_97_DROPFRAME) only if the video has video_insertion=true and drop_frame_timecode=true; otherwise, choose 29.97 non-dropframe (FRAMERATE_29_97_NON_DROPFRAME).
    */
@@ -8062,7 +7730,6 @@ export namespace SccDestinationSettings {
   export const filterSensitiveLog = (obj: SccDestinationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SccDestinationSettings => __isa(o, "SccDestinationSettings");
 }
 
 export enum SimulateReservedQueue {
@@ -8074,7 +7741,6 @@ export enum SimulateReservedQueue {
  * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
  */
 export interface SpekeKeyProvider {
-  __type?: "SpekeKeyProvider";
   /**
    * Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
    */
@@ -8101,14 +7767,12 @@ export namespace SpekeKeyProvider {
   export const filterSensitiveLog = (obj: SpekeKeyProvider): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpekeKeyProvider => __isa(o, "SpekeKeyProvider");
 }
 
 /**
  * If your output group type is CMAF, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider settings instead.
  */
 export interface SpekeKeyProviderCmaf {
-  __type?: "SpekeKeyProviderCmaf";
   /**
    * Specify the DRM system ID that you want signaled in the HLS manifest that MediaConvert creates as part of this CMAF package. The HLS manifest can currently signal only one system ID. For more information, see https://dashif.org/identifiers/content_protection/.
    */
@@ -8139,14 +7803,12 @@ export namespace SpekeKeyProviderCmaf {
   export const filterSensitiveLog = (obj: SpekeKeyProviderCmaf): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpekeKeyProviderCmaf => __isa(o, "SpekeKeyProviderCmaf");
 }
 
 /**
  * Use these settings to set up encryption with a static key provider.
  */
 export interface StaticKeyProvider {
-  __type?: "StaticKeyProvider";
   /**
    * Relates to DRM implementation. Use a 32-character hexidecimal string to specify Key Value (StaticKeyValue).
    */
@@ -8172,7 +7834,6 @@ export namespace StaticKeyProvider {
   export const filterSensitiveLog = (obj: StaticKeyProvider): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StaticKeyProvider => __isa(o, "StaticKeyProvider");
 }
 
 export enum StatusUpdateInterval {
@@ -8194,7 +7855,6 @@ export enum StatusUpdateInterval {
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
    */
@@ -8210,25 +7870,20 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * Settings for Teletext caption output
  */
 export interface TeletextDestinationSettings {
-  __type?: "TeletextDestinationSettings";
   /**
    * Set pageNumber to the Teletext page number for the destination captions for this output. This value must be a three-digit hexadecimal string; strings ending in -FF are invalid. If you are passing through the entire set of Teletext data, do not use this field.
    */
@@ -8244,7 +7899,6 @@ export namespace TeletextDestinationSettings {
   export const filterSensitiveLog = (obj: TeletextDestinationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TeletextDestinationSettings => __isa(o, "TeletextDestinationSettings");
 }
 
 export enum TeletextPageType {
@@ -8259,7 +7913,6 @@ export enum TeletextPageType {
  * Settings specific to Teletext caption sources, including Page number.
  */
 export interface TeletextSourceSettings {
-  __type?: "TeletextSourceSettings";
   /**
    * Use Page Number (PageNumber) to specify the three-digit hexadecimal page number that will be used for Teletext captions. Do not use this setting if you are passing through teletext from the input source to output.
    */
@@ -8270,14 +7923,12 @@ export namespace TeletextSourceSettings {
   export const filterSensitiveLog = (obj: TeletextSourceSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TeletextSourceSettings => __isa(o, "TeletextSourceSettings");
 }
 
 /**
  * Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
  */
 export interface TimecodeBurnin {
-  __type?: "TimecodeBurnin";
   /**
    * Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
    */
@@ -8298,7 +7949,6 @@ export namespace TimecodeBurnin {
   export const filterSensitiveLog = (obj: TimecodeBurnin): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimecodeBurnin => __isa(o, "TimecodeBurnin");
 }
 
 export enum TimecodeBurninPosition {
@@ -8317,7 +7967,6 @@ export enum TimecodeBurninPosition {
  * These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
  */
 export interface TimecodeConfig {
-  __type?: "TimecodeConfig";
   /**
    * Use Source (TimecodeSource) to set how timecodes are handled within this job. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded (EMBEDDED) - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame to a value other than zero. You use Start timecode (Start) to provide this value.
    */
@@ -8343,7 +7992,6 @@ export namespace TimecodeConfig {
   export const filterSensitiveLog = (obj: TimecodeConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimecodeConfig => __isa(o, "TimecodeConfig");
 }
 
 export enum TimecodeSource {
@@ -8361,7 +8009,6 @@ export enum TimedMetadata {
  * Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in your job. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
  */
 export interface TimedMetadataInsertion {
-  __type?: "TimedMetadataInsertion";
   /**
    * Id3Insertions contains the array of Id3Insertion instances.
    */
@@ -8372,14 +8019,12 @@ export namespace TimedMetadataInsertion {
   export const filterSensitiveLog = (obj: TimedMetadataInsertion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimedMetadataInsertion => __isa(o, "TimedMetadataInsertion");
 }
 
 /**
  * Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
  */
 export interface Timing {
-  __type?: "Timing";
   /**
    * The time, in Unix epoch format, that transcoding for the job began.
    */
@@ -8400,7 +8045,6 @@ export namespace Timing {
   export const filterSensitiveLog = (obj: Timing): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Timing => __isa(o, "Timing");
 }
 
 /**
@@ -8416,14 +8060,12 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
  * Settings specific to caption sources that are specified by track number. Currently, this is only IMSC captions in an IMF package. If your caption source is IMSC 1.1 in a separate xml file, use FileSourceSettings instead of TrackSourceSettings.
  */
 export interface TrackSourceSettings {
-  __type?: "TrackSourceSettings";
   /**
    * Use this setting to select a single captions track from a source. Track numbers correspond to the order in the captions source file. For IMF sources, track numbering is based on the order that the captions appear in the CPL. For example, use 1 to select the captions asset that is listed first in the CPL. To include more than one captions track in your job outputs, create multiple input captions selectors. Specify one track per selector.
    */
@@ -8434,14 +8076,12 @@ export namespace TrackSourceSettings {
   export const filterSensitiveLog = (obj: TrackSourceSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrackSourceSettings => __isa(o, "TrackSourceSettings");
 }
 
 /**
  * Settings specific to TTML caption outputs, including Pass style information (TtmlStylePassthrough).
  */
 export interface TtmlDestinationSettings {
-  __type?: "TtmlDestinationSettings";
   /**
    * Pass through style and position information from a TTML-like input source (TTML, SMPTE-TT) to the TTML output.
    */
@@ -8452,7 +8092,6 @@ export namespace TtmlDestinationSettings {
   export const filterSensitiveLog = (obj: TtmlDestinationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TtmlDestinationSettings => __isa(o, "TtmlDestinationSettings");
 }
 
 export enum TtmlStylePassthrough {
@@ -8466,7 +8105,6 @@ export enum Type {
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * The Amazon Resource Name (ARN) of the resource that you want to remove tags from. To get the ARN, send a GET request with the resource name.
    */
@@ -8482,22 +8120,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateJobTemplateRequest {
-  __type?: "UpdateJobTemplateRequest";
   /**
    * The new category for the job template, if you are changing it.
    */
@@ -8548,11 +8181,9 @@ export namespace UpdateJobTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateJobTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobTemplateRequest => __isa(o, "UpdateJobTemplateRequest");
 }
 
 export interface UpdateJobTemplateResponse {
-  __type?: "UpdateJobTemplateResponse";
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
    */
@@ -8563,11 +8194,9 @@ export namespace UpdateJobTemplateResponse {
   export const filterSensitiveLog = (obj: UpdateJobTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobTemplateResponse => __isa(o, "UpdateJobTemplateResponse");
 }
 
 export interface UpdatePresetRequest {
-  __type?: "UpdatePresetRequest";
   /**
    * Settings for preset
    */
@@ -8593,11 +8222,9 @@ export namespace UpdatePresetRequest {
   export const filterSensitiveLog = (obj: UpdatePresetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePresetRequest => __isa(o, "UpdatePresetRequest");
 }
 
 export interface UpdatePresetResponse {
-  __type?: "UpdatePresetResponse";
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
    */
@@ -8608,11 +8235,9 @@ export namespace UpdatePresetResponse {
   export const filterSensitiveLog = (obj: UpdatePresetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePresetResponse => __isa(o, "UpdatePresetResponse");
 }
 
 export interface UpdateQueueRequest {
-  __type?: "UpdateQueueRequest";
   /**
    * The new description for the queue, if you are changing it.
    */
@@ -8638,11 +8263,9 @@ export namespace UpdateQueueRequest {
   export const filterSensitiveLog = (obj: UpdateQueueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateQueueRequest => __isa(o, "UpdateQueueRequest");
 }
 
 export interface UpdateQueueResponse {
-  __type?: "UpdateQueueResponse";
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
    */
@@ -8653,7 +8276,6 @@ export namespace UpdateQueueResponse {
   export const filterSensitiveLog = (obj: UpdateQueueResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateQueueResponse => __isa(o, "UpdateQueueResponse");
 }
 
 export enum VideoCodec {
@@ -8671,7 +8293,6 @@ export enum VideoCodec {
  * Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * FRAME_CAPTURE, FrameCaptureSettings * AV1, Av1Settings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * VP8, Vp8Settings * VP9, Vp9Settings
  */
 export interface VideoCodecSettings {
-  __type?: "VideoCodecSettings";
   /**
    * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value PRORES.
    */
@@ -8722,14 +8343,12 @@ export namespace VideoCodecSettings {
   export const filterSensitiveLog = (obj: VideoCodecSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VideoCodecSettings => __isa(o, "VideoCodecSettings");
 }
 
 /**
  * Settings for video outputs
  */
 export interface VideoDescription {
-  __type?: "VideoDescription";
   /**
    * Use Selection placement (position) to define the video area in your output frame. The area outside of the rectangle that you specify here is black.
    */
@@ -8810,14 +8429,12 @@ export namespace VideoDescription {
   export const filterSensitiveLog = (obj: VideoDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VideoDescription => __isa(o, "VideoDescription");
 }
 
 /**
  * Contains details about the output's video stream
  */
 export interface VideoDetail {
-  __type?: "VideoDetail";
   /**
    * Height in pixels for the output
    */
@@ -8833,14 +8450,12 @@ export namespace VideoDetail {
   export const filterSensitiveLog = (obj: VideoDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VideoDetail => __isa(o, "VideoDetail");
 }
 
 /**
  * Find additional transcoding features under Preprocessors (VideoPreprocessors). Enable the features at each output individually. These features are disabled by default.
  */
 export interface VideoPreprocessor {
-  __type?: "VideoPreprocessor";
   /**
    * Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer picture.
    */
@@ -8881,14 +8496,12 @@ export namespace VideoPreprocessor {
   export const filterSensitiveLog = (obj: VideoPreprocessor): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VideoPreprocessor => __isa(o, "VideoPreprocessor");
 }
 
 /**
  * Selector for video.
  */
 export interface VideoSelector {
-  __type?: "VideoSelector";
   /**
    * Ignore this setting unless this input is a QuickTime animation with an alpha channel. Use this setting to create separate Key and Fill outputs. In each output, specify which part of the input MediaConvert uses. Leave this setting at the default value DISCARD to delete the alpha channel and preserve the video. Set it to REMAP_TO_LUMA to delete the video and map the alpha channel to the luma channel of your outputs.
    */
@@ -8929,7 +8542,6 @@ export namespace VideoSelector {
   export const filterSensitiveLog = (obj: VideoSelector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VideoSelector => __isa(o, "VideoSelector");
 }
 
 export enum VideoTimecodeInsertion {
@@ -8941,7 +8553,6 @@ export enum VideoTimecodeInsertion {
  * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value Vorbis.
  */
 export interface VorbisSettings {
-  __type?: "VorbisSettings";
   /**
    * Optional. Specify the variable audio quality of this Vorbis output from -1 (lowest quality, ~45 kbit/s) to 10 (highest quality, ~500 kbit/s). The default value is 4 (~128 kbit/s). Values 5 and 6 are approximately 160 and 192 kbit/s, respectively.
    */
@@ -8962,7 +8573,6 @@ export namespace VorbisSettings {
   export const filterSensitiveLog = (obj: VorbisSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VorbisSettings => __isa(o, "VorbisSettings");
 }
 
 export enum Vp8FramerateControl {
@@ -8993,7 +8603,6 @@ export enum Vp8RateControlMode {
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP8.
  */
 export interface Vp8Settings {
-  __type?: "Vp8Settings";
   /**
    * Optional. Specify how the service determines the pixel aspect ratio (PAR) for this output. The default behavior, Follow source (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your output. To specify a different PAR in the console, choose any value other than Follow source. To specify a different PAR by editing the JSON job specification, choose SPECIFIED. When you choose SPECIFIED for this setting, you must also specify values for the parNumerator and parDenominator settings.
    */
@@ -9064,7 +8673,6 @@ export namespace Vp8Settings {
   export const filterSensitiveLog = (obj: Vp8Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Vp8Settings => __isa(o, "Vp8Settings");
 }
 
 export enum Vp9FramerateControl {
@@ -9095,7 +8703,6 @@ export enum Vp9RateControlMode {
  * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP9.
  */
 export interface Vp9Settings {
-  __type?: "Vp9Settings";
   /**
    * Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parDenominator is 33.
    */
@@ -9166,7 +8773,6 @@ export namespace Vp9Settings {
   export const filterSensitiveLog = (obj: Vp9Settings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Vp9Settings => __isa(o, "Vp9Settings");
 }
 
 export enum WatermarkingStrength {
@@ -9186,7 +8792,6 @@ export enum WavFormat {
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value WAV.
  */
 export interface WavSettings {
-  __type?: "WavSettings";
   /**
    * Specify the number of channels in this output audio track. Valid values are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up to 64.
    */
@@ -9212,5 +8817,4 @@ export namespace WavSettings {
   export const filterSensitiveLog = (obj: WavSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WavSettings => __isa(o, "WavSettings");
 }

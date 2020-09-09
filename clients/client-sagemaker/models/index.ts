@@ -2,12 +2,10 @@ import {
   SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  isa as __isa,
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddTagsInput {
-  __type?: "AddTagsInput";
   /**
    * <p>An array of <code>Tag</code> objects. Each tag is a key-value pair. Only the
    *                 <code>key</code> parameter is required. If you don't specify a value, Amazon SageMaker sets the
@@ -25,11 +23,9 @@ export namespace AddTagsInput {
   export const filterSensitiveLog = (obj: AddTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
 
 export interface AddTagsOutput {
-  __type?: "AddTagsOutput";
   /**
    * <p>A list of tags associated with the Amazon SageMaker resource.</p>
    */
@@ -40,7 +36,6 @@ export namespace AddTagsOutput {
   export const filterSensitiveLog = (obj: AddTagsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsOutput => __isa(o, "AddTagsOutput");
 }
 
 export enum AlgorithmSortBy {
@@ -56,7 +51,6 @@ export enum AlgorithmSortBy {
  *                 SageMaker</a>. </p>
  */
 export interface AlgorithmSpecification {
-  __type?: "AlgorithmSpecification";
   /**
    * <p>The input mode that the algorithm supports. For the input modes that Amazon SageMaker
    *             algorithms support, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. If an algorithm supports the <code>File</code> input mode, Amazon SageMaker
@@ -135,7 +129,6 @@ export namespace AlgorithmSpecification {
   export const filterSensitiveLog = (obj: AlgorithmSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlgorithmSpecification => __isa(o, "AlgorithmSpecification");
 }
 
 export enum AlgorithmStatus {
@@ -150,7 +143,6 @@ export enum AlgorithmStatus {
  * <p>Specifies the validation and image scan statuses of the algorithm.</p>
  */
 export interface AlgorithmStatusDetails {
-  __type?: "AlgorithmStatusDetails";
   /**
    * <p>The status of algorithm validation.</p>
    */
@@ -166,14 +158,12 @@ export namespace AlgorithmStatusDetails {
   export const filterSensitiveLog = (obj: AlgorithmStatusDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlgorithmStatusDetails => __isa(o, "AlgorithmStatusDetails");
 }
 
 /**
  * <p>Represents the overall status of an algorithm.</p>
  */
 export interface AlgorithmStatusItem {
-  __type?: "AlgorithmStatusItem";
   /**
    * <p>The current status.</p>
    */
@@ -194,14 +184,12 @@ export namespace AlgorithmStatusItem {
   export const filterSensitiveLog = (obj: AlgorithmStatusItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlgorithmStatusItem => __isa(o, "AlgorithmStatusItem");
 }
 
 /**
  * <p>Provides summary information about an algorithm.</p>
  */
 export interface AlgorithmSummary {
-  __type?: "AlgorithmSummary";
   /**
    * <p>A timestamp that shows when the algorithm was created.</p>
    */
@@ -232,7 +220,6 @@ export namespace AlgorithmSummary {
   export const filterSensitiveLog = (obj: AlgorithmSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlgorithmSummary => __isa(o, "AlgorithmSummary");
 }
 
 /**
@@ -242,7 +229,6 @@ export namespace AlgorithmSummary {
  *             Marketplace.</p>
  */
 export interface AlgorithmValidationProfile {
-  __type?: "AlgorithmValidationProfile";
   /**
    * <p>The <code>TrainingJobDefinition</code> object that describes the training job that
    *             Amazon SageMaker runs to validate your algorithm.</p>
@@ -266,7 +252,6 @@ export namespace AlgorithmValidationProfile {
   export const filterSensitiveLog = (obj: AlgorithmValidationProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlgorithmValidationProfile => __isa(o, "AlgorithmValidationProfile");
 }
 
 /**
@@ -274,7 +259,6 @@ export namespace AlgorithmValidationProfile {
  *             algorithm.</p>
  */
 export interface AlgorithmValidationSpecification {
-  __type?: "AlgorithmValidationSpecification";
   /**
    * <p>An array of <code>AlgorithmValidationProfile</code> objects, each of which specifies a
    *             training job and batch transform job that Amazon SageMaker runs to validate your algorithm.</p>
@@ -291,7 +275,6 @@ export namespace AlgorithmValidationSpecification {
   export const filterSensitiveLog = (obj: AlgorithmValidationSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlgorithmValidationSpecification => __isa(o, "AlgorithmValidationSpecification");
 }
 
 /**
@@ -299,7 +282,6 @@ export namespace AlgorithmValidationSpecification {
  *          </p>
  */
 export interface AnnotationConsolidationConfig {
-  __type?: "AnnotationConsolidationConfig";
   /**
    * <p>The Amazon Resource Name (ARN) of a Lambda function implements the logic for <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">annotation consolidation</a> and to process output data.</p>
    *         <p>This parameter is required for all labeling jobs. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>, use one
@@ -1357,14 +1339,12 @@ export namespace AnnotationConsolidationConfig {
   export const filterSensitiveLog = (obj: AnnotationConsolidationConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnnotationConsolidationConfig => __isa(o, "AnnotationConsolidationConfig");
 }
 
 /**
  * <p>The app's details.</p>
  */
 export interface AppDetails {
-  __type?: "AppDetails";
   /**
    * <p>The name of the app.</p>
    */
@@ -1400,7 +1380,6 @@ export namespace AppDetails {
   export const filterSensitiveLog = (obj: AppDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AppDetails => __isa(o, "AppDetails");
 }
 
 export enum AppInstanceType {
@@ -1446,7 +1425,6 @@ export enum AppSortKey {
  * <p>Configuration to run a processing job in a specified container image.</p>
  */
 export interface AppSpecification {
-  __type?: "AppSpecification";
   /**
    * <p>The arguments for a container used to run a processing job.</p>
    */
@@ -1467,7 +1445,6 @@ export namespace AppSpecification {
   export const filterSensitiveLog = (obj: AppSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AppSpecification => __isa(o, "AppSpecification");
 }
 
 export enum AppStatus {
@@ -1490,7 +1467,6 @@ export enum AssemblyType {
 }
 
 export interface AssociateTrialComponentRequest {
-  __type?: "AssociateTrialComponentRequest";
   /**
    * <p>The name of the component to associated with the trial.</p>
    */
@@ -1506,11 +1482,9 @@ export namespace AssociateTrialComponentRequest {
   export const filterSensitiveLog = (obj: AssociateTrialComponentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateTrialComponentRequest => __isa(o, "AssociateTrialComponentRequest");
 }
 
 export interface AssociateTrialComponentResponse {
-  __type?: "AssociateTrialComponentResponse";
   /**
    * <p>The ARN of the trial component.</p>
    */
@@ -1526,7 +1500,6 @@ export namespace AssociateTrialComponentResponse {
   export const filterSensitiveLog = (obj: AssociateTrialComponentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateTrialComponentResponse => __isa(o, "AssociateTrialComponentResponse");
 }
 
 export enum AuthMode {
@@ -1539,7 +1512,6 @@ export enum AuthMode {
  *          about the steps involed, and the status.</p>
  */
 export interface AutoMLCandidate {
-  __type?: "AutoMLCandidate";
   /**
    * <p>The candidate name.</p>
    */
@@ -1595,14 +1567,12 @@ export namespace AutoMLCandidate {
   export const filterSensitiveLog = (obj: AutoMLCandidate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLCandidate => __isa(o, "AutoMLCandidate");
 }
 
 /**
  * <p>Information about the steps for a Candidate, and what step it is working on.</p>
  */
 export interface AutoMLCandidateStep {
-  __type?: "AutoMLCandidateStep";
   /**
    * <p>The name for the Candidate's step.</p>
    */
@@ -1623,7 +1593,6 @@ export namespace AutoMLCandidateStep {
   export const filterSensitiveLog = (obj: AutoMLCandidateStep): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLCandidateStep => __isa(o, "AutoMLCandidateStep");
 }
 
 /**
@@ -1631,7 +1600,6 @@ export namespace AutoMLCandidateStep {
  *          consume. Refer to Channel for detailed descriptions.</p>
  */
 export interface AutoMLChannel {
-  __type?: "AutoMLChannel";
   /**
    * <p>The name of the target variable in supervised learning, a.k.a. 'y'.</p>
    */
@@ -1652,7 +1620,6 @@ export namespace AutoMLChannel {
   export const filterSensitiveLog = (obj: AutoMLChannel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLChannel => __isa(o, "AutoMLChannel");
 }
 
 /**
@@ -1660,7 +1627,6 @@ export namespace AutoMLChannel {
  *          AutoML candidate. Refer to ContainerDefinition for more details.</p>
  */
 export interface AutoMLContainerDefinition {
-  __type?: "AutoMLContainerDefinition";
   /**
    * <p>Environment variables to set in the container. Refer to ContainerDefinition for more
    *          details.</p>
@@ -1683,14 +1649,12 @@ export namespace AutoMLContainerDefinition {
   export const filterSensitiveLog = (obj: AutoMLContainerDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLContainerDefinition => __isa(o, "AutoMLContainerDefinition");
 }
 
 /**
  * <p>The data source for the AutoPilot job.</p>
  */
 export interface AutoMLDataSource {
-  __type?: "AutoMLDataSource";
   /**
    * <p>The Amazon S3 location of the input data.</p>
    *          <note>
@@ -1704,14 +1668,12 @@ export namespace AutoMLDataSource {
   export const filterSensitiveLog = (obj: AutoMLDataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLDataSource => __isa(o, "AutoMLDataSource");
 }
 
 /**
  * <p>Artifacts that are generation during a job.</p>
  */
 export interface AutoMLJobArtifacts {
-  __type?: "AutoMLJobArtifacts";
   /**
    * <p>The URL to the notebook location.</p>
    */
@@ -1727,7 +1689,6 @@ export namespace AutoMLJobArtifacts {
   export const filterSensitiveLog = (obj: AutoMLJobArtifacts): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLJobArtifacts => __isa(o, "AutoMLJobArtifacts");
 }
 
 /**
@@ -1735,7 +1696,6 @@ export namespace AutoMLJobArtifacts {
  *          generate.</p>
  */
 export interface AutoMLJobCompletionCriteria {
-  __type?: "AutoMLJobCompletionCriteria";
   /**
    * <p>The maximum time, in seconds, a job is allowed to run.</p>
    */
@@ -1757,14 +1717,12 @@ export namespace AutoMLJobCompletionCriteria {
   export const filterSensitiveLog = (obj: AutoMLJobCompletionCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLJobCompletionCriteria => __isa(o, "AutoMLJobCompletionCriteria");
 }
 
 /**
  * <p>A collection of settings used for a job.</p>
  */
 export interface AutoMLJobConfig {
-  __type?: "AutoMLJobConfig";
   /**
    * <p>How long a job is allowed to run, or how many candidates a job is allowed to
    *          generate.</p>
@@ -1781,14 +1739,12 @@ export namespace AutoMLJobConfig {
   export const filterSensitiveLog = (obj: AutoMLJobConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLJobConfig => __isa(o, "AutoMLJobConfig");
 }
 
 /**
  * <p>Applies a metric to minimize or maximize for the job's objective.</p>
  */
 export interface AutoMLJobObjective {
-  __type?: "AutoMLJobObjective";
   /**
    * <p>The name of the metric.</p>
    */
@@ -1799,7 +1755,6 @@ export namespace AutoMLJobObjective {
   export const filterSensitiveLog = (obj: AutoMLJobObjective): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLJobObjective => __isa(o, "AutoMLJobObjective");
 }
 
 export enum AutoMLJobObjectiveType {
@@ -1832,7 +1787,6 @@ export enum AutoMLJobStatus {
  * <p>Provides a summary about a job.</p>
  */
 export interface AutoMLJobSummary {
-  __type?: "AutoMLJobSummary";
   /**
    * <p>The ARN of the job.</p>
    */
@@ -1878,7 +1832,6 @@ export namespace AutoMLJobSummary {
   export const filterSensitiveLog = (obj: AutoMLJobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLJobSummary => __isa(o, "AutoMLJobSummary");
 }
 
 export enum AutoMLMetricEnum {
@@ -1892,7 +1845,6 @@ export enum AutoMLMetricEnum {
  * <p>The output data configuration.</p>
  */
 export interface AutoMLOutputDataConfig {
-  __type?: "AutoMLOutputDataConfig";
   /**
    * <p>The AWS KMS encryption key ID.</p>
    */
@@ -1908,14 +1860,12 @@ export namespace AutoMLOutputDataConfig {
   export const filterSensitiveLog = (obj: AutoMLOutputDataConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLOutputDataConfig => __isa(o, "AutoMLOutputDataConfig");
 }
 
 /**
  * <p>The Amazon S3 data source.</p>
  */
 export interface AutoMLS3DataSource {
-  __type?: "AutoMLS3DataSource";
   /**
    * <p>The data type.</p>
    */
@@ -1931,7 +1881,6 @@ export namespace AutoMLS3DataSource {
   export const filterSensitiveLog = (obj: AutoMLS3DataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLS3DataSource => __isa(o, "AutoMLS3DataSource");
 }
 
 export enum AutoMLS3DataType {
@@ -1943,7 +1892,6 @@ export enum AutoMLS3DataType {
  * <p>Security options.</p>
  */
 export interface AutoMLSecurityConfig {
-  __type?: "AutoMLSecurityConfig";
   /**
    * <p>VPC configuration.</p>
    */
@@ -1964,7 +1912,6 @@ export namespace AutoMLSecurityConfig {
   export const filterSensitiveLog = (obj: AutoMLSecurityConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoMLSecurityConfig => __isa(o, "AutoMLSecurityConfig");
 }
 
 export enum AutoMLSortBy {
@@ -2017,7 +1964,6 @@ export enum CandidateStepType {
  * <p></p>
  */
 export interface CaptureContentTypeHeader {
-  __type?: "CaptureContentTypeHeader";
   /**
    * <p></p>
    */
@@ -2033,7 +1979,6 @@ export namespace CaptureContentTypeHeader {
   export const filterSensitiveLog = (obj: CaptureContentTypeHeader): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaptureContentTypeHeader => __isa(o, "CaptureContentTypeHeader");
 }
 
 export enum CaptureMode {
@@ -2045,7 +1990,6 @@ export enum CaptureMode {
  * <p></p>
  */
 export interface CaptureOption {
-  __type?: "CaptureOption";
   /**
    * <p></p>
    */
@@ -2056,7 +2000,6 @@ export namespace CaptureOption {
   export const filterSensitiveLog = (obj: CaptureOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CaptureOption => __isa(o, "CaptureOption");
 }
 
 export enum CaptureStatus {
@@ -2068,7 +2011,6 @@ export enum CaptureStatus {
  * <p>A list of categorical hyperparameters to tune.</p>
  */
 export interface CategoricalParameterRange {
-  __type?: "CategoricalParameterRange";
   /**
    * <p>A list of the categories
    *             for
@@ -2086,14 +2028,12 @@ export namespace CategoricalParameterRange {
   export const filterSensitiveLog = (obj: CategoricalParameterRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CategoricalParameterRange => __isa(o, "CategoricalParameterRange");
 }
 
 /**
  * <p>Defines the possible values for a categorical hyperparameter.</p>
  */
 export interface CategoricalParameterRangeSpecification {
-  __type?: "CategoricalParameterRangeSpecification";
   /**
    * <p>The allowed categories for the hyperparameter.</p>
    */
@@ -2104,15 +2044,12 @@ export namespace CategoricalParameterRangeSpecification {
   export const filterSensitiveLog = (obj: CategoricalParameterRangeSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CategoricalParameterRangeSpecification =>
-    __isa(o, "CategoricalParameterRangeSpecification");
 }
 
 /**
  * <p>A channel is a named input source that training algorithms can consume. </p>
  */
 export interface Channel {
-  __type?: "Channel";
   /**
    * <p>The MIME type of the data.</p>
    */
@@ -2183,14 +2120,12 @@ export namespace Channel {
   export const filterSensitiveLog = (obj: Channel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Channel => __isa(o, "Channel");
 }
 
 /**
  * <p>Defines a named input source, called a channel, to be used by an algorithm.</p>
  */
 export interface ChannelSpecification {
-  __type?: "ChannelSpecification";
   /**
    * <p>The supported MIME types for the data.</p>
    */
@@ -2231,7 +2166,6 @@ export namespace ChannelSpecification {
   export const filterSensitiveLog = (obj: ChannelSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelSpecification => __isa(o, "ChannelSpecification");
 }
 
 /**
@@ -2239,7 +2173,6 @@ export namespace ChannelSpecification {
  *             data. </p>
  */
 export interface CheckpointConfig {
-  __type?: "CheckpointConfig";
   /**
    * <p>(Optional) The local directory where checkpoints are written. The default directory is
    *                 <code>/opt/ml/checkpoints/</code>. </p>
@@ -2257,7 +2190,6 @@ export namespace CheckpointConfig {
   export const filterSensitiveLog = (obj: CheckpointConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CheckpointConfig => __isa(o, "CheckpointConfig");
 }
 
 export enum CodeRepositorySortBy {
@@ -2275,7 +2207,6 @@ export enum CodeRepositorySortOrder {
  * <p>Specifies summary information about a Git repository.</p>
  */
 export interface CodeRepositorySummary {
-  __type?: "CodeRepositorySummary";
   /**
    * <p>The Amazon Resource Name (ARN) of the Git repository.</p>
    */
@@ -2308,7 +2239,6 @@ export namespace CodeRepositorySummary {
   export const filterSensitiveLog = (obj: CodeRepositorySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeRepositorySummary => __isa(o, "CodeRepositorySummary");
 }
 
 /**
@@ -2318,7 +2248,6 @@ export namespace CodeRepositorySummary {
  *       Amazon Cognito user pool</a>.</p>
  */
 export interface CognitoConfig {
-  __type?: "CognitoConfig";
   /**
    * <p>The client ID for your Amazon Cognito user pool.</p>
    */
@@ -2338,7 +2267,6 @@ export namespace CognitoConfig {
   export const filterSensitiveLog = (obj: CognitoConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CognitoConfig => __isa(o, "CognitoConfig");
 }
 
 /**
@@ -2346,7 +2274,6 @@ export namespace CognitoConfig {
  *             teams.</p>
  */
 export interface CognitoMemberDefinition {
-  __type?: "CognitoMemberDefinition";
   /**
    * <p>An identifier for an application client. You must create the app client ID using
    *             Amazon Cognito.</p>
@@ -2369,14 +2296,12 @@ export namespace CognitoMemberDefinition {
   export const filterSensitiveLog = (obj: CognitoMemberDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CognitoMemberDefinition => __isa(o, "CognitoMemberDefinition");
 }
 
 /**
  * <p>Configuration information for tensor collections.</p>
  */
 export interface CollectionConfiguration {
-  __type?: "CollectionConfiguration";
   /**
    * <p>Parameter values for the tensor collection. The allowed parameters are
    *                 <code>"name"</code>, <code>"include_regex"</code>, <code>"reduction_config"</code>,
@@ -2395,7 +2320,6 @@ export namespace CollectionConfiguration {
   export const filterSensitiveLog = (obj: CollectionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CollectionConfiguration => __isa(o, "CollectionConfiguration");
 }
 
 export enum CompilationJobStatus {
@@ -2411,7 +2335,6 @@ export enum CompilationJobStatus {
  * <p>A summary of a model compilation job.</p>
  */
 export interface CompilationJobSummary {
-  __type?: "CompilationJobSummary";
   /**
    * <p>The type of OS that the model will run on after the compilation job has completed.</p>
    */
@@ -2472,7 +2395,6 @@ export namespace CompilationJobSummary {
   export const filterSensitiveLog = (obj: CompilationJobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompilationJobSummary => __isa(o, "CompilationJobSummary");
 }
 
 export enum CompressionType {
@@ -2494,14 +2416,12 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
  * <p>Describes the container, as part of model definition.</p>
  */
 export interface ContainerDefinition {
-  __type?: "ContainerDefinition";
   /**
    * <p>The environment variables to set in the Docker container. Each key and value in the
    *                 <code>Environment</code> string to string map can have length of up to 1024. We
@@ -2572,7 +2492,6 @@ export namespace ContainerDefinition {
   export const filterSensitiveLog = (obj: ContainerDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerDefinition => __isa(o, "ContainerDefinition");
 }
 
 export enum ContainerMode {
@@ -2589,7 +2508,6 @@ export enum ContentClassifier {
  * <p>A list of continuous hyperparameters to tune.</p>
  */
 export interface ContinuousParameterRange {
-  __type?: "ContinuousParameterRange";
   /**
    * <p>The maximum value for the hyperparameter. The tuning job uses floating-point values
    *             between <code>MinValue</code> value and this value for tuning.</p>
@@ -2646,14 +2564,12 @@ export namespace ContinuousParameterRange {
   export const filterSensitiveLog = (obj: ContinuousParameterRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContinuousParameterRange => __isa(o, "ContinuousParameterRange");
 }
 
 /**
  * <p>Defines the possible values for a continuous hyperparameter.</p>
  */
 export interface ContinuousParameterRangeSpecification {
-  __type?: "ContinuousParameterRangeSpecification";
   /**
    * <p>The minimum floating-point value allowed.</p>
    */
@@ -2669,12 +2585,9 @@ export namespace ContinuousParameterRangeSpecification {
   export const filterSensitiveLog = (obj: ContinuousParameterRangeSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContinuousParameterRangeSpecification =>
-    __isa(o, "ContinuousParameterRangeSpecification");
 }
 
 export interface CreateAlgorithmInput {
-  __type?: "CreateAlgorithmInput";
   /**
    * <p>Specifies details about training jobs run by this algorithm, including the
    *             following:</p>
@@ -2755,11 +2668,9 @@ export namespace CreateAlgorithmInput {
   export const filterSensitiveLog = (obj: CreateAlgorithmInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAlgorithmInput => __isa(o, "CreateAlgorithmInput");
 }
 
 export interface CreateAlgorithmOutput {
-  __type?: "CreateAlgorithmOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the new algorithm.</p>
    */
@@ -2770,11 +2681,9 @@ export namespace CreateAlgorithmOutput {
   export const filterSensitiveLog = (obj: CreateAlgorithmOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAlgorithmOutput => __isa(o, "CreateAlgorithmOutput");
 }
 
 export interface CreateAppRequest {
-  __type?: "CreateAppRequest";
   /**
    * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
    */
@@ -2811,11 +2720,9 @@ export namespace CreateAppRequest {
   export const filterSensitiveLog = (obj: CreateAppRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAppRequest => __isa(o, "CreateAppRequest");
 }
 
 export interface CreateAppResponse {
-  __type?: "CreateAppResponse";
   /**
    * <p>The App's Amazon Resource Name (ARN).</p>
    */
@@ -2826,11 +2733,9 @@ export namespace CreateAppResponse {
   export const filterSensitiveLog = (obj: CreateAppResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAppResponse => __isa(o, "CreateAppResponse");
 }
 
 export interface CreateAutoMLJobRequest {
-  __type?: "CreateAutoMLJobRequest";
   /**
    * <p>Identifies an AutoPilot job. Must be unique to your account and is case-insensitive.</p>
    */
@@ -2887,11 +2792,9 @@ export namespace CreateAutoMLJobRequest {
   export const filterSensitiveLog = (obj: CreateAutoMLJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAutoMLJobRequest => __isa(o, "CreateAutoMLJobRequest");
 }
 
 export interface CreateAutoMLJobResponse {
-  __type?: "CreateAutoMLJobResponse";
   /**
    * <p>When a job is created, it is assigned a unique ARN.</p>
    */
@@ -2902,11 +2805,9 @@ export namespace CreateAutoMLJobResponse {
   export const filterSensitiveLog = (obj: CreateAutoMLJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAutoMLJobResponse => __isa(o, "CreateAutoMLJobResponse");
 }
 
 export interface CreateCodeRepositoryInput {
-  __type?: "CreateCodeRepositoryInput";
   /**
    * <p>Specifies details about the repository, including the URL where the repository is
    *             located, the default branch, and credentials to use to access the repository.</p>
@@ -2924,11 +2825,9 @@ export namespace CreateCodeRepositoryInput {
   export const filterSensitiveLog = (obj: CreateCodeRepositoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCodeRepositoryInput => __isa(o, "CreateCodeRepositoryInput");
 }
 
 export interface CreateCodeRepositoryOutput {
-  __type?: "CreateCodeRepositoryOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the new repository.</p>
    */
@@ -2939,11 +2838,9 @@ export namespace CreateCodeRepositoryOutput {
   export const filterSensitiveLog = (obj: CreateCodeRepositoryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCodeRepositoryOutput => __isa(o, "CreateCodeRepositoryOutput");
 }
 
 export interface CreateCompilationJobRequest {
-  __type?: "CreateCompilationJobRequest";
   /**
    * <p>Provides information about the output location for the compiled model and the target
    *             device the model runs on.</p>
@@ -3000,11 +2897,9 @@ export namespace CreateCompilationJobRequest {
   export const filterSensitiveLog = (obj: CreateCompilationJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCompilationJobRequest => __isa(o, "CreateCompilationJobRequest");
 }
 
 export interface CreateCompilationJobResponse {
-  __type?: "CreateCompilationJobResponse";
   /**
    * <p>If the action is successful, the service sends back an HTTP 200 response. Amazon SageMaker returns
    *             the following data in JSON format:</p>
@@ -3023,11 +2918,9 @@ export namespace CreateCompilationJobResponse {
   export const filterSensitiveLog = (obj: CreateCompilationJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCompilationJobResponse => __isa(o, "CreateCompilationJobResponse");
 }
 
 export interface CreateDomainRequest {
-  __type?: "CreateDomainRequest";
   /**
    * <p>The ID of the Amazon Virtual Private Cloud (VPC) to use for communication with the EFS volume.</p>
    */
@@ -3071,11 +2964,9 @@ export namespace CreateDomainRequest {
   export const filterSensitiveLog = (obj: CreateDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainRequest => __isa(o, "CreateDomainRequest");
 }
 
 export interface CreateDomainResponse {
-  __type?: "CreateDomainResponse";
   /**
    * <p>The URL to the created domain.</p>
    */
@@ -3091,11 +2982,9 @@ export namespace CreateDomainResponse {
   export const filterSensitiveLog = (obj: CreateDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainResponse => __isa(o, "CreateDomainResponse");
 }
 
 export interface CreateEndpointConfigInput {
-  __type?: "CreateEndpointConfigInput";
   /**
    * <p>The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on
    *             the storage volume attached to the ML compute instance that hosts the endpoint.</p>
@@ -3169,11 +3058,9 @@ export namespace CreateEndpointConfigInput {
   export const filterSensitiveLog = (obj: CreateEndpointConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEndpointConfigInput => __isa(o, "CreateEndpointConfigInput");
 }
 
 export interface CreateEndpointConfigOutput {
-  __type?: "CreateEndpointConfigOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint configuration. </p>
    */
@@ -3184,11 +3071,9 @@ export namespace CreateEndpointConfigOutput {
   export const filterSensitiveLog = (obj: CreateEndpointConfigOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEndpointConfigOutput => __isa(o, "CreateEndpointConfigOutput");
 }
 
 export interface CreateEndpointInput {
-  __type?: "CreateEndpointInput";
   /**
    * <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
    *                 Cost Allocation Tags</a>in the <i>AWS Billing and Cost Management User
@@ -3215,11 +3100,9 @@ export namespace CreateEndpointInput {
   export const filterSensitiveLog = (obj: CreateEndpointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEndpointInput => __isa(o, "CreateEndpointInput");
 }
 
 export interface CreateEndpointOutput {
-  __type?: "CreateEndpointOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
    */
@@ -3230,11 +3113,9 @@ export namespace CreateEndpointOutput {
   export const filterSensitiveLog = (obj: CreateEndpointOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEndpointOutput => __isa(o, "CreateEndpointOutput");
 }
 
 export interface CreateExperimentRequest {
-  __type?: "CreateExperimentRequest";
   /**
    * <p>The description of the experiment.</p>
    */
@@ -3264,11 +3145,9 @@ export namespace CreateExperimentRequest {
   export const filterSensitiveLog = (obj: CreateExperimentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateExperimentRequest => __isa(o, "CreateExperimentRequest");
 }
 
 export interface CreateExperimentResponse {
-  __type?: "CreateExperimentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the experiment.</p>
    */
@@ -3279,11 +3158,9 @@ export namespace CreateExperimentResponse {
   export const filterSensitiveLog = (obj: CreateExperimentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateExperimentResponse => __isa(o, "CreateExperimentResponse");
 }
 
 export interface CreateFlowDefinitionRequest {
-  __type?: "CreateFlowDefinitionRequest";
   /**
    * <p>An object containing information about the tasks the human reviewers will perform.</p>
    */
@@ -3325,11 +3202,9 @@ export namespace CreateFlowDefinitionRequest {
   export const filterSensitiveLog = (obj: CreateFlowDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFlowDefinitionRequest => __isa(o, "CreateFlowDefinitionRequest");
 }
 
 export interface CreateFlowDefinitionResponse {
-  __type?: "CreateFlowDefinitionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the flow definition you create.</p>
    */
@@ -3340,11 +3215,9 @@ export namespace CreateFlowDefinitionResponse {
   export const filterSensitiveLog = (obj: CreateFlowDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFlowDefinitionResponse => __isa(o, "CreateFlowDefinitionResponse");
 }
 
 export interface CreateHumanTaskUiRequest {
-  __type?: "CreateHumanTaskUiRequest";
   /**
    * <p>The name of the user interface you are creating.</p>
    */
@@ -3365,11 +3238,9 @@ export namespace CreateHumanTaskUiRequest {
   export const filterSensitiveLog = (obj: CreateHumanTaskUiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHumanTaskUiRequest => __isa(o, "CreateHumanTaskUiRequest");
 }
 
 export interface CreateHumanTaskUiResponse {
-  __type?: "CreateHumanTaskUiResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the human review workflow user interface you create.</p>
    */
@@ -3380,11 +3251,9 @@ export namespace CreateHumanTaskUiResponse {
   export const filterSensitiveLog = (obj: CreateHumanTaskUiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHumanTaskUiResponse => __isa(o, "CreateHumanTaskUiResponse");
 }
 
 export interface CreateHyperParameterTuningJobRequest {
-  __type?: "CreateHyperParameterTuningJobRequest";
   /**
    * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
    *             different ways, for example, by purpose, owner, or environment. For more information,
@@ -3451,12 +3320,9 @@ export namespace CreateHyperParameterTuningJobRequest {
   export const filterSensitiveLog = (obj: CreateHyperParameterTuningJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHyperParameterTuningJobRequest =>
-    __isa(o, "CreateHyperParameterTuningJobRequest");
 }
 
 export interface CreateHyperParameterTuningJobResponse {
-  __type?: "CreateHyperParameterTuningJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the tuning job. Amazon SageMaker assigns an ARN to a
    *             hyperparameter tuning job when you create it.</p>
@@ -3468,12 +3334,9 @@ export namespace CreateHyperParameterTuningJobResponse {
   export const filterSensitiveLog = (obj: CreateHyperParameterTuningJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHyperParameterTuningJobResponse =>
-    __isa(o, "CreateHyperParameterTuningJobResponse");
 }
 
 export interface CreateLabelingJobRequest {
-  __type?: "CreateLabelingJobRequest";
   /**
    * <p>A set of conditions for stopping the labeling job. If any of the conditions are met,
    *             the job is automatically stopped. You can use these conditions to control the cost of
@@ -3593,11 +3456,9 @@ export namespace CreateLabelingJobRequest {
   export const filterSensitiveLog = (obj: CreateLabelingJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLabelingJobRequest => __isa(o, "CreateLabelingJobRequest");
 }
 
 export interface CreateLabelingJobResponse {
-  __type?: "CreateLabelingJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the labeling job. You use this ARN to identify the
    *             labeling job.</p>
@@ -3609,11 +3470,9 @@ export namespace CreateLabelingJobResponse {
   export const filterSensitiveLog = (obj: CreateLabelingJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLabelingJobResponse => __isa(o, "CreateLabelingJobResponse");
 }
 
 export interface CreateModelInput {
-  __type?: "CreateModelInput";
   /**
    * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your model
    *             to connect to. Control access to and from your model container by configuring the VPC.
@@ -3672,11 +3531,9 @@ export namespace CreateModelInput {
   export const filterSensitiveLog = (obj: CreateModelInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateModelInput => __isa(o, "CreateModelInput");
 }
 
 export interface CreateModelOutput {
-  __type?: "CreateModelOutput";
   /**
    * <p>The ARN of the model created in Amazon SageMaker.</p>
    */
@@ -3687,11 +3544,9 @@ export namespace CreateModelOutput {
   export const filterSensitiveLog = (obj: CreateModelOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateModelOutput => __isa(o, "CreateModelOutput");
 }
 
 export interface CreateModelPackageInput {
-  __type?: "CreateModelPackageInput";
   /**
    * <p>Details about the algorithm that was used to create the model package.</p>
    */
@@ -3744,11 +3599,9 @@ export namespace CreateModelPackageInput {
   export const filterSensitiveLog = (obj: CreateModelPackageInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateModelPackageInput => __isa(o, "CreateModelPackageInput");
 }
 
 export interface CreateModelPackageOutput {
-  __type?: "CreateModelPackageOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the new model package.</p>
    */
@@ -3759,11 +3612,9 @@ export namespace CreateModelPackageOutput {
   export const filterSensitiveLog = (obj: CreateModelPackageOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateModelPackageOutput => __isa(o, "CreateModelPackageOutput");
 }
 
 export interface CreateMonitoringScheduleRequest {
-  __type?: "CreateMonitoringScheduleRequest";
   /**
    * <p>The name of the monitoring schedule. The name must be unique within an AWS Region within
    *          an AWS account.</p>
@@ -3787,11 +3638,9 @@ export namespace CreateMonitoringScheduleRequest {
   export const filterSensitiveLog = (obj: CreateMonitoringScheduleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMonitoringScheduleRequest => __isa(o, "CreateMonitoringScheduleRequest");
 }
 
 export interface CreateMonitoringScheduleResponse {
-  __type?: "CreateMonitoringScheduleResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
    */
@@ -3802,11 +3651,9 @@ export namespace CreateMonitoringScheduleResponse {
   export const filterSensitiveLog = (obj: CreateMonitoringScheduleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMonitoringScheduleResponse => __isa(o, "CreateMonitoringScheduleResponse");
 }
 
 export interface CreateNotebookInstanceInput {
-  __type?: "CreateNotebookInstanceInput";
   /**
    * <p>A Git repository to associate with the notebook instance as its default code
    *             repository. This can be either the name of a Git repository stored as a resource in your
@@ -3924,11 +3771,9 @@ export namespace CreateNotebookInstanceInput {
   export const filterSensitiveLog = (obj: CreateNotebookInstanceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNotebookInstanceInput => __isa(o, "CreateNotebookInstanceInput");
 }
 
 export interface CreateNotebookInstanceLifecycleConfigInput {
-  __type?: "CreateNotebookInstanceLifecycleConfigInput";
   /**
    * <p>A shell script that runs only once, when you create a notebook instance. The shell
    *             script must be a base64-encoded string.</p>
@@ -3951,12 +3796,9 @@ export namespace CreateNotebookInstanceLifecycleConfigInput {
   export const filterSensitiveLog = (obj: CreateNotebookInstanceLifecycleConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNotebookInstanceLifecycleConfigInput =>
-    __isa(o, "CreateNotebookInstanceLifecycleConfigInput");
 }
 
 export interface CreateNotebookInstanceLifecycleConfigOutput {
-  __type?: "CreateNotebookInstanceLifecycleConfigOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
    */
@@ -3967,12 +3809,9 @@ export namespace CreateNotebookInstanceLifecycleConfigOutput {
   export const filterSensitiveLog = (obj: CreateNotebookInstanceLifecycleConfigOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNotebookInstanceLifecycleConfigOutput =>
-    __isa(o, "CreateNotebookInstanceLifecycleConfigOutput");
 }
 
 export interface CreateNotebookInstanceOutput {
-  __type?: "CreateNotebookInstanceOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the notebook instance. </p>
    */
@@ -3983,11 +3822,9 @@ export namespace CreateNotebookInstanceOutput {
   export const filterSensitiveLog = (obj: CreateNotebookInstanceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNotebookInstanceOutput => __isa(o, "CreateNotebookInstanceOutput");
 }
 
 export interface CreatePresignedDomainUrlRequest {
-  __type?: "CreatePresignedDomainUrlRequest";
   /**
    * <p>The name of the UserProfile to sign-in as.</p>
    */
@@ -4008,11 +3845,9 @@ export namespace CreatePresignedDomainUrlRequest {
   export const filterSensitiveLog = (obj: CreatePresignedDomainUrlRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePresignedDomainUrlRequest => __isa(o, "CreatePresignedDomainUrlRequest");
 }
 
 export interface CreatePresignedDomainUrlResponse {
-  __type?: "CreatePresignedDomainUrlResponse";
   /**
    * <p>The presigned URL.</p>
    */
@@ -4023,11 +3858,9 @@ export namespace CreatePresignedDomainUrlResponse {
   export const filterSensitiveLog = (obj: CreatePresignedDomainUrlResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePresignedDomainUrlResponse => __isa(o, "CreatePresignedDomainUrlResponse");
 }
 
 export interface CreatePresignedNotebookInstanceUrlInput {
-  __type?: "CreatePresignedNotebookInstanceUrlInput";
   /**
    * <p>The name of the notebook instance.</p>
    */
@@ -4043,12 +3876,9 @@ export namespace CreatePresignedNotebookInstanceUrlInput {
   export const filterSensitiveLog = (obj: CreatePresignedNotebookInstanceUrlInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePresignedNotebookInstanceUrlInput =>
-    __isa(o, "CreatePresignedNotebookInstanceUrlInput");
 }
 
 export interface CreatePresignedNotebookInstanceUrlOutput {
-  __type?: "CreatePresignedNotebookInstanceUrlOutput";
   /**
    * <p>A JSON object that contains the URL string. </p>
    */
@@ -4059,12 +3889,9 @@ export namespace CreatePresignedNotebookInstanceUrlOutput {
   export const filterSensitiveLog = (obj: CreatePresignedNotebookInstanceUrlOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePresignedNotebookInstanceUrlOutput =>
-    __isa(o, "CreatePresignedNotebookInstanceUrlOutput");
 }
 
 export interface CreateProcessingJobRequest {
-  __type?: "CreateProcessingJobRequest";
   /**
    * <p> The name of the processing job. The name must be unique within an AWS Region in the
    *             AWS account.</p>
@@ -4148,11 +3975,9 @@ export namespace CreateProcessingJobRequest {
   export const filterSensitiveLog = (obj: CreateProcessingJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProcessingJobRequest => __isa(o, "CreateProcessingJobRequest");
 }
 
 export interface CreateProcessingJobResponse {
-  __type?: "CreateProcessingJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the processing job.</p>
    */
@@ -4163,11 +3988,9 @@ export namespace CreateProcessingJobResponse {
   export const filterSensitiveLog = (obj: CreateProcessingJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProcessingJobResponse => __isa(o, "CreateProcessingJobResponse");
 }
 
 export interface CreateTrainingJobRequest {
-  __type?: "CreateTrainingJobRequest";
   /**
    * <p>To encrypt all communications between ML compute instances in distributed training,
    *             choose <code>True</code>. Encryption provides greater security for distributed training,
@@ -4351,11 +4174,9 @@ export namespace CreateTrainingJobRequest {
   export const filterSensitiveLog = (obj: CreateTrainingJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrainingJobRequest => __isa(o, "CreateTrainingJobRequest");
 }
 
 export interface CreateTrainingJobResponse {
-  __type?: "CreateTrainingJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the training job.</p>
    */
@@ -4366,11 +4187,9 @@ export namespace CreateTrainingJobResponse {
   export const filterSensitiveLog = (obj: CreateTrainingJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrainingJobResponse => __isa(o, "CreateTrainingJobResponse");
 }
 
 export interface CreateTransformJobRequest {
-  __type?: "CreateTransformJobRequest";
   /**
    * <p>The name of the model that you want to use for the transform job.
    *                 <code>ModelName</code> must be the name of an existing Amazon SageMaker model within an AWS
@@ -4505,11 +4324,9 @@ export namespace CreateTransformJobRequest {
   export const filterSensitiveLog = (obj: CreateTransformJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransformJobRequest => __isa(o, "CreateTransformJobRequest");
 }
 
 export interface CreateTransformJobResponse {
-  __type?: "CreateTransformJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the transform job.</p>
    */
@@ -4520,11 +4337,9 @@ export namespace CreateTransformJobResponse {
   export const filterSensitiveLog = (obj: CreateTransformJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTransformJobResponse => __isa(o, "CreateTransformJobResponse");
 }
 
 export interface CreateTrialComponentRequest {
-  __type?: "CreateTrialComponentRequest";
   /**
    * <p>The hyperparameters for the component.</p>
    */
@@ -4592,11 +4407,9 @@ export namespace CreateTrialComponentRequest {
   export const filterSensitiveLog = (obj: CreateTrialComponentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrialComponentRequest => __isa(o, "CreateTrialComponentRequest");
 }
 
 export interface CreateTrialComponentResponse {
-  __type?: "CreateTrialComponentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
    */
@@ -4607,11 +4420,9 @@ export namespace CreateTrialComponentResponse {
   export const filterSensitiveLog = (obj: CreateTrialComponentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrialComponentResponse => __isa(o, "CreateTrialComponentResponse");
 }
 
 export interface CreateTrialRequest {
-  __type?: "CreateTrialRequest";
   /**
    * <p>The name of the trial as displayed. The name doesn't need to be unique. If
    *         <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
@@ -4640,11 +4451,9 @@ export namespace CreateTrialRequest {
   export const filterSensitiveLog = (obj: CreateTrialRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrialRequest => __isa(o, "CreateTrialRequest");
 }
 
 export interface CreateTrialResponse {
-  __type?: "CreateTrialResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
    */
@@ -4655,11 +4464,9 @@ export namespace CreateTrialResponse {
   export const filterSensitiveLog = (obj: CreateTrialResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrialResponse => __isa(o, "CreateTrialResponse");
 }
 
 export interface CreateUserProfileRequest {
-  __type?: "CreateUserProfileRequest";
   /**
    * <p>The username of the associated AWS Single Sign-On User for this UserProfile.  If the Domain's AuthMode is SSO, this field is
    *            required, and must match a valid username of a user in your directory.  If the Domain's AuthMode is not SSO, this field cannot be specified.
@@ -4700,11 +4507,9 @@ export namespace CreateUserProfileRequest {
   export const filterSensitiveLog = (obj: CreateUserProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserProfileRequest => __isa(o, "CreateUserProfileRequest");
 }
 
 export interface CreateUserProfileResponse {
-  __type?: "CreateUserProfileResponse";
   /**
    * <p>The user profile Amazon Resource Name (ARN).</p>
    */
@@ -4715,11 +4520,9 @@ export namespace CreateUserProfileResponse {
   export const filterSensitiveLog = (obj: CreateUserProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserProfileResponse => __isa(o, "CreateUserProfileResponse");
 }
 
 export interface CreateWorkforceRequest {
-  __type?: "CreateWorkforceRequest";
   /**
    * <p>An array of key-value pairs that contain metadata to help you categorize and
    *       organize our workforce. Each tag consists of a key and a value,
@@ -4762,11 +4565,9 @@ export namespace CreateWorkforceRequest {
     ...obj,
     ...(obj.OidcConfig && { OidcConfig: OidcConfig.filterSensitiveLog(obj.OidcConfig) }),
   });
-  export const isa = (o: any): o is CreateWorkforceRequest => __isa(o, "CreateWorkforceRequest");
 }
 
 export interface CreateWorkforceResponse {
-  __type?: "CreateWorkforceResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the workforce.</p>
    */
@@ -4777,11 +4578,9 @@ export namespace CreateWorkforceResponse {
   export const filterSensitiveLog = (obj: CreateWorkforceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWorkforceResponse => __isa(o, "CreateWorkforceResponse");
 }
 
 export interface CreateWorkteamRequest {
-  __type?: "CreateWorkteamRequest";
   /**
    * <p>Configures notification of workers regarding available or expiring work items.</p>
    */
@@ -4826,11 +4625,9 @@ export namespace CreateWorkteamRequest {
   export const filterSensitiveLog = (obj: CreateWorkteamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWorkteamRequest => __isa(o, "CreateWorkteamRequest");
 }
 
 export interface CreateWorkteamResponse {
-  __type?: "CreateWorkteamResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the work team. You can use this ARN to identify the
    *             work team.</p>
@@ -4842,14 +4639,12 @@ export namespace CreateWorkteamResponse {
   export const filterSensitiveLog = (obj: CreateWorkteamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWorkteamResponse => __isa(o, "CreateWorkteamResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DataCaptureConfig {
-  __type?: "DataCaptureConfig";
   /**
    * <p></p>
    */
@@ -4885,14 +4680,12 @@ export namespace DataCaptureConfig {
   export const filterSensitiveLog = (obj: DataCaptureConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataCaptureConfig => __isa(o, "DataCaptureConfig");
 }
 
 /**
  * <p></p>
  */
 export interface DataCaptureConfigSummary {
-  __type?: "DataCaptureConfigSummary";
   /**
    * <p></p>
    */
@@ -4923,7 +4716,6 @@ export namespace DataCaptureConfigSummary {
   export const filterSensitiveLog = (obj: DataCaptureConfigSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataCaptureConfigSummary => __isa(o, "DataCaptureConfigSummary");
 }
 
 /**
@@ -4936,7 +4728,6 @@ export namespace DataCaptureConfigSummary {
  *                 Results with their Corresponding Input Records</a>.</p>
  */
 export interface DataProcessing {
-  __type?: "DataProcessing";
   /**
    * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators">JSONPath</a> expression used to select a portion of the input data to pass to
    *             the algorithm. Use the <code>InputFilter</code> parameter to exclude fields, such as an
@@ -4983,14 +4774,12 @@ export namespace DataProcessing {
   export const filterSensitiveLog = (obj: DataProcessing): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataProcessing => __isa(o, "DataProcessing");
 }
 
 /**
  * <p>Describes the location of the channel data.</p>
  */
 export interface DataSource {
-  __type?: "DataSource";
   /**
    * <p>The S3 location of the data source that is associated with a channel.</p>
    */
@@ -5006,7 +4795,6 @@ export namespace DataSource {
   export const filterSensitiveLog = (obj: DataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
 
 /**
@@ -5014,7 +4802,6 @@ export namespace DataSource {
  *             storage paths.</p>
  */
 export interface DebugHookConfig {
-  __type?: "DebugHookConfig";
   /**
    * <p>Configuration information for tensor collections.</p>
    */
@@ -5041,14 +4828,12 @@ export namespace DebugHookConfig {
   export const filterSensitiveLog = (obj: DebugHookConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DebugHookConfig => __isa(o, "DebugHookConfig");
 }
 
 /**
  * <p>Configuration information for debugging rules.</p>
  */
 export interface DebugRuleConfiguration {
-  __type?: "DebugRuleConfiguration";
   /**
    * <p>Path to Amazon S3 storage location for rules.</p>
    */
@@ -5091,14 +4876,12 @@ export namespace DebugRuleConfiguration {
   export const filterSensitiveLog = (obj: DebugRuleConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DebugRuleConfiguration => __isa(o, "DebugRuleConfiguration");
 }
 
 /**
  * <p>Information about the status of the rule evaluation.</p>
  */
 export interface DebugRuleEvaluationStatus {
-  __type?: "DebugRuleEvaluationStatus";
   /**
    * <p>Timestamp when the rule evaluation status was last modified.</p>
    */
@@ -5129,11 +4912,9 @@ export namespace DebugRuleEvaluationStatus {
   export const filterSensitiveLog = (obj: DebugRuleEvaluationStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DebugRuleEvaluationStatus => __isa(o, "DebugRuleEvaluationStatus");
 }
 
 export interface DeleteAlgorithmInput {
-  __type?: "DeleteAlgorithmInput";
   /**
    * <p>The name of the algorithm to delete.</p>
    */
@@ -5144,11 +4925,9 @@ export namespace DeleteAlgorithmInput {
   export const filterSensitiveLog = (obj: DeleteAlgorithmInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAlgorithmInput => __isa(o, "DeleteAlgorithmInput");
 }
 
 export interface DeleteAppRequest {
-  __type?: "DeleteAppRequest";
   /**
    * <p>The type of app.</p>
    */
@@ -5174,11 +4953,9 @@ export namespace DeleteAppRequest {
   export const filterSensitiveLog = (obj: DeleteAppRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAppRequest => __isa(o, "DeleteAppRequest");
 }
 
 export interface DeleteCodeRepositoryInput {
-  __type?: "DeleteCodeRepositoryInput";
   /**
    * <p>The name of the Git repository to delete.</p>
    */
@@ -5189,11 +4966,9 @@ export namespace DeleteCodeRepositoryInput {
   export const filterSensitiveLog = (obj: DeleteCodeRepositoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCodeRepositoryInput => __isa(o, "DeleteCodeRepositoryInput");
 }
 
 export interface DeleteDomainRequest {
-  __type?: "DeleteDomainRequest";
   /**
    * <p>The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted.
    *            By default, all resources are retained (not automatically deleted).
@@ -5211,11 +4986,9 @@ export namespace DeleteDomainRequest {
   export const filterSensitiveLog = (obj: DeleteDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainRequest => __isa(o, "DeleteDomainRequest");
 }
 
 export interface DeleteEndpointConfigInput {
-  __type?: "DeleteEndpointConfigInput";
   /**
    * <p>The name of the endpoint configuration that you want to delete.</p>
    */
@@ -5226,11 +4999,9 @@ export namespace DeleteEndpointConfigInput {
   export const filterSensitiveLog = (obj: DeleteEndpointConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEndpointConfigInput => __isa(o, "DeleteEndpointConfigInput");
 }
 
 export interface DeleteEndpointInput {
-  __type?: "DeleteEndpointInput";
   /**
    * <p>The name of the endpoint that you want to delete.</p>
    */
@@ -5241,11 +5012,9 @@ export namespace DeleteEndpointInput {
   export const filterSensitiveLog = (obj: DeleteEndpointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEndpointInput => __isa(o, "DeleteEndpointInput");
 }
 
 export interface DeleteExperimentRequest {
-  __type?: "DeleteExperimentRequest";
   /**
    * <p>The name of the experiment to delete.</p>
    */
@@ -5256,11 +5025,9 @@ export namespace DeleteExperimentRequest {
   export const filterSensitiveLog = (obj: DeleteExperimentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteExperimentRequest => __isa(o, "DeleteExperimentRequest");
 }
 
 export interface DeleteExperimentResponse {
-  __type?: "DeleteExperimentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the experiment that is being deleted.</p>
    */
@@ -5271,11 +5038,9 @@ export namespace DeleteExperimentResponse {
   export const filterSensitiveLog = (obj: DeleteExperimentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteExperimentResponse => __isa(o, "DeleteExperimentResponse");
 }
 
 export interface DeleteFlowDefinitionRequest {
-  __type?: "DeleteFlowDefinitionRequest";
   /**
    * <p>The name of the flow definition you are deleting.</p>
    */
@@ -5286,22 +5051,17 @@ export namespace DeleteFlowDefinitionRequest {
   export const filterSensitiveLog = (obj: DeleteFlowDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFlowDefinitionRequest => __isa(o, "DeleteFlowDefinitionRequest");
 }
 
-export interface DeleteFlowDefinitionResponse {
-  __type?: "DeleteFlowDefinitionResponse";
-}
+export interface DeleteFlowDefinitionResponse {}
 
 export namespace DeleteFlowDefinitionResponse {
   export const filterSensitiveLog = (obj: DeleteFlowDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFlowDefinitionResponse => __isa(o, "DeleteFlowDefinitionResponse");
 }
 
 export interface DeleteHumanTaskUiRequest {
-  __type?: "DeleteHumanTaskUiRequest";
   /**
    * <p>The name of the human task user interface (work task template) you want to delete.</p>
    */
@@ -5312,22 +5072,17 @@ export namespace DeleteHumanTaskUiRequest {
   export const filterSensitiveLog = (obj: DeleteHumanTaskUiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHumanTaskUiRequest => __isa(o, "DeleteHumanTaskUiRequest");
 }
 
-export interface DeleteHumanTaskUiResponse {
-  __type?: "DeleteHumanTaskUiResponse";
-}
+export interface DeleteHumanTaskUiResponse {}
 
 export namespace DeleteHumanTaskUiResponse {
   export const filterSensitiveLog = (obj: DeleteHumanTaskUiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHumanTaskUiResponse => __isa(o, "DeleteHumanTaskUiResponse");
 }
 
 export interface DeleteModelInput {
-  __type?: "DeleteModelInput";
   /**
    * <p>The name of the model to delete.</p>
    */
@@ -5338,11 +5093,9 @@ export namespace DeleteModelInput {
   export const filterSensitiveLog = (obj: DeleteModelInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteModelInput => __isa(o, "DeleteModelInput");
 }
 
 export interface DeleteModelPackageInput {
-  __type?: "DeleteModelPackageInput";
   /**
    * <p>The name of the model package. The name must have 1 to 63 characters. Valid characters
    *             are a-z, A-Z, 0-9, and - (hyphen).</p>
@@ -5354,11 +5107,9 @@ export namespace DeleteModelPackageInput {
   export const filterSensitiveLog = (obj: DeleteModelPackageInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteModelPackageInput => __isa(o, "DeleteModelPackageInput");
 }
 
 export interface DeleteMonitoringScheduleRequest {
-  __type?: "DeleteMonitoringScheduleRequest";
   /**
    * <p>The name of the monitoring schedule to delete.</p>
    */
@@ -5369,11 +5120,9 @@ export namespace DeleteMonitoringScheduleRequest {
   export const filterSensitiveLog = (obj: DeleteMonitoringScheduleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMonitoringScheduleRequest => __isa(o, "DeleteMonitoringScheduleRequest");
 }
 
 export interface DeleteNotebookInstanceInput {
-  __type?: "DeleteNotebookInstanceInput";
   /**
    * <p>The name of the Amazon SageMaker notebook instance to delete.</p>
    */
@@ -5384,11 +5133,9 @@ export namespace DeleteNotebookInstanceInput {
   export const filterSensitiveLog = (obj: DeleteNotebookInstanceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNotebookInstanceInput => __isa(o, "DeleteNotebookInstanceInput");
 }
 
 export interface DeleteNotebookInstanceLifecycleConfigInput {
-  __type?: "DeleteNotebookInstanceLifecycleConfigInput";
   /**
    * <p>The name of the lifecycle configuration to delete.</p>
    */
@@ -5399,12 +5146,9 @@ export namespace DeleteNotebookInstanceLifecycleConfigInput {
   export const filterSensitiveLog = (obj: DeleteNotebookInstanceLifecycleConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNotebookInstanceLifecycleConfigInput =>
-    __isa(o, "DeleteNotebookInstanceLifecycleConfigInput");
 }
 
 export interface DeleteTagsInput {
-  __type?: "DeleteTagsInput";
   /**
    * <p>An array or one or more tag keys to delete.</p>
    */
@@ -5421,22 +5165,17 @@ export namespace DeleteTagsInput {
   export const filterSensitiveLog = (obj: DeleteTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsInput => __isa(o, "DeleteTagsInput");
 }
 
-export interface DeleteTagsOutput {
-  __type?: "DeleteTagsOutput";
-}
+export interface DeleteTagsOutput {}
 
 export namespace DeleteTagsOutput {
   export const filterSensitiveLog = (obj: DeleteTagsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsOutput => __isa(o, "DeleteTagsOutput");
 }
 
 export interface DeleteTrialComponentRequest {
-  __type?: "DeleteTrialComponentRequest";
   /**
    * <p>The name of the component to delete.</p>
    */
@@ -5447,11 +5186,9 @@ export namespace DeleteTrialComponentRequest {
   export const filterSensitiveLog = (obj: DeleteTrialComponentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrialComponentRequest => __isa(o, "DeleteTrialComponentRequest");
 }
 
 export interface DeleteTrialComponentResponse {
-  __type?: "DeleteTrialComponentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the component is being deleted.</p>
    */
@@ -5462,11 +5199,9 @@ export namespace DeleteTrialComponentResponse {
   export const filterSensitiveLog = (obj: DeleteTrialComponentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrialComponentResponse => __isa(o, "DeleteTrialComponentResponse");
 }
 
 export interface DeleteTrialRequest {
-  __type?: "DeleteTrialRequest";
   /**
    * <p>The name of the trial to delete.</p>
    */
@@ -5477,11 +5212,9 @@ export namespace DeleteTrialRequest {
   export const filterSensitiveLog = (obj: DeleteTrialRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrialRequest => __isa(o, "DeleteTrialRequest");
 }
 
 export interface DeleteTrialResponse {
-  __type?: "DeleteTrialResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the trial that is being deleted.</p>
    */
@@ -5492,11 +5225,9 @@ export namespace DeleteTrialResponse {
   export const filterSensitiveLog = (obj: DeleteTrialResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrialResponse => __isa(o, "DeleteTrialResponse");
 }
 
 export interface DeleteUserProfileRequest {
-  __type?: "DeleteUserProfileRequest";
   /**
    * <p>The user profile name.</p>
    */
@@ -5512,11 +5243,9 @@ export namespace DeleteUserProfileRequest {
   export const filterSensitiveLog = (obj: DeleteUserProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserProfileRequest => __isa(o, "DeleteUserProfileRequest");
 }
 
 export interface DeleteWorkforceRequest {
-  __type?: "DeleteWorkforceRequest";
   /**
    * <p>The name of the workforce.</p>
    */
@@ -5527,22 +5256,17 @@ export namespace DeleteWorkforceRequest {
   export const filterSensitiveLog = (obj: DeleteWorkforceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWorkforceRequest => __isa(o, "DeleteWorkforceRequest");
 }
 
-export interface DeleteWorkforceResponse {
-  __type?: "DeleteWorkforceResponse";
-}
+export interface DeleteWorkforceResponse {}
 
 export namespace DeleteWorkforceResponse {
   export const filterSensitiveLog = (obj: DeleteWorkforceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWorkforceResponse => __isa(o, "DeleteWorkforceResponse");
 }
 
 export interface DeleteWorkteamRequest {
-  __type?: "DeleteWorkteamRequest";
   /**
    * <p>The name of the work team to delete.</p>
    */
@@ -5553,11 +5277,9 @@ export namespace DeleteWorkteamRequest {
   export const filterSensitiveLog = (obj: DeleteWorkteamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWorkteamRequest => __isa(o, "DeleteWorkteamRequest");
 }
 
 export interface DeleteWorkteamResponse {
-  __type?: "DeleteWorkteamResponse";
   /**
    * <p>Returns <code>true</code> if the work team was successfully deleted; otherwise,
    *             returns <code>false</code>.</p>
@@ -5569,7 +5291,6 @@ export namespace DeleteWorkteamResponse {
   export const filterSensitiveLog = (obj: DeleteWorkteamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWorkteamResponse => __isa(o, "DeleteWorkteamResponse");
 }
 
 /**
@@ -5581,7 +5302,6 @@ export namespace DeleteWorkteamResponse {
  *             a specific version of an image. For information about Amazon ECR paths, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html">Pulling an Image</a> in the <i>Amazon ECR User Guide</i>.</p>
  */
 export interface DeployedImage {
-  __type?: "DeployedImage";
   /**
    * <p>The date and time when the image path for the model resolved to the
    *                 <code>ResolvedImage</code>
@@ -5605,11 +5325,9 @@ export namespace DeployedImage {
   export const filterSensitiveLog = (obj: DeployedImage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeployedImage => __isa(o, "DeployedImage");
 }
 
 export interface DescribeAlgorithmInput {
-  __type?: "DescribeAlgorithmInput";
   /**
    * <p>The name of the algorithm to describe.</p>
    */
@@ -5620,11 +5338,9 @@ export namespace DescribeAlgorithmInput {
   export const filterSensitiveLog = (obj: DescribeAlgorithmInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAlgorithmInput => __isa(o, "DescribeAlgorithmInput");
 }
 
 export interface DescribeAlgorithmOutput {
-  __type?: "DescribeAlgorithmOutput";
   /**
    * <p>Whether the algorithm is certified to be listed in AWS Marketplace.</p>
    */
@@ -5686,11 +5402,9 @@ export namespace DescribeAlgorithmOutput {
   export const filterSensitiveLog = (obj: DescribeAlgorithmOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAlgorithmOutput => __isa(o, "DescribeAlgorithmOutput");
 }
 
 export interface DescribeAppRequest {
-  __type?: "DescribeAppRequest";
   /**
    * <p>The type of app.</p>
    */
@@ -5716,11 +5430,9 @@ export namespace DescribeAppRequest {
   export const filterSensitiveLog = (obj: DescribeAppRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAppRequest => __isa(o, "DescribeAppRequest");
 }
 
 export interface DescribeAppResponse {
-  __type?: "DescribeAppResponse";
   /**
    * <p>The status.</p>
    */
@@ -5781,11 +5493,9 @@ export namespace DescribeAppResponse {
   export const filterSensitiveLog = (obj: DescribeAppResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAppResponse => __isa(o, "DescribeAppResponse");
 }
 
 export interface DescribeAutoMLJobRequest {
-  __type?: "DescribeAutoMLJobRequest";
   /**
    * <p>Request information about a job using that job's unique name.</p>
    */
@@ -5796,11 +5506,9 @@ export namespace DescribeAutoMLJobRequest {
   export const filterSensitiveLog = (obj: DescribeAutoMLJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAutoMLJobRequest => __isa(o, "DescribeAutoMLJobRequest");
 }
 
 export interface DescribeAutoMLJobResponse {
-  __type?: "DescribeAutoMLJobResponse";
   /**
    * <p>Returns the job's creation time.</p>
    */
@@ -5899,11 +5607,9 @@ export namespace DescribeAutoMLJobResponse {
   export const filterSensitiveLog = (obj: DescribeAutoMLJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAutoMLJobResponse => __isa(o, "DescribeAutoMLJobResponse");
 }
 
 export interface DescribeCodeRepositoryInput {
-  __type?: "DescribeCodeRepositoryInput";
   /**
    * <p>The name of the Git repository to describe.</p>
    */
@@ -5914,11 +5620,9 @@ export namespace DescribeCodeRepositoryInput {
   export const filterSensitiveLog = (obj: DescribeCodeRepositoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCodeRepositoryInput => __isa(o, "DescribeCodeRepositoryInput");
 }
 
 export interface DescribeCodeRepositoryOutput {
-  __type?: "DescribeCodeRepositoryOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the Git repository.</p>
    */
@@ -5951,11 +5655,9 @@ export namespace DescribeCodeRepositoryOutput {
   export const filterSensitiveLog = (obj: DescribeCodeRepositoryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCodeRepositoryOutput => __isa(o, "DescribeCodeRepositoryOutput");
 }
 
 export interface DescribeCompilationJobRequest {
-  __type?: "DescribeCompilationJobRequest";
   /**
    * <p>The name of the model compilation job that you want information about.</p>
    */
@@ -5966,11 +5668,9 @@ export namespace DescribeCompilationJobRequest {
   export const filterSensitiveLog = (obj: DescribeCompilationJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCompilationJobRequest => __isa(o, "DescribeCompilationJobRequest");
 }
 
 export interface DescribeCompilationJobResponse {
-  __type?: "DescribeCompilationJobResponse";
   /**
    * <p>Information about the location in Amazon S3 that has been configured for storing the model
    *             artifacts used in the compilation job.</p>
@@ -6056,11 +5756,9 @@ export namespace DescribeCompilationJobResponse {
   export const filterSensitiveLog = (obj: DescribeCompilationJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCompilationJobResponse => __isa(o, "DescribeCompilationJobResponse");
 }
 
 export interface DescribeDomainRequest {
-  __type?: "DescribeDomainRequest";
   /**
    * <p>The domain ID.</p>
    */
@@ -6071,11 +5769,9 @@ export namespace DescribeDomainRequest {
   export const filterSensitiveLog = (obj: DescribeDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDomainRequest => __isa(o, "DescribeDomainRequest");
 }
 
 export interface DescribeDomainResponse {
-  __type?: "DescribeDomainResponse";
   /**
    * <p>Settings which are applied to all UserProfile in this domain, if settings are not explicitly specified
    *            in a given UserProfile.
@@ -6158,11 +5854,9 @@ export namespace DescribeDomainResponse {
   export const filterSensitiveLog = (obj: DescribeDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDomainResponse => __isa(o, "DescribeDomainResponse");
 }
 
 export interface DescribeEndpointConfigInput {
-  __type?: "DescribeEndpointConfigInput";
   /**
    * <p>The name of the endpoint configuration.</p>
    */
@@ -6173,11 +5867,9 @@ export namespace DescribeEndpointConfigInput {
   export const filterSensitiveLog = (obj: DescribeEndpointConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointConfigInput => __isa(o, "DescribeEndpointConfigInput");
 }
 
 export interface DescribeEndpointConfigOutput {
-  __type?: "DescribeEndpointConfigOutput";
   /**
    * <p>An array of <code>ProductionVariant</code> objects, one for each model that you
    *             want to host at this endpoint.</p>
@@ -6215,11 +5907,9 @@ export namespace DescribeEndpointConfigOutput {
   export const filterSensitiveLog = (obj: DescribeEndpointConfigOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointConfigOutput => __isa(o, "DescribeEndpointConfigOutput");
 }
 
 export interface DescribeEndpointInput {
-  __type?: "DescribeEndpointInput";
   /**
    * <p>The name of the endpoint.</p>
    */
@@ -6230,11 +5920,9 @@ export namespace DescribeEndpointInput {
   export const filterSensitiveLog = (obj: DescribeEndpointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointInput => __isa(o, "DescribeEndpointInput");
 }
 
 export interface DescribeEndpointOutput {
-  __type?: "DescribeEndpointOutput";
   /**
    * <p>The status of the endpoint.</p>
    *         <ul>
@@ -6335,11 +6023,9 @@ export namespace DescribeEndpointOutput {
   export const filterSensitiveLog = (obj: DescribeEndpointOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointOutput => __isa(o, "DescribeEndpointOutput");
 }
 
 export interface DescribeExperimentRequest {
-  __type?: "DescribeExperimentRequest";
   /**
    * <p>The name of the experiment to describe.</p>
    */
@@ -6350,11 +6036,9 @@ export namespace DescribeExperimentRequest {
   export const filterSensitiveLog = (obj: DescribeExperimentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExperimentRequest => __isa(o, "DescribeExperimentRequest");
 }
 
 export interface DescribeExperimentResponse {
-  __type?: "DescribeExperimentResponse";
   /**
    * <p>When the experiment was created.</p>
    */
@@ -6406,11 +6090,9 @@ export namespace DescribeExperimentResponse {
   export const filterSensitiveLog = (obj: DescribeExperimentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExperimentResponse => __isa(o, "DescribeExperimentResponse");
 }
 
 export interface DescribeFlowDefinitionRequest {
-  __type?: "DescribeFlowDefinitionRequest";
   /**
    * <p>The name of the flow definition.</p>
    */
@@ -6421,11 +6103,9 @@ export namespace DescribeFlowDefinitionRequest {
   export const filterSensitiveLog = (obj: DescribeFlowDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFlowDefinitionRequest => __isa(o, "DescribeFlowDefinitionRequest");
 }
 
 export interface DescribeFlowDefinitionResponse {
-  __type?: "DescribeFlowDefinitionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) execution role for the flow definition.</p>
    */
@@ -6482,11 +6162,9 @@ export namespace DescribeFlowDefinitionResponse {
   export const filterSensitiveLog = (obj: DescribeFlowDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFlowDefinitionResponse => __isa(o, "DescribeFlowDefinitionResponse");
 }
 
 export interface DescribeHumanTaskUiRequest {
-  __type?: "DescribeHumanTaskUiRequest";
   /**
    * <p>The name of the human task user interface
    *       (worker task template) you want information about.</p>
@@ -6498,11 +6176,9 @@ export namespace DescribeHumanTaskUiRequest {
   export const filterSensitiveLog = (obj: DescribeHumanTaskUiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHumanTaskUiRequest => __isa(o, "DescribeHumanTaskUiRequest");
 }
 
 export interface DescribeHumanTaskUiResponse {
-  __type?: "DescribeHumanTaskUiResponse";
   /**
    * <p>The name of the human task user interface (worker task template).</p>
    */
@@ -6533,11 +6209,9 @@ export namespace DescribeHumanTaskUiResponse {
   export const filterSensitiveLog = (obj: DescribeHumanTaskUiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHumanTaskUiResponse => __isa(o, "DescribeHumanTaskUiResponse");
 }
 
 export interface DescribeHyperParameterTuningJobRequest {
-  __type?: "DescribeHyperParameterTuningJobRequest";
   /**
    * <p>The name of the tuning job.</p>
    */
@@ -6548,12 +6222,9 @@ export namespace DescribeHyperParameterTuningJobRequest {
   export const filterSensitiveLog = (obj: DescribeHyperParameterTuningJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHyperParameterTuningJobRequest =>
-    __isa(o, "DescribeHyperParameterTuningJobRequest");
 }
 
 export interface DescribeHyperParameterTuningJobResponse {
-  __type?: "DescribeHyperParameterTuningJobResponse";
   /**
    * <p>The <a>HyperParameterTuningJobConfig</a> object that specifies the
    *             configuration of the tuning job.</p>
@@ -6650,12 +6321,9 @@ export namespace DescribeHyperParameterTuningJobResponse {
   export const filterSensitiveLog = (obj: DescribeHyperParameterTuningJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHyperParameterTuningJobResponse =>
-    __isa(o, "DescribeHyperParameterTuningJobResponse");
 }
 
 export interface DescribeLabelingJobRequest {
-  __type?: "DescribeLabelingJobRequest";
   /**
    * <p>The name of the labeling job to return information for.</p>
    */
@@ -6666,11 +6334,9 @@ export namespace DescribeLabelingJobRequest {
   export const filterSensitiveLog = (obj: DescribeLabelingJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLabelingJobRequest => __isa(o, "DescribeLabelingJobRequest");
 }
 
 export interface DescribeLabelingJobResponse {
-  __type?: "DescribeLabelingJobResponse";
   /**
    * <p>The date and time that the labeling job was last updated.</p>
    */
@@ -6831,11 +6497,9 @@ export namespace DescribeLabelingJobResponse {
   export const filterSensitiveLog = (obj: DescribeLabelingJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLabelingJobResponse => __isa(o, "DescribeLabelingJobResponse");
 }
 
 export interface DescribeModelInput {
-  __type?: "DescribeModelInput";
   /**
    * <p>The name of the model.</p>
    */
@@ -6846,11 +6510,9 @@ export namespace DescribeModelInput {
   export const filterSensitiveLog = (obj: DescribeModelInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeModelInput => __isa(o, "DescribeModelInput");
 }
 
 export interface DescribeModelOutput {
-  __type?: "DescribeModelOutput";
   /**
    * <p>A <a>VpcConfig</a> object that specifies the VPC that this model has access
    *             to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual
@@ -6903,11 +6565,9 @@ export namespace DescribeModelOutput {
   export const filterSensitiveLog = (obj: DescribeModelOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeModelOutput => __isa(o, "DescribeModelOutput");
 }
 
 export interface DescribeModelPackageInput {
-  __type?: "DescribeModelPackageInput";
   /**
    * <p>The name of the model package to describe.</p>
    */
@@ -6918,11 +6578,9 @@ export namespace DescribeModelPackageInput {
   export const filterSensitiveLog = (obj: DescribeModelPackageInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeModelPackageInput => __isa(o, "DescribeModelPackageInput");
 }
 
 export interface DescribeModelPackageOutput {
-  __type?: "DescribeModelPackageOutput";
   /**
    * <p>The name of the model package being described.</p>
    */
@@ -6980,11 +6638,9 @@ export namespace DescribeModelPackageOutput {
   export const filterSensitiveLog = (obj: DescribeModelPackageOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeModelPackageOutput => __isa(o, "DescribeModelPackageOutput");
 }
 
 export interface DescribeMonitoringScheduleRequest {
-  __type?: "DescribeMonitoringScheduleRequest";
   /**
    * <p>Name of a previously created monitoring schedule.</p>
    */
@@ -6995,11 +6651,9 @@ export namespace DescribeMonitoringScheduleRequest {
   export const filterSensitiveLog = (obj: DescribeMonitoringScheduleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMonitoringScheduleRequest => __isa(o, "DescribeMonitoringScheduleRequest");
 }
 
 export interface DescribeMonitoringScheduleResponse {
-  __type?: "DescribeMonitoringScheduleResponse";
   /**
    * <p>The status of an monitoring job.</p>
    */
@@ -7052,12 +6706,9 @@ export namespace DescribeMonitoringScheduleResponse {
   export const filterSensitiveLog = (obj: DescribeMonitoringScheduleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMonitoringScheduleResponse =>
-    __isa(o, "DescribeMonitoringScheduleResponse");
 }
 
 export interface DescribeNotebookInstanceInput {
-  __type?: "DescribeNotebookInstanceInput";
   /**
    * <p>The name of the notebook instance that you want information about.</p>
    */
@@ -7068,11 +6719,9 @@ export namespace DescribeNotebookInstanceInput {
   export const filterSensitiveLog = (obj: DescribeNotebookInstanceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNotebookInstanceInput => __isa(o, "DescribeNotebookInstanceInput");
 }
 
 export interface DescribeNotebookInstanceLifecycleConfigInput {
-  __type?: "DescribeNotebookInstanceLifecycleConfigInput";
   /**
    * <p>The name of the lifecycle configuration to describe.</p>
    */
@@ -7083,12 +6732,9 @@ export namespace DescribeNotebookInstanceLifecycleConfigInput {
   export const filterSensitiveLog = (obj: DescribeNotebookInstanceLifecycleConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNotebookInstanceLifecycleConfigInput =>
-    __isa(o, "DescribeNotebookInstanceLifecycleConfigInput");
 }
 
 export interface DescribeNotebookInstanceLifecycleConfigOutput {
-  __type?: "DescribeNotebookInstanceLifecycleConfigOutput";
   /**
    * <p>The shell script that runs every time you start a notebook instance, including when
    *             you create the notebook instance.</p>
@@ -7125,12 +6771,9 @@ export namespace DescribeNotebookInstanceLifecycleConfigOutput {
   export const filterSensitiveLog = (obj: DescribeNotebookInstanceLifecycleConfigOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNotebookInstanceLifecycleConfigOutput =>
-    __isa(o, "DescribeNotebookInstanceLifecycleConfigOutput");
 }
 
 export interface DescribeNotebookInstanceOutput {
-  __type?: "DescribeNotebookInstanceOutput";
   /**
    * <p>Whether root access is enabled or disabled for users of the notebook instance.</p>
    *         <note>
@@ -7267,11 +6910,9 @@ export namespace DescribeNotebookInstanceOutput {
   export const filterSensitiveLog = (obj: DescribeNotebookInstanceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNotebookInstanceOutput => __isa(o, "DescribeNotebookInstanceOutput");
 }
 
 export interface DescribeProcessingJobRequest {
-  __type?: "DescribeProcessingJobRequest";
   /**
    * <p>The name of the processing job. The name must be unique within an AWS Region in the
    *             AWS account.</p>
@@ -7283,11 +6924,9 @@ export namespace DescribeProcessingJobRequest {
   export const filterSensitiveLog = (obj: DescribeProcessingJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProcessingJobRequest => __isa(o, "DescribeProcessingJobRequest");
 }
 
 export interface DescribeProcessingJobResponse {
-  __type?: "DescribeProcessingJobResponse";
   /**
    * <p>The ARN of a monitoring schedule for an endpoint associated with this processing
    *             job.</p>
@@ -7404,11 +7043,9 @@ export namespace DescribeProcessingJobResponse {
   export const filterSensitiveLog = (obj: DescribeProcessingJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProcessingJobResponse => __isa(o, "DescribeProcessingJobResponse");
 }
 
 export interface DescribeSubscribedWorkteamRequest {
-  __type?: "DescribeSubscribedWorkteamRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the subscribed work team to describe.</p>
    */
@@ -7419,11 +7056,9 @@ export namespace DescribeSubscribedWorkteamRequest {
   export const filterSensitiveLog = (obj: DescribeSubscribedWorkteamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSubscribedWorkteamRequest => __isa(o, "DescribeSubscribedWorkteamRequest");
 }
 
 export interface DescribeSubscribedWorkteamResponse {
-  __type?: "DescribeSubscribedWorkteamResponse";
   /**
    * <p>A <code>Workteam</code> instance that contains information about the work team.</p>
    */
@@ -7434,12 +7069,9 @@ export namespace DescribeSubscribedWorkteamResponse {
   export const filterSensitiveLog = (obj: DescribeSubscribedWorkteamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSubscribedWorkteamResponse =>
-    __isa(o, "DescribeSubscribedWorkteamResponse");
 }
 
 export interface DescribeTrainingJobRequest {
-  __type?: "DescribeTrainingJobRequest";
   /**
    * <p>The name of the training job.</p>
    */
@@ -7450,11 +7082,9 @@ export namespace DescribeTrainingJobRequest {
   export const filterSensitiveLog = (obj: DescribeTrainingJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrainingJobRequest => __isa(o, "DescribeTrainingJobRequest");
 }
 
 export interface DescribeTrainingJobResponse {
-  __type?: "DescribeTrainingJobResponse";
   /**
    * <p>Configuration of storage locations for TensorBoard output.</p>
    */
@@ -7822,11 +7452,9 @@ export namespace DescribeTrainingJobResponse {
   export const filterSensitiveLog = (obj: DescribeTrainingJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrainingJobResponse => __isa(o, "DescribeTrainingJobResponse");
 }
 
 export interface DescribeTransformJobRequest {
-  __type?: "DescribeTransformJobRequest";
   /**
    * <p>The name of the transform job that you want to view details of.</p>
    */
@@ -7837,11 +7465,9 @@ export namespace DescribeTransformJobRequest {
   export const filterSensitiveLog = (obj: DescribeTransformJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransformJobRequest => __isa(o, "DescribeTransformJobRequest");
 }
 
 export interface DescribeTransformJobResponse {
-  __type?: "DescribeTransformJobResponse";
   /**
    * <p>The name of the model used in the transform job.</p>
    */
@@ -8007,11 +7633,9 @@ export namespace DescribeTransformJobResponse {
   export const filterSensitiveLog = (obj: DescribeTransformJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTransformJobResponse => __isa(o, "DescribeTransformJobResponse");
 }
 
 export interface DescribeTrialComponentRequest {
-  __type?: "DescribeTrialComponentRequest";
   /**
    * <p>The name of the trial component to describe.</p>
    */
@@ -8022,11 +7646,9 @@ export namespace DescribeTrialComponentRequest {
   export const filterSensitiveLog = (obj: DescribeTrialComponentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrialComponentRequest => __isa(o, "DescribeTrialComponentRequest");
 }
 
 export interface DescribeTrialComponentResponse {
-  __type?: "DescribeTrialComponentResponse";
   /**
    * <p>When the component started.</p>
    */
@@ -8119,11 +7741,9 @@ export namespace DescribeTrialComponentResponse {
   export const filterSensitiveLog = (obj: DescribeTrialComponentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrialComponentResponse => __isa(o, "DescribeTrialComponentResponse");
 }
 
 export interface DescribeTrialRequest {
-  __type?: "DescribeTrialRequest";
   /**
    * <p>The name of the trial to describe.</p>
    */
@@ -8134,11 +7754,9 @@ export namespace DescribeTrialRequest {
   export const filterSensitiveLog = (obj: DescribeTrialRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrialRequest => __isa(o, "DescribeTrialRequest");
 }
 
 export interface DescribeTrialResponse {
-  __type?: "DescribeTrialResponse";
   /**
    * <p>When the trial was last modified.</p>
    */
@@ -8190,11 +7808,9 @@ export namespace DescribeTrialResponse {
   export const filterSensitiveLog = (obj: DescribeTrialResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTrialResponse => __isa(o, "DescribeTrialResponse");
 }
 
 export interface DescribeUserProfileRequest {
-  __type?: "DescribeUserProfileRequest";
   /**
    * <p>The user profile name.</p>
    */
@@ -8210,11 +7826,9 @@ export namespace DescribeUserProfileRequest {
   export const filterSensitiveLog = (obj: DescribeUserProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserProfileRequest => __isa(o, "DescribeUserProfileRequest");
 }
 
 export interface DescribeUserProfileResponse {
-  __type?: "DescribeUserProfileResponse";
   /**
    * <p>The user profile Amazon Resource Name (ARN).</p>
    */
@@ -8275,11 +7889,9 @@ export namespace DescribeUserProfileResponse {
   export const filterSensitiveLog = (obj: DescribeUserProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserProfileResponse => __isa(o, "DescribeUserProfileResponse");
 }
 
 export interface DescribeWorkforceRequest {
-  __type?: "DescribeWorkforceRequest";
   /**
    * <p>The name of the private workforce whose access you want to restrict.
    *                 <code>WorkforceName</code> is automatically set to <code>default</code> when a
@@ -8292,11 +7904,9 @@ export namespace DescribeWorkforceRequest {
   export const filterSensitiveLog = (obj: DescribeWorkforceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkforceRequest => __isa(o, "DescribeWorkforceRequest");
 }
 
 export interface DescribeWorkforceResponse {
-  __type?: "DescribeWorkforceResponse";
   /**
    * <p>A single private workforce, which is automatically created when you create your first
    *             private work team. You can create one private work force in each AWS Region. By default,
@@ -8310,11 +7920,9 @@ export namespace DescribeWorkforceResponse {
   export const filterSensitiveLog = (obj: DescribeWorkforceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkforceResponse => __isa(o, "DescribeWorkforceResponse");
 }
 
 export interface DescribeWorkteamRequest {
-  __type?: "DescribeWorkteamRequest";
   /**
    * <p>The name of the work team to return a description of.</p>
    */
@@ -8325,11 +7933,9 @@ export namespace DescribeWorkteamRequest {
   export const filterSensitiveLog = (obj: DescribeWorkteamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkteamRequest => __isa(o, "DescribeWorkteamRequest");
 }
 
 export interface DescribeWorkteamResponse {
-  __type?: "DescribeWorkteamResponse";
   /**
    * <p>A <code>Workteam</code> instance that contains information about the work team.
    *         </p>
@@ -8341,14 +7947,12 @@ export namespace DescribeWorkteamResponse {
   export const filterSensitiveLog = (obj: DescribeWorkteamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkteamResponse => __isa(o, "DescribeWorkteamResponse");
 }
 
 /**
  * <p>Specifies weight and capacity values for a production variant.</p>
  */
 export interface DesiredWeightAndCapacity {
-  __type?: "DesiredWeightAndCapacity";
   /**
    * <p>The name of the
    *             variant
@@ -8371,7 +7975,6 @@ export namespace DesiredWeightAndCapacity {
   export const filterSensitiveLog = (obj: DesiredWeightAndCapacity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DesiredWeightAndCapacity => __isa(o, "DesiredWeightAndCapacity");
 }
 
 export enum DetailedAlgorithmStatus {
@@ -8394,7 +7997,6 @@ export enum DirectInternetAccess {
 }
 
 export interface DisassociateTrialComponentRequest {
-  __type?: "DisassociateTrialComponentRequest";
   /**
    * <p>The name of the trial to disassociate from.</p>
    */
@@ -8410,11 +8012,9 @@ export namespace DisassociateTrialComponentRequest {
   export const filterSensitiveLog = (obj: DisassociateTrialComponentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateTrialComponentRequest => __isa(o, "DisassociateTrialComponentRequest");
 }
 
 export interface DisassociateTrialComponentResponse {
-  __type?: "DisassociateTrialComponentResponse";
   /**
    * <p>The ARN of the trial component.</p>
    */
@@ -8430,15 +8030,12 @@ export namespace DisassociateTrialComponentResponse {
   export const filterSensitiveLog = (obj: DisassociateTrialComponentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateTrialComponentResponse =>
-    __isa(o, "DisassociateTrialComponentResponse");
 }
 
 /**
  * <p>The domain's details.</p>
  */
 export interface DomainDetails {
-  __type?: "DomainDetails";
   /**
    * <p>The domain name.</p>
    */
@@ -8479,7 +8076,6 @@ export namespace DomainDetails {
   export const filterSensitiveLog = (obj: DomainDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainDetails => __isa(o, "DomainDetails");
 }
 
 export enum DomainStatus {
@@ -8498,7 +8094,6 @@ export enum EndpointConfigSortKey {
  * <p>Provides summary information for an endpoint configuration.</p>
  */
 export interface EndpointConfigSummary {
-  __type?: "EndpointConfigSummary";
   /**
    * <p>The name of the endpoint configuration.</p>
    */
@@ -8519,14 +8114,12 @@ export namespace EndpointConfigSummary {
   export const filterSensitiveLog = (obj: EndpointConfigSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointConfigSummary => __isa(o, "EndpointConfigSummary");
 }
 
 /**
  * <p>Input object for the endpoint</p>
  */
 export interface EndpointInput {
-  __type?: "EndpointInput";
   /**
    * <p>An endpoint in customer's account which has enabled <code>DataCaptureConfig</code>
    *          enabled.</p>
@@ -8558,7 +8151,6 @@ export namespace EndpointInput {
   export const filterSensitiveLog = (obj: EndpointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointInput => __isa(o, "EndpointInput");
 }
 
 export enum EndpointSortKey {
@@ -8582,7 +8174,6 @@ export enum EndpointStatus {
  * <p>Provides summary information for an endpoint.</p>
  */
 export interface EndpointSummary {
-  __type?: "EndpointSummary";
   /**
    * <p>The name of the endpoint.</p>
    */
@@ -8662,7 +8253,6 @@ export namespace EndpointSummary {
   export const filterSensitiveLog = (obj: EndpointSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndpointSummary => __isa(o, "EndpointSummary");
 }
 
 export enum ExecutionStatus {
@@ -8679,7 +8269,6 @@ export enum ExecutionStatus {
  * <p>The properties of an experiment as returned by the <a>Search</a> API.</p>
  */
 export interface Experiment {
-  __type?: "Experiment";
   /**
    * <p>The list of tags that are associated with the experiment. You can use <a>Search</a> API to search on the tags.</p>
    */
@@ -8738,7 +8327,6 @@ export namespace Experiment {
   export const filterSensitiveLog = (obj: Experiment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Experiment => __isa(o, "Experiment");
 }
 
 /**
@@ -8763,7 +8351,6 @@ export namespace Experiment {
  *          </ul>
  */
 export interface ExperimentConfig {
-  __type?: "ExperimentConfig";
   /**
    * <p>The name of an existing trial to associate the trial component with. If not specified, a
    *       new trial is created.</p>
@@ -8786,14 +8373,12 @@ export namespace ExperimentConfig {
   export const filterSensitiveLog = (obj: ExperimentConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExperimentConfig => __isa(o, "ExperimentConfig");
 }
 
 /**
  * <p>The source of the experiment.</p>
  */
 export interface ExperimentSource {
-  __type?: "ExperimentSource";
   /**
    * <p>The Amazon Resource Name (ARN) of the source.</p>
    */
@@ -8809,7 +8394,6 @@ export namespace ExperimentSource {
   export const filterSensitiveLog = (obj: ExperimentSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExperimentSource => __isa(o, "ExperimentSource");
 }
 
 /**
@@ -8818,7 +8402,6 @@ export namespace ExperimentSource {
  *       <code>ExperimentName</code>.</p>
  */
 export interface ExperimentSummary {
-  __type?: "ExperimentSummary";
   /**
    * <p>The source of the experiment.</p>
    */
@@ -8855,7 +8438,6 @@ export namespace ExperimentSummary {
   export const filterSensitiveLog = (obj: ExperimentSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExperimentSummary => __isa(o, "ExperimentSummary");
 }
 
 export enum FileSystemAccessMode {
@@ -8867,7 +8449,6 @@ export enum FileSystemAccessMode {
  * <p>Specifies a file system data source for a channel.</p>
  */
 export interface FileSystemDataSource {
-  __type?: "FileSystemDataSource";
   /**
    * <p>The full path to the directory to associate with the channel.</p>
    */
@@ -8895,7 +8476,6 @@ export namespace FileSystemDataSource {
   export const filterSensitiveLog = (obj: FileSystemDataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSystemDataSource => __isa(o, "FileSystemDataSource");
 }
 
 export enum FileSystemType {
@@ -8969,7 +8549,6 @@ export enum FileSystemType {
  *          </dl>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>A value used with <code>Name</code> and <code>Operator</code> to determine which
    *         resources satisfy the filter's condition. For numerical properties, <code>Value</code>
@@ -9109,14 +8688,12 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 /**
  * <p>The candidate result from a job.</p>
  */
 export interface FinalAutoMLJobObjectiveMetric {
-  __type?: "FinalAutoMLJobObjectiveMetric";
   /**
    * <p>The value of the metric.</p>
    */
@@ -9137,7 +8714,6 @@ export namespace FinalAutoMLJobObjectiveMetric {
   export const filterSensitiveLog = (obj: FinalAutoMLJobObjectiveMetric): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FinalAutoMLJobObjectiveMetric => __isa(o, "FinalAutoMLJobObjectiveMetric");
 }
 
 /**
@@ -9148,7 +8724,6 @@ export namespace FinalAutoMLJobObjectiveMetric {
  *                 <code>HyperParameterTuningJobObjective</code> parameter of <a>HyperParameterTuningJobConfig</a>.</p>
  */
 export interface FinalHyperParameterTuningJobObjectiveMetric {
-  __type?: "FinalHyperParameterTuningJobObjectiveMetric";
   /**
    * <p>Whether to
    *             minimize
@@ -9174,15 +8749,12 @@ export namespace FinalHyperParameterTuningJobObjectiveMetric {
   export const filterSensitiveLog = (obj: FinalHyperParameterTuningJobObjectiveMetric): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FinalHyperParameterTuningJobObjectiveMetric =>
-    __isa(o, "FinalHyperParameterTuningJobObjectiveMetric");
 }
 
 /**
  * <p>Contains information about where human output will be stored.</p>
  */
 export interface FlowDefinitionOutputConfig {
-  __type?: "FlowDefinitionOutputConfig";
   /**
    * <p>The Amazon Key Management Service (KMS) key ID for server-side encryption.</p>
    */
@@ -9198,7 +8770,6 @@ export namespace FlowDefinitionOutputConfig {
   export const filterSensitiveLog = (obj: FlowDefinitionOutputConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FlowDefinitionOutputConfig => __isa(o, "FlowDefinitionOutputConfig");
 }
 
 export enum FlowDefinitionStatus {
@@ -9212,7 +8783,6 @@ export enum FlowDefinitionStatus {
  * <p>Contains summary information about the flow definition.</p>
  */
 export interface FlowDefinitionSummary {
-  __type?: "FlowDefinitionSummary";
   /**
    * <p>The timestamp when SageMaker created the flow definition.</p>
    */
@@ -9243,7 +8813,6 @@ export namespace FlowDefinitionSummary {
   export const filterSensitiveLog = (obj: FlowDefinitionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FlowDefinitionSummary => __isa(o, "FlowDefinitionSummary");
 }
 
 export enum Framework {
@@ -9257,7 +8826,6 @@ export enum Framework {
 }
 
 export interface GetSearchSuggestionsRequest {
-  __type?: "GetSearchSuggestionsRequest";
   /**
    * <p>Limits the property names that are included in the response.</p>
    */
@@ -9273,11 +8841,9 @@ export namespace GetSearchSuggestionsRequest {
   export const filterSensitiveLog = (obj: GetSearchSuggestionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSearchSuggestionsRequest => __isa(o, "GetSearchSuggestionsRequest");
 }
 
 export interface GetSearchSuggestionsResponse {
-  __type?: "GetSearchSuggestionsResponse";
   /**
    * <p>A list of property names for a <code>Resource</code> that match a
    *       <code>SuggestionQuery</code>.</p>
@@ -9289,14 +8855,12 @@ export namespace GetSearchSuggestionsResponse {
   export const filterSensitiveLog = (obj: GetSearchSuggestionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSearchSuggestionsResponse => __isa(o, "GetSearchSuggestionsResponse");
 }
 
 /**
  * <p>Specifies configuration details for a Git repository in your AWS account.</p>
  */
 export interface GitConfig {
-  __type?: "GitConfig";
   /**
    * <p>The default branch for the Git repository.</p>
    */
@@ -9323,7 +8887,6 @@ export namespace GitConfig {
   export const filterSensitiveLog = (obj: GitConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GitConfig => __isa(o, "GitConfig");
 }
 
 /**
@@ -9331,7 +8894,6 @@ export namespace GitConfig {
  *             updated.</p>
  */
 export interface GitConfigForUpdate {
-  __type?: "GitConfigForUpdate";
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the
    *             credentials used to access the git repository. The secret must have a staging label of
@@ -9348,7 +8910,6 @@ export namespace GitConfigForUpdate {
   export const filterSensitiveLog = (obj: GitConfigForUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GitConfigForUpdate => __isa(o, "GitConfigForUpdate");
 }
 
 /**
@@ -9356,7 +8917,6 @@ export namespace GitConfigForUpdate {
  *          format of activation conditions.</p>
  */
 export interface HumanLoopActivationConditionsConfig {
-  __type?: "HumanLoopActivationConditionsConfig";
   /**
    * <p>JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team.
    *          The set of conditions is different for Rekognition and Textract. For more information about how to structure the JSON, see
@@ -9370,15 +8930,12 @@ export namespace HumanLoopActivationConditionsConfig {
   export const filterSensitiveLog = (obj: HumanLoopActivationConditionsConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopActivationConditionsConfig =>
-    __isa(o, "HumanLoopActivationConditionsConfig");
 }
 
 /**
  * <p>Provides information about how and under what conditions SageMaker creates a human loop. If <code>HumanLoopActivationConfig</code> is not given, then all requests go to humans.</p>
  */
 export interface HumanLoopActivationConfig {
-  __type?: "HumanLoopActivationConfig";
   /**
    * <p>Container structure for defining under what conditions SageMaker creates a human loop.</p>
    */
@@ -9389,14 +8946,12 @@ export namespace HumanLoopActivationConfig {
   export const filterSensitiveLog = (obj: HumanLoopActivationConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopActivationConfig => __isa(o, "HumanLoopActivationConfig");
 }
 
 /**
  * <p>Describes the work to be performed by human workers.</p>
  */
 export interface HumanLoopConfig {
-  __type?: "HumanLoopConfig";
   /**
    * <p>Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. </p>
    *         <p>Use one of the following prices for bounding box tasks. Prices are in US dollars and
@@ -9751,14 +9306,12 @@ export namespace HumanLoopConfig {
   export const filterSensitiveLog = (obj: HumanLoopConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopConfig => __isa(o, "HumanLoopConfig");
 }
 
 /**
  * <p>Container for configuring the source of human task requests.</p>
  */
 export interface HumanLoopRequestSource {
-  __type?: "HumanLoopRequestSource";
   /**
    * <p>Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source.
    *       The default field settings and JSON parsing rules are different based on the integration source. Valid values:</p>
@@ -9770,14 +9323,12 @@ export namespace HumanLoopRequestSource {
   export const filterSensitiveLog = (obj: HumanLoopRequestSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopRequestSource => __isa(o, "HumanLoopRequestSource");
 }
 
 /**
  * <p>Information required for human workers to complete a labeling task.</p>
  */
 export interface HumanTaskConfig {
-  __type?: "HumanTaskConfig";
   /**
    * <p>The Amazon Resource Name (ARN) of the work team assigned to complete the tasks.</p>
    */
@@ -11369,7 +10920,6 @@ export namespace HumanTaskConfig {
   export const filterSensitiveLog = (obj: HumanTaskConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanTaskConfig => __isa(o, "HumanTaskConfig");
 }
 
 export enum HumanTaskUiStatus {
@@ -11381,7 +10931,6 @@ export enum HumanTaskUiStatus {
  * <p>Container for human task user interface information.</p>
  */
 export interface HumanTaskUiSummary {
-  __type?: "HumanTaskUiSummary";
   /**
    * <p>The Amazon Resource Name (ARN) of the human task user interface.</p>
    */
@@ -11402,7 +10951,6 @@ export namespace HumanTaskUiSummary {
   export const filterSensitiveLog = (obj: HumanTaskUiSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanTaskUiSummary => __isa(o, "HumanTaskUiSummary");
 }
 
 /**
@@ -11412,7 +10960,6 @@ export namespace HumanTaskUiSummary {
  *             tuning job launches and the metrics to monitor.</p>
  */
 export interface HyperParameterAlgorithmSpecification {
-  __type?: "HyperParameterAlgorithmSpecification";
   /**
    * <p>The input mode that the algorithm supports:
    *             File
@@ -11462,8 +11009,6 @@ export namespace HyperParameterAlgorithmSpecification {
   export const filterSensitiveLog = (obj: HyperParameterAlgorithmSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HyperParameterAlgorithmSpecification =>
-    __isa(o, "HyperParameterAlgorithmSpecification");
 }
 
 export enum HyperParameterScalingType {
@@ -11477,7 +11022,6 @@ export enum HyperParameterScalingType {
  * <p>Defines a hyperparameter to be used by an algorithm.</p>
  */
 export interface HyperParameterSpecification {
-  __type?: "HyperParameterSpecification";
   /**
    * <p>The type of this hyperparameter. The valid types are <code>Integer</code>,
    *                 <code>Continuous</code>, <code>Categorical</code>, and <code>FreeText</code>.</p>
@@ -11521,7 +11065,6 @@ export namespace HyperParameterSpecification {
   export const filterSensitiveLog = (obj: HyperParameterSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HyperParameterSpecification => __isa(o, "HyperParameterSpecification");
 }
 
 /**
@@ -11529,7 +11072,6 @@ export namespace HyperParameterSpecification {
  *             the training jobs launched by a hyperparameter tuning job.</p>
  */
 export interface HyperParameterTrainingJobDefinition {
-  __type?: "HyperParameterTrainingJobDefinition";
   /**
    * <p>To encrypt all communications between ML compute instances in distributed training,
    *             choose <code>True</code>. Encryption provides greater security for distributed training,
@@ -11668,8 +11210,6 @@ export namespace HyperParameterTrainingJobDefinition {
   export const filterSensitiveLog = (obj: HyperParameterTrainingJobDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HyperParameterTrainingJobDefinition =>
-    __isa(o, "HyperParameterTrainingJobDefinition");
 }
 
 /**
@@ -11677,7 +11217,6 @@ export namespace HyperParameterTrainingJobDefinition {
  *             summary information about a training job.</p>
  */
 export interface HyperParameterTrainingJobSummary {
-  __type?: "HyperParameterTrainingJobSummary";
   /**
    * <p>The date and time that the training job started.</p>
    */
@@ -11784,14 +11323,12 @@ export namespace HyperParameterTrainingJobSummary {
   export const filterSensitiveLog = (obj: HyperParameterTrainingJobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HyperParameterTrainingJobSummary => __isa(o, "HyperParameterTrainingJobSummary");
 }
 
 /**
  * <p>Configures a hyperparameter tuning job.</p>
  */
 export interface HyperParameterTuningJobConfig {
-  __type?: "HyperParameterTuningJobConfig";
   /**
    * <p>The <a>HyperParameterTuningJobObjective</a> object that specifies the
    *             objective
@@ -11853,7 +11390,6 @@ export namespace HyperParameterTuningJobConfig {
   export const filterSensitiveLog = (obj: HyperParameterTuningJobConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HyperParameterTuningJobConfig => __isa(o, "HyperParameterTuningJobConfig");
 }
 
 /**
@@ -11865,7 +11401,6 @@ export namespace HyperParameterTuningJobConfig {
  *             parameter.</p>
  */
 export interface HyperParameterTuningJobObjective {
-  __type?: "HyperParameterTuningJobObjective";
   /**
    * <p>The
    *             name of the metric to use for the objective metric.</p>
@@ -11884,7 +11419,6 @@ export namespace HyperParameterTuningJobObjective {
   export const filterSensitiveLog = (obj: HyperParameterTuningJobObjective): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HyperParameterTuningJobObjective => __isa(o, "HyperParameterTuningJobObjective");
 }
 
 export enum HyperParameterTuningJobObjectiveType {
@@ -11915,7 +11449,6 @@ export enum HyperParameterTuningJobStrategyType {
  * <p>Provides summary information about a hyperparameter tuning job.</p>
  */
 export interface HyperParameterTuningJobSummary {
-  __type?: "HyperParameterTuningJobSummary";
   /**
    * <p>The <a>ResourceLimits</a> object that specifies the maximum number of
    *             training jobs and parallel training jobs allowed for this tuning job.</p>
@@ -11984,7 +11517,6 @@ export namespace HyperParameterTuningJobSummary {
   export const filterSensitiveLog = (obj: HyperParameterTuningJobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HyperParameterTuningJobSummary => __isa(o, "HyperParameterTuningJobSummary");
 }
 
 /**
@@ -12004,7 +11536,6 @@ export namespace HyperParameterTuningJobSummary {
  *         </note>
  */
 export interface HyperParameterTuningJobWarmStartConfig {
-  __type?: "HyperParameterTuningJobWarmStartConfig";
   /**
    * <p>An array of hyperparameter tuning jobs that are used as the starting point for the new
    *             hyperparameter tuning job. For more information about warm starting a hyperparameter
@@ -12053,8 +11584,6 @@ export namespace HyperParameterTuningJobWarmStartConfig {
   export const filterSensitiveLog = (obj: HyperParameterTuningJobWarmStartConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HyperParameterTuningJobWarmStartConfig =>
-    __isa(o, "HyperParameterTuningJobWarmStartConfig");
 }
 
 export enum HyperParameterTuningJobWarmStartType {
@@ -12066,7 +11595,6 @@ export enum HyperParameterTuningJobWarmStartType {
  * <p>Defines how to perform inference generation after a training job is run.</p>
  */
 export interface InferenceSpecification {
-  __type?: "InferenceSpecification";
   /**
    * <p>A list of the instance types that are used to generate inferences in real-time.</p>
    */
@@ -12098,7 +11626,6 @@ export namespace InferenceSpecification {
   export const filterSensitiveLog = (obj: InferenceSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InferenceSpecification => __isa(o, "InferenceSpecification");
 }
 
 /**
@@ -12107,7 +11634,6 @@ export namespace InferenceSpecification {
  *             of the expected data inputs, and the framework in which the model was trained.</p>
  */
 export interface InputConfig {
-  __type?: "InputConfig";
   /**
    * <p>Identifies the framework in which the model was trained. For example:
    *             TENSORFLOW.</p>
@@ -12306,7 +11832,6 @@ export namespace InputConfig {
   export const filterSensitiveLog = (obj: InputConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputConfig => __isa(o, "InputConfig");
 }
 
 export enum _InstanceType {
@@ -12356,7 +11881,6 @@ export enum _InstanceType {
  *             a hyperparameter tuning job searches.</p>
  */
 export interface IntegerParameterRange {
-  __type?: "IntegerParameterRange";
   /**
    * <p>The scale that hyperparameter tuning uses to search the hyperparameter range. For
    *             information about choosing a hyperparameter scale, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>. One of the following values:</p>
@@ -12406,14 +11930,12 @@ export namespace IntegerParameterRange {
   export const filterSensitiveLog = (obj: IntegerParameterRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IntegerParameterRange => __isa(o, "IntegerParameterRange");
 }
 
 /**
  * <p>Defines the possible values for an integer hyperparameter.</p>
  */
 export interface IntegerParameterRangeSpecification {
-  __type?: "IntegerParameterRangeSpecification";
   /**
    * <p>The maximum integer value allowed.</p>
    */
@@ -12429,8 +11951,6 @@ export namespace IntegerParameterRangeSpecification {
   export const filterSensitiveLog = (obj: IntegerParameterRangeSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IntegerParameterRangeSpecification =>
-    __isa(o, "IntegerParameterRangeSpecification");
 }
 
 export enum JoinSource {
@@ -12442,7 +11962,6 @@ export enum JoinSource {
  * <p>Jupyter server's app settings.</p>
  */
 export interface JupyterServerAppSettings {
-  __type?: "JupyterServerAppSettings";
   /**
    * <p>The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
    */
@@ -12453,14 +11972,12 @@ export namespace JupyterServerAppSettings {
   export const filterSensitiveLog = (obj: JupyterServerAppSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JupyterServerAppSettings => __isa(o, "JupyterServerAppSettings");
 }
 
 /**
  * <p>The kernel gateway app settings.</p>
  */
 export interface KernelGatewayAppSettings {
-  __type?: "KernelGatewayAppSettings";
   /**
    * <p>The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
    */
@@ -12471,14 +11988,12 @@ export namespace KernelGatewayAppSettings {
   export const filterSensitiveLog = (obj: KernelGatewayAppSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KernelGatewayAppSettings => __isa(o, "KernelGatewayAppSettings");
 }
 
 /**
  * <p>Provides a breakdown of the number of objects labeled.</p>
  */
 export interface LabelCounters {
-  __type?: "LabelCounters";
   /**
    * <p>The total number of objects labeled by automated data labeling.</p>
    */
@@ -12509,14 +12024,12 @@ export namespace LabelCounters {
   export const filterSensitiveLog = (obj: LabelCounters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelCounters => __isa(o, "LabelCounters");
 }
 
 /**
  * <p>Provides counts for human-labeled tasks in the labeling job.</p>
  */
 export interface LabelCountersForWorkteam {
-  __type?: "LabelCountersForWorkteam";
   /**
    * <p>The total number of data objects that need to be labeled by a human worker.</p>
    */
@@ -12537,7 +12050,6 @@ export namespace LabelCountersForWorkteam {
   export const filterSensitiveLog = (obj: LabelCountersForWorkteam): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelCountersForWorkteam => __isa(o, "LabelCountersForWorkteam");
 }
 
 /**
@@ -12546,7 +12058,6 @@ export namespace LabelCountersForWorkteam {
  *             auto-labeling.</p>
  */
 export interface LabelingJobAlgorithmsConfig {
-  __type?: "LabelingJobAlgorithmsConfig";
   /**
    * <p>At the end of an auto-label job Amazon SageMaker Ground Truth sends the Amazon Resource Nam (ARN) of the final
    *             model used for auto-labeling. You can use this model as the starting point for
@@ -12604,7 +12115,6 @@ export namespace LabelingJobAlgorithmsConfig {
   export const filterSensitiveLog = (obj: LabelingJobAlgorithmsConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelingJobAlgorithmsConfig => __isa(o, "LabelingJobAlgorithmsConfig");
 }
 
 /**
@@ -12612,7 +12122,6 @@ export namespace LabelingJobAlgorithmsConfig {
  *             labeled.</p>
  */
 export interface LabelingJobDataAttributes {
-  __type?: "LabelingJobDataAttributes";
   /**
    * <p>Declares that your content is free of personally identifiable information or adult
    *             content. Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can view your task
@@ -12625,14 +12134,12 @@ export namespace LabelingJobDataAttributes {
   export const filterSensitiveLog = (obj: LabelingJobDataAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelingJobDataAttributes => __isa(o, "LabelingJobDataAttributes");
 }
 
 /**
  * <p>Provides information about the location of input data.</p>
  */
 export interface LabelingJobDataSource {
-  __type?: "LabelingJobDataSource";
   /**
    * <p>The Amazon S3 location of the input data objects.</p>
    */
@@ -12643,14 +12150,12 @@ export namespace LabelingJobDataSource {
   export const filterSensitiveLog = (obj: LabelingJobDataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelingJobDataSource => __isa(o, "LabelingJobDataSource");
 }
 
 /**
  * <p>Provides summary information for a work team.</p>
  */
 export interface LabelingJobForWorkteamSummary {
-  __type?: "LabelingJobForWorkteamSummary";
   /**
    * <p>Provides information about the progress of a labeling job.</p>
    */
@@ -12687,14 +12192,12 @@ export namespace LabelingJobForWorkteamSummary {
   export const filterSensitiveLog = (obj: LabelingJobForWorkteamSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelingJobForWorkteamSummary => __isa(o, "LabelingJobForWorkteamSummary");
 }
 
 /**
  * <p>Input configuration information for a labeling job.</p>
  */
 export interface LabelingJobInputConfig {
-  __type?: "LabelingJobInputConfig";
   /**
    * <p>The location of the input data.</p>
    */
@@ -12710,14 +12213,12 @@ export namespace LabelingJobInputConfig {
   export const filterSensitiveLog = (obj: LabelingJobInputConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelingJobInputConfig => __isa(o, "LabelingJobInputConfig");
 }
 
 /**
  * <p>Specifies the location of the output produced by the labeling job. </p>
  */
 export interface LabelingJobOutput {
-  __type?: "LabelingJobOutput";
   /**
    * <p>The Amazon Resource Name (ARN) for the most recent Amazon SageMaker model trained as part of
    *             automated data labeling. </p>
@@ -12734,14 +12235,12 @@ export namespace LabelingJobOutput {
   export const filterSensitiveLog = (obj: LabelingJobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelingJobOutput => __isa(o, "LabelingJobOutput");
 }
 
 /**
  * <p>Output configuration information for a labeling job.</p>
  */
 export interface LabelingJobOutputConfig {
-  __type?: "LabelingJobOutputConfig";
   /**
    * <p>The AWS Key Management Service ID of the key used to encrypt the output data, if any.</p>
    *         <p>If you use a KMS key ID or an alias of your master key, the Amazon SageMaker execution role must
@@ -12771,14 +12270,12 @@ export namespace LabelingJobOutputConfig {
   export const filterSensitiveLog = (obj: LabelingJobOutputConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelingJobOutputConfig => __isa(o, "LabelingJobOutputConfig");
 }
 
 /**
  * <p>Provides configuration information for labeling jobs.</p>
  */
 export interface LabelingJobResourceConfig {
-  __type?: "LabelingJobResourceConfig";
   /**
    * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume
    *             attached to the ML compute instance(s) that run the training job. The
@@ -12805,14 +12302,12 @@ export namespace LabelingJobResourceConfig {
   export const filterSensitiveLog = (obj: LabelingJobResourceConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelingJobResourceConfig => __isa(o, "LabelingJobResourceConfig");
 }
 
 /**
  * <p>The Amazon S3 location of the input data objects.</p>
  */
 export interface LabelingJobS3DataSource {
-  __type?: "LabelingJobS3DataSource";
   /**
    * <p>The Amazon S3 location of the manifest file that describes the input data objects.</p>
    */
@@ -12823,7 +12318,6 @@ export namespace LabelingJobS3DataSource {
   export const filterSensitiveLog = (obj: LabelingJobS3DataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelingJobS3DataSource => __isa(o, "LabelingJobS3DataSource");
 }
 
 export enum LabelingJobStatus {
@@ -12844,7 +12338,6 @@ export enum LabelingJobStatus {
  *         </note>
  */
 export interface LabelingJobStoppingConditions {
-  __type?: "LabelingJobStoppingConditions";
   /**
    * <p>The maximum number of input data objects that should be labeled.</p>
    */
@@ -12860,14 +12353,12 @@ export namespace LabelingJobStoppingConditions {
   export const filterSensitiveLog = (obj: LabelingJobStoppingConditions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelingJobStoppingConditions => __isa(o, "LabelingJobStoppingConditions");
 }
 
 /**
  * <p>Provides summary information about a labeling job.</p>
  */
 export interface LabelingJobSummary {
-  __type?: "LabelingJobSummary";
   /**
    * <p>The date and time that the job was created (timestamp).</p>
    */
@@ -12939,11 +12430,9 @@ export namespace LabelingJobSummary {
   export const filterSensitiveLog = (obj: LabelingJobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelingJobSummary => __isa(o, "LabelingJobSummary");
 }
 
 export interface ListAlgorithmsInput {
-  __type?: "ListAlgorithmsInput";
   /**
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    */
@@ -12990,11 +12479,9 @@ export namespace ListAlgorithmsInput {
   export const filterSensitiveLog = (obj: ListAlgorithmsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAlgorithmsInput => __isa(o, "ListAlgorithmsInput");
 }
 
 export interface ListAlgorithmsOutput {
-  __type?: "ListAlgorithmsOutput";
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
    *             algorithms, use it in the subsequent request.</p>
@@ -13012,11 +12499,9 @@ export namespace ListAlgorithmsOutput {
   export const filterSensitiveLog = (obj: ListAlgorithmsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAlgorithmsOutput => __isa(o, "ListAlgorithmsOutput");
 }
 
 export interface ListAppsRequest {
-  __type?: "ListAppsRequest";
   /**
    * <p>The sort order for the results. The default is Ascending.</p>
    */
@@ -13053,11 +12538,9 @@ export namespace ListAppsRequest {
   export const filterSensitiveLog = (obj: ListAppsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAppsRequest => __isa(o, "ListAppsRequest");
 }
 
 export interface ListAppsResponse {
-  __type?: "ListAppsResponse";
   /**
    * <p>If the previous response was truncated, you will receive this token.
    *         Use it in your next request to receive the next set of results.</p>
@@ -13074,11 +12557,9 @@ export namespace ListAppsResponse {
   export const filterSensitiveLog = (obj: ListAppsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAppsResponse => __isa(o, "ListAppsResponse");
 }
 
 export interface ListAutoMLJobsRequest {
-  __type?: "ListAutoMLJobsRequest";
   /**
    * <p>The parameter by which to sort the results. The default is AutoMLJobName.</p>
    */
@@ -13135,11 +12616,9 @@ export namespace ListAutoMLJobsRequest {
   export const filterSensitiveLog = (obj: ListAutoMLJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAutoMLJobsRequest => __isa(o, "ListAutoMLJobsRequest");
 }
 
 export interface ListAutoMLJobsResponse {
-  __type?: "ListAutoMLJobsResponse";
   /**
    * <p>Returns a summary list of jobs.</p>
    */
@@ -13156,11 +12635,9 @@ export namespace ListAutoMLJobsResponse {
   export const filterSensitiveLog = (obj: ListAutoMLJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAutoMLJobsResponse => __isa(o, "ListAutoMLJobsResponse");
 }
 
 export interface ListCandidatesForAutoMLJobRequest {
-  __type?: "ListCandidatesForAutoMLJobRequest";
   /**
    * <p>List the Candidates for the job and filter by status.</p>
    */
@@ -13202,11 +12679,9 @@ export namespace ListCandidatesForAutoMLJobRequest {
   export const filterSensitiveLog = (obj: ListCandidatesForAutoMLJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCandidatesForAutoMLJobRequest => __isa(o, "ListCandidatesForAutoMLJobRequest");
 }
 
 export interface ListCandidatesForAutoMLJobResponse {
-  __type?: "ListCandidatesForAutoMLJobResponse";
   /**
    * <p>Summaries about the Candidates.</p>
    */
@@ -13223,12 +12698,9 @@ export namespace ListCandidatesForAutoMLJobResponse {
   export const filterSensitiveLog = (obj: ListCandidatesForAutoMLJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCandidatesForAutoMLJobResponse =>
-    __isa(o, "ListCandidatesForAutoMLJobResponse");
 }
 
 export interface ListCodeRepositoriesInput {
-  __type?: "ListCodeRepositoriesInput";
   /**
    * <p>A filter that returns only Git repositories that were last modified after the
    *             specified time.</p>
@@ -13286,11 +12758,9 @@ export namespace ListCodeRepositoriesInput {
   export const filterSensitiveLog = (obj: ListCodeRepositoriesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCodeRepositoriesInput => __isa(o, "ListCodeRepositoriesInput");
 }
 
 export interface ListCodeRepositoriesOutput {
-  __type?: "ListCodeRepositoriesOutput";
   /**
    * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the
    *             response includes a <code>NextToken</code>. To get the next set of Git repositories, use
@@ -13328,11 +12798,9 @@ export namespace ListCodeRepositoriesOutput {
   export const filterSensitiveLog = (obj: ListCodeRepositoriesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCodeRepositoriesOutput => __isa(o, "ListCodeRepositoriesOutput");
 }
 
 export interface ListCompilationJobsRequest {
-  __type?: "ListCompilationJobsRequest";
   /**
    * <p>If the result of the previous <code>ListCompilationJobs</code> request was truncated,
    *             the response includes a <code>NextToken</code>. To retrieve the next set of model
@@ -13395,11 +12863,9 @@ export namespace ListCompilationJobsRequest {
   export const filterSensitiveLog = (obj: ListCompilationJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCompilationJobsRequest => __isa(o, "ListCompilationJobsRequest");
 }
 
 export interface ListCompilationJobsResponse {
-  __type?: "ListCompilationJobsResponse";
   /**
    * <p>An array of <a>CompilationJobSummary</a> objects, each describing a model
    *             compilation job. </p>
@@ -13417,7 +12883,6 @@ export namespace ListCompilationJobsResponse {
   export const filterSensitiveLog = (obj: ListCompilationJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCompilationJobsResponse => __isa(o, "ListCompilationJobsResponse");
 }
 
 export enum ListCompilationJobsSortBy {
@@ -13427,7 +12892,6 @@ export enum ListCompilationJobsSortBy {
 }
 
 export interface ListDomainsRequest {
-  __type?: "ListDomainsRequest";
   /**
    * <p>Returns a list up to a specified limit.</p>
    */
@@ -13444,11 +12908,9 @@ export namespace ListDomainsRequest {
   export const filterSensitiveLog = (obj: ListDomainsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainsRequest => __isa(o, "ListDomainsRequest");
 }
 
 export interface ListDomainsResponse {
-  __type?: "ListDomainsResponse";
   /**
    * <p>The list of domains.</p>
    */
@@ -13465,11 +12927,9 @@ export namespace ListDomainsResponse {
   export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainsResponse => __isa(o, "ListDomainsResponse");
 }
 
 export interface ListEndpointConfigsInput {
-  __type?: "ListEndpointConfigsInput";
   /**
    * <p>A filter that returns only endpoint configurations created before the specified
    *             time (timestamp).</p>
@@ -13515,11 +12975,9 @@ export namespace ListEndpointConfigsInput {
   export const filterSensitiveLog = (obj: ListEndpointConfigsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEndpointConfigsInput => __isa(o, "ListEndpointConfigsInput");
 }
 
 export interface ListEndpointConfigsOutput {
-  __type?: "ListEndpointConfigsOutput";
   /**
    * <p> If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
    *             endpoint configurations, use it in the subsequent request </p>
@@ -13536,11 +12994,9 @@ export namespace ListEndpointConfigsOutput {
   export const filterSensitiveLog = (obj: ListEndpointConfigsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEndpointConfigsOutput => __isa(o, "ListEndpointConfigsOutput");
 }
 
 export interface ListEndpointsInput {
-  __type?: "ListEndpointsInput";
   /**
    * <p> A filter that returns only endpoints with the specified status.</p>
    */
@@ -13603,11 +13059,9 @@ export namespace ListEndpointsInput {
   export const filterSensitiveLog = (obj: ListEndpointsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEndpointsInput => __isa(o, "ListEndpointsInput");
 }
 
 export interface ListEndpointsOutput {
-  __type?: "ListEndpointsOutput";
   /**
    * <p> An array or endpoint objects. </p>
    */
@@ -13624,11 +13078,9 @@ export namespace ListEndpointsOutput {
   export const filterSensitiveLog = (obj: ListEndpointsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEndpointsOutput => __isa(o, "ListEndpointsOutput");
 }
 
 export interface ListExperimentsRequest {
-  __type?: "ListExperimentsRequest";
   /**
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
@@ -13666,11 +13118,9 @@ export namespace ListExperimentsRequest {
   export const filterSensitiveLog = (obj: ListExperimentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListExperimentsRequest => __isa(o, "ListExperimentsRequest");
 }
 
 export interface ListExperimentsResponse {
-  __type?: "ListExperimentsResponse";
   /**
    * <p>A token for getting the next set of experiments, if there are any.</p>
    */
@@ -13686,11 +13136,9 @@ export namespace ListExperimentsResponse {
   export const filterSensitiveLog = (obj: ListExperimentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListExperimentsResponse => __isa(o, "ListExperimentsResponse");
 }
 
 export interface ListFlowDefinitionsRequest {
-  __type?: "ListFlowDefinitionsRequest";
   /**
    * <p>A token to resume pagination.</p>
    */
@@ -13721,11 +13169,9 @@ export namespace ListFlowDefinitionsRequest {
   export const filterSensitiveLog = (obj: ListFlowDefinitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFlowDefinitionsRequest => __isa(o, "ListFlowDefinitionsRequest");
 }
 
 export interface ListFlowDefinitionsResponse {
-  __type?: "ListFlowDefinitionsResponse";
   /**
    * <p>A token to resume pagination.</p>
    */
@@ -13741,11 +13187,9 @@ export namespace ListFlowDefinitionsResponse {
   export const filterSensitiveLog = (obj: ListFlowDefinitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFlowDefinitionsResponse => __isa(o, "ListFlowDefinitionsResponse");
 }
 
 export interface ListHumanTaskUisRequest {
-  __type?: "ListHumanTaskUisRequest";
   /**
    * <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>
    */
@@ -13776,11 +13220,9 @@ export namespace ListHumanTaskUisRequest {
   export const filterSensitiveLog = (obj: ListHumanTaskUisRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHumanTaskUisRequest => __isa(o, "ListHumanTaskUisRequest");
 }
 
 export interface ListHumanTaskUisResponse {
-  __type?: "ListHumanTaskUisResponse";
   /**
    * <p>An array of objects describing the human task user interfaces.</p>
    */
@@ -13796,11 +13238,9 @@ export namespace ListHumanTaskUisResponse {
   export const filterSensitiveLog = (obj: ListHumanTaskUisResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHumanTaskUisResponse => __isa(o, "ListHumanTaskUisResponse");
 }
 
 export interface ListHyperParameterTuningJobsRequest {
-  __type?: "ListHyperParameterTuningJobsRequest";
   /**
    * <p>A filter that returns only tuning jobs that were created after the
    *             specified
@@ -13873,12 +13313,9 @@ export namespace ListHyperParameterTuningJobsRequest {
   export const filterSensitiveLog = (obj: ListHyperParameterTuningJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHyperParameterTuningJobsRequest =>
-    __isa(o, "ListHyperParameterTuningJobsRequest");
 }
 
 export interface ListHyperParameterTuningJobsResponse {
-  __type?: "ListHyperParameterTuningJobsResponse";
   /**
    * <p>If the result of this <code>ListHyperParameterTuningJobs</code> request was truncated,
    *             the response includes a <code>NextToken</code>. To retrieve the next set of tuning jobs,
@@ -13899,12 +13336,9 @@ export namespace ListHyperParameterTuningJobsResponse {
   export const filterSensitiveLog = (obj: ListHyperParameterTuningJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHyperParameterTuningJobsResponse =>
-    __isa(o, "ListHyperParameterTuningJobsResponse");
 }
 
 export interface ListLabelingJobsForWorkteamRequest {
-  __type?: "ListLabelingJobsForWorkteamRequest";
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
@@ -13956,12 +13390,9 @@ export namespace ListLabelingJobsForWorkteamRequest {
   export const filterSensitiveLog = (obj: ListLabelingJobsForWorkteamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLabelingJobsForWorkteamRequest =>
-    __isa(o, "ListLabelingJobsForWorkteamRequest");
 }
 
 export interface ListLabelingJobsForWorkteamResponse {
-  __type?: "ListLabelingJobsForWorkteamResponse";
   /**
    * <p>An array of <code>LabelingJobSummary</code> objects, each describing a labeling
    *             job.</p>
@@ -13979,8 +13410,6 @@ export namespace ListLabelingJobsForWorkteamResponse {
   export const filterSensitiveLog = (obj: ListLabelingJobsForWorkteamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLabelingJobsForWorkteamResponse =>
-    __isa(o, "ListLabelingJobsForWorkteamResponse");
 }
 
 export enum ListLabelingJobsForWorkteamSortByOptions {
@@ -13988,7 +13417,6 @@ export enum ListLabelingJobsForWorkteamSortByOptions {
 }
 
 export interface ListLabelingJobsRequest {
-  __type?: "ListLabelingJobsRequest";
   /**
    * <p>A string in the labeling job name. This filter returns only labeling jobs whose name
    *             contains the specified string.</p>
@@ -14051,11 +13479,9 @@ export namespace ListLabelingJobsRequest {
   export const filterSensitiveLog = (obj: ListLabelingJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLabelingJobsRequest => __isa(o, "ListLabelingJobsRequest");
 }
 
 export interface ListLabelingJobsResponse {
-  __type?: "ListLabelingJobsResponse";
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
    *             labeling jobs, use it in the subsequent request.</p>
@@ -14073,11 +13499,9 @@ export namespace ListLabelingJobsResponse {
   export const filterSensitiveLog = (obj: ListLabelingJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLabelingJobsResponse => __isa(o, "ListLabelingJobsResponse");
 }
 
 export interface ListModelPackagesInput {
-  __type?: "ListModelPackagesInput";
   /**
    * <p>The maximum number of model packages to return in the response.</p>
    */
@@ -14124,11 +13548,9 @@ export namespace ListModelPackagesInput {
   export const filterSensitiveLog = (obj: ListModelPackagesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListModelPackagesInput => __isa(o, "ListModelPackagesInput");
 }
 
 export interface ListModelPackagesOutput {
-  __type?: "ListModelPackagesOutput";
   /**
    * <p>An array of <code>ModelPackageSummary</code> objects, each of which lists a model
    *             package.</p>
@@ -14146,11 +13568,9 @@ export namespace ListModelPackagesOutput {
   export const filterSensitiveLog = (obj: ListModelPackagesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListModelPackagesOutput => __isa(o, "ListModelPackagesOutput");
 }
 
 export interface ListModelsInput {
-  __type?: "ListModelsInput";
   /**
    * <p>A filter that returns only models with a creation time greater than or equal to the
    *             specified time (timestamp).</p>
@@ -14196,11 +13616,9 @@ export namespace ListModelsInput {
   export const filterSensitiveLog = (obj: ListModelsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListModelsInput => __isa(o, "ListModelsInput");
 }
 
 export interface ListModelsOutput {
-  __type?: "ListModelsOutput";
   /**
    * <p> If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
    *             models, use it in the subsequent request. </p>
@@ -14218,11 +13636,9 @@ export namespace ListModelsOutput {
   export const filterSensitiveLog = (obj: ListModelsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListModelsOutput => __isa(o, "ListModelsOutput");
 }
 
 export interface ListMonitoringExecutionsRequest {
-  __type?: "ListMonitoringExecutionsRequest";
   /**
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *          The default is <code>Descending</code>.</p>
@@ -14296,11 +13712,9 @@ export namespace ListMonitoringExecutionsRequest {
   export const filterSensitiveLog = (obj: ListMonitoringExecutionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMonitoringExecutionsRequest => __isa(o, "ListMonitoringExecutionsRequest");
 }
 
 export interface ListMonitoringExecutionsResponse {
-  __type?: "ListMonitoringExecutionsResponse";
   /**
    * <p>A JSON array in which each element is a summary for a monitoring execution.</p>
    */
@@ -14317,11 +13731,9 @@ export namespace ListMonitoringExecutionsResponse {
   export const filterSensitiveLog = (obj: ListMonitoringExecutionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMonitoringExecutionsResponse => __isa(o, "ListMonitoringExecutionsResponse");
 }
 
 export interface ListMonitoringSchedulesRequest {
-  __type?: "ListMonitoringSchedulesRequest";
   /**
    * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
    */
@@ -14385,11 +13797,9 @@ export namespace ListMonitoringSchedulesRequest {
   export const filterSensitiveLog = (obj: ListMonitoringSchedulesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMonitoringSchedulesRequest => __isa(o, "ListMonitoringSchedulesRequest");
 }
 
 export interface ListMonitoringSchedulesResponse {
-  __type?: "ListMonitoringSchedulesResponse";
   /**
    * <p>A JSON array in which each element is a summary for a monitoring schedule.</p>
    */
@@ -14406,11 +13816,9 @@ export namespace ListMonitoringSchedulesResponse {
   export const filterSensitiveLog = (obj: ListMonitoringSchedulesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMonitoringSchedulesResponse => __isa(o, "ListMonitoringSchedulesResponse");
 }
 
 export interface ListNotebookInstanceLifecycleConfigsInput {
-  __type?: "ListNotebookInstanceLifecycleConfigsInput";
   /**
    * <p>The maximum number of lifecycle configurations to return in the response.</p>
    */
@@ -14468,12 +13876,9 @@ export namespace ListNotebookInstanceLifecycleConfigsInput {
   export const filterSensitiveLog = (obj: ListNotebookInstanceLifecycleConfigsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNotebookInstanceLifecycleConfigsInput =>
-    __isa(o, "ListNotebookInstanceLifecycleConfigsInput");
 }
 
 export interface ListNotebookInstanceLifecycleConfigsOutput {
-  __type?: "ListNotebookInstanceLifecycleConfigsOutput";
   /**
    * <p>An array of <code>NotebookInstanceLifecycleConfiguration</code> objects, each listing
    *             a lifecycle configuration.</p>
@@ -14491,12 +13896,9 @@ export namespace ListNotebookInstanceLifecycleConfigsOutput {
   export const filterSensitiveLog = (obj: ListNotebookInstanceLifecycleConfigsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNotebookInstanceLifecycleConfigsOutput =>
-    __isa(o, "ListNotebookInstanceLifecycleConfigsOutput");
 }
 
 export interface ListNotebookInstancesInput {
-  __type?: "ListNotebookInstancesInput";
   /**
    * <p>A filter that returns only notebook instances that were modified before the
    *             specified time (timestamp).</p>
@@ -14585,11 +13987,9 @@ export namespace ListNotebookInstancesInput {
   export const filterSensitiveLog = (obj: ListNotebookInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNotebookInstancesInput => __isa(o, "ListNotebookInstancesInput");
 }
 
 export interface ListNotebookInstancesOutput {
-  __type?: "ListNotebookInstancesOutput";
   /**
    * <p>If the response to the previous <code>ListNotebookInstances</code> request was
    *             truncated, Amazon SageMaker returns this token. To retrieve the next set of notebook instances, use
@@ -14608,11 +14008,9 @@ export namespace ListNotebookInstancesOutput {
   export const filterSensitiveLog = (obj: ListNotebookInstancesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNotebookInstancesOutput => __isa(o, "ListNotebookInstancesOutput");
 }
 
 export interface ListProcessingJobsRequest {
-  __type?: "ListProcessingJobsRequest";
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
@@ -14671,11 +14069,9 @@ export namespace ListProcessingJobsRequest {
   export const filterSensitiveLog = (obj: ListProcessingJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProcessingJobsRequest => __isa(o, "ListProcessingJobsRequest");
 }
 
 export interface ListProcessingJobsResponse {
-  __type?: "ListProcessingJobsResponse";
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
    *             processing jobs, use it in the subsequent request.</p>
@@ -14693,11 +14089,9 @@ export namespace ListProcessingJobsResponse {
   export const filterSensitiveLog = (obj: ListProcessingJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProcessingJobsResponse => __isa(o, "ListProcessingJobsResponse");
 }
 
 export interface ListSubscribedWorkteamsRequest {
-  __type?: "ListSubscribedWorkteamsRequest";
   /**
    * <p>If the result of the previous <code>ListSubscribedWorkteams</code> request was
    *             truncated, the response includes a <code>NextToken</code>. To retrieve the next set of
@@ -14721,11 +14115,9 @@ export namespace ListSubscribedWorkteamsRequest {
   export const filterSensitiveLog = (obj: ListSubscribedWorkteamsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSubscribedWorkteamsRequest => __isa(o, "ListSubscribedWorkteamsRequest");
 }
 
 export interface ListSubscribedWorkteamsResponse {
-  __type?: "ListSubscribedWorkteamsResponse";
   /**
    * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
    */
@@ -14742,11 +14134,9 @@ export namespace ListSubscribedWorkteamsResponse {
   export const filterSensitiveLog = (obj: ListSubscribedWorkteamsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSubscribedWorkteamsResponse => __isa(o, "ListSubscribedWorkteamsResponse");
 }
 
 export interface ListTagsInput {
-  __type?: "ListTagsInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to
    *             retrieve.</p>
@@ -14770,11 +14160,9 @@ export namespace ListTagsInput {
   export const filterSensitiveLog = (obj: ListTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsInput => __isa(o, "ListTagsInput");
 }
 
 export interface ListTagsOutput {
-  __type?: "ListTagsOutput";
   /**
    * <p> If response is truncated, Amazon SageMaker includes a token in the response. You can use this
    *             token in your subsequent request to fetch next set of tokens. </p>
@@ -14791,11 +14179,9 @@ export namespace ListTagsOutput {
   export const filterSensitiveLog = (obj: ListTagsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsOutput => __isa(o, "ListTagsOutput");
 }
 
 export interface ListTrainingJobsForHyperParameterTuningJobRequest {
-  __type?: "ListTrainingJobsForHyperParameterTuningJobRequest";
   /**
    * <p>The field to sort
    *             results
@@ -14841,12 +14227,9 @@ export namespace ListTrainingJobsForHyperParameterTuningJobRequest {
   export const filterSensitiveLog = (obj: ListTrainingJobsForHyperParameterTuningJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrainingJobsForHyperParameterTuningJobRequest =>
-    __isa(o, "ListTrainingJobsForHyperParameterTuningJobRequest");
 }
 
 export interface ListTrainingJobsForHyperParameterTuningJobResponse {
-  __type?: "ListTrainingJobsForHyperParameterTuningJobResponse";
   /**
    * <p>A list of <a>TrainingJobSummary</a> objects that
    *             describe
@@ -14867,12 +14250,9 @@ export namespace ListTrainingJobsForHyperParameterTuningJobResponse {
   export const filterSensitiveLog = (obj: ListTrainingJobsForHyperParameterTuningJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrainingJobsForHyperParameterTuningJobResponse =>
-    __isa(o, "ListTrainingJobsForHyperParameterTuningJobResponse");
 }
 
 export interface ListTrainingJobsRequest {
-  __type?: "ListTrainingJobsRequest";
   /**
    * <p>A filter that returns only training jobs created before the specified time
    *             (timestamp).</p>
@@ -14935,11 +14315,9 @@ export namespace ListTrainingJobsRequest {
   export const filterSensitiveLog = (obj: ListTrainingJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrainingJobsRequest => __isa(o, "ListTrainingJobsRequest");
 }
 
 export interface ListTrainingJobsResponse {
-  __type?: "ListTrainingJobsResponse";
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
    *             training jobs, use it in the subsequent request.</p>
@@ -14957,11 +14335,9 @@ export namespace ListTrainingJobsResponse {
   export const filterSensitiveLog = (obj: ListTrainingJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrainingJobsResponse => __isa(o, "ListTrainingJobsResponse");
 }
 
 export interface ListTransformJobsRequest {
-  __type?: "ListTransformJobsRequest";
   /**
    * <p>A filter that retrieves only transform jobs with a specific status.</p>
    */
@@ -15023,11 +14399,9 @@ export namespace ListTransformJobsRequest {
   export const filterSensitiveLog = (obj: ListTransformJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTransformJobsRequest => __isa(o, "ListTransformJobsRequest");
 }
 
 export interface ListTransformJobsResponse {
-  __type?: "ListTransformJobsResponse";
   /**
    * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
    *             transform jobs, use it in the next request.</p>
@@ -15046,11 +14420,9 @@ export namespace ListTransformJobsResponse {
   export const filterSensitiveLog = (obj: ListTransformJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTransformJobsResponse => __isa(o, "ListTransformJobsResponse");
 }
 
 export interface ListTrialComponentsRequest {
-  __type?: "ListTrialComponentsRequest";
   /**
    * <p>If the previous call to <code>ListTrialComponents</code> didn't return the full set of
    *       components, the call returns a token for getting the next set of components.</p>
@@ -15109,11 +14481,9 @@ export namespace ListTrialComponentsRequest {
   export const filterSensitiveLog = (obj: ListTrialComponentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrialComponentsRequest => __isa(o, "ListTrialComponentsRequest");
 }
 
 export interface ListTrialComponentsResponse {
-  __type?: "ListTrialComponentsResponse";
   /**
    * <p>A token for getting the next set of components, if there are any.</p>
    */
@@ -15129,11 +14499,9 @@ export namespace ListTrialComponentsResponse {
   export const filterSensitiveLog = (obj: ListTrialComponentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrialComponentsResponse => __isa(o, "ListTrialComponentsResponse");
 }
 
 export interface ListTrialsRequest {
-  __type?: "ListTrialsRequest";
   /**
    * <p>A filter that returns only trials that are part of the specified experiment.</p>
    */
@@ -15181,11 +14549,9 @@ export namespace ListTrialsRequest {
   export const filterSensitiveLog = (obj: ListTrialsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrialsRequest => __isa(o, "ListTrialsRequest");
 }
 
 export interface ListTrialsResponse {
-  __type?: "ListTrialsResponse";
   /**
    * <p>A token for getting the next set of trials, if there are any.</p>
    */
@@ -15201,11 +14567,9 @@ export namespace ListTrialsResponse {
   export const filterSensitiveLog = (obj: ListTrialsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrialsResponse => __isa(o, "ListTrialsResponse");
 }
 
 export interface ListUserProfilesRequest {
-  __type?: "ListUserProfilesRequest";
   /**
    * <p>The sort order for the results. The default is Ascending.</p>
    */
@@ -15242,11 +14606,9 @@ export namespace ListUserProfilesRequest {
   export const filterSensitiveLog = (obj: ListUserProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserProfilesRequest => __isa(o, "ListUserProfilesRequest");
 }
 
 export interface ListUserProfilesResponse {
-  __type?: "ListUserProfilesResponse";
   /**
    * <p>The list of user profiles.</p>
    */
@@ -15263,11 +14625,9 @@ export namespace ListUserProfilesResponse {
   export const filterSensitiveLog = (obj: ListUserProfilesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserProfilesResponse => __isa(o, "ListUserProfilesResponse");
 }
 
 export interface ListWorkforcesRequest {
-  __type?: "ListWorkforcesRequest";
   /**
    * <p>A token to resume pagination.</p>
    */
@@ -15298,11 +14658,9 @@ export namespace ListWorkforcesRequest {
   export const filterSensitiveLog = (obj: ListWorkforcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWorkforcesRequest => __isa(o, "ListWorkforcesRequest");
 }
 
 export interface ListWorkforcesResponse {
-  __type?: "ListWorkforcesResponse";
   /**
    * <p>A token to resume pagination.</p>
    */
@@ -15318,7 +14676,6 @@ export namespace ListWorkforcesResponse {
   export const filterSensitiveLog = (obj: ListWorkforcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWorkforcesResponse => __isa(o, "ListWorkforcesResponse");
 }
 
 export enum ListWorkforcesSortByOptions {
@@ -15327,7 +14684,6 @@ export enum ListWorkforcesSortByOptions {
 }
 
 export interface ListWorkteamsRequest {
-  __type?: "ListWorkteamsRequest";
   /**
    * <p>If the result of the previous <code>ListWorkteams</code> request was truncated, the
    *             response includes a <code>NextToken</code>. To retrieve the next set of labeling jobs,
@@ -15361,11 +14717,9 @@ export namespace ListWorkteamsRequest {
   export const filterSensitiveLog = (obj: ListWorkteamsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWorkteamsRequest => __isa(o, "ListWorkteamsRequest");
 }
 
 export interface ListWorkteamsResponse {
-  __type?: "ListWorkteamsResponse";
   /**
    * <p>An array of <code>Workteam</code> objects, each describing a work team.</p>
    */
@@ -15382,7 +14736,6 @@ export namespace ListWorkteamsResponse {
   export const filterSensitiveLog = (obj: ListWorkteamsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWorkteamsResponse => __isa(o, "ListWorkteamsResponse");
 }
 
 export enum ListWorkteamsSortByOptions {
@@ -15394,7 +14747,6 @@ export enum ListWorkteamsSortByOptions {
  * <p>Defines the Amazon Cognito user group that is part of a work team.</p>
  */
 export interface MemberDefinition {
-  __type?: "MemberDefinition";
   /**
    * <p>The Amazon Cognito user group that is part of the work team.</p>
    */
@@ -15414,14 +14766,12 @@ export namespace MemberDefinition {
   export const filterSensitiveLog = (obj: MemberDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MemberDefinition => __isa(o, "MemberDefinition");
 }
 
 /**
  * <p>The name, value, and date and time of a metric that was emitted to Amazon CloudWatch.</p>
  */
 export interface MetricData {
-  __type?: "MetricData";
   /**
    * <p>The name of the metric.</p>
    */
@@ -15442,7 +14792,6 @@ export namespace MetricData {
   export const filterSensitiveLog = (obj: MetricData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricData => __isa(o, "MetricData");
 }
 
 /**
@@ -15458,7 +14807,6 @@ export namespace MetricData {
  *             objective metric to choose the best training job.</p>
  */
 export interface MetricDefinition {
-  __type?: "MetricDefinition";
   /**
    * <p>The name of the metric.</p>
    */
@@ -15477,7 +14825,6 @@ export namespace MetricDefinition {
   export const filterSensitiveLog = (obj: MetricDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricDefinition => __isa(o, "MetricDefinition");
 }
 
 /**
@@ -15488,7 +14835,6 @@ export namespace MetricDefinition {
  *             inferences, and other metadata.</p>
  */
 export interface ModelArtifacts {
-  __type?: "ModelArtifacts";
   /**
    * <p>The path of the S3 object that contains the model artifacts. For example,
    *                 <code>s3://bucket-name/keynameprefix/model.tar.gz</code>.</p>
@@ -15500,14 +14846,12 @@ export namespace ModelArtifacts {
   export const filterSensitiveLog = (obj: ModelArtifacts): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelArtifacts => __isa(o, "ModelArtifacts");
 }
 
 /**
  * <p>Configures the timeout and maximum number of retries for processing a transform job invocation.</p>
  */
 export interface ModelClientConfig {
-  __type?: "ModelClientConfig";
   /**
    * <p>The timeout value in seconds for an invocation request.</p>
    */
@@ -15523,14 +14867,12 @@ export namespace ModelClientConfig {
   export const filterSensitiveLog = (obj: ModelClientConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelClientConfig => __isa(o, "ModelClientConfig");
 }
 
 /**
  * <p>Describes the Docker container for the model package.</p>
  */
 export interface ModelPackageContainerDefinition {
-  __type?: "ModelPackageContainerDefinition";
   /**
    * <p>The AWS Marketplace product ID of the model package.</p>
    */
@@ -15569,7 +14911,6 @@ export namespace ModelPackageContainerDefinition {
   export const filterSensitiveLog = (obj: ModelPackageContainerDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelPackageContainerDefinition => __isa(o, "ModelPackageContainerDefinition");
 }
 
 export enum ModelPackageSortBy {
@@ -15589,7 +14930,6 @@ export enum ModelPackageStatus {
  * <p>Specifies the validation and image scan statuses of the model package.</p>
  */
 export interface ModelPackageStatusDetails {
-  __type?: "ModelPackageStatusDetails";
   /**
    * <p>The validation status of the model package.</p>
    */
@@ -15605,14 +14945,12 @@ export namespace ModelPackageStatusDetails {
   export const filterSensitiveLog = (obj: ModelPackageStatusDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelPackageStatusDetails => __isa(o, "ModelPackageStatusDetails");
 }
 
 /**
  * <p>Represents the overall status of a model package.</p>
  */
 export interface ModelPackageStatusItem {
-  __type?: "ModelPackageStatusItem";
   /**
    * <p>if the overall status is <code>Failed</code>, the reason for the failure.</p>
    */
@@ -15633,14 +14971,12 @@ export namespace ModelPackageStatusItem {
   export const filterSensitiveLog = (obj: ModelPackageStatusItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelPackageStatusItem => __isa(o, "ModelPackageStatusItem");
 }
 
 /**
  * <p>Provides summary information about a model package.</p>
  */
 export interface ModelPackageSummary {
-  __type?: "ModelPackageSummary";
   /**
    * <p>The name of the model package.</p>
    */
@@ -15671,7 +15007,6 @@ export namespace ModelPackageSummary {
   export const filterSensitiveLog = (obj: ModelPackageSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelPackageSummary => __isa(o, "ModelPackageSummary");
 }
 
 /**
@@ -15681,7 +15016,6 @@ export namespace ModelPackageSummary {
  *             Marketplace.</p>
  */
 export interface ModelPackageValidationProfile {
-  __type?: "ModelPackageValidationProfile";
   /**
    * <p>The <code>TransformJobDefinition</code> object that describes the transform job used
    *             for the validation of the model package.</p>
@@ -15698,14 +15032,12 @@ export namespace ModelPackageValidationProfile {
   export const filterSensitiveLog = (obj: ModelPackageValidationProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelPackageValidationProfile => __isa(o, "ModelPackageValidationProfile");
 }
 
 /**
  * <p>Specifies batch transform jobs that Amazon SageMaker runs to validate your model package.</p>
  */
 export interface ModelPackageValidationSpecification {
-  __type?: "ModelPackageValidationSpecification";
   /**
    * <p>An array of <code>ModelPackageValidationProfile</code> objects, each of which
    *             specifies a batch transform job that Amazon SageMaker runs to validate your model package.</p>
@@ -15722,8 +15054,6 @@ export namespace ModelPackageValidationSpecification {
   export const filterSensitiveLog = (obj: ModelPackageValidationSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelPackageValidationSpecification =>
-    __isa(o, "ModelPackageValidationSpecification");
 }
 
 export enum ModelSortKey {
@@ -15735,7 +15065,6 @@ export enum ModelSortKey {
  * <p>Provides summary information about a model.</p>
  */
 export interface ModelSummary {
-  __type?: "ModelSummary";
   /**
    * <p>A timestamp that indicates when the model was created.</p>
    */
@@ -15756,14 +15085,12 @@ export namespace ModelSummary {
   export const filterSensitiveLog = (obj: ModelSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelSummary => __isa(o, "ModelSummary");
 }
 
 /**
  * <p>Container image configuration object for the monitoring job.</p>
  */
 export interface MonitoringAppSpecification {
-  __type?: "MonitoringAppSpecification";
   /**
    * <p>The container image to be run by the monitoring job.</p>
    */
@@ -15798,7 +15125,6 @@ export namespace MonitoringAppSpecification {
   export const filterSensitiveLog = (obj: MonitoringAppSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringAppSpecification => __isa(o, "MonitoringAppSpecification");
 }
 
 /**
@@ -15807,7 +15133,6 @@ export namespace MonitoringAppSpecification {
  *          scheduled to collect data periodically.</p>
  */
 export interface MonitoringBaselineConfig {
-  __type?: "MonitoringBaselineConfig";
   /**
    * <p>The baseline statistics file in Amazon S3 that the current monitoring job should be
    *          validated against.</p>
@@ -15825,14 +15150,12 @@ export namespace MonitoringBaselineConfig {
   export const filterSensitiveLog = (obj: MonitoringBaselineConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringBaselineConfig => __isa(o, "MonitoringBaselineConfig");
 }
 
 /**
  * <p>Configuration for the cluster used to run model monitoring jobs.</p>
  */
 export interface MonitoringClusterConfig {
-  __type?: "MonitoringClusterConfig";
   /**
    * <p>The number of ML compute instances to use in the model monitoring job. For distributed
    *          processing jobs, specify a value greater than 1. The default value is 1.</p>
@@ -15862,14 +15185,12 @@ export namespace MonitoringClusterConfig {
   export const filterSensitiveLog = (obj: MonitoringClusterConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringClusterConfig => __isa(o, "MonitoringClusterConfig");
 }
 
 /**
  * <p>The constraints resource for a monitoring job.</p>
  */
 export interface MonitoringConstraintsResource {
-  __type?: "MonitoringConstraintsResource";
   /**
    * <p>The Amazon S3 URI for the constraints resource.</p>
    */
@@ -15880,7 +15201,6 @@ export namespace MonitoringConstraintsResource {
   export const filterSensitiveLog = (obj: MonitoringConstraintsResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringConstraintsResource => __isa(o, "MonitoringConstraintsResource");
 }
 
 export enum MonitoringExecutionSortKey {
@@ -15893,7 +15213,6 @@ export enum MonitoringExecutionSortKey {
  * <p>Summary of information about the last monitoring job to run.</p>
  */
 export interface MonitoringExecutionSummary {
-  __type?: "MonitoringExecutionSummary";
   /**
    * <p>The time the monitoring job was scheduled.</p>
    */
@@ -15939,14 +15258,12 @@ export namespace MonitoringExecutionSummary {
   export const filterSensitiveLog = (obj: MonitoringExecutionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringExecutionSummary => __isa(o, "MonitoringExecutionSummary");
 }
 
 /**
  * <p>The inputs for a monitoring job.</p>
  */
 export interface MonitoringInput {
-  __type?: "MonitoringInput";
   /**
    * <p>The endpoint for a monitoring job.</p>
    */
@@ -15957,14 +15274,12 @@ export namespace MonitoringInput {
   export const filterSensitiveLog = (obj: MonitoringInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringInput => __isa(o, "MonitoringInput");
 }
 
 /**
  * <p>Defines the monitoring job.</p>
  */
 export interface MonitoringJobDefinition {
-  __type?: "MonitoringJobDefinition";
   /**
    * <p>The array of outputs from the monitoring job to be uploaded to Amazon Simple Storage
    *          Service (Amazon S3).</p>
@@ -16020,14 +15335,12 @@ export namespace MonitoringJobDefinition {
   export const filterSensitiveLog = (obj: MonitoringJobDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringJobDefinition => __isa(o, "MonitoringJobDefinition");
 }
 
 /**
  * <p>The output object for a monitoring job.</p>
  */
 export interface MonitoringOutput {
-  __type?: "MonitoringOutput";
   /**
    * <p>The Amazon S3 storage location where the results of a monitoring job are saved.</p>
    */
@@ -16038,14 +15351,12 @@ export namespace MonitoringOutput {
   export const filterSensitiveLog = (obj: MonitoringOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringOutput => __isa(o, "MonitoringOutput");
 }
 
 /**
  * <p>The output configuration for monitoring jobs.</p>
  */
 export interface MonitoringOutputConfig {
-  __type?: "MonitoringOutputConfig";
   /**
    * <p>Monitoring outputs for monitoring jobs. This is where the output of the periodic
    *          monitoring jobs is uploaded.</p>
@@ -16063,14 +15374,12 @@ export namespace MonitoringOutputConfig {
   export const filterSensitiveLog = (obj: MonitoringOutputConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringOutputConfig => __isa(o, "MonitoringOutputConfig");
 }
 
 /**
  * <p>Identifies the resources to deploy for a monitoring job.</p>
  */
 export interface MonitoringResources {
-  __type?: "MonitoringResources";
   /**
    * <p>The configuration for the cluster resources used to run the processing job.</p>
    */
@@ -16081,7 +15390,6 @@ export namespace MonitoringResources {
   export const filterSensitiveLog = (obj: MonitoringResources): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringResources => __isa(o, "MonitoringResources");
 }
 
 /**
@@ -16089,7 +15397,6 @@ export namespace MonitoringResources {
  *          job.</p>
  */
 export interface MonitoringS3Output {
-  __type?: "MonitoringS3Output";
   /**
    * <p>The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a
    *          monitoring job. LocalPath is an absolute path for the output data.</p>
@@ -16113,14 +15420,12 @@ export namespace MonitoringS3Output {
   export const filterSensitiveLog = (obj: MonitoringS3Output): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringS3Output => __isa(o, "MonitoringS3Output");
 }
 
 /**
  * <p>Configures the monitoring schedule and defines the monitoring job.</p>
  */
 export interface MonitoringScheduleConfig {
-  __type?: "MonitoringScheduleConfig";
   /**
    * <p>Defines the monitoring job.</p>
    */
@@ -16136,7 +15441,6 @@ export namespace MonitoringScheduleConfig {
   export const filterSensitiveLog = (obj: MonitoringScheduleConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringScheduleConfig => __isa(o, "MonitoringScheduleConfig");
 }
 
 export enum MonitoringScheduleSortKey {
@@ -16149,7 +15453,6 @@ export enum MonitoringScheduleSortKey {
  * <p>Summarizes the monitoring schedule.</p>
  */
 export interface MonitoringScheduleSummary {
-  __type?: "MonitoringScheduleSummary";
   /**
    * <p>The last time the monitoring schedule was modified.</p>
    */
@@ -16185,14 +15488,12 @@ export namespace MonitoringScheduleSummary {
   export const filterSensitiveLog = (obj: MonitoringScheduleSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringScheduleSummary => __isa(o, "MonitoringScheduleSummary");
 }
 
 /**
  * <p>The statistics resource for a monitoring job.</p>
  */
 export interface MonitoringStatisticsResource {
-  __type?: "MonitoringStatisticsResource";
   /**
    * <p>The Amazon S3 URI for the statistics resource.</p>
    */
@@ -16203,14 +15504,12 @@ export namespace MonitoringStatisticsResource {
   export const filterSensitiveLog = (obj: MonitoringStatisticsResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringStatisticsResource => __isa(o, "MonitoringStatisticsResource");
 }
 
 /**
  * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
  */
 export interface MonitoringStoppingCondition {
-  __type?: "MonitoringStoppingCondition";
   /**
    * <p>The maximum runtime allowed in seconds.</p>
    */
@@ -16221,7 +15520,6 @@ export namespace MonitoringStoppingCondition {
   export const filterSensitiveLog = (obj: MonitoringStoppingCondition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoringStoppingCondition => __isa(o, "MonitoringStoppingCondition");
 }
 
 /**
@@ -16244,7 +15542,6 @@ export namespace MonitoringStoppingCondition {
  *          </ul>
  */
 export interface NestedFilters {
-  __type?: "NestedFilters";
   /**
    * <p>A list of filters. Each filter acts on a property. Filters must contain at least one
    *       <code>Filters</code> value. For example, a <code>NestedFilters</code> call might
@@ -16265,7 +15562,6 @@ export namespace NestedFilters {
   export const filterSensitiveLog = (obj: NestedFilters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NestedFilters => __isa(o, "NestedFilters");
 }
 
 /**
@@ -16274,7 +15570,6 @@ export namespace NestedFilters {
  *          subnets and security groups to use for VPC-enabled jobs.</p>
  */
 export interface NetworkConfig {
-  __type?: "NetworkConfig";
   /**
    * <p>Whether to allow inbound and outbound network calls to and from the containers used for
    *          the processing job.</p>
@@ -16301,7 +15596,6 @@ export namespace NetworkConfig {
   export const filterSensitiveLog = (obj: NetworkConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkConfig => __isa(o, "NetworkConfig");
 }
 
 export enum NotebookInstanceAcceleratorType {
@@ -16328,7 +15622,6 @@ export enum NotebookInstanceLifecycleConfigSortOrder {
  * <p>Provides a summary of a notebook instance lifecycle configuration.</p>
  */
 export interface NotebookInstanceLifecycleConfigSummary {
-  __type?: "NotebookInstanceLifecycleConfigSummary";
   /**
    * <p>The name of the lifecycle configuration.</p>
    */
@@ -16354,8 +15647,6 @@ export namespace NotebookInstanceLifecycleConfigSummary {
   export const filterSensitiveLog = (obj: NotebookInstanceLifecycleConfigSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotebookInstanceLifecycleConfigSummary =>
-    __isa(o, "NotebookInstanceLifecycleConfigSummary");
 }
 
 /**
@@ -16373,7 +15664,6 @@ export namespace NotebookInstanceLifecycleConfigSummary {
  *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
  */
 export interface NotebookInstanceLifecycleHook {
-  __type?: "NotebookInstanceLifecycleHook";
   /**
    * <p>A base64-encoded string that contains a shell script for a notebook instance lifecycle
    *             configuration.</p>
@@ -16385,7 +15675,6 @@ export namespace NotebookInstanceLifecycleHook {
   export const filterSensitiveLog = (obj: NotebookInstanceLifecycleHook): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotebookInstanceLifecycleHook => __isa(o, "NotebookInstanceLifecycleHook");
 }
 
 export enum NotebookInstanceSortKey {
@@ -16413,7 +15702,6 @@ export enum NotebookInstanceStatus {
  * <p>Provides summary information for an Amazon SageMaker notebook instance.</p>
  */
 export interface NotebookInstanceSummary {
-  __type?: "NotebookInstanceSummary";
   /**
    * <p>A timestamp that shows when the notebook instance was created.</p>
    */
@@ -16484,7 +15772,6 @@ export namespace NotebookInstanceSummary {
   export const filterSensitiveLog = (obj: NotebookInstanceSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotebookInstanceSummary => __isa(o, "NotebookInstanceSummary");
 }
 
 export enum NotebookOutputOption {
@@ -16497,7 +15784,6 @@ export enum NotebookOutputOption {
  *             teams.</p>
  */
 export interface NotificationConfiguration {
-  __type?: "NotificationConfiguration";
   /**
    * <p>The ARN for the SNS topic to which notifications should be published.</p>
    */
@@ -16508,7 +15794,6 @@ export namespace NotificationConfiguration {
   export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotificationConfiguration => __isa(o, "NotificationConfiguration");
 }
 
 export enum ObjectiveStatus {
@@ -16526,7 +15811,6 @@ export enum ObjectiveStatus {
  *             tuning job and used in the hyperparameter tuning process.</p>
  */
 export interface ObjectiveStatusCounters {
-  __type?: "ObjectiveStatusCounters";
   /**
    * <p>The number of training jobs that are in progress and pending evaluation of their final
    *             objective metric.</p>
@@ -16551,14 +15835,12 @@ export namespace ObjectiveStatusCounters {
   export const filterSensitiveLog = (obj: ObjectiveStatusCounters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectiveStatusCounters => __isa(o, "ObjectiveStatusCounters");
 }
 
 /**
  * <p>Use this parameter to configure your OIDC Identity Provider (IdP).</p>
  */
 export interface OidcConfig {
-  __type?: "OidcConfig";
   /**
    * <p>The OIDC IdP logout endpoint used to configure your private workforce.</p>
    */
@@ -16605,14 +15887,12 @@ export namespace OidcConfig {
     ...obj,
     ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is OidcConfig => __isa(o, "OidcConfig");
 }
 
 /**
  * <p>Your Amazon Cognito workforce configuration.</p>
  */
 export interface OidcConfigForResponse {
-  __type?: "OidcConfigForResponse";
   /**
    * <p>The OIDC IdP token endpoint used to configure your private workforce.</p>
    */
@@ -16653,7 +15933,6 @@ export namespace OidcConfigForResponse {
   export const filterSensitiveLog = (obj: OidcConfigForResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OidcConfigForResponse => __isa(o, "OidcConfigForResponse");
 }
 
 /**
@@ -16664,7 +15943,6 @@ export namespace OidcConfigForResponse {
  *       are added to the work team.</p>
  */
 export interface OidcMemberDefinition {
-  __type?: "OidcMemberDefinition";
   /**
    * <p>A list of comma seperated strings that identifies
    *       user groups in your OIDC IdP. Each user group is
@@ -16677,7 +15955,6 @@ export namespace OidcMemberDefinition {
   export const filterSensitiveLog = (obj: OidcMemberDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OidcMemberDefinition => __isa(o, "OidcMemberDefinition");
 }
 
 export enum Operator {
@@ -16708,7 +15985,6 @@ export enum OrderKey {
  *             settings that are required or recommended to use for particular TargetPlatform.</p>
  */
 export interface OutputConfig {
-  __type?: "OutputConfig";
   /**
    * <p>Specifies additional parameters for compiler options in JSON format. The compiler
    *             options are <code>TargetPlatform</code> specific. It is required for NVIDIA
@@ -16880,7 +16156,6 @@ export namespace OutputConfig {
   export const filterSensitiveLog = (obj: OutputConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputConfig => __isa(o, "OutputConfig");
 }
 
 /**
@@ -16888,7 +16163,6 @@ export namespace OutputConfig {
  *             artifacts).</p>
  */
 export interface OutputDataConfig {
-  __type?: "OutputDataConfig";
   /**
    * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using
    *             Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following
@@ -16949,7 +16223,6 @@ export namespace OutputDataConfig {
   export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputDataConfig => __isa(o, "OutputDataConfig");
 }
 
 /**
@@ -16957,7 +16230,6 @@ export namespace OutputDataConfig {
  *             to be used by an algorithm.</p>
  */
 export interface ParameterRange {
-  __type?: "ParameterRange";
   /**
    * <p>A <code>IntegerParameterRangeSpecification</code> object that defines the possible
    *             values for an integer hyperparameter.</p>
@@ -16981,7 +16253,6 @@ export namespace ParameterRange {
   export const filterSensitiveLog = (obj: ParameterRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParameterRange => __isa(o, "ParameterRange");
 }
 
 /**
@@ -16997,7 +16268,6 @@ export namespace ParameterRange {
  *         </note>
  */
 export interface ParameterRanges {
-  __type?: "ParameterRanges";
   /**
    * <p>The array of <a>CategoricalParameterRange</a> objects that specify ranges
    *             of categorical hyperparameters that a hyperparameter tuning job searches.</p>
@@ -17021,7 +16291,6 @@ export namespace ParameterRanges {
   export const filterSensitiveLog = (obj: ParameterRanges): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParameterRanges => __isa(o, "ParameterRanges");
 }
 
 export enum ParameterType {
@@ -17037,7 +16306,6 @@ export enum ParameterType {
  *       multiple trials.</p>
  */
 export interface Parent {
-  __type?: "Parent";
   /**
    * <p>The name of the experiment.</p>
    */
@@ -17053,7 +16321,6 @@ export namespace Parent {
   export const filterSensitiveLog = (obj: Parent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Parent => __isa(o, "Parent");
 }
 
 /**
@@ -17061,7 +16328,6 @@ export namespace Parent {
  *             point for a new hyperparameter tuning job.</p>
  */
 export interface ParentHyperParameterTuningJob {
-  __type?: "ParentHyperParameterTuningJob";
   /**
    * <p>The name of the hyperparameter tuning job to be used as a starting point for a new
    *             hyperparameter tuning job.</p>
@@ -17073,7 +16339,6 @@ export namespace ParentHyperParameterTuningJob {
   export const filterSensitiveLog = (obj: ParentHyperParameterTuningJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParentHyperParameterTuningJob => __isa(o, "ParentHyperParameterTuningJob");
 }
 
 export enum ProblemType {
@@ -17086,7 +16351,6 @@ export enum ProblemType {
  * <p>Configuration for the cluster used to run a processing job.</p>
  */
 export interface ProcessingClusterConfig {
-  __type?: "ProcessingClusterConfig";
   /**
    * <p>The number of ML compute instances to use in the processing job. For distributed
    *             processing jobs, specify a value greater than 1. The default value is 1.</p>
@@ -17116,14 +16380,12 @@ export namespace ProcessingClusterConfig {
   export const filterSensitiveLog = (obj: ProcessingClusterConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessingClusterConfig => __isa(o, "ProcessingClusterConfig");
 }
 
 /**
  * <p>The inputs for a processing job.</p>
  */
 export interface ProcessingInput {
-  __type?: "ProcessingInput";
   /**
    * <p>The name of the inputs for the processing job.</p>
    */
@@ -17139,7 +16401,6 @@ export namespace ProcessingInput {
   export const filterSensitiveLog = (obj: ProcessingInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessingInput => __isa(o, "ProcessingInput");
 }
 
 export enum ProcessingInstanceType {
@@ -17189,7 +16450,6 @@ export enum ProcessingInstanceType {
  *                 Data and Evaluate Models</a>.</p>
  */
 export interface ProcessingJob {
-  __type?: "ProcessingJob";
   /**
    * <p>For each input, data is downloaded from S3 into the processing container before the
    *             processing job begins running if "S3InputMode" is set to <code>File</code>.</p>
@@ -17331,7 +16591,6 @@ export namespace ProcessingJob {
   export const filterSensitiveLog = (obj: ProcessingJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessingJob => __isa(o, "ProcessingJob");
 }
 
 export enum ProcessingJobStatus {
@@ -17346,7 +16605,6 @@ export enum ProcessingJobStatus {
  * <p>Summary of information about a processing job.</p>
  */
 export interface ProcessingJobSummary {
-  __type?: "ProcessingJobSummary";
   /**
    * <p>A timestamp that indicates the last time the processing job was modified.</p>
    */
@@ -17394,14 +16652,12 @@ export namespace ProcessingJobSummary {
   export const filterSensitiveLog = (obj: ProcessingJobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessingJobSummary => __isa(o, "ProcessingJobSummary");
 }
 
 /**
  * <p>Describes the results of a processing job.</p>
  */
 export interface ProcessingOutput {
-  __type?: "ProcessingOutput";
   /**
    * <p>The name for the processing job output.</p>
    */
@@ -17417,14 +16673,12 @@ export namespace ProcessingOutput {
   export const filterSensitiveLog = (obj: ProcessingOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessingOutput => __isa(o, "ProcessingOutput");
 }
 
 /**
  * <p>The output configuration for the processing job.</p>
  */
 export interface ProcessingOutputConfig {
-  __type?: "ProcessingOutputConfig";
   /**
    * <p>Output configuration information for a processing job.</p>
    */
@@ -17443,7 +16697,6 @@ export namespace ProcessingOutputConfig {
   export const filterSensitiveLog = (obj: ProcessingOutputConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessingOutputConfig => __isa(o, "ProcessingOutputConfig");
 }
 
 /**
@@ -17451,7 +16704,6 @@ export namespace ProcessingOutputConfig {
  *             processing job. In distributed training, you specify more than one instance.</p>
  */
 export interface ProcessingResources {
-  __type?: "ProcessingResources";
   /**
    * <p>The configuration for the resources in a cluster used to run the processing
    *             job.</p>
@@ -17463,7 +16715,6 @@ export namespace ProcessingResources {
   export const filterSensitiveLog = (obj: ProcessingResources): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessingResources => __isa(o, "ProcessingResources");
 }
 
 export enum ProcessingS3CompressionType {
@@ -17486,7 +16737,6 @@ export enum ProcessingS3DataType {
  *             job.</p>
  */
 export interface ProcessingS3Input {
-  __type?: "ProcessingS3Input";
   /**
    * <p>Whether you use an <code>S3Prefix</code> or a <code>ManifestFile</code> for
    *             the data type. If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key
@@ -17535,7 +16785,6 @@ export namespace ProcessingS3Input {
   export const filterSensitiveLog = (obj: ProcessingS3Input): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessingS3Input => __isa(o, "ProcessingS3Input");
 }
 
 export enum ProcessingS3InputMode {
@@ -17548,7 +16797,6 @@ export enum ProcessingS3InputMode {
  *             processing job.</p>
  */
 export interface ProcessingS3Output {
-  __type?: "ProcessingS3Output";
   /**
    * <p>The local path to the Amazon S3 bucket where you want Amazon SageMaker to save the results of an
    *             processing job. <code>LocalPath</code> is an absolute path to the input data.</p>
@@ -17572,7 +16820,6 @@ export namespace ProcessingS3Output {
   export const filterSensitiveLog = (obj: ProcessingS3Output): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessingS3Output => __isa(o, "ProcessingS3Output");
 }
 
 export enum ProcessingS3UploadMode {
@@ -17584,7 +16831,6 @@ export enum ProcessingS3UploadMode {
  * <p>Specifies a time limit for how long the processing job is allowed to run.</p>
  */
 export interface ProcessingStoppingCondition {
-  __type?: "ProcessingStoppingCondition";
   /**
    * <p>Specifies the maximum runtime in seconds.</p>
    */
@@ -17595,7 +16841,6 @@ export namespace ProcessingStoppingCondition {
   export const filterSensitiveLog = (obj: ProcessingStoppingCondition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessingStoppingCondition => __isa(o, "ProcessingStoppingCondition");
 }
 
 /**
@@ -17605,7 +16850,6 @@ export namespace ProcessingStoppingCondition {
  *             traffic among the models by specifying variant weights. </p>
  */
 export interface ProductionVariant {
-  __type?: "ProductionVariant";
   /**
    * <p>The name of the model that you want to host. This is the name that you specified
    *             when creating the model.</p>
@@ -17649,7 +16893,6 @@ export namespace ProductionVariant {
   export const filterSensitiveLog = (obj: ProductionVariant): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProductionVariant => __isa(o, "ProductionVariant");
 }
 
 export enum ProductionVariantAcceleratorType {
@@ -17737,7 +16980,6 @@ export enum ProductionVariantInstanceType {
  *             current values. </p>
  */
 export interface ProductionVariantSummary {
-  __type?: "ProductionVariantSummary";
   /**
    * <p>The requested weight, as specified in the
    *                 <code>UpdateEndpointWeightsAndCapacities</code> request. </p>
@@ -17776,7 +17018,6 @@ export namespace ProductionVariantSummary {
   export const filterSensitiveLog = (obj: ProductionVariantSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProductionVariantSummary => __isa(o, "ProductionVariantSummary");
 }
 
 /**
@@ -17784,7 +17025,6 @@ export namespace ProductionVariantSummary {
  *       names that begin with the specified text.</p>
  */
 export interface PropertyNameQuery {
-  __type?: "PropertyNameQuery";
   /**
    * <p>Text that begins a property's name.</p>
    */
@@ -17795,7 +17035,6 @@ export namespace PropertyNameQuery {
   export const filterSensitiveLog = (obj: PropertyNameQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PropertyNameQuery => __isa(o, "PropertyNameQuery");
 }
 
 /**
@@ -17803,7 +17042,6 @@ export namespace PropertyNameQuery {
  *       a value in the <code>PropertyNameQuery</code> field.</p>
  */
 export interface PropertyNameSuggestion {
-  __type?: "PropertyNameSuggestion";
   /**
    * <p>A suggested property name based on what you entered in the search textbox in the Amazon SageMaker
    *       console.</p>
@@ -17815,7 +17053,6 @@ export namespace PropertyNameSuggestion {
   export const filterSensitiveLog = (obj: PropertyNameSuggestion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PropertyNameSuggestion => __isa(o, "PropertyNameSuggestion");
 }
 
 /**
@@ -18123,7 +17360,6 @@ export namespace PropertyNameSuggestion {
  *          </ul>
  */
 export interface PublicWorkforceTaskPrice {
-  __type?: "PublicWorkforceTaskPrice";
   /**
    * <p>Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars.</p>
    */
@@ -18134,7 +17370,6 @@ export namespace PublicWorkforceTaskPrice {
   export const filterSensitiveLog = (obj: PublicWorkforceTaskPrice): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicWorkforceTaskPrice => __isa(o, "PublicWorkforceTaskPrice");
 }
 
 export enum RecordWrapper {
@@ -18146,7 +17381,6 @@ export enum RecordWrapper {
  * <p>Contains input values for a task.</p>
  */
 export interface RenderableTask {
-  __type?: "RenderableTask";
   /**
    * <p>A JSON object that contains values for the variables defined in the template. It is
    *             made available to the template under the substitution variable <code>task.input</code>.
@@ -18160,14 +17394,12 @@ export namespace RenderableTask {
   export const filterSensitiveLog = (obj: RenderableTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RenderableTask => __isa(o, "RenderableTask");
 }
 
 /**
  * <p>A description of an error that occurred while rendering the template.</p>
  */
 export interface RenderingError {
-  __type?: "RenderingError";
   /**
    * <p>A human-readable message describing the error.</p>
    */
@@ -18183,11 +17415,9 @@ export namespace RenderingError {
   export const filterSensitiveLog = (obj: RenderingError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RenderingError => __isa(o, "RenderingError");
 }
 
 export interface RenderUiTemplateRequest {
-  __type?: "RenderUiTemplateRequest";
   /**
    * <p>A <code>Template</code> object containing the worker UI template to render.</p>
    */
@@ -18218,11 +17448,9 @@ export namespace RenderUiTemplateRequest {
   export const filterSensitiveLog = (obj: RenderUiTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RenderUiTemplateRequest => __isa(o, "RenderUiTemplateRequest");
 }
 
 export interface RenderUiTemplateResponse {
-  __type?: "RenderUiTemplateResponse";
   /**
    * <p>A Liquid template that renders the HTML for the worker UI.</p>
    */
@@ -18239,14 +17467,12 @@ export namespace RenderUiTemplateResponse {
   export const filterSensitiveLog = (obj: RenderUiTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RenderUiTemplateResponse => __isa(o, "RenderUiTemplateResponse");
 }
 
 /**
  * <p>The resolved attributes.</p>
  */
 export interface ResolvedAttributes {
-  __type?: "ResolvedAttributes";
   /**
    * <p>The problem type.</p>
    */
@@ -18268,7 +17494,6 @@ export namespace ResolvedAttributes {
   export const filterSensitiveLog = (obj: ResolvedAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolvedAttributes => __isa(o, "ResolvedAttributes");
 }
 
 /**
@@ -18276,7 +17501,6 @@ export namespace ResolvedAttributes {
  *             use for model training. </p>
  */
 export interface ResourceConfig {
-  __type?: "ResourceConfig";
   /**
    * <p>The AWS KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML
    *             compute instance(s) that run the training job.</p>
@@ -18346,7 +17570,6 @@ export namespace ResourceConfig {
   export const filterSensitiveLog = (obj: ResourceConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceConfig => __isa(o, "ResourceConfig");
 }
 
 /**
@@ -18362,7 +17585,6 @@ export namespace ResourceInUse {
   export const filterSensitiveLog = (obj: ResourceInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUse => __isa(o, "ResourceInUse");
 }
 
 /**
@@ -18379,7 +17601,6 @@ export namespace ResourceLimitExceeded {
   export const filterSensitiveLog = (obj: ResourceLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceLimitExceeded => __isa(o, "ResourceLimitExceeded");
 }
 
 /**
@@ -18389,7 +17610,6 @@ export namespace ResourceLimitExceeded {
  *             launch.</p>
  */
 export interface ResourceLimits {
-  __type?: "ResourceLimits";
   /**
    * <p>The
    *             maximum
@@ -18411,7 +17631,6 @@ export namespace ResourceLimits {
   export const filterSensitiveLog = (obj: ResourceLimits): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceLimits => __isa(o, "ResourceLimits");
 }
 
 /**
@@ -18427,7 +17646,6 @@ export namespace ResourceNotFound {
   export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFound => __isa(o, "ResourceNotFound");
 }
 
 /**
@@ -18435,7 +17653,6 @@ export namespace ResourceNotFound {
  *      The ARN is stored as metadata in SageMaker Studio notebooks.</p>
  */
 export interface ResourceSpec {
-  __type?: "ResourceSpec";
   /**
    * <p>The Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
    */
@@ -18451,7 +17668,6 @@ export namespace ResourceSpec {
   export const filterSensitiveLog = (obj: ResourceSpec): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceSpec => __isa(o, "ResourceSpec");
 }
 
 export enum ResourceType {
@@ -18465,7 +17681,6 @@ export enum ResourceType {
  * <p>The retention policy for data stored on an Amazon Elastic File System (EFS) volume.</p>
  */
 export interface RetentionPolicy {
-  __type?: "RetentionPolicy";
   /**
    * <p>The default is <code>Retain</code>, which specifies to keep the data stored on the EFS volume.</p>
    *          <p>Specify <code>Delete</code> to delete the data stored on the EFS volume.</p>
@@ -18477,7 +17692,6 @@ export namespace RetentionPolicy {
   export const filterSensitiveLog = (obj: RetentionPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetentionPolicy => __isa(o, "RetentionPolicy");
 }
 
 export enum RetentionType {
@@ -18508,7 +17722,6 @@ export enum S3DataDistribution {
  * <p>Describes the S3 data source.</p>
  */
 export interface S3DataSource {
-  __type?: "S3DataSource";
   /**
    * <p>If you want Amazon SageMaker to replicate the entire dataset on each ML compute instance that
    *             is launched for model training, specify <code>FullyReplicated</code>. </p>
@@ -18612,7 +17825,6 @@ export namespace S3DataSource {
   export const filterSensitiveLog = (obj: S3DataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3DataSource => __isa(o, "S3DataSource");
 }
 
 export enum S3DataType {
@@ -18625,7 +17837,6 @@ export enum S3DataType {
  * <p>Configuration details about the monitoring schedule.</p>
  */
 export interface ScheduleConfig {
-  __type?: "ScheduleConfig";
   /**
    * <p>A cron expression that describes details about the monitoring schedule.</p>
    *
@@ -18693,7 +17904,6 @@ export namespace ScheduleConfig {
   export const filterSensitiveLog = (obj: ScheduleConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduleConfig => __isa(o, "ScheduleConfig");
 }
 
 export enum ScheduleStatus {
@@ -18731,7 +17941,6 @@ export enum ScheduleStatus {
  *          </ul>
  */
 export interface SearchExpression {
-  __type?: "SearchExpression";
   /**
    * <p>A list of filter objects.</p>
    */
@@ -18761,14 +17970,12 @@ export namespace SearchExpression {
   export const filterSensitiveLog = (obj: SearchExpression): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchExpression => __isa(o, "SearchExpression");
 }
 
 /**
  * <p>A single resource returned as part of the <a>Search</a> API response.</p>
  */
 export interface SearchRecord {
-  __type?: "SearchRecord";
   /**
    * <p>The properties of a trial.</p>
    */
@@ -18794,11 +18001,9 @@ export namespace SearchRecord {
   export const filterSensitiveLog = (obj: SearchRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchRecord => __isa(o, "SearchRecord");
 }
 
 export interface SearchRequest {
-  __type?: "SearchRequest";
   /**
    * <p>The name of the Amazon SageMaker resource to search for.</p>
    */
@@ -18843,11 +18048,9 @@ export namespace SearchRequest {
   export const filterSensitiveLog = (obj: SearchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchRequest => __isa(o, "SearchRequest");
 }
 
 export interface SearchResponse {
-  __type?: "SearchResponse";
   /**
    * <p>A list of <code>SearchRecord</code> objects.</p>
    */
@@ -18865,7 +18068,6 @@ export namespace SearchResponse {
   export const filterSensitiveLog = (obj: SearchResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchResponse => __isa(o, "SearchResponse");
 }
 
 export enum SearchSortOrder {
@@ -18903,7 +18105,6 @@ export enum SecondaryStatus {
  *         <p></p>
  */
 export interface SecondaryStatusTransition {
-  __type?: "SecondaryStatusTransition";
   /**
    * <p>A detailed description of the progress within a secondary status.
    *             </p>
@@ -19085,7 +18286,6 @@ export namespace SecondaryStatusTransition {
   export const filterSensitiveLog = (obj: SecondaryStatusTransition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecondaryStatusTransition => __isa(o, "SecondaryStatusTransition");
 }
 
 /**
@@ -19095,7 +18295,6 @@ export namespace SecondaryStatusTransition {
  *      API is called.</p>
  */
 export interface SharingSettings {
-  __type?: "SharingSettings";
   /**
    * <p>Whether to include the notebook cell output when sharing the notebook. The default
    *          is <code>Disabled</code>.</p>
@@ -19120,7 +18319,6 @@ export namespace SharingSettings {
   export const filterSensitiveLog = (obj: SharingSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SharingSettings => __isa(o, "SharingSettings");
 }
 
 /**
@@ -19140,7 +18338,6 @@ export namespace SharingSettings {
  *             might be sent to a different node on the second epoch.</p>
  */
 export interface ShuffleConfig {
-  __type?: "ShuffleConfig";
   /**
    * <p>Determines the shuffling order in <code>ShuffleConfig</code> value.</p>
    */
@@ -19151,7 +18348,6 @@ export namespace ShuffleConfig {
   export const filterSensitiveLog = (obj: ShuffleConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ShuffleConfig => __isa(o, "ShuffleConfig");
 }
 
 export enum SortBy {
@@ -19186,7 +18382,6 @@ export enum SortTrialsBy {
  *             are subscribed to.</p>
  */
 export interface SourceAlgorithm {
-  __type?: "SourceAlgorithm";
   /**
    * <p>The name of an algorithm that was used to create the model package. The algorithm must
    *             be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you
@@ -19206,14 +18401,12 @@ export namespace SourceAlgorithm {
   export const filterSensitiveLog = (obj: SourceAlgorithm): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceAlgorithm => __isa(o, "SourceAlgorithm");
 }
 
 /**
  * <p>A list of algorithms that were used to create a model package.</p>
  */
 export interface SourceAlgorithmSpecification {
-  __type?: "SourceAlgorithmSpecification";
   /**
    * <p>A list of the algorithms that were used to create a model package.</p>
    */
@@ -19224,7 +18417,6 @@ export namespace SourceAlgorithmSpecification {
   export const filterSensitiveLog = (obj: SourceAlgorithmSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceAlgorithmSpecification => __isa(o, "SourceAlgorithmSpecification");
 }
 
 /**
@@ -19232,7 +18424,6 @@ export namespace SourceAlgorithmSpecification {
  *             list of IP addresses for a private workforce. For more information, see .</p>
  */
 export interface SourceIpConfig {
-  __type?: "SourceIpConfig";
   /**
    * <p>A list of one to ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Classless Inter-Domain Routing</a> (CIDR) values.</p>
    *         <p>Maximum: Ten CIDR values</p>
@@ -19248,7 +18439,6 @@ export namespace SourceIpConfig {
   export const filterSensitiveLog = (obj: SourceIpConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceIpConfig => __isa(o, "SourceIpConfig");
 }
 
 export enum SplitType {
@@ -19259,7 +18449,6 @@ export enum SplitType {
 }
 
 export interface StartMonitoringScheduleRequest {
-  __type?: "StartMonitoringScheduleRequest";
   /**
    * <p>The name of the schedule to start.</p>
    */
@@ -19270,11 +18459,9 @@ export namespace StartMonitoringScheduleRequest {
   export const filterSensitiveLog = (obj: StartMonitoringScheduleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMonitoringScheduleRequest => __isa(o, "StartMonitoringScheduleRequest");
 }
 
 export interface StartNotebookInstanceInput {
-  __type?: "StartNotebookInstanceInput";
   /**
    * <p>The name of the notebook instance to start.</p>
    */
@@ -19285,11 +18472,9 @@ export namespace StartNotebookInstanceInput {
   export const filterSensitiveLog = (obj: StartNotebookInstanceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartNotebookInstanceInput => __isa(o, "StartNotebookInstanceInput");
 }
 
 export interface StopAutoMLJobRequest {
-  __type?: "StopAutoMLJobRequest";
   /**
    * <p>The name of the object you are requesting.</p>
    */
@@ -19300,11 +18485,9 @@ export namespace StopAutoMLJobRequest {
   export const filterSensitiveLog = (obj: StopAutoMLJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopAutoMLJobRequest => __isa(o, "StopAutoMLJobRequest");
 }
 
 export interface StopCompilationJobRequest {
-  __type?: "StopCompilationJobRequest";
   /**
    * <p>The name of the model compilation job to stop.</p>
    */
@@ -19315,11 +18498,9 @@ export namespace StopCompilationJobRequest {
   export const filterSensitiveLog = (obj: StopCompilationJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopCompilationJobRequest => __isa(o, "StopCompilationJobRequest");
 }
 
 export interface StopHyperParameterTuningJobRequest {
-  __type?: "StopHyperParameterTuningJobRequest";
   /**
    * <p>The name of the tuning job to stop.</p>
    */
@@ -19330,12 +18511,9 @@ export namespace StopHyperParameterTuningJobRequest {
   export const filterSensitiveLog = (obj: StopHyperParameterTuningJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopHyperParameterTuningJobRequest =>
-    __isa(o, "StopHyperParameterTuningJobRequest");
 }
 
 export interface StopLabelingJobRequest {
-  __type?: "StopLabelingJobRequest";
   /**
    * <p>The name of the labeling job to stop.</p>
    */
@@ -19346,11 +18524,9 @@ export namespace StopLabelingJobRequest {
   export const filterSensitiveLog = (obj: StopLabelingJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopLabelingJobRequest => __isa(o, "StopLabelingJobRequest");
 }
 
 export interface StopMonitoringScheduleRequest {
-  __type?: "StopMonitoringScheduleRequest";
   /**
    * <p>The name of the schedule to stop.</p>
    */
@@ -19361,11 +18537,9 @@ export namespace StopMonitoringScheduleRequest {
   export const filterSensitiveLog = (obj: StopMonitoringScheduleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopMonitoringScheduleRequest => __isa(o, "StopMonitoringScheduleRequest");
 }
 
 export interface StopNotebookInstanceInput {
-  __type?: "StopNotebookInstanceInput";
   /**
    * <p>The name of the notebook instance to terminate.</p>
    */
@@ -19376,7 +18550,6 @@ export namespace StopNotebookInstanceInput {
   export const filterSensitiveLog = (obj: StopNotebookInstanceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopNotebookInstanceInput => __isa(o, "StopNotebookInstanceInput");
 }
 
 /**
@@ -19400,7 +18573,6 @@ export namespace StopNotebookInstanceInput {
  *         </note>
  */
 export interface StoppingCondition {
-  __type?: "StoppingCondition";
   /**
    * <p>The maximum length of time, in seconds, how long you are willing to wait for a managed
    *             spot training job to complete. It is the amount of time spent waiting for Spot capacity
@@ -19421,11 +18593,9 @@ export namespace StoppingCondition {
   export const filterSensitiveLog = (obj: StoppingCondition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StoppingCondition => __isa(o, "StoppingCondition");
 }
 
 export interface StopProcessingJobRequest {
-  __type?: "StopProcessingJobRequest";
   /**
    * <p>The name of the processing job to stop.</p>
    */
@@ -19436,11 +18606,9 @@ export namespace StopProcessingJobRequest {
   export const filterSensitiveLog = (obj: StopProcessingJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopProcessingJobRequest => __isa(o, "StopProcessingJobRequest");
 }
 
 export interface StopTrainingJobRequest {
-  __type?: "StopTrainingJobRequest";
   /**
    * <p>The name of the training job to stop.</p>
    */
@@ -19451,11 +18619,9 @@ export namespace StopTrainingJobRequest {
   export const filterSensitiveLog = (obj: StopTrainingJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopTrainingJobRequest => __isa(o, "StopTrainingJobRequest");
 }
 
 export interface StopTransformJobRequest {
-  __type?: "StopTransformJobRequest";
   /**
    * <p>The name of the transform job to stop.</p>
    */
@@ -19466,14 +18632,12 @@ export namespace StopTransformJobRequest {
   export const filterSensitiveLog = (obj: StopTransformJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopTransformJobRequest => __isa(o, "StopTransformJobRequest");
 }
 
 /**
  * <p>Describes a work team of a vendor that does the a labelling job.</p>
  */
 export interface SubscribedWorkteam {
-  __type?: "SubscribedWorkteam";
   /**
    * <p>The Amazon Resource Name (ARN) of the vendor that you have subscribed.</p>
    */
@@ -19504,7 +18668,6 @@ export namespace SubscribedWorkteam {
   export const filterSensitiveLog = (obj: SubscribedWorkteam): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscribedWorkteam => __isa(o, "SubscribedWorkteam");
 }
 
 /**
@@ -19512,7 +18675,6 @@ export namespace SubscribedWorkteam {
  *       Limits the property names that are included in the response.</p>
  */
 export interface SuggestionQuery {
-  __type?: "SuggestionQuery";
   /**
    * <p>Defines a property name hint. Only property
    *       names that begin with the specified hint are included in the response.</p>
@@ -19524,14 +18686,12 @@ export namespace SuggestionQuery {
   export const filterSensitiveLog = (obj: SuggestionQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuggestionQuery => __isa(o, "SuggestionQuery");
 }
 
 /**
  * <p>Describes a tag. </p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The tag value.</p>
    */
@@ -19547,7 +18707,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export enum TargetDevice {
@@ -19584,7 +18743,6 @@ export enum TargetDevice {
  *             such as OS, architecture, and accelerators. It is an alternative of <code>TargetDevice</code>.</p>
  */
 export interface TargetPlatform {
-  __type?: "TargetPlatform";
   /**
    * <p>Specifies a target platform OS.</p>
    *         <ul>
@@ -19655,7 +18813,6 @@ export namespace TargetPlatform {
   export const filterSensitiveLog = (obj: TargetPlatform): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetPlatform => __isa(o, "TargetPlatform");
 }
 
 export enum TargetPlatformAccelerator {
@@ -19681,7 +18838,6 @@ export enum TargetPlatformOs {
  * <p>The TensorBoard app settings.</p>
  */
 export interface TensorBoardAppSettings {
-  __type?: "TensorBoardAppSettings";
   /**
    * <p>The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
    */
@@ -19692,14 +18848,12 @@ export namespace TensorBoardAppSettings {
   export const filterSensitiveLog = (obj: TensorBoardAppSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TensorBoardAppSettings => __isa(o, "TensorBoardAppSettings");
 }
 
 /**
  * <p>Configuration of storage locations for TensorBoard output.</p>
  */
 export interface TensorBoardOutputConfig {
-  __type?: "TensorBoardOutputConfig";
   /**
    * <p>Path to Amazon S3 storage location for TensorBoard output.</p>
    */
@@ -19716,7 +18870,6 @@ export namespace TensorBoardOutputConfig {
   export const filterSensitiveLog = (obj: TensorBoardOutputConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TensorBoardOutputConfig => __isa(o, "TensorBoardOutputConfig");
 }
 
 export enum TrainingInputMode {
@@ -19769,7 +18922,6 @@ export enum TrainingInstanceType {
  * <p>Contains information about a training job.</p>
  */
 export interface TrainingJob {
-  __type?: "TrainingJob";
   /**
    * <p>Resources, including ML compute instances and ML storage volumes, that are configured
    *             for model training.</p>
@@ -20123,14 +19275,12 @@ export namespace TrainingJob {
   export const filterSensitiveLog = (obj: TrainingJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrainingJob => __isa(o, "TrainingJob");
 }
 
 /**
  * <p>Defines the input needed to run a training job using the algorithm.</p>
  */
 export interface TrainingJobDefinition {
-  __type?: "TrainingJobDefinition";
   /**
    * <p>The input mode used by the algorithm for the training job. For the input modes that
    *             Amazon SageMaker algorithms support, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
@@ -20178,7 +19328,6 @@ export namespace TrainingJobDefinition {
   export const filterSensitiveLog = (obj: TrainingJobDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrainingJobDefinition => __isa(o, "TrainingJobDefinition");
 }
 
 export enum TrainingJobEarlyStoppingType {
@@ -20206,7 +19355,6 @@ export enum TrainingJobStatus {
  *             status.</p>
  */
 export interface TrainingJobStatusCounters {
-  __type?: "TrainingJobStatusCounters";
   /**
    * <p>The number of training jobs that failed, but can be retried. A failed training job can
    *             be retried only if it failed because an internal service error occurred.</p>
@@ -20243,14 +19391,12 @@ export namespace TrainingJobStatusCounters {
   export const filterSensitiveLog = (obj: TrainingJobStatusCounters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrainingJobStatusCounters => __isa(o, "TrainingJobStatusCounters");
 }
 
 /**
  * <p>Provides summary information about a training job.</p>
  */
 export interface TrainingJobSummary {
-  __type?: "TrainingJobSummary";
   /**
    * <p>The status of the training job.</p>
    */
@@ -20288,14 +19434,12 @@ export namespace TrainingJobSummary {
   export const filterSensitiveLog = (obj: TrainingJobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrainingJobSummary => __isa(o, "TrainingJobSummary");
 }
 
 /**
  * <p>Defines how the algorithm is used for a training job.</p>
  */
 export interface TrainingSpecification {
-  __type?: "TrainingSpecification";
   /**
    * <p>A list of the metrics that the algorithm emits that can be used as the objective
    *             metric in a hyperparameter tuning job.</p>
@@ -20349,14 +19493,12 @@ export namespace TrainingSpecification {
   export const filterSensitiveLog = (obj: TrainingSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrainingSpecification => __isa(o, "TrainingSpecification");
 }
 
 /**
  * <p>Describes the location of the channel data.</p>
  */
 export interface TransformDataSource {
-  __type?: "TransformDataSource";
   /**
    * <p>The S3 location of the data source that is associated with a channel.</p>
    */
@@ -20367,7 +19509,6 @@ export namespace TransformDataSource {
   export const filterSensitiveLog = (obj: TransformDataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransformDataSource => __isa(o, "TransformDataSource");
 }
 
 /**
@@ -20375,7 +19516,6 @@ export namespace TransformDataSource {
  *             it.</p>
  */
 export interface TransformInput {
-  __type?: "TransformInput";
   /**
    * <p>If your transform data
    *             is
@@ -20435,7 +19575,6 @@ export namespace TransformInput {
   export const filterSensitiveLog = (obj: TransformInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransformInput => __isa(o, "TransformInput");
 }
 
 export enum TransformInstanceType {
@@ -20472,7 +19611,6 @@ export enum TransformInstanceType {
  *         Transform</a>.</p>
  */
 export interface TransformJob {
-  __type?: "TransformJob";
   /**
    * <p>Describes the results of a transform job.</p>
    */
@@ -20651,7 +19789,6 @@ export namespace TransformJob {
   export const filterSensitiveLog = (obj: TransformJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransformJob => __isa(o, "TransformJob");
 }
 
 /**
@@ -20659,7 +19796,6 @@ export namespace TransformJob {
  *             specified in the algorithm.</p>
  */
 export interface TransformJobDefinition {
-  __type?: "TransformJobDefinition";
   /**
    * <p>The environment variables to set in the Docker container. We support up to 16 key and
    *             values entries in the map.</p>
@@ -20708,7 +19844,6 @@ export namespace TransformJobDefinition {
   export const filterSensitiveLog = (obj: TransformJobDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransformJobDefinition => __isa(o, "TransformJobDefinition");
 }
 
 export enum TransformJobStatus {
@@ -20726,7 +19861,6 @@ export enum TransformJobStatus {
  *             list after in response to a <a>ListTransformJobs</a> call.</p>
  */
 export interface TransformJobSummary {
-  __type?: "TransformJobSummary";
   /**
    * <p>If the transform job failed,
    *             the
@@ -20775,14 +19909,12 @@ export namespace TransformJobSummary {
   export const filterSensitiveLog = (obj: TransformJobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransformJobSummary => __isa(o, "TransformJobSummary");
 }
 
 /**
  * <p>Describes the results of a transform job.</p>
  */
 export interface TransformOutput {
-  __type?: "TransformOutput";
   /**
    * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using
    *             Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following
@@ -20860,7 +19992,6 @@ export namespace TransformOutput {
   export const filterSensitiveLog = (obj: TransformOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransformOutput => __isa(o, "TransformOutput");
 }
 
 /**
@@ -20868,7 +19999,6 @@ export namespace TransformOutput {
  *             transform job.</p>
  */
 export interface TransformResources {
-  __type?: "TransformResources";
   /**
    * <p>The number of
    *             ML
@@ -20920,14 +20050,12 @@ export namespace TransformResources {
   export const filterSensitiveLog = (obj: TransformResources): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransformResources => __isa(o, "TransformResources");
 }
 
 /**
  * <p>Describes the S3 data source.</p>
  */
 export interface TransformS3DataSource {
-  __type?: "TransformS3DataSource";
   /**
    * <p>Depending on the value specified for the <code>S3DataType</code>, identifies either a
    *             key name prefix or a manifest. For example:</p>
@@ -21000,14 +20128,12 @@ export namespace TransformS3DataSource {
   export const filterSensitiveLog = (obj: TransformS3DataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransformS3DataSource => __isa(o, "TransformS3DataSource");
 }
 
 /**
  * <p>The properties of a trial as returned by the <a>Search</a> API.</p>
  */
 export interface Trial {
-  __type?: "Trial";
   /**
    * <p>The name of the experiment the trial is part of.</p>
    */
@@ -21073,7 +20199,6 @@ export namespace Trial {
   export const filterSensitiveLog = (obj: Trial): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Trial => __isa(o, "Trial");
 }
 
 /**
@@ -21081,7 +20206,6 @@ export namespace Trial {
  *       API.</p>
  */
 export interface TrialComponent {
-  __type?: "TrialComponent";
   /**
    * <p>When the component ended.</p>
    */
@@ -21181,7 +20305,6 @@ export namespace TrialComponent {
   export const filterSensitiveLog = (obj: TrialComponent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrialComponent => __isa(o, "TrialComponent");
 }
 
 /**
@@ -21193,7 +20316,6 @@ export namespace TrialComponent {
  *       instance types. Examples of output artifacts are metrics, snapshots, logs, and images.</p>
  */
 export interface TrialComponentArtifact {
-  __type?: "TrialComponentArtifact";
   /**
    * <p>The location of the artifact.</p>
    */
@@ -21212,14 +20334,12 @@ export namespace TrialComponentArtifact {
   export const filterSensitiveLog = (obj: TrialComponentArtifact): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrialComponentArtifact => __isa(o, "TrialComponentArtifact");
 }
 
 /**
  * <p>A summary of the metrics of a trial component.</p>
  */
 export interface TrialComponentMetricSummary {
-  __type?: "TrialComponentMetricSummary";
   /**
    * <p>When the metric was last updated.</p>
    */
@@ -21270,7 +20390,6 @@ export namespace TrialComponentMetricSummary {
   export const filterSensitiveLog = (obj: TrialComponentMetricSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrialComponentMetricSummary => __isa(o, "TrialComponentMetricSummary");
 }
 
 /**
@@ -21279,7 +20398,6 @@ export namespace TrialComponentMetricSummary {
  *          <p>This object is specified in the <a>CreateTrialComponent</a> request.</p>
  */
 export interface TrialComponentParameterValue {
-  __type?: "TrialComponentParameterValue";
   /**
    * <p>The string value of a categorical hyperparameter. If you specify a value for this
    *       parameter, you can't specify the <code>NumberValue</code> parameter.</p>
@@ -21297,7 +20415,6 @@ export namespace TrialComponentParameterValue {
   export const filterSensitiveLog = (obj: TrialComponentParameterValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrialComponentParameterValue => __isa(o, "TrialComponentParameterValue");
 }
 
 export enum TrialComponentPrimaryStatus {
@@ -21312,7 +20429,6 @@ export enum TrialComponentPrimaryStatus {
  * <p>A short summary of a trial component.</p>
  */
 export interface TrialComponentSimpleSummary {
-  __type?: "TrialComponentSimpleSummary";
   /**
    * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
    */
@@ -21344,14 +20460,12 @@ export namespace TrialComponentSimpleSummary {
   export const filterSensitiveLog = (obj: TrialComponentSimpleSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrialComponentSimpleSummary => __isa(o, "TrialComponentSimpleSummary");
 }
 
 /**
  * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
  */
 export interface TrialComponentSource {
-  __type?: "TrialComponentSource";
   /**
    * <p>The source ARN.</p>
    */
@@ -21367,7 +20481,6 @@ export namespace TrialComponentSource {
   export const filterSensitiveLog = (obj: TrialComponentSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrialComponentSource => __isa(o, "TrialComponentSource");
 }
 
 /**
@@ -21375,7 +20488,6 @@ export namespace TrialComponentSource {
  *         <code>ProcessingJob</code> or <code>TrainingJob</code> is returned.</p>
  */
 export interface TrialComponentSourceDetail {
-  __type?: "TrialComponentSourceDetail";
   /**
    * <p>Information about a processing job that's the source of a trial component.</p>
    */
@@ -21401,14 +20513,12 @@ export namespace TrialComponentSourceDetail {
   export const filterSensitiveLog = (obj: TrialComponentSourceDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrialComponentSourceDetail => __isa(o, "TrialComponentSourceDetail");
 }
 
 /**
  * <p>The status of the trial component.</p>
  */
 export interface TrialComponentStatus {
-  __type?: "TrialComponentStatus";
   /**
    * <p>The status of the trial component.</p>
    */
@@ -21424,7 +20534,6 @@ export namespace TrialComponentStatus {
   export const filterSensitiveLog = (obj: TrialComponentStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrialComponentStatus => __isa(o, "TrialComponentStatus");
 }
 
 /**
@@ -21433,7 +20542,6 @@ export namespace TrialComponentStatus {
  *       <code>TrialComponentName</code>.</p>
  */
 export interface TrialComponentSummary {
-  __type?: "TrialComponentSummary";
   /**
    * <p>The status of the component. States include:</p>
    *          <ul>
@@ -21506,14 +20614,12 @@ export namespace TrialComponentSummary {
   export const filterSensitiveLog = (obj: TrialComponentSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrialComponentSummary => __isa(o, "TrialComponentSummary");
 }
 
 /**
  * <p>The source of the trial.</p>
  */
 export interface TrialSource {
-  __type?: "TrialSource";
   /**
    * <p>The source job type.</p>
    */
@@ -21529,7 +20635,6 @@ export namespace TrialSource {
   export const filterSensitiveLog = (obj: TrialSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrialSource => __isa(o, "TrialSource");
 }
 
 /**
@@ -21537,7 +20642,6 @@ export namespace TrialSource {
  *         <a>DescribeTrial</a> API and provide the <code>TrialName</code>.</p>
  */
 export interface TrialSummary {
-  __type?: "TrialSummary";
   /**
    * <p>The name of the trial.</p>
    */
@@ -21574,14 +20678,12 @@ export namespace TrialSummary {
   export const filterSensitiveLog = (obj: TrialSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrialSummary => __isa(o, "TrialSummary");
 }
 
 /**
  * <p>The job completion criteria.</p>
  */
 export interface TuningJobCompletionCriteria {
-  __type?: "TuningJobCompletionCriteria";
   /**
    * <p>The objective metric's value.</p>
    */
@@ -21592,14 +20694,12 @@ export namespace TuningJobCompletionCriteria {
   export const filterSensitiveLog = (obj: TuningJobCompletionCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TuningJobCompletionCriteria => __isa(o, "TuningJobCompletionCriteria");
 }
 
 /**
  * <p>Provided configuration information for the worker UI for a labeling job. </p>
  */
 export interface UiConfig {
-  __type?: "UiConfig";
   /**
    * <p>The ARN of the worker task template used to render the worker UI and tools for
    *             labeling job tasks.</p>
@@ -21681,14 +20781,12 @@ export namespace UiConfig {
   export const filterSensitiveLog = (obj: UiConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UiConfig => __isa(o, "UiConfig");
 }
 
 /**
  * <p>The Liquid template for the worker user interface.</p>
  */
 export interface UiTemplate {
-  __type?: "UiTemplate";
   /**
    * <p>The content of the Liquid template for the worker user interface.</p>
    */
@@ -21699,14 +20797,12 @@ export namespace UiTemplate {
   export const filterSensitiveLog = (obj: UiTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UiTemplate => __isa(o, "UiTemplate");
 }
 
 /**
  * <p>Container for user interface template information.</p>
  */
 export interface UiTemplateInfo {
-  __type?: "UiTemplateInfo";
   /**
    * <p>The SHA-256 digest of the contents of the template.</p>
    */
@@ -21722,11 +20818,9 @@ export namespace UiTemplateInfo {
   export const filterSensitiveLog = (obj: UiTemplateInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UiTemplateInfo => __isa(o, "UiTemplateInfo");
 }
 
 export interface UpdateCodeRepositoryInput {
-  __type?: "UpdateCodeRepositoryInput";
   /**
    * <p>The name of the Git repository to update.</p>
    */
@@ -21749,11 +20843,9 @@ export namespace UpdateCodeRepositoryInput {
   export const filterSensitiveLog = (obj: UpdateCodeRepositoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCodeRepositoryInput => __isa(o, "UpdateCodeRepositoryInput");
 }
 
 export interface UpdateCodeRepositoryOutput {
-  __type?: "UpdateCodeRepositoryOutput";
   /**
    * <p>The ARN of the Git repository.</p>
    */
@@ -21764,11 +20856,9 @@ export namespace UpdateCodeRepositoryOutput {
   export const filterSensitiveLog = (obj: UpdateCodeRepositoryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCodeRepositoryOutput => __isa(o, "UpdateCodeRepositoryOutput");
 }
 
 export interface UpdateDomainRequest {
-  __type?: "UpdateDomainRequest";
   /**
    * <p>The ID of the domain to be updated.</p>
    */
@@ -21784,11 +20874,9 @@ export namespace UpdateDomainRequest {
   export const filterSensitiveLog = (obj: UpdateDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainRequest => __isa(o, "UpdateDomainRequest");
 }
 
 export interface UpdateDomainResponse {
-  __type?: "UpdateDomainResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the domain.</p>
    */
@@ -21799,11 +20887,9 @@ export namespace UpdateDomainResponse {
   export const filterSensitiveLog = (obj: UpdateDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainResponse => __isa(o, "UpdateDomainResponse");
 }
 
 export interface UpdateEndpointInput {
-  __type?: "UpdateEndpointInput";
   /**
    * <p>The name of the new endpoint configuration.</p>
    */
@@ -21839,11 +20925,9 @@ export namespace UpdateEndpointInput {
   export const filterSensitiveLog = (obj: UpdateEndpointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointInput => __isa(o, "UpdateEndpointInput");
 }
 
 export interface UpdateEndpointOutput {
-  __type?: "UpdateEndpointOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
    */
@@ -21854,11 +20938,9 @@ export namespace UpdateEndpointOutput {
   export const filterSensitiveLog = (obj: UpdateEndpointOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointOutput => __isa(o, "UpdateEndpointOutput");
 }
 
 export interface UpdateEndpointWeightsAndCapacitiesInput {
-  __type?: "UpdateEndpointWeightsAndCapacitiesInput";
   /**
    * <p>The name of an existing Amazon SageMaker endpoint.</p>
    */
@@ -21874,12 +20956,9 @@ export namespace UpdateEndpointWeightsAndCapacitiesInput {
   export const filterSensitiveLog = (obj: UpdateEndpointWeightsAndCapacitiesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointWeightsAndCapacitiesInput =>
-    __isa(o, "UpdateEndpointWeightsAndCapacitiesInput");
 }
 
 export interface UpdateEndpointWeightsAndCapacitiesOutput {
-  __type?: "UpdateEndpointWeightsAndCapacitiesOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
    */
@@ -21890,12 +20969,9 @@ export namespace UpdateEndpointWeightsAndCapacitiesOutput {
   export const filterSensitiveLog = (obj: UpdateEndpointWeightsAndCapacitiesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEndpointWeightsAndCapacitiesOutput =>
-    __isa(o, "UpdateEndpointWeightsAndCapacitiesOutput");
 }
 
 export interface UpdateExperimentRequest {
-  __type?: "UpdateExperimentRequest";
   /**
    * <p>The description of the experiment.</p>
    */
@@ -21917,11 +20993,9 @@ export namespace UpdateExperimentRequest {
   export const filterSensitiveLog = (obj: UpdateExperimentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateExperimentRequest => __isa(o, "UpdateExperimentRequest");
 }
 
 export interface UpdateExperimentResponse {
-  __type?: "UpdateExperimentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the experiment.</p>
    */
@@ -21932,11 +21006,9 @@ export namespace UpdateExperimentResponse {
   export const filterSensitiveLog = (obj: UpdateExperimentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateExperimentResponse => __isa(o, "UpdateExperimentResponse");
 }
 
 export interface UpdateMonitoringScheduleRequest {
-  __type?: "UpdateMonitoringScheduleRequest";
   /**
    * <p>The name of the monitoring schedule. The name must be unique within an AWS Region within
    *          an AWS account.</p>
@@ -21954,11 +21026,9 @@ export namespace UpdateMonitoringScheduleRequest {
   export const filterSensitiveLog = (obj: UpdateMonitoringScheduleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMonitoringScheduleRequest => __isa(o, "UpdateMonitoringScheduleRequest");
 }
 
 export interface UpdateMonitoringScheduleResponse {
-  __type?: "UpdateMonitoringScheduleResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
    */
@@ -21969,11 +21039,9 @@ export namespace UpdateMonitoringScheduleResponse {
   export const filterSensitiveLog = (obj: UpdateMonitoringScheduleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMonitoringScheduleResponse => __isa(o, "UpdateMonitoringScheduleResponse");
 }
 
 export interface UpdateNotebookInstanceInput {
-  __type?: "UpdateNotebookInstanceInput";
   /**
    * <p>A list of the Elastic Inference (EI) instance types to remove from this notebook
    *             instance. This operation is idempotent. If you specify an accelerator type that is not
@@ -22086,11 +21154,9 @@ export namespace UpdateNotebookInstanceInput {
   export const filterSensitiveLog = (obj: UpdateNotebookInstanceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNotebookInstanceInput => __isa(o, "UpdateNotebookInstanceInput");
 }
 
 export interface UpdateNotebookInstanceLifecycleConfigInput {
-  __type?: "UpdateNotebookInstanceLifecycleConfigInput";
   /**
    * <p>The shell script that runs every time you start a notebook instance, including when
    *             you create the notebook instance. The shell script must be a base64-encoded
@@ -22114,35 +21180,25 @@ export namespace UpdateNotebookInstanceLifecycleConfigInput {
   export const filterSensitiveLog = (obj: UpdateNotebookInstanceLifecycleConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNotebookInstanceLifecycleConfigInput =>
-    __isa(o, "UpdateNotebookInstanceLifecycleConfigInput");
 }
 
-export interface UpdateNotebookInstanceLifecycleConfigOutput {
-  __type?: "UpdateNotebookInstanceLifecycleConfigOutput";
-}
+export interface UpdateNotebookInstanceLifecycleConfigOutput {}
 
 export namespace UpdateNotebookInstanceLifecycleConfigOutput {
   export const filterSensitiveLog = (obj: UpdateNotebookInstanceLifecycleConfigOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNotebookInstanceLifecycleConfigOutput =>
-    __isa(o, "UpdateNotebookInstanceLifecycleConfigOutput");
 }
 
-export interface UpdateNotebookInstanceOutput {
-  __type?: "UpdateNotebookInstanceOutput";
-}
+export interface UpdateNotebookInstanceOutput {}
 
 export namespace UpdateNotebookInstanceOutput {
   export const filterSensitiveLog = (obj: UpdateNotebookInstanceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNotebookInstanceOutput => __isa(o, "UpdateNotebookInstanceOutput");
 }
 
 export interface UpdateTrialComponentRequest {
-  __type?: "UpdateTrialComponentRequest";
   /**
    * <p>Replaces all of the component's hyperparameters with the specified hyperparameters.</p>
    */
@@ -22205,11 +21261,9 @@ export namespace UpdateTrialComponentRequest {
   export const filterSensitiveLog = (obj: UpdateTrialComponentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTrialComponentRequest => __isa(o, "UpdateTrialComponentRequest");
 }
 
 export interface UpdateTrialComponentResponse {
-  __type?: "UpdateTrialComponentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
    */
@@ -22220,11 +21274,9 @@ export namespace UpdateTrialComponentResponse {
   export const filterSensitiveLog = (obj: UpdateTrialComponentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTrialComponentResponse => __isa(o, "UpdateTrialComponentResponse");
 }
 
 export interface UpdateTrialRequest {
-  __type?: "UpdateTrialRequest";
   /**
    * <p>The name of the trial to update.</p>
    */
@@ -22241,11 +21293,9 @@ export namespace UpdateTrialRequest {
   export const filterSensitiveLog = (obj: UpdateTrialRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTrialRequest => __isa(o, "UpdateTrialRequest");
 }
 
 export interface UpdateTrialResponse {
-  __type?: "UpdateTrialResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
    */
@@ -22256,11 +21306,9 @@ export namespace UpdateTrialResponse {
   export const filterSensitiveLog = (obj: UpdateTrialResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTrialResponse => __isa(o, "UpdateTrialResponse");
 }
 
 export interface UpdateUserProfileRequest {
-  __type?: "UpdateUserProfileRequest";
   /**
    * <p>The domain ID.</p>
    */
@@ -22281,11 +21329,9 @@ export namespace UpdateUserProfileRequest {
   export const filterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserProfileRequest => __isa(o, "UpdateUserProfileRequest");
 }
 
 export interface UpdateUserProfileResponse {
-  __type?: "UpdateUserProfileResponse";
   /**
    * <p>The user profile Amazon Resource Name (ARN).</p>
    */
@@ -22296,11 +21342,9 @@ export namespace UpdateUserProfileResponse {
   export const filterSensitiveLog = (obj: UpdateUserProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserProfileResponse => __isa(o, "UpdateUserProfileResponse");
 }
 
 export interface UpdateWorkforceRequest {
-  __type?: "UpdateWorkforceRequest";
   /**
    * <p>Use this parameter to update your OIDC Identity Provider (IdP)
    *       configuration for a workforce made using your own IdP.</p>
@@ -22327,11 +21371,9 @@ export namespace UpdateWorkforceRequest {
     ...obj,
     ...(obj.OidcConfig && { OidcConfig: OidcConfig.filterSensitiveLog(obj.OidcConfig) }),
   });
-  export const isa = (o: any): o is UpdateWorkforceRequest => __isa(o, "UpdateWorkforceRequest");
 }
 
 export interface UpdateWorkforceResponse {
-  __type?: "UpdateWorkforceResponse";
   /**
    * <p>A single private workforce, which is automatically created when you create your first
    *             private work team. You can create one private work force in each AWS Region. By default,
@@ -22345,11 +21387,9 @@ export namespace UpdateWorkforceResponse {
   export const filterSensitiveLog = (obj: UpdateWorkforceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWorkforceResponse => __isa(o, "UpdateWorkforceResponse");
 }
 
 export interface UpdateWorkteamRequest {
-  __type?: "UpdateWorkteamRequest";
   /**
    * <p>A list of <code>MemberDefinition</code> objects that contain the updated work team
    *             members.</p>
@@ -22376,11 +21416,9 @@ export namespace UpdateWorkteamRequest {
   export const filterSensitiveLog = (obj: UpdateWorkteamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWorkteamRequest => __isa(o, "UpdateWorkteamRequest");
 }
 
 export interface UpdateWorkteamResponse {
-  __type?: "UpdateWorkteamResponse";
   /**
    * <p>A <code>Workteam</code> object that describes the updated work team.</p>
    */
@@ -22391,14 +21429,12 @@ export namespace UpdateWorkteamResponse {
   export const filterSensitiveLog = (obj: UpdateWorkteamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWorkteamResponse => __isa(o, "UpdateWorkteamResponse");
 }
 
 /**
  * <p>Represents an amount of money in United States dollars/</p>
  */
 export interface USD {
-  __type?: "USD";
   /**
    * <p>The whole number of dollars in the amount.</p>
    */
@@ -22419,7 +21455,6 @@ export namespace USD {
   export const filterSensitiveLog = (obj: USD): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is USD => __isa(o, "USD");
 }
 
 /**
@@ -22427,7 +21462,6 @@ export namespace USD {
  *       component.</p>
  */
 export interface UserContext {
-  __type?: "UserContext";
   /**
    * <p>The domain associated with the user.</p>
    */
@@ -22448,14 +21482,12 @@ export namespace UserContext {
   export const filterSensitiveLog = (obj: UserContext): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserContext => __isa(o, "UserContext");
 }
 
 /**
  * <p>The user profile details.</p>
  */
 export interface UserProfileDetails {
-  __type?: "UserProfileDetails";
   /**
    * <p>The user profile name.</p>
    */
@@ -22486,7 +21518,6 @@ export namespace UserProfileDetails {
   export const filterSensitiveLog = (obj: UserProfileDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserProfileDetails => __isa(o, "UserProfileDetails");
 }
 
 export enum UserProfileSortKey {
@@ -22505,7 +21536,6 @@ export enum UserProfileStatus {
  * <p>A collection of settings.</p>
  */
 export interface UserSettings {
-  __type?: "UserSettings";
   /**
    * <p>The execution role for the user.</p>
    */
@@ -22541,7 +21571,6 @@ export namespace UserSettings {
   export const filterSensitiveLog = (obj: UserSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserSettings => __isa(o, "UserSettings");
 }
 
 /**
@@ -22551,7 +21580,6 @@ export namespace UserSettings {
  *             existing variant properties of the endpoint.</p>
  */
 export interface VariantProperty {
-  __type?: "VariantProperty";
   /**
    * <p>The type of variant property. The supported values are:</p>
    *         <ul>
@@ -22579,7 +21607,6 @@ export namespace VariantProperty {
   export const filterSensitiveLog = (obj: VariantProperty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VariantProperty => __isa(o, "VariantProperty");
 }
 
 export enum VariantPropertyType {
@@ -22595,7 +21622,6 @@ export enum VariantPropertyType {
  *                 by Using an Amazon Virtual Private Cloud</a>. </p>
  */
 export interface VpcConfig {
-  __type?: "VpcConfig";
   /**
    * <p>The ID of the subnets in the VPC to which you want to connect your training job or
    *             model. For information about the availability of specific instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html">Supported
@@ -22614,7 +21640,6 @@ export namespace VpcConfig {
   export const filterSensitiveLog = (obj: VpcConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfig => __isa(o, "VpcConfig");
 }
 
 /**
@@ -22624,7 +21649,6 @@ export namespace VpcConfig {
  *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
  */
 export interface Workforce {
-  __type?: "Workforce";
   /**
    * <p>The configuration of an OIDC Identity Provider (IdP) private workforce.</p>
    */
@@ -22676,14 +21700,12 @@ export namespace Workforce {
   export const filterSensitiveLog = (obj: Workforce): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Workforce => __isa(o, "Workforce");
 }
 
 /**
  * <p>Provides details about a labeling work team.</p>
  */
 export interface Workteam {
-  __type?: "Workteam";
   /**
    * <p>The date and time that the work team was last updated (timestamp).</p>
    */
@@ -22741,5 +21763,4 @@ export namespace Workteam {
   export const filterSensitiveLog = (obj: Workteam): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Workteam => __isa(o, "Workteam");
 }

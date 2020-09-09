@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p></p>
  */
 export interface AbortEnvironmentUpdateMessage {
-  __type?: "AbortEnvironmentUpdateMessage";
   /**
    * <p>This specifies the ID of the environment with the in-progress update that you want to
    *       cancel.</p>
@@ -23,7 +22,6 @@ export namespace AbortEnvironmentUpdateMessage {
   export const filterSensitiveLog = (obj: AbortEnvironmentUpdateMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AbortEnvironmentUpdateMessage => __isa(o, "AbortEnvironmentUpdateMessage");
 }
 
 export type ActionHistoryStatus = "Completed" | "Failed" | "Unknown";
@@ -36,7 +34,6 @@ export type ActionType = "InstanceRefresh" | "PlatformUpdate" | "Unknown";
  * <p>Describes the properties of an application.</p>
  */
 export interface ApplicationDescription {
-  __type?: "ApplicationDescription";
   /**
    * <p>The name of the application.</p>
    */
@@ -82,14 +79,12 @@ export namespace ApplicationDescription {
   export const filterSensitiveLog = (obj: ApplicationDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationDescription => __isa(o, "ApplicationDescription");
 }
 
 /**
  * <p>Result message containing a single description of an application.</p>
  */
 export interface ApplicationDescriptionMessage {
-  __type?: "ApplicationDescriptionMessage";
   /**
    * <p> The <a>ApplicationDescription</a> of the application. </p>
    */
@@ -100,14 +95,12 @@ export namespace ApplicationDescriptionMessage {
   export const filterSensitiveLog = (obj: ApplicationDescriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationDescriptionMessage => __isa(o, "ApplicationDescriptionMessage");
 }
 
 /**
  * <p>Result message containing a list of application descriptions.</p>
  */
 export interface ApplicationDescriptionsMessage {
-  __type?: "ApplicationDescriptionsMessage";
   /**
    * <p>This parameter contains a list of <a>ApplicationDescription</a>.</p>
    */
@@ -118,14 +111,12 @@ export namespace ApplicationDescriptionsMessage {
   export const filterSensitiveLog = (obj: ApplicationDescriptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationDescriptionsMessage => __isa(o, "ApplicationDescriptionsMessage");
 }
 
 /**
  * <p>Application request metrics for an AWS Elastic Beanstalk environment.</p>
  */
 export interface ApplicationMetrics {
-  __type?: "ApplicationMetrics";
   /**
    * <p>Represents the average latency for the slowest X percent of requests over the last 10
    *       seconds. Latencies are in seconds with one millisecond resolution.</p>
@@ -156,7 +147,6 @@ export namespace ApplicationMetrics {
   export const filterSensitiveLog = (obj: ApplicationMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationMetrics => __isa(o, "ApplicationMetrics");
 }
 
 /**
@@ -166,7 +156,6 @@ export namespace ApplicationMetrics {
  *       settings for application versions.</p>
  */
 export interface ApplicationResourceLifecycleConfig {
-  __type?: "ApplicationResourceLifecycleConfig";
   /**
    * <p>The ARN of an IAM service role that Elastic Beanstalk has permission to
    *       assume.</p>
@@ -190,12 +179,9 @@ export namespace ApplicationResourceLifecycleConfig {
   export const filterSensitiveLog = (obj: ApplicationResourceLifecycleConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationResourceLifecycleConfig =>
-    __isa(o, "ApplicationResourceLifecycleConfig");
 }
 
 export interface ApplicationResourceLifecycleDescriptionMessage {
-  __type?: "ApplicationResourceLifecycleDescriptionMessage";
   /**
    * <p>The name of the application.</p>
    */
@@ -211,15 +197,12 @@ export namespace ApplicationResourceLifecycleDescriptionMessage {
   export const filterSensitiveLog = (obj: ApplicationResourceLifecycleDescriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationResourceLifecycleDescriptionMessage =>
-    __isa(o, "ApplicationResourceLifecycleDescriptionMessage");
 }
 
 /**
  * <p>Describes the properties of an application version.</p>
  */
 export interface ApplicationVersionDescription {
-  __type?: "ApplicationVersionDescription";
   /**
    * <p>The storage location of the application version's source bundle in Amazon S3.</p>
    */
@@ -305,14 +288,12 @@ export namespace ApplicationVersionDescription {
   export const filterSensitiveLog = (obj: ApplicationVersionDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationVersionDescription => __isa(o, "ApplicationVersionDescription");
 }
 
 /**
  * <p>Result message wrapping a single description of an application version.</p>
  */
 export interface ApplicationVersionDescriptionMessage {
-  __type?: "ApplicationVersionDescriptionMessage";
   /**
    * <p> The <a>ApplicationVersionDescription</a> of the application version.
    *     </p>
@@ -324,15 +305,12 @@ export namespace ApplicationVersionDescriptionMessage {
   export const filterSensitiveLog = (obj: ApplicationVersionDescriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationVersionDescriptionMessage =>
-    __isa(o, "ApplicationVersionDescriptionMessage");
 }
 
 /**
  * <p>Result message wrapping a list of application version descriptions.</p>
  */
 export interface ApplicationVersionDescriptionsMessage {
-  __type?: "ApplicationVersionDescriptionsMessage";
   /**
    * <p>List of <code>ApplicationVersionDescription</code> objects sorted in order of
    *       creation.</p>
@@ -350,8 +328,6 @@ export namespace ApplicationVersionDescriptionsMessage {
   export const filterSensitiveLog = (obj: ApplicationVersionDescriptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationVersionDescriptionsMessage =>
-    __isa(o, "ApplicationVersionDescriptionsMessage");
 }
 
 /**
@@ -363,7 +339,6 @@ export namespace ApplicationVersionDescriptionsMessage {
  *       configure the rule to delete it.</p>
  */
 export interface ApplicationVersionLifecycleConfig {
-  __type?: "ApplicationVersionLifecycleConfig";
   /**
    * <p>Specify a max count rule to restrict the number of application versions that are
    *       retained for an application.</p>
@@ -381,7 +356,6 @@ export namespace ApplicationVersionLifecycleConfig {
   export const filterSensitiveLog = (obj: ApplicationVersionLifecycleConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationVersionLifecycleConfig => __isa(o, "ApplicationVersionLifecycleConfig");
 }
 
 export type ApplicationVersionStatus = "Building" | "Failed" | "Processed" | "Processing" | "Unprocessed";
@@ -390,7 +364,6 @@ export type ApplicationVersionStatus = "Building" | "Failed" | "Processed" | "Pr
  * <p>Request to execute a scheduled managed action immediately.</p>
  */
 export interface ApplyEnvironmentManagedActionRequest {
-  __type?: "ApplyEnvironmentManagedActionRequest";
   /**
    * <p>The environment ID of the target environment.</p>
    */
@@ -411,15 +384,12 @@ export namespace ApplyEnvironmentManagedActionRequest {
   export const filterSensitiveLog = (obj: ApplyEnvironmentManagedActionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplyEnvironmentManagedActionRequest =>
-    __isa(o, "ApplyEnvironmentManagedActionRequest");
 }
 
 /**
  * <p>The result message containing information about the managed action.</p>
  */
 export interface ApplyEnvironmentManagedActionResult {
-  __type?: "ApplyEnvironmentManagedActionResult";
   /**
    * <p>The status of the managed action.</p>
    */
@@ -445,15 +415,12 @@ export namespace ApplyEnvironmentManagedActionResult {
   export const filterSensitiveLog = (obj: ApplyEnvironmentManagedActionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplyEnvironmentManagedActionResult =>
-    __isa(o, "ApplyEnvironmentManagedActionResult");
 }
 
 /**
  * <p>Request to add or change the operations role used by an environment.</p>
  */
 export interface AssociateEnvironmentOperationsRoleMessage {
-  __type?: "AssociateEnvironmentOperationsRoleMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's
    *       operations role.</p>
@@ -470,15 +437,12 @@ export namespace AssociateEnvironmentOperationsRoleMessage {
   export const filterSensitiveLog = (obj: AssociateEnvironmentOperationsRoleMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateEnvironmentOperationsRoleMessage =>
-    __isa(o, "AssociateEnvironmentOperationsRoleMessage");
 }
 
 /**
  * <p>Describes an Auto Scaling launch configuration.</p>
  */
 export interface AutoScalingGroup {
-  __type?: "AutoScalingGroup";
   /**
    * <p>The name of the <code>AutoScalingGroup</code> . </p>
    */
@@ -489,14 +453,12 @@ export namespace AutoScalingGroup {
   export const filterSensitiveLog = (obj: AutoScalingGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingGroup => __isa(o, "AutoScalingGroup");
 }
 
 /**
  * <p>Settings for an AWS CodeBuild build.</p>
  */
 export interface BuildConfiguration {
-  __type?: "BuildConfiguration";
   /**
    * <p>How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.</p>
    */
@@ -549,14 +511,12 @@ export namespace BuildConfiguration {
   export const filterSensitiveLog = (obj: BuildConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BuildConfiguration => __isa(o, "BuildConfiguration");
 }
 
 /**
  * <p>The builder used to build the custom platform.</p>
  */
 export interface Builder {
-  __type?: "Builder";
   /**
    * <p>The ARN of the builder.</p>
    */
@@ -567,14 +527,12 @@ export namespace Builder {
   export const filterSensitiveLog = (obj: Builder): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Builder => __isa(o, "Builder");
 }
 
 /**
  * <p>Results message indicating whether a CNAME is available.</p>
  */
 export interface CheckDNSAvailabilityMessage {
-  __type?: "CheckDNSAvailabilityMessage";
   /**
    * <p>The prefix used when this CNAME is reserved.</p>
    */
@@ -585,14 +543,12 @@ export namespace CheckDNSAvailabilityMessage {
   export const filterSensitiveLog = (obj: CheckDNSAvailabilityMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CheckDNSAvailabilityMessage => __isa(o, "CheckDNSAvailabilityMessage");
 }
 
 /**
  * <p>Indicates if the specified CNAME is available.</p>
  */
 export interface CheckDNSAvailabilityResultMessage {
-  __type?: "CheckDNSAvailabilityResultMessage";
   /**
    * <p>Indicates if the specified CNAME is available:</p>
    *          <ul>
@@ -619,7 +575,6 @@ export namespace CheckDNSAvailabilityResultMessage {
   export const filterSensitiveLog = (obj: CheckDNSAvailabilityResultMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CheckDNSAvailabilityResultMessage => __isa(o, "CheckDNSAvailabilityResultMessage");
 }
 
 /**
@@ -638,15 +593,12 @@ export namespace CodeBuildNotInServiceRegionException {
   export const filterSensitiveLog = (obj: CodeBuildNotInServiceRegionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeBuildNotInServiceRegionException =>
-    __isa(o, "CodeBuildNotInServiceRegionException");
 }
 
 /**
  * <p>Request to create or update a group of environments.</p>
  */
 export interface ComposeEnvironmentsMessage {
-  __type?: "ComposeEnvironmentsMessage";
   /**
    * <p>A list of version labels, specifying one or more application source bundles that belong
    *       to the target application. Each source bundle must include an environment manifest that
@@ -673,7 +625,6 @@ export namespace ComposeEnvironmentsMessage {
   export const filterSensitiveLog = (obj: ComposeEnvironmentsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComposeEnvironmentsMessage => __isa(o, "ComposeEnvironmentsMessage");
 }
 
 export enum ComputeType {
@@ -688,7 +639,6 @@ export type ConfigurationDeploymentStatus = "deployed" | "failed" | "pending";
  * <p>Describes the possible values for a configuration option.</p>
  */
 export interface ConfigurationOptionDescription {
-  __type?: "ConfigurationOptionDescription";
   /**
    * <p>An indication of which action is required if the value for this configuration option
    *       changes:</p>
@@ -813,14 +763,12 @@ export namespace ConfigurationOptionDescription {
   export const filterSensitiveLog = (obj: ConfigurationOptionDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationOptionDescription => __isa(o, "ConfigurationOptionDescription");
 }
 
 /**
  * <p>Describes the settings for a specified configuration set.</p>
  */
 export interface ConfigurationOptionsDescription {
-  __type?: "ConfigurationOptionsDescription";
   /**
    * <p>The name of the solution stack these configuration options belong to.</p>
    */
@@ -841,7 +789,6 @@ export namespace ConfigurationOptionsDescription {
   export const filterSensitiveLog = (obj: ConfigurationOptionsDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationOptionsDescription => __isa(o, "ConfigurationOptionsDescription");
 }
 
 /**
@@ -850,7 +797,6 @@ export namespace ConfigurationOptionsDescription {
  *       <i>AWS Elastic Beanstalk Developer Guide</i>. </p>
  */
 export interface ConfigurationOptionSetting {
-  __type?: "ConfigurationOptionSetting";
   /**
    * <p>The name of the configuration option.</p>
    */
@@ -876,7 +822,6 @@ export namespace ConfigurationOptionSetting {
   export const filterSensitiveLog = (obj: ConfigurationOptionSetting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationOptionSetting => __isa(o, "ConfigurationOptionSetting");
 }
 
 export type ConfigurationOptionValueType = "List" | "Scalar";
@@ -885,7 +830,6 @@ export type ConfigurationOptionValueType = "List" | "Scalar";
  * <p>Describes the settings for a configuration set.</p>
  */
 export interface ConfigurationSettingsDescription {
-  __type?: "ConfigurationSettingsDescription";
   /**
    * <p>The name of the application associated with this configuration set.</p>
    */
@@ -968,7 +912,6 @@ export namespace ConfigurationSettingsDescription {
   export const filterSensitiveLog = (obj: ConfigurationSettingsDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationSettingsDescription => __isa(o, "ConfigurationSettingsDescription");
 }
 
 /**
@@ -976,7 +919,6 @@ export namespace ConfigurationSettingsDescription {
  *       environment.</p>
  */
 export interface ConfigurationSettingsDescriptions {
-  __type?: "ConfigurationSettingsDescriptions";
   /**
    * <p> A list of <a>ConfigurationSettingsDescription</a>. </p>
    */
@@ -987,14 +929,12 @@ export namespace ConfigurationSettingsDescriptions {
   export const filterSensitiveLog = (obj: ConfigurationSettingsDescriptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationSettingsDescriptions => __isa(o, "ConfigurationSettingsDescriptions");
 }
 
 /**
  * <p>Provides a list of validation messages.</p>
  */
 export interface ConfigurationSettingsValidationMessages {
-  __type?: "ConfigurationSettingsValidationMessages";
   /**
    * <p> A list of <a>ValidationMessage</a>. </p>
    */
@@ -1005,15 +945,12 @@ export namespace ConfigurationSettingsValidationMessages {
   export const filterSensitiveLog = (obj: ConfigurationSettingsValidationMessages): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationSettingsValidationMessages =>
-    __isa(o, "ConfigurationSettingsValidationMessages");
 }
 
 /**
  * <p>CPU utilization metrics for an instance.</p>
  */
 export interface CPUUtilization {
-  __type?: "CPUUtilization";
   /**
    * <p>Percentage of time that the CPU has spent in the <code>Idle</code> state over the last
    *       10 seconds.</p>
@@ -1073,14 +1010,12 @@ export namespace CPUUtilization {
   export const filterSensitiveLog = (obj: CPUUtilization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CPUUtilization => __isa(o, "CPUUtilization");
 }
 
 /**
  * <p>Request to create an application.</p>
  */
 export interface CreateApplicationMessage {
-  __type?: "CreateApplicationMessage";
   /**
    * <p>Specifies an application resource lifecycle configuration to prevent your application
    *       from accumulating too many versions.</p>
@@ -1109,14 +1044,12 @@ export namespace CreateApplicationMessage {
   export const filterSensitiveLog = (obj: CreateApplicationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationMessage => __isa(o, "CreateApplicationMessage");
 }
 
 /**
  * <p></p>
  */
 export interface CreateApplicationVersionMessage {
-  __type?: "CreateApplicationVersionMessage";
   /**
    * <p>A description of this application version.</p>
    */
@@ -1196,14 +1129,12 @@ export namespace CreateApplicationVersionMessage {
   export const filterSensitiveLog = (obj: CreateApplicationVersionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationVersionMessage => __isa(o, "CreateApplicationVersionMessage");
 }
 
 /**
  * <p>Request to create a configuration template.</p>
  */
 export interface CreateConfigurationTemplateMessage {
-  __type?: "CreateConfigurationTemplateMessage";
   /**
    * <p>Specifies the tags applied to the configuration template.</p>
    */
@@ -1289,15 +1220,12 @@ export namespace CreateConfigurationTemplateMessage {
   export const filterSensitiveLog = (obj: CreateConfigurationTemplateMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationTemplateMessage =>
-    __isa(o, "CreateConfigurationTemplateMessage");
 }
 
 /**
  * <p></p>
  */
 export interface CreateEnvironmentMessage {
-  __type?: "CreateEnvironmentMessage";
   /**
    * <p>If specified, AWS Elastic Beanstalk sets the specified configuration options to the
    *       requested value in the configuration set for the new environment. These override the values
@@ -1413,14 +1341,12 @@ export namespace CreateEnvironmentMessage {
   export const filterSensitiveLog = (obj: CreateEnvironmentMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEnvironmentMessage => __isa(o, "CreateEnvironmentMessage");
 }
 
 /**
  * <p>Request to create a new platform version.</p>
  */
 export interface CreatePlatformVersionRequest {
-  __type?: "CreatePlatformVersionRequest";
   /**
    * <p>The number, such as 1.0.2, for the new platform version.</p>
    */
@@ -1458,11 +1384,9 @@ export namespace CreatePlatformVersionRequest {
   export const filterSensitiveLog = (obj: CreatePlatformVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePlatformVersionRequest => __isa(o, "CreatePlatformVersionRequest");
 }
 
 export interface CreatePlatformVersionResult {
-  __type?: "CreatePlatformVersionResult";
   /**
    * <p>Detailed information about the new version of the custom platform.</p>
    */
@@ -1478,14 +1402,12 @@ export namespace CreatePlatformVersionResult {
   export const filterSensitiveLog = (obj: CreatePlatformVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePlatformVersionResult => __isa(o, "CreatePlatformVersionResult");
 }
 
 /**
  * <p>Results of a <a>CreateStorageLocationResult</a> call.</p>
  */
 export interface CreateStorageLocationResultMessage {
-  __type?: "CreateStorageLocationResultMessage";
   /**
    * <p>The name of the Amazon S3 bucket created.</p>
    */
@@ -1496,15 +1418,12 @@ export namespace CreateStorageLocationResultMessage {
   export const filterSensitiveLog = (obj: CreateStorageLocationResultMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStorageLocationResultMessage =>
-    __isa(o, "CreateStorageLocationResultMessage");
 }
 
 /**
  * <p>A custom AMI available to platforms.</p>
  */
 export interface CustomAmi {
-  __type?: "CustomAmi";
   /**
    * <p>THe ID of the image used to create the custom AMI.</p>
    */
@@ -1520,14 +1439,12 @@ export namespace CustomAmi {
   export const filterSensitiveLog = (obj: CustomAmi): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomAmi => __isa(o, "CustomAmi");
 }
 
 /**
  * <p>Request to delete an application.</p>
  */
 export interface DeleteApplicationMessage {
-  __type?: "DeleteApplicationMessage";
   /**
    * <p>The name of the application to delete.</p>
    */
@@ -1544,14 +1461,12 @@ export namespace DeleteApplicationMessage {
   export const filterSensitiveLog = (obj: DeleteApplicationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationMessage => __isa(o, "DeleteApplicationMessage");
 }
 
 /**
  * <p>Request to delete an application version.</p>
  */
 export interface DeleteApplicationVersionMessage {
-  __type?: "DeleteApplicationVersionMessage";
   /**
    * <p>Set to <code>true</code> to delete the source bundle from your storage bucket.
    *       Otherwise, the application version is deleted only from Elastic Beanstalk and the source
@@ -1574,14 +1489,12 @@ export namespace DeleteApplicationVersionMessage {
   export const filterSensitiveLog = (obj: DeleteApplicationVersionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationVersionMessage => __isa(o, "DeleteApplicationVersionMessage");
 }
 
 /**
  * <p>Request to delete a configuration template.</p>
  */
 export interface DeleteConfigurationTemplateMessage {
-  __type?: "DeleteConfigurationTemplateMessage";
   /**
    * <p>The name of the application to delete the configuration template from.</p>
    */
@@ -1597,15 +1510,12 @@ export namespace DeleteConfigurationTemplateMessage {
   export const filterSensitiveLog = (obj: DeleteConfigurationTemplateMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationTemplateMessage =>
-    __isa(o, "DeleteConfigurationTemplateMessage");
 }
 
 /**
  * <p>Request to delete a draft environment configuration.</p>
  */
 export interface DeleteEnvironmentConfigurationMessage {
-  __type?: "DeleteEnvironmentConfigurationMessage";
   /**
    * <p>The name of the application the environment is associated with.</p>
    */
@@ -1621,12 +1531,9 @@ export namespace DeleteEnvironmentConfigurationMessage {
   export const filterSensitiveLog = (obj: DeleteEnvironmentConfigurationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEnvironmentConfigurationMessage =>
-    __isa(o, "DeleteEnvironmentConfigurationMessage");
 }
 
 export interface DeletePlatformVersionRequest {
-  __type?: "DeletePlatformVersionRequest";
   /**
    * <p>The ARN of the version of the custom platform.</p>
    */
@@ -1637,11 +1544,9 @@ export namespace DeletePlatformVersionRequest {
   export const filterSensitiveLog = (obj: DeletePlatformVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePlatformVersionRequest => __isa(o, "DeletePlatformVersionRequest");
 }
 
 export interface DeletePlatformVersionResult {
-  __type?: "DeletePlatformVersionResult";
   /**
    * <p>Detailed information about the version of the custom platform.</p>
    */
@@ -1652,14 +1557,12 @@ export namespace DeletePlatformVersionResult {
   export const filterSensitiveLog = (obj: DeletePlatformVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePlatformVersionResult => __isa(o, "DeletePlatformVersionResult");
 }
 
 /**
  * <p>Information about an application version deployment.</p>
  */
 export interface Deployment {
-  __type?: "Deployment";
   /**
    * <p>The ID of the deployment. This number increases by one each time that you deploy source
    *       code or change instance configuration settings.</p>
@@ -1701,11 +1604,9 @@ export namespace Deployment {
   export const filterSensitiveLog = (obj: Deployment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
 }
 
 export interface DescribeAccountAttributesResult {
-  __type?: "DescribeAccountAttributesResult";
   /**
    * <p>The Elastic Beanstalk resource quotas associated with the calling AWS account.</p>
    */
@@ -1716,14 +1617,12 @@ export namespace DescribeAccountAttributesResult {
   export const filterSensitiveLog = (obj: DescribeAccountAttributesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAttributesResult => __isa(o, "DescribeAccountAttributesResult");
 }
 
 /**
  * <p>Request to describe one or more applications.</p>
  */
 export interface DescribeApplicationsMessage {
-  __type?: "DescribeApplicationsMessage";
   /**
    * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
    *       those with the specified names.</p>
@@ -1735,14 +1634,12 @@ export namespace DescribeApplicationsMessage {
   export const filterSensitiveLog = (obj: DescribeApplicationsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeApplicationsMessage => __isa(o, "DescribeApplicationsMessage");
 }
 
 /**
  * <p>Request to describe application versions.</p>
  */
 export interface DescribeApplicationVersionsMessage {
-  __type?: "DescribeApplicationVersionsMessage";
   /**
    * <p>Specify an application name to show only application versions for that
    *       application.</p>
@@ -1774,15 +1671,12 @@ export namespace DescribeApplicationVersionsMessage {
   export const filterSensitiveLog = (obj: DescribeApplicationVersionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeApplicationVersionsMessage =>
-    __isa(o, "DescribeApplicationVersionsMessage");
 }
 
 /**
  * <p>Result message containing a list of application version descriptions.</p>
  */
 export interface DescribeConfigurationOptionsMessage {
-  __type?: "DescribeConfigurationOptionsMessage";
   /**
    * <p>If specified, restricts the descriptions to only the specified options.</p>
    */
@@ -1822,8 +1716,6 @@ export namespace DescribeConfigurationOptionsMessage {
   export const filterSensitiveLog = (obj: DescribeConfigurationOptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationOptionsMessage =>
-    __isa(o, "DescribeConfigurationOptionsMessage");
 }
 
 /**
@@ -1831,7 +1723,6 @@ export namespace DescribeConfigurationOptionsMessage {
  *       stack or configuration template.</p>
  */
 export interface DescribeConfigurationSettingsMessage {
-  __type?: "DescribeConfigurationSettingsMessage";
   /**
    * <p>The application for the environment or configuration template.</p>
    */
@@ -1860,15 +1751,12 @@ export namespace DescribeConfigurationSettingsMessage {
   export const filterSensitiveLog = (obj: DescribeConfigurationSettingsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationSettingsMessage =>
-    __isa(o, "DescribeConfigurationSettingsMessage");
 }
 
 /**
  * <p>See the example below to learn how to create a request body.</p>
  */
 export interface DescribeEnvironmentHealthRequest {
-  __type?: "DescribeEnvironmentHealthRequest";
   /**
    * <p>Specify the environment by name.</p>
    *          <p>You must specify either this or an EnvironmentName, or both.</p>
@@ -1893,14 +1781,12 @@ export namespace DescribeEnvironmentHealthRequest {
   export const filterSensitiveLog = (obj: DescribeEnvironmentHealthRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentHealthRequest => __isa(o, "DescribeEnvironmentHealthRequest");
 }
 
 /**
  * <p>Health details for an AWS Elastic Beanstalk environment.</p>
  */
 export interface DescribeEnvironmentHealthResult {
-  __type?: "DescribeEnvironmentHealthResult";
   /**
    * <p>The environment's name.</p>
    */
@@ -1950,14 +1836,12 @@ export namespace DescribeEnvironmentHealthResult {
   export const filterSensitiveLog = (obj: DescribeEnvironmentHealthResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentHealthResult => __isa(o, "DescribeEnvironmentHealthResult");
 }
 
 /**
  * <p>Request to list completed and failed managed actions.</p>
  */
 export interface DescribeEnvironmentManagedActionHistoryRequest {
-  __type?: "DescribeEnvironmentManagedActionHistoryRequest";
   /**
    * <p>The environment ID of the target environment.</p>
    */
@@ -1983,15 +1867,12 @@ export namespace DescribeEnvironmentManagedActionHistoryRequest {
   export const filterSensitiveLog = (obj: DescribeEnvironmentManagedActionHistoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentManagedActionHistoryRequest =>
-    __isa(o, "DescribeEnvironmentManagedActionHistoryRequest");
 }
 
 /**
  * <p>A result message containing a list of completed and failed managed actions.</p>
  */
 export interface DescribeEnvironmentManagedActionHistoryResult {
-  __type?: "DescribeEnvironmentManagedActionHistoryResult";
   /**
    * <p>A list of completed and failed managed actions.</p>
    */
@@ -2008,15 +1889,12 @@ export namespace DescribeEnvironmentManagedActionHistoryResult {
   export const filterSensitiveLog = (obj: DescribeEnvironmentManagedActionHistoryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentManagedActionHistoryResult =>
-    __isa(o, "DescribeEnvironmentManagedActionHistoryResult");
 }
 
 /**
  * <p>Request to list an environment's upcoming and in-progress managed actions.</p>
  */
 export interface DescribeEnvironmentManagedActionsRequest {
-  __type?: "DescribeEnvironmentManagedActionsRequest";
   /**
    * <p>The name of the target environment.</p>
    */
@@ -2037,15 +1915,12 @@ export namespace DescribeEnvironmentManagedActionsRequest {
   export const filterSensitiveLog = (obj: DescribeEnvironmentManagedActionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentManagedActionsRequest =>
-    __isa(o, "DescribeEnvironmentManagedActionsRequest");
 }
 
 /**
  * <p>The result message containing a list of managed actions.</p>
  */
 export interface DescribeEnvironmentManagedActionsResult {
-  __type?: "DescribeEnvironmentManagedActionsResult";
   /**
    * <p>A list of upcoming and in-progress managed actions.</p>
    */
@@ -2056,15 +1931,12 @@ export namespace DescribeEnvironmentManagedActionsResult {
   export const filterSensitiveLog = (obj: DescribeEnvironmentManagedActionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentManagedActionsResult =>
-    __isa(o, "DescribeEnvironmentManagedActionsResult");
 }
 
 /**
  * <p>Request to describe the resources in an environment.</p>
  */
 export interface DescribeEnvironmentResourcesMessage {
-  __type?: "DescribeEnvironmentResourcesMessage";
   /**
    * <p>The name of the environment to retrieve AWS resource usage data.</p>
    *          <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not
@@ -2086,15 +1958,12 @@ export namespace DescribeEnvironmentResourcesMessage {
   export const filterSensitiveLog = (obj: DescribeEnvironmentResourcesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentResourcesMessage =>
-    __isa(o, "DescribeEnvironmentResourcesMessage");
 }
 
 /**
  * <p>Request to describe one or more environments.</p>
  */
 export interface DescribeEnvironmentsMessage {
-  __type?: "DescribeEnvironmentsMessage";
   /**
    * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only
    *       those that have the specified names.</p>
@@ -2155,14 +2024,12 @@ export namespace DescribeEnvironmentsMessage {
   export const filterSensitiveLog = (obj: DescribeEnvironmentsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEnvironmentsMessage => __isa(o, "DescribeEnvironmentsMessage");
 }
 
 /**
  * <p>Request to retrieve a list of events for an environment.</p>
  */
 export interface DescribeEventsMessage {
-  __type?: "DescribeEventsMessage";
   /**
    * <p>If specified, AWS Elastic Beanstalk restricts the described events to include only
    *       those associated with this request ID.</p>
@@ -2239,14 +2106,12 @@ export namespace DescribeEventsMessage {
   export const filterSensitiveLog = (obj: DescribeEventsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventsMessage => __isa(o, "DescribeEventsMessage");
 }
 
 /**
  * <p>Parameters for a call to <code>DescribeInstancesHealth</code>.</p>
  */
 export interface DescribeInstancesHealthRequest {
-  __type?: "DescribeInstancesHealthRequest";
   /**
    * <p>Specify the AWS Elastic Beanstalk environment by ID.</p>
    */
@@ -2274,7 +2139,6 @@ export namespace DescribeInstancesHealthRequest {
   export const filterSensitiveLog = (obj: DescribeInstancesHealthRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstancesHealthRequest => __isa(o, "DescribeInstancesHealthRequest");
 }
 
 /**
@@ -2282,7 +2146,6 @@ export namespace DescribeInstancesHealthRequest {
  *       environment.</p>
  */
 export interface DescribeInstancesHealthResult {
-  __type?: "DescribeInstancesHealthResult";
   /**
    * <p>Detailed health information about each instance.</p>
    *          <p>The output differs slightly between Linux and Windows environments. There is a difference
@@ -2305,11 +2168,9 @@ export namespace DescribeInstancesHealthResult {
   export const filterSensitiveLog = (obj: DescribeInstancesHealthResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstancesHealthResult => __isa(o, "DescribeInstancesHealthResult");
 }
 
 export interface DescribePlatformVersionRequest {
-  __type?: "DescribePlatformVersionRequest";
   /**
    * <p>The ARN of the platform version.</p>
    */
@@ -2320,11 +2181,9 @@ export namespace DescribePlatformVersionRequest {
   export const filterSensitiveLog = (obj: DescribePlatformVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePlatformVersionRequest => __isa(o, "DescribePlatformVersionRequest");
 }
 
 export interface DescribePlatformVersionResult {
-  __type?: "DescribePlatformVersionResult";
   /**
    * <p>Detailed information about the platform version.</p>
    */
@@ -2335,14 +2194,12 @@ export namespace DescribePlatformVersionResult {
   export const filterSensitiveLog = (obj: DescribePlatformVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePlatformVersionResult => __isa(o, "DescribePlatformVersionResult");
 }
 
 /**
  * <p>Request to disassociate the operations role from an environment.</p>
  */
 export interface DisassociateEnvironmentOperationsRoleMessage {
-  __type?: "DisassociateEnvironmentOperationsRoleMessage";
   /**
    * <p>The name of the environment from which to disassociate the operations role.</p>
    */
@@ -2353,8 +2210,6 @@ export namespace DisassociateEnvironmentOperationsRoleMessage {
   export const filterSensitiveLog = (obj: DisassociateEnvironmentOperationsRoleMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateEnvironmentOperationsRoleMessage =>
-    __isa(o, "DisassociateEnvironmentOperationsRoleMessage");
 }
 
 /**
@@ -2373,14 +2228,12 @@ export namespace ElasticBeanstalkServiceException {
   export const filterSensitiveLog = (obj: ElasticBeanstalkServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticBeanstalkServiceException => __isa(o, "ElasticBeanstalkServiceException");
 }
 
 /**
  * <p>Describes the properties of an environment.</p>
  */
 export interface EnvironmentDescription {
-  __type?: "EnvironmentDescription";
   /**
    * <p>A list of links to other environments in the same group.</p>
    */
@@ -2551,14 +2404,12 @@ export namespace EnvironmentDescription {
   export const filterSensitiveLog = (obj: EnvironmentDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentDescription => __isa(o, "EnvironmentDescription");
 }
 
 /**
  * <p>Result message containing a list of environment descriptions.</p>
  */
 export interface EnvironmentDescriptionsMessage {
-  __type?: "EnvironmentDescriptionsMessage";
   /**
    * <p> Returns an <a>EnvironmentDescription</a> list. </p>
    */
@@ -2575,7 +2426,6 @@ export namespace EnvironmentDescriptionsMessage {
   export const filterSensitiveLog = (obj: EnvironmentDescriptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentDescriptionsMessage => __isa(o, "EnvironmentDescriptionsMessage");
 }
 
 export type EnvironmentHealth = "Green" | "Grey" | "Red" | "Yellow";
@@ -2606,7 +2456,6 @@ export type EnvironmentHealthStatus =
  * <p>The information retrieved from the Amazon EC2 instances.</p>
  */
 export interface EnvironmentInfoDescription {
-  __type?: "EnvironmentInfoDescription";
   /**
    * <p>The type of information retrieved.</p>
    */
@@ -2635,7 +2484,6 @@ export namespace EnvironmentInfoDescription {
   export const filterSensitiveLog = (obj: EnvironmentInfoDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentInfoDescription => __isa(o, "EnvironmentInfoDescription");
 }
 
 export type EnvironmentInfoType = "bundle" | "tail";
@@ -2647,7 +2495,6 @@ export type EnvironmentInfoType = "bundle" | "tail";
  *         (env.yaml)</a> for details.</p>
  */
 export interface EnvironmentLink {
-  __type?: "EnvironmentLink";
   /**
    * <p>The name of the link.</p>
    */
@@ -2663,14 +2510,12 @@ export namespace EnvironmentLink {
   export const filterSensitiveLog = (obj: EnvironmentLink): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentLink => __isa(o, "EnvironmentLink");
 }
 
 /**
  * <p>Describes the AWS resources in use by this environment. This data is live.</p>
  */
 export interface EnvironmentResourceDescription {
-  __type?: "EnvironmentResourceDescription";
   /**
    * <p>The Auto Scaling launch configurations in use by this environment.</p>
    */
@@ -2716,14 +2561,12 @@ export namespace EnvironmentResourceDescription {
   export const filterSensitiveLog = (obj: EnvironmentResourceDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentResourceDescription => __isa(o, "EnvironmentResourceDescription");
 }
 
 /**
  * <p>Result message containing a list of environment resource descriptions.</p>
  */
 export interface EnvironmentResourceDescriptionsMessage {
-  __type?: "EnvironmentResourceDescriptionsMessage";
   /**
    * <p> A list of <a>EnvironmentResourceDescription</a>. </p>
    */
@@ -2734,8 +2577,6 @@ export namespace EnvironmentResourceDescriptionsMessage {
   export const filterSensitiveLog = (obj: EnvironmentResourceDescriptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentResourceDescriptionsMessage =>
-    __isa(o, "EnvironmentResourceDescriptionsMessage");
 }
 
 /**
@@ -2743,7 +2584,6 @@ export namespace EnvironmentResourceDescriptionsMessage {
  *       data.</p>
  */
 export interface EnvironmentResourcesDescription {
-  __type?: "EnvironmentResourcesDescription";
   /**
    * <p>Describes the LoadBalancer.</p>
    */
@@ -2754,7 +2594,6 @@ export namespace EnvironmentResourcesDescription {
   export const filterSensitiveLog = (obj: EnvironmentResourcesDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentResourcesDescription => __isa(o, "EnvironmentResourcesDescription");
 }
 
 export type EnvironmentStatus = "Launching" | "Ready" | "Terminated" | "Terminating" | "Updating";
@@ -2763,7 +2602,6 @@ export type EnvironmentStatus = "Launching" | "Ready" | "Terminated" | "Terminat
  * <p>Describes the properties of an environment tier</p>
  */
 export interface EnvironmentTier {
-  __type?: "EnvironmentTier";
   /**
    * <p>The name of this environment tier.</p>
    *          <p>Valid values:</p>
@@ -2811,14 +2649,12 @@ export namespace EnvironmentTier {
   export const filterSensitiveLog = (obj: EnvironmentTier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnvironmentTier => __isa(o, "EnvironmentTier");
 }
 
 /**
  * <p>Describes an event.</p>
  */
 export interface EventDescription {
-  __type?: "EventDescription";
   /**
    * <p>The severity level of this event.</p>
    */
@@ -2869,14 +2705,12 @@ export namespace EventDescription {
   export const filterSensitiveLog = (obj: EventDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventDescription => __isa(o, "EventDescription");
 }
 
 /**
  * <p>Result message wrapping a list of event descriptions.</p>
  */
 export interface EventDescriptionsMessage {
-  __type?: "EventDescriptionsMessage";
   /**
    * <p> If returned, this indicates that there are more results to obtain. Use this token in
    *       the next <a>DescribeEvents</a> call to get the next batch of events. </p>
@@ -2893,7 +2727,6 @@ export namespace EventDescriptionsMessage {
   export const filterSensitiveLog = (obj: EventDescriptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventDescriptionsMessage => __isa(o, "EventDescriptionsMessage");
 }
 
 export type EventSeverity = "DEBUG" | "ERROR" | "FATAL" | "INFO" | "TRACE" | "WARN";
@@ -2911,7 +2744,6 @@ export type FailureType =
  * <p>The description of an Amazon EC2 instance.</p>
  */
 export interface Instance {
-  __type?: "Instance";
   /**
    * <p>The ID of the Amazon EC2 instance.</p>
    */
@@ -2922,7 +2754,6 @@ export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
 
 /**
@@ -2930,7 +2761,6 @@ export namespace Instance {
  *       see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health Colors and Statuses</a>.</p>
  */
 export interface InstanceHealthSummary {
-  __type?: "InstanceHealthSummary";
   /**
    * <p>
    *             <b>Red.</b> The health agent is reporting a high number of request
@@ -2991,7 +2821,6 @@ export namespace InstanceHealthSummary {
   export const filterSensitiveLog = (obj: InstanceHealthSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceHealthSummary => __isa(o, "InstanceHealthSummary");
 }
 
 export enum InstancesHealthAttribute {
@@ -3025,7 +2854,6 @@ export namespace InsufficientPrivilegesException {
   export const filterSensitiveLog = (obj: InsufficientPrivilegesException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientPrivilegesException => __isa(o, "InsufficientPrivilegesException");
 }
 
 /**
@@ -3045,7 +2873,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -3053,7 +2880,6 @@ export namespace InvalidRequestException {
  *       seconds.</p>
  */
 export interface Latency {
-  __type?: "Latency";
   /**
    * <p>The average latency for the slowest 50 percent of requests over the last 10
    *       seconds.</p>
@@ -3107,14 +2933,12 @@ export namespace Latency {
   export const filterSensitiveLog = (obj: Latency): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Latency => __isa(o, "Latency");
 }
 
 /**
  * <p>Describes an Auto Scaling launch configuration.</p>
  */
 export interface LaunchConfiguration {
-  __type?: "LaunchConfiguration";
   /**
    * <p>The name of the launch configuration.</p>
    */
@@ -3125,14 +2949,12 @@ export namespace LaunchConfiguration {
   export const filterSensitiveLog = (obj: LaunchConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchConfiguration => __isa(o, "LaunchConfiguration");
 }
 
 /**
  * <p>Describes an Amazon EC2 launch template.</p>
  */
 export interface LaunchTemplate {
-  __type?: "LaunchTemplate";
   /**
    * <p>The ID of the launch template.</p>
    */
@@ -3143,14 +2965,12 @@ export namespace LaunchTemplate {
   export const filterSensitiveLog = (obj: LaunchTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplate => __isa(o, "LaunchTemplate");
 }
 
 /**
  * <p>A list of available AWS Elastic Beanstalk solution stacks.</p>
  */
 export interface ListAvailableSolutionStacksResultMessage {
-  __type?: "ListAvailableSolutionStacksResultMessage";
   /**
    * <p> A list of available solution stacks and their <a>SolutionStackDescription</a>. </p>
    */
@@ -3166,15 +2986,12 @@ export namespace ListAvailableSolutionStacksResultMessage {
   export const filterSensitiveLog = (obj: ListAvailableSolutionStacksResultMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAvailableSolutionStacksResultMessage =>
-    __isa(o, "ListAvailableSolutionStacksResultMessage");
 }
 
 /**
  * <p>Describes the properties of a Listener for the LoadBalancer.</p>
  */
 export interface Listener {
-  __type?: "Listener";
   /**
    * <p>The protocol that is used by the Listener.</p>
    */
@@ -3190,11 +3007,9 @@ export namespace Listener {
   export const filterSensitiveLog = (obj: Listener): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Listener => __isa(o, "Listener");
 }
 
 export interface ListPlatformBranchesRequest {
-  __type?: "ListPlatformBranchesRequest";
   /**
    * <p>Criteria for restricting the resulting list of platform branches. The filter is evaluated
    *       as a logical conjunction (AND) of the separate <code>SearchFilter</code> terms.</p>
@@ -3287,11 +3102,9 @@ export namespace ListPlatformBranchesRequest {
   export const filterSensitiveLog = (obj: ListPlatformBranchesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPlatformBranchesRequest => __isa(o, "ListPlatformBranchesRequest");
 }
 
 export interface ListPlatformBranchesResult {
-  __type?: "ListPlatformBranchesResult";
   /**
    * <p>Summary information about the platform branches.</p>
    */
@@ -3308,11 +3121,9 @@ export namespace ListPlatformBranchesResult {
   export const filterSensitiveLog = (obj: ListPlatformBranchesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPlatformBranchesResult => __isa(o, "ListPlatformBranchesResult");
 }
 
 export interface ListPlatformVersionsRequest {
-  __type?: "ListPlatformVersionsRequest";
   /**
    * <p>The maximum number of platform version values returned in one call.</p>
    */
@@ -3338,11 +3149,9 @@ export namespace ListPlatformVersionsRequest {
   export const filterSensitiveLog = (obj: ListPlatformVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPlatformVersionsRequest => __isa(o, "ListPlatformVersionsRequest");
 }
 
 export interface ListPlatformVersionsResult {
-  __type?: "ListPlatformVersionsResult";
   /**
    * <p>In a paginated request, if this value isn't <code>null</code>, it's the token that you can
    *       pass in a subsequent request to get the next response page.</p>
@@ -3359,11 +3168,9 @@ export namespace ListPlatformVersionsResult {
   export const filterSensitiveLog = (obj: ListPlatformVersionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPlatformVersionsResult => __isa(o, "ListPlatformVersionsResult");
 }
 
 export interface ListTagsForResourceMessage {
-  __type?: "ListTagsForResourceMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the resouce for which a tag list is requested.</p>
    *          <p>Must be the ARN of an Elastic Beanstalk resource.</p>
@@ -3375,14 +3182,12 @@ export namespace ListTagsForResourceMessage {
   export const filterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceMessage => __isa(o, "ListTagsForResourceMessage");
 }
 
 /**
  * <p>Describes a LoadBalancer.</p>
  */
 export interface LoadBalancer {
-  __type?: "LoadBalancer";
   /**
    * <p>The name of the LoadBalancer.</p>
    */
@@ -3393,14 +3198,12 @@ export namespace LoadBalancer {
   export const filterSensitiveLog = (obj: LoadBalancer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancer => __isa(o, "LoadBalancer");
 }
 
 /**
  * <p>Describes the details of a LoadBalancer.</p>
  */
 export interface LoadBalancerDescription {
-  __type?: "LoadBalancerDescription";
   /**
    * <p>A list of Listeners used by the LoadBalancer.</p>
    */
@@ -3421,14 +3224,12 @@ export namespace LoadBalancerDescription {
   export const filterSensitiveLog = (obj: LoadBalancerDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerDescription => __isa(o, "LoadBalancerDescription");
 }
 
 /**
  * <p>The record of an upcoming or in-progress managed action.</p>
  */
 export interface ManagedAction {
-  __type?: "ManagedAction";
   /**
    * <p>A unique identifier for the managed action.</p>
    */
@@ -3461,14 +3262,12 @@ export namespace ManagedAction {
   export const filterSensitiveLog = (obj: ManagedAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManagedAction => __isa(o, "ManagedAction");
 }
 
 /**
  * <p>The record of a completed or failed managed action.</p>
  */
 export interface ManagedActionHistoryItem {
-  __type?: "ManagedActionHistoryItem";
   /**
    * <p>If the action failed, the type of failure.</p>
    */
@@ -3514,7 +3313,6 @@ export namespace ManagedActionHistoryItem {
   export const filterSensitiveLog = (obj: ManagedActionHistoryItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManagedActionHistoryItem => __isa(o, "ManagedActionHistoryItem");
 }
 
 /**
@@ -3533,8 +3331,6 @@ export namespace ManagedActionInvalidStateException {
   export const filterSensitiveLog = (obj: ManagedActionInvalidStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManagedActionInvalidStateException =>
-    __isa(o, "ManagedActionInvalidStateException");
 }
 
 /**
@@ -3542,7 +3338,6 @@ export namespace ManagedActionInvalidStateException {
  *       days.</p>
  */
 export interface MaxAgeRule {
-  __type?: "MaxAgeRule";
   /**
    * <p>Specify <code>true</code> to apply the rule, or <code>false</code> to disable
    *       it.</p>
@@ -3565,7 +3360,6 @@ export namespace MaxAgeRule {
   export const filterSensitiveLog = (obj: MaxAgeRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaxAgeRule => __isa(o, "MaxAgeRule");
 }
 
 /**
@@ -3573,7 +3367,6 @@ export namespace MaxAgeRule {
  *       exceeded.</p>
  */
 export interface MaxCountRule {
-  __type?: "MaxCountRule";
   /**
    * <p>Set to <code>true</code> to delete a version's source bundle from Amazon S3 when
    *       Elastic Beanstalk deletes the application version.</p>
@@ -3596,7 +3389,6 @@ export namespace MaxCountRule {
   export const filterSensitiveLog = (obj: MaxCountRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaxCountRule => __isa(o, "MaxCountRule");
 }
 
 /**
@@ -3616,7 +3408,6 @@ export namespace OperationInProgressException {
   export const filterSensitiveLog = (obj: OperationInProgressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationInProgressException => __isa(o, "OperationInProgressException");
 }
 
 /**
@@ -3624,7 +3415,6 @@ export namespace OperationInProgressException {
  *       value.</p>
  */
 export interface OptionRestrictionRegex {
-  __type?: "OptionRestrictionRegex";
   /**
    * <p>A unique name representing this regular expression.</p>
    */
@@ -3641,14 +3431,12 @@ export namespace OptionRestrictionRegex {
   export const filterSensitiveLog = (obj: OptionRestrictionRegex): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OptionRestrictionRegex => __isa(o, "OptionRestrictionRegex");
 }
 
 /**
  * <p>A specification identifying an individual configuration option.</p>
  */
 export interface OptionSpecification {
-  __type?: "OptionSpecification";
   /**
    * <p>A unique namespace identifying the option's associated AWS resource.</p>
    */
@@ -3669,14 +3457,12 @@ export namespace OptionSpecification {
   export const filterSensitiveLog = (obj: OptionSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OptionSpecification => __isa(o, "OptionSpecification");
 }
 
 /**
  * <p>Summary information about a platform branch.</p>
  */
 export interface PlatformBranchSummary {
-  __type?: "PlatformBranchSummary";
   /**
    * <p>The environment tiers that platform versions in this branch support.</p>
    *          <p>Possible values: <code>WebServer/Standard</code> | <code>Worker/SQS/HTTP</code>
@@ -3717,14 +3503,12 @@ export namespace PlatformBranchSummary {
   export const filterSensitiveLog = (obj: PlatformBranchSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlatformBranchSummary => __isa(o, "PlatformBranchSummary");
 }
 
 /**
  * <p>Detailed information about a platform version.</p>
  */
 export interface PlatformDescription {
-  __type?: "PlatformDescription";
   /**
    * <p>The status of the platform version.</p>
    */
@@ -3843,7 +3627,6 @@ export namespace PlatformDescription {
   export const filterSensitiveLog = (obj: PlatformDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlatformDescription => __isa(o, "PlatformDescription");
 }
 
 /**
@@ -3852,7 +3635,6 @@ export namespace PlatformDescription {
  *          </p>
  */
 export interface PlatformFilter {
-  __type?: "PlatformFilter";
   /**
    * <p>The list of values applied to the filtering platform version attribute. Only one value is supported
    *       for all current operators.</p>
@@ -3912,14 +3694,12 @@ export namespace PlatformFilter {
   export const filterSensitiveLog = (obj: PlatformFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlatformFilter => __isa(o, "PlatformFilter");
 }
 
 /**
  * <p>A framework supported by the platform.</p>
  */
 export interface PlatformFramework {
-  __type?: "PlatformFramework";
   /**
    * <p>The name of the framework.</p>
    */
@@ -3935,14 +3715,12 @@ export namespace PlatformFramework {
   export const filterSensitiveLog = (obj: PlatformFramework): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlatformFramework => __isa(o, "PlatformFramework");
 }
 
 /**
  * <p>A programming language supported by the platform.</p>
  */
 export interface PlatformProgrammingLanguage {
-  __type?: "PlatformProgrammingLanguage";
   /**
    * <p>The name of the programming language.</p>
    */
@@ -3958,7 +3736,6 @@ export namespace PlatformProgrammingLanguage {
   export const filterSensitiveLog = (obj: PlatformProgrammingLanguage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlatformProgrammingLanguage => __isa(o, "PlatformProgrammingLanguage");
 }
 
 export type PlatformStatus = "Creating" | "Deleted" | "Deleting" | "Failed" | "Ready";
@@ -3967,7 +3744,6 @@ export type PlatformStatus = "Creating" | "Deleted" | "Deleting" | "Failed" | "R
  * <p>Summary information about a platform version.</p>
  */
 export interface PlatformSummary {
-  __type?: "PlatformSummary";
   /**
    * <p>The state of the platform version's branch in its lifecycle.</p>
    *          <p>Possible values: <code>beta</code> | <code>supported</code> | <code>deprecated</code> |
@@ -4040,7 +3816,6 @@ export namespace PlatformSummary {
   export const filterSensitiveLog = (obj: PlatformSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlatformSummary => __isa(o, "PlatformSummary");
 }
 
 /**
@@ -4059,15 +3834,12 @@ export namespace PlatformVersionStillReferencedException {
   export const filterSensitiveLog = (obj: PlatformVersionStillReferencedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlatformVersionStillReferencedException =>
-    __isa(o, "PlatformVersionStillReferencedException");
 }
 
 /**
  * <p>Describes a queue.</p>
  */
 export interface Queue {
-  __type?: "Queue";
   /**
    * <p>The name of the queue.</p>
    */
@@ -4083,14 +3855,12 @@ export namespace Queue {
   export const filterSensitiveLog = (obj: Queue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Queue => __isa(o, "Queue");
 }
 
 /**
  * <p></p>
  */
 export interface RebuildEnvironmentMessage {
-  __type?: "RebuildEnvironmentMessage";
   /**
    * <p>The name of the environment to rebuild.</p>
    *          <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not
@@ -4112,7 +3882,6 @@ export namespace RebuildEnvironmentMessage {
   export const filterSensitiveLog = (obj: RebuildEnvironmentMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebuildEnvironmentMessage => __isa(o, "RebuildEnvironmentMessage");
 }
 
 /**
@@ -4120,7 +3889,6 @@ export namespace RebuildEnvironmentMessage {
  *       storage bucket.</p>
  */
 export interface RequestEnvironmentInfoMessage {
-  __type?: "RequestEnvironmentInfoMessage";
   /**
    * <p>The type of information to request.</p>
    */
@@ -4151,7 +3919,6 @@ export namespace RequestEnvironmentInfoMessage {
   export const filterSensitiveLog = (obj: RequestEnvironmentInfoMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestEnvironmentInfoMessage => __isa(o, "RequestEnvironmentInfoMessage");
 }
 
 /**
@@ -4170,7 +3937,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -4178,7 +3944,6 @@ export namespace ResourceNotFoundException {
  *       reflects the resource's limits for this account.</p>
  */
 export interface ResourceQuota {
-  __type?: "ResourceQuota";
   /**
    * <p>The maximum number of instances of this Elastic Beanstalk resource type that an AWS account can
    *       use.</p>
@@ -4190,7 +3955,6 @@ export namespace ResourceQuota {
   export const filterSensitiveLog = (obj: ResourceQuota): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceQuota => __isa(o, "ResourceQuota");
 }
 
 /**
@@ -4198,7 +3962,6 @@ export namespace ResourceQuota {
  *       Elastic Beanstalk resource limits for this account.</p>
  */
 export interface ResourceQuotas {
-  __type?: "ResourceQuotas";
   /**
    * <p>The quota for environments in the AWS account.</p>
    */
@@ -4229,11 +3992,9 @@ export namespace ResourceQuotas {
   export const filterSensitiveLog = (obj: ResourceQuotas): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceQuotas => __isa(o, "ResourceQuotas");
 }
 
 export interface ResourceTagsDescriptionMessage {
-  __type?: "ResourceTagsDescriptionMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which a tag list was requested.</p>
    */
@@ -4249,7 +4010,6 @@ export namespace ResourceTagsDescriptionMessage {
   export const filterSensitiveLog = (obj: ResourceTagsDescriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceTagsDescriptionMessage => __isa(o, "ResourceTagsDescriptionMessage");
 }
 
 /**
@@ -4268,14 +4028,12 @@ export namespace ResourceTypeNotSupportedException {
   export const filterSensitiveLog = (obj: ResourceTypeNotSupportedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceTypeNotSupportedException => __isa(o, "ResourceTypeNotSupportedException");
 }
 
 /**
  * <p></p>
  */
 export interface RestartAppServerMessage {
-  __type?: "RestartAppServerMessage";
   /**
    * <p>The ID of the environment to restart the server for.</p>
    *          <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not
@@ -4297,14 +4055,12 @@ export namespace RestartAppServerMessage {
   export const filterSensitiveLog = (obj: RestartAppServerMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestartAppServerMessage => __isa(o, "RestartAppServerMessage");
 }
 
 /**
  * <p>Request to download logs retrieved with <a>RequestEnvironmentInfo</a>.</p>
  */
 export interface RetrieveEnvironmentInfoMessage {
-  __type?: "RetrieveEnvironmentInfoMessage";
   /**
    * <p>The ID of the data's environment.</p>
    *          <p>If no such environment is found, returns an <code>InvalidParameterValue</code>
@@ -4334,14 +4090,12 @@ export namespace RetrieveEnvironmentInfoMessage {
   export const filterSensitiveLog = (obj: RetrieveEnvironmentInfoMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetrieveEnvironmentInfoMessage => __isa(o, "RetrieveEnvironmentInfoMessage");
 }
 
 /**
  * <p>Result message containing a description of the requested environment info.</p>
  */
 export interface RetrieveEnvironmentInfoResultMessage {
-  __type?: "RetrieveEnvironmentInfoResultMessage";
   /**
    * <p> The <a>EnvironmentInfoDescription</a> of the environment. </p>
    */
@@ -4352,15 +4106,12 @@ export namespace RetrieveEnvironmentInfoResultMessage {
   export const filterSensitiveLog = (obj: RetrieveEnvironmentInfoResultMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetrieveEnvironmentInfoResultMessage =>
-    __isa(o, "RetrieveEnvironmentInfoResultMessage");
 }
 
 /**
  * <p>The bucket and key of an item stored in Amazon S3.</p>
  */
 export interface S3Location {
-  __type?: "S3Location";
   /**
    * <p>The Amazon S3 bucket where the data is located.</p>
    */
@@ -4376,7 +4127,6 @@ export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
 
 /**
@@ -4407,8 +4157,6 @@ export namespace S3LocationNotInServiceRegionException {
   export const filterSensitiveLog = (obj: S3LocationNotInServiceRegionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3LocationNotInServiceRegionException =>
-    __isa(o, "S3LocationNotInServiceRegionException");
 }
 
 /**
@@ -4427,7 +4175,6 @@ export namespace S3SubscriptionRequiredException {
   export const filterSensitiveLog = (obj: S3SubscriptionRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3SubscriptionRequiredException => __isa(o, "S3SubscriptionRequiredException");
 }
 
 /**
@@ -4445,7 +4192,6 @@ export namespace S3SubscriptionRequiredException {
  *         <code>SearchFilter</code> parameter.</p>
  */
 export interface SearchFilter {
-  __type?: "SearchFilter";
   /**
    * <p>The operator to apply to the <code>Attribute</code> with each of the <code>Values</code>.
    *       Valid values vary by <code>Attribute</code>.</p>
@@ -4469,7 +4215,6 @@ export namespace SearchFilter {
   export const filterSensitiveLog = (obj: SearchFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchFilter => __isa(o, "SearchFilter");
 }
 
 /**
@@ -4477,7 +4222,6 @@ export namespace SearchFilter {
  *       environment.</p>
  */
 export interface SingleInstanceHealth {
-  __type?: "SingleInstanceHealth";
   /**
    * <p>The ID of the Amazon EC2 instance.</p>
    */
@@ -4537,14 +4281,12 @@ export namespace SingleInstanceHealth {
   export const filterSensitiveLog = (obj: SingleInstanceHealth): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SingleInstanceHealth => __isa(o, "SingleInstanceHealth");
 }
 
 /**
  * <p>Describes the solution stack.</p>
  */
 export interface SolutionStackDescription {
-  __type?: "SolutionStackDescription";
   /**
    * <p>The name of the solution stack.</p>
    */
@@ -4560,14 +4302,12 @@ export namespace SolutionStackDescription {
   export const filterSensitiveLog = (obj: SolutionStackDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SolutionStackDescription => __isa(o, "SolutionStackDescription");
 }
 
 /**
  * <p>Location of the source code for an application version.</p>
  */
 export interface SourceBuildInformation {
-  __type?: "SourceBuildInformation";
   /**
    * <p>The location of the source code, as a formatted string, depending on the value of <code>SourceRepository</code>
    *          </p>
@@ -4627,7 +4367,6 @@ export namespace SourceBuildInformation {
   export const filterSensitiveLog = (obj: SourceBuildInformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceBuildInformation => __isa(o, "SourceBuildInformation");
 }
 
 /**
@@ -4647,14 +4386,12 @@ export namespace SourceBundleDeletionException {
   export const filterSensitiveLog = (obj: SourceBundleDeletionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceBundleDeletionException => __isa(o, "SourceBundleDeletionException");
 }
 
 /**
  * <p>A specification for an environment configuration.</p>
  */
 export interface SourceConfiguration {
-  __type?: "SourceConfiguration";
   /**
    * <p>The name of the configuration template.</p>
    */
@@ -4670,7 +4407,6 @@ export namespace SourceConfiguration {
   export const filterSensitiveLog = (obj: SourceConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceConfiguration => __isa(o, "SourceConfiguration");
 }
 
 export type SourceRepository = "CodeCommit" | "S3";
@@ -4683,7 +4419,6 @@ export type SourceType = "Git" | "Zip";
  *       Definitions</a>.</p>
  */
 export interface StatusCodes {
-  __type?: "StatusCodes";
   /**
    * <p>The percentage of requests over the last 10 seconds that resulted in a 2xx (200, 201,
    *       etc.) status code.</p>
@@ -4713,14 +4448,12 @@ export namespace StatusCodes {
   export const filterSensitiveLog = (obj: StatusCodes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StatusCodes => __isa(o, "StatusCodes");
 }
 
 /**
  * <p>Swaps the CNAMEs of two environments.</p>
  */
 export interface SwapEnvironmentCNAMEsMessage {
-  __type?: "SwapEnvironmentCNAMEsMessage";
   /**
    * <p>The ID of the source environment.</p>
    *          <p> Condition: You must specify at least the <code>SourceEnvironmentID</code> or the
@@ -4761,14 +4494,12 @@ export namespace SwapEnvironmentCNAMEsMessage {
   export const filterSensitiveLog = (obj: SwapEnvironmentCNAMEsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SwapEnvironmentCNAMEsMessage => __isa(o, "SwapEnvironmentCNAMEsMessage");
 }
 
 /**
  * <p>CPU utilization and load average metrics for an Amazon EC2 instance.</p>
  */
 export interface SystemStatus {
-  __type?: "SystemStatus";
   /**
    * <p>Load average in the last 1-minute, 5-minute, and 15-minute periods.
    *       For more information, see
@@ -4786,14 +4517,12 @@ export namespace SystemStatus {
   export const filterSensitiveLog = (obj: SystemStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SystemStatus => __isa(o, "SystemStatus");
 }
 
 /**
  * <p>Describes a tag applied to a resource in an environment.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value of the tag.</p>
    */
@@ -4809,14 +4538,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p>Request to terminate an environment.</p>
  */
 export interface TerminateEnvironmentMessage {
-  __type?: "TerminateEnvironmentMessage";
   /**
    * <p>Terminates the target environment even if another environment in the same group is
    *       dependent on it.</p>
@@ -4868,7 +4595,6 @@ export namespace TerminateEnvironmentMessage {
   export const filterSensitiveLog = (obj: TerminateEnvironmentMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateEnvironmentMessage => __isa(o, "TerminateEnvironmentMessage");
 }
 
 /**
@@ -4887,7 +4613,6 @@ export namespace TooManyApplicationsException {
   export const filterSensitiveLog = (obj: TooManyApplicationsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyApplicationsException => __isa(o, "TooManyApplicationsException");
 }
 
 /**
@@ -4906,8 +4631,6 @@ export namespace TooManyApplicationVersionsException {
   export const filterSensitiveLog = (obj: TooManyApplicationVersionsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyApplicationVersionsException =>
-    __isa(o, "TooManyApplicationVersionsException");
 }
 
 /**
@@ -4926,7 +4649,6 @@ export namespace TooManyBucketsException {
   export const filterSensitiveLog = (obj: TooManyBucketsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyBucketsException => __isa(o, "TooManyBucketsException");
 }
 
 /**
@@ -4945,8 +4667,6 @@ export namespace TooManyConfigurationTemplatesException {
   export const filterSensitiveLog = (obj: TooManyConfigurationTemplatesException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyConfigurationTemplatesException =>
-    __isa(o, "TooManyConfigurationTemplatesException");
 }
 
 /**
@@ -4965,7 +4685,6 @@ export namespace TooManyEnvironmentsException {
   export const filterSensitiveLog = (obj: TooManyEnvironmentsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyEnvironmentsException => __isa(o, "TooManyEnvironmentsException");
 }
 
 /**
@@ -4984,7 +4703,6 @@ export namespace TooManyPlatformsException {
   export const filterSensitiveLog = (obj: TooManyPlatformsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyPlatformsException => __isa(o, "TooManyPlatformsException");
 }
 
 /**
@@ -5006,14 +4724,12 @@ export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
  * <p>Describes a trigger.</p>
  */
 export interface Trigger {
-  __type?: "Trigger";
   /**
    * <p>The name of the trigger.</p>
    */
@@ -5024,14 +4740,12 @@ export namespace Trigger {
   export const filterSensitiveLog = (obj: Trigger): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Trigger => __isa(o, "Trigger");
 }
 
 /**
  * <p>Request to update an application.</p>
  */
 export interface UpdateApplicationMessage {
-  __type?: "UpdateApplicationMessage";
   /**
    * <p>A new description for the application.</p>
    *          <p>Default: If not specified, AWS Elastic Beanstalk does not update the
@@ -5051,11 +4765,9 @@ export namespace UpdateApplicationMessage {
   export const filterSensitiveLog = (obj: UpdateApplicationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationMessage => __isa(o, "UpdateApplicationMessage");
 }
 
 export interface UpdateApplicationResourceLifecycleMessage {
-  __type?: "UpdateApplicationResourceLifecycleMessage";
   /**
    * <p>The lifecycle configuration.</p>
    */
@@ -5071,15 +4783,12 @@ export namespace UpdateApplicationResourceLifecycleMessage {
   export const filterSensitiveLog = (obj: UpdateApplicationResourceLifecycleMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationResourceLifecycleMessage =>
-    __isa(o, "UpdateApplicationResourceLifecycleMessage");
 }
 
 /**
  * <p></p>
  */
 export interface UpdateApplicationVersionMessage {
-  __type?: "UpdateApplicationVersionMessage";
   /**
    * <p>A new description for this version.</p>
    */
@@ -5104,14 +4813,12 @@ export namespace UpdateApplicationVersionMessage {
   export const filterSensitiveLog = (obj: UpdateApplicationVersionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationVersionMessage => __isa(o, "UpdateApplicationVersionMessage");
 }
 
 /**
  * <p>The result message containing the options for the specified solution stack.</p>
  */
 export interface UpdateConfigurationTemplateMessage {
-  __type?: "UpdateConfigurationTemplateMessage";
   /**
    * <p>A list of configuration option settings to update with the new specified option
    *       value.</p>
@@ -5151,15 +4858,12 @@ export namespace UpdateConfigurationTemplateMessage {
   export const filterSensitiveLog = (obj: UpdateConfigurationTemplateMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationTemplateMessage =>
-    __isa(o, "UpdateConfigurationTemplateMessage");
 }
 
 /**
  * <p>Request to update an environment.</p>
  */
 export interface UpdateEnvironmentMessage {
-  __type?: "UpdateEnvironmentMessage";
   /**
    * <p>A list of custom user-defined configuration options to remove from the configuration
    *       set for this environment.</p>
@@ -5248,11 +4952,9 @@ export namespace UpdateEnvironmentMessage {
   export const filterSensitiveLog = (obj: UpdateEnvironmentMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEnvironmentMessage => __isa(o, "UpdateEnvironmentMessage");
 }
 
 export interface UpdateTagsForResourceMessage {
-  __type?: "UpdateTagsForResourceMessage";
   /**
    * <p>A list of tags to add or update. If a key of an existing tag is added, the tag's value is
    *       updated.</p>
@@ -5279,14 +4981,12 @@ export namespace UpdateTagsForResourceMessage {
   export const filterSensitiveLog = (obj: UpdateTagsForResourceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTagsForResourceMessage => __isa(o, "UpdateTagsForResourceMessage");
 }
 
 /**
  * <p>A list of validation messages for a specified configuration template.</p>
  */
 export interface ValidateConfigurationSettingsMessage {
-  __type?: "ValidateConfigurationSettingsMessage";
   /**
    * <p>The name of the environment to validate the settings against.</p>
    *          <p>Condition: You cannot specify both this and a configuration template name.</p>
@@ -5315,15 +5015,12 @@ export namespace ValidateConfigurationSettingsMessage {
   export const filterSensitiveLog = (obj: ValidateConfigurationSettingsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidateConfigurationSettingsMessage =>
-    __isa(o, "ValidateConfigurationSettingsMessage");
 }
 
 /**
  * <p>An error or warning for a desired configuration option value.</p>
  */
 export interface ValidationMessage {
-  __type?: "ValidationMessage";
   /**
    * <p>A message describing the error or warning.</p>
    */
@@ -5361,7 +5058,6 @@ export namespace ValidationMessage {
   export const filterSensitiveLog = (obj: ValidationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationMessage => __isa(o, "ValidationMessage");
 }
 
 export type ValidationSeverity = "error" | "warning";

@@ -98,7 +98,6 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         // Use a TreeMap to sort the members.
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
         writer.openBlock("return {", "} as any;", () -> {
-            writer.write("__type: $S,", shape.getId().getName());
             // Set all the members to undefined to meet type constraints.
             members.forEach((memberName, memberShape) -> {
                 // Use the jsonName trait value if present, otherwise use the member name.

@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Information about the <code>AccessLog</code> attribute.</p>
  */
 export interface AccessLog {
-  __type?: "AccessLog";
   /**
    * <p>The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.</p>
    *         <p>Default: 60 minutes</p>
@@ -33,7 +32,6 @@ export namespace AccessLog {
   export const filterSensitiveLog = (obj: AccessLog): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessLog => __isa(o, "AccessLog");
 }
 
 /**
@@ -49,14 +47,12 @@ export namespace AccessPointNotFoundException {
   export const filterSensitiveLog = (obj: AccessPointNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessPointNotFoundException => __isa(o, "AccessPointNotFoundException");
 }
 
 /**
  * <p>Contains the parameters for EnableAvailabilityZonesForLoadBalancer.</p>
  */
 export interface AddAvailabilityZonesInput {
-  __type?: "AddAvailabilityZonesInput";
   /**
    * <p>The Availability Zones. These must be in the same region as the load balancer.</p>
    */
@@ -72,14 +68,12 @@ export namespace AddAvailabilityZonesInput {
   export const filterSensitiveLog = (obj: AddAvailabilityZonesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddAvailabilityZonesInput => __isa(o, "AddAvailabilityZonesInput");
 }
 
 /**
  * <p>Contains the output of EnableAvailabilityZonesForLoadBalancer.</p>
  */
 export interface AddAvailabilityZonesOutput {
-  __type?: "AddAvailabilityZonesOutput";
   /**
    * <p>The updated list of Availability Zones for the load balancer.</p>
    */
@@ -90,14 +84,12 @@ export namespace AddAvailabilityZonesOutput {
   export const filterSensitiveLog = (obj: AddAvailabilityZonesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddAvailabilityZonesOutput => __isa(o, "AddAvailabilityZonesOutput");
 }
 
 /**
  * <p>This data type is reserved.</p>
  */
 export interface AdditionalAttribute {
-  __type?: "AdditionalAttribute";
   /**
    * <p>This parameter is reserved.</p>
    */
@@ -113,14 +105,12 @@ export namespace AdditionalAttribute {
   export const filterSensitiveLog = (obj: AdditionalAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdditionalAttribute => __isa(o, "AdditionalAttribute");
 }
 
 /**
  * <p>Contains the parameters for AddTags.</p>
  */
 export interface AddTagsInput {
-  __type?: "AddTagsInput";
   /**
    * <p>The tags.</p>
    */
@@ -136,28 +126,23 @@ export namespace AddTagsInput {
   export const filterSensitiveLog = (obj: AddTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
 
 /**
  * <p>Contains the output of AddTags.</p>
  */
-export interface AddTagsOutput {
-  __type?: "AddTagsOutput";
-}
+export interface AddTagsOutput {}
 
 export namespace AddTagsOutput {
   export const filterSensitiveLog = (obj: AddTagsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsOutput => __isa(o, "AddTagsOutput");
 }
 
 /**
  * <p>Information about a policy for application-controlled session stickiness.</p>
  */
 export interface AppCookieStickinessPolicy {
-  __type?: "AppCookieStickinessPolicy";
   /**
    * <p>The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.</p>
    */
@@ -173,14 +158,12 @@ export namespace AppCookieStickinessPolicy {
   export const filterSensitiveLog = (obj: AppCookieStickinessPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AppCookieStickinessPolicy => __isa(o, "AppCookieStickinessPolicy");
 }
 
 /**
  * <p>Contains the parameters for ApplySecurityGroupsToLoadBalancer.</p>
  */
 export interface ApplySecurityGroupsToLoadBalancerInput {
-  __type?: "ApplySecurityGroupsToLoadBalancerInput";
   /**
    * <p>The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.</p>
    */
@@ -196,15 +179,12 @@ export namespace ApplySecurityGroupsToLoadBalancerInput {
   export const filterSensitiveLog = (obj: ApplySecurityGroupsToLoadBalancerInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplySecurityGroupsToLoadBalancerInput =>
-    __isa(o, "ApplySecurityGroupsToLoadBalancerInput");
 }
 
 /**
  * <p>Contains the output of ApplySecurityGroupsToLoadBalancer.</p>
  */
 export interface ApplySecurityGroupsToLoadBalancerOutput {
-  __type?: "ApplySecurityGroupsToLoadBalancerOutput";
   /**
    * <p>The IDs of the security groups associated with the load balancer.</p>
    */
@@ -215,15 +195,12 @@ export namespace ApplySecurityGroupsToLoadBalancerOutput {
   export const filterSensitiveLog = (obj: ApplySecurityGroupsToLoadBalancerOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplySecurityGroupsToLoadBalancerOutput =>
-    __isa(o, "ApplySecurityGroupsToLoadBalancerOutput");
 }
 
 /**
  * <p>Contains the parameters for AttachLoaBalancerToSubnets.</p>
  */
 export interface AttachLoadBalancerToSubnetsInput {
-  __type?: "AttachLoadBalancerToSubnetsInput";
   /**
    * <p>The IDs of the subnets to add. You can add only one subnet per Availability Zone.</p>
    */
@@ -239,14 +216,12 @@ export namespace AttachLoadBalancerToSubnetsInput {
   export const filterSensitiveLog = (obj: AttachLoadBalancerToSubnetsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachLoadBalancerToSubnetsInput => __isa(o, "AttachLoadBalancerToSubnetsInput");
 }
 
 /**
  * <p>Contains the output of AttachLoadBalancerToSubnets.</p>
  */
 export interface AttachLoadBalancerToSubnetsOutput {
-  __type?: "AttachLoadBalancerToSubnetsOutput";
   /**
    * <p>The IDs of the subnets attached to the load balancer.</p>
    */
@@ -257,14 +232,12 @@ export namespace AttachLoadBalancerToSubnetsOutput {
   export const filterSensitiveLog = (obj: AttachLoadBalancerToSubnetsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachLoadBalancerToSubnetsOutput => __isa(o, "AttachLoadBalancerToSubnetsOutput");
 }
 
 /**
  * <p>Information about the configuration of an EC2 instance.</p>
  */
 export interface BackendServerDescription {
-  __type?: "BackendServerDescription";
   /**
    * <p>The names of the policies enabled for the EC2 instance.</p>
    */
@@ -280,7 +253,6 @@ export namespace BackendServerDescription {
   export const filterSensitiveLog = (obj: BackendServerDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackendServerDescription => __isa(o, "BackendServerDescription");
 }
 
 /**
@@ -298,14 +270,12 @@ export namespace CertificateNotFoundException {
   export const filterSensitiveLog = (obj: CertificateNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateNotFoundException => __isa(o, "CertificateNotFoundException");
 }
 
 /**
  * <p>Contains the parameters for ConfigureHealthCheck.</p>
  */
 export interface ConfigureHealthCheckInput {
-  __type?: "ConfigureHealthCheckInput";
   /**
    * <p>The configuration information.</p>
    */
@@ -321,14 +291,12 @@ export namespace ConfigureHealthCheckInput {
   export const filterSensitiveLog = (obj: ConfigureHealthCheckInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigureHealthCheckInput => __isa(o, "ConfigureHealthCheckInput");
 }
 
 /**
  * <p>Contains the output of ConfigureHealthCheck.</p>
  */
 export interface ConfigureHealthCheckOutput {
-  __type?: "ConfigureHealthCheckOutput";
   /**
    * <p>The updated health check.</p>
    */
@@ -339,14 +307,12 @@ export namespace ConfigureHealthCheckOutput {
   export const filterSensitiveLog = (obj: ConfigureHealthCheckOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigureHealthCheckOutput => __isa(o, "ConfigureHealthCheckOutput");
 }
 
 /**
  * <p>Information about the <code>ConnectionDraining</code> attribute.</p>
  */
 export interface ConnectionDraining {
-  __type?: "ConnectionDraining";
   /**
    * <p>Specifies whether connection draining is enabled for the load balancer.</p>
    */
@@ -362,14 +328,12 @@ export namespace ConnectionDraining {
   export const filterSensitiveLog = (obj: ConnectionDraining): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectionDraining => __isa(o, "ConnectionDraining");
 }
 
 /**
  * <p>Information about the <code>ConnectionSettings</code> attribute.</p>
  */
 export interface ConnectionSettings {
-  __type?: "ConnectionSettings";
   /**
    * <p>The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.</p>
    */
@@ -380,14 +344,12 @@ export namespace ConnectionSettings {
   export const filterSensitiveLog = (obj: ConnectionSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectionSettings => __isa(o, "ConnectionSettings");
 }
 
 /**
  * <p>Contains the parameters for CreateLoadBalancer.</p>
  */
 export interface CreateAccessPointInput {
-  __type?: "CreateAccessPointInput";
   /**
    * <p>The name of the load balancer.</p>
    *         <p>This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.</p>
@@ -441,14 +403,12 @@ export namespace CreateAccessPointInput {
   export const filterSensitiveLog = (obj: CreateAccessPointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccessPointInput => __isa(o, "CreateAccessPointInput");
 }
 
 /**
  * <p>Contains the output for CreateLoadBalancer.</p>
  */
 export interface CreateAccessPointOutput {
-  __type?: "CreateAccessPointOutput";
   /**
    * <p>The DNS name of the load balancer.</p>
    */
@@ -459,14 +419,12 @@ export namespace CreateAccessPointOutput {
   export const filterSensitiveLog = (obj: CreateAccessPointOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccessPointOutput => __isa(o, "CreateAccessPointOutput");
 }
 
 /**
  * <p>Contains the parameters for CreateAppCookieStickinessPolicy.</p>
  */
 export interface CreateAppCookieStickinessPolicyInput {
-  __type?: "CreateAppCookieStickinessPolicyInput";
   /**
    * <p>The name of the application cookie used for stickiness.</p>
    */
@@ -487,30 +445,23 @@ export namespace CreateAppCookieStickinessPolicyInput {
   export const filterSensitiveLog = (obj: CreateAppCookieStickinessPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAppCookieStickinessPolicyInput =>
-    __isa(o, "CreateAppCookieStickinessPolicyInput");
 }
 
 /**
  * <p>Contains the output for CreateAppCookieStickinessPolicy.</p>
  */
-export interface CreateAppCookieStickinessPolicyOutput {
-  __type?: "CreateAppCookieStickinessPolicyOutput";
-}
+export interface CreateAppCookieStickinessPolicyOutput {}
 
 export namespace CreateAppCookieStickinessPolicyOutput {
   export const filterSensitiveLog = (obj: CreateAppCookieStickinessPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAppCookieStickinessPolicyOutput =>
-    __isa(o, "CreateAppCookieStickinessPolicyOutput");
 }
 
 /**
  * <p>Contains the parameters for CreateLBCookieStickinessPolicy.</p>
  */
 export interface CreateLBCookieStickinessPolicyInput {
-  __type?: "CreateLBCookieStickinessPolicyInput";
   /**
    * <p>The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.</p>
    */
@@ -531,30 +482,23 @@ export namespace CreateLBCookieStickinessPolicyInput {
   export const filterSensitiveLog = (obj: CreateLBCookieStickinessPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLBCookieStickinessPolicyInput =>
-    __isa(o, "CreateLBCookieStickinessPolicyInput");
 }
 
 /**
  * <p>Contains the output for CreateLBCookieStickinessPolicy.</p>
  */
-export interface CreateLBCookieStickinessPolicyOutput {
-  __type?: "CreateLBCookieStickinessPolicyOutput";
-}
+export interface CreateLBCookieStickinessPolicyOutput {}
 
 export namespace CreateLBCookieStickinessPolicyOutput {
   export const filterSensitiveLog = (obj: CreateLBCookieStickinessPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLBCookieStickinessPolicyOutput =>
-    __isa(o, "CreateLBCookieStickinessPolicyOutput");
 }
 
 /**
  * <p>Contains the parameters for CreateLoadBalancerListeners.</p>
  */
 export interface CreateLoadBalancerListenerInput {
-  __type?: "CreateLoadBalancerListenerInput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -570,28 +514,23 @@ export namespace CreateLoadBalancerListenerInput {
   export const filterSensitiveLog = (obj: CreateLoadBalancerListenerInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoadBalancerListenerInput => __isa(o, "CreateLoadBalancerListenerInput");
 }
 
 /**
  * <p>Contains the parameters for CreateLoadBalancerListener.</p>
  */
-export interface CreateLoadBalancerListenerOutput {
-  __type?: "CreateLoadBalancerListenerOutput";
-}
+export interface CreateLoadBalancerListenerOutput {}
 
 export namespace CreateLoadBalancerListenerOutput {
   export const filterSensitiveLog = (obj: CreateLoadBalancerListenerOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoadBalancerListenerOutput => __isa(o, "CreateLoadBalancerListenerOutput");
 }
 
 /**
  * <p>Contains the parameters for CreateLoadBalancerPolicy.</p>
  */
 export interface CreateLoadBalancerPolicyInput {
-  __type?: "CreateLoadBalancerPolicyInput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -618,28 +557,23 @@ export namespace CreateLoadBalancerPolicyInput {
   export const filterSensitiveLog = (obj: CreateLoadBalancerPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoadBalancerPolicyInput => __isa(o, "CreateLoadBalancerPolicyInput");
 }
 
 /**
  * <p>Contains the output of CreateLoadBalancerPolicy.</p>
  */
-export interface CreateLoadBalancerPolicyOutput {
-  __type?: "CreateLoadBalancerPolicyOutput";
-}
+export interface CreateLoadBalancerPolicyOutput {}
 
 export namespace CreateLoadBalancerPolicyOutput {
   export const filterSensitiveLog = (obj: CreateLoadBalancerPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoadBalancerPolicyOutput => __isa(o, "CreateLoadBalancerPolicyOutput");
 }
 
 /**
  * <p>Information about the <code>CrossZoneLoadBalancing</code> attribute.</p>
  */
 export interface CrossZoneLoadBalancing {
-  __type?: "CrossZoneLoadBalancing";
   /**
    * <p>Specifies whether cross-zone load balancing is enabled for the load balancer.</p>
    */
@@ -650,14 +584,12 @@ export namespace CrossZoneLoadBalancing {
   export const filterSensitiveLog = (obj: CrossZoneLoadBalancing): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CrossZoneLoadBalancing => __isa(o, "CrossZoneLoadBalancing");
 }
 
 /**
  * <p>Contains the parameters for DeleteLoadBalancer.</p>
  */
 export interface DeleteAccessPointInput {
-  __type?: "DeleteAccessPointInput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -668,28 +600,23 @@ export namespace DeleteAccessPointInput {
   export const filterSensitiveLog = (obj: DeleteAccessPointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccessPointInput => __isa(o, "DeleteAccessPointInput");
 }
 
 /**
  * <p>Contains the output of DeleteLoadBalancer.</p>
  */
-export interface DeleteAccessPointOutput {
-  __type?: "DeleteAccessPointOutput";
-}
+export interface DeleteAccessPointOutput {}
 
 export namespace DeleteAccessPointOutput {
   export const filterSensitiveLog = (obj: DeleteAccessPointOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccessPointOutput => __isa(o, "DeleteAccessPointOutput");
 }
 
 /**
  * <p>Contains the parameters for DeleteLoadBalancerListeners.</p>
  */
 export interface DeleteLoadBalancerListenerInput {
-  __type?: "DeleteLoadBalancerListenerInput";
   /**
    * <p>The client port numbers of the listeners.</p>
    */
@@ -705,28 +632,23 @@ export namespace DeleteLoadBalancerListenerInput {
   export const filterSensitiveLog = (obj: DeleteLoadBalancerListenerInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoadBalancerListenerInput => __isa(o, "DeleteLoadBalancerListenerInput");
 }
 
 /**
  * <p>Contains the output of DeleteLoadBalancerListeners.</p>
  */
-export interface DeleteLoadBalancerListenerOutput {
-  __type?: "DeleteLoadBalancerListenerOutput";
-}
+export interface DeleteLoadBalancerListenerOutput {}
 
 export namespace DeleteLoadBalancerListenerOutput {
   export const filterSensitiveLog = (obj: DeleteLoadBalancerListenerOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoadBalancerListenerOutput => __isa(o, "DeleteLoadBalancerListenerOutput");
 }
 
 /**
  * <p>Contains the parameters for DeleteLoadBalancerPolicy.</p>
  */
 export interface DeleteLoadBalancerPolicyInput {
-  __type?: "DeleteLoadBalancerPolicyInput";
   /**
    * <p>The name of the policy.</p>
    */
@@ -742,21 +664,17 @@ export namespace DeleteLoadBalancerPolicyInput {
   export const filterSensitiveLog = (obj: DeleteLoadBalancerPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoadBalancerPolicyInput => __isa(o, "DeleteLoadBalancerPolicyInput");
 }
 
 /**
  * <p>Contains the output of DeleteLoadBalancerPolicy.</p>
  */
-export interface DeleteLoadBalancerPolicyOutput {
-  __type?: "DeleteLoadBalancerPolicyOutput";
-}
+export interface DeleteLoadBalancerPolicyOutput {}
 
 export namespace DeleteLoadBalancerPolicyOutput {
   export const filterSensitiveLog = (obj: DeleteLoadBalancerPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoadBalancerPolicyOutput => __isa(o, "DeleteLoadBalancerPolicyOutput");
 }
 
 /**
@@ -772,14 +690,12 @@ export namespace DependencyThrottleException {
   export const filterSensitiveLog = (obj: DependencyThrottleException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DependencyThrottleException => __isa(o, "DependencyThrottleException");
 }
 
 /**
  * <p>Contains the parameters for DeregisterInstancesFromLoadBalancer.</p>
  */
 export interface DeregisterEndPointsInput {
-  __type?: "DeregisterEndPointsInput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -795,14 +711,12 @@ export namespace DeregisterEndPointsInput {
   export const filterSensitiveLog = (obj: DeregisterEndPointsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterEndPointsInput => __isa(o, "DeregisterEndPointsInput");
 }
 
 /**
  * <p>Contains the output of DeregisterInstancesFromLoadBalancer.</p>
  */
 export interface DeregisterEndPointsOutput {
-  __type?: "DeregisterEndPointsOutput";
   /**
    * <p>The remaining instances registered with the load balancer.</p>
    */
@@ -813,14 +727,12 @@ export namespace DeregisterEndPointsOutput {
   export const filterSensitiveLog = (obj: DeregisterEndPointsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterEndPointsOutput => __isa(o, "DeregisterEndPointsOutput");
 }
 
 /**
  * <p>Contains the parameters for DescribeLoadBalancers.</p>
  */
 export interface DescribeAccessPointsInput {
-  __type?: "DescribeAccessPointsInput";
   /**
    * <p>The names of the load balancers.</p>
    */
@@ -841,14 +753,12 @@ export namespace DescribeAccessPointsInput {
   export const filterSensitiveLog = (obj: DescribeAccessPointsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccessPointsInput => __isa(o, "DescribeAccessPointsInput");
 }
 
 /**
  * <p>Contains the parameters for DescribeLoadBalancers.</p>
  */
 export interface DescribeAccessPointsOutput {
-  __type?: "DescribeAccessPointsOutput";
   /**
    * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
    */
@@ -864,11 +774,9 @@ export namespace DescribeAccessPointsOutput {
   export const filterSensitiveLog = (obj: DescribeAccessPointsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccessPointsOutput => __isa(o, "DescribeAccessPointsOutput");
 }
 
 export interface DescribeAccountLimitsInput {
-  __type?: "DescribeAccountLimitsInput";
   /**
    * <p>The maximum number of results to return with this call.</p>
    */
@@ -884,11 +792,9 @@ export namespace DescribeAccountLimitsInput {
   export const filterSensitiveLog = (obj: DescribeAccountLimitsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountLimitsInput => __isa(o, "DescribeAccountLimitsInput");
 }
 
 export interface DescribeAccountLimitsOutput {
-  __type?: "DescribeAccountLimitsOutput";
   /**
    * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
    */
@@ -904,14 +810,12 @@ export namespace DescribeAccountLimitsOutput {
   export const filterSensitiveLog = (obj: DescribeAccountLimitsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountLimitsOutput => __isa(o, "DescribeAccountLimitsOutput");
 }
 
 /**
  * <p>Contains the parameters for DescribeInstanceHealth.</p>
  */
 export interface DescribeEndPointStateInput {
-  __type?: "DescribeEndPointStateInput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -927,14 +831,12 @@ export namespace DescribeEndPointStateInput {
   export const filterSensitiveLog = (obj: DescribeEndPointStateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndPointStateInput => __isa(o, "DescribeEndPointStateInput");
 }
 
 /**
  * <p>Contains the output for DescribeInstanceHealth.</p>
  */
 export interface DescribeEndPointStateOutput {
-  __type?: "DescribeEndPointStateOutput";
   /**
    * <p>Information about the health of the instances.</p>
    */
@@ -945,14 +847,12 @@ export namespace DescribeEndPointStateOutput {
   export const filterSensitiveLog = (obj: DescribeEndPointStateOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndPointStateOutput => __isa(o, "DescribeEndPointStateOutput");
 }
 
 /**
  * <p>Contains the parameters for DescribeLoadBalancerAttributes.</p>
  */
 export interface DescribeLoadBalancerAttributesInput {
-  __type?: "DescribeLoadBalancerAttributesInput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -963,15 +863,12 @@ export namespace DescribeLoadBalancerAttributesInput {
   export const filterSensitiveLog = (obj: DescribeLoadBalancerAttributesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoadBalancerAttributesInput =>
-    __isa(o, "DescribeLoadBalancerAttributesInput");
 }
 
 /**
  * <p>Contains the output of DescribeLoadBalancerAttributes.</p>
  */
 export interface DescribeLoadBalancerAttributesOutput {
-  __type?: "DescribeLoadBalancerAttributesOutput";
   /**
    * <p>Information about the load balancer attributes.</p>
    */
@@ -982,15 +879,12 @@ export namespace DescribeLoadBalancerAttributesOutput {
   export const filterSensitiveLog = (obj: DescribeLoadBalancerAttributesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoadBalancerAttributesOutput =>
-    __isa(o, "DescribeLoadBalancerAttributesOutput");
 }
 
 /**
  * <p>Contains the parameters for DescribeLoadBalancerPolicies.</p>
  */
 export interface DescribeLoadBalancerPoliciesInput {
-  __type?: "DescribeLoadBalancerPoliciesInput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -1006,14 +900,12 @@ export namespace DescribeLoadBalancerPoliciesInput {
   export const filterSensitiveLog = (obj: DescribeLoadBalancerPoliciesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoadBalancerPoliciesInput => __isa(o, "DescribeLoadBalancerPoliciesInput");
 }
 
 /**
  * <p>Contains the output of DescribeLoadBalancerPolicies.</p>
  */
 export interface DescribeLoadBalancerPoliciesOutput {
-  __type?: "DescribeLoadBalancerPoliciesOutput";
   /**
    * <p>Information about the policies.</p>
    */
@@ -1024,15 +916,12 @@ export namespace DescribeLoadBalancerPoliciesOutput {
   export const filterSensitiveLog = (obj: DescribeLoadBalancerPoliciesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoadBalancerPoliciesOutput =>
-    __isa(o, "DescribeLoadBalancerPoliciesOutput");
 }
 
 /**
  * <p>Contains the parameters for DescribeLoadBalancerPolicyTypes.</p>
  */
 export interface DescribeLoadBalancerPolicyTypesInput {
-  __type?: "DescribeLoadBalancerPolicyTypesInput";
   /**
    * <p>The names of the policy types. If no names are specified, describes all policy types defined by Elastic Load Balancing.</p>
    */
@@ -1043,15 +932,12 @@ export namespace DescribeLoadBalancerPolicyTypesInput {
   export const filterSensitiveLog = (obj: DescribeLoadBalancerPolicyTypesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoadBalancerPolicyTypesInput =>
-    __isa(o, "DescribeLoadBalancerPolicyTypesInput");
 }
 
 /**
  * <p>Contains the output of DescribeLoadBalancerPolicyTypes.</p>
  */
 export interface DescribeLoadBalancerPolicyTypesOutput {
-  __type?: "DescribeLoadBalancerPolicyTypesOutput";
   /**
    * <p>Information about the policy types.</p>
    */
@@ -1062,15 +948,12 @@ export namespace DescribeLoadBalancerPolicyTypesOutput {
   export const filterSensitiveLog = (obj: DescribeLoadBalancerPolicyTypesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoadBalancerPolicyTypesOutput =>
-    __isa(o, "DescribeLoadBalancerPolicyTypesOutput");
 }
 
 /**
  * <p>Contains the parameters for DescribeTags.</p>
  */
 export interface DescribeTagsInput {
-  __type?: "DescribeTagsInput";
   /**
    * <p>The names of the load balancers.</p>
    */
@@ -1081,14 +964,12 @@ export namespace DescribeTagsInput {
   export const filterSensitiveLog = (obj: DescribeTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsInput => __isa(o, "DescribeTagsInput");
 }
 
 /**
  * <p>Contains the output for DescribeTags.</p>
  */
 export interface DescribeTagsOutput {
-  __type?: "DescribeTagsOutput";
   /**
    * <p>Information about the tags.</p>
    */
@@ -1099,14 +980,12 @@ export namespace DescribeTagsOutput {
   export const filterSensitiveLog = (obj: DescribeTagsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsOutput => __isa(o, "DescribeTagsOutput");
 }
 
 /**
  * <p>Contains the parameters for DetachLoadBalancerFromSubnets.</p>
  */
 export interface DetachLoadBalancerFromSubnetsInput {
-  __type?: "DetachLoadBalancerFromSubnetsInput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -1122,15 +1001,12 @@ export namespace DetachLoadBalancerFromSubnetsInput {
   export const filterSensitiveLog = (obj: DetachLoadBalancerFromSubnetsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachLoadBalancerFromSubnetsInput =>
-    __isa(o, "DetachLoadBalancerFromSubnetsInput");
 }
 
 /**
  * <p>Contains the output of DetachLoadBalancerFromSubnets.</p>
  */
 export interface DetachLoadBalancerFromSubnetsOutput {
-  __type?: "DetachLoadBalancerFromSubnetsOutput";
   /**
    * <p>The IDs of the remaining subnets for the load balancer.</p>
    */
@@ -1141,8 +1017,6 @@ export namespace DetachLoadBalancerFromSubnetsOutput {
   export const filterSensitiveLog = (obj: DetachLoadBalancerFromSubnetsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachLoadBalancerFromSubnetsOutput =>
-    __isa(o, "DetachLoadBalancerFromSubnetsOutput");
 }
 
 /**
@@ -1158,7 +1032,6 @@ export namespace DuplicateAccessPointNameException {
   export const filterSensitiveLog = (obj: DuplicateAccessPointNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateAccessPointNameException => __isa(o, "DuplicateAccessPointNameException");
 }
 
 /**
@@ -1174,7 +1047,6 @@ export namespace DuplicateListenerException {
   export const filterSensitiveLog = (obj: DuplicateListenerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateListenerException => __isa(o, "DuplicateListenerException");
 }
 
 /**
@@ -1190,7 +1062,6 @@ export namespace DuplicatePolicyNameException {
   export const filterSensitiveLog = (obj: DuplicatePolicyNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicatePolicyNameException => __isa(o, "DuplicatePolicyNameException");
 }
 
 /**
@@ -1206,14 +1077,12 @@ export namespace DuplicateTagKeysException {
   export const filterSensitiveLog = (obj: DuplicateTagKeysException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateTagKeysException => __isa(o, "DuplicateTagKeysException");
 }
 
 /**
  * <p>Information about a health check.</p>
  */
 export interface HealthCheck {
-  __type?: "HealthCheck";
   /**
    * <p>The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.</p>
    *         <p>TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.</p>
@@ -1249,14 +1118,12 @@ export namespace HealthCheck {
   export const filterSensitiveLog = (obj: HealthCheck): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HealthCheck => __isa(o, "HealthCheck");
 }
 
 /**
  * <p>The ID of an EC2 instance.</p>
  */
 export interface Instance {
-  __type?: "Instance";
   /**
    * <p>The instance ID.</p>
    */
@@ -1267,14 +1134,12 @@ export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
 
 /**
  * <p>Information about the state of an EC2 instance.</p>
  */
 export interface InstanceState {
-  __type?: "InstanceState";
   /**
    * <p>A description of the instance state. This string can contain one or more of the following messages.</p>
    *         <ul>
@@ -1367,7 +1232,6 @@ export namespace InstanceState {
   export const filterSensitiveLog = (obj: InstanceState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceState => __isa(o, "InstanceState");
 }
 
 /**
@@ -1383,8 +1247,6 @@ export namespace InvalidConfigurationRequestException {
   export const filterSensitiveLog = (obj: InvalidConfigurationRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidConfigurationRequestException =>
-    __isa(o, "InvalidConfigurationRequestException");
 }
 
 /**
@@ -1400,7 +1262,6 @@ export namespace InvalidEndPointException {
   export const filterSensitiveLog = (obj: InvalidEndPointException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEndPointException => __isa(o, "InvalidEndPointException");
 }
 
 /**
@@ -1416,7 +1277,6 @@ export namespace InvalidSchemeException {
   export const filterSensitiveLog = (obj: InvalidSchemeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSchemeException => __isa(o, "InvalidSchemeException");
 }
 
 /**
@@ -1432,7 +1292,6 @@ export namespace InvalidSecurityGroupException {
   export const filterSensitiveLog = (obj: InvalidSecurityGroupException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSecurityGroupException => __isa(o, "InvalidSecurityGroupException");
 }
 
 /**
@@ -1448,14 +1307,12 @@ export namespace InvalidSubnetException {
   export const filterSensitiveLog = (obj: InvalidSubnetException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSubnetException => __isa(o, "InvalidSubnetException");
 }
 
 /**
  * <p>Information about a policy for duration-based session stickiness.</p>
  */
 export interface LBCookieStickinessPolicy {
-  __type?: "LBCookieStickinessPolicy";
   /**
    * <p>The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.</p>
    */
@@ -1471,14 +1328,12 @@ export namespace LBCookieStickinessPolicy {
   export const filterSensitiveLog = (obj: LBCookieStickinessPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LBCookieStickinessPolicy => __isa(o, "LBCookieStickinessPolicy");
 }
 
 /**
  * <p>Information about an Elastic Load Balancing resource limit for your AWS account.</p>
  */
 export interface Limit {
-  __type?: "Limit";
   /**
    * <p>The name of the limit. The possible values are:</p>
    *         <ul>
@@ -1505,7 +1360,6 @@ export namespace Limit {
   export const filterSensitiveLog = (obj: Limit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Limit => __isa(o, "Limit");
 }
 
 /**
@@ -1514,7 +1368,6 @@ export namespace Limit {
  *             in the <i>Classic Load Balancers Guide</i>.</p>
  */
 export interface Listener {
-  __type?: "Listener";
   /**
    * <p>The Amazon Resource Name (ARN) of the server certificate.</p>
    */
@@ -1550,14 +1403,12 @@ export namespace Listener {
   export const filterSensitiveLog = (obj: Listener): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Listener => __isa(o, "Listener");
 }
 
 /**
  * <p>The policies enabled for a listener.</p>
  */
 export interface ListenerDescription {
-  __type?: "ListenerDescription";
   /**
    * <p>The listener.</p>
    */
@@ -1573,7 +1424,6 @@ export namespace ListenerDescription {
   export const filterSensitiveLog = (obj: ListenerDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListenerDescription => __isa(o, "ListenerDescription");
 }
 
 /**
@@ -1589,7 +1439,6 @@ export namespace ListenerNotFoundException {
   export const filterSensitiveLog = (obj: ListenerNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListenerNotFoundException => __isa(o, "ListenerNotFoundException");
 }
 
 /**
@@ -1605,15 +1454,12 @@ export namespace LoadBalancerAttributeNotFoundException {
   export const filterSensitiveLog = (obj: LoadBalancerAttributeNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerAttributeNotFoundException =>
-    __isa(o, "LoadBalancerAttributeNotFoundException");
 }
 
 /**
  * <p>The attributes for a load balancer.</p>
  */
 export interface LoadBalancerAttributes {
-  __type?: "LoadBalancerAttributes";
   /**
    * <p>If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.</p>
    *         <p>By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer.
@@ -1653,14 +1499,12 @@ export namespace LoadBalancerAttributes {
   export const filterSensitiveLog = (obj: LoadBalancerAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerAttributes => __isa(o, "LoadBalancerAttributes");
 }
 
 /**
  * <p>Information about a load balancer.</p>
  */
 export interface LoadBalancerDescription {
-  __type?: "LoadBalancerDescription";
   /**
    * <p>Information about your EC2 instances.</p>
    */
@@ -1753,14 +1597,12 @@ export namespace LoadBalancerDescription {
   export const filterSensitiveLog = (obj: LoadBalancerDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerDescription => __isa(o, "LoadBalancerDescription");
 }
 
 /**
  * <p>Contains the parameters for ModifyLoadBalancerAttributes.</p>
  */
 export interface ModifyLoadBalancerAttributesInput {
-  __type?: "ModifyLoadBalancerAttributesInput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -1776,14 +1618,12 @@ export namespace ModifyLoadBalancerAttributesInput {
   export const filterSensitiveLog = (obj: ModifyLoadBalancerAttributesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyLoadBalancerAttributesInput => __isa(o, "ModifyLoadBalancerAttributesInput");
 }
 
 /**
  * <p>Contains the output of ModifyLoadBalancerAttributes.</p>
  */
 export interface ModifyLoadBalancerAttributesOutput {
-  __type?: "ModifyLoadBalancerAttributesOutput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -1799,8 +1639,6 @@ export namespace ModifyLoadBalancerAttributesOutput {
   export const filterSensitiveLog = (obj: ModifyLoadBalancerAttributesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyLoadBalancerAttributesOutput =>
-    __isa(o, "ModifyLoadBalancerAttributesOutput");
 }
 
 /**
@@ -1816,14 +1654,12 @@ export namespace OperationNotPermittedException {
   export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationNotPermittedException => __isa(o, "OperationNotPermittedException");
 }
 
 /**
  * <p>The policies for a load balancer.</p>
  */
 export interface Policies {
-  __type?: "Policies";
   /**
    * <p>The policies other than the stickiness policies.</p>
    */
@@ -1844,14 +1680,12 @@ export namespace Policies {
   export const filterSensitiveLog = (obj: Policies): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Policies => __isa(o, "Policies");
 }
 
 /**
  * <p>Information about a policy attribute.</p>
  */
 export interface PolicyAttribute {
-  __type?: "PolicyAttribute";
   /**
    * <p>The value of the attribute.</p>
    */
@@ -1867,14 +1701,12 @@ export namespace PolicyAttribute {
   export const filterSensitiveLog = (obj: PolicyAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyAttribute => __isa(o, "PolicyAttribute");
 }
 
 /**
  * <p>Information about a policy attribute.</p>
  */
 export interface PolicyAttributeDescription {
-  __type?: "PolicyAttributeDescription";
   /**
    * <p>The name of the attribute.</p>
    */
@@ -1890,14 +1722,12 @@ export namespace PolicyAttributeDescription {
   export const filterSensitiveLog = (obj: PolicyAttributeDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyAttributeDescription => __isa(o, "PolicyAttributeDescription");
 }
 
 /**
  * <p>Information about a policy attribute type.</p>
  */
 export interface PolicyAttributeTypeDescription {
-  __type?: "PolicyAttributeTypeDescription";
   /**
    * <p>The type of the attribute. For example, <code>Boolean</code> or <code>Integer</code>.</p>
    */
@@ -1943,14 +1773,12 @@ export namespace PolicyAttributeTypeDescription {
   export const filterSensitiveLog = (obj: PolicyAttributeTypeDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyAttributeTypeDescription => __isa(o, "PolicyAttributeTypeDescription");
 }
 
 /**
  * <p>Information about a policy.</p>
  */
 export interface PolicyDescription {
-  __type?: "PolicyDescription";
   /**
    * <p>The name of the policy type.</p>
    */
@@ -1971,7 +1799,6 @@ export namespace PolicyDescription {
   export const filterSensitiveLog = (obj: PolicyDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyDescription => __isa(o, "PolicyDescription");
 }
 
 /**
@@ -1987,14 +1814,12 @@ export namespace PolicyNotFoundException {
   export const filterSensitiveLog = (obj: PolicyNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyNotFoundException => __isa(o, "PolicyNotFoundException");
 }
 
 /**
  * <p>Information about a policy type.</p>
  */
 export interface PolicyTypeDescription {
-  __type?: "PolicyTypeDescription";
   /**
    * <p>A description of the policy type.</p>
    */
@@ -2015,7 +1840,6 @@ export namespace PolicyTypeDescription {
   export const filterSensitiveLog = (obj: PolicyTypeDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyTypeDescription => __isa(o, "PolicyTypeDescription");
 }
 
 /**
@@ -2031,14 +1855,12 @@ export namespace PolicyTypeNotFoundException {
   export const filterSensitiveLog = (obj: PolicyTypeNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyTypeNotFoundException => __isa(o, "PolicyTypeNotFoundException");
 }
 
 /**
  * <p>Contains the parameters for RegisterInstancesWithLoadBalancer.</p>
  */
 export interface RegisterEndPointsInput {
-  __type?: "RegisterEndPointsInput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -2054,14 +1876,12 @@ export namespace RegisterEndPointsInput {
   export const filterSensitiveLog = (obj: RegisterEndPointsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterEndPointsInput => __isa(o, "RegisterEndPointsInput");
 }
 
 /**
  * <p>Contains the output of RegisterInstancesWithLoadBalancer.</p>
  */
 export interface RegisterEndPointsOutput {
-  __type?: "RegisterEndPointsOutput";
   /**
    * <p>The updated list of instances for the load balancer.</p>
    */
@@ -2072,14 +1892,12 @@ export namespace RegisterEndPointsOutput {
   export const filterSensitiveLog = (obj: RegisterEndPointsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterEndPointsOutput => __isa(o, "RegisterEndPointsOutput");
 }
 
 /**
  * <p>Contains the parameters for DisableAvailabilityZonesForLoadBalancer.</p>
  */
 export interface RemoveAvailabilityZonesInput {
-  __type?: "RemoveAvailabilityZonesInput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -2095,14 +1913,12 @@ export namespace RemoveAvailabilityZonesInput {
   export const filterSensitiveLog = (obj: RemoveAvailabilityZonesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveAvailabilityZonesInput => __isa(o, "RemoveAvailabilityZonesInput");
 }
 
 /**
  * <p>Contains the output for DisableAvailabilityZonesForLoadBalancer.</p>
  */
 export interface RemoveAvailabilityZonesOutput {
-  __type?: "RemoveAvailabilityZonesOutput";
   /**
    * <p>The remaining Availability Zones for the load balancer.</p>
    */
@@ -2113,14 +1929,12 @@ export namespace RemoveAvailabilityZonesOutput {
   export const filterSensitiveLog = (obj: RemoveAvailabilityZonesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveAvailabilityZonesOutput => __isa(o, "RemoveAvailabilityZonesOutput");
 }
 
 /**
  * <p>Contains the parameters for RemoveTags.</p>
  */
 export interface RemoveTagsInput {
-  __type?: "RemoveTagsInput";
   /**
    * <p>The name of the load balancer. You can specify a maximum of one load balancer name.</p>
    */
@@ -2136,28 +1950,23 @@ export namespace RemoveTagsInput {
   export const filterSensitiveLog = (obj: RemoveTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsInput => __isa(o, "RemoveTagsInput");
 }
 
 /**
  * <p>Contains the output of RemoveTags.</p>
  */
-export interface RemoveTagsOutput {
-  __type?: "RemoveTagsOutput";
-}
+export interface RemoveTagsOutput {}
 
 export namespace RemoveTagsOutput {
   export const filterSensitiveLog = (obj: RemoveTagsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsOutput => __isa(o, "RemoveTagsOutput");
 }
 
 /**
  * <p>Contains the parameters for SetLoadBalancerListenerSSLCertificate.</p>
  */
 export interface SetLoadBalancerListenerSSLCertificateInput {
-  __type?: "SetLoadBalancerListenerSSLCertificateInput";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -2178,30 +1987,23 @@ export namespace SetLoadBalancerListenerSSLCertificateInput {
   export const filterSensitiveLog = (obj: SetLoadBalancerListenerSSLCertificateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetLoadBalancerListenerSSLCertificateInput =>
-    __isa(o, "SetLoadBalancerListenerSSLCertificateInput");
 }
 
 /**
  * <p>Contains the output of SetLoadBalancerListenerSSLCertificate.</p>
  */
-export interface SetLoadBalancerListenerSSLCertificateOutput {
-  __type?: "SetLoadBalancerListenerSSLCertificateOutput";
-}
+export interface SetLoadBalancerListenerSSLCertificateOutput {}
 
 export namespace SetLoadBalancerListenerSSLCertificateOutput {
   export const filterSensitiveLog = (obj: SetLoadBalancerListenerSSLCertificateOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetLoadBalancerListenerSSLCertificateOutput =>
-    __isa(o, "SetLoadBalancerListenerSSLCertificateOutput");
 }
 
 /**
  * <p>Contains the parameters for SetLoadBalancerPoliciesForBackendServer.</p>
  */
 export interface SetLoadBalancerPoliciesForBackendServerInput {
-  __type?: "SetLoadBalancerPoliciesForBackendServerInput";
   /**
    * <p>The port number associated with the EC2 instance.</p>
    */
@@ -2222,30 +2024,23 @@ export namespace SetLoadBalancerPoliciesForBackendServerInput {
   export const filterSensitiveLog = (obj: SetLoadBalancerPoliciesForBackendServerInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetLoadBalancerPoliciesForBackendServerInput =>
-    __isa(o, "SetLoadBalancerPoliciesForBackendServerInput");
 }
 
 /**
  * <p>Contains the output of SetLoadBalancerPoliciesForBackendServer.</p>
  */
-export interface SetLoadBalancerPoliciesForBackendServerOutput {
-  __type?: "SetLoadBalancerPoliciesForBackendServerOutput";
-}
+export interface SetLoadBalancerPoliciesForBackendServerOutput {}
 
 export namespace SetLoadBalancerPoliciesForBackendServerOutput {
   export const filterSensitiveLog = (obj: SetLoadBalancerPoliciesForBackendServerOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetLoadBalancerPoliciesForBackendServerOutput =>
-    __isa(o, "SetLoadBalancerPoliciesForBackendServerOutput");
 }
 
 /**
  * <p>Contains the parameters for SetLoadBalancePoliciesOfListener.</p>
  */
 export interface SetLoadBalancerPoliciesOfListenerInput {
-  __type?: "SetLoadBalancerPoliciesOfListenerInput";
   /**
    * <p>The external port of the load balancer.</p>
    */
@@ -2266,30 +2061,23 @@ export namespace SetLoadBalancerPoliciesOfListenerInput {
   export const filterSensitiveLog = (obj: SetLoadBalancerPoliciesOfListenerInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetLoadBalancerPoliciesOfListenerInput =>
-    __isa(o, "SetLoadBalancerPoliciesOfListenerInput");
 }
 
 /**
  * <p>Contains the output of SetLoadBalancePoliciesOfListener.</p>
  */
-export interface SetLoadBalancerPoliciesOfListenerOutput {
-  __type?: "SetLoadBalancerPoliciesOfListenerOutput";
-}
+export interface SetLoadBalancerPoliciesOfListenerOutput {}
 
 export namespace SetLoadBalancerPoliciesOfListenerOutput {
   export const filterSensitiveLog = (obj: SetLoadBalancerPoliciesOfListenerOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetLoadBalancerPoliciesOfListenerOutput =>
-    __isa(o, "SetLoadBalancerPoliciesOfListenerOutput");
 }
 
 /**
  * <p>Information about a source security group.</p>
  */
 export interface SourceSecurityGroup {
-  __type?: "SourceSecurityGroup";
   /**
    * <p>The owner of the security group.</p>
    */
@@ -2305,7 +2093,6 @@ export namespace SourceSecurityGroup {
   export const filterSensitiveLog = (obj: SourceSecurityGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceSecurityGroup => __isa(o, "SourceSecurityGroup");
 }
 
 /**
@@ -2321,14 +2108,12 @@ export namespace SubnetNotFoundException {
   export const filterSensitiveLog = (obj: SubnetNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubnetNotFoundException => __isa(o, "SubnetNotFoundException");
 }
 
 /**
  * <p>Information about a tag.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value of the tag.</p>
    */
@@ -2344,14 +2129,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p>The tags associated with a load balancer.</p>
  */
 export interface TagDescription {
-  __type?: "TagDescription";
   /**
    * <p>The tags.</p>
    */
@@ -2367,14 +2150,12 @@ export namespace TagDescription {
   export const filterSensitiveLog = (obj: TagDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagDescription => __isa(o, "TagDescription");
 }
 
 /**
  * <p>The key of a tag.</p>
  */
 export interface TagKeyOnly {
-  __type?: "TagKeyOnly";
   /**
    * <p>The name of the key.</p>
    */
@@ -2385,7 +2166,6 @@ export namespace TagKeyOnly {
   export const filterSensitiveLog = (obj: TagKeyOnly): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagKeyOnly => __isa(o, "TagKeyOnly");
 }
 
 /**
@@ -2401,7 +2181,6 @@ export namespace TooManyAccessPointsException {
   export const filterSensitiveLog = (obj: TooManyAccessPointsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyAccessPointsException => __isa(o, "TooManyAccessPointsException");
 }
 
 /**
@@ -2417,7 +2196,6 @@ export namespace TooManyPoliciesException {
   export const filterSensitiveLog = (obj: TooManyPoliciesException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyPoliciesException => __isa(o, "TooManyPoliciesException");
 }
 
 /**
@@ -2433,7 +2211,6 @@ export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
@@ -2449,5 +2226,4 @@ export namespace UnsupportedProtocolException {
   export const filterSensitiveLog = (obj: UnsupportedProtocolException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedProtocolException => __isa(o, "UnsupportedProtocolException");
 }

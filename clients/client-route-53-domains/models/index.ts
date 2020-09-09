@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The AcceptDomainTransferFromAnotherAwsAccount request includes the following elements.</p>
  */
 export interface AcceptDomainTransferFromAnotherAwsAccountRequest {
-  __type?: "AcceptDomainTransferFromAnotherAwsAccountRequest";
   /**
    * <p>The name of the domain that was specified when another AWS account submitted a
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>
@@ -27,15 +26,12 @@ export namespace AcceptDomainTransferFromAnotherAwsAccountRequest {
   export const filterSensitiveLog = (obj: AcceptDomainTransferFromAnotherAwsAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptDomainTransferFromAnotherAwsAccountRequest =>
-    __isa(o, "AcceptDomainTransferFromAnotherAwsAccountRequest");
 }
 
 /**
  * <p>The AcceptDomainTransferFromAnotherAwsAccount response includes the following element.</p>
  */
 export interface AcceptDomainTransferFromAnotherAwsAccountResponse {
-  __type?: "AcceptDomainTransferFromAnotherAwsAccountResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status, use
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
@@ -47,15 +43,12 @@ export namespace AcceptDomainTransferFromAnotherAwsAccountResponse {
   export const filterSensitiveLog = (obj: AcceptDomainTransferFromAnotherAwsAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptDomainTransferFromAnotherAwsAccountResponse =>
-    __isa(o, "AcceptDomainTransferFromAnotherAwsAccountResponse");
 }
 
 /**
  * <p>Information for one billing record.</p>
  */
 export interface BillingRecord {
-  __type?: "BillingRecord";
   /**
    * <p>The name of the domain that the billing record applies to. If the domain name contains characters
    * 			other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode.
@@ -91,14 +84,12 @@ export namespace BillingRecord {
   export const filterSensitiveLog = (obj: BillingRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BillingRecord => __isa(o, "BillingRecord");
 }
 
 /**
  * <p>The CancelDomainTransferToAnotherAwsAccount request includes the following element.</p>
  */
 export interface CancelDomainTransferToAnotherAwsAccountRequest {
-  __type?: "CancelDomainTransferToAnotherAwsAccountRequest";
   /**
    * <p>The name of the domain for which you want to cancel the transfer to another AWS account.</p>
    */
@@ -109,15 +100,12 @@ export namespace CancelDomainTransferToAnotherAwsAccountRequest {
   export const filterSensitiveLog = (obj: CancelDomainTransferToAnotherAwsAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelDomainTransferToAnotherAwsAccountRequest =>
-    __isa(o, "CancelDomainTransferToAnotherAwsAccountRequest");
 }
 
 /**
  * <p>The <code>CancelDomainTransferToAnotherAwsAccount</code> response includes the following element.</p>
  */
 export interface CancelDomainTransferToAnotherAwsAccountResponse {
-  __type?: "CancelDomainTransferToAnotherAwsAccountResponse";
   /**
    * <p>The identifier that <code>TransferDomainToAnotherAwsAccount</code> returned to track the progress of the request.
    * 			Because the transfer request was canceled, the value is no longer valid, and you can't use <code>GetOperationDetail</code>
@@ -130,15 +118,12 @@ export namespace CancelDomainTransferToAnotherAwsAccountResponse {
   export const filterSensitiveLog = (obj: CancelDomainTransferToAnotherAwsAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelDomainTransferToAnotherAwsAccountResponse =>
-    __isa(o, "CancelDomainTransferToAnotherAwsAccountResponse");
 }
 
 /**
  * <p>The CheckDomainAvailability request contains the following elements.</p>
  */
 export interface CheckDomainAvailabilityRequest {
-  __type?: "CheckDomainAvailabilityRequest";
   /**
    * <p>Reserved for future use.</p>
    */
@@ -178,14 +163,12 @@ export namespace CheckDomainAvailabilityRequest {
   export const filterSensitiveLog = (obj: CheckDomainAvailabilityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CheckDomainAvailabilityRequest => __isa(o, "CheckDomainAvailabilityRequest");
 }
 
 /**
  * <p>The CheckDomainAvailability response includes the following elements.</p>
  */
 export interface CheckDomainAvailabilityResponse {
-  __type?: "CheckDomainAvailabilityResponse";
   /**
    * <p>Whether the domain name is available for registering.</p>
    * 		       <note>
@@ -241,14 +224,12 @@ export namespace CheckDomainAvailabilityResponse {
   export const filterSensitiveLog = (obj: CheckDomainAvailabilityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CheckDomainAvailabilityResponse => __isa(o, "CheckDomainAvailabilityResponse");
 }
 
 /**
  * <p>The CheckDomainTransferability request contains the following elements.</p>
  */
 export interface CheckDomainTransferabilityRequest {
-  __type?: "CheckDomainTransferabilityRequest";
   /**
    * <p>If the registrar for the top-level domain (TLD) requires an authorization code to transfer the domain,
    * 			the code that you got from the current registrar for the domain.</p>
@@ -284,14 +265,12 @@ export namespace CheckDomainTransferabilityRequest {
     ...obj,
     ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CheckDomainTransferabilityRequest => __isa(o, "CheckDomainTransferabilityRequest");
 }
 
 /**
  * <p>The CheckDomainTransferability response includes the following elements.</p>
  */
 export interface CheckDomainTransferabilityResponse {
-  __type?: "CheckDomainTransferabilityResponse";
   /**
    * <p>A complex type that contains information about whether the specified domain can be transferred to Route 53.</p>
    */
@@ -302,15 +281,12 @@ export namespace CheckDomainTransferabilityResponse {
   export const filterSensitiveLog = (obj: CheckDomainTransferabilityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CheckDomainTransferabilityResponse =>
-    __isa(o, "CheckDomainTransferabilityResponse");
 }
 
 /**
  * <p>ContactDetail includes the following elements.</p>
  */
 export interface ContactDetail {
-  __type?: "ContactDetail";
   /**
    * <p>The city of the contact's address.</p>
    */
@@ -407,7 +383,6 @@ export namespace ContactDetail {
   export const filterSensitiveLog = (obj: ContactDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContactDetail => __isa(o, "ContactDetail");
 }
 
 export type ContactType = "ASSOCIATION" | "COMPANY" | "PERSON" | "PUBLIC_BODY" | "RESELLER";
@@ -647,7 +622,6 @@ export type CountryCode =
  * <p>The DeleteTagsForDomainRequest includes the following elements.</p>
  */
 export interface DeleteTagsForDomainRequest {
-  __type?: "DeleteTagsForDomainRequest";
   /**
    * <p>A list of tag keys to delete.</p>
    */
@@ -663,22 +637,17 @@ export namespace DeleteTagsForDomainRequest {
   export const filterSensitiveLog = (obj: DeleteTagsForDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsForDomainRequest => __isa(o, "DeleteTagsForDomainRequest");
 }
 
-export interface DeleteTagsForDomainResponse {
-  __type?: "DeleteTagsForDomainResponse";
-}
+export interface DeleteTagsForDomainResponse {}
 
 export namespace DeleteTagsForDomainResponse {
   export const filterSensitiveLog = (obj: DeleteTagsForDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsForDomainResponse => __isa(o, "DeleteTagsForDomainResponse");
 }
 
 export interface DisableDomainAutoRenewRequest {
-  __type?: "DisableDomainAutoRenewRequest";
   /**
    * <p>The name of the domain that you want to disable automatic renewal for.</p>
    */
@@ -689,25 +658,20 @@ export namespace DisableDomainAutoRenewRequest {
   export const filterSensitiveLog = (obj: DisableDomainAutoRenewRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableDomainAutoRenewRequest => __isa(o, "DisableDomainAutoRenewRequest");
 }
 
-export interface DisableDomainAutoRenewResponse {
-  __type?: "DisableDomainAutoRenewResponse";
-}
+export interface DisableDomainAutoRenewResponse {}
 
 export namespace DisableDomainAutoRenewResponse {
   export const filterSensitiveLog = (obj: DisableDomainAutoRenewResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableDomainAutoRenewResponse => __isa(o, "DisableDomainAutoRenewResponse");
 }
 
 /**
  * <p>The DisableDomainTransferLock request includes the following element.</p>
  */
 export interface DisableDomainTransferLockRequest {
-  __type?: "DisableDomainTransferLockRequest";
   /**
    * <p>The name of the domain that you want to remove the transfer lock for.</p>
    */
@@ -718,14 +682,12 @@ export namespace DisableDomainTransferLockRequest {
   export const filterSensitiveLog = (obj: DisableDomainTransferLockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableDomainTransferLockRequest => __isa(o, "DisableDomainTransferLockRequest");
 }
 
 /**
  * <p>The DisableDomainTransferLock response includes the following element.</p>
  */
 export interface DisableDomainTransferLockResponse {
-  __type?: "DisableDomainTransferLockResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status, use
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
@@ -737,7 +699,6 @@ export namespace DisableDomainTransferLockResponse {
   export const filterSensitiveLog = (obj: DisableDomainTransferLockResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableDomainTransferLockResponse => __isa(o, "DisableDomainTransferLockResponse");
 }
 
 export type DomainAvailability =
@@ -766,14 +727,12 @@ export namespace DomainLimitExceeded {
   export const filterSensitiveLog = (obj: DomainLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainLimitExceeded => __isa(o, "DomainLimitExceeded");
 }
 
 /**
  * <p>Information about one suggested domain name.</p>
  */
 export interface DomainSuggestion {
-  __type?: "DomainSuggestion";
   /**
    * <p>Whether the domain name is available for registering.</p>
    * 		       <note>
@@ -834,14 +793,12 @@ export namespace DomainSuggestion {
   export const filterSensitiveLog = (obj: DomainSuggestion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainSuggestion => __isa(o, "DomainSuggestion");
 }
 
 /**
  * <p>Summary information about one domain.</p>
  */
 export interface DomainSummary {
-  __type?: "DomainSummary";
   /**
    * <p>Expiration date of the domain in Unix time format and Coordinated Universal Time (UTC).</p>
    */
@@ -867,14 +824,12 @@ export namespace DomainSummary {
   export const filterSensitiveLog = (obj: DomainSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainSummary => __isa(o, "DomainSummary");
 }
 
 /**
  * <p>A complex type that contains information about whether the specified domain can be transferred to Route 53.</p>
  */
 export interface DomainTransferability {
-  __type?: "DomainTransferability";
   /**
    * <p>Whether the domain name can be transferred to Route 53.</p>
    * 		       <note>
@@ -904,7 +859,6 @@ export namespace DomainTransferability {
   export const filterSensitiveLog = (obj: DomainTransferability): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainTransferability => __isa(o, "DomainTransferability");
 }
 
 /**
@@ -923,11 +877,9 @@ export namespace DuplicateRequest {
   export const filterSensitiveLog = (obj: DuplicateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateRequest => __isa(o, "DuplicateRequest");
 }
 
 export interface EnableDomainAutoRenewRequest {
-  __type?: "EnableDomainAutoRenewRequest";
   /**
    * <p>The name of the domain that you want to enable automatic renewal for.</p>
    */
@@ -938,25 +890,20 @@ export namespace EnableDomainAutoRenewRequest {
   export const filterSensitiveLog = (obj: EnableDomainAutoRenewRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableDomainAutoRenewRequest => __isa(o, "EnableDomainAutoRenewRequest");
 }
 
-export interface EnableDomainAutoRenewResponse {
-  __type?: "EnableDomainAutoRenewResponse";
-}
+export interface EnableDomainAutoRenewResponse {}
 
 export namespace EnableDomainAutoRenewResponse {
   export const filterSensitiveLog = (obj: EnableDomainAutoRenewResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableDomainAutoRenewResponse => __isa(o, "EnableDomainAutoRenewResponse");
 }
 
 /**
  * <p>A request to set the transfer lock for the specified domain.</p>
  */
 export interface EnableDomainTransferLockRequest {
-  __type?: "EnableDomainTransferLockRequest";
   /**
    * <p>The name of the domain that you want to set the transfer lock for.</p>
    */
@@ -967,14 +914,12 @@ export namespace EnableDomainTransferLockRequest {
   export const filterSensitiveLog = (obj: EnableDomainTransferLockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableDomainTransferLockRequest => __isa(o, "EnableDomainTransferLockRequest");
 }
 
 /**
  * <p>The EnableDomainTransferLock response includes the following elements.</p>
  */
 export interface EnableDomainTransferLockResponse {
-  __type?: "EnableDomainTransferLockResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.</p>
    */
@@ -985,14 +930,12 @@ export namespace EnableDomainTransferLockResponse {
   export const filterSensitiveLog = (obj: EnableDomainTransferLockResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableDomainTransferLockResponse => __isa(o, "EnableDomainTransferLockResponse");
 }
 
 /**
  * <p>ExtraParam includes the following elements.</p>
  */
 export interface ExtraParam {
-  __type?: "ExtraParam";
   /**
    * <p>The value that corresponds with the name of an extra parameter.</p>
    */
@@ -1773,7 +1716,6 @@ export namespace ExtraParam {
   export const filterSensitiveLog = (obj: ExtraParam): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExtraParam => __isa(o, "ExtraParam");
 }
 
 export enum ExtraParamName {
@@ -1809,7 +1751,6 @@ export enum ExtraParamName {
 }
 
 export interface GetContactReachabilityStatusRequest {
-  __type?: "GetContactReachabilityStatusRequest";
   /**
    * <p>The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.</p>
    */
@@ -1820,12 +1761,9 @@ export namespace GetContactReachabilityStatusRequest {
   export const filterSensitiveLog = (obj: GetContactReachabilityStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetContactReachabilityStatusRequest =>
-    __isa(o, "GetContactReachabilityStatusRequest");
 }
 
 export interface GetContactReachabilityStatusResponse {
-  __type?: "GetContactReachabilityStatusResponse";
   /**
    * <p>Whether the registrant contact has responded. Values include the following:</p>
    * 		       <dl>
@@ -1855,15 +1793,12 @@ export namespace GetContactReachabilityStatusResponse {
   export const filterSensitiveLog = (obj: GetContactReachabilityStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetContactReachabilityStatusResponse =>
-    __isa(o, "GetContactReachabilityStatusResponse");
 }
 
 /**
  * <p>The GetDomainDetail request includes the following element.</p>
  */
 export interface GetDomainDetailRequest {
-  __type?: "GetDomainDetailRequest";
   /**
    * <p>The name of the domain that you want to get detailed information about.</p>
    */
@@ -1874,14 +1809,12 @@ export namespace GetDomainDetailRequest {
   export const filterSensitiveLog = (obj: GetDomainDetailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainDetailRequest => __isa(o, "GetDomainDetailRequest");
 }
 
 /**
  * <p>The GetDomainDetail response includes the following elements.</p>
  */
 export interface GetDomainDetailResponse {
-  __type?: "GetDomainDetailResponse";
   /**
    * <p>Reseller of the domain. Domains registered or transferred using Route 53 domains will have <code>"Amazon"</code>
    * 			as the reseller. </p>
@@ -2018,11 +1951,9 @@ export namespace GetDomainDetailResponse {
     ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
     ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetDomainDetailResponse => __isa(o, "GetDomainDetailResponse");
 }
 
 export interface GetDomainSuggestionsRequest {
-  __type?: "GetDomainSuggestionsRequest";
   /**
    * <p>The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.</p>
    */
@@ -2068,11 +1999,9 @@ export namespace GetDomainSuggestionsRequest {
   export const filterSensitiveLog = (obj: GetDomainSuggestionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainSuggestionsRequest => __isa(o, "GetDomainSuggestionsRequest");
 }
 
 export interface GetDomainSuggestionsResponse {
-  __type?: "GetDomainSuggestionsResponse";
   /**
    * <p>A list of possible domain names. If you specified <code>true</code> for <code>OnlyAvailable</code> in the request,
    * 			the list contains only domains that are available for registration.</p>
@@ -2084,7 +2013,6 @@ export namespace GetDomainSuggestionsResponse {
   export const filterSensitiveLog = (obj: GetDomainSuggestionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainSuggestionsResponse => __isa(o, "GetDomainSuggestionsResponse");
 }
 
 /**
@@ -2093,7 +2021,6 @@ export namespace GetDomainSuggestionsResponse {
  * 			request includes the following element.</p>
  */
 export interface GetOperationDetailRequest {
-  __type?: "GetOperationDetailRequest";
   /**
    * <p>The identifier for the operation for which you want to get the status. Route 53 returned the identifier
    * 			in the response to the original request.</p>
@@ -2105,14 +2032,12 @@ export namespace GetOperationDetailRequest {
   export const filterSensitiveLog = (obj: GetOperationDetailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOperationDetailRequest => __isa(o, "GetOperationDetailRequest");
 }
 
 /**
  * <p>The GetOperationDetail response includes the following elements.</p>
  */
 export interface GetOperationDetailResponse {
-  __type?: "GetOperationDetailResponse";
   /**
    * <p>Detailed information on the status including possible errors.</p>
    */
@@ -2148,7 +2073,6 @@ export namespace GetOperationDetailResponse {
   export const filterSensitiveLog = (obj: GetOperationDetailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOperationDetailResponse => __isa(o, "GetOperationDetailResponse");
 }
 
 /**
@@ -2170,14 +2094,12 @@ export namespace InvalidInput {
   export const filterSensitiveLog = (obj: InvalidInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInput => __isa(o, "InvalidInput");
 }
 
 /**
  * <p>The ListDomains request includes the following elements.</p>
  */
 export interface ListDomainsRequest {
-  __type?: "ListDomainsRequest";
   /**
    * <p>For an initial request for a list of domains, omit this element. If the number of domains
    * 			that are associated with the current AWS account is greater than the value that you specified for
@@ -2199,14 +2121,12 @@ export namespace ListDomainsRequest {
   export const filterSensitiveLog = (obj: ListDomainsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainsRequest => __isa(o, "ListDomainsRequest");
 }
 
 /**
  * <p>The ListDomains response includes the following elements.</p>
  */
 export interface ListDomainsResponse {
-  __type?: "ListDomainsResponse";
   /**
    * <p>If there are more domains than you specified for <code>MaxItems</code> in the request, submit another
    * 			request and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>.</p>
@@ -2223,14 +2143,12 @@ export namespace ListDomainsResponse {
   export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainsResponse => __isa(o, "ListDomainsResponse");
 }
 
 /**
  * <p>The ListOperations request includes the following elements.</p>
  */
 export interface ListOperationsRequest {
-  __type?: "ListOperationsRequest";
   /**
    * <p>For an initial request for a list of operations, omit this element. If the number of operations that are
    * 			not yet complete is greater than the value that you specified for <code>MaxItems</code>, you can use <code>Marker</code>
@@ -2256,14 +2174,12 @@ export namespace ListOperationsRequest {
   export const filterSensitiveLog = (obj: ListOperationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOperationsRequest => __isa(o, "ListOperationsRequest");
 }
 
 /**
  * <p>The ListOperations response includes the following elements.</p>
  */
 export interface ListOperationsResponse {
-  __type?: "ListOperationsResponse";
   /**
    * <p>If there are more operations than you specified for <code>MaxItems</code> in the request, submit another
    * 			request and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>.</p>
@@ -2280,14 +2196,12 @@ export namespace ListOperationsResponse {
   export const filterSensitiveLog = (obj: ListOperationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOperationsResponse => __isa(o, "ListOperationsResponse");
 }
 
 /**
  * <p>The ListTagsForDomainRequest includes the following elements.</p>
  */
 export interface ListTagsForDomainRequest {
-  __type?: "ListTagsForDomainRequest";
   /**
    * <p>The domain for which you want to get a list of tags.</p>
    */
@@ -2298,14 +2212,12 @@ export namespace ListTagsForDomainRequest {
   export const filterSensitiveLog = (obj: ListTagsForDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForDomainRequest => __isa(o, "ListTagsForDomainRequest");
 }
 
 /**
  * <p>The ListTagsForDomain response includes the following elements.</p>
  */
 export interface ListTagsForDomainResponse {
-  __type?: "ListTagsForDomainResponse";
   /**
    * <p>A list of the tags that are associated with the specified domain.</p>
    */
@@ -2316,14 +2228,12 @@ export namespace ListTagsForDomainResponse {
   export const filterSensitiveLog = (obj: ListTagsForDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForDomainResponse => __isa(o, "ListTagsForDomainResponse");
 }
 
 /**
  * <p>Nameserver includes the following elements.</p>
  */
 export interface Nameserver {
-  __type?: "Nameserver";
   /**
    * <p>The fully qualified host name of the name server.</p>
    * 		       <p>Constraint: Maximum 255 characters</p>
@@ -2343,7 +2253,6 @@ export namespace Nameserver {
   export const filterSensitiveLog = (obj: Nameserver): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Nameserver => __isa(o, "Nameserver");
 }
 
 /**
@@ -2362,7 +2271,6 @@ export namespace OperationLimitExceeded {
   export const filterSensitiveLog = (obj: OperationLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationLimitExceeded => __isa(o, "OperationLimitExceeded");
 }
 
 export type OperationStatus = "ERROR" | "FAILED" | "IN_PROGRESS" | "SUBMITTED" | "SUCCESSFUL";
@@ -2371,7 +2279,6 @@ export type OperationStatus = "ERROR" | "FAILED" | "IN_PROGRESS" | "SUBMITTED" |
  * <p>OperationSummary includes the following elements.</p>
  */
 export interface OperationSummary {
-  __type?: "OperationSummary";
   /**
    * <p>The date when the request was submitted.</p>
    */
@@ -2397,7 +2304,6 @@ export namespace OperationSummary {
   export const filterSensitiveLog = (obj: OperationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationSummary => __isa(o, "OperationSummary");
 }
 
 export enum OperationType {
@@ -2431,7 +2337,6 @@ export enum ReachabilityStatus {
  * <p>The RegisterDomain request includes the following elements.</p>
  */
 export interface RegisterDomainRequest {
-  __type?: "RegisterDomainRequest";
   /**
    * <p>The number of years that you want to register the domain for. Domains are registered for a minimum of one year.
    * 			The maximum period depends on the top-level domain. For the range of valid values for your domain, see
@@ -2539,14 +2444,12 @@ export namespace RegisterDomainRequest {
     ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
     ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is RegisterDomainRequest => __isa(o, "RegisterDomainRequest");
 }
 
 /**
  * <p>The RegisterDomain response includes the following element.</p>
  */
 export interface RegisterDomainResponse {
-  __type?: "RegisterDomainResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status, use
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
@@ -2558,14 +2461,12 @@ export namespace RegisterDomainResponse {
   export const filterSensitiveLog = (obj: RegisterDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterDomainResponse => __isa(o, "RegisterDomainResponse");
 }
 
 /**
  * <p>The RejectDomainTransferFromAnotherAwsAccount request includes the following element.</p>
  */
 export interface RejectDomainTransferFromAnotherAwsAccountRequest {
-  __type?: "RejectDomainTransferFromAnotherAwsAccountRequest";
   /**
    * <p>The name of the domain that was specified when another AWS account submitted a
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>
@@ -2579,15 +2480,12 @@ export namespace RejectDomainTransferFromAnotherAwsAccountRequest {
   export const filterSensitiveLog = (obj: RejectDomainTransferFromAnotherAwsAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectDomainTransferFromAnotherAwsAccountRequest =>
-    __isa(o, "RejectDomainTransferFromAnotherAwsAccountRequest");
 }
 
 /**
  * <p>The RejectDomainTransferFromAnotherAwsAccount response includes the following element.</p>
  */
 export interface RejectDomainTransferFromAnotherAwsAccountResponse {
-  __type?: "RejectDomainTransferFromAnotherAwsAccountResponse";
   /**
    * <p>The identifier that <code>TransferDomainToAnotherAwsAccount</code> returned to track the progress of the request.
    * 			Because the transfer request was rejected, the value is no longer valid, and you can't use <code>GetOperationDetail</code>
@@ -2600,15 +2498,12 @@ export namespace RejectDomainTransferFromAnotherAwsAccountResponse {
   export const filterSensitiveLog = (obj: RejectDomainTransferFromAnotherAwsAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectDomainTransferFromAnotherAwsAccountResponse =>
-    __isa(o, "RejectDomainTransferFromAnotherAwsAccountResponse");
 }
 
 /**
  * <p>A <code>RenewDomain</code> request includes the number of years that you want to renew for and the current expiration year.</p>
  */
 export interface RenewDomainRequest {
-  __type?: "RenewDomainRequest";
   /**
    * <p>The name of the domain that you want to renew.</p>
    */
@@ -2633,11 +2528,9 @@ export namespace RenewDomainRequest {
   export const filterSensitiveLog = (obj: RenewDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RenewDomainRequest => __isa(o, "RenewDomainRequest");
 }
 
 export interface RenewDomainResponse {
-  __type?: "RenewDomainResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status, use
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
@@ -2649,11 +2542,9 @@ export namespace RenewDomainResponse {
   export const filterSensitiveLog = (obj: RenewDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RenewDomainResponse => __isa(o, "RenewDomainResponse");
 }
 
 export interface ResendContactReachabilityEmailRequest {
-  __type?: "ResendContactReachabilityEmailRequest";
   /**
    * <p>The name of the domain for which you want Route 53 to resend a confirmation email to the registrant contact.</p>
    */
@@ -2664,12 +2555,9 @@ export namespace ResendContactReachabilityEmailRequest {
   export const filterSensitiveLog = (obj: ResendContactReachabilityEmailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResendContactReachabilityEmailRequest =>
-    __isa(o, "ResendContactReachabilityEmailRequest");
 }
 
 export interface ResendContactReachabilityEmailResponse {
-  __type?: "ResendContactReachabilityEmailResponse";
   /**
    * <p>
    *             <code>True</code> if the email address for the registrant contact has already been verified, and <code>false</code> otherwise.
@@ -2692,8 +2580,6 @@ export namespace ResendContactReachabilityEmailResponse {
   export const filterSensitiveLog = (obj: ResendContactReachabilityEmailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResendContactReachabilityEmailResponse =>
-    __isa(o, "ResendContactReachabilityEmailResponse");
 }
 
 /**
@@ -2701,7 +2587,6 @@ export namespace ResendContactReachabilityEmailResponse {
  * 			this value to the new registrar.</p>
  */
 export interface RetrieveDomainAuthCodeRequest {
-  __type?: "RetrieveDomainAuthCodeRequest";
   /**
    * <p>The name of the domain that you want to get an authorization code for.</p>
    */
@@ -2712,14 +2597,12 @@ export namespace RetrieveDomainAuthCodeRequest {
   export const filterSensitiveLog = (obj: RetrieveDomainAuthCodeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetrieveDomainAuthCodeRequest => __isa(o, "RetrieveDomainAuthCodeRequest");
 }
 
 /**
  * <p>The RetrieveDomainAuthCode response includes the following element.</p>
  */
 export interface RetrieveDomainAuthCodeResponse {
-  __type?: "RetrieveDomainAuthCodeResponse";
   /**
    * <p>The authorization code for the domain.</p>
    */
@@ -2731,14 +2614,12 @@ export namespace RetrieveDomainAuthCodeResponse {
     ...obj,
     ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is RetrieveDomainAuthCodeResponse => __isa(o, "RetrieveDomainAuthCodeResponse");
 }
 
 /**
  * <p>Each tag includes the following elements.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value of a tag.</p>
    * 		       <p>Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"</p>
@@ -2758,7 +2639,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -2777,7 +2657,6 @@ export namespace TLDRulesViolation {
   export const filterSensitiveLog = (obj: TLDRulesViolation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TLDRulesViolation => __isa(o, "TLDRulesViolation");
 }
 
 export enum Transferable {
@@ -2790,7 +2669,6 @@ export enum Transferable {
  * <p>The TransferDomain request includes the following elements.</p>
  */
 export interface TransferDomainRequest {
-  __type?: "TransferDomainRequest";
   /**
    * <p>The number of years that you want to register the domain for. Domains are registered for a minimum of one year.
    * 			The maximum period depends on the top-level domain.</p>
@@ -2897,14 +2775,12 @@ export namespace TransferDomainRequest {
     ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
     ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TransferDomainRequest => __isa(o, "TransferDomainRequest");
 }
 
 /**
  * <p>The TransferDomain response includes the following element.</p>
  */
 export interface TransferDomainResponse {
-  __type?: "TransferDomainResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status, use
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
@@ -2916,14 +2792,12 @@ export namespace TransferDomainResponse {
   export const filterSensitiveLog = (obj: TransferDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransferDomainResponse => __isa(o, "TransferDomainResponse");
 }
 
 /**
  * <p>The TransferDomainToAnotherAwsAccount request includes the following elements.</p>
  */
 export interface TransferDomainToAnotherAwsAccountRequest {
-  __type?: "TransferDomainToAnotherAwsAccountRequest";
   /**
    * <p>The account ID of the AWS account that you want to transfer the domain to, for example, <code>111122223333</code>.</p>
    */
@@ -2939,15 +2813,12 @@ export namespace TransferDomainToAnotherAwsAccountRequest {
   export const filterSensitiveLog = (obj: TransferDomainToAnotherAwsAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransferDomainToAnotherAwsAccountRequest =>
-    __isa(o, "TransferDomainToAnotherAwsAccountRequest");
 }
 
 /**
  * <p>The <code>TransferDomainToAnotherAwsAccount</code> response includes the following elements.</p>
  */
 export interface TransferDomainToAnotherAwsAccountResponse {
-  __type?: "TransferDomainToAnotherAwsAccountResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status, use
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
@@ -2967,8 +2838,6 @@ export namespace TransferDomainToAnotherAwsAccountResponse {
   export const filterSensitiveLog = (obj: TransferDomainToAnotherAwsAccountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransferDomainToAnotherAwsAccountResponse =>
-    __isa(o, "TransferDomainToAnotherAwsAccountResponse");
 }
 
 /**
@@ -2987,14 +2856,12 @@ export namespace UnsupportedTLD {
   export const filterSensitiveLog = (obj: UnsupportedTLD): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedTLD => __isa(o, "UnsupportedTLD");
 }
 
 /**
  * <p>The UpdateDomainContactPrivacy request includes the following elements.</p>
  */
 export interface UpdateDomainContactPrivacyRequest {
-  __type?: "UpdateDomainContactPrivacyRequest";
   /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify <code>true</code>,
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
@@ -3029,14 +2896,12 @@ export namespace UpdateDomainContactPrivacyRequest {
   export const filterSensitiveLog = (obj: UpdateDomainContactPrivacyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainContactPrivacyRequest => __isa(o, "UpdateDomainContactPrivacyRequest");
 }
 
 /**
  * <p>The UpdateDomainContactPrivacy response includes the following element.</p>
  */
 export interface UpdateDomainContactPrivacyResponse {
-  __type?: "UpdateDomainContactPrivacyResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.</p>
    */
@@ -3047,15 +2912,12 @@ export namespace UpdateDomainContactPrivacyResponse {
   export const filterSensitiveLog = (obj: UpdateDomainContactPrivacyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainContactPrivacyResponse =>
-    __isa(o, "UpdateDomainContactPrivacyResponse");
 }
 
 /**
  * <p>The UpdateDomainContact request includes the following elements.</p>
  */
 export interface UpdateDomainContactRequest {
-  __type?: "UpdateDomainContactRequest";
   /**
    * <p>Provides detailed contact information.</p>
    */
@@ -3084,14 +2946,12 @@ export namespace UpdateDomainContactRequest {
     ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
     ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateDomainContactRequest => __isa(o, "UpdateDomainContactRequest");
 }
 
 /**
  * <p>The UpdateDomainContact response includes the following element.</p>
  */
 export interface UpdateDomainContactResponse {
-  __type?: "UpdateDomainContactResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status, use
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
@@ -3103,7 +2963,6 @@ export namespace UpdateDomainContactResponse {
   export const filterSensitiveLog = (obj: UpdateDomainContactResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainContactResponse => __isa(o, "UpdateDomainContactResponse");
 }
 
 /**
@@ -3113,7 +2972,6 @@ export namespace UpdateDomainContactResponse {
  * 			completion of the action. If the request is not completed successfully, the domain registrant will be notified by email. </p>
  */
 export interface UpdateDomainNameserversRequest {
-  __type?: "UpdateDomainNameserversRequest";
   /**
    * <p>The authorization key for .fi domains</p>
    */
@@ -3134,14 +2992,12 @@ export namespace UpdateDomainNameserversRequest {
   export const filterSensitiveLog = (obj: UpdateDomainNameserversRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainNameserversRequest => __isa(o, "UpdateDomainNameserversRequest");
 }
 
 /**
  * <p>The UpdateDomainNameservers response includes the following element.</p>
  */
 export interface UpdateDomainNameserversResponse {
-  __type?: "UpdateDomainNameserversResponse";
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status, use
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
@@ -3153,14 +3009,12 @@ export namespace UpdateDomainNameserversResponse {
   export const filterSensitiveLog = (obj: UpdateDomainNameserversResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainNameserversResponse => __isa(o, "UpdateDomainNameserversResponse");
 }
 
 /**
  * <p>The UpdateTagsForDomainRequest includes the following elements.</p>
  */
 export interface UpdateTagsForDomainRequest {
-  __type?: "UpdateTagsForDomainRequest";
   /**
    * <p>The domain for which you want to add or update tags.</p>
    */
@@ -3177,25 +3031,20 @@ export namespace UpdateTagsForDomainRequest {
   export const filterSensitiveLog = (obj: UpdateTagsForDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTagsForDomainRequest => __isa(o, "UpdateTagsForDomainRequest");
 }
 
-export interface UpdateTagsForDomainResponse {
-  __type?: "UpdateTagsForDomainResponse";
-}
+export interface UpdateTagsForDomainResponse {}
 
 export namespace UpdateTagsForDomainResponse {
   export const filterSensitiveLog = (obj: UpdateTagsForDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTagsForDomainResponse => __isa(o, "UpdateTagsForDomainResponse");
 }
 
 /**
  * <p>The ViewBilling request includes the following elements.</p>
  */
 export interface ViewBillingRequest {
-  __type?: "ViewBillingRequest";
   /**
    * <p>The number of billing records to be returned.</p>
    * 		       <p>Default: 20</p>
@@ -3230,14 +3079,12 @@ export namespace ViewBillingRequest {
   export const filterSensitiveLog = (obj: ViewBillingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ViewBillingRequest => __isa(o, "ViewBillingRequest");
 }
 
 /**
  * <p>The ViewBilling response includes the following elements.</p>
  */
 export interface ViewBillingResponse {
-  __type?: "ViewBillingResponse";
   /**
    * <p>A summary of billing records.</p>
    */
@@ -3254,5 +3101,4 @@ export namespace ViewBillingResponse {
   export const filterSensitiveLog = (obj: ViewBillingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ViewBillingResponse => __isa(o, "ViewBillingResponse");
 }

@@ -774,7 +774,6 @@ export const deserializeAws_restJson1BulkPublishCommand = async (
   }
   const contents: BulkPublishCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BulkPublishResponse",
     IdentityPoolId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -870,7 +869,6 @@ export const deserializeAws_restJson1DeleteDatasetCommand = async (
   }
   const contents: DeleteDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDatasetResponse",
     Dataset: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -966,7 +964,6 @@ export const deserializeAws_restJson1DescribeDatasetCommand = async (
   }
   const contents: DescribeDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDatasetResponse",
     Dataset: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1054,7 +1051,6 @@ export const deserializeAws_restJson1DescribeIdentityPoolUsageCommand = async (
   }
   const contents: DescribeIdentityPoolUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeIdentityPoolUsageResponse",
     IdentityPoolUsage: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1142,7 +1138,6 @@ export const deserializeAws_restJson1DescribeIdentityUsageCommand = async (
   }
   const contents: DescribeIdentityUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeIdentityUsageResponse",
     IdentityUsage: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1230,7 +1225,6 @@ export const deserializeAws_restJson1GetBulkPublishDetailsCommand = async (
   }
   const contents: GetBulkPublishDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBulkPublishDetailsResponse",
     BulkPublishCompleteTime: undefined,
     BulkPublishStartTime: undefined,
     BulkPublishStatus: undefined,
@@ -1326,7 +1320,6 @@ export const deserializeAws_restJson1GetCognitoEventsCommand = async (
   }
   const contents: GetCognitoEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCognitoEventsResponse",
     Events: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1414,7 +1407,6 @@ export const deserializeAws_restJson1GetIdentityPoolConfigurationCommand = async
   }
   const contents: GetIdentityPoolConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetIdentityPoolConfigurationResponse",
     CognitoStreams: undefined,
     IdentityPoolId: undefined,
     PushSync: undefined,
@@ -1510,7 +1502,6 @@ export const deserializeAws_restJson1ListDatasetsCommand = async (
   }
   const contents: ListDatasetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDatasetsResponse",
     Count: undefined,
     Datasets: undefined,
     NextToken: undefined,
@@ -1598,7 +1589,6 @@ export const deserializeAws_restJson1ListIdentityPoolUsageCommand = async (
   }
   const contents: ListIdentityPoolUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListIdentityPoolUsageResponse",
     Count: undefined,
     IdentityPoolUsages: undefined,
     MaxResults: undefined,
@@ -1690,7 +1680,6 @@ export const deserializeAws_restJson1ListRecordsCommand = async (
   }
   const contents: ListRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRecordsResponse",
     Count: undefined,
     DatasetDeletedAfterRequestedSyncCount: undefined,
     DatasetExists: undefined,
@@ -1802,7 +1791,6 @@ export const deserializeAws_restJson1RegisterDeviceCommand = async (
   }
   const contents: RegisterDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterDeviceResponse",
     DeviceId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1981,7 +1969,6 @@ export const deserializeAws_restJson1SetIdentityPoolConfigurationCommand = async
   }
   const contents: SetIdentityPoolConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetIdentityPoolConfigurationResponse",
     CognitoStreams: undefined,
     IdentityPoolId: undefined,
     PushSync: undefined,
@@ -2085,7 +2072,6 @@ export const deserializeAws_restJson1SubscribeToDatasetCommand = async (
   }
   const contents: SubscribeToDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SubscribeToDatasetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2177,7 +2163,6 @@ export const deserializeAws_restJson1UnsubscribeFromDatasetCommand = async (
   }
   const contents: UnsubscribeFromDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UnsubscribeFromDatasetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2269,7 +2254,6 @@ export const deserializeAws_restJson1UpdateRecordsCommand = async (
   }
   const contents: UpdateRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRecordsResponse",
     Records: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2680,7 +2664,6 @@ const deserializeAws_restJson1ApplicationArnList = (output: any, context: __Serd
 
 const deserializeAws_restJson1CognitoStreams = (output: any, context: __SerdeContext): CognitoStreams => {
   return {
-    __type: "CognitoStreams",
     DisabledReason:
       output.DisabledReason !== undefined && output.DisabledReason !== null ? output.DisabledReason : undefined,
     RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
@@ -2692,7 +2675,6 @@ const deserializeAws_restJson1CognitoStreams = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): Dataset => {
   return {
-    __type: "Dataset",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
@@ -2726,7 +2708,6 @@ const deserializeAws_restJson1Events = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1IdentityPoolUsage = (output: any, context: __SerdeContext): IdentityPoolUsage => {
   return {
-    __type: "IdentityPoolUsage",
     DataStorage: output.DataStorage !== undefined && output.DataStorage !== null ? output.DataStorage : undefined,
     IdentityPoolId:
       output.IdentityPoolId !== undefined && output.IdentityPoolId !== null ? output.IdentityPoolId : undefined,
@@ -2747,7 +2728,6 @@ const deserializeAws_restJson1IdentityPoolUsageList = (output: any, context: __S
 
 const deserializeAws_restJson1IdentityUsage = (output: any, context: __SerdeContext): IdentityUsage => {
   return {
-    __type: "IdentityUsage",
     DataStorage: output.DataStorage !== undefined && output.DataStorage !== null ? output.DataStorage : undefined,
     DatasetCount: output.DatasetCount !== undefined && output.DatasetCount !== null ? output.DatasetCount : undefined,
     IdentityId: output.IdentityId !== undefined && output.IdentityId !== null ? output.IdentityId : undefined,
@@ -2766,7 +2746,6 @@ const deserializeAws_restJson1MergedDatasetNameList = (output: any, context: __S
 
 const deserializeAws_restJson1PushSync = (output: any, context: __SerdeContext): PushSync => {
   return {
-    __type: "PushSync",
     ApplicationArns:
       output.ApplicationArns !== undefined && output.ApplicationArns !== null
         ? deserializeAws_restJson1ApplicationArnList(output.ApplicationArns, context)
@@ -2777,7 +2756,6 @@ const deserializeAws_restJson1PushSync = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): _Record => {
   return {
-    __type: "Record",
     DeviceLastModifiedDate:
       output.DeviceLastModifiedDate !== undefined && output.DeviceLastModifiedDate !== null
         ? new Date(Math.round(output.DeviceLastModifiedDate * 1000))

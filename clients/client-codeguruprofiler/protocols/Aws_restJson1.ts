@@ -526,7 +526,6 @@ export const deserializeAws_restJson1ConfigureAgentCommand = async (
   }
   const contents: ConfigureAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfigureAgentResponse",
     configuration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -604,7 +603,6 @@ export const deserializeAws_restJson1CreateProfilingGroupCommand = async (
   }
   const contents: CreateProfilingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProfilingGroupResponse",
     profilingGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -690,7 +688,6 @@ export const deserializeAws_restJson1DeleteProfilingGroupCommand = async (
   }
   const contents: DeleteProfilingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProfilingGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -766,7 +763,6 @@ export const deserializeAws_restJson1DescribeProfilingGroupCommand = async (
   }
   const contents: DescribeProfilingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProfilingGroupResponse",
     profilingGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -844,7 +840,6 @@ export const deserializeAws_restJson1ListProfilingGroupsCommand = async (
   }
   const contents: ListProfilingGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProfilingGroupsResponse",
     nextToken: undefined,
     profilingGroupNames: undefined,
     profilingGroups: undefined,
@@ -916,7 +911,6 @@ export const deserializeAws_restJson1UpdateProfilingGroupCommand = async (
   }
   const contents: UpdateProfilingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProfilingGroupResponse",
     profilingGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1002,7 +996,6 @@ export const deserializeAws_restJson1GetPolicyCommand = async (
   }
   const contents: GetPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPolicyResponse",
     policy: undefined,
     revisionId: undefined,
   };
@@ -1078,7 +1071,6 @@ export const deserializeAws_restJson1PutPermissionCommand = async (
   }
   const contents: PutPermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutPermissionResponse",
     policy: undefined,
     revisionId: undefined,
   };
@@ -1170,7 +1162,6 @@ export const deserializeAws_restJson1RemovePermissionCommand = async (
   }
   const contents: RemovePermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemovePermissionResponse",
     policy: undefined,
     revisionId: undefined,
   };
@@ -1262,7 +1253,6 @@ export const deserializeAws_restJson1GetProfileCommand = async (
   }
   const contents: GetProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetProfileResponse",
     contentEncoding: undefined,
     contentType: undefined,
     profile: undefined,
@@ -1348,7 +1338,6 @@ export const deserializeAws_restJson1ListProfileTimesCommand = async (
   }
   const contents: ListProfileTimesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProfileTimesResponse",
     nextToken: undefined,
     profileTimes: undefined,
   };
@@ -1432,7 +1421,6 @@ export const deserializeAws_restJson1PostAgentProfileCommand = async (
   }
   const contents: PostAgentProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PostAgentProfileResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1508,7 +1496,6 @@ export const deserializeAws_restJson1RetrieveTimeSeriesCommand = async (
   }
   const contents: RetrieveTimeSeriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RetrieveTimeSeriesResponse",
     data: undefined,
     endTime: undefined,
     endTimes: undefined,
@@ -1761,7 +1748,6 @@ const deserializeAws_restJson1AgentParameters = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1AggregatedProfileTime = (output: any, context: __SerdeContext): AggregatedProfileTime => {
   return {
-    __type: "AggregatedProfileTime",
     period: output.period !== undefined && output.period !== null ? output.period : undefined,
     start: output.start !== undefined && output.start !== null ? new Date(output.start) : undefined,
   } as any;
@@ -1769,7 +1755,6 @@ const deserializeAws_restJson1AggregatedProfileTime = (output: any, context: __S
 
 const deserializeAws_restJson1AgentConfiguration = (output: any, context: __SerdeContext): AgentConfiguration => {
   return {
-    __type: "AgentConfiguration",
     agentParameters:
       output.agentParameters !== undefined && output.agentParameters !== null
         ? deserializeAws_restJson1AgentParameters(output.agentParameters, context)
@@ -1786,7 +1771,6 @@ const deserializeAws_restJson1AgentOrchestrationConfig = (
   context: __SerdeContext
 ): AgentOrchestrationConfig => {
   return {
-    __type: "AgentOrchestrationConfig",
     profilingEnabled:
       output.profilingEnabled !== undefined && output.profilingEnabled !== null ? output.profilingEnabled : undefined,
   } as any;
@@ -1797,7 +1781,6 @@ const deserializeAws_restJson1ProfilingGroupDescription = (
   context: __SerdeContext
 ): ProfilingGroupDescription => {
   return {
-    __type: "ProfilingGroupDescription",
     agentOrchestrationConfig:
       output.agentOrchestrationConfig !== undefined && output.agentOrchestrationConfig !== null
         ? deserializeAws_restJson1AgentOrchestrationConfig(output.agentOrchestrationConfig, context)
@@ -1828,7 +1811,6 @@ const deserializeAws_restJson1ProfilingGroupNames = (output: any, context: __Ser
 
 const deserializeAws_restJson1ProfilingStatus = (output: any, context: __SerdeContext): ProfilingStatus => {
   return {
-    __type: "ProfilingStatus",
     latestAgentOrchestratedAt:
       output.latestAgentOrchestratedAt !== undefined && output.latestAgentOrchestratedAt !== null
         ? new Date(output.latestAgentOrchestratedAt)
@@ -1846,7 +1828,6 @@ const deserializeAws_restJson1ProfilingStatus = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ProfileTime = (output: any, context: __SerdeContext): ProfileTime => {
   return {
-    __type: "ProfileTime",
     start: output.start !== undefined && output.start !== null ? new Date(output.start) : undefined,
   } as any;
 };
@@ -1865,7 +1846,6 @@ const deserializeAws_restJson1DataMatrixRow = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1FrameMetric = (output: any, context: __SerdeContext): FrameMetric => {
   return {
-    __type: "FrameMetric",
     frameName: output.frameName !== undefined && output.frameName !== null ? output.frameName : undefined,
     threadStates:
       output.threadStates !== undefined && output.threadStates !== null

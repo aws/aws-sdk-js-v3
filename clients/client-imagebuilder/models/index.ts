@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p> Details of an EC2 AMI. </p>
  */
 export interface Ami {
-  __type?: "Ami";
   /**
    * <p>The description of the EC2 AMI. </p>
    */
@@ -36,14 +35,12 @@ export namespace Ami {
   export const filterSensitiveLog = (obj: Ami): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ami => __isa(o, "Ami");
 }
 
 /**
  * <p> Define and configure the output AMIs of the pipeline. </p>
  */
 export interface AmiDistributionConfiguration {
-  __type?: "AmiDistributionConfiguration";
   /**
    * <p>The tags to apply to AMIs distributed to this Region. </p>
    */
@@ -74,7 +71,6 @@ export namespace AmiDistributionConfiguration {
   export const filterSensitiveLog = (obj: AmiDistributionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AmiDistributionConfiguration => __isa(o, "AmiDistributionConfiguration");
 }
 
 /**
@@ -90,11 +86,9 @@ export namespace CallRateLimitExceededException {
   export const filterSensitiveLog = (obj: CallRateLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CallRateLimitExceededException => __isa(o, "CallRateLimitExceededException");
 }
 
 export interface CancelImageCreationRequest {
-  __type?: "CancelImageCreationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the image whose creation you want to cancel.</p>
    */
@@ -110,11 +104,9 @@ export namespace CancelImageCreationRequest {
   export const filterSensitiveLog = (obj: CancelImageCreationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelImageCreationRequest => __isa(o, "CancelImageCreationRequest");
 }
 
 export interface CancelImageCreationResponse {
-  __type?: "CancelImageCreationResponse";
   /**
    * <p>The request ID that uniquely identifies this request.</p>
    */
@@ -135,7 +127,6 @@ export namespace CancelImageCreationResponse {
   export const filterSensitiveLog = (obj: CancelImageCreationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelImageCreationResponse => __isa(o, "CancelImageCreationResponse");
 }
 
 /**
@@ -151,14 +142,12 @@ export namespace ClientException {
   export const filterSensitiveLog = (obj: ClientException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientException => __isa(o, "ClientException");
 }
 
 /**
  * <p>A detailed view of a component.</p>
  */
 export interface Component {
-  __type?: "Component";
   /**
    * <p>The owner of the component.</p>
    */
@@ -234,14 +223,12 @@ export namespace Component {
   export const filterSensitiveLog = (obj: Component): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Component => __isa(o, "Component");
 }
 
 /**
  * <p> Configuration details of the component. </p>
  */
 export interface ComponentConfiguration {
-  __type?: "ComponentConfiguration";
   /**
    * <p>The Amazon Resource Name (ARN) of the component. </p>
    */
@@ -252,7 +239,6 @@ export namespace ComponentConfiguration {
   export const filterSensitiveLog = (obj: ComponentConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComponentConfiguration => __isa(o, "ComponentConfiguration");
 }
 
 export enum ComponentFormat {
@@ -263,7 +249,6 @@ export enum ComponentFormat {
  * <p>A high-level summary of a component.</p>
  */
 export interface ComponentSummary {
-  __type?: "ComponentSummary";
   /**
    * <p>The name of the component.</p>
    */
@@ -324,7 +309,6 @@ export namespace ComponentSummary {
   export const filterSensitiveLog = (obj: ComponentSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComponentSummary => __isa(o, "ComponentSummary");
 }
 
 export enum ComponentType {
@@ -336,7 +320,6 @@ export enum ComponentType {
  * <p>A high-level overview of a component semantic version.</p>
  */
 export interface ComponentVersion {
-  __type?: "ComponentVersion";
   /**
    * <p>The Amazon Resource Name (ARN) of the component.</p>
    */
@@ -387,11 +370,9 @@ export namespace ComponentVersion {
   export const filterSensitiveLog = (obj: ComponentVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComponentVersion => __isa(o, "ComponentVersion");
 }
 
 export interface CreateComponentRequest {
-  __type?: "CreateComponentRequest";
   /**
    * <p>The tags of the component.</p>
    */
@@ -452,11 +433,9 @@ export namespace CreateComponentRequest {
   export const filterSensitiveLog = (obj: CreateComponentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateComponentRequest => __isa(o, "CreateComponentRequest");
 }
 
 export interface CreateComponentResponse {
-  __type?: "CreateComponentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the component that was created by this request.</p>
    */
@@ -477,11 +456,9 @@ export namespace CreateComponentResponse {
   export const filterSensitiveLog = (obj: CreateComponentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateComponentResponse => __isa(o, "CreateComponentResponse");
 }
 
 export interface CreateDistributionConfigurationRequest {
-  __type?: "CreateDistributionConfigurationRequest";
   /**
    * <p> The description of the distribution configuration. </p>
    */
@@ -512,12 +489,9 @@ export namespace CreateDistributionConfigurationRequest {
   export const filterSensitiveLog = (obj: CreateDistributionConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDistributionConfigurationRequest =>
-    __isa(o, "CreateDistributionConfigurationRequest");
 }
 
 export interface CreateDistributionConfigurationResponse {
-  __type?: "CreateDistributionConfigurationResponse";
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
    */
@@ -538,12 +512,9 @@ export namespace CreateDistributionConfigurationResponse {
   export const filterSensitiveLog = (obj: CreateDistributionConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDistributionConfigurationResponse =>
-    __isa(o, "CreateDistributionConfigurationResponse");
 }
 
 export interface CreateImagePipelineRequest {
-  __type?: "CreateImagePipelineRequest";
   /**
    * <p> The tags of the image pipeline. </p>
    */
@@ -604,11 +575,9 @@ export namespace CreateImagePipelineRequest {
   export const filterSensitiveLog = (obj: CreateImagePipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImagePipelineRequest => __isa(o, "CreateImagePipelineRequest");
 }
 
 export interface CreateImagePipelineResponse {
-  __type?: "CreateImagePipelineResponse";
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
    */
@@ -629,11 +598,9 @@ export namespace CreateImagePipelineResponse {
   export const filterSensitiveLog = (obj: CreateImagePipelineResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImagePipelineResponse => __isa(o, "CreateImagePipelineResponse");
 }
 
 export interface CreateImageRecipeRequest {
-  __type?: "CreateImageRecipeRequest";
   /**
    * <p>The components of the image recipe. </p>
    */
@@ -684,11 +651,9 @@ export namespace CreateImageRecipeRequest {
   export const filterSensitiveLog = (obj: CreateImageRecipeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImageRecipeRequest => __isa(o, "CreateImageRecipeRequest");
 }
 
 export interface CreateImageRecipeResponse {
-  __type?: "CreateImageRecipeResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -709,11 +674,9 @@ export namespace CreateImageRecipeResponse {
   export const filterSensitiveLog = (obj: CreateImageRecipeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImageRecipeResponse => __isa(o, "CreateImageRecipeResponse");
 }
 
 export interface CreateImageRequest {
-  __type?: "CreateImageRequest";
   /**
    * <p> The Amazon Resource Name (ARN) of the infrastructure configuration that defines the environment in which your image will be built and tested. </p>
    */
@@ -754,11 +717,9 @@ export namespace CreateImageRequest {
   export const filterSensitiveLog = (obj: CreateImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImageRequest => __isa(o, "CreateImageRequest");
 }
 
 export interface CreateImageResponse {
-  __type?: "CreateImageResponse";
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
    */
@@ -779,11 +740,9 @@ export namespace CreateImageResponse {
   export const filterSensitiveLog = (obj: CreateImageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImageResponse => __isa(o, "CreateImageResponse");
 }
 
 export interface CreateInfrastructureConfigurationRequest {
-  __type?: "CreateInfrastructureConfigurationRequest";
   /**
    * <p>The subnet ID in which to place the instance used to customize your EC2 AMI. </p>
    */
@@ -854,12 +813,9 @@ export namespace CreateInfrastructureConfigurationRequest {
   export const filterSensitiveLog = (obj: CreateInfrastructureConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInfrastructureConfigurationRequest =>
-    __isa(o, "CreateInfrastructureConfigurationRequest");
 }
 
 export interface CreateInfrastructureConfigurationResponse {
-  __type?: "CreateInfrastructureConfigurationResponse";
   /**
    * <p>The idempotency token used to make this request idempotent. </p>
    */
@@ -880,12 +836,9 @@ export namespace CreateInfrastructureConfigurationResponse {
   export const filterSensitiveLog = (obj: CreateInfrastructureConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInfrastructureConfigurationResponse =>
-    __isa(o, "CreateInfrastructureConfigurationResponse");
 }
 
 export interface DeleteComponentRequest {
-  __type?: "DeleteComponentRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the component build version to delete. </p>
    */
@@ -896,11 +849,9 @@ export namespace DeleteComponentRequest {
   export const filterSensitiveLog = (obj: DeleteComponentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteComponentRequest => __isa(o, "DeleteComponentRequest");
 }
 
 export interface DeleteComponentResponse {
-  __type?: "DeleteComponentResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -916,11 +867,9 @@ export namespace DeleteComponentResponse {
   export const filterSensitiveLog = (obj: DeleteComponentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteComponentResponse => __isa(o, "DeleteComponentResponse");
 }
 
 export interface DeleteDistributionConfigurationRequest {
-  __type?: "DeleteDistributionConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration to delete. </p>
    */
@@ -931,12 +880,9 @@ export namespace DeleteDistributionConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteDistributionConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDistributionConfigurationRequest =>
-    __isa(o, "DeleteDistributionConfigurationRequest");
 }
 
 export interface DeleteDistributionConfigurationResponse {
-  __type?: "DeleteDistributionConfigurationResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -952,12 +898,9 @@ export namespace DeleteDistributionConfigurationResponse {
   export const filterSensitiveLog = (obj: DeleteDistributionConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDistributionConfigurationResponse =>
-    __isa(o, "DeleteDistributionConfigurationResponse");
 }
 
 export interface DeleteImagePipelineRequest {
-  __type?: "DeleteImagePipelineRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline to delete. </p>
    */
@@ -968,11 +911,9 @@ export namespace DeleteImagePipelineRequest {
   export const filterSensitiveLog = (obj: DeleteImagePipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImagePipelineRequest => __isa(o, "DeleteImagePipelineRequest");
 }
 
 export interface DeleteImagePipelineResponse {
-  __type?: "DeleteImagePipelineResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline that was deleted. </p>
    */
@@ -988,11 +929,9 @@ export namespace DeleteImagePipelineResponse {
   export const filterSensitiveLog = (obj: DeleteImagePipelineResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImagePipelineResponse => __isa(o, "DeleteImagePipelineResponse");
 }
 
 export interface DeleteImageRecipeRequest {
-  __type?: "DeleteImageRecipeRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe to delete. </p>
    */
@@ -1003,11 +942,9 @@ export namespace DeleteImageRecipeRequest {
   export const filterSensitiveLog = (obj: DeleteImageRecipeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImageRecipeRequest => __isa(o, "DeleteImageRecipeRequest");
 }
 
 export interface DeleteImageRecipeResponse {
-  __type?: "DeleteImageRecipeResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that was deleted. </p>
    */
@@ -1023,11 +960,9 @@ export namespace DeleteImageRecipeResponse {
   export const filterSensitiveLog = (obj: DeleteImageRecipeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImageRecipeResponse => __isa(o, "DeleteImageRecipeResponse");
 }
 
 export interface DeleteImageRequest {
-  __type?: "DeleteImageRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the image to delete. </p>
    */
@@ -1038,11 +973,9 @@ export namespace DeleteImageRequest {
   export const filterSensitiveLog = (obj: DeleteImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImageRequest => __isa(o, "DeleteImageRequest");
 }
 
 export interface DeleteImageResponse {
-  __type?: "DeleteImageResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -1058,11 +991,9 @@ export namespace DeleteImageResponse {
   export const filterSensitiveLog = (obj: DeleteImageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImageResponse => __isa(o, "DeleteImageResponse");
 }
 
 export interface DeleteInfrastructureConfigurationRequest {
-  __type?: "DeleteInfrastructureConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration to delete. </p>
    */
@@ -1073,12 +1004,9 @@ export namespace DeleteInfrastructureConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteInfrastructureConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInfrastructureConfigurationRequest =>
-    __isa(o, "DeleteInfrastructureConfigurationRequest");
 }
 
 export interface DeleteInfrastructureConfigurationResponse {
-  __type?: "DeleteInfrastructureConfigurationResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -1094,15 +1022,12 @@ export namespace DeleteInfrastructureConfigurationResponse {
   export const filterSensitiveLog = (obj: DeleteInfrastructureConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInfrastructureConfigurationResponse =>
-    __isa(o, "DeleteInfrastructureConfigurationResponse");
 }
 
 /**
  * <p> Defines the settings for a specific Region. </p>
  */
 export interface Distribution {
-  __type?: "Distribution";
   /**
    * <p>The specific AMI settings (for example, launch permissions, AMI tags). </p>
    */
@@ -1123,14 +1048,12 @@ export namespace Distribution {
   export const filterSensitiveLog = (obj: Distribution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Distribution => __isa(o, "Distribution");
 }
 
 /**
  * <p>A distribution configuration.</p>
  */
 export interface DistributionConfiguration {
-  __type?: "DistributionConfiguration";
   /**
    * <p>The description of the distribution configuration.</p>
    */
@@ -1176,14 +1099,12 @@ export namespace DistributionConfiguration {
   export const filterSensitiveLog = (obj: DistributionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DistributionConfiguration => __isa(o, "DistributionConfiguration");
 }
 
 /**
  * <p>A high-level overview of a distribution configuration.</p>
  */
 export interface DistributionConfigurationSummary {
-  __type?: "DistributionConfigurationSummary";
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration.</p>
    */
@@ -1219,14 +1140,12 @@ export namespace DistributionConfigurationSummary {
   export const filterSensitiveLog = (obj: DistributionConfigurationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DistributionConfigurationSummary => __isa(o, "DistributionConfigurationSummary");
 }
 
 /**
  * <p>Amazon EBS-specific block device mapping specifications.</p>
  */
 export interface EbsInstanceBlockDeviceSpecification {
-  __type?: "EbsInstanceBlockDeviceSpecification";
   /**
    * <p>Use to configure delete on termination of the associated device.</p>
    */
@@ -1267,8 +1186,6 @@ export namespace EbsInstanceBlockDeviceSpecification {
   export const filterSensitiveLog = (obj: EbsInstanceBlockDeviceSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EbsInstanceBlockDeviceSpecification =>
-    __isa(o, "EbsInstanceBlockDeviceSpecification");
 }
 
 export enum EbsVolumeType {
@@ -1283,7 +1200,6 @@ export enum EbsVolumeType {
  * <p>A filter name and value pair that is used to return a more specific list of results from a list operation. Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs. </p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>The name of the filter. Filter names are case-sensitive. </p>
    */
@@ -1299,7 +1215,6 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 /**
@@ -1315,11 +1230,9 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 export interface GetComponentPolicyRequest {
-  __type?: "GetComponentPolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the component whose policy you want to retrieve. </p>
    */
@@ -1330,11 +1243,9 @@ export namespace GetComponentPolicyRequest {
   export const filterSensitiveLog = (obj: GetComponentPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetComponentPolicyRequest => __isa(o, "GetComponentPolicyRequest");
 }
 
 export interface GetComponentPolicyResponse {
-  __type?: "GetComponentPolicyResponse";
   /**
    * <p>The component policy. </p>
    */
@@ -1350,11 +1261,9 @@ export namespace GetComponentPolicyResponse {
   export const filterSensitiveLog = (obj: GetComponentPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetComponentPolicyResponse => __isa(o, "GetComponentPolicyResponse");
 }
 
 export interface GetComponentRequest {
-  __type?: "GetComponentRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the component that you want to retrieve. Regex requires "/\d+$" suffix.</p>
    */
@@ -1365,11 +1274,9 @@ export namespace GetComponentRequest {
   export const filterSensitiveLog = (obj: GetComponentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetComponentRequest => __isa(o, "GetComponentRequest");
 }
 
 export interface GetComponentResponse {
-  __type?: "GetComponentResponse";
   /**
    * <p>The component object associated with the specified ARN. </p>
    */
@@ -1385,11 +1292,9 @@ export namespace GetComponentResponse {
   export const filterSensitiveLog = (obj: GetComponentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetComponentResponse => __isa(o, "GetComponentResponse");
 }
 
 export interface GetDistributionConfigurationRequest {
-  __type?: "GetDistributionConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration that you want to retrieve. </p>
    */
@@ -1400,12 +1305,9 @@ export namespace GetDistributionConfigurationRequest {
   export const filterSensitiveLog = (obj: GetDistributionConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDistributionConfigurationRequest =>
-    __isa(o, "GetDistributionConfigurationRequest");
 }
 
 export interface GetDistributionConfigurationResponse {
-  __type?: "GetDistributionConfigurationResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -1421,12 +1323,9 @@ export namespace GetDistributionConfigurationResponse {
   export const filterSensitiveLog = (obj: GetDistributionConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDistributionConfigurationResponse =>
-    __isa(o, "GetDistributionConfigurationResponse");
 }
 
 export interface GetImagePipelineRequest {
-  __type?: "GetImagePipelineRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline that you want to retrieve. </p>
    */
@@ -1437,11 +1336,9 @@ export namespace GetImagePipelineRequest {
   export const filterSensitiveLog = (obj: GetImagePipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImagePipelineRequest => __isa(o, "GetImagePipelineRequest");
 }
 
 export interface GetImagePipelineResponse {
-  __type?: "GetImagePipelineResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -1457,11 +1354,9 @@ export namespace GetImagePipelineResponse {
   export const filterSensitiveLog = (obj: GetImagePipelineResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImagePipelineResponse => __isa(o, "GetImagePipelineResponse");
 }
 
 export interface GetImagePolicyRequest {
-  __type?: "GetImagePolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the image whose policy you want to retrieve. </p>
    */
@@ -1472,11 +1367,9 @@ export namespace GetImagePolicyRequest {
   export const filterSensitiveLog = (obj: GetImagePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImagePolicyRequest => __isa(o, "GetImagePolicyRequest");
 }
 
 export interface GetImagePolicyResponse {
-  __type?: "GetImagePolicyResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -1492,11 +1385,9 @@ export namespace GetImagePolicyResponse {
   export const filterSensitiveLog = (obj: GetImagePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImagePolicyResponse => __isa(o, "GetImagePolicyResponse");
 }
 
 export interface GetImageRecipePolicyRequest {
-  __type?: "GetImageRecipePolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe whose policy you want to retrieve. </p>
    */
@@ -1507,11 +1398,9 @@ export namespace GetImageRecipePolicyRequest {
   export const filterSensitiveLog = (obj: GetImageRecipePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImageRecipePolicyRequest => __isa(o, "GetImageRecipePolicyRequest");
 }
 
 export interface GetImageRecipePolicyResponse {
-  __type?: "GetImageRecipePolicyResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -1527,11 +1416,9 @@ export namespace GetImageRecipePolicyResponse {
   export const filterSensitiveLog = (obj: GetImageRecipePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImageRecipePolicyResponse => __isa(o, "GetImageRecipePolicyResponse");
 }
 
 export interface GetImageRecipeRequest {
-  __type?: "GetImageRecipeRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that you want to retrieve. </p>
    */
@@ -1542,11 +1429,9 @@ export namespace GetImageRecipeRequest {
   export const filterSensitiveLog = (obj: GetImageRecipeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImageRecipeRequest => __isa(o, "GetImageRecipeRequest");
 }
 
 export interface GetImageRecipeResponse {
-  __type?: "GetImageRecipeResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -1562,11 +1447,9 @@ export namespace GetImageRecipeResponse {
   export const filterSensitiveLog = (obj: GetImageRecipeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImageRecipeResponse => __isa(o, "GetImageRecipeResponse");
 }
 
 export interface GetImageRequest {
-  __type?: "GetImageRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the image that you want to retrieve. </p>
    */
@@ -1577,11 +1460,9 @@ export namespace GetImageRequest {
   export const filterSensitiveLog = (obj: GetImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImageRequest => __isa(o, "GetImageRequest");
 }
 
 export interface GetImageResponse {
-  __type?: "GetImageResponse";
   /**
    * <p>The image object. </p>
    */
@@ -1597,14 +1478,12 @@ export namespace GetImageResponse {
   export const filterSensitiveLog = (obj: GetImageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetImageResponse => __isa(o, "GetImageResponse");
 }
 
 /**
  * <p> GetInfrastructureConfiguration request object. </p>
  */
 export interface GetInfrastructureConfigurationRequest {
-  __type?: "GetInfrastructureConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to retrieve. </p>
    */
@@ -1615,15 +1494,12 @@ export namespace GetInfrastructureConfigurationRequest {
   export const filterSensitiveLog = (obj: GetInfrastructureConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInfrastructureConfigurationRequest =>
-    __isa(o, "GetInfrastructureConfigurationRequest");
 }
 
 /**
  * <p>GetInfrastructureConfiguration response object. </p>
  */
 export interface GetInfrastructureConfigurationResponse {
-  __type?: "GetInfrastructureConfigurationResponse";
   /**
    * <p>The infrastructure configuration object. </p>
    */
@@ -1639,8 +1515,6 @@ export namespace GetInfrastructureConfigurationResponse {
   export const filterSensitiveLog = (obj: GetInfrastructureConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInfrastructureConfigurationResponse =>
-    __isa(o, "GetInfrastructureConfigurationResponse");
 }
 
 /**
@@ -1656,15 +1530,12 @@ export namespace IdempotentParameterMismatchException {
   export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdempotentParameterMismatchException =>
-    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
  * <p>An image build version.</p>
  */
 export interface Image {
-  __type?: "Image";
   /**
    * <p>The distribution configuration used when creating this image.</p>
    */
@@ -1750,14 +1621,12 @@ export namespace Image {
   export const filterSensitiveLog = (obj: Image): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Image => __isa(o, "Image");
 }
 
 /**
  * <p>Details of an image pipeline.</p>
  */
 export interface ImagePipeline {
-  __type?: "ImagePipeline";
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline.</p>
    */
@@ -1843,14 +1712,12 @@ export namespace ImagePipeline {
   export const filterSensitiveLog = (obj: ImagePipeline): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImagePipeline => __isa(o, "ImagePipeline");
 }
 
 /**
  * <p>An image recipe.</p>
  */
 export interface ImageRecipe {
-  __type?: "ImageRecipe";
   /**
    * <p>The owner of the image recipe.</p>
    */
@@ -1916,14 +1783,12 @@ export namespace ImageRecipe {
   export const filterSensitiveLog = (obj: ImageRecipe): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageRecipe => __isa(o, "ImageRecipe");
 }
 
 /**
  * <p>A summary of an image recipe.</p>
  */
 export interface ImageRecipeSummary {
-  __type?: "ImageRecipeSummary";
   /**
    * <p>The platform of the image recipe.</p>
    */
@@ -1964,14 +1829,12 @@ export namespace ImageRecipeSummary {
   export const filterSensitiveLog = (obj: ImageRecipeSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageRecipeSummary => __isa(o, "ImageRecipeSummary");
 }
 
 /**
  * <p> Image state shows the image status and the reason for that status. </p>
  */
 export interface ImageState {
-  __type?: "ImageState";
   /**
    * <p>The status of the image. </p>
    */
@@ -1987,7 +1850,6 @@ export namespace ImageState {
   export const filterSensitiveLog = (obj: ImageState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageState => __isa(o, "ImageState");
 }
 
 export enum ImageStatus {
@@ -2008,7 +1870,6 @@ export enum ImageStatus {
  * <p>An image summary.</p>
  */
 export interface ImageSummary {
-  __type?: "ImageSummary";
   /**
    * <p>The date on which this image was created.</p>
    */
@@ -2064,14 +1925,12 @@ export namespace ImageSummary {
   export const filterSensitiveLog = (obj: ImageSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageSummary => __isa(o, "ImageSummary");
 }
 
 /**
  * <p>Image tests configuration.</p>
  */
 export interface ImageTestsConfiguration {
-  __type?: "ImageTestsConfiguration";
   /**
    * <p>The maximum time in minutes that tests are permitted to run.</p>
    */
@@ -2087,14 +1946,12 @@ export namespace ImageTestsConfiguration {
   export const filterSensitiveLog = (obj: ImageTestsConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageTestsConfiguration => __isa(o, "ImageTestsConfiguration");
 }
 
 /**
  * <p>An image semantic version.</p>
  */
 export interface ImageVersion {
-  __type?: "ImageVersion";
   /**
    * <p>The platform of the image semantic version.</p>
    */
@@ -2135,11 +1992,9 @@ export namespace ImageVersion {
   export const filterSensitiveLog = (obj: ImageVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageVersion => __isa(o, "ImageVersion");
 }
 
 export interface ImportComponentRequest {
-  __type?: "ImportComponentRequest";
   /**
    * <p>The semantic version of the component. This version follows the semantic version syntax. For example, major.minor.patch. This could be versioned like software (2.0.1) or like a date (2019.12.01).</p>
    */
@@ -2205,11 +2060,9 @@ export namespace ImportComponentRequest {
   export const filterSensitiveLog = (obj: ImportComponentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportComponentRequest => __isa(o, "ImportComponentRequest");
 }
 
 export interface ImportComponentResponse {
-  __type?: "ImportComponentResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -2230,14 +2083,12 @@ export namespace ImportComponentResponse {
   export const filterSensitiveLog = (obj: ImportComponentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportComponentResponse => __isa(o, "ImportComponentResponse");
 }
 
 /**
  * <p>Details of the infrastructure configuration.</p>
  */
 export interface InfrastructureConfiguration {
-  __type?: "InfrastructureConfiguration";
   /**
    * <p>The description of the infrastructure configuration.</p>
    */
@@ -2318,14 +2169,12 @@ export namespace InfrastructureConfiguration {
   export const filterSensitiveLog = (obj: InfrastructureConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InfrastructureConfiguration => __isa(o, "InfrastructureConfiguration");
 }
 
 /**
  * <p>The infrastructure used when building EC2 AMIs.</p>
  */
 export interface InfrastructureConfigurationSummary {
-  __type?: "InfrastructureConfigurationSummary";
   /**
    * <p>The description of the infrastructure configuration.</p>
    */
@@ -2366,15 +2215,12 @@ export namespace InfrastructureConfigurationSummary {
   export const filterSensitiveLog = (obj: InfrastructureConfigurationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InfrastructureConfigurationSummary =>
-    __isa(o, "InfrastructureConfigurationSummary");
 }
 
 /**
  * <p>Defines block device mappings for the instance used to configure your image.</p>
  */
 export interface InstanceBlockDeviceMapping {
-  __type?: "InstanceBlockDeviceMapping";
   /**
    * <p>Use to remove a mapping from the parent image.</p>
    */
@@ -2400,7 +2246,6 @@ export namespace InstanceBlockDeviceMapping {
   export const filterSensitiveLog = (obj: InstanceBlockDeviceMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceBlockDeviceMapping => __isa(o, "InstanceBlockDeviceMapping");
 }
 
 /**
@@ -2416,7 +2261,6 @@ export namespace InvalidPaginationTokenException {
   export const filterSensitiveLog = (obj: InvalidPaginationTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPaginationTokenException => __isa(o, "InvalidPaginationTokenException");
 }
 
 /**
@@ -2432,8 +2276,6 @@ export namespace InvalidParameterCombinationException {
   export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterCombinationException =>
-    __isa(o, "InvalidParameterCombinationException");
 }
 
 /**
@@ -2449,7 +2291,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -2465,7 +2306,6 @@ export namespace InvalidParameterValueException {
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
@@ -2481,7 +2321,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -2497,14 +2336,12 @@ export namespace InvalidVersionNumberException {
   export const filterSensitiveLog = (obj: InvalidVersionNumberException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidVersionNumberException => __isa(o, "InvalidVersionNumberException");
 }
 
 /**
  * <p>Describes the configuration for a launch permission. The launch permission modification request is sent to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">EC2 ModifyImageAttribute</a> API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to <code>all</code>. See the examples for making an AMI public at <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">EC2 ModifyImageAttribute</a>. </p>
  */
 export interface LaunchPermissionConfiguration {
-  __type?: "LaunchPermissionConfiguration";
   /**
    * <p>The name of the group. </p>
    */
@@ -2520,11 +2357,9 @@ export namespace LaunchPermissionConfiguration {
   export const filterSensitiveLog = (obj: LaunchPermissionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchPermissionConfiguration => __isa(o, "LaunchPermissionConfiguration");
 }
 
 export interface ListComponentBuildVersionsRequest {
-  __type?: "ListComponentBuildVersionsRequest";
   /**
    * <p>The maximum items to return in a request. </p>
    */
@@ -2545,11 +2380,9 @@ export namespace ListComponentBuildVersionsRequest {
   export const filterSensitiveLog = (obj: ListComponentBuildVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListComponentBuildVersionsRequest => __isa(o, "ListComponentBuildVersionsRequest");
 }
 
 export interface ListComponentBuildVersionsResponse {
-  __type?: "ListComponentBuildVersionsResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -2570,12 +2403,9 @@ export namespace ListComponentBuildVersionsResponse {
   export const filterSensitiveLog = (obj: ListComponentBuildVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListComponentBuildVersionsResponse =>
-    __isa(o, "ListComponentBuildVersionsResponse");
 }
 
 export interface ListComponentsRequest {
-  __type?: "ListComponentsRequest";
   /**
    * <p>The maximum items to return in a request. </p>
    */
@@ -2601,11 +2431,9 @@ export namespace ListComponentsRequest {
   export const filterSensitiveLog = (obj: ListComponentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListComponentsRequest => __isa(o, "ListComponentsRequest");
 }
 
 export interface ListComponentsResponse {
-  __type?: "ListComponentsResponse";
   /**
    * <p>The list of component semantic versions. </p>
    */
@@ -2626,11 +2454,9 @@ export namespace ListComponentsResponse {
   export const filterSensitiveLog = (obj: ListComponentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListComponentsResponse => __isa(o, "ListComponentsResponse");
 }
 
 export interface ListDistributionConfigurationsRequest {
-  __type?: "ListDistributionConfigurationsRequest";
   /**
    * <p>The maximum items to return in a request. </p>
    */
@@ -2651,12 +2477,9 @@ export namespace ListDistributionConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListDistributionConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDistributionConfigurationsRequest =>
-    __isa(o, "ListDistributionConfigurationsRequest");
 }
 
 export interface ListDistributionConfigurationsResponse {
-  __type?: "ListDistributionConfigurationsResponse";
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional elements that the service has not included in this request. Use this token with the next request to retrieve additional objects. </p>
    */
@@ -2677,12 +2500,9 @@ export namespace ListDistributionConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListDistributionConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDistributionConfigurationsResponse =>
-    __isa(o, "ListDistributionConfigurationsResponse");
 }
 
 export interface ListImageBuildVersionsRequest {
-  __type?: "ListImageBuildVersionsRequest";
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously truncated response. </p>
    */
@@ -2708,11 +2528,9 @@ export namespace ListImageBuildVersionsRequest {
   export const filterSensitiveLog = (obj: ListImageBuildVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImageBuildVersionsRequest => __isa(o, "ListImageBuildVersionsRequest");
 }
 
 export interface ListImageBuildVersionsResponse {
-  __type?: "ListImageBuildVersionsResponse";
   /**
    * <p>The list of image build versions. </p>
    */
@@ -2733,11 +2551,9 @@ export namespace ListImageBuildVersionsResponse {
   export const filterSensitiveLog = (obj: ListImageBuildVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImageBuildVersionsResponse => __isa(o, "ListImageBuildVersionsResponse");
 }
 
 export interface ListImagePipelineImagesRequest {
-  __type?: "ListImagePipelineImagesRequest";
   /**
    * <p>The maximum items to return in a request. </p>
    */
@@ -2763,11 +2579,9 @@ export namespace ListImagePipelineImagesRequest {
   export const filterSensitiveLog = (obj: ListImagePipelineImagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImagePipelineImagesRequest => __isa(o, "ListImagePipelineImagesRequest");
 }
 
 export interface ListImagePipelineImagesResponse {
-  __type?: "ListImagePipelineImagesResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -2788,11 +2602,9 @@ export namespace ListImagePipelineImagesResponse {
   export const filterSensitiveLog = (obj: ListImagePipelineImagesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImagePipelineImagesResponse => __isa(o, "ListImagePipelineImagesResponse");
 }
 
 export interface ListImagePipelinesRequest {
-  __type?: "ListImagePipelinesRequest";
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously truncated response. </p>
    */
@@ -2813,11 +2625,9 @@ export namespace ListImagePipelinesRequest {
   export const filterSensitiveLog = (obj: ListImagePipelinesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImagePipelinesRequest => __isa(o, "ListImagePipelinesRequest");
 }
 
 export interface ListImagePipelinesResponse {
-  __type?: "ListImagePipelinesResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -2838,11 +2648,9 @@ export namespace ListImagePipelinesResponse {
   export const filterSensitiveLog = (obj: ListImagePipelinesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImagePipelinesResponse => __isa(o, "ListImagePipelinesResponse");
 }
 
 export interface ListImageRecipesRequest {
-  __type?: "ListImageRecipesRequest";
   /**
    * <p>The maximum items to return in a request. </p>
    */
@@ -2868,11 +2676,9 @@ export namespace ListImageRecipesRequest {
   export const filterSensitiveLog = (obj: ListImageRecipesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImageRecipesRequest => __isa(o, "ListImageRecipesRequest");
 }
 
 export interface ListImageRecipesResponse {
-  __type?: "ListImageRecipesResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -2893,11 +2699,9 @@ export namespace ListImageRecipesResponse {
   export const filterSensitiveLog = (obj: ListImageRecipesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImageRecipesResponse => __isa(o, "ListImageRecipesResponse");
 }
 
 export interface ListImagesRequest {
-  __type?: "ListImagesRequest";
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously truncated response. </p>
    */
@@ -2923,11 +2727,9 @@ export namespace ListImagesRequest {
   export const filterSensitiveLog = (obj: ListImagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImagesRequest => __isa(o, "ListImagesRequest");
 }
 
 export interface ListImagesResponse {
-  __type?: "ListImagesResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -2948,11 +2750,9 @@ export namespace ListImagesResponse {
   export const filterSensitiveLog = (obj: ListImagesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImagesResponse => __isa(o, "ListImagesResponse");
 }
 
 export interface ListInfrastructureConfigurationsRequest {
-  __type?: "ListInfrastructureConfigurationsRequest";
   /**
    * <p>The maximum items to return in a request. </p>
    */
@@ -2973,12 +2773,9 @@ export namespace ListInfrastructureConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListInfrastructureConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInfrastructureConfigurationsRequest =>
-    __isa(o, "ListInfrastructureConfigurationsRequest");
 }
 
 export interface ListInfrastructureConfigurationsResponse {
-  __type?: "ListInfrastructureConfigurationsResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -2999,12 +2796,9 @@ export namespace ListInfrastructureConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListInfrastructureConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInfrastructureConfigurationsResponse =>
-    __isa(o, "ListInfrastructureConfigurationsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve. </p>
    */
@@ -3015,11 +2809,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags for the specified resource. </p>
    */
@@ -3030,14 +2822,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>Logging configuration defines where Image Builder uploads your logs.</p>
  */
 export interface Logging {
-  __type?: "Logging";
   /**
    * <p>The Amazon S3 logging configuration.</p>
    */
@@ -3048,14 +2838,12 @@ export namespace Logging {
   export const filterSensitiveLog = (obj: Logging): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Logging => __isa(o, "Logging");
 }
 
 /**
  * <p>The resources produced by this image. </p>
  */
 export interface OutputResources {
-  __type?: "OutputResources";
   /**
    * <p>The EC2 AMIs created by this image. </p>
    */
@@ -3066,7 +2854,6 @@ export namespace OutputResources {
   export const filterSensitiveLog = (obj: OutputResources): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputResources => __isa(o, "OutputResources");
 }
 
 export enum Ownership {
@@ -3091,7 +2878,6 @@ export enum Platform {
 }
 
 export interface PutComponentPolicyRequest {
-  __type?: "PutComponentPolicyRequest";
   /**
    * <p>The policy to apply. </p>
    */
@@ -3107,11 +2893,9 @@ export namespace PutComponentPolicyRequest {
   export const filterSensitiveLog = (obj: PutComponentPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutComponentPolicyRequest => __isa(o, "PutComponentPolicyRequest");
 }
 
 export interface PutComponentPolicyResponse {
-  __type?: "PutComponentPolicyResponse";
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -3127,11 +2911,9 @@ export namespace PutComponentPolicyResponse {
   export const filterSensitiveLog = (obj: PutComponentPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutComponentPolicyResponse => __isa(o, "PutComponentPolicyResponse");
 }
 
 export interface PutImagePolicyRequest {
-  __type?: "PutImagePolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the image that this policy should be applied to. </p>
    */
@@ -3147,11 +2929,9 @@ export namespace PutImagePolicyRequest {
   export const filterSensitiveLog = (obj: PutImagePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutImagePolicyRequest => __isa(o, "PutImagePolicyRequest");
 }
 
 export interface PutImagePolicyResponse {
-  __type?: "PutImagePolicyResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the image that this policy was applied to. </p>
    */
@@ -3167,11 +2947,9 @@ export namespace PutImagePolicyResponse {
   export const filterSensitiveLog = (obj: PutImagePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutImagePolicyResponse => __isa(o, "PutImagePolicyResponse");
 }
 
 export interface PutImageRecipePolicyRequest {
-  __type?: "PutImageRecipePolicyRequest";
   /**
    * <p>The policy to apply. </p>
    */
@@ -3187,11 +2965,9 @@ export namespace PutImageRecipePolicyRequest {
   export const filterSensitiveLog = (obj: PutImageRecipePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutImageRecipePolicyRequest => __isa(o, "PutImageRecipePolicyRequest");
 }
 
 export interface PutImageRecipePolicyResponse {
-  __type?: "PutImageRecipePolicyResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that this policy was applied to. </p>
    */
@@ -3207,7 +2983,6 @@ export namespace PutImageRecipePolicyResponse {
   export const filterSensitiveLog = (obj: PutImageRecipePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutImageRecipePolicyResponse => __isa(o, "PutImageRecipePolicyResponse");
 }
 
 /**
@@ -3223,7 +2998,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -3239,7 +3013,6 @@ export namespace ResourceDependencyException {
   export const filterSensitiveLog = (obj: ResourceDependencyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceDependencyException => __isa(o, "ResourceDependencyException");
 }
 
 /**
@@ -3255,7 +3028,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -3271,14 +3043,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>Amazon S3 logging configuration.</p>
  */
 export interface S3Logs {
-  __type?: "S3Logs";
   /**
    * <p>The Amazon S3 path in which to store the logs.</p>
    */
@@ -3294,14 +3064,12 @@ export namespace S3Logs {
   export const filterSensitiveLog = (obj: S3Logs): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Logs => __isa(o, "S3Logs");
 }
 
 /**
  * <p>A schedule configures how often and when a pipeline will automatically create a new image. </p>
  */
 export interface Schedule {
-  __type?: "Schedule";
   /**
    * <p>The expression determines how often EC2 Image Builder evaluates your <code>pipelineExecutionStartCondition</code>.</p>
    */
@@ -3317,7 +3085,6 @@ export namespace Schedule {
   export const filterSensitiveLog = (obj: Schedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Schedule => __isa(o, "Schedule");
 }
 
 /**
@@ -3333,7 +3100,6 @@ export namespace ServiceException {
   export const filterSensitiveLog = (obj: ServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceException => __isa(o, "ServiceException");
 }
 
 /**
@@ -3349,7 +3115,6 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
@@ -3365,11 +3130,9 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartImagePipelineExecutionRequest {
-  __type?: "StartImagePipelineExecutionRequest";
   /**
    * <p>The idempotency token used to make this request idempotent. </p>
    */
@@ -3385,12 +3148,9 @@ export namespace StartImagePipelineExecutionRequest {
   export const filterSensitiveLog = (obj: StartImagePipelineExecutionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartImagePipelineExecutionRequest =>
-    __isa(o, "StartImagePipelineExecutionRequest");
 }
 
 export interface StartImagePipelineExecutionResponse {
-  __type?: "StartImagePipelineExecutionResponse";
   /**
    * <p>The idempotency token used to make this request idempotent.</p>
    */
@@ -3411,12 +3171,9 @@ export namespace StartImagePipelineExecutionResponse {
   export const filterSensitiveLog = (obj: StartImagePipelineExecutionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartImagePipelineExecutionResponse =>
-    __isa(o, "StartImagePipelineExecutionResponse");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to tag. </p>
    */
@@ -3432,22 +3189,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The tag keys to remove from the resource. </p>
    */
@@ -3463,22 +3215,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateDistributionConfigurationRequest {
-  __type?: "UpdateDistributionConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration that you want to update. </p>
    */
@@ -3504,12 +3251,9 @@ export namespace UpdateDistributionConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateDistributionConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDistributionConfigurationRequest =>
-    __isa(o, "UpdateDistributionConfigurationRequest");
 }
 
 export interface UpdateDistributionConfigurationResponse {
-  __type?: "UpdateDistributionConfigurationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration that was updated by this request. </p>
    */
@@ -3530,12 +3274,9 @@ export namespace UpdateDistributionConfigurationResponse {
   export const filterSensitiveLog = (obj: UpdateDistributionConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDistributionConfigurationResponse =>
-    __isa(o, "UpdateDistributionConfigurationResponse");
 }
 
 export interface UpdateImagePipelineRequest {
-  __type?: "UpdateImagePipelineRequest";
   /**
    * <p>The description of the image pipeline. </p>
    */
@@ -3591,11 +3332,9 @@ export namespace UpdateImagePipelineRequest {
   export const filterSensitiveLog = (obj: UpdateImagePipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateImagePipelineRequest => __isa(o, "UpdateImagePipelineRequest");
 }
 
 export interface UpdateImagePipelineResponse {
-  __type?: "UpdateImagePipelineResponse";
   /**
    * <p>The idempotency token used to make this request idempotent. </p>
    */
@@ -3616,11 +3355,9 @@ export namespace UpdateImagePipelineResponse {
   export const filterSensitiveLog = (obj: UpdateImagePipelineResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateImagePipelineResponse => __isa(o, "UpdateImagePipelineResponse");
 }
 
 export interface UpdateInfrastructureConfigurationRequest {
-  __type?: "UpdateInfrastructureConfigurationRequest";
   /**
    * <p>The terminate instance on failure setting of the infrastructure configuration. Set to false if you want Image Builder to retain the instance used to configure your AMI if the build or test phase of your workflow fails. </p>
    */
@@ -3686,12 +3423,9 @@ export namespace UpdateInfrastructureConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateInfrastructureConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateInfrastructureConfigurationRequest =>
-    __isa(o, "UpdateInfrastructureConfigurationRequest");
 }
 
 export interface UpdateInfrastructureConfigurationResponse {
-  __type?: "UpdateInfrastructureConfigurationResponse";
   /**
    * <p>The idempotency token used to make this request idempotent. </p>
    */
@@ -3712,6 +3446,4 @@ export namespace UpdateInfrastructureConfigurationResponse {
   export const filterSensitiveLog = (obj: UpdateInfrastructureConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateInfrastructureConfigurationResponse =>
-    __isa(o, "UpdateInfrastructureConfigurationResponse");
 }

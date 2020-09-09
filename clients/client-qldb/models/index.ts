@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CancelJournalKinesisStreamRequest {
-  __type?: "CancelJournalKinesisStreamRequest";
   /**
    * <p>The unique ID that QLDB assigns to each QLDB journal stream.</p>
    */
@@ -18,11 +17,9 @@ export namespace CancelJournalKinesisStreamRequest {
   export const filterSensitiveLog = (obj: CancelJournalKinesisStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJournalKinesisStreamRequest => __isa(o, "CancelJournalKinesisStreamRequest");
 }
 
 export interface CancelJournalKinesisStreamResponse {
-  __type?: "CancelJournalKinesisStreamResponse";
   /**
    * <p>The unique ID that QLDB assigns to each QLDB journal stream.</p>
    */
@@ -33,12 +30,9 @@ export namespace CancelJournalKinesisStreamResponse {
   export const filterSensitiveLog = (obj: CancelJournalKinesisStreamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJournalKinesisStreamResponse =>
-    __isa(o, "CancelJournalKinesisStreamResponse");
 }
 
 export interface CreateLedgerRequest {
-  __type?: "CreateLedgerRequest";
   /**
    * <p>The name of the ledger that you want to create. The name must be unique among all of
    *          your ledgers in the current AWS Region.</p>
@@ -73,11 +67,9 @@ export namespace CreateLedgerRequest {
   export const filterSensitiveLog = (obj: CreateLedgerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLedgerRequest => __isa(o, "CreateLedgerRequest");
 }
 
 export interface CreateLedgerResponse {
-  __type?: "CreateLedgerResponse";
   /**
    * <p>The name of the ledger.</p>
    */
@@ -114,11 +106,9 @@ export namespace CreateLedgerResponse {
   export const filterSensitiveLog = (obj: CreateLedgerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLedgerResponse => __isa(o, "CreateLedgerResponse");
 }
 
 export interface DeleteLedgerRequest {
-  __type?: "DeleteLedgerRequest";
   /**
    * <p>The name of the ledger that you want to delete.</p>
    */
@@ -129,11 +119,9 @@ export namespace DeleteLedgerRequest {
   export const filterSensitiveLog = (obj: DeleteLedgerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLedgerRequest => __isa(o, "DeleteLedgerRequest");
 }
 
 export interface DescribeJournalKinesisStreamRequest {
-  __type?: "DescribeJournalKinesisStreamRequest";
   /**
    * <p>The unique ID that QLDB assigns to each QLDB journal stream.</p>
    */
@@ -149,12 +137,9 @@ export namespace DescribeJournalKinesisStreamRequest {
   export const filterSensitiveLog = (obj: DescribeJournalKinesisStreamRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJournalKinesisStreamRequest =>
-    __isa(o, "DescribeJournalKinesisStreamRequest");
 }
 
 export interface DescribeJournalKinesisStreamResponse {
-  __type?: "DescribeJournalKinesisStreamResponse";
   /**
    * <p>Information about the QLDB journal stream returned by a
    *             <code>DescribeJournalS3Export</code> request.</p>
@@ -166,12 +151,9 @@ export namespace DescribeJournalKinesisStreamResponse {
   export const filterSensitiveLog = (obj: DescribeJournalKinesisStreamResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJournalKinesisStreamResponse =>
-    __isa(o, "DescribeJournalKinesisStreamResponse");
 }
 
 export interface DescribeJournalS3ExportRequest {
-  __type?: "DescribeJournalS3ExportRequest";
   /**
    * <p>The name of the ledger.</p>
    */
@@ -187,11 +169,9 @@ export namespace DescribeJournalS3ExportRequest {
   export const filterSensitiveLog = (obj: DescribeJournalS3ExportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJournalS3ExportRequest => __isa(o, "DescribeJournalS3ExportRequest");
 }
 
 export interface DescribeJournalS3ExportResponse {
-  __type?: "DescribeJournalS3ExportResponse";
   /**
    * <p>Information about the journal export job returned by a
    *             <code>DescribeJournalS3Export</code> request.</p>
@@ -203,11 +183,9 @@ export namespace DescribeJournalS3ExportResponse {
   export const filterSensitiveLog = (obj: DescribeJournalS3ExportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJournalS3ExportResponse => __isa(o, "DescribeJournalS3ExportResponse");
 }
 
 export interface DescribeLedgerRequest {
-  __type?: "DescribeLedgerRequest";
   /**
    * <p>The name of the ledger that you want to describe.</p>
    */
@@ -218,11 +196,9 @@ export namespace DescribeLedgerRequest {
   export const filterSensitiveLog = (obj: DescribeLedgerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLedgerRequest => __isa(o, "DescribeLedgerRequest");
 }
 
 export interface DescribeLedgerResponse {
-  __type?: "DescribeLedgerResponse";
   /**
    * <p>The name of the ledger.</p>
    */
@@ -259,7 +235,6 @@ export namespace DescribeLedgerResponse {
   export const filterSensitiveLog = (obj: DescribeLedgerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLedgerResponse => __isa(o, "DescribeLedgerResponse");
 }
 
 export enum ErrorCause {
@@ -268,7 +243,6 @@ export enum ErrorCause {
 }
 
 export interface ExportJournalToS3Request {
-  __type?: "ExportJournalToS3Request";
   /**
    * <p>The inclusive start date and time for the range of journal contents that you want to
    *          export.</p>
@@ -326,11 +300,9 @@ export namespace ExportJournalToS3Request {
   export const filterSensitiveLog = (obj: ExportJournalToS3Request): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportJournalToS3Request => __isa(o, "ExportJournalToS3Request");
 }
 
 export interface ExportJournalToS3Response {
-  __type?: "ExportJournalToS3Response";
   /**
    * <p>The unique ID that QLDB assigns to each journal export job.</p>
    *          <p>To describe your export request and check the status of the job, you can use
@@ -343,7 +315,6 @@ export namespace ExportJournalToS3Response {
   export const filterSensitiveLog = (obj: ExportJournalToS3Response): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportJournalToS3Response => __isa(o, "ExportJournalToS3Response");
 }
 
 export enum ExportStatus {
@@ -353,7 +324,6 @@ export enum ExportStatus {
 }
 
 export interface GetBlockRequest {
-  __type?: "GetBlockRequest";
   /**
    * <p>The location of the block that you want to request. An address is an Amazon Ion
    *          structure that has two fields: <code>strandId</code> and <code>sequenceNo</code>.</p>
@@ -383,11 +353,9 @@ export namespace GetBlockRequest {
     ...(obj.BlockAddress && { BlockAddress: SENSITIVE_STRING }),
     ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetBlockRequest => __isa(o, "GetBlockRequest");
 }
 
 export interface GetBlockResponse {
-  __type?: "GetBlockResponse";
   /**
    * <p>The block data object in Amazon Ion format.</p>
    */
@@ -407,11 +375,9 @@ export namespace GetBlockResponse {
     ...(obj.Block && { Block: SENSITIVE_STRING }),
     ...(obj.Proof && { Proof: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetBlockResponse => __isa(o, "GetBlockResponse");
 }
 
 export interface GetDigestRequest {
-  __type?: "GetDigestRequest";
   /**
    * <p>The name of the ledger.</p>
    */
@@ -422,11 +388,9 @@ export namespace GetDigestRequest {
   export const filterSensitiveLog = (obj: GetDigestRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDigestRequest => __isa(o, "GetDigestRequest");
 }
 
 export interface GetDigestResponse {
-  __type?: "GetDigestResponse";
   /**
    * <p>The 256-bit hash value representing the digest returned by a <code>GetDigest</code>
    *          request.</p>
@@ -446,11 +410,9 @@ export namespace GetDigestResponse {
     ...obj,
     ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetDigestResponse => __isa(o, "GetDigestResponse");
 }
 
 export interface GetRevisionRequest {
-  __type?: "GetRevisionRequest";
   /**
    * <p>The unique ID of the document to be verified.</p>
    */
@@ -485,11 +447,9 @@ export namespace GetRevisionRequest {
     ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
     ...(obj.BlockAddress && { BlockAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetRevisionRequest => __isa(o, "GetRevisionRequest");
 }
 
 export interface GetRevisionResponse {
-  __type?: "GetRevisionResponse";
   /**
    * <p>The proof object in Amazon Ion format returned by a <code>GetRevision</code> request. A
    *          proof contains the list of hash values that are required to recalculate the specified
@@ -509,7 +469,6 @@ export namespace GetRevisionResponse {
     ...(obj.Proof && { Proof: SENSITIVE_STRING }),
     ...(obj.Revision && { Revision: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetRevisionResponse => __isa(o, "GetRevisionResponse");
 }
 
 /**
@@ -529,7 +488,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -538,7 +496,6 @@ export namespace InvalidParameterException {
  *          stream creation request.</p>
  */
 export interface JournalKinesisStreamDescription {
-  __type?: "JournalKinesisStreamDescription";
   /**
    * <p>The configuration settings of the Amazon Kinesis Data Streams destination for your QLDB journal
    *          stream.</p>
@@ -606,7 +563,6 @@ export namespace JournalKinesisStreamDescription {
   export const filterSensitiveLog = (obj: JournalKinesisStreamDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JournalKinesisStreamDescription => __isa(o, "JournalKinesisStreamDescription");
 }
 
 /**
@@ -614,7 +570,6 @@ export namespace JournalKinesisStreamDescription {
  *          it was created, current status, and its start and end time export parameters.</p>
  */
 export interface JournalS3ExportDescription {
-  __type?: "JournalS3ExportDescription";
   /**
    * <p>The unique ID of the journal export job.</p>
    */
@@ -674,7 +629,6 @@ export namespace JournalS3ExportDescription {
   export const filterSensitiveLog = (obj: JournalS3ExportDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JournalS3ExportDescription => __isa(o, "JournalS3ExportDescription");
 }
 
 /**
@@ -682,7 +636,6 @@ export namespace JournalS3ExportDescription {
  *          stream.</p>
  */
 export interface KinesisConfiguration {
-  __type?: "KinesisConfiguration";
   /**
    * <p>Enables QLDB to publish multiple data records in a single Kinesis Data Streams record. To learn more,
    *          see <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html">KPL Key
@@ -700,7 +653,6 @@ export namespace KinesisConfiguration {
   export const filterSensitiveLog = (obj: KinesisConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KinesisConfiguration => __isa(o, "KinesisConfiguration");
 }
 
 export enum LedgerState {
@@ -714,7 +666,6 @@ export enum LedgerState {
  * <p>Information about a ledger, including its name, state, and when it was created.</p>
  */
 export interface LedgerSummary {
-  __type?: "LedgerSummary";
   /**
    * <p>The current status of the ledger.</p>
    */
@@ -736,7 +687,6 @@ export namespace LedgerSummary {
   export const filterSensitiveLog = (obj: LedgerSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LedgerSummary => __isa(o, "LedgerSummary");
 }
 
 /**
@@ -757,11 +707,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListJournalKinesisStreamsForLedgerRequest {
-  __type?: "ListJournalKinesisStreamsForLedgerRequest";
   /**
    * <p>The maximum number of results to return in a single
    *             <code>ListJournalKinesisStreamsForLedger</code> request. (The actual number of results
@@ -787,12 +735,9 @@ export namespace ListJournalKinesisStreamsForLedgerRequest {
   export const filterSensitiveLog = (obj: ListJournalKinesisStreamsForLedgerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJournalKinesisStreamsForLedgerRequest =>
-    __isa(o, "ListJournalKinesisStreamsForLedgerRequest");
 }
 
 export interface ListJournalKinesisStreamsForLedgerResponse {
-  __type?: "ListJournalKinesisStreamsForLedgerResponse";
   /**
    * <p>The array of QLDB journal stream descriptors that are associated with the given
    *          ledger.</p>
@@ -820,12 +765,9 @@ export namespace ListJournalKinesisStreamsForLedgerResponse {
   export const filterSensitiveLog = (obj: ListJournalKinesisStreamsForLedgerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJournalKinesisStreamsForLedgerResponse =>
-    __isa(o, "ListJournalKinesisStreamsForLedgerResponse");
 }
 
 export interface ListJournalS3ExportsForLedgerRequest {
-  __type?: "ListJournalS3ExportsForLedgerRequest";
   /**
    * <p>The name of the ledger.</p>
    */
@@ -851,12 +793,9 @@ export namespace ListJournalS3ExportsForLedgerRequest {
   export const filterSensitiveLog = (obj: ListJournalS3ExportsForLedgerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJournalS3ExportsForLedgerRequest =>
-    __isa(o, "ListJournalS3ExportsForLedgerRequest");
 }
 
 export interface ListJournalS3ExportsForLedgerResponse {
-  __type?: "ListJournalS3ExportsForLedgerResponse";
   /**
    * <p>The array of journal export job descriptions that are associated with the specified
    *          ledger.</p>
@@ -884,12 +823,9 @@ export namespace ListJournalS3ExportsForLedgerResponse {
   export const filterSensitiveLog = (obj: ListJournalS3ExportsForLedgerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJournalS3ExportsForLedgerResponse =>
-    __isa(o, "ListJournalS3ExportsForLedgerResponse");
 }
 
 export interface ListJournalS3ExportsRequest {
-  __type?: "ListJournalS3ExportsRequest";
   /**
    * <p>The maximum number of results to return in a single <code>ListJournalS3Exports</code>
    *          request. (The actual number of results returned might be fewer.)</p>
@@ -909,11 +845,9 @@ export namespace ListJournalS3ExportsRequest {
   export const filterSensitiveLog = (obj: ListJournalS3ExportsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJournalS3ExportsRequest => __isa(o, "ListJournalS3ExportsRequest");
 }
 
 export interface ListJournalS3ExportsResponse {
-  __type?: "ListJournalS3ExportsResponse";
   /**
    * <p>The array of journal export job descriptions for all ledgers that are associated with
    *          the current AWS account and Region.</p>
@@ -941,11 +875,9 @@ export namespace ListJournalS3ExportsResponse {
   export const filterSensitiveLog = (obj: ListJournalS3ExportsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJournalS3ExportsResponse => __isa(o, "ListJournalS3ExportsResponse");
 }
 
 export interface ListLedgersRequest {
-  __type?: "ListLedgersRequest";
   /**
    * <p>A pagination token, indicating that you want to retrieve the next page of results. If
    *          you received a value for <code>NextToken</code> in the response from a previous
@@ -964,11 +896,9 @@ export namespace ListLedgersRequest {
   export const filterSensitiveLog = (obj: ListLedgersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLedgersRequest => __isa(o, "ListLedgersRequest");
 }
 
 export interface ListLedgersResponse {
-  __type?: "ListLedgersResponse";
   /**
    * <p>A pagination token, indicating whether there are more results available:</p>
    *          <ul>
@@ -996,11 +926,9 @@ export namespace ListLedgersResponse {
   export const filterSensitiveLog = (obj: ListLedgersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLedgersResponse => __isa(o, "ListLedgersResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) for which you want to list the tags. For example:</p>
    *          <p>
@@ -1014,11 +942,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags that are currently associated with the specified Amazon QLDB resource.</p>
    */
@@ -1029,7 +955,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum PermissionsMode {
@@ -1059,7 +984,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -1084,7 +1008,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -1109,7 +1032,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1135,8 +1057,6 @@ export namespace ResourcePreconditionNotMetException {
   export const filterSensitiveLog = (obj: ResourcePreconditionNotMetException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourcePreconditionNotMetException =>
-    __isa(o, "ResourcePreconditionNotMetException");
 }
 
 /**
@@ -1144,7 +1064,6 @@ export namespace ResourcePreconditionNotMetException {
  *          Amazon Simple Storage Service (Amazon S3) bucket.</p>
  */
 export interface S3EncryptionConfiguration {
-  __type?: "S3EncryptionConfiguration";
   /**
    * <p>The Amazon S3 object encryption type.</p>
    *          <p>To learn more about server-side encryption options in Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data
@@ -1169,7 +1088,6 @@ export namespace S3EncryptionConfiguration {
   export const filterSensitiveLog = (obj: S3EncryptionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3EncryptionConfiguration => __isa(o, "S3EncryptionConfiguration");
 }
 
 /**
@@ -1177,7 +1095,6 @@ export namespace S3EncryptionConfiguration {
  *          contents.</p>
  */
 export interface S3ExportConfiguration {
-  __type?: "S3ExportConfiguration";
   /**
    * <p>The prefix for the Amazon S3 bucket in which a journal export job writes the journal
    *          contents.</p>
@@ -1224,7 +1141,6 @@ export namespace S3ExportConfiguration {
   export const filterSensitiveLog = (obj: S3ExportConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3ExportConfiguration => __isa(o, "S3ExportConfiguration");
 }
 
 export enum S3ObjectEncryptionType {
@@ -1234,7 +1150,6 @@ export enum S3ObjectEncryptionType {
 }
 
 export interface StreamJournalToKinesisRequest {
-  __type?: "StreamJournalToKinesisRequest";
   /**
    * <p>The configuration settings of the Kinesis Data Streams destination for your stream request.</p>
    */
@@ -1295,11 +1210,9 @@ export namespace StreamJournalToKinesisRequest {
   export const filterSensitiveLog = (obj: StreamJournalToKinesisRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamJournalToKinesisRequest => __isa(o, "StreamJournalToKinesisRequest");
 }
 
 export interface StreamJournalToKinesisResponse {
-  __type?: "StreamJournalToKinesisResponse";
   /**
    * <p>The unique ID that QLDB assigns to each QLDB journal stream.</p>
    */
@@ -1310,7 +1223,6 @@ export namespace StreamJournalToKinesisResponse {
   export const filterSensitiveLog = (obj: StreamJournalToKinesisResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamJournalToKinesisResponse => __isa(o, "StreamJournalToKinesisResponse");
 }
 
 export enum StreamStatus {
@@ -1322,7 +1234,6 @@ export enum StreamStatus {
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) to which you want to add the tags. For example:</p>
    *          <p>
@@ -1343,22 +1254,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) from which you want to remove the tags. For
    *          example:</p>
@@ -1378,22 +1284,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateLedgerRequest {
-  __type?: "UpdateLedgerRequest";
   /**
    * <p>The name of the ledger.</p>
    */
@@ -1414,11 +1315,9 @@ export namespace UpdateLedgerRequest {
   export const filterSensitiveLog = (obj: UpdateLedgerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLedgerRequest => __isa(o, "UpdateLedgerRequest");
 }
 
 export interface UpdateLedgerResponse {
-  __type?: "UpdateLedgerResponse";
   /**
    * <p>The Amazon Resource Name (ARN) for the ledger.</p>
    */
@@ -1455,14 +1354,12 @@ export namespace UpdateLedgerResponse {
   export const filterSensitiveLog = (obj: UpdateLedgerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLedgerResponse => __isa(o, "UpdateLedgerResponse");
 }
 
 /**
  * <p>A structure that can contain a value in multiple encoding formats.</p>
  */
 export interface ValueHolder {
-  __type?: "ValueHolder";
   /**
    * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
    */
@@ -1474,5 +1371,4 @@ export namespace ValueHolder {
     ...obj,
     ...(obj.IonText && { IonText: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ValueHolder => __isa(o, "ValueHolder");
 }

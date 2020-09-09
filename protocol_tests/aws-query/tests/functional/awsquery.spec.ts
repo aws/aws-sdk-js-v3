@@ -108,7 +108,7 @@ const compareParts = (expectedParts: comparableParts, generatedParts: comparable
 
 /**
  * Compares all types for equivalent contents, doing nested
- * equality checks based on non-'__type', non-`$metadata`
+ * equality checks based on non-`$metadata`
  * properties that have defined values.
  */
 const equivalentContents = (expected: any, generated: any): boolean => {
@@ -122,8 +122,6 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // If a test fails with an issue in the below 6 lines, it's likely
   // due to an issue in the nestedness or existence of the property
   // being compared.
-  delete localExpected["__type"];
-  delete generated["__type"];
   delete localExpected["$metadata"];
   delete generated["$metadata"];
   Object.keys(localExpected).forEach((key) => localExpected[key] === undefined && delete localExpected[key]);
@@ -377,7 +375,7 @@ it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
   try {
     await client.send(command);
   } catch (err) {
-    if (!InvalidGreeting.isa(err)) {
+    if (err.name !== "InvalidGreeting") {
       console.log(err);
       fail(`Expected a InvalidGreeting to be thrown, got ${err.name} instead`);
       return;
@@ -428,7 +426,7 @@ it("QueryComplexError:Error:GreetingWithErrors", async () => {
   try {
     await client.send(command);
   } catch (err) {
-    if (!ComplexError.isa(err)) {
+    if (err.name !== "ComplexError") {
       console.log(err);
       fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
       return;

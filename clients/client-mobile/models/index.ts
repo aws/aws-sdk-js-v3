@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -21,7 +21,6 @@ export namespace AccountActionRequiredException {
   export const filterSensitiveLog = (obj: AccountActionRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountActionRequiredException => __isa(o, "AccountActionRequiredException");
 }
 
 /**
@@ -45,7 +44,6 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -54,7 +52,6 @@ export namespace BadRequestException {
  *         </p>
  */
 export interface BundleDetails {
-  __type?: "BundleDetails";
   /**
    * <p>
    *             Developer desktop or mobile app or website platforms.
@@ -102,7 +99,6 @@ export namespace BundleDetails {
   export const filterSensitiveLog = (obj: BundleDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BundleDetails => __isa(o, "BundleDetails");
 }
 
 /**
@@ -111,7 +107,6 @@ export namespace BundleDetails {
  *         </p>
  */
 export interface CreateProjectRequest {
-  __type?: "CreateProjectRequest";
   /**
    * <p>
    *             Default region where project resources should be created.
@@ -148,7 +143,6 @@ export namespace CreateProjectRequest {
   export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectRequest => __isa(o, "CreateProjectRequest");
 }
 
 /**
@@ -157,7 +151,6 @@ export namespace CreateProjectRequest {
  *         </p>
  */
 export interface CreateProjectResult {
-  __type?: "CreateProjectResult";
   /**
    * <p>
    *             Detailed information about the created AWS Mobile Hub project.
@@ -170,7 +163,6 @@ export namespace CreateProjectResult {
   export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectResult => __isa(o, "CreateProjectResult");
 }
 
 /**
@@ -179,7 +171,6 @@ export namespace CreateProjectResult {
  *         </p>
  */
 export interface DeleteProjectRequest {
-  __type?: "DeleteProjectRequest";
   /**
    * <p>
    *             Unique project identifier.
@@ -192,7 +183,6 @@ export namespace DeleteProjectRequest {
   export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectRequest => __isa(o, "DeleteProjectRequest");
 }
 
 /**
@@ -201,7 +191,6 @@ export namespace DeleteProjectRequest {
  *         </p>
  */
 export interface DeleteProjectResult {
-  __type?: "DeleteProjectResult";
   /**
    * <p>
    *             Resources which were deleted.
@@ -222,7 +211,6 @@ export namespace DeleteProjectResult {
   export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectResult => __isa(o, "DeleteProjectResult");
 }
 
 /**
@@ -231,7 +219,6 @@ export namespace DeleteProjectResult {
  *         </p>
  */
 export interface DescribeBundleRequest {
-  __type?: "DescribeBundleRequest";
   /**
    * <p>
    *             Unique bundle identifier.
@@ -244,7 +231,6 @@ export namespace DescribeBundleRequest {
   export const filterSensitiveLog = (obj: DescribeBundleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBundleRequest => __isa(o, "DescribeBundleRequest");
 }
 
 /**
@@ -253,7 +239,6 @@ export namespace DescribeBundleRequest {
  *         </p>
  */
 export interface DescribeBundleResult {
-  __type?: "DescribeBundleResult";
   /**
    * <p>
    *             The details of the bundle.
@@ -266,7 +251,6 @@ export namespace DescribeBundleResult {
   export const filterSensitiveLog = (obj: DescribeBundleResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBundleResult => __isa(o, "DescribeBundleResult");
 }
 
 /**
@@ -275,7 +259,6 @@ export namespace DescribeBundleResult {
  *         </p>
  */
 export interface DescribeProjectRequest {
-  __type?: "DescribeProjectRequest";
   /**
    * <p>
    *             Unique project identifier.
@@ -295,7 +278,6 @@ export namespace DescribeProjectRequest {
   export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProjectRequest => __isa(o, "DescribeProjectRequest");
 }
 
 /**
@@ -304,7 +286,6 @@ export namespace DescribeProjectRequest {
  *         </p>
  */
 export interface DescribeProjectResult {
-  __type?: "DescribeProjectResult";
   /**
    * <p>
    *             Detailed information about an AWS Mobile Hub project.
@@ -317,7 +298,6 @@ export namespace DescribeProjectResult {
   export const filterSensitiveLog = (obj: DescribeProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProjectResult => __isa(o, "DescribeProjectResult");
 }
 
 /**
@@ -327,7 +307,6 @@ export namespace DescribeProjectResult {
  *         </p>
  */
 export interface ExportBundleRequest {
-  __type?: "ExportBundleRequest";
   /**
    * <p>
    *             Unique project identifier.
@@ -354,7 +333,6 @@ export namespace ExportBundleRequest {
   export const filterSensitiveLog = (obj: ExportBundleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportBundleRequest => __isa(o, "ExportBundleRequest");
 }
 
 /**
@@ -365,7 +343,6 @@ export namespace ExportBundleRequest {
  *         </p>
  */
 export interface ExportBundleResult {
-  __type?: "ExportBundleResult";
   /**
    * <p>
    *             URL which contains the custom-generated SDK and tool packages used
@@ -380,7 +357,6 @@ export namespace ExportBundleResult {
   export const filterSensitiveLog = (obj: ExportBundleResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportBundleResult => __isa(o, "ExportBundleResult");
 }
 
 /**
@@ -389,7 +365,6 @@ export namespace ExportBundleResult {
  *         </p>
  */
 export interface ExportProjectRequest {
-  __type?: "ExportProjectRequest";
   /**
    * <p>
    *             Unique project identifier.
@@ -402,7 +377,6 @@ export namespace ExportProjectRequest {
   export const filterSensitiveLog = (obj: ExportProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportProjectRequest => __isa(o, "ExportProjectRequest");
 }
 
 /**
@@ -411,7 +385,6 @@ export namespace ExportProjectRequest {
  *         </p>
  */
 export interface ExportProjectResult {
-  __type?: "ExportProjectResult";
   /**
    * <p>
    *             Unique identifier for the exported snapshot of the project configuration. This
@@ -444,7 +417,6 @@ export namespace ExportProjectResult {
   export const filterSensitiveLog = (obj: ExportProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportProjectResult => __isa(o, "ExportProjectResult");
 }
 
 /**
@@ -468,7 +440,6 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
@@ -501,7 +472,6 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -510,7 +480,6 @@ export namespace LimitExceededException {
  *         </p>
  */
 export interface ListBundlesRequest {
-  __type?: "ListBundlesRequest";
   /**
    * <p>
    *             Maximum number of records to list in a single response.
@@ -532,7 +501,6 @@ export namespace ListBundlesRequest {
   export const filterSensitiveLog = (obj: ListBundlesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBundlesRequest => __isa(o, "ListBundlesRequest");
 }
 
 /**
@@ -541,7 +509,6 @@ export namespace ListBundlesRequest {
  *         </p>
  */
 export interface ListBundlesResult {
-  __type?: "ListBundlesResult";
   /**
    * <p>
    *             Pagination token. If non-null pagination token is returned in a result,
@@ -562,7 +529,6 @@ export namespace ListBundlesResult {
   export const filterSensitiveLog = (obj: ListBundlesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBundlesResult => __isa(o, "ListBundlesResult");
 }
 
 /**
@@ -571,7 +537,6 @@ export namespace ListBundlesResult {
  *         </p>
  */
 export interface ListProjectsRequest {
-  __type?: "ListProjectsRequest";
   /**
    * <p>
    *             Maximum number of records to list in a single response.
@@ -593,7 +558,6 @@ export namespace ListProjectsRequest {
   export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProjectsRequest => __isa(o, "ListProjectsRequest");
 }
 
 /**
@@ -602,7 +566,6 @@ export namespace ListProjectsRequest {
  *         </p>
  */
 export interface ListProjectsResult {
-  __type?: "ListProjectsResult";
   /**
    * <p>
    *             Pagination token. Set to null to start listing records from start.
@@ -624,7 +587,6 @@ export namespace ListProjectsResult {
   export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProjectsResult => __isa(o, "ListProjectsResult");
 }
 
 /**
@@ -647,7 +609,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum Platform {
@@ -666,7 +627,6 @@ export enum Platform {
  *         </p>
  */
 export interface ProjectDetails {
-  __type?: "ProjectDetails";
   /**
    * <p>
    *             List of AWS resources associated with a project.
@@ -728,7 +688,6 @@ export namespace ProjectDetails {
   export const filterSensitiveLog = (obj: ProjectDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectDetails => __isa(o, "ProjectDetails");
 }
 
 export enum ProjectState {
@@ -743,7 +702,6 @@ export enum ProjectState {
  *         </p>
  */
 export interface ProjectSummary {
-  __type?: "ProjectSummary";
   /**
    * <p>
    *             Unique project identifier.
@@ -763,7 +721,6 @@ export namespace ProjectSummary {
   export const filterSensitiveLog = (obj: ProjectSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectSummary => __isa(o, "ProjectSummary");
 }
 
 /**
@@ -772,7 +729,6 @@ export namespace ProjectSummary {
  *         </p>
  */
 export interface Resource {
-  __type?: "Resource";
   /**
    * <p>
    *             Identifies which feature in AWS Mobile Hub is associated with this AWS resource.
@@ -813,7 +769,6 @@ export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
 /**
@@ -844,7 +799,6 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -875,7 +829,6 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -898,7 +851,6 @@ export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 /**
@@ -907,7 +859,6 @@ export namespace UnauthorizedException {
  *         </p>
  */
 export interface UpdateProjectRequest {
-  __type?: "UpdateProjectRequest";
   /**
    * <p>
    *             ZIP or YAML file which contains project configuration to be updated. This should
@@ -929,7 +880,6 @@ export namespace UpdateProjectRequest {
   export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectRequest => __isa(o, "UpdateProjectRequest");
 }
 
 /**
@@ -938,7 +888,6 @@ export namespace UpdateProjectRequest {
  *         </p>
  */
 export interface UpdateProjectResult {
-  __type?: "UpdateProjectResult";
   /**
    * <p>
    *             Detailed information about the updated AWS Mobile Hub project.
@@ -951,5 +900,4 @@ export namespace UpdateProjectResult {
   export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectResult => __isa(o, "UpdateProjectResult");
 }

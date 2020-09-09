@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -13,14 +13,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of <code>YES</code> votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.</p>
  */
 export interface ApprovalThresholdPolicy {
-  __type?: "ApprovalThresholdPolicy";
   /**
    * <p>The duration from the time that a proposal is created until it expires. If members cast neither the required number of <code>YES</code> votes to approve the proposal nor the number of <code>NO</code> votes required to reject it before the duration expires, the proposal is <code>EXPIRED</code> and <code>ProposalActions</code> are not carried out.</p>
    */
@@ -41,11 +39,9 @@ export namespace ApprovalThresholdPolicy {
   export const filterSensitiveLog = (obj: ApprovalThresholdPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalThresholdPolicy => __isa(o, "ApprovalThresholdPolicy");
 }
 
 export interface CreateMemberInput {
-  __type?: "CreateMemberInput";
   /**
    * <p>The unique identifier of the network in which the member is created.</p>
    */
@@ -74,11 +70,9 @@ export namespace CreateMemberInput {
       MemberConfiguration: MemberConfiguration.filterSensitiveLog(obj.MemberConfiguration),
     }),
   });
-  export const isa = (o: any): o is CreateMemberInput => __isa(o, "CreateMemberInput");
 }
 
 export interface CreateMemberOutput {
-  __type?: "CreateMemberOutput";
   /**
    * <p>The unique identifier of the member.</p>
    */
@@ -89,11 +83,9 @@ export namespace CreateMemberOutput {
   export const filterSensitiveLog = (obj: CreateMemberOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMemberOutput => __isa(o, "CreateMemberOutput");
 }
 
 export interface CreateNetworkInput {
-  __type?: "CreateNetworkInput";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
    */
@@ -146,11 +138,9 @@ export namespace CreateNetworkInput {
       MemberConfiguration: MemberConfiguration.filterSensitiveLog(obj.MemberConfiguration),
     }),
   });
-  export const isa = (o: any): o is CreateNetworkInput => __isa(o, "CreateNetworkInput");
 }
 
 export interface CreateNetworkOutput {
-  __type?: "CreateNetworkOutput";
   /**
    * <p>The unique identifier for the network.</p>
    */
@@ -166,11 +156,9 @@ export namespace CreateNetworkOutput {
   export const filterSensitiveLog = (obj: CreateNetworkOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNetworkOutput => __isa(o, "CreateNetworkOutput");
 }
 
 export interface CreateNodeInput {
-  __type?: "CreateNodeInput";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
    */
@@ -196,11 +184,9 @@ export namespace CreateNodeInput {
   export const filterSensitiveLog = (obj: CreateNodeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNodeInput => __isa(o, "CreateNodeInput");
 }
 
 export interface CreateNodeOutput {
-  __type?: "CreateNodeOutput";
   /**
    * <p>The unique identifier of the node.</p>
    */
@@ -211,11 +197,9 @@ export namespace CreateNodeOutput {
   export const filterSensitiveLog = (obj: CreateNodeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNodeOutput => __isa(o, "CreateNodeOutput");
 }
 
 export interface CreateProposalInput {
-  __type?: "CreateProposalInput";
   /**
    * <p>A description for the proposal that is visible to voting members, for example, "Proposal to add Example Corp. as member."</p>
    */
@@ -247,11 +231,9 @@ export namespace CreateProposalInput {
   export const filterSensitiveLog = (obj: CreateProposalInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProposalInput => __isa(o, "CreateProposalInput");
 }
 
 export interface CreateProposalOutput {
-  __type?: "CreateProposalOutput";
   /**
    * <p>The unique identifier of the proposal.</p>
    */
@@ -262,11 +244,9 @@ export namespace CreateProposalOutput {
   export const filterSensitiveLog = (obj: CreateProposalOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProposalOutput => __isa(o, "CreateProposalOutput");
 }
 
 export interface DeleteMemberInput {
-  __type?: "DeleteMemberInput";
   /**
    * <p>The unique identifier of the network from which the member is removed.</p>
    */
@@ -282,22 +262,17 @@ export namespace DeleteMemberInput {
   export const filterSensitiveLog = (obj: DeleteMemberInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMemberInput => __isa(o, "DeleteMemberInput");
 }
 
-export interface DeleteMemberOutput {
-  __type?: "DeleteMemberOutput";
-}
+export interface DeleteMemberOutput {}
 
 export namespace DeleteMemberOutput {
   export const filterSensitiveLog = (obj: DeleteMemberOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMemberOutput => __isa(o, "DeleteMemberOutput");
 }
 
 export interface DeleteNodeInput {
-  __type?: "DeleteNodeInput";
   /**
    * <p>The unique identifier of the network that the node belongs to.</p>
    */
@@ -318,18 +293,14 @@ export namespace DeleteNodeInput {
   export const filterSensitiveLog = (obj: DeleteNodeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNodeInput => __isa(o, "DeleteNodeInput");
 }
 
-export interface DeleteNodeOutput {
-  __type?: "DeleteNodeOutput";
-}
+export interface DeleteNodeOutput {}
 
 export namespace DeleteNodeOutput {
   export const filterSensitiveLog = (obj: DeleteNodeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNodeOutput => __isa(o, "DeleteNodeOutput");
 }
 
 export enum Edition {
@@ -342,7 +313,6 @@ export enum Framework {
 }
 
 export interface GetMemberInput {
-  __type?: "GetMemberInput";
   /**
    * <p>The unique identifier of the member.</p>
    */
@@ -358,11 +328,9 @@ export namespace GetMemberInput {
   export const filterSensitiveLog = (obj: GetMemberInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMemberInput => __isa(o, "GetMemberInput");
 }
 
 export interface GetMemberOutput {
-  __type?: "GetMemberOutput";
   /**
    * <p>The properties of a member.</p>
    */
@@ -373,11 +341,9 @@ export namespace GetMemberOutput {
   export const filterSensitiveLog = (obj: GetMemberOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMemberOutput => __isa(o, "GetMemberOutput");
 }
 
 export interface GetNetworkInput {
-  __type?: "GetNetworkInput";
   /**
    * <p>The unique identifier of the network to get information about.</p>
    */
@@ -388,11 +354,9 @@ export namespace GetNetworkInput {
   export const filterSensitiveLog = (obj: GetNetworkInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetNetworkInput => __isa(o, "GetNetworkInput");
 }
 
 export interface GetNetworkOutput {
-  __type?: "GetNetworkOutput";
   /**
    * <p>An object containing network configuration parameters.</p>
    */
@@ -403,11 +367,9 @@ export namespace GetNetworkOutput {
   export const filterSensitiveLog = (obj: GetNetworkOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetNetworkOutput => __isa(o, "GetNetworkOutput");
 }
 
 export interface GetNodeInput {
-  __type?: "GetNodeInput";
   /**
    * <p>The unique identifier of the node.</p>
    */
@@ -428,11 +390,9 @@ export namespace GetNodeInput {
   export const filterSensitiveLog = (obj: GetNodeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetNodeInput => __isa(o, "GetNodeInput");
 }
 
 export interface GetNodeOutput {
-  __type?: "GetNodeOutput";
   /**
    * <p>Properties of the node configuration.</p>
    */
@@ -443,11 +403,9 @@ export namespace GetNodeOutput {
   export const filterSensitiveLog = (obj: GetNodeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetNodeOutput => __isa(o, "GetNodeOutput");
 }
 
 export interface GetProposalInput {
-  __type?: "GetProposalInput";
   /**
    * <p>The unique identifier of the proposal.</p>
    */
@@ -463,11 +421,9 @@ export namespace GetProposalInput {
   export const filterSensitiveLog = (obj: GetProposalInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProposalInput => __isa(o, "GetProposalInput");
 }
 
 export interface GetProposalOutput {
-  __type?: "GetProposalOutput";
   /**
    * <p>Information about a proposal.</p>
    */
@@ -478,7 +434,6 @@ export namespace GetProposalOutput {
   export const filterSensitiveLog = (obj: GetProposalOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProposalOutput => __isa(o, "GetProposalOutput");
 }
 
 /**
@@ -494,7 +449,6 @@ export namespace IllegalActionException {
   export const filterSensitiveLog = (obj: IllegalActionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IllegalActionException => __isa(o, "IllegalActionException");
 }
 
 /**
@@ -509,7 +463,6 @@ export namespace InternalServiceErrorException {
   export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 /**
@@ -525,14 +478,12 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>An invitation to an AWS account to create a member and join the network.</p>
  */
 export interface Invitation {
-  __type?: "Invitation";
   /**
    * <p>The date and time that the invitation expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, the invitee can no longer create a member and join the network using this <code>InvitationId</code>.</p>
    */
@@ -585,7 +536,6 @@ export namespace Invitation {
   export const filterSensitiveLog = (obj: Invitation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Invitation => __isa(o, "Invitation");
 }
 
 export enum InvitationStatus {
@@ -600,7 +550,6 @@ export enum InvitationStatus {
  * <p>An action to invite a specific AWS account to create a member and join the network. The <code>InviteAction</code> is carried out when a <code>Proposal</code> is <code>APPROVED</code>.</p>
  */
 export interface InviteAction {
-  __type?: "InviteAction";
   /**
    * <p>The AWS account ID to invite.</p>
    */
@@ -611,11 +560,9 @@ export namespace InviteAction {
   export const filterSensitiveLog = (obj: InviteAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InviteAction => __isa(o, "InviteAction");
 }
 
 export interface ListInvitationsInput {
-  __type?: "ListInvitationsInput";
   /**
    * <p>The maximum number of invitations to return.</p>
    */
@@ -631,11 +578,9 @@ export namespace ListInvitationsInput {
   export const filterSensitiveLog = (obj: ListInvitationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInvitationsInput => __isa(o, "ListInvitationsInput");
 }
 
 export interface ListInvitationsOutput {
-  __type?: "ListInvitationsOutput";
   /**
    * <p>The invitations for the network.</p>
    */
@@ -651,11 +596,9 @@ export namespace ListInvitationsOutput {
   export const filterSensitiveLog = (obj: ListInvitationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInvitationsOutput => __isa(o, "ListInvitationsOutput");
 }
 
 export interface ListMembersInput {
-  __type?: "ListMembersInput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
@@ -693,11 +636,9 @@ export namespace ListMembersInput {
   export const filterSensitiveLog = (obj: ListMembersInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMembersInput => __isa(o, "ListMembersInput");
 }
 
 export interface ListMembersOutput {
-  __type?: "ListMembersOutput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
@@ -713,11 +654,9 @@ export namespace ListMembersOutput {
   export const filterSensitiveLog = (obj: ListMembersOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMembersOutput => __isa(o, "ListMembersOutput");
 }
 
 export interface ListNetworksInput {
-  __type?: "ListNetworksInput";
   /**
    * <p>An optional status specifier. If provided, only networks currently in this status are listed.</p>
    */
@@ -748,11 +687,9 @@ export namespace ListNetworksInput {
   export const filterSensitiveLog = (obj: ListNetworksInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNetworksInput => __isa(o, "ListNetworksInput");
 }
 
 export interface ListNetworksOutput {
-  __type?: "ListNetworksOutput";
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
@@ -768,11 +705,9 @@ export namespace ListNetworksOutput {
   export const filterSensitiveLog = (obj: ListNetworksOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNetworksOutput => __isa(o, "ListNetworksOutput");
 }
 
 export interface ListNodesInput {
-  __type?: "ListNodesInput";
   /**
    * <p>The unique identifier of the member who owns the nodes to list.</p>
    */
@@ -803,11 +738,9 @@ export namespace ListNodesInput {
   export const filterSensitiveLog = (obj: ListNodesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNodesInput => __isa(o, "ListNodesInput");
 }
 
 export interface ListNodesOutput {
-  __type?: "ListNodesOutput";
   /**
    * <p>An array of <code>NodeSummary</code> objects that contain configuration properties for each node.</p>
    */
@@ -823,11 +756,9 @@ export namespace ListNodesOutput {
   export const filterSensitiveLog = (obj: ListNodesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNodesOutput => __isa(o, "ListNodesOutput");
 }
 
 export interface ListProposalsInput {
-  __type?: "ListProposalsInput";
   /**
    * <p>
    *          The unique identifier of the network.
@@ -854,11 +785,9 @@ export namespace ListProposalsInput {
   export const filterSensitiveLog = (obj: ListProposalsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProposalsInput => __isa(o, "ListProposalsInput");
 }
 
 export interface ListProposalsOutput {
-  __type?: "ListProposalsOutput";
   /**
    * <p>The summary of each proposal made on the network.</p>
    */
@@ -874,11 +803,9 @@ export namespace ListProposalsOutput {
   export const filterSensitiveLog = (obj: ListProposalsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProposalsOutput => __isa(o, "ListProposalsOutput");
 }
 
 export interface ListProposalVotesInput {
-  __type?: "ListProposalVotesInput";
   /**
    * <p>
    *          The unique identifier of the network.
@@ -912,11 +839,9 @@ export namespace ListProposalVotesInput {
   export const filterSensitiveLog = (obj: ListProposalVotesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProposalVotesInput => __isa(o, "ListProposalVotesInput");
 }
 
 export interface ListProposalVotesOutput {
-  __type?: "ListProposalVotesOutput";
   /**
    * <p>
    *          The pagination token that indicates the next set of results to retrieve.
@@ -936,14 +861,12 @@ export namespace ListProposalVotesOutput {
   export const filterSensitiveLog = (obj: ListProposalVotesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProposalVotesOutput => __isa(o, "ListProposalVotesOutput");
 }
 
 /**
  * <p>A configuration for logging events.</p>
  */
 export interface LogConfiguration {
-  __type?: "LogConfiguration";
   /**
    * <p>Indicates whether logging is enabled.</p>
    */
@@ -954,14 +877,12 @@ export namespace LogConfiguration {
   export const filterSensitiveLog = (obj: LogConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogConfiguration => __isa(o, "LogConfiguration");
 }
 
 /**
  * <p>A collection of log configurations.</p>
  */
 export interface LogConfigurations {
-  __type?: "LogConfigurations";
   /**
    * <p>Parameters for publishing logs to Amazon CloudWatch Logs.</p>
    */
@@ -972,14 +893,12 @@ export namespace LogConfigurations {
   export const filterSensitiveLog = (obj: LogConfigurations): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogConfigurations => __isa(o, "LogConfigurations");
 }
 
 /**
  * <p>Member configuration properties.</p>
  */
 export interface Member {
-  __type?: "Member";
   /**
    * <p>The unique identifier of the member.</p>
    */
@@ -1049,14 +968,12 @@ export namespace Member {
   export const filterSensitiveLog = (obj: Member): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Member => __isa(o, "Member");
 }
 
 /**
  * <p>Configuration properties of the member.</p>
  */
 export interface MemberConfiguration {
-  __type?: "MemberConfiguration";
   /**
    * <p>Configuration properties of the blockchain framework relevant to the member.</p>
    */
@@ -1085,14 +1002,12 @@ export namespace MemberConfiguration {
       FrameworkConfiguration: MemberFrameworkConfiguration.filterSensitiveLog(obj.FrameworkConfiguration),
     }),
   });
-  export const isa = (o: any): o is MemberConfiguration => __isa(o, "MemberConfiguration");
 }
 
 /**
  * <p>Attributes of Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.</p>
  */
 export interface MemberFabricAttributes {
-  __type?: "MemberFabricAttributes";
   /**
    * <p>The user name for the initial administrator user for the member.</p>
    */
@@ -1108,14 +1023,12 @@ export namespace MemberFabricAttributes {
   export const filterSensitiveLog = (obj: MemberFabricAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MemberFabricAttributes => __isa(o, "MemberFabricAttributes");
 }
 
 /**
  * <p>Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.</p>
  */
 export interface MemberFabricConfiguration {
-  __type?: "MemberFabricConfiguration";
   /**
    * <p>The password for the member's initial administrative user. The <code>AdminPassword</code> must be at least eight characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quote(‘), double quote(“), forward slash(/), backward slash(\), @, or a space.</p>
    */
@@ -1132,14 +1045,12 @@ export namespace MemberFabricConfiguration {
     ...obj,
     ...(obj.AdminPassword && { AdminPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is MemberFabricConfiguration => __isa(o, "MemberFabricConfiguration");
 }
 
 /**
  * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework.</p>
  */
 export interface MemberFabricLogPublishingConfiguration {
-  __type?: "MemberFabricLogPublishingConfiguration";
   /**
    * <p>Configuration properties for logging events associated with a member's Certificate Authority (CA). CA logs help you determine when a member in your account joins the network, or when new peers register with a member CA.</p>
    */
@@ -1150,15 +1061,12 @@ export namespace MemberFabricLogPublishingConfiguration {
   export const filterSensitiveLog = (obj: MemberFabricLogPublishingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MemberFabricLogPublishingConfiguration =>
-    __isa(o, "MemberFabricLogPublishingConfiguration");
 }
 
 /**
  * <p>Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>
  */
 export interface MemberFrameworkAttributes {
-  __type?: "MemberFrameworkAttributes";
   /**
    * <p>Attributes of Hyperledger Fabric relevant to a member on a Managed Blockchain network that uses Hyperledger Fabric.</p>
    */
@@ -1169,14 +1077,12 @@ export namespace MemberFrameworkAttributes {
   export const filterSensitiveLog = (obj: MemberFrameworkAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MemberFrameworkAttributes => __isa(o, "MemberFrameworkAttributes");
 }
 
 /**
  * <p>Configuration properties relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>
  */
 export interface MemberFrameworkConfiguration {
-  __type?: "MemberFrameworkConfiguration";
   /**
    * <p>Attributes of Hyperledger Fabric for a member on a Managed Blockchain network that uses Hyperledger Fabric.</p>
    */
@@ -1188,14 +1094,12 @@ export namespace MemberFrameworkConfiguration {
     ...obj,
     ...(obj.Fabric && { Fabric: MemberFabricConfiguration.filterSensitiveLog(obj.Fabric) }),
   });
-  export const isa = (o: any): o is MemberFrameworkConfiguration => __isa(o, "MemberFrameworkConfiguration");
 }
 
 /**
  * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network.</p>
  */
 export interface MemberLogPublishingConfiguration {
-  __type?: "MemberLogPublishingConfiguration";
   /**
    * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework.</p>
    */
@@ -1206,7 +1110,6 @@ export namespace MemberLogPublishingConfiguration {
   export const filterSensitiveLog = (obj: MemberLogPublishingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MemberLogPublishingConfiguration => __isa(o, "MemberLogPublishingConfiguration");
 }
 
 export enum MemberStatus {
@@ -1222,7 +1125,6 @@ export enum MemberStatus {
  * <p>A summary of configuration properties for a member.</p>
  */
 export interface MemberSummary {
-  __type?: "MemberSummary";
   /**
    * <p>An indicator of whether the member is owned by your AWS account or a different AWS account.</p>
    */
@@ -1282,14 +1184,12 @@ export namespace MemberSummary {
   export const filterSensitiveLog = (obj: MemberSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MemberSummary => __isa(o, "MemberSummary");
 }
 
 /**
  * <p>Network configuration properties.</p>
  */
 export interface Network {
-  __type?: "Network";
   /**
    * <p>The voting rules for the network to decide if a proposal is accepted.</p>
    */
@@ -1345,14 +1245,12 @@ export namespace Network {
   export const filterSensitiveLog = (obj: Network): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Network => __isa(o, "Network");
 }
 
 /**
  * <p>Attributes of Hyperledger Fabric for a network.</p>
  */
 export interface NetworkFabricAttributes {
-  __type?: "NetworkFabricAttributes";
   /**
    * <p>The endpoint of the ordering service for the network.</p>
    */
@@ -1368,14 +1266,12 @@ export namespace NetworkFabricAttributes {
   export const filterSensitiveLog = (obj: NetworkFabricAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkFabricAttributes => __isa(o, "NetworkFabricAttributes");
 }
 
 /**
  * <p>Hyperledger Fabric configuration properties for the network.</p>
  */
 export interface NetworkFabricConfiguration {
-  __type?: "NetworkFabricConfiguration";
   /**
    * <p>The edition of Amazon Managed Blockchain that the network uses. For more information, see <a href="http://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain Pricing</a>.</p>
    */
@@ -1386,14 +1282,12 @@ export namespace NetworkFabricConfiguration {
   export const filterSensitiveLog = (obj: NetworkFabricConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkFabricConfiguration => __isa(o, "NetworkFabricConfiguration");
 }
 
 /**
  * <p>Attributes relevant to the network for the blockchain framework that the network uses.</p>
  */
 export interface NetworkFrameworkAttributes {
-  __type?: "NetworkFrameworkAttributes";
   /**
    * <p>Attributes of Hyperledger Fabric for a Managed Blockchain network that uses Hyperledger Fabric.</p>
    */
@@ -1404,7 +1298,6 @@ export namespace NetworkFrameworkAttributes {
   export const filterSensitiveLog = (obj: NetworkFrameworkAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkFrameworkAttributes => __isa(o, "NetworkFrameworkAttributes");
 }
 
 /**
@@ -1413,7 +1306,6 @@ export namespace NetworkFrameworkAttributes {
  *       </p>
  */
 export interface NetworkFrameworkConfiguration {
-  __type?: "NetworkFrameworkConfiguration";
   /**
    * <p>
    *          Hyperledger Fabric configuration properties for a Managed Blockchain network that uses Hyperledger Fabric.
@@ -1426,7 +1318,6 @@ export namespace NetworkFrameworkConfiguration {
   export const filterSensitiveLog = (obj: NetworkFrameworkConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkFrameworkConfiguration => __isa(o, "NetworkFrameworkConfiguration");
 }
 
 export enum NetworkStatus {
@@ -1441,7 +1332,6 @@ export enum NetworkStatus {
  * <p>A summary of network configuration properties.</p>
  */
 export interface NetworkSummary {
-  __type?: "NetworkSummary";
   /**
    * <p>The unique identifier of the network.</p>
    */
@@ -1482,14 +1372,12 @@ export namespace NetworkSummary {
   export const filterSensitiveLog = (obj: NetworkSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkSummary => __isa(o, "NetworkSummary");
 }
 
 /**
  * <p>Configuration properties of a peer node.</p>
  */
 export interface Node {
-  __type?: "Node";
   /**
    * <p>The instance type of the node.</p>
    */
@@ -1540,14 +1428,12 @@ export namespace Node {
   export const filterSensitiveLog = (obj: Node): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Node => __isa(o, "Node");
 }
 
 /**
  * <p>Configuration properties of a peer node.</p>
  */
 export interface NodeConfiguration {
-  __type?: "NodeConfiguration";
   /**
    * <p>The Availability Zone in which the node exists.</p>
    */
@@ -1568,14 +1454,12 @@ export namespace NodeConfiguration {
   export const filterSensitiveLog = (obj: NodeConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeConfiguration => __isa(o, "NodeConfiguration");
 }
 
 /**
  * <p>Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.</p>
  */
 export interface NodeFabricAttributes {
-  __type?: "NodeFabricAttributes";
   /**
    * <p>The endpoint that identifies the peer node for peer channel-based event services.</p>
    */
@@ -1591,14 +1475,12 @@ export namespace NodeFabricAttributes {
   export const filterSensitiveLog = (obj: NodeFabricAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeFabricAttributes => __isa(o, "NodeFabricAttributes");
 }
 
 /**
  * <p>Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.</p>
  */
 export interface NodeFabricLogPublishingConfiguration {
-  __type?: "NodeFabricLogPublishingConfiguration";
   /**
    * <p>Configuration properties for a peer node log. Peer node logs contain messages generated when your client submits transaction proposals to peer nodes, requests to join channels, enrolls an admin peer, and lists the chaincode instances on a peer node. </p>
    */
@@ -1614,15 +1496,12 @@ export namespace NodeFabricLogPublishingConfiguration {
   export const filterSensitiveLog = (obj: NodeFabricLogPublishingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeFabricLogPublishingConfiguration =>
-    __isa(o, "NodeFabricLogPublishingConfiguration");
 }
 
 /**
  * <p>Attributes relevant to a peer node on a Managed Blockchain network for the blockchain framework that the network uses.</p>
  */
 export interface NodeFrameworkAttributes {
-  __type?: "NodeFrameworkAttributes";
   /**
    * <p>Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.</p>
    */
@@ -1633,14 +1512,12 @@ export namespace NodeFrameworkAttributes {
   export const filterSensitiveLog = (obj: NodeFrameworkAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeFrameworkAttributes => __isa(o, "NodeFrameworkAttributes");
 }
 
 /**
  * <p>Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.</p>
  */
 export interface NodeLogPublishingConfiguration {
-  __type?: "NodeLogPublishingConfiguration";
   /**
    * <p>Configuration properties for logging events associated with a node that is owned by a member of a Managed Blockchain network using the Hyperledger Fabric framework.</p>
    */
@@ -1651,7 +1528,6 @@ export namespace NodeLogPublishingConfiguration {
   export const filterSensitiveLog = (obj: NodeLogPublishingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeLogPublishingConfiguration => __isa(o, "NodeLogPublishingConfiguration");
 }
 
 export enum NodeStatus {
@@ -1668,7 +1544,6 @@ export enum NodeStatus {
  * <p>A summary of configuration properties for a peer node.</p>
  */
 export interface NodeSummary {
-  __type?: "NodeSummary";
   /**
    * <p>The Availability Zone in which the node exists.</p>
    */
@@ -1699,14 +1574,12 @@ export namespace NodeSummary {
   export const filterSensitiveLog = (obj: NodeSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeSummary => __isa(o, "NodeSummary");
 }
 
 /**
  * <p>Properties of a proposal on a Managed Blockchain network.</p>
  */
 export interface Proposal {
-  __type?: "Proposal";
   /**
    * <p>
    *          The current total of <code>NO</code> votes cast on the proposal by members.
@@ -1804,7 +1677,6 @@ export namespace Proposal {
   export const filterSensitiveLog = (obj: Proposal): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Proposal => __isa(o, "Proposal");
 }
 
 /**
@@ -1813,7 +1685,6 @@ export namespace Proposal {
  *       </p>
  */
 export interface ProposalActions {
-  __type?: "ProposalActions";
   /**
    * <p>
    *          The actions to perform for an <code>APPROVED</code> proposal to remove a member from the network, which deletes the member and all associated member resources from the network.
@@ -1833,7 +1704,6 @@ export namespace ProposalActions {
   export const filterSensitiveLog = (obj: ProposalActions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProposalActions => __isa(o, "ProposalActions");
 }
 
 export enum ProposalStatus {
@@ -1848,7 +1718,6 @@ export enum ProposalStatus {
  * <p>Properties of a proposal.</p>
  */
 export interface ProposalSummary {
-  __type?: "ProposalSummary";
   /**
    * <p>The status of the proposal. Values are as follows:</p>
    *          <ul>
@@ -1923,11 +1792,9 @@ export namespace ProposalSummary {
   export const filterSensitiveLog = (obj: ProposalSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProposalSummary => __isa(o, "ProposalSummary");
 }
 
 export interface RejectInvitationInput {
-  __type?: "RejectInvitationInput";
   /**
    * <p>The unique identifier of the invitation to reject.</p>
    */
@@ -1938,25 +1805,20 @@ export namespace RejectInvitationInput {
   export const filterSensitiveLog = (obj: RejectInvitationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectInvitationInput => __isa(o, "RejectInvitationInput");
 }
 
-export interface RejectInvitationOutput {
-  __type?: "RejectInvitationOutput";
-}
+export interface RejectInvitationOutput {}
 
 export namespace RejectInvitationOutput {
   export const filterSensitiveLog = (obj: RejectInvitationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RejectInvitationOutput => __isa(o, "RejectInvitationOutput");
 }
 
 /**
  * <p>An action to remove a member from a Managed Blockchain network as the result of a removal proposal that is <code>APPROVED</code>. The member and all associated resources are deleted from the network.</p>
  */
 export interface RemoveAction {
-  __type?: "RemoveAction";
   /**
    * <p>The unique identifier of the member to remove.</p>
    */
@@ -1967,7 +1829,6 @@ export namespace RemoveAction {
   export const filterSensitiveLog = (obj: RemoveAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveAction => __isa(o, "RemoveAction");
 }
 
 /**
@@ -1983,7 +1844,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -1999,7 +1859,6 @@ export namespace ResourceLimitExceededException {
   export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceLimitExceededException => __isa(o, "ResourceLimitExceededException");
 }
 
 /**
@@ -2015,7 +1874,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -2031,7 +1889,6 @@ export namespace ResourceNotReadyException {
   export const filterSensitiveLog = (obj: ResourceNotReadyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotReadyException => __isa(o, "ResourceNotReadyException");
 }
 
 export enum ThresholdComparator {
@@ -2051,11 +1908,9 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UpdateMemberInput {
-  __type?: "UpdateMemberInput";
   /**
    * <p>The unique ID of the Managed Blockchain network to which the member belongs.</p>
    */
@@ -2076,22 +1931,17 @@ export namespace UpdateMemberInput {
   export const filterSensitiveLog = (obj: UpdateMemberInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMemberInput => __isa(o, "UpdateMemberInput");
 }
 
-export interface UpdateMemberOutput {
-  __type?: "UpdateMemberOutput";
-}
+export interface UpdateMemberOutput {}
 
 export namespace UpdateMemberOutput {
   export const filterSensitiveLog = (obj: UpdateMemberOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMemberOutput => __isa(o, "UpdateMemberOutput");
 }
 
 export interface UpdateNodeInput {
-  __type?: "UpdateNodeInput";
   /**
    * <p>The unique ID of the node.</p>
    */
@@ -2117,22 +1967,17 @@ export namespace UpdateNodeInput {
   export const filterSensitiveLog = (obj: UpdateNodeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNodeInput => __isa(o, "UpdateNodeInput");
 }
 
-export interface UpdateNodeOutput {
-  __type?: "UpdateNodeOutput";
-}
+export interface UpdateNodeOutput {}
 
 export namespace UpdateNodeOutput {
   export const filterSensitiveLog = (obj: UpdateNodeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNodeOutput => __isa(o, "UpdateNodeOutput");
 }
 
 export interface VoteOnProposalInput {
-  __type?: "VoteOnProposalInput";
   /**
    * <p>
    *          The unique identifier of the network.
@@ -2165,18 +2010,14 @@ export namespace VoteOnProposalInput {
   export const filterSensitiveLog = (obj: VoteOnProposalInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoteOnProposalInput => __isa(o, "VoteOnProposalInput");
 }
 
-export interface VoteOnProposalOutput {
-  __type?: "VoteOnProposalOutput";
-}
+export interface VoteOnProposalOutput {}
 
 export namespace VoteOnProposalOutput {
   export const filterSensitiveLog = (obj: VoteOnProposalOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoteOnProposalOutput => __isa(o, "VoteOnProposalOutput");
 }
 
 /**
@@ -2185,7 +2026,6 @@ export namespace VoteOnProposalOutput {
  *       </p>
  */
 export interface VoteSummary {
-  __type?: "VoteSummary";
   /**
    * <p>
    *          The name of the member that cast the vote.
@@ -2212,7 +2052,6 @@ export namespace VoteSummary {
   export const filterSensitiveLog = (obj: VoteSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoteSummary => __isa(o, "VoteSummary");
 }
 
 export enum VoteValue {
@@ -2226,7 +2065,6 @@ export enum VoteValue {
  *       </p>
  */
 export interface VotingPolicy {
-  __type?: "VotingPolicy";
   /**
    * <p>Defines the rules for the network for voting on proposals, such as the percentage of <code>YES</code> votes required for the proposal to be approved and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.</p>
    */
@@ -2237,5 +2075,4 @@ export namespace VotingPolicy {
   export const filterSensitiveLog = (obj: VotingPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VotingPolicy => __isa(o, "VotingPolicy");
 }

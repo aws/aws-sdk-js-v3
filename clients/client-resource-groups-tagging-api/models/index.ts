@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +6,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *             including details on any noncompliant tag keys.</p>
  */
 export interface ComplianceDetails {
-  __type?: "ComplianceDetails";
   /**
    * <p>These are keys defined in the effective policy that are on the resource with either
    *             incorrect case treatment or noncompliant values. </p>
@@ -28,7 +27,6 @@ export namespace ComplianceDetails {
   export const filterSensitiveLog = (obj: ComplianceDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComplianceDetails => __isa(o, "ComplianceDetails");
 }
 
 /**
@@ -45,7 +43,6 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -80,22 +77,17 @@ export namespace ConstraintViolationException {
   export const filterSensitiveLog = (obj: ConstraintViolationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConstraintViolationException => __isa(o, "ConstraintViolationException");
 }
 
-export interface DescribeReportCreationInput {
-  __type?: "DescribeReportCreationInput";
-}
+export interface DescribeReportCreationInput {}
 
 export namespace DescribeReportCreationInput {
   export const filterSensitiveLog = (obj: DescribeReportCreationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReportCreationInput => __isa(o, "DescribeReportCreationInput");
 }
 
 export interface DescribeReportCreationOutput {
-  __type?: "DescribeReportCreationOutput";
   /**
    * <p>Details of the common errors that all operations return.</p>
    */
@@ -143,7 +135,6 @@ export namespace DescribeReportCreationOutput {
   export const filterSensitiveLog = (obj: DescribeReportCreationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReportCreationOutput => __isa(o, "DescribeReportCreationOutput");
 }
 
 export enum ErrorCode {
@@ -186,7 +177,6 @@ export enum ErrorCode {
  *             documentation for that service. </p>
  */
 export interface FailureInfo {
-  __type?: "FailureInfo";
   /**
    * <p>The message of the common error.</p>
    */
@@ -210,11 +200,9 @@ export namespace FailureInfo {
   export const filterSensitiveLog = (obj: FailureInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailureInfo => __isa(o, "FailureInfo");
 }
 
 export interface GetComplianceSummaryInput {
-  __type?: "GetComplianceSummaryInput";
   /**
    * <p>The target identifiers (usually, specific account IDs) to limit the output by. If you
    *             use this parameter, the count of returned noncompliant resources includes only resources
@@ -284,11 +272,9 @@ export namespace GetComplianceSummaryInput {
   export const filterSensitiveLog = (obj: GetComplianceSummaryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetComplianceSummaryInput => __isa(o, "GetComplianceSummaryInput");
 }
 
 export interface GetComplianceSummaryOutput {
-  __type?: "GetComplianceSummaryOutput";
   /**
    * <p>A table that shows counts of noncompliant resources.</p>
    */
@@ -306,11 +292,9 @@ export namespace GetComplianceSummaryOutput {
   export const filterSensitiveLog = (obj: GetComplianceSummaryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetComplianceSummaryOutput => __isa(o, "GetComplianceSummaryOutput");
 }
 
 export interface GetResourcesInput {
-  __type?: "GetResourcesInput";
   /**
    * <p>AWS recommends using <code>ResourcesPerPage</code> instead of this parameter.</p>
    *         <p>A limit that restricts the number of tags (key and value pairs) returned by
@@ -446,11 +430,9 @@ export namespace GetResourcesInput {
   export const filterSensitiveLog = (obj: GetResourcesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourcesInput => __isa(o, "GetResourcesInput");
 }
 
 export interface GetResourcesOutput {
-  __type?: "GetResourcesOutput";
   /**
    * <p>A list of resource ARNs and the tags (keys and values) associated with each.</p>
    */
@@ -468,11 +450,9 @@ export namespace GetResourcesOutput {
   export const filterSensitiveLog = (obj: GetResourcesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourcesOutput => __isa(o, "GetResourcesOutput");
 }
 
 export interface GetTagKeysInput {
-  __type?: "GetTagKeysInput";
   MaxResults?: number;
   /**
    * <p>A string that indicates that additional data is available. Leave this value empty for
@@ -486,11 +466,9 @@ export namespace GetTagKeysInput {
   export const filterSensitiveLog = (obj: GetTagKeysInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTagKeysInput => __isa(o, "GetTagKeysInput");
 }
 
 export interface GetTagKeysOutput {
-  __type?: "GetTagKeysOutput";
   /**
    * <p>A string that indicates that the response contains more data than can be returned in a
    *             single response. To receive additional data, specify this string for the
@@ -508,11 +486,9 @@ export namespace GetTagKeysOutput {
   export const filterSensitiveLog = (obj: GetTagKeysOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTagKeysOutput => __isa(o, "GetTagKeysOutput");
 }
 
 export interface GetTagValuesInput {
-  __type?: "GetTagValuesInput";
   /**
    * <p>A string that indicates that additional data is available. Leave this value empty for
    *             your initial request. If the response includes a <code>PaginationToken</code>, use that
@@ -533,11 +509,9 @@ export namespace GetTagValuesInput {
   export const filterSensitiveLog = (obj: GetTagValuesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTagValuesInput => __isa(o, "GetTagValuesInput");
 }
 
 export interface GetTagValuesOutput {
-  __type?: "GetTagValuesOutput";
   /**
    * <p>A string that indicates that the response contains more data than can be returned in a
    *             single response. To receive additional data, specify this string for the
@@ -555,7 +529,6 @@ export namespace GetTagValuesOutput {
   export const filterSensitiveLog = (obj: GetTagValuesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTagValuesOutput => __isa(o, "GetTagValuesOutput");
 }
 
 export enum GroupByAttribute {
@@ -578,7 +551,6 @@ export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
@@ -614,7 +586,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -631,7 +602,6 @@ export namespace PaginationTokenExpiredException {
   export const filterSensitiveLog = (obj: PaginationTokenExpiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PaginationTokenExpiredException => __isa(o, "PaginationTokenExpiredException");
 }
 
 /**
@@ -639,7 +609,6 @@ export namespace PaginationTokenExpiredException {
  *             each.</p>
  */
 export interface ResourceTagMapping {
-  __type?: "ResourceTagMapping";
   /**
    * <p>The ARN of the resource.</p>
    */
@@ -661,11 +630,9 @@ export namespace ResourceTagMapping {
   export const filterSensitiveLog = (obj: ResourceTagMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceTagMapping => __isa(o, "ResourceTagMapping");
 }
 
 export interface StartReportCreationInput {
-  __type?: "StartReportCreationInput";
   /**
    * <p>The name of the Amazon S3 bucket where the report will be stored; for example:</p>
    *         <p>
@@ -681,25 +648,20 @@ export namespace StartReportCreationInput {
   export const filterSensitiveLog = (obj: StartReportCreationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartReportCreationInput => __isa(o, "StartReportCreationInput");
 }
 
-export interface StartReportCreationOutput {
-  __type?: "StartReportCreationOutput";
-}
+export interface StartReportCreationOutput {}
 
 export namespace StartReportCreationOutput {
   export const filterSensitiveLog = (obj: StartReportCreationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartReportCreationOutput => __isa(o, "StartReportCreationOutput");
 }
 
 /**
  * <p>A count of noncompliant resources.</p>
  */
 export interface Summary {
-  __type?: "Summary";
   /**
    * <p>The timestamp that shows when this summary was generated in this Region. </p>
    */
@@ -736,7 +698,6 @@ export namespace Summary {
   export const filterSensitiveLog = (obj: Summary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Summary => __isa(o, "Summary");
 }
 
 /**
@@ -746,7 +707,6 @@ export namespace Summary {
  *                 Resources</a> in the <i>AWS General Reference</i>.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.</p>
    */
@@ -762,7 +722,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -770,7 +729,6 @@ export namespace Tag {
  *             resources.</p>
  */
 export interface TagFilter {
-  __type?: "TagFilter";
   /**
    * <p>One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.</p>
    */
@@ -786,11 +744,9 @@ export namespace TagFilter {
   export const filterSensitiveLog = (obj: TagFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
 export interface TagResourcesInput {
-  __type?: "TagResourcesInput";
   /**
    * <p>The tags that you want to add to the specified resources. A tag consists of a key and
    *             a value that you define.</p>
@@ -810,11 +766,9 @@ export namespace TagResourcesInput {
   export const filterSensitiveLog = (obj: TagResourcesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourcesInput => __isa(o, "TagResourcesInput");
 }
 
 export interface TagResourcesOutput {
-  __type?: "TagResourcesOutput";
   /**
    * <p>A map containing a key-value pair for each failed item that couldn't be tagged. The
    *             key is the ARN of the failed resource. The value is a <code>FailureInfo</code> object
@@ -828,7 +782,6 @@ export namespace TagResourcesOutput {
   export const filterSensitiveLog = (obj: TagResourcesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourcesOutput => __isa(o, "TagResourcesOutput");
 }
 
 export enum TargetIdType {
@@ -850,11 +803,9 @@ export namespace ThrottledException {
   export const filterSensitiveLog = (obj: ThrottledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottledException => __isa(o, "ThrottledException");
 }
 
 export interface UntagResourcesInput {
-  __type?: "UntagResourcesInput";
   /**
    * <p>A list of the tag keys that you want to remove from the specified resources.</p>
    */
@@ -873,11 +824,9 @@ export namespace UntagResourcesInput {
   export const filterSensitiveLog = (obj: UntagResourcesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourcesInput => __isa(o, "UntagResourcesInput");
 }
 
 export interface UntagResourcesOutput {
-  __type?: "UntagResourcesOutput";
   /**
    * <p>Details of resources that could not be untagged. An error code, status code, and error
    *             message are returned for each failed item. </p>
@@ -889,5 +838,4 @@ export namespace UntagResourcesOutput {
   export const filterSensitiveLog = (obj: UntagResourcesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourcesOutput => __isa(o, "UntagResourcesOutput");
 }

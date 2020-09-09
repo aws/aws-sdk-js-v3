@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export type AMITypes = "AL2_x86_64" | "AL2_x86_64_GPU";
@@ -7,7 +7,6 @@ export type AMITypes = "AL2_x86_64" | "AL2_x86_64_GPU";
  * <p>An Auto Scaling group that is associated with an Amazon EKS managed node group.</p>
  */
 export interface AutoScalingGroup {
-  __type?: "AutoScalingGroup";
   /**
    * <p>The name of the Auto Scaling group associated with an Amazon EKS managed node group.</p>
    */
@@ -18,7 +17,6 @@ export namespace AutoScalingGroup {
   export const filterSensitiveLog = (obj: AutoScalingGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingGroup => __isa(o, "AutoScalingGroup");
 }
 
 /**
@@ -35,7 +33,6 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -43,7 +40,6 @@ export namespace BadRequestException {
  *             cluster.</p>
  */
 export interface Certificate {
-  __type?: "Certificate";
   /**
    * <p>The Base64-encoded certificate data required to communicate with your cluster. Add
    *             this to the <code>certificate-authority-data</code> section of the
@@ -56,7 +52,6 @@ export namespace Certificate {
   export const filterSensitiveLog = (obj: Certificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Certificate => __isa(o, "Certificate");
 }
 
 /**
@@ -83,14 +78,12 @@ export namespace ClientException {
   export const filterSensitiveLog = (obj: ClientException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientException => __isa(o, "ClientException");
 }
 
 /**
  * <p>An object representing an Amazon EKS cluster.</p>
  */
 export interface Cluster {
-  __type?: "Cluster";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>
@@ -183,13 +176,11 @@ export namespace Cluster {
   export const filterSensitiveLog = (obj: Cluster): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Cluster => __isa(o, "Cluster");
 }
 
 export type ClusterStatus = "ACTIVE" | "CREATING" | "DELETING" | "FAILED" | "UPDATING";
 
 export interface CreateClusterRequest {
-  __type?: "CreateClusterRequest";
   /**
    * <p>Enable or disable exporting the Kubernetes control plane logs for your cluster to
    *             CloudWatch Logs. By default, cluster control plane logs aren't exported to CloudWatch Logs. For more
@@ -257,11 +248,9 @@ export namespace CreateClusterRequest {
   export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterRequest => __isa(o, "CreateClusterRequest");
 }
 
 export interface CreateClusterResponse {
-  __type?: "CreateClusterResponse";
   /**
    * <p>The full description of your new cluster.</p>
    */
@@ -272,11 +261,9 @@ export namespace CreateClusterResponse {
   export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterResponse => __isa(o, "CreateClusterResponse");
 }
 
 export interface CreateFargateProfileRequest {
-  __type?: "CreateFargateProfileRequest";
   /**
    * <p>The IDs of subnets to launch your pods into. At this time, pods running on Fargate are
    *             not assigned public IP addresses, so only private subnets (with no direct route to an
@@ -329,11 +316,9 @@ export namespace CreateFargateProfileRequest {
   export const filterSensitiveLog = (obj: CreateFargateProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFargateProfileRequest => __isa(o, "CreateFargateProfileRequest");
 }
 
 export interface CreateFargateProfileResponse {
-  __type?: "CreateFargateProfileResponse";
   /**
    * <p>The full description of your new Fargate profile.</p>
    */
@@ -344,11 +329,9 @@ export namespace CreateFargateProfileResponse {
   export const filterSensitiveLog = (obj: CreateFargateProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFargateProfileResponse => __isa(o, "CreateFargateProfileResponse");
 }
 
 export interface CreateNodegroupRequest {
-  __type?: "CreateNodegroupRequest";
   /**
    * <p>The subnets to use for the Auto Scaling group that is created for your node group.
    *             These subnets must have the tag key <code>kubernetes.io/cluster/CLUSTER_NAME</code> with
@@ -451,11 +434,9 @@ export namespace CreateNodegroupRequest {
   export const filterSensitiveLog = (obj: CreateNodegroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNodegroupRequest => __isa(o, "CreateNodegroupRequest");
 }
 
 export interface CreateNodegroupResponse {
-  __type?: "CreateNodegroupResponse";
   /**
    * <p>The full description of your new node group.</p>
    */
@@ -466,11 +447,9 @@ export namespace CreateNodegroupResponse {
   export const filterSensitiveLog = (obj: CreateNodegroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNodegroupResponse => __isa(o, "CreateNodegroupResponse");
 }
 
 export interface DeleteClusterRequest {
-  __type?: "DeleteClusterRequest";
   /**
    * <p>The name of the cluster to delete.</p>
    */
@@ -481,11 +460,9 @@ export namespace DeleteClusterRequest {
   export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterRequest => __isa(o, "DeleteClusterRequest");
 }
 
 export interface DeleteClusterResponse {
-  __type?: "DeleteClusterResponse";
   /**
    * <p>The full description of the cluster to delete.</p>
    */
@@ -496,11 +473,9 @@ export namespace DeleteClusterResponse {
   export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterResponse => __isa(o, "DeleteClusterResponse");
 }
 
 export interface DeleteFargateProfileRequest {
-  __type?: "DeleteFargateProfileRequest";
   /**
    * <p>The name of the Fargate profile to delete.</p>
    */
@@ -516,11 +491,9 @@ export namespace DeleteFargateProfileRequest {
   export const filterSensitiveLog = (obj: DeleteFargateProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFargateProfileRequest => __isa(o, "DeleteFargateProfileRequest");
 }
 
 export interface DeleteFargateProfileResponse {
-  __type?: "DeleteFargateProfileResponse";
   /**
    * <p>The deleted Fargate profile.</p>
    */
@@ -531,11 +504,9 @@ export namespace DeleteFargateProfileResponse {
   export const filterSensitiveLog = (obj: DeleteFargateProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFargateProfileResponse => __isa(o, "DeleteFargateProfileResponse");
 }
 
 export interface DeleteNodegroupRequest {
-  __type?: "DeleteNodegroupRequest";
   /**
    * <p>The name of the node group to delete.</p>
    */
@@ -551,11 +522,9 @@ export namespace DeleteNodegroupRequest {
   export const filterSensitiveLog = (obj: DeleteNodegroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNodegroupRequest => __isa(o, "DeleteNodegroupRequest");
 }
 
 export interface DeleteNodegroupResponse {
-  __type?: "DeleteNodegroupResponse";
   /**
    * <p>The full description of your deleted node group.</p>
    */
@@ -566,11 +535,9 @@ export namespace DeleteNodegroupResponse {
   export const filterSensitiveLog = (obj: DeleteNodegroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNodegroupResponse => __isa(o, "DeleteNodegroupResponse");
 }
 
 export interface DescribeClusterRequest {
-  __type?: "DescribeClusterRequest";
   /**
    * <p>The name of the cluster to describe.</p>
    */
@@ -581,11 +548,9 @@ export namespace DescribeClusterRequest {
   export const filterSensitiveLog = (obj: DescribeClusterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterRequest => __isa(o, "DescribeClusterRequest");
 }
 
 export interface DescribeClusterResponse {
-  __type?: "DescribeClusterResponse";
   /**
    * <p>The full description of your specified cluster.</p>
    */
@@ -596,11 +561,9 @@ export namespace DescribeClusterResponse {
   export const filterSensitiveLog = (obj: DescribeClusterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterResponse => __isa(o, "DescribeClusterResponse");
 }
 
 export interface DescribeFargateProfileRequest {
-  __type?: "DescribeFargateProfileRequest";
   /**
    * <p>The name of the Fargate profile to describe.</p>
    */
@@ -616,11 +579,9 @@ export namespace DescribeFargateProfileRequest {
   export const filterSensitiveLog = (obj: DescribeFargateProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFargateProfileRequest => __isa(o, "DescribeFargateProfileRequest");
 }
 
 export interface DescribeFargateProfileResponse {
-  __type?: "DescribeFargateProfileResponse";
   /**
    * <p>The full description of your Fargate profile.</p>
    */
@@ -631,11 +592,9 @@ export namespace DescribeFargateProfileResponse {
   export const filterSensitiveLog = (obj: DescribeFargateProfileResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFargateProfileResponse => __isa(o, "DescribeFargateProfileResponse");
 }
 
 export interface DescribeNodegroupRequest {
-  __type?: "DescribeNodegroupRequest";
   /**
    * <p>The name of the node group to describe.</p>
    */
@@ -651,11 +610,9 @@ export namespace DescribeNodegroupRequest {
   export const filterSensitiveLog = (obj: DescribeNodegroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNodegroupRequest => __isa(o, "DescribeNodegroupRequest");
 }
 
 export interface DescribeNodegroupResponse {
-  __type?: "DescribeNodegroupResponse";
   /**
    * <p>The full description of your node group.</p>
    */
@@ -666,11 +623,9 @@ export namespace DescribeNodegroupResponse {
   export const filterSensitiveLog = (obj: DescribeNodegroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNodegroupResponse => __isa(o, "DescribeNodegroupResponse");
 }
 
 export interface DescribeUpdateRequest {
-  __type?: "DescribeUpdateRequest";
   /**
    * <p>The ID of the update to describe.</p>
    */
@@ -691,11 +646,9 @@ export namespace DescribeUpdateRequest {
   export const filterSensitiveLog = (obj: DescribeUpdateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUpdateRequest => __isa(o, "DescribeUpdateRequest");
 }
 
 export interface DescribeUpdateResponse {
-  __type?: "DescribeUpdateResponse";
   /**
    * <p>The full description of the specified update.</p>
    */
@@ -706,7 +659,6 @@ export namespace DescribeUpdateResponse {
   export const filterSensitiveLog = (obj: DescribeUpdateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUpdateResponse => __isa(o, "DescribeUpdateResponse");
 }
 
 /**
@@ -714,7 +666,6 @@ export namespace DescribeUpdateResponse {
  *    cluster.</p>
  */
 export interface EncryptionConfig {
-  __type?: "EncryptionConfig";
   /**
    * <p>AWS Key Management Service (AWS KMS) customer master key
    *    (CMK). Either the ARN or the alias can be used.</p>
@@ -732,7 +683,6 @@ export namespace EncryptionConfig {
   export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionConfig => __isa(o, "EncryptionConfig");
 }
 
 export enum ErrorCode {
@@ -753,7 +703,6 @@ export enum ErrorCode {
  * <p>An object representing an error when an asynchronous operation fails.</p>
  */
 export interface ErrorDetail {
-  __type?: "ErrorDetail";
   /**
    * <p>An optional field that contains the resource IDs associated with the error.</p>
    */
@@ -812,14 +761,12 @@ export namespace ErrorDetail {
   export const filterSensitiveLog = (obj: ErrorDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorDetail => __isa(o, "ErrorDetail");
 }
 
 /**
  * <p>An object representing an AWS Fargate profile.</p>
  */
 export interface FargateProfile {
-  __type?: "FargateProfile";
   /**
    * <p>The full Amazon Resource Name (ARN) of the Fargate profile.</p>
    */
@@ -875,14 +822,12 @@ export namespace FargateProfile {
   export const filterSensitiveLog = (obj: FargateProfile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FargateProfile => __isa(o, "FargateProfile");
 }
 
 /**
  * <p>An object representing an AWS Fargate profile selector.</p>
  */
 export interface FargateProfileSelector {
-  __type?: "FargateProfileSelector";
   /**
    * <p>The Kubernetes namespace that the selector should match.</p>
    */
@@ -899,7 +844,6 @@ export namespace FargateProfileSelector {
   export const filterSensitiveLog = (obj: FargateProfileSelector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FargateProfileSelector => __isa(o, "FargateProfileSelector");
 }
 
 export type FargateProfileStatus = "ACTIVE" | "CREATE_FAILED" | "CREATING" | "DELETE_FAILED" | "DELETING";
@@ -908,7 +852,6 @@ export type FargateProfileStatus = "ACTIVE" | "CREATE_FAILED" | "CREATING" | "DE
  * <p>An object representing an identity provider for authentication credentials.</p>
  */
 export interface Identity {
-  __type?: "Identity";
   /**
    * <p>The <a href="https://openid.net/connect/">OpenID Connect</a> identity provider
    *             information for the cluster.</p>
@@ -920,7 +863,6 @@ export namespace Identity {
   export const filterSensitiveLog = (obj: Identity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Identity => __isa(o, "Identity");
 }
 
 /**
@@ -951,7 +893,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -977,14 +918,12 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>An object representing an issue with an Amazon EKS resource.</p>
  */
 export interface Issue {
-  __type?: "Issue";
   /**
    * <p>A brief description of the error.</p>
    *         <ul>
@@ -1085,11 +1024,9 @@ export namespace Issue {
   export const filterSensitiveLog = (obj: Issue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Issue => __isa(o, "Issue");
 }
 
 export interface ListClustersRequest {
-  __type?: "ListClustersRequest";
   /**
    * <p>The maximum number of cluster results returned by <code>ListClusters</code> in
    *             paginated output. When you use this parameter, <code>ListClusters</code> returns only
@@ -1119,11 +1056,9 @@ export namespace ListClustersRequest {
   export const filterSensitiveLog = (obj: ListClustersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListClustersRequest => __isa(o, "ListClustersRequest");
 }
 
 export interface ListClustersResponse {
-  __type?: "ListClustersResponse";
   /**
    * <p>A list of all of the clusters for your account in the specified Region.</p>
    */
@@ -1143,11 +1078,9 @@ export namespace ListClustersResponse {
   export const filterSensitiveLog = (obj: ListClustersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListClustersResponse => __isa(o, "ListClustersResponse");
 }
 
 export interface ListFargateProfilesRequest {
-  __type?: "ListFargateProfilesRequest";
   /**
    * <p>The name of the Amazon EKS cluster that you would like to listFargate profiles in.</p>
    */
@@ -1179,11 +1112,9 @@ export namespace ListFargateProfilesRequest {
   export const filterSensitiveLog = (obj: ListFargateProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFargateProfilesRequest => __isa(o, "ListFargateProfilesRequest");
 }
 
 export interface ListFargateProfilesResponse {
-  __type?: "ListFargateProfilesResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future
    *                 <code>ListFargateProfiles</code> request. When the results of a
@@ -1203,11 +1134,9 @@ export namespace ListFargateProfilesResponse {
   export const filterSensitiveLog = (obj: ListFargateProfilesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFargateProfilesResponse => __isa(o, "ListFargateProfilesResponse");
 }
 
 export interface ListNodegroupsRequest {
-  __type?: "ListNodegroupsRequest";
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *                 <code>ListNodegroups</code> request where <code>maxResults</code> was used and the
@@ -1238,11 +1167,9 @@ export namespace ListNodegroupsRequest {
   export const filterSensitiveLog = (obj: ListNodegroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNodegroupsRequest => __isa(o, "ListNodegroupsRequest");
 }
 
 export interface ListNodegroupsResponse {
-  __type?: "ListNodegroupsResponse";
   /**
    * <p>A list of all of the node groups associated with the specified cluster.</p>
    */
@@ -1262,11 +1189,9 @@ export namespace ListNodegroupsResponse {
   export const filterSensitiveLog = (obj: ListNodegroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNodegroupsResponse => __isa(o, "ListNodegroupsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the
    *             supported resources are Amazon EKS clusters and managed node groups.</p>
@@ -1278,11 +1203,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags for the resource.</p>
    */
@@ -1293,11 +1216,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListUpdatesRequest {
-  __type?: "ListUpdatesRequest";
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *                 <code>ListUpdates</code> request where <code>maxResults</code> was used and the
@@ -1333,11 +1254,9 @@ export namespace ListUpdatesRequest {
   export const filterSensitiveLog = (obj: ListUpdatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUpdatesRequest => __isa(o, "ListUpdatesRequest");
 }
 
 export interface ListUpdatesResponse {
-  __type?: "ListUpdatesResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListUpdates</code>
    *             request. When the results of a <code>ListUpdates</code> request exceed
@@ -1357,14 +1276,12 @@ export namespace ListUpdatesResponse {
   export const filterSensitiveLog = (obj: ListUpdatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUpdatesResponse => __isa(o, "ListUpdatesResponse");
 }
 
 /**
  * <p>An object representing the logging configuration for resources in your cluster.</p>
  */
 export interface Logging {
-  __type?: "Logging";
   /**
    * <p>The cluster control plane logging configuration for your cluster.</p>
    */
@@ -1375,7 +1292,6 @@ export namespace Logging {
   export const filterSensitiveLog = (obj: Logging): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Logging => __isa(o, "Logging");
 }
 
 /**
@@ -1383,7 +1299,6 @@ export namespace Logging {
  *             cluster.</p>
  */
 export interface LogSetup {
-  __type?: "LogSetup";
   /**
    * <p>If a log type is enabled, that log type exports its control plane logs to CloudWatch Logs. If a
    *             log type isn't enabled, that log type doesn't export its control plane logs. Each
@@ -1401,7 +1316,6 @@ export namespace LogSetup {
   export const filterSensitiveLog = (obj: LogSetup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogSetup => __isa(o, "LogSetup");
 }
 
 export enum LogType {
@@ -1416,7 +1330,6 @@ export enum LogType {
  * <p>An object representing an Amazon EKS managed node group.</p>
  */
 export interface Nodegroup {
-  __type?: "Nodegroup";
   /**
    * <p>The resources associated with the node group, such as Auto Scaling groups and security
    *             groups for remote access.</p>
@@ -1544,14 +1457,12 @@ export namespace Nodegroup {
   export const filterSensitiveLog = (obj: Nodegroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Nodegroup => __isa(o, "Nodegroup");
 }
 
 /**
  * <p>An object representing the health status of the node group.</p>
  */
 export interface NodegroupHealth {
-  __type?: "NodegroupHealth";
   /**
    * <p>Any issues that are associated with the node group. </p>
    */
@@ -1562,7 +1473,6 @@ export namespace NodegroupHealth {
   export const filterSensitiveLog = (obj: NodegroupHealth): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodegroupHealth => __isa(o, "NodegroupHealth");
 }
 
 export enum NodegroupIssueCode {
@@ -1590,7 +1500,6 @@ export enum NodegroupIssueCode {
  *             Scaling groups and security groups for remote access.</p>
  */
 export interface NodegroupResources {
-  __type?: "NodegroupResources";
   /**
    * <p>The Auto Scaling groups associated with the node group.</p>
    */
@@ -1607,7 +1516,6 @@ export namespace NodegroupResources {
   export const filterSensitiveLog = (obj: NodegroupResources): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodegroupResources => __isa(o, "NodegroupResources");
 }
 
 /**
@@ -1615,7 +1523,6 @@ export namespace NodegroupResources {
  *             that is associated with your node group.</p>
  */
 export interface NodegroupScalingConfig {
-  __type?: "NodegroupScalingConfig";
   /**
    * <p>The maximum number of worker nodes that the managed node group can scale out to.
    *             Managed node groups can support up to 100 nodes by default.</p>
@@ -1638,7 +1545,6 @@ export namespace NodegroupScalingConfig {
   export const filterSensitiveLog = (obj: NodegroupScalingConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodegroupScalingConfig => __isa(o, "NodegroupScalingConfig");
 }
 
 export type NodegroupStatus =
@@ -1664,7 +1570,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -1672,7 +1577,6 @@ export namespace NotFoundException {
  *                 Connect</a> identity provider information for the cluster.</p>
  */
 export interface OIDC {
-  __type?: "OIDC";
   /**
    * <p>The issuer URL for the OpenID Connect identity provider.</p>
    */
@@ -1683,7 +1587,6 @@ export namespace OIDC {
   export const filterSensitiveLog = (obj: OIDC): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OIDC => __isa(o, "OIDC");
 }
 
 /**
@@ -1691,7 +1594,6 @@ export namespace OIDC {
  *    master key (CMK) used to encrypt the secrets.</p>
  */
 export interface Provider {
-  __type?: "Provider";
   /**
    * <p>Amazon Resource Name (ARN) or alias of the customer master key (CMK). The CMK must be symmetric, created in the same region as
    *    the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more
@@ -1705,7 +1607,6 @@ export namespace Provider {
   export const filterSensitiveLog = (obj: Provider): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Provider => __isa(o, "Provider");
 }
 
 /**
@@ -1713,7 +1614,6 @@ export namespace Provider {
  *             group.</p>
  */
 export interface RemoteAccessConfig {
-  __type?: "RemoteAccessConfig";
   /**
    * <p>The security groups that are allowed SSH access (port 22) to the worker nodes. If you
    *             specify an Amazon EC2 SSH key but do not specify a source security group when you create a
@@ -1735,7 +1635,6 @@ export namespace RemoteAccessConfig {
   export const filterSensitiveLog = (obj: RemoteAccessConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoteAccessConfig => __isa(o, "RemoteAccessConfig");
 }
 
 /**
@@ -1760,7 +1659,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -1785,7 +1683,6 @@ export namespace ResourceLimitExceededException {
   export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceLimitExceededException => __isa(o, "ResourceLimitExceededException");
 }
 
 /**
@@ -1818,7 +1715,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1843,7 +1739,6 @@ export namespace ServerException {
   export const filterSensitiveLog = (obj: ServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServerException => __isa(o, "ServerException");
 }
 
 /**
@@ -1859,11 +1754,9 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The tags to add to the resource. A tag is an array of key-value pairs.</p>
    */
@@ -1880,18 +1773,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1924,12 +1813,9 @@ export namespace UnsupportedAvailabilityZoneException {
   export const filterSensitiveLog = (obj: UnsupportedAvailabilityZoneException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedAvailabilityZoneException =>
-    __isa(o, "UnsupportedAvailabilityZoneException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which to delete tags. Currently, the supported
    *             resources are Amazon EKS clusters and managed node groups.</p>
@@ -1946,25 +1832,20 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
  * <p>An object representing an asynchronous update.</p>
  */
 export interface Update {
-  __type?: "Update";
   /**
    * <p>A key-value map that contains the parameters associated with the update.</p>
    */
@@ -2000,11 +1881,9 @@ export namespace Update {
   export const filterSensitiveLog = (obj: Update): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Update => __isa(o, "Update");
 }
 
 export interface UpdateClusterConfigRequest {
-  __type?: "UpdateClusterConfigRequest";
   /**
    * <p>An object representing the VPC configuration to use for an Amazon EKS cluster.</p>
    */
@@ -2040,11 +1919,9 @@ export namespace UpdateClusterConfigRequest {
   export const filterSensitiveLog = (obj: UpdateClusterConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateClusterConfigRequest => __isa(o, "UpdateClusterConfigRequest");
 }
 
 export interface UpdateClusterConfigResponse {
-  __type?: "UpdateClusterConfigResponse";
   /**
    * <p>An object representing an asynchronous update.</p>
    */
@@ -2055,11 +1932,9 @@ export namespace UpdateClusterConfigResponse {
   export const filterSensitiveLog = (obj: UpdateClusterConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateClusterConfigResponse => __isa(o, "UpdateClusterConfigResponse");
 }
 
 export interface UpdateClusterVersionRequest {
-  __type?: "UpdateClusterVersionRequest";
   /**
    * <p>The name of the Amazon EKS cluster to update.</p>
    */
@@ -2081,11 +1956,9 @@ export namespace UpdateClusterVersionRequest {
   export const filterSensitiveLog = (obj: UpdateClusterVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateClusterVersionRequest => __isa(o, "UpdateClusterVersionRequest");
 }
 
 export interface UpdateClusterVersionResponse {
-  __type?: "UpdateClusterVersionResponse";
   /**
    * <p>The full description of the specified update</p>
    */
@@ -2096,14 +1969,12 @@ export namespace UpdateClusterVersionResponse {
   export const filterSensitiveLog = (obj: UpdateClusterVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateClusterVersionResponse => __isa(o, "UpdateClusterVersionResponse");
 }
 
 /**
  * <p>An object representing a Kubernetes label change for a managed node group.</p>
  */
 export interface UpdateLabelsPayload {
-  __type?: "UpdateLabelsPayload";
   /**
    * <p>Kubernetes labels to be removed.</p>
    */
@@ -2119,11 +1990,9 @@ export namespace UpdateLabelsPayload {
   export const filterSensitiveLog = (obj: UpdateLabelsPayload): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLabelsPayload => __isa(o, "UpdateLabelsPayload");
 }
 
 export interface UpdateNodegroupConfigRequest {
-  __type?: "UpdateNodegroupConfigRequest";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>
@@ -2156,11 +2025,9 @@ export namespace UpdateNodegroupConfigRequest {
   export const filterSensitiveLog = (obj: UpdateNodegroupConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNodegroupConfigRequest => __isa(o, "UpdateNodegroupConfigRequest");
 }
 
 export interface UpdateNodegroupConfigResponse {
-  __type?: "UpdateNodegroupConfigResponse";
   /**
    * <p>An object representing an asynchronous update.</p>
    */
@@ -2171,11 +2038,9 @@ export namespace UpdateNodegroupConfigResponse {
   export const filterSensitiveLog = (obj: UpdateNodegroupConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNodegroupConfigResponse => __isa(o, "UpdateNodegroupConfigResponse");
 }
 
 export interface UpdateNodegroupVersionRequest {
-  __type?: "UpdateNodegroupVersionRequest";
   /**
    * <p>The AMI version of the Amazon EKS-optimized AMI to use for the update. By default, the
    *             latest available AMI version for the node group's Kubernetes version is used. For more
@@ -2222,11 +2087,9 @@ export namespace UpdateNodegroupVersionRequest {
   export const filterSensitiveLog = (obj: UpdateNodegroupVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNodegroupVersionRequest => __isa(o, "UpdateNodegroupVersionRequest");
 }
 
 export interface UpdateNodegroupVersionResponse {
-  __type?: "UpdateNodegroupVersionResponse";
   /**
    * <p>An object representing an asynchronous update.</p>
    */
@@ -2237,14 +2100,12 @@ export namespace UpdateNodegroupVersionResponse {
   export const filterSensitiveLog = (obj: UpdateNodegroupVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNodegroupVersionResponse => __isa(o, "UpdateNodegroupVersionResponse");
 }
 
 /**
  * <p>An object representing the details of an update request.</p>
  */
 export interface UpdateParam {
-  __type?: "UpdateParam";
   /**
    * <p>The keys associated with an update request.</p>
    */
@@ -2260,7 +2121,6 @@ export namespace UpdateParam {
   export const filterSensitiveLog = (obj: UpdateParam): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateParam => __isa(o, "UpdateParam");
 }
 
 export enum UpdateParamType {
@@ -2296,7 +2156,6 @@ export enum UpdateType {
  * <p>An object representing the VPC configuration to use for an Amazon EKS cluster.</p>
  */
 export interface VpcConfigRequest {
-  __type?: "VpcConfigRequest";
   /**
    * <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server
    *             endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that
@@ -2357,14 +2216,12 @@ export namespace VpcConfigRequest {
   export const filterSensitiveLog = (obj: VpcConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfigRequest => __isa(o, "VpcConfigRequest");
 }
 
 /**
  * <p>An object representing an Amazon EKS cluster VPC configuration response.</p>
  */
 export interface VpcConfigResponse {
-  __type?: "VpcConfigResponse";
   /**
    * <p>This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If
    *             the Amazon EKS private API server endpoint is enabled, Kubernetes API requests that originate
@@ -2427,5 +2284,4 @@ export namespace VpcConfigResponse {
   export const filterSensitiveLog = (obj: VpcConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfigResponse => __isa(o, "VpcConfigResponse");
 }

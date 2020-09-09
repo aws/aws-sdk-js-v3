@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum __PeriodTriggersElement {
@@ -15,7 +15,6 @@ export enum AdMarkers {
  * A MediaPackage VOD Asset resource.
  */
 export interface AssetShallow {
-  __type?: "AssetShallow";
   /**
    * The time the Asset was initially submitted for Ingest.
    */
@@ -61,14 +60,12 @@ export namespace AssetShallow {
   export const filterSensitiveLog = (obj: AssetShallow): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetShallow => __isa(o, "AssetShallow");
 }
 
 /**
  * CDN Authorization credentials
  */
 export interface Authorization {
-  __type?: "Authorization";
   /**
    * The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
    */
@@ -84,14 +81,12 @@ export namespace Authorization {
   export const filterSensitiveLog = (obj: Authorization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Authorization => __isa(o, "Authorization");
 }
 
 /**
  * A CMAF encryption configuration.
  */
 export interface CmafEncryption {
-  __type?: "CmafEncryption";
   /**
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
@@ -102,14 +97,12 @@ export namespace CmafEncryption {
   export const filterSensitiveLog = (obj: CmafEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CmafEncryption => __isa(o, "CmafEncryption");
 }
 
 /**
  * A CMAF packaging configuration.
  */
 export interface CmafPackage {
-  __type?: "CmafPackage";
   /**
    * A list of HLS manifest configurations.
    */
@@ -131,14 +124,12 @@ export namespace CmafPackage {
   export const filterSensitiveLog = (obj: CmafPackage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CmafPackage => __isa(o, "CmafPackage");
 }
 
 /**
  * A new MediaPackage VOD Asset configuration.
  */
 export interface CreateAssetRequest {
-  __type?: "CreateAssetRequest";
   /**
    * A collection of tags associated with a resource
    */
@@ -174,11 +165,9 @@ export namespace CreateAssetRequest {
   export const filterSensitiveLog = (obj: CreateAssetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAssetRequest => __isa(o, "CreateAssetRequest");
 }
 
 export interface CreateAssetResponse {
-  __type?: "CreateAssetResponse";
   /**
    * The time the Asset was initially submitted for Ingest.
    */
@@ -229,14 +218,12 @@ export namespace CreateAssetResponse {
   export const filterSensitiveLog = (obj: CreateAssetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAssetResponse => __isa(o, "CreateAssetResponse");
 }
 
 /**
  * A new MediaPackage VOD PackagingConfiguration resource configuration.
  */
 export interface CreatePackagingConfigurationRequest {
-  __type?: "CreatePackagingConfigurationRequest";
   /**
    * A collection of tags associated with a resource
    */
@@ -277,12 +264,9 @@ export namespace CreatePackagingConfigurationRequest {
   export const filterSensitiveLog = (obj: CreatePackagingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePackagingConfigurationRequest =>
-    __isa(o, "CreatePackagingConfigurationRequest");
 }
 
 export interface CreatePackagingConfigurationResponse {
-  __type?: "CreatePackagingConfigurationResponse";
   /**
    * A CMAF packaging configuration.
    */
@@ -328,15 +312,12 @@ export namespace CreatePackagingConfigurationResponse {
   export const filterSensitiveLog = (obj: CreatePackagingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePackagingConfigurationResponse =>
-    __isa(o, "CreatePackagingConfigurationResponse");
 }
 
 /**
  * A new MediaPackage VOD PackagingGroup resource configuration.
  */
 export interface CreatePackagingGroupRequest {
-  __type?: "CreatePackagingGroupRequest";
   /**
    * The ID of the PackagingGroup.
    */
@@ -357,11 +338,9 @@ export namespace CreatePackagingGroupRequest {
   export const filterSensitiveLog = (obj: CreatePackagingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePackagingGroupRequest => __isa(o, "CreatePackagingGroupRequest");
 }
 
 export interface CreatePackagingGroupResponse {
-  __type?: "CreatePackagingGroupResponse";
   /**
    * CDN Authorization credentials
    */
@@ -392,14 +371,12 @@ export namespace CreatePackagingGroupResponse {
   export const filterSensitiveLog = (obj: CreatePackagingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePackagingGroupResponse => __isa(o, "CreatePackagingGroupResponse");
 }
 
 /**
  * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
  */
 export interface DashEncryption {
-  __type?: "DashEncryption";
   /**
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
@@ -410,14 +387,12 @@ export namespace DashEncryption {
   export const filterSensitiveLog = (obj: DashEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashEncryption => __isa(o, "DashEncryption");
 }
 
 /**
  * A DASH manifest configuration.
  */
 export interface DashManifest {
-  __type?: "DashManifest";
   /**
    * An optional string to include in the name of the manifest.
    */
@@ -448,14 +423,12 @@ export namespace DashManifest {
   export const filterSensitiveLog = (obj: DashManifest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashManifest => __isa(o, "DashManifest");
 }
 
 /**
  * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
  */
 export interface DashPackage {
-  __type?: "DashPackage";
   /**
    * Duration (in seconds) of each segment. Actual segments will be
    * rounded to the nearest multiple of the source segment duration.
@@ -490,11 +463,9 @@ export namespace DashPackage {
   export const filterSensitiveLog = (obj: DashPackage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashPackage => __isa(o, "DashPackage");
 }
 
 export interface DeleteAssetRequest {
-  __type?: "DeleteAssetRequest";
   /**
    * The ID of the MediaPackage VOD Asset resource to delete.
    */
@@ -505,22 +476,17 @@ export namespace DeleteAssetRequest {
   export const filterSensitiveLog = (obj: DeleteAssetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAssetRequest => __isa(o, "DeleteAssetRequest");
 }
 
-export interface DeleteAssetResponse {
-  __type?: "DeleteAssetResponse";
-}
+export interface DeleteAssetResponse {}
 
 export namespace DeleteAssetResponse {
   export const filterSensitiveLog = (obj: DeleteAssetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAssetResponse => __isa(o, "DeleteAssetResponse");
 }
 
 export interface DeletePackagingConfigurationRequest {
-  __type?: "DeletePackagingConfigurationRequest";
   /**
    * The ID of the MediaPackage VOD PackagingConfiguration resource to delete.
    */
@@ -531,24 +497,17 @@ export namespace DeletePackagingConfigurationRequest {
   export const filterSensitiveLog = (obj: DeletePackagingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePackagingConfigurationRequest =>
-    __isa(o, "DeletePackagingConfigurationRequest");
 }
 
-export interface DeletePackagingConfigurationResponse {
-  __type?: "DeletePackagingConfigurationResponse";
-}
+export interface DeletePackagingConfigurationResponse {}
 
 export namespace DeletePackagingConfigurationResponse {
   export const filterSensitiveLog = (obj: DeletePackagingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePackagingConfigurationResponse =>
-    __isa(o, "DeletePackagingConfigurationResponse");
 }
 
 export interface DeletePackagingGroupRequest {
-  __type?: "DeletePackagingGroupRequest";
   /**
    * The ID of the MediaPackage VOD PackagingGroup resource to delete.
    */
@@ -559,22 +518,17 @@ export namespace DeletePackagingGroupRequest {
   export const filterSensitiveLog = (obj: DeletePackagingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePackagingGroupRequest => __isa(o, "DeletePackagingGroupRequest");
 }
 
-export interface DeletePackagingGroupResponse {
-  __type?: "DeletePackagingGroupResponse";
-}
+export interface DeletePackagingGroupResponse {}
 
 export namespace DeletePackagingGroupResponse {
   export const filterSensitiveLog = (obj: DeletePackagingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePackagingGroupResponse => __isa(o, "DeletePackagingGroupResponse");
 }
 
 export interface DescribeAssetRequest {
-  __type?: "DescribeAssetRequest";
   /**
    * The ID of an MediaPackage VOD Asset resource.
    */
@@ -585,11 +539,9 @@ export namespace DescribeAssetRequest {
   export const filterSensitiveLog = (obj: DescribeAssetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssetRequest => __isa(o, "DescribeAssetRequest");
 }
 
 export interface DescribeAssetResponse {
-  __type?: "DescribeAssetResponse";
   /**
    * The IAM role_arn used to access the source S3 bucket.
    */
@@ -640,11 +592,9 @@ export namespace DescribeAssetResponse {
   export const filterSensitiveLog = (obj: DescribeAssetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssetResponse => __isa(o, "DescribeAssetResponse");
 }
 
 export interface DescribePackagingConfigurationRequest {
-  __type?: "DescribePackagingConfigurationRequest";
   /**
    * The ID of a MediaPackage VOD PackagingConfiguration resource.
    */
@@ -655,12 +605,9 @@ export namespace DescribePackagingConfigurationRequest {
   export const filterSensitiveLog = (obj: DescribePackagingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePackagingConfigurationRequest =>
-    __isa(o, "DescribePackagingConfigurationRequest");
 }
 
 export interface DescribePackagingConfigurationResponse {
-  __type?: "DescribePackagingConfigurationResponse";
   /**
    * An HTTP Live Streaming (HLS) packaging configuration.
    */
@@ -706,12 +653,9 @@ export namespace DescribePackagingConfigurationResponse {
   export const filterSensitiveLog = (obj: DescribePackagingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePackagingConfigurationResponse =>
-    __isa(o, "DescribePackagingConfigurationResponse");
 }
 
 export interface DescribePackagingGroupRequest {
-  __type?: "DescribePackagingGroupRequest";
   /**
    * The ID of a MediaPackage VOD PackagingGroup resource.
    */
@@ -722,11 +666,9 @@ export namespace DescribePackagingGroupRequest {
   export const filterSensitiveLog = (obj: DescribePackagingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePackagingGroupRequest => __isa(o, "DescribePackagingGroupRequest");
 }
 
 export interface DescribePackagingGroupResponse {
-  __type?: "DescribePackagingGroupResponse";
   /**
    * CDN Authorization credentials
    */
@@ -757,14 +699,12 @@ export namespace DescribePackagingGroupResponse {
   export const filterSensitiveLog = (obj: DescribePackagingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePackagingGroupResponse => __isa(o, "DescribePackagingGroupResponse");
 }
 
 /**
  * The endpoint URL used to access an Asset using one PackagingConfiguration.
  */
 export interface EgressEndpoint {
-  __type?: "EgressEndpoint";
   /**
    * The URL of the parent manifest for the repackaged Asset.
    */
@@ -780,7 +720,6 @@ export namespace EgressEndpoint {
   export const filterSensitiveLog = (obj: EgressEndpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EgressEndpoint => __isa(o, "EgressEndpoint");
 }
 
 export enum EncryptionMethod {
@@ -801,14 +740,12 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
  * An HTTP Live Streaming (HLS) encryption configuration.
  */
 export interface HlsEncryption {
-  __type?: "HlsEncryption";
   /**
    * A constant initialization vector for encryption (optional).
    * When not specified the initialization vector will be periodically rotated.
@@ -830,14 +767,12 @@ export namespace HlsEncryption {
   export const filterSensitiveLog = (obj: HlsEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsEncryption => __isa(o, "HlsEncryption");
 }
 
 /**
  * An HTTP Live Streaming (HLS) manifest configuration.
  */
 export interface HlsManifest {
-  __type?: "HlsManifest";
   /**
    * When enabled, an I-Frame only stream will be included in the output.
    */
@@ -886,14 +821,12 @@ export namespace HlsManifest {
   export const filterSensitiveLog = (obj: HlsManifest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsManifest => __isa(o, "HlsManifest");
 }
 
 /**
  * An HTTP Live Streaming (HLS) packaging configuration.
  */
 export interface HlsPackage {
-  __type?: "HlsPackage";
   /**
    * A list of HLS manifest configurations.
    */
@@ -920,7 +853,6 @@ export namespace HlsPackage {
   export const filterSensitiveLog = (obj: HlsPackage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HlsPackage => __isa(o, "HlsPackage");
 }
 
 /**
@@ -936,11 +868,9 @@ export namespace InternalServerErrorException {
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 export interface ListAssetsRequest {
-  __type?: "ListAssetsRequest";
   /**
    * A token used to resume pagination from the end of a previous request.
    */
@@ -961,11 +891,9 @@ export namespace ListAssetsRequest {
   export const filterSensitiveLog = (obj: ListAssetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssetsRequest => __isa(o, "ListAssetsRequest");
 }
 
 export interface ListAssetsResponse {
-  __type?: "ListAssetsResponse";
   /**
    * A list of MediaPackage VOD Asset resources.
    */
@@ -981,11 +909,9 @@ export namespace ListAssetsResponse {
   export const filterSensitiveLog = (obj: ListAssetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssetsResponse => __isa(o, "ListAssetsResponse");
 }
 
 export interface ListPackagingConfigurationsRequest {
-  __type?: "ListPackagingConfigurationsRequest";
   /**
    * Returns MediaPackage VOD PackagingConfigurations associated with the specified PackagingGroup.
    */
@@ -1006,12 +932,9 @@ export namespace ListPackagingConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListPackagingConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackagingConfigurationsRequest =>
-    __isa(o, "ListPackagingConfigurationsRequest");
 }
 
 export interface ListPackagingConfigurationsResponse {
-  __type?: "ListPackagingConfigurationsResponse";
   /**
    * A token that can be used to resume pagination from the end of the collection.
    */
@@ -1027,12 +950,9 @@ export namespace ListPackagingConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListPackagingConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackagingConfigurationsResponse =>
-    __isa(o, "ListPackagingConfigurationsResponse");
 }
 
 export interface ListPackagingGroupsRequest {
-  __type?: "ListPackagingGroupsRequest";
   /**
    * A token used to resume pagination from the end of a previous request.
    */
@@ -1048,11 +968,9 @@ export namespace ListPackagingGroupsRequest {
   export const filterSensitiveLog = (obj: ListPackagingGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackagingGroupsRequest => __isa(o, "ListPackagingGroupsRequest");
 }
 
 export interface ListPackagingGroupsResponse {
-  __type?: "ListPackagingGroupsResponse";
   /**
    * A list of MediaPackage VOD PackagingGroup resources.
    */
@@ -1068,11 +986,9 @@ export namespace ListPackagingGroupsResponse {
   export const filterSensitiveLog = (obj: ListPackagingGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPackagingGroupsResponse => __isa(o, "ListPackagingGroupsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
    */
@@ -1083,11 +999,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * A collection of tags associated with a resource
    */
@@ -1098,7 +1012,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum ManifestLayout {
@@ -1110,7 +1023,6 @@ export enum ManifestLayout {
  * A Microsoft Smooth Streaming (MSS) encryption configuration.
  */
 export interface MssEncryption {
-  __type?: "MssEncryption";
   /**
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
@@ -1121,14 +1033,12 @@ export namespace MssEncryption {
   export const filterSensitiveLog = (obj: MssEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MssEncryption => __isa(o, "MssEncryption");
 }
 
 /**
  * A Microsoft Smooth Streaming (MSS) manifest configuration.
  */
 export interface MssManifest {
-  __type?: "MssManifest";
   /**
    * A StreamSelection configuration.
    */
@@ -1144,14 +1054,12 @@ export namespace MssManifest {
   export const filterSensitiveLog = (obj: MssManifest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MssManifest => __isa(o, "MssManifest");
 }
 
 /**
  * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
  */
 export interface MssPackage {
-  __type?: "MssPackage";
   /**
    * A Microsoft Smooth Streaming (MSS) encryption configuration.
    */
@@ -1172,7 +1080,6 @@ export namespace MssPackage {
   export const filterSensitiveLog = (obj: MssPackage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MssPackage => __isa(o, "MssPackage");
 }
 
 /**
@@ -1188,14 +1095,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * A MediaPackage VOD PackagingConfiguration resource.
  */
 export interface PackagingConfiguration {
-  __type?: "PackagingConfiguration";
   /**
    * The ID of the PackagingConfiguration.
    */
@@ -1241,14 +1146,12 @@ export namespace PackagingConfiguration {
   export const filterSensitiveLog = (obj: PackagingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PackagingConfiguration => __isa(o, "PackagingConfiguration");
 }
 
 /**
  * A MediaPackage VOD PackagingGroup resource.
  */
 export interface PackagingGroup {
-  __type?: "PackagingGroup";
   /**
    * A collection of tags associated with a resource
    */
@@ -1279,7 +1182,6 @@ export namespace PackagingGroup {
   export const filterSensitiveLog = (obj: PackagingGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PackagingGroup => __isa(o, "PackagingGroup");
 }
 
 export enum Profile {
@@ -1306,14 +1208,12 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
  * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
  */
 export interface SpekeKeyProvider {
-  __type?: "SpekeKeyProvider";
   /**
    * An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
    * MediaPackage will assume when accessing the key provider service.
@@ -1335,7 +1235,6 @@ export namespace SpekeKeyProvider {
   export const filterSensitiveLog = (obj: SpekeKeyProvider): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SpekeKeyProvider => __isa(o, "SpekeKeyProvider");
 }
 
 export enum StreamOrder {
@@ -1348,7 +1247,6 @@ export enum StreamOrder {
  * A StreamSelection configuration.
  */
 export interface StreamSelection {
-  __type?: "StreamSelection";
   /**
    * The minimum video bitrate (bps) to include in output.
    */
@@ -1369,11 +1267,9 @@ export namespace StreamSelection {
   export const filterSensitiveLog = (obj: StreamSelection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamSelection => __isa(o, "StreamSelection");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
    */
@@ -1389,7 +1285,6 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -1405,7 +1300,6 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -1421,11 +1315,9 @@ export namespace UnprocessableEntityException {
   export const filterSensitiveLog = (obj: UnprocessableEntityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnprocessableEntityException => __isa(o, "UnprocessableEntityException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * A comma-separated list of the tag keys to remove from the resource.
    */
@@ -1441,14 +1333,12 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
  * A MediaPackage VOD PackagingGroup resource configuration.
  */
 export interface UpdatePackagingGroupRequest {
-  __type?: "UpdatePackagingGroupRequest";
   /**
    * The ID of a MediaPackage VOD PackagingGroup resource.
    */
@@ -1464,11 +1354,9 @@ export namespace UpdatePackagingGroupRequest {
   export const filterSensitiveLog = (obj: UpdatePackagingGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePackagingGroupRequest => __isa(o, "UpdatePackagingGroupRequest");
 }
 
 export interface UpdatePackagingGroupResponse {
-  __type?: "UpdatePackagingGroupResponse";
   /**
    * A collection of tags associated with a resource
    */
@@ -1499,5 +1387,4 @@ export namespace UpdatePackagingGroupResponse {
   export const filterSensitiveLog = (obj: UpdatePackagingGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePackagingGroupResponse => __isa(o, "UpdatePackagingGroupResponse");
 }

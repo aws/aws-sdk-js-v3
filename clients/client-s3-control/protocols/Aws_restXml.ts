@@ -804,7 +804,6 @@ export const deserializeAws_restXmlCreateJobCommand = async (
   }
   const contents: CreateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateJobResult",
     JobId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -970,7 +969,6 @@ export const deserializeAws_restXmlDeleteJobTaggingCommand = async (
   }
   const contents: DeleteJobTaggingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteJobTaggingResult",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1081,7 +1079,6 @@ export const deserializeAws_restXmlDescribeJobCommand = async (
   }
   const contents: DescribeJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeJobResult",
     Job: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1161,7 +1158,6 @@ export const deserializeAws_restXmlGetAccessPointCommand = async (
   }
   const contents: GetAccessPointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccessPointResult",
     Bucket: undefined,
     CreationDate: undefined,
     Name: undefined,
@@ -1232,7 +1228,6 @@ export const deserializeAws_restXmlGetAccessPointPolicyCommand = async (
   }
   const contents: GetAccessPointPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccessPointPolicyResult",
     Policy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1280,7 +1275,6 @@ export const deserializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
   }
   const contents: GetAccessPointPolicyStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccessPointPolicyStatusResult",
     PolicyStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1328,7 +1322,6 @@ export const deserializeAws_restXmlGetJobTaggingCommand = async (
   }
   const contents: GetJobTaggingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetJobTaggingResult",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1403,7 +1396,6 @@ export const deserializeAws_restXmlGetPublicAccessBlockCommand = async (
   }
   const contents: GetPublicAccessBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPublicAccessBlockOutput",
     PublicAccessBlockConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1457,7 +1449,6 @@ export const deserializeAws_restXmlListAccessPointsCommand = async (
   }
   const contents: ListAccessPointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAccessPointsResult",
     AccessPointList: undefined,
     NextToken: undefined,
   };
@@ -1515,7 +1506,6 @@ export const deserializeAws_restXmlListJobsCommand = async (
   }
   const contents: ListJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJobsResult",
     Jobs: undefined,
     NextToken: undefined,
   };
@@ -1640,7 +1630,6 @@ export const deserializeAws_restXmlPutJobTaggingCommand = async (
   }
   const contents: PutJobTaggingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutJobTaggingResult",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1759,7 +1748,6 @@ export const deserializeAws_restXmlUpdateJobPriorityCommand = async (
   }
   const contents: UpdateJobPriorityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateJobPriorityResult",
     JobId: undefined,
     Priority: undefined,
   };
@@ -1843,7 +1831,6 @@ export const deserializeAws_restXmlUpdateJobStatusCommand = async (
   }
   const contents: UpdateJobStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateJobStatusResult",
     JobId: undefined,
     Status: undefined,
     StatusUpdateReason: undefined,
@@ -2681,7 +2668,6 @@ const serializeAws_restXmlVpcConfiguration = (input: VpcConfiguration, context: 
 
 const deserializeAws_restXmlAccessPoint = (output: any, context: __SerdeContext): AccessPoint => {
   let contents: any = {
-    __type: "AccessPoint",
     VpcConfiguration: undefined,
     Bucket: undefined,
     NetworkOrigin: undefined,
@@ -2708,7 +2694,6 @@ const deserializeAws_restXmlAccessPointList = (output: any, context: __SerdeCont
 
 const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContext): JobDescriptor => {
   let contents: any = {
-    __type: "JobDescriptor",
     Manifest: undefined,
     JobArn: undefined,
     JobId: undefined,
@@ -2789,7 +2774,6 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlJobFailure = (output: any, context: __SerdeContext): JobFailure => {
   let contents: any = {
-    __type: "JobFailure",
     FailureReason: undefined,
     FailureCode: undefined,
   };
@@ -2808,7 +2792,6 @@ const deserializeAws_restXmlJobFailureList = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlJobListDescriptor = (output: any, context: __SerdeContext): JobListDescriptor => {
   let contents: any = {
-    __type: "JobListDescriptor",
     ProgressSummary: undefined,
     Priority: undefined,
     JobId: undefined,
@@ -2851,7 +2834,6 @@ const deserializeAws_restXmlJobListDescriptorList = (output: any, context: __Ser
 
 const deserializeAws_restXmlJobManifest = (output: any, context: __SerdeContext): JobManifest => {
   let contents: any = {
-    __type: "JobManifest",
     Location: undefined,
     Spec: undefined,
   };
@@ -2873,7 +2855,6 @@ const deserializeAws_restXmlJobManifestFieldList = (
 
 const deserializeAws_restXmlJobManifestLocation = (output: any, context: __SerdeContext): JobManifestLocation => {
   let contents: any = {
-    __type: "JobManifestLocation",
     ObjectArn: undefined,
     ETag: undefined,
     ObjectVersionId: undefined,
@@ -2892,7 +2873,6 @@ const deserializeAws_restXmlJobManifestLocation = (output: any, context: __Serde
 
 const deserializeAws_restXmlJobManifestSpec = (output: any, context: __SerdeContext): JobManifestSpec => {
   let contents: any = {
-    __type: "JobManifestSpec",
     Format: undefined,
     Fields: undefined,
   };
@@ -2913,7 +2893,6 @@ const deserializeAws_restXmlJobManifestSpec = (output: any, context: __SerdeCont
 
 const deserializeAws_restXmlJobOperation = (output: any, context: __SerdeContext): JobOperation => {
   let contents: any = {
-    __type: "JobOperation",
     S3PutObjectLegalHold: undefined,
     S3InitiateRestoreObject: undefined,
     S3PutObjectTagging: undefined,
@@ -2960,7 +2939,6 @@ const deserializeAws_restXmlJobOperation = (output: any, context: __SerdeContext
 
 const deserializeAws_restXmlJobProgressSummary = (output: any, context: __SerdeContext): JobProgressSummary => {
   let contents: any = {
-    __type: "JobProgressSummary",
     NumberOfTasksSucceeded: undefined,
     TotalNumberOfTasks: undefined,
     NumberOfTasksFailed: undefined,
@@ -2979,7 +2957,6 @@ const deserializeAws_restXmlJobProgressSummary = (output: any, context: __SerdeC
 
 const deserializeAws_restXmlJobReport = (output: any, context: __SerdeContext): JobReport => {
   let contents: any = {
-    __type: "JobReport",
     Prefix: undefined,
     ReportScope: undefined,
     Enabled: undefined,
@@ -3006,7 +2983,6 @@ const deserializeAws_restXmlJobReport = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restXmlLambdaInvokeOperation = (output: any, context: __SerdeContext): LambdaInvokeOperation => {
   let contents: any = {
-    __type: "LambdaInvokeOperation",
     FunctionArn: undefined,
   };
   if (output["FunctionArn"] !== undefined) {
@@ -3017,7 +2993,6 @@ const deserializeAws_restXmlLambdaInvokeOperation = (output: any, context: __Ser
 
 const deserializeAws_restXmlPolicyStatus = (output: any, context: __SerdeContext): PolicyStatus => {
   let contents: any = {
-    __type: "PolicyStatus",
     IsPublic: undefined,
   };
   if (output["IsPublic"] !== undefined) {
@@ -3031,7 +3006,6 @@ const deserializeAws_restXmlPublicAccessBlockConfiguration = (
   context: __SerdeContext
 ): PublicAccessBlockConfiguration => {
   let contents: any = {
-    __type: "PublicAccessBlockConfiguration",
     IgnorePublicAcls: undefined,
     BlockPublicAcls: undefined,
     BlockPublicPolicy: undefined,
@@ -3054,7 +3028,6 @@ const deserializeAws_restXmlPublicAccessBlockConfiguration = (
 
 const deserializeAws_restXmlS3AccessControlList = (output: any, context: __SerdeContext): S3AccessControlList => {
   let contents: any = {
-    __type: "S3AccessControlList",
     Grants: undefined,
     Owner: undefined,
   };
@@ -3072,7 +3045,6 @@ const deserializeAws_restXmlS3AccessControlList = (output: any, context: __Serde
 
 const deserializeAws_restXmlS3AccessControlPolicy = (output: any, context: __SerdeContext): S3AccessControlPolicy => {
   let contents: any = {
-    __type: "S3AccessControlPolicy",
     CannedAccessControlList: undefined,
     AccessControlList: undefined,
   };
@@ -3087,7 +3059,6 @@ const deserializeAws_restXmlS3AccessControlPolicy = (output: any, context: __Ser
 
 const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __SerdeContext): S3CopyObjectOperation => {
   let contents: any = {
-    __type: "S3CopyObjectOperation",
     RedirectLocation: undefined,
     ObjectLockLegalHoldStatus: undefined,
     SSEAwsKmsKeyId: undefined,
@@ -3170,7 +3141,6 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
 
 const deserializeAws_restXmlS3Grant = (output: any, context: __SerdeContext): S3Grant => {
   let contents: any = {
-    __type: "S3Grant",
     Permission: undefined,
     Grantee: undefined,
   };
@@ -3185,7 +3155,6 @@ const deserializeAws_restXmlS3Grant = (output: any, context: __SerdeContext): S3
 
 const deserializeAws_restXmlS3Grantee = (output: any, context: __SerdeContext): S3Grantee => {
   let contents: any = {
-    __type: "S3Grantee",
     Identifier: undefined,
     DisplayName: undefined,
     TypeIdentifier: undefined,
@@ -3211,7 +3180,6 @@ const deserializeAws_restXmlS3InitiateRestoreObjectOperation = (
   context: __SerdeContext
 ): S3InitiateRestoreObjectOperation => {
   let contents: any = {
-    __type: "S3InitiateRestoreObjectOperation",
     ExpirationInDays: undefined,
     GlacierJobTier: undefined,
   };
@@ -3226,7 +3194,6 @@ const deserializeAws_restXmlS3InitiateRestoreObjectOperation = (
 
 const deserializeAws_restXmlS3ObjectLockLegalHold = (output: any, context: __SerdeContext): S3ObjectLockLegalHold => {
   let contents: any = {
-    __type: "S3ObjectLockLegalHold",
     Status: undefined,
   };
   if (output["Status"] !== undefined) {
@@ -3237,7 +3204,6 @@ const deserializeAws_restXmlS3ObjectLockLegalHold = (output: any, context: __Ser
 
 const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeContext): S3ObjectMetadata => {
   let contents: any = {
-    __type: "S3ObjectMetadata",
     ContentLanguage: undefined,
     ContentEncoding: undefined,
     UserMetadata: undefined,
@@ -3294,7 +3260,6 @@ const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeCon
 
 const deserializeAws_restXmlS3ObjectOwner = (output: any, context: __SerdeContext): S3ObjectOwner => {
   let contents: any = {
-    __type: "S3ObjectOwner",
     ID: undefined,
     DisplayName: undefined,
   };
@@ -3309,7 +3274,6 @@ const deserializeAws_restXmlS3ObjectOwner = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlS3Retention = (output: any, context: __SerdeContext): S3Retention => {
   let contents: any = {
-    __type: "S3Retention",
     RetainUntilDate: undefined,
     Mode: undefined,
   };
@@ -3327,7 +3291,6 @@ const deserializeAws_restXmlS3SetObjectAclOperation = (
   context: __SerdeContext
 ): S3SetObjectAclOperation => {
   let contents: any = {
-    __type: "S3SetObjectAclOperation",
     AccessControlPolicy: undefined,
   };
   if (output["AccessControlPolicy"] !== undefined) {
@@ -3341,7 +3304,6 @@ const deserializeAws_restXmlS3SetObjectLegalHoldOperation = (
   context: __SerdeContext
 ): S3SetObjectLegalHoldOperation => {
   let contents: any = {
-    __type: "S3SetObjectLegalHoldOperation",
     LegalHold: undefined,
   };
   if (output["LegalHold"] !== undefined) {
@@ -3355,7 +3317,6 @@ const deserializeAws_restXmlS3SetObjectRetentionOperation = (
   context: __SerdeContext
 ): S3SetObjectRetentionOperation => {
   let contents: any = {
-    __type: "S3SetObjectRetentionOperation",
     Retention: undefined,
     BypassGovernanceRetention: undefined,
   };
@@ -3373,7 +3334,6 @@ const deserializeAws_restXmlS3SetObjectTaggingOperation = (
   context: __SerdeContext
 ): S3SetObjectTaggingOperation => {
   let contents: any = {
-    __type: "S3SetObjectTaggingOperation",
     TagSet: undefined,
   };
   if (output.TagSet === "") {
@@ -3387,7 +3347,6 @@ const deserializeAws_restXmlS3SetObjectTaggingOperation = (
 
 const deserializeAws_restXmlS3Tag = (output: any, context: __SerdeContext): S3Tag => {
   let contents: any = {
-    __type: "S3Tag",
     Value: undefined,
     Key: undefined,
   };
@@ -3416,7 +3375,6 @@ const deserializeAws_restXmlS3UserMetadata = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlVpcConfiguration = (output: any, context: __SerdeContext): VpcConfiguration => {
   let contents: any = {
-    __type: "VpcConfiguration",
     VpcId: undefined,
   };
   if (output["VpcId"] !== undefined) {

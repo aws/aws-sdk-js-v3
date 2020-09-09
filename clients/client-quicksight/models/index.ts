@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -22,14 +22,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>The customizations associated with your AWS account for QuickSight.</p>
  */
 export interface AccountCustomization {
-  __type?: "AccountCustomization";
   /**
    * <p>The default theme for this QuickSight subscription.</p>
    */
@@ -40,14 +38,12 @@ export namespace AccountCustomization {
   export const filterSensitiveLog = (obj: AccountCustomization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountCustomization => __isa(o, "AccountCustomization");
 }
 
 /**
  * <p>The QuickSight settings associated with your AWS account.</p>
  */
 export interface AccountSettings {
-  __type?: "AccountSettings";
   /**
    * <p>The name associated with the QuickSight subscription in your AWS account.</p>
    */
@@ -73,14 +69,12 @@ export namespace AccountSettings {
   export const filterSensitiveLog = (obj: AccountSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountSettings => __isa(o, "AccountSettings");
 }
 
 /**
  * <p>The active AWS Identity and Access Management (IAM) policy assignment.</p>
  */
 export interface ActiveIAMPolicyAssignment {
-  __type?: "ActiveIAMPolicyAssignment";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -96,14 +90,12 @@ export namespace ActiveIAMPolicyAssignment {
   export const filterSensitiveLog = (obj: ActiveIAMPolicyAssignment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActiveIAMPolicyAssignment => __isa(o, "ActiveIAMPolicyAssignment");
 }
 
 /**
  * <p>Ad hoc (one-time) filtering option.</p>
  */
 export interface AdHocFilteringOption {
-  __type?: "AdHocFilteringOption";
   /**
    * <p>Availability status.</p>
    */
@@ -114,14 +106,12 @@ export namespace AdHocFilteringOption {
   export const filterSensitiveLog = (obj: AdHocFilteringOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdHocFilteringOption => __isa(o, "AdHocFilteringOption");
 }
 
 /**
  * <p>Amazon Elasticsearch Service parameters.</p>
  */
 export interface AmazonElasticsearchParameters {
-  __type?: "AmazonElasticsearchParameters";
   /**
    * <p>The Amazon Elasticsearch Service domain.</p>
    */
@@ -132,7 +122,6 @@ export namespace AmazonElasticsearchParameters {
   export const filterSensitiveLog = (obj: AmazonElasticsearchParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AmazonElasticsearchParameters => __isa(o, "AmazonElasticsearchParameters");
 }
 
 export enum AssignmentStatus {
@@ -145,7 +134,6 @@ export enum AssignmentStatus {
  * <p>Amazon Athena parameters.</p>
  */
 export interface AthenaParameters {
-  __type?: "AthenaParameters";
   /**
    * <p>The workgroup that Amazon Athena uses.</p>
    */
@@ -156,14 +144,12 @@ export namespace AthenaParameters {
   export const filterSensitiveLog = (obj: AthenaParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AthenaParameters => __isa(o, "AthenaParameters");
 }
 
 /**
  * <p>Amazon Aurora parameters.</p>
  */
 export interface AuroraParameters {
-  __type?: "AuroraParameters";
   /**
    * <p>Database.</p>
    */
@@ -184,14 +170,12 @@ export namespace AuroraParameters {
   export const filterSensitiveLog = (obj: AuroraParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuroraParameters => __isa(o, "AuroraParameters");
 }
 
 /**
  * <p>Amazon Aurora with PostgreSQL compatibility parameters.</p>
  */
 export interface AuroraPostgreSqlParameters {
-  __type?: "AuroraPostgreSqlParameters";
   /**
    * <p>Host.</p>
    */
@@ -212,14 +196,12 @@ export namespace AuroraPostgreSqlParameters {
   export const filterSensitiveLog = (obj: AuroraPostgreSqlParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuroraPostgreSqlParameters => __isa(o, "AuroraPostgreSqlParameters");
 }
 
 /**
  * <p>AWS IoT Analytics parameters.</p>
  */
 export interface AwsIotAnalyticsParameters {
-  __type?: "AwsIotAnalyticsParameters";
   /**
    * <p>Dataset name.</p>
    */
@@ -230,14 +212,12 @@ export namespace AwsIotAnalyticsParameters {
   export const filterSensitiveLog = (obj: AwsIotAnalyticsParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsIotAnalyticsParameters => __isa(o, "AwsIotAnalyticsParameters");
 }
 
 /**
  * <p>The display options for tile borders for visuals.</p>
  */
 export interface BorderStyle {
-  __type?: "BorderStyle";
   /**
    * <p>The option to enable display of borders for visuals.</p>
    */
@@ -248,14 +228,12 @@ export namespace BorderStyle {
   export const filterSensitiveLog = (obj: BorderStyle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BorderStyle => __isa(o, "BorderStyle");
 }
 
 /**
  * <p>A calculated column for a dataset.</p>
  */
 export interface CalculatedColumn {
-  __type?: "CalculatedColumn";
   /**
    * <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
    *             of a calculated column matches that of an existing calculated column, Amazon QuickSight
@@ -278,11 +256,9 @@ export namespace CalculatedColumn {
   export const filterSensitiveLog = (obj: CalculatedColumn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CalculatedColumn => __isa(o, "CalculatedColumn");
 }
 
 export interface CancelIngestionRequest {
-  __type?: "CancelIngestionRequest";
   /**
    * <p>The ID of the dataset used in the ingestion.</p>
    */
@@ -303,11 +279,9 @@ export namespace CancelIngestionRequest {
   export const filterSensitiveLog = (obj: CancelIngestionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelIngestionRequest => __isa(o, "CancelIngestionRequest");
 }
 
 export interface CancelIngestionResponse {
-  __type?: "CancelIngestionResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -328,14 +302,12 @@ export namespace CancelIngestionResponse {
   export const filterSensitiveLog = (obj: CancelIngestionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelIngestionResponse => __isa(o, "CancelIngestionResponse");
 }
 
 /**
  * <p>A transform operation that casts a column to a different type.</p>
  */
 export interface CastColumnTypeOperation {
-  __type?: "CastColumnTypeOperation";
   /**
    * <p>When casting a column from string to datetime type, you can supply a string in a
    *             format supported by Amazon QuickSight to denote the source data format.</p>
@@ -357,7 +329,6 @@ export namespace CastColumnTypeOperation {
   export const filterSensitiveLog = (obj: CastColumnTypeOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CastColumnTypeOperation => __isa(o, "CastColumnTypeOperation");
 }
 
 export enum ColumnDataType {
@@ -373,7 +344,6 @@ export enum ColumnDataType {
  *             be non-null.</p>
  */
 export interface ColumnGroup {
-  __type?: "ColumnGroup";
   /**
    * <p>Geospatial column group that denotes a hierarchy.</p>
    */
@@ -384,14 +354,12 @@ export namespace ColumnGroup {
   export const filterSensitiveLog = (obj: ColumnGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColumnGroup => __isa(o, "ColumnGroup");
 }
 
 /**
  * <p>A structure describing the name, data type, and geographic role of the columns.</p>
  */
 export interface ColumnGroupColumnSchema {
-  __type?: "ColumnGroupColumnSchema";
   /**
    * <p>The name of the column group's column schema.</p>
    */
@@ -402,14 +370,12 @@ export namespace ColumnGroupColumnSchema {
   export const filterSensitiveLog = (obj: ColumnGroupColumnSchema): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColumnGroupColumnSchema => __isa(o, "ColumnGroupColumnSchema");
 }
 
 /**
  * <p>The column group schema.</p>
  */
 export interface ColumnGroupSchema {
-  __type?: "ColumnGroupSchema";
   /**
    * <p>A structure containing the list of schemas for column group columns.</p>
    */
@@ -425,14 +391,12 @@ export namespace ColumnGroupSchema {
   export const filterSensitiveLog = (obj: ColumnGroupSchema): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColumnGroupSchema => __isa(o, "ColumnGroupSchema");
 }
 
 /**
  * <p>The column schema.</p>
  */
 export interface ColumnSchema {
-  __type?: "ColumnSchema";
   /**
    * <p>The data type of the column schema.</p>
    */
@@ -453,7 +417,6 @@ export namespace ColumnSchema {
   export const filterSensitiveLog = (obj: ColumnSchema): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColumnSchema => __isa(o, "ColumnSchema");
 }
 
 /**
@@ -462,7 +425,6 @@ export namespace ColumnSchema {
  *             be non-null.</p>
  */
 export interface ColumnTag {
-  __type?: "ColumnTag";
   /**
    * <p>A geospatial role for a column.</p>
    */
@@ -473,7 +435,6 @@ export namespace ColumnTag {
   export const filterSensitiveLog = (obj: ColumnTag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColumnTag => __isa(o, "ColumnTag");
 }
 
 /**
@@ -491,7 +452,6 @@ export namespace ConcurrentUpdatingException {
   export const filterSensitiveLog = (obj: ConcurrentUpdatingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentUpdatingException => __isa(o, "ConcurrentUpdatingException");
 }
 
 /**
@@ -512,11 +472,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateAccountCustomizationRequest {
-  __type?: "CreateAccountCustomizationRequest";
   /**
    * <p>The namespace associated with the customization that you're creating.</p>
    */
@@ -539,11 +497,9 @@ export namespace CreateAccountCustomizationRequest {
   export const filterSensitiveLog = (obj: CreateAccountCustomizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccountCustomizationRequest => __isa(o, "CreateAccountCustomizationRequest");
 }
 
 export interface CreateAccountCustomizationResponse {
-  __type?: "CreateAccountCustomizationResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -569,8 +525,6 @@ export namespace CreateAccountCustomizationResponse {
   export const filterSensitiveLog = (obj: CreateAccountCustomizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccountCustomizationResponse =>
-    __isa(o, "CreateAccountCustomizationResponse");
 }
 
 /**
@@ -578,7 +532,6 @@ export namespace CreateAccountCustomizationResponse {
  *             operation form a lexical closure.</p>
  */
 export interface CreateColumnsOperation {
-  __type?: "CreateColumnsOperation";
   /**
    * <p>Calculated columns to create.</p>
    */
@@ -589,11 +542,9 @@ export namespace CreateColumnsOperation {
   export const filterSensitiveLog = (obj: CreateColumnsOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateColumnsOperation => __isa(o, "CreateColumnsOperation");
 }
 
 export interface CreateDashboardRequest {
-  __type?: "CreateDashboardRequest";
   /**
    * <p>A structure that contains the permissions of the dashboard. You can use this structure for
    * 			granting permissions with principal and action information.</p>
@@ -688,11 +639,9 @@ export namespace CreateDashboardRequest {
   export const filterSensitiveLog = (obj: CreateDashboardRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDashboardRequest => __isa(o, "CreateDashboardRequest");
 }
 
 export interface CreateDashboardResponse {
-  __type?: "CreateDashboardResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -724,11 +673,9 @@ export namespace CreateDashboardResponse {
   export const filterSensitiveLog = (obj: CreateDashboardResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDashboardResponse => __isa(o, "CreateDashboardResponse");
 }
 
 export interface CreateDataSetRequest {
-  __type?: "CreateDataSetRequest";
   /**
    * <p>The row-level security configuration for the data that you want to create.</p>
    */
@@ -784,11 +731,9 @@ export namespace CreateDataSetRequest {
   export const filterSensitiveLog = (obj: CreateDataSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSetRequest => __isa(o, "CreateDataSetRequest");
 }
 
 export interface CreateDataSetResponse {
-  __type?: "CreateDataSetResponse";
   /**
    * <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import
    * 			mode is SPICE.</p>
@@ -821,11 +766,9 @@ export namespace CreateDataSetResponse {
   export const filterSensitiveLog = (obj: CreateDataSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSetResponse => __isa(o, "CreateDataSetResponse");
 }
 
 export interface CreateDataSourceRequest {
-  __type?: "CreateDataSourceRequest";
   /**
    * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your underlying source.</p>
    */
@@ -888,11 +831,9 @@ export namespace CreateDataSourceRequest {
     ...obj,
     ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateDataSourceRequest => __isa(o, "CreateDataSourceRequest");
 }
 
 export interface CreateDataSourceResponse {
-  __type?: "CreateDataSourceResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -918,11 +859,9 @@ export namespace CreateDataSourceResponse {
   export const filterSensitiveLog = (obj: CreateDataSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSourceResponse => __isa(o, "CreateDataSourceResponse");
 }
 
 export interface CreateGroupMembershipRequest {
-  __type?: "CreateGroupMembershipRequest";
   /**
    * <p>The name of the group that you want to add the user to.</p>
    */
@@ -949,11 +888,9 @@ export namespace CreateGroupMembershipRequest {
   export const filterSensitiveLog = (obj: CreateGroupMembershipRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupMembershipRequest => __isa(o, "CreateGroupMembershipRequest");
 }
 
 export interface CreateGroupMembershipResponse {
-  __type?: "CreateGroupMembershipResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -969,14 +906,12 @@ export namespace CreateGroupMembershipResponse {
   export const filterSensitiveLog = (obj: CreateGroupMembershipResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupMembershipResponse => __isa(o, "CreateGroupMembershipResponse");
 }
 
 /**
  * <p>The request object for this operation. </p>
  */
 export interface CreateGroupRequest {
-  __type?: "CreateGroupRequest";
   /**
    * <p>A description for the group that you want to create.</p>
    */
@@ -1003,14 +938,12 @@ export namespace CreateGroupRequest {
   export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupRequest => __isa(o, "CreateGroupRequest");
 }
 
 /**
  * <p>The response object for this operation.</p>
  */
 export interface CreateGroupResponse {
-  __type?: "CreateGroupResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -1026,11 +959,9 @@ export namespace CreateGroupResponse {
   export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGroupResponse => __isa(o, "CreateGroupResponse");
 }
 
 export interface CreateIAMPolicyAssignmentRequest {
-  __type?: "CreateIAMPolicyAssignmentRequest";
   /**
    * <p>The ID of the AWS account where you want to assign an IAM policy to QuickSight users or
    * 			groups.</p>
@@ -1084,11 +1015,9 @@ export namespace CreateIAMPolicyAssignmentRequest {
   export const filterSensitiveLog = (obj: CreateIAMPolicyAssignmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIAMPolicyAssignmentRequest => __isa(o, "CreateIAMPolicyAssignmentRequest");
 }
 
 export interface CreateIAMPolicyAssignmentResponse {
-  __type?: "CreateIAMPolicyAssignmentResponse";
   /**
    * <p>The ARN for the IAM policy that is applied to the QuickSight users and groups specified in this assignment.</p>
    */
@@ -1140,11 +1069,9 @@ export namespace CreateIAMPolicyAssignmentResponse {
   export const filterSensitiveLog = (obj: CreateIAMPolicyAssignmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIAMPolicyAssignmentResponse => __isa(o, "CreateIAMPolicyAssignmentResponse");
 }
 
 export interface CreateIngestionRequest {
-  __type?: "CreateIngestionRequest";
   /**
    * <p>The ID of the dataset used in the ingestion.</p>
    */
@@ -1165,11 +1092,9 @@ export namespace CreateIngestionRequest {
   export const filterSensitiveLog = (obj: CreateIngestionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIngestionRequest => __isa(o, "CreateIngestionRequest");
 }
 
 export interface CreateIngestionResponse {
-  __type?: "CreateIngestionResponse";
   /**
    * <p>An ID for the ingestion.</p>
    */
@@ -1195,11 +1120,9 @@ export namespace CreateIngestionResponse {
   export const filterSensitiveLog = (obj: CreateIngestionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIngestionResponse => __isa(o, "CreateIngestionResponse");
 }
 
 export interface CreateNamespaceRequest {
-  __type?: "CreateNamespaceRequest";
   /**
    * <p>The ID for the AWS account that you want to create the QuickSight namespace in.</p>
    */
@@ -1226,11 +1149,9 @@ export namespace CreateNamespaceRequest {
   export const filterSensitiveLog = (obj: CreateNamespaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNamespaceRequest => __isa(o, "CreateNamespaceRequest");
 }
 
 export interface CreateNamespaceResponse {
-  __type?: "CreateNamespaceResponse";
   /**
    * <p>The status of the creation of the namespace. This is an asynchronous process. A status
    *             of <code>CREATED</code> means that your namespace is ready to use. If an error occurs,
@@ -1272,11 +1193,9 @@ export namespace CreateNamespaceResponse {
   export const filterSensitiveLog = (obj: CreateNamespaceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNamespaceResponse => __isa(o, "CreateNamespaceResponse");
 }
 
 export interface CreateTemplateAliasRequest {
-  __type?: "CreateTemplateAliasRequest";
   /**
    * <p>The version number of the template.</p>
    */
@@ -1304,11 +1223,9 @@ export namespace CreateTemplateAliasRequest {
   export const filterSensitiveLog = (obj: CreateTemplateAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTemplateAliasRequest => __isa(o, "CreateTemplateAliasRequest");
 }
 
 export interface CreateTemplateAliasResponse {
-  __type?: "CreateTemplateAliasResponse";
   /**
    * <p>Information about the template alias.</p>
    */
@@ -1324,11 +1241,9 @@ export namespace CreateTemplateAliasResponse {
   export const filterSensitiveLog = (obj: CreateTemplateAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTemplateAliasResponse => __isa(o, "CreateTemplateAliasResponse");
 }
 
 export interface CreateTemplateRequest {
-  __type?: "CreateTemplateRequest";
   /**
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
    */
@@ -1383,11 +1298,9 @@ export namespace CreateTemplateRequest {
   export const filterSensitiveLog = (obj: CreateTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTemplateRequest => __isa(o, "CreateTemplateRequest");
 }
 
 export interface CreateTemplateResponse {
-  __type?: "CreateTemplateResponse";
   /**
    * <p>The template creation status.</p>
    */
@@ -1419,11 +1332,9 @@ export namespace CreateTemplateResponse {
   export const filterSensitiveLog = (obj: CreateTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTemplateResponse => __isa(o, "CreateTemplateResponse");
 }
 
 export interface CreateThemeAliasRequest {
-  __type?: "CreateThemeAliasRequest";
   /**
    * <p>The ID of the AWS account that contains the theme for the new theme alias.</p>
    */
@@ -1451,11 +1362,9 @@ export namespace CreateThemeAliasRequest {
   export const filterSensitiveLog = (obj: CreateThemeAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateThemeAliasRequest => __isa(o, "CreateThemeAliasRequest");
 }
 
 export interface CreateThemeAliasResponse {
-  __type?: "CreateThemeAliasResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -1471,11 +1380,9 @@ export namespace CreateThemeAliasResponse {
   export const filterSensitiveLog = (obj: CreateThemeAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateThemeAliasResponse => __isa(o, "CreateThemeAliasResponse");
 }
 
 export interface CreateThemeRequest {
-  __type?: "CreateThemeRequest";
   /**
    * <p>An ID for the theme that you want to create. The theme ID is unique per AWS Region in
    * 			each AWS account.</p>
@@ -1530,11 +1437,9 @@ export namespace CreateThemeRequest {
   export const filterSensitiveLog = (obj: CreateThemeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateThemeRequest => __isa(o, "CreateThemeRequest");
 }
 
 export interface CreateThemeResponse {
-  __type?: "CreateThemeResponse";
   /**
    * <p>The ID of the theme.</p>
    */
@@ -1565,14 +1470,12 @@ export namespace CreateThemeResponse {
   export const filterSensitiveLog = (obj: CreateThemeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateThemeResponse => __isa(o, "CreateThemeResponse");
 }
 
 /**
  * <p>The combination of user name and password that are used as credentials.</p>
  */
 export interface CredentialPair {
-  __type?: "CredentialPair";
   /**
    * <p>A set of alternate data source parameters that you want to share for these
    *             credentials. The credentials are applied in tandem with the data source parameters when
@@ -1601,14 +1504,12 @@ export namespace CredentialPair {
   export const filterSensitiveLog = (obj: CredentialPair): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CredentialPair => __isa(o, "CredentialPair");
 }
 
 /**
  * <p>A physical table type built from the results of the custom SQL query.</p>
  */
 export interface CustomSql {
-  __type?: "CustomSql";
   /**
    * <p>A display name for the SQL query result.</p>
    */
@@ -1634,14 +1535,12 @@ export namespace CustomSql {
   export const filterSensitiveLog = (obj: CustomSql): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomSql => __isa(o, "CustomSql");
 }
 
 /**
  * <p>Dashboard.</p>
  */
 export interface Dashboard {
-  __type?: "Dashboard";
   /**
    * <p>Dashboard ID.</p>
    */
@@ -1682,7 +1581,6 @@ export namespace Dashboard {
   export const filterSensitiveLog = (obj: Dashboard): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Dashboard => __isa(o, "Dashboard");
 }
 
 export enum DashboardBehavior {
@@ -1694,7 +1592,6 @@ export enum DashboardBehavior {
  * <p>Dashboard error.</p>
  */
 export interface DashboardError {
-  __type?: "DashboardError";
   /**
    * <p>Type.</p>
    */
@@ -1710,7 +1607,6 @@ export namespace DashboardError {
   export const filterSensitiveLog = (obj: DashboardError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardError => __isa(o, "DashboardError");
 }
 
 export enum DashboardErrorType {
@@ -1734,7 +1630,6 @@ export enum DashboardFilterAttribute {
  * <p>Dashboard publish options.</p>
  */
 export interface DashboardPublishOptions {
-  __type?: "DashboardPublishOptions";
   /**
    * <p>Export to .csv option.</p>
    */
@@ -1755,14 +1650,12 @@ export namespace DashboardPublishOptions {
   export const filterSensitiveLog = (obj: DashboardPublishOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardPublishOptions => __isa(o, "DashboardPublishOptions");
 }
 
 /**
  * <p>A filter that you apply when searching for dashboards. </p>
  */
 export interface DashboardSearchFilter {
-  __type?: "DashboardSearchFilter";
   /**
    * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
    *             "QUICKSIGHT_USER"</code>. </p>
@@ -1787,14 +1680,12 @@ export namespace DashboardSearchFilter {
   export const filterSensitiveLog = (obj: DashboardSearchFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardSearchFilter => __isa(o, "DashboardSearchFilter");
 }
 
 /**
  * <p>Dashboard source entity.</p>
  */
 export interface DashboardSourceEntity {
-  __type?: "DashboardSourceEntity";
   /**
    * <p>Source template.</p>
    */
@@ -1805,14 +1696,12 @@ export namespace DashboardSourceEntity {
   export const filterSensitiveLog = (obj: DashboardSourceEntity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardSourceEntity => __isa(o, "DashboardSourceEntity");
 }
 
 /**
  * <p>Dashboard source template.</p>
  */
 export interface DashboardSourceTemplate {
-  __type?: "DashboardSourceTemplate";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -1828,14 +1717,12 @@ export namespace DashboardSourceTemplate {
   export const filterSensitiveLog = (obj: DashboardSourceTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardSourceTemplate => __isa(o, "DashboardSourceTemplate");
 }
 
 /**
  * <p>Dashboard summary.</p>
  */
 export interface DashboardSummary {
-  __type?: "DashboardSummary";
   /**
    * <p>The time that this dashboard was created.</p>
    */
@@ -1876,7 +1763,6 @@ export namespace DashboardSummary {
   export const filterSensitiveLog = (obj: DashboardSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardSummary => __isa(o, "DashboardSummary");
 }
 
 export enum DashboardUIState {
@@ -1888,7 +1774,6 @@ export enum DashboardUIState {
  * <p>Dashboard version.</p>
  */
 export interface DashboardVersion {
-  __type?: "DashboardVersion";
   /**
    * <p>Version number.</p>
    */
@@ -1935,14 +1820,12 @@ export namespace DashboardVersion {
   export const filterSensitiveLog = (obj: DashboardVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardVersion => __isa(o, "DashboardVersion");
 }
 
 /**
  * <p>Dashboard version summary.</p>
  */
 export interface DashboardVersionSummary {
-  __type?: "DashboardVersionSummary";
   /**
    * <p>Description.</p>
    */
@@ -1978,7 +1861,6 @@ export namespace DashboardVersionSummary {
   export const filterSensitiveLog = (obj: DashboardVersionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardVersionSummary => __isa(o, "DashboardVersionSummary");
 }
 
 /**
@@ -1987,7 +1869,6 @@ export namespace DashboardVersionSummary {
  *             <code>#</code>, for example #37BFF5. </p>
  */
 export interface DataColorPalette {
-  __type?: "DataColorPalette";
   /**
    * <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
    */
@@ -2009,14 +1890,12 @@ export namespace DataColorPalette {
   export const filterSensitiveLog = (obj: DataColorPalette): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataColorPalette => __isa(o, "DataColorPalette");
 }
 
 /**
  * <p>Dataset.</p>
  */
 export interface DataSet {
-  __type?: "DataSet";
   /**
    * <p>The last time that this dataset was updated.</p>
    */
@@ -2086,14 +1965,12 @@ export namespace DataSet {
   export const filterSensitiveLog = (obj: DataSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSet => __isa(o, "DataSet");
 }
 
 /**
  * <p>Dataset configuration.</p>
  */
 export interface DataSetConfiguration {
-  __type?: "DataSetConfiguration";
   /**
    * <p>Dataset schema.</p>
    */
@@ -2114,7 +1991,6 @@ export namespace DataSetConfiguration {
   export const filterSensitiveLog = (obj: DataSetConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSetConfiguration => __isa(o, "DataSetConfiguration");
 }
 
 export enum DataSetImportMode {
@@ -2126,7 +2002,6 @@ export enum DataSetImportMode {
  * <p>Dataset reference.</p>
  */
 export interface DataSetReference {
-  __type?: "DataSetReference";
   /**
    * <p>Dataset Amazon Resource Name (ARN).</p>
    */
@@ -2142,14 +2017,12 @@ export namespace DataSetReference {
   export const filterSensitiveLog = (obj: DataSetReference): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSetReference => __isa(o, "DataSetReference");
 }
 
 /**
  * <p>Dataset schema.</p>
  */
 export interface DataSetSchema {
-  __type?: "DataSetSchema";
   /**
    * <p>A structure containing the list of column schemas.</p>
    */
@@ -2160,14 +2033,12 @@ export namespace DataSetSchema {
   export const filterSensitiveLog = (obj: DataSetSchema): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSetSchema => __isa(o, "DataSetSchema");
 }
 
 /**
  * <p>Dataset summary.</p>
  */
 export interface DataSetSummary {
-  __type?: "DataSetSummary";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
@@ -2208,14 +2079,12 @@ export namespace DataSetSummary {
   export const filterSensitiveLog = (obj: DataSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSetSummary => __isa(o, "DataSetSummary");
 }
 
 /**
  * <p>The structure of a data source.</p>
  */
 export interface DataSource {
-  __type?: "DataSource";
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
    */
@@ -2295,7 +2164,6 @@ export namespace DataSource {
   export const filterSensitiveLog = (obj: DataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
 
 /**
@@ -2303,7 +2171,6 @@ export namespace DataSource {
  *             valid, only one of the attributes can be non-null.</p>
  */
 export interface DataSourceCredentials {
-  __type?: "DataSourceCredentials";
   /**
    * <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
    *             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
@@ -2322,14 +2189,12 @@ export namespace DataSourceCredentials {
   export const filterSensitiveLog = (obj: DataSourceCredentials): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSourceCredentials => __isa(o, "DataSourceCredentials");
 }
 
 /**
  * <p>Error information for the data source creation or update.</p>
  */
 export interface DataSourceErrorInfo {
-  __type?: "DataSourceErrorInfo";
   /**
    * <p>Error type.</p>
    */
@@ -2345,7 +2210,6 @@ export namespace DataSourceErrorInfo {
   export const filterSensitiveLog = (obj: DataSourceErrorInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSourceErrorInfo => __isa(o, "DataSourceErrorInfo");
 }
 
 export enum DataSourceErrorInfoType {
@@ -2365,7 +2229,6 @@ export enum DataSourceErrorInfoType {
  *             attributes can be non-null.</p>
  */
 export interface DataSourceParameters {
-  __type?: "DataSourceParameters";
   /**
    * <p>Presto parameters.</p>
    */
@@ -2466,7 +2329,6 @@ export namespace DataSourceParameters {
   export const filterSensitiveLog = (obj: DataSourceParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSourceParameters => __isa(o, "DataSourceParameters");
 }
 
 export enum DataSourceType {
@@ -2497,7 +2359,6 @@ export enum DataSourceType {
  * <p>Date time parameter.</p>
  */
 export interface DateTimeParameter {
-  __type?: "DateTimeParameter";
   /**
    * <p>Values.</p>
    */
@@ -2513,14 +2374,12 @@ export namespace DateTimeParameter {
   export const filterSensitiveLog = (obj: DateTimeParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DateTimeParameter => __isa(o, "DateTimeParameter");
 }
 
 /**
  * <p>Decimal parameter.</p>
  */
 export interface DecimalParameter {
-  __type?: "DecimalParameter";
   /**
    * <p>A display name for the dataset.</p>
    */
@@ -2536,11 +2395,9 @@ export namespace DecimalParameter {
   export const filterSensitiveLog = (obj: DecimalParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecimalParameter => __isa(o, "DecimalParameter");
 }
 
 export interface DeleteAccountCustomizationRequest {
-  __type?: "DeleteAccountCustomizationRequest";
   /**
    * <p>The ID for the AWS account that you want to delete QuickSight customizations from.</p>
    */
@@ -2556,11 +2413,9 @@ export namespace DeleteAccountCustomizationRequest {
   export const filterSensitiveLog = (obj: DeleteAccountCustomizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccountCustomizationRequest => __isa(o, "DeleteAccountCustomizationRequest");
 }
 
 export interface DeleteAccountCustomizationResponse {
-  __type?: "DeleteAccountCustomizationResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -2571,12 +2426,9 @@ export namespace DeleteAccountCustomizationResponse {
   export const filterSensitiveLog = (obj: DeleteAccountCustomizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccountCustomizationResponse =>
-    __isa(o, "DeleteAccountCustomizationResponse");
 }
 
 export interface DeleteDashboardRequest {
-  __type?: "DeleteDashboardRequest";
   /**
    * <p>The ID for the dashboard.</p>
    */
@@ -2598,11 +2450,9 @@ export namespace DeleteDashboardRequest {
   export const filterSensitiveLog = (obj: DeleteDashboardRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDashboardRequest => __isa(o, "DeleteDashboardRequest");
 }
 
 export interface DeleteDashboardResponse {
-  __type?: "DeleteDashboardResponse";
   /**
    * <p>The Secure Socket Layer (SSL) properties that apply for the resource.</p>
    */
@@ -2623,11 +2473,9 @@ export namespace DeleteDashboardResponse {
   export const filterSensitiveLog = (obj: DeleteDashboardResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDashboardResponse => __isa(o, "DeleteDashboardResponse");
 }
 
 export interface DeleteDataSetRequest {
-  __type?: "DeleteDataSetRequest";
   /**
    * <p>The AWS account ID.</p>
    */
@@ -2643,11 +2491,9 @@ export namespace DeleteDataSetRequest {
   export const filterSensitiveLog = (obj: DeleteDataSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDataSetRequest => __isa(o, "DeleteDataSetRequest");
 }
 
 export interface DeleteDataSetResponse {
-  __type?: "DeleteDataSetResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
@@ -2668,11 +2514,9 @@ export namespace DeleteDataSetResponse {
   export const filterSensitiveLog = (obj: DeleteDataSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDataSetResponse => __isa(o, "DeleteDataSetResponse");
 }
 
 export interface DeleteDataSourceRequest {
-  __type?: "DeleteDataSourceRequest";
   /**
    * <p>The AWS account ID.</p>
    */
@@ -2688,11 +2532,9 @@ export namespace DeleteDataSourceRequest {
   export const filterSensitiveLog = (obj: DeleteDataSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDataSourceRequest => __isa(o, "DeleteDataSourceRequest");
 }
 
 export interface DeleteDataSourceResponse {
-  __type?: "DeleteDataSourceResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -2713,11 +2555,9 @@ export namespace DeleteDataSourceResponse {
   export const filterSensitiveLog = (obj: DeleteDataSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDataSourceResponse => __isa(o, "DeleteDataSourceResponse");
 }
 
 export interface DeleteGroupMembershipRequest {
-  __type?: "DeleteGroupMembershipRequest";
   /**
    * <p>The name of the group that you want to delete the user from.</p>
    */
@@ -2744,11 +2584,9 @@ export namespace DeleteGroupMembershipRequest {
   export const filterSensitiveLog = (obj: DeleteGroupMembershipRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupMembershipRequest => __isa(o, "DeleteGroupMembershipRequest");
 }
 
 export interface DeleteGroupMembershipResponse {
-  __type?: "DeleteGroupMembershipResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -2759,11 +2597,9 @@ export namespace DeleteGroupMembershipResponse {
   export const filterSensitiveLog = (obj: DeleteGroupMembershipResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupMembershipResponse => __isa(o, "DeleteGroupMembershipResponse");
 }
 
 export interface DeleteGroupRequest {
-  __type?: "DeleteGroupRequest";
   /**
    * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
    */
@@ -2785,11 +2621,9 @@ export namespace DeleteGroupRequest {
   export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupRequest => __isa(o, "DeleteGroupRequest");
 }
 
 export interface DeleteGroupResponse {
-  __type?: "DeleteGroupResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -2800,11 +2634,9 @@ export namespace DeleteGroupResponse {
   export const filterSensitiveLog = (obj: DeleteGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGroupResponse => __isa(o, "DeleteGroupResponse");
 }
 
 export interface DeleteIAMPolicyAssignmentRequest {
-  __type?: "DeleteIAMPolicyAssignmentRequest";
   /**
    * <p>The namespace that contains the assignment.</p>
    */
@@ -2825,11 +2657,9 @@ export namespace DeleteIAMPolicyAssignmentRequest {
   export const filterSensitiveLog = (obj: DeleteIAMPolicyAssignmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIAMPolicyAssignmentRequest => __isa(o, "DeleteIAMPolicyAssignmentRequest");
 }
 
 export interface DeleteIAMPolicyAssignmentResponse {
-  __type?: "DeleteIAMPolicyAssignmentResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -2845,11 +2675,9 @@ export namespace DeleteIAMPolicyAssignmentResponse {
   export const filterSensitiveLog = (obj: DeleteIAMPolicyAssignmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIAMPolicyAssignmentResponse => __isa(o, "DeleteIAMPolicyAssignmentResponse");
 }
 
 export interface DeleteNamespaceRequest {
-  __type?: "DeleteNamespaceRequest";
   /**
    * <p>The namespace that you want to delete.</p>
    */
@@ -2865,11 +2693,9 @@ export namespace DeleteNamespaceRequest {
   export const filterSensitiveLog = (obj: DeleteNamespaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNamespaceRequest => __isa(o, "DeleteNamespaceRequest");
 }
 
 export interface DeleteNamespaceResponse {
-  __type?: "DeleteNamespaceResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -2880,11 +2706,9 @@ export namespace DeleteNamespaceResponse {
   export const filterSensitiveLog = (obj: DeleteNamespaceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNamespaceResponse => __isa(o, "DeleteNamespaceResponse");
 }
 
 export interface DeleteTemplateAliasRequest {
-  __type?: "DeleteTemplateAliasRequest";
   /**
    * <p>The name for the template alias. To delete a specific alias, you delete the version that the
    * 			alias points to. You can specify the alias name, or specify the latest version of the
@@ -2908,11 +2732,9 @@ export namespace DeleteTemplateAliasRequest {
   export const filterSensitiveLog = (obj: DeleteTemplateAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTemplateAliasRequest => __isa(o, "DeleteTemplateAliasRequest");
 }
 
 export interface DeleteTemplateAliasResponse {
-  __type?: "DeleteTemplateAliasResponse";
   /**
    * <p>The name for the template alias.</p>
    */
@@ -2938,11 +2760,9 @@ export namespace DeleteTemplateAliasResponse {
   export const filterSensitiveLog = (obj: DeleteTemplateAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTemplateAliasResponse => __isa(o, "DeleteTemplateAliasResponse");
 }
 
 export interface DeleteTemplateRequest {
-  __type?: "DeleteTemplateRequest";
   /**
    * <p>Specifies the version of the template that you want to delete.
    * 			If you don't provide a version number, <code>DeleteTemplate</code> deletes all versions of the template.
@@ -2965,11 +2785,9 @@ export namespace DeleteTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTemplateRequest => __isa(o, "DeleteTemplateRequest");
 }
 
 export interface DeleteTemplateResponse {
-  __type?: "DeleteTemplateResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -2990,11 +2808,9 @@ export namespace DeleteTemplateResponse {
   export const filterSensitiveLog = (obj: DeleteTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTemplateResponse => __isa(o, "DeleteTemplateResponse");
 }
 
 export interface DeleteThemeAliasRequest {
-  __type?: "DeleteThemeAliasRequest";
   /**
    * <p>The ID of the AWS account that contains the theme alias to delete.</p>
    */
@@ -3015,11 +2831,9 @@ export namespace DeleteThemeAliasRequest {
   export const filterSensitiveLog = (obj: DeleteThemeAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteThemeAliasRequest => __isa(o, "DeleteThemeAliasRequest");
 }
 
 export interface DeleteThemeAliasResponse {
-  __type?: "DeleteThemeAliasResponse";
   /**
    * <p>An ID for the theme associated with the deletion.</p>
    */
@@ -3045,11 +2859,9 @@ export namespace DeleteThemeAliasResponse {
   export const filterSensitiveLog = (obj: DeleteThemeAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteThemeAliasResponse => __isa(o, "DeleteThemeAliasResponse");
 }
 
 export interface DeleteThemeRequest {
-  __type?: "DeleteThemeRequest";
   /**
    * <p>The version of the theme that you want to delete. </p>
    * 		       <p>
@@ -3073,11 +2885,9 @@ export namespace DeleteThemeRequest {
   export const filterSensitiveLog = (obj: DeleteThemeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteThemeRequest => __isa(o, "DeleteThemeRequest");
 }
 
 export interface DeleteThemeResponse {
-  __type?: "DeleteThemeResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -3098,14 +2908,12 @@ export namespace DeleteThemeResponse {
   export const filterSensitiveLog = (obj: DeleteThemeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteThemeResponse => __isa(o, "DeleteThemeResponse");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteUserByPrincipalIdRequest {
-  __type?: "DeleteUserByPrincipalIdRequest";
   /**
    * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
    */
@@ -3127,11 +2935,9 @@ export namespace DeleteUserByPrincipalIdRequest {
   export const filterSensitiveLog = (obj: DeleteUserByPrincipalIdRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserByPrincipalIdRequest => __isa(o, "DeleteUserByPrincipalIdRequest");
 }
 
 export interface DeleteUserByPrincipalIdResponse {
-  __type?: "DeleteUserByPrincipalIdResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -3142,11 +2948,9 @@ export namespace DeleteUserByPrincipalIdResponse {
   export const filterSensitiveLog = (obj: DeleteUserByPrincipalIdResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserByPrincipalIdResponse => __isa(o, "DeleteUserByPrincipalIdResponse");
 }
 
 export interface DeleteUserRequest {
-  __type?: "DeleteUserRequest";
   /**
    * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
    */
@@ -3168,11 +2972,9 @@ export namespace DeleteUserRequest {
   export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
 export interface DeleteUserResponse {
-  __type?: "DeleteUserResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -3183,11 +2985,9 @@ export namespace DeleteUserResponse {
   export const filterSensitiveLog = (obj: DeleteUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserResponse => __isa(o, "DeleteUserResponse");
 }
 
 export interface DescribeAccountCustomizationRequest {
-  __type?: "DescribeAccountCustomizationRequest";
   /**
    * <p>The ID for the AWS account that you want to describe QuickSight customizations for.</p>
    */
@@ -3209,12 +3009,9 @@ export namespace DescribeAccountCustomizationRequest {
   export const filterSensitiveLog = (obj: DescribeAccountCustomizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountCustomizationRequest =>
-    __isa(o, "DescribeAccountCustomizationRequest");
 }
 
 export interface DescribeAccountCustomizationResponse {
-  __type?: "DescribeAccountCustomizationResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -3240,12 +3037,9 @@ export namespace DescribeAccountCustomizationResponse {
   export const filterSensitiveLog = (obj: DescribeAccountCustomizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountCustomizationResponse =>
-    __isa(o, "DescribeAccountCustomizationResponse");
 }
 
 export interface DescribeAccountSettingsRequest {
-  __type?: "DescribeAccountSettingsRequest";
   /**
    * <p>The ID for the AWS account that contains the QuickSight namespaces that you want to list.</p>
    */
@@ -3256,11 +3050,9 @@ export namespace DescribeAccountSettingsRequest {
   export const filterSensitiveLog = (obj: DescribeAccountSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountSettingsRequest => __isa(o, "DescribeAccountSettingsRequest");
 }
 
 export interface DescribeAccountSettingsResponse {
-  __type?: "DescribeAccountSettingsResponse";
   /**
    * <p>The settings associated with the QuickSight subscription associated with this AWS account. This information includes the
    *             edition of Amazon QuickSight that you subscribed to (Standard or Enterprise) and the
@@ -3280,11 +3072,9 @@ export namespace DescribeAccountSettingsResponse {
   export const filterSensitiveLog = (obj: DescribeAccountSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountSettingsResponse => __isa(o, "DescribeAccountSettingsResponse");
 }
 
 export interface DescribeDashboardPermissionsRequest {
-  __type?: "DescribeDashboardPermissionsRequest";
   /**
    * <p>The ID for the dashboard, also added to the IAM policy.</p>
    */
@@ -3301,12 +3091,9 @@ export namespace DescribeDashboardPermissionsRequest {
   export const filterSensitiveLog = (obj: DescribeDashboardPermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDashboardPermissionsRequest =>
-    __isa(o, "DescribeDashboardPermissionsRequest");
 }
 
 export interface DescribeDashboardPermissionsResponse {
-  __type?: "DescribeDashboardPermissionsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
    */
@@ -3332,12 +3119,9 @@ export namespace DescribeDashboardPermissionsResponse {
   export const filterSensitiveLog = (obj: DescribeDashboardPermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDashboardPermissionsResponse =>
-    __isa(o, "DescribeDashboardPermissionsResponse");
 }
 
 export interface DescribeDashboardRequest {
-  __type?: "DescribeDashboardRequest";
   /**
    * <p>The ID for the dashboard.</p>
    */
@@ -3364,11 +3148,9 @@ export namespace DescribeDashboardRequest {
   export const filterSensitiveLog = (obj: DescribeDashboardRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDashboardRequest => __isa(o, "DescribeDashboardRequest");
 }
 
 export interface DescribeDashboardResponse {
-  __type?: "DescribeDashboardResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -3384,11 +3166,9 @@ export namespace DescribeDashboardResponse {
   export const filterSensitiveLog = (obj: DescribeDashboardResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDashboardResponse => __isa(o, "DescribeDashboardResponse");
 }
 
 export interface DescribeDataSetPermissionsRequest {
-  __type?: "DescribeDataSetPermissionsRequest";
   /**
    * <p>The AWS account ID.</p>
    */
@@ -3404,11 +3184,9 @@ export namespace DescribeDataSetPermissionsRequest {
   export const filterSensitiveLog = (obj: DescribeDataSetPermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataSetPermissionsRequest => __isa(o, "DescribeDataSetPermissionsRequest");
 }
 
 export interface DescribeDataSetPermissionsResponse {
-  __type?: "DescribeDataSetPermissionsResponse";
   /**
    * <p>A list of resource permissions on the dataset.</p>
    */
@@ -3434,12 +3212,9 @@ export namespace DescribeDataSetPermissionsResponse {
   export const filterSensitiveLog = (obj: DescribeDataSetPermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataSetPermissionsResponse =>
-    __isa(o, "DescribeDataSetPermissionsResponse");
 }
 
 export interface DescribeDataSetRequest {
-  __type?: "DescribeDataSetRequest";
   /**
    * <p>The AWS account ID.</p>
    */
@@ -3455,11 +3230,9 @@ export namespace DescribeDataSetRequest {
   export const filterSensitiveLog = (obj: DescribeDataSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataSetRequest => __isa(o, "DescribeDataSetRequest");
 }
 
 export interface DescribeDataSetResponse {
-  __type?: "DescribeDataSetResponse";
   /**
    * <p>Information on the dataset.</p>
    */
@@ -3475,11 +3248,9 @@ export namespace DescribeDataSetResponse {
   export const filterSensitiveLog = (obj: DescribeDataSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataSetResponse => __isa(o, "DescribeDataSetResponse");
 }
 
 export interface DescribeDataSourcePermissionsRequest {
-  __type?: "DescribeDataSourcePermissionsRequest";
   /**
    * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
    */
@@ -3495,12 +3266,9 @@ export namespace DescribeDataSourcePermissionsRequest {
   export const filterSensitiveLog = (obj: DescribeDataSourcePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataSourcePermissionsRequest =>
-    __isa(o, "DescribeDataSourcePermissionsRequest");
 }
 
 export interface DescribeDataSourcePermissionsResponse {
-  __type?: "DescribeDataSourcePermissionsResponse";
   /**
    * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
    */
@@ -3526,12 +3294,9 @@ export namespace DescribeDataSourcePermissionsResponse {
   export const filterSensitiveLog = (obj: DescribeDataSourcePermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataSourcePermissionsResponse =>
-    __isa(o, "DescribeDataSourcePermissionsResponse");
 }
 
 export interface DescribeDataSourceRequest {
-  __type?: "DescribeDataSourceRequest";
   /**
    * <p>The AWS account ID.</p>
    */
@@ -3547,11 +3312,9 @@ export namespace DescribeDataSourceRequest {
   export const filterSensitiveLog = (obj: DescribeDataSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataSourceRequest => __isa(o, "DescribeDataSourceRequest");
 }
 
 export interface DescribeDataSourceResponse {
-  __type?: "DescribeDataSourceResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -3567,11 +3330,9 @@ export namespace DescribeDataSourceResponse {
   export const filterSensitiveLog = (obj: DescribeDataSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataSourceResponse => __isa(o, "DescribeDataSourceResponse");
 }
 
 export interface DescribeGroupRequest {
-  __type?: "DescribeGroupRequest";
   /**
    * <p>The name of the group that you want to describe.</p>
    */
@@ -3593,11 +3354,9 @@ export namespace DescribeGroupRequest {
   export const filterSensitiveLog = (obj: DescribeGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGroupRequest => __isa(o, "DescribeGroupRequest");
 }
 
 export interface DescribeGroupResponse {
-  __type?: "DescribeGroupResponse";
   /**
    * <p>The name of the group.</p>
    */
@@ -3613,11 +3372,9 @@ export namespace DescribeGroupResponse {
   export const filterSensitiveLog = (obj: DescribeGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGroupResponse => __isa(o, "DescribeGroupResponse");
 }
 
 export interface DescribeIAMPolicyAssignmentRequest {
-  __type?: "DescribeIAMPolicyAssignmentRequest";
   /**
    * <p>The ID of the AWS account that contains the assignment that you want to describe.</p>
    */
@@ -3638,12 +3395,9 @@ export namespace DescribeIAMPolicyAssignmentRequest {
   export const filterSensitiveLog = (obj: DescribeIAMPolicyAssignmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIAMPolicyAssignmentRequest =>
-    __isa(o, "DescribeIAMPolicyAssignmentRequest");
 }
 
 export interface DescribeIAMPolicyAssignmentResponse {
-  __type?: "DescribeIAMPolicyAssignmentResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -3659,12 +3413,9 @@ export namespace DescribeIAMPolicyAssignmentResponse {
   export const filterSensitiveLog = (obj: DescribeIAMPolicyAssignmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIAMPolicyAssignmentResponse =>
-    __isa(o, "DescribeIAMPolicyAssignmentResponse");
 }
 
 export interface DescribeIngestionRequest {
-  __type?: "DescribeIngestionRequest";
   /**
    * <p>The AWS account ID.</p>
    */
@@ -3685,11 +3436,9 @@ export namespace DescribeIngestionRequest {
   export const filterSensitiveLog = (obj: DescribeIngestionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIngestionRequest => __isa(o, "DescribeIngestionRequest");
 }
 
 export interface DescribeIngestionResponse {
-  __type?: "DescribeIngestionResponse";
   /**
    * <p>Information about the ingestion.</p>
    */
@@ -3705,11 +3454,9 @@ export namespace DescribeIngestionResponse {
   export const filterSensitiveLog = (obj: DescribeIngestionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIngestionResponse => __isa(o, "DescribeIngestionResponse");
 }
 
 export interface DescribeNamespaceRequest {
-  __type?: "DescribeNamespaceRequest";
   /**
    * <p>The namespace that you want to describe.</p>
    */
@@ -3725,11 +3472,9 @@ export namespace DescribeNamespaceRequest {
   export const filterSensitiveLog = (obj: DescribeNamespaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNamespaceRequest => __isa(o, "DescribeNamespaceRequest");
 }
 
 export interface DescribeNamespaceResponse {
-  __type?: "DescribeNamespaceResponse";
   /**
    * <p>The information about the namespace that you're describing. The response includes
    *         the namespace ARN, name, AWS Region, creation status, and identity store. <code>DescribeNamespace</code> also
@@ -3748,11 +3493,9 @@ export namespace DescribeNamespaceResponse {
   export const filterSensitiveLog = (obj: DescribeNamespaceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNamespaceResponse => __isa(o, "DescribeNamespaceResponse");
 }
 
 export interface DescribeTemplateAliasRequest {
-  __type?: "DescribeTemplateAliasRequest";
   /**
    * <p>The name of the template alias that you want to describe. If you name a specific alias, you
    * 			describe the version that the alias points to. You can specify the latest version of the
@@ -3777,11 +3520,9 @@ export namespace DescribeTemplateAliasRequest {
   export const filterSensitiveLog = (obj: DescribeTemplateAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTemplateAliasRequest => __isa(o, "DescribeTemplateAliasRequest");
 }
 
 export interface DescribeTemplateAliasResponse {
-  __type?: "DescribeTemplateAliasResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -3797,11 +3538,9 @@ export namespace DescribeTemplateAliasResponse {
   export const filterSensitiveLog = (obj: DescribeTemplateAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTemplateAliasResponse => __isa(o, "DescribeTemplateAliasResponse");
 }
 
 export interface DescribeTemplatePermissionsRequest {
-  __type?: "DescribeTemplatePermissionsRequest";
   /**
    * <p>The ID for the template.</p>
    */
@@ -3817,12 +3556,9 @@ export namespace DescribeTemplatePermissionsRequest {
   export const filterSensitiveLog = (obj: DescribeTemplatePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTemplatePermissionsRequest =>
-    __isa(o, "DescribeTemplatePermissionsRequest");
 }
 
 export interface DescribeTemplatePermissionsResponse {
-  __type?: "DescribeTemplatePermissionsResponse";
   /**
    * <p>A list of resource permissions to be set on the template. </p>
    */
@@ -3848,12 +3584,9 @@ export namespace DescribeTemplatePermissionsResponse {
   export const filterSensitiveLog = (obj: DescribeTemplatePermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTemplatePermissionsResponse =>
-    __isa(o, "DescribeTemplatePermissionsResponse");
 }
 
 export interface DescribeTemplateRequest {
-  __type?: "DescribeTemplateRequest";
   /**
    * <p>The ID of the AWS account that contains the template that you're describing.</p>
    */
@@ -3883,11 +3616,9 @@ export namespace DescribeTemplateRequest {
   export const filterSensitiveLog = (obj: DescribeTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTemplateRequest => __isa(o, "DescribeTemplateRequest");
 }
 
 export interface DescribeTemplateResponse {
-  __type?: "DescribeTemplateResponse";
   /**
    * <p>The template structure for the object you want to describe.</p>
    */
@@ -3903,11 +3634,9 @@ export namespace DescribeTemplateResponse {
   export const filterSensitiveLog = (obj: DescribeTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTemplateResponse => __isa(o, "DescribeTemplateResponse");
 }
 
 export interface DescribeThemeAliasRequest {
-  __type?: "DescribeThemeAliasRequest";
   /**
    * <p>The ID of the AWS account that contains the theme alias that you're
    * 			describing.</p>
@@ -3929,11 +3658,9 @@ export namespace DescribeThemeAliasRequest {
   export const filterSensitiveLog = (obj: DescribeThemeAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThemeAliasRequest => __isa(o, "DescribeThemeAliasRequest");
 }
 
 export interface DescribeThemeAliasResponse {
-  __type?: "DescribeThemeAliasResponse";
   /**
    * <p>Information about the theme alias.</p>
    */
@@ -3949,11 +3676,9 @@ export namespace DescribeThemeAliasResponse {
   export const filterSensitiveLog = (obj: DescribeThemeAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThemeAliasResponse => __isa(o, "DescribeThemeAliasResponse");
 }
 
 export interface DescribeThemePermissionsRequest {
-  __type?: "DescribeThemePermissionsRequest";
   /**
    * <p>The ID of the AWS account that contains the theme that you're describing.</p>
    */
@@ -3969,11 +3694,9 @@ export namespace DescribeThemePermissionsRequest {
   export const filterSensitiveLog = (obj: DescribeThemePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThemePermissionsRequest => __isa(o, "DescribeThemePermissionsRequest");
 }
 
 export interface DescribeThemePermissionsResponse {
-  __type?: "DescribeThemePermissionsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the theme.</p>
    */
@@ -3999,11 +3722,9 @@ export namespace DescribeThemePermissionsResponse {
   export const filterSensitiveLog = (obj: DescribeThemePermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThemePermissionsResponse => __isa(o, "DescribeThemePermissionsResponse");
 }
 
 export interface DescribeThemeRequest {
-  __type?: "DescribeThemeRequest";
   /**
    * <p>The ID for the theme.</p>
    */
@@ -4033,11 +3754,9 @@ export namespace DescribeThemeRequest {
   export const filterSensitiveLog = (obj: DescribeThemeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThemeRequest => __isa(o, "DescribeThemeRequest");
 }
 
 export interface DescribeThemeResponse {
-  __type?: "DescribeThemeResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -4053,11 +3772,9 @@ export namespace DescribeThemeResponse {
   export const filterSensitiveLog = (obj: DescribeThemeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeThemeResponse => __isa(o, "DescribeThemeResponse");
 }
 
 export interface DescribeUserRequest {
-  __type?: "DescribeUserRequest";
   /**
    * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
    */
@@ -4079,11 +3796,9 @@ export namespace DescribeUserRequest {
   export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserRequest => __isa(o, "DescribeUserRequest");
 }
 
 export interface DescribeUserResponse {
-  __type?: "DescribeUserResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -4099,7 +3814,6 @@ export namespace DescribeUserResponse {
   export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserResponse => __isa(o, "DescribeUserResponse");
 }
 
 /**
@@ -4120,7 +3834,6 @@ export namespace DomainNotWhitelistedException {
   export const filterSensitiveLog = (obj: DomainNotWhitelistedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainNotWhitelistedException => __isa(o, "DomainNotWhitelistedException");
 }
 
 export enum Edition {
@@ -4132,7 +3845,6 @@ export enum Edition {
  * <p>Error information for the SPICE ingestion of a dataset.</p>
  */
 export interface ErrorInfo {
-  __type?: "ErrorInfo";
   /**
    * <p>Error type.</p>
    */
@@ -4148,7 +3860,6 @@ export namespace ErrorInfo {
   export const filterSensitiveLog = (obj: ErrorInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorInfo => __isa(o, "ErrorInfo");
 }
 
 export enum ExceptionResourceType {
@@ -4167,7 +3878,6 @@ export enum ExceptionResourceType {
  * <p>Export to .csv option.</p>
  */
 export interface ExportToCSVOption {
-  __type?: "ExportToCSVOption";
   /**
    * <p>Availability status.</p>
    */
@@ -4178,7 +3888,6 @@ export namespace ExportToCSVOption {
   export const filterSensitiveLog = (obj: ExportToCSVOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportToCSVOption => __isa(o, "ExportToCSVOption");
 }
 
 export enum FileFormat {
@@ -4194,7 +3903,6 @@ export enum FileFormat {
  * <p>A transform operation that filters rows based on a condition.</p>
  */
 export interface FilterOperation {
-  __type?: "FilterOperation";
   /**
    * <p>An expression that must evaluate to a Boolean value. Rows for which the expression
    *             evaluates to true are kept in the dataset.</p>
@@ -4206,7 +3914,6 @@ export namespace FilterOperation {
   export const filterSensitiveLog = (obj: FilterOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FilterOperation => __isa(o, "FilterOperation");
 }
 
 export enum FilterOperator {
@@ -4217,7 +3924,6 @@ export enum FilterOperator {
  * <p>Geospatial column group that denotes a hierarchy.</p>
  */
 export interface GeoSpatialColumnGroup {
-  __type?: "GeoSpatialColumnGroup";
   /**
    * <p>A display name for the hierarchy.</p>
    */
@@ -4238,7 +3944,6 @@ export namespace GeoSpatialColumnGroup {
   export const filterSensitiveLog = (obj: GeoSpatialColumnGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GeoSpatialColumnGroup => __isa(o, "GeoSpatialColumnGroup");
 }
 
 export enum GeoSpatialCountryCode {
@@ -4256,7 +3961,6 @@ export enum GeoSpatialDataRole {
 }
 
 export interface GetDashboardEmbedUrlRequest {
-  __type?: "GetDashboardEmbedUrlRequest";
   /**
    * <p>Remove the reset button on the embedded dashboard. The default is FALSE, which enables the
    * 			reset button.</p>
@@ -4313,11 +4017,9 @@ export namespace GetDashboardEmbedUrlRequest {
   export const filterSensitiveLog = (obj: GetDashboardEmbedUrlRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDashboardEmbedUrlRequest => __isa(o, "GetDashboardEmbedUrlRequest");
 }
 
 export interface GetDashboardEmbedUrlResponse {
-  __type?: "GetDashboardEmbedUrlResponse";
   /**
    * <p>A single-use URL that you can put into your server-side webpage to embed your
    * 			dashboard. This URL is valid for 5 minutes. The API provides the URL with an
@@ -4337,11 +4039,9 @@ export namespace GetDashboardEmbedUrlResponse {
     ...obj,
     ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetDashboardEmbedUrlResponse => __isa(o, "GetDashboardEmbedUrlResponse");
 }
 
 export interface GetSessionEmbedUrlRequest {
-  __type?: "GetSessionEmbedUrlRequest";
   /**
    * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
    */
@@ -4381,11 +4081,9 @@ export namespace GetSessionEmbedUrlRequest {
   export const filterSensitiveLog = (obj: GetSessionEmbedUrlRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSessionEmbedUrlRequest => __isa(o, "GetSessionEmbedUrlRequest");
 }
 
 export interface GetSessionEmbedUrlResponse {
-  __type?: "GetSessionEmbedUrlResponse";
   /**
    * <p>A single-use URL that you can put into your server-side web page to embed your
    * 			QuickSight session. This URL is valid for 5 minutes. The API provides the URL with an
@@ -4405,7 +4103,6 @@ export namespace GetSessionEmbedUrlResponse {
     ...obj,
     ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetSessionEmbedUrlResponse => __isa(o, "GetSessionEmbedUrlResponse");
 }
 
 /**
@@ -4414,7 +4111,6 @@ export namespace GetSessionEmbedUrlResponse {
  *             QuickSight subscription can't contain more than 500 Amazon QuickSight groups.</p>
  */
 export interface Group {
-  __type?: "Group";
   /**
    * <p>The name of the group.</p>
    */
@@ -4440,7 +4136,6 @@ export namespace Group {
   export const filterSensitiveLog = (obj: Group): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Group => __isa(o, "Group");
 }
 
 /**
@@ -4448,7 +4143,6 @@ export namespace Group {
  *             can't be members of another group. .</p>
  */
 export interface GroupMember {
-  __type?: "GroupMember";
   /**
    * <p>The name of the group member (user).</p>
    */
@@ -4464,14 +4158,12 @@ export namespace GroupMember {
   export const filterSensitiveLog = (obj: GroupMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupMember => __isa(o, "GroupMember");
 }
 
 /**
  * <p>The display options for gutter spacing between tiles on a sheet.</p>
  */
 export interface GutterStyle {
-  __type?: "GutterStyle";
   /**
    * <p>This Boolean value controls whether to display a gutter space between sheet tiles.
    *         </p>
@@ -4483,14 +4175,12 @@ export namespace GutterStyle {
   export const filterSensitiveLog = (obj: GutterStyle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GutterStyle => __isa(o, "GutterStyle");
 }
 
 /**
  * <p>An AWS Identity and Access Management (IAM) policy assignment.</p>
  */
 export interface IAMPolicyAssignment {
-  __type?: "IAMPolicyAssignment";
   /**
    * <p>Assignment name.</p>
    */
@@ -4526,14 +4216,12 @@ export namespace IAMPolicyAssignment {
   export const filterSensitiveLog = (obj: IAMPolicyAssignment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IAMPolicyAssignment => __isa(o, "IAMPolicyAssignment");
 }
 
 /**
  * <p>IAM policy assignment summary.</p>
  */
 export interface IAMPolicyAssignmentSummary {
-  __type?: "IAMPolicyAssignmentSummary";
   /**
    * <p>Assignment status.</p>
    */
@@ -4549,7 +4237,6 @@ export namespace IAMPolicyAssignmentSummary {
   export const filterSensitiveLog = (obj: IAMPolicyAssignmentSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IAMPolicyAssignmentSummary => __isa(o, "IAMPolicyAssignmentSummary");
 }
 
 export enum IdentityStore {
@@ -4580,14 +4267,12 @@ export namespace IdentityTypeNotSupportedException {
   export const filterSensitiveLog = (obj: IdentityTypeNotSupportedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityTypeNotSupportedException => __isa(o, "IdentityTypeNotSupportedException");
 }
 
 /**
  * <p>Information about the SPICE ingestion for a dataset.</p>
  */
 export interface Ingestion {
-  __type?: "Ingestion";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -4648,7 +4333,6 @@ export namespace Ingestion {
   export const filterSensitiveLog = (obj: Ingestion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ingestion => __isa(o, "Ingestion");
 }
 
 export enum IngestionErrorType {
@@ -4719,7 +4403,6 @@ export enum IngestionStatus {
  * <p>Metadata for a column that is used as the input of a transform operation.</p>
  */
 export interface InputColumn {
-  __type?: "InputColumn";
   /**
    * <p>The name of this column in the underlying data source.</p>
    */
@@ -4735,7 +4418,6 @@ export namespace InputColumn {
   export const filterSensitiveLog = (obj: InputColumn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputColumn => __isa(o, "InputColumn");
 }
 
 export enum InputColumnDataType {
@@ -4752,7 +4434,6 @@ export enum InputColumnDataType {
  * <p>Integer parameter.</p>
  */
 export interface IntegerParameter {
-  __type?: "IntegerParameter";
   /**
    * <p>A display name for the dataset.</p>
    */
@@ -4768,7 +4449,6 @@ export namespace IntegerParameter {
   export const filterSensitiveLog = (obj: IntegerParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IntegerParameter => __isa(o, "IntegerParameter");
 }
 
 /**
@@ -4788,7 +4468,6 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
@@ -4809,7 +4488,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -4830,14 +4508,12 @@ export namespace InvalidParameterValueException {
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
  * <p>Jira parameters.</p>
  */
 export interface JiraParameters {
-  __type?: "JiraParameters";
   /**
    * <p>The base URL of the Jira site.</p>
    */
@@ -4848,14 +4524,12 @@ export namespace JiraParameters {
   export const filterSensitiveLog = (obj: JiraParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JiraParameters => __isa(o, "JiraParameters");
 }
 
 /**
  * <p>Join instruction.</p>
  */
 export interface JoinInstruction {
-  __type?: "JoinInstruction";
   /**
    * <p>Type.</p>
    */
@@ -4881,7 +4555,6 @@ export namespace JoinInstruction {
   export const filterSensitiveLog = (obj: JoinInstruction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JoinInstruction => __isa(o, "JoinInstruction");
 }
 
 export enum JoinType {
@@ -4913,11 +4586,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListDashboardsRequest {
-  __type?: "ListDashboardsRequest";
   /**
    * <p>The ID of the AWS account that contains the dashboards that you're listing.</p>
    */
@@ -4938,11 +4609,9 @@ export namespace ListDashboardsRequest {
   export const filterSensitiveLog = (obj: ListDashboardsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDashboardsRequest => __isa(o, "ListDashboardsRequest");
 }
 
 export interface ListDashboardsResponse {
-  __type?: "ListDashboardsResponse";
   /**
    * <p>A structure that contains all of the dashboards in your AWS account. This structure
    * 			provides basic information about the dashboards.</p>
@@ -4964,11 +4633,9 @@ export namespace ListDashboardsResponse {
   export const filterSensitiveLog = (obj: ListDashboardsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDashboardsResponse => __isa(o, "ListDashboardsResponse");
 }
 
 export interface ListDashboardVersionsRequest {
-  __type?: "ListDashboardVersionsRequest";
   /**
    * <p>The maximum number of results to be returned per request.</p>
    */
@@ -4995,11 +4662,9 @@ export namespace ListDashboardVersionsRequest {
   export const filterSensitiveLog = (obj: ListDashboardVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDashboardVersionsRequest => __isa(o, "ListDashboardVersionsRequest");
 }
 
 export interface ListDashboardVersionsResponse {
-  __type?: "ListDashboardVersionsResponse";
   /**
    * <p>A structure that contains information about each version of the dashboard.</p>
    */
@@ -5020,11 +4685,9 @@ export namespace ListDashboardVersionsResponse {
   export const filterSensitiveLog = (obj: ListDashboardVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDashboardVersionsResponse => __isa(o, "ListDashboardVersionsResponse");
 }
 
 export interface ListDataSetsRequest {
-  __type?: "ListDataSetsRequest";
   /**
    * <p>The maximum number of results to be returned per request.</p>
    */
@@ -5045,11 +4708,9 @@ export namespace ListDataSetsRequest {
   export const filterSensitiveLog = (obj: ListDataSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSetsRequest => __isa(o, "ListDataSetsRequest");
 }
 
 export interface ListDataSetsResponse {
-  __type?: "ListDataSetsResponse";
   /**
    * <p>The list of dataset summaries.</p>
    */
@@ -5070,11 +4731,9 @@ export namespace ListDataSetsResponse {
   export const filterSensitiveLog = (obj: ListDataSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSetsResponse => __isa(o, "ListDataSetsResponse");
 }
 
 export interface ListDataSourcesRequest {
-  __type?: "ListDataSourcesRequest";
   /**
    * <p>The maximum number of results to be returned per request.</p>
    */
@@ -5095,11 +4754,9 @@ export namespace ListDataSourcesRequest {
   export const filterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSourcesRequest => __isa(o, "ListDataSourcesRequest");
 }
 
 export interface ListDataSourcesResponse {
-  __type?: "ListDataSourcesResponse";
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
@@ -5120,11 +4777,9 @@ export namespace ListDataSourcesResponse {
   export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSourcesResponse => __isa(o, "ListDataSourcesResponse");
 }
 
 export interface ListGroupMembershipsRequest {
-  __type?: "ListGroupMembershipsRequest";
   /**
    * <p>The maximum number of results to return from this request.</p>
    */
@@ -5156,11 +4811,9 @@ export namespace ListGroupMembershipsRequest {
   export const filterSensitiveLog = (obj: ListGroupMembershipsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupMembershipsRequest => __isa(o, "ListGroupMembershipsRequest");
 }
 
 export interface ListGroupMembershipsResponse {
-  __type?: "ListGroupMembershipsResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -5181,11 +4834,9 @@ export namespace ListGroupMembershipsResponse {
   export const filterSensitiveLog = (obj: ListGroupMembershipsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupMembershipsResponse => __isa(o, "ListGroupMembershipsResponse");
 }
 
 export interface ListGroupsRequest {
-  __type?: "ListGroupsRequest";
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
    */
@@ -5212,11 +4863,9 @@ export namespace ListGroupsRequest {
   export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsRequest => __isa(o, "ListGroupsRequest");
 }
 
 export interface ListGroupsResponse {
-  __type?: "ListGroupsResponse";
   /**
    * <p>The list of the groups.</p>
    */
@@ -5237,11 +4886,9 @@ export namespace ListGroupsResponse {
   export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGroupsResponse => __isa(o, "ListGroupsResponse");
 }
 
 export interface ListIAMPolicyAssignmentsForUserRequest {
-  __type?: "ListIAMPolicyAssignmentsForUserRequest";
   /**
    * <p>The ID of the AWS account that contains the assignments.</p>
    */
@@ -5272,12 +4919,9 @@ export namespace ListIAMPolicyAssignmentsForUserRequest {
   export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsForUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIAMPolicyAssignmentsForUserRequest =>
-    __isa(o, "ListIAMPolicyAssignmentsForUserRequest");
 }
 
 export interface ListIAMPolicyAssignmentsForUserResponse {
-  __type?: "ListIAMPolicyAssignmentsForUserResponse";
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
@@ -5298,12 +4942,9 @@ export namespace ListIAMPolicyAssignmentsForUserResponse {
   export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsForUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIAMPolicyAssignmentsForUserResponse =>
-    __isa(o, "ListIAMPolicyAssignmentsForUserResponse");
 }
 
 export interface ListIAMPolicyAssignmentsRequest {
-  __type?: "ListIAMPolicyAssignmentsRequest";
   /**
    * <p>The maximum number of results to be returned per request.</p>
    */
@@ -5334,11 +4975,9 @@ export namespace ListIAMPolicyAssignmentsRequest {
   export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIAMPolicyAssignmentsRequest => __isa(o, "ListIAMPolicyAssignmentsRequest");
 }
 
 export interface ListIAMPolicyAssignmentsResponse {
-  __type?: "ListIAMPolicyAssignmentsResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -5359,11 +4998,9 @@ export namespace ListIAMPolicyAssignmentsResponse {
   export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIAMPolicyAssignmentsResponse => __isa(o, "ListIAMPolicyAssignmentsResponse");
 }
 
 export interface ListIngestionsRequest {
-  __type?: "ListIngestionsRequest";
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
@@ -5389,11 +5026,9 @@ export namespace ListIngestionsRequest {
   export const filterSensitiveLog = (obj: ListIngestionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIngestionsRequest => __isa(o, "ListIngestionsRequest");
 }
 
 export interface ListIngestionsResponse {
-  __type?: "ListIngestionsResponse";
   /**
    * <p>A list of the ingestions.</p>
    */
@@ -5414,11 +5049,9 @@ export namespace ListIngestionsResponse {
   export const filterSensitiveLog = (obj: ListIngestionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIngestionsResponse => __isa(o, "ListIngestionsResponse");
 }
 
 export interface ListNamespacesRequest {
-  __type?: "ListNamespacesRequest";
   /**
    * <p>The ID for the AWS account that contains the QuickSight namespaces that you want to list.</p>
    */
@@ -5439,11 +5072,9 @@ export namespace ListNamespacesRequest {
   export const filterSensitiveLog = (obj: ListNamespacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNamespacesRequest => __isa(o, "ListNamespacesRequest");
 }
 
 export interface ListNamespacesResponse {
-  __type?: "ListNamespacesResponse";
   /**
    * <p>The information about the namespaces in this AWS account. The response includes
    *         the namespace ARN, name, AWS Region, notification email address, creation status, and
@@ -5466,11 +5097,9 @@ export namespace ListNamespacesResponse {
   export const filterSensitiveLog = (obj: ListNamespacesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNamespacesResponse => __isa(o, "ListNamespacesResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</p>
    */
@@ -5481,11 +5110,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -5502,11 +5129,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTemplateAliasesRequest {
-  __type?: "ListTemplateAliasesRequest";
   /**
    * <p>The maximum number of results to be returned per request.</p>
    */
@@ -5532,11 +5157,9 @@ export namespace ListTemplateAliasesRequest {
   export const filterSensitiveLog = (obj: ListTemplateAliasesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTemplateAliasesRequest => __isa(o, "ListTemplateAliasesRequest");
 }
 
 export interface ListTemplateAliasesResponse {
-  __type?: "ListTemplateAliasesResponse";
   /**
    * <p>A structure containing the list of the template's aliases.</p>
    */
@@ -5557,11 +5180,9 @@ export namespace ListTemplateAliasesResponse {
   export const filterSensitiveLog = (obj: ListTemplateAliasesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTemplateAliasesResponse => __isa(o, "ListTemplateAliasesResponse");
 }
 
 export interface ListTemplatesRequest {
-  __type?: "ListTemplatesRequest";
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
@@ -5582,11 +5203,9 @@ export namespace ListTemplatesRequest {
   export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTemplatesRequest => __isa(o, "ListTemplatesRequest");
 }
 
 export interface ListTemplatesResponse {
-  __type?: "ListTemplatesResponse";
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
@@ -5607,11 +5226,9 @@ export namespace ListTemplatesResponse {
   export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTemplatesResponse => __isa(o, "ListTemplatesResponse");
 }
 
 export interface ListTemplateVersionsRequest {
-  __type?: "ListTemplateVersionsRequest";
   /**
    * <p>The ID for the template.</p>
    */
@@ -5637,11 +5254,9 @@ export namespace ListTemplateVersionsRequest {
   export const filterSensitiveLog = (obj: ListTemplateVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTemplateVersionsRequest => __isa(o, "ListTemplateVersionsRequest");
 }
 
 export interface ListTemplateVersionsResponse {
-  __type?: "ListTemplateVersionsResponse";
   /**
    * <p>A structure containing a list of all the versions of the specified template.</p>
    */
@@ -5662,11 +5277,9 @@ export namespace ListTemplateVersionsResponse {
   export const filterSensitiveLog = (obj: ListTemplateVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTemplateVersionsResponse => __isa(o, "ListTemplateVersionsResponse");
 }
 
 export interface ListThemeAliasesRequest {
-  __type?: "ListThemeAliasesRequest";
   /**
    * <p>The maximum number of results to be returned per request.</p>
    */
@@ -5692,11 +5305,9 @@ export namespace ListThemeAliasesRequest {
   export const filterSensitiveLog = (obj: ListThemeAliasesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThemeAliasesRequest => __isa(o, "ListThemeAliasesRequest");
 }
 
 export interface ListThemeAliasesResponse {
-  __type?: "ListThemeAliasesResponse";
   /**
    * <p>A structure containing the list of the theme's aliases.</p>
    */
@@ -5717,11 +5328,9 @@ export namespace ListThemeAliasesResponse {
   export const filterSensitiveLog = (obj: ListThemeAliasesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThemeAliasesResponse => __isa(o, "ListThemeAliasesResponse");
 }
 
 export interface ListThemesRequest {
-  __type?: "ListThemesRequest";
   /**
    * <p>The maximum number of results to be returned per request.</p>
    */
@@ -5761,11 +5370,9 @@ export namespace ListThemesRequest {
   export const filterSensitiveLog = (obj: ListThemesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThemesRequest => __isa(o, "ListThemesRequest");
 }
 
 export interface ListThemesResponse {
-  __type?: "ListThemesResponse";
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
@@ -5786,11 +5393,9 @@ export namespace ListThemesResponse {
   export const filterSensitiveLog = (obj: ListThemesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThemesResponse => __isa(o, "ListThemesResponse");
 }
 
 export interface ListThemeVersionsRequest {
-  __type?: "ListThemeVersionsRequest";
   /**
    * <p>The ID for the theme.</p>
    */
@@ -5816,11 +5421,9 @@ export namespace ListThemeVersionsRequest {
   export const filterSensitiveLog = (obj: ListThemeVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThemeVersionsRequest => __isa(o, "ListThemeVersionsRequest");
 }
 
 export interface ListThemeVersionsResponse {
-  __type?: "ListThemeVersionsResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -5841,11 +5444,9 @@ export namespace ListThemeVersionsResponse {
   export const filterSensitiveLog = (obj: ListThemeVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListThemeVersionsResponse => __isa(o, "ListThemeVersionsResponse");
 }
 
 export interface ListUserGroupsRequest {
-  __type?: "ListUserGroupsRequest";
   /**
    * <p>The maximum number of results to return from this request.</p>
    */
@@ -5877,11 +5478,9 @@ export namespace ListUserGroupsRequest {
   export const filterSensitiveLog = (obj: ListUserGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserGroupsRequest => __isa(o, "ListUserGroupsRequest");
 }
 
 export interface ListUserGroupsResponse {
-  __type?: "ListUserGroupsResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -5902,11 +5501,9 @@ export namespace ListUserGroupsResponse {
   export const filterSensitiveLog = (obj: ListUserGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserGroupsResponse => __isa(o, "ListUserGroupsResponse");
 }
 
 export interface ListUsersRequest {
-  __type?: "ListUsersRequest";
   /**
    * <p>The maximum number of results to return from this request.</p>
    */
@@ -5933,11 +5530,9 @@ export namespace ListUsersRequest {
   export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersRequest => __isa(o, "ListUsersRequest");
 }
 
 export interface ListUsersResponse {
-  __type?: "ListUsersResponse";
   /**
    * <p>The list of users.</p>
    */
@@ -5958,7 +5553,6 @@ export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersResponse => __isa(o, "ListUsersResponse");
 }
 
 /**
@@ -5968,7 +5562,6 @@ export namespace ListUsersResponse {
  *             table acts as a mutable copy of that physical table through transform operations.</p>
  */
 export interface LogicalTable {
-  __type?: "LogicalTable";
   /**
    * <p>Source of this logical table.</p>
    */
@@ -5989,7 +5582,6 @@ export namespace LogicalTable {
   export const filterSensitiveLog = (obj: LogicalTable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogicalTable => __isa(o, "LogicalTable");
 }
 
 /**
@@ -5997,7 +5589,6 @@ export namespace LogicalTable {
  *             this structure to be valid, only one of the attributes can be non-null.</p>
  */
 export interface LogicalTableSource {
-  __type?: "LogicalTableSource";
   /**
    * <p>Physical table ID.</p>
    */
@@ -6013,14 +5604,12 @@ export namespace LogicalTableSource {
   export const filterSensitiveLog = (obj: LogicalTableSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogicalTableSource => __isa(o, "LogicalTableSource");
 }
 
 /**
  * <p>Amazon S3 manifest file location.</p>
  */
 export interface ManifestFileLocation {
-  __type?: "ManifestFileLocation";
   /**
    * <p>Amazon S3 bucket.</p>
    */
@@ -6036,14 +5625,12 @@ export namespace ManifestFileLocation {
   export const filterSensitiveLog = (obj: ManifestFileLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManifestFileLocation => __isa(o, "ManifestFileLocation");
 }
 
 /**
  * <p>The display options for margins around the outside edge of sheets.</p>
  */
 export interface MarginStyle {
-  __type?: "MarginStyle";
   /**
    * <p>This Boolean value controls whether to display sheet margins.</p>
    */
@@ -6054,14 +5641,12 @@ export namespace MarginStyle {
   export const filterSensitiveLog = (obj: MarginStyle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MarginStyle => __isa(o, "MarginStyle");
 }
 
 /**
  * <p>MariaDB parameters.</p>
  */
 export interface MariaDbParameters {
-  __type?: "MariaDbParameters";
   /**
    * <p>Port.</p>
    */
@@ -6082,14 +5667,12 @@ export namespace MariaDbParameters {
   export const filterSensitiveLog = (obj: MariaDbParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MariaDbParameters => __isa(o, "MariaDbParameters");
 }
 
 /**
  * <p>MySQL parameters.</p>
  */
 export interface MySqlParameters {
-  __type?: "MySqlParameters";
   /**
    * <p>Database.</p>
    */
@@ -6110,14 +5693,12 @@ export namespace MySqlParameters {
   export const filterSensitiveLog = (obj: MySqlParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MySqlParameters => __isa(o, "MySqlParameters");
 }
 
 /**
  * <p>Errors that occur during namespace creation.</p>
  */
 export interface NamespaceError {
-  __type?: "NamespaceError";
   /**
    * <p>The error type.</p>
    */
@@ -6133,7 +5714,6 @@ export namespace NamespaceError {
   export const filterSensitiveLog = (obj: NamespaceError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NamespaceError => __isa(o, "NamespaceError");
 }
 
 export enum NamespaceErrorType {
@@ -6145,7 +5725,6 @@ export enum NamespaceErrorType {
  * <p>The error type.</p>
  */
 export interface NamespaceInfoV2 {
-  __type?: "NamespaceInfoV2";
   /**
    * <p>The namespace ARN.</p>
    */
@@ -6181,7 +5760,6 @@ export namespace NamespaceInfoV2 {
   export const filterSensitiveLog = (obj: NamespaceInfoV2): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NamespaceInfoV2 => __isa(o, "NamespaceInfoV2");
 }
 
 export enum NamespaceStatus {
@@ -6196,7 +5774,6 @@ export enum NamespaceStatus {
  * <p>Output column.</p>
  */
 export interface OutputColumn {
-  __type?: "OutputColumn";
   /**
    * <p>A display name for the dataset.</p>
    */
@@ -6212,14 +5789,12 @@ export namespace OutputColumn {
   export const filterSensitiveLog = (obj: OutputColumn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputColumn => __isa(o, "OutputColumn");
 }
 
 /**
  * <p>Parameters.</p>
  */
 export interface _Parameters {
-  __type?: "Parameters";
   /**
    * <p>String parameters.</p>
    */
@@ -6245,7 +5820,6 @@ export namespace _Parameters {
   export const filterSensitiveLog = (obj: _Parameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is _Parameters => __isa(o, "Parameters");
 }
 
 /**
@@ -6254,7 +5828,6 @@ export namespace _Parameters {
  *             only one of the attributes can be non-null.</p>
  */
 export interface PhysicalTable {
-  __type?: "PhysicalTable";
   /**
    * <p>A physical table type for relational data sources.</p>
    */
@@ -6275,14 +5848,12 @@ export namespace PhysicalTable {
   export const filterSensitiveLog = (obj: PhysicalTable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PhysicalTable => __isa(o, "PhysicalTable");
 }
 
 /**
  * <p>PostgreSQL parameters.</p>
  */
 export interface PostgreSqlParameters {
-  __type?: "PostgreSqlParameters";
   /**
    * <p>Host.</p>
    */
@@ -6303,7 +5874,6 @@ export namespace PostgreSqlParameters {
   export const filterSensitiveLog = (obj: PostgreSqlParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PostgreSqlParameters => __isa(o, "PostgreSqlParameters");
 }
 
 /**
@@ -6323,14 +5893,12 @@ export namespace PreconditionNotMetException {
   export const filterSensitiveLog = (obj: PreconditionNotMetException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PreconditionNotMetException => __isa(o, "PreconditionNotMetException");
 }
 
 /**
  * <p>Presto parameters.</p>
  */
 export interface PrestoParameters {
-  __type?: "PrestoParameters";
   /**
    * <p>Port.</p>
    */
@@ -6351,7 +5919,6 @@ export namespace PrestoParameters {
   export const filterSensitiveLog = (obj: PrestoParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrestoParameters => __isa(o, "PrestoParameters");
 }
 
 /**
@@ -6359,7 +5926,6 @@ export namespace PrestoParameters {
  *             can only refer to projected columns.</p>
  */
 export interface ProjectOperation {
-  __type?: "ProjectOperation";
   /**
    * <p>Projected columns.</p>
    */
@@ -6370,14 +5936,12 @@ export namespace ProjectOperation {
   export const filterSensitiveLog = (obj: ProjectOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectOperation => __isa(o, "ProjectOperation");
 }
 
 /**
  * <p>Information about a queued dataset SPICE ingestion.</p>
  */
 export interface QueueInfo {
-  __type?: "QueueInfo";
   /**
    * <p>The ID of the ongoing ingestion. The queued ingestion is waiting for the ongoing
    *             ingestion to complete.</p>
@@ -6394,7 +5958,6 @@ export namespace QueueInfo {
   export const filterSensitiveLog = (obj: QueueInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueueInfo => __isa(o, "QueueInfo");
 }
 
 /**
@@ -6417,14 +5980,12 @@ export namespace QuickSightUserNotFoundException {
   export const filterSensitiveLog = (obj: QuickSightUserNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QuickSightUserNotFoundException => __isa(o, "QuickSightUserNotFoundException");
 }
 
 /**
  * <p>Amazon RDS parameters.</p>
  */
 export interface RdsParameters {
-  __type?: "RdsParameters";
   /**
    * <p>Database.</p>
    */
@@ -6440,7 +6001,6 @@ export namespace RdsParameters {
   export const filterSensitiveLog = (obj: RdsParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RdsParameters => __isa(o, "RdsParameters");
 }
 
 /**
@@ -6449,7 +6009,6 @@ export namespace RdsParameters {
  *             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
  */
 export interface RedshiftParameters {
-  __type?: "RedshiftParameters";
   /**
    * <p>Database.</p>
    */
@@ -6476,11 +6035,9 @@ export namespace RedshiftParameters {
   export const filterSensitiveLog = (obj: RedshiftParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RedshiftParameters => __isa(o, "RedshiftParameters");
 }
 
 export interface RegisterUserRequest {
-  __type?: "RegisterUserRequest";
   /**
    * <p>Amazon QuickSight supports several ways of managing the identity of users. This
    * 			parameter accepts two values:</p>
@@ -6605,11 +6162,9 @@ export namespace RegisterUserRequest {
   export const filterSensitiveLog = (obj: RegisterUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterUserRequest => __isa(o, "RegisterUserRequest");
 }
 
 export interface RegisterUserResponse {
-  __type?: "RegisterUserResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -6631,14 +6186,12 @@ export namespace RegisterUserResponse {
   export const filterSensitiveLog = (obj: RegisterUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterUserResponse => __isa(o, "RegisterUserResponse");
 }
 
 /**
  * <p>A physical table type for relational data sources.</p>
  */
 export interface RelationalTable {
-  __type?: "RelationalTable";
   /**
    * <p>The schema name. This name applies to certain relational database engines.</p>
    */
@@ -6664,14 +6217,12 @@ export namespace RelationalTable {
   export const filterSensitiveLog = (obj: RelationalTable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelationalTable => __isa(o, "RelationalTable");
 }
 
 /**
  * <p>A transform operation that renames a column.</p>
  */
 export interface RenameColumnOperation {
-  __type?: "RenameColumnOperation";
   /**
    * <p>The name of the column to be renamed.</p>
    */
@@ -6687,7 +6238,6 @@ export namespace RenameColumnOperation {
   export const filterSensitiveLog = (obj: RenameColumnOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RenameColumnOperation => __isa(o, "RenameColumnOperation");
 }
 
 /**
@@ -6712,7 +6262,6 @@ export namespace ResourceExistsException {
   export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceExistsException => __isa(o, "ResourceExistsException");
 }
 
 /**
@@ -6737,14 +6286,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>Permission for the resource.</p>
  */
 export interface ResourcePermission {
-  __type?: "ResourcePermission";
   /**
    * <p>The action to grant or revoke permissions on, for example
    *             <code>"quicksight:DescribeDashboard"</code>.</p>
@@ -6773,7 +6320,6 @@ export namespace ResourcePermission {
   export const filterSensitiveLog = (obj: ResourcePermission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourcePermission => __isa(o, "ResourcePermission");
 }
 
 export enum ResourceStatus {
@@ -6807,14 +6353,12 @@ export namespace ResourceUnavailableException {
   export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceUnavailableException => __isa(o, "ResourceUnavailableException");
 }
 
 /**
  * <p>Information about rows for a data set SPICE ingestion.</p>
  */
 export interface RowInfo {
-  __type?: "RowInfo";
   /**
    * <p>The number of rows that were ingested.</p>
    */
@@ -6830,14 +6374,12 @@ export namespace RowInfo {
   export const filterSensitiveLog = (obj: RowInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RowInfo => __isa(o, "RowInfo");
 }
 
 /**
  * <p>The row-level security configuration for the dataset.</p>
  */
 export interface RowLevelPermissionDataSet {
-  __type?: "RowLevelPermissionDataSet";
   /**
    * <p>The namespace associated with the row-level permissions dataset.</p>
    */
@@ -6858,7 +6400,6 @@ export namespace RowLevelPermissionDataSet {
   export const filterSensitiveLog = (obj: RowLevelPermissionDataSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RowLevelPermissionDataSet => __isa(o, "RowLevelPermissionDataSet");
 }
 
 export enum RowLevelPermissionPolicy {
@@ -6870,7 +6411,6 @@ export enum RowLevelPermissionPolicy {
  * <p>S3 parameters.</p>
  */
 export interface S3Parameters {
-  __type?: "S3Parameters";
   /**
    * <p>Location of the Amazon S3 manifest file. This is NULL if the manifest file was
    *             uploaded in the console.</p>
@@ -6882,14 +6422,12 @@ export namespace S3Parameters {
   export const filterSensitiveLog = (obj: S3Parameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Parameters => __isa(o, "S3Parameters");
 }
 
 /**
  * <p>A physical table type for as S3 data source.</p>
  */
 export interface S3Source {
-  __type?: "S3Source";
   /**
    * <p>Information about the format for the S3 source file or files.</p>
    */
@@ -6910,11 +6448,9 @@ export namespace S3Source {
   export const filterSensitiveLog = (obj: S3Source): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Source => __isa(o, "S3Source");
 }
 
 export interface SearchDashboardsRequest {
-  __type?: "SearchDashboardsRequest";
   /**
    * <p>The maximum number of results to be returned per request.</p>
    */
@@ -6949,11 +6485,9 @@ export namespace SearchDashboardsRequest {
   export const filterSensitiveLog = (obj: SearchDashboardsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchDashboardsRequest => __isa(o, "SearchDashboardsRequest");
 }
 
 export interface SearchDashboardsResponse {
-  __type?: "SearchDashboardsResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -6974,14 +6508,12 @@ export namespace SearchDashboardsResponse {
   export const filterSensitiveLog = (obj: SearchDashboardsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchDashboardsResponse => __isa(o, "SearchDashboardsResponse");
 }
 
 /**
  * <p>ServiceNow parameters.</p>
  */
 export interface ServiceNowParameters {
-  __type?: "ServiceNowParameters";
   /**
    * <p>URL of the base site.</p>
    */
@@ -6992,7 +6524,6 @@ export namespace ServiceNowParameters {
   export const filterSensitiveLog = (obj: ServiceNowParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceNowParameters => __isa(o, "ServiceNowParameters");
 }
 
 /**
@@ -7013,15 +6544,12 @@ export namespace SessionLifetimeInMinutesInvalidException {
   export const filterSensitiveLog = (obj: SessionLifetimeInMinutesInvalidException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SessionLifetimeInMinutesInvalidException =>
-    __isa(o, "SessionLifetimeInMinutesInvalidException");
 }
 
 /**
  * <p>Sheet controls option.</p>
  */
 export interface SheetControlsOption {
-  __type?: "SheetControlsOption";
   /**
    * <p>Visibility state.</p>
    */
@@ -7032,14 +6560,12 @@ export namespace SheetControlsOption {
   export const filterSensitiveLog = (obj: SheetControlsOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SheetControlsOption => __isa(o, "SheetControlsOption");
 }
 
 /**
  * <p>The theme display options for sheets. </p>
  */
 export interface SheetStyle {
-  __type?: "SheetStyle";
   /**
    * <p>The display options for tiles.</p>
    */
@@ -7055,14 +6581,12 @@ export namespace SheetStyle {
   export const filterSensitiveLog = (obj: SheetStyle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SheetStyle => __isa(o, "SheetStyle");
 }
 
 /**
  * <p>Snowflake parameters.</p>
  */
 export interface SnowflakeParameters {
-  __type?: "SnowflakeParameters";
   /**
    * <p>Host.</p>
    */
@@ -7083,14 +6607,12 @@ export namespace SnowflakeParameters {
   export const filterSensitiveLog = (obj: SnowflakeParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnowflakeParameters => __isa(o, "SnowflakeParameters");
 }
 
 /**
  * <p>Spark parameters.</p>
  */
 export interface SparkParameters {
-  __type?: "SparkParameters";
   /**
    * <p>Host.</p>
    */
@@ -7106,14 +6628,12 @@ export namespace SparkParameters {
   export const filterSensitiveLog = (obj: SparkParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SparkParameters => __isa(o, "SparkParameters");
 }
 
 /**
  * <p>SQL Server parameters.</p>
  */
 export interface SqlServerParameters {
-  __type?: "SqlServerParameters";
   /**
    * <p>Host.</p>
    */
@@ -7134,7 +6654,6 @@ export namespace SqlServerParameters {
   export const filterSensitiveLog = (obj: SqlServerParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqlServerParameters => __isa(o, "SqlServerParameters");
 }
 
 /**
@@ -7142,7 +6661,6 @@ export namespace SqlServerParameters {
  *             underlying data source.</p>
  */
 export interface SslProperties {
-  __type?: "SslProperties";
   /**
    * <p>A Boolean option to control whether SSL should be disabled.</p>
    */
@@ -7153,14 +6671,12 @@ export namespace SslProperties {
   export const filterSensitiveLog = (obj: SslProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SslProperties => __isa(o, "SslProperties");
 }
 
 /**
  * <p>String parameter.</p>
  */
 export interface StringParameter {
-  __type?: "StringParameter";
   /**
    * <p>Values.</p>
    */
@@ -7176,7 +6692,6 @@ export namespace StringParameter {
   export const filterSensitiveLog = (obj: StringParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StringParameter => __isa(o, "StringParameter");
 }
 
 /**
@@ -7184,7 +6699,6 @@ export namespace StringParameter {
  *             resource.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>Tag key.</p>
    */
@@ -7200,14 +6714,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p>A transform operation that tags a column with additional information.</p>
  */
 export interface TagColumnOperation {
-  __type?: "TagColumnOperation";
   /**
    * <p>The dataset column tag, currently only used for geospatial type tagging. .</p>
    *         <note>
@@ -7226,11 +6738,9 @@ export namespace TagColumnOperation {
   export const filterSensitiveLog = (obj: TagColumnOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagColumnOperation => __isa(o, "TagColumnOperation");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
    */
@@ -7246,11 +6756,9 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -7261,7 +6769,6 @@ export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -7275,7 +6782,6 @@ export namespace TagResourceResponse {
  *             create a template or a dashboard from an existing template.</p>
  */
 export interface Template {
-  __type?: "Template";
   /**
    * <p>Time when this was created.</p>
    */
@@ -7311,14 +6817,12 @@ export namespace Template {
   export const filterSensitiveLog = (obj: Template): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Template => __isa(o, "Template");
 }
 
 /**
  * <p>The template alias.</p>
  */
 export interface TemplateAlias {
-  __type?: "TemplateAlias";
   /**
    * <p>The version number of the template alias.</p>
    */
@@ -7339,14 +6843,12 @@ export namespace TemplateAlias {
   export const filterSensitiveLog = (obj: TemplateAlias): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateAlias => __isa(o, "TemplateAlias");
 }
 
 /**
  * <p>List of errors that occurred when the template version creation failed.</p>
  */
 export interface TemplateError {
-  __type?: "TemplateError";
   /**
    * <p>Type of error.</p>
    */
@@ -7362,7 +6864,6 @@ export namespace TemplateError {
   export const filterSensitiveLog = (obj: TemplateError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateError => __isa(o, "TemplateError");
 }
 
 export enum TemplateErrorType {
@@ -7375,7 +6876,6 @@ export enum TemplateErrorType {
  * <p>The source analysis of the template.</p>
  */
 export interface TemplateSourceAnalysis {
-  __type?: "TemplateSourceAnalysis";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -7392,14 +6892,12 @@ export namespace TemplateSourceAnalysis {
   export const filterSensitiveLog = (obj: TemplateSourceAnalysis): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateSourceAnalysis => __isa(o, "TemplateSourceAnalysis");
 }
 
 /**
  * <p>The source entity of the template.</p>
  */
 export interface TemplateSourceEntity {
-  __type?: "TemplateSourceEntity";
   /**
    * <p>The source analysis, if it is based on an analysis.</p>
    */
@@ -7415,14 +6913,12 @@ export namespace TemplateSourceEntity {
   export const filterSensitiveLog = (obj: TemplateSourceEntity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateSourceEntity => __isa(o, "TemplateSourceEntity");
 }
 
 /**
  * <p>The source template of the template.</p>
  */
 export interface TemplateSourceTemplate {
-  __type?: "TemplateSourceTemplate";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -7433,14 +6929,12 @@ export namespace TemplateSourceTemplate {
   export const filterSensitiveLog = (obj: TemplateSourceTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateSourceTemplate => __isa(o, "TemplateSourceTemplate");
 }
 
 /**
  * <p>The template summary.</p>
  */
 export interface TemplateSummary {
-  __type?: "TemplateSummary";
   /**
    * <p>The last time that this template was created.</p>
    */
@@ -7476,14 +6970,12 @@ export namespace TemplateSummary {
   export const filterSensitiveLog = (obj: TemplateSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateSummary => __isa(o, "TemplateSummary");
 }
 
 /**
  * <p>A version of a template.</p>
  */
 export interface TemplateVersion {
-  __type?: "TemplateVersion";
   /**
    * <p>The version number of the template.</p>
    */
@@ -7527,14 +7019,12 @@ export namespace TemplateVersion {
   export const filterSensitiveLog = (obj: TemplateVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateVersion => __isa(o, "TemplateVersion");
 }
 
 /**
  * <p>The template version.</p>
  */
 export interface TemplateVersionSummary {
-  __type?: "TemplateVersionSummary";
   /**
    * <p>The version number of the template version.</p>
    */
@@ -7565,14 +7055,12 @@ export namespace TemplateVersionSummary {
   export const filterSensitiveLog = (obj: TemplateVersionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateVersionSummary => __isa(o, "TemplateVersionSummary");
 }
 
 /**
  * <p>Teradata parameters.</p>
  */
 export interface TeradataParameters {
-  __type?: "TeradataParameters";
   /**
    * <p>Host.</p>
    */
@@ -7593,7 +7081,6 @@ export namespace TeradataParameters {
   export const filterSensitiveLog = (obj: TeradataParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TeradataParameters => __isa(o, "TeradataParameters");
 }
 
 export enum TextQualifier {
@@ -7605,7 +7092,6 @@ export enum TextQualifier {
  * <p></p>
  */
 export interface Theme {
-  __type?: "Theme";
   /**
    * <p>The name that the user gives to the theme.</p>
    */
@@ -7647,14 +7133,12 @@ export namespace Theme {
   export const filterSensitiveLog = (obj: Theme): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Theme => __isa(o, "Theme");
 }
 
 /**
  * <p>An alias for a theme.</p>
  */
 export interface ThemeAlias {
-  __type?: "ThemeAlias";
   /**
    * <p>The version number of the theme alias.</p>
    */
@@ -7675,7 +7159,6 @@ export namespace ThemeAlias {
   export const filterSensitiveLog = (obj: ThemeAlias): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThemeAlias => __isa(o, "ThemeAlias");
 }
 
 /**
@@ -7683,7 +7166,6 @@ export namespace ThemeAlias {
  *             a theme.</p>
  */
 export interface ThemeConfiguration {
-  __type?: "ThemeConfiguration";
   /**
    * <p>Display options related to sheets.</p>
    */
@@ -7705,14 +7187,12 @@ export namespace ThemeConfiguration {
   export const filterSensitiveLog = (obj: ThemeConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThemeConfiguration => __isa(o, "ThemeConfiguration");
 }
 
 /**
  * <p>Theme error.</p>
  */
 export interface ThemeError {
-  __type?: "ThemeError";
   /**
    * <p>The error message.</p>
    */
@@ -7728,7 +7208,6 @@ export namespace ThemeError {
   export const filterSensitiveLog = (obj: ThemeError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThemeError => __isa(o, "ThemeError");
 }
 
 export enum ThemeErrorType {
@@ -7739,7 +7218,6 @@ export enum ThemeErrorType {
  * <p>The theme summary.</p>
  */
 export interface ThemeSummary {
-  __type?: "ThemeSummary";
   /**
    * <p>the display name for the theme.</p>
    */
@@ -7775,7 +7253,6 @@ export namespace ThemeSummary {
   export const filterSensitiveLog = (obj: ThemeSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThemeSummary => __isa(o, "ThemeSummary");
 }
 
 export enum ThemeType {
@@ -7788,7 +7265,6 @@ export enum ThemeType {
  * <p>A version of a theme.</p>
  */
 export interface ThemeVersion {
-  __type?: "ThemeVersion";
   /**
    * <p>The description of the theme.</p>
    */
@@ -7835,14 +7311,12 @@ export namespace ThemeVersion {
   export const filterSensitiveLog = (obj: ThemeVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThemeVersion => __isa(o, "ThemeVersion");
 }
 
 /**
  * <p>The theme version.</p>
  */
 export interface ThemeVersionSummary {
-  __type?: "ThemeVersionSummary";
   /**
    * <p>The version number of the theme version.</p>
    */
@@ -7873,7 +7347,6 @@ export namespace ThemeVersionSummary {
   export const filterSensitiveLog = (obj: ThemeVersionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThemeVersionSummary => __isa(o, "ThemeVersionSummary");
 }
 
 /**
@@ -7894,14 +7367,12 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>The display options for the layout of tiles on a sheet.</p>
  */
 export interface TileLayoutStyle {
-  __type?: "TileLayoutStyle";
   /**
    * <p>The margin settings that apply around the outside edge of sheets.</p>
    */
@@ -7917,14 +7388,12 @@ export namespace TileLayoutStyle {
   export const filterSensitiveLog = (obj: TileLayoutStyle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TileLayoutStyle => __isa(o, "TileLayoutStyle");
 }
 
 /**
  * <p>Display options related to tiles on a sheet.</p>
  */
 export interface TileStyle {
-  __type?: "TileStyle";
   /**
    * <p>The border around a tile.</p>
    */
@@ -7935,7 +7404,6 @@ export namespace TileStyle {
   export const filterSensitiveLog = (obj: TileStyle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TileStyle => __isa(o, "TileStyle");
 }
 
 /**
@@ -7943,7 +7411,6 @@ export namespace TileStyle {
  *             structure to be valid, only one of the attributes can be non-null.</p>
  */
 export interface TransformOperation {
-  __type?: "TransformOperation";
   /**
    * <p>An operation that renames a column.</p>
    */
@@ -7981,14 +7448,12 @@ export namespace TransformOperation {
   export const filterSensitiveLog = (obj: TransformOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransformOperation => __isa(o, "TransformOperation");
 }
 
 /**
  * <p>Twitter parameters.</p>
  */
 export interface TwitterParameters {
-  __type?: "TwitterParameters";
   /**
    * <p>Maximum number of rows to query Twitter.</p>
    */
@@ -8004,7 +7469,6 @@ export namespace TwitterParameters {
   export const filterSensitiveLog = (obj: TwitterParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TwitterParameters => __isa(o, "TwitterParameters");
 }
 
 /**
@@ -8015,7 +7479,6 @@ export namespace TwitterParameters {
  *         </p>
  */
 export interface UIColorPalette {
-  __type?: "UIColorPalette";
   /**
    * <p>This color that applies to warning and informational messages.</p>
    */
@@ -8111,7 +7574,6 @@ export namespace UIColorPalette {
   export const filterSensitiveLog = (obj: UIColorPalette): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UIColorPalette => __isa(o, "UIColorPalette");
 }
 
 /**
@@ -8135,11 +7597,9 @@ export namespace UnsupportedUserEditionException {
   export const filterSensitiveLog = (obj: UnsupportedUserEditionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedUserEditionException => __isa(o, "UnsupportedUserEditionException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The keys of the key-value pairs for the resource tag or tags assigned to the resource.</p>
    */
@@ -8155,11 +7615,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -8170,11 +7628,9 @@ export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateAccountCustomizationRequest {
-  __type?: "UpdateAccountCustomizationRequest";
   /**
    * <p>The ID for the AWS account that you want to update QuickSight customizations for.</p>
    */
@@ -8195,11 +7651,9 @@ export namespace UpdateAccountCustomizationRequest {
   export const filterSensitiveLog = (obj: UpdateAccountCustomizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountCustomizationRequest => __isa(o, "UpdateAccountCustomizationRequest");
 }
 
 export interface UpdateAccountCustomizationResponse {
-  __type?: "UpdateAccountCustomizationResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -8225,12 +7679,9 @@ export namespace UpdateAccountCustomizationResponse {
   export const filterSensitiveLog = (obj: UpdateAccountCustomizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountCustomizationResponse =>
-    __isa(o, "UpdateAccountCustomizationResponse");
 }
 
 export interface UpdateAccountSettingsRequest {
-  __type?: "UpdateAccountSettingsRequest";
   /**
    * <p>The ID for the AWS account that contains the QuickSight namespaces that you want to list.</p>
    */
@@ -8251,11 +7702,9 @@ export namespace UpdateAccountSettingsRequest {
   export const filterSensitiveLog = (obj: UpdateAccountSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountSettingsRequest => __isa(o, "UpdateAccountSettingsRequest");
 }
 
 export interface UpdateAccountSettingsResponse {
-  __type?: "UpdateAccountSettingsResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -8266,11 +7715,9 @@ export namespace UpdateAccountSettingsResponse {
   export const filterSensitiveLog = (obj: UpdateAccountSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountSettingsResponse => __isa(o, "UpdateAccountSettingsResponse");
 }
 
 export interface UpdateDashboardPermissionsRequest {
-  __type?: "UpdateDashboardPermissionsRequest";
   /**
    * <p>The ID of the AWS account that contains the dashboard whose permissions you're
    * 			updating.</p>
@@ -8297,11 +7744,9 @@ export namespace UpdateDashboardPermissionsRequest {
   export const filterSensitiveLog = (obj: UpdateDashboardPermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDashboardPermissionsRequest => __isa(o, "UpdateDashboardPermissionsRequest");
 }
 
 export interface UpdateDashboardPermissionsResponse {
-  __type?: "UpdateDashboardPermissionsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
    */
@@ -8327,12 +7772,9 @@ export namespace UpdateDashboardPermissionsResponse {
   export const filterSensitiveLog = (obj: UpdateDashboardPermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDashboardPermissionsResponse =>
-    __isa(o, "UpdateDashboardPermissionsResponse");
 }
 
 export interface UpdateDashboardPublishedVersionRequest {
-  __type?: "UpdateDashboardPublishedVersionRequest";
   /**
    * <p>The version number of the dashboard.</p>
    */
@@ -8353,12 +7795,9 @@ export namespace UpdateDashboardPublishedVersionRequest {
   export const filterSensitiveLog = (obj: UpdateDashboardPublishedVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDashboardPublishedVersionRequest =>
-    __isa(o, "UpdateDashboardPublishedVersionRequest");
 }
 
 export interface UpdateDashboardPublishedVersionResponse {
-  __type?: "UpdateDashboardPublishedVersionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
    */
@@ -8379,12 +7818,9 @@ export namespace UpdateDashboardPublishedVersionResponse {
   export const filterSensitiveLog = (obj: UpdateDashboardPublishedVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDashboardPublishedVersionResponse =>
-    __isa(o, "UpdateDashboardPublishedVersionResponse");
 }
 
 export interface UpdateDashboardRequest {
-  __type?: "UpdateDashboardRequest";
   /**
    * <p>The entity that you are using as a source when you update the dashboard. In
    * 			<code>SourceEntity</code>, you specify the type of object you're using as source. You
@@ -8467,11 +7903,9 @@ export namespace UpdateDashboardRequest {
   export const filterSensitiveLog = (obj: UpdateDashboardRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDashboardRequest => __isa(o, "UpdateDashboardRequest");
 }
 
 export interface UpdateDashboardResponse {
-  __type?: "UpdateDashboardResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -8507,11 +7941,9 @@ export namespace UpdateDashboardResponse {
   export const filterSensitiveLog = (obj: UpdateDashboardResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDashboardResponse => __isa(o, "UpdateDashboardResponse");
 }
 
 export interface UpdateDataSetPermissionsRequest {
-  __type?: "UpdateDataSetPermissionsRequest";
   /**
    * <p>The AWS account ID.</p>
    */
@@ -8538,11 +7970,9 @@ export namespace UpdateDataSetPermissionsRequest {
   export const filterSensitiveLog = (obj: UpdateDataSetPermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSetPermissionsRequest => __isa(o, "UpdateDataSetPermissionsRequest");
 }
 
 export interface UpdateDataSetPermissionsResponse {
-  __type?: "UpdateDataSetPermissionsResponse";
   /**
    * <p>The ID for the dataset whose permissions you want to update. This ID is unique per AWS
    * 			Region for each AWS account.</p>
@@ -8564,11 +7994,9 @@ export namespace UpdateDataSetPermissionsResponse {
   export const filterSensitiveLog = (obj: UpdateDataSetPermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSetPermissionsResponse => __isa(o, "UpdateDataSetPermissionsResponse");
 }
 
 export interface UpdateDataSetRequest {
-  __type?: "UpdateDataSetRequest";
   /**
    * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
    */
@@ -8615,11 +8043,9 @@ export namespace UpdateDataSetRequest {
   export const filterSensitiveLog = (obj: UpdateDataSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSetRequest => __isa(o, "UpdateDataSetRequest");
 }
 
 export interface UpdateDataSetResponse {
-  __type?: "UpdateDataSetResponse";
   /**
    * <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import
    * 			mode is SPICE.</p>
@@ -8652,11 +8078,9 @@ export namespace UpdateDataSetResponse {
   export const filterSensitiveLog = (obj: UpdateDataSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSetResponse => __isa(o, "UpdateDataSetResponse");
 }
 
 export interface UpdateDataSourcePermissionsRequest {
-  __type?: "UpdateDataSourcePermissionsRequest";
   /**
    * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account. </p>
    */
@@ -8682,12 +8106,9 @@ export namespace UpdateDataSourcePermissionsRequest {
   export const filterSensitiveLog = (obj: UpdateDataSourcePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSourcePermissionsRequest =>
-    __isa(o, "UpdateDataSourcePermissionsRequest");
 }
 
 export interface UpdateDataSourcePermissionsResponse {
-  __type?: "UpdateDataSourcePermissionsResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -8708,12 +8129,9 @@ export namespace UpdateDataSourcePermissionsResponse {
   export const filterSensitiveLog = (obj: UpdateDataSourcePermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSourcePermissionsResponse =>
-    __isa(o, "UpdateDataSourcePermissionsResponse");
 }
 
 export interface UpdateDataSourceRequest {
-  __type?: "UpdateDataSourceRequest";
   /**
    * <p>A display name for the data source.</p>
    */
@@ -8758,11 +8176,9 @@ export namespace UpdateDataSourceRequest {
     ...obj,
     ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateDataSourceRequest => __isa(o, "UpdateDataSourceRequest");
 }
 
 export interface UpdateDataSourceResponse {
-  __type?: "UpdateDataSourceResponse";
   /**
    * <p>The update status of the data source's last update.</p>
    */
@@ -8788,11 +8204,9 @@ export namespace UpdateDataSourceResponse {
   export const filterSensitiveLog = (obj: UpdateDataSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSourceResponse => __isa(o, "UpdateDataSourceResponse");
 }
 
 export interface UpdateGroupRequest {
-  __type?: "UpdateGroupRequest";
   /**
    * <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
@@ -8819,11 +8233,9 @@ export namespace UpdateGroupRequest {
   export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupRequest => __isa(o, "UpdateGroupRequest");
 }
 
 export interface UpdateGroupResponse {
-  __type?: "UpdateGroupResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -8839,11 +8251,9 @@ export namespace UpdateGroupResponse {
   export const filterSensitiveLog = (obj: UpdateGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGroupResponse => __isa(o, "UpdateGroupResponse");
 }
 
 export interface UpdateIAMPolicyAssignmentRequest {
-  __type?: "UpdateIAMPolicyAssignmentRequest";
   /**
    * <p>The ARN for the IAM policy to apply to the QuickSight users and groups
    * 			specified in this assignment.</p>
@@ -8896,11 +8306,9 @@ export namespace UpdateIAMPolicyAssignmentRequest {
   export const filterSensitiveLog = (obj: UpdateIAMPolicyAssignmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIAMPolicyAssignmentRequest => __isa(o, "UpdateIAMPolicyAssignmentRequest");
 }
 
 export interface UpdateIAMPolicyAssignmentResponse {
-  __type?: "UpdateIAMPolicyAssignmentResponse";
   /**
    * <p>The ARN for the IAM policy applied to the QuickSight users and groups specified in this
    * 			assignment.</p>
@@ -8953,11 +8361,9 @@ export namespace UpdateIAMPolicyAssignmentResponse {
   export const filterSensitiveLog = (obj: UpdateIAMPolicyAssignmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIAMPolicyAssignmentResponse => __isa(o, "UpdateIAMPolicyAssignmentResponse");
 }
 
 export interface UpdateTemplateAliasRequest {
-  __type?: "UpdateTemplateAliasRequest";
   /**
    * <p>The ID of the AWS account that contains the template alias that you're updating.</p>
    */
@@ -8986,11 +8392,9 @@ export namespace UpdateTemplateAliasRequest {
   export const filterSensitiveLog = (obj: UpdateTemplateAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTemplateAliasRequest => __isa(o, "UpdateTemplateAliasRequest");
 }
 
 export interface UpdateTemplateAliasResponse {
-  __type?: "UpdateTemplateAliasResponse";
   /**
    * <p>The AWS request ID for this operation.</p>
    */
@@ -9006,11 +8410,9 @@ export namespace UpdateTemplateAliasResponse {
   export const filterSensitiveLog = (obj: UpdateTemplateAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTemplateAliasResponse => __isa(o, "UpdateTemplateAliasResponse");
 }
 
 export interface UpdateTemplatePermissionsRequest {
-  __type?: "UpdateTemplatePermissionsRequest";
   /**
    * <p>A list of resource permissions to be revoked from the template. </p>
    */
@@ -9036,11 +8438,9 @@ export namespace UpdateTemplatePermissionsRequest {
   export const filterSensitiveLog = (obj: UpdateTemplatePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTemplatePermissionsRequest => __isa(o, "UpdateTemplatePermissionsRequest");
 }
 
 export interface UpdateTemplatePermissionsResponse {
-  __type?: "UpdateTemplatePermissionsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the template.</p>
    */
@@ -9066,11 +8466,9 @@ export namespace UpdateTemplatePermissionsResponse {
   export const filterSensitiveLog = (obj: UpdateTemplatePermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTemplatePermissionsResponse => __isa(o, "UpdateTemplatePermissionsResponse");
 }
 
 export interface UpdateTemplateRequest {
-  __type?: "UpdateTemplateRequest";
   /**
    * <p>The entity that you are using as a source when you update the template. In
    * 			<code>SourceEntity</code>, you specify the type of object you're using as source:
@@ -9113,11 +8511,9 @@ export namespace UpdateTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTemplateRequest => __isa(o, "UpdateTemplateRequest");
 }
 
 export interface UpdateTemplateResponse {
-  __type?: "UpdateTemplateResponse";
   /**
    * <p>The creation status of the template.</p>
    */
@@ -9148,11 +8544,9 @@ export namespace UpdateTemplateResponse {
   export const filterSensitiveLog = (obj: UpdateTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTemplateResponse => __isa(o, "UpdateTemplateResponse");
 }
 
 export interface UpdateThemeAliasRequest {
-  __type?: "UpdateThemeAliasRequest";
   /**
    * <p>The version number of the theme that the alias should reference.</p>
    */
@@ -9178,11 +8572,9 @@ export namespace UpdateThemeAliasRequest {
   export const filterSensitiveLog = (obj: UpdateThemeAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThemeAliasRequest => __isa(o, "UpdateThemeAliasRequest");
 }
 
 export interface UpdateThemeAliasResponse {
-  __type?: "UpdateThemeAliasResponse";
   /**
    * <p>Information about the theme alias.</p>
    */
@@ -9198,11 +8590,9 @@ export namespace UpdateThemeAliasResponse {
   export const filterSensitiveLog = (obj: UpdateThemeAliasResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThemeAliasResponse => __isa(o, "UpdateThemeAliasResponse");
 }
 
 export interface UpdateThemePermissionsRequest {
-  __type?: "UpdateThemePermissionsRequest";
   /**
    * <p>A list of resource permissions to be revoked from the theme.</p>
    */
@@ -9228,11 +8618,9 @@ export namespace UpdateThemePermissionsRequest {
   export const filterSensitiveLog = (obj: UpdateThemePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThemePermissionsRequest => __isa(o, "UpdateThemePermissionsRequest");
 }
 
 export interface UpdateThemePermissionsResponse {
-  __type?: "UpdateThemePermissionsResponse";
   /**
    * <p>The resulting list of resource permissions for the theme.</p>
    */
@@ -9258,11 +8646,9 @@ export namespace UpdateThemePermissionsResponse {
   export const filterSensitiveLog = (obj: UpdateThemePermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThemePermissionsResponse => __isa(o, "UpdateThemePermissionsResponse");
 }
 
 export interface UpdateThemeRequest {
-  __type?: "UpdateThemeRequest";
   /**
    * <p>The theme configuration, which contains the theme display properties.</p>
    */
@@ -9301,11 +8687,9 @@ export namespace UpdateThemeRequest {
   export const filterSensitiveLog = (obj: UpdateThemeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThemeRequest => __isa(o, "UpdateThemeRequest");
 }
 
 export interface UpdateThemeResponse {
-  __type?: "UpdateThemeResponse";
   /**
    * <p>The ID for the theme.</p>
    */
@@ -9336,11 +8720,9 @@ export namespace UpdateThemeResponse {
   export const filterSensitiveLog = (obj: UpdateThemeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateThemeResponse => __isa(o, "UpdateThemeResponse");
 }
 
 export interface UpdateUserRequest {
-  __type?: "UpdateUserRequest";
   /**
    * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
    */
@@ -9405,11 +8787,9 @@ export namespace UpdateUserRequest {
   export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserRequest => __isa(o, "UpdateUserRequest");
 }
 
 export interface UpdateUserResponse {
-  __type?: "UpdateUserResponse";
   /**
    * <p>The Amazon QuickSight user.</p>
    */
@@ -9425,14 +8805,12 @@ export namespace UpdateUserResponse {
   export const filterSensitiveLog = (obj: UpdateUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserResponse => __isa(o, "UpdateUserResponse");
 }
 
 /**
  * <p>Information about the format for a source file or files.</p>
  */
 export interface UploadSettings {
-  __type?: "UploadSettings";
   /**
    * <p>File format.</p>
    */
@@ -9463,7 +8841,6 @@ export namespace UploadSettings {
   export const filterSensitiveLog = (obj: UploadSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadSettings => __isa(o, "UploadSettings");
 }
 
 /**
@@ -9471,7 +8848,6 @@ export namespace UploadSettings {
  *             can't contain more than 20 million users.</p>
  */
 export interface User {
-  __type?: "User";
   /**
    * <p>The custom permissions profile associated with this user.</p>
    */
@@ -9546,7 +8922,6 @@ export namespace User {
   export const filterSensitiveLog = (obj: User): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is User => __isa(o, "User");
 }
 
 export enum UserRole {
@@ -9561,7 +8936,6 @@ export enum UserRole {
  * <p>VPC connection properties.</p>
  */
 export interface VpcConnectionProperties {
-  __type?: "VpcConnectionProperties";
   /**
    * <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
    */
@@ -9572,5 +8946,4 @@ export namespace VpcConnectionProperties {
   export const filterSensitiveLog = (obj: VpcConnectionProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConnectionProperties => __isa(o, "VpcConnectionProperties");
 }

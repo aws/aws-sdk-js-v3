@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptReservedNodeExchangeInputMessage {
-  __type?: "AcceptReservedNodeExchangeInputMessage";
   /**
    * <p>The unique identifier of the DC2 Reserved Node offering to be used for the exchange.
    *             You can obtain the value for the parameter by calling <a>GetReservedNodeExchangeOfferings</a>
@@ -21,12 +20,9 @@ export namespace AcceptReservedNodeExchangeInputMessage {
   export const filterSensitiveLog = (obj: AcceptReservedNodeExchangeInputMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptReservedNodeExchangeInputMessage =>
-    __isa(o, "AcceptReservedNodeExchangeInputMessage");
 }
 
 export interface AcceptReservedNodeExchangeOutputMessage {
-  __type?: "AcceptReservedNodeExchangeOutputMessage";
   /**
    * <p></p>
    */
@@ -37,8 +33,6 @@ export namespace AcceptReservedNodeExchangeOutputMessage {
   export const filterSensitiveLog = (obj: AcceptReservedNodeExchangeOutputMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptReservedNodeExchangeOutputMessage =>
-    __isa(o, "AcceptReservedNodeExchangeOutputMessage");
 }
 
 /**
@@ -55,14 +49,12 @@ export namespace AccessToSnapshotDeniedFault {
   export const filterSensitiveLog = (obj: AccessToSnapshotDeniedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessToSnapshotDeniedFault => __isa(o, "AccessToSnapshotDeniedFault");
 }
 
 /**
  * <p>A name value pair that describes an aspect of an account. </p>
  */
 export interface AccountAttribute {
-  __type?: "AccountAttribute";
   /**
    * <p>The name of the attribute.</p>
    */
@@ -78,11 +70,9 @@ export namespace AccountAttribute {
   export const filterSensitiveLog = (obj: AccountAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountAttribute => __isa(o, "AccountAttribute");
 }
 
 export interface AccountAttributeList {
-  __type?: "AccountAttributeList";
   /**
    * <p>A list of attributes assigned to an account.</p>
    */
@@ -93,14 +83,12 @@ export namespace AccountAttributeList {
   export const filterSensitiveLog = (obj: AccountAttributeList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountAttributeList => __isa(o, "AccountAttributeList");
 }
 
 /**
  * <p>Describes an AWS customer account authorized to restore a snapshot.</p>
  */
 export interface AccountWithRestoreAccess {
-  __type?: "AccountWithRestoreAccess";
   /**
    * <p>The identifier of an AWS customer account authorized to restore a
    *             snapshot.</p>
@@ -118,7 +106,6 @@ export namespace AccountWithRestoreAccess {
   export const filterSensitiveLog = (obj: AccountWithRestoreAccess): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountWithRestoreAccess => __isa(o, "AccountWithRestoreAccess");
 }
 
 export enum ActionType {
@@ -131,7 +118,6 @@ export enum ActionType {
  * <p>Describes an attribute value.</p>
  */
 export interface AttributeValueTarget {
-  __type?: "AttributeValueTarget";
   /**
    * <p>The value of the attribute.</p>
    */
@@ -142,7 +128,6 @@ export namespace AttributeValueTarget {
   export const filterSensitiveLog = (obj: AttributeValueTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributeValueTarget => __isa(o, "AttributeValueTarget");
 }
 
 /**
@@ -159,7 +144,6 @@ export namespace AuthorizationAlreadyExistsFault {
   export const filterSensitiveLog = (obj: AuthorizationAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizationAlreadyExistsFault => __isa(o, "AuthorizationAlreadyExistsFault");
 }
 
 /**
@@ -176,7 +160,6 @@ export namespace AuthorizationNotFoundFault {
   export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizationNotFoundFault => __isa(o, "AuthorizationNotFoundFault");
 }
 
 /**
@@ -192,14 +175,12 @@ export namespace AuthorizationQuotaExceededFault {
   export const filterSensitiveLog = (obj: AuthorizationQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizationQuotaExceededFault => __isa(o, "AuthorizationQuotaExceededFault");
 }
 
 /**
  * <p></p>
  */
 export interface AuthorizeClusterSecurityGroupIngressMessage {
-  __type?: "AuthorizeClusterSecurityGroupIngressMessage";
   /**
    * <p>The name of the security group to which the ingress rule is added.</p>
    */
@@ -229,12 +210,9 @@ export namespace AuthorizeClusterSecurityGroupIngressMessage {
   export const filterSensitiveLog = (obj: AuthorizeClusterSecurityGroupIngressMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizeClusterSecurityGroupIngressMessage =>
-    __isa(o, "AuthorizeClusterSecurityGroupIngressMessage");
 }
 
 export interface AuthorizeClusterSecurityGroupIngressResult {
-  __type?: "AuthorizeClusterSecurityGroupIngressResult";
   /**
    * <p>Describes a security group.</p>
    */
@@ -245,15 +223,12 @@ export namespace AuthorizeClusterSecurityGroupIngressResult {
   export const filterSensitiveLog = (obj: AuthorizeClusterSecurityGroupIngressResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizeClusterSecurityGroupIngressResult =>
-    __isa(o, "AuthorizeClusterSecurityGroupIngressResult");
 }
 
 /**
  * <p></p>
  */
 export interface AuthorizeSnapshotAccessMessage {
-  __type?: "AuthorizeSnapshotAccessMessage";
   /**
    * <p>The identifier of the cluster the snapshot was created from. This parameter is
    *             required if your IAM user has a policy containing a snapshot resource element that
@@ -278,11 +253,9 @@ export namespace AuthorizeSnapshotAccessMessage {
   export const filterSensitiveLog = (obj: AuthorizeSnapshotAccessMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizeSnapshotAccessMessage => __isa(o, "AuthorizeSnapshotAccessMessage");
 }
 
 export interface AuthorizeSnapshotAccessResult {
-  __type?: "AuthorizeSnapshotAccessResult";
   /**
    * <p>Describes a snapshot.</p>
    */
@@ -293,14 +266,12 @@ export namespace AuthorizeSnapshotAccessResult {
   export const filterSensitiveLog = (obj: AuthorizeSnapshotAccessResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizeSnapshotAccessResult => __isa(o, "AuthorizeSnapshotAccessResult");
 }
 
 /**
  * <p>Describes an availability zone.</p>
  */
 export interface AvailabilityZone {
-  __type?: "AvailabilityZone";
   /**
    * <p>The name of the availability zone.</p>
    */
@@ -316,11 +287,9 @@ export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 export interface BatchDeleteClusterSnapshotsRequest {
-  __type?: "BatchDeleteClusterSnapshotsRequest";
   /**
    * <p>A list of identifiers for the snapshots that you want to delete.</p>
    */
@@ -331,12 +300,9 @@ export namespace BatchDeleteClusterSnapshotsRequest {
   export const filterSensitiveLog = (obj: BatchDeleteClusterSnapshotsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteClusterSnapshotsRequest =>
-    __isa(o, "BatchDeleteClusterSnapshotsRequest");
 }
 
 export interface BatchDeleteClusterSnapshotsResult {
-  __type?: "BatchDeleteClusterSnapshotsResult";
   /**
    * <p>A list of the snapshot identifiers that were deleted. </p>
    */
@@ -352,7 +318,6 @@ export namespace BatchDeleteClusterSnapshotsResult {
   export const filterSensitiveLog = (obj: BatchDeleteClusterSnapshotsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteClusterSnapshotsResult => __isa(o, "BatchDeleteClusterSnapshotsResult");
 }
 
 /**
@@ -369,8 +334,6 @@ export namespace BatchDeleteRequestSizeExceededFault {
   export const filterSensitiveLog = (obj: BatchDeleteRequestSizeExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteRequestSizeExceededFault =>
-    __isa(o, "BatchDeleteRequestSizeExceededFault");
 }
 
 /**
@@ -387,12 +350,9 @@ export namespace BatchModifyClusterSnapshotsLimitExceededFault {
   export const filterSensitiveLog = (obj: BatchModifyClusterSnapshotsLimitExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchModifyClusterSnapshotsLimitExceededFault =>
-    __isa(o, "BatchModifyClusterSnapshotsLimitExceededFault");
 }
 
 export interface BatchModifyClusterSnapshotsMessage {
-  __type?: "BatchModifyClusterSnapshotsMessage";
   /**
    * <p>The number of days that a manual snapshot is retained. If you specify the value -1,
    *             the manual snapshot is retained indefinitely.</p>
@@ -419,12 +379,9 @@ export namespace BatchModifyClusterSnapshotsMessage {
   export const filterSensitiveLog = (obj: BatchModifyClusterSnapshotsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchModifyClusterSnapshotsMessage =>
-    __isa(o, "BatchModifyClusterSnapshotsMessage");
 }
 
 export interface BatchModifyClusterSnapshotsOutputMessage {
-  __type?: "BatchModifyClusterSnapshotsOutputMessage";
   /**
    * <p>A list of any errors returned.</p>
    */
@@ -440,8 +397,6 @@ export namespace BatchModifyClusterSnapshotsOutputMessage {
   export const filterSensitiveLog = (obj: BatchModifyClusterSnapshotsOutputMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchModifyClusterSnapshotsOutputMessage =>
-    __isa(o, "BatchModifyClusterSnapshotsOutputMessage");
 }
 
 /**
@@ -457,11 +412,9 @@ export namespace BucketNotFoundFault {
   export const filterSensitiveLog = (obj: BucketNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BucketNotFoundFault => __isa(o, "BucketNotFoundFault");
 }
 
 export interface CancelResizeMessage {
-  __type?: "CancelResizeMessage";
   /**
    * <p>The unique identifier for the cluster that you want to cancel a resize operation
    *             for.</p>
@@ -473,14 +426,12 @@ export namespace CancelResizeMessage {
   export const filterSensitiveLog = (obj: CancelResizeMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelResizeMessage => __isa(o, "CancelResizeMessage");
 }
 
 /**
  * <p>Describes a cluster.</p>
  */
 export interface Cluster {
-  __type?: "Cluster";
   /**
    * <p>The connection endpoint.</p>
    */
@@ -887,7 +838,6 @@ export namespace Cluster {
   export const filterSensitiveLog = (obj: Cluster): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Cluster => __isa(o, "Cluster");
 }
 
 /**
@@ -903,14 +853,12 @@ export namespace ClusterAlreadyExistsFault {
   export const filterSensitiveLog = (obj: ClusterAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterAlreadyExistsFault => __isa(o, "ClusterAlreadyExistsFault");
 }
 
 /**
  * <p></p>
  */
 export interface ClusterAssociatedToSchedule {
-  __type?: "ClusterAssociatedToSchedule";
   /**
    * <p></p>
    */
@@ -926,7 +874,6 @@ export namespace ClusterAssociatedToSchedule {
   export const filterSensitiveLog = (obj: ClusterAssociatedToSchedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterAssociatedToSchedule => __isa(o, "ClusterAssociatedToSchedule");
 }
 
 /**
@@ -934,7 +881,6 @@ export namespace ClusterAssociatedToSchedule {
  *         </p>
  */
 export interface ClusterCredentials {
-  __type?: "ClusterCredentials";
   /**
    * <p>A temporary password that authorizes the user name returned by <code>DbUser</code>
    *             to log on to the database <code>DbName</code>. </p>
@@ -962,14 +908,12 @@ export namespace ClusterCredentials {
     ...obj,
     ...(obj.DbPassword && { DbPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ClusterCredentials => __isa(o, "ClusterCredentials");
 }
 
 /**
  * <p>Describes a <code>ClusterDbRevision</code>.</p>
  */
 export interface ClusterDbRevision {
-  __type?: "ClusterDbRevision";
   /**
    * <p>A string representing the current cluster version.</p>
    */
@@ -996,11 +940,9 @@ export namespace ClusterDbRevision {
   export const filterSensitiveLog = (obj: ClusterDbRevision): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterDbRevision => __isa(o, "ClusterDbRevision");
 }
 
 export interface ClusterDbRevisionsMessage {
-  __type?: "ClusterDbRevisionsMessage";
   /**
    * <p>A list of revisions.</p>
    */
@@ -1019,7 +961,6 @@ export namespace ClusterDbRevisionsMessage {
   export const filterSensitiveLog = (obj: ClusterDbRevisionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterDbRevisionsMessage => __isa(o, "ClusterDbRevisionsMessage");
 }
 
 /**
@@ -1027,7 +968,6 @@ export namespace ClusterDbRevisionsMessage {
  *             Amazon Redshift cluster to access other AWS services.</p>
  */
 export interface ClusterIamRole {
-  __type?: "ClusterIamRole";
   /**
    * <p>A value that describes the status of the IAM role's association with an Amazon
    *             Redshift cluster.</p>
@@ -1062,14 +1002,12 @@ export namespace ClusterIamRole {
   export const filterSensitiveLog = (obj: ClusterIamRole): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterIamRole => __isa(o, "ClusterIamRole");
 }
 
 /**
  * <p>The identifier of a node in a cluster.</p>
  */
 export interface ClusterNode {
-  __type?: "ClusterNode";
   /**
    * <p>The private IP address of a node within a cluster.</p>
    */
@@ -1090,7 +1028,6 @@ export namespace ClusterNode {
   export const filterSensitiveLog = (obj: ClusterNode): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterNode => __isa(o, "ClusterNode");
 }
 
 /**
@@ -1107,7 +1044,6 @@ export namespace ClusterNotFoundFault {
   export const filterSensitiveLog = (obj: ClusterNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterNotFoundFault => __isa(o, "ClusterNotFoundFault");
 }
 
 /**
@@ -1123,14 +1059,12 @@ export namespace ClusterOnLatestRevisionFault {
   export const filterSensitiveLog = (obj: ClusterOnLatestRevisionFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterOnLatestRevisionFault => __isa(o, "ClusterOnLatestRevisionFault");
 }
 
 /**
  * <p>Describes a parameter group.</p>
  */
 export interface ClusterParameterGroup {
-  __type?: "ClusterParameterGroup";
   /**
    * <p>The list of tags for the cluster parameter group.</p>
    */
@@ -1157,7 +1091,6 @@ export namespace ClusterParameterGroup {
   export const filterSensitiveLog = (obj: ClusterParameterGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroup => __isa(o, "ClusterParameterGroup");
 }
 
 /**
@@ -1173,8 +1106,6 @@ export namespace ClusterParameterGroupAlreadyExistsFault {
   export const filterSensitiveLog = (obj: ClusterParameterGroupAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroupAlreadyExistsFault =>
-    __isa(o, "ClusterParameterGroupAlreadyExistsFault");
 }
 
 /**
@@ -1182,7 +1113,6 @@ export namespace ClusterParameterGroupAlreadyExistsFault {
  *         </p>
  */
 export interface ClusterParameterGroupDetails {
-  __type?: "ClusterParameterGroupDetails";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -1203,14 +1133,12 @@ export namespace ClusterParameterGroupDetails {
   export const filterSensitiveLog = (obj: ClusterParameterGroupDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroupDetails => __isa(o, "ClusterParameterGroupDetails");
 }
 
 /**
  * <p></p>
  */
 export interface ClusterParameterGroupNameMessage {
-  __type?: "ClusterParameterGroupNameMessage";
   /**
    * <p>The status of the parameter group. For example, if you made a change to a parameter
    *             group name-value pair, then the change could be pending a reboot of an associated
@@ -1228,7 +1156,6 @@ export namespace ClusterParameterGroupNameMessage {
   export const filterSensitiveLog = (obj: ClusterParameterGroupNameMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroupNameMessage => __isa(o, "ClusterParameterGroupNameMessage");
 }
 
 /**
@@ -1244,8 +1171,6 @@ export namespace ClusterParameterGroupNotFoundFault {
   export const filterSensitiveLog = (obj: ClusterParameterGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroupNotFoundFault =>
-    __isa(o, "ClusterParameterGroupNotFoundFault");
 }
 
 /**
@@ -1265,8 +1190,6 @@ export namespace ClusterParameterGroupQuotaExceededFault {
   export const filterSensitiveLog = (obj: ClusterParameterGroupQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroupQuotaExceededFault =>
-    __isa(o, "ClusterParameterGroupQuotaExceededFault");
 }
 
 /**
@@ -1274,7 +1197,6 @@ export namespace ClusterParameterGroupQuotaExceededFault {
  *             action. </p>
  */
 export interface ClusterParameterGroupsMessage {
-  __type?: "ClusterParameterGroupsMessage";
   /**
    * <p>A list of <a>ClusterParameterGroup</a> instances. Each instance
    *             describes one cluster parameter group. </p>
@@ -1295,14 +1217,12 @@ export namespace ClusterParameterGroupsMessage {
   export const filterSensitiveLog = (obj: ClusterParameterGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroupsMessage => __isa(o, "ClusterParameterGroupsMessage");
 }
 
 /**
  * <p>Describes the status of a parameter group.</p>
  */
 export interface ClusterParameterGroupStatus {
-  __type?: "ClusterParameterGroupStatus";
   /**
    * <p>The name of the cluster parameter group.</p>
    */
@@ -1327,14 +1247,12 @@ export namespace ClusterParameterGroupStatus {
   export const filterSensitiveLog = (obj: ClusterParameterGroupStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterGroupStatus => __isa(o, "ClusterParameterGroupStatus");
 }
 
 /**
  * <p>Describes the status of a parameter group.</p>
  */
 export interface ClusterParameterStatus {
-  __type?: "ClusterParameterStatus";
   /**
    * <p>The status of the parameter that indicates whether the parameter is in sync with
    *             the database, waiting for a cluster reboot, or encountered an error when being
@@ -1396,7 +1314,6 @@ export namespace ClusterParameterStatus {
   export const filterSensitiveLog = (obj: ClusterParameterStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterParameterStatus => __isa(o, "ClusterParameterStatus");
 }
 
 /**
@@ -1416,14 +1333,12 @@ export namespace ClusterQuotaExceededFault {
   export const filterSensitiveLog = (obj: ClusterQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterQuotaExceededFault => __isa(o, "ClusterQuotaExceededFault");
 }
 
 /**
  * <p>Describes a security group.</p>
  */
 export interface ClusterSecurityGroup {
-  __type?: "ClusterSecurityGroup";
   /**
    * <p>The list of tags for the cluster security group.</p>
    */
@@ -1457,7 +1372,6 @@ export namespace ClusterSecurityGroup {
   export const filterSensitiveLog = (obj: ClusterSecurityGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSecurityGroup => __isa(o, "ClusterSecurityGroup");
 }
 
 /**
@@ -1473,15 +1387,12 @@ export namespace ClusterSecurityGroupAlreadyExistsFault {
   export const filterSensitiveLog = (obj: ClusterSecurityGroupAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSecurityGroupAlreadyExistsFault =>
-    __isa(o, "ClusterSecurityGroupAlreadyExistsFault");
 }
 
 /**
  * <p>Describes a cluster security group.</p>
  */
 export interface ClusterSecurityGroupMembership {
-  __type?: "ClusterSecurityGroupMembership";
   /**
    * <p>The name of the cluster security group.</p>
    */
@@ -1497,14 +1408,12 @@ export namespace ClusterSecurityGroupMembership {
   export const filterSensitiveLog = (obj: ClusterSecurityGroupMembership): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSecurityGroupMembership => __isa(o, "ClusterSecurityGroupMembership");
 }
 
 /**
  * <p></p>
  */
 export interface ClusterSecurityGroupMessage {
-  __type?: "ClusterSecurityGroupMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -1524,7 +1433,6 @@ export namespace ClusterSecurityGroupMessage {
   export const filterSensitiveLog = (obj: ClusterSecurityGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSecurityGroupMessage => __isa(o, "ClusterSecurityGroupMessage");
 }
 
 /**
@@ -1541,7 +1449,6 @@ export namespace ClusterSecurityGroupNotFoundFault {
   export const filterSensitiveLog = (obj: ClusterSecurityGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSecurityGroupNotFoundFault => __isa(o, "ClusterSecurityGroupNotFoundFault");
 }
 
 /**
@@ -1561,15 +1468,12 @@ export namespace ClusterSecurityGroupQuotaExceededFault {
   export const filterSensitiveLog = (obj: ClusterSecurityGroupQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSecurityGroupQuotaExceededFault =>
-    __isa(o, "ClusterSecurityGroupQuotaExceededFault");
 }
 
 /**
  * <p>Contains the output from the <a>DescribeClusters</a> action. </p>
  */
 export interface ClustersMessage {
-  __type?: "ClustersMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -1590,7 +1494,6 @@ export namespace ClustersMessage {
   export const filterSensitiveLog = (obj: ClustersMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClustersMessage => __isa(o, "ClustersMessage");
 }
 
 /**
@@ -1607,7 +1510,6 @@ export namespace ClusterSnapshotAlreadyExistsFault {
   export const filterSensitiveLog = (obj: ClusterSnapshotAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSnapshotAlreadyExistsFault => __isa(o, "ClusterSnapshotAlreadyExistsFault");
 }
 
 /**
@@ -1615,7 +1517,6 @@ export namespace ClusterSnapshotAlreadyExistsFault {
  *             cross-region snapshot copy.</p>
  */
 export interface ClusterSnapshotCopyStatus {
-  __type?: "ClusterSnapshotCopyStatus";
   /**
    * <p>The number of days that automated snapshots are retained in the destination region
    *             after they are copied from a source region.</p>
@@ -1646,7 +1547,6 @@ export namespace ClusterSnapshotCopyStatus {
   export const filterSensitiveLog = (obj: ClusterSnapshotCopyStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSnapshotCopyStatus => __isa(o, "ClusterSnapshotCopyStatus");
 }
 
 /**
@@ -1662,7 +1562,6 @@ export namespace ClusterSnapshotNotFoundFault {
   export const filterSensitiveLog = (obj: ClusterSnapshotNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSnapshotNotFoundFault => __isa(o, "ClusterSnapshotNotFoundFault");
 }
 
 /**
@@ -1679,14 +1578,12 @@ export namespace ClusterSnapshotQuotaExceededFault {
   export const filterSensitiveLog = (obj: ClusterSnapshotQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSnapshotQuotaExceededFault => __isa(o, "ClusterSnapshotQuotaExceededFault");
 }
 
 /**
  * <p>Describes a subnet group.</p>
  */
 export interface ClusterSubnetGroup {
-  __type?: "ClusterSubnetGroup";
   /**
    * <p>The description of the cluster subnet group.</p>
    */
@@ -1723,7 +1620,6 @@ export namespace ClusterSubnetGroup {
   export const filterSensitiveLog = (obj: ClusterSubnetGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSubnetGroup => __isa(o, "ClusterSubnetGroup");
 }
 
 /**
@@ -1740,8 +1636,6 @@ export namespace ClusterSubnetGroupAlreadyExistsFault {
   export const filterSensitiveLog = (obj: ClusterSubnetGroupAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSubnetGroupAlreadyExistsFault =>
-    __isa(o, "ClusterSubnetGroupAlreadyExistsFault");
 }
 
 /**
@@ -1749,7 +1643,6 @@ export namespace ClusterSubnetGroupAlreadyExistsFault {
  *         </p>
  */
 export interface ClusterSubnetGroupMessage {
-  __type?: "ClusterSubnetGroupMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -1769,7 +1662,6 @@ export namespace ClusterSubnetGroupMessage {
   export const filterSensitiveLog = (obj: ClusterSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSubnetGroupMessage => __isa(o, "ClusterSubnetGroupMessage");
 }
 
 /**
@@ -1786,7 +1678,6 @@ export namespace ClusterSubnetGroupNotFoundFault {
   export const filterSensitiveLog = (obj: ClusterSubnetGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSubnetGroupNotFoundFault => __isa(o, "ClusterSubnetGroupNotFoundFault");
 }
 
 /**
@@ -1806,8 +1697,6 @@ export namespace ClusterSubnetGroupQuotaExceededFault {
   export const filterSensitiveLog = (obj: ClusterSubnetGroupQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSubnetGroupQuotaExceededFault =>
-    __isa(o, "ClusterSubnetGroupQuotaExceededFault");
 }
 
 /**
@@ -1827,7 +1716,6 @@ export namespace ClusterSubnetQuotaExceededFault {
   export const filterSensitiveLog = (obj: ClusterSubnetQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterSubnetQuotaExceededFault => __isa(o, "ClusterSubnetQuotaExceededFault");
 }
 
 /**
@@ -1835,7 +1723,6 @@ export namespace ClusterSubnetQuotaExceededFault {
  *             of the version.</p>
  */
 export interface ClusterVersion {
-  __type?: "ClusterVersion";
   /**
    * <p>The description of the cluster version.</p>
    */
@@ -1856,7 +1743,6 @@ export namespace ClusterVersion {
   export const filterSensitiveLog = (obj: ClusterVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterVersion => __isa(o, "ClusterVersion");
 }
 
 /**
@@ -1864,7 +1750,6 @@ export namespace ClusterVersion {
  *         </p>
  */
 export interface ClusterVersionsMessage {
-  __type?: "ClusterVersionsMessage";
   /**
    * <p>A list of <code>Version</code> elements. </p>
    */
@@ -1884,14 +1769,12 @@ export namespace ClusterVersionsMessage {
   export const filterSensitiveLog = (obj: ClusterVersionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterVersionsMessage => __isa(o, "ClusterVersionsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface CopyClusterSnapshotMessage {
-  __type?: "CopyClusterSnapshotMessage";
   /**
    * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
    *             snapshot is retained indefinitely. </p>
@@ -1953,11 +1836,9 @@ export namespace CopyClusterSnapshotMessage {
   export const filterSensitiveLog = (obj: CopyClusterSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyClusterSnapshotMessage => __isa(o, "CopyClusterSnapshotMessage");
 }
 
 export interface CopyClusterSnapshotResult {
-  __type?: "CopyClusterSnapshotResult";
   /**
    * <p>Describes a snapshot.</p>
    */
@@ -1968,7 +1849,6 @@ export namespace CopyClusterSnapshotResult {
   export const filterSensitiveLog = (obj: CopyClusterSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyClusterSnapshotResult => __isa(o, "CopyClusterSnapshotResult");
 }
 
 /**
@@ -1985,14 +1865,12 @@ export namespace CopyToRegionDisabledFault {
   export const filterSensitiveLog = (obj: CopyToRegionDisabledFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyToRegionDisabledFault => __isa(o, "CopyToRegionDisabledFault");
 }
 
 /**
  * <p></p>
  */
 export interface CreateClusterMessage {
-  __type?: "CreateClusterMessage";
   /**
    * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
    *             use to encrypt data in the cluster.</p>
@@ -2343,14 +2221,12 @@ export namespace CreateClusterMessage {
   export const filterSensitiveLog = (obj: CreateClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterMessage => __isa(o, "CreateClusterMessage");
 }
 
 /**
  * <p></p>
  */
 export interface CreateClusterParameterGroupMessage {
-  __type?: "CreateClusterParameterGroupMessage";
   /**
    * <p>The name of the cluster parameter group.</p>
    *         <p>Constraints:</p>
@@ -2400,12 +2276,9 @@ export namespace CreateClusterParameterGroupMessage {
   export const filterSensitiveLog = (obj: CreateClusterParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterParameterGroupMessage =>
-    __isa(o, "CreateClusterParameterGroupMessage");
 }
 
 export interface CreateClusterParameterGroupResult {
-  __type?: "CreateClusterParameterGroupResult";
   /**
    * <p>Describes a parameter group.</p>
    */
@@ -2416,11 +2289,9 @@ export namespace CreateClusterParameterGroupResult {
   export const filterSensitiveLog = (obj: CreateClusterParameterGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterParameterGroupResult => __isa(o, "CreateClusterParameterGroupResult");
 }
 
 export interface CreateClusterResult {
-  __type?: "CreateClusterResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -2431,14 +2302,12 @@ export namespace CreateClusterResult {
   export const filterSensitiveLog = (obj: CreateClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterResult => __isa(o, "CreateClusterResult");
 }
 
 /**
  * <p></p>
  */
 export interface CreateClusterSecurityGroupMessage {
-  __type?: "CreateClusterSecurityGroupMessage";
   /**
    * <p>A description for the security group.</p>
    */
@@ -2475,11 +2344,9 @@ export namespace CreateClusterSecurityGroupMessage {
   export const filterSensitiveLog = (obj: CreateClusterSecurityGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterSecurityGroupMessage => __isa(o, "CreateClusterSecurityGroupMessage");
 }
 
 export interface CreateClusterSecurityGroupResult {
-  __type?: "CreateClusterSecurityGroupResult";
   /**
    * <p>Describes a security group.</p>
    */
@@ -2490,14 +2357,12 @@ export namespace CreateClusterSecurityGroupResult {
   export const filterSensitiveLog = (obj: CreateClusterSecurityGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterSecurityGroupResult => __isa(o, "CreateClusterSecurityGroupResult");
 }
 
 /**
  * <p></p>
  */
 export interface CreateClusterSnapshotMessage {
-  __type?: "CreateClusterSnapshotMessage";
   /**
    * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
    *             snapshot is retained indefinitely. </p>
@@ -2546,11 +2411,9 @@ export namespace CreateClusterSnapshotMessage {
   export const filterSensitiveLog = (obj: CreateClusterSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterSnapshotMessage => __isa(o, "CreateClusterSnapshotMessage");
 }
 
 export interface CreateClusterSnapshotResult {
-  __type?: "CreateClusterSnapshotResult";
   /**
    * <p>Describes a snapshot.</p>
    */
@@ -2561,14 +2424,12 @@ export namespace CreateClusterSnapshotResult {
   export const filterSensitiveLog = (obj: CreateClusterSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterSnapshotResult => __isa(o, "CreateClusterSnapshotResult");
 }
 
 /**
  * <p></p>
  */
 export interface CreateClusterSubnetGroupMessage {
-  __type?: "CreateClusterSubnetGroupMessage";
   /**
    * <p>A list of tag instances.</p>
    */
@@ -2611,11 +2472,9 @@ export namespace CreateClusterSubnetGroupMessage {
   export const filterSensitiveLog = (obj: CreateClusterSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterSubnetGroupMessage => __isa(o, "CreateClusterSubnetGroupMessage");
 }
 
 export interface CreateClusterSubnetGroupResult {
-  __type?: "CreateClusterSubnetGroupResult";
   /**
    * <p>Describes a subnet group.</p>
    */
@@ -2626,14 +2485,12 @@ export namespace CreateClusterSubnetGroupResult {
   export const filterSensitiveLog = (obj: CreateClusterSubnetGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClusterSubnetGroupResult => __isa(o, "CreateClusterSubnetGroupResult");
 }
 
 /**
  * <p></p>
  */
 export interface CreateEventSubscriptionMessage {
-  __type?: "CreateEventSubscriptionMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event
    *             notifications. The ARN is created by Amazon SNS when you create a topic and subscribe to
@@ -2711,11 +2568,9 @@ export namespace CreateEventSubscriptionMessage {
   export const filterSensitiveLog = (obj: CreateEventSubscriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEventSubscriptionMessage => __isa(o, "CreateEventSubscriptionMessage");
 }
 
 export interface CreateEventSubscriptionResult {
-  __type?: "CreateEventSubscriptionResult";
   /**
    * <p>Describes event subscriptions.</p>
    */
@@ -2726,14 +2581,12 @@ export namespace CreateEventSubscriptionResult {
   export const filterSensitiveLog = (obj: CreateEventSubscriptionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEventSubscriptionResult => __isa(o, "CreateEventSubscriptionResult");
 }
 
 /**
  * <p></p>
  */
 export interface CreateHsmClientCertificateMessage {
-  __type?: "CreateHsmClientCertificateMessage";
   /**
    * <p>A list of tag instances.</p>
    */
@@ -2750,11 +2603,9 @@ export namespace CreateHsmClientCertificateMessage {
   export const filterSensitiveLog = (obj: CreateHsmClientCertificateMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHsmClientCertificateMessage => __isa(o, "CreateHsmClientCertificateMessage");
 }
 
 export interface CreateHsmClientCertificateResult {
-  __type?: "CreateHsmClientCertificateResult";
   /**
    * <p>Returns information about an HSM client certificate. The certificate is stored in a
    *             secure Hardware Storage Module (HSM), and used by the Amazon Redshift cluster to encrypt data
@@ -2767,14 +2618,12 @@ export namespace CreateHsmClientCertificateResult {
   export const filterSensitiveLog = (obj: CreateHsmClientCertificateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHsmClientCertificateResult => __isa(o, "CreateHsmClientCertificateResult");
 }
 
 /**
  * <p></p>
  */
 export interface CreateHsmConfigurationMessage {
-  __type?: "CreateHsmConfigurationMessage";
   /**
    * <p>The IP address that the Amazon Redshift cluster must use to access the HSM.</p>
    */
@@ -2817,11 +2666,9 @@ export namespace CreateHsmConfigurationMessage {
   export const filterSensitiveLog = (obj: CreateHsmConfigurationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHsmConfigurationMessage => __isa(o, "CreateHsmConfigurationMessage");
 }
 
 export interface CreateHsmConfigurationResult {
-  __type?: "CreateHsmConfigurationResult";
   /**
    * <p>Returns information about an HSM configuration, which is an object that describes
    *             to Amazon Redshift clusters the information they require to connect to an HSM where they can
@@ -2834,11 +2681,9 @@ export namespace CreateHsmConfigurationResult {
   export const filterSensitiveLog = (obj: CreateHsmConfigurationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHsmConfigurationResult => __isa(o, "CreateHsmConfigurationResult");
 }
 
 export interface CreateScheduledActionMessage {
-  __type?: "CreateScheduledActionMessage";
   /**
    * <p>If true, the schedule is enabled. If false, the scheduled action does not trigger.
    *             For more information about <code>state</code> of the scheduled action, see <a>ScheduledAction</a>. </p>
@@ -2893,14 +2738,12 @@ export namespace CreateScheduledActionMessage {
   export const filterSensitiveLog = (obj: CreateScheduledActionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateScheduledActionMessage => __isa(o, "CreateScheduledActionMessage");
 }
 
 /**
  * <p>The result of the <code>CreateSnapshotCopyGrant</code> action.</p>
  */
 export interface CreateSnapshotCopyGrantMessage {
-  __type?: "CreateSnapshotCopyGrantMessage";
   /**
    * <p>The name of the snapshot copy grant. This name must be unique in the region for the
    *             AWS account.</p>
@@ -2941,11 +2784,9 @@ export namespace CreateSnapshotCopyGrantMessage {
   export const filterSensitiveLog = (obj: CreateSnapshotCopyGrantMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotCopyGrantMessage => __isa(o, "CreateSnapshotCopyGrantMessage");
 }
 
 export interface CreateSnapshotCopyGrantResult {
-  __type?: "CreateSnapshotCopyGrantResult";
   /**
    * <p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied
    *             snapshots with the specified customer master key (CMK) from AWS KMS in the destination
@@ -2963,11 +2804,9 @@ export namespace CreateSnapshotCopyGrantResult {
   export const filterSensitiveLog = (obj: CreateSnapshotCopyGrantResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotCopyGrantResult => __isa(o, "CreateSnapshotCopyGrantResult");
 }
 
 export interface CreateSnapshotScheduleMessage {
-  __type?: "CreateSnapshotScheduleMessage";
   /**
    * <p>The description of the snapshot schedule.</p>
    */
@@ -3005,14 +2844,12 @@ export namespace CreateSnapshotScheduleMessage {
   export const filterSensitiveLog = (obj: CreateSnapshotScheduleMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotScheduleMessage => __isa(o, "CreateSnapshotScheduleMessage");
 }
 
 /**
  * <p>Contains the output from the <code>CreateTags</code> action. </p>
  */
 export interface CreateTagsMessage {
-  __type?: "CreateTagsMessage";
   /**
    * <p>The Amazon Resource Name (ARN) to which you want to add the tag or tags. For
    *             example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </p>
@@ -3034,11 +2871,9 @@ export namespace CreateTagsMessage {
   export const filterSensitiveLog = (obj: CreateTagsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTagsMessage => __isa(o, "CreateTagsMessage");
 }
 
 export interface CreateUsageLimitMessage {
-  __type?: "CreateUsageLimitMessage";
   /**
    * <p>The Amazon Redshift feature that you want to limit.</p>
    */
@@ -3086,11 +2921,9 @@ export namespace CreateUsageLimitMessage {
   export const filterSensitiveLog = (obj: CreateUsageLimitMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUsageLimitMessage => __isa(o, "CreateUsageLimitMessage");
 }
 
 export interface CustomerStorageMessage {
-  __type?: "CustomerStorageMessage";
   /**
    * <p>The total amount of storage currently provisioned.</p>
    */
@@ -3106,7 +2939,6 @@ export namespace CustomerStorageMessage {
   export const filterSensitiveLog = (obj: CustomerStorageMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomerStorageMessage => __isa(o, "CustomerStorageMessage");
 }
 
 /**
@@ -3114,7 +2946,6 @@ export namespace CustomerStorageMessage {
  *             incremental resize.</p>
  */
 export interface DataTransferProgress {
-  __type?: "DataTransferProgress";
   /**
    * <p>Describes the estimated number of seconds remaining to complete the transfer.</p>
    */
@@ -3151,14 +2982,12 @@ export namespace DataTransferProgress {
   export const filterSensitiveLog = (obj: DataTransferProgress): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataTransferProgress => __isa(o, "DataTransferProgress");
 }
 
 /**
  * <p>Describes the default cluster parameters for a parameter group family.</p>
  */
 export interface DefaultClusterParameters {
-  __type?: "DefaultClusterParameters";
   /**
    * <p>The list of cluster default parameters.</p>
    */
@@ -3184,14 +3013,12 @@ export namespace DefaultClusterParameters {
   export const filterSensitiveLog = (obj: DefaultClusterParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DefaultClusterParameters => __isa(o, "DefaultClusterParameters");
 }
 
 /**
  * <p>Describes a deferred maintenance window</p>
  */
 export interface DeferredMaintenanceWindow {
-  __type?: "DeferredMaintenanceWindow";
   /**
    * <p>A unique identifier for the maintenance window.</p>
    */
@@ -3212,14 +3039,12 @@ export namespace DeferredMaintenanceWindow {
   export const filterSensitiveLog = (obj: DeferredMaintenanceWindow): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeferredMaintenanceWindow => __isa(o, "DeferredMaintenanceWindow");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteClusterMessage {
-  __type?: "DeleteClusterMessage";
   /**
    * <p>The identifier of the cluster to be deleted.</p>
    *         <p>Constraints:</p>
@@ -3287,14 +3112,12 @@ export namespace DeleteClusterMessage {
   export const filterSensitiveLog = (obj: DeleteClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterMessage => __isa(o, "DeleteClusterMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteClusterParameterGroupMessage {
-  __type?: "DeleteClusterParameterGroupMessage";
   /**
    * <p>The name of the parameter group to be deleted.</p>
    *         <p>Constraints:</p>
@@ -3314,12 +3137,9 @@ export namespace DeleteClusterParameterGroupMessage {
   export const filterSensitiveLog = (obj: DeleteClusterParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterParameterGroupMessage =>
-    __isa(o, "DeleteClusterParameterGroupMessage");
 }
 
 export interface DeleteClusterResult {
-  __type?: "DeleteClusterResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -3330,14 +3150,12 @@ export namespace DeleteClusterResult {
   export const filterSensitiveLog = (obj: DeleteClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterResult => __isa(o, "DeleteClusterResult");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteClusterSecurityGroupMessage {
-  __type?: "DeleteClusterSecurityGroupMessage";
   /**
    * <p>The name of the cluster security group to be deleted.</p>
    */
@@ -3348,14 +3166,12 @@ export namespace DeleteClusterSecurityGroupMessage {
   export const filterSensitiveLog = (obj: DeleteClusterSecurityGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterSecurityGroupMessage => __isa(o, "DeleteClusterSecurityGroupMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteClusterSnapshotMessage {
-  __type?: "DeleteClusterSnapshotMessage";
   /**
    * <p>The unique identifier of the cluster the snapshot was created from. This parameter
    *             is required if your IAM user has a policy containing a snapshot resource element that
@@ -3377,11 +3193,9 @@ export namespace DeleteClusterSnapshotMessage {
   export const filterSensitiveLog = (obj: DeleteClusterSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterSnapshotMessage => __isa(o, "DeleteClusterSnapshotMessage");
 }
 
 export interface DeleteClusterSnapshotResult {
-  __type?: "DeleteClusterSnapshotResult";
   /**
    * <p>Describes a snapshot.</p>
    */
@@ -3392,14 +3206,12 @@ export namespace DeleteClusterSnapshotResult {
   export const filterSensitiveLog = (obj: DeleteClusterSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterSnapshotResult => __isa(o, "DeleteClusterSnapshotResult");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteClusterSubnetGroupMessage {
-  __type?: "DeleteClusterSubnetGroupMessage";
   /**
    * <p>The name of the cluster subnet group name to be deleted.</p>
    */
@@ -3410,14 +3222,12 @@ export namespace DeleteClusterSubnetGroupMessage {
   export const filterSensitiveLog = (obj: DeleteClusterSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClusterSubnetGroupMessage => __isa(o, "DeleteClusterSubnetGroupMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteEventSubscriptionMessage {
-  __type?: "DeleteEventSubscriptionMessage";
   /**
    * <p>The name of the Amazon Redshift event notification subscription to be deleted.</p>
    */
@@ -3428,14 +3238,12 @@ export namespace DeleteEventSubscriptionMessage {
   export const filterSensitiveLog = (obj: DeleteEventSubscriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEventSubscriptionMessage => __isa(o, "DeleteEventSubscriptionMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteHsmClientCertificateMessage {
-  __type?: "DeleteHsmClientCertificateMessage";
   /**
    * <p>The identifier of the HSM client certificate to be deleted.</p>
    */
@@ -3446,14 +3254,12 @@ export namespace DeleteHsmClientCertificateMessage {
   export const filterSensitiveLog = (obj: DeleteHsmClientCertificateMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHsmClientCertificateMessage => __isa(o, "DeleteHsmClientCertificateMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DeleteHsmConfigurationMessage {
-  __type?: "DeleteHsmConfigurationMessage";
   /**
    * <p>The identifier of the Amazon Redshift HSM configuration to be deleted.</p>
    */
@@ -3464,11 +3270,9 @@ export namespace DeleteHsmConfigurationMessage {
   export const filterSensitiveLog = (obj: DeleteHsmConfigurationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHsmConfigurationMessage => __isa(o, "DeleteHsmConfigurationMessage");
 }
 
 export interface DeleteScheduledActionMessage {
-  __type?: "DeleteScheduledActionMessage";
   /**
    * <p>The name of the scheduled action to delete. </p>
    */
@@ -3479,14 +3283,12 @@ export namespace DeleteScheduledActionMessage {
   export const filterSensitiveLog = (obj: DeleteScheduledActionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteScheduledActionMessage => __isa(o, "DeleteScheduledActionMessage");
 }
 
 /**
  * <p>The result of the <code>DeleteSnapshotCopyGrant</code> action.</p>
  */
 export interface DeleteSnapshotCopyGrantMessage {
-  __type?: "DeleteSnapshotCopyGrantMessage";
   /**
    * <p>The name of the snapshot copy grant to delete.</p>
    */
@@ -3497,11 +3299,9 @@ export namespace DeleteSnapshotCopyGrantMessage {
   export const filterSensitiveLog = (obj: DeleteSnapshotCopyGrantMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSnapshotCopyGrantMessage => __isa(o, "DeleteSnapshotCopyGrantMessage");
 }
 
 export interface DeleteSnapshotScheduleMessage {
-  __type?: "DeleteSnapshotScheduleMessage";
   /**
    * <p>A unique identifier of the snapshot schedule to delete.</p>
    */
@@ -3512,14 +3312,12 @@ export namespace DeleteSnapshotScheduleMessage {
   export const filterSensitiveLog = (obj: DeleteSnapshotScheduleMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSnapshotScheduleMessage => __isa(o, "DeleteSnapshotScheduleMessage");
 }
 
 /**
  * <p>Contains the output from the <code>DeleteTags</code> action. </p>
  */
 export interface DeleteTagsMessage {
-  __type?: "DeleteTagsMessage";
   /**
    * <p>The tag key that you want to delete.</p>
    */
@@ -3536,11 +3334,9 @@ export namespace DeleteTagsMessage {
   export const filterSensitiveLog = (obj: DeleteTagsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsMessage => __isa(o, "DeleteTagsMessage");
 }
 
 export interface DeleteUsageLimitMessage {
-  __type?: "DeleteUsageLimitMessage";
   /**
    * <p>The identifier of the usage limit to delete.</p>
    */
@@ -3551,7 +3347,6 @@ export namespace DeleteUsageLimitMessage {
   export const filterSensitiveLog = (obj: DeleteUsageLimitMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUsageLimitMessage => __isa(o, "DeleteUsageLimitMessage");
 }
 
 /**
@@ -3568,8 +3363,6 @@ export namespace DependentServiceRequestThrottlingFault {
   export const filterSensitiveLog = (obj: DependentServiceRequestThrottlingFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DependentServiceRequestThrottlingFault =>
-    __isa(o, "DependentServiceRequestThrottlingFault");
 }
 
 /**
@@ -3586,11 +3379,9 @@ export namespace DependentServiceUnavailableFault {
   export const filterSensitiveLog = (obj: DependentServiceUnavailableFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DependentServiceUnavailableFault => __isa(o, "DependentServiceUnavailableFault");
 }
 
 export interface DescribeAccountAttributesMessage {
-  __type?: "DescribeAccountAttributesMessage";
   /**
    * <p>A list of attribute names.</p>
    */
@@ -3601,11 +3392,9 @@ export namespace DescribeAccountAttributesMessage {
   export const filterSensitiveLog = (obj: DescribeAccountAttributesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountAttributesMessage => __isa(o, "DescribeAccountAttributesMessage");
 }
 
 export interface DescribeClusterDbRevisionsMessage {
-  __type?: "DescribeClusterDbRevisionsMessage";
   /**
    * <p>An optional parameter that specifies the starting point for returning a set of
    *             response records. When the results of a <code>DescribeClusterDbRevisions</code> request
@@ -3641,14 +3430,12 @@ export namespace DescribeClusterDbRevisionsMessage {
   export const filterSensitiveLog = (obj: DescribeClusterDbRevisionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterDbRevisionsMessage => __isa(o, "DescribeClusterDbRevisionsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeClusterParameterGroupsMessage {
-  __type?: "DescribeClusterParameterGroupsMessage";
   /**
    * <p>The name of a specific parameter group for which to return details. By default,
    *             details about all parameter groups and the default parameter group are
@@ -3702,15 +3489,12 @@ export namespace DescribeClusterParameterGroupsMessage {
   export const filterSensitiveLog = (obj: DescribeClusterParameterGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterParameterGroupsMessage =>
-    __isa(o, "DescribeClusterParameterGroupsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeClusterParametersMessage {
-  __type?: "DescribeClusterParametersMessage";
   /**
    * <p>The parameter types to return. Specify <code>user</code> to show parameters that
    *             are different form the default. Similarly, specify <code>engine-default</code> to show
@@ -3752,14 +3536,12 @@ export namespace DescribeClusterParametersMessage {
   export const filterSensitiveLog = (obj: DescribeClusterParametersMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterParametersMessage => __isa(o, "DescribeClusterParametersMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeClusterSecurityGroupsMessage {
-  __type?: "DescribeClusterSecurityGroupsMessage";
   /**
    * <p>A tag value or values for which you want to return all matching cluster security
    *             groups that are associated with the specified tag value or values. For example, suppose
@@ -3815,15 +3597,12 @@ export namespace DescribeClusterSecurityGroupsMessage {
   export const filterSensitiveLog = (obj: DescribeClusterSecurityGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterSecurityGroupsMessage =>
-    __isa(o, "DescribeClusterSecurityGroupsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeClustersMessage {
-  __type?: "DescribeClustersMessage";
   /**
    * <p>A tag key or keys for which you want to return all matching clusters that are
    *             associated with the specified key or keys. For example, suppose that you have clusters
@@ -3877,14 +3656,12 @@ export namespace DescribeClustersMessage {
   export const filterSensitiveLog = (obj: DescribeClustersMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClustersMessage => __isa(o, "DescribeClustersMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeClusterSnapshotsMessage {
-  __type?: "DescribeClusterSnapshotsMessage";
   /**
    * <p>The identifier of the cluster which generated the requested snapshots.</p>
    */
@@ -4012,14 +3789,12 @@ export namespace DescribeClusterSnapshotsMessage {
   export const filterSensitiveLog = (obj: DescribeClusterSnapshotsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterSnapshotsMessage => __isa(o, "DescribeClusterSnapshotsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeClusterSubnetGroupsMessage {
-  __type?: "DescribeClusterSubnetGroupsMessage";
   /**
    * <p>A tag value or values for which you want to return all matching cluster subnet
    *             groups that are associated with the specified tag value or values. For example, suppose
@@ -4071,12 +3846,9 @@ export namespace DescribeClusterSubnetGroupsMessage {
   export const filterSensitiveLog = (obj: DescribeClusterSubnetGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterSubnetGroupsMessage =>
-    __isa(o, "DescribeClusterSubnetGroupsMessage");
 }
 
 export interface DescribeClusterTracksMessage {
-  __type?: "DescribeClusterTracksMessage";
   /**
    * <p>An integer value for the maximum number of maintenance tracks to return.</p>
    */
@@ -4102,14 +3874,12 @@ export namespace DescribeClusterTracksMessage {
   export const filterSensitiveLog = (obj: DescribeClusterTracksMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterTracksMessage => __isa(o, "DescribeClusterTracksMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeClusterVersionsMessage {
-  __type?: "DescribeClusterVersionsMessage";
   /**
    * <p>The name of a specific cluster parameter group family to return details
    *             for.</p>
@@ -4161,14 +3931,12 @@ export namespace DescribeClusterVersionsMessage {
   export const filterSensitiveLog = (obj: DescribeClusterVersionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeClusterVersionsMessage => __isa(o, "DescribeClusterVersionsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeDefaultClusterParametersMessage {
-  __type?: "DescribeDefaultClusterParametersMessage";
   /**
    * <p>The name of the cluster parameter group family.</p>
    */
@@ -4200,12 +3968,9 @@ export namespace DescribeDefaultClusterParametersMessage {
   export const filterSensitiveLog = (obj: DescribeDefaultClusterParametersMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDefaultClusterParametersMessage =>
-    __isa(o, "DescribeDefaultClusterParametersMessage");
 }
 
 export interface DescribeDefaultClusterParametersResult {
-  __type?: "DescribeDefaultClusterParametersResult";
   /**
    * <p>Describes the default cluster parameters for a parameter group family.</p>
    */
@@ -4216,15 +3981,12 @@ export namespace DescribeDefaultClusterParametersResult {
   export const filterSensitiveLog = (obj: DescribeDefaultClusterParametersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDefaultClusterParametersResult =>
-    __isa(o, "DescribeDefaultClusterParametersResult");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEventCategoriesMessage {
-  __type?: "DescribeEventCategoriesMessage";
   /**
    * <p>The source type, such as cluster or parameter group, to which the described event
    *             categories apply.</p>
@@ -4237,14 +3999,12 @@ export namespace DescribeEventCategoriesMessage {
   export const filterSensitiveLog = (obj: DescribeEventCategoriesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventCategoriesMessage => __isa(o, "DescribeEventCategoriesMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEventsMessage {
-  __type?: "DescribeEventsMessage";
   /**
    * <p>The number of minutes prior to the time of the request for which to retrieve
    *             events. For example, if the request is sent at 18:00 and you specify a duration of 60,
@@ -4355,14 +4115,12 @@ export namespace DescribeEventsMessage {
   export const filterSensitiveLog = (obj: DescribeEventsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventsMessage => __isa(o, "DescribeEventsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeEventSubscriptionsMessage {
-  __type?: "DescribeEventSubscriptionsMessage";
   /**
    * <p>A tag value or values for which you want to return all matching event notification
    *             subscriptions that are associated with the specified tag value or values. For example,
@@ -4415,14 +4173,12 @@ export namespace DescribeEventSubscriptionsMessage {
   export const filterSensitiveLog = (obj: DescribeEventSubscriptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventSubscriptionsMessage => __isa(o, "DescribeEventSubscriptionsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeHsmClientCertificatesMessage {
-  __type?: "DescribeHsmClientCertificatesMessage";
   /**
    * <p>The identifier of a specific HSM client certificate for which you want information.
    *             If no identifier is specified, information is returned for all HSM client certificates
@@ -4476,15 +4232,12 @@ export namespace DescribeHsmClientCertificatesMessage {
   export const filterSensitiveLog = (obj: DescribeHsmClientCertificatesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHsmClientCertificatesMessage =>
-    __isa(o, "DescribeHsmClientCertificatesMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeHsmConfigurationsMessage {
-  __type?: "DescribeHsmConfigurationsMessage";
   /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
@@ -4538,14 +4291,12 @@ export namespace DescribeHsmConfigurationsMessage {
   export const filterSensitiveLog = (obj: DescribeHsmConfigurationsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHsmConfigurationsMessage => __isa(o, "DescribeHsmConfigurationsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeLoggingStatusMessage {
-  __type?: "DescribeLoggingStatusMessage";
   /**
    * <p>The identifier of the cluster from which to get the logging status.</p>
    *         <p>Example: <code>examplecluster</code>
@@ -4558,11 +4309,9 @@ export namespace DescribeLoggingStatusMessage {
   export const filterSensitiveLog = (obj: DescribeLoggingStatusMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoggingStatusMessage => __isa(o, "DescribeLoggingStatusMessage");
 }
 
 export interface DescribeNodeConfigurationOptionsMessage {
-  __type?: "DescribeNodeConfigurationOptionsMessage";
   /**
    * <p>The action type to evaluate for possible node configurations.
    *             Specify "restore-cluster" to get configuration combinations based on an existing snapshot.
@@ -4620,15 +4369,12 @@ export namespace DescribeNodeConfigurationOptionsMessage {
   export const filterSensitiveLog = (obj: DescribeNodeConfigurationOptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNodeConfigurationOptionsMessage =>
-    __isa(o, "DescribeNodeConfigurationOptionsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeOrderableClusterOptionsMessage {
-  __type?: "DescribeOrderableClusterOptionsMessage";
   /**
    * <p>The node type filter value. Specify this parameter to show only the available
    *             offerings matching the specified node type.</p>
@@ -4669,15 +4415,12 @@ export namespace DescribeOrderableClusterOptionsMessage {
   export const filterSensitiveLog = (obj: DescribeOrderableClusterOptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeOrderableClusterOptionsMessage =>
-    __isa(o, "DescribeOrderableClusterOptionsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReservedNodeOfferingsMessage {
-  __type?: "DescribeReservedNodeOfferingsMessage";
   /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
@@ -4709,15 +4452,12 @@ export namespace DescribeReservedNodeOfferingsMessage {
   export const filterSensitiveLog = (obj: DescribeReservedNodeOfferingsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedNodeOfferingsMessage =>
-    __isa(o, "DescribeReservedNodeOfferingsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeReservedNodesMessage {
-  __type?: "DescribeReservedNodesMessage";
   /**
    * <p>Identifier for the node reservation.</p>
    */
@@ -4749,14 +4489,12 @@ export namespace DescribeReservedNodesMessage {
   export const filterSensitiveLog = (obj: DescribeReservedNodesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedNodesMessage => __isa(o, "DescribeReservedNodesMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeResizeMessage {
-  __type?: "DescribeResizeMessage";
   /**
    * <p>The unique identifier of a cluster whose resize progress you are requesting. This
    *             parameter is case-sensitive.</p>
@@ -4770,11 +4508,9 @@ export namespace DescribeResizeMessage {
   export const filterSensitiveLog = (obj: DescribeResizeMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeResizeMessage => __isa(o, "DescribeResizeMessage");
 }
 
 export interface DescribeScheduledActionsMessage {
-  __type?: "DescribeScheduledActionsMessage";
   /**
    * <p>The start time in UTC of the scheduled actions to retrieve.
    *             Only active scheduled actions that have invocations after this time are retrieved.</p>
@@ -4834,14 +4570,12 @@ export namespace DescribeScheduledActionsMessage {
   export const filterSensitiveLog = (obj: DescribeScheduledActionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScheduledActionsMessage => __isa(o, "DescribeScheduledActionsMessage");
 }
 
 /**
  * <p>The result of the <code>DescribeSnapshotCopyGrants</code> action.</p>
  */
 export interface DescribeSnapshotCopyGrantsMessage {
-  __type?: "DescribeSnapshotCopyGrantsMessage";
   /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
@@ -4892,11 +4626,9 @@ export namespace DescribeSnapshotCopyGrantsMessage {
   export const filterSensitiveLog = (obj: DescribeSnapshotCopyGrantsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotCopyGrantsMessage => __isa(o, "DescribeSnapshotCopyGrantsMessage");
 }
 
 export interface DescribeSnapshotSchedulesMessage {
-  __type?: "DescribeSnapshotSchedulesMessage";
   /**
    * <p>A unique identifier for a snapshot schedule.</p>
    */
@@ -4941,11 +4673,9 @@ export namespace DescribeSnapshotSchedulesMessage {
   export const filterSensitiveLog = (obj: DescribeSnapshotSchedulesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotSchedulesMessage => __isa(o, "DescribeSnapshotSchedulesMessage");
 }
 
 export interface DescribeSnapshotSchedulesOutputMessage {
-  __type?: "DescribeSnapshotSchedulesOutputMessage";
   /**
    * <p>A list of SnapshotSchedules.</p>
    */
@@ -4965,15 +4695,12 @@ export namespace DescribeSnapshotSchedulesOutputMessage {
   export const filterSensitiveLog = (obj: DescribeSnapshotSchedulesOutputMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotSchedulesOutputMessage =>
-    __isa(o, "DescribeSnapshotSchedulesOutputMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeTableRestoreStatusMessage {
-  __type?: "DescribeTableRestoreStatusMessage";
   /**
    * <p>An optional pagination token provided by a previous
    *                 <code>DescribeTableRestoreStatus</code> request. If this parameter is specified, the
@@ -5007,14 +4734,12 @@ export namespace DescribeTableRestoreStatusMessage {
   export const filterSensitiveLog = (obj: DescribeTableRestoreStatusMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTableRestoreStatusMessage => __isa(o, "DescribeTableRestoreStatusMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DescribeTagsMessage {
-  __type?: "DescribeTagsMessage";
   /**
    * <p>A tag value or values for which you want to return all matching resources that are
    *             associated with the specified value or values. For example, suppose that you have
@@ -5102,11 +4827,9 @@ export namespace DescribeTagsMessage {
   export const filterSensitiveLog = (obj: DescribeTagsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsMessage => __isa(o, "DescribeTagsMessage");
 }
 
 export interface DescribeUsageLimitsMessage {
-  __type?: "DescribeUsageLimitsMessage";
   /**
    * <p>A tag key or keys for which you want to return all matching usage limit objects
    *             that are associated with the specified key or keys. For example, suppose that you
@@ -5168,14 +4891,12 @@ export namespace DescribeUsageLimitsMessage {
   export const filterSensitiveLog = (obj: DescribeUsageLimitsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUsageLimitsMessage => __isa(o, "DescribeUsageLimitsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DisableLoggingMessage {
-  __type?: "DisableLoggingMessage";
   /**
    * <p>The identifier of the cluster on which logging is to be stopped.</p>
    *         <p>Example: <code>examplecluster</code>
@@ -5188,14 +4909,12 @@ export namespace DisableLoggingMessage {
   export const filterSensitiveLog = (obj: DisableLoggingMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableLoggingMessage => __isa(o, "DisableLoggingMessage");
 }
 
 /**
  * <p></p>
  */
 export interface DisableSnapshotCopyMessage {
-  __type?: "DisableSnapshotCopyMessage";
   /**
    * <p>The unique identifier of the source cluster that you want to disable copying of
    *             snapshots to a destination region.</p>
@@ -5209,11 +4928,9 @@ export namespace DisableSnapshotCopyMessage {
   export const filterSensitiveLog = (obj: DisableSnapshotCopyMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableSnapshotCopyMessage => __isa(o, "DisableSnapshotCopyMessage");
 }
 
 export interface DisableSnapshotCopyResult {
-  __type?: "DisableSnapshotCopyResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -5224,14 +4941,12 @@ export namespace DisableSnapshotCopyResult {
   export const filterSensitiveLog = (obj: DisableSnapshotCopyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableSnapshotCopyResult => __isa(o, "DisableSnapshotCopyResult");
 }
 
 /**
  * <p>Describes an Amazon EC2 security group.</p>
  */
 export interface EC2SecurityGroup {
-  __type?: "EC2SecurityGroup";
   /**
    * <p>The AWS ID of the owner of the EC2 security group specified in the
    *                 <code>EC2SecurityGroupName</code> field. </p>
@@ -5258,14 +4973,12 @@ export namespace EC2SecurityGroup {
   export const filterSensitiveLog = (obj: EC2SecurityGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EC2SecurityGroup => __isa(o, "EC2SecurityGroup");
 }
 
 /**
  * <p>Describes the status of the elastic IP (EIP) address.</p>
  */
 export interface ElasticIpStatus {
-  __type?: "ElasticIpStatus";
   /**
    * <p>The status of the elastic IP (EIP) address.</p>
    */
@@ -5281,14 +4994,12 @@ export namespace ElasticIpStatus {
   export const filterSensitiveLog = (obj: ElasticIpStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ElasticIpStatus => __isa(o, "ElasticIpStatus");
 }
 
 /**
  * <p></p>
  */
 export interface EnableLoggingMessage {
-  __type?: "EnableLoggingMessage";
   /**
    * <p>The prefix applied to the log file names.</p>
    *         <p>Constraints:</p>
@@ -5347,14 +5058,12 @@ export namespace EnableLoggingMessage {
   export const filterSensitiveLog = (obj: EnableLoggingMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableLoggingMessage => __isa(o, "EnableLoggingMessage");
 }
 
 /**
  * <p></p>
  */
 export interface EnableSnapshotCopyMessage {
-  __type?: "EnableSnapshotCopyMessage";
   /**
    * <p>The number of days to retain newly copied snapshots in the destination AWS Region
    *             after they are copied from the source AWS Region. If the value is -1, the manual
@@ -5397,11 +5106,9 @@ export namespace EnableSnapshotCopyMessage {
   export const filterSensitiveLog = (obj: EnableSnapshotCopyMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableSnapshotCopyMessage => __isa(o, "EnableSnapshotCopyMessage");
 }
 
 export interface EnableSnapshotCopyResult {
-  __type?: "EnableSnapshotCopyResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -5412,14 +5119,12 @@ export namespace EnableSnapshotCopyResult {
   export const filterSensitiveLog = (obj: EnableSnapshotCopyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableSnapshotCopyResult => __isa(o, "EnableSnapshotCopyResult");
 }
 
 /**
  * <p>Describes a connection endpoint.</p>
  */
 export interface Endpoint {
-  __type?: "Endpoint";
   /**
    * <p>The DNS address of the Cluster.</p>
    */
@@ -5435,14 +5140,12 @@ export namespace Endpoint {
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
 
 /**
  * <p>Describes an event.</p>
  */
 export interface Event {
-  __type?: "Event";
   /**
    * <p>The date and time of the event.</p>
    */
@@ -5485,14 +5188,12 @@ export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 /**
  * <p>Describes event categories.</p>
  */
 export interface EventCategoriesMap {
-  __type?: "EventCategoriesMap";
   /**
    * <p>The source type, such as cluster or cluster-snapshot, that the returned categories
    *             belong to.</p>
@@ -5509,14 +5210,12 @@ export namespace EventCategoriesMap {
   export const filterSensitiveLog = (obj: EventCategoriesMap): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventCategoriesMap => __isa(o, "EventCategoriesMap");
 }
 
 /**
  * <p></p>
  */
 export interface EventCategoriesMessage {
-  __type?: "EventCategoriesMessage";
   /**
    * <p>A list of event categories descriptions.</p>
    */
@@ -5527,14 +5226,12 @@ export namespace EventCategoriesMessage {
   export const filterSensitiveLog = (obj: EventCategoriesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventCategoriesMessage => __isa(o, "EventCategoriesMessage");
 }
 
 /**
  * <p>Describes event information.</p>
  */
 export interface EventInfoMap {
-  __type?: "EventInfoMap";
   /**
    * <p>The severity of the event.</p>
    *         <p>Values: ERROR, INFO</p>
@@ -5561,14 +5258,12 @@ export namespace EventInfoMap {
   export const filterSensitiveLog = (obj: EventInfoMap): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventInfoMap => __isa(o, "EventInfoMap");
 }
 
 /**
  * <p></p>
  */
 export interface EventsMessage {
-  __type?: "EventsMessage";
   /**
    * <p>A list of <code>Event</code> instances. </p>
    */
@@ -5588,14 +5283,12 @@ export namespace EventsMessage {
   export const filterSensitiveLog = (obj: EventsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventsMessage => __isa(o, "EventsMessage");
 }
 
 /**
  * <p>Describes event subscriptions.</p>
  */
 export interface EventSubscription {
-  __type?: "EventSubscription";
   /**
    * <p>A list of the sources that publish events to the Amazon Redshift event notification
    *             subscription.</p>
@@ -5679,7 +5372,6 @@ export namespace EventSubscription {
   export const filterSensitiveLog = (obj: EventSubscription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventSubscription => __isa(o, "EventSubscription");
 }
 
 /**
@@ -5699,15 +5391,12 @@ export namespace EventSubscriptionQuotaExceededFault {
   export const filterSensitiveLog = (obj: EventSubscriptionQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventSubscriptionQuotaExceededFault =>
-    __isa(o, "EventSubscriptionQuotaExceededFault");
 }
 
 /**
  * <p></p>
  */
 export interface EventSubscriptionsMessage {
-  __type?: "EventSubscriptionsMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -5727,14 +5416,12 @@ export namespace EventSubscriptionsMessage {
   export const filterSensitiveLog = (obj: EventSubscriptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventSubscriptionsMessage => __isa(o, "EventSubscriptionsMessage");
 }
 
 /**
  * <p>The request parameters to get cluster credentials.</p>
  */
 export interface GetClusterCredentialsMessage {
-  __type?: "GetClusterCredentialsMessage";
   /**
    * <p>A list of the names of existing database groups that the user named in
    *                 <code>DbUser</code> will join for the current session, in addition to any group
@@ -5849,14 +5536,12 @@ export namespace GetClusterCredentialsMessage {
   export const filterSensitiveLog = (obj: GetClusterCredentialsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetClusterCredentialsMessage => __isa(o, "GetClusterCredentialsMessage");
 }
 
 /**
  * <p></p>
  */
 export interface GetReservedNodeExchangeOfferingsInputMessage {
-  __type?: "GetReservedNodeExchangeOfferingsInputMessage";
   /**
    * <p>An integer setting the maximum number of ReservedNodeOfferings to
    *             retrieve.</p>
@@ -5880,12 +5565,9 @@ export namespace GetReservedNodeExchangeOfferingsInputMessage {
   export const filterSensitiveLog = (obj: GetReservedNodeExchangeOfferingsInputMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetReservedNodeExchangeOfferingsInputMessage =>
-    __isa(o, "GetReservedNodeExchangeOfferingsInputMessage");
 }
 
 export interface GetReservedNodeExchangeOfferingsOutputMessage {
-  __type?: "GetReservedNodeExchangeOfferingsOutputMessage";
   /**
    * <p>An optional parameter that specifies the starting point for returning a set of
    *             response records. When the results of a <code>GetReservedNodeExchangeOfferings</code>
@@ -5906,8 +5588,6 @@ export namespace GetReservedNodeExchangeOfferingsOutputMessage {
   export const filterSensitiveLog = (obj: GetReservedNodeExchangeOfferingsOutputMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetReservedNodeExchangeOfferingsOutputMessage =>
-    __isa(o, "GetReservedNodeExchangeOfferingsOutputMessage");
 }
 
 /**
@@ -5916,7 +5596,6 @@ export namespace GetReservedNodeExchangeOfferingsOutputMessage {
  *             files.</p>
  */
 export interface HsmClientCertificate {
-  __type?: "HsmClientCertificate";
   /**
    * <p>The list of tags for the HSM client certificate.</p>
    */
@@ -5938,7 +5617,6 @@ export namespace HsmClientCertificate {
   export const filterSensitiveLog = (obj: HsmClientCertificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HsmClientCertificate => __isa(o, "HsmClientCertificate");
 }
 
 /**
@@ -5955,15 +5633,12 @@ export namespace HsmClientCertificateAlreadyExistsFault {
   export const filterSensitiveLog = (obj: HsmClientCertificateAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HsmClientCertificateAlreadyExistsFault =>
-    __isa(o, "HsmClientCertificateAlreadyExistsFault");
 }
 
 /**
  * <p></p>
  */
 export interface HsmClientCertificateMessage {
-  __type?: "HsmClientCertificateMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -5984,7 +5659,6 @@ export namespace HsmClientCertificateMessage {
   export const filterSensitiveLog = (obj: HsmClientCertificateMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HsmClientCertificateMessage => __isa(o, "HsmClientCertificateMessage");
 }
 
 /**
@@ -6001,7 +5675,6 @@ export namespace HsmClientCertificateNotFoundFault {
   export const filterSensitiveLog = (obj: HsmClientCertificateNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HsmClientCertificateNotFoundFault => __isa(o, "HsmClientCertificateNotFoundFault");
 }
 
 /**
@@ -6020,8 +5693,6 @@ export namespace HsmClientCertificateQuotaExceededFault {
   export const filterSensitiveLog = (obj: HsmClientCertificateQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HsmClientCertificateQuotaExceededFault =>
-    __isa(o, "HsmClientCertificateQuotaExceededFault");
 }
 
 /**
@@ -6030,7 +5701,6 @@ export namespace HsmClientCertificateQuotaExceededFault {
  *             store database encryption keys.</p>
  */
 export interface HsmConfiguration {
-  __type?: "HsmConfiguration";
   /**
    * <p>A text description of the HSM configuration.</p>
    */
@@ -6062,7 +5732,6 @@ export namespace HsmConfiguration {
   export const filterSensitiveLog = (obj: HsmConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HsmConfiguration => __isa(o, "HsmConfiguration");
 }
 
 /**
@@ -6079,15 +5748,12 @@ export namespace HsmConfigurationAlreadyExistsFault {
   export const filterSensitiveLog = (obj: HsmConfigurationAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HsmConfigurationAlreadyExistsFault =>
-    __isa(o, "HsmConfigurationAlreadyExistsFault");
 }
 
 /**
  * <p></p>
  */
 export interface HsmConfigurationMessage {
-  __type?: "HsmConfigurationMessage";
   /**
    * <p>A list of <code>HsmConfiguration</code> objects.</p>
    */
@@ -6107,7 +5773,6 @@ export namespace HsmConfigurationMessage {
   export const filterSensitiveLog = (obj: HsmConfigurationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HsmConfigurationMessage => __isa(o, "HsmConfigurationMessage");
 }
 
 /**
@@ -6123,7 +5788,6 @@ export namespace HsmConfigurationNotFoundFault {
   export const filterSensitiveLog = (obj: HsmConfigurationNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HsmConfigurationNotFoundFault => __isa(o, "HsmConfigurationNotFoundFault");
 }
 
 /**
@@ -6142,15 +5806,12 @@ export namespace HsmConfigurationQuotaExceededFault {
   export const filterSensitiveLog = (obj: HsmConfigurationQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HsmConfigurationQuotaExceededFault =>
-    __isa(o, "HsmConfigurationQuotaExceededFault");
 }
 
 /**
  * <p>Describes the status of changes to HSM settings.</p>
  */
 export interface HsmStatus {
-  __type?: "HsmStatus";
   /**
    * <p>Reports whether the Amazon Redshift cluster has finished applying any HSM settings
    *             changes specified in a modify cluster command.</p>
@@ -6175,7 +5836,6 @@ export namespace HsmStatus {
   export const filterSensitiveLog = (obj: HsmStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HsmStatus => __isa(o, "HsmStatus");
 }
 
 /**
@@ -6191,7 +5851,6 @@ export namespace IncompatibleOrderableOptions {
   export const filterSensitiveLog = (obj: IncompatibleOrderableOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncompatibleOrderableOptions => __isa(o, "IncompatibleOrderableOptions");
 }
 
 /**
@@ -6208,8 +5867,6 @@ export namespace InProgressTableRestoreQuotaExceededFault {
   export const filterSensitiveLog = (obj: InProgressTableRestoreQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InProgressTableRestoreQuotaExceededFault =>
-    __isa(o, "InProgressTableRestoreQuotaExceededFault");
 }
 
 /**
@@ -6226,7 +5883,6 @@ export namespace InsufficientClusterCapacityFault {
   export const filterSensitiveLog = (obj: InsufficientClusterCapacityFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientClusterCapacityFault => __isa(o, "InsufficientClusterCapacityFault");
 }
 
 /**
@@ -6243,7 +5899,6 @@ export namespace InsufficientS3BucketPolicyFault {
   export const filterSensitiveLog = (obj: InsufficientS3BucketPolicyFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientS3BucketPolicyFault => __isa(o, "InsufficientS3BucketPolicyFault");
 }
 
 /**
@@ -6261,8 +5916,6 @@ export namespace InvalidClusterParameterGroupStateFault {
   export const filterSensitiveLog = (obj: InvalidClusterParameterGroupStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidClusterParameterGroupStateFault =>
-    __isa(o, "InvalidClusterParameterGroupStateFault");
 }
 
 /**
@@ -6278,8 +5931,6 @@ export namespace InvalidClusterSecurityGroupStateFault {
   export const filterSensitiveLog = (obj: InvalidClusterSecurityGroupStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidClusterSecurityGroupStateFault =>
-    __isa(o, "InvalidClusterSecurityGroupStateFault");
 }
 
 /**
@@ -6295,8 +5946,6 @@ export namespace InvalidClusterSnapshotScheduleStateFault {
   export const filterSensitiveLog = (obj: InvalidClusterSnapshotScheduleStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidClusterSnapshotScheduleStateFault =>
-    __isa(o, "InvalidClusterSnapshotScheduleStateFault");
 }
 
 /**
@@ -6313,7 +5962,6 @@ export namespace InvalidClusterSnapshotStateFault {
   export const filterSensitiveLog = (obj: InvalidClusterSnapshotStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidClusterSnapshotStateFault => __isa(o, "InvalidClusterSnapshotStateFault");
 }
 
 /**
@@ -6329,7 +5977,6 @@ export namespace InvalidClusterStateFault {
   export const filterSensitiveLog = (obj: InvalidClusterStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidClusterStateFault => __isa(o, "InvalidClusterStateFault");
 }
 
 /**
@@ -6345,8 +5992,6 @@ export namespace InvalidClusterSubnetGroupStateFault {
   export const filterSensitiveLog = (obj: InvalidClusterSubnetGroupStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidClusterSubnetGroupStateFault =>
-    __isa(o, "InvalidClusterSubnetGroupStateFault");
 }
 
 /**
@@ -6362,7 +6007,6 @@ export namespace InvalidClusterSubnetStateFault {
   export const filterSensitiveLog = (obj: InvalidClusterSubnetStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidClusterSubnetStateFault => __isa(o, "InvalidClusterSubnetStateFault");
 }
 
 /**
@@ -6378,7 +6022,6 @@ export namespace InvalidClusterTrackFault {
   export const filterSensitiveLog = (obj: InvalidClusterTrackFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidClusterTrackFault => __isa(o, "InvalidClusterTrackFault");
 }
 
 /**
@@ -6394,7 +6037,6 @@ export namespace InvalidElasticIpFault {
   export const filterSensitiveLog = (obj: InvalidElasticIpFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidElasticIpFault => __isa(o, "InvalidElasticIpFault");
 }
 
 /**
@@ -6411,8 +6053,6 @@ export namespace InvalidHsmClientCertificateStateFault {
   export const filterSensitiveLog = (obj: InvalidHsmClientCertificateStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidHsmClientCertificateStateFault =>
-    __isa(o, "InvalidHsmClientCertificateStateFault");
 }
 
 /**
@@ -6429,7 +6069,6 @@ export namespace InvalidHsmConfigurationStateFault {
   export const filterSensitiveLog = (obj: InvalidHsmConfigurationStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidHsmConfigurationStateFault => __isa(o, "InvalidHsmConfigurationStateFault");
 }
 
 /**
@@ -6445,7 +6084,6 @@ export namespace InvalidReservedNodeStateFault {
   export const filterSensitiveLog = (obj: InvalidReservedNodeStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidReservedNodeStateFault => __isa(o, "InvalidReservedNodeStateFault");
 }
 
 /**
@@ -6461,7 +6099,6 @@ export namespace InvalidRestoreFault {
   export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRestoreFault => __isa(o, "InvalidRestoreFault");
 }
 
 /**
@@ -6478,7 +6115,6 @@ export namespace InvalidRetentionPeriodFault {
   export const filterSensitiveLog = (obj: InvalidRetentionPeriodFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRetentionPeriodFault => __isa(o, "InvalidRetentionPeriodFault");
 }
 
 /**
@@ -6497,7 +6133,6 @@ export namespace InvalidS3BucketNameFault {
   export const filterSensitiveLog = (obj: InvalidS3BucketNameFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidS3BucketNameFault => __isa(o, "InvalidS3BucketNameFault");
 }
 
 /**
@@ -6514,7 +6149,6 @@ export namespace InvalidS3KeyPrefixFault {
   export const filterSensitiveLog = (obj: InvalidS3KeyPrefixFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidS3KeyPrefixFault => __isa(o, "InvalidS3KeyPrefixFault");
 }
 
 /**
@@ -6530,7 +6164,6 @@ export namespace InvalidScheduledActionFault {
   export const filterSensitiveLog = (obj: InvalidScheduledActionFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidScheduledActionFault => __isa(o, "InvalidScheduledActionFault");
 }
 
 /**
@@ -6546,7 +6179,6 @@ export namespace InvalidScheduleFault {
   export const filterSensitiveLog = (obj: InvalidScheduleFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidScheduleFault => __isa(o, "InvalidScheduleFault");
 }
 
 /**
@@ -6563,8 +6195,6 @@ export namespace InvalidSnapshotCopyGrantStateFault {
   export const filterSensitiveLog = (obj: InvalidSnapshotCopyGrantStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSnapshotCopyGrantStateFault =>
-    __isa(o, "InvalidSnapshotCopyGrantStateFault");
 }
 
 /**
@@ -6581,7 +6211,6 @@ export namespace InvalidSubnet {
   export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
 }
 
 /**
@@ -6598,7 +6227,6 @@ export namespace InvalidSubscriptionStateFault {
   export const filterSensitiveLog = (obj: InvalidSubscriptionStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSubscriptionStateFault => __isa(o, "InvalidSubscriptionStateFault");
 }
 
 /**
@@ -6616,7 +6244,6 @@ export namespace InvalidTableRestoreArgumentFault {
   export const filterSensitiveLog = (obj: InvalidTableRestoreArgumentFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTableRestoreArgumentFault => __isa(o, "InvalidTableRestoreArgumentFault");
 }
 
 /**
@@ -6632,7 +6259,6 @@ export namespace InvalidTagFault {
   export const filterSensitiveLog = (obj: InvalidTagFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagFault => __isa(o, "InvalidTagFault");
 }
 
 /**
@@ -6648,7 +6274,6 @@ export namespace InvalidUsageLimitFault {
   export const filterSensitiveLog = (obj: InvalidUsageLimitFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidUsageLimitFault => __isa(o, "InvalidUsageLimitFault");
 }
 
 /**
@@ -6664,14 +6289,12 @@ export namespace InvalidVPCNetworkStateFault {
   export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidVPCNetworkStateFault => __isa(o, "InvalidVPCNetworkStateFault");
 }
 
 /**
  * <p>Describes an IP range used in a security group.</p>
  */
 export interface IPRange {
-  __type?: "IPRange";
   /**
    * <p>The list of tags for the IP range.</p>
    */
@@ -6692,7 +6315,6 @@ export namespace IPRange {
   export const filterSensitiveLog = (obj: IPRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IPRange => __isa(o, "IPRange");
 }
 
 /**
@@ -6708,14 +6330,12 @@ export namespace LimitExceededFault {
   export const filterSensitiveLog = (obj: LimitExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededFault => __isa(o, "LimitExceededFault");
 }
 
 /**
  * <p>Describes the status of logging for a cluster.</p>
  */
 export interface LoggingStatus {
-  __type?: "LoggingStatus";
   /**
    * <p>The prefix applied to the log file names.</p>
    */
@@ -6752,7 +6372,6 @@ export namespace LoggingStatus {
   export const filterSensitiveLog = (obj: LoggingStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggingStatus => __isa(o, "LoggingStatus");
 }
 
 /**
@@ -6763,7 +6382,6 @@ export namespace LoggingStatus {
  *             the previously certified maintenance release. </p>
  */
 export interface MaintenanceTrack {
-  __type?: "MaintenanceTrack";
   /**
    * <p>The name of the maintenance track. Possible values are <code>current</code> and
    *                 <code>trailing</code>.</p>
@@ -6786,7 +6404,6 @@ export namespace MaintenanceTrack {
   export const filterSensitiveLog = (obj: MaintenanceTrack): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaintenanceTrack => __isa(o, "MaintenanceTrack");
 }
 
 export enum Mode {
@@ -6795,7 +6412,6 @@ export enum Mode {
 }
 
 export interface ModifyClusterDbRevisionMessage {
-  __type?: "ModifyClusterDbRevisionMessage";
   /**
    * <p>The identifier of the database revision. You can retrieve this value from the
    *             response to the <a>DescribeClusterDbRevisions</a> request.</p>
@@ -6814,11 +6430,9 @@ export namespace ModifyClusterDbRevisionMessage {
   export const filterSensitiveLog = (obj: ModifyClusterDbRevisionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterDbRevisionMessage => __isa(o, "ModifyClusterDbRevisionMessage");
 }
 
 export interface ModifyClusterDbRevisionResult {
-  __type?: "ModifyClusterDbRevisionResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -6829,14 +6443,12 @@ export namespace ModifyClusterDbRevisionResult {
   export const filterSensitiveLog = (obj: ModifyClusterDbRevisionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterDbRevisionResult => __isa(o, "ModifyClusterDbRevisionResult");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyClusterIamRolesMessage {
-  __type?: "ModifyClusterIamRolesMessage";
   /**
    * <p>The unique identifier of the cluster for which you want to associate or
    *             disassociate IAM roles.</p>
@@ -6861,11 +6473,9 @@ export namespace ModifyClusterIamRolesMessage {
   export const filterSensitiveLog = (obj: ModifyClusterIamRolesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterIamRolesMessage => __isa(o, "ModifyClusterIamRolesMessage");
 }
 
 export interface ModifyClusterIamRolesResult {
-  __type?: "ModifyClusterIamRolesResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -6876,11 +6486,9 @@ export namespace ModifyClusterIamRolesResult {
   export const filterSensitiveLog = (obj: ModifyClusterIamRolesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterIamRolesResult => __isa(o, "ModifyClusterIamRolesResult");
 }
 
 export interface ModifyClusterMaintenanceMessage {
-  __type?: "ModifyClusterMaintenanceMessage";
   /**
    * <p>A timestamp indicating end time for the deferred maintenance window. If you specify an
    *             end time, you can't specify a duration.</p>
@@ -6918,11 +6526,9 @@ export namespace ModifyClusterMaintenanceMessage {
   export const filterSensitiveLog = (obj: ModifyClusterMaintenanceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterMaintenanceMessage => __isa(o, "ModifyClusterMaintenanceMessage");
 }
 
 export interface ModifyClusterMaintenanceResult {
-  __type?: "ModifyClusterMaintenanceResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -6933,14 +6539,12 @@ export namespace ModifyClusterMaintenanceResult {
   export const filterSensitiveLog = (obj: ModifyClusterMaintenanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterMaintenanceResult => __isa(o, "ModifyClusterMaintenanceResult");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyClusterMessage {
-  __type?: "ModifyClusterMessage";
   /**
    * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to use
    *             to encrypt data in the cluster.</p>
@@ -7207,14 +6811,12 @@ export namespace ModifyClusterMessage {
   export const filterSensitiveLog = (obj: ModifyClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterMessage => __isa(o, "ModifyClusterMessage");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyClusterParameterGroupMessage {
-  __type?: "ModifyClusterParameterGroupMessage";
   /**
    * <p>An array of parameters to be modified. A maximum of 20 parameters can be modified
    *             in a single request.</p>
@@ -7235,12 +6837,9 @@ export namespace ModifyClusterParameterGroupMessage {
   export const filterSensitiveLog = (obj: ModifyClusterParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterParameterGroupMessage =>
-    __isa(o, "ModifyClusterParameterGroupMessage");
 }
 
 export interface ModifyClusterResult {
-  __type?: "ModifyClusterResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -7251,11 +6850,9 @@ export namespace ModifyClusterResult {
   export const filterSensitiveLog = (obj: ModifyClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterResult => __isa(o, "ModifyClusterResult");
 }
 
 export interface ModifyClusterSnapshotMessage {
-  __type?: "ModifyClusterSnapshotMessage";
   /**
    * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
    *             snapshot is retained indefinitely.</p>
@@ -7281,11 +6878,9 @@ export namespace ModifyClusterSnapshotMessage {
   export const filterSensitiveLog = (obj: ModifyClusterSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterSnapshotMessage => __isa(o, "ModifyClusterSnapshotMessage");
 }
 
 export interface ModifyClusterSnapshotResult {
-  __type?: "ModifyClusterSnapshotResult";
   /**
    * <p>Describes a snapshot.</p>
    */
@@ -7296,11 +6891,9 @@ export namespace ModifyClusterSnapshotResult {
   export const filterSensitiveLog = (obj: ModifyClusterSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterSnapshotResult => __isa(o, "ModifyClusterSnapshotResult");
 }
 
 export interface ModifyClusterSnapshotScheduleMessage {
-  __type?: "ModifyClusterSnapshotScheduleMessage";
   /**
    * <p>A boolean to indicate whether to remove the assoiciation between the cluster and the
    *             schedule.</p>
@@ -7324,15 +6917,12 @@ export namespace ModifyClusterSnapshotScheduleMessage {
   export const filterSensitiveLog = (obj: ModifyClusterSnapshotScheduleMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterSnapshotScheduleMessage =>
-    __isa(o, "ModifyClusterSnapshotScheduleMessage");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyClusterSubnetGroupMessage {
-  __type?: "ModifyClusterSubnetGroupMessage";
   /**
    * <p>The name of the subnet group to be modified.</p>
    */
@@ -7354,11 +6944,9 @@ export namespace ModifyClusterSubnetGroupMessage {
   export const filterSensitiveLog = (obj: ModifyClusterSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterSubnetGroupMessage => __isa(o, "ModifyClusterSubnetGroupMessage");
 }
 
 export interface ModifyClusterSubnetGroupResult {
-  __type?: "ModifyClusterSubnetGroupResult";
   /**
    * <p>Describes a subnet group.</p>
    */
@@ -7369,14 +6957,12 @@ export namespace ModifyClusterSubnetGroupResult {
   export const filterSensitiveLog = (obj: ModifyClusterSubnetGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyClusterSubnetGroupResult => __isa(o, "ModifyClusterSubnetGroupResult");
 }
 
 /**
  * <p></p>
  */
 export interface ModifyEventSubscriptionMessage {
-  __type?: "ModifyEventSubscriptionMessage";
   /**
    * <p>Specifies the Amazon Redshift event severity to be published by the event notification
    *             subscription.</p>
@@ -7433,11 +7019,9 @@ export namespace ModifyEventSubscriptionMessage {
   export const filterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyEventSubscriptionMessage => __isa(o, "ModifyEventSubscriptionMessage");
 }
 
 export interface ModifyEventSubscriptionResult {
-  __type?: "ModifyEventSubscriptionResult";
   /**
    * <p>Describes event subscriptions.</p>
    */
@@ -7448,11 +7032,9 @@ export namespace ModifyEventSubscriptionResult {
   export const filterSensitiveLog = (obj: ModifyEventSubscriptionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyEventSubscriptionResult => __isa(o, "ModifyEventSubscriptionResult");
 }
 
 export interface ModifyScheduledActionMessage {
-  __type?: "ModifyScheduledActionMessage";
   /**
    * <p>A modified JSON format of the scheduled action.
    *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
@@ -7503,14 +7085,12 @@ export namespace ModifyScheduledActionMessage {
   export const filterSensitiveLog = (obj: ModifyScheduledActionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyScheduledActionMessage => __isa(o, "ModifyScheduledActionMessage");
 }
 
 /**
  * <p></p>
  */
 export interface ModifySnapshotCopyRetentionPeriodMessage {
-  __type?: "ModifySnapshotCopyRetentionPeriodMessage";
   /**
    * <p>The unique identifier of the cluster for which you want to change the retention
    *             period for either automated or manual snapshots that are copied to a destination AWS
@@ -7549,12 +7129,9 @@ export namespace ModifySnapshotCopyRetentionPeriodMessage {
   export const filterSensitiveLog = (obj: ModifySnapshotCopyRetentionPeriodMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifySnapshotCopyRetentionPeriodMessage =>
-    __isa(o, "ModifySnapshotCopyRetentionPeriodMessage");
 }
 
 export interface ModifySnapshotCopyRetentionPeriodResult {
-  __type?: "ModifySnapshotCopyRetentionPeriodResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -7565,12 +7142,9 @@ export namespace ModifySnapshotCopyRetentionPeriodResult {
   export const filterSensitiveLog = (obj: ModifySnapshotCopyRetentionPeriodResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifySnapshotCopyRetentionPeriodResult =>
-    __isa(o, "ModifySnapshotCopyRetentionPeriodResult");
 }
 
 export interface ModifySnapshotScheduleMessage {
-  __type?: "ModifySnapshotScheduleMessage";
   /**
    * <p>A unique alphanumeric identifier of the schedule to modify.</p>
    */
@@ -7587,11 +7161,9 @@ export namespace ModifySnapshotScheduleMessage {
   export const filterSensitiveLog = (obj: ModifySnapshotScheduleMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifySnapshotScheduleMessage => __isa(o, "ModifySnapshotScheduleMessage");
 }
 
 export interface ModifyUsageLimitMessage {
-  __type?: "ModifyUsageLimitMessage";
   /**
    * <p>The identifier of the usage limit to modify.</p>
    */
@@ -7614,14 +7186,12 @@ export namespace ModifyUsageLimitMessage {
   export const filterSensitiveLog = (obj: ModifyUsageLimitMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyUsageLimitMessage => __isa(o, "ModifyUsageLimitMessage");
 }
 
 /**
  * <p>A list of node configurations.</p>
  */
 export interface NodeConfigurationOption {
-  __type?: "NodeConfigurationOption";
   /**
    * <p>The estimated disk utilizaton percentage.</p>
    */
@@ -7647,14 +7217,12 @@ export namespace NodeConfigurationOption {
   export const filterSensitiveLog = (obj: NodeConfigurationOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeConfigurationOption => __isa(o, "NodeConfigurationOption");
 }
 
 /**
  * <p>A set of elements to filter the returned node configurations.</p>
  */
 export interface NodeConfigurationOptionsFilter {
-  __type?: "NodeConfigurationOptionsFilter";
   /**
    * <p>List of values. Compare Name using Operator to Values.
    *             If filter Name is NumberOfNodes, then values can range from 0 to 200.
@@ -7682,7 +7250,6 @@ export namespace NodeConfigurationOptionsFilter {
   export const filterSensitiveLog = (obj: NodeConfigurationOptionsFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeConfigurationOptionsFilter => __isa(o, "NodeConfigurationOptionsFilter");
 }
 
 export enum NodeConfigurationOptionsFilterName {
@@ -7693,7 +7260,6 @@ export enum NodeConfigurationOptionsFilterName {
 }
 
 export interface NodeConfigurationOptionsMessage {
-  __type?: "NodeConfigurationOptionsMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -7713,7 +7279,6 @@ export namespace NodeConfigurationOptionsMessage {
   export const filterSensitiveLog = (obj: NodeConfigurationOptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeConfigurationOptionsMessage => __isa(o, "NodeConfigurationOptionsMessage");
 }
 
 /**
@@ -7729,8 +7294,6 @@ export namespace NumberOfNodesPerClusterLimitExceededFault {
   export const filterSensitiveLog = (obj: NumberOfNodesPerClusterLimitExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NumberOfNodesPerClusterLimitExceededFault =>
-    __isa(o, "NumberOfNodesPerClusterLimitExceededFault");
 }
 
 /**
@@ -7750,7 +7313,6 @@ export namespace NumberOfNodesQuotaExceededFault {
   export const filterSensitiveLog = (obj: NumberOfNodesQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NumberOfNodesQuotaExceededFault => __isa(o, "NumberOfNodesQuotaExceededFault");
 }
 
 export enum OperatorType {
@@ -7767,7 +7329,6 @@ export enum OperatorType {
  * <p>Describes an orderable cluster option.</p>
  */
 export interface OrderableClusterOption {
-  __type?: "OrderableClusterOption";
   /**
    * <p>The cluster type, for example <code>multi-node</code>. </p>
    */
@@ -7793,7 +7354,6 @@ export namespace OrderableClusterOption {
   export const filterSensitiveLog = (obj: OrderableClusterOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrderableClusterOption => __isa(o, "OrderableClusterOption");
 }
 
 /**
@@ -7801,7 +7361,6 @@ export namespace OrderableClusterOption {
  *             action. </p>
  */
 export interface OrderableClusterOptionsMessage {
-  __type?: "OrderableClusterOptionsMessage";
   /**
    * <p>An <code>OrderableClusterOption</code> structure containing information about
    *             orderable options for the cluster.</p>
@@ -7822,14 +7381,12 @@ export namespace OrderableClusterOptionsMessage {
   export const filterSensitiveLog = (obj: OrderableClusterOptionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrderableClusterOptionsMessage => __isa(o, "OrderableClusterOptionsMessage");
 }
 
 /**
  * <p>Describes a parameter in a cluster parameter group.</p>
  */
 export interface Parameter {
-  __type?: "Parameter";
   /**
    * <p>The data type of the parameter.</p>
    */
@@ -7886,13 +7443,11 @@ export namespace Parameter {
   export const filterSensitiveLog = (obj: Parameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Parameter => __isa(o, "Parameter");
 }
 
 export type ParameterApplyType = "dynamic" | "static";
 
 export interface PauseClusterMessage {
-  __type?: "PauseClusterMessage";
   /**
    * <p>The identifier of the cluster to be paused.</p>
    */
@@ -7903,11 +7458,9 @@ export namespace PauseClusterMessage {
   export const filterSensitiveLog = (obj: PauseClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PauseClusterMessage => __isa(o, "PauseClusterMessage");
 }
 
 export interface PauseClusterResult {
-  __type?: "PauseClusterResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -7918,7 +7471,6 @@ export namespace PauseClusterResult {
   export const filterSensitiveLog = (obj: PauseClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PauseClusterResult => __isa(o, "PauseClusterResult");
 }
 
 /**
@@ -7926,7 +7478,6 @@ export namespace PauseClusterResult {
  *             the attributes was requested and is in progress or will be applied.</p>
  */
 export interface PendingModifiedValues {
-  __type?: "PendingModifiedValues";
   /**
    * <p>The pending or in-progress change of the service version.</p>
    */
@@ -7997,14 +7548,12 @@ export namespace PendingModifiedValues {
   export const filterSensitiveLog = (obj: PendingModifiedValues): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PendingModifiedValues => __isa(o, "PendingModifiedValues");
 }
 
 /**
  * <p></p>
  */
 export interface PurchaseReservedNodeOfferingMessage {
-  __type?: "PurchaseReservedNodeOfferingMessage";
   /**
    * <p>The unique identifier of the reserved node offering you want to purchase.</p>
    */
@@ -8022,12 +7571,9 @@ export namespace PurchaseReservedNodeOfferingMessage {
   export const filterSensitiveLog = (obj: PurchaseReservedNodeOfferingMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseReservedNodeOfferingMessage =>
-    __isa(o, "PurchaseReservedNodeOfferingMessage");
 }
 
 export interface PurchaseReservedNodeOfferingResult {
-  __type?: "PurchaseReservedNodeOfferingResult";
   /**
    * <p>Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node
    *             offerings. </p>
@@ -8039,15 +7585,12 @@ export namespace PurchaseReservedNodeOfferingResult {
   export const filterSensitiveLog = (obj: PurchaseReservedNodeOfferingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseReservedNodeOfferingResult =>
-    __isa(o, "PurchaseReservedNodeOfferingResult");
 }
 
 /**
  * <p></p>
  */
 export interface RebootClusterMessage {
-  __type?: "RebootClusterMessage";
   /**
    * <p>The cluster identifier.</p>
    */
@@ -8058,11 +7601,9 @@ export namespace RebootClusterMessage {
   export const filterSensitiveLog = (obj: RebootClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootClusterMessage => __isa(o, "RebootClusterMessage");
 }
 
 export interface RebootClusterResult {
-  __type?: "RebootClusterResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -8073,14 +7614,12 @@ export namespace RebootClusterResult {
   export const filterSensitiveLog = (obj: RebootClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootClusterResult => __isa(o, "RebootClusterResult");
 }
 
 /**
  * <p>Describes a recurring charge.</p>
  */
 export interface RecurringCharge {
-  __type?: "RecurringCharge";
   /**
    * <p>The amount charged per the period of time specified by the recurring charge
    *             frequency.</p>
@@ -8097,7 +7636,6 @@ export namespace RecurringCharge {
   export const filterSensitiveLog = (obj: RecurringCharge): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecurringCharge => __isa(o, "RecurringCharge");
 }
 
 /**
@@ -8105,7 +7643,6 @@ export namespace RecurringCharge {
  *             offerings. </p>
  */
 export interface ReservedNode {
-  __type?: "ReservedNode";
   /**
    * <p>The recurring charges for the reserved node.</p>
    */
@@ -8199,7 +7736,6 @@ export namespace ReservedNode {
   export const filterSensitiveLog = (obj: ReservedNode): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedNode => __isa(o, "ReservedNode");
 }
 
 /**
@@ -8215,7 +7751,6 @@ export namespace ReservedNodeAlreadyExistsFault {
   export const filterSensitiveLog = (obj: ReservedNodeAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeAlreadyExistsFault => __isa(o, "ReservedNodeAlreadyExistsFault");
 }
 
 /**
@@ -8231,7 +7766,6 @@ export namespace ReservedNodeAlreadyMigratedFault {
   export const filterSensitiveLog = (obj: ReservedNodeAlreadyMigratedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeAlreadyMigratedFault => __isa(o, "ReservedNodeAlreadyMigratedFault");
 }
 
 /**
@@ -8247,14 +7781,12 @@ export namespace ReservedNodeNotFoundFault {
   export const filterSensitiveLog = (obj: ReservedNodeNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeNotFoundFault => __isa(o, "ReservedNodeNotFoundFault");
 }
 
 /**
  * <p>Describes a reserved node offering.</p>
  */
 export interface ReservedNodeOffering {
-  __type?: "ReservedNodeOffering";
   /**
    * <p></p>
    */
@@ -8310,7 +7842,6 @@ export namespace ReservedNodeOffering {
   export const filterSensitiveLog = (obj: ReservedNodeOffering): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeOffering => __isa(o, "ReservedNodeOffering");
 }
 
 /**
@@ -8326,14 +7857,12 @@ export namespace ReservedNodeOfferingNotFoundFault {
   export const filterSensitiveLog = (obj: ReservedNodeOfferingNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeOfferingNotFoundFault => __isa(o, "ReservedNodeOfferingNotFoundFault");
 }
 
 /**
  * <p></p>
  */
 export interface ReservedNodeOfferingsMessage {
-  __type?: "ReservedNodeOfferingsMessage";
   /**
    * <p>A list of <code>ReservedNodeOffering</code> objects.</p>
    */
@@ -8353,7 +7882,6 @@ export namespace ReservedNodeOfferingsMessage {
   export const filterSensitiveLog = (obj: ReservedNodeOfferingsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeOfferingsMessage => __isa(o, "ReservedNodeOfferingsMessage");
 }
 
 export type ReservedNodeOfferingType = "Regular" | "Upgradable";
@@ -8374,14 +7902,12 @@ export namespace ReservedNodeQuotaExceededFault {
   export const filterSensitiveLog = (obj: ReservedNodeQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedNodeQuotaExceededFault => __isa(o, "ReservedNodeQuotaExceededFault");
 }
 
 /**
  * <p></p>
  */
 export interface ReservedNodesMessage {
-  __type?: "ReservedNodesMessage";
   /**
    * <p>The list of <code>ReservedNode</code> objects.</p>
    */
@@ -8401,14 +7927,12 @@ export namespace ReservedNodesMessage {
   export const filterSensitiveLog = (obj: ReservedNodesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedNodesMessage => __isa(o, "ReservedNodesMessage");
 }
 
 /**
  * <p></p>
  */
 export interface ResetClusterParameterGroupMessage {
-  __type?: "ResetClusterParameterGroupMessage";
   /**
    * <p>If <code>true</code>, all parameters in the specified parameter group will be reset
    *             to their default values. </p>
@@ -8435,11 +7959,9 @@ export namespace ResetClusterParameterGroupMessage {
   export const filterSensitiveLog = (obj: ResetClusterParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetClusterParameterGroupMessage => __isa(o, "ResetClusterParameterGroupMessage");
 }
 
 export interface ResizeClusterMessage {
-  __type?: "ResizeClusterMessage";
   /**
    * <p>The new node type for the nodes you are adding. If not specified, the cluster's current node type is used.</p>
    */
@@ -8472,11 +7994,9 @@ export namespace ResizeClusterMessage {
   export const filterSensitiveLog = (obj: ResizeClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResizeClusterMessage => __isa(o, "ResizeClusterMessage");
 }
 
 export interface ResizeClusterResult {
-  __type?: "ResizeClusterResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -8487,14 +8007,12 @@ export namespace ResizeClusterResult {
   export const filterSensitiveLog = (obj: ResizeClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResizeClusterResult => __isa(o, "ResizeClusterResult");
 }
 
 /**
  * <p>Describes a resize operation.</p>
  */
 export interface ResizeInfo {
-  __type?: "ResizeInfo";
   /**
    * <p>A boolean value indicating if the resize operation can be cancelled.</p>
    */
@@ -8510,7 +8028,6 @@ export namespace ResizeInfo {
   export const filterSensitiveLog = (obj: ResizeInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResizeInfo => __isa(o, "ResizeInfo");
 }
 
 /**
@@ -8526,14 +8043,12 @@ export namespace ResizeNotFoundFault {
   export const filterSensitiveLog = (obj: ResizeNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResizeNotFoundFault => __isa(o, "ResizeNotFoundFault");
 }
 
 /**
  * <p>Describes the result of a cluster resize operation.</p>
  */
 export interface ResizeProgressMessage {
-  __type?: "ResizeProgressMessage";
   /**
    * <p>An enum with possible values of <code>ClassicResize</code> and
    *                 <code>ElasticResize</code>. These values describe the type of resize operation being
@@ -8645,7 +8160,6 @@ export namespace ResizeProgressMessage {
   export const filterSensitiveLog = (obj: ResizeProgressMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResizeProgressMessage => __isa(o, "ResizeProgressMessage");
 }
 
 /**
@@ -8661,14 +8175,12 @@ export namespace ResourceNotFoundFault {
   export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundFault => __isa(o, "ResourceNotFoundFault");
 }
 
 /**
  * <p></p>
  */
 export interface RestoreFromClusterSnapshotMessage {
-  __type?: "RestoreFromClusterSnapshotMessage";
   /**
    * <p>The AWS customer account used to create or copy the snapshot. Required if you are
    *             restoring a snapshot you do not own, optional if you own the snapshot.</p>
@@ -8901,11 +8413,9 @@ export namespace RestoreFromClusterSnapshotMessage {
   export const filterSensitiveLog = (obj: RestoreFromClusterSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreFromClusterSnapshotMessage => __isa(o, "RestoreFromClusterSnapshotMessage");
 }
 
 export interface RestoreFromClusterSnapshotResult {
-  __type?: "RestoreFromClusterSnapshotResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -8916,7 +8426,6 @@ export namespace RestoreFromClusterSnapshotResult {
   export const filterSensitiveLog = (obj: RestoreFromClusterSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreFromClusterSnapshotResult => __isa(o, "RestoreFromClusterSnapshotResult");
 }
 
 /**
@@ -8924,7 +8433,6 @@ export namespace RestoreFromClusterSnapshotResult {
  *             not created by restoring a snapshot.</p>
  */
 export interface RestoreStatus {
-  __type?: "RestoreStatus";
   /**
    * <p>The size of the set of snapshot data used to restore the cluster.
    *             This field is only updated when you restore to DC2 and DS2 node types. </p>
@@ -8969,14 +8477,12 @@ export namespace RestoreStatus {
   export const filterSensitiveLog = (obj: RestoreStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreStatus => __isa(o, "RestoreStatus");
 }
 
 /**
  * <p></p>
  */
 export interface RestoreTableFromClusterSnapshotMessage {
-  __type?: "RestoreTableFromClusterSnapshotMessage";
   /**
    * <p>The name of the schema to restore the table to.</p>
    */
@@ -9026,12 +8532,9 @@ export namespace RestoreTableFromClusterSnapshotMessage {
   export const filterSensitiveLog = (obj: RestoreTableFromClusterSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreTableFromClusterSnapshotMessage =>
-    __isa(o, "RestoreTableFromClusterSnapshotMessage");
 }
 
 export interface RestoreTableFromClusterSnapshotResult {
-  __type?: "RestoreTableFromClusterSnapshotResult";
   /**
    * <p>Describes the status of a <a>RestoreTableFromClusterSnapshot</a>
    *             operation.</p>
@@ -9043,12 +8546,9 @@ export namespace RestoreTableFromClusterSnapshotResult {
   export const filterSensitiveLog = (obj: RestoreTableFromClusterSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreTableFromClusterSnapshotResult =>
-    __isa(o, "RestoreTableFromClusterSnapshotResult");
 }
 
 export interface ResumeClusterMessage {
-  __type?: "ResumeClusterMessage";
   /**
    * <p>The identifier of the cluster to be resumed.</p>
    */
@@ -9059,11 +8559,9 @@ export namespace ResumeClusterMessage {
   export const filterSensitiveLog = (obj: ResumeClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResumeClusterMessage => __isa(o, "ResumeClusterMessage");
 }
 
 export interface ResumeClusterResult {
-  __type?: "ResumeClusterResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -9074,14 +8572,12 @@ export namespace ResumeClusterResult {
   export const filterSensitiveLog = (obj: ResumeClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResumeClusterResult => __isa(o, "ResumeClusterResult");
 }
 
 /**
  * <p>Describes a <code>RevisionTarget</code>.</p>
  */
 export interface RevisionTarget {
-  __type?: "RevisionTarget";
   /**
    * <p>The date on which the database revision was released.</p>
    */
@@ -9104,14 +8600,12 @@ export namespace RevisionTarget {
   export const filterSensitiveLog = (obj: RevisionTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevisionTarget => __isa(o, "RevisionTarget");
 }
 
 /**
  * <p></p>
  */
 export interface RevokeClusterSecurityGroupIngressMessage {
-  __type?: "RevokeClusterSecurityGroupIngressMessage";
   /**
    * <p>The AWS account number of the owner of the security group specified in the
    *                 <code>EC2SecurityGroupName</code> parameter. The AWS access key ID is not an
@@ -9148,12 +8642,9 @@ export namespace RevokeClusterSecurityGroupIngressMessage {
   export const filterSensitiveLog = (obj: RevokeClusterSecurityGroupIngressMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeClusterSecurityGroupIngressMessage =>
-    __isa(o, "RevokeClusterSecurityGroupIngressMessage");
 }
 
 export interface RevokeClusterSecurityGroupIngressResult {
-  __type?: "RevokeClusterSecurityGroupIngressResult";
   /**
    * <p>Describes a security group.</p>
    */
@@ -9164,15 +8655,12 @@ export namespace RevokeClusterSecurityGroupIngressResult {
   export const filterSensitiveLog = (obj: RevokeClusterSecurityGroupIngressResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeClusterSecurityGroupIngressResult =>
-    __isa(o, "RevokeClusterSecurityGroupIngressResult");
 }
 
 /**
  * <p></p>
  */
 export interface RevokeSnapshotAccessMessage {
-  __type?: "RevokeSnapshotAccessMessage";
   /**
    * <p>The identifier of the snapshot that the account can no longer access.</p>
    */
@@ -9196,11 +8684,9 @@ export namespace RevokeSnapshotAccessMessage {
   export const filterSensitiveLog = (obj: RevokeSnapshotAccessMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeSnapshotAccessMessage => __isa(o, "RevokeSnapshotAccessMessage");
 }
 
 export interface RevokeSnapshotAccessResult {
-  __type?: "RevokeSnapshotAccessResult";
   /**
    * <p>Describes a snapshot.</p>
    */
@@ -9211,14 +8697,12 @@ export namespace RevokeSnapshotAccessResult {
   export const filterSensitiveLog = (obj: RevokeSnapshotAccessResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeSnapshotAccessResult => __isa(o, "RevokeSnapshotAccessResult");
 }
 
 /**
  * <p></p>
  */
 export interface RotateEncryptionKeyMessage {
-  __type?: "RotateEncryptionKeyMessage";
   /**
    * <p>The unique identifier of the cluster that you want to rotate the encryption keys
    *             for.</p>
@@ -9232,11 +8716,9 @@ export namespace RotateEncryptionKeyMessage {
   export const filterSensitiveLog = (obj: RotateEncryptionKeyMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RotateEncryptionKeyMessage => __isa(o, "RotateEncryptionKeyMessage");
 }
 
 export interface RotateEncryptionKeyResult {
-  __type?: "RotateEncryptionKeyResult";
   /**
    * <p>Describes a cluster.</p>
    */
@@ -9247,7 +8729,6 @@ export namespace RotateEncryptionKeyResult {
   export const filterSensitiveLog = (obj: RotateEncryptionKeyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RotateEncryptionKeyResult => __isa(o, "RotateEncryptionKeyResult");
 }
 
 /**
@@ -9255,7 +8736,6 @@ export namespace RotateEncryptionKeyResult {
  *             For information about which API operations can be scheduled, see  <a>ScheduledActionType</a>. </p>
  */
 export interface ScheduledAction {
-  __type?: "ScheduledAction";
   /**
    * <p>List of times when the scheduled action will run. </p>
    */
@@ -9320,7 +8800,6 @@ export namespace ScheduledAction {
   export const filterSensitiveLog = (obj: ScheduledAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledAction => __isa(o, "ScheduledAction");
 }
 
 /**
@@ -9336,14 +8815,12 @@ export namespace ScheduledActionAlreadyExistsFault {
   export const filterSensitiveLog = (obj: ScheduledActionAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionAlreadyExistsFault => __isa(o, "ScheduledActionAlreadyExistsFault");
 }
 
 /**
  * <p>A set of elements to filter the returned scheduled actions. </p>
  */
 export interface ScheduledActionFilter {
-  __type?: "ScheduledActionFilter";
   /**
    * <p>The type of element to filter. </p>
    */
@@ -9359,7 +8836,6 @@ export namespace ScheduledActionFilter {
   export const filterSensitiveLog = (obj: ScheduledActionFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionFilter => __isa(o, "ScheduledActionFilter");
 }
 
 export enum ScheduledActionFilterName {
@@ -9380,7 +8856,6 @@ export namespace ScheduledActionNotFoundFault {
   export const filterSensitiveLog = (obj: ScheduledActionNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionNotFoundFault => __isa(o, "ScheduledActionNotFoundFault");
 }
 
 /**
@@ -9396,11 +8871,9 @@ export namespace ScheduledActionQuotaExceededFault {
   export const filterSensitiveLog = (obj: ScheduledActionQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionQuotaExceededFault => __isa(o, "ScheduledActionQuotaExceededFault");
 }
 
 export interface ScheduledActionsMessage {
-  __type?: "ScheduledActionsMessage";
   /**
    * <p>List of retrieved scheduled actions. </p>
    */
@@ -9421,7 +8894,6 @@ export namespace ScheduledActionsMessage {
   export const filterSensitiveLog = (obj: ScheduledActionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionsMessage => __isa(o, "ScheduledActionsMessage");
 }
 
 export enum ScheduledActionState {
@@ -9433,7 +8905,6 @@ export enum ScheduledActionState {
  * <p>The action type that specifies an Amazon Redshift API operation that is supported by the Amazon Redshift scheduler. </p>
  */
 export interface ScheduledActionType {
-  __type?: "ScheduledActionType";
   /**
    * <p>An action that runs a <code>ResizeCluster</code> API operation. </p>
    */
@@ -9454,7 +8925,6 @@ export namespace ScheduledActionType {
   export const filterSensitiveLog = (obj: ScheduledActionType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionType => __isa(o, "ScheduledActionType");
 }
 
 /**
@@ -9470,8 +8940,6 @@ export namespace ScheduledActionTypeUnsupportedFault {
   export const filterSensitiveLog = (obj: ScheduledActionTypeUnsupportedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduledActionTypeUnsupportedFault =>
-    __isa(o, "ScheduledActionTypeUnsupportedFault");
 }
 
 export enum ScheduledActionTypeValues {
@@ -9493,8 +8961,6 @@ export namespace ScheduleDefinitionTypeUnsupportedFault {
   export const filterSensitiveLog = (obj: ScheduleDefinitionTypeUnsupportedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduleDefinitionTypeUnsupportedFault =>
-    __isa(o, "ScheduleDefinitionTypeUnsupportedFault");
 }
 
 export type ScheduleState = "ACTIVE" | "FAILED" | "MODIFYING";
@@ -9503,7 +8969,6 @@ export type ScheduleState = "ACTIVE" | "FAILED" | "MODIFYING";
  * <p>Describes a snapshot.</p>
  */
 export interface Snapshot {
-  __type?: "Snapshot";
   /**
    * <p>A boolean that indicates whether the snapshot data is encrypted using the HSM keys
    *             of the source cluster. <code>true</code> indicates that the data is encrypted using HSM
@@ -9713,7 +9178,6 @@ export namespace Snapshot {
   export const filterSensitiveLog = (obj: Snapshot): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Snapshot => __isa(o, "Snapshot");
 }
 
 export enum SnapshotAttributeToSortBy {
@@ -9735,7 +9199,6 @@ export namespace SnapshotCopyAlreadyDisabledFault {
   export const filterSensitiveLog = (obj: SnapshotCopyAlreadyDisabledFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyAlreadyDisabledFault => __isa(o, "SnapshotCopyAlreadyDisabledFault");
 }
 
 /**
@@ -9751,7 +9214,6 @@ export namespace SnapshotCopyAlreadyEnabledFault {
   export const filterSensitiveLog = (obj: SnapshotCopyAlreadyEnabledFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyAlreadyEnabledFault => __isa(o, "SnapshotCopyAlreadyEnabledFault");
 }
 
 /**
@@ -9768,7 +9230,6 @@ export namespace SnapshotCopyDisabledFault {
   export const filterSensitiveLog = (obj: SnapshotCopyDisabledFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyDisabledFault => __isa(o, "SnapshotCopyDisabledFault");
 }
 
 /**
@@ -9782,7 +9243,6 @@ export namespace SnapshotCopyDisabledFault {
  * </p>
  */
 export interface SnapshotCopyGrant {
-  __type?: "SnapshotCopyGrant";
   /**
    * <p>A list of tag instances.</p>
    */
@@ -9804,7 +9264,6 @@ export namespace SnapshotCopyGrant {
   export const filterSensitiveLog = (obj: SnapshotCopyGrant): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyGrant => __isa(o, "SnapshotCopyGrant");
 }
 
 /**
@@ -9821,15 +9280,12 @@ export namespace SnapshotCopyGrantAlreadyExistsFault {
   export const filterSensitiveLog = (obj: SnapshotCopyGrantAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyGrantAlreadyExistsFault =>
-    __isa(o, "SnapshotCopyGrantAlreadyExistsFault");
 }
 
 /**
  * <p></p>
  */
 export interface SnapshotCopyGrantMessage {
-  __type?: "SnapshotCopyGrantMessage";
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <code>DescribeSnapshotCopyGrant</code> request exceed the
@@ -9851,7 +9307,6 @@ export namespace SnapshotCopyGrantMessage {
   export const filterSensitiveLog = (obj: SnapshotCopyGrantMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyGrantMessage => __isa(o, "SnapshotCopyGrantMessage");
 }
 
 /**
@@ -9868,7 +9323,6 @@ export namespace SnapshotCopyGrantNotFoundFault {
   export const filterSensitiveLog = (obj: SnapshotCopyGrantNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyGrantNotFoundFault => __isa(o, "SnapshotCopyGrantNotFoundFault");
 }
 
 /**
@@ -9885,15 +9339,12 @@ export namespace SnapshotCopyGrantQuotaExceededFault {
   export const filterSensitiveLog = (obj: SnapshotCopyGrantQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotCopyGrantQuotaExceededFault =>
-    __isa(o, "SnapshotCopyGrantQuotaExceededFault");
 }
 
 /**
  * <p>Describes the errors returned by a snapshot.</p>
  */
 export interface SnapshotErrorMessage {
-  __type?: "SnapshotErrorMessage";
   /**
    * <p>The text message describing the error.</p>
    */
@@ -9919,7 +9370,6 @@ export namespace SnapshotErrorMessage {
   export const filterSensitiveLog = (obj: SnapshotErrorMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotErrorMessage => __isa(o, "SnapshotErrorMessage");
 }
 
 /**
@@ -9927,7 +9377,6 @@ export namespace SnapshotErrorMessage {
  *         </p>
  */
 export interface SnapshotMessage {
-  __type?: "SnapshotMessage";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -9947,7 +9396,6 @@ export namespace SnapshotMessage {
   export const filterSensitiveLog = (obj: SnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotMessage => __isa(o, "SnapshotMessage");
 }
 
 /**
@@ -9955,7 +9403,6 @@ export namespace SnapshotMessage {
  *             snapshots of a cluster. You can also schedule snapshots for specific dates. </p>
  */
 export interface SnapshotSchedule {
-  __type?: "SnapshotSchedule";
   /**
    * <p></p>
    */
@@ -9996,7 +9443,6 @@ export namespace SnapshotSchedule {
   export const filterSensitiveLog = (obj: SnapshotSchedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotSchedule => __isa(o, "SnapshotSchedule");
 }
 
 /**
@@ -10012,8 +9458,6 @@ export namespace SnapshotScheduleAlreadyExistsFault {
   export const filterSensitiveLog = (obj: SnapshotScheduleAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotScheduleAlreadyExistsFault =>
-    __isa(o, "SnapshotScheduleAlreadyExistsFault");
 }
 
 /**
@@ -10029,7 +9473,6 @@ export namespace SnapshotScheduleNotFoundFault {
   export const filterSensitiveLog = (obj: SnapshotScheduleNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotScheduleNotFoundFault => __isa(o, "SnapshotScheduleNotFoundFault");
 }
 
 /**
@@ -10045,8 +9488,6 @@ export namespace SnapshotScheduleQuotaExceededFault {
   export const filterSensitiveLog = (obj: SnapshotScheduleQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotScheduleQuotaExceededFault =>
-    __isa(o, "SnapshotScheduleQuotaExceededFault");
 }
 
 /**
@@ -10062,15 +9503,12 @@ export namespace SnapshotScheduleUpdateInProgressFault {
   export const filterSensitiveLog = (obj: SnapshotScheduleUpdateInProgressFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotScheduleUpdateInProgressFault =>
-    __isa(o, "SnapshotScheduleUpdateInProgressFault");
 }
 
 /**
  * <p>Describes a sorting entity</p>
  */
 export interface SnapshotSortingEntity {
-  __type?: "SnapshotSortingEntity";
   /**
    * <p>The category for sorting the snapshots.</p>
    */
@@ -10086,7 +9524,6 @@ export namespace SnapshotSortingEntity {
   export const filterSensitiveLog = (obj: SnapshotSortingEntity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotSortingEntity => __isa(o, "SnapshotSortingEntity");
 }
 
 /**
@@ -10103,7 +9540,6 @@ export namespace SNSInvalidTopicFault {
   export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SNSInvalidTopicFault => __isa(o, "SNSInvalidTopicFault");
 }
 
 /**
@@ -10119,7 +9555,6 @@ export namespace SNSNoAuthorizationFault {
   export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SNSNoAuthorizationFault => __isa(o, "SNSNoAuthorizationFault");
 }
 
 /**
@@ -10136,7 +9571,6 @@ export namespace SNSTopicArnNotFoundFault {
   export const filterSensitiveLog = (obj: SNSTopicArnNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SNSTopicArnNotFoundFault => __isa(o, "SNSTopicArnNotFoundFault");
 }
 
 export enum SortByOrder {
@@ -10157,7 +9591,6 @@ export namespace SourceNotFoundFault {
   export const filterSensitiveLog = (obj: SourceNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceNotFoundFault => __isa(o, "SourceNotFoundFault");
 }
 
 export type SourceType =
@@ -10171,7 +9604,6 @@ export type SourceType =
  * <p>Describes a subnet.</p>
  */
 export interface Subnet {
-  __type?: "Subnet";
   /**
    * <p></p>
    */
@@ -10192,7 +9624,6 @@ export namespace Subnet {
   export const filterSensitiveLog = (obj: Subnet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
 }
 
 /**
@@ -10208,7 +9639,6 @@ export namespace SubnetAlreadyInUse {
   export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubnetAlreadyInUse => __isa(o, "SubnetAlreadyInUse");
 }
 
 /**
@@ -10225,7 +9655,6 @@ export namespace SubscriptionAlreadyExistFault {
   export const filterSensitiveLog = (obj: SubscriptionAlreadyExistFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscriptionAlreadyExistFault => __isa(o, "SubscriptionAlreadyExistFault");
 }
 
 /**
@@ -10243,7 +9672,6 @@ export namespace SubscriptionCategoryNotFoundFault {
   export const filterSensitiveLog = (obj: SubscriptionCategoryNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscriptionCategoryNotFoundFault => __isa(o, "SubscriptionCategoryNotFoundFault");
 }
 
 /**
@@ -10259,7 +9687,6 @@ export namespace SubscriptionEventIdNotFoundFault {
   export const filterSensitiveLog = (obj: SubscriptionEventIdNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscriptionEventIdNotFoundFault => __isa(o, "SubscriptionEventIdNotFoundFault");
 }
 
 /**
@@ -10276,7 +9703,6 @@ export namespace SubscriptionNotFoundFault {
   export const filterSensitiveLog = (obj: SubscriptionNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscriptionNotFoundFault => __isa(o, "SubscriptionNotFoundFault");
 }
 
 /**
@@ -10294,14 +9720,12 @@ export namespace SubscriptionSeverityNotFoundFault {
   export const filterSensitiveLog = (obj: SubscriptionSeverityNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscriptionSeverityNotFoundFault => __isa(o, "SubscriptionSeverityNotFoundFault");
 }
 
 /**
  * <p>Describes the operations that are allowed on a maintenance track.</p>
  */
 export interface SupportedOperation {
-  __type?: "SupportedOperation";
   /**
    * <p>A list of the supported operations.</p>
    */
@@ -10312,14 +9736,12 @@ export namespace SupportedOperation {
   export const filterSensitiveLog = (obj: SupportedOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SupportedOperation => __isa(o, "SupportedOperation");
 }
 
 /**
  * <p>A list of supported platforms for orderable clusters.</p>
  */
 export interface SupportedPlatform {
-  __type?: "SupportedPlatform";
   /**
    * <p></p>
    */
@@ -10330,7 +9752,6 @@ export namespace SupportedPlatform {
   export const filterSensitiveLog = (obj: SupportedPlatform): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SupportedPlatform => __isa(o, "SupportedPlatform");
 }
 
 /**
@@ -10347,7 +9768,6 @@ export namespace TableLimitExceededFault {
   export const filterSensitiveLog = (obj: TableLimitExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableLimitExceededFault => __isa(o, "TableLimitExceededFault");
 }
 
 /**
@@ -10363,7 +9783,6 @@ export namespace TableRestoreNotFoundFault {
   export const filterSensitiveLog = (obj: TableRestoreNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableRestoreNotFoundFault => __isa(o, "TableRestoreNotFoundFault");
 }
 
 /**
@@ -10371,7 +9790,6 @@ export namespace TableRestoreNotFoundFault {
  *             operation.</p>
  */
 export interface TableRestoreStatus {
-  __type?: "TableRestoreStatus";
   /**
    * <p>The name of the schema to restore the table to.</p>
    */
@@ -10454,14 +9872,12 @@ export namespace TableRestoreStatus {
   export const filterSensitiveLog = (obj: TableRestoreStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableRestoreStatus => __isa(o, "TableRestoreStatus");
 }
 
 /**
  * <p></p>
  */
 export interface TableRestoreStatusMessage {
-  __type?: "TableRestoreStatusMessage";
   /**
    * <p>A list of status details for one or more table restore requests.</p>
    */
@@ -10477,7 +9893,6 @@ export namespace TableRestoreStatusMessage {
   export const filterSensitiveLog = (obj: TableRestoreStatusMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableRestoreStatusMessage => __isa(o, "TableRestoreStatusMessage");
 }
 
 export type TableRestoreStatusType = "CANCELED" | "FAILED" | "IN_PROGRESS" | "PENDING" | "SUCCEEDED";
@@ -10486,7 +9901,6 @@ export type TableRestoreStatusType = "CANCELED" | "FAILED" | "IN_PROGRESS" | "PE
  * <p>A tag consisting of a name/value pair for a resource.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value for the resource tag.</p>
    */
@@ -10502,14 +9916,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p>A tag and its associated resource.</p>
  */
 export interface TaggedResource {
-  __type?: "TaggedResource";
   /**
    * <p>The tag for the resource.</p>
    */
@@ -10563,14 +9975,12 @@ export namespace TaggedResource {
   export const filterSensitiveLog = (obj: TaggedResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaggedResource => __isa(o, "TaggedResource");
 }
 
 /**
  * <p></p>
  */
 export interface TaggedResourceListMessage {
-  __type?: "TaggedResourceListMessage";
   /**
    * <p>A list of tags with their associated resources.</p>
    */
@@ -10590,7 +10000,6 @@ export namespace TaggedResourceListMessage {
   export const filterSensitiveLog = (obj: TaggedResourceListMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaggedResourceListMessage => __isa(o, "TaggedResourceListMessage");
 }
 
 /**
@@ -10606,11 +10015,9 @@ export namespace TagLimitExceededFault {
   export const filterSensitiveLog = (obj: TagLimitExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagLimitExceededFault => __isa(o, "TagLimitExceededFault");
 }
 
 export interface TrackListMessage {
-  __type?: "TrackListMessage";
   /**
    * <p>The starting point to return a set of response tracklist records. You can retrieve the
    *             next set of response records by providing the returned marker value in the
@@ -10629,7 +10036,6 @@ export namespace TrackListMessage {
   export const filterSensitiveLog = (obj: TrackListMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrackListMessage => __isa(o, "TrackListMessage");
 }
 
 /**
@@ -10645,7 +10051,6 @@ export namespace UnauthorizedOperation {
   export const filterSensitiveLog = (obj: UnauthorizedOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedOperation => __isa(o, "UnauthorizedOperation");
 }
 
 /**
@@ -10661,7 +10066,6 @@ export namespace UnknownSnapshotCopyRegionFault {
   export const filterSensitiveLog = (obj: UnknownSnapshotCopyRegionFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnknownSnapshotCopyRegionFault => __isa(o, "UnknownSnapshotCopyRegionFault");
 }
 
 /**
@@ -10677,7 +10081,6 @@ export namespace UnsupportedOperationFault {
   export const filterSensitiveLog = (obj: UnsupportedOperationFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedOperationFault => __isa(o, "UnsupportedOperationFault");
 }
 
 /**
@@ -10693,14 +10096,12 @@ export namespace UnsupportedOptionFault {
   export const filterSensitiveLog = (obj: UnsupportedOptionFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedOptionFault => __isa(o, "UnsupportedOptionFault");
 }
 
 /**
  * <p>A maintenance track that you can switch the current track to.</p>
  */
 export interface UpdateTarget {
-  __type?: "UpdateTarget";
   /**
    * <p>The name of the new maintenance track.</p>
    */
@@ -10721,14 +10122,12 @@ export namespace UpdateTarget {
   export const filterSensitiveLog = (obj: UpdateTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTarget => __isa(o, "UpdateTarget");
 }
 
 /**
  * <p>Describes a usage limit object for a cluster. </p>
  */
 export interface UsageLimit {
-  __type?: "UsageLimit";
   /**
    * <p>The identifier of the cluster with a usage limit.</p>
    */
@@ -10788,7 +10187,6 @@ export namespace UsageLimit {
   export const filterSensitiveLog = (obj: UsageLimit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UsageLimit => __isa(o, "UsageLimit");
 }
 
 /**
@@ -10804,7 +10202,6 @@ export namespace UsageLimitAlreadyExistsFault {
   export const filterSensitiveLog = (obj: UsageLimitAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UsageLimitAlreadyExistsFault => __isa(o, "UsageLimitAlreadyExistsFault");
 }
 
 export enum UsageLimitBreachAction {
@@ -10824,7 +10221,6 @@ export enum UsageLimitLimitType {
 }
 
 export interface UsageLimitList {
-  __type?: "UsageLimitList";
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -10845,7 +10241,6 @@ export namespace UsageLimitList {
   export const filterSensitiveLog = (obj: UsageLimitList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UsageLimitList => __isa(o, "UsageLimitList");
 }
 
 /**
@@ -10861,7 +10256,6 @@ export namespace UsageLimitNotFoundFault {
   export const filterSensitiveLog = (obj: UsageLimitNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UsageLimitNotFoundFault => __isa(o, "UsageLimitNotFoundFault");
 }
 
 export enum UsageLimitPeriod {
@@ -10874,7 +10268,6 @@ export enum UsageLimitPeriod {
  * <p>Describes the members of a VPC security group.</p>
  */
 export interface VpcSecurityGroupMembership {
-  __type?: "VpcSecurityGroupMembership";
   /**
    * <p>The identifier of the VPC security group.</p>
    */
@@ -10890,5 +10283,4 @@ export namespace VpcSecurityGroupMembership {
   export const filterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcSecurityGroupMembership => __isa(o, "VpcSecurityGroupMembership");
 }

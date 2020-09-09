@@ -1144,7 +1144,6 @@ export const deserializeAws_restJson1CreateDiscovererCommand = async (
   }
   const contents: CreateDiscovererCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDiscovererResponse",
     Description: undefined,
     DiscovererArn: undefined,
     DiscovererId: undefined,
@@ -1260,7 +1259,6 @@ export const deserializeAws_restJson1CreateRegistryCommand = async (
   }
   const contents: CreateRegistryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRegistryResponse",
     Description: undefined,
     RegistryArn: undefined,
     RegistryName: undefined,
@@ -1368,7 +1366,6 @@ export const deserializeAws_restJson1CreateSchemaCommand = async (
   }
   const contents: CreateSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSchemaResponse",
     Description: undefined,
     LastModified: undefined,
     SchemaArn: undefined,
@@ -1931,7 +1928,6 @@ export const deserializeAws_restJson1DescribeCodeBindingCommand = async (
   }
   const contents: DescribeCodeBindingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCodeBindingResponse",
     CreationDate: undefined,
     LastModified: undefined,
     SchemaVersion: undefined,
@@ -2039,7 +2035,6 @@ export const deserializeAws_restJson1DescribeDiscovererCommand = async (
   }
   const contents: DescribeDiscovererCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDiscovererResponse",
     Description: undefined,
     DiscovererArn: undefined,
     DiscovererId: undefined,
@@ -2155,7 +2150,6 @@ export const deserializeAws_restJson1DescribeRegistryCommand = async (
   }
   const contents: DescribeRegistryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRegistryResponse",
     Description: undefined,
     RegistryArn: undefined,
     RegistryName: undefined,
@@ -2263,7 +2257,6 @@ export const deserializeAws_restJson1DescribeSchemaCommand = async (
   }
   const contents: DescribeSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSchemaResponse",
     Content: undefined,
     Description: undefined,
     LastModified: undefined,
@@ -2391,7 +2384,6 @@ export const deserializeAws_restJson1GetCodeBindingSourceCommand = async (
   }
   const contents: GetCodeBindingSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCodeBindingSourceResponse",
     Body: undefined,
   };
   const data: any = await collectBody(output.body, context);
@@ -2485,7 +2477,6 @@ export const deserializeAws_restJson1GetDiscoveredSchemaCommand = async (
   }
   const contents: GetDiscoveredSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDiscoveredSchemaResponse",
     Content: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2573,7 +2564,6 @@ export const deserializeAws_restJson1GetResourcePolicyCommand = async (
   }
   const contents: GetResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourcePolicyResponse",
     Policy: undefined,
     RevisionId: undefined,
   };
@@ -2673,7 +2663,6 @@ export const deserializeAws_restJson1ListDiscoverersCommand = async (
   }
   const contents: ListDiscoverersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDiscoverersResponse",
     Discoverers: undefined,
     NextToken: undefined,
   };
@@ -2765,7 +2754,6 @@ export const deserializeAws_restJson1ListRegistriesCommand = async (
   }
   const contents: ListRegistriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRegistriesResponse",
     NextToken: undefined,
     Registries: undefined,
   };
@@ -2857,7 +2845,6 @@ export const deserializeAws_restJson1ListSchemasCommand = async (
   }
   const contents: ListSchemasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSchemasResponse",
     NextToken: undefined,
     Schemas: undefined,
   };
@@ -2949,7 +2936,6 @@ export const deserializeAws_restJson1ListSchemaVersionsCommand = async (
   }
   const contents: ListSchemaVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSchemaVersionsResponse",
     NextToken: undefined,
     SchemaVersions: undefined,
   };
@@ -3049,7 +3035,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3129,7 +3114,6 @@ export const deserializeAws_restJson1PutCodeBindingCommand = async (
   }
   const contents: PutCodeBindingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutCodeBindingResponse",
     CreationDate: undefined,
     LastModified: undefined,
     SchemaVersion: undefined,
@@ -3245,7 +3229,6 @@ export const deserializeAws_restJson1PutResourcePolicyCommand = async (
   }
   const contents: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutResourcePolicyResponse",
     Policy: undefined,
     RevisionId: undefined,
   };
@@ -3353,7 +3336,6 @@ export const deserializeAws_restJson1SearchSchemasCommand = async (
   }
   const contents: SearchSchemasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchSchemasResponse",
     NextToken: undefined,
     Schemas: undefined,
   };
@@ -3445,7 +3427,6 @@ export const deserializeAws_restJson1StartDiscovererCommand = async (
   }
   const contents: StartDiscovererCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartDiscovererResponse",
     DiscovererId: undefined,
     State: undefined,
   };
@@ -3545,7 +3526,6 @@ export const deserializeAws_restJson1StopDiscovererCommand = async (
   }
   const contents: StopDiscovererCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopDiscovererResponse",
     DiscovererId: undefined,
     State: undefined,
   };
@@ -3795,7 +3775,6 @@ export const deserializeAws_restJson1UpdateDiscovererCommand = async (
   }
   const contents: UpdateDiscovererCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDiscovererResponse",
     Description: undefined,
     DiscovererArn: undefined,
     DiscovererId: undefined,
@@ -3911,7 +3890,6 @@ export const deserializeAws_restJson1UpdateRegistryCommand = async (
   }
   const contents: UpdateRegistryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRegistryResponse",
     Description: undefined,
     RegistryArn: undefined,
     RegistryName: undefined,
@@ -4019,7 +3997,6 @@ export const deserializeAws_restJson1UpdateSchemaCommand = async (
   }
   const contents: UpdateSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSchemaResponse",
     Description: undefined,
     LastModified: undefined,
     SchemaArn: undefined,
@@ -4391,7 +4368,6 @@ const deserializeAws_restJson1__listOfSearchSchemaVersionSummary = (
 
 const deserializeAws_restJson1DiscovererSummary = (output: any, context: __SerdeContext): DiscovererSummary => {
   return {
-    __type: "DiscovererSummary",
     DiscovererArn:
       output.DiscovererArn !== undefined && output.DiscovererArn !== null ? output.DiscovererArn : undefined,
     DiscovererId: output.DiscovererId !== undefined && output.DiscovererId !== null ? output.DiscovererId : undefined,
@@ -4406,7 +4382,6 @@ const deserializeAws_restJson1DiscovererSummary = (output: any, context: __Serde
 
 const deserializeAws_restJson1RegistrySummary = (output: any, context: __SerdeContext): RegistrySummary => {
   return {
-    __type: "RegistrySummary",
     RegistryArn: output.RegistryArn !== undefined && output.RegistryArn !== null ? output.RegistryArn : undefined,
     RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
     Tags:
@@ -4418,7 +4393,6 @@ const deserializeAws_restJson1RegistrySummary = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1SchemaSummary = (output: any, context: __SerdeContext): SchemaSummary => {
   return {
-    __type: "SchemaSummary",
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null ? new Date(output.LastModified) : undefined,
     SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
@@ -4433,7 +4407,6 @@ const deserializeAws_restJson1SchemaSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1SchemaVersionSummary = (output: any, context: __SerdeContext): SchemaVersionSummary => {
   return {
-    __type: "SchemaVersionSummary",
     SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
     SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
     SchemaVersion:
@@ -4443,7 +4416,6 @@ const deserializeAws_restJson1SchemaVersionSummary = (output: any, context: __Se
 
 const deserializeAws_restJson1SearchSchemaSummary = (output: any, context: __SerdeContext): SearchSchemaSummary => {
   return {
-    __type: "SearchSchemaSummary",
     RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
     SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
     SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
@@ -4459,7 +4431,6 @@ const deserializeAws_restJson1SearchSchemaVersionSummary = (
   context: __SerdeContext
 ): SearchSchemaVersionSummary => {
   return {
-    __type: "SearchSchemaVersionSummary",
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null ? new Date(output.CreatedDate) : undefined,
     SchemaVersion:

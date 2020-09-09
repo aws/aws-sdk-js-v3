@@ -924,7 +924,6 @@ export const deserializeAws_restJson1CreateClusterCommand = async (
   }
   const contents: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateClusterResponse",
     ClusterArn: undefined,
     ClusterName: undefined,
     State: undefined,
@@ -1036,7 +1035,6 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
   }
   const contents: CreateConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateConfigurationResponse",
     Arn: undefined,
     CreationTime: undefined,
     LatestRevision: undefined,
@@ -1152,7 +1150,6 @@ export const deserializeAws_restJson1DeleteClusterCommand = async (
   }
   const contents: DeleteClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteClusterResponse",
     ClusterArn: undefined,
     State: undefined,
   };
@@ -1236,7 +1233,6 @@ export const deserializeAws_restJson1DescribeClusterCommand = async (
   }
   const contents: DescribeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClusterResponse",
     ClusterInfo: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1324,7 +1320,6 @@ export const deserializeAws_restJson1DescribeClusterOperationCommand = async (
   }
   const contents: DescribeClusterOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClusterOperationResponse",
     ClusterOperationInfo: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1412,7 +1407,6 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
   }
   const contents: DescribeConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigurationResponse",
     Arn: undefined,
     CreationTime: undefined,
     Description: undefined,
@@ -1528,7 +1522,6 @@ export const deserializeAws_restJson1DescribeConfigurationRevisionCommand = asyn
   }
   const contents: DescribeConfigurationRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigurationRevisionResponse",
     Arn: undefined,
     CreationTime: undefined,
     Description: undefined,
@@ -1640,7 +1633,6 @@ export const deserializeAws_restJson1GetBootstrapBrokersCommand = async (
   }
   const contents: GetBootstrapBrokersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBootstrapBrokersResponse",
     BootstrapBrokerString: undefined,
     BootstrapBrokerStringTls: undefined,
   };
@@ -1732,7 +1724,6 @@ export const deserializeAws_restJson1GetCompatibleKafkaVersionsCommand = async (
   }
   const contents: GetCompatibleKafkaVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCompatibleKafkaVersionsResponse",
     CompatibleKafkaVersions: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1839,7 +1830,6 @@ export const deserializeAws_restJson1ListClusterOperationsCommand = async (
   }
   const contents: ListClusterOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListClusterOperationsResponse",
     ClusterOperationInfoList: undefined,
     NextToken: undefined,
   };
@@ -1926,7 +1916,6 @@ export const deserializeAws_restJson1ListClustersCommand = async (
   }
   const contents: ListClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListClustersResponse",
     ClusterInfoList: undefined,
     NextToken: undefined,
   };
@@ -2010,7 +1999,6 @@ export const deserializeAws_restJson1ListConfigurationRevisionsCommand = async (
   }
   const contents: ListConfigurationRevisionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConfigurationRevisionsResponse",
     NextToken: undefined,
     Revisions: undefined,
   };
@@ -2110,7 +2098,6 @@ export const deserializeAws_restJson1ListConfigurationsCommand = async (
   }
   const contents: ListConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConfigurationsResponse",
     Configurations: undefined,
     NextToken: undefined,
   };
@@ -2202,7 +2189,6 @@ export const deserializeAws_restJson1ListKafkaVersionsCommand = async (
   }
   const contents: ListKafkaVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListKafkaVersionsResponse",
     KafkaVersions: undefined,
     NextToken: undefined,
   };
@@ -2286,7 +2272,6 @@ export const deserializeAws_restJson1ListNodesCommand = async (
   }
   const contents: ListNodesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListNodesResponse",
     NextToken: undefined,
     NodeInfoList: undefined,
   };
@@ -2370,7 +2355,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2442,7 +2426,6 @@ export const deserializeAws_restJson1RebootBrokerCommand = async (
   }
   const contents: RebootBrokerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RebootBrokerResponse",
     ClusterArn: undefined,
     ClusterOperationArn: undefined,
   };
@@ -2684,7 +2667,6 @@ export const deserializeAws_restJson1UpdateBrokerCountCommand = async (
   }
   const contents: UpdateBrokerCountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateBrokerCountResponse",
     ClusterArn: undefined,
     ClusterOperationArn: undefined,
   };
@@ -2776,7 +2758,6 @@ export const deserializeAws_restJson1UpdateBrokerStorageCommand = async (
   }
   const contents: UpdateBrokerStorageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateBrokerStorageResponse",
     ClusterArn: undefined,
     ClusterOperationArn: undefined,
   };
@@ -2868,7 +2849,6 @@ export const deserializeAws_restJson1UpdateClusterConfigurationCommand = async (
   }
   const contents: UpdateClusterConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateClusterConfigurationResponse",
     ClusterArn: undefined,
     ClusterOperationArn: undefined,
   };
@@ -2968,7 +2948,6 @@ export const deserializeAws_restJson1UpdateClusterKafkaVersionCommand = async (
   }
   const contents: UpdateClusterKafkaVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateClusterKafkaVersionResponse",
     ClusterArn: undefined,
     ClusterOperationArn: undefined,
   };
@@ -3076,7 +3055,6 @@ export const deserializeAws_restJson1UpdateMonitoringCommand = async (
   }
   const contents: UpdateMonitoringCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateMonitoringResponse",
     ClusterArn: undefined,
     ClusterOperationArn: undefined,
   };
@@ -3566,7 +3544,6 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1BrokerEBSVolumeInfo = (output: any, context: __SerdeContext): BrokerEBSVolumeInfo => {
   return {
-    __type: "BrokerEBSVolumeInfo",
     KafkaBrokerNodeId:
       output.kafkaBrokerNodeId !== undefined && output.kafkaBrokerNodeId !== null
         ? output.kafkaBrokerNodeId
@@ -3577,7 +3554,6 @@ const deserializeAws_restJson1BrokerEBSVolumeInfo = (output: any, context: __Ser
 
 const deserializeAws_restJson1BrokerLogs = (output: any, context: __SerdeContext): BrokerLogs => {
   return {
-    __type: "BrokerLogs",
     CloudWatchLogs:
       output.cloudWatchLogs !== undefined && output.cloudWatchLogs !== null
         ? deserializeAws_restJson1CloudWatchLogs(output.cloudWatchLogs, context)
@@ -3592,7 +3568,6 @@ const deserializeAws_restJson1BrokerLogs = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1BrokerNodeGroupInfo = (output: any, context: __SerdeContext): BrokerNodeGroupInfo => {
   return {
-    __type: "BrokerNodeGroupInfo",
     BrokerAZDistribution:
       output.brokerAZDistribution !== undefined && output.brokerAZDistribution !== null
         ? output.brokerAZDistribution
@@ -3615,7 +3590,6 @@ const deserializeAws_restJson1BrokerNodeGroupInfo = (output: any, context: __Ser
 
 const deserializeAws_restJson1BrokerNodeInfo = (output: any, context: __SerdeContext): BrokerNodeInfo => {
   return {
-    __type: "BrokerNodeInfo",
     AttachedENIId:
       output.attachedENIId !== undefined && output.attachedENIId !== null ? output.attachedENIId : undefined,
     BrokerId: output.brokerId !== undefined && output.brokerId !== null ? output.brokerId : undefined,
@@ -3637,7 +3611,6 @@ const deserializeAws_restJson1BrokerNodeInfo = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1BrokerSoftwareInfo = (output: any, context: __SerdeContext): BrokerSoftwareInfo => {
   return {
-    __type: "BrokerSoftwareInfo",
     ConfigurationArn:
       output.configurationArn !== undefined && output.configurationArn !== null ? output.configurationArn : undefined,
     ConfigurationRevision:
@@ -3650,14 +3623,12 @@ const deserializeAws_restJson1BrokerSoftwareInfo = (output: any, context: __Serd
 
 const deserializeAws_restJson1ClientAuthentication = (output: any, context: __SerdeContext): ClientAuthentication => {
   return {
-    __type: "ClientAuthentication",
     Tls: output.tls !== undefined && output.tls !== null ? deserializeAws_restJson1Tls(output.tls, context) : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1CloudWatchLogs = (output: any, context: __SerdeContext): CloudWatchLogs => {
   return {
-    __type: "CloudWatchLogs",
     Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
     LogGroup: output.logGroup !== undefined && output.logGroup !== null ? output.logGroup : undefined,
   } as any;
@@ -3665,7 +3636,6 @@ const deserializeAws_restJson1CloudWatchLogs = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContext): ClusterInfo => {
   return {
-    __type: "ClusterInfo",
     ActiveOperationArn:
       output.activeOperationArn !== undefined && output.activeOperationArn !== null
         ? output.activeOperationArn
@@ -3726,7 +3696,6 @@ const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1ClusterOperationInfo = (output: any, context: __SerdeContext): ClusterOperationInfo => {
   return {
-    __type: "ClusterOperationInfo",
     ClientRequestId:
       output.clientRequestId !== undefined && output.clientRequestId !== null ? output.clientRequestId : undefined,
     ClusterArn: output.clusterArn !== undefined && output.clusterArn !== null ? output.clusterArn : undefined,
@@ -3759,7 +3728,6 @@ const deserializeAws_restJson1ClusterOperationInfo = (output: any, context: __Se
 
 const deserializeAws_restJson1ClusterOperationStep = (output: any, context: __SerdeContext): ClusterOperationStep => {
   return {
-    __type: "ClusterOperationStep",
     StepInfo:
       output.stepInfo !== undefined && output.stepInfo !== null
         ? deserializeAws_restJson1ClusterOperationStepInfo(output.stepInfo, context)
@@ -3773,7 +3741,6 @@ const deserializeAws_restJson1ClusterOperationStepInfo = (
   context: __SerdeContext
 ): ClusterOperationStepInfo => {
   return {
-    __type: "ClusterOperationStepInfo",
     StepStatus: output.stepStatus !== undefined && output.stepStatus !== null ? output.stepStatus : undefined,
   } as any;
 };
@@ -3783,7 +3750,6 @@ const deserializeAws_restJson1CompatibleKafkaVersion = (
   context: __SerdeContext
 ): CompatibleKafkaVersion => {
   return {
-    __type: "CompatibleKafkaVersion",
     SourceVersion:
       output.sourceVersion !== undefined && output.sourceVersion !== null ? output.sourceVersion : undefined,
     TargetVersions:
@@ -3795,7 +3761,6 @@ const deserializeAws_restJson1CompatibleKafkaVersion = (
 
 const deserializeAws_restJson1Configuration = (output: any, context: __SerdeContext): Configuration => {
   return {
-    __type: "Configuration",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     CreationTime:
       output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
@@ -3814,7 +3779,6 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ConfigurationInfo = (output: any, context: __SerdeContext): ConfigurationInfo => {
   return {
-    __type: "ConfigurationInfo",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     Revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
   } as any;
@@ -3822,7 +3786,6 @@ const deserializeAws_restJson1ConfigurationInfo = (output: any, context: __Serde
 
 const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __SerdeContext): ConfigurationRevision => {
   return {
-    __type: "ConfigurationRevision",
     CreationTime:
       output.creationTime !== undefined && output.creationTime !== null ? new Date(output.creationTime) : undefined,
     Description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -3832,14 +3795,12 @@ const deserializeAws_restJson1ConfigurationRevision = (output: any, context: __S
 
 const deserializeAws_restJson1EBSStorageInfo = (output: any, context: __SerdeContext): EBSStorageInfo => {
   return {
-    __type: "EBSStorageInfo",
     VolumeSize: output.volumeSize !== undefined && output.volumeSize !== null ? output.volumeSize : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1EncryptionAtRest = (output: any, context: __SerdeContext): EncryptionAtRest => {
   return {
-    __type: "EncryptionAtRest",
     DataVolumeKMSKeyId:
       output.dataVolumeKMSKeyId !== undefined && output.dataVolumeKMSKeyId !== null
         ? output.dataVolumeKMSKeyId
@@ -3849,7 +3810,6 @@ const deserializeAws_restJson1EncryptionAtRest = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1EncryptionInfo = (output: any, context: __SerdeContext): EncryptionInfo => {
   return {
-    __type: "EncryptionInfo",
     EncryptionAtRest:
       output.encryptionAtRest !== undefined && output.encryptionAtRest !== null
         ? deserializeAws_restJson1EncryptionAtRest(output.encryptionAtRest, context)
@@ -3863,7 +3823,6 @@ const deserializeAws_restJson1EncryptionInfo = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1EncryptionInTransit = (output: any, context: __SerdeContext): EncryptionInTransit => {
   return {
-    __type: "EncryptionInTransit",
     ClientBroker: output.clientBroker !== undefined && output.clientBroker !== null ? output.clientBroker : undefined,
     InCluster: output.inCluster !== undefined && output.inCluster !== null ? output.inCluster : undefined,
   } as any;
@@ -3871,7 +3830,6 @@ const deserializeAws_restJson1EncryptionInTransit = (output: any, context: __Ser
 
 const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
   return {
-    __type: "ErrorInfo",
     ErrorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     ErrorString: output.errorString !== undefined && output.errorString !== null ? output.errorString : undefined,
   } as any;
@@ -3879,7 +3837,6 @@ const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1Firehose = (output: any, context: __SerdeContext): Firehose => {
   return {
-    __type: "Firehose",
     DeliveryStream:
       output.deliveryStream !== undefined && output.deliveryStream !== null ? output.deliveryStream : undefined,
     Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
@@ -3888,7 +3845,6 @@ const deserializeAws_restJson1Firehose = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1JmxExporter = (output: any, context: __SerdeContext): JmxExporter => {
   return {
-    __type: "JmxExporter",
     EnabledInBroker:
       output.enabledInBroker !== undefined && output.enabledInBroker !== null ? output.enabledInBroker : undefined,
   } as any;
@@ -3896,7 +3852,6 @@ const deserializeAws_restJson1JmxExporter = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1KafkaVersion = (output: any, context: __SerdeContext): KafkaVersion => {
   return {
-    __type: "KafkaVersion",
     Status: output.status !== undefined && output.status !== null ? output.status : undefined,
     Version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
@@ -3904,7 +3859,6 @@ const deserializeAws_restJson1KafkaVersion = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1LoggingInfo = (output: any, context: __SerdeContext): LoggingInfo => {
   return {
-    __type: "LoggingInfo",
     BrokerLogs:
       output.brokerLogs !== undefined && output.brokerLogs !== null
         ? deserializeAws_restJson1BrokerLogs(output.brokerLogs, context)
@@ -3914,7 +3868,6 @@ const deserializeAws_restJson1LoggingInfo = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1MutableClusterInfo = (output: any, context: __SerdeContext): MutableClusterInfo => {
   return {
-    __type: "MutableClusterInfo",
     BrokerEBSVolumeInfo:
       output.brokerEBSVolumeInfo !== undefined && output.brokerEBSVolumeInfo !== null
         ? deserializeAws_restJson1__listOfBrokerEBSVolumeInfo(output.brokerEBSVolumeInfo, context)
@@ -3945,7 +3898,6 @@ const deserializeAws_restJson1MutableClusterInfo = (output: any, context: __Serd
 
 const deserializeAws_restJson1NodeExporter = (output: any, context: __SerdeContext): NodeExporter => {
   return {
-    __type: "NodeExporter",
     EnabledInBroker:
       output.enabledInBroker !== undefined && output.enabledInBroker !== null ? output.enabledInBroker : undefined,
   } as any;
@@ -3953,7 +3905,6 @@ const deserializeAws_restJson1NodeExporter = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1NodeInfo = (output: any, context: __SerdeContext): NodeInfo => {
   return {
-    __type: "NodeInfo",
     AddedToClusterTime:
       output.addedToClusterTime !== undefined && output.addedToClusterTime !== null
         ? output.addedToClusterTime
@@ -3974,7 +3925,6 @@ const deserializeAws_restJson1NodeInfo = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1OpenMonitoring = (output: any, context: __SerdeContext): OpenMonitoring => {
   return {
-    __type: "OpenMonitoring",
     Prometheus:
       output.prometheus !== undefined && output.prometheus !== null
         ? deserializeAws_restJson1Prometheus(output.prometheus, context)
@@ -3984,7 +3934,6 @@ const deserializeAws_restJson1OpenMonitoring = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Prometheus = (output: any, context: __SerdeContext): Prometheus => {
   return {
-    __type: "Prometheus",
     JmxExporter:
       output.jmxExporter !== undefined && output.jmxExporter !== null
         ? deserializeAws_restJson1JmxExporter(output.jmxExporter, context)
@@ -3998,7 +3947,6 @@ const deserializeAws_restJson1Prometheus = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1S3 = (output: any, context: __SerdeContext): S3 => {
   return {
-    __type: "S3",
     Bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
     Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
     Prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
@@ -4007,7 +3955,6 @@ const deserializeAws_restJson1S3 = (output: any, context: __SerdeContext): S3 =>
 
 const deserializeAws_restJson1StateInfo = (output: any, context: __SerdeContext): StateInfo => {
   return {
-    __type: "StateInfo",
     Code: output.code !== undefined && output.code !== null ? output.code : undefined,
     Message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -4015,7 +3962,6 @@ const deserializeAws_restJson1StateInfo = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1StorageInfo = (output: any, context: __SerdeContext): StorageInfo => {
   return {
-    __type: "StorageInfo",
     EbsStorageInfo:
       output.ebsStorageInfo !== undefined && output.ebsStorageInfo !== null
         ? deserializeAws_restJson1EBSStorageInfo(output.ebsStorageInfo, context)
@@ -4025,7 +3971,6 @@ const deserializeAws_restJson1StorageInfo = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Tls = (output: any, context: __SerdeContext): Tls => {
   return {
-    __type: "Tls",
     CertificateAuthorityArnList:
       output.certificateAuthorityArnList !== undefined && output.certificateAuthorityArnList !== null
         ? deserializeAws_restJson1__listOf__string(output.certificateAuthorityArnList, context)
@@ -4035,7 +3980,6 @@ const deserializeAws_restJson1Tls = (output: any, context: __SerdeContext): Tls 
 
 const deserializeAws_restJson1ZookeeperNodeInfo = (output: any, context: __SerdeContext): ZookeeperNodeInfo => {
   return {
-    __type: "ZookeeperNodeInfo",
     AttachedENIId:
       output.attachedENIId !== undefined && output.attachedENIId !== null ? output.attachedENIId : undefined,
     ClientVpcIpAddress:

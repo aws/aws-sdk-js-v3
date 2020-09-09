@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateTeamMemberRequest {
-  __type?: "AssociateTeamMemberRequest";
   /**
    * <p>Whether the team member is allowed to use an SSH public/private key pair to remotely
    *       access project resources, for example Amazon EC2 instances.</p>
@@ -37,11 +36,9 @@ export namespace AssociateTeamMemberRequest {
   export const filterSensitiveLog = (obj: AssociateTeamMemberRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateTeamMemberRequest => __isa(o, "AssociateTeamMemberRequest");
 }
 
 export interface AssociateTeamMemberResult {
-  __type?: "AssociateTeamMemberResult";
   /**
    * <p>The user- or system-generated token from the initial request that can be used to repeat
    *       the request.</p>
@@ -53,7 +50,6 @@ export namespace AssociateTeamMemberResult {
   export const filterSensitiveLog = (obj: AssociateTeamMemberResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateTeamMemberResult => __isa(o, "AssociateTeamMemberResult");
 }
 
 /**
@@ -62,7 +58,6 @@ export namespace AssociateTeamMemberResult {
  *       project creation.</p>
  */
 export interface Code {
-  __type?: "Code";
   /**
    * <p>The location where the source code files provided with the project request are
    *       stored. AWS CodeStar retrieves the files during project creation.</p>
@@ -81,7 +76,6 @@ export namespace Code {
     ...obj,
     ...(obj.destination && { destination: CodeDestination.filterSensitiveLog(obj.destination) }),
   });
-  export const isa = (o: any): o is Code => __isa(o, "Code");
 }
 
 /**
@@ -89,7 +83,6 @@ export namespace Code {
  *       with the project request will be uploaded after project creation.</p>
  */
 export interface CodeCommitCodeDestination {
-  __type?: "CodeCommitCodeDestination";
   /**
    * <p>The name of the AWS CodeCommit repository to be created in AWS CodeStar.</p>
    */
@@ -100,7 +93,6 @@ export namespace CodeCommitCodeDestination {
   export const filterSensitiveLog = (obj: CodeCommitCodeDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeCommitCodeDestination => __isa(o, "CodeCommitCodeDestination");
 }
 
 /**
@@ -108,7 +100,6 @@ export namespace CodeCommitCodeDestination {
  *       source code files provided with the project request are placed in the repository.</p>
  */
 export interface CodeDestination {
-  __type?: "CodeDestination";
   /**
    * <p>Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the
    *       project request will be uploaded after project creation.</p>
@@ -127,7 +118,6 @@ export namespace CodeDestination {
     ...obj,
     ...(obj.gitHub && { gitHub: GitHubCodeDestination.filterSensitiveLog(obj.gitHub) }),
   });
-  export const isa = (o: any): o is CodeDestination => __isa(o, "CodeDestination");
 }
 
 /**
@@ -135,7 +125,6 @@ export namespace CodeDestination {
  *       stored. AWS CodeStar retrieves the files during project creation.</p>
  */
 export interface CodeSource {
-  __type?: "CodeSource";
   /**
    * <p>Information about the Amazon S3 location where the source code files provided with the
    *       project request are stored. </p>
@@ -147,7 +136,6 @@ export namespace CodeSource {
   export const filterSensitiveLog = (obj: CodeSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeSource => __isa(o, "CodeSource");
 }
 
 /**
@@ -164,11 +152,9 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 export interface CreateProjectRequest {
-  __type?: "CreateProjectRequest";
   /**
    * <p>The description of the project, if any.</p>
    */
@@ -216,11 +202,9 @@ export namespace CreateProjectRequest {
     ...(obj.sourceCode && { sourceCode: obj.sourceCode.map((item) => Code.filterSensitiveLog(item)) }),
     ...(obj.toolchain && { toolchain: Toolchain.filterSensitiveLog(obj.toolchain) }),
   });
-  export const isa = (o: any): o is CreateProjectRequest => __isa(o, "CreateProjectRequest");
 }
 
 export interface CreateProjectResult {
-  __type?: "CreateProjectResult";
   /**
    * <p>The ID of the project.</p>
    */
@@ -247,11 +231,9 @@ export namespace CreateProjectResult {
   export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectResult => __isa(o, "CreateProjectResult");
 }
 
 export interface CreateUserProfileRequest {
-  __type?: "CreateUserProfileRequest";
   /**
    * <p>The name that will be displayed as the friendly name for the user in AWS CodeStar. </p>
    */
@@ -282,11 +264,9 @@ export namespace CreateUserProfileRequest {
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
     ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateUserProfileRequest => __isa(o, "CreateUserProfileRequest");
 }
 
 export interface CreateUserProfileResult {
-  __type?: "CreateUserProfileResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the user in IAM.</p>
    */
@@ -326,11 +306,9 @@ export namespace CreateUserProfileResult {
     ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateUserProfileResult => __isa(o, "CreateUserProfileResult");
 }
 
 export interface DeleteProjectRequest {
-  __type?: "DeleteProjectRequest";
   /**
    * <p>Whether to send a delete request for the primary stack in AWS CloudFormation originally
    *       used to generate the project and its resources. This option will delete all AWS resources for
@@ -355,11 +333,9 @@ export namespace DeleteProjectRequest {
   export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectRequest => __isa(o, "DeleteProjectRequest");
 }
 
 export interface DeleteProjectResult {
-  __type?: "DeleteProjectResult";
   /**
    * <p>The ID of the primary stack in AWS CloudFormation that will be deleted as part of
    *       deleting the project and its resources.</p>
@@ -376,11 +352,9 @@ export namespace DeleteProjectResult {
   export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectResult => __isa(o, "DeleteProjectResult");
 }
 
 export interface DeleteUserProfileRequest {
-  __type?: "DeleteUserProfileRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.</p>
    */
@@ -391,11 +365,9 @@ export namespace DeleteUserProfileRequest {
   export const filterSensitiveLog = (obj: DeleteUserProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserProfileRequest => __isa(o, "DeleteUserProfileRequest");
 }
 
 export interface DeleteUserProfileResult {
-  __type?: "DeleteUserProfileResult";
   /**
    * <p>The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.</p>
    */
@@ -406,11 +378,9 @@ export namespace DeleteUserProfileResult {
   export const filterSensitiveLog = (obj: DeleteUserProfileResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserProfileResult => __isa(o, "DeleteUserProfileResult");
 }
 
 export interface DescribeProjectRequest {
-  __type?: "DescribeProjectRequest";
   /**
    * <p>The ID of the project.</p>
    */
@@ -421,11 +391,9 @@ export namespace DescribeProjectRequest {
   export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProjectRequest => __isa(o, "DescribeProjectRequest");
 }
 
 export interface DescribeProjectResult {
-  __type?: "DescribeProjectResult";
   /**
    * <p>The description of the project, if any.</p>
    */
@@ -480,11 +448,9 @@ export namespace DescribeProjectResult {
     ...(obj.description && { description: SENSITIVE_STRING }),
     ...(obj.name && { name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DescribeProjectResult => __isa(o, "DescribeProjectResult");
 }
 
 export interface DescribeUserProfileRequest {
-  __type?: "DescribeUserProfileRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
@@ -495,11 +461,9 @@ export namespace DescribeUserProfileRequest {
   export const filterSensitiveLog = (obj: DescribeUserProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserProfileRequest => __isa(o, "DescribeUserProfileRequest");
 }
 
 export interface DescribeUserProfileResult {
-  __type?: "DescribeUserProfileResult";
   /**
    * <p>The date and time when the user profile was created in AWS CodeStar, in timestamp
    *       format.</p>
@@ -549,11 +513,9 @@ export namespace DescribeUserProfileResult {
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
     ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DescribeUserProfileResult => __isa(o, "DescribeUserProfileResult");
 }
 
 export interface DisassociateTeamMemberRequest {
-  __type?: "DisassociateTeamMemberRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from
    *       the project.</p>
@@ -570,18 +532,14 @@ export namespace DisassociateTeamMemberRequest {
   export const filterSensitiveLog = (obj: DisassociateTeamMemberRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateTeamMemberRequest => __isa(o, "DisassociateTeamMemberRequest");
 }
 
-export interface DisassociateTeamMemberResult {
-  __type?: "DisassociateTeamMemberResult";
-}
+export interface DisassociateTeamMemberResult {}
 
 export namespace DisassociateTeamMemberResult {
   export const filterSensitiveLog = (obj: DisassociateTeamMemberResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateTeamMemberResult => __isa(o, "DisassociateTeamMemberResult");
 }
 
 /**
@@ -589,7 +547,6 @@ export namespace DisassociateTeamMemberResult {
  *       project request will be uploaded after project creation.</p>
  */
 export interface GitHubCodeDestination {
-  __type?: "GitHubCodeDestination";
   /**
    * <p>The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.</p>
    */
@@ -633,7 +590,6 @@ export namespace GitHubCodeDestination {
     ...obj,
     ...(obj.token && { token: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GitHubCodeDestination => __isa(o, "GitHubCodeDestination");
 }
 
 /**
@@ -649,7 +605,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -665,7 +620,6 @@ export namespace InvalidServiceRoleException {
   export const filterSensitiveLog = (obj: InvalidServiceRoleException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidServiceRoleException => __isa(o, "InvalidServiceRoleException");
 }
 
 /**
@@ -681,11 +635,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListProjectsRequest {
-  __type?: "ListProjectsRequest";
   /**
    * <p>The continuation token to be used to return the next set of results, if the results
    *       cannot be returned in one response.</p>
@@ -702,11 +654,9 @@ export namespace ListProjectsRequest {
   export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProjectsRequest => __isa(o, "ListProjectsRequest");
 }
 
 export interface ListProjectsResult {
-  __type?: "ListProjectsResult";
   /**
    * <p>A list of projects.</p>
    */
@@ -723,11 +673,9 @@ export namespace ListProjectsResult {
   export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProjectsResult => __isa(o, "ListProjectsResult");
 }
 
 export interface ListResourcesRequest {
-  __type?: "ListResourcesRequest";
   /**
    * <p>The ID of the project.</p>
    */
@@ -749,11 +697,9 @@ export namespace ListResourcesRequest {
   export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourcesRequest => __isa(o, "ListResourcesRequest");
 }
 
 export interface ListResourcesResult {
-  __type?: "ListResourcesResult";
   /**
    * <p>An array of resources associated with the project. </p>
    */
@@ -770,11 +716,9 @@ export namespace ListResourcesResult {
   export const filterSensitiveLog = (obj: ListResourcesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourcesResult => __isa(o, "ListResourcesResult");
 }
 
 export interface ListTagsForProjectRequest {
-  __type?: "ListTagsForProjectRequest";
   /**
    * <p>Reserved for future use.</p>
    */
@@ -795,11 +739,9 @@ export namespace ListTagsForProjectRequest {
   export const filterSensitiveLog = (obj: ListTagsForProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForProjectRequest => __isa(o, "ListTagsForProjectRequest");
 }
 
 export interface ListTagsForProjectResult {
-  __type?: "ListTagsForProjectResult";
   /**
    * <p>The tags for the project.</p>
    */
@@ -815,11 +757,9 @@ export namespace ListTagsForProjectResult {
   export const filterSensitiveLog = (obj: ListTagsForProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForProjectResult => __isa(o, "ListTagsForProjectResult");
 }
 
 export interface ListTeamMembersRequest {
-  __type?: "ListTeamMembersRequest";
   /**
    * <p>The maximum number of team members you want returned in a response.</p>
    */
@@ -841,11 +781,9 @@ export namespace ListTeamMembersRequest {
   export const filterSensitiveLog = (obj: ListTeamMembersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTeamMembersRequest => __isa(o, "ListTeamMembersRequest");
 }
 
 export interface ListTeamMembersResult {
-  __type?: "ListTeamMembersResult";
   /**
    * <p>A list of team member objects for the project.</p>
    */
@@ -862,11 +800,9 @@ export namespace ListTeamMembersResult {
   export const filterSensitiveLog = (obj: ListTeamMembersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTeamMembersResult => __isa(o, "ListTeamMembersResult");
 }
 
 export interface ListUserProfilesRequest {
-  __type?: "ListUserProfilesRequest";
   /**
    * <p>The maximum number of results to return in a response.</p>
    */
@@ -883,11 +819,9 @@ export namespace ListUserProfilesRequest {
   export const filterSensitiveLog = (obj: ListUserProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserProfilesRequest => __isa(o, "ListUserProfilesRequest");
 }
 
 export interface ListUserProfilesResult {
-  __type?: "ListUserProfilesResult";
   /**
    * <p>The continuation token to use when requesting the next set of results, if there are
    *       more results to be returned.</p>
@@ -907,7 +841,6 @@ export namespace ListUserProfilesResult {
       userProfiles: obj.userProfiles.map((item) => UserProfileSummary.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is ListUserProfilesResult => __isa(o, "ListUserProfilesResult");
 }
 
 /**
@@ -924,7 +857,6 @@ export namespace ProjectAlreadyExistsException {
   export const filterSensitiveLog = (obj: ProjectAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectAlreadyExistsException => __isa(o, "ProjectAlreadyExistsException");
 }
 
 /**
@@ -940,7 +872,6 @@ export namespace ProjectConfigurationException {
   export const filterSensitiveLog = (obj: ProjectConfigurationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectConfigurationException => __isa(o, "ProjectConfigurationException");
 }
 
 /**
@@ -957,7 +888,6 @@ export namespace ProjectCreationFailedException {
   export const filterSensitiveLog = (obj: ProjectCreationFailedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectCreationFailedException => __isa(o, "ProjectCreationFailedException");
 }
 
 /**
@@ -973,7 +903,6 @@ export namespace ProjectNotFoundException {
   export const filterSensitiveLog = (obj: ProjectNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectNotFoundException => __isa(o, "ProjectNotFoundException");
 }
 
 /**
@@ -981,7 +910,6 @@ export namespace ProjectNotFoundException {
  *       successful.</p>
  */
 export interface ProjectStatus {
-  __type?: "ProjectStatus";
   /**
    * <p>The phase of completion for a project creation or deletion.</p>
    */
@@ -998,14 +926,12 @@ export namespace ProjectStatus {
   export const filterSensitiveLog = (obj: ProjectStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectStatus => __isa(o, "ProjectStatus");
 }
 
 /**
  * <p>Information about the metadata for a project.</p>
  */
 export interface ProjectSummary {
-  __type?: "ProjectSummary";
   /**
    * <p>The ID of the project.</p>
    */
@@ -1021,14 +947,12 @@ export namespace ProjectSummary {
   export const filterSensitiveLog = (obj: ProjectSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectSummary => __isa(o, "ProjectSummary");
 }
 
 /**
  * <p>Information about a resource for a project.</p>
  */
 export interface Resource {
-  __type?: "Resource";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -1039,7 +963,6 @@ export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
 /**
@@ -1047,7 +970,6 @@ export namespace Resource {
  *       request are stored.</p>
  */
 export interface S3Location {
-  __type?: "S3Location";
   /**
    * <p>The Amazon S3 object key where the source code files provided with the project
    *       request are stored.</p>
@@ -1065,11 +987,9 @@ export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
 
 export interface TagProjectRequest {
-  __type?: "TagProjectRequest";
   /**
    * <p>The ID of the project you want to add a tag to.</p>
    */
@@ -1085,11 +1005,9 @@ export namespace TagProjectRequest {
   export const filterSensitiveLog = (obj: TagProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagProjectRequest => __isa(o, "TagProjectRequest");
 }
 
 export interface TagProjectResult {
-  __type?: "TagProjectResult";
   /**
    * <p>The tags for the project.</p>
    */
@@ -1100,14 +1018,12 @@ export namespace TagProjectResult {
   export const filterSensitiveLog = (obj: TagProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagProjectResult => __isa(o, "TagProjectResult");
 }
 
 /**
  * <p>Information about a team member in a project.</p>
  */
 export interface TeamMember {
-  __type?: "TeamMember";
   /**
    * <p>The role assigned to the user in the project. Project roles have different levels of
    *       access. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html">Working with
@@ -1131,7 +1047,6 @@ export namespace TeamMember {
   export const filterSensitiveLog = (obj: TeamMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TeamMember => __isa(o, "TeamMember");
 }
 
 /**
@@ -1147,8 +1062,6 @@ export namespace TeamMemberAlreadyAssociatedException {
   export const filterSensitiveLog = (obj: TeamMemberAlreadyAssociatedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TeamMemberAlreadyAssociatedException =>
-    __isa(o, "TeamMemberAlreadyAssociatedException");
 }
 
 /**
@@ -1164,7 +1077,6 @@ export namespace TeamMemberNotFoundException {
   export const filterSensitiveLog = (obj: TeamMemberNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TeamMemberNotFoundException => __isa(o, "TeamMemberNotFoundException");
 }
 
 /**
@@ -1172,7 +1084,6 @@ export namespace TeamMemberNotFoundException {
  *       the template to provision the toolchain stack in AWS CloudFormation.</p>
  */
 export interface Toolchain {
-  __type?: "Toolchain";
   /**
    * <p>The Amazon S3 location where the toolchain template file provided with the
    *       project request is stored. AWS CodeStar retrieves the file during project creation.</p>
@@ -1197,7 +1108,6 @@ export namespace Toolchain {
     ...obj,
     ...(obj.stackParameters && { stackParameters: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Toolchain => __isa(o, "Toolchain");
 }
 
 /**
@@ -1205,7 +1115,6 @@ export namespace Toolchain {
  *       project request is stored. AWS CodeStar retrieves the file during project creation.</p>
  */
 export interface ToolchainSource {
-  __type?: "ToolchainSource";
   /**
    * <p>The Amazon S3 bucket where the toolchain template file provided with the project
    *       request is stored.</p>
@@ -1217,11 +1126,9 @@ export namespace ToolchainSource {
   export const filterSensitiveLog = (obj: ToolchainSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ToolchainSource => __isa(o, "ToolchainSource");
 }
 
 export interface UntagProjectRequest {
-  __type?: "UntagProjectRequest";
   /**
    * <p>The tags to remove from the project.</p>
    */
@@ -1237,22 +1144,17 @@ export namespace UntagProjectRequest {
   export const filterSensitiveLog = (obj: UntagProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagProjectRequest => __isa(o, "UntagProjectRequest");
 }
 
-export interface UntagProjectResult {
-  __type?: "UntagProjectResult";
-}
+export interface UntagProjectResult {}
 
 export namespace UntagProjectResult {
   export const filterSensitiveLog = (obj: UntagProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagProjectResult => __isa(o, "UntagProjectResult");
 }
 
 export interface UpdateProjectRequest {
-  __type?: "UpdateProjectRequest";
   /**
    * <p>The ID of the project you want to update.</p>
    */
@@ -1275,22 +1177,17 @@ export namespace UpdateProjectRequest {
     ...(obj.name && { name: SENSITIVE_STRING }),
     ...(obj.description && { description: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateProjectRequest => __isa(o, "UpdateProjectRequest");
 }
 
-export interface UpdateProjectResult {
-  __type?: "UpdateProjectResult";
-}
+export interface UpdateProjectResult {}
 
 export namespace UpdateProjectResult {
   export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectResult => __isa(o, "UpdateProjectResult");
 }
 
 export interface UpdateTeamMemberRequest {
-  __type?: "UpdateTeamMemberRequest";
   /**
    * <p>The ID of the project.</p>
    */
@@ -1321,11 +1218,9 @@ export namespace UpdateTeamMemberRequest {
   export const filterSensitiveLog = (obj: UpdateTeamMemberRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTeamMemberRequest => __isa(o, "UpdateTeamMemberRequest");
 }
 
 export interface UpdateTeamMemberResult {
-  __type?: "UpdateTeamMemberResult";
   /**
    * <p>The project role granted to the user.</p>
    */
@@ -1348,11 +1243,9 @@ export namespace UpdateTeamMemberResult {
   export const filterSensitiveLog = (obj: UpdateTeamMemberResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTeamMemberResult => __isa(o, "UpdateTeamMemberResult");
 }
 
 export interface UpdateUserProfileRequest {
-  __type?: "UpdateUserProfileRequest";
   /**
    * <p>The name that will be displayed as the friendly name for the user in AWS
    *       CodeStar.</p>
@@ -1384,11 +1277,9 @@ export namespace UpdateUserProfileRequest {
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
     ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateUserProfileRequest => __isa(o, "UpdateUserProfileRequest");
 }
 
 export interface UpdateUserProfileResult {
-  __type?: "UpdateUserProfileResult";
   /**
    * <p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>
    */
@@ -1429,7 +1320,6 @@ export namespace UpdateUserProfileResult {
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
     ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateUserProfileResult => __isa(o, "UpdateUserProfileResult");
 }
 
 /**
@@ -1446,7 +1336,6 @@ export namespace UserProfileAlreadyExistsException {
   export const filterSensitiveLog = (obj: UserProfileAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserProfileAlreadyExistsException => __isa(o, "UserProfileAlreadyExistsException");
 }
 
 /**
@@ -1462,14 +1351,12 @@ export namespace UserProfileNotFoundException {
   export const filterSensitiveLog = (obj: UserProfileNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserProfileNotFoundException => __isa(o, "UserProfileNotFoundException");
 }
 
 /**
  * <p>Information about a user's profile in AWS CodeStar.</p>
  */
 export interface UserProfileSummary {
-  __type?: "UserProfileSummary";
   /**
    * <p>The email address associated with the user.</p>
    */
@@ -1506,7 +1393,6 @@ export namespace UserProfileSummary {
     ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UserProfileSummary => __isa(o, "UserProfileSummary");
 }
 
 /**
@@ -1522,5 +1408,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -7,19 +7,15 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export type AccessLog = AccessLog.FileMember | AccessLog.$UnknownMember;
 
 export namespace AccessLog {
-  interface $Base {
-    __type?: "AccessLog";
-  }
-
   /**
    * <p>The file object to send virtual node access logs to.</p>
    */
-  export interface FileMember extends $Base {
+  export interface FileMember {
     file: FileAccessLog;
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     file?: never;
     $unknown: [string, any];
   }
@@ -45,7 +41,6 @@ export namespace AccessLog {
  *          node.</p>
  */
 export interface AwsCloudMapInstanceAttribute {
-  __type?: "AwsCloudMapInstanceAttribute";
   /**
    * <p>The name of an AWS Cloud Map service instance attribute key. Any AWS Cloud Map service
    *          instance that contains the specified key and value is returned.</p>
@@ -63,7 +58,6 @@ export namespace AwsCloudMapInstanceAttribute {
   export const filterSensitiveLog = (obj: AwsCloudMapInstanceAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsCloudMapInstanceAttribute => __isa(o, "AwsCloudMapInstanceAttribute");
 }
 
 /**
@@ -71,7 +65,6 @@ export namespace AwsCloudMapInstanceAttribute {
  *          node.</p>
  */
 export interface AwsCloudMapServiceDiscovery {
-  __type?: "AwsCloudMapServiceDiscovery";
   /**
    * <p>The name of the AWS Cloud Map namespace to use.</p>
    */
@@ -94,7 +87,6 @@ export namespace AwsCloudMapServiceDiscovery {
   export const filterSensitiveLog = (obj: AwsCloudMapServiceDiscovery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsCloudMapServiceDiscovery => __isa(o, "AwsCloudMapServiceDiscovery");
 }
 
 /**
@@ -104,19 +96,15 @@ export namespace AwsCloudMapServiceDiscovery {
 export type Backend = Backend.VirtualServiceMember | Backend.$UnknownMember;
 
 export namespace Backend {
-  interface $Base {
-    __type?: "Backend";
-  }
-
   /**
    * <p>Specifies a virtual service to use as a backend for a virtual node. </p>
    */
-  export interface VirtualServiceMember extends $Base {
+  export interface VirtualServiceMember {
     virtualService: VirtualServiceBackend;
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     virtualService?: never;
     $unknown: [string, any];
   }
@@ -142,7 +130,6 @@ export namespace Backend {
  * <p>An object that represents the default properties for a backend.</p>
  */
 export interface BackendDefaults {
-  __type?: "BackendDefaults";
   /**
    * <p>A reference to an object that represents a client policy.</p>
    */
@@ -154,7 +141,6 @@ export namespace BackendDefaults {
     ...obj,
     ...(obj.clientPolicy && { clientPolicy: ClientPolicy.filterSensitiveLog(obj.clientPolicy) }),
   });
-  export const isa = (o: any): o is BackendDefaults => __isa(o, "BackendDefaults");
 }
 
 /**
@@ -170,14 +156,12 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
  * <p>An object that represents a client policy.</p>
  */
 export interface ClientPolicy {
-  __type?: "ClientPolicy";
   /**
    * <p>A reference to an object that represents a Transport Layer Security (TLS) client policy.</p>
    */
@@ -189,14 +173,12 @@ export namespace ClientPolicy {
     ...obj,
     ...(obj.tls && { tls: ClientPolicyTls.filterSensitiveLog(obj.tls) }),
   });
-  export const isa = (o: any): o is ClientPolicy => __isa(o, "ClientPolicy");
 }
 
 /**
  * <p>An object that represents a Transport Layer Security (TLS) client policy.</p>
  */
 export interface ClientPolicyTls {
-  __type?: "ClientPolicyTls";
   /**
    * <p>Whether the policy is enforced. The default is <code>True</code>, if a value isn't
    *          specified.</p>
@@ -219,7 +201,6 @@ export namespace ClientPolicyTls {
     ...obj,
     ...(obj.validation && { validation: TlsValidationContext.filterSensitiveLog(obj.validation) }),
   });
-  export const isa = (o: any): o is ClientPolicyTls => __isa(o, "ClientPolicyTls");
 }
 
 /**
@@ -236,11 +217,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateGatewayRouteInput {
-  __type?: "CreateGatewayRouteInput";
   /**
    * <p>The name to use for the gateway route.</p>
    */
@@ -289,11 +268,9 @@ export namespace CreateGatewayRouteInput {
   export const filterSensitiveLog = (obj: CreateGatewayRouteInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGatewayRouteInput => __isa(o, "CreateGatewayRouteInput");
 }
 
 export interface CreateGatewayRouteOutput {
-  __type?: "CreateGatewayRouteOutput";
   /**
    * <p>The full description of your gateway route following the create call.</p>
    */
@@ -304,14 +281,12 @@ export namespace CreateGatewayRouteOutput {
   export const filterSensitiveLog = (obj: CreateGatewayRouteOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGatewayRouteOutput => __isa(o, "CreateGatewayRouteOutput");
 }
 
 /**
  *
  */
 export interface CreateMeshInput {
-  __type?: "CreateMeshInput";
   /**
    * <p>The name to use for the service mesh.</p>
    */
@@ -341,14 +316,12 @@ export namespace CreateMeshInput {
   export const filterSensitiveLog = (obj: CreateMeshInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMeshInput => __isa(o, "CreateMeshInput");
 }
 
 /**
  *
  */
 export interface CreateMeshOutput {
-  __type?: "CreateMeshOutput";
   /**
    * <p>The full description of your service mesh following the create call.</p>
    */
@@ -359,14 +332,12 @@ export namespace CreateMeshOutput {
   export const filterSensitiveLog = (obj: CreateMeshOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMeshOutput => __isa(o, "CreateMeshOutput");
 }
 
 /**
  *
  */
 export interface CreateRouteInput {
-  __type?: "CreateRouteInput";
   /**
    * <p>The name to use for the route.</p>
    */
@@ -414,14 +385,12 @@ export namespace CreateRouteInput {
   export const filterSensitiveLog = (obj: CreateRouteInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRouteInput => __isa(o, "CreateRouteInput");
 }
 
 /**
  *
  */
 export interface CreateRouteOutput {
-  __type?: "CreateRouteOutput";
   /**
    * <p>The full description of your mesh following the create call.</p>
    */
@@ -432,11 +401,9 @@ export namespace CreateRouteOutput {
   export const filterSensitiveLog = (obj: CreateRouteOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRouteOutput => __isa(o, "CreateRouteOutput");
 }
 
 export interface CreateVirtualGatewayInput {
-  __type?: "CreateVirtualGatewayInput";
   /**
    * <p>The name to use for the virtual gateway.</p>
    */
@@ -479,11 +446,9 @@ export namespace CreateVirtualGatewayInput {
     ...obj,
     ...(obj.spec && { spec: VirtualGatewaySpec.filterSensitiveLog(obj.spec) }),
   });
-  export const isa = (o: any): o is CreateVirtualGatewayInput => __isa(o, "CreateVirtualGatewayInput");
 }
 
 export interface CreateVirtualGatewayOutput {
-  __type?: "CreateVirtualGatewayOutput";
   /**
    * <p>The full description of your virtual gateway following the create call.</p>
    */
@@ -495,14 +460,12 @@ export namespace CreateVirtualGatewayOutput {
     ...obj,
     ...(obj.virtualGateway && { virtualGateway: VirtualGatewayData.filterSensitiveLog(obj.virtualGateway) }),
   });
-  export const isa = (o: any): o is CreateVirtualGatewayOutput => __isa(o, "CreateVirtualGatewayOutput");
 }
 
 /**
  *
  */
 export interface CreateVirtualNodeInput {
-  __type?: "CreateVirtualNodeInput";
   /**
    * <p>The name to use for the virtual node.</p>
    */
@@ -545,14 +508,12 @@ export namespace CreateVirtualNodeInput {
     ...obj,
     ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) }),
   });
-  export const isa = (o: any): o is CreateVirtualNodeInput => __isa(o, "CreateVirtualNodeInput");
 }
 
 /**
  *
  */
 export interface CreateVirtualNodeOutput {
-  __type?: "CreateVirtualNodeOutput";
   /**
    * <p>The full description of your virtual node following the create call.</p>
    */
@@ -564,14 +525,12 @@ export namespace CreateVirtualNodeOutput {
     ...obj,
     ...(obj.virtualNode && { virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode) }),
   });
-  export const isa = (o: any): o is CreateVirtualNodeOutput => __isa(o, "CreateVirtualNodeOutput");
 }
 
 /**
  *
  */
 export interface CreateVirtualRouterInput {
-  __type?: "CreateVirtualRouterInput";
   /**
    * <p>The name to use for the virtual router.</p>
    */
@@ -613,14 +572,12 @@ export namespace CreateVirtualRouterInput {
   export const filterSensitiveLog = (obj: CreateVirtualRouterInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVirtualRouterInput => __isa(o, "CreateVirtualRouterInput");
 }
 
 /**
  *
  */
 export interface CreateVirtualRouterOutput {
-  __type?: "CreateVirtualRouterOutput";
   /**
    * <p>The full description of your virtual router following the create call.</p>
    */
@@ -631,14 +588,12 @@ export namespace CreateVirtualRouterOutput {
   export const filterSensitiveLog = (obj: CreateVirtualRouterOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVirtualRouterOutput => __isa(o, "CreateVirtualRouterOutput");
 }
 
 /**
  *
  */
 export interface CreateVirtualServiceInput {
-  __type?: "CreateVirtualServiceInput";
   /**
    * <p>The name to use for the virtual service.</p>
    */
@@ -681,14 +636,12 @@ export namespace CreateVirtualServiceInput {
     ...obj,
     ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) }),
   });
-  export const isa = (o: any): o is CreateVirtualServiceInput => __isa(o, "CreateVirtualServiceInput");
 }
 
 /**
  *
  */
 export interface CreateVirtualServiceOutput {
-  __type?: "CreateVirtualServiceOutput";
   /**
    * <p>The full description of your virtual service following the create call.</p>
    */
@@ -700,11 +653,9 @@ export namespace CreateVirtualServiceOutput {
     ...obj,
     ...(obj.virtualService && { virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService) }),
   });
-  export const isa = (o: any): o is CreateVirtualServiceOutput => __isa(o, "CreateVirtualServiceOutput");
 }
 
 export interface DeleteGatewayRouteInput {
-  __type?: "DeleteGatewayRouteInput";
   /**
    * <p>The name of the gateway route to delete.</p>
    */
@@ -731,11 +682,9 @@ export namespace DeleteGatewayRouteInput {
   export const filterSensitiveLog = (obj: DeleteGatewayRouteInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGatewayRouteInput => __isa(o, "DeleteGatewayRouteInput");
 }
 
 export interface DeleteGatewayRouteOutput {
-  __type?: "DeleteGatewayRouteOutput";
   /**
    * <p>The gateway route that was deleted.</p>
    */
@@ -746,14 +695,12 @@ export namespace DeleteGatewayRouteOutput {
   export const filterSensitiveLog = (obj: DeleteGatewayRouteOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGatewayRouteOutput => __isa(o, "DeleteGatewayRouteOutput");
 }
 
 /**
  *
  */
 export interface DeleteMeshInput {
-  __type?: "DeleteMeshInput";
   /**
    * <p>The name of the service mesh to delete.</p>
    */
@@ -764,14 +711,12 @@ export namespace DeleteMeshInput {
   export const filterSensitiveLog = (obj: DeleteMeshInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMeshInput => __isa(o, "DeleteMeshInput");
 }
 
 /**
  *
  */
 export interface DeleteMeshOutput {
-  __type?: "DeleteMeshOutput";
   /**
    * <p>The service mesh that was deleted.</p>
    */
@@ -782,14 +727,12 @@ export namespace DeleteMeshOutput {
   export const filterSensitiveLog = (obj: DeleteMeshOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMeshOutput => __isa(o, "DeleteMeshOutput");
 }
 
 /**
  *
  */
 export interface DeleteRouteInput {
-  __type?: "DeleteRouteInput";
   /**
    * <p>The name of the route to delete.</p>
    */
@@ -816,14 +759,12 @@ export namespace DeleteRouteInput {
   export const filterSensitiveLog = (obj: DeleteRouteInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRouteInput => __isa(o, "DeleteRouteInput");
 }
 
 /**
  *
  */
 export interface DeleteRouteOutput {
-  __type?: "DeleteRouteOutput";
   /**
    * <p>The route that was deleted.</p>
    */
@@ -834,11 +775,9 @@ export namespace DeleteRouteOutput {
   export const filterSensitiveLog = (obj: DeleteRouteOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRouteOutput => __isa(o, "DeleteRouteOutput");
 }
 
 export interface DeleteVirtualGatewayInput {
-  __type?: "DeleteVirtualGatewayInput";
   /**
    * <p>The name of the virtual gateway to delete.</p>
    */
@@ -860,11 +799,9 @@ export namespace DeleteVirtualGatewayInput {
   export const filterSensitiveLog = (obj: DeleteVirtualGatewayInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVirtualGatewayInput => __isa(o, "DeleteVirtualGatewayInput");
 }
 
 export interface DeleteVirtualGatewayOutput {
-  __type?: "DeleteVirtualGatewayOutput";
   /**
    * <p>The virtual gateway that was deleted.</p>
    */
@@ -876,14 +813,12 @@ export namespace DeleteVirtualGatewayOutput {
     ...obj,
     ...(obj.virtualGateway && { virtualGateway: VirtualGatewayData.filterSensitiveLog(obj.virtualGateway) }),
   });
-  export const isa = (o: any): o is DeleteVirtualGatewayOutput => __isa(o, "DeleteVirtualGatewayOutput");
 }
 
 /**
  *
  */
 export interface DeleteVirtualNodeInput {
-  __type?: "DeleteVirtualNodeInput";
   /**
    * <p>The name of the virtual node to delete.</p>
    */
@@ -905,14 +840,12 @@ export namespace DeleteVirtualNodeInput {
   export const filterSensitiveLog = (obj: DeleteVirtualNodeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVirtualNodeInput => __isa(o, "DeleteVirtualNodeInput");
 }
 
 /**
  *
  */
 export interface DeleteVirtualNodeOutput {
-  __type?: "DeleteVirtualNodeOutput";
   /**
    * <p>The virtual node that was deleted.</p>
    */
@@ -924,14 +857,12 @@ export namespace DeleteVirtualNodeOutput {
     ...obj,
     ...(obj.virtualNode && { virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode) }),
   });
-  export const isa = (o: any): o is DeleteVirtualNodeOutput => __isa(o, "DeleteVirtualNodeOutput");
 }
 
 /**
  *
  */
 export interface DeleteVirtualRouterInput {
-  __type?: "DeleteVirtualRouterInput";
   /**
    * <p>The name of the virtual router to delete.</p>
    */
@@ -953,14 +884,12 @@ export namespace DeleteVirtualRouterInput {
   export const filterSensitiveLog = (obj: DeleteVirtualRouterInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVirtualRouterInput => __isa(o, "DeleteVirtualRouterInput");
 }
 
 /**
  *
  */
 export interface DeleteVirtualRouterOutput {
-  __type?: "DeleteVirtualRouterOutput";
   /**
    * <p>The virtual router that was deleted.</p>
    */
@@ -971,14 +900,12 @@ export namespace DeleteVirtualRouterOutput {
   export const filterSensitiveLog = (obj: DeleteVirtualRouterOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVirtualRouterOutput => __isa(o, "DeleteVirtualRouterOutput");
 }
 
 /**
  *
  */
 export interface DeleteVirtualServiceInput {
-  __type?: "DeleteVirtualServiceInput";
   /**
    * <p>The name of the virtual service to delete.</p>
    */
@@ -1000,14 +927,12 @@ export namespace DeleteVirtualServiceInput {
   export const filterSensitiveLog = (obj: DeleteVirtualServiceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVirtualServiceInput => __isa(o, "DeleteVirtualServiceInput");
 }
 
 /**
  *
  */
 export interface DeleteVirtualServiceOutput {
-  __type?: "DeleteVirtualServiceOutput";
   /**
    * <p>The virtual service that was deleted.</p>
    */
@@ -1019,11 +944,9 @@ export namespace DeleteVirtualServiceOutput {
     ...obj,
     ...(obj.virtualService && { virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService) }),
   });
-  export const isa = (o: any): o is DeleteVirtualServiceOutput => __isa(o, "DeleteVirtualServiceOutput");
 }
 
 export interface DescribeGatewayRouteInput {
-  __type?: "DescribeGatewayRouteInput";
   /**
    * <p>The name of the gateway route to describe.</p>
    */
@@ -1050,11 +973,9 @@ export namespace DescribeGatewayRouteInput {
   export const filterSensitiveLog = (obj: DescribeGatewayRouteInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGatewayRouteInput => __isa(o, "DescribeGatewayRouteInput");
 }
 
 export interface DescribeGatewayRouteOutput {
-  __type?: "DescribeGatewayRouteOutput";
   /**
    * <p>The full description of your gateway route.</p>
    */
@@ -1065,14 +986,12 @@ export namespace DescribeGatewayRouteOutput {
   export const filterSensitiveLog = (obj: DescribeGatewayRouteOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGatewayRouteOutput => __isa(o, "DescribeGatewayRouteOutput");
 }
 
 /**
  *
  */
 export interface DescribeMeshInput {
-  __type?: "DescribeMeshInput";
   /**
    * <p>The name of the service mesh to describe.</p>
    */
@@ -1089,14 +1008,12 @@ export namespace DescribeMeshInput {
   export const filterSensitiveLog = (obj: DescribeMeshInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMeshInput => __isa(o, "DescribeMeshInput");
 }
 
 /**
  *
  */
 export interface DescribeMeshOutput {
-  __type?: "DescribeMeshOutput";
   /**
    * <p>The full description of your service mesh.</p>
    */
@@ -1107,14 +1024,12 @@ export namespace DescribeMeshOutput {
   export const filterSensitiveLog = (obj: DescribeMeshOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMeshOutput => __isa(o, "DescribeMeshOutput");
 }
 
 /**
  *
  */
 export interface DescribeRouteInput {
-  __type?: "DescribeRouteInput";
   /**
    * <p>The name of the route to describe.</p>
    */
@@ -1141,14 +1056,12 @@ export namespace DescribeRouteInput {
   export const filterSensitiveLog = (obj: DescribeRouteInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRouteInput => __isa(o, "DescribeRouteInput");
 }
 
 /**
  *
  */
 export interface DescribeRouteOutput {
-  __type?: "DescribeRouteOutput";
   /**
    * <p>The full description of your route.</p>
    */
@@ -1159,11 +1072,9 @@ export namespace DescribeRouteOutput {
   export const filterSensitiveLog = (obj: DescribeRouteOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRouteOutput => __isa(o, "DescribeRouteOutput");
 }
 
 export interface DescribeVirtualGatewayInput {
-  __type?: "DescribeVirtualGatewayInput";
   /**
    * <p>The name of the virtual gateway to describe.</p>
    */
@@ -1185,11 +1096,9 @@ export namespace DescribeVirtualGatewayInput {
   export const filterSensitiveLog = (obj: DescribeVirtualGatewayInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVirtualGatewayInput => __isa(o, "DescribeVirtualGatewayInput");
 }
 
 export interface DescribeVirtualGatewayOutput {
-  __type?: "DescribeVirtualGatewayOutput";
   /**
    * <p>The full description of your virtual gateway.</p>
    */
@@ -1201,14 +1110,12 @@ export namespace DescribeVirtualGatewayOutput {
     ...obj,
     ...(obj.virtualGateway && { virtualGateway: VirtualGatewayData.filterSensitiveLog(obj.virtualGateway) }),
   });
-  export const isa = (o: any): o is DescribeVirtualGatewayOutput => __isa(o, "DescribeVirtualGatewayOutput");
 }
 
 /**
  *
  */
 export interface DescribeVirtualNodeInput {
-  __type?: "DescribeVirtualNodeInput";
   /**
    * <p>The name of the virtual node to describe.</p>
    */
@@ -1230,14 +1137,12 @@ export namespace DescribeVirtualNodeInput {
   export const filterSensitiveLog = (obj: DescribeVirtualNodeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVirtualNodeInput => __isa(o, "DescribeVirtualNodeInput");
 }
 
 /**
  *
  */
 export interface DescribeVirtualNodeOutput {
-  __type?: "DescribeVirtualNodeOutput";
   /**
    * <p>The full description of your virtual node.</p>
    */
@@ -1249,14 +1154,12 @@ export namespace DescribeVirtualNodeOutput {
     ...obj,
     ...(obj.virtualNode && { virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode) }),
   });
-  export const isa = (o: any): o is DescribeVirtualNodeOutput => __isa(o, "DescribeVirtualNodeOutput");
 }
 
 /**
  *
  */
 export interface DescribeVirtualRouterInput {
-  __type?: "DescribeVirtualRouterInput";
   /**
    * <p>The name of the virtual router to describe.</p>
    */
@@ -1278,14 +1181,12 @@ export namespace DescribeVirtualRouterInput {
   export const filterSensitiveLog = (obj: DescribeVirtualRouterInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVirtualRouterInput => __isa(o, "DescribeVirtualRouterInput");
 }
 
 /**
  *
  */
 export interface DescribeVirtualRouterOutput {
-  __type?: "DescribeVirtualRouterOutput";
   /**
    * <p>The full description of your virtual router.</p>
    */
@@ -1296,14 +1197,12 @@ export namespace DescribeVirtualRouterOutput {
   export const filterSensitiveLog = (obj: DescribeVirtualRouterOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVirtualRouterOutput => __isa(o, "DescribeVirtualRouterOutput");
 }
 
 /**
  *
  */
 export interface DescribeVirtualServiceInput {
-  __type?: "DescribeVirtualServiceInput";
   /**
    * <p>The name of the virtual service to describe.</p>
    */
@@ -1325,14 +1224,12 @@ export namespace DescribeVirtualServiceInput {
   export const filterSensitiveLog = (obj: DescribeVirtualServiceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVirtualServiceInput => __isa(o, "DescribeVirtualServiceInput");
 }
 
 /**
  *
  */
 export interface DescribeVirtualServiceOutput {
-  __type?: "DescribeVirtualServiceOutput";
   /**
    * <p>The full description of your virtual service.</p>
    */
@@ -1344,7 +1241,6 @@ export namespace DescribeVirtualServiceOutput {
     ...obj,
     ...(obj.virtualService && { virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService) }),
   });
-  export const isa = (o: any): o is DescribeVirtualServiceOutput => __isa(o, "DescribeVirtualServiceOutput");
 }
 
 /**
@@ -1352,7 +1248,6 @@ export namespace DescribeVirtualServiceOutput {
  *          node.</p>
  */
 export interface DnsServiceDiscovery {
-  __type?: "DnsServiceDiscovery";
   /**
    * <p>Specifies the DNS service discovery hostname for the virtual node. </p>
    */
@@ -1363,14 +1258,12 @@ export namespace DnsServiceDiscovery {
   export const filterSensitiveLog = (obj: DnsServiceDiscovery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DnsServiceDiscovery => __isa(o, "DnsServiceDiscovery");
 }
 
 /**
  * <p>An object that represents a duration of time.</p>
  */
 export interface Duration {
-  __type?: "Duration";
   /**
    * <p>A number of time units.</p>
    */
@@ -1386,7 +1279,6 @@ export namespace Duration {
   export const filterSensitiveLog = (obj: Duration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Duration => __isa(o, "Duration");
 }
 
 export enum DurationUnit {
@@ -1398,7 +1290,6 @@ export enum DurationUnit {
  * <p>An object that represents the egress filter rules for a service mesh.</p>
  */
 export interface EgressFilter {
-  __type?: "EgressFilter";
   /**
    * <p>The egress filter type. By default, the type is <code>DROP_ALL</code>, which allows
    *          egress only from virtual nodes to other defined resources in the service mesh (and any
@@ -1413,7 +1304,6 @@ export namespace EgressFilter {
   export const filterSensitiveLog = (obj: EgressFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EgressFilter => __isa(o, "EgressFilter");
 }
 
 export enum EgressFilterType {
@@ -1425,7 +1315,6 @@ export enum EgressFilterType {
  * <p>An object that represents an access log file.</p>
  */
 export interface FileAccessLog {
-  __type?: "FileAccessLog";
   /**
    * <p>The file path to write access logs to. You can use <code>/dev/stdout</code> to send
    *          access logs to standard out and configure your Envoy container to use a log driver, such as
@@ -1444,7 +1333,6 @@ export namespace FileAccessLog {
   export const filterSensitiveLog = (obj: FileAccessLog): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileAccessLog => __isa(o, "FileAccessLog");
 }
 
 /**
@@ -1460,14 +1348,12 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
  * <p>An object that represents a gateway route returned by a describe operation.</p>
  */
 export interface GatewayRouteData {
-  __type?: "GatewayRouteData";
   /**
    * <p>The name of the service mesh that the resource resides in. </p>
    */
@@ -1503,14 +1389,12 @@ export namespace GatewayRouteData {
   export const filterSensitiveLog = (obj: GatewayRouteData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewayRouteData => __isa(o, "GatewayRouteData");
 }
 
 /**
  * <p>An object that represents a gateway route returned by a list operation.</p>
  */
 export interface GatewayRouteRef {
-  __type?: "GatewayRouteRef";
   /**
    * <p>The name of the service mesh that the resource resides in. </p>
    */
@@ -1563,7 +1447,6 @@ export namespace GatewayRouteRef {
   export const filterSensitiveLog = (obj: GatewayRouteRef): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewayRouteRef => __isa(o, "GatewayRouteRef");
 }
 
 /**
@@ -1571,7 +1454,6 @@ export namespace GatewayRouteRef {
  *          type.</p>
  */
 export interface GatewayRouteSpec {
-  __type?: "GatewayRouteSpec";
   /**
    * <p>An object that represents the specification of an HTTP gateway route.</p>
    */
@@ -1592,14 +1474,12 @@ export namespace GatewayRouteSpec {
   export const filterSensitiveLog = (obj: GatewayRouteSpec): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewayRouteSpec => __isa(o, "GatewayRouteSpec");
 }
 
 /**
  * <p>An object that represents the current status of a gateway route.</p>
  */
 export interface GatewayRouteStatus {
-  __type?: "GatewayRouteStatus";
   /**
    * <p>The current status for the gateway route.</p>
    */
@@ -1610,7 +1490,6 @@ export namespace GatewayRouteStatus {
   export const filterSensitiveLog = (obj: GatewayRouteStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewayRouteStatus => __isa(o, "GatewayRouteStatus");
 }
 
 export enum GatewayRouteStatusCode {
@@ -1623,7 +1502,6 @@ export enum GatewayRouteStatusCode {
  * <p>An object that represents a gateway route target.</p>
  */
 export interface GatewayRouteTarget {
-  __type?: "GatewayRouteTarget";
   /**
    * <p>An object that represents a virtual service gateway route target.</p>
    */
@@ -1634,14 +1512,12 @@ export namespace GatewayRouteTarget {
   export const filterSensitiveLog = (obj: GatewayRouteTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewayRouteTarget => __isa(o, "GatewayRouteTarget");
 }
 
 /**
  * <p>An object that represents the virtual service that traffic is routed to.</p>
  */
 export interface GatewayRouteVirtualService {
-  __type?: "GatewayRouteVirtualService";
   /**
    * <p>The name of the virtual service that traffic is routed to.</p>
    */
@@ -1652,14 +1528,12 @@ export namespace GatewayRouteVirtualService {
   export const filterSensitiveLog = (obj: GatewayRouteVirtualService): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewayRouteVirtualService => __isa(o, "GatewayRouteVirtualService");
 }
 
 /**
  * <p>An object that represents a gRPC gateway route.</p>
  */
 export interface GrpcGatewayRoute {
-  __type?: "GrpcGatewayRoute";
   /**
    * <p>An object that represents the criteria for determining a request match.</p>
    */
@@ -1675,14 +1549,12 @@ export namespace GrpcGatewayRoute {
   export const filterSensitiveLog = (obj: GrpcGatewayRoute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrpcGatewayRoute => __isa(o, "GrpcGatewayRoute");
 }
 
 /**
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface GrpcGatewayRouteAction {
-  __type?: "GrpcGatewayRouteAction";
   /**
    * <p>An object that represents the target that traffic is routed to when a request matches the gateway route.</p>
    */
@@ -1693,14 +1565,12 @@ export namespace GrpcGatewayRouteAction {
   export const filterSensitiveLog = (obj: GrpcGatewayRouteAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrpcGatewayRouteAction => __isa(o, "GrpcGatewayRouteAction");
 }
 
 /**
  * <p>An object that represents the criteria for determining a request match.</p>
  */
 export interface GrpcGatewayRouteMatch {
-  __type?: "GrpcGatewayRouteMatch";
   /**
    * <p>The fully qualified domain name for the service to match from the request.</p>
    */
@@ -1711,14 +1581,12 @@ export namespace GrpcGatewayRouteMatch {
   export const filterSensitiveLog = (obj: GrpcGatewayRouteMatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrpcGatewayRouteMatch => __isa(o, "GrpcGatewayRouteMatch");
 }
 
 /**
  * <p>An object that represents a retry policy. Specify at least one value for at least one of the types of <code>RetryEvents</code>, a value for <code>maxRetries</code>, and a value for <code>perRetryTimeout</code>.</p>
  */
 export interface GrpcRetryPolicy {
-  __type?: "GrpcRetryPolicy";
   /**
    * <p>An object that represents a duration of time.</p>
    */
@@ -1770,7 +1638,6 @@ export namespace GrpcRetryPolicy {
   export const filterSensitiveLog = (obj: GrpcRetryPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrpcRetryPolicy => __isa(o, "GrpcRetryPolicy");
 }
 
 export enum GrpcRetryPolicyEvent {
@@ -1785,7 +1652,6 @@ export enum GrpcRetryPolicyEvent {
  * <p>An object that represents a gRPC route type.</p>
  */
 export interface GrpcRoute {
-  __type?: "GrpcRoute";
   /**
    * <p>An object that represents the action to take if a match is determined.</p>
    */
@@ -1811,14 +1677,12 @@ export namespace GrpcRoute {
   export const filterSensitiveLog = (obj: GrpcRoute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrpcRoute => __isa(o, "GrpcRoute");
 }
 
 /**
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface GrpcRouteAction {
-  __type?: "GrpcRouteAction";
   /**
    * <p>An object that represents the targets that traffic is routed to when a request matches the route.</p>
    */
@@ -1829,14 +1693,12 @@ export namespace GrpcRouteAction {
   export const filterSensitiveLog = (obj: GrpcRouteAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrpcRouteAction => __isa(o, "GrpcRouteAction");
 }
 
 /**
  * <p>An object that represents the criteria for determining a request match.</p>
  */
 export interface GrpcRouteMatch {
-  __type?: "GrpcRouteMatch";
   /**
    * <p>The fully qualified domain name for the service to match from the request.</p>
    */
@@ -1859,14 +1721,12 @@ export namespace GrpcRouteMatch {
     ...obj,
     ...(obj.metadata && { metadata: obj.metadata.map((item) => GrpcRouteMetadata.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is GrpcRouteMatch => __isa(o, "GrpcRouteMatch");
 }
 
 /**
  * <p>An object that represents the match metadata for the route.</p>
  */
 export interface GrpcRouteMetadata {
-  __type?: "GrpcRouteMetadata";
   /**
    * <p>The name of the route.</p>
    */
@@ -1888,7 +1748,6 @@ export namespace GrpcRouteMetadata {
     ...obj,
     ...(obj.match && { match: GrpcRouteMetadataMatchMethod.filterSensitiveLog(obj.match) }),
   });
-  export const isa = (o: any): o is GrpcRouteMetadata => __isa(o, "GrpcRouteMetadata");
 }
 
 /**
@@ -1903,14 +1762,10 @@ export type GrpcRouteMetadataMatchMethod =
   | GrpcRouteMetadataMatchMethod.$UnknownMember;
 
 export namespace GrpcRouteMetadataMatchMethod {
-  interface $Base {
-    __type?: "GrpcRouteMetadataMatchMethod";
-  }
-
   /**
    * <p>The value sent by the client must match the specified value exactly.</p>
    */
-  export interface ExactMember extends $Base {
+  export interface ExactMember {
     exact: string;
     regex?: never;
     range?: never;
@@ -1922,7 +1777,7 @@ export namespace GrpcRouteMetadataMatchMethod {
   /**
    * <p>The value sent by the client must include the specified characters.</p>
    */
-  export interface RegexMember extends $Base {
+  export interface RegexMember {
     exact?: never;
     regex: string;
     range?: never;
@@ -1934,7 +1789,7 @@ export namespace GrpcRouteMetadataMatchMethod {
   /**
    * <p>An object that represents the range of values to match on.</p>
    */
-  export interface RangeMember extends $Base {
+  export interface RangeMember {
     exact?: never;
     regex?: never;
     range: MatchRange;
@@ -1946,7 +1801,7 @@ export namespace GrpcRouteMetadataMatchMethod {
   /**
    * <p>The value sent by the client must begin with the specified characters.</p>
    */
-  export interface PrefixMember extends $Base {
+  export interface PrefixMember {
     exact?: never;
     regex?: never;
     range?: never;
@@ -1958,7 +1813,7 @@ export namespace GrpcRouteMetadataMatchMethod {
   /**
    * <p>The value sent by the client must end with the specified characters.</p>
    */
-  export interface SuffixMember extends $Base {
+  export interface SuffixMember {
     exact?: never;
     regex?: never;
     range?: never;
@@ -1967,7 +1822,7 @@ export namespace GrpcRouteMetadataMatchMethod {
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     exact?: never;
     regex?: never;
     range?: never;
@@ -2008,7 +1863,6 @@ export namespace GrpcRouteMetadataMatchMethod {
  * <p>An object that represents types of timeouts. </p>
  */
 export interface GrpcTimeout {
-  __type?: "GrpcTimeout";
   /**
    * <p>An object that represents a per request timeout. The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15 seconds for the source and destination virtual node and the route.</p>
    */
@@ -2024,7 +1878,6 @@ export namespace GrpcTimeout {
   export const filterSensitiveLog = (obj: GrpcTimeout): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrpcTimeout => __isa(o, "GrpcTimeout");
 }
 
 /**
@@ -2040,14 +1893,10 @@ export type HeaderMatchMethod =
   | HeaderMatchMethod.$UnknownMember;
 
 export namespace HeaderMatchMethod {
-  interface $Base {
-    __type?: "HeaderMatchMethod";
-  }
-
   /**
    * <p>The value sent by the client must match the specified value exactly.</p>
    */
-  export interface ExactMember extends $Base {
+  export interface ExactMember {
     exact: string;
     regex?: never;
     range?: never;
@@ -2059,7 +1908,7 @@ export namespace HeaderMatchMethod {
   /**
    * <p>The value sent by the client must include the specified characters.</p>
    */
-  export interface RegexMember extends $Base {
+  export interface RegexMember {
     exact?: never;
     regex: string;
     range?: never;
@@ -2071,7 +1920,7 @@ export namespace HeaderMatchMethod {
   /**
    * <p>An object that represents the range of values to match on.</p>
    */
-  export interface RangeMember extends $Base {
+  export interface RangeMember {
     exact?: never;
     regex?: never;
     range: MatchRange;
@@ -2083,7 +1932,7 @@ export namespace HeaderMatchMethod {
   /**
    * <p>The value sent by the client must begin with the specified characters.</p>
    */
-  export interface PrefixMember extends $Base {
+  export interface PrefixMember {
     exact?: never;
     regex?: never;
     range?: never;
@@ -2095,7 +1944,7 @@ export namespace HeaderMatchMethod {
   /**
    * <p>The value sent by the client must end with the specified characters.</p>
    */
-  export interface SuffixMember extends $Base {
+  export interface SuffixMember {
     exact?: never;
     regex?: never;
     range?: never;
@@ -2104,7 +1953,7 @@ export namespace HeaderMatchMethod {
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     exact?: never;
     regex?: never;
     range?: never;
@@ -2145,7 +1994,6 @@ export namespace HeaderMatchMethod {
  * <p>An object that represents the health check policy for a virtual node's listener.</p>
  */
 export interface HealthCheckPolicy {
-  __type?: "HealthCheckPolicy";
   /**
    * <p>The amount of time to wait when receiving a response from the health check, in
    *          milliseconds.</p>
@@ -2193,14 +2041,12 @@ export namespace HealthCheckPolicy {
   export const filterSensitiveLog = (obj: HealthCheckPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HealthCheckPolicy => __isa(o, "HealthCheckPolicy");
 }
 
 /**
  * <p>An object that represents an HTTP gateway route.</p>
  */
 export interface HttpGatewayRoute {
-  __type?: "HttpGatewayRoute";
   /**
    * <p>An object that represents the criteria for determining a request match.</p>
    */
@@ -2216,14 +2062,12 @@ export namespace HttpGatewayRoute {
   export const filterSensitiveLog = (obj: HttpGatewayRoute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpGatewayRoute => __isa(o, "HttpGatewayRoute");
 }
 
 /**
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface HttpGatewayRouteAction {
-  __type?: "HttpGatewayRouteAction";
   /**
    * <p>An object that represents the target that traffic is routed to when a request matches the gateway route.</p>
    */
@@ -2234,14 +2078,12 @@ export namespace HttpGatewayRouteAction {
   export const filterSensitiveLog = (obj: HttpGatewayRouteAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpGatewayRouteAction => __isa(o, "HttpGatewayRouteAction");
 }
 
 /**
  * <p>An object that represents the criteria for determining a request match.</p>
  */
 export interface HttpGatewayRouteMatch {
-  __type?: "HttpGatewayRouteMatch";
   /**
    * <p>Specifies the path to match requests with. This parameter must always start with
    *             <code>/</code>, which by itself matches all requests to the virtual service name. You
@@ -2257,7 +2099,6 @@ export namespace HttpGatewayRouteMatch {
   export const filterSensitiveLog = (obj: HttpGatewayRouteMatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpGatewayRouteMatch => __isa(o, "HttpGatewayRouteMatch");
 }
 
 export enum HttpMethod {
@@ -2276,7 +2117,6 @@ export enum HttpMethod {
  * <p>An object that represents a retry policy. Specify at least one value for at least one of the types of <code>RetryEvents</code>, a value for <code>maxRetries</code>, and a value for <code>perRetryTimeout</code>.</p>
  */
 export interface HttpRetryPolicy {
-  __type?: "HttpRetryPolicy";
   /**
    * <p>An object that represents a duration of time.</p>
    */
@@ -2323,14 +2163,12 @@ export namespace HttpRetryPolicy {
   export const filterSensitiveLog = (obj: HttpRetryPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpRetryPolicy => __isa(o, "HttpRetryPolicy");
 }
 
 /**
  * <p>An object that represents an HTTP or HTTP/2 route type.</p>
  */
 export interface HttpRoute {
-  __type?: "HttpRoute";
   /**
    * <p>An object that represents the criteria for determining a request match.</p>
    */
@@ -2356,14 +2194,12 @@ export namespace HttpRoute {
   export const filterSensitiveLog = (obj: HttpRoute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpRoute => __isa(o, "HttpRoute");
 }
 
 /**
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface HttpRouteAction {
-  __type?: "HttpRouteAction";
   /**
    * <p>An object that represents the targets that traffic is routed to when a request matches the route.</p>
    */
@@ -2374,14 +2210,12 @@ export namespace HttpRouteAction {
   export const filterSensitiveLog = (obj: HttpRouteAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpRouteAction => __isa(o, "HttpRouteAction");
 }
 
 /**
  * <p>An object that represents the HTTP header in the request.</p>
  */
 export interface HttpRouteHeader {
-  __type?: "HttpRouteHeader";
   /**
    * <p>A name for the HTTP header in the client request that will be matched on.</p>
    */
@@ -2403,7 +2237,6 @@ export namespace HttpRouteHeader {
     ...obj,
     ...(obj.match && { match: HeaderMatchMethod.filterSensitiveLog(obj.match) }),
   });
-  export const isa = (o: any): o is HttpRouteHeader => __isa(o, "HttpRouteHeader");
 }
 
 /**
@@ -2411,7 +2244,6 @@ export namespace HttpRouteHeader {
  *          virtual router.</p>
  */
 export interface HttpRouteMatch {
-  __type?: "HttpRouteMatch";
   /**
    * <p>Specifies the path to match requests with. This parameter must always start with
    *             <code>/</code>, which by itself matches all requests to the virtual service name. You
@@ -2443,7 +2275,6 @@ export namespace HttpRouteMatch {
     ...obj,
     ...(obj.headers && { headers: obj.headers.map((item) => HttpRouteHeader.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is HttpRouteMatch => __isa(o, "HttpRouteMatch");
 }
 
 export enum HttpScheme {
@@ -2455,7 +2286,6 @@ export enum HttpScheme {
  * <p>An object that represents types of timeouts. </p>
  */
 export interface HttpTimeout {
-  __type?: "HttpTimeout";
   /**
    * <p>An object that represents a duration of time.</p>
    */
@@ -2471,7 +2301,6 @@ export namespace HttpTimeout {
   export const filterSensitiveLog = (obj: HttpTimeout): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpTimeout => __isa(o, "HttpTimeout");
 }
 
 /**
@@ -2489,7 +2318,6 @@ export namespace InternalServerErrorException {
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 /**
@@ -2506,14 +2334,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>An object that represents a listener for a virtual node.</p>
  */
 export interface Listener {
-  __type?: "Listener";
   /**
    * <p>The port mapping information for the listener.</p>
    */
@@ -2541,7 +2367,6 @@ export namespace Listener {
     ...(obj.tls && { tls: ListenerTls.filterSensitiveLog(obj.tls) }),
     ...(obj.timeout && { timeout: ListenerTimeout.filterSensitiveLog(obj.timeout) }),
   });
-  export const isa = (o: any): o is Listener => __isa(o, "Listener");
 }
 
 /**
@@ -2555,14 +2380,10 @@ export type ListenerTimeout =
   | ListenerTimeout.$UnknownMember;
 
 export namespace ListenerTimeout {
-  interface $Base {
-    __type?: "ListenerTimeout";
-  }
-
   /**
    * <p>An object that represents types of timeouts. </p>
    */
-  export interface TcpMember extends $Base {
+  export interface TcpMember {
     tcp: TcpTimeout;
     http?: never;
     http2?: never;
@@ -2573,7 +2394,7 @@ export namespace ListenerTimeout {
   /**
    * <p>An object that represents types of timeouts. </p>
    */
-  export interface HttpMember extends $Base {
+  export interface HttpMember {
     tcp?: never;
     http: HttpTimeout;
     http2?: never;
@@ -2584,7 +2405,7 @@ export namespace ListenerTimeout {
   /**
    * <p>An object that represents types of timeouts. </p>
    */
-  export interface Http2Member extends $Base {
+  export interface Http2Member {
     tcp?: never;
     http?: never;
     http2: HttpTimeout;
@@ -2595,7 +2416,7 @@ export namespace ListenerTimeout {
   /**
    * <p>An object that represents types of timeouts. </p>
    */
-  export interface GrpcMember extends $Base {
+  export interface GrpcMember {
     tcp?: never;
     http?: never;
     http2?: never;
@@ -2603,7 +2424,7 @@ export namespace ListenerTimeout {
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     tcp?: never;
     http?: never;
     http2?: never;
@@ -2640,7 +2461,6 @@ export namespace ListenerTimeout {
  * <p>An object that represents the Transport Layer Security (TLS) properties for a listener.</p>
  */
 export interface ListenerTls {
-  __type?: "ListenerTls";
   /**
    * <p>Specify one of the following modes.</p>
    *          <ul>
@@ -2674,14 +2494,12 @@ export namespace ListenerTls {
     ...obj,
     ...(obj.certificate && { certificate: ListenerTlsCertificate.filterSensitiveLog(obj.certificate) }),
   });
-  export const isa = (o: any): o is ListenerTls => __isa(o, "ListenerTls");
 }
 
 /**
  * <p>An object that represents an AWS Certicate Manager (ACM) certificate.</p>
  */
 export interface ListenerTlsAcmCertificate {
-  __type?: "ListenerTlsAcmCertificate";
   /**
    * <p>The Amazon Resource Name (ARN) for the certificate. The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
    */
@@ -2692,7 +2510,6 @@ export namespace ListenerTlsAcmCertificate {
   export const filterSensitiveLog = (obj: ListenerTlsAcmCertificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListenerTlsAcmCertificate => __isa(o, "ListenerTlsAcmCertificate");
 }
 
 /**
@@ -2704,14 +2521,10 @@ export type ListenerTlsCertificate =
   | ListenerTlsCertificate.$UnknownMember;
 
 export namespace ListenerTlsCertificate {
-  interface $Base {
-    __type?: "ListenerTlsCertificate";
-  }
-
   /**
    * <p>A reference to an object that represents an AWS Certicate Manager (ACM) certificate.</p>
    */
-  export interface AcmMember extends $Base {
+  export interface AcmMember {
     acm: ListenerTlsAcmCertificate;
     file?: never;
     $unknown?: never;
@@ -2720,13 +2533,13 @@ export namespace ListenerTlsCertificate {
   /**
    * <p>A reference to an object that represents a local file certificate.</p>
    */
-  export interface FileMember extends $Base {
+  export interface FileMember {
     acm?: never;
     file: ListenerTlsFileCertificate;
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     acm?: never;
     file?: never;
     $unknown: [string, any];
@@ -2756,7 +2569,6 @@ export namespace ListenerTlsCertificate {
  *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
  */
 export interface ListenerTlsFileCertificate {
-  __type?: "ListenerTlsFileCertificate";
   /**
    * <p>The certificate chain for the certificate.</p>
    */
@@ -2773,7 +2585,6 @@ export namespace ListenerTlsFileCertificate {
   export const filterSensitiveLog = (obj: ListenerTlsFileCertificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListenerTlsFileCertificate => __isa(o, "ListenerTlsFileCertificate");
 }
 
 export enum ListenerTlsMode {
@@ -2783,7 +2594,6 @@ export enum ListenerTlsMode {
 }
 
 export interface ListGatewayRoutesInput {
-  __type?: "ListGatewayRoutesInput";
   /**
    * <p>The name of the service mesh to list gateway routes in.</p>
    */
@@ -2825,11 +2635,9 @@ export namespace ListGatewayRoutesInput {
   export const filterSensitiveLog = (obj: ListGatewayRoutesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGatewayRoutesInput => __isa(o, "ListGatewayRoutesInput");
 }
 
 export interface ListGatewayRoutesOutput {
-  __type?: "ListGatewayRoutesOutput";
   /**
    * <p>The list of existing gateway routes for the specified service mesh and virtual
    *          gateway.</p>
@@ -2849,14 +2657,12 @@ export namespace ListGatewayRoutesOutput {
   export const filterSensitiveLog = (obj: ListGatewayRoutesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGatewayRoutesOutput => __isa(o, "ListGatewayRoutesOutput");
 }
 
 /**
  *
  */
 export interface ListMeshesInput {
-  __type?: "ListMeshesInput";
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *             <code>ListMeshes</code> request where <code>limit</code> was used and the results
@@ -2886,14 +2692,12 @@ export namespace ListMeshesInput {
   export const filterSensitiveLog = (obj: ListMeshesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMeshesInput => __isa(o, "ListMeshesInput");
 }
 
 /**
  *
  */
 export interface ListMeshesOutput {
-  __type?: "ListMeshesOutput";
   /**
    * <p>The list of existing service meshes.</p>
    */
@@ -2912,14 +2716,12 @@ export namespace ListMeshesOutput {
   export const filterSensitiveLog = (obj: ListMeshesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMeshesOutput => __isa(o, "ListMeshesOutput");
 }
 
 /**
  *
  */
 export interface ListRoutesInput {
-  __type?: "ListRoutesInput";
   /**
    * <p>The name of the service mesh to list routes in.</p>
    */
@@ -2961,14 +2763,12 @@ export namespace ListRoutesInput {
   export const filterSensitiveLog = (obj: ListRoutesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRoutesInput => __isa(o, "ListRoutesInput");
 }
 
 /**
  *
  */
 export interface ListRoutesOutput {
-  __type?: "ListRoutesOutput";
   /**
    * <p>The list of existing routes for the specified service mesh and virtual router.</p>
    */
@@ -2987,14 +2787,12 @@ export namespace ListRoutesOutput {
   export const filterSensitiveLog = (obj: ListRoutesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRoutesOutput => __isa(o, "ListRoutesOutput");
 }
 
 /**
  *
  */
 export interface ListTagsForResourceInput {
-  __type?: "ListTagsForResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.</p>
    */
@@ -3025,14 +2823,12 @@ export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 /**
  *
  */
 export interface ListTagsForResourceOutput {
-  __type?: "ListTagsForResourceOutput";
   /**
    * <p>The tags for the resource.</p>
    */
@@ -3051,11 +2847,9 @@ export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 export interface ListVirtualGatewaysInput {
-  __type?: "ListVirtualGatewaysInput";
   /**
    * <p>The name of the service mesh to list virtual gateways in.</p>
    */
@@ -3092,11 +2886,9 @@ export namespace ListVirtualGatewaysInput {
   export const filterSensitiveLog = (obj: ListVirtualGatewaysInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVirtualGatewaysInput => __isa(o, "ListVirtualGatewaysInput");
 }
 
 export interface ListVirtualGatewaysOutput {
-  __type?: "ListVirtualGatewaysOutput";
   /**
    * <p>The list of existing virtual gateways for the specified service mesh.</p>
    */
@@ -3115,14 +2907,12 @@ export namespace ListVirtualGatewaysOutput {
   export const filterSensitiveLog = (obj: ListVirtualGatewaysOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVirtualGatewaysOutput => __isa(o, "ListVirtualGatewaysOutput");
 }
 
 /**
  *
  */
 export interface ListVirtualNodesInput {
-  __type?: "ListVirtualNodesInput";
   /**
    * <p>The name of the service mesh to list virtual nodes in.</p>
    */
@@ -3159,14 +2949,12 @@ export namespace ListVirtualNodesInput {
   export const filterSensitiveLog = (obj: ListVirtualNodesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVirtualNodesInput => __isa(o, "ListVirtualNodesInput");
 }
 
 /**
  *
  */
 export interface ListVirtualNodesOutput {
-  __type?: "ListVirtualNodesOutput";
   /**
    * <p>The list of existing virtual nodes for the specified service mesh.</p>
    */
@@ -3185,14 +2973,12 @@ export namespace ListVirtualNodesOutput {
   export const filterSensitiveLog = (obj: ListVirtualNodesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVirtualNodesOutput => __isa(o, "ListVirtualNodesOutput");
 }
 
 /**
  *
  */
 export interface ListVirtualRoutersInput {
-  __type?: "ListVirtualRoutersInput";
   /**
    * <p>The name of the service mesh to list virtual routers in.</p>
    */
@@ -3229,14 +3015,12 @@ export namespace ListVirtualRoutersInput {
   export const filterSensitiveLog = (obj: ListVirtualRoutersInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVirtualRoutersInput => __isa(o, "ListVirtualRoutersInput");
 }
 
 /**
  *
  */
 export interface ListVirtualRoutersOutput {
-  __type?: "ListVirtualRoutersOutput";
   /**
    * <p>The list of existing virtual routers for the specified service mesh.</p>
    */
@@ -3255,14 +3039,12 @@ export namespace ListVirtualRoutersOutput {
   export const filterSensitiveLog = (obj: ListVirtualRoutersOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVirtualRoutersOutput => __isa(o, "ListVirtualRoutersOutput");
 }
 
 /**
  *
  */
 export interface ListVirtualServicesInput {
-  __type?: "ListVirtualServicesInput";
   /**
    * <p>The name of the service mesh to list virtual services in.</p>
    */
@@ -3299,14 +3081,12 @@ export namespace ListVirtualServicesInput {
   export const filterSensitiveLog = (obj: ListVirtualServicesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVirtualServicesInput => __isa(o, "ListVirtualServicesInput");
 }
 
 /**
  *
  */
 export interface ListVirtualServicesOutput {
-  __type?: "ListVirtualServicesOutput";
   /**
    * <p>The list of existing virtual services for the specified service mesh.</p>
    */
@@ -3325,14 +3105,12 @@ export namespace ListVirtualServicesOutput {
   export const filterSensitiveLog = (obj: ListVirtualServicesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVirtualServicesOutput => __isa(o, "ListVirtualServicesOutput");
 }
 
 /**
  * <p>An object that represents the logging information for a virtual node.</p>
  */
 export interface Logging {
-  __type?: "Logging";
   /**
    * <p>The access log configuration for a virtual node.</p>
    */
@@ -3344,14 +3122,12 @@ export namespace Logging {
     ...obj,
     ...(obj.accessLog && { accessLog: AccessLog.filterSensitiveLog(obj.accessLog) }),
   });
-  export const isa = (o: any): o is Logging => __isa(o, "Logging");
 }
 
 /**
  * <p>An object that represents the range of values to match on. The first character of the range is included in the range, though the last character is not. For example, if the range specified were 1-100, only values 1-99 would be matched.</p>
  */
 export interface MatchRange {
-  __type?: "MatchRange";
   /**
    * <p>The start of the range.</p>
    */
@@ -3367,14 +3143,12 @@ export namespace MatchRange {
   export const filterSensitiveLog = (obj: MatchRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MatchRange => __isa(o, "MatchRange");
 }
 
 /**
  * <p>An object that represents a service mesh returned by a describe operation.</p>
  */
 export interface MeshData {
-  __type?: "MeshData";
   /**
    * <p>The name of the service mesh.</p>
    */
@@ -3400,14 +3174,12 @@ export namespace MeshData {
   export const filterSensitiveLog = (obj: MeshData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MeshData => __isa(o, "MeshData");
 }
 
 /**
  * <p>An object that represents a service mesh returned by a list operation.</p>
  */
 export interface MeshRef {
-  __type?: "MeshRef";
   /**
    * <p>The name of the service mesh.</p>
    */
@@ -3450,14 +3222,12 @@ export namespace MeshRef {
   export const filterSensitiveLog = (obj: MeshRef): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MeshRef => __isa(o, "MeshRef");
 }
 
 /**
  * <p>An object that represents the specification of a service mesh.</p>
  */
 export interface MeshSpec {
-  __type?: "MeshSpec";
   /**
    * <p>The egress filter rules for the service mesh.</p>
    */
@@ -3468,14 +3238,12 @@ export namespace MeshSpec {
   export const filterSensitiveLog = (obj: MeshSpec): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MeshSpec => __isa(o, "MeshSpec");
 }
 
 /**
  * <p>An object that represents the status of a service mesh.</p>
  */
 export interface MeshStatus {
-  __type?: "MeshStatus";
   /**
    * <p>The current mesh status.</p>
    */
@@ -3486,7 +3254,6 @@ export namespace MeshStatus {
   export const filterSensitiveLog = (obj: MeshStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MeshStatus => __isa(o, "MeshStatus");
 }
 
 export enum MeshStatusCode {
@@ -3508,14 +3275,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * <p>An object that represents a port mapping.</p>
  */
 export interface PortMapping {
-  __type?: "PortMapping";
   /**
    * <p>The port used for the port mapping.</p>
    */
@@ -3531,7 +3296,6 @@ export namespace PortMapping {
   export const filterSensitiveLog = (obj: PortMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PortMapping => __isa(o, "PortMapping");
 }
 
 export enum PortProtocol {
@@ -3555,14 +3319,12 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>An object that represents metadata for a resource.</p>
  */
 export interface ResourceMetadata {
-  __type?: "ResourceMetadata";
   /**
    * <p>The full Amazon Resource Name (ARN) for the resource.</p>
    */
@@ -3605,14 +3367,12 @@ export namespace ResourceMetadata {
   export const filterSensitiveLog = (obj: ResourceMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceMetadata => __isa(o, "ResourceMetadata");
 }
 
 /**
  * <p>An object that represents a route returned by a describe operation.</p>
  */
 export interface RouteData {
-  __type?: "RouteData";
   /**
    * <p>The name of the service mesh that the route resides in.</p>
    */
@@ -3648,14 +3408,12 @@ export namespace RouteData {
   export const filterSensitiveLog = (obj: RouteData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RouteData => __isa(o, "RouteData");
 }
 
 /**
  * <p>An object that represents a route returned by a list operation.</p>
  */
 export interface RouteRef {
-  __type?: "RouteRef";
   /**
    * <p>The name of the service mesh that the route resides in.</p>
    */
@@ -3708,14 +3466,12 @@ export namespace RouteRef {
   export const filterSensitiveLog = (obj: RouteRef): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RouteRef => __isa(o, "RouteRef");
 }
 
 /**
  * <p>An object that represents a route specification. Specify one route type.</p>
  */
 export interface RouteSpec {
-  __type?: "RouteSpec";
   /**
    * <p>The priority for the route. Routes are matched based on the specified value, where 0 is
    *          the highest priority.</p>
@@ -3747,14 +3503,12 @@ export namespace RouteSpec {
   export const filterSensitiveLog = (obj: RouteSpec): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RouteSpec => __isa(o, "RouteSpec");
 }
 
 /**
  * <p>An object that represents the current status of a route.</p>
  */
 export interface RouteStatus {
-  __type?: "RouteStatus";
   /**
    * <p>The current status for the route.</p>
    */
@@ -3765,7 +3519,6 @@ export namespace RouteStatus {
   export const filterSensitiveLog = (obj: RouteStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RouteStatus => __isa(o, "RouteStatus");
 }
 
 export enum RouteStatusCode {
@@ -3783,14 +3536,10 @@ export type ServiceDiscovery =
   | ServiceDiscovery.$UnknownMember;
 
 export namespace ServiceDiscovery {
-  interface $Base {
-    __type?: "ServiceDiscovery";
-  }
-
   /**
    * <p>Specifies the DNS information for the virtual node.</p>
    */
-  export interface DnsMember extends $Base {
+  export interface DnsMember {
     dns: DnsServiceDiscovery;
     awsCloudMap?: never;
     $unknown?: never;
@@ -3799,13 +3548,13 @@ export namespace ServiceDiscovery {
   /**
    * <p>Specifies any AWS Cloud Map information for the virtual node.</p>
    */
-  export interface AwsCloudMapMember extends $Base {
+  export interface AwsCloudMapMember {
     dns?: never;
     awsCloudMap: AwsCloudMapServiceDiscovery;
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     dns?: never;
     awsCloudMap?: never;
     $unknown: [string, any];
@@ -3845,7 +3594,6 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -3855,7 +3603,6 @@ export namespace ServiceUnavailableException {
  *             a maximum length of 256 characters.</p>
  */
 export interface TagRef {
-  __type?: "TagRef";
   /**
    * <p>One part of a key-value pair that make up a tag. A <code>key</code> is a general label
    *          that acts like a category for more specific tag values.</p>
@@ -3873,14 +3620,12 @@ export namespace TagRef {
   export const filterSensitiveLog = (obj: TagRef): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagRef => __isa(o, "TagRef");
 }
 
 /**
  *
  */
 export interface TagResourceInput {
-  __type?: "TagResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to add tags to.</p>
    */
@@ -3898,21 +3643,17 @@ export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 /**
  *
  */
-export interface TagResourceOutput {
-  __type?: "TagResourceOutput";
-}
+export interface TagResourceOutput {}
 
 export namespace TagResourceOutput {
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceOutput => __isa(o, "TagResourceOutput");
 }
 
 export enum TcpRetryPolicyEvent {
@@ -3923,7 +3664,6 @@ export enum TcpRetryPolicyEvent {
  * <p>An object that represents a TCP route type.</p>
  */
 export interface TcpRoute {
-  __type?: "TcpRoute";
   /**
    * <p>The action to take if a match is determined.</p>
    */
@@ -3939,14 +3679,12 @@ export namespace TcpRoute {
   export const filterSensitiveLog = (obj: TcpRoute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TcpRoute => __isa(o, "TcpRoute");
 }
 
 /**
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface TcpRouteAction {
-  __type?: "TcpRouteAction";
   /**
    * <p>An object that represents the targets that traffic is routed to when a request matches the route.</p>
    */
@@ -3957,14 +3695,12 @@ export namespace TcpRouteAction {
   export const filterSensitiveLog = (obj: TcpRouteAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TcpRouteAction => __isa(o, "TcpRouteAction");
 }
 
 /**
  * <p>An object that represents types of timeouts. </p>
  */
 export interface TcpTimeout {
-  __type?: "TcpTimeout";
   /**
    * <p>An object that represents a duration of time.</p>
    */
@@ -3975,14 +3711,12 @@ export namespace TcpTimeout {
   export const filterSensitiveLog = (obj: TcpTimeout): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TcpTimeout => __isa(o, "TcpTimeout");
 }
 
 /**
  * <p>An object that represents a Transport Layer Security (TLS) validation context.</p>
  */
 export interface TlsValidationContext {
-  __type?: "TlsValidationContext";
   /**
    * <p>A reference to an object that represents a TLS validation context trust.</p>
    */
@@ -3994,7 +3728,6 @@ export namespace TlsValidationContext {
     ...obj,
     ...(obj.trust && { trust: TlsValidationContextTrust.filterSensitiveLog(obj.trust) }),
   });
-  export const isa = (o: any): o is TlsValidationContext => __isa(o, "TlsValidationContext");
 }
 
 /**
@@ -4002,7 +3735,6 @@ export namespace TlsValidationContext {
  *          certificate.</p>
  */
 export interface TlsValidationContextAcmTrust {
-  __type?: "TlsValidationContextAcmTrust";
   /**
    * <p>One or more ACM Amazon Resource Name (ARN)s.</p>
    */
@@ -4013,14 +3745,12 @@ export namespace TlsValidationContextAcmTrust {
   export const filterSensitiveLog = (obj: TlsValidationContextAcmTrust): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TlsValidationContextAcmTrust => __isa(o, "TlsValidationContextAcmTrust");
 }
 
 /**
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
  */
 export interface TlsValidationContextFileTrust {
-  __type?: "TlsValidationContextFileTrust";
   /**
    * <p>The certificate trust chain for a certificate stored on the file system of the virtual
    *          node that the proxy is running on.</p>
@@ -4032,7 +3762,6 @@ export namespace TlsValidationContextFileTrust {
   export const filterSensitiveLog = (obj: TlsValidationContextFileTrust): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TlsValidationContextFileTrust => __isa(o, "TlsValidationContextFileTrust");
 }
 
 /**
@@ -4044,15 +3773,11 @@ export type TlsValidationContextTrust =
   | TlsValidationContextTrust.$UnknownMember;
 
 export namespace TlsValidationContextTrust {
-  interface $Base {
-    __type?: "TlsValidationContextTrust";
-  }
-
   /**
    * <p>A reference to an object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)
    *          certificate.</p>
    */
-  export interface AcmMember extends $Base {
+  export interface AcmMember {
     acm: TlsValidationContextAcmTrust;
     file?: never;
     $unknown?: never;
@@ -4061,13 +3786,13 @@ export namespace TlsValidationContextTrust {
   /**
    * <p>An object that represents a TLS validation context trust for a local file.</p>
    */
-  export interface FileMember extends $Base {
+  export interface FileMember {
     acm?: never;
     file: TlsValidationContextFileTrust;
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     acm?: never;
     file?: never;
     $unknown: [string, any];
@@ -4107,7 +3832,6 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -4125,14 +3849,12 @@ export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
  *
  */
 export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to delete tags from.</p>
    */
@@ -4148,25 +3870,20 @@ export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 /**
  *
  */
-export interface UntagResourceOutput {
-  __type?: "UntagResourceOutput";
-}
+export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceOutput => __isa(o, "UntagResourceOutput");
 }
 
 export interface UpdateGatewayRouteInput {
-  __type?: "UpdateGatewayRouteInput";
   /**
    * <p>The name of the gateway route to update.</p>
    */
@@ -4204,11 +3921,9 @@ export namespace UpdateGatewayRouteInput {
   export const filterSensitiveLog = (obj: UpdateGatewayRouteInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewayRouteInput => __isa(o, "UpdateGatewayRouteInput");
 }
 
 export interface UpdateGatewayRouteOutput {
-  __type?: "UpdateGatewayRouteOutput";
   /**
    * <p>A full description of the gateway route that was updated.</p>
    */
@@ -4219,14 +3934,12 @@ export namespace UpdateGatewayRouteOutput {
   export const filterSensitiveLog = (obj: UpdateGatewayRouteOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewayRouteOutput => __isa(o, "UpdateGatewayRouteOutput");
 }
 
 /**
  *
  */
 export interface UpdateMeshInput {
-  __type?: "UpdateMeshInput";
   /**
    * <p>The name of the service mesh to update.</p>
    */
@@ -4248,14 +3961,12 @@ export namespace UpdateMeshInput {
   export const filterSensitiveLog = (obj: UpdateMeshInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMeshInput => __isa(o, "UpdateMeshInput");
 }
 
 /**
  *
  */
 export interface UpdateMeshOutput {
-  __type?: "UpdateMeshOutput";
   /**
    * <p>An object that represents a service mesh returned by a describe operation.</p>
    */
@@ -4266,14 +3977,12 @@ export namespace UpdateMeshOutput {
   export const filterSensitiveLog = (obj: UpdateMeshOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMeshOutput => __isa(o, "UpdateMeshOutput");
 }
 
 /**
  *
  */
 export interface UpdateRouteInput {
-  __type?: "UpdateRouteInput";
   /**
    * <p>The name of the route to update.</p>
    */
@@ -4311,14 +4020,12 @@ export namespace UpdateRouteInput {
   export const filterSensitiveLog = (obj: UpdateRouteInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRouteInput => __isa(o, "UpdateRouteInput");
 }
 
 /**
  *
  */
 export interface UpdateRouteOutput {
-  __type?: "UpdateRouteOutput";
   /**
    * <p>A full description of the route that was updated.</p>
    */
@@ -4329,11 +4036,9 @@ export namespace UpdateRouteOutput {
   export const filterSensitiveLog = (obj: UpdateRouteOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRouteOutput => __isa(o, "UpdateRouteOutput");
 }
 
 export interface UpdateVirtualGatewayInput {
-  __type?: "UpdateVirtualGatewayInput";
   /**
    * <p>The name of the virtual gateway to update.</p>
    */
@@ -4368,11 +4073,9 @@ export namespace UpdateVirtualGatewayInput {
     ...obj,
     ...(obj.spec && { spec: VirtualGatewaySpec.filterSensitiveLog(obj.spec) }),
   });
-  export const isa = (o: any): o is UpdateVirtualGatewayInput => __isa(o, "UpdateVirtualGatewayInput");
 }
 
 export interface UpdateVirtualGatewayOutput {
-  __type?: "UpdateVirtualGatewayOutput";
   /**
    * <p>A full description of the virtual gateway that was updated.</p>
    */
@@ -4384,14 +4087,12 @@ export namespace UpdateVirtualGatewayOutput {
     ...obj,
     ...(obj.virtualGateway && { virtualGateway: VirtualGatewayData.filterSensitiveLog(obj.virtualGateway) }),
   });
-  export const isa = (o: any): o is UpdateVirtualGatewayOutput => __isa(o, "UpdateVirtualGatewayOutput");
 }
 
 /**
  *
  */
 export interface UpdateVirtualNodeInput {
-  __type?: "UpdateVirtualNodeInput";
   /**
    * <p>The name of the virtual node to update.</p>
    */
@@ -4425,14 +4126,12 @@ export namespace UpdateVirtualNodeInput {
     ...obj,
     ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) }),
   });
-  export const isa = (o: any): o is UpdateVirtualNodeInput => __isa(o, "UpdateVirtualNodeInput");
 }
 
 /**
  *
  */
 export interface UpdateVirtualNodeOutput {
-  __type?: "UpdateVirtualNodeOutput";
   /**
    * <p>A full description of the virtual node that was updated.</p>
    */
@@ -4444,14 +4143,12 @@ export namespace UpdateVirtualNodeOutput {
     ...obj,
     ...(obj.virtualNode && { virtualNode: VirtualNodeData.filterSensitiveLog(obj.virtualNode) }),
   });
-  export const isa = (o: any): o is UpdateVirtualNodeOutput => __isa(o, "UpdateVirtualNodeOutput");
 }
 
 /**
  *
  */
 export interface UpdateVirtualRouterInput {
-  __type?: "UpdateVirtualRouterInput";
   /**
    * <p>The name of the virtual router to update.</p>
    */
@@ -4484,14 +4181,12 @@ export namespace UpdateVirtualRouterInput {
   export const filterSensitiveLog = (obj: UpdateVirtualRouterInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVirtualRouterInput => __isa(o, "UpdateVirtualRouterInput");
 }
 
 /**
  *
  */
 export interface UpdateVirtualRouterOutput {
-  __type?: "UpdateVirtualRouterOutput";
   /**
    * <p>A full description of the virtual router that was updated.</p>
    */
@@ -4502,14 +4197,12 @@ export namespace UpdateVirtualRouterOutput {
   export const filterSensitiveLog = (obj: UpdateVirtualRouterOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVirtualRouterOutput => __isa(o, "UpdateVirtualRouterOutput");
 }
 
 /**
  *
  */
 export interface UpdateVirtualServiceInput {
-  __type?: "UpdateVirtualServiceInput";
   /**
    * <p>The name of the virtual service to update.</p>
    */
@@ -4544,14 +4237,12 @@ export namespace UpdateVirtualServiceInput {
     ...obj,
     ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) }),
   });
-  export const isa = (o: any): o is UpdateVirtualServiceInput => __isa(o, "UpdateVirtualServiceInput");
 }
 
 /**
  *
  */
 export interface UpdateVirtualServiceOutput {
-  __type?: "UpdateVirtualServiceOutput";
   /**
    * <p>A full description of the virtual service that was updated.</p>
    */
@@ -4563,7 +4254,6 @@ export namespace UpdateVirtualServiceOutput {
     ...obj,
     ...(obj.virtualService && { virtualService: VirtualServiceData.filterSensitiveLog(obj.virtualService) }),
   });
-  export const isa = (o: any): o is UpdateVirtualServiceOutput => __isa(o, "UpdateVirtualServiceOutput");
 }
 
 /**
@@ -4572,19 +4262,15 @@ export namespace UpdateVirtualServiceOutput {
 export type VirtualGatewayAccessLog = VirtualGatewayAccessLog.FileMember | VirtualGatewayAccessLog.$UnknownMember;
 
 export namespace VirtualGatewayAccessLog {
-  interface $Base {
-    __type?: "VirtualGatewayAccessLog";
-  }
-
   /**
    * <p>The file object to send virtual gateway access logs to.</p>
    */
-  export interface FileMember extends $Base {
+  export interface FileMember {
     file: VirtualGatewayFileAccessLog;
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     file?: never;
     $unknown: [string, any];
   }
@@ -4609,7 +4295,6 @@ export namespace VirtualGatewayAccessLog {
  * <p>An object that represents the default properties for a backend.</p>
  */
 export interface VirtualGatewayBackendDefaults {
-  __type?: "VirtualGatewayBackendDefaults";
   /**
    * <p>A reference to an object that represents a client policy.</p>
    */
@@ -4621,14 +4306,12 @@ export namespace VirtualGatewayBackendDefaults {
     ...obj,
     ...(obj.clientPolicy && { clientPolicy: VirtualGatewayClientPolicy.filterSensitiveLog(obj.clientPolicy) }),
   });
-  export const isa = (o: any): o is VirtualGatewayBackendDefaults => __isa(o, "VirtualGatewayBackendDefaults");
 }
 
 /**
  * <p>An object that represents a client policy.</p>
  */
 export interface VirtualGatewayClientPolicy {
-  __type?: "VirtualGatewayClientPolicy";
   /**
    * <p>A reference to an object that represents a Transport Layer Security (TLS) client policy.</p>
    */
@@ -4640,14 +4323,12 @@ export namespace VirtualGatewayClientPolicy {
     ...obj,
     ...(obj.tls && { tls: VirtualGatewayClientPolicyTls.filterSensitiveLog(obj.tls) }),
   });
-  export const isa = (o: any): o is VirtualGatewayClientPolicy => __isa(o, "VirtualGatewayClientPolicy");
 }
 
 /**
  * <p>An object that represents a Transport Layer Security (TLS) client policy.</p>
  */
 export interface VirtualGatewayClientPolicyTls {
-  __type?: "VirtualGatewayClientPolicyTls";
   /**
    * <p>Whether the policy is enforced. The default is <code>True</code>, if a value isn't
    *          specified.</p>
@@ -4670,14 +4351,12 @@ export namespace VirtualGatewayClientPolicyTls {
     ...obj,
     ...(obj.validation && { validation: VirtualGatewayTlsValidationContext.filterSensitiveLog(obj.validation) }),
   });
-  export const isa = (o: any): o is VirtualGatewayClientPolicyTls => __isa(o, "VirtualGatewayClientPolicyTls");
 }
 
 /**
  * <p>An object that represents a virtual gateway returned by a describe operation.</p>
  */
 export interface VirtualGatewayData {
-  __type?: "VirtualGatewayData";
   /**
    * <p>The name of the service mesh that the virtual gateway resides in.</p>
    */
@@ -4709,14 +4388,12 @@ export namespace VirtualGatewayData {
     ...obj,
     ...(obj.spec && { spec: VirtualGatewaySpec.filterSensitiveLog(obj.spec) }),
   });
-  export const isa = (o: any): o is VirtualGatewayData => __isa(o, "VirtualGatewayData");
 }
 
 /**
  * <p>An object that represents an access log file.</p>
  */
 export interface VirtualGatewayFileAccessLog {
-  __type?: "VirtualGatewayFileAccessLog";
   /**
    * <p>The file path to write access logs to. You can use <code>/dev/stdout</code> to send
    *          access logs to standard out and configure your Envoy container to use a log driver, such as
@@ -4731,7 +4408,6 @@ export namespace VirtualGatewayFileAccessLog {
   export const filterSensitiveLog = (obj: VirtualGatewayFileAccessLog): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualGatewayFileAccessLog => __isa(o, "VirtualGatewayFileAccessLog");
 }
 
 /**
@@ -4739,7 +4415,6 @@ export namespace VirtualGatewayFileAccessLog {
  *          listener.</p>
  */
 export interface VirtualGatewayHealthCheckPolicy {
-  __type?: "VirtualGatewayHealthCheckPolicy";
   /**
    * <p>The amount of time to wait when receiving a response from the health check, in
    *          milliseconds.</p>
@@ -4787,14 +4462,12 @@ export namespace VirtualGatewayHealthCheckPolicy {
   export const filterSensitiveLog = (obj: VirtualGatewayHealthCheckPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualGatewayHealthCheckPolicy => __isa(o, "VirtualGatewayHealthCheckPolicy");
 }
 
 /**
  * <p>An object that represents a listener for a virtual gateway.</p>
  */
 export interface VirtualGatewayListener {
-  __type?: "VirtualGatewayListener";
   /**
    * <p>The health check information for the listener.</p>
    */
@@ -4816,14 +4489,12 @@ export namespace VirtualGatewayListener {
     ...obj,
     ...(obj.tls && { tls: VirtualGatewayListenerTls.filterSensitiveLog(obj.tls) }),
   });
-  export const isa = (o: any): o is VirtualGatewayListener => __isa(o, "VirtualGatewayListener");
 }
 
 /**
  * <p>An object that represents the Transport Layer Security (TLS) properties for a listener.</p>
  */
 export interface VirtualGatewayListenerTls {
-  __type?: "VirtualGatewayListenerTls";
   /**
    * <p>Specify one of the following modes.</p>
    *          <ul>
@@ -4857,14 +4528,12 @@ export namespace VirtualGatewayListenerTls {
     ...obj,
     ...(obj.certificate && { certificate: VirtualGatewayListenerTlsCertificate.filterSensitiveLog(obj.certificate) }),
   });
-  export const isa = (o: any): o is VirtualGatewayListenerTls => __isa(o, "VirtualGatewayListenerTls");
 }
 
 /**
  * <p>An object that represents an AWS Certicate Manager (ACM) certificate.</p>
  */
 export interface VirtualGatewayListenerTlsAcmCertificate {
-  __type?: "VirtualGatewayListenerTlsAcmCertificate";
   /**
    * <p>The Amazon Resource Name (ARN) for the certificate. The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
    */
@@ -4875,8 +4544,6 @@ export namespace VirtualGatewayListenerTlsAcmCertificate {
   export const filterSensitiveLog = (obj: VirtualGatewayListenerTlsAcmCertificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualGatewayListenerTlsAcmCertificate =>
-    __isa(o, "VirtualGatewayListenerTlsAcmCertificate");
 }
 
 /**
@@ -4888,14 +4555,10 @@ export type VirtualGatewayListenerTlsCertificate =
   | VirtualGatewayListenerTlsCertificate.$UnknownMember;
 
 export namespace VirtualGatewayListenerTlsCertificate {
-  interface $Base {
-    __type?: "VirtualGatewayListenerTlsCertificate";
-  }
-
   /**
    * <p>A reference to an object that represents an AWS Certicate Manager (ACM) certificate.</p>
    */
-  export interface AcmMember extends $Base {
+  export interface AcmMember {
     acm: VirtualGatewayListenerTlsAcmCertificate;
     file?: never;
     $unknown?: never;
@@ -4904,13 +4567,13 @@ export namespace VirtualGatewayListenerTlsCertificate {
   /**
    * <p>A reference to an object that represents a local file certificate.</p>
    */
-  export interface FileMember extends $Base {
+  export interface FileMember {
     acm?: never;
     file: VirtualGatewayListenerTlsFileCertificate;
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     acm?: never;
     file?: never;
     $unknown: [string, any];
@@ -4940,7 +4603,6 @@ export namespace VirtualGatewayListenerTlsCertificate {
  *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
  */
 export interface VirtualGatewayListenerTlsFileCertificate {
-  __type?: "VirtualGatewayListenerTlsFileCertificate";
   /**
    * <p>The certificate chain for the certificate.</p>
    */
@@ -4957,8 +4619,6 @@ export namespace VirtualGatewayListenerTlsFileCertificate {
   export const filterSensitiveLog = (obj: VirtualGatewayListenerTlsFileCertificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualGatewayListenerTlsFileCertificate =>
-    __isa(o, "VirtualGatewayListenerTlsFileCertificate");
 }
 
 export enum VirtualGatewayListenerTlsMode {
@@ -4971,7 +4631,6 @@ export enum VirtualGatewayListenerTlsMode {
  * <p>An object that represents logging information.</p>
  */
 export interface VirtualGatewayLogging {
-  __type?: "VirtualGatewayLogging";
   /**
    * <p>The access log configuration.</p>
    */
@@ -4983,14 +4642,12 @@ export namespace VirtualGatewayLogging {
     ...obj,
     ...(obj.accessLog && { accessLog: VirtualGatewayAccessLog.filterSensitiveLog(obj.accessLog) }),
   });
-  export const isa = (o: any): o is VirtualGatewayLogging => __isa(o, "VirtualGatewayLogging");
 }
 
 /**
  * <p>An object that represents a port mapping.</p>
  */
 export interface VirtualGatewayPortMapping {
-  __type?: "VirtualGatewayPortMapping";
   /**
    * <p>The port used for the port mapping. Specify one protocol.</p>
    */
@@ -5006,7 +4663,6 @@ export namespace VirtualGatewayPortMapping {
   export const filterSensitiveLog = (obj: VirtualGatewayPortMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualGatewayPortMapping => __isa(o, "VirtualGatewayPortMapping");
 }
 
 export enum VirtualGatewayPortProtocol {
@@ -5019,7 +4675,6 @@ export enum VirtualGatewayPortProtocol {
  * <p>An object that represents a virtual gateway returned by a list operation.</p>
  */
 export interface VirtualGatewayRef {
-  __type?: "VirtualGatewayRef";
   /**
    * <p>The name of the service mesh that the resource resides in.</p>
    */
@@ -5067,14 +4722,12 @@ export namespace VirtualGatewayRef {
   export const filterSensitiveLog = (obj: VirtualGatewayRef): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualGatewayRef => __isa(o, "VirtualGatewayRef");
 }
 
 /**
  * <p>An object that represents the specification of a service mesh resource.</p>
  */
 export interface VirtualGatewaySpec {
-  __type?: "VirtualGatewaySpec";
   /**
    * <p>A reference to an object that represents the defaults for backends.</p>
    */
@@ -5101,14 +4754,12 @@ export namespace VirtualGatewaySpec {
     ...(obj.listeners && { listeners: obj.listeners.map((item) => VirtualGatewayListener.filterSensitiveLog(item)) }),
     ...(obj.logging && { logging: VirtualGatewayLogging.filterSensitiveLog(obj.logging) }),
   });
-  export const isa = (o: any): o is VirtualGatewaySpec => __isa(o, "VirtualGatewaySpec");
 }
 
 /**
  * <p>An object that represents the status of the mesh resource.</p>
  */
 export interface VirtualGatewayStatus {
-  __type?: "VirtualGatewayStatus";
   /**
    * <p>The current status.</p>
    */
@@ -5119,7 +4770,6 @@ export namespace VirtualGatewayStatus {
   export const filterSensitiveLog = (obj: VirtualGatewayStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualGatewayStatus => __isa(o, "VirtualGatewayStatus");
 }
 
 export enum VirtualGatewayStatusCode {
@@ -5132,7 +4782,6 @@ export enum VirtualGatewayStatusCode {
  * <p>An object that represents a Transport Layer Security (TLS) validation context.</p>
  */
 export interface VirtualGatewayTlsValidationContext {
-  __type?: "VirtualGatewayTlsValidationContext";
   /**
    * <p>A reference to an object that represents a TLS validation context trust.</p>
    */
@@ -5144,8 +4793,6 @@ export namespace VirtualGatewayTlsValidationContext {
     ...obj,
     ...(obj.trust && { trust: VirtualGatewayTlsValidationContextTrust.filterSensitiveLog(obj.trust) }),
   });
-  export const isa = (o: any): o is VirtualGatewayTlsValidationContext =>
-    __isa(o, "VirtualGatewayTlsValidationContext");
 }
 
 /**
@@ -5153,7 +4800,6 @@ export namespace VirtualGatewayTlsValidationContext {
  *          certificate.</p>
  */
 export interface VirtualGatewayTlsValidationContextAcmTrust {
-  __type?: "VirtualGatewayTlsValidationContextAcmTrust";
   /**
    * <p>One or more ACM Amazon Resource Name (ARN)s.</p>
    */
@@ -5164,15 +4810,12 @@ export namespace VirtualGatewayTlsValidationContextAcmTrust {
   export const filterSensitiveLog = (obj: VirtualGatewayTlsValidationContextAcmTrust): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualGatewayTlsValidationContextAcmTrust =>
-    __isa(o, "VirtualGatewayTlsValidationContextAcmTrust");
 }
 
 /**
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
  */
 export interface VirtualGatewayTlsValidationContextFileTrust {
-  __type?: "VirtualGatewayTlsValidationContextFileTrust";
   /**
    * <p>The certificate trust chain for a certificate stored on the file system of the virtual
    *          node that the proxy is running on.</p>
@@ -5184,8 +4827,6 @@ export namespace VirtualGatewayTlsValidationContextFileTrust {
   export const filterSensitiveLog = (obj: VirtualGatewayTlsValidationContextFileTrust): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualGatewayTlsValidationContextFileTrust =>
-    __isa(o, "VirtualGatewayTlsValidationContextFileTrust");
 }
 
 /**
@@ -5197,15 +4838,11 @@ export type VirtualGatewayTlsValidationContextTrust =
   | VirtualGatewayTlsValidationContextTrust.$UnknownMember;
 
 export namespace VirtualGatewayTlsValidationContextTrust {
-  interface $Base {
-    __type?: "VirtualGatewayTlsValidationContextTrust";
-  }
-
   /**
    * <p>A reference to an object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)
    *          certificate.</p>
    */
-  export interface AcmMember extends $Base {
+  export interface AcmMember {
     acm: VirtualGatewayTlsValidationContextAcmTrust;
     file?: never;
     $unknown?: never;
@@ -5214,13 +4851,13 @@ export namespace VirtualGatewayTlsValidationContextTrust {
   /**
    * <p>An object that represents a TLS validation context trust for a local file.</p>
    */
-  export interface FileMember extends $Base {
+  export interface FileMember {
     acm?: never;
     file: VirtualGatewayTlsValidationContextFileTrust;
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     acm?: never;
     file?: never;
     $unknown: [string, any];
@@ -5250,7 +4887,6 @@ export namespace VirtualGatewayTlsValidationContextTrust {
  * <p>An object that represents a virtual node returned by a describe operation.</p>
  */
 export interface VirtualNodeData {
-  __type?: "VirtualNodeData";
   /**
    * <p>The name of the service mesh that the virtual node resides in.</p>
    */
@@ -5282,14 +4918,12 @@ export namespace VirtualNodeData {
     ...obj,
     ...(obj.spec && { spec: VirtualNodeSpec.filterSensitiveLog(obj.spec) }),
   });
-  export const isa = (o: any): o is VirtualNodeData => __isa(o, "VirtualNodeData");
 }
 
 /**
  * <p>An object that represents a virtual node returned by a list operation.</p>
  */
 export interface VirtualNodeRef {
-  __type?: "VirtualNodeRef";
   /**
    * <p>The name of the service mesh that the virtual node resides in.</p>
    */
@@ -5337,14 +4971,12 @@ export namespace VirtualNodeRef {
   export const filterSensitiveLog = (obj: VirtualNodeRef): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualNodeRef => __isa(o, "VirtualNodeRef");
 }
 
 /**
  * <p>An object that represents a virtual node service provider.</p>
  */
 export interface VirtualNodeServiceProvider {
-  __type?: "VirtualNodeServiceProvider";
   /**
    * <p>The name of the virtual node that is acting as a service provider.</p>
    */
@@ -5355,14 +4987,12 @@ export namespace VirtualNodeServiceProvider {
   export const filterSensitiveLog = (obj: VirtualNodeServiceProvider): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualNodeServiceProvider => __isa(o, "VirtualNodeServiceProvider");
 }
 
 /**
  * <p>An object that represents the specification of a virtual node.</p>
  */
 export interface VirtualNodeSpec {
-  __type?: "VirtualNodeSpec";
   /**
    * <p>The service discovery information for the virtual node. If your virtual node does not
    *          expect ingress traffic, you can omit this parameter. If you specify a
@@ -5401,14 +5031,12 @@ export namespace VirtualNodeSpec {
     ...(obj.backendDefaults && { backendDefaults: BackendDefaults.filterSensitiveLog(obj.backendDefaults) }),
     ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) }),
   });
-  export const isa = (o: any): o is VirtualNodeSpec => __isa(o, "VirtualNodeSpec");
 }
 
 /**
  * <p>An object that represents the current status of the virtual node.</p>
  */
 export interface VirtualNodeStatus {
-  __type?: "VirtualNodeStatus";
   /**
    * <p>The current status of the virtual node.</p>
    */
@@ -5419,7 +5047,6 @@ export namespace VirtualNodeStatus {
   export const filterSensitiveLog = (obj: VirtualNodeStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualNodeStatus => __isa(o, "VirtualNodeStatus");
 }
 
 export enum VirtualNodeStatusCode {
@@ -5432,7 +5059,6 @@ export enum VirtualNodeStatusCode {
  * <p>An object that represents a virtual router returned by a describe operation.</p>
  */
 export interface VirtualRouterData {
-  __type?: "VirtualRouterData";
   /**
    * <p>The name of the service mesh that the virtual router resides in.</p>
    */
@@ -5463,14 +5089,12 @@ export namespace VirtualRouterData {
   export const filterSensitiveLog = (obj: VirtualRouterData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualRouterData => __isa(o, "VirtualRouterData");
 }
 
 /**
  * <p>An object that represents a virtual router listener.</p>
  */
 export interface VirtualRouterListener {
-  __type?: "VirtualRouterListener";
   /**
    * <p>An object that represents a port mapping.</p>
    */
@@ -5481,14 +5105,12 @@ export namespace VirtualRouterListener {
   export const filterSensitiveLog = (obj: VirtualRouterListener): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualRouterListener => __isa(o, "VirtualRouterListener");
 }
 
 /**
  * <p>An object that represents a virtual router returned by a list operation.</p>
  */
 export interface VirtualRouterRef {
-  __type?: "VirtualRouterRef";
   /**
    * <p>The name of the service mesh that the virtual router resides in.</p>
    */
@@ -5536,14 +5158,12 @@ export namespace VirtualRouterRef {
   export const filterSensitiveLog = (obj: VirtualRouterRef): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualRouterRef => __isa(o, "VirtualRouterRef");
 }
 
 /**
  * <p>An object that represents a virtual node service provider.</p>
  */
 export interface VirtualRouterServiceProvider {
-  __type?: "VirtualRouterServiceProvider";
   /**
    * <p>The name of the virtual router that is acting as a service provider.</p>
    */
@@ -5554,14 +5174,12 @@ export namespace VirtualRouterServiceProvider {
   export const filterSensitiveLog = (obj: VirtualRouterServiceProvider): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualRouterServiceProvider => __isa(o, "VirtualRouterServiceProvider");
 }
 
 /**
  * <p>An object that represents the specification of a virtual router.</p>
  */
 export interface VirtualRouterSpec {
-  __type?: "VirtualRouterSpec";
   /**
    * <p>The listeners that the virtual router is expected to receive inbound traffic from. You
    *          can specify one listener.</p>
@@ -5573,14 +5191,12 @@ export namespace VirtualRouterSpec {
   export const filterSensitiveLog = (obj: VirtualRouterSpec): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualRouterSpec => __isa(o, "VirtualRouterSpec");
 }
 
 /**
  * <p>An object that represents the status of a virtual router. </p>
  */
 export interface VirtualRouterStatus {
-  __type?: "VirtualRouterStatus";
   /**
    * <p>The current status of the virtual router.</p>
    */
@@ -5591,7 +5207,6 @@ export namespace VirtualRouterStatus {
   export const filterSensitiveLog = (obj: VirtualRouterStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualRouterStatus => __isa(o, "VirtualRouterStatus");
 }
 
 export enum VirtualRouterStatusCode {
@@ -5604,7 +5219,6 @@ export enum VirtualRouterStatusCode {
  * <p>An object that represents a virtual service backend for a virtual node.</p>
  */
 export interface VirtualServiceBackend {
-  __type?: "VirtualServiceBackend";
   /**
    * <p>The name of the virtual service that is acting as a virtual node backend.</p>
    */
@@ -5621,14 +5235,12 @@ export namespace VirtualServiceBackend {
     ...obj,
     ...(obj.clientPolicy && { clientPolicy: ClientPolicy.filterSensitiveLog(obj.clientPolicy) }),
   });
-  export const isa = (o: any): o is VirtualServiceBackend => __isa(o, "VirtualServiceBackend");
 }
 
 /**
  * <p>An object that represents a virtual service returned by a describe operation.</p>
  */
 export interface VirtualServiceData {
-  __type?: "VirtualServiceData";
   /**
    * <p>The name of the service mesh that the virtual service resides in.</p>
    */
@@ -5660,7 +5272,6 @@ export namespace VirtualServiceData {
     ...obj,
     ...(obj.spec && { spec: VirtualServiceSpec.filterSensitiveLog(obj.spec) }),
   });
-  export const isa = (o: any): o is VirtualServiceData => __isa(o, "VirtualServiceData");
 }
 
 /**
@@ -5672,14 +5283,10 @@ export type VirtualServiceProvider =
   | VirtualServiceProvider.$UnknownMember;
 
 export namespace VirtualServiceProvider {
-  interface $Base {
-    __type?: "VirtualServiceProvider";
-  }
-
   /**
    * <p>The virtual node associated with a virtual service.</p>
    */
-  export interface VirtualNodeMember extends $Base {
+  export interface VirtualNodeMember {
     virtualNode: VirtualNodeServiceProvider;
     virtualRouter?: never;
     $unknown?: never;
@@ -5688,13 +5295,13 @@ export namespace VirtualServiceProvider {
   /**
    * <p>The virtual router associated with a virtual service.</p>
    */
-  export interface VirtualRouterMember extends $Base {
+  export interface VirtualRouterMember {
     virtualNode?: never;
     virtualRouter: VirtualRouterServiceProvider;
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     virtualNode?: never;
     virtualRouter?: never;
     $unknown: [string, any];
@@ -5725,7 +5332,6 @@ export namespace VirtualServiceProvider {
  * <p>An object that represents a virtual service returned by a list operation.</p>
  */
 export interface VirtualServiceRef {
-  __type?: "VirtualServiceRef";
   /**
    * <p>The name of the service mesh that the virtual service resides in.</p>
    */
@@ -5773,14 +5379,12 @@ export namespace VirtualServiceRef {
   export const filterSensitiveLog = (obj: VirtualServiceRef): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualServiceRef => __isa(o, "VirtualServiceRef");
 }
 
 /**
  * <p>An object that represents the specification of a virtual service.</p>
  */
 export interface VirtualServiceSpec {
-  __type?: "VirtualServiceSpec";
   /**
    * <p>The App Mesh object that is acting as the provider for a virtual service. You can specify
    *          a single virtual node or virtual router.</p>
@@ -5793,14 +5397,12 @@ export namespace VirtualServiceSpec {
     ...obj,
     ...(obj.provider && { provider: VirtualServiceProvider.filterSensitiveLog(obj.provider) }),
   });
-  export const isa = (o: any): o is VirtualServiceSpec => __isa(o, "VirtualServiceSpec");
 }
 
 /**
  * <p>An object that represents the status of a virtual service.</p>
  */
 export interface VirtualServiceStatus {
-  __type?: "VirtualServiceStatus";
   /**
    * <p>The current status of the virtual service.</p>
    */
@@ -5811,7 +5413,6 @@ export namespace VirtualServiceStatus {
   export const filterSensitiveLog = (obj: VirtualServiceStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VirtualServiceStatus => __isa(o, "VirtualServiceStatus");
 }
 
 export enum VirtualServiceStatusCode {
@@ -5827,7 +5428,6 @@ export enum VirtualServiceStatusCode {
  *          10. The total weight for all targets combined must be less than or equal to 100.</p>
  */
 export interface WeightedTarget {
-  __type?: "WeightedTarget";
   /**
    * <p>The virtual node to associate with the weighted target.</p>
    */
@@ -5843,5 +5443,4 @@ export namespace WeightedTarget {
   export const filterSensitiveLog = (obj: WeightedTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WeightedTarget => __isa(o, "WeightedTarget");
 }

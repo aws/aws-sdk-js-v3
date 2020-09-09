@@ -56,7 +56,6 @@ export const deserializeAws_restJson1InvokeEndpointCommand = async (
   }
   const contents: InvokeEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InvokeEndpointOutput",
     Body: undefined,
     ContentType: undefined,
     InvokedProductionVariant: undefined,

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -19,7 +19,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export enum AccessDeniedExceptionReason {
@@ -31,7 +30,6 @@ export enum AccessDeniedExceptionReason {
  * <p>A block of data in an Amazon Elastic Block Store snapshot.</p>
  */
 export interface Block {
-  __type?: "Block";
   /**
    * <p>The block index.</p>
    */
@@ -47,7 +45,6 @@ export namespace Block {
   export const filterSensitiveLog = (obj: Block): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Block => __isa(o, "Block");
 }
 
 /**
@@ -55,7 +52,6 @@ export namespace Block {
  *             the same volume/snapshot lineage.</p>
  */
 export interface ChangedBlock {
-  __type?: "ChangedBlock";
   /**
    * <p>The block index.</p>
    */
@@ -79,7 +75,6 @@ export namespace ChangedBlock {
   export const filterSensitiveLog = (obj: ChangedBlock): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangedBlock => __isa(o, "ChangedBlock");
 }
 
 export enum ChecksumAggregationMethod {
@@ -91,7 +86,6 @@ export enum ChecksumAlgorithm {
 }
 
 export interface CompleteSnapshotRequest {
-  __type?: "CompleteSnapshotRequest";
   /**
    * <p>An aggregated Base-64 SHA256 checksum based on the checksums of each written
    *             block.</p>
@@ -129,11 +123,9 @@ export namespace CompleteSnapshotRequest {
   export const filterSensitiveLog = (obj: CompleteSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteSnapshotRequest => __isa(o, "CompleteSnapshotRequest");
 }
 
 export interface CompleteSnapshotResponse {
-  __type?: "CompleteSnapshotResponse";
   /**
    * <p>The status of the snapshot.</p>
    */
@@ -144,7 +136,6 @@ export namespace CompleteSnapshotResponse {
   export const filterSensitiveLog = (obj: CompleteSnapshotResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteSnapshotResponse => __isa(o, "CompleteSnapshotResponse");
 }
 
 /**
@@ -162,7 +153,6 @@ export namespace ConcurrentLimitExceededException {
   export const filterSensitiveLog = (obj: ConcurrentLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentLimitExceededException => __isa(o, "ConcurrentLimitExceededException");
 }
 
 /**
@@ -179,11 +169,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface GetSnapshotBlockRequest {
-  __type?: "GetSnapshotBlockRequest";
   /**
    * <p>The block token of the block from which to get data.</p>
    *
@@ -212,11 +200,9 @@ export namespace GetSnapshotBlockRequest {
   export const filterSensitiveLog = (obj: GetSnapshotBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSnapshotBlockRequest => __isa(o, "GetSnapshotBlockRequest");
 }
 
 export interface GetSnapshotBlockResponse {
-  __type?: "GetSnapshotBlockResponse";
   /**
    * <p>The data content of the block.</p>
    */
@@ -243,7 +229,6 @@ export namespace GetSnapshotBlockResponse {
     ...obj,
     ...(obj.BlockData && { BlockData: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetSnapshotBlockResponse => __isa(o, "GetSnapshotBlockResponse");
 }
 
 /**
@@ -259,11 +244,9 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListChangedBlocksRequest {
-  __type?: "ListChangedBlocksRequest";
   /**
    * <p>The ID of the first snapshot to use for the comparison.</p>
    *         <important>
@@ -306,11 +289,9 @@ export namespace ListChangedBlocksRequest {
   export const filterSensitiveLog = (obj: ListChangedBlocksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChangedBlocksRequest => __isa(o, "ListChangedBlocksRequest");
 }
 
 export interface ListChangedBlocksResponse {
-  __type?: "ListChangedBlocksResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there
    *             are no more results to return.</p>
@@ -343,11 +324,9 @@ export namespace ListChangedBlocksResponse {
     ...obj,
     ...(obj.ChangedBlocks && { ChangedBlocks: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ListChangedBlocksResponse => __isa(o, "ListChangedBlocksResponse");
 }
 
 export interface ListSnapshotBlocksRequest {
-  __type?: "ListSnapshotBlocksRequest";
   /**
    * <p>The ID of the snapshot from which to get block indexes and block tokens.</p>
    */
@@ -374,11 +353,9 @@ export namespace ListSnapshotBlocksRequest {
   export const filterSensitiveLog = (obj: ListSnapshotBlocksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSnapshotBlocksRequest => __isa(o, "ListSnapshotBlocksRequest");
 }
 
 export interface ListSnapshotBlocksResponse {
-  __type?: "ListSnapshotBlocksResponse";
   /**
    * <p>The size of the volume in GB.</p>
    */
@@ -411,11 +388,9 @@ export namespace ListSnapshotBlocksResponse {
     ...obj,
     ...(obj.Blocks && { Blocks: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ListSnapshotBlocksResponse => __isa(o, "ListSnapshotBlocksResponse");
 }
 
 export interface PutSnapshotBlockRequest {
-  __type?: "PutSnapshotBlockRequest";
   /**
    * <p>The size of the data to write to the block, in bytes. Currently, the only supported
    *             size is <code>524288</code>.</p>
@@ -475,11 +450,9 @@ export namespace PutSnapshotBlockRequest {
     ...obj,
     ...(obj.BlockData && { BlockData: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutSnapshotBlockRequest => __isa(o, "PutSnapshotBlockRequest");
 }
 
 export interface PutSnapshotBlockResponse {
-  __type?: "PutSnapshotBlockResponse";
   /**
    * <p>The SHA256 checksum generated for the block data by Amazon EBS.</p>
    */
@@ -495,7 +468,6 @@ export namespace PutSnapshotBlockResponse {
   export const filterSensitiveLog = (obj: PutSnapshotBlockResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutSnapshotBlockResponse => __isa(o, "PutSnapshotBlockResponse");
 }
 
 /**
@@ -517,7 +489,6 @@ export namespace RequestThrottledException {
   export const filterSensitiveLog = (obj: RequestThrottledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestThrottledException => __isa(o, "RequestThrottledException");
 }
 
 export enum RequestThrottledExceptionReason {
@@ -542,7 +513,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum ResourceNotFoundExceptionReason {
@@ -568,7 +538,6 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 export enum ServiceQuotaExceededExceptionReason {
@@ -576,7 +545,6 @@ export enum ServiceQuotaExceededExceptionReason {
 }
 
 export interface StartSnapshotRequest {
-  __type?: "StartSnapshotRequest";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. Idempotency ensures that an API request completes only once. With an idempotent
@@ -666,11 +634,9 @@ export namespace StartSnapshotRequest {
     ...obj,
     ...(obj.KmsKeyArn && { KmsKeyArn: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StartSnapshotRequest => __isa(o, "StartSnapshotRequest");
 }
 
 export interface StartSnapshotResponse {
-  __type?: "StartSnapshotResponse";
   /**
    * <p>The timestamp when the snapshot was created.</p>
    */
@@ -730,7 +696,6 @@ export namespace StartSnapshotResponse {
     ...obj,
     ...(obj.KmsKeyArn && { KmsKeyArn: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StartSnapshotResponse => __isa(o, "StartSnapshotResponse");
 }
 
 export enum Status {
@@ -743,7 +708,6 @@ export enum Status {
  * <p>Describes a tag.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value of the tag.</p>
    */
@@ -759,7 +723,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -779,7 +742,6 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 export enum ValidationExceptionReason {

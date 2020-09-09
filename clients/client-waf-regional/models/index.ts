@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -16,7 +16,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  * 		       <p>To specify whether to insert or delete a <code>Rule</code>, use the <code>Action</code> parameter in the <a>WebACLUpdate</a> data type.</p>
  */
 export interface ActivatedRule {
-  __type?: "ActivatedRule";
   /**
    * <p>Use the <code>OverrideAction</code> to test your <code>RuleGroup</code>.</p>
    *          <p>Any rule in a <code>RuleGroup</code> can potentially block a request. If you set the <code>OverrideAction</code> to <code>None</code>, the <code>RuleGroup</code> will block a request if any individual rule in the <code>RuleGroup</code> matches the request and is configured to block that request. However if you first want to test the <code>RuleGroup</code>, set the  <code>OverrideAction</code> to <code>Count</code>. The <code>RuleGroup</code> will then override any block action specified by individual rules contained within the group. Instead of blocking matching requests, those requests will be counted. You can view a record of counted requests using  <a>GetSampledRequests</a>. </p>
@@ -125,11 +124,9 @@ export namespace ActivatedRule {
   export const filterSensitiveLog = (obj: ActivatedRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivatedRule => __isa(o, "ActivatedRule");
 }
 
 export interface AssociateWebACLRequest {
-  __type?: "AssociateWebACLRequest";
   /**
    * <p>A unique identifier (ID) for the web ACL. </p>
    */
@@ -158,18 +155,14 @@ export namespace AssociateWebACLRequest {
   export const filterSensitiveLog = (obj: AssociateWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateWebACLRequest => __isa(o, "AssociateWebACLRequest");
 }
 
-export interface AssociateWebACLResponse {
-  __type?: "AssociateWebACLResponse";
-}
+export interface AssociateWebACLResponse {}
 
 export namespace AssociateWebACLResponse {
   export const filterSensitiveLog = (obj: AssociateWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateWebACLResponse => __isa(o, "AssociateWebACLResponse");
 }
 
 /**
@@ -189,7 +182,6 @@ export namespace AssociateWebACLResponse {
  * 			to be considered a match.</p>
  */
 export interface ByteMatchSet {
-  __type?: "ByteMatchSet";
   /**
    * <p>Specifies the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.</p>
    */
@@ -215,7 +207,6 @@ export namespace ByteMatchSet {
   export const filterSensitiveLog = (obj: ByteMatchSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ByteMatchSet => __isa(o, "ByteMatchSet");
 }
 
 /**
@@ -231,7 +222,6 @@ export namespace ByteMatchSet {
  * 			<code>ByteMatchSetId</code> for one <a>ByteMatchSet</a>.</p>
  */
 export interface ByteMatchSetSummary {
-  __type?: "ByteMatchSetSummary";
   /**
    * <p>A friendly name or description of the <a>ByteMatchSet</a>. You can't change <code>Name</code> after you create a <code>ByteMatchSet</code>.</p>
    */
@@ -250,7 +240,6 @@ export namespace ByteMatchSetSummary {
   export const filterSensitiveLog = (obj: ByteMatchSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ByteMatchSetSummary => __isa(o, "ByteMatchSetSummary");
 }
 
 /**
@@ -266,7 +255,6 @@ export namespace ByteMatchSetSummary {
  * 			<a>ByteMatchTuple</a> and includes the settings for the <code>ByteMatchTuple</code>.</p>
  */
 export interface ByteMatchSetUpdate {
-  __type?: "ByteMatchSetUpdate";
   /**
    * <p>Specifies whether to insert or delete a <a>ByteMatchTuple</a>.</p>
    */
@@ -284,7 +272,6 @@ export namespace ByteMatchSetUpdate {
   export const filterSensitiveLog = (obj: ByteMatchSetUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ByteMatchSetUpdate => __isa(o, "ByteMatchSetUpdate");
 }
 
 /**
@@ -299,7 +286,6 @@ export namespace ByteMatchSetUpdate {
  * 		       <p>The bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.</p>
  */
 export interface ByteMatchTuple {
-  __type?: "ByteMatchTuple";
   /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
    * 			If you specify a transformation, AWS WAF performs the transformation on <code>FieldToMatch</code> before inspecting it for a match.</p>
@@ -524,7 +510,6 @@ export namespace ByteMatchTuple {
   export const filterSensitiveLog = (obj: ByteMatchTuple): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ByteMatchTuple => __isa(o, "ByteMatchTuple");
 }
 
 export enum ChangeAction {
@@ -548,7 +533,6 @@ export enum ComparisonOperator {
 }
 
 export interface CreateByteMatchSetRequest {
-  __type?: "CreateByteMatchSetRequest";
   /**
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
@@ -565,11 +549,9 @@ export namespace CreateByteMatchSetRequest {
   export const filterSensitiveLog = (obj: CreateByteMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateByteMatchSetRequest => __isa(o, "CreateByteMatchSetRequest");
 }
 
 export interface CreateByteMatchSetResponse {
-  __type?: "CreateByteMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateByteMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -586,11 +568,9 @@ export namespace CreateByteMatchSetResponse {
   export const filterSensitiveLog = (obj: CreateByteMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateByteMatchSetResponse => __isa(o, "CreateByteMatchSetResponse");
 }
 
 export interface CreateGeoMatchSetRequest {
-  __type?: "CreateGeoMatchSetRequest";
   /**
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
@@ -606,11 +586,9 @@ export namespace CreateGeoMatchSetRequest {
   export const filterSensitiveLog = (obj: CreateGeoMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGeoMatchSetRequest => __isa(o, "CreateGeoMatchSetRequest");
 }
 
 export interface CreateGeoMatchSetResponse {
-  __type?: "CreateGeoMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateGeoMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -627,11 +605,9 @@ export namespace CreateGeoMatchSetResponse {
   export const filterSensitiveLog = (obj: CreateGeoMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGeoMatchSetResponse => __isa(o, "CreateGeoMatchSetResponse");
 }
 
 export interface CreateIPSetRequest {
-  __type?: "CreateIPSetRequest";
   /**
    * <p>A friendly name or description of the <a>IPSet</a>. You can't change <code>Name</code> after you create the <code>IPSet</code>.</p>
    */
@@ -647,11 +623,9 @@ export namespace CreateIPSetRequest {
   export const filterSensitiveLog = (obj: CreateIPSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIPSetRequest => __isa(o, "CreateIPSetRequest");
 }
 
 export interface CreateIPSetResponse {
-  __type?: "CreateIPSetResponse";
   /**
    * <p>The <a>IPSet</a> returned in the <code>CreateIPSet</code> response.</p>
    */
@@ -668,11 +642,9 @@ export namespace CreateIPSetResponse {
   export const filterSensitiveLog = (obj: CreateIPSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIPSetResponse => __isa(o, "CreateIPSetResponse");
 }
 
 export interface CreateRateBasedRuleRequest {
-  __type?: "CreateRateBasedRuleRequest";
   /**
    * <p>A friendly name or description of the <a>RateBasedRule</a>. You can't
    *          change the name of a <code>RateBasedRule</code> after you create it.</p>
@@ -721,11 +693,9 @@ export namespace CreateRateBasedRuleRequest {
   export const filterSensitiveLog = (obj: CreateRateBasedRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRateBasedRuleRequest => __isa(o, "CreateRateBasedRuleRequest");
 }
 
 export interface CreateRateBasedRuleResponse {
-  __type?: "CreateRateBasedRuleResponse";
   /**
    * <p>The <a>RateBasedRule</a>
    *          that is returned in the <code>CreateRateBasedRule</code> response.</p>
@@ -744,11 +714,9 @@ export namespace CreateRateBasedRuleResponse {
   export const filterSensitiveLog = (obj: CreateRateBasedRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRateBasedRuleResponse => __isa(o, "CreateRateBasedRuleResponse");
 }
 
 export interface CreateRegexMatchSetRequest {
-  __type?: "CreateRegexMatchSetRequest";
   /**
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
@@ -765,11 +733,9 @@ export namespace CreateRegexMatchSetRequest {
   export const filterSensitiveLog = (obj: CreateRegexMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRegexMatchSetRequest => __isa(o, "CreateRegexMatchSetRequest");
 }
 
 export interface CreateRegexMatchSetResponse {
-  __type?: "CreateRegexMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateRegexMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -786,11 +752,9 @@ export namespace CreateRegexMatchSetResponse {
   export const filterSensitiveLog = (obj: CreateRegexMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRegexMatchSetResponse => __isa(o, "CreateRegexMatchSetResponse");
 }
 
 export interface CreateRegexPatternSetRequest {
-  __type?: "CreateRegexPatternSetRequest";
   /**
    * <p>A friendly name or description of the <a>RegexPatternSet</a>. You can't change <code>Name</code> after you create a
    * 			<code>RegexPatternSet</code>.</p>
@@ -807,11 +771,9 @@ export namespace CreateRegexPatternSetRequest {
   export const filterSensitiveLog = (obj: CreateRegexPatternSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRegexPatternSetRequest => __isa(o, "CreateRegexPatternSetRequest");
 }
 
 export interface CreateRegexPatternSetResponse {
-  __type?: "CreateRegexPatternSetResponse";
   /**
    * <p>A <a>RegexPatternSet</a> that contains no objects.</p>
    */
@@ -828,11 +790,9 @@ export namespace CreateRegexPatternSetResponse {
   export const filterSensitiveLog = (obj: CreateRegexPatternSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRegexPatternSetResponse => __isa(o, "CreateRegexPatternSetResponse");
 }
 
 export interface CreateRuleGroupRequest {
-  __type?: "CreateRuleGroupRequest";
   /**
    * <p></p>
    */
@@ -860,11 +820,9 @@ export namespace CreateRuleGroupRequest {
   export const filterSensitiveLog = (obj: CreateRuleGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRuleGroupRequest => __isa(o, "CreateRuleGroupRequest");
 }
 
 export interface CreateRuleGroupResponse {
-  __type?: "CreateRuleGroupResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateRuleGroup</code> request. You can also use this value
    *          to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -881,11 +839,9 @@ export namespace CreateRuleGroupResponse {
   export const filterSensitiveLog = (obj: CreateRuleGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRuleGroupResponse => __isa(o, "CreateRuleGroupResponse");
 }
 
 export interface CreateRuleRequest {
-  __type?: "CreateRuleRequest";
   /**
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
@@ -913,11 +869,9 @@ export namespace CreateRuleRequest {
   export const filterSensitiveLog = (obj: CreateRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRuleRequest => __isa(o, "CreateRuleRequest");
 }
 
 export interface CreateRuleResponse {
-  __type?: "CreateRuleResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateRule</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -934,11 +888,9 @@ export namespace CreateRuleResponse {
   export const filterSensitiveLog = (obj: CreateRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRuleResponse => __isa(o, "CreateRuleResponse");
 }
 
 export interface CreateSizeConstraintSetRequest {
-  __type?: "CreateSizeConstraintSetRequest";
   /**
    * <p>A friendly name or description of the <a>SizeConstraintSet</a>. You can't change <code>Name</code> after you create a
    * 			<code>SizeConstraintSet</code>.</p>
@@ -955,11 +907,9 @@ export namespace CreateSizeConstraintSetRequest {
   export const filterSensitiveLog = (obj: CreateSizeConstraintSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSizeConstraintSetRequest => __isa(o, "CreateSizeConstraintSetRequest");
 }
 
 export interface CreateSizeConstraintSetResponse {
-  __type?: "CreateSizeConstraintSetResponse";
   /**
    * <p>A <a>SizeConstraintSet</a> that contains no <code>SizeConstraint</code> objects.</p>
    */
@@ -976,14 +926,12 @@ export namespace CreateSizeConstraintSetResponse {
   export const filterSensitiveLog = (obj: CreateSizeConstraintSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSizeConstraintSetResponse => __isa(o, "CreateSizeConstraintSetResponse");
 }
 
 /**
  * <p>A request to create a <a>SqlInjectionMatchSet</a>.</p>
  */
 export interface CreateSqlInjectionMatchSetRequest {
-  __type?: "CreateSqlInjectionMatchSetRequest";
   /**
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
@@ -1000,14 +948,12 @@ export namespace CreateSqlInjectionMatchSetRequest {
   export const filterSensitiveLog = (obj: CreateSqlInjectionMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSqlInjectionMatchSetRequest => __isa(o, "CreateSqlInjectionMatchSetRequest");
 }
 
 /**
  * <p>The response to a <code>CreateSqlInjectionMatchSet</code> request.</p>
  */
 export interface CreateSqlInjectionMatchSetResponse {
-  __type?: "CreateSqlInjectionMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateSqlInjectionMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1024,12 +970,9 @@ export namespace CreateSqlInjectionMatchSetResponse {
   export const filterSensitiveLog = (obj: CreateSqlInjectionMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSqlInjectionMatchSetResponse =>
-    __isa(o, "CreateSqlInjectionMatchSetResponse");
 }
 
 export interface CreateWebACLMigrationStackRequest {
-  __type?: "CreateWebACLMigrationStackRequest";
   /**
    * <p>The UUID of the WAF Classic web ACL that you want to migrate to WAF v2.</p>
    */
@@ -1065,11 +1008,9 @@ export namespace CreateWebACLMigrationStackRequest {
   export const filterSensitiveLog = (obj: CreateWebACLMigrationStackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWebACLMigrationStackRequest => __isa(o, "CreateWebACLMigrationStackRequest");
 }
 
 export interface CreateWebACLMigrationStackResponse {
-  __type?: "CreateWebACLMigrationStackResponse";
   /**
    * <p>The URL of the template created in Amazon S3. </p>
    */
@@ -1080,12 +1021,9 @@ export namespace CreateWebACLMigrationStackResponse {
   export const filterSensitiveLog = (obj: CreateWebACLMigrationStackResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWebACLMigrationStackResponse =>
-    __isa(o, "CreateWebACLMigrationStackResponse");
 }
 
 export interface CreateWebACLRequest {
-  __type?: "CreateWebACLRequest";
   /**
    * <p>A friendly name or description of the <a>WebACL</a>. You can't change <code>Name</code> after you create the <code>WebACL</code>.</p>
    */
@@ -1119,11 +1057,9 @@ export namespace CreateWebACLRequest {
   export const filterSensitiveLog = (obj: CreateWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWebACLRequest => __isa(o, "CreateWebACLRequest");
 }
 
 export interface CreateWebACLResponse {
-  __type?: "CreateWebACLResponse";
   /**
    * <p>The <a>WebACL</a> returned in the <code>CreateWebACL</code> response.</p>
    */
@@ -1140,14 +1076,12 @@ export namespace CreateWebACLResponse {
   export const filterSensitiveLog = (obj: CreateWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWebACLResponse => __isa(o, "CreateWebACLResponse");
 }
 
 /**
  * <p>A request to create an <a>XssMatchSet</a>.</p>
  */
 export interface CreateXssMatchSetRequest {
-  __type?: "CreateXssMatchSetRequest";
   /**
    * <p>A friendly name or description for the <a>XssMatchSet</a> that you're creating. You can't change <code>Name</code>
    * 			after you create the <code>XssMatchSet</code>.</p>
@@ -1164,14 +1098,12 @@ export namespace CreateXssMatchSetRequest {
   export const filterSensitiveLog = (obj: CreateXssMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateXssMatchSetRequest => __isa(o, "CreateXssMatchSetRequest");
 }
 
 /**
  * <p>The response to a <code>CreateXssMatchSet</code> request.</p>
  */
 export interface CreateXssMatchSetResponse {
-  __type?: "CreateXssMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateXssMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1188,11 +1120,9 @@ export namespace CreateXssMatchSetResponse {
   export const filterSensitiveLog = (obj: CreateXssMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateXssMatchSetResponse => __isa(o, "CreateXssMatchSetResponse");
 }
 
 export interface DeleteByteMatchSetRequest {
-  __type?: "DeleteByteMatchSetRequest";
   /**
    * <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to delete. <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by
    * 			<a>ListByteMatchSets</a>.</p>
@@ -1209,11 +1139,9 @@ export namespace DeleteByteMatchSetRequest {
   export const filterSensitiveLog = (obj: DeleteByteMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteByteMatchSetRequest => __isa(o, "DeleteByteMatchSetRequest");
 }
 
 export interface DeleteByteMatchSetResponse {
-  __type?: "DeleteByteMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteByteMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1225,11 +1153,9 @@ export namespace DeleteByteMatchSetResponse {
   export const filterSensitiveLog = (obj: DeleteByteMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteByteMatchSetResponse => __isa(o, "DeleteByteMatchSetResponse");
 }
 
 export interface DeleteGeoMatchSetRequest {
-  __type?: "DeleteGeoMatchSetRequest";
   /**
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
@@ -1246,11 +1172,9 @@ export namespace DeleteGeoMatchSetRequest {
   export const filterSensitiveLog = (obj: DeleteGeoMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGeoMatchSetRequest => __isa(o, "DeleteGeoMatchSetRequest");
 }
 
 export interface DeleteGeoMatchSetResponse {
-  __type?: "DeleteGeoMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteGeoMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1262,11 +1186,9 @@ export namespace DeleteGeoMatchSetResponse {
   export const filterSensitiveLog = (obj: DeleteGeoMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGeoMatchSetResponse => __isa(o, "DeleteGeoMatchSetResponse");
 }
 
 export interface DeleteIPSetRequest {
-  __type?: "DeleteIPSetRequest";
   /**
    * <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to delete. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by
    * 			<a>ListIPSets</a>.</p>
@@ -1283,11 +1205,9 @@ export namespace DeleteIPSetRequest {
   export const filterSensitiveLog = (obj: DeleteIPSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIPSetRequest => __isa(o, "DeleteIPSetRequest");
 }
 
 export interface DeleteIPSetResponse {
-  __type?: "DeleteIPSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteIPSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1299,11 +1219,9 @@ export namespace DeleteIPSetResponse {
   export const filterSensitiveLog = (obj: DeleteIPSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIPSetResponse => __isa(o, "DeleteIPSetResponse");
 }
 
 export interface DeleteLoggingConfigurationRequest {
-  __type?: "DeleteLoggingConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the web ACL from which you want to delete the <a>LoggingConfiguration</a>.</p>
    */
@@ -1314,23 +1232,17 @@ export namespace DeleteLoggingConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteLoggingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoggingConfigurationRequest => __isa(o, "DeleteLoggingConfigurationRequest");
 }
 
-export interface DeleteLoggingConfigurationResponse {
-  __type?: "DeleteLoggingConfigurationResponse";
-}
+export interface DeleteLoggingConfigurationResponse {}
 
 export namespace DeleteLoggingConfigurationResponse {
   export const filterSensitiveLog = (obj: DeleteLoggingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoggingConfigurationResponse =>
-    __isa(o, "DeleteLoggingConfigurationResponse");
 }
 
 export interface DeletePermissionPolicyRequest {
-  __type?: "DeletePermissionPolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the RuleGroup from which you want to delete the policy.</p>
    *          <p>The user making the request must be the owner of the RuleGroup.</p>
@@ -1342,22 +1254,17 @@ export namespace DeletePermissionPolicyRequest {
   export const filterSensitiveLog = (obj: DeletePermissionPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePermissionPolicyRequest => __isa(o, "DeletePermissionPolicyRequest");
 }
 
-export interface DeletePermissionPolicyResponse {
-  __type?: "DeletePermissionPolicyResponse";
-}
+export interface DeletePermissionPolicyResponse {}
 
 export namespace DeletePermissionPolicyResponse {
   export const filterSensitiveLog = (obj: DeletePermissionPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePermissionPolicyResponse => __isa(o, "DeletePermissionPolicyResponse");
 }
 
 export interface DeleteRateBasedRuleRequest {
-  __type?: "DeleteRateBasedRuleRequest";
   /**
    * <p>The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to
    *          delete. <code>RuleId</code> is returned by <a>CreateRateBasedRule</a> and by
@@ -1375,11 +1282,9 @@ export namespace DeleteRateBasedRuleRequest {
   export const filterSensitiveLog = (obj: DeleteRateBasedRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRateBasedRuleRequest => __isa(o, "DeleteRateBasedRuleRequest");
 }
 
 export interface DeleteRateBasedRuleResponse {
-  __type?: "DeleteRateBasedRuleResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the
    *             <code>DeleteRateBasedRule</code> request. You can also use this value to query the
@@ -1392,11 +1297,9 @@ export namespace DeleteRateBasedRuleResponse {
   export const filterSensitiveLog = (obj: DeleteRateBasedRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRateBasedRuleResponse => __isa(o, "DeleteRateBasedRuleResponse");
 }
 
 export interface DeleteRegexMatchSetRequest {
-  __type?: "DeleteRegexMatchSetRequest";
   /**
    * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to delete. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by
    * 			<a>ListRegexMatchSets</a>.</p>
@@ -1413,11 +1316,9 @@ export namespace DeleteRegexMatchSetRequest {
   export const filterSensitiveLog = (obj: DeleteRegexMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRegexMatchSetRequest => __isa(o, "DeleteRegexMatchSetRequest");
 }
 
 export interface DeleteRegexMatchSetResponse {
-  __type?: "DeleteRegexMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRegexMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1429,11 +1330,9 @@ export namespace DeleteRegexMatchSetResponse {
   export const filterSensitiveLog = (obj: DeleteRegexMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRegexMatchSetResponse => __isa(o, "DeleteRegexMatchSetResponse");
 }
 
 export interface DeleteRegexPatternSetRequest {
-  __type?: "DeleteRegexPatternSetRequest";
   /**
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
@@ -1450,11 +1349,9 @@ export namespace DeleteRegexPatternSetRequest {
   export const filterSensitiveLog = (obj: DeleteRegexPatternSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRegexPatternSetRequest => __isa(o, "DeleteRegexPatternSetRequest");
 }
 
 export interface DeleteRegexPatternSetResponse {
-  __type?: "DeleteRegexPatternSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRegexPatternSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1466,11 +1363,9 @@ export namespace DeleteRegexPatternSetResponse {
   export const filterSensitiveLog = (obj: DeleteRegexPatternSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRegexPatternSetResponse => __isa(o, "DeleteRegexPatternSetResponse");
 }
 
 export interface DeleteRuleGroupRequest {
-  __type?: "DeleteRuleGroupRequest";
   /**
    * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to delete. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by
    *          <a>ListRuleGroups</a>.</p>
@@ -1487,11 +1382,9 @@ export namespace DeleteRuleGroupRequest {
   export const filterSensitiveLog = (obj: DeleteRuleGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRuleGroupRequest => __isa(o, "DeleteRuleGroupRequest");
 }
 
 export interface DeleteRuleGroupResponse {
-  __type?: "DeleteRuleGroupResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRuleGroup</code> request. You can also use this value
    *          to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1503,11 +1396,9 @@ export namespace DeleteRuleGroupResponse {
   export const filterSensitiveLog = (obj: DeleteRuleGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRuleGroupResponse => __isa(o, "DeleteRuleGroupResponse");
 }
 
 export interface DeleteRuleRequest {
-  __type?: "DeleteRuleRequest";
   /**
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
@@ -1524,11 +1415,9 @@ export namespace DeleteRuleRequest {
   export const filterSensitiveLog = (obj: DeleteRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRuleRequest => __isa(o, "DeleteRuleRequest");
 }
 
 export interface DeleteRuleResponse {
-  __type?: "DeleteRuleResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRule</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1540,11 +1429,9 @@ export namespace DeleteRuleResponse {
   export const filterSensitiveLog = (obj: DeleteRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRuleResponse => __isa(o, "DeleteRuleResponse");
 }
 
 export interface DeleteSizeConstraintSetRequest {
-  __type?: "DeleteSizeConstraintSetRequest";
   /**
    * <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to delete. <code>SizeConstraintSetId</code>
    * 			is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>
@@ -1561,11 +1448,9 @@ export namespace DeleteSizeConstraintSetRequest {
   export const filterSensitiveLog = (obj: DeleteSizeConstraintSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSizeConstraintSetRequest => __isa(o, "DeleteSizeConstraintSetRequest");
 }
 
 export interface DeleteSizeConstraintSetResponse {
-  __type?: "DeleteSizeConstraintSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteSizeConstraintSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1577,14 +1462,12 @@ export namespace DeleteSizeConstraintSetResponse {
   export const filterSensitiveLog = (obj: DeleteSizeConstraintSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSizeConstraintSetResponse => __isa(o, "DeleteSizeConstraintSetResponse");
 }
 
 /**
  * <p>A request to delete a <a>SqlInjectionMatchSet</a> from AWS WAF.</p>
  */
 export interface DeleteSqlInjectionMatchSetRequest {
-  __type?: "DeleteSqlInjectionMatchSetRequest";
   /**
    * <p>The <code>SqlInjectionMatchSetId</code> of the <a>SqlInjectionMatchSet</a> that you want to delete.
    * 			<code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>
@@ -1601,14 +1484,12 @@ export namespace DeleteSqlInjectionMatchSetRequest {
   export const filterSensitiveLog = (obj: DeleteSqlInjectionMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSqlInjectionMatchSetRequest => __isa(o, "DeleteSqlInjectionMatchSetRequest");
 }
 
 /**
  * <p>The response to a request to delete a <a>SqlInjectionMatchSet</a> from AWS WAF.</p>
  */
 export interface DeleteSqlInjectionMatchSetResponse {
-  __type?: "DeleteSqlInjectionMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteSqlInjectionMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1620,12 +1501,9 @@ export namespace DeleteSqlInjectionMatchSetResponse {
   export const filterSensitiveLog = (obj: DeleteSqlInjectionMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSqlInjectionMatchSetResponse =>
-    __isa(o, "DeleteSqlInjectionMatchSetResponse");
 }
 
 export interface DeleteWebACLRequest {
-  __type?: "DeleteWebACLRequest";
   /**
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
@@ -1642,11 +1520,9 @@ export namespace DeleteWebACLRequest {
   export const filterSensitiveLog = (obj: DeleteWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWebACLRequest => __isa(o, "DeleteWebACLRequest");
 }
 
 export interface DeleteWebACLResponse {
-  __type?: "DeleteWebACLResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteWebACL</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1658,14 +1534,12 @@ export namespace DeleteWebACLResponse {
   export const filterSensitiveLog = (obj: DeleteWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWebACLResponse => __isa(o, "DeleteWebACLResponse");
 }
 
 /**
  * <p>A request to delete an <a>XssMatchSet</a> from AWS WAF.</p>
  */
 export interface DeleteXssMatchSetRequest {
-  __type?: "DeleteXssMatchSetRequest";
   /**
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
@@ -1682,14 +1556,12 @@ export namespace DeleteXssMatchSetRequest {
   export const filterSensitiveLog = (obj: DeleteXssMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteXssMatchSetRequest => __isa(o, "DeleteXssMatchSetRequest");
 }
 
 /**
  * <p>The response to a request to delete an <a>XssMatchSet</a> from AWS WAF.</p>
  */
 export interface DeleteXssMatchSetResponse {
-  __type?: "DeleteXssMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteXssMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -1701,11 +1573,9 @@ export namespace DeleteXssMatchSetResponse {
   export const filterSensitiveLog = (obj: DeleteXssMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteXssMatchSetResponse => __isa(o, "DeleteXssMatchSetResponse");
 }
 
 export interface DisassociateWebACLRequest {
-  __type?: "DisassociateWebACLRequest";
   /**
    * <p>The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage.</p>
    *          <p>The ARN should be in one of the following formats:</p>
@@ -1729,18 +1599,14 @@ export namespace DisassociateWebACLRequest {
   export const filterSensitiveLog = (obj: DisassociateWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateWebACLRequest => __isa(o, "DisassociateWebACLRequest");
 }
 
-export interface DisassociateWebACLResponse {
-  __type?: "DisassociateWebACLResponse";
-}
+export interface DisassociateWebACLResponse {}
 
 export namespace DisassociateWebACLResponse {
   export const filterSensitiveLog = (obj: DisassociateWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateWebACLResponse => __isa(o, "DisassociateWebACLResponse");
 }
 
 /**
@@ -1757,7 +1623,6 @@ export namespace DisassociateWebACLResponse {
  *          the <code>RuleGroup</code> that is specified by the <code>ActivatedRule</code>. </p>
  */
 export interface ExcludedRule {
-  __type?: "ExcludedRule";
   /**
    * <p>The unique identifier for the rule to exclude from the rule group.</p>
    */
@@ -1768,7 +1633,6 @@ export namespace ExcludedRule {
   export const filterSensitiveLog = (obj: ExcludedRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExcludedRule => __isa(o, "ExcludedRule");
 }
 
 /**
@@ -1783,7 +1647,6 @@ export namespace ExcludedRule {
  * 		       <p>Specifies where in a web request to look for <code>TargetString</code>.</p>
  */
 export interface FieldToMatch {
-  __type?: "FieldToMatch";
   /**
    * <p>The part of the web request that you want AWS WAF to search for a specified string. Parts of a request that you can search include the following:</p>
    * 		       <ul>
@@ -1841,7 +1704,6 @@ export namespace FieldToMatch {
   export const filterSensitiveLog = (obj: FieldToMatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldToMatch => __isa(o, "FieldToMatch");
 }
 
 /**
@@ -1856,7 +1718,6 @@ export namespace FieldToMatch {
  *          <p>The country from which web requests originate that you want AWS WAF to search for.</p>
  */
 export interface GeoMatchConstraint {
-  __type?: "GeoMatchConstraint";
   /**
    * <p>The type of geographical area you want AWS WAF to search for. Currently <code>Country</code> is the only valid value.</p>
    */
@@ -1872,7 +1733,6 @@ export namespace GeoMatchConstraint {
   export const filterSensitiveLog = (obj: GeoMatchConstraint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GeoMatchConstraint => __isa(o, "GeoMatchConstraint");
 }
 
 export enum GeoMatchConstraintType {
@@ -2143,7 +2003,6 @@ export enum GeoMatchConstraintValue {
  *          <p>Contains one or more countries that AWS WAF will search for.</p>
  */
 export interface GeoMatchSet {
-  __type?: "GeoMatchSet";
   /**
    * <p>A friendly name or description of the <a>GeoMatchSet</a>. You can't change the name of an <code>GeoMatchSet</code> after you create it.</p>
    */
@@ -2167,7 +2026,6 @@ export namespace GeoMatchSet {
   export const filterSensitiveLog = (obj: GeoMatchSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GeoMatchSet => __isa(o, "GeoMatchSet");
 }
 
 /**
@@ -2182,7 +2040,6 @@ export namespace GeoMatchSet {
  *          <p>Contains the identifier and the name of the <code>GeoMatchSet</code>.</p>
  */
 export interface GeoMatchSetSummary {
-  __type?: "GeoMatchSetSummary";
   /**
    * <p>The <code>GeoMatchSetId</code> for an <a>GeoMatchSet</a>. You can use <code>GeoMatchSetId</code> in a <a>GetGeoMatchSet</a> request to get detailed	information about an <a>GeoMatchSet</a>.</p>
    */
@@ -2198,7 +2055,6 @@ export namespace GeoMatchSetSummary {
   export const filterSensitiveLog = (obj: GeoMatchSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GeoMatchSetSummary => __isa(o, "GeoMatchSetSummary");
 }
 
 /**
@@ -2213,7 +2069,6 @@ export namespace GeoMatchSetSummary {
  *          <p>Specifies the type of update to perform to an <a>GeoMatchSet</a> with <a>UpdateGeoMatchSet</a>.</p>
  */
 export interface GeoMatchSetUpdate {
-  __type?: "GeoMatchSetUpdate";
   /**
    * <p>Specifies whether to insert or delete a country with <a>UpdateGeoMatchSet</a>.</p>
    */
@@ -2229,11 +2084,9 @@ export namespace GeoMatchSetUpdate {
   export const filterSensitiveLog = (obj: GeoMatchSetUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GeoMatchSetUpdate => __isa(o, "GeoMatchSetUpdate");
 }
 
 export interface GetByteMatchSetRequest {
-  __type?: "GetByteMatchSetRequest";
   /**
    * <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to get. <code>ByteMatchSetId</code> is returned by
    * 			<a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</p>
@@ -2245,11 +2098,9 @@ export namespace GetByteMatchSetRequest {
   export const filterSensitiveLog = (obj: GetByteMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetByteMatchSetRequest => __isa(o, "GetByteMatchSetRequest");
 }
 
 export interface GetByteMatchSetResponse {
-  __type?: "GetByteMatchSetResponse";
   /**
    * <p>Information about the <a>ByteMatchSet</a> that you specified in the <code>GetByteMatchSet</code> request. For more information, see the
    * 			following topics:</p>
@@ -2280,22 +2131,17 @@ export namespace GetByteMatchSetResponse {
   export const filterSensitiveLog = (obj: GetByteMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetByteMatchSetResponse => __isa(o, "GetByteMatchSetResponse");
 }
 
-export interface GetChangeTokenRequest {
-  __type?: "GetChangeTokenRequest";
-}
+export interface GetChangeTokenRequest {}
 
 export namespace GetChangeTokenRequest {
   export const filterSensitiveLog = (obj: GetChangeTokenRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetChangeTokenRequest => __isa(o, "GetChangeTokenRequest");
 }
 
 export interface GetChangeTokenResponse {
-  __type?: "GetChangeTokenResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used in the request. Use this value in a <code>GetChangeTokenStatus</code> request
    * 			to get the current status of the request. </p>
@@ -2307,11 +2153,9 @@ export namespace GetChangeTokenResponse {
   export const filterSensitiveLog = (obj: GetChangeTokenResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetChangeTokenResponse => __isa(o, "GetChangeTokenResponse");
 }
 
 export interface GetChangeTokenStatusRequest {
-  __type?: "GetChangeTokenStatusRequest";
   /**
    * <p>The change token for which you want to get the status. This change token was previously returned in the <code>GetChangeToken</code> response.</p>
    */
@@ -2322,11 +2166,9 @@ export namespace GetChangeTokenStatusRequest {
   export const filterSensitiveLog = (obj: GetChangeTokenStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetChangeTokenStatusRequest => __isa(o, "GetChangeTokenStatusRequest");
 }
 
 export interface GetChangeTokenStatusResponse {
-  __type?: "GetChangeTokenStatusResponse";
   /**
    * <p>The status of the change token.</p>
    */
@@ -2337,11 +2179,9 @@ export namespace GetChangeTokenStatusResponse {
   export const filterSensitiveLog = (obj: GetChangeTokenStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetChangeTokenStatusResponse => __isa(o, "GetChangeTokenStatusResponse");
 }
 
 export interface GetGeoMatchSetRequest {
-  __type?: "GetGeoMatchSetRequest";
   /**
    * <p>The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to get. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by
    * 			<a>ListGeoMatchSets</a>.</p>
@@ -2353,11 +2193,9 @@ export namespace GetGeoMatchSetRequest {
   export const filterSensitiveLog = (obj: GetGeoMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGeoMatchSetRequest => __isa(o, "GetGeoMatchSetRequest");
 }
 
 export interface GetGeoMatchSetResponse {
-  __type?: "GetGeoMatchSetResponse";
   /**
    * <p>Information about the <a>GeoMatchSet</a> that you specified in the <code>GetGeoMatchSet</code> request. This includes the <code>Type</code>, which for a <code>GeoMatchContraint</code> is always <code>Country</code>, as well as the <code>Value</code>, which is the identifier for a specific country.</p>
    */
@@ -2368,11 +2206,9 @@ export namespace GetGeoMatchSetResponse {
   export const filterSensitiveLog = (obj: GetGeoMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGeoMatchSetResponse => __isa(o, "GetGeoMatchSetResponse");
 }
 
 export interface GetIPSetRequest {
-  __type?: "GetIPSetRequest";
   /**
    * <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to get. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by
    * 			<a>ListIPSets</a>.</p>
@@ -2384,11 +2220,9 @@ export namespace GetIPSetRequest {
   export const filterSensitiveLog = (obj: GetIPSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIPSetRequest => __isa(o, "GetIPSetRequest");
 }
 
 export interface GetIPSetResponse {
-  __type?: "GetIPSetResponse";
   /**
    * <p>Information about the <a>IPSet</a> that you specified in the <code>GetIPSet</code> request. For more information, see the
    * 			following topics:</p>
@@ -2413,11 +2247,9 @@ export namespace GetIPSetResponse {
   export const filterSensitiveLog = (obj: GetIPSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIPSetResponse => __isa(o, "GetIPSetResponse");
 }
 
 export interface GetLoggingConfigurationRequest {
-  __type?: "GetLoggingConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the web ACL for which you want to get the <a>LoggingConfiguration</a>.</p>
    */
@@ -2428,11 +2260,9 @@ export namespace GetLoggingConfigurationRequest {
   export const filterSensitiveLog = (obj: GetLoggingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoggingConfigurationRequest => __isa(o, "GetLoggingConfigurationRequest");
 }
 
 export interface GetLoggingConfigurationResponse {
-  __type?: "GetLoggingConfigurationResponse";
   /**
    * <p>The <a>LoggingConfiguration</a> for the specified web ACL.</p>
    */
@@ -2443,11 +2273,9 @@ export namespace GetLoggingConfigurationResponse {
   export const filterSensitiveLog = (obj: GetLoggingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoggingConfigurationResponse => __isa(o, "GetLoggingConfigurationResponse");
 }
 
 export interface GetPermissionPolicyRequest {
-  __type?: "GetPermissionPolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the RuleGroup for which you want to get the policy.</p>
    */
@@ -2458,11 +2286,9 @@ export namespace GetPermissionPolicyRequest {
   export const filterSensitiveLog = (obj: GetPermissionPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPermissionPolicyRequest => __isa(o, "GetPermissionPolicyRequest");
 }
 
 export interface GetPermissionPolicyResponse {
-  __type?: "GetPermissionPolicyResponse";
   /**
    * <p>The IAM policy attached to the specified RuleGroup.</p>
    */
@@ -2473,11 +2299,9 @@ export namespace GetPermissionPolicyResponse {
   export const filterSensitiveLog = (obj: GetPermissionPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPermissionPolicyResponse => __isa(o, "GetPermissionPolicyResponse");
 }
 
 export interface GetRateBasedRuleManagedKeysRequest {
-  __type?: "GetRateBasedRuleManagedKeysRequest";
   /**
    * <p>A null value and not currently used. Do not include this in your request.</p>
    */
@@ -2494,12 +2318,9 @@ export namespace GetRateBasedRuleManagedKeysRequest {
   export const filterSensitiveLog = (obj: GetRateBasedRuleManagedKeysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRateBasedRuleManagedKeysRequest =>
-    __isa(o, "GetRateBasedRuleManagedKeysRequest");
 }
 
 export interface GetRateBasedRuleManagedKeysResponse {
-  __type?: "GetRateBasedRuleManagedKeysResponse";
   /**
    * <p>An array of IP addresses that currently are blocked by the specified <a>RateBasedRule</a>. </p>
    */
@@ -2515,12 +2336,9 @@ export namespace GetRateBasedRuleManagedKeysResponse {
   export const filterSensitiveLog = (obj: GetRateBasedRuleManagedKeysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRateBasedRuleManagedKeysResponse =>
-    __isa(o, "GetRateBasedRuleManagedKeysResponse");
 }
 
 export interface GetRateBasedRuleRequest {
-  __type?: "GetRateBasedRuleRequest";
   /**
    * <p>The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to get.
    *             <code>RuleId</code> is returned by <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>.</p>
@@ -2532,11 +2350,9 @@ export namespace GetRateBasedRuleRequest {
   export const filterSensitiveLog = (obj: GetRateBasedRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRateBasedRuleRequest => __isa(o, "GetRateBasedRuleRequest");
 }
 
 export interface GetRateBasedRuleResponse {
-  __type?: "GetRateBasedRuleResponse";
   /**
    * <p>Information about the <a>RateBasedRule</a> that you specified in the
    *             <code>GetRateBasedRule</code> request.</p>
@@ -2548,11 +2364,9 @@ export namespace GetRateBasedRuleResponse {
   export const filterSensitiveLog = (obj: GetRateBasedRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRateBasedRuleResponse => __isa(o, "GetRateBasedRuleResponse");
 }
 
 export interface GetRegexMatchSetRequest {
-  __type?: "GetRegexMatchSetRequest";
   /**
    * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to get. <code>RegexMatchSetId</code> is returned by
    * 			<a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>
@@ -2564,11 +2378,9 @@ export namespace GetRegexMatchSetRequest {
   export const filterSensitiveLog = (obj: GetRegexMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRegexMatchSetRequest => __isa(o, "GetRegexMatchSetRequest");
 }
 
 export interface GetRegexMatchSetResponse {
-  __type?: "GetRegexMatchSetResponse";
   /**
    * <p>Information about the <a>RegexMatchSet</a> that you specified in the <code>GetRegexMatchSet</code> request. For more information, see <a>RegexMatchTuple</a>.</p>
    */
@@ -2579,11 +2391,9 @@ export namespace GetRegexMatchSetResponse {
   export const filterSensitiveLog = (obj: GetRegexMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRegexMatchSetResponse => __isa(o, "GetRegexMatchSetResponse");
 }
 
 export interface GetRegexPatternSetRequest {
-  __type?: "GetRegexPatternSetRequest";
   /**
    * <p>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to get. <code>RegexPatternSetId</code> is returned by
    * 			<a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>
@@ -2595,11 +2405,9 @@ export namespace GetRegexPatternSetRequest {
   export const filterSensitiveLog = (obj: GetRegexPatternSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRegexPatternSetRequest => __isa(o, "GetRegexPatternSetRequest");
 }
 
 export interface GetRegexPatternSetResponse {
-  __type?: "GetRegexPatternSetResponse";
   /**
    * <p>Information about the <a>RegexPatternSet</a> that you specified in the <code>GetRegexPatternSet</code> request, including the identifier of the pattern set and the regular expression patterns you want AWS WAF to search for. </p>
    */
@@ -2610,11 +2418,9 @@ export namespace GetRegexPatternSetResponse {
   export const filterSensitiveLog = (obj: GetRegexPatternSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRegexPatternSetResponse => __isa(o, "GetRegexPatternSetResponse");
 }
 
 export interface GetRuleGroupRequest {
-  __type?: "GetRuleGroupRequest";
   /**
    * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to get. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by
    *          <a>ListRuleGroups</a>.</p>
@@ -2626,11 +2432,9 @@ export namespace GetRuleGroupRequest {
   export const filterSensitiveLog = (obj: GetRuleGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRuleGroupRequest => __isa(o, "GetRuleGroupRequest");
 }
 
 export interface GetRuleGroupResponse {
-  __type?: "GetRuleGroupResponse";
   /**
    * <p>Information about the <a>RuleGroup</a> that you specified in the <code>GetRuleGroup</code> request. </p>
    */
@@ -2641,11 +2445,9 @@ export namespace GetRuleGroupResponse {
   export const filterSensitiveLog = (obj: GetRuleGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRuleGroupResponse => __isa(o, "GetRuleGroupResponse");
 }
 
 export interface GetRuleRequest {
-  __type?: "GetRuleRequest";
   /**
    * <p>The <code>RuleId</code> of the <a>Rule</a> that you want to get. <code>RuleId</code> is returned by <a>CreateRule</a> and by
    * 			<a>ListRules</a>.</p>
@@ -2657,11 +2459,9 @@ export namespace GetRuleRequest {
   export const filterSensitiveLog = (obj: GetRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRuleRequest => __isa(o, "GetRuleRequest");
 }
 
 export interface GetRuleResponse {
-  __type?: "GetRuleResponse";
   /**
    * <p>Information about the <a>Rule</a> that you specified in the <code>GetRule</code> request.
    * 			For more information, see the following topics:</p>
@@ -2687,11 +2487,9 @@ export namespace GetRuleResponse {
   export const filterSensitiveLog = (obj: GetRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRuleResponse => __isa(o, "GetRuleResponse");
 }
 
 export interface GetSampledRequestsRequest {
-  __type?: "GetSampledRequestsRequest";
   /**
    * <p>The start date and time and the end date and time of the range for which you want <code>GetSampledRequests</code> to return a
    *                         sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special
@@ -2732,11 +2530,9 @@ export namespace GetSampledRequestsRequest {
   export const filterSensitiveLog = (obj: GetSampledRequestsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSampledRequestsRequest => __isa(o, "GetSampledRequestsRequest");
 }
 
 export interface GetSampledRequestsResponse {
-  __type?: "GetSampledRequestsResponse";
   /**
    * <p>Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request. However,
    * 			if your AWS resource received more than 5,000 requests during the time range that you specified in the request,
@@ -2761,11 +2557,9 @@ export namespace GetSampledRequestsResponse {
   export const filterSensitiveLog = (obj: GetSampledRequestsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSampledRequestsResponse => __isa(o, "GetSampledRequestsResponse");
 }
 
 export interface GetSizeConstraintSetRequest {
-  __type?: "GetSizeConstraintSetRequest";
   /**
    * <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to get. <code>SizeConstraintSetId</code> is returned by
    * 			<a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>
@@ -2777,11 +2571,9 @@ export namespace GetSizeConstraintSetRequest {
   export const filterSensitiveLog = (obj: GetSizeConstraintSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSizeConstraintSetRequest => __isa(o, "GetSizeConstraintSetRequest");
 }
 
 export interface GetSizeConstraintSetResponse {
-  __type?: "GetSizeConstraintSetResponse";
   /**
    * <p>Information about the <a>SizeConstraintSet</a> that you specified in the <code>GetSizeConstraintSet</code> request. For more information, see the
    * 			following topics:</p>
@@ -2812,14 +2604,12 @@ export namespace GetSizeConstraintSetResponse {
   export const filterSensitiveLog = (obj: GetSizeConstraintSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSizeConstraintSetResponse => __isa(o, "GetSizeConstraintSetResponse");
 }
 
 /**
  * <p>A request to get a <a>SqlInjectionMatchSet</a>.</p>
  */
 export interface GetSqlInjectionMatchSetRequest {
-  __type?: "GetSqlInjectionMatchSetRequest";
   /**
    * <p>The <code>SqlInjectionMatchSetId</code> of the <a>SqlInjectionMatchSet</a> that you want to get. <code>SqlInjectionMatchSetId</code>
    * 			is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>
@@ -2831,14 +2621,12 @@ export namespace GetSqlInjectionMatchSetRequest {
   export const filterSensitiveLog = (obj: GetSqlInjectionMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSqlInjectionMatchSetRequest => __isa(o, "GetSqlInjectionMatchSetRequest");
 }
 
 /**
  * <p>The response to a <a>GetSqlInjectionMatchSet</a> request.</p>
  */
 export interface GetSqlInjectionMatchSetResponse {
-  __type?: "GetSqlInjectionMatchSetResponse";
   /**
    * <p>Information about the <a>SqlInjectionMatchSet</a> that you specified in the <code>GetSqlInjectionMatchSet</code> request.
    * 			For more information, see the following topics:</p>
@@ -2868,11 +2656,9 @@ export namespace GetSqlInjectionMatchSetResponse {
   export const filterSensitiveLog = (obj: GetSqlInjectionMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSqlInjectionMatchSetResponse => __isa(o, "GetSqlInjectionMatchSetResponse");
 }
 
 export interface GetWebACLForResourceRequest {
-  __type?: "GetWebACLForResourceRequest";
   /**
    * <p>The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage.</p>
    *          <p>The ARN should be in one of the following formats:</p>
@@ -2896,11 +2682,9 @@ export namespace GetWebACLForResourceRequest {
   export const filterSensitiveLog = (obj: GetWebACLForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWebACLForResourceRequest => __isa(o, "GetWebACLForResourceRequest");
 }
 
 export interface GetWebACLForResourceResponse {
-  __type?: "GetWebACLForResourceResponse";
   /**
    * <p>Information about the web ACL that you specified in the <code>GetWebACLForResource</code> request. If there is no associated resource, a null WebACLSummary is returned.</p>
    */
@@ -2911,11 +2695,9 @@ export namespace GetWebACLForResourceResponse {
   export const filterSensitiveLog = (obj: GetWebACLForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWebACLForResourceResponse => __isa(o, "GetWebACLForResourceResponse");
 }
 
 export interface GetWebACLRequest {
-  __type?: "GetWebACLRequest";
   /**
    * <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to get. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by
    * 			<a>ListWebACLs</a>.</p>
@@ -2927,11 +2709,9 @@ export namespace GetWebACLRequest {
   export const filterSensitiveLog = (obj: GetWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWebACLRequest => __isa(o, "GetWebACLRequest");
 }
 
 export interface GetWebACLResponse {
-  __type?: "GetWebACLResponse";
   /**
    * <p>Information about the <a>WebACL</a> that you specified in the <code>GetWebACL</code> request.
    * 			For more information, see the following topics:</p>
@@ -2967,14 +2747,12 @@ export namespace GetWebACLResponse {
   export const filterSensitiveLog = (obj: GetWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWebACLResponse => __isa(o, "GetWebACLResponse");
 }
 
 /**
  * <p>A request to get an <a>XssMatchSet</a>.</p>
  */
 export interface GetXssMatchSetRequest {
-  __type?: "GetXssMatchSetRequest";
   /**
    * <p>The <code>XssMatchSetId</code> of the <a>XssMatchSet</a> that you want to get. <code>XssMatchSetId</code>
    * 			is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>
@@ -2986,14 +2764,12 @@ export namespace GetXssMatchSetRequest {
   export const filterSensitiveLog = (obj: GetXssMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetXssMatchSetRequest => __isa(o, "GetXssMatchSetRequest");
 }
 
 /**
  * <p>The response to a <a>GetXssMatchSet</a> request.</p>
  */
 export interface GetXssMatchSetResponse {
-  __type?: "GetXssMatchSetResponse";
   /**
    * <p>Information about the <a>XssMatchSet</a> that you specified in the <code>GetXssMatchSet</code> request.
    * 			For more information, see the following topics:</p>
@@ -3023,7 +2799,6 @@ export namespace GetXssMatchSetResponse {
   export const filterSensitiveLog = (obj: GetXssMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetXssMatchSetResponse => __isa(o, "GetXssMatchSetResponse");
 }
 
 /**
@@ -3040,7 +2815,6 @@ export namespace GetXssMatchSetResponse {
  * 			all of the headers that appear in one of the web requests that were returned by <code>GetSampledRequests</code>. </p>
  */
 export interface HTTPHeader {
-  __type?: "HTTPHeader";
   /**
    * <p>The name of one of the headers in the sampled web request.</p>
    */
@@ -3056,7 +2830,6 @@ export namespace HTTPHeader {
   export const filterSensitiveLog = (obj: HTTPHeader): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HTTPHeader => __isa(o, "HTTPHeader");
 }
 
 /**
@@ -3073,7 +2846,6 @@ export namespace HTTPHeader {
  * 			one of the web requests that were returned by <code>GetSampledRequests</code>. </p>
  */
 export interface HTTPRequest {
-  __type?: "HTTPRequest";
   /**
    * <p>The two-letter country code for the country that the request originated from. For a current list of country codes,
    * 			see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
@@ -3122,7 +2894,6 @@ export namespace HTTPRequest {
   export const filterSensitiveLog = (obj: HTTPRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HTTPRequest => __isa(o, "HTTPRequest");
 }
 
 /**
@@ -3142,7 +2913,6 @@ export namespace HTTPRequest {
  *             Inter-Domain Routing</a>. </p>
  */
 export interface IPSet {
-  __type?: "IPSet";
   /**
    * <p>The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from.
    * 			If the <code>WebACL</code> is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs.</p>
@@ -3169,7 +2939,6 @@ export namespace IPSet {
   export const filterSensitiveLog = (obj: IPSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IPSet => __isa(o, "IPSet");
 }
 
 /**
@@ -3184,7 +2953,6 @@ export namespace IPSet {
  * 		       <p>Specifies the IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR format) that web requests originate from.</p>
  */
 export interface IPSetDescriptor {
-  __type?: "IPSetDescriptor";
   /**
    * <p>Specify an IPv4 address by using CIDR notation. For example:</p>
    * 		       <ul>
@@ -3221,7 +2989,6 @@ export namespace IPSetDescriptor {
   export const filterSensitiveLog = (obj: IPSetDescriptor): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IPSetDescriptor => __isa(o, "IPSetDescriptor");
 }
 
 export enum IPSetDescriptorType {
@@ -3241,7 +3008,6 @@ export enum IPSetDescriptorType {
  * 		       <p>Contains the identifier and the name of the <code>IPSet</code>.</p>
  */
 export interface IPSetSummary {
-  __type?: "IPSetSummary";
   /**
    * <p>A friendly name or description of the <a>IPSet</a>. You can't change the name of an <code>IPSet</code> after you create it.</p>
    */
@@ -3258,7 +3024,6 @@ export namespace IPSetSummary {
   export const filterSensitiveLog = (obj: IPSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IPSetSummary => __isa(o, "IPSetSummary");
 }
 
 /**
@@ -3273,7 +3038,6 @@ export namespace IPSetSummary {
  * 		       <p>Specifies the type of update to perform to an <a>IPSet</a> with <a>UpdateIPSet</a>.</p>
  */
 export interface IPSetUpdate {
-  __type?: "IPSetUpdate";
   /**
    * <p>The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from.</p>
    */
@@ -3289,11 +3053,9 @@ export namespace IPSetUpdate {
   export const filterSensitiveLog = (obj: IPSetUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IPSetUpdate => __isa(o, "IPSetUpdate");
 }
 
 export interface ListActivatedRulesInRuleGroupRequest {
-  __type?: "ListActivatedRulesInRuleGroupRequest";
   /**
    * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> for which you want to get a list of <a>ActivatedRule</a> objects.</p>
    */
@@ -3318,12 +3080,9 @@ export namespace ListActivatedRulesInRuleGroupRequest {
   export const filterSensitiveLog = (obj: ListActivatedRulesInRuleGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListActivatedRulesInRuleGroupRequest =>
-    __isa(o, "ListActivatedRulesInRuleGroupRequest");
 }
 
 export interface ListActivatedRulesInRuleGroupResponse {
-  __type?: "ListActivatedRulesInRuleGroupResponse";
   /**
    * <p>An array of <code>ActivatedRules</code> objects.</p>
    */
@@ -3339,12 +3098,9 @@ export namespace ListActivatedRulesInRuleGroupResponse {
   export const filterSensitiveLog = (obj: ListActivatedRulesInRuleGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListActivatedRulesInRuleGroupResponse =>
-    __isa(o, "ListActivatedRulesInRuleGroupResponse");
 }
 
 export interface ListByteMatchSetsRequest {
-  __type?: "ListByteMatchSetsRequest";
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>ByteMatchSets</code> than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>ByteMatchSets</code>.
@@ -3365,11 +3121,9 @@ export namespace ListByteMatchSetsRequest {
   export const filterSensitiveLog = (obj: ListByteMatchSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListByteMatchSetsRequest => __isa(o, "ListByteMatchSetsRequest");
 }
 
 export interface ListByteMatchSetsResponse {
-  __type?: "ListByteMatchSetsResponse";
   /**
    * <p>If you have more <code>ByteMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
    * 			the response includes a <code>NextMarker</code> value. To list more <code>ByteMatchSet</code> objects, submit another
@@ -3388,11 +3142,9 @@ export namespace ListByteMatchSetsResponse {
   export const filterSensitiveLog = (obj: ListByteMatchSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListByteMatchSetsResponse => __isa(o, "ListByteMatchSetsResponse");
 }
 
 export interface ListGeoMatchSetsRequest {
-  __type?: "ListGeoMatchSetsRequest";
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>GeoMatchSet</code>s than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>GeoMatchSet</code> objects.
@@ -3413,11 +3165,9 @@ export namespace ListGeoMatchSetsRequest {
   export const filterSensitiveLog = (obj: ListGeoMatchSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGeoMatchSetsRequest => __isa(o, "ListGeoMatchSetsRequest");
 }
 
 export interface ListGeoMatchSetsResponse {
-  __type?: "ListGeoMatchSetsResponse";
   /**
    * <p>If you have more <code>GeoMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
    * 			the response includes a <code>NextMarker</code> value. To list more <code>GeoMatchSet</code> objects, submit another
@@ -3436,11 +3186,9 @@ export namespace ListGeoMatchSetsResponse {
   export const filterSensitiveLog = (obj: ListGeoMatchSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGeoMatchSetsResponse => __isa(o, "ListGeoMatchSetsResponse");
 }
 
 export interface ListIPSetsRequest {
-  __type?: "ListIPSetsRequest";
   /**
    * <p>AWS WAF returns a <code>NextMarker</code> value in the response that allows you to
    *          list another group of <code>IPSets</code>. For the second and subsequent
@@ -3461,11 +3209,9 @@ export namespace ListIPSetsRequest {
   export const filterSensitiveLog = (obj: ListIPSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIPSetsRequest => __isa(o, "ListIPSetsRequest");
 }
 
 export interface ListIPSetsResponse {
-  __type?: "ListIPSetsResponse";
   /**
    * <p>An array of <a>IPSetSummary</a> objects.</p>
    */
@@ -3483,11 +3229,9 @@ export namespace ListIPSetsResponse {
   export const filterSensitiveLog = (obj: ListIPSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIPSetsResponse => __isa(o, "ListIPSetsResponse");
 }
 
 export interface ListLoggingConfigurationsRequest {
-  __type?: "ListLoggingConfigurationsRequest";
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>LoggingConfigurations</code> than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>LoggingConfigurations</code>.
@@ -3506,11 +3250,9 @@ export namespace ListLoggingConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListLoggingConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLoggingConfigurationsRequest => __isa(o, "ListLoggingConfigurationsRequest");
 }
 
 export interface ListLoggingConfigurationsResponse {
-  __type?: "ListLoggingConfigurationsResponse";
   /**
    * <p>An array of <a>LoggingConfiguration</a> objects.</p>
    */
@@ -3526,11 +3268,9 @@ export namespace ListLoggingConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListLoggingConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLoggingConfigurationsResponse => __isa(o, "ListLoggingConfigurationsResponse");
 }
 
 export interface ListRateBasedRulesRequest {
-  __type?: "ListRateBasedRulesRequest";
   /**
    * <p>Specifies the number of <code>Rules</code> that you want AWS WAF to return for this
    *          request. If you have more <code>Rules</code> than the number that you specify for
@@ -3554,11 +3294,9 @@ export namespace ListRateBasedRulesRequest {
   export const filterSensitiveLog = (obj: ListRateBasedRulesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRateBasedRulesRequest => __isa(o, "ListRateBasedRulesRequest");
 }
 
 export interface ListRateBasedRulesResponse {
-  __type?: "ListRateBasedRulesResponse";
   /**
    * <p>If you have more <code>Rules</code> than the number that you specified for
    *             <code>Limit</code> in the request, the response includes a <code>NextMarker</code>
@@ -3578,11 +3316,9 @@ export namespace ListRateBasedRulesResponse {
   export const filterSensitiveLog = (obj: ListRateBasedRulesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRateBasedRulesResponse => __isa(o, "ListRateBasedRulesResponse");
 }
 
 export interface ListRegexMatchSetsRequest {
-  __type?: "ListRegexMatchSetsRequest";
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>RegexMatchSet</code> objects than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>ByteMatchSets</code>.
@@ -3603,11 +3339,9 @@ export namespace ListRegexMatchSetsRequest {
   export const filterSensitiveLog = (obj: ListRegexMatchSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRegexMatchSetsRequest => __isa(o, "ListRegexMatchSetsRequest");
 }
 
 export interface ListRegexMatchSetsResponse {
-  __type?: "ListRegexMatchSetsResponse";
   /**
    * <p>If you have more <code>RegexMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
    * 			the response includes a <code>NextMarker</code> value. To list more <code>RegexMatchSet</code> objects, submit another
@@ -3626,11 +3360,9 @@ export namespace ListRegexMatchSetsResponse {
   export const filterSensitiveLog = (obj: ListRegexMatchSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRegexMatchSetsResponse => __isa(o, "ListRegexMatchSetsResponse");
 }
 
 export interface ListRegexPatternSetsRequest {
-  __type?: "ListRegexPatternSetsRequest";
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>RegexPatternSet</code> objects than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>RegexPatternSet</code> objects.
@@ -3651,11 +3383,9 @@ export namespace ListRegexPatternSetsRequest {
   export const filterSensitiveLog = (obj: ListRegexPatternSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRegexPatternSetsRequest => __isa(o, "ListRegexPatternSetsRequest");
 }
 
 export interface ListRegexPatternSetsResponse {
-  __type?: "ListRegexPatternSetsResponse";
   /**
    * <p>If you have more <code>RegexPatternSet</code> objects than the number that you specified for <code>Limit</code> in the request,
    * 			the response includes a <code>NextMarker</code> value. To list more <code>RegexPatternSet</code> objects, submit another
@@ -3674,11 +3404,9 @@ export namespace ListRegexPatternSetsResponse {
   export const filterSensitiveLog = (obj: ListRegexPatternSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRegexPatternSetsResponse => __isa(o, "ListRegexPatternSetsResponse");
 }
 
 export interface ListResourcesForWebACLRequest {
-  __type?: "ListResourcesForWebACLRequest";
   /**
    * <p>The unique identifier (ID) of the web ACL for which to list the associated resources.</p>
    */
@@ -3694,11 +3422,9 @@ export namespace ListResourcesForWebACLRequest {
   export const filterSensitiveLog = (obj: ListResourcesForWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourcesForWebACLRequest => __isa(o, "ListResourcesForWebACLRequest");
 }
 
 export interface ListResourcesForWebACLResponse {
-  __type?: "ListResourcesForWebACLResponse";
   /**
    * <p>An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.</p>
    */
@@ -3709,11 +3435,9 @@ export namespace ListResourcesForWebACLResponse {
   export const filterSensitiveLog = (obj: ListResourcesForWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourcesForWebACLResponse => __isa(o, "ListResourcesForWebACLResponse");
 }
 
 export interface ListRuleGroupsRequest {
-  __type?: "ListRuleGroupsRequest";
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>RuleGroups</code> than the value of <code>Limit</code>,
    *          AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>RuleGroups</code>.
@@ -3732,11 +3456,9 @@ export namespace ListRuleGroupsRequest {
   export const filterSensitiveLog = (obj: ListRuleGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRuleGroupsRequest => __isa(o, "ListRuleGroupsRequest");
 }
 
 export interface ListRuleGroupsResponse {
-  __type?: "ListRuleGroupsResponse";
   /**
    * <p>An array of <a>RuleGroup</a> objects.</p>
    */
@@ -3752,11 +3474,9 @@ export namespace ListRuleGroupsResponse {
   export const filterSensitiveLog = (obj: ListRuleGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRuleGroupsResponse => __isa(o, "ListRuleGroupsResponse");
 }
 
 export interface ListRulesRequest {
-  __type?: "ListRulesRequest";
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>Rules</code> than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>Rules</code>.
@@ -3776,11 +3496,9 @@ export namespace ListRulesRequest {
   export const filterSensitiveLog = (obj: ListRulesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRulesRequest => __isa(o, "ListRulesRequest");
 }
 
 export interface ListRulesResponse {
-  __type?: "ListRulesResponse";
   /**
    * <p>An array of <a>RuleSummary</a> objects.</p>
    */
@@ -3798,11 +3516,9 @@ export namespace ListRulesResponse {
   export const filterSensitiveLog = (obj: ListRulesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRulesResponse => __isa(o, "ListRulesResponse");
 }
 
 export interface ListSizeConstraintSetsRequest {
-  __type?: "ListSizeConstraintSetsRequest";
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>SizeConstraintSets</code> than the value of <code>Limit</code>,
    * 			AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>SizeConstraintSets</code>.
@@ -3822,11 +3538,9 @@ export namespace ListSizeConstraintSetsRequest {
   export const filterSensitiveLog = (obj: ListSizeConstraintSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSizeConstraintSetsRequest => __isa(o, "ListSizeConstraintSetsRequest");
 }
 
 export interface ListSizeConstraintSetsResponse {
-  __type?: "ListSizeConstraintSetsResponse";
   /**
    * <p>An array of <a>SizeConstraintSetSummary</a> objects.</p>
    */
@@ -3845,14 +3559,12 @@ export namespace ListSizeConstraintSetsResponse {
   export const filterSensitiveLog = (obj: ListSizeConstraintSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSizeConstraintSetsResponse => __isa(o, "ListSizeConstraintSetsResponse");
 }
 
 /**
  * <p>A request to list the <a>SqlInjectionMatchSet</a> objects created by the current AWS account.</p>
  */
 export interface ListSqlInjectionMatchSetsRequest {
-  __type?: "ListSqlInjectionMatchSetsRequest";
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <a>SqlInjectionMatchSet</a> objects than the value of
    * 			<code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of
@@ -3873,14 +3585,12 @@ export namespace ListSqlInjectionMatchSetsRequest {
   export const filterSensitiveLog = (obj: ListSqlInjectionMatchSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSqlInjectionMatchSetsRequest => __isa(o, "ListSqlInjectionMatchSetsRequest");
 }
 
 /**
  * <p>The response to a <a>ListSqlInjectionMatchSets</a> request.</p>
  */
 export interface ListSqlInjectionMatchSetsResponse {
-  __type?: "ListSqlInjectionMatchSetsResponse";
   /**
    * <p>An array of <a>SqlInjectionMatchSetSummary</a> objects.</p>
    */
@@ -3899,11 +3609,9 @@ export namespace ListSqlInjectionMatchSetsResponse {
   export const filterSensitiveLog = (obj: ListSqlInjectionMatchSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSqlInjectionMatchSetsResponse => __isa(o, "ListSqlInjectionMatchSetsResponse");
 }
 
 export interface ListSubscribedRuleGroupsRequest {
-  __type?: "ListSubscribedRuleGroupsRequest";
   /**
    * <p>Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more
    * 			objects than the number you specify for <code>Limit</code>, the response includes a
@@ -3924,11 +3632,9 @@ export namespace ListSubscribedRuleGroupsRequest {
   export const filterSensitiveLog = (obj: ListSubscribedRuleGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSubscribedRuleGroupsRequest => __isa(o, "ListSubscribedRuleGroupsRequest");
 }
 
 export interface ListSubscribedRuleGroupsResponse {
-  __type?: "ListSubscribedRuleGroupsResponse";
   /**
    * <p>If you have more objects than the number that you specified for <code>Limit</code> in the request,
    * 			the response includes a <code>NextMarker</code> value. To list more objects, submit another
@@ -3947,11 +3653,9 @@ export namespace ListSubscribedRuleGroupsResponse {
   export const filterSensitiveLog = (obj: ListSubscribedRuleGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSubscribedRuleGroupsResponse => __isa(o, "ListSubscribedRuleGroupsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p></p>
    */
@@ -3972,11 +3676,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p></p>
    */
@@ -3992,11 +3694,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListWebACLsRequest {
-  __type?: "ListWebACLsRequest";
   /**
    * <p>Specifies the number of <code>WebACL</code> objects that you want AWS WAF to return for this request. If you have more
    * 			<code>WebACL</code> objects than the number that you specify for <code>Limit</code>, the response includes a
@@ -4017,11 +3717,9 @@ export namespace ListWebACLsRequest {
   export const filterSensitiveLog = (obj: ListWebACLsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWebACLsRequest => __isa(o, "ListWebACLsRequest");
 }
 
 export interface ListWebACLsResponse {
-  __type?: "ListWebACLsResponse";
   /**
    * <p>An array of <a>WebACLSummary</a> objects.</p>
    */
@@ -4040,14 +3738,12 @@ export namespace ListWebACLsResponse {
   export const filterSensitiveLog = (obj: ListWebACLsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWebACLsResponse => __isa(o, "ListWebACLsResponse");
 }
 
 /**
  * <p>A request to list the <a>XssMatchSet</a> objects created by the current AWS account.</p>
  */
 export interface ListXssMatchSetsRequest {
-  __type?: "ListXssMatchSetsRequest";
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <a>XssMatchSet</a> objects than the value of
    * 			<code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of
@@ -4068,14 +3764,12 @@ export namespace ListXssMatchSetsRequest {
   export const filterSensitiveLog = (obj: ListXssMatchSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListXssMatchSetsRequest => __isa(o, "ListXssMatchSetsRequest");
 }
 
 /**
  * <p>The response to a <a>ListXssMatchSets</a> request.</p>
  */
 export interface ListXssMatchSetsResponse {
-  __type?: "ListXssMatchSetsResponse";
   /**
    * <p>If you have more <a>XssMatchSet</a> objects than the number that you specified for <code>Limit</code> in the request,
    * 			the response includes a <code>NextMarker</code> value. To list more <code>XssMatchSet</code> objects, submit another
@@ -4094,7 +3788,6 @@ export namespace ListXssMatchSetsResponse {
   export const filterSensitiveLog = (obj: ListXssMatchSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListXssMatchSetsResponse => __isa(o, "ListXssMatchSetsResponse");
 }
 
 /**
@@ -4110,7 +3803,6 @@ export namespace ListXssMatchSetsResponse {
  *          information, and the web ACL Amazon Resource Name (ARN).</p>
  */
 export interface LoggingConfiguration {
-  __type?: "LoggingConfiguration";
   /**
    * <p>The parts of the request that you want redacted from the logs. For
    *          example,
@@ -4135,7 +3827,6 @@ export namespace LoggingConfiguration {
   export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggingConfiguration => __isa(o, "LoggingConfiguration");
 }
 
 export enum MatchFieldType {
@@ -4208,7 +3899,6 @@ export enum PositionalConstraint {
  * 			NOT originate from the IP address 192.0.2.44. </p>
  */
 export interface Predicate {
-  __type?: "Predicate";
   /**
    * <p>The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.</p>
    */
@@ -4237,7 +3927,6 @@ export namespace Predicate {
   export const filterSensitiveLog = (obj: Predicate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Predicate => __isa(o, "Predicate");
 }
 
 export enum PredicateType {
@@ -4251,7 +3940,6 @@ export enum PredicateType {
 }
 
 export interface PutLoggingConfigurationRequest {
-  __type?: "PutLoggingConfigurationRequest";
   /**
    * <p>The Amazon Kinesis Data Firehose that contains the inspected traffic
    *          information, the redacted fields details, and the Amazon Resource Name (ARN) of the web ACL
@@ -4269,11 +3957,9 @@ export namespace PutLoggingConfigurationRequest {
   export const filterSensitiveLog = (obj: PutLoggingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLoggingConfigurationRequest => __isa(o, "PutLoggingConfigurationRequest");
 }
 
 export interface PutLoggingConfigurationResponse {
-  __type?: "PutLoggingConfigurationResponse";
   /**
    * <p>The <a>LoggingConfiguration</a> that you submitted in the request.</p>
    */
@@ -4284,11 +3970,9 @@ export namespace PutLoggingConfigurationResponse {
   export const filterSensitiveLog = (obj: PutLoggingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLoggingConfigurationResponse => __isa(o, "PutLoggingConfigurationResponse");
 }
 
 export interface PutPermissionPolicyRequest {
-  __type?: "PutPermissionPolicyRequest";
   /**
    * <p>The policy to attach to the specified RuleGroup.</p>
    */
@@ -4304,18 +3988,14 @@ export namespace PutPermissionPolicyRequest {
   export const filterSensitiveLog = (obj: PutPermissionPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPermissionPolicyRequest => __isa(o, "PutPermissionPolicyRequest");
 }
 
-export interface PutPermissionPolicyResponse {
-  __type?: "PutPermissionPolicyResponse";
-}
+export interface PutPermissionPolicyResponse {}
 
 export namespace PutPermissionPolicyResponse {
   export const filterSensitiveLog = (obj: PutPermissionPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPermissionPolicyResponse => __isa(o, "PutPermissionPolicyResponse");
 }
 
 /**
@@ -4347,7 +4027,6 @@ export namespace PutPermissionPolicyResponse {
  *          ACL.</p>
  */
 export interface RateBasedRule {
-  __type?: "RateBasedRule";
   /**
    * <p>A friendly name or description for the metrics for a <code>RateBasedRule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain
    *          whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the
@@ -4397,7 +4076,6 @@ export namespace RateBasedRule {
   export const filterSensitiveLog = (obj: RateBasedRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RateBasedRule => __isa(o, "RateBasedRule");
 }
 
 export enum RateKey {
@@ -4420,7 +4098,6 @@ export enum RateKey {
  * 			to be considered a match.</p>
  */
 export interface RegexMatchSet {
-  __type?: "RegexMatchSet";
   /**
    * <p>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a
    * 			<code>RegexMatchSet</code>.</p>
@@ -4459,7 +4136,6 @@ export namespace RegexMatchSet {
   export const filterSensitiveLog = (obj: RegexMatchSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegexMatchSet => __isa(o, "RegexMatchSet");
 }
 
 /**
@@ -4475,7 +4151,6 @@ export namespace RegexMatchSet {
  * 			<code>RegexMatchSetId</code> for one <a>RegexMatchSet</a>.</p>
  */
 export interface RegexMatchSetSummary {
-  __type?: "RegexMatchSetSummary";
   /**
    * <p>A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a <code>RegexMatchSet</code>.</p>
    */
@@ -4494,7 +4169,6 @@ export namespace RegexMatchSetSummary {
   export const filterSensitiveLog = (obj: RegexMatchSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegexMatchSetSummary => __isa(o, "RegexMatchSetSummary");
 }
 
 /**
@@ -4510,7 +4184,6 @@ export namespace RegexMatchSetSummary {
  *          <a>RegexMatchTuple</a> and includes the settings for the <code>RegexMatchTuple</code>.</p>
  */
 export interface RegexMatchSetUpdate {
-  __type?: "RegexMatchSetUpdate";
   /**
    * <p>Information about the part of a web request that you want AWS WAF to inspect and the identifier of the regular expression (regex) pattern that you want AWS WAF to search for.
    *          If you specify <code>DELETE</code> for the value of <code>Action</code>, the <code>RegexMatchTuple</code> values must
@@ -4528,7 +4201,6 @@ export namespace RegexMatchSetUpdate {
   export const filterSensitiveLog = (obj: RegexMatchSetUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegexMatchSetUpdate => __isa(o, "RegexMatchSetUpdate");
 }
 
 /**
@@ -4554,7 +4226,6 @@ export namespace RegexMatchSetUpdate {
  *          </ul>
  */
 export interface RegexMatchTuple {
-  __type?: "RegexMatchTuple";
   /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
    * 			If you specify a transformation, AWS WAF performs the transformation on <code>RegexPatternSet</code> before inspecting a request for a match.</p>
@@ -4671,7 +4342,6 @@ export namespace RegexMatchTuple {
   export const filterSensitiveLog = (obj: RegexMatchTuple): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegexMatchTuple => __isa(o, "RegexMatchTuple");
 }
 
 /**
@@ -4686,7 +4356,6 @@ export namespace RegexMatchTuple {
  *          <p>The <code>RegexPatternSet</code> specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
  */
 export interface RegexPatternSet {
-  __type?: "RegexPatternSet";
   /**
    * <p>Specifies the regular expression (regex) patterns that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>.</p>
    */
@@ -4710,7 +4379,6 @@ export namespace RegexPatternSet {
   export const filterSensitiveLog = (obj: RegexPatternSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegexPatternSet => __isa(o, "RegexPatternSet");
 }
 
 /**
@@ -4726,7 +4394,6 @@ export namespace RegexPatternSet {
  *          <code>RegexPatternSetId</code> for one <a>RegexPatternSet</a>.</p>
  */
 export interface RegexPatternSetSummary {
-  __type?: "RegexPatternSetSummary";
   /**
    * <p>The <code>RegexPatternSetId</code> for a <code>RegexPatternSet</code>. You use <code>RegexPatternSetId</code> to get information about a <code>RegexPatternSet</code>,
    *          update a <code>RegexPatternSet</code>, remove a <code>RegexPatternSet</code> from a <code>RegexMatchSet</code>, and delete a <code>RegexPatternSet</code> from AWS WAF.</p>
@@ -4745,7 +4412,6 @@ export namespace RegexPatternSetSummary {
   export const filterSensitiveLog = (obj: RegexPatternSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegexPatternSetSummary => __isa(o, "RegexPatternSetSummary");
 }
 
 /**
@@ -4761,7 +4427,6 @@ export namespace RegexPatternSetSummary {
  *          <code>RegexPatternString</code> and includes the settings for the <code>RegexPatternString</code>.</p>
  */
 export interface RegexPatternSetUpdate {
-  __type?: "RegexPatternSetUpdate";
   /**
    * <p>Specifies whether to insert or delete a <code>RegexPatternString</code>.</p>
    */
@@ -4777,7 +4442,6 @@ export namespace RegexPatternSetUpdate {
   export const filterSensitiveLog = (obj: RegexPatternSetUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegexPatternSetUpdate => __isa(o, "RegexPatternSetUpdate");
 }
 
 export enum ResourceType {
@@ -4810,7 +4474,6 @@ export enum ResourceType {
  * 			header for which the value is <code>BadBot</code>.</p>
  */
 export interface Rule {
-  __type?: "Rule";
   /**
    * <p>The <code>Predicates</code> object contains one <code>Predicate</code> element for each <a>ByteMatchSet</a>, <a>IPSet</a>, or
    * 			<a>SqlInjectionMatchSet</a> object that you want to include in a <code>Rule</code>.</p>
@@ -4842,7 +4505,6 @@ export namespace Rule {
   export const filterSensitiveLog = (obj: Rule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Rule => __isa(o, "Rule");
 }
 
 /**
@@ -4869,7 +4531,6 @@ export namespace Rule {
  *          </ul>
  */
 export interface RuleGroup {
-  __type?: "RuleGroup";
   /**
    * <p>The friendly name or description for the <code>RuleGroup</code>. You can't change the name of a <code>RuleGroup</code> after you create it.</p>
    */
@@ -4895,7 +4556,6 @@ export namespace RuleGroup {
   export const filterSensitiveLog = (obj: RuleGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleGroup => __isa(o, "RuleGroup");
 }
 
 /**
@@ -4910,7 +4570,6 @@ export namespace RuleGroup {
  *          <p>Contains the identifier and the friendly name or description of the <code>RuleGroup</code>.</p>
  */
 export interface RuleGroupSummary {
-  __type?: "RuleGroupSummary";
   /**
    * <p>A unique identifier for a <code>RuleGroup</code>. You use <code>RuleGroupId</code> to get more information about a <code>RuleGroup</code> (see <a>GetRuleGroup</a>),
    *          update a <code>RuleGroup</code> (see <a>UpdateRuleGroup</a>), insert a <code>RuleGroup</code> into a <code>WebACL</code> or delete
@@ -4930,7 +4589,6 @@ export namespace RuleGroupSummary {
   export const filterSensitiveLog = (obj: RuleGroupSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleGroupSummary => __isa(o, "RuleGroupSummary");
 }
 
 /**
@@ -4946,7 +4604,6 @@ export namespace RuleGroupSummary {
  *          <code>RuleGroup</code> or delete it from a <code>RuleGroup</code>.</p>
  */
 export interface RuleGroupUpdate {
-  __type?: "RuleGroupUpdate";
   /**
    * <p>Specify <code>INSERT</code> to add an <code>ActivatedRule</code> to a <code>RuleGroup</code>. Use <code>DELETE</code> to remove an
    *          <code>ActivatedRule</code> from a <code>RuleGroup</code>.</p>
@@ -4965,7 +4622,6 @@ export namespace RuleGroupUpdate {
   export const filterSensitiveLog = (obj: RuleGroupUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleGroupUpdate => __isa(o, "RuleGroupUpdate");
 }
 
 /**
@@ -4980,7 +4636,6 @@ export namespace RuleGroupUpdate {
  * 		       <p>Contains the identifier and the friendly name or description of the <code>Rule</code>.</p>
  */
 export interface RuleSummary {
-  __type?: "RuleSummary";
   /**
    * <p>A unique identifier for a <code>Rule</code>. You use <code>RuleId</code> to get more information about a <code>Rule</code> (see <a>GetRule</a>),
    * 			update a <code>Rule</code> (see <a>UpdateRule</a>), insert a <code>Rule</code> into a <code>WebACL</code> or delete
@@ -5000,7 +4655,6 @@ export namespace RuleSummary {
   export const filterSensitiveLog = (obj: RuleSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleSummary => __isa(o, "RuleSummary");
 }
 
 /**
@@ -5016,7 +4670,6 @@ export namespace RuleSummary {
  * 			<code>Rule</code> or delete it from a <code>Rule</code>.</p>
  */
 export interface RuleUpdate {
-  __type?: "RuleUpdate";
   /**
    * <p>The ID of the <code>Predicate</code> (such as an <code>IPSet</code>) that you want to add to a <code>Rule</code>.</p>
    */
@@ -5033,7 +4686,6 @@ export namespace RuleUpdate {
   export const filterSensitiveLog = (obj: RuleUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleUpdate => __isa(o, "RuleUpdate");
 }
 
 /**
@@ -5050,7 +4702,6 @@ export namespace RuleUpdate {
  * 			<code>SampledHTTPRequest</code> object for each web request that is returned by <code>GetSampledRequests</code>.</p>
  */
 export interface SampledHTTPRequest {
-  __type?: "SampledHTTPRequest";
   /**
    * <p>A complex type that contains detailed information about the request.</p>
    */
@@ -5083,7 +4734,6 @@ export namespace SampledHTTPRequest {
   export const filterSensitiveLog = (obj: SampledHTTPRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SampledHTTPRequest => __isa(o, "SampledHTTPRequest");
 }
 
 /**
@@ -5101,7 +4751,6 @@ export namespace SampledHTTPRequest {
  * 			<code>SizeConstraint</code> is considered to match.</p>
  */
 export interface SizeConstraint {
-  __type?: "SizeConstraint";
   /**
    * <p>The size in bytes that you want AWS WAF to compare against the size of the specified <code>FieldToMatch</code>. AWS WAF uses this in combination
    * 			with <code>ComparisonOperator</code> and <code>FieldToMatch</code> to build an expression in the form of "<code>Size</code>
@@ -5246,7 +4895,6 @@ export namespace SizeConstraint {
   export const filterSensitiveLog = (obj: SizeConstraint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SizeConstraint => __isa(o, "SizeConstraint");
 }
 
 /**
@@ -5263,7 +4911,6 @@ export namespace SizeConstraint {
  * 			object, a request only needs to match one constraint to be considered a match.</p>
  */
 export interface SizeConstraintSet {
-  __type?: "SizeConstraintSet";
   /**
    * <p>Specifies the parts of web requests that you want to inspect the size of.</p>
    */
@@ -5290,7 +4937,6 @@ export namespace SizeConstraintSet {
   export const filterSensitiveLog = (obj: SizeConstraintSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SizeConstraintSet => __isa(o, "SizeConstraintSet");
 }
 
 /**
@@ -5305,7 +4951,6 @@ export namespace SizeConstraintSet {
  * 		       <p>The <code>Id</code> and <code>Name</code> of a <code>SizeConstraintSet</code>.</p>
  */
 export interface SizeConstraintSetSummary {
-  __type?: "SizeConstraintSetSummary";
   /**
    * <p>A unique identifier for a <code>SizeConstraintSet</code>. You use <code>SizeConstraintSetId</code> to get information about a
    * 			<code>SizeConstraintSet</code> (see <a>GetSizeConstraintSet</a>), update a <code>SizeConstraintSet</code>
@@ -5327,7 +4972,6 @@ export namespace SizeConstraintSetSummary {
   export const filterSensitiveLog = (obj: SizeConstraintSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SizeConstraintSetSummary => __isa(o, "SizeConstraintSetSummary");
 }
 
 /**
@@ -5343,7 +4987,6 @@ export namespace SizeConstraintSetSummary {
  * 			add the specification to a <a>SizeConstraintSet</a> or delete it from a <code>SizeConstraintSet</code>.</p>
  */
 export interface SizeConstraintSetUpdate {
-  __type?: "SizeConstraintSetUpdate";
   /**
    * <p>Specify <code>INSERT</code> to add a <a>SizeConstraintSetUpdate</a> to a <a>SizeConstraintSet</a>.
    * 			Use <code>DELETE</code> to remove a <code>SizeConstraintSetUpdate</code> from a <code>SizeConstraintSet</code>.</p>
@@ -5363,7 +5006,6 @@ export namespace SizeConstraintSetUpdate {
   export const filterSensitiveLog = (obj: SizeConstraintSetUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SizeConstraintSetUpdate => __isa(o, "SizeConstraintSetUpdate");
 }
 
 /**
@@ -5381,7 +5023,6 @@ export namespace SizeConstraintSetUpdate {
  * 			include snippets of SQL code in only one of the specified parts of the request to be considered a match.</p>
  */
 export interface SqlInjectionMatchSet {
-  __type?: "SqlInjectionMatchSet";
   /**
    * <p>The name, if any, of the <code>SqlInjectionMatchSet</code>.</p>
    */
@@ -5408,7 +5049,6 @@ export namespace SqlInjectionMatchSet {
   export const filterSensitiveLog = (obj: SqlInjectionMatchSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqlInjectionMatchSet => __isa(o, "SqlInjectionMatchSet");
 }
 
 /**
@@ -5423,7 +5063,6 @@ export namespace SqlInjectionMatchSet {
  * 		       <p>The <code>Id</code> and <code>Name</code> of a <code>SqlInjectionMatchSet</code>.</p>
  */
 export interface SqlInjectionMatchSetSummary {
-  __type?: "SqlInjectionMatchSetSummary";
   /**
    * <p>The name of the <code>SqlInjectionMatchSet</code>, if any, specified by <code>Id</code>.</p>
    */
@@ -5445,7 +5084,6 @@ export namespace SqlInjectionMatchSetSummary {
   export const filterSensitiveLog = (obj: SqlInjectionMatchSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqlInjectionMatchSetSummary => __isa(o, "SqlInjectionMatchSetSummary");
 }
 
 /**
@@ -5461,7 +5099,6 @@ export namespace SqlInjectionMatchSetSummary {
  * 			add the specification to a <a>SqlInjectionMatchSet</a> or delete it from a <code>SqlInjectionMatchSet</code>.</p>
  */
 export interface SqlInjectionMatchSetUpdate {
-  __type?: "SqlInjectionMatchSetUpdate";
   /**
    * <p>Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.</p>
    */
@@ -5478,7 +5115,6 @@ export namespace SqlInjectionMatchSetUpdate {
   export const filterSensitiveLog = (obj: SqlInjectionMatchSetUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqlInjectionMatchSetUpdate => __isa(o, "SqlInjectionMatchSetUpdate");
 }
 
 /**
@@ -5493,7 +5129,6 @@ export namespace SqlInjectionMatchSetUpdate {
  * 		       <p>Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.</p>
  */
 export interface SqlInjectionMatchTuple {
-  __type?: "SqlInjectionMatchTuple";
   /**
    * <p>Specifies where in a web request to look for snippets of malicious SQL code.</p>
    */
@@ -5601,7 +5236,6 @@ export namespace SqlInjectionMatchTuple {
   export const filterSensitiveLog = (obj: SqlInjectionMatchTuple): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqlInjectionMatchTuple => __isa(o, "SqlInjectionMatchTuple");
 }
 
 /**
@@ -5616,7 +5250,6 @@ export namespace SqlInjectionMatchTuple {
  *          <p>A summary of the rule groups you are subscribed to.</p>
  */
 export interface SubscribedRuleGroupSummary {
-  __type?: "SubscribedRuleGroupSummary";
   /**
    * <p>A friendly name or description of the <code>RuleGroup</code>. You can't change the name of a <code>RuleGroup</code> after you create it.</p>
    */
@@ -5638,7 +5271,6 @@ export namespace SubscribedRuleGroupSummary {
   export const filterSensitiveLog = (obj: SubscribedRuleGroupSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscribedRuleGroupSummary => __isa(o, "SubscribedRuleGroupSummary");
 }
 
 /**
@@ -5654,7 +5286,6 @@ export namespace SubscribedRuleGroupSummary {
  *         <p>Tagging is only available through the API, SDKs, and CLI. You can't manage or view tags through the AWS WAF Classic console. You can tag the AWS resources that you manage through AWS WAF Classic: web ACLs, rule groups, and rules.  </p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p></p>
    */
@@ -5670,7 +5301,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -5686,7 +5316,6 @@ export namespace Tag {
  *         <p>Tagging is only available through the API, SDKs, and CLI. You can't manage or view tags through the AWS WAF Classic console. You can tag the AWS resources that you manage through AWS WAF Classic: web ACLs, rule groups, and rules.  </p>
  */
 export interface TagInfoForResource {
-  __type?: "TagInfoForResource";
   /**
    * <p></p>
    */
@@ -5702,11 +5331,9 @@ export namespace TagInfoForResource {
   export const filterSensitiveLog = (obj: TagInfoForResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagInfoForResource => __isa(o, "TagInfoForResource");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p></p>
    */
@@ -5722,18 +5349,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export enum TextTransformation {
@@ -5765,7 +5388,6 @@ export enum TextTransformation {
  * 			is the time that AWS WAF received the 5,000th request. </p>
  */
 export interface TimeWindow {
-  __type?: "TimeWindow";
   /**
    * <p>The beginning of the time range from which you want <code>GetSampledRequests</code> to return a sample of the
    *                   requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format.
@@ -5787,11 +5409,9 @@ export namespace TimeWindow {
   export const filterSensitiveLog = (obj: TimeWindow): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeWindow => __isa(o, "TimeWindow");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p></p>
    */
@@ -5807,22 +5427,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateByteMatchSetRequest {
-  __type?: "UpdateByteMatchSetRequest";
   /**
    * <p>An array of <code>ByteMatchSetUpdate</code> objects that you want to insert into or delete from a <a>ByteMatchSet</a>.
    * 			For more information, see the applicable data types:</p>
@@ -5863,11 +5478,9 @@ export namespace UpdateByteMatchSetRequest {
   export const filterSensitiveLog = (obj: UpdateByteMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateByteMatchSetRequest => __isa(o, "UpdateByteMatchSetRequest");
 }
 
 export interface UpdateByteMatchSetResponse {
-  __type?: "UpdateByteMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateByteMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -5879,11 +5492,9 @@ export namespace UpdateByteMatchSetResponse {
   export const filterSensitiveLog = (obj: UpdateByteMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateByteMatchSetResponse => __isa(o, "UpdateByteMatchSetResponse");
 }
 
 export interface UpdateGeoMatchSetRequest {
-  __type?: "UpdateGeoMatchSetRequest";
   /**
    * <p>An array of <code>GeoMatchSetUpdate</code> objects that you want to insert into or delete from an <a>GeoMatchSet</a>.
    * 			For more information, see the applicable data types:</p>
@@ -5919,11 +5530,9 @@ export namespace UpdateGeoMatchSetRequest {
   export const filterSensitiveLog = (obj: UpdateGeoMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGeoMatchSetRequest => __isa(o, "UpdateGeoMatchSetRequest");
 }
 
 export interface UpdateGeoMatchSetResponse {
-  __type?: "UpdateGeoMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateGeoMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -5935,11 +5544,9 @@ export namespace UpdateGeoMatchSetResponse {
   export const filterSensitiveLog = (obj: UpdateGeoMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGeoMatchSetResponse => __isa(o, "UpdateGeoMatchSetResponse");
 }
 
 export interface UpdateIPSetRequest {
-  __type?: "UpdateIPSetRequest";
   /**
    * <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to update. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by
    * 			<a>ListIPSets</a>.</p>
@@ -5975,11 +5582,9 @@ export namespace UpdateIPSetRequest {
   export const filterSensitiveLog = (obj: UpdateIPSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIPSetRequest => __isa(o, "UpdateIPSetRequest");
 }
 
 export interface UpdateIPSetResponse {
-  __type?: "UpdateIPSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateIPSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -5991,11 +5596,9 @@ export namespace UpdateIPSetResponse {
   export const filterSensitiveLog = (obj: UpdateIPSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIPSetResponse => __isa(o, "UpdateIPSetResponse");
 }
 
 export interface UpdateRateBasedRuleRequest {
-  __type?: "UpdateRateBasedRuleRequest";
   /**
    * <p>The maximum number of requests, which have an identical value in the field specified by the <code>RateKey</code>, allowed in a
    *          five-minute period. If the number of requests exceeds the <code>RateLimit</code> and the other
@@ -6026,11 +5629,9 @@ export namespace UpdateRateBasedRuleRequest {
   export const filterSensitiveLog = (obj: UpdateRateBasedRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRateBasedRuleRequest => __isa(o, "UpdateRateBasedRuleRequest");
 }
 
 export interface UpdateRateBasedRuleResponse {
-  __type?: "UpdateRateBasedRuleResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the
    *             <code>UpdateRateBasedRule</code> request. You can also use this value to query the
@@ -6043,11 +5644,9 @@ export namespace UpdateRateBasedRuleResponse {
   export const filterSensitiveLog = (obj: UpdateRateBasedRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRateBasedRuleResponse => __isa(o, "UpdateRateBasedRuleResponse");
 }
 
 export interface UpdateRegexMatchSetRequest {
-  __type?: "UpdateRegexMatchSetRequest";
   /**
    * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to update. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by
    * 			<a>ListRegexMatchSets</a>.</p>
@@ -6070,11 +5669,9 @@ export namespace UpdateRegexMatchSetRequest {
   export const filterSensitiveLog = (obj: UpdateRegexMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRegexMatchSetRequest => __isa(o, "UpdateRegexMatchSetRequest");
 }
 
 export interface UpdateRegexMatchSetResponse {
-  __type?: "UpdateRegexMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRegexMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -6086,11 +5683,9 @@ export namespace UpdateRegexMatchSetResponse {
   export const filterSensitiveLog = (obj: UpdateRegexMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRegexMatchSetResponse => __isa(o, "UpdateRegexMatchSetResponse");
 }
 
 export interface UpdateRegexPatternSetRequest {
-  __type?: "UpdateRegexPatternSetRequest";
   /**
    * <p>An array of <code>RegexPatternSetUpdate</code> objects that you want to insert into or delete from a <a>RegexPatternSet</a>.</p>
    */
@@ -6112,11 +5707,9 @@ export namespace UpdateRegexPatternSetRequest {
   export const filterSensitiveLog = (obj: UpdateRegexPatternSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRegexPatternSetRequest => __isa(o, "UpdateRegexPatternSetRequest");
 }
 
 export interface UpdateRegexPatternSetResponse {
-  __type?: "UpdateRegexPatternSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRegexPatternSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -6128,11 +5721,9 @@ export namespace UpdateRegexPatternSetResponse {
   export const filterSensitiveLog = (obj: UpdateRegexPatternSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRegexPatternSetResponse => __isa(o, "UpdateRegexPatternSetResponse");
 }
 
 export interface UpdateRuleGroupRequest {
-  __type?: "UpdateRuleGroupRequest";
   /**
    * <p>An array of <code>RuleGroupUpdate</code> objects that you want to insert into or delete from a
    *          <a>RuleGroup</a>.</p>
@@ -6158,11 +5749,9 @@ export namespace UpdateRuleGroupRequest {
   export const filterSensitiveLog = (obj: UpdateRuleGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRuleGroupRequest => __isa(o, "UpdateRuleGroupRequest");
 }
 
 export interface UpdateRuleGroupResponse {
-  __type?: "UpdateRuleGroupResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRuleGroup</code> request. You can also use this value
    *          to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -6174,11 +5763,9 @@ export namespace UpdateRuleGroupResponse {
   export const filterSensitiveLog = (obj: UpdateRuleGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRuleGroupResponse => __isa(o, "UpdateRuleGroupResponse");
 }
 
 export interface UpdateRuleRequest {
-  __type?: "UpdateRuleRequest";
   /**
    * <p>An array of <code>RuleUpdate</code> objects that you want to insert into or delete from a
    * 			<a>Rule</a>. For more information, see the applicable data types:</p>
@@ -6218,11 +5805,9 @@ export namespace UpdateRuleRequest {
   export const filterSensitiveLog = (obj: UpdateRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRuleRequest => __isa(o, "UpdateRuleRequest");
 }
 
 export interface UpdateRuleResponse {
-  __type?: "UpdateRuleResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRule</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -6234,11 +5819,9 @@ export namespace UpdateRuleResponse {
   export const filterSensitiveLog = (obj: UpdateRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRuleResponse => __isa(o, "UpdateRuleResponse");
 }
 
 export interface UpdateSizeConstraintSetRequest {
-  __type?: "UpdateSizeConstraintSetRequest";
   /**
    * <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to update. <code>SizeConstraintSetId</code>
    * 			is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>
@@ -6279,11 +5862,9 @@ export namespace UpdateSizeConstraintSetRequest {
   export const filterSensitiveLog = (obj: UpdateSizeConstraintSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSizeConstraintSetRequest => __isa(o, "UpdateSizeConstraintSetRequest");
 }
 
 export interface UpdateSizeConstraintSetResponse {
-  __type?: "UpdateSizeConstraintSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateSizeConstraintSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -6295,14 +5876,12 @@ export namespace UpdateSizeConstraintSetResponse {
   export const filterSensitiveLog = (obj: UpdateSizeConstraintSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSizeConstraintSetResponse => __isa(o, "UpdateSizeConstraintSetResponse");
 }
 
 /**
  * <p>A request to update a <a>SqlInjectionMatchSet</a>.</p>
  */
 export interface UpdateSqlInjectionMatchSetRequest {
-  __type?: "UpdateSqlInjectionMatchSetRequest";
   /**
    * <p>The <code>SqlInjectionMatchSetId</code> of the <code>SqlInjectionMatchSet</code> that you want to update.
    * 			<code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>
@@ -6342,14 +5921,12 @@ export namespace UpdateSqlInjectionMatchSetRequest {
   export const filterSensitiveLog = (obj: UpdateSqlInjectionMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSqlInjectionMatchSetRequest => __isa(o, "UpdateSqlInjectionMatchSetRequest");
 }
 
 /**
  * <p>The response to an <a>UpdateSqlInjectionMatchSets</a> request.</p>
  */
 export interface UpdateSqlInjectionMatchSetResponse {
-  __type?: "UpdateSqlInjectionMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateSqlInjectionMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -6361,12 +5938,9 @@ export namespace UpdateSqlInjectionMatchSetResponse {
   export const filterSensitiveLog = (obj: UpdateSqlInjectionMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSqlInjectionMatchSetResponse =>
-    __isa(o, "UpdateSqlInjectionMatchSetResponse");
 }
 
 export interface UpdateWebACLRequest {
-  __type?: "UpdateWebACLRequest";
   /**
    * <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to update. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by
    * 			<a>ListWebACLs</a>.</p>
@@ -6419,11 +5993,9 @@ export namespace UpdateWebACLRequest {
   export const filterSensitiveLog = (obj: UpdateWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWebACLRequest => __isa(o, "UpdateWebACLRequest");
 }
 
 export interface UpdateWebACLResponse {
-  __type?: "UpdateWebACLResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateWebACL</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -6435,14 +6007,12 @@ export namespace UpdateWebACLResponse {
   export const filterSensitiveLog = (obj: UpdateWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWebACLResponse => __isa(o, "UpdateWebACLResponse");
 }
 
 /**
  * <p>A request to update an <a>XssMatchSet</a>.</p>
  */
 export interface UpdateXssMatchSetRequest {
-  __type?: "UpdateXssMatchSetRequest";
   /**
    * <p>An array of <code>XssMatchSetUpdate</code> objects that you want to insert into or
    *          delete from an
@@ -6484,14 +6054,12 @@ export namespace UpdateXssMatchSetRequest {
   export const filterSensitiveLog = (obj: UpdateXssMatchSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateXssMatchSetRequest => __isa(o, "UpdateXssMatchSetRequest");
 }
 
 /**
  * <p>The response to an <a>UpdateXssMatchSets</a> request.</p>
  */
 export interface UpdateXssMatchSetResponse {
-  __type?: "UpdateXssMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateXssMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
@@ -6503,7 +6071,6 @@ export namespace UpdateXssMatchSetResponse {
   export const filterSensitiveLog = (obj: UpdateXssMatchSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateXssMatchSetResponse => __isa(o, "UpdateXssMatchSetResponse");
 }
 
 /**
@@ -6520,7 +6087,6 @@ export namespace UpdateXssMatchSetResponse {
  * 			AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. </p>
  */
 export interface WafAction {
-  __type?: "WafAction";
   /**
    * <p>Specifies how you want AWS WAF to respond to requests that match the settings in a <code>Rule</code>. Valid settings include the following:</p>
    * 		       <ul>
@@ -6547,7 +6113,6 @@ export namespace WafAction {
   export const filterSensitiveLog = (obj: WafAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WafAction => __isa(o, "WafAction");
 }
 
 export enum WafActionType {
@@ -6569,7 +6134,6 @@ export namespace WAFBadRequestException {
   export const filterSensitiveLog = (obj: WAFBadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFBadRequestException => __isa(o, "WAFBadRequestException");
 }
 
 /**
@@ -6585,7 +6149,6 @@ export namespace WAFDisallowedNameException {
   export const filterSensitiveLog = (obj: WAFDisallowedNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFDisallowedNameException => __isa(o, "WAFDisallowedNameException");
 }
 
 /**
@@ -6633,7 +6196,6 @@ export namespace WAFEntityMigrationException {
   export const filterSensitiveLog = (obj: WAFEntityMigrationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFEntityMigrationException => __isa(o, "WAFEntityMigrationException");
 }
 
 /**
@@ -6649,7 +6211,6 @@ export namespace WAFInternalErrorException {
   export const filterSensitiveLog = (obj: WAFInternalErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFInternalErrorException => __isa(o, "WAFInternalErrorException");
 }
 
 /**
@@ -6664,7 +6225,6 @@ export namespace WAFInvalidAccountException {
   export const filterSensitiveLog = (obj: WAFInvalidAccountException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFInvalidAccountException => __isa(o, "WAFInvalidAccountException");
 }
 
 /**
@@ -6700,7 +6260,6 @@ export namespace WAFInvalidOperationException {
   export const filterSensitiveLog = (obj: WAFInvalidOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFInvalidOperationException => __isa(o, "WAFInvalidOperationException");
 }
 
 /**
@@ -6755,7 +6314,6 @@ export namespace WAFInvalidParameterException {
   export const filterSensitiveLog = (obj: WAFInvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFInvalidParameterException => __isa(o, "WAFInvalidParameterException");
 }
 
 /**
@@ -6800,8 +6358,6 @@ export namespace WAFInvalidPermissionPolicyException {
   export const filterSensitiveLog = (obj: WAFInvalidPermissionPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFInvalidPermissionPolicyException =>
-    __isa(o, "WAFInvalidPermissionPolicyException");
 }
 
 /**
@@ -6817,7 +6373,6 @@ export namespace WAFInvalidRegexPatternException {
   export const filterSensitiveLog = (obj: WAFInvalidRegexPatternException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFInvalidRegexPatternException => __isa(o, "WAFInvalidRegexPatternException");
 }
 
 /**
@@ -6835,7 +6390,6 @@ export namespace WAFLimitsExceededException {
   export const filterSensitiveLog = (obj: WAFLimitsExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFLimitsExceededException => __isa(o, "WAFLimitsExceededException");
 }
 
 /**
@@ -6866,7 +6420,6 @@ export namespace WAFNonEmptyEntityException {
   export const filterSensitiveLog = (obj: WAFNonEmptyEntityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFNonEmptyEntityException => __isa(o, "WAFNonEmptyEntityException");
 }
 
 /**
@@ -6897,7 +6450,6 @@ export namespace WAFNonexistentContainerException {
   export const filterSensitiveLog = (obj: WAFNonexistentContainerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFNonexistentContainerException => __isa(o, "WAFNonexistentContainerException");
 }
 
 /**
@@ -6913,7 +6465,6 @@ export namespace WAFNonexistentItemException {
   export const filterSensitiveLog = (obj: WAFNonexistentItemException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFNonexistentItemException => __isa(o, "WAFNonexistentItemException");
 }
 
 /**
@@ -6928,7 +6479,6 @@ export namespace WAFNonexistentItemException {
  *          <p>The action to take if any rule within the <code>RuleGroup</code> matches a request. </p>
  */
 export interface WafOverrideAction {
-  __type?: "WafOverrideAction";
   /**
    * <p>
    *             <code>COUNT</code> overrides the action specified by the individual rule within a <code>RuleGroup</code> . If set to <code>NONE</code>, the rule's action will take place.</p>
@@ -6940,7 +6490,6 @@ export namespace WafOverrideAction {
   export const filterSensitiveLog = (obj: WafOverrideAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WafOverrideAction => __isa(o, "WafOverrideAction");
 }
 
 export enum WafOverrideActionType {
@@ -6969,7 +6518,6 @@ export namespace WAFReferencedItemException {
   export const filterSensitiveLog = (obj: WAFReferencedItemException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFReferencedItemException => __isa(o, "WAFReferencedItemException");
 }
 
 export enum WafRuleType {
@@ -6991,8 +6539,6 @@ export namespace WAFServiceLinkedRoleErrorException {
   export const filterSensitiveLog = (obj: WAFServiceLinkedRoleErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFServiceLinkedRoleErrorException =>
-    __isa(o, "WAFServiceLinkedRoleErrorException");
 }
 
 /**
@@ -7008,7 +6554,6 @@ export namespace WAFStaleDataException {
   export const filterSensitiveLog = (obj: WAFStaleDataException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFStaleDataException => __isa(o, "WAFStaleDataException");
 }
 
 /**
@@ -7024,7 +6569,6 @@ export namespace WAFSubscriptionNotFoundException {
   export const filterSensitiveLog = (obj: WAFSubscriptionNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFSubscriptionNotFoundException => __isa(o, "WAFSubscriptionNotFoundException");
 }
 
 /**
@@ -7040,7 +6584,6 @@ export namespace WAFTagOperationException {
   export const filterSensitiveLog = (obj: WAFTagOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFTagOperationException => __isa(o, "WAFTagOperationException");
 }
 
 /**
@@ -7056,8 +6599,6 @@ export namespace WAFTagOperationInternalErrorException {
   export const filterSensitiveLog = (obj: WAFTagOperationInternalErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFTagOperationInternalErrorException =>
-    __isa(o, "WAFTagOperationInternalErrorException");
 }
 
 /**
@@ -7074,7 +6615,6 @@ export namespace WAFUnavailableEntityException {
   export const filterSensitiveLog = (obj: WAFUnavailableEntityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFUnavailableEntityException => __isa(o, "WAFUnavailableEntityException");
 }
 
 /**
@@ -7094,7 +6634,6 @@ export namespace WAFUnavailableEntityException {
  * 			to be allowed, blocked, or counted. For more information, see <a>UpdateWebACL</a>.</p>
  */
 export interface WebACL {
-  __type?: "WebACL";
   /**
    * <p>A friendly name or description of the <code>WebACL</code>. You can't change the name of a <code>WebACL</code> after you create it.</p>
    */
@@ -7137,7 +6676,6 @@ export namespace WebACL {
   export const filterSensitiveLog = (obj: WebACL): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WebACL => __isa(o, "WebACL");
 }
 
 /**
@@ -7152,7 +6690,6 @@ export namespace WebACL {
  * 		       <p>Contains the identifier and the name or description of the <a>WebACL</a>.</p>
  */
 export interface WebACLSummary {
-  __type?: "WebACLSummary";
   /**
    * <p>A unique identifier for a <code>WebACL</code>. You use <code>WebACLId</code> to get information about a <code>WebACL</code>
    * 			(see <a>GetWebACL</a>), update a <code>WebACL</code> (see <a>UpdateWebACL</a>), and delete a <code>WebACL</code> from AWS WAF
@@ -7172,7 +6709,6 @@ export namespace WebACLSummary {
   export const filterSensitiveLog = (obj: WebACLSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WebACLSummary => __isa(o, "WebACLSummary");
 }
 
 /**
@@ -7187,7 +6723,6 @@ export namespace WebACLSummary {
  * 		       <p>Specifies whether to insert a <code>Rule</code> into or delete a <code>Rule</code> from a <code>WebACL</code>.</p>
  */
 export interface WebACLUpdate {
-  __type?: "WebACLUpdate";
   /**
    * <p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete,
    *          the priority of the <code>Rule</code> in the <code>WebACL</code>, and the action that you want AWS WAF to take when a web request matches the <code>Rule</code>
@@ -7205,7 +6740,6 @@ export namespace WebACLUpdate {
   export const filterSensitiveLog = (obj: WebACLUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WebACLUpdate => __isa(o, "WebACLUpdate");
 }
 
 /**
@@ -7223,7 +6757,6 @@ export namespace WebACLUpdate {
  * 			include cross-site scripting attacks in only one of the specified parts of the request to be considered a match.</p>
  */
 export interface XssMatchSet {
-  __type?: "XssMatchSet";
   /**
    * <p>Specifies the parts of web requests that you want to inspect for cross-site scripting attacks.</p>
    */
@@ -7250,7 +6783,6 @@ export namespace XssMatchSet {
   export const filterSensitiveLog = (obj: XssMatchSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is XssMatchSet => __isa(o, "XssMatchSet");
 }
 
 /**
@@ -7265,7 +6797,6 @@ export namespace XssMatchSet {
  * 		       <p>The <code>Id</code> and <code>Name</code> of an <code>XssMatchSet</code>.</p>
  */
 export interface XssMatchSetSummary {
-  __type?: "XssMatchSetSummary";
   /**
    * <p>The name of the <code>XssMatchSet</code>, if any, specified by <code>Id</code>.</p>
    */
@@ -7287,7 +6818,6 @@ export namespace XssMatchSetSummary {
   export const filterSensitiveLog = (obj: XssMatchSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is XssMatchSetSummary => __isa(o, "XssMatchSetSummary");
 }
 
 /**
@@ -7303,7 +6833,6 @@ export namespace XssMatchSetSummary {
  * 			add the specification to an <a>XssMatchSet</a> or delete it from an <code>XssMatchSet</code>.</p>
  */
 export interface XssMatchSetUpdate {
-  __type?: "XssMatchSetUpdate";
   /**
    * <p>Specify <code>INSERT</code> to add an
    *          <a>XssMatchSetUpdate</a> to an <a>XssMatchSet</a>. Use
@@ -7322,7 +6851,6 @@ export namespace XssMatchSetUpdate {
   export const filterSensitiveLog = (obj: XssMatchSetUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is XssMatchSetUpdate => __isa(o, "XssMatchSetUpdate");
 }
 
 /**
@@ -7337,7 +6865,6 @@ export namespace XssMatchSetUpdate {
  * 		       <p>Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.</p>
  */
 export interface XssMatchTuple {
-  __type?: "XssMatchTuple";
   /**
    * <p>Specifies where in a web request to look for cross-site scripting attacks.</p>
    */
@@ -7445,5 +6972,4 @@ export namespace XssMatchTuple {
   export const filterSensitiveLog = (obj: XssMatchTuple): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is XssMatchTuple => __isa(o, "XssMatchTuple");
 }

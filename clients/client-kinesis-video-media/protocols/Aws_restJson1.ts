@@ -54,7 +54,6 @@ export const deserializeAws_restJson1GetMediaCommand = async (
   }
   const contents: GetMediaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMediaOutput",
     ContentType: undefined,
     Payload: undefined,
   };

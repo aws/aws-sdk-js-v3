@@ -582,7 +582,6 @@ export const deserializeAws_restJson1CreateApplicationCommand = async (
   }
   const contents: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateApplicationResponse",
     ApplicationId: undefined,
     Author: undefined,
     CreationTime: undefined,
@@ -718,7 +717,6 @@ export const deserializeAws_restJson1CreateApplicationVersionCommand = async (
   }
   const contents: CreateApplicationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateApplicationVersionResponse",
     ApplicationId: undefined,
     CreationTime: undefined,
     ParameterDefinitions: undefined,
@@ -841,7 +839,6 @@ export const deserializeAws_restJson1CreateCloudFormationChangeSetCommand = asyn
   }
   const contents: CreateCloudFormationChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCloudFormationChangeSetResponse",
     ApplicationId: undefined,
     ChangeSetId: undefined,
     SemanticVersion: undefined,
@@ -933,7 +930,6 @@ export const deserializeAws_restJson1CreateCloudFormationTemplateCommand = async
   }
   const contents: CreateCloudFormationTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCloudFormationTemplateResponse",
     ApplicationId: undefined,
     CreationTime: undefined,
     ExpirationTime: undefined,
@@ -1136,7 +1132,6 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
   }
   const contents: GetApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetApplicationResponse",
     ApplicationId: undefined,
     Author: undefined,
     CreationTime: undefined,
@@ -1272,7 +1267,6 @@ export const deserializeAws_restJson1GetApplicationPolicyCommand = async (
   }
   const contents: GetApplicationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetApplicationPolicyResponse",
     Statements: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1360,7 +1354,6 @@ export const deserializeAws_restJson1GetCloudFormationTemplateCommand = async (
   }
   const contents: GetCloudFormationTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCloudFormationTemplateResponse",
     ApplicationId: undefined,
     CreationTime: undefined,
     ExpirationTime: undefined,
@@ -1472,7 +1465,6 @@ export const deserializeAws_restJson1ListApplicationDependenciesCommand = async 
   }
   const contents: ListApplicationDependenciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListApplicationDependenciesResponse",
     Dependencies: undefined,
     NextToken: undefined,
   };
@@ -1564,7 +1556,6 @@ export const deserializeAws_restJson1ListApplicationsCommand = async (
   }
   const contents: ListApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListApplicationsResponse",
     Applications: undefined,
     NextToken: undefined,
   };
@@ -1648,7 +1639,6 @@ export const deserializeAws_restJson1ListApplicationVersionsCommand = async (
   }
   const contents: ListApplicationVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListApplicationVersionsResponse",
     NextToken: undefined,
     Versions: undefined,
   };
@@ -1740,7 +1730,6 @@ export const deserializeAws_restJson1PutApplicationPolicyCommand = async (
   }
   const contents: PutApplicationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutApplicationPolicyResponse",
     Statements: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1911,7 +1900,6 @@ export const deserializeAws_restJson1UpdateApplicationCommand = async (
   }
   const contents: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateApplicationResponse",
     ApplicationId: undefined,
     Author: undefined,
     CreationTime: undefined,
@@ -2286,7 +2274,6 @@ const deserializeAws_restJson1ApplicationDependencySummary = (
   context: __SerdeContext
 ): ApplicationDependencySummary => {
   return {
-    __type: "ApplicationDependencySummary",
     ApplicationId:
       output.applicationId !== undefined && output.applicationId !== null ? output.applicationId : undefined,
     SemanticVersion:
@@ -2299,7 +2286,6 @@ const deserializeAws_restJson1ApplicationPolicyStatement = (
   context: __SerdeContext
 ): ApplicationPolicyStatement => {
   return {
-    __type: "ApplicationPolicyStatement",
     Actions:
       output.actions !== undefined && output.actions !== null
         ? deserializeAws_restJson1__listOf__string(output.actions, context)
@@ -2318,7 +2304,6 @@ const deserializeAws_restJson1ApplicationPolicyStatement = (
 
 const deserializeAws_restJson1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
   return {
-    __type: "ApplicationSummary",
     ApplicationId:
       output.applicationId !== undefined && output.applicationId !== null ? output.applicationId : undefined,
     Author: output.author !== undefined && output.author !== null ? output.author : undefined,
@@ -2337,7 +2322,6 @@ const deserializeAws_restJson1ApplicationSummary = (output: any, context: __Serd
 
 const deserializeAws_restJson1ParameterDefinition = (output: any, context: __SerdeContext): ParameterDefinition => {
   return {
-    __type: "ParameterDefinition",
     AllowedPattern:
       output.allowedPattern !== undefined && output.allowedPattern !== null ? output.allowedPattern : undefined,
     AllowedValues:
@@ -2366,7 +2350,6 @@ const deserializeAws_restJson1ParameterDefinition = (output: any, context: __Ser
 
 const deserializeAws_restJson1Version = (output: any, context: __SerdeContext): Version => {
   return {
-    __type: "Version",
     ApplicationId:
       output.applicationId !== undefined && output.applicationId !== null ? output.applicationId : undefined,
     CreationTime: output.creationTime !== undefined && output.creationTime !== null ? output.creationTime : undefined,
@@ -2396,7 +2379,6 @@ const deserializeAws_restJson1Version = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1VersionSummary = (output: any, context: __SerdeContext): VersionSummary => {
   return {
-    __type: "VersionSummary",
     ApplicationId:
       output.applicationId !== undefined && output.applicationId !== null ? output.applicationId : undefined,
     CreationTime: output.creationTime !== undefined && output.creationTime !== null ? output.creationTime : undefined,

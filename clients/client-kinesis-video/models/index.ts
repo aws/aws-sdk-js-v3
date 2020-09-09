@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -31,8 +30,6 @@ export namespace AccountChannelLimitExceededException {
   export const filterSensitiveLog = (obj: AccountChannelLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountChannelLimitExceededException =>
-    __isa(o, "AccountChannelLimitExceededException");
 }
 
 /**
@@ -48,8 +45,6 @@ export namespace AccountStreamLimitExceededException {
   export const filterSensitiveLog = (obj: AccountStreamLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountStreamLimitExceededException =>
-    __isa(o, "AccountStreamLimitExceededException");
 }
 
 export enum APIName {
@@ -66,7 +61,6 @@ export enum APIName {
  * <p>A structure that encapsulates a signaling channel's metadata and properties.</p>
  */
 export interface ChannelInfo {
-  __type?: "ChannelInfo";
   /**
    * <p>Current status of the signaling channel.</p>
    */
@@ -108,7 +102,6 @@ export namespace ChannelInfo {
   export const filterSensitiveLog = (obj: ChannelInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelInfo => __isa(o, "ChannelInfo");
 }
 
 /**
@@ -118,7 +111,6 @@ export namespace ChannelInfo {
  *                 <code>ChannelNameCondition</code>.</p>
  */
 export interface ChannelNameCondition {
-  __type?: "ChannelNameCondition";
   /**
    * <p>A value to compare.</p>
    */
@@ -135,7 +127,6 @@ export namespace ChannelNameCondition {
   export const filterSensitiveLog = (obj: ChannelNameCondition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelNameCondition => __isa(o, "ChannelNameCondition");
 }
 
 export enum ChannelProtocol {
@@ -166,7 +157,6 @@ export namespace ClientLimitExceededException {
   export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientLimitExceededException => __isa(o, "ClientLimitExceededException");
 }
 
 export enum ComparisonOperator {
@@ -174,7 +164,6 @@ export enum ComparisonOperator {
 }
 
 export interface CreateSignalingChannelInput {
-  __type?: "CreateSignalingChannelInput";
   /**
    * <p>A name for the signaling channel that you are creating. It must be unique for each AWS
    *             account and AWS Region.</p>
@@ -203,11 +192,9 @@ export namespace CreateSignalingChannelInput {
   export const filterSensitiveLog = (obj: CreateSignalingChannelInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSignalingChannelInput => __isa(o, "CreateSignalingChannelInput");
 }
 
 export interface CreateSignalingChannelOutput {
-  __type?: "CreateSignalingChannelOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the created channel.</p>
    */
@@ -218,11 +205,9 @@ export namespace CreateSignalingChannelOutput {
   export const filterSensitiveLog = (obj: CreateSignalingChannelOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSignalingChannelOutput => __isa(o, "CreateSignalingChannelOutput");
 }
 
 export interface CreateStreamInput {
-  __type?: "CreateStreamInput";
   /**
    * <p>The media type of the stream. Consumers of the stream can use this information when
    *             processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media
@@ -282,11 +267,9 @@ export namespace CreateStreamInput {
   export const filterSensitiveLog = (obj: CreateStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamInput => __isa(o, "CreateStreamInput");
 }
 
 export interface CreateStreamOutput {
-  __type?: "CreateStreamOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
    */
@@ -297,11 +280,9 @@ export namespace CreateStreamOutput {
   export const filterSensitiveLog = (obj: CreateStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamOutput => __isa(o, "CreateStreamOutput");
 }
 
 export interface DeleteSignalingChannelInput {
-  __type?: "DeleteSignalingChannelInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel that you want to
    *             delete.</p>
@@ -320,22 +301,17 @@ export namespace DeleteSignalingChannelInput {
   export const filterSensitiveLog = (obj: DeleteSignalingChannelInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSignalingChannelInput => __isa(o, "DeleteSignalingChannelInput");
 }
 
-export interface DeleteSignalingChannelOutput {
-  __type?: "DeleteSignalingChannelOutput";
-}
+export interface DeleteSignalingChannelOutput {}
 
 export namespace DeleteSignalingChannelOutput {
   export const filterSensitiveLog = (obj: DeleteSignalingChannelOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSignalingChannelOutput => __isa(o, "DeleteSignalingChannelOutput");
 }
 
 export interface DeleteStreamInput {
-  __type?: "DeleteStreamInput";
   /**
    * <p>Optional: The version of the stream that you want to delete. </p>
    *         <p>Specify the version as a safeguard to ensure that your are deleting the correct
@@ -355,22 +331,17 @@ export namespace DeleteStreamInput {
   export const filterSensitiveLog = (obj: DeleteStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStreamInput => __isa(o, "DeleteStreamInput");
 }
 
-export interface DeleteStreamOutput {
-  __type?: "DeleteStreamOutput";
-}
+export interface DeleteStreamOutput {}
 
 export namespace DeleteStreamOutput {
   export const filterSensitiveLog = (obj: DeleteStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStreamOutput => __isa(o, "DeleteStreamOutput");
 }
 
 export interface DescribeSignalingChannelInput {
-  __type?: "DescribeSignalingChannelInput";
   /**
    * <p>The ARN of the signaling channel that you want to describe.</p>
    */
@@ -386,11 +357,9 @@ export namespace DescribeSignalingChannelInput {
   export const filterSensitiveLog = (obj: DescribeSignalingChannelInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSignalingChannelInput => __isa(o, "DescribeSignalingChannelInput");
 }
 
 export interface DescribeSignalingChannelOutput {
-  __type?: "DescribeSignalingChannelOutput";
   /**
    * <p>A structure that encapsulates the specified signaling channel's metadata and
    *             properties.</p>
@@ -402,11 +371,9 @@ export namespace DescribeSignalingChannelOutput {
   export const filterSensitiveLog = (obj: DescribeSignalingChannelOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSignalingChannelOutput => __isa(o, "DescribeSignalingChannelOutput");
 }
 
 export interface DescribeStreamInput {
-  __type?: "DescribeStreamInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
    */
@@ -422,11 +389,9 @@ export namespace DescribeStreamInput {
   export const filterSensitiveLog = (obj: DescribeStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamInput => __isa(o, "DescribeStreamInput");
 }
 
 export interface DescribeStreamOutput {
-  __type?: "DescribeStreamOutput";
   /**
    * <p>An object that describes the stream.</p>
    */
@@ -437,7 +402,6 @@ export namespace DescribeStreamOutput {
   export const filterSensitiveLog = (obj: DescribeStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamOutput => __isa(o, "DescribeStreamOutput");
 }
 
 /**
@@ -454,12 +418,9 @@ export namespace DeviceStreamLimitExceededException {
   export const filterSensitiveLog = (obj: DeviceStreamLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceStreamLimitExceededException =>
-    __isa(o, "DeviceStreamLimitExceededException");
 }
 
 export interface GetDataEndpointInput {
-  __type?: "GetDataEndpointInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for.
    *             You must specify either this parameter or a <code>StreamName</code> in the request.
@@ -483,11 +444,9 @@ export namespace GetDataEndpointInput {
   export const filterSensitiveLog = (obj: GetDataEndpointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataEndpointInput => __isa(o, "GetDataEndpointInput");
 }
 
 export interface GetDataEndpointOutput {
-  __type?: "GetDataEndpointOutput";
   /**
    * <p>The endpoint value. To read data from the stream or to write data to it, specify
    *             this endpoint in your application.</p>
@@ -499,11 +458,9 @@ export namespace GetDataEndpointOutput {
   export const filterSensitiveLog = (obj: GetDataEndpointOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataEndpointOutput => __isa(o, "GetDataEndpointOutput");
 }
 
 export interface GetSignalingChannelEndpointInput {
-  __type?: "GetSignalingChannelEndpointInput";
   /**
    * <p>A structure containing the endpoint configuration for the <code>SINGLE_MASTER</code>
    *             channel type.</p>
@@ -521,11 +478,9 @@ export namespace GetSignalingChannelEndpointInput {
   export const filterSensitiveLog = (obj: GetSignalingChannelEndpointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSignalingChannelEndpointInput => __isa(o, "GetSignalingChannelEndpointInput");
 }
 
 export interface GetSignalingChannelEndpointOutput {
-  __type?: "GetSignalingChannelEndpointOutput";
   /**
    * <p>A list of endpoints for the specified signaling channel.</p>
    */
@@ -536,7 +491,6 @@ export namespace GetSignalingChannelEndpointOutput {
   export const filterSensitiveLog = (obj: GetSignalingChannelEndpointOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSignalingChannelEndpointOutput => __isa(o, "GetSignalingChannelEndpointOutput");
 }
 
 /**
@@ -552,7 +506,6 @@ export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -568,7 +521,6 @@ export namespace InvalidDeviceException {
   export const filterSensitiveLog = (obj: InvalidDeviceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeviceException => __isa(o, "InvalidDeviceException");
 }
 
 /**
@@ -584,11 +536,9 @@ export namespace InvalidResourceFormatException {
   export const filterSensitiveLog = (obj: InvalidResourceFormatException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidResourceFormatException => __isa(o, "InvalidResourceFormatException");
 }
 
 export interface ListSignalingChannelsInput {
-  __type?: "ListSignalingChannelsInput";
   /**
    * <p>Optional: Returns only the channels that satisfy a specific condition.</p>
    */
@@ -611,11 +561,9 @@ export namespace ListSignalingChannelsInput {
   export const filterSensitiveLog = (obj: ListSignalingChannelsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSignalingChannelsInput => __isa(o, "ListSignalingChannelsInput");
 }
 
 export interface ListSignalingChannelsOutput {
-  __type?: "ListSignalingChannelsOutput";
   /**
    * <p>If the response is truncated, the call returns this element with a token. To get the
    *             next batch of streams, use this token in your next request.</p>
@@ -632,11 +580,9 @@ export namespace ListSignalingChannelsOutput {
   export const filterSensitiveLog = (obj: ListSignalingChannelsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSignalingChannelsOutput => __isa(o, "ListSignalingChannelsOutput");
 }
 
 export interface ListStreamsInput {
-  __type?: "ListStreamsInput";
   /**
    * <p>The maximum number of streams to return in the response. The default is
    *             10,000.</p>
@@ -661,11 +607,9 @@ export namespace ListStreamsInput {
   export const filterSensitiveLog = (obj: ListStreamsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamsInput => __isa(o, "ListStreamsInput");
 }
 
 export interface ListStreamsOutput {
-  __type?: "ListStreamsOutput";
   /**
    * <p>If the response is truncated, the call returns this element with a token. To get
    *             the next batch of streams, use this token in your next request. </p>
@@ -682,11 +626,9 @@ export namespace ListStreamsOutput {
   export const filterSensitiveLog = (obj: ListStreamsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamsOutput => __isa(o, "ListStreamsOutput");
 }
 
 export interface ListTagsForResourceInput {
-  __type?: "ListTagsForResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel for which you want to list
    *             tags.</p>
@@ -705,11 +647,9 @@ export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
-  __type?: "ListTagsForResourceOutput";
   /**
    * <p>A map of tag keys and values associated with the specified signaling channel.</p>
    */
@@ -727,11 +667,9 @@ export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 export interface ListTagsForStreamInput {
-  __type?: "ListTagsForStreamInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the stream that you want to list tags
    *             for.</p>
@@ -755,11 +693,9 @@ export namespace ListTagsForStreamInput {
   export const filterSensitiveLog = (obj: ListTagsForStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForStreamInput => __isa(o, "ListTagsForStreamInput");
 }
 
 export interface ListTagsForStreamOutput {
-  __type?: "ListTagsForStreamOutput";
   /**
    * <p>If you specify this parameter and the result of a <code>ListTags</code> call is
    *             truncated, the response includes a token that you can use in the next request to fetch
@@ -777,7 +713,6 @@ export namespace ListTagsForStreamOutput {
   export const filterSensitiveLog = (obj: ListTagsForStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForStreamOutput => __isa(o, "ListTagsForStreamOutput");
 }
 
 /**
@@ -793,7 +728,6 @@ export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -801,7 +735,6 @@ export namespace NotAuthorizedException {
  *                 <code>GetSignalingChannelEndpoint</code> API.</p>
  */
 export interface ResourceEndpointListItem {
-  __type?: "ResourceEndpointListItem";
   /**
    * <p>The protocol of the signaling channel returned by the
    *                 <code>GetSignalingChannelEndpoint</code> API.</p>
@@ -819,7 +752,6 @@ export namespace ResourceEndpointListItem {
   export const filterSensitiveLog = (obj: ResourceEndpointListItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceEndpointListItem => __isa(o, "ResourceEndpointListItem");
 }
 
 /**
@@ -835,7 +767,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -851,7 +782,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -859,7 +789,6 @@ export namespace ResourceNotFoundException {
  *             channel type. </p>
  */
 export interface SingleMasterChannelEndpointConfiguration {
-  __type?: "SingleMasterChannelEndpointConfiguration";
   /**
    * <p>This property is used to determine the nature of communication over this
    *                 <code>SINGLE_MASTER</code> signaling channel. If <code>WSS</code> is specified, this
@@ -883,8 +812,6 @@ export namespace SingleMasterChannelEndpointConfiguration {
   export const filterSensitiveLog = (obj: SingleMasterChannelEndpointConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SingleMasterChannelEndpointConfiguration =>
-    __isa(o, "SingleMasterChannelEndpointConfiguration");
 }
 
 /**
@@ -892,7 +819,6 @@ export namespace SingleMasterChannelEndpointConfiguration {
  *             type.</p>
  */
 export interface SingleMasterConfiguration {
-  __type?: "SingleMasterConfiguration";
   /**
    * <p>The period of time a signaling channel retains underlivered messages before they are
    *             discarded.</p>
@@ -904,7 +830,6 @@ export namespace SingleMasterConfiguration {
   export const filterSensitiveLog = (obj: SingleMasterConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SingleMasterConfiguration => __isa(o, "SingleMasterConfiguration");
 }
 
 export enum Status {
@@ -918,7 +843,6 @@ export enum Status {
  * <p>An object describing a Kinesis video stream.</p>
  */
 export interface StreamInfo {
-  __type?: "StreamInfo";
   /**
    * <p>The <code>MediaType</code> of the stream. </p>
    */
@@ -970,7 +894,6 @@ export namespace StreamInfo {
   export const filterSensitiveLog = (obj: StreamInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamInfo => __isa(o, "StreamInfo");
 }
 
 /**
@@ -980,7 +903,6 @@ export namespace StreamInfo {
  *             which finds streams whose names start with a given prefix. </p>
  */
 export interface StreamNameCondition {
-  __type?: "StreamNameCondition";
   /**
    * <p>A comparison operator. Currently, you can specify only the <code>BEGINS_WITH</code>
    *             operator, which finds streams whose names start with a given prefix.</p>
@@ -997,14 +919,12 @@ export namespace StreamNameCondition {
   export const filterSensitiveLog = (obj: StreamNameCondition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamNameCondition => __isa(o, "StreamNameCondition");
 }
 
 /**
  * <p>A key and value pair that is associated with the specified signaling channel.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value of the tag that is associated with the specified signaling channel.</p>
    */
@@ -1020,11 +940,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceInput {
-  __type?: "TagResourceInput";
   /**
    * <p>A list of tags to associate with the specified signaling channel. Each tag is a
    *             key-value pair.</p>
@@ -1042,18 +960,14 @@ export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
-export interface TagResourceOutput {
-  __type?: "TagResourceOutput";
-}
+export interface TagResourceOutput {}
 
 export namespace TagResourceOutput {
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceOutput => __isa(o, "TagResourceOutput");
 }
 
 /**
@@ -1070,12 +984,9 @@ export namespace TagsPerResourceExceededLimitException {
   export const filterSensitiveLog = (obj: TagsPerResourceExceededLimitException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagsPerResourceExceededLimitException =>
-    __isa(o, "TagsPerResourceExceededLimitException");
 }
 
 export interface TagStreamInput {
-  __type?: "TagStreamInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags
    *             to.</p>
@@ -1098,22 +1009,17 @@ export namespace TagStreamInput {
   export const filterSensitiveLog = (obj: TagStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagStreamInput => __isa(o, "TagStreamInput");
 }
 
-export interface TagStreamOutput {
-  __type?: "TagStreamOutput";
-}
+export interface TagStreamOutput {}
 
 export namespace TagStreamOutput {
   export const filterSensitiveLog = (obj: TagStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagStreamOutput => __isa(o, "TagStreamOutput");
 }
 
 export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
   /**
    * <p>A list of the keys of the tags that you want to remove.</p>
    */
@@ -1130,22 +1036,17 @@ export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
-export interface UntagResourceOutput {
-  __type?: "UntagResourceOutput";
-}
+export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceOutput => __isa(o, "UntagResourceOutput");
 }
 
 export interface UntagStreamInput {
-  __type?: "UntagStreamInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the stream that you want to remove tags
    *             from.</p>
@@ -1167,22 +1068,17 @@ export namespace UntagStreamInput {
   export const filterSensitiveLog = (obj: UntagStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagStreamInput => __isa(o, "UntagStreamInput");
 }
 
-export interface UntagStreamOutput {
-  __type?: "UntagStreamOutput";
-}
+export interface UntagStreamOutput {}
 
 export namespace UntagStreamOutput {
   export const filterSensitiveLog = (obj: UntagStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagStreamOutput => __isa(o, "UntagStreamOutput");
 }
 
 export interface UpdateDataRetentionInput {
-  __type?: "UpdateDataRetentionInput";
   /**
    * <p>The name of the stream whose retention period you want to change.</p>
    */
@@ -1217,7 +1113,6 @@ export namespace UpdateDataRetentionInput {
   export const filterSensitiveLog = (obj: UpdateDataRetentionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataRetentionInput => __isa(o, "UpdateDataRetentionInput");
 }
 
 export enum UpdateDataRetentionOperation {
@@ -1225,19 +1120,15 @@ export enum UpdateDataRetentionOperation {
   INCREASE_DATA_RETENTION = "INCREASE_DATA_RETENTION",
 }
 
-export interface UpdateDataRetentionOutput {
-  __type?: "UpdateDataRetentionOutput";
-}
+export interface UpdateDataRetentionOutput {}
 
 export namespace UpdateDataRetentionOutput {
   export const filterSensitiveLog = (obj: UpdateDataRetentionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataRetentionOutput => __isa(o, "UpdateDataRetentionOutput");
 }
 
 export interface UpdateSignalingChannelInput {
-  __type?: "UpdateSignalingChannelInput";
   /**
    * <p>The structure containing the configuration for the <code>SINGLE_MASTER</code> type of
    *             the signaling channel that you want to update. </p>
@@ -1260,22 +1151,17 @@ export namespace UpdateSignalingChannelInput {
   export const filterSensitiveLog = (obj: UpdateSignalingChannelInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSignalingChannelInput => __isa(o, "UpdateSignalingChannelInput");
 }
 
-export interface UpdateSignalingChannelOutput {
-  __type?: "UpdateSignalingChannelOutput";
-}
+export interface UpdateSignalingChannelOutput {}
 
 export namespace UpdateSignalingChannelOutput {
   export const filterSensitiveLog = (obj: UpdateSignalingChannelOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSignalingChannelOutput => __isa(o, "UpdateSignalingChannelOutput");
 }
 
 export interface UpdateStreamInput {
-  __type?: "UpdateStreamInput";
   /**
    * <p>The ARN of the stream whose metadata you want to update.</p>
    */
@@ -1319,18 +1205,14 @@ export namespace UpdateStreamInput {
   export const filterSensitiveLog = (obj: UpdateStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStreamInput => __isa(o, "UpdateStreamInput");
 }
 
-export interface UpdateStreamOutput {
-  __type?: "UpdateStreamOutput";
-}
+export interface UpdateStreamOutput {}
 
 export namespace UpdateStreamOutput {
   export const filterSensitiveLog = (obj: UpdateStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStreamOutput => __isa(o, "UpdateStreamOutput");
 }
 
 /**
@@ -1348,5 +1230,4 @@ export namespace VersionMismatchException {
   export const filterSensitiveLog = (obj: VersionMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VersionMismatchException => __isa(o, "VersionMismatchException");
 }

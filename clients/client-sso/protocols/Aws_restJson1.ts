@@ -136,7 +136,6 @@ export const deserializeAws_restJson1GetRoleCredentialsCommand = async (
   }
   const contents: GetRoleCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRoleCredentialsResponse",
     roleCredentials: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -216,7 +215,6 @@ export const deserializeAws_restJson1ListAccountRolesCommand = async (
   }
   const contents: ListAccountRolesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAccountRolesResponse",
     nextToken: undefined,
     roleList: undefined,
   };
@@ -300,7 +298,6 @@ export const deserializeAws_restJson1ListAccountsCommand = async (
   }
   const contents: ListAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAccountsResponse",
     accountList: undefined,
     nextToken: undefined,
   };
@@ -512,7 +509,6 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
 
 const deserializeAws_restJson1AccountInfo = (output: any, context: __SerdeContext): AccountInfo => {
   return {
-    __type: "AccountInfo",
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     accountName: output.accountName !== undefined && output.accountName !== null ? output.accountName : undefined,
     emailAddress: output.emailAddress !== undefined && output.emailAddress !== null ? output.emailAddress : undefined,
@@ -525,7 +521,6 @@ const deserializeAws_restJson1AccountListType = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1RoleCredentials = (output: any, context: __SerdeContext): RoleCredentials => {
   return {
-    __type: "RoleCredentials",
     accessKeyId: output.accessKeyId !== undefined && output.accessKeyId !== null ? output.accessKeyId : undefined,
     expiration: output.expiration !== undefined && output.expiration !== null ? output.expiration : undefined,
     secretAccessKey:
@@ -536,7 +531,6 @@ const deserializeAws_restJson1RoleCredentials = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1RoleInfo = (output: any, context: __SerdeContext): RoleInfo => {
   return {
-    __type: "RoleInfo",
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     roleName: output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined,
   } as any;

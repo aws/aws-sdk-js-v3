@@ -931,7 +931,6 @@ export const deserializeAws_restJson1CreateDataSetCommand = async (
   }
   const contents: CreateDataSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDataSetResponse",
     Arn: undefined,
     AssetType: undefined,
     CreatedAt: undefined,
@@ -1059,7 +1058,6 @@ export const deserializeAws_restJson1CreateJobCommand = async (
   }
   const contents: CreateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateJobResponse",
     Arn: undefined,
     CreatedAt: undefined,
     Details: undefined,
@@ -1175,7 +1173,6 @@ export const deserializeAws_restJson1CreateRevisionCommand = async (
   }
   const contents: CreateRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRevisionResponse",
     Arn: undefined,
     Comment: undefined,
     CreatedAt: undefined,
@@ -1568,7 +1565,6 @@ export const deserializeAws_restJson1GetAssetCommand = async (
   }
   const contents: GetAssetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAssetResponse",
     Arn: undefined,
     AssetDetails: undefined,
     AssetType: undefined,
@@ -1684,7 +1680,6 @@ export const deserializeAws_restJson1GetDataSetCommand = async (
   }
   const contents: GetDataSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDataSetResponse",
     Arn: undefined,
     AssetType: undefined,
     CreatedAt: undefined,
@@ -1804,7 +1799,6 @@ export const deserializeAws_restJson1GetJobCommand = async (
   }
   const contents: GetJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetJobResponse",
     Arn: undefined,
     CreatedAt: undefined,
     Details: undefined,
@@ -1912,7 +1906,6 @@ export const deserializeAws_restJson1GetRevisionCommand = async (
   }
   const contents: GetRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRevisionResponse",
     Arn: undefined,
     Comment: undefined,
     CreatedAt: undefined,
@@ -2024,7 +2017,6 @@ export const deserializeAws_restJson1ListDataSetRevisionsCommand = async (
   }
   const contents: ListDataSetRevisionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDataSetRevisionsResponse",
     NextToken: undefined,
     Revisions: undefined,
   };
@@ -2108,7 +2100,6 @@ export const deserializeAws_restJson1ListDataSetsCommand = async (
   }
   const contents: ListDataSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDataSetsResponse",
     DataSets: undefined,
     NextToken: undefined,
   };
@@ -2192,7 +2183,6 @@ export const deserializeAws_restJson1ListJobsCommand = async (
   }
   const contents: ListJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJobsResponse",
     Jobs: undefined,
     NextToken: undefined,
   };
@@ -2276,7 +2266,6 @@ export const deserializeAws_restJson1ListRevisionAssetsCommand = async (
   }
   const contents: ListRevisionAssetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRevisionAssetsResponse",
     Assets: undefined,
     NextToken: undefined,
   };
@@ -2360,7 +2349,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2408,7 +2396,6 @@ export const deserializeAws_restJson1StartJobCommand = async (
   }
   const contents: StartJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartJobResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2586,7 +2573,6 @@ export const deserializeAws_restJson1UpdateAssetCommand = async (
   }
   const contents: UpdateAssetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAssetResponse",
     Arn: undefined,
     AssetDetails: undefined,
     AssetType: undefined,
@@ -2718,7 +2704,6 @@ export const deserializeAws_restJson1UpdateDataSetCommand = async (
   }
   const contents: UpdateDataSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDataSetResponse",
     Arn: undefined,
     AssetType: undefined,
     CreatedAt: undefined,
@@ -2842,7 +2827,6 @@ export const deserializeAws_restJson1UpdateRevisionCommand = async (
   }
   const contents: UpdateRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRevisionResponse",
     Arn: undefined,
     Comment: undefined,
     CreatedAt: undefined,
@@ -3223,7 +3207,6 @@ const serializeAws_restJson1RequestDetails = (input: RequestDetails, context: __
 
 const deserializeAws_restJson1AssetDestinationEntry = (output: any, context: __SerdeContext): AssetDestinationEntry => {
   return {
-    __type: "AssetDestinationEntry",
     AssetId: output.AssetId !== undefined && output.AssetId !== null ? output.AssetId : undefined,
     Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
@@ -3232,7 +3215,6 @@ const deserializeAws_restJson1AssetDestinationEntry = (output: any, context: __S
 
 const deserializeAws_restJson1AssetDetails = (output: any, context: __SerdeContext): AssetDetails => {
   return {
-    __type: "AssetDetails",
     S3SnapshotAsset:
       output.S3SnapshotAsset !== undefined && output.S3SnapshotAsset !== null
         ? deserializeAws_restJson1S3SnapshotAsset(output.S3SnapshotAsset, context)
@@ -3242,7 +3224,6 @@ const deserializeAws_restJson1AssetDetails = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1AssetEntry = (output: any, context: __SerdeContext): AssetEntry => {
   return {
-    __type: "AssetEntry",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     AssetDetails:
       output.AssetDetails !== undefined && output.AssetDetails !== null
@@ -3261,7 +3242,6 @@ const deserializeAws_restJson1AssetEntry = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1AssetSourceEntry = (output: any, context: __SerdeContext): AssetSourceEntry => {
   return {
-    __type: "AssetSourceEntry",
     Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
   } as any;
@@ -3269,7 +3249,6 @@ const deserializeAws_restJson1AssetSourceEntry = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1DataSetEntry = (output: any, context: __SerdeContext): DataSetEntry => {
   return {
-    __type: "DataSetEntry",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     AssetType: output.AssetType !== undefined && output.AssetType !== null ? output.AssetType : undefined,
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? new Date(output.CreatedAt) : undefined,
@@ -3288,7 +3267,6 @@ const deserializeAws_restJson1DataSetEntry = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Details = (output: any, context: __SerdeContext): Details => {
   return {
-    __type: "Details",
     ImportAssetFromSignedUrlJobErrorDetails:
       output.ImportAssetFromSignedUrlJobErrorDetails !== undefined &&
       output.ImportAssetFromSignedUrlJobErrorDetails !== null
@@ -3309,7 +3287,6 @@ const deserializeAws_restJson1ExportAssetsToS3ResponseDetails = (
   context: __SerdeContext
 ): ExportAssetsToS3ResponseDetails => {
   return {
-    __type: "ExportAssetsToS3ResponseDetails",
     AssetDestinations:
       output.AssetDestinations !== undefined && output.AssetDestinations !== null
         ? deserializeAws_restJson1ListOfAssetDestinationEntry(output.AssetDestinations, context)
@@ -3328,7 +3305,6 @@ const deserializeAws_restJson1ExportAssetToSignedUrlResponseDetails = (
   context: __SerdeContext
 ): ExportAssetToSignedUrlResponseDetails => {
   return {
-    __type: "ExportAssetToSignedUrlResponseDetails",
     AssetId: output.AssetId !== undefined && output.AssetId !== null ? output.AssetId : undefined,
     DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
     RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
@@ -3345,7 +3321,6 @@ const deserializeAws_restJson1ExportServerSideEncryption = (
   context: __SerdeContext
 ): ExportServerSideEncryption => {
   return {
-    __type: "ExportServerSideEncryption",
     KmsKeyArn: output.KmsKeyArn !== undefined && output.KmsKeyArn !== null ? output.KmsKeyArn : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -3356,7 +3331,6 @@ const deserializeAws_restJson1ImportAssetFromSignedUrlJobErrorDetails = (
   context: __SerdeContext
 ): ImportAssetFromSignedUrlJobErrorDetails => {
   return {
-    __type: "ImportAssetFromSignedUrlJobErrorDetails",
     AssetName: output.AssetName !== undefined && output.AssetName !== null ? output.AssetName : undefined,
   } as any;
 };
@@ -3366,7 +3340,6 @@ const deserializeAws_restJson1ImportAssetFromSignedUrlResponseDetails = (
   context: __SerdeContext
 ): ImportAssetFromSignedUrlResponseDetails => {
   return {
-    __type: "ImportAssetFromSignedUrlResponseDetails",
     AssetName: output.AssetName !== undefined && output.AssetName !== null ? output.AssetName : undefined,
     DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
     Md5Hash: output.Md5Hash !== undefined && output.Md5Hash !== null ? output.Md5Hash : undefined,
@@ -3384,7 +3357,6 @@ const deserializeAws_restJson1ImportAssetsFromS3ResponseDetails = (
   context: __SerdeContext
 ): ImportAssetsFromS3ResponseDetails => {
   return {
-    __type: "ImportAssetsFromS3ResponseDetails",
     AssetSources:
       output.AssetSources !== undefined && output.AssetSources !== null
         ? deserializeAws_restJson1ListOfAssetSourceEntry(output.AssetSources, context)
@@ -3396,7 +3368,6 @@ const deserializeAws_restJson1ImportAssetsFromS3ResponseDetails = (
 
 const deserializeAws_restJson1JobEntry = (output: any, context: __SerdeContext): JobEntry => {
   return {
-    __type: "JobEntry",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? new Date(output.CreatedAt) : undefined,
     Details:
@@ -3416,7 +3387,6 @@ const deserializeAws_restJson1JobEntry = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1JobError = (output: any, context: __SerdeContext): JobError => {
   return {
-    __type: "JobError",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Details:
       output.Details !== undefined && output.Details !== null
@@ -3473,14 +3443,12 @@ const deserializeAws_restJson1MapOf__string = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1OriginDetails = (output: any, context: __SerdeContext): OriginDetails => {
   return {
-    __type: "OriginDetails",
     ProductId: output.ProductId !== undefined && output.ProductId !== null ? output.ProductId : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1ResponseDetails = (output: any, context: __SerdeContext): ResponseDetails => {
   return {
-    __type: "ResponseDetails",
     ExportAssetToSignedUrl:
       output.ExportAssetToSignedUrl !== undefined && output.ExportAssetToSignedUrl !== null
         ? deserializeAws_restJson1ExportAssetToSignedUrlResponseDetails(output.ExportAssetToSignedUrl, context)
@@ -3502,7 +3470,6 @@ const deserializeAws_restJson1ResponseDetails = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1RevisionEntry = (output: any, context: __SerdeContext): RevisionEntry => {
   return {
-    __type: "RevisionEntry",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Comment: output.Comment !== undefined && output.Comment !== null ? output.Comment : undefined,
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? new Date(output.CreatedAt) : undefined,
@@ -3516,7 +3483,6 @@ const deserializeAws_restJson1RevisionEntry = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1S3SnapshotAsset = (output: any, context: __SerdeContext): S3SnapshotAsset => {
   return {
-    __type: "S3SnapshotAsset",
     Size: output.Size !== undefined && output.Size !== null ? output.Size : undefined,
   } as any;
 };

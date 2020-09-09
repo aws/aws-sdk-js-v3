@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,11 +17,9 @@ export namespace CertificateValidationException {
   export const filterSensitiveLog = (obj: CertificateValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateValidationException => __isa(o, "CertificateValidationException");
 }
 
 export interface DescribeJobExecutionRequest {
-  __type?: "DescribeJobExecutionRequest";
   /**
    * <p>The unique identifier assigned to this job when it was created.</p>
    */
@@ -48,11 +46,9 @@ export namespace DescribeJobExecutionRequest {
   export const filterSensitiveLog = (obj: DescribeJobExecutionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobExecutionRequest => __isa(o, "DescribeJobExecutionRequest");
 }
 
 export interface DescribeJobExecutionResponse {
-  __type?: "DescribeJobExecutionResponse";
   /**
    * <p>Contains data about a job execution.</p>
    */
@@ -63,11 +59,9 @@ export namespace DescribeJobExecutionResponse {
   export const filterSensitiveLog = (obj: DescribeJobExecutionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobExecutionResponse => __isa(o, "DescribeJobExecutionResponse");
 }
 
 export interface GetPendingJobExecutionsRequest {
-  __type?: "GetPendingJobExecutionsRequest";
   /**
    * <p>The name of the thing that is executing the job.</p>
    */
@@ -78,11 +72,9 @@ export namespace GetPendingJobExecutionsRequest {
   export const filterSensitiveLog = (obj: GetPendingJobExecutionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPendingJobExecutionsRequest => __isa(o, "GetPendingJobExecutionsRequest");
 }
 
 export interface GetPendingJobExecutionsResponse {
-  __type?: "GetPendingJobExecutionsResponse";
   /**
    * <p>A list of JobExecutionSummary objects with status IN_PROGRESS.</p>
    */
@@ -98,7 +90,6 @@ export namespace GetPendingJobExecutionsResponse {
   export const filterSensitiveLog = (obj: GetPendingJobExecutionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPendingJobExecutionsResponse => __isa(o, "GetPendingJobExecutionsResponse");
 }
 
 /**
@@ -117,7 +108,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -135,14 +125,12 @@ export namespace InvalidStateTransitionException {
   export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidStateTransitionException => __isa(o, "InvalidStateTransitionException");
 }
 
 /**
  * <p>Contains data about a job execution.</p>
  */
 export interface JobExecution {
-  __type?: "JobExecution";
   /**
    * <p>The version of the job execution. Job execution versions are incremented each time they are updated by a
    *          device.</p>
@@ -207,14 +195,12 @@ export namespace JobExecution {
   export const filterSensitiveLog = (obj: JobExecution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobExecution => __isa(o, "JobExecution");
 }
 
 /**
  * <p>Contains data about the state of a job execution.</p>
  */
 export interface JobExecutionState {
-  __type?: "JobExecutionState";
   /**
    * <p>A collection of name/value pairs that describe the status of the job execution.</p>
    */
@@ -237,7 +223,6 @@ export namespace JobExecutionState {
   export const filterSensitiveLog = (obj: JobExecutionState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobExecutionState => __isa(o, "JobExecutionState");
 }
 
 export enum JobExecutionStatus {
@@ -255,7 +240,6 @@ export enum JobExecutionStatus {
  * <p>Contains a subset of information about a job execution.</p>
  */
 export interface JobExecutionSummary {
-  __type?: "JobExecutionSummary";
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
@@ -292,7 +276,6 @@ export namespace JobExecutionSummary {
   export const filterSensitiveLog = (obj: JobExecutionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobExecutionSummary => __isa(o, "JobExecutionSummary");
 }
 
 /**
@@ -311,7 +294,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -330,11 +312,9 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartNextPendingJobExecutionRequest {
-  __type?: "StartNextPendingJobExecutionRequest";
   /**
    * <p>Specifies the amount of time this device has to finish execution of this job. If the job
    *            execution status is not set to a terminal state before this timer expires, or before the
@@ -362,12 +342,9 @@ export namespace StartNextPendingJobExecutionRequest {
   export const filterSensitiveLog = (obj: StartNextPendingJobExecutionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartNextPendingJobExecutionRequest =>
-    __isa(o, "StartNextPendingJobExecutionRequest");
 }
 
 export interface StartNextPendingJobExecutionResponse {
-  __type?: "StartNextPendingJobExecutionResponse";
   /**
    * <p>A JobExecution object.</p>
    */
@@ -378,8 +355,6 @@ export namespace StartNextPendingJobExecutionResponse {
   export const filterSensitiveLog = (obj: StartNextPendingJobExecutionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartNextPendingJobExecutionResponse =>
-    __isa(o, "StartNextPendingJobExecutionResponse");
 }
 
 /**
@@ -395,7 +370,6 @@ export namespace TerminalStateException {
   export const filterSensitiveLog = (obj: TerminalStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminalStateException => __isa(o, "TerminalStateException");
 }
 
 /**
@@ -419,11 +393,9 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UpdateJobExecutionRequest {
-  __type?: "UpdateJobExecutionRequest";
   /**
    * <p>The unique identifier assigned to this job when it was created.</p>
    */
@@ -487,11 +459,9 @@ export namespace UpdateJobExecutionRequest {
   export const filterSensitiveLog = (obj: UpdateJobExecutionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobExecutionRequest => __isa(o, "UpdateJobExecutionRequest");
 }
 
 export interface UpdateJobExecutionResponse {
-  __type?: "UpdateJobExecutionResponse";
   /**
    * <p>A JobExecutionState object.</p>
    */
@@ -507,5 +477,4 @@ export namespace UpdateJobExecutionResponse {
   export const filterSensitiveLog = (obj: UpdateJobExecutionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobExecutionResponse => __isa(o, "UpdateJobExecutionResponse");
 }

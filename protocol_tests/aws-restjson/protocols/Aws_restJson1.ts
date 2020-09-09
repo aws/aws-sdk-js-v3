@@ -1206,7 +1206,6 @@ export const deserializeAws_restJson1EmptyInputAndEmptyOutputCommand = async (
   }
   const contents: EmptyInputAndEmptyOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EmptyInputAndEmptyOutputOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1250,7 +1249,6 @@ export const deserializeAws_restJson1GreetingWithErrorsCommand = async (
   }
   const contents: GreetingWithErrorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GreetingWithErrorsOutput",
     greeting: undefined,
   };
   if (output.headers["x-greeting"] !== undefined) {
@@ -1322,7 +1320,6 @@ export const deserializeAws_restJson1HttpPayloadTraitsCommand = async (
   }
   const contents: HttpPayloadTraitsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HttpPayloadTraitsInputOutput",
     blob: undefined,
     foo: undefined,
   };
@@ -1372,7 +1369,6 @@ export const deserializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand = asy
   }
   const contents: HttpPayloadTraitsWithMediaTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HttpPayloadTraitsWithMediaTypeInputOutput",
     blob: undefined,
     foo: undefined,
   };
@@ -1422,7 +1418,6 @@ export const deserializeAws_restJson1HttpPayloadWithStructureCommand = async (
   }
   const contents: HttpPayloadWithStructureCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HttpPayloadWithStructureInputOutput",
     nested: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1468,7 +1463,6 @@ export const deserializeAws_restJson1HttpPrefixHeadersCommand = async (
   }
   const contents: HttpPrefixHeadersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HttpPrefixHeadersInputOutput",
     foo: undefined,
     fooMap: undefined,
   };
@@ -1654,7 +1648,6 @@ export const deserializeAws_restJson1IgnoreQueryParamsInResponseCommand = async 
   }
   const contents: IgnoreQueryParamsInResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IgnoreQueryParamsInResponseOutput",
     baz: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1702,7 +1695,6 @@ export const deserializeAws_restJson1InputAndOutputWithHeadersCommand = async (
   }
   const contents: InputAndOutputWithHeadersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InputAndOutputWithHeadersIO",
     headerBooleanList: undefined,
     headerByte: undefined,
     headerDouble: undefined,
@@ -1816,7 +1808,6 @@ export const deserializeAws_restJson1JsonBlobsCommand = async (
   }
   const contents: JsonBlobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "JsonBlobsInputOutput",
     data: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1864,7 +1855,6 @@ export const deserializeAws_restJson1JsonEnumsCommand = async (
   }
   const contents: JsonEnumsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "JsonEnumsInputOutput",
     fooEnum1: undefined,
     fooEnum2: undefined,
     fooEnum3: undefined,
@@ -1932,7 +1922,6 @@ export const deserializeAws_restJson1JsonListsCommand = async (
   }
   const contents: JsonListsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "JsonListsInputOutput",
     booleanList: undefined,
     enumList: undefined,
     integerList: undefined,
@@ -2008,7 +1997,6 @@ export const deserializeAws_restJson1JsonMapsCommand = async (
   }
   const contents: JsonMapsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "JsonMapsInputOutput",
     myMap: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2056,7 +2044,6 @@ export const deserializeAws_restJson1JsonTimestampsCommand = async (
   }
   const contents: JsonTimestampsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "JsonTimestampsInputOutput",
     dateTime: undefined,
     epochSeconds: undefined,
     httpDate: undefined,
@@ -2159,7 +2146,6 @@ export const deserializeAws_restJson1NoInputAndOutputCommand = async (
   }
   const contents: NoInputAndOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NoInputAndOutputOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2203,7 +2189,6 @@ export const deserializeAws_restJson1NullAndEmptyHeadersClientCommand = async (
   }
   const contents: NullAndEmptyHeadersClientCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NullAndEmptyHeadersIO",
     a: undefined,
     b: undefined,
     c: undefined,
@@ -2259,7 +2244,6 @@ export const deserializeAws_restJson1NullAndEmptyHeadersServerCommand = async (
   }
   const contents: NullAndEmptyHeadersServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NullAndEmptyHeadersIO",
     a: undefined,
     b: undefined,
     c: undefined,
@@ -2401,7 +2385,6 @@ export const deserializeAws_restJson1RecursiveShapesCommand = async (
   }
   const contents: RecursiveShapesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RecursiveShapesInputOutput",
     nested: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2449,7 +2432,6 @@ export const deserializeAws_restJson1SimpleScalarPropertiesCommand = async (
   }
   const contents: SimpleScalarPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SimpleScalarPropertiesInputOutput",
     byteValue: undefined,
     doubleValue: undefined,
     falseBooleanValue: undefined,
@@ -2533,7 +2515,6 @@ export const deserializeAws_restJson1TimestampFormatHeadersCommand = async (
   }
   const contents: TimestampFormatHeadersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TimestampFormatHeadersIO",
     defaultFormat: undefined,
     memberDateTime: undefined,
     memberEpochSeconds: undefined,
@@ -2759,7 +2740,6 @@ const deserializeAws_restJson1ComplexNestedErrorData = (
   context: __SerdeContext
 ): ComplexNestedErrorData => {
   return {
-    __type: "ComplexNestedErrorData",
     Foo: output.Fooooo !== undefined && output.Fooooo !== null ? output.Fooooo : undefined,
   } as any;
 };
@@ -2779,7 +2759,6 @@ const deserializeAws_restJson1JsonMapsInputOutputMap = (
 
 const deserializeAws_restJson1NestedPayload = (output: any, context: __SerdeContext): NestedPayload => {
   return {
-    __type: "NestedPayload",
     greeting: output.greeting !== undefined && output.greeting !== null ? output.greeting : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
@@ -2790,7 +2769,6 @@ const deserializeAws_restJson1RecursiveShapesInputOutputNested1 = (
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested1 => {
   return {
-    __type: "RecursiveShapesInputOutputNested1",
     foo: output.foo !== undefined && output.foo !== null ? output.foo : undefined,
     nested:
       output.nested !== undefined && output.nested !== null
@@ -2804,7 +2782,6 @@ const deserializeAws_restJson1RecursiveShapesInputOutputNested2 = (
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested2 => {
   return {
-    __type: "RecursiveShapesInputOutputNested2",
     bar: output.bar !== undefined && output.bar !== null ? output.bar : undefined,
     recursiveMember:
       output.recursiveMember !== undefined && output.recursiveMember !== null
@@ -2819,7 +2796,6 @@ const deserializeAws_restJson1StructureList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1StructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
   return {
-    __type: "StructureListMember",
     a: output.value !== undefined && output.value !== null ? output.value : undefined,
     b: output.other !== undefined && output.other !== null ? output.other : undefined,
   } as any;
@@ -2852,7 +2828,6 @@ const deserializeAws_restJson1FooEnumSet = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
   return {
-    __type: "GreetingStruct",
     hi: output.hi !== undefined && output.hi !== null ? output.hi : undefined,
   } as any;
 };

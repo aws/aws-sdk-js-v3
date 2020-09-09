@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>A list of possible transcriptions for the audio.</p>
  */
 export interface Alternative {
-  __type?: "Alternative";
   /**
    * <p>One or more alternative interpretations of the input audio. </p>
    */
@@ -21,14 +20,12 @@ export namespace Alternative {
   export const filterSensitiveLog = (obj: Alternative): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Alternative => __isa(o, "Alternative");
 }
 
 /**
  * <p>Provides a wrapper for the audio chunks that you are sending.</p>
  */
 export interface AudioEvent {
-  __type?: "AudioEvent";
   /**
    * <p>An audio blob that contains the next part of the audio that you want to transcribe.</p>
    */
@@ -39,7 +36,6 @@ export namespace AudioEvent {
   export const filterSensitiveLog = (obj: AudioEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AudioEvent => __isa(o, "AudioEvent");
 }
 
 /**
@@ -48,20 +44,16 @@ export namespace AudioEvent {
 export type AudioStream = AudioStream.AudioEventMember | AudioStream.$UnknownMember;
 
 export namespace AudioStream {
-  interface $Base {
-    __type?: "AudioStream";
-  }
-
   /**
    * <p>A blob of audio from your application. You audio stream consists of one or more audio
    *       events.</p>
    */
-  export interface AudioEventMember extends $Base {
+  export interface AudioEventMember {
     AudioEvent: AudioEvent;
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     AudioEvent?: never;
     $unknown: [string, any];
   }
@@ -98,7 +90,6 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -115,7 +106,6 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
@@ -132,14 +122,12 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
  * <p>A word or phrase transcribed from the input audio.</p>
  */
 export interface Item {
-  __type?: "Item";
   /**
    * <p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word that
    *       was recognized in the input audio. <code>PUNCTUATION</code> indicates that the item was
@@ -176,7 +164,6 @@ export namespace Item {
   export const filterSensitiveLog = (obj: Item): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Item => __isa(o, "Item");
 }
 
 export enum ItemType {
@@ -209,7 +196,6 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export enum MediaEncoding {
@@ -220,7 +206,6 @@ export enum MediaEncoding {
  * <p>The result of transcribing a portion of the input audio stream. </p>
  */
 export interface Result {
-  __type?: "Result";
   /**
    * <p>Amazon Transcribe divides the incoming audio stream into segments at natural points in the audio.
    *       Transcription results are returned based on these segments. </p>
@@ -258,7 +243,6 @@ export namespace Result {
   export const filterSensitiveLog = (obj: Result): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Result => __isa(o, "Result");
 }
 
 /**
@@ -274,11 +258,9 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface StartStreamTranscriptionRequest {
-  __type?: "StartStreamTranscriptionRequest";
   /**
    * <p>The name of the vocabulary filter you've created that is unique to your AWS accountf.
    *       Provide the name in this field to successfully use it in a stream.</p>
@@ -335,11 +317,9 @@ export namespace StartStreamTranscriptionRequest {
     ...obj,
     ...(obj.AudioStream && { AudioStream: "STREAMING_CONTENT" }),
   });
-  export const isa = (o: any): o is StartStreamTranscriptionRequest => __isa(o, "StartStreamTranscriptionRequest");
 }
 
 export interface StartStreamTranscriptionResponse {
-  __type?: "StartStreamTranscriptionResponse";
   /**
    * <p>The name of the vocabulary filter used in your real-time stream.</p>
    */
@@ -392,14 +372,12 @@ export namespace StartStreamTranscriptionResponse {
     ...obj,
     ...(obj.TranscriptResultStream && { TranscriptResultStream: "STREAMING_CONTENT" }),
   });
-  export const isa = (o: any): o is StartStreamTranscriptionResponse => __isa(o, "StartStreamTranscriptionResponse");
 }
 
 /**
  * <p>The transcription in a <a>TranscriptEvent</a>.</p>
  */
 export interface Transcript {
-  __type?: "Transcript";
   /**
    * <p>
    *             <a>Result</a> objects that contain the results of transcribing a portion of the
@@ -412,7 +390,6 @@ export namespace Transcript {
   export const filterSensitiveLog = (obj: Transcript): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Transcript => __isa(o, "Transcript");
 }
 
 /**
@@ -420,7 +397,6 @@ export namespace Transcript {
  *       or more segments of the transcription.</p>
  */
 export interface TranscriptEvent {
-  __type?: "TranscriptEvent";
   /**
    * <p>The transcription of the audio stream. The transcription is composed of all of the items
    *       in the results list.</p>
@@ -432,7 +408,6 @@ export namespace TranscriptEvent {
   export const filterSensitiveLog = (obj: TranscriptEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TranscriptEvent => __isa(o, "TranscriptEvent");
 }
 
 /**
@@ -448,17 +423,13 @@ export type TranscriptResultStream =
   | TranscriptResultStream.$UnknownMember;
 
 export namespace TranscriptResultStream {
-  interface $Base {
-    __type?: "TranscriptResultStream";
-  }
-
   /**
    * <p>A portion of the transcription of the audio stream. Events are sent periodically from
    *       Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio
    *       stream, or it can be the entire transcription of that portion of the audio stream.
    *       </p>
    */
-  export interface TranscriptEventMember extends $Base {
+  export interface TranscriptEventMember {
     TranscriptEvent: TranscriptEvent;
     BadRequestException?: never;
     InternalFailureException?: never;
@@ -472,7 +443,7 @@ export namespace TranscriptResultStream {
    * <p>A client error occurred when the stream was created. Check the parameters of the request
    *       and try your request again.</p>
    */
-  export interface BadRequestExceptionMember extends $Base {
+  export interface BadRequestExceptionMember {
     TranscriptEvent?: never;
     BadRequestException: BadRequestException;
     InternalFailureException?: never;
@@ -485,7 +456,7 @@ export namespace TranscriptResultStream {
   /**
    * <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
    */
-  export interface InternalFailureExceptionMember extends $Base {
+  export interface InternalFailureExceptionMember {
     TranscriptEvent?: never;
     BadRequestException?: never;
     InternalFailureException: InternalFailureException;
@@ -499,7 +470,7 @@ export namespace TranscriptResultStream {
    * <p>A new stream started with the same session ID. The current stream has been
    *       terminated.</p>
    */
-  export interface ConflictExceptionMember extends $Base {
+  export interface ConflictExceptionMember {
     TranscriptEvent?: never;
     BadRequestException?: never;
     InternalFailureException?: never;
@@ -512,7 +483,7 @@ export namespace TranscriptResultStream {
   /**
    * <p>Service is currently unavailable. Try your request later.</p>
    */
-  export interface ServiceUnavailableExceptionMember extends $Base {
+  export interface ServiceUnavailableExceptionMember {
     TranscriptEvent?: never;
     BadRequestException?: never;
     InternalFailureException?: never;
@@ -526,7 +497,7 @@ export namespace TranscriptResultStream {
    * <p>Your client has exceeded one of the Amazon Transcribe limits, typically the limit on audio length.
    *       Break your audio stream into smaller chunks and try your request again.</p>
    */
-  export interface LimitExceededExceptionMember extends $Base {
+  export interface LimitExceededExceptionMember {
     TranscriptEvent?: never;
     BadRequestException?: never;
     InternalFailureException?: never;
@@ -536,7 +507,7 @@ export namespace TranscriptResultStream {
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     TranscriptEvent?: never;
     BadRequestException?: never;
     InternalFailureException?: never;

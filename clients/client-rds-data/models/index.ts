@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -13,14 +13,10 @@ export type ArrayValue =
   | ArrayValue.$UnknownMember;
 
 export namespace ArrayValue {
-  interface $Base {
-    __type?: "ArrayValue";
-  }
-
   /**
    * <p>An array of arrays.</p>
    */
-  export interface ArrayValuesMember extends $Base {
+  export interface ArrayValuesMember {
     arrayValues: ArrayValue[];
     booleanValues?: never;
     doubleValues?: never;
@@ -32,7 +28,7 @@ export namespace ArrayValue {
   /**
    * <p>An array of Boolean values.</p>
    */
-  export interface BooleanValuesMember extends $Base {
+  export interface BooleanValuesMember {
     arrayValues?: never;
     booleanValues: boolean[];
     doubleValues?: never;
@@ -44,7 +40,7 @@ export namespace ArrayValue {
   /**
    * <p>An array of integers.</p>
    */
-  export interface DoubleValuesMember extends $Base {
+  export interface DoubleValuesMember {
     arrayValues?: never;
     booleanValues?: never;
     doubleValues: number[];
@@ -56,7 +52,7 @@ export namespace ArrayValue {
   /**
    * <p>An array of floating point numbers.</p>
    */
-  export interface LongValuesMember extends $Base {
+  export interface LongValuesMember {
     arrayValues?: never;
     booleanValues?: never;
     doubleValues?: never;
@@ -68,7 +64,7 @@ export namespace ArrayValue {
   /**
    * <p>An array of strings.</p>
    */
-  export interface StringValuesMember extends $Base {
+  export interface StringValuesMember {
     arrayValues?: never;
     booleanValues?: never;
     doubleValues?: never;
@@ -77,7 +73,7 @@ export namespace ArrayValue {
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     arrayValues?: never;
     booleanValues?: never;
     doubleValues?: never;
@@ -131,7 +127,6 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -139,7 +134,6 @@ export namespace BadRequestException {
  *             data.</p>
  */
 export interface BatchExecuteStatementRequest {
-  __type?: "BatchExecuteStatementRequest";
   /**
    * <p>The name of the database.</p>
    */
@@ -197,7 +191,6 @@ export namespace BatchExecuteStatementRequest {
   export const filterSensitiveLog = (obj: BatchExecuteStatementRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchExecuteStatementRequest => __isa(o, "BatchExecuteStatementRequest");
 }
 
 /**
@@ -205,7 +198,6 @@ export namespace BatchExecuteStatementRequest {
  *             data.</p>
  */
 export interface BatchExecuteStatementResponse {
-  __type?: "BatchExecuteStatementResponse";
   /**
    * <p>The execution results of each batch entry.</p>
    */
@@ -216,7 +208,6 @@ export namespace BatchExecuteStatementResponse {
   export const filterSensitiveLog = (obj: BatchExecuteStatementResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchExecuteStatementResponse => __isa(o, "BatchExecuteStatementResponse");
 }
 
 /**
@@ -224,7 +215,6 @@ export namespace BatchExecuteStatementResponse {
  *             transaction.</p>
  */
 export interface BeginTransactionRequest {
-  __type?: "BeginTransactionRequest";
   /**
    * <p>The name of the database.</p>
    */
@@ -250,7 +240,6 @@ export namespace BeginTransactionRequest {
   export const filterSensitiveLog = (obj: BeginTransactionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BeginTransactionRequest => __isa(o, "BeginTransactionRequest");
 }
 
 /**
@@ -258,7 +247,6 @@ export namespace BeginTransactionRequest {
  *             transaction.</p>
  */
 export interface BeginTransactionResponse {
-  __type?: "BeginTransactionResponse";
   /**
    * <p>The transaction ID of the transaction started by the call.</p>
    */
@@ -269,14 +257,12 @@ export namespace BeginTransactionResponse {
   export const filterSensitiveLog = (obj: BeginTransactionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BeginTransactionResponse => __isa(o, "BeginTransactionResponse");
 }
 
 /**
  * <p>Contains the metadata for a column.</p>
  */
 export interface ColumnMetadata {
-  __type?: "ColumnMetadata";
   /**
    * <p>The type of the column.</p>
    */
@@ -352,14 +338,12 @@ export namespace ColumnMetadata {
   export const filterSensitiveLog = (obj: ColumnMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColumnMetadata => __isa(o, "ColumnMetadata");
 }
 
 /**
  * <p>The request parameters represent the input of a commit transaction request.</p>
  */
 export interface CommitTransactionRequest {
-  __type?: "CommitTransactionRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
    */
@@ -380,14 +364,12 @@ export namespace CommitTransactionRequest {
   export const filterSensitiveLog = (obj: CommitTransactionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommitTransactionRequest => __isa(o, "CommitTransactionRequest");
 }
 
 /**
  * <p>The response elements represent the output of a commit transaction request.</p>
  */
 export interface CommitTransactionResponse {
-  __type?: "CommitTransactionResponse";
   /**
    * <p>The status of the commit operation.</p>
    */
@@ -398,7 +380,6 @@ export namespace CommitTransactionResponse {
   export const filterSensitiveLog = (obj: CommitTransactionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommitTransactionResponse => __isa(o, "CommitTransactionResponse");
 }
 
 export enum DecimalReturnType {
@@ -411,7 +392,6 @@ export enum DecimalReturnType {
  *             statements.</p>
  */
 export interface ExecuteSqlRequest {
-  __type?: "ExecuteSqlRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the secret that enables access to the DB cluster.</p>
    */
@@ -445,7 +425,6 @@ export namespace ExecuteSqlRequest {
   export const filterSensitiveLog = (obj: ExecuteSqlRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecuteSqlRequest => __isa(o, "ExecuteSqlRequest");
 }
 
 /**
@@ -453,7 +432,6 @@ export namespace ExecuteSqlRequest {
  *             statements.</p>
  */
 export interface ExecuteSqlResponse {
-  __type?: "ExecuteSqlResponse";
   /**
    * <p>The results of the SQL statement or statements.</p>
    */
@@ -464,7 +442,6 @@ export namespace ExecuteSqlResponse {
   export const filterSensitiveLog = (obj: ExecuteSqlResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecuteSqlResponse => __isa(o, "ExecuteSqlResponse");
 }
 
 /**
@@ -472,7 +449,6 @@ export namespace ExecuteSqlResponse {
  *             a database.</p>
  */
 export interface ExecuteStatementRequest {
-  __type?: "ExecuteStatementRequest";
   /**
    * <p>A value that indicates whether to continue running the statement after
    *             the call times out. By default, the statement stops running when the call
@@ -545,7 +521,6 @@ export namespace ExecuteStatementRequest {
     ...obj,
     ...(obj.parameters && { parameters: obj.parameters.map((item) => SqlParameter.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ExecuteStatementRequest => __isa(o, "ExecuteStatementRequest");
 }
 
 /**
@@ -553,7 +528,6 @@ export namespace ExecuteStatementRequest {
  *             a database.</p>
  */
 export interface ExecuteStatementResponse {
-  __type?: "ExecuteStatementResponse";
   /**
    * <p>Metadata for the columns included in the results.</p>
    */
@@ -587,7 +561,6 @@ export namespace ExecuteStatementResponse {
     ...obj,
     ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => Field.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ExecuteStatementResponse => __isa(o, "ExecuteStatementResponse");
 }
 
 /**
@@ -604,14 +577,10 @@ export type Field =
   | Field.$UnknownMember;
 
 export namespace Field {
-  interface $Base {
-    __type?: "Field";
-  }
-
   /**
    * <p>An array of values.</p>
    */
-  export interface ArrayValueMember extends $Base {
+  export interface ArrayValueMember {
     arrayValue: ArrayValue;
     blobValue?: never;
     booleanValue?: never;
@@ -625,7 +594,7 @@ export namespace Field {
   /**
    * <p>A value of BLOB data type.</p>
    */
-  export interface BlobValueMember extends $Base {
+  export interface BlobValueMember {
     arrayValue?: never;
     blobValue: Uint8Array;
     booleanValue?: never;
@@ -639,7 +608,7 @@ export namespace Field {
   /**
    * <p>A value of Boolean data type.</p>
    */
-  export interface BooleanValueMember extends $Base {
+  export interface BooleanValueMember {
     arrayValue?: never;
     blobValue?: never;
     booleanValue: boolean;
@@ -653,7 +622,7 @@ export namespace Field {
   /**
    * <p>A value of double data type.</p>
    */
-  export interface DoubleValueMember extends $Base {
+  export interface DoubleValueMember {
     arrayValue?: never;
     blobValue?: never;
     booleanValue?: never;
@@ -667,7 +636,7 @@ export namespace Field {
   /**
    * <p>A NULL value.</p>
    */
-  export interface IsNullMember extends $Base {
+  export interface IsNullMember {
     arrayValue?: never;
     blobValue?: never;
     booleanValue?: never;
@@ -681,7 +650,7 @@ export namespace Field {
   /**
    * <p>A value of long data type.</p>
    */
-  export interface LongValueMember extends $Base {
+  export interface LongValueMember {
     arrayValue?: never;
     blobValue?: never;
     booleanValue?: never;
@@ -695,7 +664,7 @@ export namespace Field {
   /**
    * <p>A value of string data type.</p>
    */
-  export interface StringValueMember extends $Base {
+  export interface StringValueMember {
     arrayValue?: never;
     blobValue?: never;
     booleanValue?: never;
@@ -706,7 +675,7 @@ export namespace Field {
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     arrayValue?: never;
     blobValue?: never;
     booleanValue?: never;
@@ -767,7 +736,6 @@ export namespace ForbiddenException {
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
@@ -782,7 +750,6 @@ export namespace InternalServerErrorException {
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 /**
@@ -801,14 +768,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * <p>A record returned by a call.</p>
  */
 export interface _Record {
-  __type?: "Record";
   /**
    * <p>The values returned in the record.</p>
    */
@@ -820,14 +785,12 @@ export namespace _Record {
     ...obj,
     ...(obj.values && { values: obj.values.map((item) => Value.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
 
 /**
  * <p>The result set returned by a SQL statement.</p>
  */
 export interface ResultFrame {
-  __type?: "ResultFrame";
   /**
    * <p>The records in the result set.</p>
    */
@@ -843,14 +806,12 @@ export namespace ResultFrame {
   export const filterSensitiveLog = (obj: ResultFrame): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResultFrame => __isa(o, "ResultFrame");
 }
 
 /**
  * <p>The metadata of the result set returned by a SQL statement.</p>
  */
 export interface ResultSetMetadata {
-  __type?: "ResultSetMetadata";
   /**
    * <p>The number of columns in the result set.</p>
    */
@@ -866,14 +827,12 @@ export namespace ResultSetMetadata {
   export const filterSensitiveLog = (obj: ResultSetMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResultSetMetadata => __isa(o, "ResultSetMetadata");
 }
 
 /**
  * <p>Options that control how the result set is returned.</p>
  */
 export interface ResultSetOptions {
-  __type?: "ResultSetOptions";
   /**
    * <p>A value that indicates how a field of <code>DECIMAL</code> type is represented
    *             in the response. The value of <code>STRING</code>, the default, specifies that
@@ -892,7 +851,6 @@ export namespace ResultSetOptions {
   export const filterSensitiveLog = (obj: ResultSetOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResultSetOptions => __isa(o, "ResultSetOptions");
 }
 
 /**
@@ -900,7 +858,6 @@ export namespace ResultSetOptions {
  *             transaction.</p>
  */
 export interface RollbackTransactionRequest {
-  __type?: "RollbackTransactionRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
    */
@@ -921,7 +878,6 @@ export namespace RollbackTransactionRequest {
   export const filterSensitiveLog = (obj: RollbackTransactionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RollbackTransactionRequest => __isa(o, "RollbackTransactionRequest");
 }
 
 /**
@@ -929,7 +885,6 @@ export namespace RollbackTransactionRequest {
  *             transaction.</p>
  */
 export interface RollbackTransactionResponse {
-  __type?: "RollbackTransactionResponse";
   /**
    * <p>The status of the rollback operation.</p>
    */
@@ -940,7 +895,6 @@ export namespace RollbackTransactionResponse {
   export const filterSensitiveLog = (obj: RollbackTransactionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RollbackTransactionResponse => __isa(o, "RollbackTransactionResponse");
 }
 
 /**
@@ -956,14 +910,12 @@ export namespace ServiceUnavailableError {
   export const filterSensitiveLog = (obj: ServiceUnavailableError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableError => __isa(o, "ServiceUnavailableError");
 }
 
 /**
  * <p>A parameter used in a SQL statement.</p>
  */
 export interface SqlParameter {
-  __type?: "SqlParameter";
   /**
    * <p>The name of the parameter.</p>
    */
@@ -1010,7 +962,6 @@ export namespace SqlParameter {
     ...obj,
     ...(obj.value && { value: Field.filterSensitiveLog(obj.value) }),
   });
-  export const isa = (o: any): o is SqlParameter => __isa(o, "SqlParameter");
 }
 
 /**
@@ -1021,7 +972,6 @@ export namespace SqlParameter {
  *         </important>
  */
 export interface SqlStatementResult {
-  __type?: "SqlStatementResult";
   /**
    * <p>The number of records updated by a SQL statement.</p>
    */
@@ -1037,7 +987,6 @@ export namespace SqlStatementResult {
   export const filterSensitiveLog = (obj: SqlStatementResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqlStatementResult => __isa(o, "SqlStatementResult");
 }
 
 /**
@@ -1061,14 +1010,12 @@ export namespace StatementTimeoutException {
   export const filterSensitiveLog = (obj: StatementTimeoutException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StatementTimeoutException => __isa(o, "StatementTimeoutException");
 }
 
 /**
  * <p>A structure value returned by a call.</p>
  */
 export interface StructValue {
-  __type?: "StructValue";
   /**
    * <p>The attributes returned in the record.</p>
    */
@@ -1080,7 +1027,6 @@ export namespace StructValue {
     ...obj,
     ...(obj.attributes && { attributes: obj.attributes.map((item) => Value.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is StructValue => __isa(o, "StructValue");
 }
 
 export enum TypeHint {
@@ -1094,7 +1040,6 @@ export enum TypeHint {
  * <p>The response elements represent the results of an update.</p>
  */
 export interface UpdateResult {
-  __type?: "UpdateResult";
   /**
    * <p>Values for fields generated during the request.</p>
    */
@@ -1106,7 +1051,6 @@ export namespace UpdateResult {
     ...obj,
     ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => Field.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is UpdateResult => __isa(o, "UpdateResult");
 }
 
 /**
@@ -1130,14 +1074,10 @@ export type Value =
   | Value.$UnknownMember;
 
 export namespace Value {
-  interface $Base {
-    __type?: "Value";
-  }
-
   /**
    * <p>An array of column values.</p>
    */
-  export interface ArrayValuesMember extends $Base {
+  export interface ArrayValuesMember {
     arrayValues: Value[];
     bigIntValue?: never;
     bitValue?: never;
@@ -1154,7 +1094,7 @@ export namespace Value {
   /**
    * <p>A value for a column of big integer data type.</p>
    */
-  export interface BigIntValueMember extends $Base {
+  export interface BigIntValueMember {
     arrayValues?: never;
     bigIntValue: number;
     bitValue?: never;
@@ -1171,7 +1111,7 @@ export namespace Value {
   /**
    * <p>A value for a column of BIT data type.</p>
    */
-  export interface BitValueMember extends $Base {
+  export interface BitValueMember {
     arrayValues?: never;
     bigIntValue?: never;
     bitValue: boolean;
@@ -1188,7 +1128,7 @@ export namespace Value {
   /**
    * <p>A value for a column of BLOB data type.</p>
    */
-  export interface BlobValueMember extends $Base {
+  export interface BlobValueMember {
     arrayValues?: never;
     bigIntValue?: never;
     bitValue?: never;
@@ -1205,7 +1145,7 @@ export namespace Value {
   /**
    * <p>A value for a column of double data type.</p>
    */
-  export interface DoubleValueMember extends $Base {
+  export interface DoubleValueMember {
     arrayValues?: never;
     bigIntValue?: never;
     bitValue?: never;
@@ -1222,7 +1162,7 @@ export namespace Value {
   /**
    * <p>A value for a column of integer data type.</p>
    */
-  export interface IntValueMember extends $Base {
+  export interface IntValueMember {
     arrayValues?: never;
     bigIntValue?: never;
     bitValue?: never;
@@ -1239,7 +1179,7 @@ export namespace Value {
   /**
    * <p>A NULL value.</p>
    */
-  export interface IsNullMember extends $Base {
+  export interface IsNullMember {
     arrayValues?: never;
     bigIntValue?: never;
     bitValue?: never;
@@ -1256,7 +1196,7 @@ export namespace Value {
   /**
    * <p>A value for a column of real data type.</p>
    */
-  export interface RealValueMember extends $Base {
+  export interface RealValueMember {
     arrayValues?: never;
     bigIntValue?: never;
     bitValue?: never;
@@ -1273,7 +1213,7 @@ export namespace Value {
   /**
    * <p>A value for a column of string data type.</p>
    */
-  export interface StringValueMember extends $Base {
+  export interface StringValueMember {
     arrayValues?: never;
     bigIntValue?: never;
     bitValue?: never;
@@ -1290,7 +1230,7 @@ export namespace Value {
   /**
    * <p>A value for a column of STRUCT data type.</p>
    */
-  export interface StructValueMember extends $Base {
+  export interface StructValueMember {
     arrayValues?: never;
     bigIntValue?: never;
     bitValue?: never;
@@ -1304,7 +1244,7 @@ export namespace Value {
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     arrayValues?: never;
     bigIntValue?: never;
     bitValue?: never;

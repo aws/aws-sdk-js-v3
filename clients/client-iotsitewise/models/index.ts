@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +6,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       resource.</p>
  */
 export interface AccessPolicySummary {
-  __type?: "AccessPolicySummary";
   /**
    * <p>The AWS IoT SiteWise Monitor resource (a portal or project).</p>
    */
@@ -43,7 +42,6 @@ export namespace AccessPolicySummary {
   export const filterSensitiveLog = (obj: AccessPolicySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessPolicySummary => __isa(o, "AccessPolicySummary");
 }
 
 /**
@@ -51,7 +49,6 @@ export namespace AccessPolicySummary {
  *       maximum).</p>
  */
 export interface AggregatedValue {
-  __type?: "AggregatedValue";
   /**
    * <p>The value of the aggregates.</p>
    */
@@ -72,14 +69,12 @@ export namespace AggregatedValue {
   export const filterSensitiveLog = (obj: AggregatedValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AggregatedValue => __isa(o, "AggregatedValue");
 }
 
 /**
  * <p>Contains the (pre-calculated) aggregate values for an asset property.</p>
  */
 export interface Aggregates {
-  __type?: "Aggregates";
   /**
    * <p>The sum of the time series over a time interval window.</p>
    */
@@ -115,7 +110,6 @@ export namespace Aggregates {
   export const filterSensitiveLog = (obj: Aggregates): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Aggregates => __isa(o, "Aggregates");
 }
 
 export enum AggregateType {
@@ -135,7 +129,6 @@ export enum AssetErrorCode {
  * <p>Contains error details for the requested associate project asset action.</p>
  */
 export interface AssetErrorDetails {
-  __type?: "AssetErrorDetails";
   /**
    * <p>The error code.</p>
    */
@@ -156,14 +149,12 @@ export namespace AssetErrorDetails {
   export const filterSensitiveLog = (obj: AssetErrorDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetErrorDetails => __isa(o, "AssetErrorDetails");
 }
 
 /**
  * <p>Describes an asset hierarchy that contains a hierarchy's name and ID.</p>
  */
 export interface AssetHierarchy {
-  __type?: "AssetHierarchy";
   /**
    * <p>The hierarchy name provided in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API.</p>
    */
@@ -179,7 +170,6 @@ export namespace AssetHierarchy {
   export const filterSensitiveLog = (obj: AssetHierarchy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetHierarchy => __isa(o, "AssetHierarchy");
 }
 
 /**
@@ -187,7 +177,6 @@ export namespace AssetHierarchy {
  *       ID that specifies the type of asset that can be in this hierarchy.</p>
  */
 export interface AssetModelHierarchy {
-  __type?: "AssetModelHierarchy";
   /**
    * <p>The ID of the asset model. All assets in this hierarchy must be instances of the
    *         <code>childAssetModelId</code> asset model.</p>
@@ -209,7 +198,6 @@ export namespace AssetModelHierarchy {
   export const filterSensitiveLog = (obj: AssetModelHierarchy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetModelHierarchy => __isa(o, "AssetModelHierarchy");
 }
 
 /**
@@ -217,7 +205,6 @@ export namespace AssetModelHierarchy {
  *       determines the kind (or type) of asset that can belong to a hierarchy.</p>
  */
 export interface AssetModelHierarchyDefinition {
-  __type?: "AssetModelHierarchyDefinition";
   /**
    * <p>The ID of an asset model for this hierarchy.</p>
    */
@@ -233,14 +220,12 @@ export namespace AssetModelHierarchyDefinition {
   export const filterSensitiveLog = (obj: AssetModelHierarchyDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetModelHierarchyDefinition => __isa(o, "AssetModelHierarchyDefinition");
 }
 
 /**
  * <p>Contains information about an asset model property.</p>
  */
 export interface AssetModelProperty {
-  __type?: "AssetModelProperty";
   /**
    * <p>The ID of the asset model property.</p>
    */
@@ -272,7 +257,6 @@ export namespace AssetModelProperty {
   export const filterSensitiveLog = (obj: AssetModelProperty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetModelProperty => __isa(o, "AssetModelProperty");
 }
 
 /**
@@ -280,7 +264,6 @@ export namespace AssetModelProperty {
  *       assets created from the asset model.</p>
  */
 export interface AssetModelPropertyDefinition {
-  __type?: "AssetModelPropertyDefinition";
   /**
    * <p>The property definition type (see <code>PropertyType</code>). You can only specify one
    *       type in a property definition.</p>
@@ -308,7 +291,6 @@ export namespace AssetModelPropertyDefinition {
   export const filterSensitiveLog = (obj: AssetModelPropertyDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetModelPropertyDefinition => __isa(o, "AssetModelPropertyDefinition");
 }
 
 export enum AssetModelState {
@@ -325,7 +307,6 @@ export enum AssetModelState {
  *         <i>AWS IoT SiteWise User Guide</i>.</p>
  */
 export interface AssetModelStatus {
-  __type?: "AssetModelStatus";
   /**
    * <p>The current state of the asset model.</p>
    */
@@ -341,14 +322,12 @@ export namespace AssetModelStatus {
   export const filterSensitiveLog = (obj: AssetModelStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetModelStatus => __isa(o, "AssetModelStatus");
 }
 
 /**
  * <p>Contains a summary of an asset model.</p>
  */
 export interface AssetModelSummary {
-  __type?: "AssetModelSummary";
   /**
    * <p>The date the asset model was created, in Unix epoch time.</p>
    */
@@ -392,14 +371,12 @@ export namespace AssetModelSummary {
   export const filterSensitiveLog = (obj: AssetModelSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetModelSummary => __isa(o, "AssetModelSummary");
 }
 
 /**
  * <p>Contains asset property information.</p>
  */
 export interface AssetProperty {
-  __type?: "AssetProperty";
   /**
    * <p>The asset property's notification topic and state. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>
    *          </p>
@@ -439,14 +416,12 @@ export namespace AssetProperty {
   export const filterSensitiveLog = (obj: AssetProperty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetProperty => __isa(o, "AssetProperty");
 }
 
 /**
  * <p>Contains asset property value information.</p>
  */
 export interface AssetPropertyValue {
-  __type?: "AssetPropertyValue";
   /**
    * <p>The value of the asset property (see <code>Variant</code>).</p>
    */
@@ -467,7 +442,6 @@ export namespace AssetPropertyValue {
   export const filterSensitiveLog = (obj: AssetPropertyValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetPropertyValue => __isa(o, "AssetPropertyValue");
 }
 
 export enum AssetState {
@@ -484,7 +458,6 @@ export enum AssetState {
  *         <i>AWS IoT SiteWise User Guide</i>.</p>
  */
 export interface AssetStatus {
-  __type?: "AssetStatus";
   /**
    * <p>Contains associated error information, if any.</p>
    */
@@ -500,14 +473,12 @@ export namespace AssetStatus {
   export const filterSensitiveLog = (obj: AssetStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetStatus => __isa(o, "AssetStatus");
 }
 
 /**
  * <p>Contains a summary of an asset.</p>
  */
 export interface AssetSummary {
-  __type?: "AssetSummary";
   /**
    * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
    */
@@ -556,11 +527,9 @@ export namespace AssetSummary {
   export const filterSensitiveLog = (obj: AssetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetSummary => __isa(o, "AssetSummary");
 }
 
 export interface AssociateAssetsRequest {
-  __type?: "AssociateAssetsRequest";
   /**
    * <p>The ID of the child asset to be associated.</p>
    */
@@ -588,14 +557,12 @@ export namespace AssociateAssetsRequest {
   export const filterSensitiveLog = (obj: AssociateAssetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateAssetsRequest => __isa(o, "AssociateAssetsRequest");
 }
 
 /**
  * <p>Contains a summary of an associated asset.</p>
  */
 export interface AssociatedAssetsSummary {
-  __type?: "AssociatedAssetsSummary";
   /**
    * <p>The date the asset was created, in Unix epoch time.</p>
    */
@@ -644,7 +611,6 @@ export namespace AssociatedAssetsSummary {
   export const filterSensitiveLog = (obj: AssociatedAssetsSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociatedAssetsSummary => __isa(o, "AssociatedAssetsSummary");
 }
 
 /**
@@ -652,7 +618,6 @@ export namespace AssociatedAssetsSummary {
  *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes">Attributes</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
  */
 export interface Attribute {
-  __type?: "Attribute";
   /**
    * <p>The default value of the asset model property attribute. All assets that you create from
    *       the asset model contain this attribute value. You can update an attribute's value after you
@@ -666,11 +631,9 @@ export namespace Attribute {
   export const filterSensitiveLog = (obj: Attribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
 
 export interface BatchAssociateProjectAssetsRequest {
-  __type?: "BatchAssociateProjectAssetsRequest";
   /**
    * <p>The IDs of the assets to be associated to the project.</p>
    */
@@ -691,12 +654,9 @@ export namespace BatchAssociateProjectAssetsRequest {
   export const filterSensitiveLog = (obj: BatchAssociateProjectAssetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchAssociateProjectAssetsRequest =>
-    __isa(o, "BatchAssociateProjectAssetsRequest");
 }
 
 export interface BatchAssociateProjectAssetsResponse {
-  __type?: "BatchAssociateProjectAssetsResponse";
   /**
    * <p>A list of associated error information, if any.</p>
    */
@@ -707,12 +667,9 @@ export namespace BatchAssociateProjectAssetsResponse {
   export const filterSensitiveLog = (obj: BatchAssociateProjectAssetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchAssociateProjectAssetsResponse =>
-    __isa(o, "BatchAssociateProjectAssetsResponse");
 }
 
 export interface BatchDisassociateProjectAssetsRequest {
-  __type?: "BatchDisassociateProjectAssetsRequest";
   /**
    * <p>The ID of the project from which to disassociate the assets.</p>
    */
@@ -733,12 +690,9 @@ export namespace BatchDisassociateProjectAssetsRequest {
   export const filterSensitiveLog = (obj: BatchDisassociateProjectAssetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDisassociateProjectAssetsRequest =>
-    __isa(o, "BatchDisassociateProjectAssetsRequest");
 }
 
 export interface BatchDisassociateProjectAssetsResponse {
-  __type?: "BatchDisassociateProjectAssetsResponse";
   /**
    * <p>A list of associated error information, if any.</p>
    */
@@ -749,15 +703,12 @@ export namespace BatchDisassociateProjectAssetsResponse {
   export const filterSensitiveLog = (obj: BatchDisassociateProjectAssetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDisassociateProjectAssetsResponse =>
-    __isa(o, "BatchDisassociateProjectAssetsResponse");
 }
 
 /**
  * <p>Contains error information from updating a batch of asset property values.</p>
  */
 export interface BatchPutAssetPropertyError {
-  __type?: "BatchPutAssetPropertyError";
   /**
    * <p>A list of timestamps for each  error, if any.</p>
    */
@@ -778,7 +729,6 @@ export namespace BatchPutAssetPropertyError {
   export const filterSensitiveLog = (obj: BatchPutAssetPropertyError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutAssetPropertyError => __isa(o, "BatchPutAssetPropertyError");
 }
 
 /**
@@ -786,7 +736,6 @@ export namespace BatchPutAssetPropertyError {
  *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html">BatchPutAssetPropertyValue</a> API.</p>
  */
 export interface BatchPutAssetPropertyErrorEntry {
-  __type?: "BatchPutAssetPropertyErrorEntry";
   /**
    * <p>The list of update property value errors.</p>
    */
@@ -802,7 +751,6 @@ export namespace BatchPutAssetPropertyErrorEntry {
   export const filterSensitiveLog = (obj: BatchPutAssetPropertyErrorEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutAssetPropertyErrorEntry => __isa(o, "BatchPutAssetPropertyErrorEntry");
 }
 
 export enum BatchPutAssetPropertyValueErrorCode {
@@ -818,7 +766,6 @@ export enum BatchPutAssetPropertyValueErrorCode {
 }
 
 export interface BatchPutAssetPropertyValueRequest {
-  __type?: "BatchPutAssetPropertyValueRequest";
   /**
    * <p>The list of asset property value entries for the batch put request. You can specify up to
    *       10 entries per request.</p>
@@ -830,11 +777,9 @@ export namespace BatchPutAssetPropertyValueRequest {
   export const filterSensitiveLog = (obj: BatchPutAssetPropertyValueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutAssetPropertyValueRequest => __isa(o, "BatchPutAssetPropertyValueRequest");
 }
 
 export interface BatchPutAssetPropertyValueResponse {
-  __type?: "BatchPutAssetPropertyValueResponse";
   /**
    * <p>A list of the errors (if any) associated with the batch put request. Each error entry
    *       contains the <code>entryId</code> of the entry that failed.</p>
@@ -846,8 +791,6 @@ export namespace BatchPutAssetPropertyValueResponse {
   export const filterSensitiveLog = (obj: BatchPutAssetPropertyValueResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutAssetPropertyValueResponse =>
-    __isa(o, "BatchPutAssetPropertyValueResponse");
 }
 
 export enum CapabilitySyncStatus {
@@ -880,11 +823,9 @@ export namespace ConflictingOperationException {
   export const filterSensitiveLog = (obj: ConflictingOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictingOperationException => __isa(o, "ConflictingOperationException");
 }
 
 export interface CreateAccessPolicyRequest {
-  __type?: "CreateAccessPolicyRequest";
   /**
    * <p>The identity for this access policy. Choose either a <code>user</code> or a <code>group</code> but not both.</p>
    */
@@ -917,11 +858,9 @@ export namespace CreateAccessPolicyRequest {
   export const filterSensitiveLog = (obj: CreateAccessPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccessPolicyRequest => __isa(o, "CreateAccessPolicyRequest");
 }
 
 export interface CreateAccessPolicyResponse {
-  __type?: "CreateAccessPolicyResponse";
   /**
    * <p>The ID of the access policy.</p>
    */
@@ -940,11 +879,9 @@ export namespace CreateAccessPolicyResponse {
   export const filterSensitiveLog = (obj: CreateAccessPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccessPolicyResponse => __isa(o, "CreateAccessPolicyResponse");
 }
 
 export interface CreateAssetModelRequest {
-  __type?: "CreateAssetModelRequest";
   /**
    * <p>A description for the asset model.</p>
    */
@@ -989,11 +926,9 @@ export namespace CreateAssetModelRequest {
   export const filterSensitiveLog = (obj: CreateAssetModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAssetModelRequest => __isa(o, "CreateAssetModelRequest");
 }
 
 export interface CreateAssetModelResponse {
-  __type?: "CreateAssetModelResponse";
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
    *         <p>
@@ -1018,11 +953,9 @@ export namespace CreateAssetModelResponse {
   export const filterSensitiveLog = (obj: CreateAssetModelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAssetModelResponse => __isa(o, "CreateAssetModelResponse");
 }
 
 export interface CreateAssetRequest {
-  __type?: "CreateAssetRequest";
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
@@ -1050,11 +983,9 @@ export namespace CreateAssetRequest {
   export const filterSensitiveLog = (obj: CreateAssetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAssetRequest => __isa(o, "CreateAssetRequest");
 }
 
 export interface CreateAssetResponse {
-  __type?: "CreateAssetResponse";
   /**
    * <p>The ID of the asset. This ID uniquely identifies the asset within AWS IoT SiteWise and can be used with other
    *       AWS IoT SiteWise APIs.</p>
@@ -1080,11 +1011,9 @@ export namespace CreateAssetResponse {
   export const filterSensitiveLog = (obj: CreateAssetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAssetResponse => __isa(o, "CreateAssetResponse");
 }
 
 export interface CreateDashboardRequest {
-  __type?: "CreateDashboardRequest";
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
@@ -1123,11 +1052,9 @@ export namespace CreateDashboardRequest {
   export const filterSensitiveLog = (obj: CreateDashboardRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDashboardRequest => __isa(o, "CreateDashboardRequest");
 }
 
 export interface CreateDashboardResponse {
-  __type?: "CreateDashboardResponse";
   /**
    * <p>The ID of the dashboard.</p>
    */
@@ -1146,11 +1073,9 @@ export namespace CreateDashboardResponse {
   export const filterSensitiveLog = (obj: CreateDashboardResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDashboardResponse => __isa(o, "CreateDashboardResponse");
 }
 
 export interface CreateGatewayRequest {
-  __type?: "CreateGatewayRequest";
   /**
    * <p>The gateway's platform. You can only specify one platform in a gateway.</p>
    */
@@ -1173,11 +1098,9 @@ export namespace CreateGatewayRequest {
   export const filterSensitiveLog = (obj: CreateGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGatewayRequest => __isa(o, "CreateGatewayRequest");
 }
 
 export interface CreateGatewayResponse {
-  __type?: "CreateGatewayResponse";
   /**
    * <p>The ID of the gateway device. You can use this ID when you call other AWS IoT SiteWise APIs.</p>
    */
@@ -1196,11 +1119,9 @@ export namespace CreateGatewayResponse {
   export const filterSensitiveLog = (obj: CreateGatewayResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGatewayResponse => __isa(o, "CreateGatewayResponse");
 }
 
 export interface CreatePortalRequest {
-  __type?: "CreatePortalRequest";
   /**
    * <p>A list of key-value pairs that contain metadata for the portal. For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise resources</a> in the
@@ -1246,11 +1167,9 @@ export namespace CreatePortalRequest {
   export const filterSensitiveLog = (obj: CreatePortalRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePortalRequest => __isa(o, "CreatePortalRequest");
 }
 
 export interface CreatePortalResponse {
-  __type?: "CreatePortalResponse";
   /**
    * <p>The associated AWS SSO application Id.</p>
    */
@@ -1285,11 +1204,9 @@ export namespace CreatePortalResponse {
   export const filterSensitiveLog = (obj: CreatePortalResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePortalResponse => __isa(o, "CreatePortalResponse");
 }
 
 export interface CreateProjectRequest {
-  __type?: "CreateProjectRequest";
   /**
    * <p>A list of key-value pairs that contain metadata for the project. For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise resources</a> in the
@@ -1322,11 +1239,9 @@ export namespace CreateProjectRequest {
   export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectRequest => __isa(o, "CreateProjectRequest");
 }
 
 export interface CreateProjectResponse {
-  __type?: "CreateProjectResponse";
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the project, which has the following format.</p>
    *         <p>
@@ -1345,14 +1260,12 @@ export namespace CreateProjectResponse {
   export const filterSensitiveLog = (obj: CreateProjectResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectResponse => __isa(o, "CreateProjectResponse");
 }
 
 /**
  * <p>Contains a dashboard summary.</p>
  */
 export interface DashboardSummary {
-  __type?: "DashboardSummary";
   /**
    * <p>The ID of the dashboard.</p>
    */
@@ -1383,11 +1296,9 @@ export namespace DashboardSummary {
   export const filterSensitiveLog = (obj: DashboardSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardSummary => __isa(o, "DashboardSummary");
 }
 
 export interface DeleteAccessPolicyRequest {
-  __type?: "DeleteAccessPolicyRequest";
   /**
    * <p>The ID of the access policy to be deleted.</p>
    */
@@ -1403,22 +1314,17 @@ export namespace DeleteAccessPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteAccessPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccessPolicyRequest => __isa(o, "DeleteAccessPolicyRequest");
 }
 
-export interface DeleteAccessPolicyResponse {
-  __type?: "DeleteAccessPolicyResponse";
-}
+export interface DeleteAccessPolicyResponse {}
 
 export namespace DeleteAccessPolicyResponse {
   export const filterSensitiveLog = (obj: DeleteAccessPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccessPolicyResponse => __isa(o, "DeleteAccessPolicyResponse");
 }
 
 export interface DeleteAssetModelRequest {
-  __type?: "DeleteAssetModelRequest";
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
@@ -1434,11 +1340,9 @@ export namespace DeleteAssetModelRequest {
   export const filterSensitiveLog = (obj: DeleteAssetModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAssetModelRequest => __isa(o, "DeleteAssetModelRequest");
 }
 
 export interface DeleteAssetModelResponse {
-  __type?: "DeleteAssetModelResponse";
   /**
    * <p>The status of the asset model, which contains a state (<code>DELETING</code> after
    *       successfully calling this operation) and any error message.</p>
@@ -1450,11 +1354,9 @@ export namespace DeleteAssetModelResponse {
   export const filterSensitiveLog = (obj: DeleteAssetModelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAssetModelResponse => __isa(o, "DeleteAssetModelResponse");
 }
 
 export interface DeleteAssetRequest {
-  __type?: "DeleteAssetRequest";
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
@@ -1470,11 +1372,9 @@ export namespace DeleteAssetRequest {
   export const filterSensitiveLog = (obj: DeleteAssetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAssetRequest => __isa(o, "DeleteAssetRequest");
 }
 
 export interface DeleteAssetResponse {
-  __type?: "DeleteAssetResponse";
   /**
    * <p>The status of the asset, which contains a state (<code>DELETING</code> after successfully
    *       calling this operation) and any error message.</p>
@@ -1486,11 +1386,9 @@ export namespace DeleteAssetResponse {
   export const filterSensitiveLog = (obj: DeleteAssetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAssetResponse => __isa(o, "DeleteAssetResponse");
 }
 
 export interface DeleteDashboardRequest {
-  __type?: "DeleteDashboardRequest";
   /**
    * <p>The ID of the dashboard to delete.</p>
    */
@@ -1506,22 +1404,17 @@ export namespace DeleteDashboardRequest {
   export const filterSensitiveLog = (obj: DeleteDashboardRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDashboardRequest => __isa(o, "DeleteDashboardRequest");
 }
 
-export interface DeleteDashboardResponse {
-  __type?: "DeleteDashboardResponse";
-}
+export interface DeleteDashboardResponse {}
 
 export namespace DeleteDashboardResponse {
   export const filterSensitiveLog = (obj: DeleteDashboardResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDashboardResponse => __isa(o, "DeleteDashboardResponse");
 }
 
 export interface DeleteGatewayRequest {
-  __type?: "DeleteGatewayRequest";
   /**
    * <p>The ID of the gateway to delete.</p>
    */
@@ -1532,11 +1425,9 @@ export namespace DeleteGatewayRequest {
   export const filterSensitiveLog = (obj: DeleteGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGatewayRequest => __isa(o, "DeleteGatewayRequest");
 }
 
 export interface DeletePortalRequest {
-  __type?: "DeletePortalRequest";
   /**
    * <p>The ID of the portal to delete.</p>
    */
@@ -1552,11 +1443,9 @@ export namespace DeletePortalRequest {
   export const filterSensitiveLog = (obj: DeletePortalRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePortalRequest => __isa(o, "DeletePortalRequest");
 }
 
 export interface DeletePortalResponse {
-  __type?: "DeletePortalResponse";
   /**
    * <p>The status of the portal, which contains a state (<code>DELETING</code> after successfully
    *       calling this operation) and any error message.</p>
@@ -1568,11 +1457,9 @@ export namespace DeletePortalResponse {
   export const filterSensitiveLog = (obj: DeletePortalResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePortalResponse => __isa(o, "DeletePortalResponse");
 }
 
 export interface DeleteProjectRequest {
-  __type?: "DeleteProjectRequest";
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
@@ -1588,22 +1475,17 @@ export namespace DeleteProjectRequest {
   export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectRequest => __isa(o, "DeleteProjectRequest");
 }
 
-export interface DeleteProjectResponse {
-  __type?: "DeleteProjectResponse";
-}
+export interface DeleteProjectResponse {}
 
 export namespace DeleteProjectResponse {
   export const filterSensitiveLog = (obj: DeleteProjectResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectResponse => __isa(o, "DeleteProjectResponse");
 }
 
 export interface DescribeAccessPolicyRequest {
-  __type?: "DescribeAccessPolicyRequest";
   /**
    * <p>The ID of the access policy.</p>
    */
@@ -1614,11 +1496,9 @@ export namespace DescribeAccessPolicyRequest {
   export const filterSensitiveLog = (obj: DescribeAccessPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccessPolicyRequest => __isa(o, "DescribeAccessPolicyRequest");
 }
 
 export interface DescribeAccessPolicyResponse {
-  __type?: "DescribeAccessPolicyResponse";
   /**
    * <p>The date the access policy was created, in Unix epoch time.</p>
    */
@@ -1664,11 +1544,9 @@ export namespace DescribeAccessPolicyResponse {
   export const filterSensitiveLog = (obj: DescribeAccessPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccessPolicyResponse => __isa(o, "DescribeAccessPolicyResponse");
 }
 
 export interface DescribeAssetModelRequest {
-  __type?: "DescribeAssetModelRequest";
   /**
    * <p>The ID of the asset model.</p>
    */
@@ -1679,11 +1557,9 @@ export namespace DescribeAssetModelRequest {
   export const filterSensitiveLog = (obj: DescribeAssetModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssetModelRequest => __isa(o, "DescribeAssetModelRequest");
 }
 
 export interface DescribeAssetModelResponse {
-  __type?: "DescribeAssetModelResponse";
   /**
    * <p>A list of asset model hierarchies that each contain a <code>childAssetModelId</code> and a
    *         <code>hierarchyId</code> (named <code>id</code>). A hierarchy specifies allowed parent/child
@@ -1740,11 +1616,9 @@ export namespace DescribeAssetModelResponse {
   export const filterSensitiveLog = (obj: DescribeAssetModelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssetModelResponse => __isa(o, "DescribeAssetModelResponse");
 }
 
 export interface DescribeAssetPropertyRequest {
-  __type?: "DescribeAssetPropertyRequest";
   /**
    * <p>The ID of the asset property.</p>
    */
@@ -1760,11 +1634,9 @@ export namespace DescribeAssetPropertyRequest {
   export const filterSensitiveLog = (obj: DescribeAssetPropertyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssetPropertyRequest => __isa(o, "DescribeAssetPropertyRequest");
 }
 
 export interface DescribeAssetPropertyResponse {
-  __type?: "DescribeAssetPropertyResponse";
   /**
    * <p>The ID of the asset.</p>
    */
@@ -1790,11 +1662,9 @@ export namespace DescribeAssetPropertyResponse {
   export const filterSensitiveLog = (obj: DescribeAssetPropertyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssetPropertyResponse => __isa(o, "DescribeAssetPropertyResponse");
 }
 
 export interface DescribeAssetRequest {
-  __type?: "DescribeAssetRequest";
   /**
    * <p>The ID of the asset.</p>
    */
@@ -1805,11 +1675,9 @@ export namespace DescribeAssetRequest {
   export const filterSensitiveLog = (obj: DescribeAssetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssetRequest => __isa(o, "DescribeAssetRequest");
 }
 
 export interface DescribeAssetResponse {
-  __type?: "DescribeAssetResponse";
   /**
    * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
    */
@@ -1863,11 +1731,9 @@ export namespace DescribeAssetResponse {
   export const filterSensitiveLog = (obj: DescribeAssetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssetResponse => __isa(o, "DescribeAssetResponse");
 }
 
 export interface DescribeDashboardRequest {
-  __type?: "DescribeDashboardRequest";
   /**
    * <p>The ID of the dashboard.</p>
    */
@@ -1878,11 +1744,9 @@ export namespace DescribeDashboardRequest {
   export const filterSensitiveLog = (obj: DescribeDashboardRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDashboardRequest => __isa(o, "DescribeDashboardRequest");
 }
 
 export interface DescribeDashboardResponse {
-  __type?: "DescribeDashboardResponse";
   /**
    * <p>The ID of the project that the dashboard is in.</p>
    */
@@ -1932,11 +1796,9 @@ export namespace DescribeDashboardResponse {
   export const filterSensitiveLog = (obj: DescribeDashboardResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDashboardResponse => __isa(o, "DescribeDashboardResponse");
 }
 
 export interface DescribeGatewayCapabilityConfigurationRequest {
-  __type?: "DescribeGatewayCapabilityConfigurationRequest";
   /**
    * <p>The namespace of the capability configuration.
    *       For example, if you configure OPC-UA
@@ -1956,12 +1818,9 @@ export namespace DescribeGatewayCapabilityConfigurationRequest {
   export const filterSensitiveLog = (obj: DescribeGatewayCapabilityConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGatewayCapabilityConfigurationRequest =>
-    __isa(o, "DescribeGatewayCapabilityConfigurationRequest");
 }
 
 export interface DescribeGatewayCapabilityConfigurationResponse {
-  __type?: "DescribeGatewayCapabilityConfigurationResponse";
   /**
    * <p>The namespace of the gateway capability.</p>
    */
@@ -2002,12 +1861,9 @@ export namespace DescribeGatewayCapabilityConfigurationResponse {
   export const filterSensitiveLog = (obj: DescribeGatewayCapabilityConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGatewayCapabilityConfigurationResponse =>
-    __isa(o, "DescribeGatewayCapabilityConfigurationResponse");
 }
 
 export interface DescribeGatewayRequest {
-  __type?: "DescribeGatewayRequest";
   /**
    * <p>The ID of the gateway device.</p>
    */
@@ -2018,11 +1874,9 @@ export namespace DescribeGatewayRequest {
   export const filterSensitiveLog = (obj: DescribeGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGatewayRequest => __isa(o, "DescribeGatewayRequest");
 }
 
 export interface DescribeGatewayResponse {
-  __type?: "DescribeGatewayResponse";
   /**
    * <p>The name of the gateway.</p>
    */
@@ -2068,22 +1922,17 @@ export namespace DescribeGatewayResponse {
   export const filterSensitiveLog = (obj: DescribeGatewayResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGatewayResponse => __isa(o, "DescribeGatewayResponse");
 }
 
-export interface DescribeLoggingOptionsRequest {
-  __type?: "DescribeLoggingOptionsRequest";
-}
+export interface DescribeLoggingOptionsRequest {}
 
 export namespace DescribeLoggingOptionsRequest {
   export const filterSensitiveLog = (obj: DescribeLoggingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoggingOptionsRequest => __isa(o, "DescribeLoggingOptionsRequest");
 }
 
 export interface DescribeLoggingOptionsResponse {
-  __type?: "DescribeLoggingOptionsResponse";
   /**
    * <p>The current logging options.</p>
    */
@@ -2094,11 +1943,9 @@ export namespace DescribeLoggingOptionsResponse {
   export const filterSensitiveLog = (obj: DescribeLoggingOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoggingOptionsResponse => __isa(o, "DescribeLoggingOptionsResponse");
 }
 
 export interface DescribePortalRequest {
-  __type?: "DescribePortalRequest";
   /**
    * <p>The ID of the portal.</p>
    */
@@ -2109,11 +1956,9 @@ export namespace DescribePortalRequest {
   export const filterSensitiveLog = (obj: DescribePortalRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePortalRequest => __isa(o, "DescribePortalRequest");
 }
 
 export interface DescribePortalResponse {
-  __type?: "DescribePortalResponse";
   /**
    * <p>The date the portal was created, in Unix epoch time.</p>
    */
@@ -2184,11 +2029,9 @@ export namespace DescribePortalResponse {
   export const filterSensitiveLog = (obj: DescribePortalResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePortalResponse => __isa(o, "DescribePortalResponse");
 }
 
 export interface DescribeProjectRequest {
-  __type?: "DescribeProjectRequest";
   /**
    * <p>The ID of the project.</p>
    */
@@ -2199,11 +2042,9 @@ export namespace DescribeProjectRequest {
   export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProjectRequest => __isa(o, "DescribeProjectRequest");
 }
 
 export interface DescribeProjectResponse {
-  __type?: "DescribeProjectResponse";
   /**
    * <p>The date the project was last updated, in Unix epoch time.</p>
    */
@@ -2247,11 +2088,9 @@ export namespace DescribeProjectResponse {
   export const filterSensitiveLog = (obj: DescribeProjectResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProjectResponse => __isa(o, "DescribeProjectResponse");
 }
 
 export interface DisassociateAssetsRequest {
-  __type?: "DisassociateAssetsRequest";
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
@@ -2280,7 +2119,6 @@ export namespace DisassociateAssetsRequest {
   export const filterSensitiveLog = (obj: DisassociateAssetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateAssetsRequest => __isa(o, "DisassociateAssetsRequest");
 }
 
 export enum ErrorCode {
@@ -2292,7 +2130,6 @@ export enum ErrorCode {
  * <p>Contains the details of an AWS IoT SiteWise error.</p>
  */
 export interface ErrorDetails {
-  __type?: "ErrorDetails";
   /**
    * <p>The error code.</p>
    */
@@ -2308,14 +2145,12 @@ export namespace ErrorDetails {
   export const filterSensitiveLog = (obj: ErrorDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorDetails => __isa(o, "ErrorDetails");
 }
 
 /**
  * <p>Contains expression variable information.</p>
  */
 export interface ExpressionVariable {
-  __type?: "ExpressionVariable";
   /**
    * <p>The variable that identifies an asset property from which to use values.</p>
    */
@@ -2331,14 +2166,12 @@ export namespace ExpressionVariable {
   export const filterSensitiveLog = (obj: ExpressionVariable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExpressionVariable => __isa(o, "ExpressionVariable");
 }
 
 /**
  * <p>Contains a summary of a gateway capability configuration.</p>
  */
 export interface GatewayCapabilitySummary {
-  __type?: "GatewayCapabilitySummary";
   /**
    * <p>The namespace of the capability configuration.
    *       For example, if you configure OPC-UA
@@ -2372,14 +2205,12 @@ export namespace GatewayCapabilitySummary {
   export const filterSensitiveLog = (obj: GatewayCapabilitySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewayCapabilitySummary => __isa(o, "GatewayCapabilitySummary");
 }
 
 /**
  * <p>Contains a gateway's platform information.</p>
  */
 export interface GatewayPlatform {
-  __type?: "GatewayPlatform";
   /**
    * <p>A gateway that runs on AWS IoT Greengrass.</p>
    */
@@ -2390,14 +2221,12 @@ export namespace GatewayPlatform {
   export const filterSensitiveLog = (obj: GatewayPlatform): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewayPlatform => __isa(o, "GatewayPlatform");
 }
 
 /**
  * <p>Contains a summary of a gateway.</p>
  */
 export interface GatewaySummary {
-  __type?: "GatewaySummary";
   /**
    * <p>The date the gateway was last updated, in Unix epoch time.</p>
    */
@@ -2430,11 +2259,9 @@ export namespace GatewaySummary {
   export const filterSensitiveLog = (obj: GatewaySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewaySummary => __isa(o, "GatewaySummary");
 }
 
 export interface GetAssetPropertyAggregatesRequest {
-  __type?: "GetAssetPropertyAggregatesRequest";
   /**
    * <p>The ID of the asset property.</p>
    */
@@ -2498,11 +2325,9 @@ export namespace GetAssetPropertyAggregatesRequest {
   export const filterSensitiveLog = (obj: GetAssetPropertyAggregatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssetPropertyAggregatesRequest => __isa(o, "GetAssetPropertyAggregatesRequest");
 }
 
 export interface GetAssetPropertyAggregatesResponse {
-  __type?: "GetAssetPropertyAggregatesResponse";
   /**
    * <p>The requested aggregated values.</p>
    */
@@ -2518,12 +2343,9 @@ export namespace GetAssetPropertyAggregatesResponse {
   export const filterSensitiveLog = (obj: GetAssetPropertyAggregatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssetPropertyAggregatesResponse =>
-    __isa(o, "GetAssetPropertyAggregatesResponse");
 }
 
 export interface GetAssetPropertyValueHistoryRequest {
-  __type?: "GetAssetPropertyValueHistoryRequest";
   /**
    * <p>The quality by which to filter asset data.</p>
    */
@@ -2577,12 +2399,9 @@ export namespace GetAssetPropertyValueHistoryRequest {
   export const filterSensitiveLog = (obj: GetAssetPropertyValueHistoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssetPropertyValueHistoryRequest =>
-    __isa(o, "GetAssetPropertyValueHistoryRequest");
 }
 
 export interface GetAssetPropertyValueHistoryResponse {
-  __type?: "GetAssetPropertyValueHistoryResponse";
   /**
    * <p>The asset property's value history.</p>
    */
@@ -2598,12 +2417,9 @@ export namespace GetAssetPropertyValueHistoryResponse {
   export const filterSensitiveLog = (obj: GetAssetPropertyValueHistoryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssetPropertyValueHistoryResponse =>
-    __isa(o, "GetAssetPropertyValueHistoryResponse");
 }
 
 export interface GetAssetPropertyValueRequest {
-  __type?: "GetAssetPropertyValueRequest";
   /**
    * <p>The ID of the asset.</p>
    */
@@ -2627,11 +2443,9 @@ export namespace GetAssetPropertyValueRequest {
   export const filterSensitiveLog = (obj: GetAssetPropertyValueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssetPropertyValueRequest => __isa(o, "GetAssetPropertyValueRequest");
 }
 
 export interface GetAssetPropertyValueResponse {
-  __type?: "GetAssetPropertyValueResponse";
   /**
    * <p>The current asset property value.</p>
    */
@@ -2642,7 +2456,6 @@ export namespace GetAssetPropertyValueResponse {
   export const filterSensitiveLog = (obj: GetAssetPropertyValueResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssetPropertyValueResponse => __isa(o, "GetAssetPropertyValueResponse");
 }
 
 /**
@@ -2652,7 +2465,6 @@ export namespace GetAssetPropertyValueResponse {
  *         <i>AWS IoT SiteWise User Guide</i>.</p>
  */
 export interface Greengrass {
-  __type?: "Greengrass";
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the Greengrass group. For more information about how to find a group's
    *       ARN, see <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/listgroups-get.html">ListGroups</a> and <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/getgroup-get.html">GetGroup</a> in
@@ -2665,14 +2477,12 @@ export namespace Greengrass {
   export const filterSensitiveLog = (obj: Greengrass): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Greengrass => __isa(o, "Greengrass");
 }
 
 /**
  * <p>Contains information for a group identity in an access policy.</p>
  */
 export interface GroupIdentity {
-  __type?: "GroupIdentity";
   /**
    * <p>The AWS SSO ID of the group.</p>
    */
@@ -2683,7 +2493,6 @@ export namespace GroupIdentity {
   export const filterSensitiveLog = (obj: GroupIdentity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroupIdentity => __isa(o, "GroupIdentity");
 }
 
 /**
@@ -2694,7 +2503,6 @@ export namespace GroupIdentity {
  *          </note>
  */
 export interface Identity {
-  __type?: "Identity";
   /**
    * <p>A group identity.</p>
    */
@@ -2710,7 +2518,6 @@ export namespace Identity {
   export const filterSensitiveLog = (obj: Identity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Identity => __isa(o, "Identity");
 }
 
 export enum IdentityType {
@@ -2730,7 +2537,6 @@ export enum IdentityType {
  *          </ul>
  */
 export interface Image {
-  __type?: "Image";
   /**
    * <p>The ID of an existing image. Specify this parameter to keep an existing image.</p>
    */
@@ -2746,14 +2552,12 @@ export namespace Image {
   export const filterSensitiveLog = (obj: Image): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Image => __isa(o, "Image");
 }
 
 /**
  * <p>Contains an image file.</p>
  */
 export interface ImageFile {
-  __type?: "ImageFile";
   /**
    * <p>The image file contents, represented as a base64-encoded string. The file size must be
    *       less than 1 MB.</p>
@@ -2770,7 +2574,6 @@ export namespace ImageFile {
   export const filterSensitiveLog = (obj: ImageFile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageFile => __isa(o, "ImageFile");
 }
 
 export enum ImageFileType {
@@ -2781,7 +2584,6 @@ export enum ImageFileType {
  * <p>Contains an image that is uploaded to AWS IoT SiteWise and available at a URL.</p>
  */
 export interface ImageLocation {
-  __type?: "ImageLocation";
   /**
    * <p>The URL where the image is available. The URL is valid for 15 minutes so that you can view
    *       and download the image</p>
@@ -2798,7 +2600,6 @@ export namespace ImageLocation {
   export const filterSensitiveLog = (obj: ImageLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageLocation => __isa(o, "ImageLocation");
 }
 
 /**
@@ -2814,7 +2615,6 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
@@ -2831,7 +2631,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -2850,11 +2649,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAccessPoliciesRequest {
-  __type?: "ListAccessPoliciesRequest";
   /**
    * <p>The ID of the identity. This parameter is required if you specify
    *         <code>identityType</code>.</p>
@@ -2894,11 +2691,9 @@ export namespace ListAccessPoliciesRequest {
   export const filterSensitiveLog = (obj: ListAccessPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccessPoliciesRequest => __isa(o, "ListAccessPoliciesRequest");
 }
 
 export interface ListAccessPoliciesResponse {
-  __type?: "ListAccessPoliciesResponse";
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
@@ -2914,11 +2709,9 @@ export namespace ListAccessPoliciesResponse {
   export const filterSensitiveLog = (obj: ListAccessPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccessPoliciesResponse => __isa(o, "ListAccessPoliciesResponse");
 }
 
 export interface ListAssetModelsRequest {
-  __type?: "ListAssetModelsRequest";
   /**
    * <p>The token to be used for the next set of paginated results.</p>
    */
@@ -2934,11 +2727,9 @@ export namespace ListAssetModelsRequest {
   export const filterSensitiveLog = (obj: ListAssetModelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssetModelsRequest => __isa(o, "ListAssetModelsRequest");
 }
 
 export interface ListAssetModelsResponse {
-  __type?: "ListAssetModelsResponse";
   /**
    * <p>A list that summarizes each asset model.</p>
    */
@@ -2954,7 +2745,6 @@ export namespace ListAssetModelsResponse {
   export const filterSensitiveLog = (obj: ListAssetModelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssetModelsResponse => __isa(o, "ListAssetModelsResponse");
 }
 
 export enum ListAssetsFilter {
@@ -2963,7 +2753,6 @@ export enum ListAssetsFilter {
 }
 
 export interface ListAssetsRequest {
-  __type?: "ListAssetsRequest";
   /**
    * <p>The ID of the asset model by which to filter the list of assets. This parameter is
    *       required if you choose <code>ALL</code> for <code>filter</code>.</p>
@@ -3004,11 +2793,9 @@ export namespace ListAssetsRequest {
   export const filterSensitiveLog = (obj: ListAssetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssetsRequest => __isa(o, "ListAssetsRequest");
 }
 
 export interface ListAssetsResponse {
-  __type?: "ListAssetsResponse";
   /**
    * <p>A list that summarizes each asset.</p>
    */
@@ -3024,11 +2811,9 @@ export namespace ListAssetsResponse {
   export const filterSensitiveLog = (obj: ListAssetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssetsResponse => __isa(o, "ListAssetsResponse");
 }
 
 export interface ListAssociatedAssetsRequest {
-  __type?: "ListAssociatedAssetsRequest";
   /**
    * <p>The ID of the parent asset.</p>
    */
@@ -3058,11 +2843,9 @@ export namespace ListAssociatedAssetsRequest {
   export const filterSensitiveLog = (obj: ListAssociatedAssetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssociatedAssetsRequest => __isa(o, "ListAssociatedAssetsRequest");
 }
 
 export interface ListAssociatedAssetsResponse {
-  __type?: "ListAssociatedAssetsResponse";
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
@@ -3078,11 +2861,9 @@ export namespace ListAssociatedAssetsResponse {
   export const filterSensitiveLog = (obj: ListAssociatedAssetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssociatedAssetsResponse => __isa(o, "ListAssociatedAssetsResponse");
 }
 
 export interface ListDashboardsRequest {
-  __type?: "ListDashboardsRequest";
   /**
    * <p>The ID of the project.</p>
    */
@@ -3103,11 +2884,9 @@ export namespace ListDashboardsRequest {
   export const filterSensitiveLog = (obj: ListDashboardsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDashboardsRequest => __isa(o, "ListDashboardsRequest");
 }
 
 export interface ListDashboardsResponse {
-  __type?: "ListDashboardsResponse";
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
@@ -3123,11 +2902,9 @@ export namespace ListDashboardsResponse {
   export const filterSensitiveLog = (obj: ListDashboardsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDashboardsResponse => __isa(o, "ListDashboardsResponse");
 }
 
 export interface ListGatewaysRequest {
-  __type?: "ListGatewaysRequest";
   /**
    * <p>The token to be used for the next set of paginated results.</p>
    */
@@ -3143,11 +2920,9 @@ export namespace ListGatewaysRequest {
   export const filterSensitiveLog = (obj: ListGatewaysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGatewaysRequest => __isa(o, "ListGatewaysRequest");
 }
 
 export interface ListGatewaysResponse {
-  __type?: "ListGatewaysResponse";
   /**
    * <p>A list that summarizes each gateway.</p>
    */
@@ -3163,11 +2938,9 @@ export namespace ListGatewaysResponse {
   export const filterSensitiveLog = (obj: ListGatewaysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGatewaysResponse => __isa(o, "ListGatewaysResponse");
 }
 
 export interface ListPortalsRequest {
-  __type?: "ListPortalsRequest";
   /**
    * <p>The maximum number of results to be returned per paginated request.</p>
    */
@@ -3183,11 +2956,9 @@ export namespace ListPortalsRequest {
   export const filterSensitiveLog = (obj: ListPortalsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPortalsRequest => __isa(o, "ListPortalsRequest");
 }
 
 export interface ListPortalsResponse {
-  __type?: "ListPortalsResponse";
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
@@ -3203,11 +2974,9 @@ export namespace ListPortalsResponse {
   export const filterSensitiveLog = (obj: ListPortalsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPortalsResponse => __isa(o, "ListPortalsResponse");
 }
 
 export interface ListProjectAssetsRequest {
-  __type?: "ListProjectAssetsRequest";
   /**
    * <p>The maximum number of results to be returned per paginated request.</p>
    */
@@ -3228,11 +2997,9 @@ export namespace ListProjectAssetsRequest {
   export const filterSensitiveLog = (obj: ListProjectAssetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProjectAssetsRequest => __isa(o, "ListProjectAssetsRequest");
 }
 
 export interface ListProjectAssetsResponse {
-  __type?: "ListProjectAssetsResponse";
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
@@ -3248,11 +3015,9 @@ export namespace ListProjectAssetsResponse {
   export const filterSensitiveLog = (obj: ListProjectAssetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProjectAssetsResponse => __isa(o, "ListProjectAssetsResponse");
 }
 
 export interface ListProjectsRequest {
-  __type?: "ListProjectsRequest";
   /**
    * <p>The ID of the portal.</p>
    */
@@ -3273,11 +3038,9 @@ export namespace ListProjectsRequest {
   export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProjectsRequest => __isa(o, "ListProjectsRequest");
 }
 
 export interface ListProjectsResponse {
-  __type?: "ListProjectsResponse";
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
@@ -3293,11 +3056,9 @@ export namespace ListProjectsResponse {
   export const filterSensitiveLog = (obj: ListProjectsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProjectsResponse => __isa(o, "ListProjectsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource.</p>
    */
@@ -3308,11 +3069,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The list of key-value pairs that contain metadata for the resource. For more information,
    *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise resources</a> in the
@@ -3325,7 +3084,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum LoggingLevel {
@@ -3338,7 +3096,6 @@ export enum LoggingLevel {
  * <p>Contains logging options.</p>
  */
 export interface LoggingOptions {
-  __type?: "LoggingOptions";
   /**
    * <p>The AWS IoT SiteWise logging verbosity level.</p>
    */
@@ -3349,22 +3106,18 @@ export namespace LoggingOptions {
   export const filterSensitiveLog = (obj: LoggingOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggingOptions => __isa(o, "LoggingOptions");
 }
 
 /**
  * <p>Contains an asset measurement property. This structure is empty. For more information, see
  *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#measurements">Measurements</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
  */
-export interface Measurement {
-  __type?: "Measurement";
-}
+export interface Measurement {}
 
 export namespace Measurement {
   export const filterSensitiveLog = (obj: Measurement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Measurement => __isa(o, "Measurement");
 }
 
 /**
@@ -3379,7 +3132,6 @@ export namespace Measurement {
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#metrics">Metrics</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
  */
 export interface Metric {
-  __type?: "Metric";
   /**
    * <p>The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression.
    *       AWS IoT SiteWise computes one data point per <code>window</code>.</p>
@@ -3405,7 +3157,6 @@ export namespace Metric {
   export const filterSensitiveLog = (obj: Metric): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Metric => __isa(o, "Metric");
 }
 
 /**
@@ -3413,7 +3164,6 @@ export namespace Metric {
  *       average, sum, count, and so on).</p>
  */
 export interface MetricWindow {
-  __type?: "MetricWindow";
   /**
    * <p>The tumbling time interval window.</p>
    */
@@ -3424,7 +3174,6 @@ export namespace MetricWindow {
   export const filterSensitiveLog = (obj: MetricWindow): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricWindow => __isa(o, "MetricWindow");
 }
 
 export enum MonitorErrorCode {
@@ -3435,7 +3184,6 @@ export enum MonitorErrorCode {
  * <p>Contains AWS IoT SiteWise Monitor error details.</p>
  */
 export interface MonitorErrorDetails {
-  __type?: "MonitorErrorDetails";
   /**
    * <p>The error message.</p>
    */
@@ -3451,7 +3199,6 @@ export namespace MonitorErrorDetails {
   export const filterSensitiveLog = (obj: MonitorErrorDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitorErrorDetails => __isa(o, "MonitorErrorDetails");
 }
 
 export enum Permission {
@@ -3463,7 +3210,6 @@ export enum Permission {
  * <p>Identifies an AWS IoT SiteWise Monitor portal.</p>
  */
 export interface PortalResource {
-  __type?: "PortalResource";
   /**
    * <p>The ID of the portal.</p>
    */
@@ -3474,7 +3220,6 @@ export namespace PortalResource {
   export const filterSensitiveLog = (obj: PortalResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PortalResource => __isa(o, "PortalResource");
 }
 
 export enum PortalState {
@@ -3489,7 +3234,6 @@ export enum PortalState {
  * <p>Contains information about the current status of a portal.</p>
  */
 export interface PortalStatus {
-  __type?: "PortalStatus";
   /**
    * <p>Contains associated error information, if any.</p>
    */
@@ -3505,14 +3249,12 @@ export namespace PortalStatus {
   export const filterSensitiveLog = (obj: PortalStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PortalStatus => __isa(o, "PortalStatus");
 }
 
 /**
  * <p>Contains a portal summary.</p>
  */
 export interface PortalSummary {
-  __type?: "PortalSummary";
   /**
    * <p>The portal's description.</p>
    */
@@ -3555,14 +3297,12 @@ export namespace PortalSummary {
   export const filterSensitiveLog = (obj: PortalSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PortalSummary => __isa(o, "PortalSummary");
 }
 
 /**
  * <p>Identifies a specific AWS IoT SiteWise Monitor project.</p>
  */
 export interface ProjectResource {
-  __type?: "ProjectResource";
   /**
    * <p>The ID of the project.</p>
    */
@@ -3573,14 +3313,12 @@ export namespace ProjectResource {
   export const filterSensitiveLog = (obj: ProjectResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectResource => __isa(o, "ProjectResource");
 }
 
 /**
  * <p>Contains project summary information.</p>
  */
 export interface ProjectSummary {
-  __type?: "ProjectSummary";
   /**
    * <p>The project's description.</p>
    */
@@ -3611,14 +3349,12 @@ export namespace ProjectSummary {
   export const filterSensitiveLog = (obj: ProjectSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectSummary => __isa(o, "ProjectSummary");
 }
 
 /**
  * <p>Contains asset property information.</p>
  */
 export interface Property {
-  __type?: "Property";
   /**
    * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
@@ -3663,7 +3399,6 @@ export namespace Property {
   export const filterSensitiveLog = (obj: Property): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Property => __isa(o, "Property");
 }
 
 export enum PropertyDataType {
@@ -3678,7 +3413,6 @@ export enum PropertyDataType {
  *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with Other Services</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
  */
 export interface PropertyNotification {
-  __type?: "PropertyNotification";
   /**
    * <p>The current notification state.</p>
    */
@@ -3694,7 +3428,6 @@ export namespace PropertyNotification {
   export const filterSensitiveLog = (obj: PropertyNotification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PropertyNotification => __isa(o, "PropertyNotification");
 }
 
 export enum PropertyNotificationState {
@@ -3707,7 +3440,6 @@ export enum PropertyNotificationState {
  *         <code>measurement</code>, <code>metric</code>, or <code>transform</code>.</p>
  */
 export interface PropertyType {
-  __type?: "PropertyType";
   /**
    * <p>Specifies an asset measurement property. A measurement represents a device's raw sensor
    *       data stream, such as timestamped temperature values or timestamped power values.</p>
@@ -3739,7 +3471,6 @@ export namespace PropertyType {
   export const filterSensitiveLog = (obj: PropertyType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PropertyType => __isa(o, "PropertyType");
 }
 
 /**
@@ -3747,7 +3478,6 @@ export namespace PropertyType {
  *       consumed by the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html">BatchPutAssetPropertyValue</a> API.</p>
  */
 export interface PutAssetPropertyValueEntry {
-  __type?: "PutAssetPropertyValueEntry";
   /**
    * <p>The ID of the asset property for this entry.</p>
    */
@@ -3783,11 +3513,9 @@ export namespace PutAssetPropertyValueEntry {
   export const filterSensitiveLog = (obj: PutAssetPropertyValueEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAssetPropertyValueEntry => __isa(o, "PutAssetPropertyValueEntry");
 }
 
 export interface PutLoggingOptionsRequest {
-  __type?: "PutLoggingOptionsRequest";
   /**
    * <p>The logging options to set.</p>
    */
@@ -3798,18 +3526,14 @@ export namespace PutLoggingOptionsRequest {
   export const filterSensitiveLog = (obj: PutLoggingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLoggingOptionsRequest => __isa(o, "PutLoggingOptionsRequest");
 }
 
-export interface PutLoggingOptionsResponse {
-  __type?: "PutLoggingOptionsResponse";
-}
+export interface PutLoggingOptionsResponse {}
 
 export namespace PutLoggingOptionsResponse {
   export const filterSensitiveLog = (obj: PutLoggingOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLoggingOptionsResponse => __isa(o, "PutLoggingOptionsResponse");
 }
 
 export enum Quality {
@@ -3822,7 +3546,6 @@ export enum Quality {
  * <p>Contains an AWS IoT SiteWise Monitor resource ID for a portal or project.</p>
  */
 export interface Resource {
-  __type?: "Resource";
   /**
    * <p>A portal resource.</p>
    */
@@ -3838,7 +3561,6 @@ export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
 /**
@@ -3864,7 +3586,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -3880,7 +3601,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum ResourceType {
@@ -3901,11 +3621,9 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource to tag.</p>
    */
@@ -3923,18 +3641,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -3953,14 +3667,12 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>Contains a timestamp with optional nanosecond granularity.</p>
  */
 export interface TimeInNanos {
-  __type?: "TimeInNanos";
   /**
    * <p>The nanosecond offset from <code>timeInSeconds</code>.</p>
    */
@@ -3977,7 +3689,6 @@ export namespace TimeInNanos {
   export const filterSensitiveLog = (obj: TimeInNanos): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeInNanos => __isa(o, "TimeInNanos");
 }
 
 export enum TimeOrdering {
@@ -4004,7 +3715,6 @@ export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
@@ -4016,7 +3726,6 @@ export namespace TooManyTagsException {
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms">Transforms</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
  */
 export interface Transform {
-  __type?: "Transform";
   /**
    * <p>The mathematical expression that defines the transformation function. You can specify up
    *       to 10 variables per expression. You can specify up to 10 functions per
@@ -4036,7 +3745,6 @@ export namespace Transform {
   export const filterSensitiveLog = (obj: Transform): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Transform => __isa(o, "Transform");
 }
 
 /**
@@ -4044,7 +3752,6 @@ export namespace Transform {
  *       contiguous time interval. This window is used in metric and aggregation computations.</p>
  */
 export interface TumblingWindow {
-  __type?: "TumblingWindow";
   /**
    * <p>The time interval for the tumbling window. Note that <code>w</code> represents weeks,
    *         <code>d</code> represents days, <code>h</code> represents hours, and <code>m</code>
@@ -4062,11 +3769,9 @@ export namespace TumblingWindow {
   export const filterSensitiveLog = (obj: TumblingWindow): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TumblingWindow => __isa(o, "TumblingWindow");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>A list of keys for tags to remove from the resource.</p>
    */
@@ -4082,22 +3787,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateAccessPolicyRequest {
-  __type?: "UpdateAccessPolicyRequest";
   /**
    * <p>The permission level for this access policy. Note that a project <code>ADMINISTRATOR</code> is also known as a project owner.</p>
    */
@@ -4128,22 +3828,17 @@ export namespace UpdateAccessPolicyRequest {
   export const filterSensitiveLog = (obj: UpdateAccessPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccessPolicyRequest => __isa(o, "UpdateAccessPolicyRequest");
 }
 
-export interface UpdateAccessPolicyResponse {
-  __type?: "UpdateAccessPolicyResponse";
-}
+export interface UpdateAccessPolicyResponse {}
 
 export namespace UpdateAccessPolicyResponse {
   export const filterSensitiveLog = (obj: UpdateAccessPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccessPolicyResponse => __isa(o, "UpdateAccessPolicyResponse");
 }
 
 export interface UpdateAssetModelRequest {
-  __type?: "UpdateAssetModelRequest";
   /**
    * <p>The ID of the asset model to update.</p>
    */
@@ -4186,11 +3881,9 @@ export namespace UpdateAssetModelRequest {
   export const filterSensitiveLog = (obj: UpdateAssetModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAssetModelRequest => __isa(o, "UpdateAssetModelRequest");
 }
 
 export interface UpdateAssetModelResponse {
-  __type?: "UpdateAssetModelResponse";
   /**
    * <p>The status of the asset model, which contains a state (<code>UPDATING</code> after
    *       successfully calling this operation) and any error message.</p>
@@ -4202,11 +3895,9 @@ export namespace UpdateAssetModelResponse {
   export const filterSensitiveLog = (obj: UpdateAssetModelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAssetModelResponse => __isa(o, "UpdateAssetModelResponse");
 }
 
 export interface UpdateAssetPropertyRequest {
-  __type?: "UpdateAssetPropertyRequest";
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
@@ -4244,11 +3935,9 @@ export namespace UpdateAssetPropertyRequest {
   export const filterSensitiveLog = (obj: UpdateAssetPropertyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAssetPropertyRequest => __isa(o, "UpdateAssetPropertyRequest");
 }
 
 export interface UpdateAssetRequest {
-  __type?: "UpdateAssetRequest";
   /**
    * <p>A unique, friendly name for the asset.</p>
    */
@@ -4269,11 +3958,9 @@ export namespace UpdateAssetRequest {
   export const filterSensitiveLog = (obj: UpdateAssetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAssetRequest => __isa(o, "UpdateAssetRequest");
 }
 
 export interface UpdateAssetResponse {
-  __type?: "UpdateAssetResponse";
   /**
    * <p>The status of the asset, which contains a state (<code>UPDATING</code> after successfully
    *       calling this operation) and any error message.</p>
@@ -4285,11 +3972,9 @@ export namespace UpdateAssetResponse {
   export const filterSensitiveLog = (obj: UpdateAssetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAssetResponse => __isa(o, "UpdateAssetResponse");
 }
 
 export interface UpdateDashboardRequest {
-  __type?: "UpdateDashboardRequest";
   /**
    * <p>A new friendly name for the dashboard.</p>
    */
@@ -4321,22 +4006,17 @@ export namespace UpdateDashboardRequest {
   export const filterSensitiveLog = (obj: UpdateDashboardRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDashboardRequest => __isa(o, "UpdateDashboardRequest");
 }
 
-export interface UpdateDashboardResponse {
-  __type?: "UpdateDashboardResponse";
-}
+export interface UpdateDashboardResponse {}
 
 export namespace UpdateDashboardResponse {
   export const filterSensitiveLog = (obj: UpdateDashboardResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDashboardResponse => __isa(o, "UpdateDashboardResponse");
 }
 
 export interface UpdateGatewayCapabilityConfigurationRequest {
-  __type?: "UpdateGatewayCapabilityConfigurationRequest";
   /**
    * <p>The namespace of the gateway capability configuration to be updated.
    *       For example, if you configure OPC-UA
@@ -4362,12 +4042,9 @@ export namespace UpdateGatewayCapabilityConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateGatewayCapabilityConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewayCapabilityConfigurationRequest =>
-    __isa(o, "UpdateGatewayCapabilityConfigurationRequest");
 }
 
 export interface UpdateGatewayCapabilityConfigurationResponse {
-  __type?: "UpdateGatewayCapabilityConfigurationResponse";
   /**
    * <p>The synchronization status of the capability configuration. The sync status can be one of the following:</p>
    *          <ul>
@@ -4400,12 +4077,9 @@ export namespace UpdateGatewayCapabilityConfigurationResponse {
   export const filterSensitiveLog = (obj: UpdateGatewayCapabilityConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewayCapabilityConfigurationResponse =>
-    __isa(o, "UpdateGatewayCapabilityConfigurationResponse");
 }
 
 export interface UpdateGatewayRequest {
-  __type?: "UpdateGatewayRequest";
   /**
    * <p>A unique, friendly name for the gateway.</p>
    */
@@ -4421,11 +4095,9 @@ export namespace UpdateGatewayRequest {
   export const filterSensitiveLog = (obj: UpdateGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewayRequest => __isa(o, "UpdateGatewayRequest");
 }
 
 export interface UpdatePortalRequest {
-  __type?: "UpdatePortalRequest";
   /**
    * <p>A new friendly name for the portal.</p>
    */
@@ -4476,11 +4148,9 @@ export namespace UpdatePortalRequest {
   export const filterSensitiveLog = (obj: UpdatePortalRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePortalRequest => __isa(o, "UpdatePortalRequest");
 }
 
 export interface UpdatePortalResponse {
-  __type?: "UpdatePortalResponse";
   /**
    * <p>The status of the portal, which contains a state (<code>UPDATING</code> after successfully
    *       calling this operation) and any error message.</p>
@@ -4492,11 +4162,9 @@ export namespace UpdatePortalResponse {
   export const filterSensitiveLog = (obj: UpdatePortalResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePortalResponse => __isa(o, "UpdatePortalResponse");
 }
 
 export interface UpdateProjectRequest {
-  __type?: "UpdateProjectRequest";
   /**
    * <p>A new description for the project.</p>
    */
@@ -4522,25 +4190,20 @@ export namespace UpdateProjectRequest {
   export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectRequest => __isa(o, "UpdateProjectRequest");
 }
 
-export interface UpdateProjectResponse {
-  __type?: "UpdateProjectResponse";
-}
+export interface UpdateProjectResponse {}
 
 export namespace UpdateProjectResponse {
   export const filterSensitiveLog = (obj: UpdateProjectResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateProjectResponse => __isa(o, "UpdateProjectResponse");
 }
 
 /**
  * <p>Contains information for a user identity in an access policy.</p>
  */
 export interface UserIdentity {
-  __type?: "UserIdentity";
   /**
    * <p>The AWS SSO ID of the user.</p>
    */
@@ -4551,14 +4214,12 @@ export namespace UserIdentity {
   export const filterSensitiveLog = (obj: UserIdentity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserIdentity => __isa(o, "UserIdentity");
 }
 
 /**
  * <p>Identifies a property value used in an expression.</p>
  */
 export interface VariableValue {
-  __type?: "VariableValue";
   /**
    * <p>The ID of the property to use as the variable. You can use the property <code>name</code>
    *       if it's from the same asset model.</p>
@@ -4580,14 +4241,12 @@ export namespace VariableValue {
   export const filterSensitiveLog = (obj: VariableValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VariableValue => __isa(o, "VariableValue");
 }
 
 /**
  * <p>Contains an asset property value (of a single type only).</p>
  */
 export interface Variant {
-  __type?: "Variant";
   /**
    * <p>Asset property data of type string (sequence of characters).</p>
    */
@@ -4613,5 +4272,4 @@ export namespace Variant {
   export const filterSensitiveLog = (obj: Variant): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Variant => __isa(o, "Variant");
 }

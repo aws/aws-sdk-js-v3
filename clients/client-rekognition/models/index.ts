@@ -2,7 +2,6 @@ import {
   SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  isa as __isa,
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
@@ -25,7 +24,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -35,7 +33,6 @@ export namespace AccessDeniedException {
  *       face of a 6-year-old might have an estimated range of 4-8.</p>
  */
 export interface AgeRange {
-  __type?: "AgeRange";
   /**
    * <p>The highest estimated age.</p>
    */
@@ -51,7 +48,6 @@ export namespace AgeRange {
   export const filterSensitiveLog = (obj: AgeRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AgeRange => __isa(o, "AgeRange");
 }
 
 /**
@@ -60,7 +56,6 @@ export namespace AgeRange {
  *     </p>
  */
 export interface Asset {
-  __type?: "Asset";
   /**
    * <p>The S3 bucket that contains the Ground Truth manifest file.</p>
    */
@@ -71,7 +66,6 @@ export namespace Asset {
   export const filterSensitiveLog = (obj: Asset): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Asset => __isa(o, "Asset");
 }
 
 export enum Attribute {
@@ -84,7 +78,6 @@ export enum Attribute {
  *       for the audio streams found in a stored video is returned by <a>GetSegmentDetection</a>. </p>
  */
 export interface AudioMetadata {
-  __type?: "AudioMetadata";
   /**
    * <p>The number of audio channels in the segement.</p>
    */
@@ -110,7 +103,6 @@ export namespace AudioMetadata {
   export const filterSensitiveLog = (obj: AudioMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AudioMetadata => __isa(o, "AudioMetadata");
 }
 
 /**
@@ -118,7 +110,6 @@ export namespace AudioMetadata {
  *       determination.</p>
  */
 export interface Beard {
-  __type?: "Beard";
   /**
    * <p>Boolean value that indicates whether the face has beard or not.</p>
    */
@@ -134,7 +125,6 @@ export namespace Beard {
   export const filterSensitiveLog = (obj: Beard): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Beard => __isa(o, "Beard");
 }
 
 /**
@@ -158,7 +148,6 @@ export namespace Beard {
  *          </note>
  */
 export interface BoundingBox {
-  __type?: "BoundingBox";
   /**
    * <p>Width of the bounding box as a ratio of the overall image width.</p>
    */
@@ -184,14 +173,12 @@ export namespace BoundingBox {
   export const filterSensitiveLog = (obj: BoundingBox): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BoundingBox => __isa(o, "BoundingBox");
 }
 
 /**
  * <p>Provides information about a celebrity recognized by the <a>RecognizeCelebrities</a> operation.</p>
  */
 export interface Celebrity {
-  __type?: "Celebrity";
   /**
    * <p>A unique identifier for the celebrity. </p>
    */
@@ -225,14 +212,12 @@ export namespace Celebrity {
   export const filterSensitiveLog = (obj: Celebrity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Celebrity => __isa(o, "Celebrity");
 }
 
 /**
  * <p>Information about a recognized celebrity.</p>
  */
 export interface CelebrityDetail {
-  __type?: "CelebrityDetail";
   /**
    * <p>Bounding box around the body of a celebrity.</p>
    */
@@ -268,7 +253,6 @@ export namespace CelebrityDetail {
   export const filterSensitiveLog = (obj: CelebrityDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CelebrityDetail => __isa(o, "CelebrityDetail");
 }
 
 /**
@@ -276,7 +260,6 @@ export namespace CelebrityDetail {
  *         For more information, see GetCelebrityRecognition in the Amazon Rekognition Developer Guide.</p>
  */
 export interface CelebrityRecognition {
-  __type?: "CelebrityRecognition";
   /**
    * <p>The time, in milliseconds from the start of the video, that the celebrity was recognized.</p>
    */
@@ -292,7 +275,6 @@ export namespace CelebrityRecognition {
   export const filterSensitiveLog = (obj: CelebrityRecognition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CelebrityRecognition => __isa(o, "CelebrityRecognition");
 }
 
 export enum CelebrityRecognitionSortBy {
@@ -305,7 +287,6 @@ export enum CelebrityRecognitionSortBy {
  *         <code>CompareFaces</code> and <code>RecognizeCelebrities</code>.</p>
  */
 export interface ComparedFace {
-  __type?: "ComparedFace";
   /**
    * <p>An array of facial landmarks.</p>
    */
@@ -336,7 +317,6 @@ export namespace ComparedFace {
   export const filterSensitiveLog = (obj: ComparedFace): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComparedFace => __isa(o, "ComparedFace");
 }
 
 /**
@@ -346,7 +326,6 @@ export namespace ComparedFace {
  *       comparison. </p>
  */
 export interface ComparedSourceImageFace {
-  __type?: "ComparedSourceImageFace";
   /**
    * <p>Confidence level that the selected bounding box contains a face.</p>
    */
@@ -362,7 +341,6 @@ export namespace ComparedSourceImageFace {
   export const filterSensitiveLog = (obj: ComparedSourceImageFace): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComparedSourceImageFace => __isa(o, "ComparedSourceImageFace");
 }
 
 /**
@@ -372,7 +350,6 @@ export namespace ComparedSourceImageFace {
  *       that the source image face matches the face in the bounding box.</p>
  */
 export interface CompareFacesMatch {
-  __type?: "CompareFacesMatch";
   /**
    * <p>Level of confidence that the faces match.</p>
    */
@@ -389,11 +366,9 @@ export namespace CompareFacesMatch {
   export const filterSensitiveLog = (obj: CompareFacesMatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompareFacesMatch => __isa(o, "CompareFacesMatch");
 }
 
 export interface CompareFacesRequest {
-  __type?: "CompareFacesRequest";
   /**
    * <p>The input image as base64-encoded bytes or an S3 object.
    *       If you use the AWS CLI to call Amazon Rekognition operations,
@@ -442,11 +417,9 @@ export namespace CompareFacesRequest {
   export const filterSensitiveLog = (obj: CompareFacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompareFacesRequest => __isa(o, "CompareFacesRequest");
 }
 
 export interface CompareFacesResponse {
-  __type?: "CompareFacesResponse";
   /**
    * <p>The value of <code>TargetImageOrientationCorrection</code> is always null.</p>
    *          <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata
@@ -499,7 +472,6 @@ export namespace CompareFacesResponse {
   export const filterSensitiveLog = (obj: CompareFacesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompareFacesResponse => __isa(o, "CompareFacesResponse");
 }
 
 export enum ContentClassifier {
@@ -511,7 +483,6 @@ export enum ContentClassifier {
  * <p>Information about an unsafe content label detection in a stored video.</p>
  */
 export interface ContentModerationDetection {
-  __type?: "ContentModerationDetection";
   /**
    * <p>The unsafe content label detected by in the stored video.</p>
    */
@@ -527,7 +498,6 @@ export namespace ContentModerationDetection {
   export const filterSensitiveLog = (obj: ContentModerationDetection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContentModerationDetection => __isa(o, "ContentModerationDetection");
 }
 
 export enum ContentModerationSortBy {
@@ -536,7 +506,6 @@ export enum ContentModerationSortBy {
 }
 
 export interface CreateCollectionRequest {
-  __type?: "CreateCollectionRequest";
   /**
    * <p>ID for the collection that you are creating.</p>
    */
@@ -547,11 +516,9 @@ export namespace CreateCollectionRequest {
   export const filterSensitiveLog = (obj: CreateCollectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCollectionRequest => __isa(o, "CreateCollectionRequest");
 }
 
 export interface CreateCollectionResponse {
-  __type?: "CreateCollectionResponse";
   /**
    * <p>Version number of the face detection model associated with the collection you are creating.</p>
    */
@@ -573,11 +540,9 @@ export namespace CreateCollectionResponse {
   export const filterSensitiveLog = (obj: CreateCollectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCollectionResponse => __isa(o, "CreateCollectionResponse");
 }
 
 export interface CreateProjectRequest {
-  __type?: "CreateProjectRequest";
   /**
    * <p>The name of the project to create.</p>
    */
@@ -588,11 +553,9 @@ export namespace CreateProjectRequest {
   export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectRequest => __isa(o, "CreateProjectRequest");
 }
 
 export interface CreateProjectResponse {
-  __type?: "CreateProjectResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the new project. You can use the ARN to
    *       configure IAM access to the project. </p>
@@ -604,11 +567,9 @@ export namespace CreateProjectResponse {
   export const filterSensitiveLog = (obj: CreateProjectResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectResponse => __isa(o, "CreateProjectResponse");
 }
 
 export interface CreateProjectVersionRequest {
-  __type?: "CreateProjectVersionRequest";
   /**
    * <p>The Amazon S3 location to store the results of training.</p>
    */
@@ -640,11 +601,9 @@ export namespace CreateProjectVersionRequest {
   export const filterSensitiveLog = (obj: CreateProjectVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectVersionRequest => __isa(o, "CreateProjectVersionRequest");
 }
 
 export interface CreateProjectVersionResponse {
-  __type?: "CreateProjectVersionResponse";
   /**
    * <p>The ARN of the model version that was created. Use <code>DescribeProjectVersion</code>
    *          to get the current status of the training operation.</p>
@@ -656,11 +615,9 @@ export namespace CreateProjectVersionResponse {
   export const filterSensitiveLog = (obj: CreateProjectVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateProjectVersionResponse => __isa(o, "CreateProjectVersionResponse");
 }
 
 export interface CreateStreamProcessorRequest {
-  __type?: "CreateStreamProcessorRequest";
   /**
    * <p>Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face
    *         attributes to detect.</p>
@@ -695,11 +652,9 @@ export namespace CreateStreamProcessorRequest {
   export const filterSensitiveLog = (obj: CreateStreamProcessorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamProcessorRequest => __isa(o, "CreateStreamProcessorRequest");
 }
 
 export interface CreateStreamProcessorResponse {
-  __type?: "CreateStreamProcessorResponse";
   /**
    * <p>ARN for the newly create stream processor.</p>
    */
@@ -710,14 +665,12 @@ export namespace CreateStreamProcessorResponse {
   export const filterSensitiveLog = (obj: CreateStreamProcessorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamProcessorResponse => __isa(o, "CreateStreamProcessorResponse");
 }
 
 /**
  * <p>A custom label detected in an image by a call to <a>DetectCustomLabels</a>.</p>
  */
 export interface CustomLabel {
-  __type?: "CustomLabel";
   /**
    * <p>The name of the custom label.</p>
    */
@@ -741,11 +694,9 @@ export namespace CustomLabel {
   export const filterSensitiveLog = (obj: CustomLabel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomLabel => __isa(o, "CustomLabel");
 }
 
 export interface DeleteCollectionRequest {
-  __type?: "DeleteCollectionRequest";
   /**
    * <p>ID of the collection to delete.</p>
    */
@@ -756,11 +707,9 @@ export namespace DeleteCollectionRequest {
   export const filterSensitiveLog = (obj: DeleteCollectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCollectionRequest => __isa(o, "DeleteCollectionRequest");
 }
 
 export interface DeleteCollectionResponse {
-  __type?: "DeleteCollectionResponse";
   /**
    * <p>HTTP status code that indicates the result of the operation.</p>
    */
@@ -771,11 +720,9 @@ export namespace DeleteCollectionResponse {
   export const filterSensitiveLog = (obj: DeleteCollectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCollectionResponse => __isa(o, "DeleteCollectionResponse");
 }
 
 export interface DeleteFacesRequest {
-  __type?: "DeleteFacesRequest";
   /**
    * <p>Collection from which to remove the specific faces.</p>
    */
@@ -791,11 +738,9 @@ export namespace DeleteFacesRequest {
   export const filterSensitiveLog = (obj: DeleteFacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFacesRequest => __isa(o, "DeleteFacesRequest");
 }
 
 export interface DeleteFacesResponse {
-  __type?: "DeleteFacesResponse";
   /**
    * <p>An array of strings (face IDs) of the faces that were deleted.</p>
    */
@@ -806,11 +751,9 @@ export namespace DeleteFacesResponse {
   export const filterSensitiveLog = (obj: DeleteFacesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFacesResponse => __isa(o, "DeleteFacesResponse");
 }
 
 export interface DeleteProjectRequest {
-  __type?: "DeleteProjectRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the project that you want to delete.</p>
    */
@@ -821,11 +764,9 @@ export namespace DeleteProjectRequest {
   export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectRequest => __isa(o, "DeleteProjectRequest");
 }
 
 export interface DeleteProjectResponse {
-  __type?: "DeleteProjectResponse";
   /**
    * <p>The current status of the delete project operation.</p>
    */
@@ -836,11 +777,9 @@ export namespace DeleteProjectResponse {
   export const filterSensitiveLog = (obj: DeleteProjectResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectResponse => __isa(o, "DeleteProjectResponse");
 }
 
 export interface DeleteProjectVersionRequest {
-  __type?: "DeleteProjectVersionRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p>
    */
@@ -851,11 +790,9 @@ export namespace DeleteProjectVersionRequest {
   export const filterSensitiveLog = (obj: DeleteProjectVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectVersionRequest => __isa(o, "DeleteProjectVersionRequest");
 }
 
 export interface DeleteProjectVersionResponse {
-  __type?: "DeleteProjectVersionResponse";
   /**
    * <p>The status of the deletion operation.</p>
    */
@@ -866,11 +803,9 @@ export namespace DeleteProjectVersionResponse {
   export const filterSensitiveLog = (obj: DeleteProjectVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProjectVersionResponse => __isa(o, "DeleteProjectVersionResponse");
 }
 
 export interface DeleteStreamProcessorRequest {
-  __type?: "DeleteStreamProcessorRequest";
   /**
    * <p>The name of the stream processor you want to delete.</p>
    */
@@ -881,22 +816,17 @@ export namespace DeleteStreamProcessorRequest {
   export const filterSensitiveLog = (obj: DeleteStreamProcessorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStreamProcessorRequest => __isa(o, "DeleteStreamProcessorRequest");
 }
 
-export interface DeleteStreamProcessorResponse {
-  __type?: "DeleteStreamProcessorResponse";
-}
+export interface DeleteStreamProcessorResponse {}
 
 export namespace DeleteStreamProcessorResponse {
   export const filterSensitiveLog = (obj: DeleteStreamProcessorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStreamProcessorResponse => __isa(o, "DeleteStreamProcessorResponse");
 }
 
 export interface DescribeCollectionRequest {
-  __type?: "DescribeCollectionRequest";
   /**
    * <p>The ID of the collection to describe.</p>
    */
@@ -907,11 +837,9 @@ export namespace DescribeCollectionRequest {
   export const filterSensitiveLog = (obj: DescribeCollectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCollectionRequest => __isa(o, "DescribeCollectionRequest");
 }
 
 export interface DescribeCollectionResponse {
-  __type?: "DescribeCollectionResponse";
   /**
    * <p>The number of milliseconds since the Unix epoch time until the creation of the collection.
    *          The Unix epoch time is 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.</p>
@@ -942,11 +870,9 @@ export namespace DescribeCollectionResponse {
   export const filterSensitiveLog = (obj: DescribeCollectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCollectionResponse => __isa(o, "DescribeCollectionResponse");
 }
 
 export interface DescribeProjectsRequest {
-  __type?: "DescribeProjectsRequest";
   /**
    * <p>If the previous response was incomplete (because there is more
    *          results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination
@@ -966,11 +892,9 @@ export namespace DescribeProjectsRequest {
   export const filterSensitiveLog = (obj: DescribeProjectsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProjectsRequest => __isa(o, "DescribeProjectsRequest");
 }
 
 export interface DescribeProjectsResponse {
-  __type?: "DescribeProjectsResponse";
   /**
    * <p>A list of project descriptions. The list is sorted by the date and time the projects are created.</p>
    */
@@ -988,11 +912,9 @@ export namespace DescribeProjectsResponse {
   export const filterSensitiveLog = (obj: DescribeProjectsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProjectsResponse => __isa(o, "DescribeProjectsResponse");
 }
 
 export interface DescribeProjectVersionsRequest {
-  __type?: "DescribeProjectVersionsRequest";
   /**
    * <p>If the previous response was incomplete (because there is more
    *            results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response.
@@ -1025,11 +947,9 @@ export namespace DescribeProjectVersionsRequest {
   export const filterSensitiveLog = (obj: DescribeProjectVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProjectVersionsRequest => __isa(o, "DescribeProjectVersionsRequest");
 }
 
 export interface DescribeProjectVersionsResponse {
-  __type?: "DescribeProjectVersionsResponse";
   /**
    * <p>If the previous response was incomplete (because there is more
    *          results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response.
@@ -1048,11 +968,9 @@ export namespace DescribeProjectVersionsResponse {
   export const filterSensitiveLog = (obj: DescribeProjectVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeProjectVersionsResponse => __isa(o, "DescribeProjectVersionsResponse");
 }
 
 export interface DescribeStreamProcessorRequest {
-  __type?: "DescribeStreamProcessorRequest";
   /**
    * <p>Name of the stream processor for which you want information.</p>
    */
@@ -1063,11 +981,9 @@ export namespace DescribeStreamProcessorRequest {
   export const filterSensitiveLog = (obj: DescribeStreamProcessorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamProcessorRequest => __isa(o, "DescribeStreamProcessorRequest");
 }
 
 export interface DescribeStreamProcessorResponse {
-  __type?: "DescribeStreamProcessorResponse";
   /**
    * <p>ARN of the IAM role that allows access to the stream processor.</p>
    */
@@ -1126,11 +1042,9 @@ export namespace DescribeStreamProcessorResponse {
   export const filterSensitiveLog = (obj: DescribeStreamProcessorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamProcessorResponse => __isa(o, "DescribeStreamProcessorResponse");
 }
 
 export interface DetectCustomLabelsRequest {
-  __type?: "DetectCustomLabelsRequest";
   /**
    * <p>Specifies the minimum confidence level for the labels to return.
    *          Amazon Rekognition doesn't return any labels with a confidence lower than this specified value. If you specify a
@@ -1182,11 +1096,9 @@ export namespace DetectCustomLabelsRequest {
   export const filterSensitiveLog = (obj: DetectCustomLabelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectCustomLabelsRequest => __isa(o, "DetectCustomLabelsRequest");
 }
 
 export interface DetectCustomLabelsResponse {
-  __type?: "DetectCustomLabelsResponse";
   /**
    * <p>An array of custom labels detected in the input image.</p>
    */
@@ -1197,11 +1109,9 @@ export namespace DetectCustomLabelsResponse {
   export const filterSensitiveLog = (obj: DetectCustomLabelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectCustomLabelsResponse => __isa(o, "DetectCustomLabelsResponse");
 }
 
 export interface DetectFacesRequest {
-  __type?: "DetectFacesRequest";
   /**
    * <p>An array of facial attributes you want to be returned. This can be the default list of
    *       attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if
@@ -1228,11 +1138,9 @@ export namespace DetectFacesRequest {
   export const filterSensitiveLog = (obj: DetectFacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectFacesRequest => __isa(o, "DetectFacesRequest");
 }
 
 export interface DetectFacesResponse {
-  __type?: "DetectFacesResponse";
   /**
    * <p>The value of <code>OrientationCorrection</code> is always null.</p>
    *          <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata
@@ -1257,14 +1165,12 @@ export namespace DetectFacesResponse {
   export const filterSensitiveLog = (obj: DetectFacesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectFacesResponse => __isa(o, "DetectFacesResponse");
 }
 
 /**
  * <p>A set of parameters that allow you to filter out certain results from your returned results.</p>
  */
 export interface DetectionFilter {
-  __type?: "DetectionFilter";
   /**
    * <p>Sets the minimum height of the word bounding box. Words with bounding box heights lesser than
    *       this value will be excluded from the result. Value is relative to the video frame height.</p>
@@ -1289,11 +1195,9 @@ export namespace DetectionFilter {
   export const filterSensitiveLog = (obj: DetectionFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectionFilter => __isa(o, "DetectionFilter");
 }
 
 export interface DetectLabelsRequest {
-  __type?: "DetectLabelsRequest";
   /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
    *       Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do
@@ -1323,11 +1227,9 @@ export namespace DetectLabelsRequest {
   export const filterSensitiveLog = (obj: DetectLabelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectLabelsRequest => __isa(o, "DetectLabelsRequest");
 }
 
 export interface DetectLabelsResponse {
-  __type?: "DetectLabelsResponse";
   /**
    * <p>The value of <code>OrientationCorrection</code> is always null.</p>
    *          <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata
@@ -1357,11 +1259,9 @@ export namespace DetectLabelsResponse {
   export const filterSensitiveLog = (obj: DetectLabelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectLabelsResponse => __isa(o, "DetectLabelsResponse");
 }
 
 export interface DetectModerationLabelsRequest {
-  __type?: "DetectModerationLabelsRequest";
   /**
    * <p>The input image as base64-encoded bytes or an S3 object.
    *       If you use the AWS CLI to call Amazon Rekognition operations,
@@ -1391,11 +1291,9 @@ export namespace DetectModerationLabelsRequest {
   export const filterSensitiveLog = (obj: DetectModerationLabelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectModerationLabelsRequest => __isa(o, "DetectModerationLabelsRequest");
 }
 
 export interface DetectModerationLabelsResponse {
-  __type?: "DetectModerationLabelsResponse";
   /**
    * <p>Shows the results of the human in the loop evaluation.</p>
    */
@@ -1417,7 +1315,6 @@ export namespace DetectModerationLabelsResponse {
   export const filterSensitiveLog = (obj: DetectModerationLabelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectModerationLabelsResponse => __isa(o, "DetectModerationLabelsResponse");
 }
 
 /**
@@ -1427,7 +1324,6 @@ export namespace DetectModerationLabelsResponse {
  *       </p>
  */
 export interface DetectTextFilters {
-  __type?: "DetectTextFilters";
   /**
    * <p>A set of parameters that allow you to filter out certain results from your returned results.</p>
    */
@@ -1444,11 +1340,9 @@ export namespace DetectTextFilters {
   export const filterSensitiveLog = (obj: DetectTextFilters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectTextFilters => __isa(o, "DetectTextFilters");
 }
 
 export interface DetectTextRequest {
-  __type?: "DetectTextRequest";
   /**
    * <p>Optional parameters that let you set the criteria that the text must meet to be included in your response.</p>
    */
@@ -1468,11 +1362,9 @@ export namespace DetectTextRequest {
   export const filterSensitiveLog = (obj: DetectTextRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectTextRequest => __isa(o, "DetectTextRequest");
 }
 
 export interface DetectTextResponse {
-  __type?: "DetectTextResponse";
   /**
    * <p>The model version used to detect text.</p>
    */
@@ -1488,7 +1380,6 @@ export namespace DetectTextResponse {
   export const filterSensitiveLog = (obj: DetectTextResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectTextResponse => __isa(o, "DetectTextResponse");
 }
 
 /**
@@ -1498,7 +1389,6 @@ export namespace DetectTextResponse {
  *       a sad face might not be sad emotionally.</p>
  */
 export interface Emotion {
-  __type?: "Emotion";
   /**
    * <p>Type of emotion detected.</p>
    */
@@ -1514,7 +1404,6 @@ export namespace Emotion {
   export const filterSensitiveLog = (obj: Emotion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Emotion => __isa(o, "Emotion");
 }
 
 export type EmotionName =
@@ -1532,7 +1421,6 @@ export type EmotionName =
  * <p>The evaluation results for the training of a model.</p>
  */
 export interface EvaluationResult {
-  __type?: "EvaluationResult";
   /**
    * <p>The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision
    *          and recall performance of the model as a single value. A higher value indicates better precision
@@ -1552,7 +1440,6 @@ export namespace EvaluationResult {
   export const filterSensitiveLog = (obj: EvaluationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EvaluationResult => __isa(o, "EvaluationResult");
 }
 
 /**
@@ -1560,7 +1447,6 @@ export namespace EvaluationResult {
  *       the determination.</p>
  */
 export interface Eyeglasses {
-  __type?: "Eyeglasses";
   /**
    * <p>Level of confidence in the determination.</p>
    */
@@ -1576,7 +1462,6 @@ export namespace Eyeglasses {
   export const filterSensitiveLog = (obj: Eyeglasses): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Eyeglasses => __isa(o, "Eyeglasses");
 }
 
 /**
@@ -1584,7 +1469,6 @@ export namespace Eyeglasses {
  *       determination.</p>
  */
 export interface EyeOpen {
-  __type?: "EyeOpen";
   /**
    * <p>Level of confidence in the determination.</p>
    */
@@ -1600,7 +1484,6 @@ export namespace EyeOpen {
   export const filterSensitiveLog = (obj: EyeOpen): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EyeOpen => __isa(o, "EyeOpen");
 }
 
 /**
@@ -1608,7 +1491,6 @@ export namespace EyeOpen {
  *       image, and external image ID that you assigned. </p>
  */
 export interface Face {
-  __type?: "Face";
   /**
    * <p>Unique identifier that Amazon Rekognition assigns to the face.</p>
    */
@@ -1640,7 +1522,6 @@ export namespace Face {
   export const filterSensitiveLog = (obj: Face): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Face => __isa(o, "Face");
 }
 
 export enum FaceAttributes {
@@ -1674,7 +1555,6 @@ export enum FaceAttributes {
  *       <code>DetectAttributes</code> input parameter.</p>
  */
 export interface FaceDetail {
-  __type?: "FaceDetail";
   /**
    * <p>Indicates whether or not the mouth on the face is open, and the confidence level in the
    *       determination.</p>
@@ -1768,14 +1648,12 @@ export namespace FaceDetail {
   export const filterSensitiveLog = (obj: FaceDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FaceDetail => __isa(o, "FaceDetail");
 }
 
 /**
  * <p>Information about a face detected in a video analysis request and the time the face was detected in the video. </p>
  */
 export interface FaceDetection {
-  __type?: "FaceDetection";
   /**
    * <p>Time, in milliseconds from the start of the video, that the face was detected.</p>
    */
@@ -1791,7 +1669,6 @@ export namespace FaceDetection {
   export const filterSensitiveLog = (obj: FaceDetection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FaceDetection => __isa(o, "FaceDetection");
 }
 
 /**
@@ -1799,7 +1676,6 @@ export namespace FaceDetection {
  *       this face with the input face.</p>
  */
 export interface FaceMatch {
-  __type?: "FaceMatch";
   /**
    * <p>Confidence in the match of this face with the input face.</p>
    */
@@ -1816,7 +1692,6 @@ export namespace FaceMatch {
   export const filterSensitiveLog = (obj: FaceMatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FaceMatch => __isa(o, "FaceMatch");
 }
 
 /**
@@ -1824,7 +1699,6 @@ export namespace FaceMatch {
  *       attributes that are detected but aren't stored in the database.</p>
  */
 export interface FaceRecord {
-  __type?: "FaceRecord";
   /**
    * <p>Describes the face properties such as the bounding box, face ID, image ID of the input
    *       image, and external image ID that you assigned. </p>
@@ -1841,7 +1715,6 @@ export namespace FaceRecord {
   export const filterSensitiveLog = (obj: FaceRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FaceRecord => __isa(o, "FaceRecord");
 }
 
 /**
@@ -1849,7 +1722,6 @@ export namespace FaceRecord {
  *         parameter for <a>CreateStreamProcessor</a>.</p>
  */
 export interface FaceSearchSettings {
-  __type?: "FaceSearchSettings";
   /**
    * <p>The ID of a collection that contains faces that you want to search for.</p>
    */
@@ -1866,7 +1738,6 @@ export namespace FaceSearchSettings {
   export const filterSensitiveLog = (obj: FaceSearchSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FaceSearchSettings => __isa(o, "FaceSearchSettings");
 }
 
 export enum FaceSearchSortBy {
@@ -1890,7 +1761,6 @@ export enum FaceSearchSortBy {
  *          <p>We don't recommend using gender binary predictions to make decisions that impact  an individual's rights, privacy, or access to services.</p>
  */
 export interface Gender {
-  __type?: "Gender";
   /**
    * <p>Level of confidence in the prediction.</p>
    */
@@ -1906,7 +1776,6 @@ export namespace Gender {
   export const filterSensitiveLog = (obj: Gender): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Gender => __isa(o, "Gender");
 }
 
 export enum GenderType {
@@ -1919,7 +1788,6 @@ export enum GenderType {
  *       an image.</p>
  */
 export interface Geometry {
-  __type?: "Geometry";
   /**
    * <p>Within the bounding box, a fine-grained polygon around the detected item.</p>
    */
@@ -1936,11 +1804,9 @@ export namespace Geometry {
   export const filterSensitiveLog = (obj: Geometry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Geometry => __isa(o, "Geometry");
 }
 
 export interface GetCelebrityInfoRequest {
-  __type?: "GetCelebrityInfoRequest";
   /**
    * <p>The ID for the celebrity. You get the celebrity ID from a call to the <a>RecognizeCelebrities</a> operation,
    *    which recognizes celebrities in an image. </p>
@@ -1952,11 +1818,9 @@ export namespace GetCelebrityInfoRequest {
   export const filterSensitiveLog = (obj: GetCelebrityInfoRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCelebrityInfoRequest => __isa(o, "GetCelebrityInfoRequest");
 }
 
 export interface GetCelebrityInfoResponse {
-  __type?: "GetCelebrityInfoResponse";
   /**
    * <p>The name of the celebrity.</p>
    */
@@ -1972,11 +1836,9 @@ export namespace GetCelebrityInfoResponse {
   export const filterSensitiveLog = (obj: GetCelebrityInfoResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCelebrityInfoResponse => __isa(o, "GetCelebrityInfoResponse");
 }
 
 export interface GetCelebrityRecognitionRequest {
-  __type?: "GetCelebrityRecognitionRequest";
   /**
    * <p>Sort to use for celebrities returned in <code>Celebrities</code> field. Specify <code>ID</code> to sort by the celebrity identifier,
    *         specify <code>TIMESTAMP</code> to sort by the time the celebrity was recognized.</p>
@@ -2007,11 +1869,9 @@ export namespace GetCelebrityRecognitionRequest {
   export const filterSensitiveLog = (obj: GetCelebrityRecognitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCelebrityRecognitionRequest => __isa(o, "GetCelebrityRecognitionRequest");
 }
 
 export interface GetCelebrityRecognitionResponse {
-  __type?: "GetCelebrityRecognitionResponse";
   /**
    * <p>Array of celebrities recognized in the video.</p>
    */
@@ -2044,11 +1904,9 @@ export namespace GetCelebrityRecognitionResponse {
   export const filterSensitiveLog = (obj: GetCelebrityRecognitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCelebrityRecognitionResponse => __isa(o, "GetCelebrityRecognitionResponse");
 }
 
 export interface GetContentModerationRequest {
-  __type?: "GetContentModerationRequest";
   /**
    * <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.
    *     If you specify a value greater than 1000, a maximum of 1000 results is returned.
@@ -2083,11 +1941,9 @@ export namespace GetContentModerationRequest {
   export const filterSensitiveLog = (obj: GetContentModerationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetContentModerationRequest => __isa(o, "GetContentModerationRequest");
 }
 
 export interface GetContentModerationResponse {
-  __type?: "GetContentModerationResponse";
   /**
    * <p>The current status of the unsafe content analysis job.</p>
    */
@@ -2125,11 +1981,9 @@ export namespace GetContentModerationResponse {
   export const filterSensitiveLog = (obj: GetContentModerationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetContentModerationResponse => __isa(o, "GetContentModerationResponse");
 }
 
 export interface GetFaceDetectionRequest {
-  __type?: "GetFaceDetectionRequest";
   /**
    * <p>If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination
    *        token in the response. You can use this pagination token to retrieve the next set of faces.</p>
@@ -2153,11 +2007,9 @@ export namespace GetFaceDetectionRequest {
   export const filterSensitiveLog = (obj: GetFaceDetectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFaceDetectionRequest => __isa(o, "GetFaceDetectionRequest");
 }
 
 export interface GetFaceDetectionResponse {
-  __type?: "GetFaceDetectionResponse";
   /**
    * <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in
    *        every page of paginated responses from a Amazon Rekognition video operation.</p>
@@ -2190,11 +2042,9 @@ export namespace GetFaceDetectionResponse {
   export const filterSensitiveLog = (obj: GetFaceDetectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFaceDetectionResponse => __isa(o, "GetFaceDetectionResponse");
 }
 
 export interface GetFaceSearchRequest {
-  __type?: "GetFaceSearchRequest";
   /**
    * <p>Sort to use for grouping faces in the response. Use <code>TIMESTAMP</code> to group faces by the time
    *       that they are recognized. Use <code>INDEX</code> to sort by recognized faces. </p>
@@ -2224,11 +2074,9 @@ export namespace GetFaceSearchRequest {
   export const filterSensitiveLog = (obj: GetFaceSearchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFaceSearchRequest => __isa(o, "GetFaceSearchRequest");
 }
 
 export interface GetFaceSearchResponse {
-  __type?: "GetFaceSearchResponse";
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
    */
@@ -2266,11 +2114,9 @@ export namespace GetFaceSearchResponse {
   export const filterSensitiveLog = (obj: GetFaceSearchResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFaceSearchResponse => __isa(o, "GetFaceSearchResponse");
 }
 
 export interface GetLabelDetectionRequest {
-  __type?: "GetLabelDetectionRequest";
   /**
    * <p>Job identifier for the label detection operation for which you want results returned. You get the job identifer from
    *       an initial call to <code>StartlabelDetection</code>.</p>
@@ -2304,11 +2150,9 @@ export namespace GetLabelDetectionRequest {
   export const filterSensitiveLog = (obj: GetLabelDetectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLabelDetectionRequest => __isa(o, "GetLabelDetectionRequest");
 }
 
 export interface GetLabelDetectionResponse {
-  __type?: "GetLabelDetectionResponse";
   /**
    * <p>Version number of the label detection model that was used to detect labels.</p>
    */
@@ -2347,11 +2191,9 @@ export namespace GetLabelDetectionResponse {
   export const filterSensitiveLog = (obj: GetLabelDetectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLabelDetectionResponse => __isa(o, "GetLabelDetectionResponse");
 }
 
 export interface GetPersonTrackingRequest {
-  __type?: "GetPersonTrackingRequest";
   /**
    * <p>Sort to use for elements in the <code>Persons</code> array. Use <code>TIMESTAMP</code> to sort array elements
    *        by the time persons are detected. Use <code>INDEX</code> to sort by the tracked persons.
@@ -2384,11 +2226,9 @@ export namespace GetPersonTrackingRequest {
   export const filterSensitiveLog = (obj: GetPersonTrackingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPersonTrackingRequest => __isa(o, "GetPersonTrackingRequest");
 }
 
 export interface GetPersonTrackingResponse {
-  __type?: "GetPersonTrackingResponse";
   /**
    * <p>The current status of the person tracking job.</p>
    */
@@ -2421,11 +2261,9 @@ export namespace GetPersonTrackingResponse {
   export const filterSensitiveLog = (obj: GetPersonTrackingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPersonTrackingResponse => __isa(o, "GetPersonTrackingResponse");
 }
 
 export interface GetSegmentDetectionRequest {
-  __type?: "GetSegmentDetectionRequest";
   /**
    * <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.</p>
    */
@@ -2448,11 +2286,9 @@ export namespace GetSegmentDetectionRequest {
   export const filterSensitiveLog = (obj: GetSegmentDetectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentDetectionRequest => __isa(o, "GetSegmentDetectionRequest");
 }
 
 export interface GetSegmentDetectionResponse {
-  __type?: "GetSegmentDetectionResponse";
   /**
    * <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns
    *       a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>
@@ -2505,11 +2341,9 @@ export namespace GetSegmentDetectionResponse {
   export const filterSensitiveLog = (obj: GetSegmentDetectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSegmentDetectionResponse => __isa(o, "GetSegmentDetectionResponse");
 }
 
 export interface GetTextDetectionRequest {
-  __type?: "GetTextDetectionRequest";
   /**
    * <p>Job identifier for the text detection operation for which you want results returned.
    *         You get the job identifer from an initial call to <code>StartTextDetection</code>.</p>
@@ -2532,11 +2366,9 @@ export namespace GetTextDetectionRequest {
   export const filterSensitiveLog = (obj: GetTextDetectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTextDetectionRequest => __isa(o, "GetTextDetectionRequest");
 }
 
 export interface GetTextDetectionResponse {
-  __type?: "GetTextDetectionResponse";
   /**
    * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
    *         request to retrieve the next set of text.</p>
@@ -2575,14 +2407,12 @@ export namespace GetTextDetectionResponse {
   export const filterSensitiveLog = (obj: GetTextDetectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTextDetectionResponse => __isa(o, "GetTextDetectionResponse");
 }
 
 /**
  * <p>The S3 bucket that contains the Ground Truth manifest file.</p>
  */
 export interface GroundTruthManifest {
-  __type?: "GroundTruthManifest";
   /**
    * <p>Provides the S3 bucket name and object name.</p>
    *          <p>The region for the S3 bucket containing the S3 object must match the region you use for
@@ -2599,7 +2429,6 @@ export namespace GroundTruthManifest {
   export const filterSensitiveLog = (obj: GroundTruthManifest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GroundTruthManifest => __isa(o, "GroundTruthManifest");
 }
 
 /**
@@ -2607,7 +2436,6 @@ export namespace GroundTruthManifest {
  *        not trigger human review.</p>
  */
 export interface HumanLoopActivationOutput {
-  __type?: "HumanLoopActivationOutput";
   /**
    * <p>Shows the result of condition evaluations, including those conditions which activated a
    *       human review.</p>
@@ -2629,7 +2457,6 @@ export namespace HumanLoopActivationOutput {
   export const filterSensitiveLog = (obj: HumanLoopActivationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopActivationOutput => __isa(o, "HumanLoopActivationOutput");
 }
 
 /**
@@ -2637,7 +2464,6 @@ export namespace HumanLoopActivationOutput {
  *       You can also set certain attributes of the image before review.</p>
  */
 export interface HumanLoopConfig {
-  __type?: "HumanLoopConfig";
   /**
    * <p>Sets attributes of the input data.</p>
    */
@@ -2660,7 +2486,6 @@ export namespace HumanLoopConfig {
   export const filterSensitiveLog = (obj: HumanLoopConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopConfig => __isa(o, "HumanLoopConfig");
 }
 
 /**
@@ -2668,7 +2493,6 @@ export namespace HumanLoopConfig {
  *       personally identifiable information.</p>
  */
 export interface HumanLoopDataAttributes {
-  __type?: "HumanLoopDataAttributes";
   /**
    * <p>Sets whether the input image is free of personally identifiable information.</p>
    */
@@ -2679,7 +2503,6 @@ export namespace HumanLoopDataAttributes {
   export const filterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopDataAttributes => __isa(o, "HumanLoopDataAttributes");
 }
 
 /**
@@ -2715,7 +2538,6 @@ export namespace HumanLoopQuotaExceededException {
   export const filterSensitiveLog = (obj: HumanLoopQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopQuotaExceededException => __isa(o, "HumanLoopQuotaExceededException");
 }
 
 /**
@@ -2738,8 +2560,6 @@ export namespace IdempotentParameterMismatchException {
   export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdempotentParameterMismatchException =>
-    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
@@ -2768,7 +2588,6 @@ export namespace IdempotentParameterMismatchException {
  *     </p>
  */
 export interface Image {
-  __type?: "Image";
   /**
    * <p>Blob of image bytes up to 5 MBs.</p>
    */
@@ -2784,14 +2603,12 @@ export namespace Image {
   export const filterSensitiveLog = (obj: Image): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Image => __isa(o, "Image");
 }
 
 /**
  * <p>Identifies face image brightness and sharpness. </p>
  */
 export interface ImageQuality {
-  __type?: "ImageQuality";
   /**
    * <p>Value representing sharpness of the face. The service returns a value between 0 and 100
    *       (inclusive). A higher value indicates a sharper face image.</p>
@@ -2809,7 +2626,6 @@ export namespace ImageQuality {
   export const filterSensitiveLog = (obj: ImageQuality): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageQuality => __isa(o, "ImageQuality");
 }
 
 /**
@@ -2832,11 +2648,9 @@ export namespace ImageTooLargeException {
   export const filterSensitiveLog = (obj: ImageTooLargeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageTooLargeException => __isa(o, "ImageTooLargeException");
 }
 
 export interface IndexFacesRequest {
-  __type?: "IndexFacesRequest";
   /**
    * <p>The ID of an existing collection to which you want to add the faces that are detected
    *       in the input images.</p>
@@ -2908,11 +2722,9 @@ export namespace IndexFacesRequest {
   export const filterSensitiveLog = (obj: IndexFacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IndexFacesRequest => __isa(o, "IndexFacesRequest");
 }
 
 export interface IndexFacesResponse {
-  __type?: "IndexFacesResponse";
   /**
    * <p>An array of faces that were detected in the image but weren't indexed. They weren't
    *       indexed because the quality filter identified them as low quality, or the
@@ -2970,7 +2782,6 @@ export namespace IndexFacesResponse {
   export const filterSensitiveLog = (obj: IndexFacesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IndexFacesResponse => __isa(o, "IndexFacesResponse");
 }
 
 /**
@@ -2978,7 +2789,6 @@ export namespace IndexFacesResponse {
  *       or by Amazon Rekognition Video (<a>GetLabelDetection</a>).</p>
  */
 export interface Instance {
-  __type?: "Instance";
   /**
    * <p>The position of the label instance on the image.</p>
    */
@@ -2994,7 +2804,6 @@ export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
 
 /**
@@ -3016,7 +2825,6 @@ export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -3037,7 +2845,6 @@ export namespace InvalidImageFormatException {
   export const filterSensitiveLog = (obj: InvalidImageFormatException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidImageFormatException => __isa(o, "InvalidImageFormatException");
 }
 
 /**
@@ -3059,7 +2866,6 @@ export namespace InvalidPaginationTokenException {
   export const filterSensitiveLog = (obj: InvalidPaginationTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPaginationTokenException => __isa(o, "InvalidPaginationTokenException");
 }
 
 /**
@@ -3081,7 +2887,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -3103,7 +2908,6 @@ export namespace InvalidS3ObjectException {
   export const filterSensitiveLog = (obj: InvalidS3ObjectException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidS3ObjectException => __isa(o, "InvalidS3ObjectException");
 }
 
 /**
@@ -3111,7 +2915,6 @@ export namespace InvalidS3ObjectException {
  *             CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
  */
 export interface KinesisDataStream {
-  __type?: "KinesisDataStream";
   /**
    * <p>ARN of the output Amazon Kinesis Data Streams stream.</p>
    */
@@ -3122,7 +2925,6 @@ export namespace KinesisDataStream {
   export const filterSensitiveLog = (obj: KinesisDataStream): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KinesisDataStream => __isa(o, "KinesisDataStream");
 }
 
 /**
@@ -3130,7 +2932,6 @@ export namespace KinesisDataStream {
  *             CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
  */
 export interface KinesisVideoStream {
-  __type?: "KinesisVideoStream";
   /**
    * <p>ARN of the Kinesis video stream stream that streams the source video.</p>
    */
@@ -3141,7 +2942,6 @@ export namespace KinesisVideoStream {
   export const filterSensitiveLog = (obj: KinesisVideoStream): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KinesisVideoStream => __isa(o, "KinesisVideoStream");
 }
 
 /**
@@ -3151,7 +2951,6 @@ export namespace KinesisVideoStream {
  *     </p>
  */
 export interface Label {
-  __type?: "Label";
   /**
    * <p>The name (label) of the object or scene.</p>
    */
@@ -3178,14 +2977,12 @@ export namespace Label {
   export const filterSensitiveLog = (obj: Label): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Label => __isa(o, "Label");
 }
 
 /**
  * <p>Information about a label detected in a video analysis request and the time the label was detected in the video. </p>
  */
 export interface LabelDetection {
-  __type?: "LabelDetection";
   /**
    * <p>Details about the detected label.</p>
    */
@@ -3201,7 +2998,6 @@ export namespace LabelDetection {
   export const filterSensitiveLog = (obj: LabelDetection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelDetection => __isa(o, "LabelDetection");
 }
 
 export enum LabelDetectionSortBy {
@@ -3213,7 +3009,6 @@ export enum LabelDetectionSortBy {
  * <p>Indicates the location of the landmark on the face.</p>
  */
 export interface Landmark {
-  __type?: "Landmark";
   /**
    * <p>Type of landmark.</p>
    */
@@ -3238,7 +3033,6 @@ export namespace Landmark {
   export const filterSensitiveLog = (obj: Landmark): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Landmark => __isa(o, "Landmark");
 }
 
 export enum LandmarkType {
@@ -3295,11 +3089,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListCollectionsRequest {
-  __type?: "ListCollectionsRequest";
   /**
    * <p>Pagination token from the previous response.</p>
    */
@@ -3315,11 +3107,9 @@ export namespace ListCollectionsRequest {
   export const filterSensitiveLog = (obj: ListCollectionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCollectionsRequest => __isa(o, "ListCollectionsRequest");
 }
 
 export interface ListCollectionsResponse {
-  __type?: "ListCollectionsResponse";
   /**
    * <p>If the result is truncated, the response provides a <code>NextToken</code> that you can
    *       use in the subsequent request to fetch the next set of collection IDs.</p>
@@ -3343,11 +3133,9 @@ export namespace ListCollectionsResponse {
   export const filterSensitiveLog = (obj: ListCollectionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCollectionsResponse => __isa(o, "ListCollectionsResponse");
 }
 
 export interface ListFacesRequest {
-  __type?: "ListFacesRequest";
   /**
    * <p>ID of the collection from which to list the faces.</p>
    */
@@ -3370,11 +3158,9 @@ export namespace ListFacesRequest {
   export const filterSensitiveLog = (obj: ListFacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFacesRequest => __isa(o, "ListFacesRequest");
 }
 
 export interface ListFacesResponse {
-  __type?: "ListFacesResponse";
   /**
    * <p>If the response is truncated, Amazon Rekognition returns this token that you can use in the
    *       subsequent request to retrieve the next set of faces.</p>
@@ -3396,11 +3182,9 @@ export namespace ListFacesResponse {
   export const filterSensitiveLog = (obj: ListFacesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFacesResponse => __isa(o, "ListFacesResponse");
 }
 
 export interface ListStreamProcessorsRequest {
-  __type?: "ListStreamProcessorsRequest";
   /**
    * <p>If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video
    *             returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors. </p>
@@ -3417,11 +3201,9 @@ export namespace ListStreamProcessorsRequest {
   export const filterSensitiveLog = (obj: ListStreamProcessorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamProcessorsRequest => __isa(o, "ListStreamProcessorsRequest");
 }
 
 export interface ListStreamProcessorsResponse {
-  __type?: "ListStreamProcessorsResponse";
   /**
    * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
    *             request to retrieve the next set of stream processors. </p>
@@ -3438,7 +3220,6 @@ export namespace ListStreamProcessorsResponse {
   export const filterSensitiveLog = (obj: ListStreamProcessorsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamProcessorsResponse => __isa(o, "ListStreamProcessorsResponse");
 }
 
 /**
@@ -3447,7 +3228,6 @@ export namespace ListStreamProcessorsResponse {
  *       Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
  */
 export interface ModerationLabel {
-  __type?: "ModerationLabel";
   /**
    * <p>The name for the parent label. Labels at the top level of the hierarchy have the parent
    *       label <code>""</code>.</p>
@@ -3473,7 +3253,6 @@ export namespace ModerationLabel {
   export const filterSensitiveLog = (obj: ModerationLabel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModerationLabel => __isa(o, "ModerationLabel");
 }
 
 /**
@@ -3481,7 +3260,6 @@ export namespace ModerationLabel {
  *       determination.</p>
  */
 export interface MouthOpen {
-  __type?: "MouthOpen";
   /**
    * <p>Boolean value that indicates whether the mouth on the face is open or not.</p>
    */
@@ -3497,7 +3275,6 @@ export namespace MouthOpen {
   export const filterSensitiveLog = (obj: MouthOpen): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MouthOpen => __isa(o, "MouthOpen");
 }
 
 /**
@@ -3505,7 +3282,6 @@ export namespace MouthOpen {
  *       determination.</p>
  */
 export interface Mustache {
-  __type?: "Mustache";
   /**
    * <p>Boolean value that indicates whether the face has mustache or not.</p>
    */
@@ -3521,7 +3297,6 @@ export namespace Mustache {
   export const filterSensitiveLog = (obj: Mustache): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Mustache => __isa(o, "Mustache");
 }
 
 /**
@@ -3529,7 +3304,6 @@ export namespace Mustache {
  *             <a>api-video</a>.</p>
  */
 export interface NotificationChannel {
-  __type?: "NotificationChannel";
   /**
    * <p>The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic. </p>
    */
@@ -3545,7 +3319,6 @@ export namespace NotificationChannel {
   export const filterSensitiveLog = (obj: NotificationChannel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotificationChannel => __isa(o, "NotificationChannel");
 }
 
 export enum OrientationCorrection {
@@ -3559,7 +3332,6 @@ export enum OrientationCorrection {
  * <p>The S3 bucket and folder location where training output is placed.</p>
  */
 export interface OutputConfig {
-  __type?: "OutputConfig";
   /**
    * <p>The S3 bucket where training output is placed.</p>
    */
@@ -3575,14 +3347,12 @@ export namespace OutputConfig {
   export const filterSensitiveLog = (obj: OutputConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputConfig => __isa(o, "OutputConfig");
 }
 
 /**
  * <p>A parent label for a label. A label can have 0, 1, or more parents. </p>
  */
 export interface Parent {
-  __type?: "Parent";
   /**
    * <p>The name of the parent label.</p>
    */
@@ -3593,14 +3363,12 @@ export namespace Parent {
   export const filterSensitiveLog = (obj: Parent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Parent => __isa(o, "Parent");
 }
 
 /**
  * <p>Details about a person detected in a video analysis request.</p>
  */
 export interface PersonDetail {
-  __type?: "PersonDetail";
   /**
    * <p>Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.</p>
    */
@@ -3621,7 +3389,6 @@ export namespace PersonDetail {
   export const filterSensitiveLog = (obj: PersonDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PersonDetail => __isa(o, "PersonDetail");
 }
 
 /**
@@ -3632,7 +3399,6 @@ export namespace PersonDetail {
  *          <p>For more information, see GetPersonTracking in the Amazon Rekognition Developer Guide. </p>
  */
 export interface PersonDetection {
-  __type?: "PersonDetection";
   /**
    * <p>The time, in milliseconds from the start of the video, that the person's path was tracked.</p>
    */
@@ -3648,7 +3414,6 @@ export namespace PersonDetection {
   export const filterSensitiveLog = (obj: PersonDetection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PersonDetection => __isa(o, "PersonDetection");
 }
 
 /**
@@ -3658,7 +3423,6 @@ export namespace PersonDetection {
  *         <code>PersonMatch</code> objects is returned by <a>GetFaceSearch</a>. </p>
  */
 export interface PersonMatch {
-  __type?: "PersonMatch";
   /**
    * <p>Information about the faces in the input collection that match the face of a person in the video.</p>
    */
@@ -3679,7 +3443,6 @@ export namespace PersonMatch {
   export const filterSensitiveLog = (obj: PersonMatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PersonMatch => __isa(o, "PersonMatch");
 }
 
 export enum PersonTrackingSortBy {
@@ -3698,7 +3461,6 @@ export enum PersonTrackingSortBy {
  *       Amazon Rekognition Developer Guide. </p>
  */
 export interface Point {
-  __type?: "Point";
   /**
    * <p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>
    */
@@ -3714,14 +3476,12 @@ export namespace Point {
   export const filterSensitiveLog = (obj: Point): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Point => __isa(o, "Point");
 }
 
 /**
  * <p>Indicates the pose of the face as determined by its pitch, roll, and yaw.</p>
  */
 export interface Pose {
-  __type?: "Pose";
   /**
    * <p>Value representing the face rotation on the yaw axis.</p>
    */
@@ -3742,14 +3502,12 @@ export namespace Pose {
   export const filterSensitiveLog = (obj: Pose): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Pose => __isa(o, "Pose");
 }
 
 /**
  * <p>A description of a Amazon Rekognition Custom Labels project.</p>
  */
 export interface ProjectDescription {
-  __type?: "ProjectDescription";
   /**
    * <p>The current status of the project.</p>
    */
@@ -3770,7 +3528,6 @@ export namespace ProjectDescription {
   export const filterSensitiveLog = (obj: ProjectDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectDescription => __isa(o, "ProjectDescription");
 }
 
 export enum ProjectStatus {
@@ -3783,7 +3540,6 @@ export enum ProjectStatus {
  * <p>The description of a version of a model.</p>
  */
 export interface ProjectVersionDescription {
-  __type?: "ProjectVersionDescription";
   /**
    * <p>The location where training results are saved.</p>
    */
@@ -3846,7 +3602,6 @@ export namespace ProjectVersionDescription {
   export const filterSensitiveLog = (obj: ProjectVersionDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectVersionDescription => __isa(o, "ProjectVersionDescription");
 }
 
 export enum ProjectVersionStatus {
@@ -3881,8 +3636,6 @@ export namespace ProvisionedThroughputExceededException {
   export const filterSensitiveLog = (obj: ProvisionedThroughputExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionedThroughputExceededException =>
-    __isa(o, "ProvisionedThroughputExceededException");
 }
 
 export enum QualityFilter {
@@ -3904,7 +3657,6 @@ export enum Reason {
 }
 
 export interface RecognizeCelebritiesRequest {
-  __type?: "RecognizeCelebritiesRequest";
   /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
    *       Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
@@ -3919,11 +3671,9 @@ export namespace RecognizeCelebritiesRequest {
   export const filterSensitiveLog = (obj: RecognizeCelebritiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecognizeCelebritiesRequest => __isa(o, "RecognizeCelebritiesRequest");
 }
 
 export interface RecognizeCelebritiesResponse {
-  __type?: "RecognizeCelebritiesResponse";
   /**
    * <p>Details about each unrecognized face in the image.</p>
    */
@@ -3956,7 +3706,6 @@ export namespace RecognizeCelebritiesResponse {
   export const filterSensitiveLog = (obj: RecognizeCelebritiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecognizeCelebritiesResponse => __isa(o, "RecognizeCelebritiesResponse");
 }
 
 /**
@@ -3967,7 +3716,6 @@ export namespace RecognizeCelebritiesResponse {
  *       is kept in the results.</p>
  */
 export interface RegionOfInterest {
-  __type?: "RegionOfInterest";
   /**
    * <p>The box representing a region of interest on screen.</p>
    */
@@ -3978,7 +3726,6 @@ export namespace RegionOfInterest {
   export const filterSensitiveLog = (obj: RegionOfInterest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegionOfInterest => __isa(o, "RegionOfInterest");
 }
 
 /**
@@ -4000,7 +3747,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -4022,7 +3768,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -4044,7 +3789,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -4068,7 +3812,6 @@ export namespace ResourceNotReadyException {
   export const filterSensitiveLog = (obj: ResourceNotReadyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotReadyException => __isa(o, "ResourceNotReadyException");
 }
 
 /**
@@ -4081,7 +3824,6 @@ export namespace ResourceNotReadyException {
  *       Developer Guide. </p>
  */
 export interface S3Object {
-  __type?: "S3Object";
   /**
    * <p>Name of the S3 bucket.</p>
    */
@@ -4102,11 +3844,9 @@ export namespace S3Object {
   export const filterSensitiveLog = (obj: S3Object): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Object => __isa(o, "S3Object");
 }
 
 export interface SearchFacesByImageRequest {
-  __type?: "SearchFacesByImageRequest";
   /**
    * <p>Maximum number of faces to return. The operation returns the maximum number of faces
    *       with the highest confidence in the match.</p>
@@ -4157,11 +3897,9 @@ export namespace SearchFacesByImageRequest {
   export const filterSensitiveLog = (obj: SearchFacesByImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchFacesByImageRequest => __isa(o, "SearchFacesByImageRequest");
 }
 
 export interface SearchFacesByImageResponse {
-  __type?: "SearchFacesByImageResponse";
   /**
    * <p>The level of confidence that the <code>searchedFaceBoundingBox</code>, contains a
    *       face.</p>
@@ -4190,11 +3928,9 @@ export namespace SearchFacesByImageResponse {
   export const filterSensitiveLog = (obj: SearchFacesByImageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchFacesByImageResponse => __isa(o, "SearchFacesByImageResponse");
 }
 
 export interface SearchFacesRequest {
-  __type?: "SearchFacesRequest";
   /**
    * <p>ID of a face to find matches for in the collection.</p>
    */
@@ -4224,11 +3960,9 @@ export namespace SearchFacesRequest {
   export const filterSensitiveLog = (obj: SearchFacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchFacesRequest => __isa(o, "SearchFacesRequest");
 }
 
 export interface SearchFacesResponse {
-  __type?: "SearchFacesResponse";
   /**
    * <p>ID of the face that was searched for matches in a collection.</p>
    */
@@ -4250,7 +3984,6 @@ export namespace SearchFacesResponse {
   export const filterSensitiveLog = (obj: SearchFacesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchFacesResponse => __isa(o, "SearchFacesResponse");
 }
 
 /**
@@ -4260,7 +3993,6 @@ export namespace SearchFacesResponse {
  *     </p>
  */
 export interface SegmentDetection {
-  __type?: "SegmentDetection";
   /**
    * <p>The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment.
    *       <code>StartTimecode</code> is in <i>HH:MM:SS:fr</i> format
@@ -4315,7 +4047,6 @@ export namespace SegmentDetection {
   export const filterSensitiveLog = (obj: SegmentDetection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentDetection => __isa(o, "SegmentDetection");
 }
 
 export enum SegmentType {
@@ -4328,7 +4059,6 @@ export enum SegmentType {
  *       An array of <code>SegmentTypeInfo</code> objects is returned  by the response from <a>GetSegmentDetection</a>.</p>
  */
 export interface SegmentTypeInfo {
-  __type?: "SegmentTypeInfo";
   /**
    * <p>The type of a segment (technical cue or shot detection).</p>
    */
@@ -4344,7 +4074,6 @@ export namespace SegmentTypeInfo {
   export const filterSensitiveLog = (obj: SegmentTypeInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SegmentTypeInfo => __isa(o, "SegmentTypeInfo");
 }
 
 /**
@@ -4352,7 +4081,6 @@ export namespace SegmentTypeInfo {
  *       see <a>SegmentDetection</a>.</p>
  */
 export interface ShotSegment {
-  __type?: "ShotSegment";
   /**
    * <p>The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.</p>
    */
@@ -4368,7 +4096,6 @@ export namespace ShotSegment {
   export const filterSensitiveLog = (obj: ShotSegment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ShotSegment => __isa(o, "ShotSegment");
 }
 
 /**
@@ -4376,7 +4103,6 @@ export namespace ShotSegment {
  *       determination.</p>
  */
 export interface Smile {
-  __type?: "Smile";
   /**
    * <p>Boolean value that indicates whether the face is smiling or not.</p>
    */
@@ -4392,11 +4118,9 @@ export namespace Smile {
   export const filterSensitiveLog = (obj: Smile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Smile => __isa(o, "Smile");
 }
 
 export interface StartCelebrityRecognitionRequest {
-  __type?: "StartCelebrityRecognitionRequest";
   /**
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
    *     <code>StartCelebrityRecognition</code> requests, the same <code>JobId</code> is returned. Use
@@ -4427,11 +4151,9 @@ export namespace StartCelebrityRecognitionRequest {
   export const filterSensitiveLog = (obj: StartCelebrityRecognitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartCelebrityRecognitionRequest => __isa(o, "StartCelebrityRecognitionRequest");
 }
 
 export interface StartCelebrityRecognitionResponse {
-  __type?: "StartCelebrityRecognitionResponse";
   /**
    * <p>The identifier for the celebrity recognition analysis job. Use <code>JobId</code> to identify the job in
    *       a subsequent call to <code>GetCelebrityRecognition</code>.</p>
@@ -4443,11 +4165,9 @@ export namespace StartCelebrityRecognitionResponse {
   export const filterSensitiveLog = (obj: StartCelebrityRecognitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartCelebrityRecognitionResponse => __isa(o, "StartCelebrityRecognitionResponse");
 }
 
 export interface StartContentModerationRequest {
-  __type?: "StartContentModerationRequest";
   /**
    * <p>Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence
    *       represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence.
@@ -4487,11 +4207,9 @@ export namespace StartContentModerationRequest {
   export const filterSensitiveLog = (obj: StartContentModerationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartContentModerationRequest => __isa(o, "StartContentModerationRequest");
 }
 
 export interface StartContentModerationResponse {
-  __type?: "StartContentModerationResponse";
   /**
    * <p>The identifier for the unsafe content analysis job. Use <code>JobId</code> to identify the job in
    *       a subsequent call to <code>GetContentModeration</code>.</p>
@@ -4503,11 +4221,9 @@ export namespace StartContentModerationResponse {
   export const filterSensitiveLog = (obj: StartContentModerationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartContentModerationResponse => __isa(o, "StartContentModerationResponse");
 }
 
 export interface StartFaceDetectionRequest {
-  __type?: "StartFaceDetectionRequest";
   /**
    * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the
    *          face detection operation.</p>
@@ -4547,11 +4263,9 @@ export namespace StartFaceDetectionRequest {
   export const filterSensitiveLog = (obj: StartFaceDetectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartFaceDetectionRequest => __isa(o, "StartFaceDetectionRequest");
 }
 
 export interface StartFaceDetectionResponse {
-  __type?: "StartFaceDetectionResponse";
   /**
    * <p>The identifier for the face detection job. Use <code>JobId</code> to identify the job in
    *     a subsequent call to <code>GetFaceDetection</code>.</p>
@@ -4563,11 +4277,9 @@ export namespace StartFaceDetectionResponse {
   export const filterSensitiveLog = (obj: StartFaceDetectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartFaceDetectionResponse => __isa(o, "StartFaceDetectionResponse");
 }
 
 export interface StartFaceSearchRequest {
-  __type?: "StartFaceSearchRequest";
   /**
    * <p>The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%.
    *       The default value is 80%.</p>
@@ -4607,11 +4319,9 @@ export namespace StartFaceSearchRequest {
   export const filterSensitiveLog = (obj: StartFaceSearchRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartFaceSearchRequest => __isa(o, "StartFaceSearchRequest");
 }
 
 export interface StartFaceSearchResponse {
-  __type?: "StartFaceSearchResponse";
   /**
    * <p>The identifier for the search job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetFaceSearch</code>. </p>
    */
@@ -4622,11 +4332,9 @@ export namespace StartFaceSearchResponse {
   export const filterSensitiveLog = (obj: StartFaceSearchResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartFaceSearchResponse => __isa(o, "StartFaceSearchResponse");
 }
 
 export interface StartLabelDetectionRequest {
-  __type?: "StartLabelDetectionRequest";
   /**
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
    *       <code>StartLabelDetection</code> requests, the same <code>JobId</code> is returned. Use
@@ -4667,11 +4375,9 @@ export namespace StartLabelDetectionRequest {
   export const filterSensitiveLog = (obj: StartLabelDetectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartLabelDetectionRequest => __isa(o, "StartLabelDetectionRequest");
 }
 
 export interface StartLabelDetectionResponse {
-  __type?: "StartLabelDetectionResponse";
   /**
    * <p>The identifier for the label detection job. Use <code>JobId</code> to identify the job in
    *     a subsequent call to <code>GetLabelDetection</code>. </p>
@@ -4683,11 +4389,9 @@ export namespace StartLabelDetectionResponse {
   export const filterSensitiveLog = (obj: StartLabelDetectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartLabelDetectionResponse => __isa(o, "StartLabelDetectionResponse");
 }
 
 export interface StartPersonTrackingRequest {
-  __type?: "StartPersonTrackingRequest";
   /**
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
    *       <code>StartPersonTracking</code> requests, the same <code>JobId</code> is returned. Use
@@ -4718,11 +4422,9 @@ export namespace StartPersonTrackingRequest {
   export const filterSensitiveLog = (obj: StartPersonTrackingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartPersonTrackingRequest => __isa(o, "StartPersonTrackingRequest");
 }
 
 export interface StartPersonTrackingResponse {
-  __type?: "StartPersonTrackingResponse";
   /**
    * <p>The identifier for the person detection job. Use <code>JobId</code> to identify the job in
    *     a subsequent call to <code>GetPersonTracking</code>.</p>
@@ -4734,11 +4436,9 @@ export namespace StartPersonTrackingResponse {
   export const filterSensitiveLog = (obj: StartPersonTrackingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartPersonTrackingResponse => __isa(o, "StartPersonTrackingResponse");
 }
 
 export interface StartProjectVersionRequest {
-  __type?: "StartProjectVersionRequest";
   /**
    * <p>The Amazon Resource Name(ARN) of the model version that you want to start.</p>
    */
@@ -4758,11 +4458,9 @@ export namespace StartProjectVersionRequest {
   export const filterSensitiveLog = (obj: StartProjectVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartProjectVersionRequest => __isa(o, "StartProjectVersionRequest");
 }
 
 export interface StartProjectVersionResponse {
-  __type?: "StartProjectVersionResponse";
   /**
    * <p>The current running status of the model. </p>
    */
@@ -4773,7 +4471,6 @@ export namespace StartProjectVersionResponse {
   export const filterSensitiveLog = (obj: StartProjectVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartProjectVersionResponse => __isa(o, "StartProjectVersionResponse");
 }
 
 /**
@@ -4782,7 +4479,6 @@ export namespace StartProjectVersionResponse {
  *     </p>
  */
 export interface StartSegmentDetectionFilters {
-  __type?: "StartSegmentDetectionFilters";
   /**
    * <p>Filters that are specific to shot detections.</p>
    */
@@ -4798,11 +4494,9 @@ export namespace StartSegmentDetectionFilters {
   export const filterSensitiveLog = (obj: StartSegmentDetectionFilters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSegmentDetectionFilters => __isa(o, "StartSegmentDetectionFilters");
 }
 
 export interface StartSegmentDetectionRequest {
-  __type?: "StartSegmentDetectionRequest";
   /**
    * <p>An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.</p>
    */
@@ -4843,11 +4537,9 @@ export namespace StartSegmentDetectionRequest {
   export const filterSensitiveLog = (obj: StartSegmentDetectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSegmentDetectionRequest => __isa(o, "StartSegmentDetectionRequest");
 }
 
 export interface StartSegmentDetectionResponse {
-  __type?: "StartSegmentDetectionResponse";
   /**
    * <p>Unique identifier for the segment detection job. The <code>JobId</code> is returned from <code>StartSegmentDetection</code>.
    *     </p>
@@ -4859,7 +4551,6 @@ export namespace StartSegmentDetectionResponse {
   export const filterSensitiveLog = (obj: StartSegmentDetectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSegmentDetectionResponse => __isa(o, "StartSegmentDetectionResponse");
 }
 
 /**
@@ -4867,7 +4558,6 @@ export namespace StartSegmentDetectionResponse {
  *       For more information, see <a>StartSegmentDetectionFilters</a>.</p>
  */
 export interface StartShotDetectionFilter {
-  __type?: "StartShotDetectionFilter";
   /**
    * <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected segment. Confidence
    *       represents how certain Amazon Rekognition is that a segment is correctly identified. 0 is the lowest confidence.
@@ -4883,11 +4573,9 @@ export namespace StartShotDetectionFilter {
   export const filterSensitiveLog = (obj: StartShotDetectionFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartShotDetectionFilter => __isa(o, "StartShotDetectionFilter");
 }
 
 export interface StartStreamProcessorRequest {
-  __type?: "StartStreamProcessorRequest";
   /**
    * <p>The name of the stream processor to start processing.</p>
    */
@@ -4898,18 +4586,14 @@ export namespace StartStreamProcessorRequest {
   export const filterSensitiveLog = (obj: StartStreamProcessorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartStreamProcessorRequest => __isa(o, "StartStreamProcessorRequest");
 }
 
-export interface StartStreamProcessorResponse {
-  __type?: "StartStreamProcessorResponse";
-}
+export interface StartStreamProcessorResponse {}
 
 export namespace StartStreamProcessorResponse {
   export const filterSensitiveLog = (obj: StartStreamProcessorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartStreamProcessorResponse => __isa(o, "StartStreamProcessorResponse");
 }
 
 /**
@@ -4917,7 +4601,6 @@ export namespace StartStreamProcessorResponse {
  *       see <a>StartSegmentDetectionFilters</a>.</p>
  */
 export interface StartTechnicalCueDetectionFilter {
-  __type?: "StartTechnicalCueDetectionFilter";
   /**
    * <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected segment. Confidence
    *       represents how certain Amazon Rekognition is that a segment is correctly identified. 0 is the lowest confidence.
@@ -4933,7 +4616,6 @@ export namespace StartTechnicalCueDetectionFilter {
   export const filterSensitiveLog = (obj: StartTechnicalCueDetectionFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTechnicalCueDetectionFilter => __isa(o, "StartTechnicalCueDetectionFilter");
 }
 
 /**
@@ -4942,7 +4624,6 @@ export namespace StartTechnicalCueDetectionFilter {
  *       lets you set a specific region of the screen to look for text in.</p>
  */
 export interface StartTextDetectionFilters {
-  __type?: "StartTextDetectionFilters";
   /**
    * <p>Filter focusing on a certain area of the frame. Uses a <code>BoundingBox</code> object to set the region
    *       of the screen.</p>
@@ -4959,11 +4640,9 @@ export namespace StartTextDetectionFilters {
   export const filterSensitiveLog = (obj: StartTextDetectionFilters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTextDetectionFilters => __isa(o, "StartTextDetectionFilters");
 }
 
 export interface StartTextDetectionRequest {
-  __type?: "StartTextDetectionRequest";
   /**
    * <p>Optional parameters that let you set criteria the text must meet to be included in your response.</p>
    */
@@ -4999,11 +4678,9 @@ export namespace StartTextDetectionRequest {
   export const filterSensitiveLog = (obj: StartTextDetectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTextDetectionRequest => __isa(o, "StartTextDetectionRequest");
 }
 
 export interface StartTextDetectionResponse {
-  __type?: "StartTextDetectionResponse";
   /**
    * <p>Identifier for the text detection job.  Use <code>JobId</code> to identify the job in a subsequent call to <code>GetTextDetection</code>.</p>
    */
@@ -5014,11 +4691,9 @@ export namespace StartTextDetectionResponse {
   export const filterSensitiveLog = (obj: StartTextDetectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTextDetectionResponse => __isa(o, "StartTextDetectionResponse");
 }
 
 export interface StopProjectVersionRequest {
-  __type?: "StopProjectVersionRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p>
    *          <p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
@@ -5030,11 +4705,9 @@ export namespace StopProjectVersionRequest {
   export const filterSensitiveLog = (obj: StopProjectVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopProjectVersionRequest => __isa(o, "StopProjectVersionRequest");
 }
 
 export interface StopProjectVersionResponse {
-  __type?: "StopProjectVersionResponse";
   /**
    * <p>The current status of the stop operation. </p>
    */
@@ -5045,11 +4718,9 @@ export namespace StopProjectVersionResponse {
   export const filterSensitiveLog = (obj: StopProjectVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopProjectVersionResponse => __isa(o, "StopProjectVersionResponse");
 }
 
 export interface StopStreamProcessorRequest {
-  __type?: "StopStreamProcessorRequest";
   /**
    * <p>The name of a stream processor created by <a>CreateStreamProcessor</a>.</p>
    */
@@ -5060,18 +4731,14 @@ export namespace StopStreamProcessorRequest {
   export const filterSensitiveLog = (obj: StopStreamProcessorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopStreamProcessorRequest => __isa(o, "StopStreamProcessorRequest");
 }
 
-export interface StopStreamProcessorResponse {
-  __type?: "StopStreamProcessorResponse";
-}
+export interface StopStreamProcessorResponse {}
 
 export namespace StopStreamProcessorResponse {
   export const filterSensitiveLog = (obj: StopStreamProcessorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopStreamProcessorResponse => __isa(o, "StopStreamProcessorResponse");
 }
 
 /**
@@ -5081,7 +4748,6 @@ export namespace StopStreamProcessorResponse {
  *         </p>
  */
 export interface StreamProcessor {
-  __type?: "StreamProcessor";
   /**
    * <p>Name of the Amazon Rekognition stream processor. </p>
    */
@@ -5097,14 +4763,12 @@ export namespace StreamProcessor {
   export const filterSensitiveLog = (obj: StreamProcessor): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamProcessor => __isa(o, "StreamProcessor");
 }
 
 /**
  * <p>Information about the source streaming video. </p>
  */
 export interface StreamProcessorInput {
-  __type?: "StreamProcessorInput";
   /**
    * <p>The Kinesis video stream input stream for the source streaming video.</p>
    */
@@ -5115,7 +4779,6 @@ export namespace StreamProcessorInput {
   export const filterSensitiveLog = (obj: StreamProcessorInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamProcessorInput => __isa(o, "StreamProcessorInput");
 }
 
 /**
@@ -5123,7 +4786,6 @@ export namespace StreamProcessorInput {
  *            information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
  */
 export interface StreamProcessorOutput {
-  __type?: "StreamProcessorOutput";
   /**
    * <p>The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results.</p>
    */
@@ -5134,14 +4796,12 @@ export namespace StreamProcessorOutput {
   export const filterSensitiveLog = (obj: StreamProcessorOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamProcessorOutput => __isa(o, "StreamProcessorOutput");
 }
 
 /**
  * <p>Input parameters used to recognize faces in a streaming video analyzed by a Amazon Rekognition stream processor.</p>
  */
 export interface StreamProcessorSettings {
-  __type?: "StreamProcessorSettings";
   /**
    * <p>Face search settings to use on a streaming video. </p>
    */
@@ -5152,7 +4812,6 @@ export namespace StreamProcessorSettings {
   export const filterSensitiveLog = (obj: StreamProcessorSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamProcessorSettings => __isa(o, "StreamProcessorSettings");
 }
 
 export enum StreamProcessorStatus {
@@ -5171,7 +4830,6 @@ export enum StreamProcessorStatus {
  *          </p>
  */
 export interface Summary {
-  __type?: "Summary";
   /**
    * <p>Provides the S3 bucket name and object name.</p>
    *          <p>The region for the S3 bucket containing the S3 object must match the region you use for
@@ -5188,7 +4846,6 @@ export namespace Summary {
   export const filterSensitiveLog = (obj: Summary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Summary => __isa(o, "Summary");
 }
 
 /**
@@ -5196,7 +4853,6 @@ export namespace Summary {
  *       the determination.</p>
  */
 export interface Sunglasses {
-  __type?: "Sunglasses";
   /**
    * <p>Level of confidence in the determination.</p>
    */
@@ -5212,14 +4868,12 @@ export namespace Sunglasses {
   export const filterSensitiveLog = (obj: Sunglasses): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Sunglasses => __isa(o, "Sunglasses");
 }
 
 /**
  * <p>Information about a technical cue segment. For more information, see <a>SegmentDetection</a>.</p>
  */
 export interface TechnicalCueSegment {
-  __type?: "TechnicalCueSegment";
   /**
    * <p>The type of the technical cue.</p>
    */
@@ -5235,7 +4889,6 @@ export namespace TechnicalCueSegment {
   export const filterSensitiveLog = (obj: TechnicalCueSegment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TechnicalCueSegment => __isa(o, "TechnicalCueSegment");
 }
 
 export enum TechnicalCueType {
@@ -5249,7 +4902,6 @@ export enum TechnicalCueType {
  *          testing dataset using an 80/20 split of the training dataset.</p>
  */
 export interface TestingData {
-  __type?: "TestingData";
   /**
    * <p>The assets used for testing.</p>
    */
@@ -5265,14 +4917,12 @@ export namespace TestingData {
   export const filterSensitiveLog = (obj: TestingData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestingData => __isa(o, "TestingData");
 }
 
 /**
  * <p>A Sagemaker Groundtruth format manifest file representing the dataset used for testing.</p>
  */
 export interface TestingDataResult {
-  __type?: "TestingDataResult";
   /**
    * <p>The testing dataset that was supplied for training.</p>
    */
@@ -5289,7 +4939,6 @@ export namespace TestingDataResult {
   export const filterSensitiveLog = (obj: TestingDataResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestingDataResult => __isa(o, "TestingDataResult");
 }
 
 /**
@@ -5304,7 +4953,6 @@ export namespace TestingDataResult {
  *          <p>For more information, see Detecting Text in the Amazon Rekognition Developer Guide.</p>
  */
 export interface TextDetection {
-  __type?: "TextDetection";
   /**
    * <p>The identifier for the detected text. The identifier is only unique for a single call
    *       to <code>DetectText</code>. </p>
@@ -5346,7 +4994,6 @@ export namespace TextDetection {
   export const filterSensitiveLog = (obj: TextDetection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TextDetection => __isa(o, "TextDetection");
 }
 
 /**
@@ -5354,7 +5001,6 @@ export namespace TextDetection {
  *         the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.</p>
  */
 export interface TextDetectionResult {
-  __type?: "TextDetectionResult";
   /**
    * <p>Details about text detected in a video.</p>
    */
@@ -5370,7 +5016,6 @@ export namespace TextDetectionResult {
   export const filterSensitiveLog = (obj: TextDetectionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TextDetectionResult => __isa(o, "TextDetectionResult");
 }
 
 export enum TextTypes {
@@ -5397,14 +5042,12 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>The dataset used for training.</p>
  */
 export interface TrainingData {
-  __type?: "TrainingData";
   /**
    * <p>A Sagemaker GroundTruth manifest file that contains the training images (assets).</p>
    */
@@ -5415,14 +5058,12 @@ export namespace TrainingData {
   export const filterSensitiveLog = (obj: TrainingData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrainingData => __isa(o, "TrainingData");
 }
 
 /**
  * <p>A Sagemaker Groundtruth format manifest file that represents the dataset used for training.</p>
  */
 export interface TrainingDataResult {
-  __type?: "TrainingDataResult";
   /**
    * <p>The images (assets) that were actually trained by Amazon Rekognition Custom Labels. </p>
    */
@@ -5438,7 +5079,6 @@ export namespace TrainingDataResult {
   export const filterSensitiveLog = (obj: TrainingDataResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrainingDataResult => __isa(o, "TrainingDataResult");
 }
 
 /**
@@ -5446,7 +5086,6 @@ export namespace TrainingDataResult {
  *         <code>Reasons</code> response attribute to determine why a face wasn't indexed.</p>
  */
 export interface UnindexedFace {
-  __type?: "UnindexedFace";
   /**
    * <p>An array of reasons that specify why a face wasn't indexed. </p>
    *          <ul>
@@ -5486,7 +5125,6 @@ export namespace UnindexedFace {
   export const filterSensitiveLog = (obj: UnindexedFace): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnindexedFace => __isa(o, "UnindexedFace");
 }
 
 /**
@@ -5494,7 +5132,6 @@ export namespace UnindexedFace {
  *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
  */
 export interface Video {
-  __type?: "Video";
   /**
    * <p>The Amazon S3 bucket name and file name for the video.</p>
    */
@@ -5505,7 +5142,6 @@ export namespace Video {
   export const filterSensitiveLog = (obj: Video): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Video => __isa(o, "Video");
 }
 
 export enum VideoJobStatus {
@@ -5519,7 +5155,6 @@ export enum VideoJobStatus {
  *             every page of paginated responses from a Amazon Rekognition video operation.</p>
  */
 export interface VideoMetadata {
-  __type?: "VideoMetadata";
   /**
    * <p>Length of the video in milliseconds.</p>
    */
@@ -5555,7 +5190,6 @@ export namespace VideoMetadata {
   export const filterSensitiveLog = (obj: VideoMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VideoMetadata => __isa(o, "VideoMetadata");
 }
 
 /**
@@ -5577,5 +5211,4 @@ export namespace VideoTooLargeException {
   export const filterSensitiveLog = (obj: VideoTooLargeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VideoTooLargeException => __isa(o, "VideoTooLargeException");
 }

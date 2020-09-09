@@ -1327,7 +1327,6 @@ export const deserializeAws_restJson1CreateUserCommand = async (
   }
   const contents: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserResponse",
     UserArn: undefined,
     UserId: undefined,
   };
@@ -1518,7 +1517,6 @@ export const deserializeAws_restJson1DescribeUserCommand = async (
   }
   const contents: DescribeUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserResponse",
     User: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1606,7 +1604,6 @@ export const deserializeAws_restJson1DescribeUserHierarchyGroupCommand = async (
   }
   const contents: DescribeUserHierarchyGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserHierarchyGroupResponse",
     HierarchyGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1694,7 +1691,6 @@ export const deserializeAws_restJson1DescribeUserHierarchyStructureCommand = asy
   }
   const contents: DescribeUserHierarchyStructureCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserHierarchyStructureResponse",
     HierarchyStructure: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1782,7 +1778,6 @@ export const deserializeAws_restJson1GetContactAttributesCommand = async (
   }
   const contents: GetContactAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetContactAttributesResponse",
     Attributes: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1854,7 +1849,6 @@ export const deserializeAws_restJson1GetCurrentMetricDataCommand = async (
   }
   const contents: GetCurrentMetricDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCurrentMetricDataResponse",
     DataSnapshotTime: undefined,
     MetricResults: undefined,
     NextToken: undefined,
@@ -1950,7 +1944,6 @@ export const deserializeAws_restJson1GetFederationTokenCommand = async (
   }
   const contents: GetFederationTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFederationTokenResponse",
     Credentials: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2046,7 +2039,6 @@ export const deserializeAws_restJson1GetMetricDataCommand = async (
   }
   const contents: GetMetricDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMetricDataResponse",
     MetricResults: undefined,
     NextToken: undefined,
   };
@@ -2138,7 +2130,6 @@ export const deserializeAws_restJson1ListContactFlowsCommand = async (
   }
   const contents: ListContactFlowsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListContactFlowsResponse",
     ContactFlowSummaryList: undefined,
     NextToken: undefined,
   };
@@ -2233,7 +2224,6 @@ export const deserializeAws_restJson1ListHoursOfOperationsCommand = async (
   }
   const contents: ListHoursOfOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHoursOfOperationsResponse",
     HoursOfOperationSummaryList: undefined,
     NextToken: undefined,
   };
@@ -2328,7 +2318,6 @@ export const deserializeAws_restJson1ListPhoneNumbersCommand = async (
   }
   const contents: ListPhoneNumbersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPhoneNumbersResponse",
     NextToken: undefined,
     PhoneNumberSummaryList: undefined,
   };
@@ -2423,7 +2412,6 @@ export const deserializeAws_restJson1ListQueuesCommand = async (
   }
   const contents: ListQueuesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListQueuesResponse",
     NextToken: undefined,
     QueueSummaryList: undefined,
   };
@@ -2515,7 +2503,6 @@ export const deserializeAws_restJson1ListRoutingProfilesCommand = async (
   }
   const contents: ListRoutingProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRoutingProfilesResponse",
     NextToken: undefined,
     RoutingProfileSummaryList: undefined,
   };
@@ -2610,7 +2597,6 @@ export const deserializeAws_restJson1ListSecurityProfilesCommand = async (
   }
   const contents: ListSecurityProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSecurityProfilesResponse",
     NextToken: undefined,
     SecurityProfileSummaryList: undefined,
   };
@@ -2705,7 +2691,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2793,7 +2778,6 @@ export const deserializeAws_restJson1ListUserHierarchyGroupsCommand = async (
   }
   const contents: ListUserHierarchyGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUserHierarchyGroupsResponse",
     NextToken: undefined,
     UserHierarchyGroupSummaryList: undefined,
   };
@@ -2888,7 +2872,6 @@ export const deserializeAws_restJson1ListUsersCommand = async (
   }
   const contents: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUsersResponse",
     NextToken: undefined,
     UserSummaryList: undefined,
   };
@@ -2980,7 +2963,6 @@ export const deserializeAws_restJson1ResumeContactRecordingCommand = async (
   }
   const contents: ResumeContactRecordingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResumeContactRecordingResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3048,7 +3030,6 @@ export const deserializeAws_restJson1StartChatContactCommand = async (
   }
   const contents: StartChatContactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartChatContactResponse",
     ContactId: undefined,
     ParticipantId: undefined,
     ParticipantToken: undefined,
@@ -3144,7 +3125,6 @@ export const deserializeAws_restJson1StartContactRecordingCommand = async (
   }
   const contents: StartContactRecordingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartContactRecordingResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3220,7 +3200,6 @@ export const deserializeAws_restJson1StartOutboundVoiceContactCommand = async (
   }
   const contents: StartOutboundVoiceContactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartOutboundVoiceContactResponse",
     ContactId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3324,7 +3303,6 @@ export const deserializeAws_restJson1StopContactCommand = async (
   }
   const contents: StopContactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopContactResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3408,7 +3386,6 @@ export const deserializeAws_restJson1StopContactRecordingCommand = async (
   }
   const contents: StopContactRecordingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopContactRecordingResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3476,7 +3453,6 @@ export const deserializeAws_restJson1SuspendContactRecordingCommand = async (
   }
   const contents: SuspendContactRecordingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SuspendContactRecordingResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3710,7 +3686,6 @@ export const deserializeAws_restJson1UpdateContactAttributesCommand = async (
   }
   const contents: UpdateContactAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateContactAttributesResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4506,7 +4481,6 @@ const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1ContactFlowSummary = (output: any, context: __SerdeContext): ContactFlowSummary => {
   return {
-    __type: "ContactFlowSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     ContactFlowType:
       output.ContactFlowType !== undefined && output.ContactFlowType !== null ? output.ContactFlowType : undefined,
@@ -4521,7 +4495,6 @@ const deserializeAws_restJson1ContactFlowSummaryList = (output: any, context: __
 
 const deserializeAws_restJson1Credentials = (output: any, context: __SerdeContext): Credentials => {
   return {
-    __type: "Credentials",
     AccessToken: output.AccessToken !== undefined && output.AccessToken !== null ? output.AccessToken : undefined,
     AccessTokenExpiration:
       output.AccessTokenExpiration !== undefined && output.AccessTokenExpiration !== null
@@ -4537,7 +4510,6 @@ const deserializeAws_restJson1Credentials = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1CurrentMetric = (output: any, context: __SerdeContext): CurrentMetric => {
   return {
-    __type: "CurrentMetric",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
   } as any;
@@ -4545,7 +4517,6 @@ const deserializeAws_restJson1CurrentMetric = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1CurrentMetricData = (output: any, context: __SerdeContext): CurrentMetricData => {
   return {
-    __type: "CurrentMetricData",
     Metric:
       output.Metric !== undefined && output.Metric !== null
         ? deserializeAws_restJson1CurrentMetric(output.Metric, context)
@@ -4563,7 +4534,6 @@ const deserializeAws_restJson1CurrentMetricDataCollections = (
 
 const deserializeAws_restJson1CurrentMetricResult = (output: any, context: __SerdeContext): CurrentMetricResult => {
   return {
-    __type: "CurrentMetricResult",
     Collections:
       output.Collections !== undefined && output.Collections !== null
         ? deserializeAws_restJson1CurrentMetricDataCollections(output.Collections, context)
@@ -4581,7 +4551,6 @@ const deserializeAws_restJson1CurrentMetricResults = (output: any, context: __Se
 
 const deserializeAws_restJson1Dimensions = (output: any, context: __SerdeContext): Dimensions => {
   return {
-    __type: "Dimensions",
     Channel: output.Channel !== undefined && output.Channel !== null ? output.Channel : undefined,
     Queue:
       output.Queue !== undefined && output.Queue !== null
@@ -4592,7 +4561,6 @@ const deserializeAws_restJson1Dimensions = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1HierarchyGroup = (output: any, context: __SerdeContext): HierarchyGroup => {
   return {
-    __type: "HierarchyGroup",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     HierarchyPath:
       output.HierarchyPath !== undefined && output.HierarchyPath !== null
@@ -4606,7 +4574,6 @@ const deserializeAws_restJson1HierarchyGroup = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1HierarchyGroupSummary = (output: any, context: __SerdeContext): HierarchyGroupSummary => {
   return {
-    __type: "HierarchyGroupSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -4622,7 +4589,6 @@ const deserializeAws_restJson1HierarchyGroupSummaryList = (
 
 const deserializeAws_restJson1HierarchyLevel = (output: any, context: __SerdeContext): HierarchyLevel => {
   return {
-    __type: "HierarchyLevel",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -4631,7 +4597,6 @@ const deserializeAws_restJson1HierarchyLevel = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1HierarchyPath = (output: any, context: __SerdeContext): HierarchyPath => {
   return {
-    __type: "HierarchyPath",
     LevelFive:
       output.LevelFive !== undefined && output.LevelFive !== null
         ? deserializeAws_restJson1HierarchyGroupSummary(output.LevelFive, context)
@@ -4657,7 +4622,6 @@ const deserializeAws_restJson1HierarchyPath = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1HierarchyStructure = (output: any, context: __SerdeContext): HierarchyStructure => {
   return {
-    __type: "HierarchyStructure",
     LevelFive:
       output.LevelFive !== undefined && output.LevelFive !== null
         ? deserializeAws_restJson1HierarchyLevel(output.LevelFive, context)
@@ -4683,7 +4647,6 @@ const deserializeAws_restJson1HierarchyStructure = (output: any, context: __Serd
 
 const deserializeAws_restJson1HistoricalMetric = (output: any, context: __SerdeContext): HistoricalMetric => {
   return {
-    __type: "HistoricalMetric",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Statistic: output.Statistic !== undefined && output.Statistic !== null ? output.Statistic : undefined,
     Threshold:
@@ -4696,7 +4659,6 @@ const deserializeAws_restJson1HistoricalMetric = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1HistoricalMetricData = (output: any, context: __SerdeContext): HistoricalMetricData => {
   return {
-    __type: "HistoricalMetricData",
     Metric:
       output.Metric !== undefined && output.Metric !== null
         ? deserializeAws_restJson1HistoricalMetric(output.Metric, context)
@@ -4717,7 +4679,6 @@ const deserializeAws_restJson1HistoricalMetricResult = (
   context: __SerdeContext
 ): HistoricalMetricResult => {
   return {
-    __type: "HistoricalMetricResult",
     Collections:
       output.Collections !== undefined && output.Collections !== null
         ? deserializeAws_restJson1HistoricalMetricDataCollections(output.Collections, context)
@@ -4741,7 +4702,6 @@ const deserializeAws_restJson1HoursOfOperationSummary = (
   context: __SerdeContext
 ): HoursOfOperationSummary => {
   return {
-    __type: "HoursOfOperationSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -4757,7 +4717,6 @@ const deserializeAws_restJson1HoursOfOperationSummaryList = (
 
 const deserializeAws_restJson1PhoneNumberSummary = (output: any, context: __SerdeContext): PhoneNumberSummary => {
   return {
-    __type: "PhoneNumberSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     PhoneNumber: output.PhoneNumber !== undefined && output.PhoneNumber !== null ? output.PhoneNumber : undefined,
@@ -4776,7 +4735,6 @@ const deserializeAws_restJson1PhoneNumberSummaryList = (output: any, context: __
 
 const deserializeAws_restJson1QueueReference = (output: any, context: __SerdeContext): QueueReference => {
   return {
-    __type: "QueueReference",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
   } as any;
@@ -4784,7 +4742,6 @@ const deserializeAws_restJson1QueueReference = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1QueueSummary = (output: any, context: __SerdeContext): QueueSummary => {
   return {
-    __type: "QueueSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -4798,7 +4755,6 @@ const deserializeAws_restJson1QueueSummaryList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1RoutingProfileSummary = (output: any, context: __SerdeContext): RoutingProfileSummary => {
   return {
-    __type: "RoutingProfileSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -4821,7 +4777,6 @@ const deserializeAws_restJson1SecurityProfileSummary = (
   context: __SerdeContext
 ): SecurityProfileSummary => {
   return {
-    __type: "SecurityProfileSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -4847,7 +4802,6 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1Threshold = (output: any, context: __SerdeContext): Threshold => {
   return {
-    __type: "Threshold",
     Comparison: output.Comparison !== undefined && output.Comparison !== null ? output.Comparison : undefined,
     ThresholdValue:
       output.ThresholdValue !== undefined && output.ThresholdValue !== null ? output.ThresholdValue : undefined,
@@ -4856,7 +4810,6 @@ const deserializeAws_restJson1Threshold = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1User = (output: any, context: __SerdeContext): User => {
   return {
-    __type: "User",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     DirectoryUserId:
       output.DirectoryUserId !== undefined && output.DirectoryUserId !== null ? output.DirectoryUserId : undefined,
@@ -4887,7 +4840,6 @@ const deserializeAws_restJson1User = (output: any, context: __SerdeContext): Use
 
 const deserializeAws_restJson1UserIdentityInfo = (output: any, context: __SerdeContext): UserIdentityInfo => {
   return {
-    __type: "UserIdentityInfo",
     Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
     FirstName: output.FirstName !== undefined && output.FirstName !== null ? output.FirstName : undefined,
     LastName: output.LastName !== undefined && output.LastName !== null ? output.LastName : undefined,
@@ -4896,7 +4848,6 @@ const deserializeAws_restJson1UserIdentityInfo = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1UserPhoneConfig = (output: any, context: __SerdeContext): UserPhoneConfig => {
   return {
-    __type: "UserPhoneConfig",
     AfterContactWorkTimeLimit:
       output.AfterContactWorkTimeLimit !== undefined && output.AfterContactWorkTimeLimit !== null
         ? output.AfterContactWorkTimeLimit
@@ -4910,7 +4861,6 @@ const deserializeAws_restJson1UserPhoneConfig = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1UserSummary = (output: any, context: __SerdeContext): UserSummary => {
   return {
-    __type: "UserSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,

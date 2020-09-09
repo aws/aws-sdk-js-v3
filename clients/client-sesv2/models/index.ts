@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>An object that contains information about your account details.</p>
  */
 export interface AccountDetails {
-  __type?: "AccountDetails";
   /**
    * <p>The type of email your account is sending. The mail type can be one of the
    *             following:</p>
@@ -60,7 +59,6 @@ export namespace AccountDetails {
     ...(obj.UseCaseDescription && { UseCaseDescription: SENSITIVE_STRING }),
     ...(obj.AdditionalContactEmailAddresses && { AdditionalContactEmailAddresses: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is AccountDetails => __isa(o, "AccountDetails");
 }
 
 /**
@@ -77,7 +75,6 @@ export namespace AccountSuspendedException {
   export const filterSensitiveLog = (obj: AccountSuspendedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountSuspendedException => __isa(o, "AccountSuspendedException");
 }
 
 /**
@@ -93,7 +90,6 @@ export namespace AlreadyExistsException {
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 /**
@@ -109,7 +105,6 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export enum BehaviorOnMxFailure {
@@ -122,7 +117,6 @@ export enum BehaviorOnMxFailure {
  *             dedicated IP addresses that is associated with your account.</p>
  */
 export interface BlacklistEntry {
-  __type?: "BlacklistEntry";
   /**
    * <p>Additional information about the blacklisting event, as provided by the blacklist
    *             maintainer.</p>
@@ -144,14 +138,12 @@ export namespace BlacklistEntry {
   export const filterSensitiveLog = (obj: BlacklistEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlacklistEntry => __isa(o, "BlacklistEntry");
 }
 
 /**
  * <p>Represents the body of the email message.</p>
  */
 export interface Body {
-  __type?: "Body";
   /**
    * <p>An object that represents the version of the message that is displayed in email
    *             clients that support HTML. HTML messages can include formatted text, hyperlinks, images,
@@ -171,7 +163,6 @@ export namespace Body {
   export const filterSensitiveLog = (obj: Body): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Body => __isa(o, "Body");
 }
 
 /**
@@ -179,7 +170,6 @@ export namespace Body {
  *             message.</p>
  */
 export interface BulkEmailContent {
-  __type?: "BulkEmailContent";
   /**
    * <p>The template to use for the bulk email message.</p>
    */
@@ -190,11 +180,9 @@ export namespace BulkEmailContent {
   export const filterSensitiveLog = (obj: BulkEmailContent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BulkEmailContent => __isa(o, "BulkEmailContent");
 }
 
 export interface BulkEmailEntry {
-  __type?: "BulkEmailEntry";
   /**
    * <p>Represents the destination of the message, consisting of To:, CC:, and BCC:
    *             fields.</p>
@@ -228,7 +216,6 @@ export namespace BulkEmailEntry {
   export const filterSensitiveLog = (obj: BulkEmailEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BulkEmailEntry => __isa(o, "BulkEmailEntry");
 }
 
 /**
@@ -236,7 +223,6 @@ export namespace BulkEmailEntry {
  *                 <code>BulkEmailEntry</code>.</p>
  */
 export interface BulkEmailEntryResult {
-  __type?: "BulkEmailEntryResult";
   /**
    * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
    *             operation.</p>
@@ -319,7 +305,6 @@ export namespace BulkEmailEntryResult {
   export const filterSensitiveLog = (obj: BulkEmailEntryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BulkEmailEntryResult => __isa(o, "BulkEmailEntryResult");
 }
 
 export enum BulkEmailStatus {
@@ -344,7 +329,6 @@ export enum BulkEmailStatus {
  *             monitor and gain insights on your email sending metrics.</p>
  */
 export interface CloudWatchDestination {
-  __type?: "CloudWatchDestination";
   /**
    * <p>An array of objects that define the dimensions to use when you send email events to
    *             Amazon CloudWatch.</p>
@@ -356,7 +340,6 @@ export namespace CloudWatchDestination {
   export const filterSensitiveLog = (obj: CloudWatchDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchDestination => __isa(o, "CloudWatchDestination");
 }
 
 /**
@@ -364,7 +347,6 @@ export namespace CloudWatchDestination {
  *             to Amazon CloudWatch.</p>
  */
 export interface CloudWatchDimensionConfiguration {
-  __type?: "CloudWatchDimensionConfiguration";
   /**
    * <p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the
    *             value of the dimension when you send an email. This value has to meet the following
@@ -411,7 +393,6 @@ export namespace CloudWatchDimensionConfiguration {
   export const filterSensitiveLog = (obj: CloudWatchDimensionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchDimensionConfiguration => __isa(o, "CloudWatchDimensionConfiguration");
 }
 
 /**
@@ -427,7 +408,6 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -443,7 +423,6 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export enum ContactLanguage {
@@ -456,7 +435,6 @@ export enum ContactLanguage {
  *             specification.</p>
  */
 export interface Content {
-  __type?: "Content";
   /**
    * <p>The content of the message itself.</p>
    */
@@ -475,14 +453,12 @@ export namespace Content {
   export const filterSensitiveLog = (obj: Content): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Content => __isa(o, "Content");
 }
 
 /**
  * <p>A request to add an event destination to a configuration set.</p>
  */
 export interface CreateConfigurationSetEventDestinationRequest {
-  __type?: "CreateConfigurationSetEventDestinationRequest";
   /**
    * <p>The name of the configuration set that you want to add an event destination to.</p>
    */
@@ -503,31 +479,24 @@ export namespace CreateConfigurationSetEventDestinationRequest {
   export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetEventDestinationRequest =>
-    __isa(o, "CreateConfigurationSetEventDestinationRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface CreateConfigurationSetEventDestinationResponse {
-  __type?: "CreateConfigurationSetEventDestinationResponse";
-}
+export interface CreateConfigurationSetEventDestinationResponse {}
 
 export namespace CreateConfigurationSetEventDestinationResponse {
   export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetEventDestinationResponse =>
-    __isa(o, "CreateConfigurationSetEventDestinationResponse");
 }
 
 /**
  * <p>A request to create a configuration set.</p>
  */
 export interface CreateConfigurationSetRequest {
-  __type?: "CreateConfigurationSetRequest";
   /**
    * <p>An object that defines whether or not Amazon SES can send email that you send using the
    *             configuration set.</p>
@@ -574,29 +543,24 @@ export namespace CreateConfigurationSetRequest {
   export const filterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetRequest => __isa(o, "CreateConfigurationSetRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface CreateConfigurationSetResponse {
-  __type?: "CreateConfigurationSetResponse";
-}
+export interface CreateConfigurationSetResponse {}
 
 export namespace CreateConfigurationSetResponse {
   export const filterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetResponse => __isa(o, "CreateConfigurationSetResponse");
 }
 
 /**
  * <p>Represents a request to create a custom verification email template.</p>
  */
 export interface CreateCustomVerificationEmailTemplateRequest {
-  __type?: "CreateCustomVerificationEmailTemplateRequest";
   /**
    * <p>The subject line of the custom verification email.</p>
    */
@@ -637,31 +601,24 @@ export namespace CreateCustomVerificationEmailTemplateRequest {
   export const filterSensitiveLog = (obj: CreateCustomVerificationEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCustomVerificationEmailTemplateRequest =>
-    __isa(o, "CreateCustomVerificationEmailTemplateRequest");
 }
 
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */
-export interface CreateCustomVerificationEmailTemplateResponse {
-  __type?: "CreateCustomVerificationEmailTemplateResponse";
-}
+export interface CreateCustomVerificationEmailTemplateResponse {}
 
 export namespace CreateCustomVerificationEmailTemplateResponse {
   export const filterSensitiveLog = (obj: CreateCustomVerificationEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCustomVerificationEmailTemplateResponse =>
-    __isa(o, "CreateCustomVerificationEmailTemplateResponse");
 }
 
 /**
  * <p>A request to create a new dedicated IP pool.</p>
  */
 export interface CreateDedicatedIpPoolRequest {
-  __type?: "CreateDedicatedIpPoolRequest";
   /**
    * <p>The name of the dedicated IP pool.</p>
    */
@@ -678,22 +635,18 @@ export namespace CreateDedicatedIpPoolRequest {
   export const filterSensitiveLog = (obj: CreateDedicatedIpPoolRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDedicatedIpPoolRequest => __isa(o, "CreateDedicatedIpPoolRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface CreateDedicatedIpPoolResponse {
-  __type?: "CreateDedicatedIpPoolResponse";
-}
+export interface CreateDedicatedIpPoolResponse {}
 
 export namespace CreateDedicatedIpPoolResponse {
   export const filterSensitiveLog = (obj: CreateDedicatedIpPoolResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDedicatedIpPoolResponse => __isa(o, "CreateDedicatedIpPoolResponse");
 }
 
 /**
@@ -706,7 +659,6 @@ export namespace CreateDedicatedIpPoolResponse {
  *             view the results of the test.</p>
  */
 export interface CreateDeliverabilityTestReportRequest {
-  __type?: "CreateDeliverabilityTestReportRequest";
   /**
    * <p>The HTML body of the message that you sent when you performed the predictive inbox placement test.</p>
    */
@@ -734,15 +686,12 @@ export namespace CreateDeliverabilityTestReportRequest {
   export const filterSensitiveLog = (obj: CreateDeliverabilityTestReportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeliverabilityTestReportRequest =>
-    __isa(o, "CreateDeliverabilityTestReportRequest");
 }
 
 /**
  * <p>Information about the predictive inbox placement test that you created.</p>
  */
 export interface CreateDeliverabilityTestReportResponse {
-  __type?: "CreateDeliverabilityTestReportResponse";
   /**
    * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
    *             is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the
@@ -761,8 +710,6 @@ export namespace CreateDeliverabilityTestReportResponse {
   export const filterSensitiveLog = (obj: CreateDeliverabilityTestReportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeliverabilityTestReportResponse =>
-    __isa(o, "CreateDeliverabilityTestReportResponse");
 }
 
 /**
@@ -771,7 +718,6 @@ export namespace CreateDeliverabilityTestReportResponse {
  *             your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface CreateEmailIdentityPolicyRequest {
-  __type?: "CreateEmailIdentityPolicyRequest";
   /**
    * <p>The email identity for which you want to create a policy.</p>
    */
@@ -797,22 +743,18 @@ export namespace CreateEmailIdentityPolicyRequest {
   export const filterSensitiveLog = (obj: CreateEmailIdentityPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEmailIdentityPolicyRequest => __isa(o, "CreateEmailIdentityPolicyRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface CreateEmailIdentityPolicyResponse {
-  __type?: "CreateEmailIdentityPolicyResponse";
-}
+export interface CreateEmailIdentityPolicyResponse {}
 
 export namespace CreateEmailIdentityPolicyResponse {
   export const filterSensitiveLog = (obj: CreateEmailIdentityPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEmailIdentityPolicyResponse => __isa(o, "CreateEmailIdentityPolicyResponse");
 }
 
 /**
@@ -820,7 +762,6 @@ export namespace CreateEmailIdentityPolicyResponse {
  *             domain).</p>
  */
 export interface CreateEmailIdentityRequest {
-  __type?: "CreateEmailIdentityRequest";
   /**
    * <p>If your request includes this object, Amazon SES configures the identity to use Bring Your
    *             Own DKIM (BYODKIM) for DKIM authentication purposes, as opposed to the default method,
@@ -850,7 +791,6 @@ export namespace CreateEmailIdentityRequest {
       DkimSigningAttributes: DkimSigningAttributes.filterSensitiveLog(obj.DkimSigningAttributes),
     }),
   });
-  export const isa = (o: any): o is CreateEmailIdentityRequest => __isa(o, "CreateEmailIdentityRequest");
 }
 
 /**
@@ -859,7 +799,6 @@ export namespace CreateEmailIdentityRequest {
  *         <p>If the email identity is an email address, this object is empty. </p>
  */
 export interface CreateEmailIdentityResponse {
-  __type?: "CreateEmailIdentityResponse";
   /**
    * <p>Specifies whether or not the identity is verified. You can only send email from
    *             verified email addresses or domains. For more information about verifying identities,
@@ -882,7 +821,6 @@ export namespace CreateEmailIdentityResponse {
   export const filterSensitiveLog = (obj: CreateEmailIdentityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEmailIdentityResponse => __isa(o, "CreateEmailIdentityResponse");
 }
 
 /**
@@ -890,7 +828,6 @@ export namespace CreateEmailIdentityResponse {
  *                 Developer Guide</a>.</p>
  */
 export interface CreateEmailTemplateRequest {
-  __type?: "CreateEmailTemplateRequest";
   /**
    * <p>The name of the template you want to create.</p>
    */
@@ -907,29 +844,24 @@ export namespace CreateEmailTemplateRequest {
   export const filterSensitiveLog = (obj: CreateEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEmailTemplateRequest => __isa(o, "CreateEmailTemplateRequest");
 }
 
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */
-export interface CreateEmailTemplateResponse {
-  __type?: "CreateEmailTemplateResponse";
-}
+export interface CreateEmailTemplateResponse {}
 
 export namespace CreateEmailTemplateResponse {
   export const filterSensitiveLog = (obj: CreateEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEmailTemplateResponse => __isa(o, "CreateEmailTemplateResponse");
 }
 
 /**
  * <p>Contains information about a custom verification email template.</p>
  */
 export interface CustomVerificationEmailTemplateMetadata {
-  __type?: "CustomVerificationEmailTemplateMetadata";
   /**
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is successfully verified.</p>
@@ -962,8 +894,6 @@ export namespace CustomVerificationEmailTemplateMetadata {
   export const filterSensitiveLog = (obj: CustomVerificationEmailTemplateMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomVerificationEmailTemplateMetadata =>
-    __isa(o, "CustomVerificationEmailTemplateMetadata");
 }
 
 /**
@@ -971,7 +901,6 @@ export namespace CustomVerificationEmailTemplateMetadata {
  *             analysis period.</p>
  */
 export interface DailyVolume {
-  __type?: "DailyVolume";
   /**
    * <p>An object that contains inbox placement metrics for a specified day in the analysis
    *             period, broken out by the recipient's email provider.</p>
@@ -994,7 +923,6 @@ export namespace DailyVolume {
   export const filterSensitiveLog = (obj: DailyVolume): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DailyVolume => __isa(o, "DailyVolume");
 }
 
 /**
@@ -1005,7 +933,6 @@ export namespace DailyVolume {
  *             Guide</i>.</p>
  */
 export interface DedicatedIp {
-  __type?: "DedicatedIp";
   /**
    * <p>The warm-up status of a dedicated IP address. The status can have one of the following
    *             values:</p>
@@ -1045,14 +972,12 @@ export namespace DedicatedIp {
   export const filterSensitiveLog = (obj: DedicatedIp): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DedicatedIp => __isa(o, "DedicatedIp");
 }
 
 /**
  * <p>A request to delete an event destination from a configuration set.</p>
  */
 export interface DeleteConfigurationSetEventDestinationRequest {
-  __type?: "DeleteConfigurationSetEventDestinationRequest";
   /**
    * <p>The name of the configuration set that contains the event destination that you want to
    *             delete.</p>
@@ -1069,31 +994,24 @@ export namespace DeleteConfigurationSetEventDestinationRequest {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationRequest =>
-    __isa(o, "DeleteConfigurationSetEventDestinationRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface DeleteConfigurationSetEventDestinationResponse {
-  __type?: "DeleteConfigurationSetEventDestinationResponse";
-}
+export interface DeleteConfigurationSetEventDestinationResponse {}
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationResponse =>
-    __isa(o, "DeleteConfigurationSetEventDestinationResponse");
 }
 
 /**
  * <p>A request to delete a configuration set.</p>
  */
 export interface DeleteConfigurationSetRequest {
-  __type?: "DeleteConfigurationSetRequest";
   /**
    * <p>The name of the configuration set that you want to delete.</p>
    */
@@ -1104,29 +1022,24 @@ export namespace DeleteConfigurationSetRequest {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetRequest => __isa(o, "DeleteConfigurationSetRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface DeleteConfigurationSetResponse {
-  __type?: "DeleteConfigurationSetResponse";
-}
+export interface DeleteConfigurationSetResponse {}
 
 export namespace DeleteConfigurationSetResponse {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetResponse => __isa(o, "DeleteConfigurationSetResponse");
 }
 
 /**
  * <p>Represents a request to delete an existing custom verification email template.</p>
  */
 export interface DeleteCustomVerificationEmailTemplateRequest {
-  __type?: "DeleteCustomVerificationEmailTemplateRequest";
   /**
    * <p>The name of the custom verification email template that you want to delete.</p>
    */
@@ -1137,31 +1050,24 @@ export namespace DeleteCustomVerificationEmailTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteCustomVerificationEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCustomVerificationEmailTemplateRequest =>
-    __isa(o, "DeleteCustomVerificationEmailTemplateRequest");
 }
 
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */
-export interface DeleteCustomVerificationEmailTemplateResponse {
-  __type?: "DeleteCustomVerificationEmailTemplateResponse";
-}
+export interface DeleteCustomVerificationEmailTemplateResponse {}
 
 export namespace DeleteCustomVerificationEmailTemplateResponse {
   export const filterSensitiveLog = (obj: DeleteCustomVerificationEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCustomVerificationEmailTemplateResponse =>
-    __isa(o, "DeleteCustomVerificationEmailTemplateResponse");
 }
 
 /**
  * <p>A request to delete a dedicated IP pool.</p>
  */
 export interface DeleteDedicatedIpPoolRequest {
-  __type?: "DeleteDedicatedIpPoolRequest";
   /**
    * <p>The name of the dedicated IP pool that you want to delete.</p>
    */
@@ -1172,22 +1078,18 @@ export namespace DeleteDedicatedIpPoolRequest {
   export const filterSensitiveLog = (obj: DeleteDedicatedIpPoolRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDedicatedIpPoolRequest => __isa(o, "DeleteDedicatedIpPoolRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface DeleteDedicatedIpPoolResponse {
-  __type?: "DeleteDedicatedIpPoolResponse";
-}
+export interface DeleteDedicatedIpPoolResponse {}
 
 export namespace DeleteDedicatedIpPoolResponse {
   export const filterSensitiveLog = (obj: DeleteDedicatedIpPoolResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDedicatedIpPoolResponse => __isa(o, "DeleteDedicatedIpPoolResponse");
 }
 
 /**
@@ -1196,7 +1098,6 @@ export namespace DeleteDedicatedIpPoolResponse {
  *             use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface DeleteEmailIdentityPolicyRequest {
-  __type?: "DeleteEmailIdentityPolicyRequest";
   /**
    * <p>The email identity for which you want to delete a policy.</p>
    */
@@ -1215,22 +1116,18 @@ export namespace DeleteEmailIdentityPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteEmailIdentityPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEmailIdentityPolicyRequest => __isa(o, "DeleteEmailIdentityPolicyRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface DeleteEmailIdentityPolicyResponse {
-  __type?: "DeleteEmailIdentityPolicyResponse";
-}
+export interface DeleteEmailIdentityPolicyResponse {}
 
 export namespace DeleteEmailIdentityPolicyResponse {
   export const filterSensitiveLog = (obj: DeleteEmailIdentityPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEmailIdentityPolicyResponse => __isa(o, "DeleteEmailIdentityPolicyResponse");
 }
 
 /**
@@ -1239,7 +1136,6 @@ export namespace DeleteEmailIdentityPolicyResponse {
  *             by completing the verification process for the identity again.</p>
  */
 export interface DeleteEmailIdentityRequest {
-  __type?: "DeleteEmailIdentityRequest";
   /**
    * <p>The identity (that is, the email address or domain) that you want to delete.</p>
    */
@@ -1250,22 +1146,18 @@ export namespace DeleteEmailIdentityRequest {
   export const filterSensitiveLog = (obj: DeleteEmailIdentityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEmailIdentityRequest => __isa(o, "DeleteEmailIdentityRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface DeleteEmailIdentityResponse {
-  __type?: "DeleteEmailIdentityResponse";
-}
+export interface DeleteEmailIdentityResponse {}
 
 export namespace DeleteEmailIdentityResponse {
   export const filterSensitiveLog = (obj: DeleteEmailIdentityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEmailIdentityResponse => __isa(o, "DeleteEmailIdentityResponse");
 }
 
 /**
@@ -1273,7 +1165,6 @@ export namespace DeleteEmailIdentityResponse {
  *                 Guide</a>.</p>
  */
 export interface DeleteEmailTemplateRequest {
-  __type?: "DeleteEmailTemplateRequest";
   /**
    * <p>The name of the template to be deleted.</p>
    */
@@ -1284,22 +1175,18 @@ export namespace DeleteEmailTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEmailTemplateRequest => __isa(o, "DeleteEmailTemplateRequest");
 }
 
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */
-export interface DeleteEmailTemplateResponse {
-  __type?: "DeleteEmailTemplateResponse";
-}
+export interface DeleteEmailTemplateResponse {}
 
 export namespace DeleteEmailTemplateResponse {
   export const filterSensitiveLog = (obj: DeleteEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEmailTemplateResponse => __isa(o, "DeleteEmailTemplateResponse");
 }
 
 /**
@@ -1307,7 +1194,6 @@ export namespace DeleteEmailTemplateResponse {
  *             account.</p>
  */
 export interface DeleteSuppressedDestinationRequest {
-  __type?: "DeleteSuppressedDestinationRequest";
   /**
    * <p>The suppressed email destination to remove from the account suppression list.</p>
    */
@@ -1318,24 +1204,18 @@ export namespace DeleteSuppressedDestinationRequest {
   export const filterSensitiveLog = (obj: DeleteSuppressedDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSuppressedDestinationRequest =>
-    __isa(o, "DeleteSuppressedDestinationRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface DeleteSuppressedDestinationResponse {
-  __type?: "DeleteSuppressedDestinationResponse";
-}
+export interface DeleteSuppressedDestinationResponse {}
 
 export namespace DeleteSuppressedDestinationResponse {
   export const filterSensitiveLog = (obj: DeleteSuppressedDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSuppressedDestinationResponse =>
-    __isa(o, "DeleteSuppressedDestinationResponse");
 }
 
 export enum DeliverabilityDashboardAccountStatus {
@@ -1348,7 +1228,6 @@ export enum DeliverabilityDashboardAccountStatus {
  * <p>An object that contains metadata related to a predictive inbox placement test.</p>
  */
 export interface DeliverabilityTestReport {
-  __type?: "DeliverabilityTestReport";
   /**
    * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
    *             is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the
@@ -1387,7 +1266,6 @@ export namespace DeliverabilityTestReport {
   export const filterSensitiveLog = (obj: DeliverabilityTestReport): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeliverabilityTestReport => __isa(o, "DeliverabilityTestReport");
 }
 
 export enum DeliverabilityTestStatus {
@@ -1399,7 +1277,6 @@ export enum DeliverabilityTestStatus {
  * <p>Used to associate a configuration set with a dedicated IP pool.</p>
  */
 export interface DeliveryOptions {
-  __type?: "DeliveryOptions";
   /**
    * <p>The name of the dedicated IP pool that you want to associate with the configuration
    *             set.</p>
@@ -1419,14 +1296,12 @@ export namespace DeliveryOptions {
   export const filterSensitiveLog = (obj: DeliveryOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeliveryOptions => __isa(o, "DeliveryOptions");
 }
 
 /**
  * <p>An object that describes the recipients for an email.</p>
  */
 export interface Destination {
-  __type?: "Destination";
   /**
    * <p>An array that contains the email addresses of the "To" recipients for the
    *             email.</p>
@@ -1450,7 +1325,6 @@ export namespace Destination {
   export const filterSensitiveLog = (obj: Destination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Destination => __isa(o, "Destination");
 }
 
 export enum DimensionValueSource {
@@ -1471,7 +1345,6 @@ export enum DimensionValueSource {
  *             the process of creating the identity</p>
  */
 export interface DkimAttributes {
-  __type?: "DkimAttributes";
   /**
    * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
    *             contains a set of unique strings that you use to create a set of CNAME records that you
@@ -1550,7 +1423,6 @@ export namespace DkimAttributes {
   export const filterSensitiveLog = (obj: DkimAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DkimAttributes => __isa(o, "DkimAttributes");
 }
 
 /**
@@ -1558,7 +1430,6 @@ export namespace DkimAttributes {
  *             Own DKIM (BYODKIM).</p>
  */
 export interface DkimSigningAttributes {
-  __type?: "DkimSigningAttributes";
   /**
    * <p>A string that's used to identify a public key in the DNS configuration for a
    *             domain.</p>
@@ -1578,7 +1449,6 @@ export namespace DkimSigningAttributes {
     ...obj,
     ...(obj.DomainSigningPrivateKey && { DomainSigningPrivateKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DkimSigningAttributes => __isa(o, "DkimSigningAttributes");
 }
 
 export enum DkimSigningAttributesOrigin {
@@ -1601,7 +1471,6 @@ export enum DkimStatus {
  *             operation).</p>
  */
 export interface DomainDeliverabilityCampaign {
-  __type?: "DomainDeliverabilityCampaign";
   /**
    * <p>The number of email messages that were delivered to recipients’ inboxes.</p>
    */
@@ -1690,7 +1559,6 @@ export namespace DomainDeliverabilityCampaign {
   export const filterSensitiveLog = (obj: DomainDeliverabilityCampaign): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainDeliverabilityCampaign => __isa(o, "DomainDeliverabilityCampaign");
 }
 
 /**
@@ -1700,7 +1568,6 @@ export namespace DomainDeliverabilityCampaign {
  *             to reputation, inbox placement, and other metrics for the domain.</p>
  */
 export interface DomainDeliverabilityTrackingOption {
-  __type?: "DomainDeliverabilityTrackingOption";
   /**
    * <p>An object that contains information about the inbox placement data settings for the
    *             domain.</p>
@@ -1724,8 +1591,6 @@ export namespace DomainDeliverabilityTrackingOption {
   export const filterSensitiveLog = (obj: DomainDeliverabilityTrackingOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainDeliverabilityTrackingOption =>
-    __isa(o, "DomainDeliverabilityTrackingOption");
 }
 
 /**
@@ -1733,7 +1598,6 @@ export namespace DomainDeliverabilityTrackingOption {
  *             domains to a specific email provider.</p>
  */
 export interface DomainIspPlacement {
-  __type?: "DomainIspPlacement";
   /**
    * <p>The name of the email provider that the inbox placement data applies to.</p>
    */
@@ -1768,7 +1632,6 @@ export namespace DomainIspPlacement {
   export const filterSensitiveLog = (obj: DomainIspPlacement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainIspPlacement => __isa(o, "DomainIspPlacement");
 }
 
 /**
@@ -1779,7 +1642,6 @@ export namespace DomainIspPlacement {
  *             include attachments and custom headers.</p>
  */
 export interface EmailContent {
-  __type?: "EmailContent";
   /**
    * <p>The raw email message. The message has to meet the following criteria:</p>
    *         <ul>
@@ -1829,7 +1691,6 @@ export namespace EmailContent {
   export const filterSensitiveLog = (obj: EmailContent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmailContent => __isa(o, "EmailContent");
 }
 
 /**
@@ -1837,7 +1698,6 @@ export namespace EmailContent {
  *             part.</p>
  */
 export interface EmailTemplateContent {
-  __type?: "EmailTemplateContent";
   /**
    * <p>The email body that will be visible to recipients whose email clients do not display
    *             HTML.</p>
@@ -1859,14 +1719,12 @@ export namespace EmailTemplateContent {
   export const filterSensitiveLog = (obj: EmailTemplateContent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmailTemplateContent => __isa(o, "EmailTemplateContent");
 }
 
 /**
  * <p>Contains information about an email template.</p>
  */
 export interface EmailTemplateMetadata {
-  __type?: "EmailTemplateMetadata";
   /**
    * <p>The name of the template.</p>
    */
@@ -1882,7 +1740,6 @@ export namespace EmailTemplateMetadata {
   export const filterSensitiveLog = (obj: EmailTemplateMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EmailTemplateMetadata => __isa(o, "EmailTemplateMetadata");
 }
 
 /**
@@ -1893,7 +1750,6 @@ export namespace EmailTemplateMetadata {
  *             Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.</p>
  */
 export interface EventDestination {
-  __type?: "EventDestination";
   /**
    * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
    *             send notification when certain email events occur.</p>
@@ -1944,7 +1800,6 @@ export namespace EventDestination {
   export const filterSensitiveLog = (obj: EventDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventDestination => __isa(o, "EventDestination");
 }
 
 /**
@@ -1954,7 +1809,6 @@ export namespace EventDestination {
  *             destination.</p>
  */
 export interface EventDestinationDefinition {
-  __type?: "EventDestinationDefinition";
   /**
    * <p>An object that defines an Amazon Pinpoint project destination for email events. You can send
    *             email event data to a Amazon Pinpoint project to view metrics using the Transactional Messaging
@@ -2001,7 +1855,6 @@ export namespace EventDestinationDefinition {
   export const filterSensitiveLog = (obj: EventDestinationDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventDestinationDefinition => __isa(o, "EventDestinationDefinition");
 }
 
 export enum EventType {
@@ -2020,15 +1873,12 @@ export enum EventType {
  * <p>A request to obtain information about the email-sending capabilities of your Amazon SES
  *             account.</p>
  */
-export interface GetAccountRequest {
-  __type?: "GetAccountRequest";
-}
+export interface GetAccountRequest {}
 
 export namespace GetAccountRequest {
   export const filterSensitiveLog = (obj: GetAccountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountRequest => __isa(o, "GetAccountRequest");
 }
 
 /**
@@ -2036,7 +1886,6 @@ export namespace GetAccountRequest {
  *             current AWS Region.</p>
  */
 export interface GetAccountResponse {
-  __type?: "GetAccountResponse";
   /**
    * <p>An object that contains information about the per-day and per-second sending limits
    *             for your Amazon SES account in the current AWS Region.</p>
@@ -2112,7 +1961,6 @@ export namespace GetAccountResponse {
     ...obj,
     ...(obj.Details && { Details: AccountDetails.filterSensitiveLog(obj.Details) }),
   });
-  export const isa = (o: any): o is GetAccountResponse => __isa(o, "GetAccountResponse");
 }
 
 /**
@@ -2120,7 +1968,6 @@ export namespace GetAccountResponse {
  *             on.</p>
  */
 export interface GetBlacklistReportsRequest {
-  __type?: "GetBlacklistReportsRequest";
   /**
    * <p>A list of IP addresses that you want to retrieve blacklist information about. You can
    *             only specify the dedicated IP addresses that you use to send email using Amazon SES or
@@ -2133,14 +1980,12 @@ export namespace GetBlacklistReportsRequest {
   export const filterSensitiveLog = (obj: GetBlacklistReportsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBlacklistReportsRequest => __isa(o, "GetBlacklistReportsRequest");
 }
 
 /**
  * <p>An object that contains information about blacklist events.</p>
  */
 export interface GetBlacklistReportsResponse {
-  __type?: "GetBlacklistReportsResponse";
   /**
    * <p>An object that contains information about a blacklist that one of your dedicated IP
    *             addresses appears on.</p>
@@ -2152,7 +1997,6 @@ export namespace GetBlacklistReportsResponse {
   export const filterSensitiveLog = (obj: GetBlacklistReportsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBlacklistReportsResponse => __isa(o, "GetBlacklistReportsResponse");
 }
 
 /**
@@ -2160,7 +2004,6 @@ export namespace GetBlacklistReportsResponse {
  *             set.</p>
  */
 export interface GetConfigurationSetEventDestinationsRequest {
-  __type?: "GetConfigurationSetEventDestinationsRequest";
   /**
    * <p>The name of the configuration set that contains the event destination.</p>
    */
@@ -2171,15 +2014,12 @@ export namespace GetConfigurationSetEventDestinationsRequest {
   export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConfigurationSetEventDestinationsRequest =>
-    __isa(o, "GetConfigurationSetEventDestinationsRequest");
 }
 
 /**
  * <p>Information about an event destination for a configuration set.</p>
  */
 export interface GetConfigurationSetEventDestinationsResponse {
-  __type?: "GetConfigurationSetEventDestinationsResponse";
   /**
    * <p>An array that includes all of the events destinations that have been configured for
    *             the configuration set.</p>
@@ -2191,15 +2031,12 @@ export namespace GetConfigurationSetEventDestinationsResponse {
   export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConfigurationSetEventDestinationsResponse =>
-    __isa(o, "GetConfigurationSetEventDestinationsResponse");
 }
 
 /**
  * <p>A request to obtain information about a configuration set.</p>
  */
 export interface GetConfigurationSetRequest {
-  __type?: "GetConfigurationSetRequest";
   /**
    * <p>The name of the configuration set that you want to obtain more information
    *             about.</p>
@@ -2211,14 +2048,12 @@ export namespace GetConfigurationSetRequest {
   export const filterSensitiveLog = (obj: GetConfigurationSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConfigurationSetRequest => __isa(o, "GetConfigurationSetRequest");
 }
 
 /**
  * <p>Information about a configuration set.</p>
  */
 export interface GetConfigurationSetResponse {
-  __type?: "GetConfigurationSetResponse";
   /**
    * <p>An object that defines whether or not Amazon SES can send email that you send using the
    *             configuration set.</p>
@@ -2265,7 +2100,6 @@ export namespace GetConfigurationSetResponse {
   export const filterSensitiveLog = (obj: GetConfigurationSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConfigurationSetResponse => __isa(o, "GetConfigurationSetResponse");
 }
 
 /**
@@ -2273,7 +2107,6 @@ export namespace GetConfigurationSetResponse {
  *             template.</p>
  */
 export interface GetCustomVerificationEmailTemplateRequest {
-  __type?: "GetCustomVerificationEmailTemplateRequest";
   /**
    * <p>The name of the custom verification email template that you want to retrieve.</p>
    */
@@ -2284,15 +2117,12 @@ export namespace GetCustomVerificationEmailTemplateRequest {
   export const filterSensitiveLog = (obj: GetCustomVerificationEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCustomVerificationEmailTemplateRequest =>
-    __isa(o, "GetCustomVerificationEmailTemplateRequest");
 }
 
 /**
  * <p>The following elements are returned by the service.</p>
  */
 export interface GetCustomVerificationEmailTemplateResponse {
-  __type?: "GetCustomVerificationEmailTemplateResponse";
   /**
    * <p>The email address that the custom verification email is sent from.</p>
    */
@@ -2330,15 +2160,12 @@ export namespace GetCustomVerificationEmailTemplateResponse {
   export const filterSensitiveLog = (obj: GetCustomVerificationEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCustomVerificationEmailTemplateResponse =>
-    __isa(o, "GetCustomVerificationEmailTemplateResponse");
 }
 
 /**
  * <p>A request to obtain more information about a dedicated IP address.</p>
  */
 export interface GetDedicatedIpRequest {
-  __type?: "GetDedicatedIpRequest";
   /**
    * <p>The IP address that you want to obtain more information about. The value you specify
    *             has to be a dedicated IP address that's assocaited with your AWS account.</p>
@@ -2350,14 +2177,12 @@ export namespace GetDedicatedIpRequest {
   export const filterSensitiveLog = (obj: GetDedicatedIpRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDedicatedIpRequest => __isa(o, "GetDedicatedIpRequest");
 }
 
 /**
  * <p>Information about a dedicated IP address.</p>
  */
 export interface GetDedicatedIpResponse {
-  __type?: "GetDedicatedIpResponse";
   /**
    * <p>An object that contains information about a dedicated IP address.</p>
    */
@@ -2368,14 +2193,12 @@ export namespace GetDedicatedIpResponse {
   export const filterSensitiveLog = (obj: GetDedicatedIpResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDedicatedIpResponse => __isa(o, "GetDedicatedIpResponse");
 }
 
 /**
  * <p>A request to obtain more information about dedicated IP pools.</p>
  */
 export interface GetDedicatedIpsRequest {
-  __type?: "GetDedicatedIpsRequest";
   /**
    * <p>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.
    *             If the number of results is larger than the number you specified in this parameter, then
@@ -2400,7 +2223,6 @@ export namespace GetDedicatedIpsRequest {
   export const filterSensitiveLog = (obj: GetDedicatedIpsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDedicatedIpsRequest => __isa(o, "GetDedicatedIpsRequest");
 }
 
 /**
@@ -2408,7 +2230,6 @@ export namespace GetDedicatedIpsRequest {
  *             account.</p>
  */
 export interface GetDedicatedIpsResponse {
-  __type?: "GetDedicatedIpsResponse";
   /**
    * <p>A token that indicates that there are additional dedicated IP addresses to list. To
    *             view additional addresses, issue another request to <code>GetDedicatedIps</code>,
@@ -2426,7 +2247,6 @@ export namespace GetDedicatedIpsResponse {
   export const filterSensitiveLog = (obj: GetDedicatedIpsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDedicatedIpsResponse => __isa(o, "GetDedicatedIpsResponse");
 }
 
 /**
@@ -2438,23 +2258,18 @@ export namespace GetDedicatedIpsResponse {
  *             to any other fees that you accrue by using Amazon SES and other AWS services. For more
  *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
  */
-export interface GetDeliverabilityDashboardOptionsRequest {
-  __type?: "GetDeliverabilityDashboardOptionsRequest";
-}
+export interface GetDeliverabilityDashboardOptionsRequest {}
 
 export namespace GetDeliverabilityDashboardOptionsRequest {
   export const filterSensitiveLog = (obj: GetDeliverabilityDashboardOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeliverabilityDashboardOptionsRequest =>
-    __isa(o, "GetDeliverabilityDashboardOptionsRequest");
 }
 
 /**
  * <p>An object that shows the status of the Deliverability dashboard.</p>
  */
 export interface GetDeliverabilityDashboardOptionsResponse {
-  __type?: "GetDeliverabilityDashboardOptionsResponse";
   /**
    * <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard
    *             is scheduled to expire, if your subscription is scheduled to expire at the end of the
@@ -2495,15 +2310,12 @@ export namespace GetDeliverabilityDashboardOptionsResponse {
   export const filterSensitiveLog = (obj: GetDeliverabilityDashboardOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeliverabilityDashboardOptionsResponse =>
-    __isa(o, "GetDeliverabilityDashboardOptionsResponse");
 }
 
 /**
  * <p>A request to retrieve the results of a predictive inbox placement test.</p>
  */
 export interface GetDeliverabilityTestReportRequest {
-  __type?: "GetDeliverabilityTestReportRequest";
   /**
    * <p>A unique string that identifies the predictive inbox placement test.</p>
    */
@@ -2514,15 +2326,12 @@ export namespace GetDeliverabilityTestReportRequest {
   export const filterSensitiveLog = (obj: GetDeliverabilityTestReportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeliverabilityTestReportRequest =>
-    __isa(o, "GetDeliverabilityTestReportRequest");
 }
 
 /**
  * <p>The results of the predictive inbox placement test.</p>
  */
 export interface GetDeliverabilityTestReportResponse {
-  __type?: "GetDeliverabilityTestReportResponse";
   /**
    * <p>An object that describes how the test email was handled by several email providers,
    *             including Gmail, Hotmail, Yahoo, AOL, and others.</p>
@@ -2558,8 +2367,6 @@ export namespace GetDeliverabilityTestReportResponse {
   export const filterSensitiveLog = (obj: GetDeliverabilityTestReportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeliverabilityTestReportResponse =>
-    __isa(o, "GetDeliverabilityTestReportResponse");
 }
 
 /**
@@ -2569,7 +2376,6 @@ export namespace GetDeliverabilityTestReportResponse {
  *             operation).</p>
  */
 export interface GetDomainDeliverabilityCampaignRequest {
-  __type?: "GetDomainDeliverabilityCampaignRequest";
   /**
    * <p>The unique identifier for the campaign. The Deliverability dashboard automatically generates
    *             and assigns this identifier to a campaign.</p>
@@ -2581,8 +2387,6 @@ export namespace GetDomainDeliverabilityCampaignRequest {
   export const filterSensitiveLog = (obj: GetDomainDeliverabilityCampaignRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainDeliverabilityCampaignRequest =>
-    __isa(o, "GetDomainDeliverabilityCampaignRequest");
 }
 
 /**
@@ -2591,7 +2395,6 @@ export namespace GetDomainDeliverabilityCampaignRequest {
  *             Deliverability dashboard is enabled for.</p>
  */
 export interface GetDomainDeliverabilityCampaignResponse {
-  __type?: "GetDomainDeliverabilityCampaignResponse";
   /**
    * <p>An object that contains the deliverability data for the campaign.</p>
    */
@@ -2602,15 +2405,12 @@ export namespace GetDomainDeliverabilityCampaignResponse {
   export const filterSensitiveLog = (obj: GetDomainDeliverabilityCampaignResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainDeliverabilityCampaignResponse =>
-    __isa(o, "GetDomainDeliverabilityCampaignResponse");
 }
 
 /**
  * <p>A request to obtain deliverability metrics for a domain.</p>
  */
 export interface GetDomainStatisticsReportRequest {
-  __type?: "GetDomainStatisticsReportRequest";
   /**
    * <p>The domain that you want to obtain deliverability metrics for.</p>
    */
@@ -2634,7 +2434,6 @@ export namespace GetDomainStatisticsReportRequest {
   export const filterSensitiveLog = (obj: GetDomainStatisticsReportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainStatisticsReportRequest => __isa(o, "GetDomainStatisticsReportRequest");
 }
 
 /**
@@ -2642,7 +2441,6 @@ export namespace GetDomainStatisticsReportRequest {
  *             specified.</p>
  */
 export interface GetDomainStatisticsReportResponse {
-  __type?: "GetDomainStatisticsReportResponse";
   /**
    * <p>An object that contains deliverability metrics for the domain that you specified. This
    *             object contains data for each day, starting on the <code>StartDate</code> and ending on
@@ -2662,14 +2460,12 @@ export namespace GetDomainStatisticsReportResponse {
   export const filterSensitiveLog = (obj: GetDomainStatisticsReportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainStatisticsReportResponse => __isa(o, "GetDomainStatisticsReportResponse");
 }
 
 /**
  * <p>A request to return the policies of an email identity.</p>
  */
 export interface GetEmailIdentityPoliciesRequest {
-  __type?: "GetEmailIdentityPoliciesRequest";
   /**
    * <p>The email identity that you want to retrieve policies for.</p>
    */
@@ -2680,14 +2476,12 @@ export namespace GetEmailIdentityPoliciesRequest {
   export const filterSensitiveLog = (obj: GetEmailIdentityPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEmailIdentityPoliciesRequest => __isa(o, "GetEmailIdentityPoliciesRequest");
 }
 
 /**
  * <p>Identity policies associated with email identity.</p>
  */
 export interface GetEmailIdentityPoliciesResponse {
-  __type?: "GetEmailIdentityPoliciesResponse";
   /**
    * <p>A map of policy names to policies.</p>
    */
@@ -2698,14 +2492,12 @@ export namespace GetEmailIdentityPoliciesResponse {
   export const filterSensitiveLog = (obj: GetEmailIdentityPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEmailIdentityPoliciesResponse => __isa(o, "GetEmailIdentityPoliciesResponse");
 }
 
 /**
  * <p>A request to return details about an email identity.</p>
  */
 export interface GetEmailIdentityRequest {
-  __type?: "GetEmailIdentityRequest";
   /**
    * <p>The email identity that you want to retrieve details for.</p>
    */
@@ -2716,14 +2508,12 @@ export namespace GetEmailIdentityRequest {
   export const filterSensitiveLog = (obj: GetEmailIdentityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEmailIdentityRequest => __isa(o, "GetEmailIdentityRequest");
 }
 
 /**
  * <p>Details about an email identity.</p>
  */
 export interface GetEmailIdentityResponse {
-  __type?: "GetEmailIdentityResponse";
   /**
    * <p>The email identity type.</p>
    */
@@ -2775,7 +2565,6 @@ export namespace GetEmailIdentityResponse {
   export const filterSensitiveLog = (obj: GetEmailIdentityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEmailIdentityResponse => __isa(o, "GetEmailIdentityResponse");
 }
 
 /**
@@ -2783,7 +2572,6 @@ export namespace GetEmailIdentityResponse {
  *             HTML part and text part) for the template you specify.</p>
  */
 export interface GetEmailTemplateRequest {
-  __type?: "GetEmailTemplateRequest";
   /**
    * <p>The name of the template you want to retrieve.</p>
    */
@@ -2794,14 +2582,12 @@ export namespace GetEmailTemplateRequest {
   export const filterSensitiveLog = (obj: GetEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEmailTemplateRequest => __isa(o, "GetEmailTemplateRequest");
 }
 
 /**
  * <p>The following element is returned by the service.</p>
  */
 export interface GetEmailTemplateResponse {
-  __type?: "GetEmailTemplateResponse";
   /**
    * <p>The name of the template you want to retrieve.</p>
    */
@@ -2818,7 +2604,6 @@ export namespace GetEmailTemplateResponse {
   export const filterSensitiveLog = (obj: GetEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEmailTemplateResponse => __isa(o, "GetEmailTemplateResponse");
 }
 
 /**
@@ -2826,7 +2611,6 @@ export namespace GetEmailTemplateResponse {
  *             list for your account.</p>
  */
 export interface GetSuppressedDestinationRequest {
-  __type?: "GetSuppressedDestinationRequest";
   /**
    * <p>The email address that's on the account suppression list.</p>
    */
@@ -2837,14 +2621,12 @@ export namespace GetSuppressedDestinationRequest {
   export const filterSensitiveLog = (obj: GetSuppressedDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSuppressedDestinationRequest => __isa(o, "GetSuppressedDestinationRequest");
 }
 
 /**
  * <p>Information about the suppressed email address.</p>
  */
 export interface GetSuppressedDestinationResponse {
-  __type?: "GetSuppressedDestinationResponse";
   /**
    * <p>An object containing information about the suppressed email address.</p>
    */
@@ -2855,14 +2637,12 @@ export namespace GetSuppressedDestinationResponse {
   export const filterSensitiveLog = (obj: GetSuppressedDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSuppressedDestinationResponse => __isa(o, "GetSuppressedDestinationResponse");
 }
 
 /**
  * <p>Information about an email identity.</p>
  */
 export interface IdentityInfo {
-  __type?: "IdentityInfo";
   /**
    * <p>Indicates whether or not you can send email from the identity.</p>
    *         <p>An <i>identity</i> is an email address or domain that you send email
@@ -2901,7 +2681,6 @@ export namespace IdentityInfo {
   export const filterSensitiveLog = (obj: IdentityInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityInfo => __isa(o, "IdentityInfo");
 }
 
 export enum IdentityType {
@@ -2916,7 +2695,6 @@ export enum IdentityType {
  *             if you enabled the Deliverability dashboard for the domain.</p>
  */
 export interface InboxPlacementTrackingOption {
-  __type?: "InboxPlacementTrackingOption";
   /**
    * <p>Specifies whether inbox placement data is being tracked for the domain.</p>
    */
@@ -2933,7 +2711,6 @@ export namespace InboxPlacementTrackingOption {
   export const filterSensitiveLog = (obj: InboxPlacementTrackingOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InboxPlacementTrackingOption => __isa(o, "InboxPlacementTrackingOption");
 }
 
 /**
@@ -2949,7 +2726,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -2957,7 +2733,6 @@ export namespace InvalidNextTokenException {
  *             email provider.</p>
  */
 export interface IspPlacement {
-  __type?: "IspPlacement";
   /**
    * <p>The name of the email provider that the inbox placement data applies to.</p>
    */
@@ -2973,7 +2748,6 @@ export namespace IspPlacement {
   export const filterSensitiveLog = (obj: IspPlacement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IspPlacement => __isa(o, "IspPlacement");
 }
 
 /**
@@ -2981,7 +2755,6 @@ export namespace IspPlacement {
  *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
  */
 export interface KinesisFirehoseDestination {
-  __type?: "KinesisFirehoseDestination";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email
    *             events to the Amazon Kinesis Data Firehose stream.</p>
@@ -2999,7 +2772,6 @@ export namespace KinesisFirehoseDestination {
   export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KinesisFirehoseDestination => __isa(o, "KinesisFirehoseDestination");
 }
 
 /**
@@ -3015,7 +2787,6 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -3023,7 +2794,6 @@ export namespace LimitExceededException {
  *             AWS Region.</p>
  */
 export interface ListConfigurationSetsRequest {
-  __type?: "ListConfigurationSetsRequest";
   /**
    * <p>The number of results to show in a single call to <code>ListConfigurationSets</code>.
    *             If the number of results is larger than the number you specified in this parameter, then
@@ -3043,14 +2813,12 @@ export namespace ListConfigurationSetsRequest {
   export const filterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationSetsRequest => __isa(o, "ListConfigurationSetsRequest");
 }
 
 /**
  * <p>A list of configuration sets in your Amazon SES account in the current AWS Region.</p>
  */
 export interface ListConfigurationSetsResponse {
-  __type?: "ListConfigurationSetsResponse";
   /**
    * <p>An array that contains all of the configuration sets in your Amazon SES account in the
    *             current AWS Region.</p>
@@ -3070,7 +2838,6 @@ export namespace ListConfigurationSetsResponse {
   export const filterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationSetsResponse => __isa(o, "ListConfigurationSetsResponse");
 }
 
 /**
@@ -3078,7 +2845,6 @@ export namespace ListConfigurationSetsResponse {
  *             account.</p>
  */
 export interface ListCustomVerificationEmailTemplatesRequest {
-  __type?: "ListCustomVerificationEmailTemplatesRequest";
   /**
    * <p>The number of results to show in a single call to
    *                 <code>ListCustomVerificationEmailTemplates</code>. If the number of results is
@@ -3101,15 +2867,12 @@ export namespace ListCustomVerificationEmailTemplatesRequest {
   export const filterSensitiveLog = (obj: ListCustomVerificationEmailTemplatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCustomVerificationEmailTemplatesRequest =>
-    __isa(o, "ListCustomVerificationEmailTemplatesRequest");
 }
 
 /**
  * <p>The following elements are returned by the service.</p>
  */
 export interface ListCustomVerificationEmailTemplatesResponse {
-  __type?: "ListCustomVerificationEmailTemplatesResponse";
   /**
    * <p>A list of the custom verification email templates that exist in your account.</p>
    */
@@ -3128,15 +2891,12 @@ export namespace ListCustomVerificationEmailTemplatesResponse {
   export const filterSensitiveLog = (obj: ListCustomVerificationEmailTemplatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCustomVerificationEmailTemplatesResponse =>
-    __isa(o, "ListCustomVerificationEmailTemplatesResponse");
 }
 
 /**
  * <p>A request to obtain a list of dedicated IP pools.</p>
  */
 export interface ListDedicatedIpPoolsRequest {
-  __type?: "ListDedicatedIpPoolsRequest";
   /**
    * <p>A token returned from a previous call to <code>ListDedicatedIpPools</code> to indicate
    *             the position in the list of dedicated IP pools.</p>
@@ -3156,14 +2916,12 @@ export namespace ListDedicatedIpPoolsRequest {
   export const filterSensitiveLog = (obj: ListDedicatedIpPoolsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDedicatedIpPoolsRequest => __isa(o, "ListDedicatedIpPoolsRequest");
 }
 
 /**
  * <p>A list of dedicated IP pools.</p>
  */
 export interface ListDedicatedIpPoolsResponse {
-  __type?: "ListDedicatedIpPoolsResponse";
   /**
    * <p>A token that indicates that there are additional IP pools to list. To view additional
    *             IP pools, issue another request to <code>ListDedicatedIpPools</code>, passing this token
@@ -3182,14 +2940,12 @@ export namespace ListDedicatedIpPoolsResponse {
   export const filterSensitiveLog = (obj: ListDedicatedIpPoolsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDedicatedIpPoolsResponse => __isa(o, "ListDedicatedIpPoolsResponse");
 }
 
 /**
  * <p>A request to list all of the predictive inbox placement tests that you've performed.</p>
  */
 export interface ListDeliverabilityTestReportsRequest {
-  __type?: "ListDeliverabilityTestReportsRequest";
   /**
    * <p>A token returned from a previous call to <code>ListDeliverabilityTestReports</code> to
    *             indicate the position in the list of predictive inbox placement tests.</p>
@@ -3211,8 +2967,6 @@ export namespace ListDeliverabilityTestReportsRequest {
   export const filterSensitiveLog = (obj: ListDeliverabilityTestReportsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeliverabilityTestReportsRequest =>
-    __isa(o, "ListDeliverabilityTestReportsRequest");
 }
 
 /**
@@ -3220,7 +2974,6 @@ export namespace ListDeliverabilityTestReportsRequest {
  *             whether or not those tests are complete.</p>
  */
 export interface ListDeliverabilityTestReportsResponse {
-  __type?: "ListDeliverabilityTestReportsResponse";
   /**
    * <p>An object that contains a lists of predictive inbox placement tests that you've performed.</p>
    */
@@ -3238,8 +2991,6 @@ export namespace ListDeliverabilityTestReportsResponse {
   export const filterSensitiveLog = (obj: ListDeliverabilityTestReportsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeliverabilityTestReportsResponse =>
-    __isa(o, "ListDeliverabilityTestReportsResponse");
 }
 
 /**
@@ -3248,7 +2999,6 @@ export namespace ListDeliverabilityTestReportsResponse {
  *             enabled the Deliverability dashboard.</p>
  */
 export interface ListDomainDeliverabilityCampaignsRequest {
-  __type?: "ListDomainDeliverabilityCampaignsRequest";
   /**
    * <p>The maximum number of results to include in response to a single call to the
    *                 <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results
@@ -3288,8 +3038,6 @@ export namespace ListDomainDeliverabilityCampaignsRequest {
   export const filterSensitiveLog = (obj: ListDomainDeliverabilityCampaignsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainDeliverabilityCampaignsRequest =>
-    __isa(o, "ListDomainDeliverabilityCampaignsRequest");
 }
 
 /**
@@ -3298,7 +3046,6 @@ export namespace ListDomainDeliverabilityCampaignsRequest {
  *             a domain only if you enabled the Deliverability dashboard for the domain.</p>
  */
 export interface ListDomainDeliverabilityCampaignsResponse {
-  __type?: "ListDomainDeliverabilityCampaignsResponse";
   /**
    * <p>An array of responses, one for each campaign that used the domain to send email during
    *             the specified time range.</p>
@@ -3317,8 +3064,6 @@ export namespace ListDomainDeliverabilityCampaignsResponse {
   export const filterSensitiveLog = (obj: ListDomainDeliverabilityCampaignsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainDeliverabilityCampaignsResponse =>
-    __isa(o, "ListDomainDeliverabilityCampaignsResponse");
 }
 
 /**
@@ -3327,7 +3072,6 @@ export namespace ListDomainDeliverabilityCampaignsResponse {
  *             and identities that were verified in the past, but are no longer verified.</p>
  */
 export interface ListEmailIdentitiesRequest {
-  __type?: "ListEmailIdentitiesRequest";
   /**
    * <p>A token returned from a previous call to <code>ListEmailIdentities</code> to indicate
    *             the position in the list of identities.</p>
@@ -3348,7 +3092,6 @@ export namespace ListEmailIdentitiesRequest {
   export const filterSensitiveLog = (obj: ListEmailIdentitiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEmailIdentitiesRequest => __isa(o, "ListEmailIdentitiesRequest");
 }
 
 /**
@@ -3356,7 +3099,6 @@ export namespace ListEmailIdentitiesRequest {
  *             or not those identities were successfully verified.</p>
  */
 export interface ListEmailIdentitiesResponse {
-  __type?: "ListEmailIdentitiesResponse";
   /**
    * <p>An array that includes all of the email identities associated with your AWS
    *             account.</p>
@@ -3376,7 +3118,6 @@ export namespace ListEmailIdentitiesResponse {
   export const filterSensitiveLog = (obj: ListEmailIdentitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEmailIdentitiesResponse => __isa(o, "ListEmailIdentitiesResponse");
 }
 
 /**
@@ -3385,7 +3126,6 @@ export namespace ListEmailIdentitiesResponse {
  *                 Guide</a>.</p>
  */
 export interface ListEmailTemplatesRequest {
-  __type?: "ListEmailTemplatesRequest";
   /**
    * <p>A token returned from a previous call to <code>ListEmailTemplates</code> to indicate
    *             the position in the list of email templates.</p>
@@ -3405,14 +3145,12 @@ export namespace ListEmailTemplatesRequest {
   export const filterSensitiveLog = (obj: ListEmailTemplatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEmailTemplatesRequest => __isa(o, "ListEmailTemplatesRequest");
 }
 
 /**
  * <p>The following elements are returned by the service.</p>
  */
 export interface ListEmailTemplatesResponse {
-  __type?: "ListEmailTemplatesResponse";
   /**
    * <p>A token indicating that there are additional email templates available to be listed.
    *             Pass this token to a subsequent <code>ListEmailTemplates</code> call to retrieve the
@@ -3431,7 +3169,6 @@ export namespace ListEmailTemplatesResponse {
   export const filterSensitiveLog = (obj: ListEmailTemplatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEmailTemplatesResponse => __isa(o, "ListEmailTemplatesResponse");
 }
 
 /**
@@ -3439,7 +3176,6 @@ export namespace ListEmailTemplatesResponse {
  *             your account.</p>
  */
 export interface ListSuppressedDestinationsRequest {
-  __type?: "ListSuppressedDestinationsRequest";
   /**
    * <p>Used to filter the list of suppressed email destinations so that it only includes
    *             addresses that were added to the list before a specific date. The date that you specify
@@ -3479,14 +3215,12 @@ export namespace ListSuppressedDestinationsRequest {
   export const filterSensitiveLog = (obj: ListSuppressedDestinationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSuppressedDestinationsRequest => __isa(o, "ListSuppressedDestinationsRequest");
 }
 
 /**
  * <p>A list of suppressed email addresses.</p>
  */
 export interface ListSuppressedDestinationsResponse {
-  __type?: "ListSuppressedDestinationsResponse";
   /**
    * <p>A list of summaries, each containing a summary for a suppressed email
    *             destination.</p>
@@ -3506,12 +3240,9 @@ export namespace ListSuppressedDestinationsResponse {
   export const filterSensitiveLog = (obj: ListSuppressedDestinationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSuppressedDestinationsResponse =>
-    __isa(o, "ListSuppressedDestinationsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tag
    *             information for.</p>
@@ -3523,11 +3254,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>An array that lists all the tags that are associated with the resource. Each tag
    *             consists of a required tag key (<code>Key</code>) and an associated tag value
@@ -3540,14 +3269,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>A list of attributes that are associated with a MAIL FROM domain.</p>
  */
 export interface MailFromAttributes {
-  __type?: "MailFromAttributes";
   /**
    * <p>The status of the MAIL FROM domain. This status can have the following values:</p>
    *         <ul>
@@ -3598,7 +3325,6 @@ export namespace MailFromAttributes {
   export const filterSensitiveLog = (obj: MailFromAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MailFromAttributes => __isa(o, "MailFromAttributes");
 }
 
 /**
@@ -3614,8 +3340,6 @@ export namespace MailFromDomainNotVerifiedException {
   export const filterSensitiveLog = (obj: MailFromDomainNotVerifiedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MailFromDomainNotVerifiedException =>
-    __isa(o, "MailFromDomainNotVerifiedException");
 }
 
 export enum MailFromDomainStatus {
@@ -3635,7 +3359,6 @@ export enum MailType {
  *             consists of a subject line and a message body.</p>
  */
 export interface Message {
-  __type?: "Message";
   /**
    * <p>The body of the message. You can specify an HTML version of the message, a text-only
    *             version of the message, or both.</p>
@@ -3654,7 +3377,6 @@ export namespace Message {
   export const filterSensitiveLog = (obj: Message): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Message => __isa(o, "Message");
 }
 
 /**
@@ -3670,7 +3392,6 @@ export namespace MessageRejected {
   export const filterSensitiveLog = (obj: MessageRejected): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageRejected => __isa(o, "MessageRejected");
 }
 
 /**
@@ -3679,7 +3400,6 @@ export namespace MessageRejected {
  *             </p>
  */
 export interface MessageTag {
-  __type?: "MessageTag";
   /**
    * <p>The value of the message tag. The message tag value has to meet the following
    *             criteria:</p>
@@ -3715,7 +3435,6 @@ export namespace MessageTag {
   export const filterSensitiveLog = (obj: MessageTag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageTag => __isa(o, "MessageTag");
 }
 
 /**
@@ -3731,7 +3450,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -3739,7 +3457,6 @@ export namespace NotFoundException {
  *             domain.</p>
  */
 export interface OverallVolume {
-  __type?: "OverallVolume";
   /**
    * <p>An object that contains inbox and junk mail placement metrics for individual email
    *             providers.</p>
@@ -3763,7 +3480,6 @@ export namespace OverallVolume {
   export const filterSensitiveLog = (obj: OverallVolume): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OverallVolume => __isa(o, "OverallVolume");
 }
 
 /**
@@ -3773,7 +3489,6 @@ export namespace OverallVolume {
  *                 Messaging Charts</a> in the <i>Amazon Pinpoint User Guide</i>.</p>
  */
 export interface PinpointDestination {
-  __type?: "PinpointDestination";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Pinpoint project that you want to send email
    *             events to.</p>
@@ -3785,14 +3500,12 @@ export namespace PinpointDestination {
   export const filterSensitiveLog = (obj: PinpointDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PinpointDestination => __isa(o, "PinpointDestination");
 }
 
 /**
  * <p>An object that contains inbox placement data for an email provider.</p>
  */
 export interface PlacementStatistics {
-  __type?: "PlacementStatistics";
   /**
    * <p>The percentage of emails that arrived in recipients' inboxes during the predictive inbox placement test.</p>
    */
@@ -3827,14 +3540,12 @@ export namespace PlacementStatistics {
   export const filterSensitiveLog = (obj: PlacementStatistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlacementStatistics => __isa(o, "PlacementStatistics");
 }
 
 /**
  * <p>A request to enable or disable the automatic IP address warm-up feature.</p>
  */
 export interface PutAccountDedicatedIpWarmupAttributesRequest {
-  __type?: "PutAccountDedicatedIpWarmupAttributesRequest";
   /**
    * <p>Enables or disables the automatic warm-up feature for dedicated IP addresses that are
    *             associated with your Amazon SES account in the current AWS Region. Set to <code>true</code>
@@ -3848,31 +3559,24 @@ export namespace PutAccountDedicatedIpWarmupAttributesRequest {
   export const filterSensitiveLog = (obj: PutAccountDedicatedIpWarmupAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAccountDedicatedIpWarmupAttributesRequest =>
-    __isa(o, "PutAccountDedicatedIpWarmupAttributesRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutAccountDedicatedIpWarmupAttributesResponse {
-  __type?: "PutAccountDedicatedIpWarmupAttributesResponse";
-}
+export interface PutAccountDedicatedIpWarmupAttributesResponse {}
 
 export namespace PutAccountDedicatedIpWarmupAttributesResponse {
   export const filterSensitiveLog = (obj: PutAccountDedicatedIpWarmupAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAccountDedicatedIpWarmupAttributesResponse =>
-    __isa(o, "PutAccountDedicatedIpWarmupAttributesResponse");
 }
 
 /**
  * <p>A request to submit new account details.</p>
  */
 export interface PutAccountDetailsRequest {
-  __type?: "PutAccountDetailsRequest";
   /**
    * <p>Indicates whether or not your account should have production access in the current
    *             AWS Region.</p>
@@ -3922,29 +3626,24 @@ export namespace PutAccountDetailsRequest {
     ...(obj.AdditionalContactEmailAddresses && { AdditionalContactEmailAddresses: SENSITIVE_STRING }),
     ...(obj.WebsiteURL && { WebsiteURL: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutAccountDetailsRequest => __isa(o, "PutAccountDetailsRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutAccountDetailsResponse {
-  __type?: "PutAccountDetailsResponse";
-}
+export interface PutAccountDetailsResponse {}
 
 export namespace PutAccountDetailsResponse {
   export const filterSensitiveLog = (obj: PutAccountDetailsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAccountDetailsResponse => __isa(o, "PutAccountDetailsResponse");
 }
 
 /**
  * <p>A request to change the ability of your account to send email.</p>
  */
 export interface PutAccountSendingAttributesRequest {
-  __type?: "PutAccountSendingAttributesRequest";
   /**
    * <p>Enables or disables your account's ability to send email. Set to <code>true</code> to
    *             enable email sending, or set to <code>false</code> to disable email sending.</p>
@@ -3960,31 +3659,24 @@ export namespace PutAccountSendingAttributesRequest {
   export const filterSensitiveLog = (obj: PutAccountSendingAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAccountSendingAttributesRequest =>
-    __isa(o, "PutAccountSendingAttributesRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutAccountSendingAttributesResponse {
-  __type?: "PutAccountSendingAttributesResponse";
-}
+export interface PutAccountSendingAttributesResponse {}
 
 export namespace PutAccountSendingAttributesResponse {
   export const filterSensitiveLog = (obj: PutAccountSendingAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAccountSendingAttributesResponse =>
-    __isa(o, "PutAccountSendingAttributesResponse");
 }
 
 /**
  * <p>A request to change your account's suppression preferences.</p>
  */
 export interface PutAccountSuppressionAttributesRequest {
-  __type?: "PutAccountSuppressionAttributesRequest";
   /**
    * <p>A list that contains the reasons that email addresses will be automatically added to
    *             the suppression list for your account. This list can contain any or all of the
@@ -4011,31 +3703,24 @@ export namespace PutAccountSuppressionAttributesRequest {
   export const filterSensitiveLog = (obj: PutAccountSuppressionAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAccountSuppressionAttributesRequest =>
-    __isa(o, "PutAccountSuppressionAttributesRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutAccountSuppressionAttributesResponse {
-  __type?: "PutAccountSuppressionAttributesResponse";
-}
+export interface PutAccountSuppressionAttributesResponse {}
 
 export namespace PutAccountSuppressionAttributesResponse {
   export const filterSensitiveLog = (obj: PutAccountSuppressionAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAccountSuppressionAttributesResponse =>
-    __isa(o, "PutAccountSuppressionAttributesResponse");
 }
 
 /**
  * <p>A request to associate a configuration set with a dedicated IP pool.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsRequest {
-  __type?: "PutConfigurationSetDeliveryOptionsRequest";
   /**
    * <p>The name of the dedicated IP pool that you want to associate with the configuration
    *             set.</p>
@@ -4061,24 +3746,18 @@ export namespace PutConfigurationSetDeliveryOptionsRequest {
   export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationSetDeliveryOptionsRequest =>
-    __isa(o, "PutConfigurationSetDeliveryOptionsRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutConfigurationSetDeliveryOptionsResponse {
-  __type?: "PutConfigurationSetDeliveryOptionsResponse";
-}
+export interface PutConfigurationSetDeliveryOptionsResponse {}
 
 export namespace PutConfigurationSetDeliveryOptionsResponse {
   export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationSetDeliveryOptionsResponse =>
-    __isa(o, "PutConfigurationSetDeliveryOptionsResponse");
 }
 
 /**
@@ -4086,7 +3765,6 @@ export namespace PutConfigurationSetDeliveryOptionsResponse {
  *             set.</p>
  */
 export interface PutConfigurationSetReputationOptionsRequest {
-  __type?: "PutConfigurationSetReputationOptionsRequest";
   /**
    * <p>The name of the configuration set that you want to enable or disable reputation metric
    *             tracking for.</p>
@@ -4105,24 +3783,18 @@ export namespace PutConfigurationSetReputationOptionsRequest {
   export const filterSensitiveLog = (obj: PutConfigurationSetReputationOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationSetReputationOptionsRequest =>
-    __isa(o, "PutConfigurationSetReputationOptionsRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutConfigurationSetReputationOptionsResponse {
-  __type?: "PutConfigurationSetReputationOptionsResponse";
-}
+export interface PutConfigurationSetReputationOptionsResponse {}
 
 export namespace PutConfigurationSetReputationOptionsResponse {
   export const filterSensitiveLog = (obj: PutConfigurationSetReputationOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationSetReputationOptionsResponse =>
-    __isa(o, "PutConfigurationSetReputationOptionsResponse");
 }
 
 /**
@@ -4130,7 +3802,6 @@ export namespace PutConfigurationSetReputationOptionsResponse {
  *             configuration set.</p>
  */
 export interface PutConfigurationSetSendingOptionsRequest {
-  __type?: "PutConfigurationSetSendingOptionsRequest";
   /**
    * <p>The name of the configuration set that you want to enable or disable email sending
    *             for.</p>
@@ -4148,24 +3819,18 @@ export namespace PutConfigurationSetSendingOptionsRequest {
   export const filterSensitiveLog = (obj: PutConfigurationSetSendingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationSetSendingOptionsRequest =>
-    __isa(o, "PutConfigurationSetSendingOptionsRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutConfigurationSetSendingOptionsResponse {
-  __type?: "PutConfigurationSetSendingOptionsResponse";
-}
+export interface PutConfigurationSetSendingOptionsResponse {}
 
 export namespace PutConfigurationSetSendingOptionsResponse {
   export const filterSensitiveLog = (obj: PutConfigurationSetSendingOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationSetSendingOptionsResponse =>
-    __isa(o, "PutConfigurationSetSendingOptionsResponse");
 }
 
 /**
@@ -4173,7 +3838,6 @@ export namespace PutConfigurationSetSendingOptionsResponse {
  *             configuration set.</p>
  */
 export interface PutConfigurationSetSuppressionOptionsRequest {
-  __type?: "PutConfigurationSetSuppressionOptionsRequest";
   /**
    * <p>A list that contains the reasons that email addresses are automatically added to the
    *             suppression list for your account. This list can contain any or all of the
@@ -4206,24 +3870,18 @@ export namespace PutConfigurationSetSuppressionOptionsRequest {
   export const filterSensitiveLog = (obj: PutConfigurationSetSuppressionOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationSetSuppressionOptionsRequest =>
-    __isa(o, "PutConfigurationSetSuppressionOptionsRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutConfigurationSetSuppressionOptionsResponse {
-  __type?: "PutConfigurationSetSuppressionOptionsResponse";
-}
+export interface PutConfigurationSetSuppressionOptionsResponse {}
 
 export namespace PutConfigurationSetSuppressionOptionsResponse {
   export const filterSensitiveLog = (obj: PutConfigurationSetSuppressionOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationSetSuppressionOptionsResponse =>
-    __isa(o, "PutConfigurationSetSuppressionOptionsResponse");
 }
 
 /**
@@ -4231,7 +3889,6 @@ export namespace PutConfigurationSetSuppressionOptionsResponse {
  *             set.</p>
  */
 export interface PutConfigurationSetTrackingOptionsRequest {
-  __type?: "PutConfigurationSetTrackingOptionsRequest";
   /**
    * <p>The domain that you want to use to track open and click events.</p>
    */
@@ -4248,31 +3905,24 @@ export namespace PutConfigurationSetTrackingOptionsRequest {
   export const filterSensitiveLog = (obj: PutConfigurationSetTrackingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationSetTrackingOptionsRequest =>
-    __isa(o, "PutConfigurationSetTrackingOptionsRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutConfigurationSetTrackingOptionsResponse {
-  __type?: "PutConfigurationSetTrackingOptionsResponse";
-}
+export interface PutConfigurationSetTrackingOptionsResponse {}
 
 export namespace PutConfigurationSetTrackingOptionsResponse {
   export const filterSensitiveLog = (obj: PutConfigurationSetTrackingOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationSetTrackingOptionsResponse =>
-    __isa(o, "PutConfigurationSetTrackingOptionsResponse");
 }
 
 /**
  * <p>A request to move a dedicated IP address to a dedicated IP pool.</p>
  */
 export interface PutDedicatedIpInPoolRequest {
-  __type?: "PutDedicatedIpInPoolRequest";
   /**
    * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
    *             has to be a dedicated IP address that's associated with your AWS account.</p>
@@ -4290,22 +3940,18 @@ export namespace PutDedicatedIpInPoolRequest {
   export const filterSensitiveLog = (obj: PutDedicatedIpInPoolRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDedicatedIpInPoolRequest => __isa(o, "PutDedicatedIpInPoolRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutDedicatedIpInPoolResponse {
-  __type?: "PutDedicatedIpInPoolResponse";
-}
+export interface PutDedicatedIpInPoolResponse {}
 
 export namespace PutDedicatedIpInPoolResponse {
   export const filterSensitiveLog = (obj: PutDedicatedIpInPoolResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDedicatedIpInPoolResponse => __isa(o, "PutDedicatedIpInPoolResponse");
 }
 
 /**
@@ -4313,7 +3959,6 @@ export namespace PutDedicatedIpInPoolResponse {
  *             is useful when you want to resume the warm-up process for an existing IP address.</p>
  */
 export interface PutDedicatedIpWarmupAttributesRequest {
-  __type?: "PutDedicatedIpWarmupAttributesRequest";
   /**
    * <p>The dedicated IP address that you want to update the warm-up attributes for.</p>
    */
@@ -4330,24 +3975,18 @@ export namespace PutDedicatedIpWarmupAttributesRequest {
   export const filterSensitiveLog = (obj: PutDedicatedIpWarmupAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDedicatedIpWarmupAttributesRequest =>
-    __isa(o, "PutDedicatedIpWarmupAttributesRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutDedicatedIpWarmupAttributesResponse {
-  __type?: "PutDedicatedIpWarmupAttributesResponse";
-}
+export interface PutDedicatedIpWarmupAttributesResponse {}
 
 export namespace PutDedicatedIpWarmupAttributesResponse {
   export const filterSensitiveLog = (obj: PutDedicatedIpWarmupAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDedicatedIpWarmupAttributesResponse =>
-    __isa(o, "PutDedicatedIpWarmupAttributesResponse");
 }
 
 /**
@@ -4359,7 +3998,6 @@ export namespace PutDedicatedIpWarmupAttributesResponse {
  *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
  */
 export interface PutDeliverabilityDashboardOptionRequest {
-  __type?: "PutDeliverabilityDashboardOptionRequest";
   /**
    * <p>An array of objects, one for each verified domain that you use to send email and
    *             enabled the Deliverability dashboard for.</p>
@@ -4377,23 +4015,17 @@ export namespace PutDeliverabilityDashboardOptionRequest {
   export const filterSensitiveLog = (obj: PutDeliverabilityDashboardOptionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDeliverabilityDashboardOptionRequest =>
-    __isa(o, "PutDeliverabilityDashboardOptionRequest");
 }
 
 /**
  * <p>A response that indicates whether the Deliverability dashboard is enabled.</p>
  */
-export interface PutDeliverabilityDashboardOptionResponse {
-  __type?: "PutDeliverabilityDashboardOptionResponse";
-}
+export interface PutDeliverabilityDashboardOptionResponse {}
 
 export namespace PutDeliverabilityDashboardOptionResponse {
   export const filterSensitiveLog = (obj: PutDeliverabilityDashboardOptionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDeliverabilityDashboardOptionResponse =>
-    __isa(o, "PutDeliverabilityDashboardOptionResponse");
 }
 
 /**
@@ -4401,7 +4033,6 @@ export namespace PutDeliverabilityDashboardOptionResponse {
  *             identity.</p>
  */
 export interface PutEmailIdentityDkimAttributesRequest {
-  __type?: "PutEmailIdentityDkimAttributesRequest";
   /**
    * <p>The email identity that you want to change the DKIM settings for.</p>
    */
@@ -4420,31 +4051,24 @@ export namespace PutEmailIdentityDkimAttributesRequest {
   export const filterSensitiveLog = (obj: PutEmailIdentityDkimAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEmailIdentityDkimAttributesRequest =>
-    __isa(o, "PutEmailIdentityDkimAttributesRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutEmailIdentityDkimAttributesResponse {
-  __type?: "PutEmailIdentityDkimAttributesResponse";
-}
+export interface PutEmailIdentityDkimAttributesResponse {}
 
 export namespace PutEmailIdentityDkimAttributesResponse {
   export const filterSensitiveLog = (obj: PutEmailIdentityDkimAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEmailIdentityDkimAttributesResponse =>
-    __isa(o, "PutEmailIdentityDkimAttributesResponse");
 }
 
 /**
  * <p>A request to change the DKIM attributes for an email identity.</p>
  */
 export interface PutEmailIdentityDkimSigningAttributesRequest {
-  __type?: "PutEmailIdentityDkimSigningAttributesRequest";
   /**
    * <p>The method that you want to use to configure DKIM for the identity. There are two
    *             possible values:</p>
@@ -4483,8 +4107,6 @@ export namespace PutEmailIdentityDkimSigningAttributesRequest {
       SigningAttributes: DkimSigningAttributes.filterSensitiveLog(obj.SigningAttributes),
     }),
   });
-  export const isa = (o: any): o is PutEmailIdentityDkimSigningAttributesRequest =>
-    __isa(o, "PutEmailIdentityDkimSigningAttributesRequest");
 }
 
 /**
@@ -4492,7 +4114,6 @@ export namespace PutEmailIdentityDkimSigningAttributesRequest {
  *         <p>The following data is returned in JSON format by the service.</p>
  */
 export interface PutEmailIdentityDkimSigningAttributesResponse {
-  __type?: "PutEmailIdentityDkimSigningAttributesResponse";
   /**
    * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
    *             contains a set of unique strings that you use to create a set of CNAME records that you
@@ -4554,8 +4175,6 @@ export namespace PutEmailIdentityDkimSigningAttributesResponse {
   export const filterSensitiveLog = (obj: PutEmailIdentityDkimSigningAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEmailIdentityDkimSigningAttributesResponse =>
-    __isa(o, "PutEmailIdentityDkimSigningAttributesResponse");
 }
 
 /**
@@ -4563,7 +4182,6 @@ export namespace PutEmailIdentityDkimSigningAttributesResponse {
  *             processed.</p>
  */
 export interface PutEmailIdentityFeedbackAttributesRequest {
-  __type?: "PutEmailIdentityFeedbackAttributesRequest";
   /**
    * <p>Sets the feedback forwarding configuration for the identity.</p>
    *         <p>If the value is <code>true</code>, you receive email notifications when bounce or
@@ -4587,31 +4205,24 @@ export namespace PutEmailIdentityFeedbackAttributesRequest {
   export const filterSensitiveLog = (obj: PutEmailIdentityFeedbackAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEmailIdentityFeedbackAttributesRequest =>
-    __isa(o, "PutEmailIdentityFeedbackAttributesRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutEmailIdentityFeedbackAttributesResponse {
-  __type?: "PutEmailIdentityFeedbackAttributesResponse";
-}
+export interface PutEmailIdentityFeedbackAttributesResponse {}
 
 export namespace PutEmailIdentityFeedbackAttributesResponse {
   export const filterSensitiveLog = (obj: PutEmailIdentityFeedbackAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEmailIdentityFeedbackAttributesResponse =>
-    __isa(o, "PutEmailIdentityFeedbackAttributesResponse");
 }
 
 /**
  * <p>A request to configure the custom MAIL FROM domain for a verified identity.</p>
  */
 export interface PutEmailIdentityMailFromAttributesRequest {
-  __type?: "PutEmailIdentityMailFromAttributesRequest";
   /**
    * <p>The verified email identity that you want to set up the custom MAIL FROM domain
    *             for.</p>
@@ -4654,31 +4265,24 @@ export namespace PutEmailIdentityMailFromAttributesRequest {
   export const filterSensitiveLog = (obj: PutEmailIdentityMailFromAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEmailIdentityMailFromAttributesRequest =>
-    __isa(o, "PutEmailIdentityMailFromAttributesRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutEmailIdentityMailFromAttributesResponse {
-  __type?: "PutEmailIdentityMailFromAttributesResponse";
-}
+export interface PutEmailIdentityMailFromAttributesResponse {}
 
 export namespace PutEmailIdentityMailFromAttributesResponse {
   export const filterSensitiveLog = (obj: PutEmailIdentityMailFromAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEmailIdentityMailFromAttributesResponse =>
-    __isa(o, "PutEmailIdentityMailFromAttributesResponse");
 }
 
 /**
  * <p>A request to add an email destination to the suppression list for your account.</p>
  */
 export interface PutSuppressedDestinationRequest {
-  __type?: "PutSuppressedDestinationRequest";
   /**
    * <p>The email address that should be added to the suppression list for your
    *             account.</p>
@@ -4696,29 +4300,24 @@ export namespace PutSuppressedDestinationRequest {
   export const filterSensitiveLog = (obj: PutSuppressedDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutSuppressedDestinationRequest => __isa(o, "PutSuppressedDestinationRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutSuppressedDestinationResponse {
-  __type?: "PutSuppressedDestinationResponse";
-}
+export interface PutSuppressedDestinationResponse {}
 
 export namespace PutSuppressedDestinationResponse {
   export const filterSensitiveLog = (obj: PutSuppressedDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutSuppressedDestinationResponse => __isa(o, "PutSuppressedDestinationResponse");
 }
 
 /**
  * <p>Represents the raw content of an email message.</p>
  */
 export interface RawMessage {
-  __type?: "RawMessage";
   /**
    * <p>The raw email message. The message has to meet the following criteria:</p>
    *         <ul>
@@ -4756,7 +4355,6 @@ export namespace RawMessage {
   export const filterSensitiveLog = (obj: RawMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RawMessage => __isa(o, "RawMessage");
 }
 
 /**
@@ -4765,7 +4363,6 @@ export namespace RawMessage {
  *             within this object.</p>
  */
 export interface ReplacementEmailContent {
-  __type?: "ReplacementEmailContent";
   /**
    * <p>The <code>ReplacementTemplate</code> associated with
    *                 <code>ReplacementEmailContent</code>.</p>
@@ -4777,7 +4374,6 @@ export namespace ReplacementEmailContent {
   export const filterSensitiveLog = (obj: ReplacementEmailContent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplacementEmailContent => __isa(o, "ReplacementEmailContent");
 }
 
 /**
@@ -4785,7 +4381,6 @@ export namespace ReplacementEmailContent {
  *             specific <code>BulkEmailEntry</code>.</p>
  */
 export interface ReplacementTemplate {
-  __type?: "ReplacementTemplate";
   /**
    * <p>A list of replacement values to apply to the template. This parameter is a JSON
    *             object, typically consisting of key-value pairs in which the keys correspond to
@@ -4798,7 +4393,6 @@ export namespace ReplacementTemplate {
   export const filterSensitiveLog = (obj: ReplacementTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplacementTemplate => __isa(o, "ReplacementTemplate");
 }
 
 /**
@@ -4806,7 +4400,6 @@ export namespace ReplacementTemplate {
  *             configuration set in the current AWS Region. </p>
  */
 export interface ReputationOptions {
-  __type?: "ReputationOptions";
   /**
    * <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
    *             set. If <code>false</code>, tracking of reputation metrics is disabled for the
@@ -4826,14 +4419,12 @@ export namespace ReputationOptions {
   export const filterSensitiveLog = (obj: ReputationOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReputationOptions => __isa(o, "ReputationOptions");
 }
 
 /**
  * <p>An object that contains information about your account details review.</p>
  */
 export interface ReviewDetails {
-  __type?: "ReviewDetails";
   /**
    * <p>The status of the latest review of your account. The status can be one of the
    *             following:</p>
@@ -4872,7 +4463,6 @@ export namespace ReviewDetails {
   export const filterSensitiveLog = (obj: ReviewDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReviewDetails => __isa(o, "ReviewDetails");
 }
 
 export enum ReviewStatus {
@@ -4888,7 +4478,6 @@ export enum ReviewStatus {
  *                 Guide</a>.</p>
  */
 export interface SendBulkEmailRequest {
-  __type?: "SendBulkEmailRequest";
   /**
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
    *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
@@ -4965,14 +4554,12 @@ export namespace SendBulkEmailRequest {
   export const filterSensitiveLog = (obj: SendBulkEmailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendBulkEmailRequest => __isa(o, "SendBulkEmailRequest");
 }
 
 /**
  * <p>The following data is returned in JSON format by the service.</p>
  */
 export interface SendBulkEmailResponse {
-  __type?: "SendBulkEmailResponse";
   /**
    * <p>A list of <code>BulkMailEntry</code> objects.</p>
    */
@@ -4983,7 +4570,6 @@ export namespace SendBulkEmailResponse {
   export const filterSensitiveLog = (obj: SendBulkEmailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendBulkEmailResponse => __isa(o, "SendBulkEmailResponse");
 }
 
 /**
@@ -4991,7 +4577,6 @@ export namespace SendBulkEmailResponse {
  *             recipient.</p>
  */
 export interface SendCustomVerificationEmailRequest {
-  __type?: "SendCustomVerificationEmailRequest";
   /**
    * <p>The email address to verify.</p>
    */
@@ -5013,15 +4598,12 @@ export namespace SendCustomVerificationEmailRequest {
   export const filterSensitiveLog = (obj: SendCustomVerificationEmailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendCustomVerificationEmailRequest =>
-    __isa(o, "SendCustomVerificationEmailRequest");
 }
 
 /**
  * <p>The following element is returned by the service.</p>
  */
 export interface SendCustomVerificationEmailResponse {
-  __type?: "SendCustomVerificationEmailResponse";
   /**
    * <p>The unique message identifier returned from the
    *                 <code>SendCustomVerificationEmail</code> operation.</p>
@@ -5033,8 +4615,6 @@ export namespace SendCustomVerificationEmailResponse {
   export const filterSensitiveLog = (obj: SendCustomVerificationEmailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendCustomVerificationEmailResponse =>
-    __isa(o, "SendCustomVerificationEmailResponse");
 }
 
 /**
@@ -5043,7 +4623,6 @@ export namespace SendCustomVerificationEmailResponse {
  *                 Guide</a>.</p>
  */
 export interface SendEmailRequest {
-  __type?: "SendEmailRequest";
   /**
    * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
    *             message, each Reply-to address receives the reply.</p>
@@ -5124,14 +4703,12 @@ export namespace SendEmailRequest {
   export const filterSensitiveLog = (obj: SendEmailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendEmailRequest => __isa(o, "SendEmailRequest");
 }
 
 /**
  * <p>A unique message ID that you receive when an email is accepted for sending.</p>
  */
 export interface SendEmailResponse {
-  __type?: "SendEmailResponse";
   /**
    * <p>A unique identifier for the message that is generated when the message is
    *             accepted.</p>
@@ -5149,7 +4726,6 @@ export namespace SendEmailResponse {
   export const filterSensitiveLog = (obj: SendEmailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendEmailResponse => __isa(o, "SendEmailResponse");
 }
 
 /**
@@ -5157,7 +4733,6 @@ export namespace SendEmailResponse {
  *             in the current AWS Region.</p>
  */
 export interface SendingOptions {
-  __type?: "SendingOptions";
   /**
    * <p>If <code>true</code>, email sending is enabled for the configuration set. If
    *                 <code>false</code>, email sending is disabled for the configuration set.</p>
@@ -5169,7 +4744,6 @@ export namespace SendingOptions {
   export const filterSensitiveLog = (obj: SendingOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendingOptions => __isa(o, "SendingOptions");
 }
 
 /**
@@ -5186,7 +4760,6 @@ export namespace SendingPausedException {
   export const filterSensitiveLog = (obj: SendingPausedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendingPausedException => __isa(o, "SendingPausedException");
 }
 
 /**
@@ -5194,7 +4767,6 @@ export namespace SendingPausedException {
  *             for your Amazon SES account in the current AWS Region.</p>
  */
 export interface SendQuota {
-  __type?: "SendQuota";
   /**
    * <p>The maximum number of emails that you can send in the current AWS Region over a
    *             24-hour period. This value is also called your <i>sending
@@ -5220,7 +4792,6 @@ export namespace SendQuota {
   export const filterSensitiveLog = (obj: SendQuota): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendQuota => __isa(o, "SendQuota");
 }
 
 /**
@@ -5228,7 +4799,6 @@ export namespace SendQuota {
  *             send notification when certain email events occur.</p>
  */
 export interface SnsDestination {
-  __type?: "SnsDestination";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email
    *             events to. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer
@@ -5241,7 +4811,6 @@ export namespace SnsDestination {
   export const filterSensitiveLog = (obj: SnsDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnsDestination => __isa(o, "SnsDestination");
 }
 
 /**
@@ -5249,7 +4818,6 @@ export namespace SnsDestination {
  *             list for your account.</p>
  */
 export interface SuppressedDestination {
-  __type?: "SuppressedDestination";
   /**
    * <p>The email address that is on the suppression list for your account.</p>
    */
@@ -5277,7 +4845,6 @@ export namespace SuppressedDestination {
   export const filterSensitiveLog = (obj: SuppressedDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuppressedDestination => __isa(o, "SuppressedDestination");
 }
 
 /**
@@ -5285,7 +4852,6 @@ export namespace SuppressedDestination {
  *             is on the suppression list for your account.</p>
  */
 export interface SuppressedDestinationAttributes {
-  __type?: "SuppressedDestinationAttributes";
   /**
    * <p>The unique identifier of the email message that caused the email address to be added
    *             to the suppression list for your account.</p>
@@ -5303,14 +4869,12 @@ export namespace SuppressedDestinationAttributes {
   export const filterSensitiveLog = (obj: SuppressedDestinationAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuppressedDestinationAttributes => __isa(o, "SuppressedDestinationAttributes");
 }
 
 /**
  * <p>A summary that describes the suppressed email address.</p>
  */
 export interface SuppressedDestinationSummary {
-  __type?: "SuppressedDestinationSummary";
   /**
    * <p>The reason that the address was added to the suppression list for your account.</p>
    */
@@ -5332,7 +4896,6 @@ export namespace SuppressedDestinationSummary {
   export const filterSensitiveLog = (obj: SuppressedDestinationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuppressedDestinationSummary => __isa(o, "SuppressedDestinationSummary");
 }
 
 /**
@@ -5340,7 +4903,6 @@ export namespace SuppressedDestinationSummary {
  *             for your account in the current AWS Region.</p>
  */
 export interface SuppressionAttributes {
-  __type?: "SuppressionAttributes";
   /**
    * <p>A list that contains the reasons that email addresses will be automatically added to
    *             the suppression list for your account. This list can contain any or all of the
@@ -5367,7 +4929,6 @@ export namespace SuppressionAttributes {
   export const filterSensitiveLog = (obj: SuppressionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuppressionAttributes => __isa(o, "SuppressionAttributes");
 }
 
 export enum SuppressionListReason {
@@ -5380,7 +4941,6 @@ export enum SuppressionListReason {
  *             account.</p>
  */
 export interface SuppressionOptions {
-  __type?: "SuppressionOptions";
   /**
    * <p>A list that contains the reasons that email addresses are automatically added to the
    *             suppression list for your account. This list can contain any or all of the
@@ -5407,7 +4967,6 @@ export namespace SuppressionOptions {
   export const filterSensitiveLog = (obj: SuppressionOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuppressionOptions => __isa(o, "SuppressionOptions");
 }
 
 /**
@@ -5446,7 +5005,6 @@ export namespace SuppressionOptions {
  *          </ul>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag
    *             value is 256 characters. The minimum length is 0 characters. If you don't want a
@@ -5466,11 +5024,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>A list of the tags that you want to add to the resource. A tag consists of a required
    *             tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum
@@ -5490,18 +5046,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -5511,7 +5063,6 @@ export namespace TagResourceResponse {
  *             want to define, save, and reuse in email messages that you send.</p>
  */
 export interface Template {
-  __type?: "Template";
   /**
    * <p>The Amazon Resource Name (ARN) of the template.</p>
    */
@@ -5536,7 +5087,6 @@ export namespace Template {
   export const filterSensitiveLog = (obj: Template): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Template => __isa(o, "Template");
 }
 
 /**
@@ -5544,7 +5094,6 @@ export namespace Template {
  *             provided with a template and a set of replacement data.</p>
  */
 export interface TestRenderEmailTemplateRequest {
-  __type?: "TestRenderEmailTemplateRequest";
   /**
    * <p>A list of replacement values to apply to the template. This parameter is a JSON
    *             object, typically consisting of key-value pairs in which the keys correspond to
@@ -5562,14 +5111,12 @@ export namespace TestRenderEmailTemplateRequest {
   export const filterSensitiveLog = (obj: TestRenderEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestRenderEmailTemplateRequest => __isa(o, "TestRenderEmailTemplateRequest");
 }
 
 /**
  * <p>The following element is returned by the service.</p>
  */
 export interface TestRenderEmailTemplateResponse {
-  __type?: "TestRenderEmailTemplateResponse";
   /**
    * <p>The complete MIME message rendered by applying the data in the
    *                 <code>TemplateData</code> parameter to the template specified in the TemplateName
@@ -5582,7 +5129,6 @@ export namespace TestRenderEmailTemplateResponse {
   export const filterSensitiveLog = (obj: TestRenderEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestRenderEmailTemplateResponse => __isa(o, "TestRenderEmailTemplateResponse");
 }
 
 export enum TlsPolicy {
@@ -5603,7 +5149,6 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -5616,7 +5161,6 @@ export namespace TooManyRequestsException {
  *             links.</p>
  */
 export interface TrackingOptions {
-  __type?: "TrackingOptions";
   /**
    * <p>The domain that you want to use for tracking open and click events.</p>
    */
@@ -5627,11 +5171,9 @@ export namespace TrackingOptions {
   export const filterSensitiveLog = (obj: TrackingOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrackingOptions => __isa(o, "TrackingOptions");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to remove one or more
    *             tags from.</p>
@@ -5654,18 +5196,14 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -5673,7 +5211,6 @@ export namespace UntagResourceResponse {
  *             set.</p>
  */
 export interface UpdateConfigurationSetEventDestinationRequest {
-  __type?: "UpdateConfigurationSetEventDestinationRequest";
   /**
    * <p>The name of the configuration set that contains the event destination that you want to
    *             modify.</p>
@@ -5695,31 +5232,24 @@ export namespace UpdateConfigurationSetEventDestinationRequest {
   export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationRequest =>
-    __isa(o, "UpdateConfigurationSetEventDestinationRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface UpdateConfigurationSetEventDestinationResponse {
-  __type?: "UpdateConfigurationSetEventDestinationResponse";
-}
+export interface UpdateConfigurationSetEventDestinationResponse {}
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
   export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationResponse =>
-    __isa(o, "UpdateConfigurationSetEventDestinationResponse");
 }
 
 /**
  * <p>Represents a request to update an existing custom verification email template.</p>
  */
 export interface UpdateCustomVerificationEmailTemplateRequest {
-  __type?: "UpdateCustomVerificationEmailTemplateRequest";
   /**
    * <p>The email address that the custom verification email is sent from.</p>
    */
@@ -5760,24 +5290,18 @@ export namespace UpdateCustomVerificationEmailTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateCustomVerificationEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCustomVerificationEmailTemplateRequest =>
-    __isa(o, "UpdateCustomVerificationEmailTemplateRequest");
 }
 
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */
-export interface UpdateCustomVerificationEmailTemplateResponse {
-  __type?: "UpdateCustomVerificationEmailTemplateResponse";
-}
+export interface UpdateCustomVerificationEmailTemplateResponse {}
 
 export namespace UpdateCustomVerificationEmailTemplateResponse {
   export const filterSensitiveLog = (obj: UpdateCustomVerificationEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCustomVerificationEmailTemplateResponse =>
-    __isa(o, "UpdateCustomVerificationEmailTemplateResponse");
 }
 
 /**
@@ -5786,7 +5310,6 @@ export namespace UpdateCustomVerificationEmailTemplateResponse {
  *             your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface UpdateEmailIdentityPolicyRequest {
-  __type?: "UpdateEmailIdentityPolicyRequest";
   /**
    * <p>The name of the policy.</p>
    *
@@ -5812,22 +5335,18 @@ export namespace UpdateEmailIdentityPolicyRequest {
   export const filterSensitiveLog = (obj: UpdateEmailIdentityPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEmailIdentityPolicyRequest => __isa(o, "UpdateEmailIdentityPolicyRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface UpdateEmailIdentityPolicyResponse {
-  __type?: "UpdateEmailIdentityPolicyResponse";
-}
+export interface UpdateEmailIdentityPolicyResponse {}
 
 export namespace UpdateEmailIdentityPolicyResponse {
   export const filterSensitiveLog = (obj: UpdateEmailIdentityPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEmailIdentityPolicyResponse => __isa(o, "UpdateEmailIdentityPolicyResponse");
 }
 
 /**
@@ -5835,7 +5354,6 @@ export namespace UpdateEmailIdentityPolicyResponse {
  *                 Developer Guide</a>.</p>
  */
 export interface UpdateEmailTemplateRequest {
-  __type?: "UpdateEmailTemplateRequest";
   /**
    * <p>The name of the template you want to update.</p>
    */
@@ -5852,22 +5370,18 @@ export namespace UpdateEmailTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEmailTemplateRequest => __isa(o, "UpdateEmailTemplateRequest");
 }
 
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *             HTTP body.</p>
  */
-export interface UpdateEmailTemplateResponse {
-  __type?: "UpdateEmailTemplateResponse";
-}
+export interface UpdateEmailTemplateResponse {}
 
 export namespace UpdateEmailTemplateResponse {
   export const filterSensitiveLog = (obj: UpdateEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEmailTemplateResponse => __isa(o, "UpdateEmailTemplateResponse");
 }
 
 /**
@@ -5875,7 +5389,6 @@ export namespace UpdateEmailTemplateResponse {
  *             recipients.</p>
  */
 export interface VolumeStatistics {
-  __type?: "VolumeStatistics";
   /**
    * <p>The total number of emails that arrived in recipients' inboxes.</p>
    */
@@ -5904,7 +5417,6 @@ export namespace VolumeStatistics {
   export const filterSensitiveLog = (obj: VolumeStatistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeStatistics => __isa(o, "VolumeStatistics");
 }
 
 export enum WarmupStatus {

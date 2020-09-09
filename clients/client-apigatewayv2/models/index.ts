@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
@@ -11,14 +11,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>Settings for logging access in a stage.</p>
  */
 export interface AccessLogSettings {
-  __type?: "AccessLogSettings";
   /**
    * <p>The ARN of the CloudWatch Logs log group to receive access logs.</p>
    */
@@ -34,14 +32,12 @@ export namespace AccessLogSettings {
   export const filterSensitiveLog = (obj: AccessLogSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessLogSettings => __isa(o, "AccessLogSettings");
 }
 
 /**
  * <p>Represents an API.</p>
  */
 export interface Api {
-  __type?: "Api";
   /**
    * <p>The timestamp when the API was created.</p>
    */
@@ -117,14 +113,12 @@ export namespace Api {
   export const filterSensitiveLog = (obj: Api): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Api => __isa(o, "Api");
 }
 
 /**
  * <p>Represents an API mapping.</p>
  */
 export interface ApiMapping {
-  __type?: "ApiMapping";
   /**
    * <p>The API identifier.</p>
    */
@@ -150,7 +144,6 @@ export namespace ApiMapping {
   export const filterSensitiveLog = (obj: ApiMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApiMapping => __isa(o, "ApiMapping");
 }
 
 export enum AuthorizationType {
@@ -164,7 +157,6 @@ export enum AuthorizationType {
  * <p>Represents an authorizer.</p>
  */
 export interface Authorizer {
-  __type?: "Authorizer";
   /**
    * <p>The authorizer's Uniform Resource Identifier (URI). ForREQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
    *                , where <replaceable></replaceable>{region} is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations. Supported only for REQUEST authorizers.</p>
@@ -216,7 +208,6 @@ export namespace Authorizer {
   export const filterSensitiveLog = (obj: Authorizer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Authorizer => __isa(o, "Authorizer");
 }
 
 export enum AuthorizerType {
@@ -240,7 +231,6 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
@@ -259,7 +249,6 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export enum ConnectionType {
@@ -276,7 +265,6 @@ export enum ContentHandlingStrategy {
  * <p>Represents a CORS configuration. Supported only for HTTP APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html">Configuring CORS</a> for more information.</p>
  */
 export interface Cors {
-  __type?: "Cors";
   /**
    * <p>Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.</p>
    */
@@ -312,14 +300,12 @@ export namespace Cors {
   export const filterSensitiveLog = (obj: Cors): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Cors => __isa(o, "Cors");
 }
 
 /**
  * <p>Creates a new ApiMapping resource to represent an API mapping.</p>
  */
 export interface CreateApiMappingRequest {
-  __type?: "CreateApiMappingRequest";
   /**
    * The API mapping key.
    */
@@ -345,11 +331,9 @@ export namespace CreateApiMappingRequest {
   export const filterSensitiveLog = (obj: CreateApiMappingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApiMappingRequest => __isa(o, "CreateApiMappingRequest");
 }
 
 export interface CreateApiMappingResponse {
-  __type?: "CreateApiMappingResponse";
   /**
    * <p>The API identifier.</p>
    */
@@ -375,14 +359,12 @@ export namespace CreateApiMappingResponse {
   export const filterSensitiveLog = (obj: CreateApiMappingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApiMappingResponse => __isa(o, "CreateApiMappingResponse");
 }
 
 /**
  * <p>Creates a new Api resource to represent an API.</p>
  */
 export interface CreateApiRequest {
-  __type?: "CreateApiRequest";
   /**
    * <p>A CORS configuration. Supported only for HTTP APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html">Configuring CORS</a> for more information.</p>
    */
@@ -448,11 +430,9 @@ export namespace CreateApiRequest {
   export const filterSensitiveLog = (obj: CreateApiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApiRequest => __isa(o, "CreateApiRequest");
 }
 
 export interface CreateApiResponse {
-  __type?: "CreateApiResponse";
   /**
    * <p>The name of the API.</p>
    */
@@ -528,14 +508,12 @@ export namespace CreateApiResponse {
   export const filterSensitiveLog = (obj: CreateApiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApiResponse => __isa(o, "CreateApiResponse");
 }
 
 /**
  * <p>Creates a new Authorizer resource to represent an authorizer.</p>
  */
 export interface CreateAuthorizerRequest {
-  __type?: "CreateAuthorizerRequest";
   /**
    * <p>The authorizer type. For WebSocket APIs, specify REQUEST for a Lambda function using incoming request parameters. For HTTP APIs, specify JWT to use JSON Web Tokens.</p>
    */
@@ -587,11 +565,9 @@ export namespace CreateAuthorizerRequest {
   export const filterSensitiveLog = (obj: CreateAuthorizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAuthorizerRequest => __isa(o, "CreateAuthorizerRequest");
 }
 
 export interface CreateAuthorizerResponse {
-  __type?: "CreateAuthorizerResponse";
   /**
    * <p>The validation expression does not apply to the REQUEST authorizer.</p>
    */
@@ -643,14 +619,12 @@ export namespace CreateAuthorizerResponse {
   export const filterSensitiveLog = (obj: CreateAuthorizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAuthorizerResponse => __isa(o, "CreateAuthorizerResponse");
 }
 
 /**
  * <p>Creates a new Deployment resource to represent a deployment.</p>
  */
 export interface CreateDeploymentRequest {
-  __type?: "CreateDeploymentRequest";
   /**
    * <p>The name of the Stage resource for the Deployment resource to create.</p>
    */
@@ -671,11 +645,9 @@ export namespace CreateDeploymentRequest {
   export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentRequest => __isa(o, "CreateDeploymentRequest");
 }
 
 export interface CreateDeploymentResponse {
-  __type?: "CreateDeploymentResponse";
   /**
    * <p>Specifies whether a deployment was automatically released.</p>
    */
@@ -711,14 +683,12 @@ export namespace CreateDeploymentResponse {
   export const filterSensitiveLog = (obj: CreateDeploymentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentResponse => __isa(o, "CreateDeploymentResponse");
 }
 
 /**
  * <p>Creates a new DomainName resource to represent a domain name.</p>
  */
 export interface CreateDomainNameRequest {
-  __type?: "CreateDomainNameRequest";
   /**
    * <p>The domain name.</p>
    */
@@ -739,11 +709,9 @@ export namespace CreateDomainNameRequest {
   export const filterSensitiveLog = (obj: CreateDomainNameRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainNameRequest => __isa(o, "CreateDomainNameRequest");
 }
 
 export interface CreateDomainNameResponse {
-  __type?: "CreateDomainNameResponse";
   /**
    * <p>The collection of tags associated with a domain name.</p>
    */
@@ -769,14 +737,12 @@ export namespace CreateDomainNameResponse {
   export const filterSensitiveLog = (obj: CreateDomainNameResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainNameResponse => __isa(o, "CreateDomainNameResponse");
 }
 
 /**
  * <p>Creates a new Integration resource to represent an integration.</p>
  */
 export interface CreateIntegrationRequest {
-  __type?: "CreateIntegrationRequest";
   /**
    * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
    */
@@ -867,14 +833,12 @@ export namespace CreateIntegrationRequest {
   export const filterSensitiveLog = (obj: CreateIntegrationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIntegrationRequest => __isa(o, "CreateIntegrationRequest");
 }
 
 /**
  * <p>Creates a new IntegrationResponse resource to represent an integration response.</p>
  */
 export interface CreateIntegrationResponseRequest {
-  __type?: "CreateIntegrationResponseRequest";
   /**
    * <p>The template selection expression for the integration response. Supported only for WebSocket APIs.</p>
    */
@@ -915,11 +879,9 @@ export namespace CreateIntegrationResponseRequest {
   export const filterSensitiveLog = (obj: CreateIntegrationResponseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIntegrationResponseRequest => __isa(o, "CreateIntegrationResponseRequest");
 }
 
 export interface CreateIntegrationResponseResponse {
-  __type?: "CreateIntegrationResponseResponse";
   /**
    * <p>The integration response key.</p>
    */
@@ -955,11 +917,9 @@ export namespace CreateIntegrationResponseResponse {
   export const filterSensitiveLog = (obj: CreateIntegrationResponseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIntegrationResponseResponse => __isa(o, "CreateIntegrationResponseResponse");
 }
 
 export interface CreateIntegrationResult {
-  __type?: "CreateIntegrationResult";
   /**
    * <p>Represents the identifier of an integration.</p>
    */
@@ -1060,14 +1020,12 @@ export namespace CreateIntegrationResult {
   export const filterSensitiveLog = (obj: CreateIntegrationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIntegrationResult => __isa(o, "CreateIntegrationResult");
 }
 
 /**
  * <p>Creates a new Model.</p>
  */
 export interface CreateModelRequest {
-  __type?: "CreateModelRequest";
   /**
    * <p>The name of the model. Must be alphanumeric.</p>
    */
@@ -1098,11 +1056,9 @@ export namespace CreateModelRequest {
   export const filterSensitiveLog = (obj: CreateModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateModelRequest => __isa(o, "CreateModelRequest");
 }
 
 export interface CreateModelResponse {
-  __type?: "CreateModelResponse";
   /**
    * <p>The name of the model. Must be alphanumeric.</p>
    */
@@ -1133,14 +1089,12 @@ export namespace CreateModelResponse {
   export const filterSensitiveLog = (obj: CreateModelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateModelResponse => __isa(o, "CreateModelResponse");
 }
 
 /**
  * <p>Creates a new Route resource to represent a route.</p>
  */
 export interface CreateRouteRequest {
-  __type?: "CreateRouteRequest";
   /**
    * <p>The route key for the route.</p>
    */
@@ -1206,14 +1160,12 @@ export namespace CreateRouteRequest {
   export const filterSensitiveLog = (obj: CreateRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRouteRequest => __isa(o, "CreateRouteRequest");
 }
 
 /**
  * <p>Creates a new RouteResponse resource to represent a route response.</p>
  */
 export interface CreateRouteResponseRequest {
-  __type?: "CreateRouteResponseRequest";
   /**
    * <p>The route response parameters.</p>
    */
@@ -1249,11 +1201,9 @@ export namespace CreateRouteResponseRequest {
   export const filterSensitiveLog = (obj: CreateRouteResponseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRouteResponseRequest => __isa(o, "CreateRouteResponseRequest");
 }
 
 export interface CreateRouteResponseResponse {
-  __type?: "CreateRouteResponseResponse";
   /**
    * <p>Represents the response models of a route response.</p>
    */
@@ -1284,11 +1234,9 @@ export namespace CreateRouteResponseResponse {
   export const filterSensitiveLog = (obj: CreateRouteResponseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRouteResponseResponse => __isa(o, "CreateRouteResponseResponse");
 }
 
 export interface CreateRouteResult {
-  __type?: "CreateRouteResult";
   /**
    * <p>The target for the route.</p>
    */
@@ -1359,14 +1307,12 @@ export namespace CreateRouteResult {
   export const filterSensitiveLog = (obj: CreateRouteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRouteResult => __isa(o, "CreateRouteResult");
 }
 
 /**
  * <p>Creates a new Stage resource to represent a stage.</p>
  */
 export interface CreateStageRequest {
-  __type?: "CreateStageRequest";
   /**
    * <p>A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
    */
@@ -1427,11 +1373,9 @@ export namespace CreateStageRequest {
   export const filterSensitiveLog = (obj: CreateStageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStageRequest => __isa(o, "CreateStageRequest");
 }
 
 export interface CreateStageResponse {
-  __type?: "CreateStageResponse";
   /**
    * <p>Route settings for the stage, by routeKey.</p>
    */
@@ -1507,14 +1451,12 @@ export namespace CreateStageResponse {
   export const filterSensitiveLog = (obj: CreateStageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStageResponse => __isa(o, "CreateStageResponse");
 }
 
 /**
  * <p>Creates a VPC link</p>
  */
 export interface CreateVpcLinkRequest {
-  __type?: "CreateVpcLinkRequest";
   /**
    * <p>The name of the VPC link.</p>
    */
@@ -1540,11 +1482,9 @@ export namespace CreateVpcLinkRequest {
   export const filterSensitiveLog = (obj: CreateVpcLinkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcLinkRequest => __isa(o, "CreateVpcLinkRequest");
 }
 
 export interface CreateVpcLinkResponse {
-  __type?: "CreateVpcLinkResponse";
   /**
    * <p>The status of the VPC link.</p>
    */
@@ -1595,11 +1535,9 @@ export namespace CreateVpcLinkResponse {
   export const filterSensitiveLog = (obj: CreateVpcLinkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcLinkResponse => __isa(o, "CreateVpcLinkResponse");
 }
 
 export interface DeleteAccessLogSettingsRequest {
-  __type?: "DeleteAccessLogSettingsRequest";
   /**
    * <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
    */
@@ -1615,11 +1553,9 @@ export namespace DeleteAccessLogSettingsRequest {
   export const filterSensitiveLog = (obj: DeleteAccessLogSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccessLogSettingsRequest => __isa(o, "DeleteAccessLogSettingsRequest");
 }
 
 export interface DeleteApiMappingRequest {
-  __type?: "DeleteApiMappingRequest";
   /**
    * <p>The domain name.</p>
    */
@@ -1635,11 +1571,9 @@ export namespace DeleteApiMappingRequest {
   export const filterSensitiveLog = (obj: DeleteApiMappingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApiMappingRequest => __isa(o, "DeleteApiMappingRequest");
 }
 
 export interface DeleteApiRequest {
-  __type?: "DeleteApiRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -1650,11 +1584,9 @@ export namespace DeleteApiRequest {
   export const filterSensitiveLog = (obj: DeleteApiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApiRequest => __isa(o, "DeleteApiRequest");
 }
 
 export interface DeleteAuthorizerRequest {
-  __type?: "DeleteAuthorizerRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -1670,11 +1602,9 @@ export namespace DeleteAuthorizerRequest {
   export const filterSensitiveLog = (obj: DeleteAuthorizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAuthorizerRequest => __isa(o, "DeleteAuthorizerRequest");
 }
 
 export interface DeleteCorsConfigurationRequest {
-  __type?: "DeleteCorsConfigurationRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -1685,11 +1615,9 @@ export namespace DeleteCorsConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteCorsConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCorsConfigurationRequest => __isa(o, "DeleteCorsConfigurationRequest");
 }
 
 export interface DeleteDeploymentRequest {
-  __type?: "DeleteDeploymentRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -1705,11 +1633,9 @@ export namespace DeleteDeploymentRequest {
   export const filterSensitiveLog = (obj: DeleteDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeploymentRequest => __isa(o, "DeleteDeploymentRequest");
 }
 
 export interface DeleteDomainNameRequest {
-  __type?: "DeleteDomainNameRequest";
   /**
    * <p>The domain name.</p>
    */
@@ -1720,11 +1646,9 @@ export namespace DeleteDomainNameRequest {
   export const filterSensitiveLog = (obj: DeleteDomainNameRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainNameRequest => __isa(o, "DeleteDomainNameRequest");
 }
 
 export interface DeleteIntegrationRequest {
-  __type?: "DeleteIntegrationRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -1740,11 +1664,9 @@ export namespace DeleteIntegrationRequest {
   export const filterSensitiveLog = (obj: DeleteIntegrationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIntegrationRequest => __isa(o, "DeleteIntegrationRequest");
 }
 
 export interface DeleteIntegrationResponseRequest {
-  __type?: "DeleteIntegrationResponseRequest";
   /**
    * <p>The integration ID.</p>
    */
@@ -1765,11 +1687,9 @@ export namespace DeleteIntegrationResponseRequest {
   export const filterSensitiveLog = (obj: DeleteIntegrationResponseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIntegrationResponseRequest => __isa(o, "DeleteIntegrationResponseRequest");
 }
 
 export interface DeleteModelRequest {
-  __type?: "DeleteModelRequest";
   /**
    * <p>The model ID.</p>
    */
@@ -1785,11 +1705,9 @@ export namespace DeleteModelRequest {
   export const filterSensitiveLog = (obj: DeleteModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteModelRequest => __isa(o, "DeleteModelRequest");
 }
 
 export interface DeleteRouteRequest {
-  __type?: "DeleteRouteRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -1805,11 +1723,9 @@ export namespace DeleteRouteRequest {
   export const filterSensitiveLog = (obj: DeleteRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRouteRequest => __isa(o, "DeleteRouteRequest");
 }
 
 export interface DeleteRouteRequestParameterRequest {
-  __type?: "DeleteRouteRequestParameterRequest";
   /**
    * <p>The route ID.</p>
    */
@@ -1830,12 +1746,9 @@ export namespace DeleteRouteRequestParameterRequest {
   export const filterSensitiveLog = (obj: DeleteRouteRequestParameterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRouteRequestParameterRequest =>
-    __isa(o, "DeleteRouteRequestParameterRequest");
 }
 
 export interface DeleteRouteResponseRequest {
-  __type?: "DeleteRouteResponseRequest";
   /**
    * <p>The route response ID.</p>
    */
@@ -1856,11 +1769,9 @@ export namespace DeleteRouteResponseRequest {
   export const filterSensitiveLog = (obj: DeleteRouteResponseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRouteResponseRequest => __isa(o, "DeleteRouteResponseRequest");
 }
 
 export interface DeleteRouteSettingsRequest {
-  __type?: "DeleteRouteSettingsRequest";
   /**
    * <p>The route key.</p>
    */
@@ -1881,11 +1792,9 @@ export namespace DeleteRouteSettingsRequest {
   export const filterSensitiveLog = (obj: DeleteRouteSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRouteSettingsRequest => __isa(o, "DeleteRouteSettingsRequest");
 }
 
 export interface DeleteStageRequest {
-  __type?: "DeleteStageRequest";
   /**
    * <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
    */
@@ -1901,11 +1810,9 @@ export namespace DeleteStageRequest {
   export const filterSensitiveLog = (obj: DeleteStageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStageRequest => __isa(o, "DeleteStageRequest");
 }
 
 export interface DeleteVpcLinkRequest {
-  __type?: "DeleteVpcLinkRequest";
   /**
    * <p>The ID of the VPC link.</p>
    */
@@ -1916,25 +1823,20 @@ export namespace DeleteVpcLinkRequest {
   export const filterSensitiveLog = (obj: DeleteVpcLinkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcLinkRequest => __isa(o, "DeleteVpcLinkRequest");
 }
 
-export interface DeleteVpcLinkResponse {
-  __type?: "DeleteVpcLinkResponse";
-}
+export interface DeleteVpcLinkResponse {}
 
 export namespace DeleteVpcLinkResponse {
   export const filterSensitiveLog = (obj: DeleteVpcLinkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcLinkResponse => __isa(o, "DeleteVpcLinkResponse");
 }
 
 /**
  * <p>An immutable representation of an API that can be called by users. A Deployment must be associated with a Stage for it to be callable over the internet.</p>
  */
 export interface Deployment {
-  __type?: "Deployment";
   /**
    * <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
    */
@@ -1970,7 +1872,6 @@ export namespace Deployment {
   export const filterSensitiveLog = (obj: Deployment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Deployment => __isa(o, "Deployment");
 }
 
 export enum DeploymentStatus {
@@ -1983,7 +1884,6 @@ export enum DeploymentStatus {
  * <p>Represents a domain name.</p>
  */
 export interface DomainName {
-  __type?: "DomainName";
   /**
    * <p>The API mapping selection expression.</p>
    */
@@ -2009,14 +1909,12 @@ export namespace DomainName {
   export const filterSensitiveLog = (obj: DomainName): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainName => __isa(o, "DomainName");
 }
 
 /**
  * <p>The domain name configuration.</p>
  */
 export interface DomainNameConfiguration {
-  __type?: "DomainNameConfiguration";
   /**
    * <p>A domain name for the API.</p>
    */
@@ -2067,7 +1965,6 @@ export namespace DomainNameConfiguration {
   export const filterSensitiveLog = (obj: DomainNameConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainNameConfiguration => __isa(o, "DomainNameConfiguration");
 }
 
 export enum DomainNameStatus {
@@ -2081,7 +1978,6 @@ export enum EndpointType {
 }
 
 export interface ExportApiRequest {
-  __type?: "ExportApiRequest";
   /**
    * <p>The version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is 1.0.</p>
    */
@@ -2117,11 +2013,9 @@ export namespace ExportApiRequest {
   export const filterSensitiveLog = (obj: ExportApiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportApiRequest => __isa(o, "ExportApiRequest");
 }
 
 export interface ExportApiResponse {
-  __type?: "ExportApiResponse";
   /**
    * <p>Represents an exported definition of an API in a particular output format, for example, YAML. The API is serialized to the requested specification, for example, OpenAPI 3.0.</p>
    */
@@ -2132,11 +2026,9 @@ export namespace ExportApiResponse {
   export const filterSensitiveLog = (obj: ExportApiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportApiResponse => __isa(o, "ExportApiResponse");
 }
 
 export interface GetApiMappingRequest {
-  __type?: "GetApiMappingRequest";
   /**
    * <p>The domain name.</p>
    */
@@ -2152,11 +2044,9 @@ export namespace GetApiMappingRequest {
   export const filterSensitiveLog = (obj: GetApiMappingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApiMappingRequest => __isa(o, "GetApiMappingRequest");
 }
 
 export interface GetApiMappingResponse {
-  __type?: "GetApiMappingResponse";
   /**
    * <p>The API mapping identifier.</p>
    */
@@ -2182,11 +2072,9 @@ export namespace GetApiMappingResponse {
   export const filterSensitiveLog = (obj: GetApiMappingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApiMappingResponse => __isa(o, "GetApiMappingResponse");
 }
 
 export interface GetApiMappingsRequest {
-  __type?: "GetApiMappingsRequest";
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
@@ -2207,11 +2095,9 @@ export namespace GetApiMappingsRequest {
   export const filterSensitiveLog = (obj: GetApiMappingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApiMappingsRequest => __isa(o, "GetApiMappingsRequest");
 }
 
 export interface GetApiMappingsResponse {
-  __type?: "GetApiMappingsResponse";
   /**
    * <p>The elements from this collection.</p>
    */
@@ -2227,11 +2113,9 @@ export namespace GetApiMappingsResponse {
   export const filterSensitiveLog = (obj: GetApiMappingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApiMappingsResponse => __isa(o, "GetApiMappingsResponse");
 }
 
 export interface GetApiRequest {
-  __type?: "GetApiRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -2242,11 +2126,9 @@ export namespace GetApiRequest {
   export const filterSensitiveLog = (obj: GetApiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApiRequest => __isa(o, "GetApiRequest");
 }
 
 export interface GetApiResponse {
-  __type?: "GetApiResponse";
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
    */
@@ -2322,11 +2204,9 @@ export namespace GetApiResponse {
   export const filterSensitiveLog = (obj: GetApiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApiResponse => __isa(o, "GetApiResponse");
 }
 
 export interface GetApisRequest {
-  __type?: "GetApisRequest";
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
@@ -2342,11 +2222,9 @@ export namespace GetApisRequest {
   export const filterSensitiveLog = (obj: GetApisRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApisRequest => __isa(o, "GetApisRequest");
 }
 
 export interface GetApisResponse {
-  __type?: "GetApisResponse";
   /**
    * <p>The elements from this collection.</p>
    */
@@ -2362,11 +2240,9 @@ export namespace GetApisResponse {
   export const filterSensitiveLog = (obj: GetApisResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApisResponse => __isa(o, "GetApisResponse");
 }
 
 export interface GetAuthorizerRequest {
-  __type?: "GetAuthorizerRequest";
   /**
    * <p>The authorizer identifier.</p>
    */
@@ -2382,11 +2258,9 @@ export namespace GetAuthorizerRequest {
   export const filterSensitiveLog = (obj: GetAuthorizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAuthorizerRequest => __isa(o, "GetAuthorizerRequest");
 }
 
 export interface GetAuthorizerResponse {
-  __type?: "GetAuthorizerResponse";
   /**
    * <p>The name of the authorizer.</p>
    */
@@ -2438,11 +2312,9 @@ export namespace GetAuthorizerResponse {
   export const filterSensitiveLog = (obj: GetAuthorizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAuthorizerResponse => __isa(o, "GetAuthorizerResponse");
 }
 
 export interface GetAuthorizersRequest {
-  __type?: "GetAuthorizersRequest";
   /**
    * <p>The maximum number of elements to be returned for this resource.</p>
    */
@@ -2463,11 +2335,9 @@ export namespace GetAuthorizersRequest {
   export const filterSensitiveLog = (obj: GetAuthorizersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAuthorizersRequest => __isa(o, "GetAuthorizersRequest");
 }
 
 export interface GetAuthorizersResponse {
-  __type?: "GetAuthorizersResponse";
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
@@ -2483,11 +2353,9 @@ export namespace GetAuthorizersResponse {
   export const filterSensitiveLog = (obj: GetAuthorizersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAuthorizersResponse => __isa(o, "GetAuthorizersResponse");
 }
 
 export interface GetDeploymentRequest {
-  __type?: "GetDeploymentRequest";
   /**
    * <p>The deployment ID.</p>
    */
@@ -2503,11 +2371,9 @@ export namespace GetDeploymentRequest {
   export const filterSensitiveLog = (obj: GetDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentRequest => __isa(o, "GetDeploymentRequest");
 }
 
 export interface GetDeploymentResponse {
-  __type?: "GetDeploymentResponse";
   /**
    * <p>The identifier for the deployment.</p>
    */
@@ -2543,11 +2409,9 @@ export namespace GetDeploymentResponse {
   export const filterSensitiveLog = (obj: GetDeploymentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentResponse => __isa(o, "GetDeploymentResponse");
 }
 
 export interface GetDeploymentsRequest {
-  __type?: "GetDeploymentsRequest";
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
@@ -2568,11 +2432,9 @@ export namespace GetDeploymentsRequest {
   export const filterSensitiveLog = (obj: GetDeploymentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentsRequest => __isa(o, "GetDeploymentsRequest");
 }
 
 export interface GetDeploymentsResponse {
-  __type?: "GetDeploymentsResponse";
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
@@ -2588,11 +2450,9 @@ export namespace GetDeploymentsResponse {
   export const filterSensitiveLog = (obj: GetDeploymentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentsResponse => __isa(o, "GetDeploymentsResponse");
 }
 
 export interface GetDomainNameRequest {
-  __type?: "GetDomainNameRequest";
   /**
    * <p>The domain name.</p>
    */
@@ -2603,11 +2463,9 @@ export namespace GetDomainNameRequest {
   export const filterSensitiveLog = (obj: GetDomainNameRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainNameRequest => __isa(o, "GetDomainNameRequest");
 }
 
 export interface GetDomainNameResponse {
-  __type?: "GetDomainNameResponse";
   /**
    * <p>The collection of tags associated with a domain name.</p>
    */
@@ -2633,11 +2491,9 @@ export namespace GetDomainNameResponse {
   export const filterSensitiveLog = (obj: GetDomainNameResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainNameResponse => __isa(o, "GetDomainNameResponse");
 }
 
 export interface GetDomainNamesRequest {
-  __type?: "GetDomainNamesRequest";
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
@@ -2653,11 +2509,9 @@ export namespace GetDomainNamesRequest {
   export const filterSensitiveLog = (obj: GetDomainNamesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainNamesRequest => __isa(o, "GetDomainNamesRequest");
 }
 
 export interface GetDomainNamesResponse {
-  __type?: "GetDomainNamesResponse";
   /**
    * <p>The elements from this collection.</p>
    */
@@ -2673,11 +2527,9 @@ export namespace GetDomainNamesResponse {
   export const filterSensitiveLog = (obj: GetDomainNamesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainNamesResponse => __isa(o, "GetDomainNamesResponse");
 }
 
 export interface GetIntegrationRequest {
-  __type?: "GetIntegrationRequest";
   /**
    * <p>The integration ID.</p>
    */
@@ -2693,11 +2545,9 @@ export namespace GetIntegrationRequest {
   export const filterSensitiveLog = (obj: GetIntegrationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntegrationRequest => __isa(o, "GetIntegrationRequest");
 }
 
 export interface GetIntegrationResponseRequest {
-  __type?: "GetIntegrationResponseRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -2718,11 +2568,9 @@ export namespace GetIntegrationResponseRequest {
   export const filterSensitiveLog = (obj: GetIntegrationResponseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntegrationResponseRequest => __isa(o, "GetIntegrationResponseRequest");
 }
 
 export interface GetIntegrationResponseResponse {
-  __type?: "GetIntegrationResponseResponse";
   /**
    * <p>The integration response ID.</p>
    */
@@ -2758,11 +2606,9 @@ export namespace GetIntegrationResponseResponse {
   export const filterSensitiveLog = (obj: GetIntegrationResponseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntegrationResponseResponse => __isa(o, "GetIntegrationResponseResponse");
 }
 
 export interface GetIntegrationResponsesRequest {
-  __type?: "GetIntegrationResponsesRequest";
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
@@ -2788,11 +2634,9 @@ export namespace GetIntegrationResponsesRequest {
   export const filterSensitiveLog = (obj: GetIntegrationResponsesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntegrationResponsesRequest => __isa(o, "GetIntegrationResponsesRequest");
 }
 
 export interface GetIntegrationResponsesResponse {
-  __type?: "GetIntegrationResponsesResponse";
   /**
    * <p>The elements from this collection.</p>
    */
@@ -2808,11 +2652,9 @@ export namespace GetIntegrationResponsesResponse {
   export const filterSensitiveLog = (obj: GetIntegrationResponsesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntegrationResponsesResponse => __isa(o, "GetIntegrationResponsesResponse");
 }
 
 export interface GetIntegrationResult {
-  __type?: "GetIntegrationResult";
   /**
    * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with the Lambda function-invoking action with the client request passed through as-is. This integration is also referred to as Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
    */
@@ -2913,11 +2755,9 @@ export namespace GetIntegrationResult {
   export const filterSensitiveLog = (obj: GetIntegrationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntegrationResult => __isa(o, "GetIntegrationResult");
 }
 
 export interface GetIntegrationsRequest {
-  __type?: "GetIntegrationsRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -2938,11 +2778,9 @@ export namespace GetIntegrationsRequest {
   export const filterSensitiveLog = (obj: GetIntegrationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntegrationsRequest => __isa(o, "GetIntegrationsRequest");
 }
 
 export interface GetIntegrationsResponse {
-  __type?: "GetIntegrationsResponse";
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
@@ -2958,11 +2796,9 @@ export namespace GetIntegrationsResponse {
   export const filterSensitiveLog = (obj: GetIntegrationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIntegrationsResponse => __isa(o, "GetIntegrationsResponse");
 }
 
 export interface GetModelRequest {
-  __type?: "GetModelRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -2978,11 +2814,9 @@ export namespace GetModelRequest {
   export const filterSensitiveLog = (obj: GetModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetModelRequest => __isa(o, "GetModelRequest");
 }
 
 export interface GetModelResponse {
-  __type?: "GetModelResponse";
   /**
    * <p>The name of the model. Must be alphanumeric.</p>
    */
@@ -3013,11 +2847,9 @@ export namespace GetModelResponse {
   export const filterSensitiveLog = (obj: GetModelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetModelResponse => __isa(o, "GetModelResponse");
 }
 
 export interface GetModelsRequest {
-  __type?: "GetModelsRequest";
   /**
    * <p>The maximum number of elements to be returned for this resource.</p>
    */
@@ -3038,11 +2870,9 @@ export namespace GetModelsRequest {
   export const filterSensitiveLog = (obj: GetModelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetModelsRequest => __isa(o, "GetModelsRequest");
 }
 
 export interface GetModelsResponse {
-  __type?: "GetModelsResponse";
   /**
    * <p>The elements from this collection.</p>
    */
@@ -3058,11 +2888,9 @@ export namespace GetModelsResponse {
   export const filterSensitiveLog = (obj: GetModelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetModelsResponse => __isa(o, "GetModelsResponse");
 }
 
 export interface GetModelTemplateRequest {
-  __type?: "GetModelTemplateRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -3078,11 +2906,9 @@ export namespace GetModelTemplateRequest {
   export const filterSensitiveLog = (obj: GetModelTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetModelTemplateRequest => __isa(o, "GetModelTemplateRequest");
 }
 
 export interface GetModelTemplateResponse {
-  __type?: "GetModelTemplateResponse";
   /**
    * <p>The template value.</p>
    */
@@ -3093,11 +2919,9 @@ export namespace GetModelTemplateResponse {
   export const filterSensitiveLog = (obj: GetModelTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetModelTemplateResponse => __isa(o, "GetModelTemplateResponse");
 }
 
 export interface GetRouteRequest {
-  __type?: "GetRouteRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -3113,11 +2937,9 @@ export namespace GetRouteRequest {
   export const filterSensitiveLog = (obj: GetRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRouteRequest => __isa(o, "GetRouteRequest");
 }
 
 export interface GetRouteResponseRequest {
-  __type?: "GetRouteResponseRequest";
   /**
    * <p>The route response ID.</p>
    */
@@ -3138,11 +2960,9 @@ export namespace GetRouteResponseRequest {
   export const filterSensitiveLog = (obj: GetRouteResponseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRouteResponseRequest => __isa(o, "GetRouteResponseRequest");
 }
 
 export interface GetRouteResponseResponse {
-  __type?: "GetRouteResponseResponse";
   /**
    * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
    */
@@ -3173,11 +2993,9 @@ export namespace GetRouteResponseResponse {
   export const filterSensitiveLog = (obj: GetRouteResponseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRouteResponseResponse => __isa(o, "GetRouteResponseResponse");
 }
 
 export interface GetRouteResponsesRequest {
-  __type?: "GetRouteResponsesRequest";
   /**
    * <p>The maximum number of elements to be returned for this resource.</p>
    */
@@ -3203,11 +3021,9 @@ export namespace GetRouteResponsesRequest {
   export const filterSensitiveLog = (obj: GetRouteResponsesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRouteResponsesRequest => __isa(o, "GetRouteResponsesRequest");
 }
 
 export interface GetRouteResponsesResponse {
-  __type?: "GetRouteResponsesResponse";
   /**
    * <p>The elements from this collection.</p>
    */
@@ -3223,11 +3039,9 @@ export namespace GetRouteResponsesResponse {
   export const filterSensitiveLog = (obj: GetRouteResponsesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRouteResponsesResponse => __isa(o, "GetRouteResponsesResponse");
 }
 
 export interface GetRouteResult {
-  __type?: "GetRouteResult";
   /**
    * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
    */
@@ -3298,11 +3112,9 @@ export namespace GetRouteResult {
   export const filterSensitiveLog = (obj: GetRouteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRouteResult => __isa(o, "GetRouteResult");
 }
 
 export interface GetRoutesRequest {
-  __type?: "GetRoutesRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -3323,11 +3135,9 @@ export namespace GetRoutesRequest {
   export const filterSensitiveLog = (obj: GetRoutesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRoutesRequest => __isa(o, "GetRoutesRequest");
 }
 
 export interface GetRoutesResponse {
-  __type?: "GetRoutesResponse";
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
@@ -3343,11 +3153,9 @@ export namespace GetRoutesResponse {
   export const filterSensitiveLog = (obj: GetRoutesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRoutesResponse => __isa(o, "GetRoutesResponse");
 }
 
 export interface GetStageRequest {
-  __type?: "GetStageRequest";
   /**
    * <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
    */
@@ -3363,11 +3171,9 @@ export namespace GetStageRequest {
   export const filterSensitiveLog = (obj: GetStageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStageRequest => __isa(o, "GetStageRequest");
 }
 
 export interface GetStageResponse {
-  __type?: "GetStageResponse";
   /**
    * <p>Specifies whether a stage is managed by API Gateway. If you created an API using quick create, the $default stage is managed by API Gateway. You can't modify the $default stage.</p>
    */
@@ -3443,11 +3249,9 @@ export namespace GetStageResponse {
   export const filterSensitiveLog = (obj: GetStageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStageResponse => __isa(o, "GetStageResponse");
 }
 
 export interface GetStagesRequest {
-  __type?: "GetStagesRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -3468,11 +3272,9 @@ export namespace GetStagesRequest {
   export const filterSensitiveLog = (obj: GetStagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStagesRequest => __isa(o, "GetStagesRequest");
 }
 
 export interface GetStagesResponse {
-  __type?: "GetStagesResponse";
   /**
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
@@ -3488,11 +3290,9 @@ export namespace GetStagesResponse {
   export const filterSensitiveLog = (obj: GetStagesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStagesResponse => __isa(o, "GetStagesResponse");
 }
 
 export interface GetTagsRequest {
-  __type?: "GetTagsRequest";
   /**
    * <p>The resource ARN for the tag.</p>
    */
@@ -3503,11 +3303,9 @@ export namespace GetTagsRequest {
   export const filterSensitiveLog = (obj: GetTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTagsRequest => __isa(o, "GetTagsRequest");
 }
 
 export interface GetTagsResponse {
-  __type?: "GetTagsResponse";
   /**
    * <p>Represents a collection of tags associated with the resource.</p>
    */
@@ -3518,11 +3316,9 @@ export namespace GetTagsResponse {
   export const filterSensitiveLog = (obj: GetTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTagsResponse => __isa(o, "GetTagsResponse");
 }
 
 export interface GetVpcLinkRequest {
-  __type?: "GetVpcLinkRequest";
   /**
    * <p>The ID of the VPC link.</p>
    */
@@ -3533,11 +3329,9 @@ export namespace GetVpcLinkRequest {
   export const filterSensitiveLog = (obj: GetVpcLinkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVpcLinkRequest => __isa(o, "GetVpcLinkRequest");
 }
 
 export interface GetVpcLinkResponse {
-  __type?: "GetVpcLinkResponse";
   /**
    * <p>A list of security group IDs for the VPC link.</p>
    */
@@ -3588,11 +3382,9 @@ export namespace GetVpcLinkResponse {
   export const filterSensitiveLog = (obj: GetVpcLinkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVpcLinkResponse => __isa(o, "GetVpcLinkResponse");
 }
 
 export interface GetVpcLinksRequest {
-  __type?: "GetVpcLinksRequest";
   /**
    * <p>The maximum number of elements to be returned for this resource.</p>
    */
@@ -3608,11 +3400,9 @@ export namespace GetVpcLinksRequest {
   export const filterSensitiveLog = (obj: GetVpcLinksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVpcLinksRequest => __isa(o, "GetVpcLinksRequest");
 }
 
 export interface GetVpcLinksResponse {
-  __type?: "GetVpcLinksResponse";
   /**
    * <p>A collection of VPC links.</p>
    */
@@ -3628,14 +3418,12 @@ export namespace GetVpcLinksResponse {
   export const filterSensitiveLog = (obj: GetVpcLinksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVpcLinksResponse => __isa(o, "GetVpcLinksResponse");
 }
 
 /**
  * <p></p>
  */
 export interface ImportApiRequest {
-  __type?: "ImportApiRequest";
   /**
    * <p>Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.</p>
    */
@@ -3656,11 +3444,9 @@ export namespace ImportApiRequest {
   export const filterSensitiveLog = (obj: ImportApiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportApiRequest => __isa(o, "ImportApiRequest");
 }
 
 export interface ImportApiResponse {
-  __type?: "ImportApiResponse";
   /**
    * <p>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API Key Selection Expressions</a>.</p>
    */
@@ -3736,14 +3522,12 @@ export namespace ImportApiResponse {
   export const filterSensitiveLog = (obj: ImportApiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportApiResponse => __isa(o, "ImportApiResponse");
 }
 
 /**
  * <p>Represents an integration.</p>
  */
 export interface Integration {
-  __type?: "Integration";
   /**
    * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
    */
@@ -3844,14 +3628,12 @@ export namespace Integration {
   export const filterSensitiveLog = (obj: Integration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Integration => __isa(o, "Integration");
 }
 
 /**
  * <p>Represents an integration response.</p>
  */
 export interface IntegrationResponse {
-  __type?: "IntegrationResponse";
   /**
    * <p>The collection of response templates for the integration response as a string-to-string map of key-value pairs. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
    */
@@ -3887,7 +3669,6 @@ export namespace IntegrationResponse {
   export const filterSensitiveLog = (obj: IntegrationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IntegrationResponse => __isa(o, "IntegrationResponse");
 }
 
 export enum IntegrationType {
@@ -3902,7 +3683,6 @@ export enum IntegrationType {
  * <p>Represents the configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
  */
 export interface JWTConfiguration {
-  __type?: "JWTConfiguration";
   /**
    * <p>A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list. See <a href="https://tools.ietf.org/html/rfc7519#section-4.1.3">RFC 7519</a>. Supported only for HTTP APIs.</p>
    */
@@ -3919,7 +3699,6 @@ export namespace JWTConfiguration {
   export const filterSensitiveLog = (obj: JWTConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JWTConfiguration => __isa(o, "JWTConfiguration");
 }
 
 export enum LoggingLevel {
@@ -3932,7 +3711,6 @@ export enum LoggingLevel {
  * <p>Represents a data model for an API. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Create Models and Mapping Templates for Request and Response Mappings</a>.</p>
  */
 export interface Model {
-  __type?: "Model";
   /**
    * <p>The name of the model. Must be alphanumeric.</p>
    */
@@ -3963,7 +3741,6 @@ export namespace Model {
   export const filterSensitiveLog = (obj: Model): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Model => __isa(o, "Model");
 }
 
 /**
@@ -3987,14 +3764,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * <p>Validation constraints imposed on parameters of a request (path, query string, headers).</p>
  */
 export interface ParameterConstraints {
-  __type?: "ParameterConstraints";
   /**
    * <p>Whether or not the parameter is required.</p>
    */
@@ -4005,7 +3780,6 @@ export namespace ParameterConstraints {
   export const filterSensitiveLog = (obj: ParameterConstraints): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParameterConstraints => __isa(o, "ParameterConstraints");
 }
 
 export enum PassthroughBehavior {
@@ -4023,7 +3797,6 @@ export enum ProtocolType {
  * <p></p>
  */
 export interface ReimportApiRequest {
-  __type?: "ReimportApiRequest";
   /**
    * <p>The OpenAPI definition. Supported only for HTTP APIs.</p>
    */
@@ -4049,11 +3822,9 @@ export namespace ReimportApiRequest {
   export const filterSensitiveLog = (obj: ReimportApiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReimportApiRequest => __isa(o, "ReimportApiRequest");
 }
 
 export interface ReimportApiResponse {
-  __type?: "ReimportApiResponse";
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
    */
@@ -4129,14 +3900,12 @@ export namespace ReimportApiResponse {
   export const filterSensitiveLog = (obj: ReimportApiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReimportApiResponse => __isa(o, "ReimportApiResponse");
 }
 
 /**
  * <p>Represents a route.</p>
  */
 export interface Route {
-  __type?: "Route";
   /**
    * <p>The route key for the route.</p>
    */
@@ -4207,14 +3976,12 @@ export namespace Route {
   export const filterSensitiveLog = (obj: Route): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Route => __isa(o, "Route");
 }
 
 /**
  * <p>Represents a route response.</p>
  */
 export interface RouteResponse {
-  __type?: "RouteResponse";
   /**
    * <p>Represents the identifier of a route response.</p>
    */
@@ -4245,14 +4012,12 @@ export namespace RouteResponse {
   export const filterSensitiveLog = (obj: RouteResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RouteResponse => __isa(o, "RouteResponse");
 }
 
 /**
  * <p>Represents a collection of route settings.</p>
  */
 export interface RouteSettings {
-  __type?: "RouteSettings";
   /**
    * <p>Specifies whether detailed metrics are enabled.</p>
    */
@@ -4283,7 +4048,6 @@ export namespace RouteSettings {
   export const filterSensitiveLog = (obj: RouteSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RouteSettings => __isa(o, "RouteSettings");
 }
 
 export enum SecurityPolicy {
@@ -4295,7 +4059,6 @@ export enum SecurityPolicy {
  * <p>Represents an API stage.</p>
  */
 export interface Stage {
-  __type?: "Stage";
   /**
    * <p>The description of the stage.</p>
    */
@@ -4371,14 +4134,12 @@ export namespace Stage {
   export const filterSensitiveLog = (obj: Stage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Stage => __isa(o, "Stage");
 }
 
 /**
  * <p>Creates a new Tag resource to represent a tag.</p>
  */
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The resource ARN for the tag.</p>
    */
@@ -4394,25 +4155,20 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
  */
 export interface TlsConfig {
-  __type?: "TlsConfig";
   /**
    * <p>If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.</p>
    */
@@ -4423,14 +4179,12 @@ export namespace TlsConfig {
   export const filterSensitiveLog = (obj: TlsConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TlsConfig => __isa(o, "TlsConfig");
 }
 
 /**
  * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
  */
 export interface TlsConfigInput {
-  __type?: "TlsConfigInput";
   /**
    * <p>If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.</p>
    */
@@ -4441,7 +4195,6 @@ export namespace TlsConfigInput {
   export const filterSensitiveLog = (obj: TlsConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TlsConfigInput => __isa(o, "TlsConfigInput");
 }
 
 /**
@@ -4465,11 +4218,9 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Tag keys to delete</p>
    */
@@ -4485,14 +4236,12 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
  * <p>Updates an ApiMapping.</p>
  */
 export interface UpdateApiMappingRequest {
-  __type?: "UpdateApiMappingRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -4523,11 +4272,9 @@ export namespace UpdateApiMappingRequest {
   export const filterSensitiveLog = (obj: UpdateApiMappingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApiMappingRequest => __isa(o, "UpdateApiMappingRequest");
 }
 
 export interface UpdateApiMappingResponse {
-  __type?: "UpdateApiMappingResponse";
   /**
    * <p>The API stage.</p>
    */
@@ -4553,14 +4300,12 @@ export namespace UpdateApiMappingResponse {
   export const filterSensitiveLog = (obj: UpdateApiMappingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApiMappingResponse => __isa(o, "UpdateApiMappingResponse");
 }
 
 /**
  * <p>Updates an Api.</p>
  */
 export interface UpdateApiRequest {
-  __type?: "UpdateApiRequest";
   /**
    * <p>A CORS configuration. Supported only for HTTP APIs.</p>
    */
@@ -4621,11 +4366,9 @@ export namespace UpdateApiRequest {
   export const filterSensitiveLog = (obj: UpdateApiRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApiRequest => __isa(o, "UpdateApiRequest");
 }
 
 export interface UpdateApiResponse {
-  __type?: "UpdateApiResponse";
   /**
    * <p>The description of the API.</p>
    */
@@ -4701,14 +4444,12 @@ export namespace UpdateApiResponse {
   export const filterSensitiveLog = (obj: UpdateApiResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApiResponse => __isa(o, "UpdateApiResponse");
 }
 
 /**
  * <p>Updates an Authorizer.</p>
  */
 export interface UpdateAuthorizerRequest {
-  __type?: "UpdateAuthorizerRequest";
   /**
    * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. Currently, the identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name. These parameters will be used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example "$request.header.Authorization".</p>
    */
@@ -4765,11 +4506,9 @@ export namespace UpdateAuthorizerRequest {
   export const filterSensitiveLog = (obj: UpdateAuthorizerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAuthorizerRequest => __isa(o, "UpdateAuthorizerRequest");
 }
 
 export interface UpdateAuthorizerResponse {
-  __type?: "UpdateAuthorizerResponse";
   /**
    * <p>The identity source for which authorization is requested.</p> <p>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. Currently, the identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name. These parameters will be used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function.</p> <p>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example "$request.header.Authorization".</p>
    */
@@ -4821,14 +4560,12 @@ export namespace UpdateAuthorizerResponse {
   export const filterSensitiveLog = (obj: UpdateAuthorizerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAuthorizerResponse => __isa(o, "UpdateAuthorizerResponse");
 }
 
 /**
  * <p>Updates a Deployment.</p>
  */
 export interface UpdateDeploymentRequest {
-  __type?: "UpdateDeploymentRequest";
   /**
    * <p>The deployment ID.</p>
    */
@@ -4849,11 +4586,9 @@ export namespace UpdateDeploymentRequest {
   export const filterSensitiveLog = (obj: UpdateDeploymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeploymentRequest => __isa(o, "UpdateDeploymentRequest");
 }
 
 export interface UpdateDeploymentResponse {
-  __type?: "UpdateDeploymentResponse";
   /**
    * <p>The identifier for the deployment.</p>
    */
@@ -4889,14 +4624,12 @@ export namespace UpdateDeploymentResponse {
   export const filterSensitiveLog = (obj: UpdateDeploymentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeploymentResponse => __isa(o, "UpdateDeploymentResponse");
 }
 
 /**
  * <p>Updates a DomainName.</p>
  */
 export interface UpdateDomainNameRequest {
-  __type?: "UpdateDomainNameRequest";
   /**
    * <p>The domain name configurations.</p>
    */
@@ -4912,11 +4645,9 @@ export namespace UpdateDomainNameRequest {
   export const filterSensitiveLog = (obj: UpdateDomainNameRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainNameRequest => __isa(o, "UpdateDomainNameRequest");
 }
 
 export interface UpdateDomainNameResponse {
-  __type?: "UpdateDomainNameResponse";
   /**
    * <p>The domain name configurations.</p>
    */
@@ -4942,14 +4673,12 @@ export namespace UpdateDomainNameResponse {
   export const filterSensitiveLog = (obj: UpdateDomainNameResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainNameResponse => __isa(o, "UpdateDomainNameResponse");
 }
 
 /**
  * <p>Updates an Integration.</p>
  */
 export interface UpdateIntegrationRequest {
-  __type?: "UpdateIntegrationRequest";
   /**
    * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
    */
@@ -5045,14 +4774,12 @@ export namespace UpdateIntegrationRequest {
   export const filterSensitiveLog = (obj: UpdateIntegrationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIntegrationRequest => __isa(o, "UpdateIntegrationRequest");
 }
 
 /**
  * <p>Updates an IntegrationResponses.</p>
  */
 export interface UpdateIntegrationResponseRequest {
-  __type?: "UpdateIntegrationResponseRequest";
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of method.response.header.<replaceable>{name}</replaceable>
    *                , where name is a valid and unique header name. The mapped non-static value must match the pattern of integration.response.header.<replaceable>{name}</replaceable>
@@ -5105,11 +4832,9 @@ export namespace UpdateIntegrationResponseRequest {
   export const filterSensitiveLog = (obj: UpdateIntegrationResponseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIntegrationResponseRequest => __isa(o, "UpdateIntegrationResponseRequest");
 }
 
 export interface UpdateIntegrationResponseResponse {
-  __type?: "UpdateIntegrationResponseResponse";
   /**
    * <p>The template selection expressions for the integration response.</p>
    */
@@ -5145,11 +4870,9 @@ export namespace UpdateIntegrationResponseResponse {
   export const filterSensitiveLog = (obj: UpdateIntegrationResponseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIntegrationResponseResponse => __isa(o, "UpdateIntegrationResponseResponse");
 }
 
 export interface UpdateIntegrationResult {
-  __type?: "UpdateIntegrationResult";
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
@@ -5250,14 +4973,12 @@ export namespace UpdateIntegrationResult {
   export const filterSensitiveLog = (obj: UpdateIntegrationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIntegrationResult => __isa(o, "UpdateIntegrationResult");
 }
 
 /**
  * <p>Updates a Model.</p>
  */
 export interface UpdateModelRequest {
-  __type?: "UpdateModelRequest";
   /**
    * <p>The API identifier.</p>
    */
@@ -5293,11 +5014,9 @@ export namespace UpdateModelRequest {
   export const filterSensitiveLog = (obj: UpdateModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateModelRequest => __isa(o, "UpdateModelRequest");
 }
 
 export interface UpdateModelResponse {
-  __type?: "UpdateModelResponse";
   /**
    * <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
    */
@@ -5328,14 +5047,12 @@ export namespace UpdateModelResponse {
   export const filterSensitiveLog = (obj: UpdateModelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateModelResponse => __isa(o, "UpdateModelResponse");
 }
 
 /**
  * <p>Updates a Route.</p>
  */
 export interface UpdateRouteRequest {
-  __type?: "UpdateRouteRequest";
   /**
    * <p>The request models for the route. Supported only for WebSocket APIs.</p>
    */
@@ -5406,14 +5123,12 @@ export namespace UpdateRouteRequest {
   export const filterSensitiveLog = (obj: UpdateRouteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRouteRequest => __isa(o, "UpdateRouteRequest");
 }
 
 /**
  * <p>Updates a RouteResponse.</p>
  */
 export interface UpdateRouteResponseRequest {
-  __type?: "UpdateRouteResponseRequest";
   /**
    * <p>The model selection expression for the route response. Supported only for WebSocket APIs.</p>
    */
@@ -5454,11 +5169,9 @@ export namespace UpdateRouteResponseRequest {
   export const filterSensitiveLog = (obj: UpdateRouteResponseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRouteResponseRequest => __isa(o, "UpdateRouteResponseRequest");
 }
 
 export interface UpdateRouteResponseResponse {
-  __type?: "UpdateRouteResponseResponse";
   /**
    * <p>Represents the response models of a route response.</p>
    */
@@ -5489,11 +5202,9 @@ export namespace UpdateRouteResponseResponse {
   export const filterSensitiveLog = (obj: UpdateRouteResponseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRouteResponseResponse => __isa(o, "UpdateRouteResponseResponse");
 }
 
 export interface UpdateRouteResult {
-  __type?: "UpdateRouteResult";
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, or JWT for using JSON Web Tokens.</p>
    */
@@ -5564,14 +5275,12 @@ export namespace UpdateRouteResult {
   export const filterSensitiveLog = (obj: UpdateRouteResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRouteResult => __isa(o, "UpdateRouteResult");
 }
 
 /**
  * <p>Updates a Stage.</p>
  */
 export interface UpdateStageRequest {
-  __type?: "UpdateStageRequest";
   /**
    * <p>The identifier of a client certificate for a Stage.</p>
    */
@@ -5627,11 +5336,9 @@ export namespace UpdateStageRequest {
   export const filterSensitiveLog = (obj: UpdateStageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStageRequest => __isa(o, "UpdateStageRequest");
 }
 
 export interface UpdateStageResponse {
-  __type?: "UpdateStageResponse";
   /**
    * <p>Specifies whether a stage is managed by API Gateway. If you created an API using quick create, the $default stage is managed by API Gateway. You can't modify the $default stage.</p>
    */
@@ -5707,14 +5414,12 @@ export namespace UpdateStageResponse {
   export const filterSensitiveLog = (obj: UpdateStageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStageResponse => __isa(o, "UpdateStageResponse");
 }
 
 /**
  * <p>Updates a VPC link.</p>
  */
 export interface UpdateVpcLinkRequest {
-  __type?: "UpdateVpcLinkRequest";
   /**
    * <p>The ID of the VPC link.</p>
    */
@@ -5730,11 +5435,9 @@ export namespace UpdateVpcLinkRequest {
   export const filterSensitiveLog = (obj: UpdateVpcLinkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVpcLinkRequest => __isa(o, "UpdateVpcLinkRequest");
 }
 
 export interface UpdateVpcLinkResponse {
-  __type?: "UpdateVpcLinkResponse";
   /**
    * <p>The name of the VPC link.</p>
    */
@@ -5785,14 +5488,12 @@ export namespace UpdateVpcLinkResponse {
   export const filterSensitiveLog = (obj: UpdateVpcLinkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVpcLinkResponse => __isa(o, "UpdateVpcLinkResponse");
 }
 
 /**
  * <p>Represents a VPC link.</p>
  */
 export interface VpcLink {
-  __type?: "VpcLink";
   /**
    * <p>The ID of the VPC link.</p>
    */
@@ -5843,7 +5544,6 @@ export namespace VpcLink {
   export const filterSensitiveLog = (obj: VpcLink): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcLink => __isa(o, "VpcLink");
 }
 
 export enum VpcLinkStatus {

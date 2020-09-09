@@ -339,7 +339,6 @@ export const deserializeAws_json1_1AssociateServiceQuotaTemplateCommand = async 
   contents = deserializeAws_json1_1AssociateServiceQuotaTemplateResponse(data, context);
   const response: AssociateServiceQuotaTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateServiceQuotaTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -451,7 +450,6 @@ export const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplate
   contents = deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateResponse(data, context);
   const response: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteServiceQuotaIncreaseRequestFromTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -571,7 +569,6 @@ export const deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand = asy
   contents = deserializeAws_json1_1DisassociateServiceQuotaTemplateResponse(data, context);
   const response: DisassociateServiceQuotaTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateServiceQuotaTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -683,7 +680,6 @@ export const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand 
   contents = deserializeAws_json1_1GetAssociationForServiceQuotaTemplateResponse(data, context);
   const response: GetAssociationForServiceQuotaTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAssociationForServiceQuotaTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -795,7 +791,6 @@ export const deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand = async (
   contents = deserializeAws_json1_1GetAWSDefaultServiceQuotaResponse(data, context);
   const response: GetAWSDefaultServiceQuotaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAWSDefaultServiceQuotaResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -883,7 +878,6 @@ export const deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand = async
   contents = deserializeAws_json1_1GetRequestedServiceQuotaChangeResponse(data, context);
   const response: GetRequestedServiceQuotaChangeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRequestedServiceQuotaChangeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -971,7 +965,6 @@ export const deserializeAws_json1_1GetServiceQuotaCommand = async (
   contents = deserializeAws_json1_1GetServiceQuotaResponse(data, context);
   const response: GetServiceQuotaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetServiceQuotaResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1059,7 +1052,6 @@ export const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCom
   contents = deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateResponse(data, context);
   const response: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetServiceQuotaIncreaseRequestFromTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1179,7 +1171,6 @@ export const deserializeAws_json1_1ListAWSDefaultServiceQuotasCommand = async (
   contents = deserializeAws_json1_1ListAWSDefaultServiceQuotasResponse(data, context);
   const response: ListAWSDefaultServiceQuotasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAWSDefaultServiceQuotasResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1275,7 +1266,6 @@ export const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand
   contents = deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryResponse(data, context);
   const response: ListRequestedServiceQuotaChangeHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRequestedServiceQuotaChangeHistoryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1371,7 +1361,6 @@ export const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuota
   contents = deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaResponse(data, context);
   const response: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRequestedServiceQuotaChangeHistoryByQuotaResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1467,7 +1456,6 @@ export const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCom
   contents = deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateResponse(data, context);
   const response: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListServiceQuotaIncreaseRequestsInTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1579,7 +1567,6 @@ export const deserializeAws_json1_1ListServiceQuotasCommand = async (
   contents = deserializeAws_json1_1ListServiceQuotasResponse(data, context);
   const response: ListServiceQuotasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListServiceQuotasResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1675,7 +1662,6 @@ export const deserializeAws_json1_1ListServicesCommand = async (
   contents = deserializeAws_json1_1ListServicesResponse(data, context);
   const response: ListServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListServicesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1763,7 +1749,6 @@ export const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCom
   contents = deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateResponse(data, context);
   const response: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutServiceQuotaIncreaseRequestIntoTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1891,7 +1876,6 @@ export const deserializeAws_json1_1RequestServiceQuotaIncreaseCommand = async (
   contents = deserializeAws_json1_1RequestServiceQuotaIncreaseResponse(data, context);
   const response: RequestServiceQuotaIncreaseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RequestServiceQuotaIncreaseResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2384,7 +2368,6 @@ const serializeAws_json1_1RequestServiceQuotaIncreaseRequest = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2393,9 +2376,7 @@ const deserializeAws_json1_1AssociateServiceQuotaTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateServiceQuotaTemplateResponse => {
-  return {
-    __type: "AssociateServiceQuotaTemplateResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AWSServiceAccessNotEnabledException = (
@@ -2403,7 +2384,6 @@ const deserializeAws_json1_1AWSServiceAccessNotEnabledException = (
   context: __SerdeContext
 ): AWSServiceAccessNotEnabledException => {
   return {
-    __type: "AWSServiceAccessNotEnabledException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2412,9 +2392,7 @@ const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRespons
   output: any,
   context: __SerdeContext
 ): DeleteServiceQuotaIncreaseRequestFromTemplateResponse => {
-  return {
-    __type: "DeleteServiceQuotaIncreaseRequestFromTemplateResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DependencyAccessDeniedException = (
@@ -2422,7 +2400,6 @@ const deserializeAws_json1_1DependencyAccessDeniedException = (
   context: __SerdeContext
 ): DependencyAccessDeniedException => {
   return {
-    __type: "DependencyAccessDeniedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2431,14 +2408,11 @@ const deserializeAws_json1_1DisassociateServiceQuotaTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateServiceQuotaTemplateResponse => {
-  return {
-    __type: "DisassociateServiceQuotaTemplateResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ErrorReason = (output: any, context: __SerdeContext): ErrorReason => {
   return {
-    __type: "ErrorReason",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
   } as any;
@@ -2449,7 +2423,6 @@ const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateResponse = (
   context: __SerdeContext
 ): GetAssociationForServiceQuotaTemplateResponse => {
   return {
-    __type: "GetAssociationForServiceQuotaTemplateResponse",
     ServiceQuotaTemplateAssociationStatus:
       output.ServiceQuotaTemplateAssociationStatus !== undefined &&
       output.ServiceQuotaTemplateAssociationStatus !== null
@@ -2463,7 +2436,6 @@ const deserializeAws_json1_1GetAWSDefaultServiceQuotaResponse = (
   context: __SerdeContext
 ): GetAWSDefaultServiceQuotaResponse => {
   return {
-    __type: "GetAWSDefaultServiceQuotaResponse",
     Quota:
       output.Quota !== undefined && output.Quota !== null
         ? deserializeAws_json1_1ServiceQuota(output.Quota, context)
@@ -2476,7 +2448,6 @@ const deserializeAws_json1_1GetRequestedServiceQuotaChangeResponse = (
   context: __SerdeContext
 ): GetRequestedServiceQuotaChangeResponse => {
   return {
-    __type: "GetRequestedServiceQuotaChangeResponse",
     RequestedQuota:
       output.RequestedQuota !== undefined && output.RequestedQuota !== null
         ? deserializeAws_json1_1RequestedServiceQuotaChange(output.RequestedQuota, context)
@@ -2489,7 +2460,6 @@ const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateResponse =
   context: __SerdeContext
 ): GetServiceQuotaIncreaseRequestFromTemplateResponse => {
   return {
-    __type: "GetServiceQuotaIncreaseRequestFromTemplateResponse",
     ServiceQuotaIncreaseRequestInTemplate:
       output.ServiceQuotaIncreaseRequestInTemplate !== undefined &&
       output.ServiceQuotaIncreaseRequestInTemplate !== null
@@ -2506,7 +2476,6 @@ const deserializeAws_json1_1GetServiceQuotaResponse = (
   context: __SerdeContext
 ): GetServiceQuotaResponse => {
   return {
-    __type: "GetServiceQuotaResponse",
     Quota:
       output.Quota !== undefined && output.Quota !== null
         ? deserializeAws_json1_1ServiceQuota(output.Quota, context)
@@ -2519,7 +2488,6 @@ const deserializeAws_json1_1IllegalArgumentException = (
   context: __SerdeContext
 ): IllegalArgumentException => {
   return {
-    __type: "IllegalArgumentException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2529,7 +2497,6 @@ const deserializeAws_json1_1InvalidPaginationTokenException = (
   context: __SerdeContext
 ): InvalidPaginationTokenException => {
   return {
-    __type: "InvalidPaginationTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2539,7 +2506,6 @@ const deserializeAws_json1_1InvalidResourceStateException = (
   context: __SerdeContext
 ): InvalidResourceStateException => {
   return {
-    __type: "InvalidResourceStateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2549,7 +2515,6 @@ const deserializeAws_json1_1ListAWSDefaultServiceQuotasResponse = (
   context: __SerdeContext
 ): ListAWSDefaultServiceQuotasResponse => {
   return {
-    __type: "ListAWSDefaultServiceQuotasResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Quotas:
       output.Quotas !== undefined && output.Quotas !== null
@@ -2563,7 +2528,6 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRespons
   context: __SerdeContext
 ): ListRequestedServiceQuotaChangeHistoryByQuotaResponse => {
   return {
-    __type: "ListRequestedServiceQuotaChangeHistoryByQuotaResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     RequestedQuotas:
       output.RequestedQuotas !== undefined && output.RequestedQuotas !== null
@@ -2577,7 +2541,6 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryResponse = (
   context: __SerdeContext
 ): ListRequestedServiceQuotaChangeHistoryResponse => {
   return {
-    __type: "ListRequestedServiceQuotaChangeHistoryResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     RequestedQuotas:
       output.RequestedQuotas !== undefined && output.RequestedQuotas !== null
@@ -2591,7 +2554,6 @@ const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateResponse =
   context: __SerdeContext
 ): ListServiceQuotaIncreaseRequestsInTemplateResponse => {
   return {
-    __type: "ListServiceQuotaIncreaseRequestsInTemplateResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ServiceQuotaIncreaseRequestInTemplateList:
       output.ServiceQuotaIncreaseRequestInTemplateList !== undefined &&
@@ -2609,7 +2571,6 @@ const deserializeAws_json1_1ListServiceQuotasResponse = (
   context: __SerdeContext
 ): ListServiceQuotasResponse => {
   return {
-    __type: "ListServiceQuotasResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Quotas:
       output.Quotas !== undefined && output.Quotas !== null
@@ -2620,7 +2581,6 @@ const deserializeAws_json1_1ListServiceQuotasResponse = (
 
 const deserializeAws_json1_1ListServicesResponse = (output: any, context: __SerdeContext): ListServicesResponse => {
   return {
-    __type: "ListServicesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Services:
       output.Services !== undefined && output.Services !== null
@@ -2644,7 +2604,6 @@ const deserializeAws_json1_1MetricDimensionsMapDefinition = (
 
 const deserializeAws_json1_1MetricInfo = (output: any, context: __SerdeContext): MetricInfo => {
   return {
-    __type: "MetricInfo",
     MetricDimensions:
       output.MetricDimensions !== undefined && output.MetricDimensions !== null
         ? deserializeAws_json1_1MetricDimensionsMapDefinition(output.MetricDimensions, context)
@@ -2664,7 +2623,6 @@ const deserializeAws_json1_1NoAvailableOrganizationException = (
   context: __SerdeContext
 ): NoAvailableOrganizationException => {
   return {
-    __type: "NoAvailableOrganizationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2674,7 +2632,6 @@ const deserializeAws_json1_1NoSuchResourceException = (
   context: __SerdeContext
 ): NoSuchResourceException => {
   return {
-    __type: "NoSuchResourceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2684,7 +2641,6 @@ const deserializeAws_json1_1OrganizationNotInAllFeaturesModeException = (
   context: __SerdeContext
 ): OrganizationNotInAllFeaturesModeException => {
   return {
-    __type: "OrganizationNotInAllFeaturesModeException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2694,7 +2650,6 @@ const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateResponse =
   context: __SerdeContext
 ): PutServiceQuotaIncreaseRequestIntoTemplateResponse => {
   return {
-    __type: "PutServiceQuotaIncreaseRequestIntoTemplateResponse",
     ServiceQuotaIncreaseRequestInTemplate:
       output.ServiceQuotaIncreaseRequestInTemplate !== undefined &&
       output.ServiceQuotaIncreaseRequestInTemplate !== null
@@ -2708,14 +2663,12 @@ const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateResponse =
 
 const deserializeAws_json1_1QuotaExceededException = (output: any, context: __SerdeContext): QuotaExceededException => {
   return {
-    __type: "QuotaExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1QuotaPeriod = (output: any, context: __SerdeContext): QuotaPeriod => {
   return {
-    __type: "QuotaPeriod",
     PeriodUnit: output.PeriodUnit !== undefined && output.PeriodUnit !== null ? output.PeriodUnit : undefined,
     PeriodValue: output.PeriodValue !== undefined && output.PeriodValue !== null ? output.PeriodValue : undefined,
   } as any;
@@ -2726,7 +2679,6 @@ const deserializeAws_json1_1RequestedServiceQuotaChange = (
   context: __SerdeContext
 ): RequestedServiceQuotaChange => {
   return {
-    __type: "RequestedServiceQuotaChange",
     CaseId: output.CaseId !== undefined && output.CaseId !== null ? output.CaseId : undefined,
     Created:
       output.Created !== undefined && output.Created !== null ? new Date(Math.round(output.Created * 1000)) : undefined,
@@ -2760,7 +2712,6 @@ const deserializeAws_json1_1RequestServiceQuotaIncreaseResponse = (
   context: __SerdeContext
 ): RequestServiceQuotaIncreaseResponse => {
   return {
-    __type: "RequestServiceQuotaIncreaseResponse",
     RequestedQuota:
       output.RequestedQuota !== undefined && output.RequestedQuota !== null
         ? deserializeAws_json1_1RequestedServiceQuotaChange(output.RequestedQuota, context)
@@ -2773,21 +2724,18 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    __type: "ResourceAlreadyExistsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
   return {
-    __type: "ServiceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ServiceInfo = (output: any, context: __SerdeContext): ServiceInfo => {
   return {
-    __type: "ServiceInfo",
     ServiceCode: output.ServiceCode !== undefined && output.ServiceCode !== null ? output.ServiceCode : undefined,
     ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
   } as any;
@@ -2799,7 +2747,6 @@ const deserializeAws_json1_1ServiceInfoListDefinition = (output: any, context: _
 
 const deserializeAws_json1_1ServiceQuota = (output: any, context: __SerdeContext): ServiceQuota => {
   return {
-    __type: "ServiceQuota",
     Adjustable: output.Adjustable !== undefined && output.Adjustable !== null ? output.Adjustable : undefined,
     ErrorReason:
       output.ErrorReason !== undefined && output.ErrorReason !== null
@@ -2829,7 +2776,6 @@ const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate = (
   context: __SerdeContext
 ): ServiceQuotaIncreaseRequestInTemplate => {
   return {
-    __type: "ServiceQuotaIncreaseRequestInTemplate",
     AwsRegion: output.AwsRegion !== undefined && output.AwsRegion !== null ? output.AwsRegion : undefined,
     DesiredValue: output.DesiredValue !== undefined && output.DesiredValue !== null ? output.DesiredValue : undefined,
     GlobalQuota: output.GlobalQuota !== undefined && output.GlobalQuota !== null ? output.GlobalQuota : undefined,
@@ -2859,7 +2805,6 @@ const deserializeAws_json1_1ServiceQuotaTemplateNotInUseException = (
   context: __SerdeContext
 ): ServiceQuotaTemplateNotInUseException => {
   return {
-    __type: "ServiceQuotaTemplateNotInUseException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2869,7 +2814,6 @@ const deserializeAws_json1_1TemplatesNotAvailableInRegionException = (
   context: __SerdeContext
 ): TemplatesNotAvailableInRegionException => {
   return {
-    __type: "TemplatesNotAvailableInRegionException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2879,7 +2823,6 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    __type: "TooManyRequestsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };

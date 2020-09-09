@@ -457,7 +457,6 @@ export const deserializeAws_json1_1CreateMedicalVocabularyCommand = async (
   contents = deserializeAws_json1_1CreateMedicalVocabularyResponse(data, context);
   const response: CreateMedicalVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMedicalVocabularyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -537,7 +536,6 @@ export const deserializeAws_json1_1CreateVocabularyCommand = async (
   contents = deserializeAws_json1_1CreateVocabularyResponse(data, context);
   const response: CreateVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVocabularyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -617,7 +615,6 @@ export const deserializeAws_json1_1CreateVocabularyFilterCommand = async (
   contents = deserializeAws_json1_1CreateVocabularyFilterResponse(data, context);
   const response: CreateVocabularyFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVocabularyFilterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1061,7 +1058,6 @@ export const deserializeAws_json1_1GetMedicalTranscriptionJobCommand = async (
   contents = deserializeAws_json1_1GetMedicalTranscriptionJobResponse(data, context);
   const response: GetMedicalTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMedicalTranscriptionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1141,7 +1137,6 @@ export const deserializeAws_json1_1GetMedicalVocabularyCommand = async (
   contents = deserializeAws_json1_1GetMedicalVocabularyResponse(data, context);
   const response: GetMedicalVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMedicalVocabularyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1221,7 +1216,6 @@ export const deserializeAws_json1_1GetTranscriptionJobCommand = async (
   contents = deserializeAws_json1_1GetTranscriptionJobResponse(data, context);
   const response: GetTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTranscriptionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1301,7 +1295,6 @@ export const deserializeAws_json1_1GetVocabularyCommand = async (
   contents = deserializeAws_json1_1GetVocabularyResponse(data, context);
   const response: GetVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVocabularyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1381,7 +1374,6 @@ export const deserializeAws_json1_1GetVocabularyFilterCommand = async (
   contents = deserializeAws_json1_1GetVocabularyFilterResponse(data, context);
   const response: GetVocabularyFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVocabularyFilterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1461,7 +1453,6 @@ export const deserializeAws_json1_1ListMedicalTranscriptionJobsCommand = async (
   contents = deserializeAws_json1_1ListMedicalTranscriptionJobsResponse(data, context);
   const response: ListMedicalTranscriptionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMedicalTranscriptionJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1533,7 +1524,6 @@ export const deserializeAws_json1_1ListMedicalVocabulariesCommand = async (
   contents = deserializeAws_json1_1ListMedicalVocabulariesResponse(data, context);
   const response: ListMedicalVocabulariesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMedicalVocabulariesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1605,7 +1595,6 @@ export const deserializeAws_json1_1ListTranscriptionJobsCommand = async (
   contents = deserializeAws_json1_1ListTranscriptionJobsResponse(data, context);
   const response: ListTranscriptionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTranscriptionJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1677,7 +1666,6 @@ export const deserializeAws_json1_1ListVocabulariesCommand = async (
   contents = deserializeAws_json1_1ListVocabulariesResponse(data, context);
   const response: ListVocabulariesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVocabulariesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1749,7 +1737,6 @@ export const deserializeAws_json1_1ListVocabularyFiltersCommand = async (
   contents = deserializeAws_json1_1ListVocabularyFiltersResponse(data, context);
   const response: ListVocabularyFiltersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVocabularyFiltersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1821,7 +1808,6 @@ export const deserializeAws_json1_1StartMedicalTranscriptionJobCommand = async (
   contents = deserializeAws_json1_1StartMedicalTranscriptionJobResponse(data, context);
   const response: StartMedicalTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartMedicalTranscriptionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1901,7 +1887,6 @@ export const deserializeAws_json1_1StartTranscriptionJobCommand = async (
   contents = deserializeAws_json1_1StartTranscriptionJobResponse(data, context);
   const response: StartTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartTranscriptionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1981,7 +1966,6 @@ export const deserializeAws_json1_1UpdateMedicalVocabularyCommand = async (
   contents = deserializeAws_json1_1UpdateMedicalVocabularyResponse(data, context);
   const response: UpdateMedicalVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateMedicalVocabularyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2069,7 +2053,6 @@ export const deserializeAws_json1_1UpdateVocabularyCommand = async (
   contents = deserializeAws_json1_1UpdateVocabularyResponse(data, context);
   const response: UpdateVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVocabularyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2157,7 +2140,6 @@ export const deserializeAws_json1_1UpdateVocabularyFilterCommand = async (
   contents = deserializeAws_json1_1UpdateVocabularyFilterResponse(data, context);
   const response: UpdateVocabularyFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVocabularyFilterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2608,21 +2590,18 @@ const serializeAws_json1_1Words = (input: string[], context: __SerdeContext): an
 
 const deserializeAws_json1_1BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
   return {
-    __type: "BadRequestException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    __type: "ConflictException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ContentRedaction = (output: any, context: __SerdeContext): ContentRedaction => {
   return {
-    __type: "ContentRedaction",
     RedactionOutput:
       output.RedactionOutput !== undefined && output.RedactionOutput !== null ? output.RedactionOutput : undefined,
     RedactionType:
@@ -2635,7 +2614,6 @@ const deserializeAws_json1_1CreateMedicalVocabularyResponse = (
   context: __SerdeContext
 ): CreateMedicalVocabularyResponse => {
   return {
-    __type: "CreateMedicalVocabularyResponse",
     FailureReason:
       output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
@@ -2655,7 +2633,6 @@ const deserializeAws_json1_1CreateVocabularyFilterResponse = (
   context: __SerdeContext
 ): CreateVocabularyFilterResponse => {
   return {
-    __type: "CreateVocabularyFilterResponse",
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
@@ -2673,7 +2650,6 @@ const deserializeAws_json1_1CreateVocabularyResponse = (
   context: __SerdeContext
 ): CreateVocabularyResponse => {
   return {
-    __type: "CreateVocabularyResponse",
     FailureReason:
       output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
@@ -2693,7 +2669,6 @@ const deserializeAws_json1_1GetMedicalTranscriptionJobResponse = (
   context: __SerdeContext
 ): GetMedicalTranscriptionJobResponse => {
   return {
-    __type: "GetMedicalTranscriptionJobResponse",
     MedicalTranscriptionJob:
       output.MedicalTranscriptionJob !== undefined && output.MedicalTranscriptionJob !== null
         ? deserializeAws_json1_1MedicalTranscriptionJob(output.MedicalTranscriptionJob, context)
@@ -2706,7 +2681,6 @@ const deserializeAws_json1_1GetMedicalVocabularyResponse = (
   context: __SerdeContext
 ): GetMedicalVocabularyResponse => {
   return {
-    __type: "GetMedicalVocabularyResponse",
     DownloadUri: output.DownloadUri !== undefined && output.DownloadUri !== null ? output.DownloadUri : undefined,
     FailureReason:
       output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
@@ -2727,7 +2701,6 @@ const deserializeAws_json1_1GetTranscriptionJobResponse = (
   context: __SerdeContext
 ): GetTranscriptionJobResponse => {
   return {
-    __type: "GetTranscriptionJobResponse",
     TranscriptionJob:
       output.TranscriptionJob !== undefined && output.TranscriptionJob !== null
         ? deserializeAws_json1_1TranscriptionJob(output.TranscriptionJob, context)
@@ -2740,7 +2713,6 @@ const deserializeAws_json1_1GetVocabularyFilterResponse = (
   context: __SerdeContext
 ): GetVocabularyFilterResponse => {
   return {
-    __type: "GetVocabularyFilterResponse",
     DownloadUri: output.DownloadUri !== undefined && output.DownloadUri !== null ? output.DownloadUri : undefined,
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
@@ -2756,7 +2728,6 @@ const deserializeAws_json1_1GetVocabularyFilterResponse = (
 
 const deserializeAws_json1_1GetVocabularyResponse = (output: any, context: __SerdeContext): GetVocabularyResponse => {
   return {
-    __type: "GetVocabularyResponse",
     DownloadUri: output.DownloadUri !== undefined && output.DownloadUri !== null ? output.DownloadUri : undefined,
     FailureReason:
       output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
@@ -2777,14 +2748,12 @@ const deserializeAws_json1_1InternalFailureException = (
   context: __SerdeContext
 ): InternalFailureException => {
   return {
-    __type: "InternalFailureException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1JobExecutionSettings = (output: any, context: __SerdeContext): JobExecutionSettings => {
   return {
-    __type: "JobExecutionSettings",
     AllowDeferredExecution:
       output.AllowDeferredExecution !== undefined && output.AllowDeferredExecution !== null
         ? output.AllowDeferredExecution
@@ -2798,7 +2767,6 @@ const deserializeAws_json1_1JobExecutionSettings = (output: any, context: __Serd
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2808,7 +2776,6 @@ const deserializeAws_json1_1ListMedicalTranscriptionJobsResponse = (
   context: __SerdeContext
 ): ListMedicalTranscriptionJobsResponse => {
   return {
-    __type: "ListMedicalTranscriptionJobsResponse",
     MedicalTranscriptionJobSummaries:
       output.MedicalTranscriptionJobSummaries !== undefined && output.MedicalTranscriptionJobSummaries !== null
         ? deserializeAws_json1_1MedicalTranscriptionJobSummaries(output.MedicalTranscriptionJobSummaries, context)
@@ -2823,7 +2790,6 @@ const deserializeAws_json1_1ListMedicalVocabulariesResponse = (
   context: __SerdeContext
 ): ListMedicalVocabulariesResponse => {
   return {
-    __type: "ListMedicalVocabulariesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     Vocabularies:
@@ -2838,7 +2804,6 @@ const deserializeAws_json1_1ListTranscriptionJobsResponse = (
   context: __SerdeContext
 ): ListTranscriptionJobsResponse => {
   return {
-    __type: "ListTranscriptionJobsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     TranscriptionJobSummaries:
@@ -2853,7 +2818,6 @@ const deserializeAws_json1_1ListVocabulariesResponse = (
   context: __SerdeContext
 ): ListVocabulariesResponse => {
   return {
-    __type: "ListVocabulariesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     Vocabularies:
@@ -2868,7 +2832,6 @@ const deserializeAws_json1_1ListVocabularyFiltersResponse = (
   context: __SerdeContext
 ): ListVocabularyFiltersResponse => {
   return {
-    __type: "ListVocabularyFiltersResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     VocabularyFilters:
       output.VocabularyFilters !== undefined && output.VocabularyFilters !== null
@@ -2879,14 +2842,12 @@ const deserializeAws_json1_1ListVocabularyFiltersResponse = (
 
 const deserializeAws_json1_1Media = (output: any, context: __SerdeContext): Media => {
   return {
-    __type: "Media",
     MediaFileUri: output.MediaFileUri !== undefined && output.MediaFileUri !== null ? output.MediaFileUri : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1MedicalTranscript = (output: any, context: __SerdeContext): MedicalTranscript => {
   return {
-    __type: "MedicalTranscript",
     TranscriptFileUri:
       output.TranscriptFileUri !== undefined && output.TranscriptFileUri !== null
         ? output.TranscriptFileUri
@@ -2899,7 +2860,6 @@ const deserializeAws_json1_1MedicalTranscriptionJob = (
   context: __SerdeContext
 ): MedicalTranscriptionJob => {
   return {
-    __type: "MedicalTranscriptionJob",
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
         ? new Date(Math.round(output.CompletionTime * 1000))
@@ -2957,7 +2917,6 @@ const deserializeAws_json1_1MedicalTranscriptionJobSummary = (
   context: __SerdeContext
 ): MedicalTranscriptionJobSummary => {
   return {
-    __type: "MedicalTranscriptionJobSummary",
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
         ? new Date(Math.round(output.CompletionTime * 1000))
@@ -2995,7 +2954,6 @@ const deserializeAws_json1_1MedicalTranscriptionSetting = (
   context: __SerdeContext
 ): MedicalTranscriptionSetting => {
   return {
-    __type: "MedicalTranscriptionSetting",
     ChannelIdentification:
       output.ChannelIdentification !== undefined && output.ChannelIdentification !== null
         ? output.ChannelIdentification
@@ -3017,14 +2975,12 @@ const deserializeAws_json1_1MedicalTranscriptionSetting = (
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    __type: "NotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Settings = (output: any, context: __SerdeContext): Settings => {
   return {
-    __type: "Settings",
     ChannelIdentification:
       output.ChannelIdentification !== undefined && output.ChannelIdentification !== null
         ? output.ChannelIdentification
@@ -3057,7 +3013,6 @@ const deserializeAws_json1_1StartMedicalTranscriptionJobResponse = (
   context: __SerdeContext
 ): StartMedicalTranscriptionJobResponse => {
   return {
-    __type: "StartMedicalTranscriptionJobResponse",
     MedicalTranscriptionJob:
       output.MedicalTranscriptionJob !== undefined && output.MedicalTranscriptionJob !== null
         ? deserializeAws_json1_1MedicalTranscriptionJob(output.MedicalTranscriptionJob, context)
@@ -3070,7 +3025,6 @@ const deserializeAws_json1_1StartTranscriptionJobResponse = (
   context: __SerdeContext
 ): StartTranscriptionJobResponse => {
   return {
-    __type: "StartTranscriptionJobResponse",
     TranscriptionJob:
       output.TranscriptionJob !== undefined && output.TranscriptionJob !== null
         ? deserializeAws_json1_1TranscriptionJob(output.TranscriptionJob, context)
@@ -3080,7 +3034,6 @@ const deserializeAws_json1_1StartTranscriptionJobResponse = (
 
 const deserializeAws_json1_1Transcript = (output: any, context: __SerdeContext): Transcript => {
   return {
-    __type: "Transcript",
     RedactedTranscriptFileUri:
       output.RedactedTranscriptFileUri !== undefined && output.RedactedTranscriptFileUri !== null
         ? output.RedactedTranscriptFileUri
@@ -3094,7 +3047,6 @@ const deserializeAws_json1_1Transcript = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeContext): TranscriptionJob => {
   return {
-    __type: "TranscriptionJob",
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
         ? new Date(Math.round(output.CompletionTime * 1000))
@@ -3158,7 +3110,6 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
   context: __SerdeContext
 ): TranscriptionJobSummary => {
   return {
-    __type: "TranscriptionJobSummary",
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
         ? new Date(Math.round(output.CompletionTime * 1000))
@@ -3198,7 +3149,6 @@ const deserializeAws_json1_1UpdateMedicalVocabularyResponse = (
   context: __SerdeContext
 ): UpdateMedicalVocabularyResponse => {
   return {
-    __type: "UpdateMedicalVocabularyResponse",
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
@@ -3216,7 +3166,6 @@ const deserializeAws_json1_1UpdateVocabularyFilterResponse = (
   context: __SerdeContext
 ): UpdateVocabularyFilterResponse => {
   return {
-    __type: "UpdateVocabularyFilterResponse",
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
@@ -3234,7 +3183,6 @@ const deserializeAws_json1_1UpdateVocabularyResponse = (
   context: __SerdeContext
 ): UpdateVocabularyResponse => {
   return {
-    __type: "UpdateVocabularyResponse",
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
@@ -3253,7 +3201,6 @@ const deserializeAws_json1_1Vocabularies = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1VocabularyFilterInfo = (output: any, context: __SerdeContext): VocabularyFilterInfo => {
   return {
-    __type: "VocabularyFilterInfo",
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
@@ -3272,7 +3219,6 @@ const deserializeAws_json1_1VocabularyFilters = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1VocabularyInfo = (output: any, context: __SerdeContext): VocabularyInfo => {
   return {
-    __type: "VocabularyInfo",
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null

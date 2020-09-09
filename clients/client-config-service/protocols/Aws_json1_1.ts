@@ -1611,7 +1611,6 @@ export const deserializeAws_json1_1BatchGetAggregateResourceConfigCommand = asyn
   contents = deserializeAws_json1_1BatchGetAggregateResourceConfigResponse(data, context);
   const response: BatchGetAggregateResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetAggregateResourceConfigResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1675,7 +1674,6 @@ export const deserializeAws_json1_1BatchGetResourceConfigCommand = async (
   contents = deserializeAws_json1_1BatchGetResourceConfigResponse(data, context);
   const response: BatchGetResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetResourceConfigResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2075,7 +2073,6 @@ export const deserializeAws_json1_1DeleteEvaluationResultsCommand = async (
   contents = deserializeAws_json1_1DeleteEvaluationResultsResponse(data, context);
   const response: DeleteEvaluationResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEvaluationResultsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2327,7 +2324,6 @@ export const deserializeAws_json1_1DeleteRemediationConfigurationCommand = async
   contents = deserializeAws_json1_1DeleteRemediationConfigurationResponse(data, context);
   const response: DeleteRemediationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRemediationConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2399,7 +2395,6 @@ export const deserializeAws_json1_1DeleteRemediationExceptionsCommand = async (
   contents = deserializeAws_json1_1DeleteRemediationExceptionsResponse(data, context);
   const response: DeleteRemediationExceptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRemediationExceptionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2575,7 +2570,6 @@ export const deserializeAws_json1_1DeliverConfigSnapshotCommand = async (
   contents = deserializeAws_json1_1DeliverConfigSnapshotResponse(data, context);
   const response: DeliverConfigSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeliverConfigSnapshotResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2647,7 +2641,6 @@ export const deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesComma
   contents = deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesResponse(data, context);
   const response: DescribeAggregateComplianceByConfigRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAggregateComplianceByConfigRulesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2727,7 +2720,6 @@ export const deserializeAws_json1_1DescribeAggregationAuthorizationsCommand = as
   contents = deserializeAws_json1_1DescribeAggregationAuthorizationsResponse(data, context);
   const response: DescribeAggregationAuthorizationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAggregationAuthorizationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2799,7 +2791,6 @@ export const deserializeAws_json1_1DescribeComplianceByConfigRuleCommand = async
   contents = deserializeAws_json1_1DescribeComplianceByConfigRuleResponse(data, context);
   const response: DescribeComplianceByConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeComplianceByConfigRuleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2871,7 +2862,6 @@ export const deserializeAws_json1_1DescribeComplianceByResourceCommand = async (
   contents = deserializeAws_json1_1DescribeComplianceByResourceResponse(data, context);
   const response: DescribeComplianceByResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeComplianceByResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2935,7 +2925,6 @@ export const deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand = a
   contents = deserializeAws_json1_1DescribeConfigRuleEvaluationStatusResponse(data, context);
   const response: DescribeConfigRuleEvaluationStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigRuleEvaluationStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3007,7 +2996,6 @@ export const deserializeAws_json1_1DescribeConfigRulesCommand = async (
   contents = deserializeAws_json1_1DescribeConfigRulesResponse(data, context);
   const response: DescribeConfigRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigRulesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3071,7 +3059,6 @@ export const deserializeAws_json1_1DescribeConfigurationAggregatorsCommand = asy
   contents = deserializeAws_json1_1DescribeConfigurationAggregatorsResponse(data, context);
   const response: DescribeConfigurationAggregatorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigurationAggregatorsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3151,7 +3138,6 @@ export const deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusC
   contents = deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusResponse(data, context);
   const response: DescribeConfigurationAggregatorSourcesStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigurationAggregatorSourcesStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3231,7 +3217,6 @@ export const deserializeAws_json1_1DescribeConfigurationRecordersCommand = async
   contents = deserializeAws_json1_1DescribeConfigurationRecordersResponse(data, context);
   const response: DescribeConfigurationRecordersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigurationRecordersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3287,7 +3272,6 @@ export const deserializeAws_json1_1DescribeConfigurationRecorderStatusCommand = 
   contents = deserializeAws_json1_1DescribeConfigurationRecorderStatusResponse(data, context);
   const response: DescribeConfigurationRecorderStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConfigurationRecorderStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3343,7 +3327,6 @@ export const deserializeAws_json1_1DescribeConformancePackComplianceCommand = as
   contents = deserializeAws_json1_1DescribeConformancePackComplianceResponse(data, context);
   const response: DescribeConformancePackComplianceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConformancePackComplianceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3431,7 +3414,6 @@ export const deserializeAws_json1_1DescribeConformancePacksCommand = async (
   contents = deserializeAws_json1_1DescribeConformancePacksResponse(data, context);
   const response: DescribeConformancePacksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConformancePacksResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3511,7 +3493,6 @@ export const deserializeAws_json1_1DescribeConformancePackStatusCommand = async 
   contents = deserializeAws_json1_1DescribeConformancePackStatusResponse(data, context);
   const response: DescribeConformancePackStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConformancePackStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3583,7 +3564,6 @@ export const deserializeAws_json1_1DescribeDeliveryChannelsCommand = async (
   contents = deserializeAws_json1_1DescribeDeliveryChannelsResponse(data, context);
   const response: DescribeDeliveryChannelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDeliveryChannelsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3639,7 +3619,6 @@ export const deserializeAws_json1_1DescribeDeliveryChannelStatusCommand = async 
   contents = deserializeAws_json1_1DescribeDeliveryChannelStatusResponse(data, context);
   const response: DescribeDeliveryChannelStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDeliveryChannelStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3695,7 +3674,6 @@ export const deserializeAws_json1_1DescribeOrganizationConfigRulesCommand = asyn
   contents = deserializeAws_json1_1DescribeOrganizationConfigRulesResponse(data, context);
   const response: DescribeOrganizationConfigRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOrganizationConfigRulesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3775,7 +3753,6 @@ export const deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand
   contents = deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesResponse(data, context);
   const response: DescribeOrganizationConfigRuleStatusesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOrganizationConfigRuleStatusesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3855,7 +3832,6 @@ export const deserializeAws_json1_1DescribeOrganizationConformancePacksCommand =
   contents = deserializeAws_json1_1DescribeOrganizationConformancePacksResponse(data, context);
   const response: DescribeOrganizationConformancePacksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOrganizationConformancePacksResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3935,7 +3911,6 @@ export const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCo
   contents = deserializeAws_json1_1DescribeOrganizationConformancePackStatusesResponse(data, context);
   const response: DescribeOrganizationConformancePackStatusesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOrganizationConformancePackStatusesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4015,7 +3990,6 @@ export const deserializeAws_json1_1DescribePendingAggregationRequestsCommand = a
   contents = deserializeAws_json1_1DescribePendingAggregationRequestsResponse(data, context);
   const response: DescribePendingAggregationRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePendingAggregationRequestsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4087,7 +4061,6 @@ export const deserializeAws_json1_1DescribeRemediationConfigurationsCommand = as
   contents = deserializeAws_json1_1DescribeRemediationConfigurationsResponse(data, context);
   const response: DescribeRemediationConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRemediationConfigurationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4135,7 +4108,6 @@ export const deserializeAws_json1_1DescribeRemediationExceptionsCommand = async 
   contents = deserializeAws_json1_1DescribeRemediationExceptionsResponse(data, context);
   const response: DescribeRemediationExceptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRemediationExceptionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4199,7 +4171,6 @@ export const deserializeAws_json1_1DescribeRemediationExecutionStatusCommand = a
   contents = deserializeAws_json1_1DescribeRemediationExecutionStatusResponse(data, context);
   const response: DescribeRemediationExecutionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRemediationExecutionStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4263,7 +4234,6 @@ export const deserializeAws_json1_1DescribeRetentionConfigurationsCommand = asyn
   contents = deserializeAws_json1_1DescribeRetentionConfigurationsResponse(data, context);
   const response: DescribeRetentionConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRetentionConfigurationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4335,7 +4305,6 @@ export const deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleComm
   contents = deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleResponse(data, context);
   const response: GetAggregateComplianceDetailsByConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAggregateComplianceDetailsByConfigRuleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4415,7 +4384,6 @@ export const deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryComman
   contents = deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryResponse(data, context);
   const response: GetAggregateConfigRuleComplianceSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAggregateConfigRuleComplianceSummaryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4495,7 +4463,6 @@ export const deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand =
   contents = deserializeAws_json1_1GetAggregateDiscoveredResourceCountsResponse(data, context);
   const response: GetAggregateDiscoveredResourceCountsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAggregateDiscoveredResourceCountsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4575,7 +4542,6 @@ export const deserializeAws_json1_1GetAggregateResourceConfigCommand = async (
   contents = deserializeAws_json1_1GetAggregateResourceConfigResponse(data, context);
   const response: GetAggregateResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAggregateResourceConfigResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4655,7 +4621,6 @@ export const deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommand = asy
   contents = deserializeAws_json1_1GetComplianceDetailsByConfigRuleResponse(data, context);
   const response: GetComplianceDetailsByConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetComplianceDetailsByConfigRuleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4727,7 +4692,6 @@ export const deserializeAws_json1_1GetComplianceDetailsByResourceCommand = async
   contents = deserializeAws_json1_1GetComplianceDetailsByResourceResponse(data, context);
   const response: GetComplianceDetailsByResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetComplianceDetailsByResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4783,7 +4747,6 @@ export const deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommand = asy
   contents = deserializeAws_json1_1GetComplianceSummaryByConfigRuleResponse(data, context);
   const response: GetComplianceSummaryByConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetComplianceSummaryByConfigRuleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4831,7 +4794,6 @@ export const deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommand = a
   contents = deserializeAws_json1_1GetComplianceSummaryByResourceTypeResponse(data, context);
   const response: GetComplianceSummaryByResourceTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetComplianceSummaryByResourceTypeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4887,7 +4849,6 @@ export const deserializeAws_json1_1GetConformancePackComplianceDetailsCommand = 
   contents = deserializeAws_json1_1GetConformancePackComplianceDetailsResponse(data, context);
   const response: GetConformancePackComplianceDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConformancePackComplianceDetailsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4975,7 +4936,6 @@ export const deserializeAws_json1_1GetConformancePackComplianceSummaryCommand = 
   contents = deserializeAws_json1_1GetConformancePackComplianceSummaryResponse(data, context);
   const response: GetConformancePackComplianceSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConformancePackComplianceSummaryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5047,7 +5007,6 @@ export const deserializeAws_json1_1GetDiscoveredResourceCountsCommand = async (
   contents = deserializeAws_json1_1GetDiscoveredResourceCountsResponse(data, context);
   const response: GetDiscoveredResourceCountsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDiscoveredResourceCountsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5119,7 +5078,6 @@ export const deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusComman
   contents = deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusResponse(data, context);
   const response: GetOrganizationConfigRuleDetailedStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOrganizationConfigRuleDetailedStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5199,7 +5157,6 @@ export const deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusC
   contents = deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusResponse(data, context);
   const response: GetOrganizationConformancePackDetailedStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOrganizationConformancePackDetailedStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5279,7 +5236,6 @@ export const deserializeAws_json1_1GetResourceConfigHistoryCommand = async (
   contents = deserializeAws_json1_1GetResourceConfigHistoryResponse(data, context);
   const response: GetResourceConfigHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourceConfigHistoryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5375,7 +5331,6 @@ export const deserializeAws_json1_1ListAggregateDiscoveredResourcesCommand = asy
   contents = deserializeAws_json1_1ListAggregateDiscoveredResourcesResponse(data, context);
   const response: ListAggregateDiscoveredResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAggregateDiscoveredResourcesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5455,7 +5410,6 @@ export const deserializeAws_json1_1ListDiscoveredResourcesCommand = async (
   contents = deserializeAws_json1_1ListDiscoveredResourcesResponse(data, context);
   const response: ListDiscoveredResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDiscoveredResourcesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5535,7 +5489,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5615,7 +5568,6 @@ export const deserializeAws_json1_1PutAggregationAuthorizationCommand = async (
   contents = deserializeAws_json1_1PutAggregationAuthorizationResponse(data, context);
   const response: PutAggregationAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutAggregationAuthorizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5755,7 +5707,6 @@ export const deserializeAws_json1_1PutConfigurationAggregatorCommand = async (
   contents = deserializeAws_json1_1PutConfigurationAggregatorResponse(data, context);
   const response: PutConfigurationAggregatorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutConfigurationAggregatorResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5930,7 +5881,6 @@ export const deserializeAws_json1_1PutConformancePackCommand = async (
   contents = deserializeAws_json1_1PutConformancePackResponse(data, context);
   const response: PutConformancePackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutConformancePackResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6118,7 +6068,6 @@ export const deserializeAws_json1_1PutEvaluationsCommand = async (
   contents = deserializeAws_json1_1PutEvaluationsResponse(data, context);
   const response: PutEvaluationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutEvaluationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6190,7 +6139,6 @@ export const deserializeAws_json1_1PutOrganizationConfigRuleCommand = async (
   contents = deserializeAws_json1_1PutOrganizationConfigRuleResponse(data, context);
   const response: PutOrganizationConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutOrganizationConfigRuleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6305,7 +6253,6 @@ export const deserializeAws_json1_1PutOrganizationConformancePackCommand = async
   contents = deserializeAws_json1_1PutOrganizationConformancePackResponse(data, context);
   const response: PutOrganizationConformancePackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutOrganizationConformancePackResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6423,7 +6370,6 @@ export const deserializeAws_json1_1PutRemediationConfigurationsCommand = async (
   contents = deserializeAws_json1_1PutRemediationConfigurationsResponse(data, context);
   const response: PutRemediationConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutRemediationConfigurationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6487,7 +6433,6 @@ export const deserializeAws_json1_1PutRemediationExceptionsCommand = async (
   contents = deserializeAws_json1_1PutRemediationExceptionsResponse(data, context);
   const response: PutRemediationExceptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutRemediationExceptionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6627,7 +6572,6 @@ export const deserializeAws_json1_1PutRetentionConfigurationCommand = async (
   contents = deserializeAws_json1_1PutRetentionConfigurationResponse(data, context);
   const response: PutRetentionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutRetentionConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6694,7 +6638,6 @@ export const deserializeAws_json1_1SelectAggregateResourceConfigCommand = async 
   contents = deserializeAws_json1_1SelectAggregateResourceConfigResponse(data, context);
   const response: SelectAggregateResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SelectAggregateResourceConfigResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6774,7 +6717,6 @@ export const deserializeAws_json1_1SelectResourceConfigCommand = async (
   contents = deserializeAws_json1_1SelectResourceConfigResponse(data, context);
   const response: SelectResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SelectResourceConfigResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6846,7 +6788,6 @@ export const deserializeAws_json1_1StartConfigRulesEvaluationCommand = async (
   contents = deserializeAws_json1_1StartConfigRulesEvaluationResponse(data, context);
   const response: StartConfigRulesEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartConfigRulesEvaluationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6986,7 +6927,6 @@ export const deserializeAws_json1_1StartRemediationExecutionCommand = async (
   contents = deserializeAws_json1_1StartRemediationExecutionResponse(data, context);
   const response: StartRemediationExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartRemediationExecutionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9577,7 +9517,6 @@ const deserializeAws_json1_1AccountAggregationSource = (
   context: __SerdeContext
 ): AccountAggregationSource => {
   return {
-    __type: "AccountAggregationSource",
     AccountIds:
       output.AccountIds !== undefined && output.AccountIds !== null
         ? deserializeAws_json1_1AccountAggregationSourceAccountList(output.AccountIds, context)
@@ -9607,7 +9546,6 @@ const deserializeAws_json1_1AggregateComplianceByConfigRule = (
   context: __SerdeContext
 ): AggregateComplianceByConfigRule => {
   return {
-    __type: "AggregateComplianceByConfigRule",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     AwsRegion: output.AwsRegion !== undefined && output.AwsRegion !== null ? output.AwsRegion : undefined,
     Compliance:
@@ -9631,7 +9569,6 @@ const deserializeAws_json1_1AggregateComplianceCount = (
   context: __SerdeContext
 ): AggregateComplianceCount => {
   return {
-    __type: "AggregateComplianceCount",
     ComplianceSummary:
       output.ComplianceSummary !== undefined && output.ComplianceSummary !== null
         ? deserializeAws_json1_1ComplianceSummary(output.ComplianceSummary, context)
@@ -9649,7 +9586,6 @@ const deserializeAws_json1_1AggregateComplianceCountList = (
 
 const deserializeAws_json1_1AggregatedSourceStatus = (output: any, context: __SerdeContext): AggregatedSourceStatus => {
   return {
-    __type: "AggregatedSourceStatus",
     AwsRegion: output.AwsRegion !== undefined && output.AwsRegion !== null ? output.AwsRegion : undefined,
     LastErrorCode:
       output.LastErrorCode !== undefined && output.LastErrorCode !== null ? output.LastErrorCode : undefined,
@@ -9678,7 +9614,6 @@ const deserializeAws_json1_1AggregateEvaluationResult = (
   context: __SerdeContext
 ): AggregateEvaluationResult => {
   return {
-    __type: "AggregateEvaluationResult",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     Annotation: output.Annotation !== undefined && output.Annotation !== null ? output.Annotation : undefined,
     AwsRegion: output.AwsRegion !== undefined && output.AwsRegion !== null ? output.AwsRegion : undefined,
@@ -9711,7 +9646,6 @@ const deserializeAws_json1_1AggregateResourceIdentifier = (
   context: __SerdeContext
 ): AggregateResourceIdentifier => {
   return {
-    __type: "AggregateResourceIdentifier",
     ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
     ResourceName: output.ResourceName !== undefined && output.ResourceName !== null ? output.ResourceName : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
@@ -9726,7 +9660,6 @@ const deserializeAws_json1_1AggregationAuthorization = (
   context: __SerdeContext
 ): AggregationAuthorization => {
   return {
-    __type: "AggregationAuthorization",
     AggregationAuthorizationArn:
       output.AggregationAuthorizationArn !== undefined && output.AggregationAuthorizationArn !== null
         ? output.AggregationAuthorizationArn
@@ -9759,7 +9692,6 @@ const deserializeAws_json1_1AggregatorRegionList = (output: any, context: __Serd
 
 const deserializeAws_json1_1BaseConfigurationItem = (output: any, context: __SerdeContext): BaseConfigurationItem => {
   return {
-    __type: "BaseConfigurationItem",
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     availabilityZone:
@@ -9806,7 +9738,6 @@ const deserializeAws_json1_1BatchGetAggregateResourceConfigResponse = (
   context: __SerdeContext
 ): BatchGetAggregateResourceConfigResponse => {
   return {
-    __type: "BatchGetAggregateResourceConfigResponse",
     BaseConfigurationItems:
       output.BaseConfigurationItems !== undefined && output.BaseConfigurationItems !== null
         ? deserializeAws_json1_1BaseConfigurationItems(output.BaseConfigurationItems, context)
@@ -9823,7 +9754,6 @@ const deserializeAws_json1_1BatchGetResourceConfigResponse = (
   context: __SerdeContext
 ): BatchGetResourceConfigResponse => {
   return {
-    __type: "BatchGetResourceConfigResponse",
     baseConfigurationItems:
       output.baseConfigurationItems !== undefined && output.baseConfigurationItems !== null
         ? deserializeAws_json1_1BaseConfigurationItems(output.baseConfigurationItems, context)
@@ -9837,7 +9767,6 @@ const deserializeAws_json1_1BatchGetResourceConfigResponse = (
 
 const deserializeAws_json1_1Compliance = (output: any, context: __SerdeContext): Compliance => {
   return {
-    __type: "Compliance",
     ComplianceContributorCount:
       output.ComplianceContributorCount !== undefined && output.ComplianceContributorCount !== null
         ? deserializeAws_json1_1ComplianceContributorCount(output.ComplianceContributorCount, context)
@@ -9849,7 +9778,6 @@ const deserializeAws_json1_1Compliance = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ComplianceByConfigRule = (output: any, context: __SerdeContext): ComplianceByConfigRule => {
   return {
-    __type: "ComplianceByConfigRule",
     Compliance:
       output.Compliance !== undefined && output.Compliance !== null
         ? deserializeAws_json1_1Compliance(output.Compliance, context)
@@ -9868,7 +9796,6 @@ const deserializeAws_json1_1ComplianceByConfigRules = (
 
 const deserializeAws_json1_1ComplianceByResource = (output: any, context: __SerdeContext): ComplianceByResource => {
   return {
-    __type: "ComplianceByResource",
     Compliance:
       output.Compliance !== undefined && output.Compliance !== null
         ? deserializeAws_json1_1Compliance(output.Compliance, context)
@@ -9887,7 +9814,6 @@ const deserializeAws_json1_1ComplianceContributorCount = (
   context: __SerdeContext
 ): ComplianceContributorCount => {
   return {
-    __type: "ComplianceContributorCount",
     CapExceeded: output.CapExceeded !== undefined && output.CapExceeded !== null ? output.CapExceeded : undefined,
     CappedCount: output.CappedCount !== undefined && output.CappedCount !== null ? output.CappedCount : undefined,
   } as any;
@@ -9906,7 +9832,6 @@ const deserializeAws_json1_1ComplianceSummariesByResourceType = (
 
 const deserializeAws_json1_1ComplianceSummary = (output: any, context: __SerdeContext): ComplianceSummary => {
   return {
-    __type: "ComplianceSummary",
     ComplianceSummaryTimestamp:
       output.ComplianceSummaryTimestamp !== undefined && output.ComplianceSummaryTimestamp !== null
         ? new Date(Math.round(output.ComplianceSummaryTimestamp * 1000))
@@ -9927,7 +9852,6 @@ const deserializeAws_json1_1ComplianceSummaryByResourceType = (
   context: __SerdeContext
 ): ComplianceSummaryByResourceType => {
   return {
-    __type: "ComplianceSummaryByResourceType",
     ComplianceSummary:
       output.ComplianceSummary !== undefined && output.ComplianceSummary !== null
         ? deserializeAws_json1_1ComplianceSummary(output.ComplianceSummary, context)
@@ -9941,7 +9865,6 @@ const deserializeAws_json1_1ConfigExportDeliveryInfo = (
   context: __SerdeContext
 ): ConfigExportDeliveryInfo => {
   return {
-    __type: "ConfigExportDeliveryInfo",
     lastAttemptTime:
       output.lastAttemptTime !== undefined && output.lastAttemptTime !== null
         ? new Date(Math.round(output.lastAttemptTime * 1000))
@@ -9964,7 +9887,6 @@ const deserializeAws_json1_1ConfigExportDeliveryInfo = (
 
 const deserializeAws_json1_1ConfigRule = (output: any, context: __SerdeContext): ConfigRule => {
   return {
-    __type: "ConfigRule",
     ConfigRuleArn:
       output.ConfigRuleArn !== undefined && output.ConfigRuleArn !== null ? output.ConfigRuleArn : undefined,
     ConfigRuleId: output.ConfigRuleId !== undefined && output.ConfigRuleId !== null ? output.ConfigRuleId : undefined,
@@ -9996,7 +9918,6 @@ const deserializeAws_json1_1ConfigRuleEvaluationStatus = (
   context: __SerdeContext
 ): ConfigRuleEvaluationStatus => {
   return {
-    __type: "ConfigRuleEvaluationStatus",
     ConfigRuleArn:
       output.ConfigRuleArn !== undefined && output.ConfigRuleArn !== null ? output.ConfigRuleArn : undefined,
     ConfigRuleId: output.ConfigRuleId !== undefined && output.ConfigRuleId !== null ? output.ConfigRuleId : undefined,
@@ -10053,7 +9974,6 @@ const deserializeAws_json1_1ConfigSnapshotDeliveryProperties = (
   context: __SerdeContext
 ): ConfigSnapshotDeliveryProperties => {
   return {
-    __type: "ConfigSnapshotDeliveryProperties",
     deliveryFrequency:
       output.deliveryFrequency !== undefined && output.deliveryFrequency !== null
         ? output.deliveryFrequency
@@ -10066,7 +9986,6 @@ const deserializeAws_json1_1ConfigStreamDeliveryInfo = (
   context: __SerdeContext
 ): ConfigStreamDeliveryInfo => {
   return {
-    __type: "ConfigStreamDeliveryInfo",
     lastErrorCode:
       output.lastErrorCode !== undefined && output.lastErrorCode !== null ? output.lastErrorCode : undefined,
     lastErrorMessage:
@@ -10084,7 +10003,6 @@ const deserializeAws_json1_1ConfigurationAggregator = (
   context: __SerdeContext
 ): ConfigurationAggregator => {
   return {
-    __type: "ConfigurationAggregator",
     AccountAggregationSources:
       output.AccountAggregationSources !== undefined && output.AccountAggregationSources !== null
         ? deserializeAws_json1_1AccountAggregationSourceList(output.AccountAggregationSources, context)
@@ -10122,7 +10040,6 @@ const deserializeAws_json1_1ConfigurationAggregatorList = (
 
 const deserializeAws_json1_1ConfigurationItem = (output: any, context: __SerdeContext): ConfigurationItem => {
   return {
-    __type: "ConfigurationItem",
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     availabilityZone:
@@ -10177,7 +10094,6 @@ const deserializeAws_json1_1ConfigurationItemList = (output: any, context: __Ser
 
 const deserializeAws_json1_1ConfigurationRecorder = (output: any, context: __SerdeContext): ConfigurationRecorder => {
   return {
-    __type: "ConfigurationRecorder",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     recordingGroup:
       output.recordingGroup !== undefined && output.recordingGroup !== null
@@ -10199,7 +10115,6 @@ const deserializeAws_json1_1ConfigurationRecorderStatus = (
   context: __SerdeContext
 ): ConfigurationRecorderStatus => {
   return {
-    __type: "ConfigurationRecorderStatus",
     lastErrorCode:
       output.lastErrorCode !== undefined && output.lastErrorCode !== null ? output.lastErrorCode : undefined,
     lastErrorMessage:
@@ -10234,7 +10149,6 @@ const deserializeAws_json1_1ConformancePackComplianceSummary = (
   context: __SerdeContext
 ): ConformancePackComplianceSummary => {
   return {
-    __type: "ConformancePackComplianceSummary",
     ConformancePackComplianceStatus:
       output.ConformancePackComplianceStatus !== undefined && output.ConformancePackComplianceStatus !== null
         ? output.ConformancePackComplianceStatus
@@ -10255,7 +10169,6 @@ const deserializeAws_json1_1ConformancePackComplianceSummaryList = (
 
 const deserializeAws_json1_1ConformancePackDetail = (output: any, context: __SerdeContext): ConformancePackDetail => {
   return {
-    __type: "ConformancePackDetail",
     ConformancePackArn:
       output.ConformancePackArn !== undefined && output.ConformancePackArn !== null
         ? output.ConformancePackArn
@@ -10298,7 +10211,6 @@ const deserializeAws_json1_1ConformancePackEvaluationResult = (
   context: __SerdeContext
 ): ConformancePackEvaluationResult => {
   return {
-    __type: "ConformancePackEvaluationResult",
     Annotation: output.Annotation !== undefined && output.Annotation !== null ? output.Annotation : undefined,
     ComplianceType:
       output.ComplianceType !== undefined && output.ComplianceType !== null ? output.ComplianceType : undefined,
@@ -10322,7 +10234,6 @@ const deserializeAws_json1_1ConformancePackInputParameter = (
   context: __SerdeContext
 ): ConformancePackInputParameter => {
   return {
-    __type: "ConformancePackInputParameter",
     ParameterName:
       output.ParameterName !== undefined && output.ParameterName !== null ? output.ParameterName : undefined,
     ParameterValue:
@@ -10342,7 +10253,6 @@ const deserializeAws_json1_1ConformancePackRuleCompliance = (
   context: __SerdeContext
 ): ConformancePackRuleCompliance => {
   return {
-    __type: "ConformancePackRuleCompliance",
     ComplianceType:
       output.ComplianceType !== undefined && output.ComplianceType !== null ? output.ComplianceType : undefined,
     ConfigRuleName:
@@ -10369,7 +10279,6 @@ const deserializeAws_json1_1ConformancePackStatusDetail = (
   context: __SerdeContext
 ): ConformancePackStatusDetail => {
   return {
-    __type: "ConformancePackStatusDetail",
     ConformancePackArn:
       output.ConformancePackArn !== undefined && output.ConformancePackArn !== null
         ? output.ConformancePackArn
@@ -10414,7 +10323,6 @@ const deserializeAws_json1_1ConformancePackTemplateValidationException = (
   context: __SerdeContext
 ): ConformancePackTemplateValidationException => {
   return {
-    __type: "ConformancePackTemplateValidationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -10423,18 +10331,14 @@ const deserializeAws_json1_1DeleteEvaluationResultsResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteEvaluationResultsResponse => {
-  return {
-    __type: "DeleteEvaluationResultsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteRemediationConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteRemediationConfigurationResponse => {
-  return {
-    __type: "DeleteRemediationConfigurationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteRemediationExceptionsResponse = (
@@ -10442,7 +10346,6 @@ const deserializeAws_json1_1DeleteRemediationExceptionsResponse = (
   context: __SerdeContext
 ): DeleteRemediationExceptionsResponse => {
   return {
-    __type: "DeleteRemediationExceptionsResponse",
     FailedBatches:
       output.FailedBatches !== undefined && output.FailedBatches !== null
         ? deserializeAws_json1_1FailedDeleteRemediationExceptionsBatches(output.FailedBatches, context)
@@ -10455,7 +10358,6 @@ const deserializeAws_json1_1DeliverConfigSnapshotResponse = (
   context: __SerdeContext
 ): DeliverConfigSnapshotResponse => {
   return {
-    __type: "DeliverConfigSnapshotResponse",
     configSnapshotId:
       output.configSnapshotId !== undefined && output.configSnapshotId !== null ? output.configSnapshotId : undefined,
   } as any;
@@ -10463,7 +10365,6 @@ const deserializeAws_json1_1DeliverConfigSnapshotResponse = (
 
 const deserializeAws_json1_1DeliveryChannel = (output: any, context: __SerdeContext): DeliveryChannel => {
   return {
-    __type: "DeliveryChannel",
     configSnapshotDeliveryProperties:
       output.configSnapshotDeliveryProperties !== undefined && output.configSnapshotDeliveryProperties !== null
         ? deserializeAws_json1_1ConfigSnapshotDeliveryProperties(output.configSnapshotDeliveryProperties, context)
@@ -10481,7 +10382,6 @@ const deserializeAws_json1_1DeliveryChannelList = (output: any, context: __Serde
 
 const deserializeAws_json1_1DeliveryChannelStatus = (output: any, context: __SerdeContext): DeliveryChannelStatus => {
   return {
-    __type: "DeliveryChannelStatus",
     configHistoryDeliveryInfo:
       output.configHistoryDeliveryInfo !== undefined && output.configHistoryDeliveryInfo !== null
         ? deserializeAws_json1_1ConfigExportDeliveryInfo(output.configHistoryDeliveryInfo, context)
@@ -10510,7 +10410,6 @@ const deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesResponse = (
   context: __SerdeContext
 ): DescribeAggregateComplianceByConfigRulesResponse => {
   return {
-    __type: "DescribeAggregateComplianceByConfigRulesResponse",
     AggregateComplianceByConfigRules:
       output.AggregateComplianceByConfigRules !== undefined && output.AggregateComplianceByConfigRules !== null
         ? deserializeAws_json1_1AggregateComplianceByConfigRuleList(output.AggregateComplianceByConfigRules, context)
@@ -10524,7 +10423,6 @@ const deserializeAws_json1_1DescribeAggregationAuthorizationsResponse = (
   context: __SerdeContext
 ): DescribeAggregationAuthorizationsResponse => {
   return {
-    __type: "DescribeAggregationAuthorizationsResponse",
     AggregationAuthorizations:
       output.AggregationAuthorizations !== undefined && output.AggregationAuthorizations !== null
         ? deserializeAws_json1_1AggregationAuthorizationList(output.AggregationAuthorizations, context)
@@ -10538,7 +10436,6 @@ const deserializeAws_json1_1DescribeComplianceByConfigRuleResponse = (
   context: __SerdeContext
 ): DescribeComplianceByConfigRuleResponse => {
   return {
-    __type: "DescribeComplianceByConfigRuleResponse",
     ComplianceByConfigRules:
       output.ComplianceByConfigRules !== undefined && output.ComplianceByConfigRules !== null
         ? deserializeAws_json1_1ComplianceByConfigRules(output.ComplianceByConfigRules, context)
@@ -10552,7 +10449,6 @@ const deserializeAws_json1_1DescribeComplianceByResourceResponse = (
   context: __SerdeContext
 ): DescribeComplianceByResourceResponse => {
   return {
-    __type: "DescribeComplianceByResourceResponse",
     ComplianceByResources:
       output.ComplianceByResources !== undefined && output.ComplianceByResources !== null
         ? deserializeAws_json1_1ComplianceByResources(output.ComplianceByResources, context)
@@ -10566,7 +10462,6 @@ const deserializeAws_json1_1DescribeConfigRuleEvaluationStatusResponse = (
   context: __SerdeContext
 ): DescribeConfigRuleEvaluationStatusResponse => {
   return {
-    __type: "DescribeConfigRuleEvaluationStatusResponse",
     ConfigRulesEvaluationStatus:
       output.ConfigRulesEvaluationStatus !== undefined && output.ConfigRulesEvaluationStatus !== null
         ? deserializeAws_json1_1ConfigRuleEvaluationStatusList(output.ConfigRulesEvaluationStatus, context)
@@ -10580,7 +10475,6 @@ const deserializeAws_json1_1DescribeConfigRulesResponse = (
   context: __SerdeContext
 ): DescribeConfigRulesResponse => {
   return {
-    __type: "DescribeConfigRulesResponse",
     ConfigRules:
       output.ConfigRules !== undefined && output.ConfigRules !== null
         ? deserializeAws_json1_1ConfigRules(output.ConfigRules, context)
@@ -10594,7 +10488,6 @@ const deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusResponse
   context: __SerdeContext
 ): DescribeConfigurationAggregatorSourcesStatusResponse => {
   return {
-    __type: "DescribeConfigurationAggregatorSourcesStatusResponse",
     AggregatedSourceStatusList:
       output.AggregatedSourceStatusList !== undefined && output.AggregatedSourceStatusList !== null
         ? deserializeAws_json1_1AggregatedSourceStatusList(output.AggregatedSourceStatusList, context)
@@ -10608,7 +10501,6 @@ const deserializeAws_json1_1DescribeConfigurationAggregatorsResponse = (
   context: __SerdeContext
 ): DescribeConfigurationAggregatorsResponse => {
   return {
-    __type: "DescribeConfigurationAggregatorsResponse",
     ConfigurationAggregators:
       output.ConfigurationAggregators !== undefined && output.ConfigurationAggregators !== null
         ? deserializeAws_json1_1ConfigurationAggregatorList(output.ConfigurationAggregators, context)
@@ -10622,7 +10514,6 @@ const deserializeAws_json1_1DescribeConfigurationRecordersResponse = (
   context: __SerdeContext
 ): DescribeConfigurationRecordersResponse => {
   return {
-    __type: "DescribeConfigurationRecordersResponse",
     ConfigurationRecorders:
       output.ConfigurationRecorders !== undefined && output.ConfigurationRecorders !== null
         ? deserializeAws_json1_1ConfigurationRecorderList(output.ConfigurationRecorders, context)
@@ -10635,7 +10526,6 @@ const deserializeAws_json1_1DescribeConfigurationRecorderStatusResponse = (
   context: __SerdeContext
 ): DescribeConfigurationRecorderStatusResponse => {
   return {
-    __type: "DescribeConfigurationRecorderStatusResponse",
     ConfigurationRecordersStatus:
       output.ConfigurationRecordersStatus !== undefined && output.ConfigurationRecordersStatus !== null
         ? deserializeAws_json1_1ConfigurationRecorderStatusList(output.ConfigurationRecordersStatus, context)
@@ -10648,7 +10538,6 @@ const deserializeAws_json1_1DescribeConformancePackComplianceResponse = (
   context: __SerdeContext
 ): DescribeConformancePackComplianceResponse => {
   return {
-    __type: "DescribeConformancePackComplianceResponse",
     ConformancePackName:
       output.ConformancePackName !== undefined && output.ConformancePackName !== null
         ? output.ConformancePackName
@@ -10666,7 +10555,6 @@ const deserializeAws_json1_1DescribeConformancePacksResponse = (
   context: __SerdeContext
 ): DescribeConformancePacksResponse => {
   return {
-    __type: "DescribeConformancePacksResponse",
     ConformancePackDetails:
       output.ConformancePackDetails !== undefined && output.ConformancePackDetails !== null
         ? deserializeAws_json1_1ConformancePackDetailList(output.ConformancePackDetails, context)
@@ -10680,7 +10568,6 @@ const deserializeAws_json1_1DescribeConformancePackStatusResponse = (
   context: __SerdeContext
 ): DescribeConformancePackStatusResponse => {
   return {
-    __type: "DescribeConformancePackStatusResponse",
     ConformancePackStatusDetails:
       output.ConformancePackStatusDetails !== undefined && output.ConformancePackStatusDetails !== null
         ? deserializeAws_json1_1ConformancePackStatusDetailsList(output.ConformancePackStatusDetails, context)
@@ -10694,7 +10581,6 @@ const deserializeAws_json1_1DescribeDeliveryChannelsResponse = (
   context: __SerdeContext
 ): DescribeDeliveryChannelsResponse => {
   return {
-    __type: "DescribeDeliveryChannelsResponse",
     DeliveryChannels:
       output.DeliveryChannels !== undefined && output.DeliveryChannels !== null
         ? deserializeAws_json1_1DeliveryChannelList(output.DeliveryChannels, context)
@@ -10707,7 +10593,6 @@ const deserializeAws_json1_1DescribeDeliveryChannelStatusResponse = (
   context: __SerdeContext
 ): DescribeDeliveryChannelStatusResponse => {
   return {
-    __type: "DescribeDeliveryChannelStatusResponse",
     DeliveryChannelsStatus:
       output.DeliveryChannelsStatus !== undefined && output.DeliveryChannelsStatus !== null
         ? deserializeAws_json1_1DeliveryChannelStatusList(output.DeliveryChannelsStatus, context)
@@ -10720,7 +10605,6 @@ const deserializeAws_json1_1DescribeOrganizationConfigRulesResponse = (
   context: __SerdeContext
 ): DescribeOrganizationConfigRulesResponse => {
   return {
-    __type: "DescribeOrganizationConfigRulesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     OrganizationConfigRules:
       output.OrganizationConfigRules !== undefined && output.OrganizationConfigRules !== null
@@ -10734,7 +10618,6 @@ const deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesResponse = (
   context: __SerdeContext
 ): DescribeOrganizationConfigRuleStatusesResponse => {
   return {
-    __type: "DescribeOrganizationConfigRuleStatusesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     OrganizationConfigRuleStatuses:
       output.OrganizationConfigRuleStatuses !== undefined && output.OrganizationConfigRuleStatuses !== null
@@ -10748,7 +10631,6 @@ const deserializeAws_json1_1DescribeOrganizationConformancePacksResponse = (
   context: __SerdeContext
 ): DescribeOrganizationConformancePacksResponse => {
   return {
-    __type: "DescribeOrganizationConformancePacksResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     OrganizationConformancePacks:
       output.OrganizationConformancePacks !== undefined && output.OrganizationConformancePacks !== null
@@ -10762,7 +10644,6 @@ const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesResponse 
   context: __SerdeContext
 ): DescribeOrganizationConformancePackStatusesResponse => {
   return {
-    __type: "DescribeOrganizationConformancePackStatusesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     OrganizationConformancePackStatuses:
       output.OrganizationConformancePackStatuses !== undefined && output.OrganizationConformancePackStatuses !== null
@@ -10776,7 +10657,6 @@ const deserializeAws_json1_1DescribePendingAggregationRequestsResponse = (
   context: __SerdeContext
 ): DescribePendingAggregationRequestsResponse => {
   return {
-    __type: "DescribePendingAggregationRequestsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     PendingAggregationRequests:
       output.PendingAggregationRequests !== undefined && output.PendingAggregationRequests !== null
@@ -10790,7 +10670,6 @@ const deserializeAws_json1_1DescribeRemediationConfigurationsResponse = (
   context: __SerdeContext
 ): DescribeRemediationConfigurationsResponse => {
   return {
-    __type: "DescribeRemediationConfigurationsResponse",
     RemediationConfigurations:
       output.RemediationConfigurations !== undefined && output.RemediationConfigurations !== null
         ? deserializeAws_json1_1RemediationConfigurations(output.RemediationConfigurations, context)
@@ -10803,7 +10682,6 @@ const deserializeAws_json1_1DescribeRemediationExceptionsResponse = (
   context: __SerdeContext
 ): DescribeRemediationExceptionsResponse => {
   return {
-    __type: "DescribeRemediationExceptionsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     RemediationExceptions:
       output.RemediationExceptions !== undefined && output.RemediationExceptions !== null
@@ -10817,7 +10695,6 @@ const deserializeAws_json1_1DescribeRemediationExecutionStatusResponse = (
   context: __SerdeContext
 ): DescribeRemediationExecutionStatusResponse => {
   return {
-    __type: "DescribeRemediationExecutionStatusResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     RemediationExecutionStatuses:
       output.RemediationExecutionStatuses !== undefined && output.RemediationExecutionStatuses !== null
@@ -10831,7 +10708,6 @@ const deserializeAws_json1_1DescribeRetentionConfigurationsResponse = (
   context: __SerdeContext
 ): DescribeRetentionConfigurationsResponse => {
   return {
-    __type: "DescribeRetentionConfigurationsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     RetentionConfigurations:
       output.RetentionConfigurations !== undefined && output.RetentionConfigurations !== null
@@ -10849,7 +10725,6 @@ const deserializeAws_json1_1DiscoveredResourceIdentifierList = (
 
 const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext): Evaluation => {
   return {
-    __type: "Evaluation",
     Annotation: output.Annotation !== undefined && output.Annotation !== null ? output.Annotation : undefined,
     ComplianceResourceId:
       output.ComplianceResourceId !== undefined && output.ComplianceResourceId !== null
@@ -10870,7 +10745,6 @@ const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   return {
-    __type: "EvaluationResult",
     Annotation: output.Annotation !== undefined && output.Annotation !== null ? output.Annotation : undefined,
     ComplianceType:
       output.ComplianceType !== undefined && output.ComplianceType !== null ? output.ComplianceType : undefined,
@@ -10895,7 +10769,6 @@ const deserializeAws_json1_1EvaluationResultIdentifier = (
   context: __SerdeContext
 ): EvaluationResultIdentifier => {
   return {
-    __type: "EvaluationResultIdentifier",
     EvaluationResultQualifier:
       output.EvaluationResultQualifier !== undefined && output.EvaluationResultQualifier !== null
         ? deserializeAws_json1_1EvaluationResultQualifier(output.EvaluationResultQualifier, context)
@@ -10912,7 +10785,6 @@ const deserializeAws_json1_1EvaluationResultQualifier = (
   context: __SerdeContext
 ): EvaluationResultQualifier => {
   return {
-    __type: "EvaluationResultQualifier",
     ConfigRuleName:
       output.ConfigRuleName !== undefined && output.ConfigRuleName !== null ? output.ConfigRuleName : undefined,
     ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
@@ -10934,7 +10806,6 @@ const deserializeAws_json1_1ExcludedAccounts = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ExecutionControls = (output: any, context: __SerdeContext): ExecutionControls => {
   return {
-    __type: "ExecutionControls",
     SsmControls:
       output.SsmControls !== undefined && output.SsmControls !== null
         ? deserializeAws_json1_1SsmControls(output.SsmControls, context)
@@ -10947,7 +10818,6 @@ const deserializeAws_json1_1FailedDeleteRemediationExceptionsBatch = (
   context: __SerdeContext
 ): FailedDeleteRemediationExceptionsBatch => {
   return {
-    __type: "FailedDeleteRemediationExceptionsBatch",
     FailedItems:
       output.FailedItems !== undefined && output.FailedItems !== null
         ? deserializeAws_json1_1RemediationExceptionResourceKeys(output.FailedItems, context)
@@ -10968,7 +10838,6 @@ const deserializeAws_json1_1FailedDeleteRemediationExceptionsBatches = (
 
 const deserializeAws_json1_1FailedRemediationBatch = (output: any, context: __SerdeContext): FailedRemediationBatch => {
   return {
-    __type: "FailedRemediationBatch",
     FailedItems:
       output.FailedItems !== undefined && output.FailedItems !== null
         ? deserializeAws_json1_1RemediationConfigurations(output.FailedItems, context)
@@ -10990,7 +10859,6 @@ const deserializeAws_json1_1FailedRemediationExceptionBatch = (
   context: __SerdeContext
 ): FailedRemediationExceptionBatch => {
   return {
-    __type: "FailedRemediationExceptionBatch",
     FailedItems:
       output.FailedItems !== undefined && output.FailedItems !== null
         ? deserializeAws_json1_1RemediationExceptions(output.FailedItems, context)
@@ -11009,7 +10877,6 @@ const deserializeAws_json1_1FailedRemediationExceptionBatches = (
 
 const deserializeAws_json1_1FieldInfo = (output: any, context: __SerdeContext): FieldInfo => {
   return {
-    __type: "FieldInfo",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
@@ -11023,7 +10890,6 @@ const deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleResponse = 
   context: __SerdeContext
 ): GetAggregateComplianceDetailsByConfigRuleResponse => {
   return {
-    __type: "GetAggregateComplianceDetailsByConfigRuleResponse",
     AggregateEvaluationResults:
       output.AggregateEvaluationResults !== undefined && output.AggregateEvaluationResults !== null
         ? deserializeAws_json1_1AggregateEvaluationResultList(output.AggregateEvaluationResults, context)
@@ -11037,7 +10903,6 @@ const deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryResponse = (
   context: __SerdeContext
 ): GetAggregateConfigRuleComplianceSummaryResponse => {
   return {
-    __type: "GetAggregateConfigRuleComplianceSummaryResponse",
     AggregateComplianceCounts:
       output.AggregateComplianceCounts !== undefined && output.AggregateComplianceCounts !== null
         ? deserializeAws_json1_1AggregateComplianceCountList(output.AggregateComplianceCounts, context)
@@ -11052,7 +10917,6 @@ const deserializeAws_json1_1GetAggregateDiscoveredResourceCountsResponse = (
   context: __SerdeContext
 ): GetAggregateDiscoveredResourceCountsResponse => {
   return {
-    __type: "GetAggregateDiscoveredResourceCountsResponse",
     GroupByKey: output.GroupByKey !== undefined && output.GroupByKey !== null ? output.GroupByKey : undefined,
     GroupedResourceCounts:
       output.GroupedResourceCounts !== undefined && output.GroupedResourceCounts !== null
@@ -11071,7 +10935,6 @@ const deserializeAws_json1_1GetAggregateResourceConfigResponse = (
   context: __SerdeContext
 ): GetAggregateResourceConfigResponse => {
   return {
-    __type: "GetAggregateResourceConfigResponse",
     ConfigurationItem:
       output.ConfigurationItem !== undefined && output.ConfigurationItem !== null
         ? deserializeAws_json1_1ConfigurationItem(output.ConfigurationItem, context)
@@ -11084,7 +10947,6 @@ const deserializeAws_json1_1GetComplianceDetailsByConfigRuleResponse = (
   context: __SerdeContext
 ): GetComplianceDetailsByConfigRuleResponse => {
   return {
-    __type: "GetComplianceDetailsByConfigRuleResponse",
     EvaluationResults:
       output.EvaluationResults !== undefined && output.EvaluationResults !== null
         ? deserializeAws_json1_1EvaluationResults(output.EvaluationResults, context)
@@ -11098,7 +10960,6 @@ const deserializeAws_json1_1GetComplianceDetailsByResourceResponse = (
   context: __SerdeContext
 ): GetComplianceDetailsByResourceResponse => {
   return {
-    __type: "GetComplianceDetailsByResourceResponse",
     EvaluationResults:
       output.EvaluationResults !== undefined && output.EvaluationResults !== null
         ? deserializeAws_json1_1EvaluationResults(output.EvaluationResults, context)
@@ -11112,7 +10973,6 @@ const deserializeAws_json1_1GetComplianceSummaryByConfigRuleResponse = (
   context: __SerdeContext
 ): GetComplianceSummaryByConfigRuleResponse => {
   return {
-    __type: "GetComplianceSummaryByConfigRuleResponse",
     ComplianceSummary:
       output.ComplianceSummary !== undefined && output.ComplianceSummary !== null
         ? deserializeAws_json1_1ComplianceSummary(output.ComplianceSummary, context)
@@ -11125,7 +10985,6 @@ const deserializeAws_json1_1GetComplianceSummaryByResourceTypeResponse = (
   context: __SerdeContext
 ): GetComplianceSummaryByResourceTypeResponse => {
   return {
-    __type: "GetComplianceSummaryByResourceTypeResponse",
     ComplianceSummariesByResourceType:
       output.ComplianceSummariesByResourceType !== undefined && output.ComplianceSummariesByResourceType !== null
         ? deserializeAws_json1_1ComplianceSummariesByResourceType(output.ComplianceSummariesByResourceType, context)
@@ -11138,7 +10997,6 @@ const deserializeAws_json1_1GetConformancePackComplianceDetailsResponse = (
   context: __SerdeContext
 ): GetConformancePackComplianceDetailsResponse => {
   return {
-    __type: "GetConformancePackComplianceDetailsResponse",
     ConformancePackName:
       output.ConformancePackName !== undefined && output.ConformancePackName !== null
         ? output.ConformancePackName
@@ -11159,7 +11017,6 @@ const deserializeAws_json1_1GetConformancePackComplianceSummaryResponse = (
   context: __SerdeContext
 ): GetConformancePackComplianceSummaryResponse => {
   return {
-    __type: "GetConformancePackComplianceSummaryResponse",
     ConformancePackComplianceSummaryList:
       output.ConformancePackComplianceSummaryList !== undefined && output.ConformancePackComplianceSummaryList !== null
         ? deserializeAws_json1_1ConformancePackComplianceSummaryList(
@@ -11176,7 +11033,6 @@ const deserializeAws_json1_1GetDiscoveredResourceCountsResponse = (
   context: __SerdeContext
 ): GetDiscoveredResourceCountsResponse => {
   return {
-    __type: "GetDiscoveredResourceCountsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     resourceCounts:
       output.resourceCounts !== undefined && output.resourceCounts !== null
@@ -11194,7 +11050,6 @@ const deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusResponse = (
   context: __SerdeContext
 ): GetOrganizationConfigRuleDetailedStatusResponse => {
   return {
-    __type: "GetOrganizationConfigRuleDetailedStatusResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     OrganizationConfigRuleDetailedStatus:
       output.OrganizationConfigRuleDetailedStatus !== undefined && output.OrganizationConfigRuleDetailedStatus !== null
@@ -11211,7 +11066,6 @@ const deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusResponse
   context: __SerdeContext
 ): GetOrganizationConformancePackDetailedStatusResponse => {
   return {
-    __type: "GetOrganizationConformancePackDetailedStatusResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     OrganizationConformancePackDetailedStatuses:
       output.OrganizationConformancePackDetailedStatuses !== undefined &&
@@ -11229,7 +11083,6 @@ const deserializeAws_json1_1GetResourceConfigHistoryResponse = (
   context: __SerdeContext
 ): GetResourceConfigHistoryResponse => {
   return {
-    __type: "GetResourceConfigHistoryResponse",
     configurationItems:
       output.configurationItems !== undefined && output.configurationItems !== null
         ? deserializeAws_json1_1ConfigurationItemList(output.configurationItems, context)
@@ -11240,7 +11093,6 @@ const deserializeAws_json1_1GetResourceConfigHistoryResponse = (
 
 const deserializeAws_json1_1GroupedResourceCount = (output: any, context: __SerdeContext): GroupedResourceCount => {
   return {
-    __type: "GroupedResourceCount",
     GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
     ResourceCount:
       output.ResourceCount !== undefined && output.ResourceCount !== null ? output.ResourceCount : undefined,
@@ -11259,7 +11111,6 @@ const deserializeAws_json1_1InsufficientDeliveryPolicyException = (
   context: __SerdeContext
 ): InsufficientDeliveryPolicyException => {
   return {
-    __type: "InsufficientDeliveryPolicyException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11269,7 +11120,6 @@ const deserializeAws_json1_1InsufficientPermissionsException = (
   context: __SerdeContext
 ): InsufficientPermissionsException => {
   return {
-    __type: "InsufficientPermissionsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11279,7 +11129,6 @@ const deserializeAws_json1_1InvalidConfigurationRecorderNameException = (
   context: __SerdeContext
 ): InvalidConfigurationRecorderNameException => {
   return {
-    __type: "InvalidConfigurationRecorderNameException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11289,7 +11138,6 @@ const deserializeAws_json1_1InvalidDeliveryChannelNameException = (
   context: __SerdeContext
 ): InvalidDeliveryChannelNameException => {
   return {
-    __type: "InvalidDeliveryChannelNameException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11299,14 +11147,12 @@ const deserializeAws_json1_1InvalidExpressionException = (
   context: __SerdeContext
 ): InvalidExpressionException => {
   return {
-    __type: "InvalidExpressionException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidLimitException = (output: any, context: __SerdeContext): InvalidLimitException => {
   return {
-    __type: "InvalidLimitException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11316,7 +11162,6 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11326,7 +11171,6 @@ const deserializeAws_json1_1InvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   return {
-    __type: "InvalidParameterValueException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11336,7 +11180,6 @@ const deserializeAws_json1_1InvalidRecordingGroupException = (
   context: __SerdeContext
 ): InvalidRecordingGroupException => {
   return {
-    __type: "InvalidRecordingGroupException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11346,14 +11189,12 @@ const deserializeAws_json1_1InvalidResultTokenException = (
   context: __SerdeContext
 ): InvalidResultTokenException => {
   return {
-    __type: "InvalidResultTokenException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidRoleException = (output: any, context: __SerdeContext): InvalidRoleException => {
   return {
-    __type: "InvalidRoleException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11363,7 +11204,6 @@ const deserializeAws_json1_1InvalidS3KeyPrefixException = (
   context: __SerdeContext
 ): InvalidS3KeyPrefixException => {
   return {
-    __type: "InvalidS3KeyPrefixException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11373,7 +11213,6 @@ const deserializeAws_json1_1InvalidSNSTopicARNException = (
   context: __SerdeContext
 ): InvalidSNSTopicARNException => {
   return {
-    __type: "InvalidSNSTopicARNException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11383,7 +11222,6 @@ const deserializeAws_json1_1InvalidTimeRangeException = (
   context: __SerdeContext
 ): InvalidTimeRangeException => {
   return {
-    __type: "InvalidTimeRangeException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11393,14 +11231,12 @@ const deserializeAws_json1_1LastDeliveryChannelDeleteFailedException = (
   context: __SerdeContext
 ): LastDeliveryChannelDeleteFailedException => {
   return {
-    __type: "LastDeliveryChannelDeleteFailedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11410,7 +11246,6 @@ const deserializeAws_json1_1ListAggregateDiscoveredResourcesResponse = (
   context: __SerdeContext
 ): ListAggregateDiscoveredResourcesResponse => {
   return {
-    __type: "ListAggregateDiscoveredResourcesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ResourceIdentifiers:
       output.ResourceIdentifiers !== undefined && output.ResourceIdentifiers !== null
@@ -11424,7 +11259,6 @@ const deserializeAws_json1_1ListDiscoveredResourcesResponse = (
   context: __SerdeContext
 ): ListDiscoveredResourcesResponse => {
   return {
-    __type: "ListDiscoveredResourcesResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     resourceIdentifiers:
       output.resourceIdentifiers !== undefined && output.resourceIdentifiers !== null
@@ -11438,7 +11272,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -11452,7 +11285,6 @@ const deserializeAws_json1_1MaxActiveResourcesExceededException = (
   context: __SerdeContext
 ): MaxActiveResourcesExceededException => {
   return {
-    __type: "MaxActiveResourcesExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11462,7 +11294,6 @@ const deserializeAws_json1_1MaxNumberOfConfigRulesExceededException = (
   context: __SerdeContext
 ): MaxNumberOfConfigRulesExceededException => {
   return {
-    __type: "MaxNumberOfConfigRulesExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11472,7 +11303,6 @@ const deserializeAws_json1_1MaxNumberOfConfigurationRecordersExceededException =
   context: __SerdeContext
 ): MaxNumberOfConfigurationRecordersExceededException => {
   return {
-    __type: "MaxNumberOfConfigurationRecordersExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11482,7 +11312,6 @@ const deserializeAws_json1_1MaxNumberOfConformancePacksExceededException = (
   context: __SerdeContext
 ): MaxNumberOfConformancePacksExceededException => {
   return {
-    __type: "MaxNumberOfConformancePacksExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11492,7 +11321,6 @@ const deserializeAws_json1_1MaxNumberOfDeliveryChannelsExceededException = (
   context: __SerdeContext
 ): MaxNumberOfDeliveryChannelsExceededException => {
   return {
-    __type: "MaxNumberOfDeliveryChannelsExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11502,7 +11330,6 @@ const deserializeAws_json1_1MaxNumberOfOrganizationConfigRulesExceededException 
   context: __SerdeContext
 ): MaxNumberOfOrganizationConfigRulesExceededException => {
   return {
-    __type: "MaxNumberOfOrganizationConfigRulesExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11512,7 +11339,6 @@ const deserializeAws_json1_1MaxNumberOfOrganizationConformancePacksExceededExcep
   context: __SerdeContext
 ): MaxNumberOfOrganizationConformancePacksExceededException => {
   return {
-    __type: "MaxNumberOfOrganizationConformancePacksExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11522,14 +11348,12 @@ const deserializeAws_json1_1MaxNumberOfRetentionConfigurationsExceededException 
   context: __SerdeContext
 ): MaxNumberOfRetentionConfigurationsExceededException => {
   return {
-    __type: "MaxNumberOfRetentionConfigurationsExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1MemberAccountStatus = (output: any, context: __SerdeContext): MemberAccountStatus => {
   return {
-    __type: "MemberAccountStatus",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     ConfigRuleName:
       output.ConfigRuleName !== undefined && output.ConfigRuleName !== null ? output.ConfigRuleName : undefined,
@@ -11551,7 +11375,6 @@ const deserializeAws_json1_1NoAvailableConfigurationRecorderException = (
   context: __SerdeContext
 ): NoAvailableConfigurationRecorderException => {
   return {
-    __type: "NoAvailableConfigurationRecorderException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11561,7 +11384,6 @@ const deserializeAws_json1_1NoAvailableDeliveryChannelException = (
   context: __SerdeContext
 ): NoAvailableDeliveryChannelException => {
   return {
-    __type: "NoAvailableDeliveryChannelException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11571,7 +11393,6 @@ const deserializeAws_json1_1NoAvailableOrganizationException = (
   context: __SerdeContext
 ): NoAvailableOrganizationException => {
   return {
-    __type: "NoAvailableOrganizationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11581,14 +11402,12 @@ const deserializeAws_json1_1NoRunningConfigurationRecorderException = (
   context: __SerdeContext
 ): NoRunningConfigurationRecorderException => {
   return {
-    __type: "NoRunningConfigurationRecorderException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1NoSuchBucketException = (output: any, context: __SerdeContext): NoSuchBucketException => {
   return {
-    __type: "NoSuchBucketException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11598,7 +11417,6 @@ const deserializeAws_json1_1NoSuchConfigRuleException = (
   context: __SerdeContext
 ): NoSuchConfigRuleException => {
   return {
-    __type: "NoSuchConfigRuleException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11608,7 +11426,6 @@ const deserializeAws_json1_1NoSuchConfigRuleInConformancePackException = (
   context: __SerdeContext
 ): NoSuchConfigRuleInConformancePackException => {
   return {
-    __type: "NoSuchConfigRuleInConformancePackException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11618,7 +11435,6 @@ const deserializeAws_json1_1NoSuchConfigurationAggregatorException = (
   context: __SerdeContext
 ): NoSuchConfigurationAggregatorException => {
   return {
-    __type: "NoSuchConfigurationAggregatorException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11628,7 +11444,6 @@ const deserializeAws_json1_1NoSuchConfigurationRecorderException = (
   context: __SerdeContext
 ): NoSuchConfigurationRecorderException => {
   return {
-    __type: "NoSuchConfigurationRecorderException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11638,7 +11453,6 @@ const deserializeAws_json1_1NoSuchConformancePackException = (
   context: __SerdeContext
 ): NoSuchConformancePackException => {
   return {
-    __type: "NoSuchConformancePackException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11648,7 +11462,6 @@ const deserializeAws_json1_1NoSuchDeliveryChannelException = (
   context: __SerdeContext
 ): NoSuchDeliveryChannelException => {
   return {
-    __type: "NoSuchDeliveryChannelException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11658,7 +11471,6 @@ const deserializeAws_json1_1NoSuchOrganizationConfigRuleException = (
   context: __SerdeContext
 ): NoSuchOrganizationConfigRuleException => {
   return {
-    __type: "NoSuchOrganizationConfigRuleException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11668,7 +11480,6 @@ const deserializeAws_json1_1NoSuchOrganizationConformancePackException = (
   context: __SerdeContext
 ): NoSuchOrganizationConformancePackException => {
   return {
-    __type: "NoSuchOrganizationConformancePackException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11678,7 +11489,6 @@ const deserializeAws_json1_1NoSuchRemediationConfigurationException = (
   context: __SerdeContext
 ): NoSuchRemediationConfigurationException => {
   return {
-    __type: "NoSuchRemediationConfigurationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11688,7 +11498,6 @@ const deserializeAws_json1_1NoSuchRemediationExceptionException = (
   context: __SerdeContext
 ): NoSuchRemediationExceptionException => {
   return {
-    __type: "NoSuchRemediationExceptionException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11698,7 +11507,6 @@ const deserializeAws_json1_1NoSuchRetentionConfigurationException = (
   context: __SerdeContext
 ): NoSuchRetentionConfigurationException => {
   return {
-    __type: "NoSuchRetentionConfigurationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11708,7 +11516,6 @@ const deserializeAws_json1_1OrganizationAccessDeniedException = (
   context: __SerdeContext
 ): OrganizationAccessDeniedException => {
   return {
-    __type: "OrganizationAccessDeniedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11718,7 +11525,6 @@ const deserializeAws_json1_1OrganizationAggregationSource = (
   context: __SerdeContext
 ): OrganizationAggregationSource => {
   return {
-    __type: "OrganizationAggregationSource",
     AllAwsRegions:
       output.AllAwsRegions !== undefined && output.AllAwsRegions !== null ? output.AllAwsRegions : undefined,
     AwsRegions:
@@ -11734,14 +11540,12 @@ const deserializeAws_json1_1OrganizationAllFeaturesNotEnabledException = (
   context: __SerdeContext
 ): OrganizationAllFeaturesNotEnabledException => {
   return {
-    __type: "OrganizationAllFeaturesNotEnabledException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1OrganizationConfigRule = (output: any, context: __SerdeContext): OrganizationConfigRule => {
   return {
-    __type: "OrganizationConfigRule",
     ExcludedAccounts:
       output.ExcludedAccounts !== undefined && output.ExcludedAccounts !== null
         ? deserializeAws_json1_1ExcludedAccounts(output.ExcludedAccounts, context)
@@ -11788,7 +11592,6 @@ const deserializeAws_json1_1OrganizationConfigRuleStatus = (
   context: __SerdeContext
 ): OrganizationConfigRuleStatus => {
   return {
-    __type: "OrganizationConfigRuleStatus",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     LastUpdateTime:
@@ -11825,7 +11628,6 @@ const deserializeAws_json1_1OrganizationConformancePack = (
   context: __SerdeContext
 ): OrganizationConformancePack => {
   return {
-    __type: "OrganizationConformancePack",
     ConformancePackInputParameters:
       output.ConformancePackInputParameters !== undefined && output.ConformancePackInputParameters !== null
         ? deserializeAws_json1_1ConformancePackInputParameters(output.ConformancePackInputParameters, context)
@@ -11860,7 +11662,6 @@ const deserializeAws_json1_1OrganizationConformancePackDetailedStatus = (
   context: __SerdeContext
 ): OrganizationConformancePackDetailedStatus => {
   return {
-    __type: "OrganizationConformancePackDetailedStatus",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     ConformancePackName:
       output.ConformancePackName !== undefined && output.ConformancePackName !== null
@@ -11897,7 +11698,6 @@ const deserializeAws_json1_1OrganizationConformancePackStatus = (
   context: __SerdeContext
 ): OrganizationConformancePackStatus => {
   return {
-    __type: "OrganizationConformancePackStatus",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     LastUpdateTime:
@@ -11924,7 +11724,6 @@ const deserializeAws_json1_1OrganizationConformancePackTemplateValidationExcepti
   context: __SerdeContext
 ): OrganizationConformancePackTemplateValidationException => {
   return {
-    __type: "OrganizationConformancePackTemplateValidationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -11934,7 +11733,6 @@ const deserializeAws_json1_1OrganizationCustomRuleMetadata = (
   context: __SerdeContext
 ): OrganizationCustomRuleMetadata => {
   return {
-    __type: "OrganizationCustomRuleMetadata",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     InputParameters:
       output.InputParameters !== undefined && output.InputParameters !== null ? output.InputParameters : undefined,
@@ -11967,7 +11765,6 @@ const deserializeAws_json1_1OrganizationManagedRuleMetadata = (
   context: __SerdeContext
 ): OrganizationManagedRuleMetadata => {
   return {
-    __type: "OrganizationManagedRuleMetadata",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     InputParameters:
       output.InputParameters !== undefined && output.InputParameters !== null ? output.InputParameters : undefined,
@@ -11994,7 +11791,6 @@ const deserializeAws_json1_1OversizedConfigurationItemException = (
   context: __SerdeContext
 ): OversizedConfigurationItemException => {
   return {
-    __type: "OversizedConfigurationItemException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -12004,7 +11800,6 @@ const deserializeAws_json1_1PendingAggregationRequest = (
   context: __SerdeContext
 ): PendingAggregationRequest => {
   return {
-    __type: "PendingAggregationRequest",
     RequesterAccountId:
       output.RequesterAccountId !== undefined && output.RequesterAccountId !== null
         ? output.RequesterAccountId
@@ -12028,7 +11823,6 @@ const deserializeAws_json1_1PutAggregationAuthorizationResponse = (
   context: __SerdeContext
 ): PutAggregationAuthorizationResponse => {
   return {
-    __type: "PutAggregationAuthorizationResponse",
     AggregationAuthorization:
       output.AggregationAuthorization !== undefined && output.AggregationAuthorization !== null
         ? deserializeAws_json1_1AggregationAuthorization(output.AggregationAuthorization, context)
@@ -12041,7 +11835,6 @@ const deserializeAws_json1_1PutConfigurationAggregatorResponse = (
   context: __SerdeContext
 ): PutConfigurationAggregatorResponse => {
   return {
-    __type: "PutConfigurationAggregatorResponse",
     ConfigurationAggregator:
       output.ConfigurationAggregator !== undefined && output.ConfigurationAggregator !== null
         ? deserializeAws_json1_1ConfigurationAggregator(output.ConfigurationAggregator, context)
@@ -12054,7 +11847,6 @@ const deserializeAws_json1_1PutConformancePackResponse = (
   context: __SerdeContext
 ): PutConformancePackResponse => {
   return {
-    __type: "PutConformancePackResponse",
     ConformancePackArn:
       output.ConformancePackArn !== undefined && output.ConformancePackArn !== null
         ? output.ConformancePackArn
@@ -12064,7 +11856,6 @@ const deserializeAws_json1_1PutConformancePackResponse = (
 
 const deserializeAws_json1_1PutEvaluationsResponse = (output: any, context: __SerdeContext): PutEvaluationsResponse => {
   return {
-    __type: "PutEvaluationsResponse",
     FailedEvaluations:
       output.FailedEvaluations !== undefined && output.FailedEvaluations !== null
         ? deserializeAws_json1_1Evaluations(output.FailedEvaluations, context)
@@ -12077,7 +11868,6 @@ const deserializeAws_json1_1PutOrganizationConfigRuleResponse = (
   context: __SerdeContext
 ): PutOrganizationConfigRuleResponse => {
   return {
-    __type: "PutOrganizationConfigRuleResponse",
     OrganizationConfigRuleArn:
       output.OrganizationConfigRuleArn !== undefined && output.OrganizationConfigRuleArn !== null
         ? output.OrganizationConfigRuleArn
@@ -12090,7 +11880,6 @@ const deserializeAws_json1_1PutOrganizationConformancePackResponse = (
   context: __SerdeContext
 ): PutOrganizationConformancePackResponse => {
   return {
-    __type: "PutOrganizationConformancePackResponse",
     OrganizationConformancePackArn:
       output.OrganizationConformancePackArn !== undefined && output.OrganizationConformancePackArn !== null
         ? output.OrganizationConformancePackArn
@@ -12103,7 +11892,6 @@ const deserializeAws_json1_1PutRemediationConfigurationsResponse = (
   context: __SerdeContext
 ): PutRemediationConfigurationsResponse => {
   return {
-    __type: "PutRemediationConfigurationsResponse",
     FailedBatches:
       output.FailedBatches !== undefined && output.FailedBatches !== null
         ? deserializeAws_json1_1FailedRemediationBatches(output.FailedBatches, context)
@@ -12116,7 +11904,6 @@ const deserializeAws_json1_1PutRemediationExceptionsResponse = (
   context: __SerdeContext
 ): PutRemediationExceptionsResponse => {
   return {
-    __type: "PutRemediationExceptionsResponse",
     FailedBatches:
       output.FailedBatches !== undefined && output.FailedBatches !== null
         ? deserializeAws_json1_1FailedRemediationExceptionBatches(output.FailedBatches, context)
@@ -12129,7 +11916,6 @@ const deserializeAws_json1_1PutRetentionConfigurationResponse = (
   context: __SerdeContext
 ): PutRetentionConfigurationResponse => {
   return {
-    __type: "PutRetentionConfigurationResponse",
     RetentionConfiguration:
       output.RetentionConfiguration !== undefined && output.RetentionConfiguration !== null
         ? deserializeAws_json1_1RetentionConfiguration(output.RetentionConfiguration, context)
@@ -12139,7 +11925,6 @@ const deserializeAws_json1_1PutRetentionConfigurationResponse = (
 
 const deserializeAws_json1_1QueryInfo = (output: any, context: __SerdeContext): QueryInfo => {
   return {
-    __type: "QueryInfo",
     SelectFields:
       output.SelectFields !== undefined && output.SelectFields !== null
         ? deserializeAws_json1_1FieldInfoList(output.SelectFields, context)
@@ -12149,7 +11934,6 @@ const deserializeAws_json1_1QueryInfo = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1RecordingGroup = (output: any, context: __SerdeContext): RecordingGroup => {
   return {
-    __type: "RecordingGroup",
     allSupported: output.allSupported !== undefined && output.allSupported !== null ? output.allSupported : undefined,
     includeGlobalResourceTypes:
       output.includeGlobalResourceTypes !== undefined && output.includeGlobalResourceTypes !== null
@@ -12168,7 +11952,6 @@ const deserializeAws_json1_1RelatedEventList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Relationship = (output: any, context: __SerdeContext): Relationship => {
   return {
-    __type: "Relationship",
     relationshipName:
       output.relationshipName !== undefined && output.relationshipName !== null ? output.relationshipName : undefined,
     resourceId: output.resourceId !== undefined && output.resourceId !== null ? output.resourceId : undefined,
@@ -12186,7 +11969,6 @@ const deserializeAws_json1_1RemediationConfiguration = (
   context: __SerdeContext
 ): RemediationConfiguration => {
   return {
-    __type: "RemediationConfiguration",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Automatic: output.Automatic !== undefined && output.Automatic !== null ? output.Automatic : undefined,
     ConfigRuleName:
@@ -12226,7 +12008,6 @@ const deserializeAws_json1_1RemediationConfigurations = (
 
 const deserializeAws_json1_1RemediationException = (output: any, context: __SerdeContext): RemediationException => {
   return {
-    __type: "RemediationException",
     ConfigRuleName:
       output.ConfigRuleName !== undefined && output.ConfigRuleName !== null ? output.ConfigRuleName : undefined,
     ExpirationTime:
@@ -12244,7 +12025,6 @@ const deserializeAws_json1_1RemediationExceptionResourceKey = (
   context: __SerdeContext
 ): RemediationExceptionResourceKey => {
   return {
-    __type: "RemediationExceptionResourceKey",
     ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
   } as any;
@@ -12266,7 +12046,6 @@ const deserializeAws_json1_1RemediationExecutionStatus = (
   context: __SerdeContext
 ): RemediationExecutionStatus => {
   return {
-    __type: "RemediationExecutionStatus",
     InvocationTime:
       output.InvocationTime !== undefined && output.InvocationTime !== null
         ? new Date(Math.round(output.InvocationTime * 1000))
@@ -12299,7 +12078,6 @@ const deserializeAws_json1_1RemediationExecutionStep = (
   context: __SerdeContext
 ): RemediationExecutionStep => {
   return {
-    __type: "RemediationExecutionStep",
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     StartTime:
@@ -12326,7 +12104,6 @@ const deserializeAws_json1_1RemediationInProgressException = (
   context: __SerdeContext
 ): RemediationInProgressException => {
   return {
-    __type: "RemediationInProgressException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -12349,7 +12126,6 @@ const deserializeAws_json1_1RemediationParameterValue = (
   context: __SerdeContext
 ): RemediationParameterValue => {
   return {
-    __type: "RemediationParameterValue",
     ResourceValue:
       output.ResourceValue !== undefined && output.ResourceValue !== null
         ? deserializeAws_json1_1ResourceValue(output.ResourceValue, context)
@@ -12363,7 +12139,6 @@ const deserializeAws_json1_1RemediationParameterValue = (
 
 const deserializeAws_json1_1ResourceCount = (output: any, context: __SerdeContext): ResourceCount => {
   return {
-    __type: "ResourceCount",
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
   } as any;
@@ -12375,7 +12150,6 @@ const deserializeAws_json1_1ResourceCounts = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1ResourceIdentifier = (output: any, context: __SerdeContext): ResourceIdentifier => {
   return {
-    __type: "ResourceIdentifier",
     resourceDeletionTime:
       output.resourceDeletionTime !== undefined && output.resourceDeletionTime !== null
         ? new Date(Math.round(output.resourceDeletionTime * 1000))
@@ -12392,14 +12166,12 @@ const deserializeAws_json1_1ResourceIdentifierList = (output: any, context: __Se
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResourceKey = (output: any, context: __SerdeContext): ResourceKey => {
   return {
-    __type: "ResourceKey",
     resourceId: output.resourceId !== undefined && output.resourceId !== null ? output.resourceId : undefined,
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
   } as any;
@@ -12414,7 +12186,6 @@ const deserializeAws_json1_1ResourceNotDiscoveredException = (
   context: __SerdeContext
 ): ResourceNotDiscoveredException => {
   return {
-    __type: "ResourceNotDiscoveredException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -12424,7 +12195,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -12439,7 +12209,6 @@ const deserializeAws_json1_1ResourceTypesScope = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ResourceValue = (output: any, context: __SerdeContext): ResourceValue => {
   return {
-    __type: "ResourceValue",
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
 };
@@ -12450,7 +12219,6 @@ const deserializeAws_json1_1Results = (output: any, context: __SerdeContext): st
 
 const deserializeAws_json1_1RetentionConfiguration = (output: any, context: __SerdeContext): RetentionConfiguration => {
   return {
-    __type: "RetentionConfiguration",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     RetentionPeriodInDays:
       output.RetentionPeriodInDays !== undefined && output.RetentionPeriodInDays !== null
@@ -12468,7 +12236,6 @@ const deserializeAws_json1_1RetentionConfigurationList = (
 
 const deserializeAws_json1_1Scope = (output: any, context: __SerdeContext): Scope => {
   return {
-    __type: "Scope",
     ComplianceResourceId:
       output.ComplianceResourceId !== undefined && output.ComplianceResourceId !== null
         ? output.ComplianceResourceId
@@ -12487,7 +12254,6 @@ const deserializeAws_json1_1SelectAggregateResourceConfigResponse = (
   context: __SerdeContext
 ): SelectAggregateResourceConfigResponse => {
   return {
-    __type: "SelectAggregateResourceConfigResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     QueryInfo:
       output.QueryInfo !== undefined && output.QueryInfo !== null
@@ -12505,7 +12271,6 @@ const deserializeAws_json1_1SelectResourceConfigResponse = (
   context: __SerdeContext
 ): SelectResourceConfigResponse => {
   return {
-    __type: "SelectResourceConfigResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     QueryInfo:
       output.QueryInfo !== undefined && output.QueryInfo !== null
@@ -12520,7 +12285,6 @@ const deserializeAws_json1_1SelectResourceConfigResponse = (
 
 const deserializeAws_json1_1Source = (output: any, context: __SerdeContext): Source => {
   return {
-    __type: "Source",
     Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
     SourceDetails:
       output.SourceDetails !== undefined && output.SourceDetails !== null
@@ -12533,7 +12297,6 @@ const deserializeAws_json1_1Source = (output: any, context: __SerdeContext): Sou
 
 const deserializeAws_json1_1SourceDetail = (output: any, context: __SerdeContext): SourceDetail => {
   return {
-    __type: "SourceDetail",
     EventSource: output.EventSource !== undefined && output.EventSource !== null ? output.EventSource : undefined,
     MaximumExecutionFrequency:
       output.MaximumExecutionFrequency !== undefined && output.MaximumExecutionFrequency !== null
@@ -12549,7 +12312,6 @@ const deserializeAws_json1_1SourceDetails = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1SsmControls = (output: any, context: __SerdeContext): SsmControls => {
   return {
-    __type: "SsmControls",
     ConcurrentExecutionRatePercentage:
       output.ConcurrentExecutionRatePercentage !== undefined && output.ConcurrentExecutionRatePercentage !== null
         ? output.ConcurrentExecutionRatePercentage
@@ -12563,9 +12325,7 @@ const deserializeAws_json1_1StartConfigRulesEvaluationResponse = (
   output: any,
   context: __SerdeContext
 ): StartConfigRulesEvaluationResponse => {
-  return {
-    __type: "StartConfigRulesEvaluationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StartRemediationExecutionResponse = (
@@ -12573,7 +12333,6 @@ const deserializeAws_json1_1StartRemediationExecutionResponse = (
   context: __SerdeContext
 ): StartRemediationExecutionResponse => {
   return {
-    __type: "StartRemediationExecutionResponse",
     FailedItems:
       output.FailedItems !== undefined && output.FailedItems !== null
         ? deserializeAws_json1_1ResourceKeys(output.FailedItems, context)
@@ -12589,7 +12348,6 @@ const deserializeAws_json1_1StaticParameterValues = (output: any, context: __Ser
 
 const deserializeAws_json1_1StaticValue = (output: any, context: __SerdeContext): StaticValue => {
   return {
-    __type: "StaticValue",
     Values:
       output.Values !== undefined && output.Values !== null
         ? deserializeAws_json1_1StaticParameterValues(output.Values, context)
@@ -12612,7 +12370,6 @@ const deserializeAws_json1_1SupplementaryConfiguration = (
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -12634,7 +12391,6 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): { [ke
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
-    __type: "TooManyTagsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -12648,7 +12404,6 @@ const deserializeAws_json1_1UnprocessedResourceIdentifierList = (
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    __type: "ValidationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };

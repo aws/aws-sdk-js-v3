@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.</p>
  */
 export interface AccessEndpoint {
-  __type?: "AccessEndpoint";
   /**
    * <p>The type of interface endpoint.</p>
    */
@@ -21,7 +20,6 @@ export namespace AccessEndpoint {
   export const filterSensitiveLog = (obj: AccessEndpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessEndpoint => __isa(o, "AccessEndpoint");
 }
 
 export enum AccessEndpointType {
@@ -40,7 +38,6 @@ export enum Action {
  * <p>Describes an application in the application catalog.</p>
  */
 export interface Application {
-  __type?: "Application";
   /**
    * <p>The arguments that are passed to the application at launch.</p>
    */
@@ -81,14 +78,12 @@ export namespace Application {
   export const filterSensitiveLog = (obj: Application): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Application => __isa(o, "Application");
 }
 
 /**
  * <p>The persistent application settings for users of a stack.</p>
  */
 export interface ApplicationSettings {
-  __type?: "ApplicationSettings";
   /**
    * <p>Enables or disables persistent application settings for users during their streaming sessions. </p>
    */
@@ -104,14 +99,12 @@ export namespace ApplicationSettings {
   export const filterSensitiveLog = (obj: ApplicationSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationSettings => __isa(o, "ApplicationSettings");
 }
 
 /**
  * <p>Describes the persistent application settings for users of a stack.</p>
  */
 export interface ApplicationSettingsResponse {
-  __type?: "ApplicationSettingsResponse";
   /**
    * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored.</p>
    */
@@ -133,11 +126,9 @@ export namespace ApplicationSettingsResponse {
   export const filterSensitiveLog = (obj: ApplicationSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationSettingsResponse => __isa(o, "ApplicationSettingsResponse");
 }
 
 export interface AssociateFleetRequest {
-  __type?: "AssociateFleetRequest";
   /**
    * <p>The name of the stack.</p>
    */
@@ -153,18 +144,14 @@ export namespace AssociateFleetRequest {
   export const filterSensitiveLog = (obj: AssociateFleetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateFleetRequest => __isa(o, "AssociateFleetRequest");
 }
 
-export interface AssociateFleetResult {
-  __type?: "AssociateFleetResult";
-}
+export interface AssociateFleetResult {}
 
 export namespace AssociateFleetResult {
   export const filterSensitiveLog = (obj: AssociateFleetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateFleetResult => __isa(o, "AssociateFleetResult");
 }
 
 export enum AuthenticationType {
@@ -174,7 +161,6 @@ export enum AuthenticationType {
 }
 
 export interface BatchAssociateUserStackRequest {
-  __type?: "BatchAssociateUserStackRequest";
   /**
    * <p>The list of UserStackAssociation objects.</p>
    */
@@ -188,11 +174,9 @@ export namespace BatchAssociateUserStackRequest {
       UserStackAssociations: obj.UserStackAssociations.map((item) => UserStackAssociation.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is BatchAssociateUserStackRequest => __isa(o, "BatchAssociateUserStackRequest");
 }
 
 export interface BatchAssociateUserStackResult {
-  __type?: "BatchAssociateUserStackResult";
   /**
    * <p>The list of UserStackAssociationError objects.</p>
    */
@@ -204,11 +188,9 @@ export namespace BatchAssociateUserStackResult {
     ...obj,
     ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationError.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is BatchAssociateUserStackResult => __isa(o, "BatchAssociateUserStackResult");
 }
 
 export interface BatchDisassociateUserStackRequest {
-  __type?: "BatchDisassociateUserStackRequest";
   /**
    * <p>The list of UserStackAssociation objects.</p>
    */
@@ -222,11 +204,9 @@ export namespace BatchDisassociateUserStackRequest {
       UserStackAssociations: obj.UserStackAssociations.map((item) => UserStackAssociation.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is BatchDisassociateUserStackRequest => __isa(o, "BatchDisassociateUserStackRequest");
 }
 
 export interface BatchDisassociateUserStackResult {
-  __type?: "BatchDisassociateUserStackResult";
   /**
    * <p>The list of UserStackAssociationError objects.</p>
    */
@@ -238,14 +218,12 @@ export namespace BatchDisassociateUserStackResult {
     ...obj,
     ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationError.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is BatchDisassociateUserStackResult => __isa(o, "BatchDisassociateUserStackResult");
 }
 
 /**
  * <p>Describes the capacity for a fleet.</p>
  */
 export interface ComputeCapacity {
-  __type?: "ComputeCapacity";
   /**
    * <p>The desired number of streaming instances.</p>
    */
@@ -256,14 +234,12 @@ export namespace ComputeCapacity {
   export const filterSensitiveLog = (obj: ComputeCapacity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComputeCapacity => __isa(o, "ComputeCapacity");
 }
 
 /**
  * <p>Describes the capacity status for a fleet.</p>
  */
 export interface ComputeCapacityStatus {
-  __type?: "ComputeCapacityStatus";
   /**
    * <p>The number of instances in use for streaming.</p>
    */
@@ -290,7 +266,6 @@ export namespace ComputeCapacityStatus {
   export const filterSensitiveLog = (obj: ComputeCapacityStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComputeCapacityStatus => __isa(o, "ComputeCapacityStatus");
 }
 
 /**
@@ -309,11 +284,9 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 export interface CopyImageRequest {
-  __type?: "CopyImageRequest";
   /**
    * <p>The name of the image to copy.</p>
    */
@@ -339,11 +312,9 @@ export namespace CopyImageRequest {
   export const filterSensitiveLog = (obj: CopyImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyImageRequest => __isa(o, "CopyImageRequest");
 }
 
 export interface CopyImageResponse {
-  __type?: "CopyImageResponse";
   /**
    * <p>The name of the destination image.</p>
    */
@@ -354,11 +325,9 @@ export namespace CopyImageResponse {
   export const filterSensitiveLog = (obj: CopyImageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyImageResponse => __isa(o, "CopyImageResponse");
 }
 
 export interface CreateDirectoryConfigRequest {
-  __type?: "CreateDirectoryConfigRequest";
   /**
    * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
    */
@@ -382,11 +351,9 @@ export namespace CreateDirectoryConfigRequest {
       ServiceAccountCredentials: ServiceAccountCredentials.filterSensitiveLog(obj.ServiceAccountCredentials),
     }),
   });
-  export const isa = (o: any): o is CreateDirectoryConfigRequest => __isa(o, "CreateDirectoryConfigRequest");
 }
 
 export interface CreateDirectoryConfigResult {
-  __type?: "CreateDirectoryConfigResult";
   /**
    * <p>Information about the directory configuration.</p>
    */
@@ -398,11 +365,9 @@ export namespace CreateDirectoryConfigResult {
     ...obj,
     ...(obj.DirectoryConfig && { DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig) }),
   });
-  export const isa = (o: any): o is CreateDirectoryConfigResult => __isa(o, "CreateDirectoryConfigResult");
 }
 
 export interface CreateFleetRequest {
-  __type?: "CreateFleetRequest";
   /**
    * <p>Enables or disables default internet access for the fleet.</p>
    */
@@ -587,11 +552,9 @@ export namespace CreateFleetRequest {
   export const filterSensitiveLog = (obj: CreateFleetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFleetRequest => __isa(o, "CreateFleetRequest");
 }
 
 export interface CreateFleetResult {
-  __type?: "CreateFleetResult";
   /**
    * <p>Information about the fleet.</p>
    */
@@ -602,11 +565,9 @@ export namespace CreateFleetResult {
   export const filterSensitiveLog = (obj: CreateFleetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFleetResult => __isa(o, "CreateFleetResult");
 }
 
 export interface CreateImageBuilderRequest {
-  __type?: "CreateImageBuilderRequest";
   /**
    * <p>Enables or disables default internet access for the image builder.</p>
    */
@@ -748,11 +709,9 @@ export namespace CreateImageBuilderRequest {
   export const filterSensitiveLog = (obj: CreateImageBuilderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImageBuilderRequest => __isa(o, "CreateImageBuilderRequest");
 }
 
 export interface CreateImageBuilderResult {
-  __type?: "CreateImageBuilderResult";
   /**
    * <p>Information about the image builder.</p>
    */
@@ -763,11 +722,9 @@ export namespace CreateImageBuilderResult {
   export const filterSensitiveLog = (obj: CreateImageBuilderResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImageBuilderResult => __isa(o, "CreateImageBuilderResult");
 }
 
 export interface CreateImageBuilderStreamingURLRequest {
-  __type?: "CreateImageBuilderStreamingURLRequest";
   /**
    * <p>The name of the image builder.</p>
    */
@@ -784,12 +741,9 @@ export namespace CreateImageBuilderStreamingURLRequest {
   export const filterSensitiveLog = (obj: CreateImageBuilderStreamingURLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImageBuilderStreamingURLRequest =>
-    __isa(o, "CreateImageBuilderStreamingURLRequest");
 }
 
 export interface CreateImageBuilderStreamingURLResult {
-  __type?: "CreateImageBuilderStreamingURLResult";
   /**
    * <p>The URL to start the AppStream 2.0 streaming session.</p>
    */
@@ -805,12 +759,9 @@ export namespace CreateImageBuilderStreamingURLResult {
   export const filterSensitiveLog = (obj: CreateImageBuilderStreamingURLResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateImageBuilderStreamingURLResult =>
-    __isa(o, "CreateImageBuilderStreamingURLResult");
 }
 
 export interface CreateStackRequest {
-  __type?: "CreateStackRequest";
   /**
    * <p>The URL that users are redirected to after their streaming session ends.</p>
    */
@@ -878,11 +829,9 @@ export namespace CreateStackRequest {
   export const filterSensitiveLog = (obj: CreateStackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStackRequest => __isa(o, "CreateStackRequest");
 }
 
 export interface CreateStackResult {
-  __type?: "CreateStackResult";
   /**
    * <p>Information about the stack.</p>
    */
@@ -893,11 +842,9 @@ export namespace CreateStackResult {
   export const filterSensitiveLog = (obj: CreateStackResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStackResult => __isa(o, "CreateStackResult");
 }
 
 export interface CreateStreamingURLRequest {
-  __type?: "CreateStreamingURLRequest";
   /**
    * <p>The name of the fleet.</p>
    */
@@ -935,11 +882,9 @@ export namespace CreateStreamingURLRequest {
   export const filterSensitiveLog = (obj: CreateStreamingURLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamingURLRequest => __isa(o, "CreateStreamingURLRequest");
 }
 
 export interface CreateStreamingURLResult {
-  __type?: "CreateStreamingURLResult";
   /**
    * <p>The URL to start the AppStream 2.0 streaming session.</p>
    */
@@ -955,23 +900,17 @@ export namespace CreateStreamingURLResult {
   export const filterSensitiveLog = (obj: CreateStreamingURLResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStreamingURLResult => __isa(o, "CreateStreamingURLResult");
 }
 
-export interface CreateUsageReportSubscriptionRequest {
-  __type?: "CreateUsageReportSubscriptionRequest";
-}
+export interface CreateUsageReportSubscriptionRequest {}
 
 export namespace CreateUsageReportSubscriptionRequest {
   export const filterSensitiveLog = (obj: CreateUsageReportSubscriptionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUsageReportSubscriptionRequest =>
-    __isa(o, "CreateUsageReportSubscriptionRequest");
 }
 
 export interface CreateUsageReportSubscriptionResult {
-  __type?: "CreateUsageReportSubscriptionResult";
   /**
    * <p>The schedule for generating usage reports.</p>
    */
@@ -993,12 +932,9 @@ export namespace CreateUsageReportSubscriptionResult {
   export const filterSensitiveLog = (obj: CreateUsageReportSubscriptionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUsageReportSubscriptionResult =>
-    __isa(o, "CreateUsageReportSubscriptionResult");
 }
 
 export interface CreateUserRequest {
-  __type?: "CreateUserRequest";
   /**
    * <p>The first name, or given name, of the user.</p>
    */
@@ -1040,22 +976,17 @@ export namespace CreateUserRequest {
     ...(obj.UserName && { UserName: SENSITIVE_STRING }),
     ...(obj.LastName && { LastName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
-export interface CreateUserResult {
-  __type?: "CreateUserResult";
-}
+export interface CreateUserResult {}
 
 export namespace CreateUserResult {
   export const filterSensitiveLog = (obj: CreateUserResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserResult => __isa(o, "CreateUserResult");
 }
 
 export interface DeleteDirectoryConfigRequest {
-  __type?: "DeleteDirectoryConfigRequest";
   /**
    * <p>The name of the directory configuration.</p>
    */
@@ -1066,22 +997,17 @@ export namespace DeleteDirectoryConfigRequest {
   export const filterSensitiveLog = (obj: DeleteDirectoryConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDirectoryConfigRequest => __isa(o, "DeleteDirectoryConfigRequest");
 }
 
-export interface DeleteDirectoryConfigResult {
-  __type?: "DeleteDirectoryConfigResult";
-}
+export interface DeleteDirectoryConfigResult {}
 
 export namespace DeleteDirectoryConfigResult {
   export const filterSensitiveLog = (obj: DeleteDirectoryConfigResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDirectoryConfigResult => __isa(o, "DeleteDirectoryConfigResult");
 }
 
 export interface DeleteFleetRequest {
-  __type?: "DeleteFleetRequest";
   /**
    * <p>The name of the fleet.</p>
    */
@@ -1092,22 +1018,17 @@ export namespace DeleteFleetRequest {
   export const filterSensitiveLog = (obj: DeleteFleetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetRequest => __isa(o, "DeleteFleetRequest");
 }
 
-export interface DeleteFleetResult {
-  __type?: "DeleteFleetResult";
-}
+export interface DeleteFleetResult {}
 
 export namespace DeleteFleetResult {
   export const filterSensitiveLog = (obj: DeleteFleetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetResult => __isa(o, "DeleteFleetResult");
 }
 
 export interface DeleteImageBuilderRequest {
-  __type?: "DeleteImageBuilderRequest";
   /**
    * <p>The name of the image builder.</p>
    */
@@ -1118,11 +1039,9 @@ export namespace DeleteImageBuilderRequest {
   export const filterSensitiveLog = (obj: DeleteImageBuilderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImageBuilderRequest => __isa(o, "DeleteImageBuilderRequest");
 }
 
 export interface DeleteImageBuilderResult {
-  __type?: "DeleteImageBuilderResult";
   /**
    * <p>Information about the image builder.</p>
    */
@@ -1133,11 +1052,9 @@ export namespace DeleteImageBuilderResult {
   export const filterSensitiveLog = (obj: DeleteImageBuilderResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImageBuilderResult => __isa(o, "DeleteImageBuilderResult");
 }
 
 export interface DeleteImagePermissionsRequest {
-  __type?: "DeleteImagePermissionsRequest";
   /**
    * <p>The 12-digit identifier of the AWS account for which to delete image permissions.</p>
    */
@@ -1153,22 +1070,17 @@ export namespace DeleteImagePermissionsRequest {
   export const filterSensitiveLog = (obj: DeleteImagePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImagePermissionsRequest => __isa(o, "DeleteImagePermissionsRequest");
 }
 
-export interface DeleteImagePermissionsResult {
-  __type?: "DeleteImagePermissionsResult";
-}
+export interface DeleteImagePermissionsResult {}
 
 export namespace DeleteImagePermissionsResult {
   export const filterSensitiveLog = (obj: DeleteImagePermissionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImagePermissionsResult => __isa(o, "DeleteImagePermissionsResult");
 }
 
 export interface DeleteImageRequest {
-  __type?: "DeleteImageRequest";
   /**
    * <p>The name of the image.</p>
    */
@@ -1179,11 +1091,9 @@ export namespace DeleteImageRequest {
   export const filterSensitiveLog = (obj: DeleteImageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImageRequest => __isa(o, "DeleteImageRequest");
 }
 
 export interface DeleteImageResult {
-  __type?: "DeleteImageResult";
   /**
    * <p>Information about the image.</p>
    */
@@ -1194,11 +1104,9 @@ export namespace DeleteImageResult {
   export const filterSensitiveLog = (obj: DeleteImageResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImageResult => __isa(o, "DeleteImageResult");
 }
 
 export interface DeleteStackRequest {
-  __type?: "DeleteStackRequest";
   /**
    * <p>The name of the stack.</p>
    */
@@ -1209,46 +1117,33 @@ export namespace DeleteStackRequest {
   export const filterSensitiveLog = (obj: DeleteStackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStackRequest => __isa(o, "DeleteStackRequest");
 }
 
-export interface DeleteStackResult {
-  __type?: "DeleteStackResult";
-}
+export interface DeleteStackResult {}
 
 export namespace DeleteStackResult {
   export const filterSensitiveLog = (obj: DeleteStackResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStackResult => __isa(o, "DeleteStackResult");
 }
 
-export interface DeleteUsageReportSubscriptionRequest {
-  __type?: "DeleteUsageReportSubscriptionRequest";
-}
+export interface DeleteUsageReportSubscriptionRequest {}
 
 export namespace DeleteUsageReportSubscriptionRequest {
   export const filterSensitiveLog = (obj: DeleteUsageReportSubscriptionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUsageReportSubscriptionRequest =>
-    __isa(o, "DeleteUsageReportSubscriptionRequest");
 }
 
-export interface DeleteUsageReportSubscriptionResult {
-  __type?: "DeleteUsageReportSubscriptionResult";
-}
+export interface DeleteUsageReportSubscriptionResult {}
 
 export namespace DeleteUsageReportSubscriptionResult {
   export const filterSensitiveLog = (obj: DeleteUsageReportSubscriptionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUsageReportSubscriptionResult =>
-    __isa(o, "DeleteUsageReportSubscriptionResult");
 }
 
 export interface DeleteUserRequest {
-  __type?: "DeleteUserRequest";
   /**
    * <p>The email address of the user.</p>
    *
@@ -1269,22 +1164,17 @@ export namespace DeleteUserRequest {
     ...obj,
     ...(obj.UserName && { UserName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
-export interface DeleteUserResult {
-  __type?: "DeleteUserResult";
-}
+export interface DeleteUserResult {}
 
 export namespace DeleteUserResult {
   export const filterSensitiveLog = (obj: DeleteUserResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserResult => __isa(o, "DeleteUserResult");
 }
 
 export interface DescribeDirectoryConfigsRequest {
-  __type?: "DescribeDirectoryConfigsRequest";
   /**
    * <p>The directory names.</p>
    */
@@ -1305,11 +1195,9 @@ export namespace DescribeDirectoryConfigsRequest {
   export const filterSensitiveLog = (obj: DescribeDirectoryConfigsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDirectoryConfigsRequest => __isa(o, "DescribeDirectoryConfigsRequest");
 }
 
 export interface DescribeDirectoryConfigsResult {
-  __type?: "DescribeDirectoryConfigsResult";
   /**
    * <p>Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response. </p>
    */
@@ -1328,11 +1216,9 @@ export namespace DescribeDirectoryConfigsResult {
       DirectoryConfigs: obj.DirectoryConfigs.map((item) => DirectoryConfig.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is DescribeDirectoryConfigsResult => __isa(o, "DescribeDirectoryConfigsResult");
 }
 
 export interface DescribeFleetsRequest {
-  __type?: "DescribeFleetsRequest";
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
@@ -1348,11 +1234,9 @@ export namespace DescribeFleetsRequest {
   export const filterSensitiveLog = (obj: DescribeFleetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetsRequest => __isa(o, "DescribeFleetsRequest");
 }
 
 export interface DescribeFleetsResult {
-  __type?: "DescribeFleetsResult";
   /**
    * <p>Information about the fleets.</p>
    */
@@ -1368,11 +1252,9 @@ export namespace DescribeFleetsResult {
   export const filterSensitiveLog = (obj: DescribeFleetsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetsResult => __isa(o, "DescribeFleetsResult");
 }
 
 export interface DescribeImageBuildersRequest {
-  __type?: "DescribeImageBuildersRequest";
   /**
    * <p>The maximum size of each page of results.</p>
    */
@@ -1393,11 +1275,9 @@ export namespace DescribeImageBuildersRequest {
   export const filterSensitiveLog = (obj: DescribeImageBuildersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImageBuildersRequest => __isa(o, "DescribeImageBuildersRequest");
 }
 
 export interface DescribeImageBuildersResult {
-  __type?: "DescribeImageBuildersResult";
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -1413,11 +1293,9 @@ export namespace DescribeImageBuildersResult {
   export const filterSensitiveLog = (obj: DescribeImageBuildersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImageBuildersResult => __isa(o, "DescribeImageBuildersResult");
 }
 
 export interface DescribeImagePermissionsRequest {
-  __type?: "DescribeImagePermissionsRequest";
   /**
    * <p>The name of the private image for which to describe permissions. The image must be one that you own. </p>
    */
@@ -1443,11 +1321,9 @@ export namespace DescribeImagePermissionsRequest {
   export const filterSensitiveLog = (obj: DescribeImagePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImagePermissionsRequest => __isa(o, "DescribeImagePermissionsRequest");
 }
 
 export interface DescribeImagePermissionsResult {
-  __type?: "DescribeImagePermissionsResult";
   /**
    * <p>The permissions for a private image that you own. </p>
    */
@@ -1468,11 +1344,9 @@ export namespace DescribeImagePermissionsResult {
   export const filterSensitiveLog = (obj: DescribeImagePermissionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImagePermissionsResult => __isa(o, "DescribeImagePermissionsResult");
 }
 
 export interface DescribeImagesRequest {
-  __type?: "DescribeImagesRequest";
   /**
    * <p>The ARNs of the public, private, and shared images to describe.</p>
    */
@@ -1503,11 +1377,9 @@ export namespace DescribeImagesRequest {
   export const filterSensitiveLog = (obj: DescribeImagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesRequest => __isa(o, "DescribeImagesRequest");
 }
 
 export interface DescribeImagesResult {
-  __type?: "DescribeImagesResult";
   /**
    * <p>Information about the images.</p>
    */
@@ -1523,11 +1395,9 @@ export namespace DescribeImagesResult {
   export const filterSensitiveLog = (obj: DescribeImagesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImagesResult => __isa(o, "DescribeImagesResult");
 }
 
 export interface DescribeSessionsRequest {
-  __type?: "DescribeSessionsRequest";
   /**
    * <p>The authentication method. Specify <code>API</code> for a user
    *             authenticated using a streaming URL or <code>SAML</code> for a SAML federated user.
@@ -1565,11 +1435,9 @@ export namespace DescribeSessionsRequest {
   export const filterSensitiveLog = (obj: DescribeSessionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSessionsRequest => __isa(o, "DescribeSessionsRequest");
 }
 
 export interface DescribeSessionsResult {
-  __type?: "DescribeSessionsResult";
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -1585,11 +1453,9 @@ export namespace DescribeSessionsResult {
   export const filterSensitiveLog = (obj: DescribeSessionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSessionsResult => __isa(o, "DescribeSessionsResult");
 }
 
 export interface DescribeStacksRequest {
-  __type?: "DescribeStacksRequest";
   /**
    * <p>The names of the stacks to describe.</p>
    */
@@ -1605,11 +1471,9 @@ export namespace DescribeStacksRequest {
   export const filterSensitiveLog = (obj: DescribeStacksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStacksRequest => __isa(o, "DescribeStacksRequest");
 }
 
 export interface DescribeStacksResult {
-  __type?: "DescribeStacksResult";
   /**
    * <p>Information about the stacks.</p>
    */
@@ -1625,11 +1489,9 @@ export namespace DescribeStacksResult {
   export const filterSensitiveLog = (obj: DescribeStacksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStacksResult => __isa(o, "DescribeStacksResult");
 }
 
 export interface DescribeUsageReportSubscriptionsRequest {
-  __type?: "DescribeUsageReportSubscriptionsRequest";
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
@@ -1645,12 +1507,9 @@ export namespace DescribeUsageReportSubscriptionsRequest {
   export const filterSensitiveLog = (obj: DescribeUsageReportSubscriptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUsageReportSubscriptionsRequest =>
-    __isa(o, "DescribeUsageReportSubscriptionsRequest");
 }
 
 export interface DescribeUsageReportSubscriptionsResult {
-  __type?: "DescribeUsageReportSubscriptionsResult";
   /**
    * <p>Information about the usage report subscription.</p>
    */
@@ -1666,12 +1525,9 @@ export namespace DescribeUsageReportSubscriptionsResult {
   export const filterSensitiveLog = (obj: DescribeUsageReportSubscriptionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUsageReportSubscriptionsResult =>
-    __isa(o, "DescribeUsageReportSubscriptionsResult");
 }
 
 export interface DescribeUsersRequest {
-  __type?: "DescribeUsersRequest";
   /**
    * <p>The maximum size of each page of results.</p>
    */
@@ -1692,11 +1548,9 @@ export namespace DescribeUsersRequest {
   export const filterSensitiveLog = (obj: DescribeUsersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUsersRequest => __isa(o, "DescribeUsersRequest");
 }
 
 export interface DescribeUsersResult {
-  __type?: "DescribeUsersResult";
   /**
    * <p>Information about users in the user pool.</p>
    */
@@ -1713,11 +1567,9 @@ export namespace DescribeUsersResult {
     ...obj,
     ...(obj.Users && { Users: obj.Users.map((item) => User.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is DescribeUsersResult => __isa(o, "DescribeUsersResult");
 }
 
 export interface DescribeUserStackAssociationsRequest {
-  __type?: "DescribeUserStackAssociationsRequest";
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
@@ -1753,12 +1605,9 @@ export namespace DescribeUserStackAssociationsRequest {
     ...obj,
     ...(obj.UserName && { UserName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DescribeUserStackAssociationsRequest =>
-    __isa(o, "DescribeUserStackAssociationsRequest");
 }
 
 export interface DescribeUserStackAssociationsResult {
-  __type?: "DescribeUserStackAssociationsResult";
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -1777,15 +1626,12 @@ export namespace DescribeUserStackAssociationsResult {
       UserStackAssociations: obj.UserStackAssociations.map((item) => UserStackAssociation.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is DescribeUserStackAssociationsResult =>
-    __isa(o, "DescribeUserStackAssociationsResult");
 }
 
 /**
  * <p>Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  */
 export interface DirectoryConfig {
-  __type?: "DirectoryConfig";
   /**
    * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
    */
@@ -1814,11 +1660,9 @@ export namespace DirectoryConfig {
       ServiceAccountCredentials: ServiceAccountCredentials.filterSensitiveLog(obj.ServiceAccountCredentials),
     }),
   });
-  export const isa = (o: any): o is DirectoryConfig => __isa(o, "DirectoryConfig");
 }
 
 export interface DisableUserRequest {
-  __type?: "DisableUserRequest";
   /**
    * <p>The authentication type for the user. You must specify USERPOOL.</p>
    */
@@ -1839,22 +1683,17 @@ export namespace DisableUserRequest {
     ...obj,
     ...(obj.UserName && { UserName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DisableUserRequest => __isa(o, "DisableUserRequest");
 }
 
-export interface DisableUserResult {
-  __type?: "DisableUserResult";
-}
+export interface DisableUserResult {}
 
 export namespace DisableUserResult {
   export const filterSensitiveLog = (obj: DisableUserResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableUserResult => __isa(o, "DisableUserResult");
 }
 
 export interface DisassociateFleetRequest {
-  __type?: "DisassociateFleetRequest";
   /**
    * <p>The name of the fleet.</p>
    */
@@ -1870,25 +1709,20 @@ export namespace DisassociateFleetRequest {
   export const filterSensitiveLog = (obj: DisassociateFleetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateFleetRequest => __isa(o, "DisassociateFleetRequest");
 }
 
-export interface DisassociateFleetResult {
-  __type?: "DisassociateFleetResult";
-}
+export interface DisassociateFleetResult {}
 
 export namespace DisassociateFleetResult {
   export const filterSensitiveLog = (obj: DisassociateFleetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateFleetResult => __isa(o, "DisassociateFleetResult");
 }
 
 /**
  * <p>Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  */
 export interface DomainJoinInfo {
-  __type?: "DomainJoinInfo";
   /**
    * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
    */
@@ -1904,11 +1738,9 @@ export namespace DomainJoinInfo {
   export const filterSensitiveLog = (obj: DomainJoinInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainJoinInfo => __isa(o, "DomainJoinInfo");
 }
 
 export interface EnableUserRequest {
-  __type?: "EnableUserRequest";
   /**
    * <p>The authentication type for the user. You must specify USERPOOL.</p>
    */
@@ -1929,22 +1761,17 @@ export namespace EnableUserRequest {
     ...obj,
     ...(obj.UserName && { UserName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is EnableUserRequest => __isa(o, "EnableUserRequest");
 }
 
-export interface EnableUserResult {
-  __type?: "EnableUserResult";
-}
+export interface EnableUserResult {}
 
 export namespace EnableUserResult {
   export const filterSensitiveLog = (obj: EnableUserResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableUserResult => __isa(o, "EnableUserResult");
 }
 
 export interface ExpireSessionRequest {
-  __type?: "ExpireSessionRequest";
   /**
    * <p>The identifier of the streaming session.</p>
    */
@@ -1955,25 +1782,20 @@ export namespace ExpireSessionRequest {
   export const filterSensitiveLog = (obj: ExpireSessionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExpireSessionRequest => __isa(o, "ExpireSessionRequest");
 }
 
-export interface ExpireSessionResult {
-  __type?: "ExpireSessionResult";
-}
+export interface ExpireSessionResult {}
 
 export namespace ExpireSessionResult {
   export const filterSensitiveLog = (obj: ExpireSessionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExpireSessionResult => __isa(o, "ExpireSessionResult");
 }
 
 /**
  * <p>Describes a fleet.</p>
  */
 export interface Fleet {
-  __type?: "Fleet";
   /**
    * <p>The amount of time that a streaming session remains active after users disconnect. If they try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.</p>
    *         <p>Specify a value between 60 and 360000.</p>
@@ -2167,7 +1989,6 @@ export namespace Fleet {
   export const filterSensitiveLog = (obj: Fleet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Fleet => __isa(o, "Fleet");
 }
 
 export enum FleetAttribute {
@@ -2181,7 +2002,6 @@ export enum FleetAttribute {
  * <p>Describes a fleet error.</p>
  */
 export interface FleetError {
-  __type?: "FleetError";
   /**
    * <p>The error message.</p>
    */
@@ -2197,7 +2017,6 @@ export namespace FleetError {
   export const filterSensitiveLog = (obj: FleetError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FleetError => __isa(o, "FleetError");
 }
 
 export enum FleetErrorCode {
@@ -2247,7 +2066,6 @@ export enum FleetType {
  * <p>Describes an image.</p>
  */
 export interface Image {
-  __type?: "Image";
   /**
    * <p>The permissions to provide to the destination AWS account for the specified image.</p>
    */
@@ -2335,14 +2153,12 @@ export namespace Image {
   export const filterSensitiveLog = (obj: Image): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Image => __isa(o, "Image");
 }
 
 /**
  * <p>Describes a virtual machine that is used to create an image. </p>
  */
 export interface ImageBuilder {
-  __type?: "ImageBuilder";
   /**
    * <p>The ARN for the image builder.</p>
    */
@@ -2502,7 +2318,6 @@ export namespace ImageBuilder {
   export const filterSensitiveLog = (obj: ImageBuilder): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageBuilder => __isa(o, "ImageBuilder");
 }
 
 export enum ImageBuilderState {
@@ -2521,7 +2336,6 @@ export enum ImageBuilderState {
  * <p>Describes the reason why the last image builder state change occurred.</p>
  */
 export interface ImageBuilderStateChangeReason {
-  __type?: "ImageBuilderStateChangeReason";
   /**
    * <p>The state change reason code.</p>
    */
@@ -2537,7 +2351,6 @@ export namespace ImageBuilderStateChangeReason {
   export const filterSensitiveLog = (obj: ImageBuilderStateChangeReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageBuilderStateChangeReason => __isa(o, "ImageBuilderStateChangeReason");
 }
 
 export enum ImageBuilderStateChangeReasonCode {
@@ -2549,7 +2362,6 @@ export enum ImageBuilderStateChangeReasonCode {
  * <p>Describes the permissions for an image. </p>
  */
 export interface ImagePermissions {
-  __type?: "ImagePermissions";
   /**
    * <p>Indicates whether the image can be used for a fleet.</p>
    */
@@ -2565,7 +2377,6 @@ export namespace ImagePermissions {
   export const filterSensitiveLog = (obj: ImagePermissions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImagePermissions => __isa(o, "ImagePermissions");
 }
 
 export enum ImageState {
@@ -2580,7 +2391,6 @@ export enum ImageState {
  * <p>Describes the reason why the last image state change occurred.</p>
  */
 export interface ImageStateChangeReason {
-  __type?: "ImageStateChangeReason";
   /**
    * <p>The state change reason message.</p>
    */
@@ -2596,7 +2406,6 @@ export namespace ImageStateChangeReason {
   export const filterSensitiveLog = (obj: ImageStateChangeReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImageStateChangeReason => __isa(o, "ImageStateChangeReason");
 }
 
 export enum ImageStateChangeReasonCode {
@@ -2621,7 +2430,6 @@ export namespace IncompatibleImageException {
   export const filterSensitiveLog = (obj: IncompatibleImageException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncompatibleImageException => __isa(o, "IncompatibleImageException");
 }
 
 /**
@@ -2640,7 +2448,6 @@ export namespace InvalidAccountStatusException {
   export const filterSensitiveLog = (obj: InvalidAccountStatusException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidAccountStatusException => __isa(o, "InvalidAccountStatusException");
 }
 
 /**
@@ -2659,8 +2466,6 @@ export namespace InvalidParameterCombinationException {
   export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterCombinationException =>
-    __isa(o, "InvalidParameterCombinationException");
 }
 
 /**
@@ -2679,14 +2484,12 @@ export namespace InvalidRoleException {
   export const filterSensitiveLog = (obj: InvalidRoleException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRoleException => __isa(o, "InvalidRoleException");
 }
 
 /**
  * <p>Describes the error that is returned when a usage report can't be generated.</p>
  */
 export interface LastReportGenerationExecutionError {
-  __type?: "LastReportGenerationExecutionError";
   /**
    * <p>The error code for the error that is returned when a usage report can't be generated.</p>
    */
@@ -2702,8 +2505,6 @@ export namespace LastReportGenerationExecutionError {
   export const filterSensitiveLog = (obj: LastReportGenerationExecutionError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LastReportGenerationExecutionError =>
-    __isa(o, "LastReportGenerationExecutionError");
 }
 
 /**
@@ -2722,11 +2523,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAssociatedFleetsRequest {
-  __type?: "ListAssociatedFleetsRequest";
   /**
    * <p>The name of the stack.</p>
    */
@@ -2742,11 +2541,9 @@ export namespace ListAssociatedFleetsRequest {
   export const filterSensitiveLog = (obj: ListAssociatedFleetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssociatedFleetsRequest => __isa(o, "ListAssociatedFleetsRequest");
 }
 
 export interface ListAssociatedFleetsResult {
-  __type?: "ListAssociatedFleetsResult";
   /**
    * <p>The name of the fleet.</p>
    */
@@ -2762,11 +2559,9 @@ export namespace ListAssociatedFleetsResult {
   export const filterSensitiveLog = (obj: ListAssociatedFleetsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssociatedFleetsResult => __isa(o, "ListAssociatedFleetsResult");
 }
 
 export interface ListAssociatedStacksRequest {
-  __type?: "ListAssociatedStacksRequest";
   /**
    * <p>The name of the fleet.</p>
    */
@@ -2782,11 +2577,9 @@ export namespace ListAssociatedStacksRequest {
   export const filterSensitiveLog = (obj: ListAssociatedStacksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssociatedStacksRequest => __isa(o, "ListAssociatedStacksRequest");
 }
 
 export interface ListAssociatedStacksResult {
-  __type?: "ListAssociatedStacksResult";
   /**
    * <p>The name of the stack.</p>
    */
@@ -2802,11 +2595,9 @@ export namespace ListAssociatedStacksResult {
   export const filterSensitiveLog = (obj: ListAssociatedStacksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssociatedStacksResult => __isa(o, "ListAssociatedStacksResult");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -2817,11 +2608,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The information about the tags.</p>
    */
@@ -2832,7 +2621,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum MessageAction {
@@ -2844,7 +2632,6 @@ export enum MessageAction {
  * <p>Describes the network details of the fleet or image builder instance.</p>
  */
 export interface NetworkAccessConfiguration {
-  __type?: "NetworkAccessConfiguration";
   /**
    * <p>The private IP address of the elastic network interface that is attached to instances in your VPC.</p>
    */
@@ -2860,7 +2647,6 @@ export namespace NetworkAccessConfiguration {
   export const filterSensitiveLog = (obj: NetworkAccessConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkAccessConfiguration => __isa(o, "NetworkAccessConfiguration");
 }
 
 /**
@@ -2879,7 +2665,6 @@ export namespace OperationNotPermittedException {
   export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationNotPermittedException => __isa(o, "OperationNotPermittedException");
 }
 
 export enum Permission {
@@ -2905,14 +2690,12 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
  * <p>Describes a resource error.</p>
  */
 export interface ResourceError {
-  __type?: "ResourceError";
   /**
    * <p>The time the error occurred.</p>
    */
@@ -2933,7 +2716,6 @@ export namespace ResourceError {
   export const filterSensitiveLog = (obj: ResourceError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceError => __isa(o, "ResourceError");
 }
 
 /**
@@ -2952,7 +2734,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -2971,7 +2752,6 @@ export namespace ResourceNotAvailableException {
   export const filterSensitiveLog = (obj: ResourceNotAvailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotAvailableException => __isa(o, "ResourceNotAvailableException");
 }
 
 /**
@@ -2990,14 +2770,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>Describes the credentials for the service account used by the fleet or image builder to connect to the directory.</p>
  */
 export interface ServiceAccountCredentials {
-  __type?: "ServiceAccountCredentials";
   /**
    * <p>The password for the account.</p>
    */
@@ -3017,14 +2795,12 @@ export namespace ServiceAccountCredentials {
     ...(obj.AccountPassword && { AccountPassword: SENSITIVE_STRING }),
     ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ServiceAccountCredentials => __isa(o, "ServiceAccountCredentials");
 }
 
 /**
  * <p>Describes a streaming session.</p>
  */
 export interface Session {
-  __type?: "Session";
   /**
    * <p>The current state of the streaming session.</p>
    */
@@ -3081,7 +2857,6 @@ export namespace Session {
   export const filterSensitiveLog = (obj: Session): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Session => __isa(o, "Session");
 }
 
 export enum SessionConnectionState {
@@ -3099,7 +2874,6 @@ export enum SessionState {
  * <p>Describes the permissions that are available to the specified AWS account for a shared image.</p>
  */
 export interface SharedImagePermissions {
-  __type?: "SharedImagePermissions";
   /**
    * <p>The 12-digit identifier of the AWS account with which the image is shared.</p>
    */
@@ -3115,14 +2889,12 @@ export namespace SharedImagePermissions {
   export const filterSensitiveLog = (obj: SharedImagePermissions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SharedImagePermissions => __isa(o, "SharedImagePermissions");
 }
 
 /**
  * <p>Describes a stack.</p>
  */
 export interface Stack {
-  __type?: "Stack";
   /**
    * <p>The storage connectors to enable.</p>
    */
@@ -3193,7 +2965,6 @@ export namespace Stack {
   export const filterSensitiveLog = (obj: Stack): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Stack => __isa(o, "Stack");
 }
 
 export enum StackAttribute {
@@ -3214,7 +2985,6 @@ export enum StackAttribute {
  * <p>Describes a stack error.</p>
  */
 export interface StackError {
-  __type?: "StackError";
   /**
    * <p>The error message.</p>
    */
@@ -3230,7 +3000,6 @@ export namespace StackError {
   export const filterSensitiveLog = (obj: StackError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackError => __isa(o, "StackError");
 }
 
 export enum StackErrorCode {
@@ -3239,7 +3008,6 @@ export enum StackErrorCode {
 }
 
 export interface StartFleetRequest {
-  __type?: "StartFleetRequest";
   /**
    * <p>The name of the fleet.</p>
    */
@@ -3250,22 +3018,17 @@ export namespace StartFleetRequest {
   export const filterSensitiveLog = (obj: StartFleetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartFleetRequest => __isa(o, "StartFleetRequest");
 }
 
-export interface StartFleetResult {
-  __type?: "StartFleetResult";
-}
+export interface StartFleetResult {}
 
 export namespace StartFleetResult {
   export const filterSensitiveLog = (obj: StartFleetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartFleetResult => __isa(o, "StartFleetResult");
 }
 
 export interface StartImageBuilderRequest {
-  __type?: "StartImageBuilderRequest";
   /**
    * <p>The name of the image builder.</p>
    */
@@ -3281,11 +3044,9 @@ export namespace StartImageBuilderRequest {
   export const filterSensitiveLog = (obj: StartImageBuilderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartImageBuilderRequest => __isa(o, "StartImageBuilderRequest");
 }
 
 export interface StartImageBuilderResult {
-  __type?: "StartImageBuilderResult";
   /**
    * <p>Information about the image builder.</p>
    */
@@ -3296,11 +3057,9 @@ export namespace StartImageBuilderResult {
   export const filterSensitiveLog = (obj: StartImageBuilderResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartImageBuilderResult => __isa(o, "StartImageBuilderResult");
 }
 
 export interface StopFleetRequest {
-  __type?: "StopFleetRequest";
   /**
    * <p>The name of the fleet.</p>
    */
@@ -3311,22 +3070,17 @@ export namespace StopFleetRequest {
   export const filterSensitiveLog = (obj: StopFleetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopFleetRequest => __isa(o, "StopFleetRequest");
 }
 
-export interface StopFleetResult {
-  __type?: "StopFleetResult";
-}
+export interface StopFleetResult {}
 
 export namespace StopFleetResult {
   export const filterSensitiveLog = (obj: StopFleetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopFleetResult => __isa(o, "StopFleetResult");
 }
 
 export interface StopImageBuilderRequest {
-  __type?: "StopImageBuilderRequest";
   /**
    * <p>The name of the image builder.</p>
    */
@@ -3337,11 +3091,9 @@ export namespace StopImageBuilderRequest {
   export const filterSensitiveLog = (obj: StopImageBuilderRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopImageBuilderRequest => __isa(o, "StopImageBuilderRequest");
 }
 
 export interface StopImageBuilderResult {
-  __type?: "StopImageBuilderResult";
   /**
    * <p>Information about the image builder.</p>
    */
@@ -3352,14 +3104,12 @@ export namespace StopImageBuilderResult {
   export const filterSensitiveLog = (obj: StopImageBuilderResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopImageBuilderResult => __isa(o, "StopImageBuilderResult");
 }
 
 /**
  * <p>Describes a connector that enables persistent storage for users.</p>
  */
 export interface StorageConnector {
-  __type?: "StorageConnector";
   /**
    * <p>The names of the domains for the account.</p>
    */
@@ -3380,7 +3130,6 @@ export namespace StorageConnector {
   export const filterSensitiveLog = (obj: StorageConnector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StorageConnector => __isa(o, "StorageConnector");
 }
 
 export enum StorageConnectorType {
@@ -3390,7 +3139,6 @@ export enum StorageConnectorType {
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -3411,22 +3159,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -3442,22 +3185,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateDirectoryConfigRequest {
-  __type?: "UpdateDirectoryConfigRequest";
   /**
    * <p>The distinguished names of the organizational units for computer accounts.</p>
    */
@@ -3481,11 +3219,9 @@ export namespace UpdateDirectoryConfigRequest {
       ServiceAccountCredentials: ServiceAccountCredentials.filterSensitiveLog(obj.ServiceAccountCredentials),
     }),
   });
-  export const isa = (o: any): o is UpdateDirectoryConfigRequest => __isa(o, "UpdateDirectoryConfigRequest");
 }
 
 export interface UpdateDirectoryConfigResult {
-  __type?: "UpdateDirectoryConfigResult";
   /**
    * <p>Information about the Directory Config object.</p>
    */
@@ -3497,11 +3233,9 @@ export namespace UpdateDirectoryConfigResult {
     ...obj,
     ...(obj.DirectoryConfig && { DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig) }),
   });
-  export const isa = (o: any): o is UpdateDirectoryConfigResult => __isa(o, "UpdateDirectoryConfigResult");
 }
 
 export interface UpdateFleetRequest {
-  __type?: "UpdateFleetRequest";
   /**
    * <p>The ARN of the public, private, or shared image to use.</p>
    */
@@ -3667,11 +3401,9 @@ export namespace UpdateFleetRequest {
   export const filterSensitiveLog = (obj: UpdateFleetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFleetRequest => __isa(o, "UpdateFleetRequest");
 }
 
 export interface UpdateFleetResult {
-  __type?: "UpdateFleetResult";
   /**
    * <p>Information about the fleet.</p>
    */
@@ -3682,11 +3414,9 @@ export namespace UpdateFleetResult {
   export const filterSensitiveLog = (obj: UpdateFleetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFleetResult => __isa(o, "UpdateFleetResult");
 }
 
 export interface UpdateImagePermissionsRequest {
-  __type?: "UpdateImagePermissionsRequest";
   /**
    * <p>The name of the private image.</p>
    */
@@ -3707,22 +3437,17 @@ export namespace UpdateImagePermissionsRequest {
   export const filterSensitiveLog = (obj: UpdateImagePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateImagePermissionsRequest => __isa(o, "UpdateImagePermissionsRequest");
 }
 
-export interface UpdateImagePermissionsResult {
-  __type?: "UpdateImagePermissionsResult";
-}
+export interface UpdateImagePermissionsResult {}
 
 export namespace UpdateImagePermissionsResult {
   export const filterSensitiveLog = (obj: UpdateImagePermissionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateImagePermissionsResult => __isa(o, "UpdateImagePermissionsResult");
 }
 
 export interface UpdateStackRequest {
-  __type?: "UpdateStackRequest";
   /**
    * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.</p>
    */
@@ -3788,11 +3513,9 @@ export namespace UpdateStackRequest {
   export const filterSensitiveLog = (obj: UpdateStackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStackRequest => __isa(o, "UpdateStackRequest");
 }
 
 export interface UpdateStackResult {
-  __type?: "UpdateStackResult";
   /**
    * <p>Information about the stack.</p>
    */
@@ -3803,7 +3526,6 @@ export namespace UpdateStackResult {
   export const filterSensitiveLog = (obj: UpdateStackResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStackResult => __isa(o, "UpdateStackResult");
 }
 
 export enum UsageReportExecutionErrorCode {
@@ -3820,7 +3542,6 @@ export enum UsageReportSchedule {
  * <p>Describes information about the usage report subscription.</p>
  */
 export interface UsageReportSubscription {
-  __type?: "UsageReportSubscription";
   /**
    * <p>The time when the last usage report was generated.</p>
    */
@@ -3852,14 +3573,12 @@ export namespace UsageReportSubscription {
   export const filterSensitiveLog = (obj: UsageReportSubscription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UsageReportSubscription => __isa(o, "UsageReportSubscription");
 }
 
 /**
  * <p>Describes a user in the user pool.</p>
  */
 export interface User {
-  __type?: "User";
   /**
    * <p>Specifies whether the user in the user pool is enabled.</p>
    */
@@ -3929,14 +3648,12 @@ export namespace User {
     ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
     ...(obj.LastName && { LastName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is User => __isa(o, "User");
 }
 
 /**
  * <p>Describes an action and whether the action is enabled or disabled for users during their streaming sessions.</p>
  */
 export interface UserSetting {
-  __type?: "UserSetting";
   /**
    * <p>Indicates whether the action is enabled or disabled.</p>
    */
@@ -3952,14 +3669,12 @@ export namespace UserSetting {
   export const filterSensitiveLog = (obj: UserSetting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserSetting => __isa(o, "UserSetting");
 }
 
 /**
  * <p>Describes a user in the user pool and the associated stack.</p>
  */
 export interface UserStackAssociation {
-  __type?: "UserStackAssociation";
   /**
    * <p>The name of the stack that is associated with the user.</p>
    */
@@ -3990,14 +3705,12 @@ export namespace UserStackAssociation {
     ...obj,
     ...(obj.UserName && { UserName: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UserStackAssociation => __isa(o, "UserStackAssociation");
 }
 
 /**
  * <p>Describes the error that is returned when a user can’t be associated with or disassociated from a stack. </p>
  */
 export interface UserStackAssociationError {
-  __type?: "UserStackAssociationError";
   /**
    * <p>Information about the user and associated stack.</p>
    */
@@ -4021,7 +3734,6 @@ export namespace UserStackAssociationError {
       UserStackAssociation: UserStackAssociation.filterSensitiveLog(obj.UserStackAssociation),
     }),
   });
-  export const isa = (o: any): o is UserStackAssociationError => __isa(o, "UserStackAssociationError");
 }
 
 export enum UserStackAssociationErrorCode {
@@ -4040,7 +3752,6 @@ export enum VisibilityType {
  * <p>Describes VPC configuration information for fleets and image builders.</p>
  */
 export interface VpcConfig {
-  __type?: "VpcConfig";
   /**
    * <p>The identifiers of the security groups for the fleet or image builder.</p>
    */
@@ -4056,5 +3767,4 @@ export namespace VpcConfig {
   export const filterSensitiveLog = (obj: VpcConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfig => __isa(o, "VpcConfig");
 }

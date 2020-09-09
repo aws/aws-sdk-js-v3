@@ -1720,7 +1720,6 @@ export const deserializeAws_restJson1ActivateUserCommand = async (
   }
   const contents: ActivateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ActivateUserResponse",
     User: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1808,7 +1807,6 @@ export const deserializeAws_restJson1AddResourcePermissionsCommand = async (
   }
   const contents: AddResourcePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddResourcePermissionsResponse",
     ShareResults: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1888,7 +1886,6 @@ export const deserializeAws_restJson1CreateCommentCommand = async (
   }
   const contents: CreateCommentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCommentResponse",
     Comment: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2000,7 +1997,6 @@ export const deserializeAws_restJson1CreateCustomMetadataCommand = async (
   }
   const contents: CreateCustomMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCustomMetadataResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2100,7 +2096,6 @@ export const deserializeAws_restJson1CreateFolderCommand = async (
   }
   const contents: CreateFolderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFolderResponse",
     Metadata: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2220,7 +2215,6 @@ export const deserializeAws_restJson1CreateLabelsCommand = async (
   }
   const contents: CreateLabelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLabelsResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2312,7 +2306,6 @@ export const deserializeAws_restJson1CreateNotificationSubscriptionCommand = asy
   }
   const contents: CreateNotificationSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNotificationSubscriptionResponse",
     Subscription: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2384,7 +2377,6 @@ export const deserializeAws_restJson1CreateUserCommand = async (
   }
   const contents: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserResponse",
     User: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2654,7 +2646,6 @@ export const deserializeAws_restJson1DeleteCustomMetadataCommand = async (
   }
   const contents: DeleteCustomMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCustomMetadataResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3059,7 +3050,6 @@ export const deserializeAws_restJson1DeleteLabelsCommand = async (
   }
   const contents: DeleteLabelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLabelsResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3301,7 +3291,6 @@ export const deserializeAws_restJson1DescribeActivitiesCommand = async (
   }
   const contents: DescribeActivitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeActivitiesResponse",
     Marker: undefined,
     UserActivities: undefined,
   };
@@ -3393,7 +3382,6 @@ export const deserializeAws_restJson1DescribeCommentsCommand = async (
   }
   const contents: DescribeCommentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCommentsResponse",
     Comments: undefined,
     Marker: undefined,
   };
@@ -3493,7 +3481,6 @@ export const deserializeAws_restJson1DescribeDocumentVersionsCommand = async (
   }
   const contents: DescribeDocumentVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDocumentVersionsResponse",
     DocumentVersions: undefined,
     Marker: undefined,
   };
@@ -3601,7 +3588,6 @@ export const deserializeAws_restJson1DescribeFolderContentsCommand = async (
   }
   const contents: DescribeFolderContentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFolderContentsResponse",
     Documents: undefined,
     Folders: undefined,
     Marker: undefined,
@@ -3705,7 +3691,6 @@ export const deserializeAws_restJson1DescribeGroupsCommand = async (
   }
   const contents: DescribeGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGroupsResponse",
     Groups: undefined,
     Marker: undefined,
   };
@@ -3789,7 +3774,6 @@ export const deserializeAws_restJson1DescribeNotificationSubscriptionsCommand = 
   }
   const contents: DescribeNotificationSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNotificationSubscriptionsResponse",
     Marker: undefined,
     Subscriptions: undefined,
   };
@@ -3865,7 +3849,6 @@ export const deserializeAws_restJson1DescribeResourcePermissionsCommand = async 
   }
   const contents: DescribeResourcePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeResourcePermissionsResponse",
     Marker: undefined,
     Principals: undefined,
   };
@@ -3949,7 +3932,6 @@ export const deserializeAws_restJson1DescribeRootFoldersCommand = async (
   }
   const contents: DescribeRootFoldersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRootFoldersResponse",
     Folders: undefined,
     Marker: undefined,
   };
@@ -4041,7 +4023,6 @@ export const deserializeAws_restJson1DescribeUsersCommand = async (
   }
   const contents: DescribeUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUsersResponse",
     Marker: undefined,
     TotalNumberOfUsers: undefined,
     Users: undefined,
@@ -4153,7 +4134,6 @@ export const deserializeAws_restJson1GetCurrentUserCommand = async (
   }
   const contents: GetCurrentUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCurrentUserResponse",
     User: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4241,7 +4221,6 @@ export const deserializeAws_restJson1GetDocumentCommand = async (
   }
   const contents: GetDocumentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDocumentResponse",
     CustomMetadata: undefined,
     Metadata: undefined,
   };
@@ -4349,7 +4328,6 @@ export const deserializeAws_restJson1GetDocumentPathCommand = async (
   }
   const contents: GetDocumentPathCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDocumentPathResponse",
     Path: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4437,7 +4415,6 @@ export const deserializeAws_restJson1GetDocumentVersionCommand = async (
   }
   const contents: GetDocumentVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDocumentVersionResponse",
     CustomMetadata: undefined,
     Metadata: undefined,
   };
@@ -4545,7 +4522,6 @@ export const deserializeAws_restJson1GetFolderCommand = async (
   }
   const contents: GetFolderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFolderResponse",
     CustomMetadata: undefined,
     Metadata: undefined,
   };
@@ -4653,7 +4629,6 @@ export const deserializeAws_restJson1GetFolderPathCommand = async (
   }
   const contents: GetFolderPathCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFolderPathResponse",
     Path: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4741,7 +4716,6 @@ export const deserializeAws_restJson1GetResourcesCommand = async (
   }
   const contents: GetResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourcesResponse",
     Documents: undefined,
     Folders: undefined,
     Marker: undefined,
@@ -4837,7 +4811,6 @@ export const deserializeAws_restJson1InitiateDocumentVersionUploadCommand = asyn
   }
   const contents: InitiateDocumentVersionUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InitiateDocumentVersionUploadResponse",
     Metadata: undefined,
     UploadMetadata: undefined,
   };
@@ -5480,7 +5453,6 @@ export const deserializeAws_restJson1UpdateUserCommand = async (
   }
   const contents: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateUserResponse",
     User: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6062,7 +6034,6 @@ const serializeAws_restJson1StorageRuleType = (input: StorageRuleType, context: 
 
 const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext): Activity => {
   return {
-    __type: "Activity",
     CommentMetadata:
       output.CommentMetadata !== undefined && output.CommentMetadata !== null
         ? deserializeAws_restJson1CommentMetadata(output.CommentMetadata, context)
@@ -6099,7 +6070,6 @@ const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Comment = (output: any, context: __SerdeContext): Comment => {
   return {
-    __type: "Comment",
     CommentId: output.CommentId !== undefined && output.CommentId !== null ? output.CommentId : undefined,
     Contributor:
       output.Contributor !== undefined && output.Contributor !== null
@@ -6124,7 +6094,6 @@ const deserializeAws_restJson1CommentList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1CommentMetadata = (output: any, context: __SerdeContext): CommentMetadata => {
   return {
-    __type: "CommentMetadata",
     CommentId: output.CommentId !== undefined && output.CommentId !== null ? output.CommentId : undefined,
     CommentStatus:
       output.CommentStatus !== undefined && output.CommentStatus !== null ? output.CommentStatus : undefined,
@@ -6152,7 +6121,6 @@ const deserializeAws_restJson1CustomMetadataMap = (output: any, context: __Serde
 
 const deserializeAws_restJson1DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
   return {
-    __type: "DocumentMetadata",
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
         ? new Date(Math.round(output.CreatedTimestamp * 1000))
@@ -6213,7 +6181,6 @@ const deserializeAws_restJson1DocumentVersionMetadata = (
   context: __SerdeContext
 ): DocumentVersionMetadata => {
   return {
-    __type: "DocumentVersionMetadata",
     ContentCreatedTimestamp:
       output.ContentCreatedTimestamp !== undefined && output.ContentCreatedTimestamp !== null
         ? new Date(Math.round(output.ContentCreatedTimestamp * 1000))
@@ -6261,7 +6228,6 @@ const deserializeAws_restJson1EntityIdList = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeContext): FolderMetadata => {
   return {
-    __type: "FolderMetadata",
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
         ? new Date(Math.round(output.CreatedTimestamp * 1000))
@@ -6296,7 +6262,6 @@ const deserializeAws_restJson1FolderMetadataList = (output: any, context: __Serd
 
 const deserializeAws_restJson1GroupMetadata = (output: any, context: __SerdeContext): GroupMetadata => {
   return {
-    __type: "GroupMetadata",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
@@ -6312,7 +6277,6 @@ const deserializeAws_restJson1OrganizationUserList = (output: any, context: __Se
 
 const deserializeAws_restJson1Participants = (output: any, context: __SerdeContext): Participants => {
   return {
-    __type: "Participants",
     Groups:
       output.Groups !== undefined && output.Groups !== null
         ? deserializeAws_restJson1GroupMetadataList(output.Groups, context)
@@ -6326,7 +6290,6 @@ const deserializeAws_restJson1Participants = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1PermissionInfo = (output: any, context: __SerdeContext): PermissionInfo => {
   return {
-    __type: "PermissionInfo",
     Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -6338,7 +6301,6 @@ const deserializeAws_restJson1PermissionInfoList = (output: any, context: __Serd
 
 const deserializeAws_restJson1Principal = (output: any, context: __SerdeContext): Principal => {
   return {
-    __type: "Principal",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Roles:
       output.Roles !== undefined && output.Roles !== null
@@ -6354,7 +6316,6 @@ const deserializeAws_restJson1PrincipalList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ResourceMetadata = (output: any, context: __SerdeContext): ResourceMetadata => {
   return {
-    __type: "ResourceMetadata",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     OriginalName: output.OriginalName !== undefined && output.OriginalName !== null ? output.OriginalName : undefined,
@@ -6370,7 +6331,6 @@ const deserializeAws_restJson1ResourceMetadata = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1ResourcePath = (output: any, context: __SerdeContext): ResourcePath => {
   return {
-    __type: "ResourcePath",
     Components:
       output.Components !== undefined && output.Components !== null
         ? deserializeAws_restJson1ResourcePathComponentList(output.Components, context)
@@ -6380,7 +6340,6 @@ const deserializeAws_restJson1ResourcePath = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ResourcePathComponent = (output: any, context: __SerdeContext): ResourcePathComponent => {
   return {
-    __type: "ResourcePathComponent",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
@@ -6399,7 +6358,6 @@ const deserializeAws_restJson1SharedLabels = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ShareResult = (output: any, context: __SerdeContext): ShareResult => {
   return {
-    __type: "ShareResult",
     InviteePrincipalId:
       output.InviteePrincipalId !== undefined && output.InviteePrincipalId !== null
         ? output.InviteePrincipalId
@@ -6429,7 +6387,6 @@ const deserializeAws_restJson1SignedHeaderMap = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1StorageRuleType = (output: any, context: __SerdeContext): StorageRuleType => {
   return {
-    __type: "StorageRuleType",
     StorageAllocatedInBytes:
       output.StorageAllocatedInBytes !== undefined && output.StorageAllocatedInBytes !== null
         ? output.StorageAllocatedInBytes
@@ -6440,7 +6397,6 @@ const deserializeAws_restJson1StorageRuleType = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Subscription = (output: any, context: __SerdeContext): Subscription => {
   return {
-    __type: "Subscription",
     EndPoint: output.EndPoint !== undefined && output.EndPoint !== null ? output.EndPoint : undefined,
     Protocol: output.Protocol !== undefined && output.Protocol !== null ? output.Protocol : undefined,
     SubscriptionId:
@@ -6454,7 +6410,6 @@ const deserializeAws_restJson1SubscriptionList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1UploadMetadata = (output: any, context: __SerdeContext): UploadMetadata => {
   return {
-    __type: "UploadMetadata",
     SignedHeaders:
       output.SignedHeaders !== undefined && output.SignedHeaders !== null
         ? deserializeAws_restJson1SignedHeaderMap(output.SignedHeaders, context)
@@ -6465,7 +6420,6 @@ const deserializeAws_restJson1UploadMetadata = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1User = (output: any, context: __SerdeContext): User => {
   return {
-    __type: "User",
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
         ? new Date(Math.round(output.CreatedTimestamp * 1000))
@@ -6503,7 +6457,6 @@ const deserializeAws_restJson1UserActivities = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1UserMetadata = (output: any, context: __SerdeContext): UserMetadata => {
   return {
-    __type: "UserMetadata",
     EmailAddress: output.EmailAddress !== undefined && output.EmailAddress !== null ? output.EmailAddress : undefined,
     GivenName: output.GivenName !== undefined && output.GivenName !== null ? output.GivenName : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -6518,7 +6471,6 @@ const deserializeAws_restJson1UserMetadataList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1UserStorageMetadata = (output: any, context: __SerdeContext): UserStorageMetadata => {
   return {
-    __type: "UserStorageMetadata",
     StorageRule:
       output.StorageRule !== undefined && output.StorageRule !== null
         ? deserializeAws_restJson1StorageRuleType(output.StorageRule, context)

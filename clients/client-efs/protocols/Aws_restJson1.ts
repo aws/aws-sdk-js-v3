@@ -916,7 +916,6 @@ export const deserializeAws_restJson1CreateAccessPointCommand = async (
   }
   const contents: CreateAccessPointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AccessPointDescription",
     AccessPointArn: undefined,
     AccessPointId: undefined,
     ClientToken: undefined,
@@ -1048,7 +1047,6 @@ export const deserializeAws_restJson1CreateFileSystemCommand = async (
   }
   const contents: CreateFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FileSystemDescription",
     CreationTime: undefined,
     CreationToken: undefined,
     Encrypted: undefined,
@@ -1200,7 +1198,6 @@ export const deserializeAws_restJson1CreateMountTargetCommand = async (
   }
   const contents: CreateMountTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "MountTargetDescription",
     AvailabilityZoneId: undefined,
     AvailabilityZoneName: undefined,
     FileSystemId: undefined,
@@ -1798,7 +1795,6 @@ export const deserializeAws_restJson1DescribeAccessPointsCommand = async (
   }
   const contents: DescribeAccessPointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAccessPointsResponse",
     AccessPoints: undefined,
     NextToken: undefined,
   };
@@ -1882,7 +1878,6 @@ export const deserializeAws_restJson1DescribeBackupPolicyCommand = async (
   }
   const contents: DescribeBackupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BackupPolicyDescription",
     BackupPolicy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1970,7 +1965,6 @@ export const deserializeAws_restJson1DescribeFileSystemPolicyCommand = async (
   }
   const contents: DescribeFileSystemPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FileSystemPolicyDescription",
     FileSystemId: undefined,
     Policy: undefined,
   };
@@ -2046,7 +2040,6 @@ export const deserializeAws_restJson1DescribeFileSystemsCommand = async (
   }
   const contents: DescribeFileSystemsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFileSystemsResponse",
     FileSystems: undefined,
     Marker: undefined,
     NextMarker: undefined,
@@ -2126,7 +2119,6 @@ export const deserializeAws_restJson1DescribeLifecycleConfigurationCommand = asy
   }
   const contents: DescribeLifecycleConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "LifecycleConfigurationDescription",
     LifecyclePolicies: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2198,7 +2190,6 @@ export const deserializeAws_restJson1DescribeMountTargetsCommand = async (
   }
   const contents: DescribeMountTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMountTargetsResponse",
     Marker: undefined,
     MountTargets: undefined,
     NextMarker: undefined,
@@ -2294,7 +2285,6 @@ export const deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand = 
   }
   const contents: DescribeMountTargetSecurityGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMountTargetSecurityGroupsResponse",
     SecurityGroups: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2374,7 +2364,6 @@ export const deserializeAws_restJson1DescribeTagsCommand = async (
   }
   const contents: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTagsResponse",
     Marker: undefined,
     NextMarker: undefined,
     Tags: undefined,
@@ -2454,7 +2443,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     NextToken: undefined,
     Tags: undefined,
   };
@@ -2629,7 +2617,6 @@ export const deserializeAws_restJson1PutBackupPolicyCommand = async (
   }
   const contents: PutBackupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BackupPolicyDescription",
     BackupPolicy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2717,7 +2704,6 @@ export const deserializeAws_restJson1PutFileSystemPolicyCommand = async (
   }
   const contents: PutFileSystemPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FileSystemPolicyDescription",
     FileSystemId: undefined,
     Policy: undefined,
   };
@@ -2801,7 +2787,6 @@ export const deserializeAws_restJson1PutLifecycleConfigurationCommand = async (
   }
   const contents: PutLifecycleConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "LifecycleConfigurationDescription",
     LifecyclePolicies: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3031,7 +3016,6 @@ export const deserializeAws_restJson1UpdateFileSystemCommand = async (
   }
   const contents: UpdateFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FileSystemDescription",
     CreationTime: undefined,
     CreationToken: undefined,
     Encrypted: undefined,
@@ -3828,7 +3812,6 @@ const deserializeAws_restJson1AccessPointDescription = (
   context: __SerdeContext
 ): AccessPointDescription => {
   return {
-    __type: "AccessPointDescription",
     AccessPointArn:
       output.AccessPointArn !== undefined && output.AccessPointArn !== null ? output.AccessPointArn : undefined,
     AccessPointId:
@@ -3863,14 +3846,12 @@ const deserializeAws_restJson1AccessPointDescriptions = (
 
 const deserializeAws_restJson1BackupPolicy = (output: any, context: __SerdeContext): BackupPolicy => {
   return {
-    __type: "BackupPolicy",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1CreationInfo = (output: any, context: __SerdeContext): CreationInfo => {
   return {
-    __type: "CreationInfo",
     OwnerGid: output.OwnerGid !== undefined && output.OwnerGid !== null ? output.OwnerGid : undefined,
     OwnerUid: output.OwnerUid !== undefined && output.OwnerUid !== null ? output.OwnerUid : undefined,
     Permissions: output.Permissions !== undefined && output.Permissions !== null ? output.Permissions : undefined,
@@ -3879,7 +3860,6 @@ const deserializeAws_restJson1CreationInfo = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1FileSystemDescription = (output: any, context: __SerdeContext): FileSystemDescription => {
   return {
-    __type: "FileSystemDescription",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -3927,7 +3907,6 @@ const deserializeAws_restJson1FileSystemDescriptions = (
 
 const deserializeAws_restJson1FileSystemSize = (output: any, context: __SerdeContext): FileSystemSize => {
   return {
-    __type: "FileSystemSize",
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
@@ -3945,7 +3924,6 @@ const deserializeAws_restJson1LifecyclePolicies = (output: any, context: __Serde
 
 const deserializeAws_restJson1LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
   return {
-    __type: "LifecyclePolicy",
     TransitionToIA:
       output.TransitionToIA !== undefined && output.TransitionToIA !== null ? output.TransitionToIA : undefined,
   } as any;
@@ -3956,7 +3934,6 @@ const deserializeAws_restJson1MountTargetDescription = (
   context: __SerdeContext
 ): MountTargetDescription => {
   return {
-    __type: "MountTargetDescription",
     AvailabilityZoneId:
       output.AvailabilityZoneId !== undefined && output.AvailabilityZoneId !== null
         ? output.AvailabilityZoneId
@@ -3990,7 +3967,6 @@ const deserializeAws_restJson1MountTargetDescriptions = (
 
 const deserializeAws_restJson1PosixUser = (output: any, context: __SerdeContext): PosixUser => {
   return {
-    __type: "PosixUser",
     Gid: output.Gid !== undefined && output.Gid !== null ? output.Gid : undefined,
     SecondaryGids:
       output.SecondaryGids !== undefined && output.SecondaryGids !== null
@@ -4002,7 +3978,6 @@ const deserializeAws_restJson1PosixUser = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1RootDirectory = (output: any, context: __SerdeContext): RootDirectory => {
   return {
-    __type: "RootDirectory",
     CreationInfo:
       output.CreationInfo !== undefined && output.CreationInfo !== null
         ? deserializeAws_restJson1CreationInfo(output.CreationInfo, context)
@@ -4021,7 +3996,6 @@ const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;

@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The Microsoft AD attributes of the Amazon FSx for Windows File Server file system.</p>
  */
 export interface ActiveDirectoryBackupAttributes {
-  __type?: "ActiveDirectoryBackupAttributes";
   /**
    * <p>The ID of the AWS Managed Microsoft Active Directory instance to which the file system is joined.</p>
    */
@@ -21,7 +20,6 @@ export namespace ActiveDirectoryBackupAttributes {
   export const filterSensitiveLog = (obj: ActiveDirectoryBackupAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActiveDirectoryBackupAttributes => __isa(o, "ActiveDirectoryBackupAttributes");
 }
 
 /**
@@ -50,7 +48,6 @@ export namespace ActiveDirectoryError {
   export const filterSensitiveLog = (obj: ActiveDirectoryError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActiveDirectoryError => __isa(o, "ActiveDirectoryError");
 }
 
 export enum ActiveDirectoryErrorType {
@@ -64,7 +61,6 @@ export enum ActiveDirectoryErrorType {
  * <p>Describes a specific Amazon FSx Administrative Action for the current Windows file system.</p>
  */
 export interface AdministrativeAction {
-  __type?: "AdministrativeAction";
   /**
    * <p>Time that the administrative action request was received.</p>
    */
@@ -146,14 +142,12 @@ export namespace AdministrativeAction {
   export const filterSensitiveLog = (obj: AdministrativeAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdministrativeAction => __isa(o, "AdministrativeAction");
 }
 
 /**
  * <p>Provides information about a failed administrative action.</p>
  */
 export interface AdministrativeActionFailureDetails {
-  __type?: "AdministrativeActionFailureDetails";
   /**
    * <p>Error message providing details about the failure.</p>
    */
@@ -164,8 +158,6 @@ export namespace AdministrativeActionFailureDetails {
   export const filterSensitiveLog = (obj: AdministrativeActionFailureDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdministrativeActionFailureDetails =>
-    __isa(o, "AdministrativeActionFailureDetails");
 }
 
 export enum AdministrativeActionType {
@@ -183,7 +175,6 @@ export enum AutoImportPolicyType {
  * <p>A backup of an Amazon FSx for file system.</p>
  */
 export interface Backup {
-  __type?: "Backup";
   /**
    * <p>The time when a particular backup was created.</p>
    */
@@ -247,7 +238,6 @@ export namespace Backup {
   export const filterSensitiveLog = (obj: Backup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Backup => __isa(o, "Backup");
 }
 
 /**
@@ -255,7 +245,6 @@ export namespace Backup {
  *             failure.</p>
  */
 export interface BackupFailureDetails {
-  __type?: "BackupFailureDetails";
   /**
    * <p>A message describing the backup creation failure.</p>
    */
@@ -266,7 +255,6 @@ export namespace BackupFailureDetails {
   export const filterSensitiveLog = (obj: BackupFailureDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupFailureDetails => __isa(o, "BackupFailureDetails");
 }
 
 /**
@@ -286,7 +274,6 @@ export namespace BackupInProgress {
   export const filterSensitiveLog = (obj: BackupInProgress): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupInProgress => __isa(o, "BackupInProgress");
 }
 
 export enum BackupLifecycle {
@@ -312,7 +299,6 @@ export namespace BackupNotFound {
   export const filterSensitiveLog = (obj: BackupNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupNotFound => __isa(o, "BackupNotFound");
 }
 
 /**
@@ -337,7 +323,6 @@ export namespace BackupRestoring {
   export const filterSensitiveLog = (obj: BackupRestoring): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupRestoring => __isa(o, "BackupRestoring");
 }
 
 export enum BackupType {
@@ -361,14 +346,12 @@ export namespace BadRequest {
   export const filterSensitiveLog = (obj: BadRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequest => __isa(o, "BadRequest");
 }
 
 /**
  * <p>Cancels a data repository task.</p>
  */
 export interface CancelDataRepositoryTaskRequest {
-  __type?: "CancelDataRepositoryTaskRequest";
   /**
    * <p>Specifies the data repository task to cancel.</p>
    */
@@ -379,11 +362,9 @@ export namespace CancelDataRepositoryTaskRequest {
   export const filterSensitiveLog = (obj: CancelDataRepositoryTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelDataRepositoryTaskRequest => __isa(o, "CancelDataRepositoryTaskRequest");
 }
 
 export interface CancelDataRepositoryTaskResponse {
-  __type?: "CancelDataRepositoryTaskResponse";
   /**
    * <p>The lifecycle status of the data repository task, as follows:</p>
    *         <ul>
@@ -426,7 +407,6 @@ export namespace CancelDataRepositoryTaskResponse {
   export const filterSensitiveLog = (obj: CancelDataRepositoryTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelDataRepositoryTaskResponse => __isa(o, "CancelDataRepositoryTaskResponse");
 }
 
 /**
@@ -436,7 +416,6 @@ export namespace CancelDataRepositoryTaskResponse {
  *             You can specify whether or not a report gets generated for a task using the <code>Enabled</code> parameter.</p>
  */
 export interface CompletionReport {
-  __type?: "CompletionReport";
   /**
    * <p>Set <code>Enabled</code> to <code>True</code> to generate a <code>CompletionReport</code> when the task completes.
    *             If set to <code>true</code>, then you need to provide a report <code>Scope</code>, <code>Path</code>, and <code>Format</code>.
@@ -472,14 +451,12 @@ export namespace CompletionReport {
   export const filterSensitiveLog = (obj: CompletionReport): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompletionReport => __isa(o, "CompletionReport");
 }
 
 /**
  * <p>The request object for the <code>CreateBackup</code> operation.</p>
  */
 export interface CreateBackupRequest {
-  __type?: "CreateBackupRequest";
   /**
    * <p>The tags to apply to the backup at backup creation. The key value of the
    *             <code>Name</code> tag appears in the console as the backup name. If you have set <code>CopyTagsToBackups</code> to true, and
@@ -504,14 +481,12 @@ export namespace CreateBackupRequest {
   export const filterSensitiveLog = (obj: CreateBackupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBackupRequest => __isa(o, "CreateBackupRequest");
 }
 
 /**
  * <p>The response object for the <code>CreateBackup</code> operation.</p>
  */
 export interface CreateBackupResponse {
-  __type?: "CreateBackupResponse";
   /**
    * <p>A description of the backup.</p>
    */
@@ -522,11 +497,9 @@ export namespace CreateBackupResponse {
   export const filterSensitiveLog = (obj: CreateBackupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBackupResponse => __isa(o, "CreateBackupResponse");
 }
 
 export interface CreateDataRepositoryTaskRequest {
-  __type?: "CreateDataRepositoryTaskRequest";
   /**
    * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
    */
@@ -571,11 +544,9 @@ export namespace CreateDataRepositoryTaskRequest {
   export const filterSensitiveLog = (obj: CreateDataRepositoryTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataRepositoryTaskRequest => __isa(o, "CreateDataRepositoryTaskRequest");
 }
 
 export interface CreateDataRepositoryTaskResponse {
-  __type?: "CreateDataRepositoryTaskResponse";
   /**
    * <p>The description of the data repository task that you just created.</p>
    */
@@ -586,7 +557,6 @@ export namespace CreateDataRepositoryTaskResponse {
   export const filterSensitiveLog = (obj: CreateDataRepositoryTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataRepositoryTaskResponse => __isa(o, "CreateDataRepositoryTaskResponse");
 }
 
 /**
@@ -594,7 +564,6 @@ export namespace CreateDataRepositoryTaskResponse {
  *             operation.</p>
  */
 export interface CreateFileSystemFromBackupRequest {
-  __type?: "CreateFileSystemFromBackupRequest";
   /**
    * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
    *             idempotent creation. This string is automatically filled on your behalf when you use the
@@ -678,7 +647,6 @@ export namespace CreateFileSystemFromBackupRequest {
       WindowsConfiguration: CreateFileSystemWindowsConfiguration.filterSensitiveLog(obj.WindowsConfiguration),
     }),
   });
-  export const isa = (o: any): o is CreateFileSystemFromBackupRequest => __isa(o, "CreateFileSystemFromBackupRequest");
 }
 
 /**
@@ -686,7 +654,6 @@ export namespace CreateFileSystemFromBackupRequest {
  *             operation.</p>
  */
 export interface CreateFileSystemFromBackupResponse {
-  __type?: "CreateFileSystemFromBackupResponse";
   /**
    * <p>A description of the file system.</p>
    */
@@ -697,8 +664,6 @@ export namespace CreateFileSystemFromBackupResponse {
   export const filterSensitiveLog = (obj: CreateFileSystemFromBackupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFileSystemFromBackupResponse =>
-    __isa(o, "CreateFileSystemFromBackupResponse");
 }
 
 /**
@@ -706,7 +671,6 @@ export namespace CreateFileSystemFromBackupResponse {
  *             </p>
  */
 export interface CreateFileSystemLustreConfiguration {
-  __type?: "CreateFileSystemLustreConfiguration";
   /**
    * <p>
    *             Choose <code>SCRATCH_1</code> and <code>SCRATCH_2</code> deployment
@@ -851,15 +815,12 @@ export namespace CreateFileSystemLustreConfiguration {
   export const filterSensitiveLog = (obj: CreateFileSystemLustreConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFileSystemLustreConfiguration =>
-    __isa(o, "CreateFileSystemLustreConfiguration");
 }
 
 /**
  * <p>The request object used to create a new Amazon FSx file system.</p>
  */
 export interface CreateFileSystemRequest {
-  __type?: "CreateFileSystemRequest";
   /**
    * <p>The Microsoft Windows configuration for the file system being created.
    *             </p>
@@ -972,14 +933,12 @@ export namespace CreateFileSystemRequest {
       WindowsConfiguration: CreateFileSystemWindowsConfiguration.filterSensitiveLog(obj.WindowsConfiguration),
     }),
   });
-  export const isa = (o: any): o is CreateFileSystemRequest => __isa(o, "CreateFileSystemRequest");
 }
 
 /**
  * <p>The response object returned after the file system is created.</p>
  */
 export interface CreateFileSystemResponse {
-  __type?: "CreateFileSystemResponse";
   /**
    * <p>The configuration of the file system that was created.</p>
    */
@@ -990,7 +949,6 @@ export namespace CreateFileSystemResponse {
   export const filterSensitiveLog = (obj: CreateFileSystemResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFileSystemResponse => __isa(o, "CreateFileSystemResponse");
 }
 
 /**
@@ -999,7 +957,6 @@ export namespace CreateFileSystemResponse {
  *             operations.</p>
  */
 export interface CreateFileSystemWindowsConfiguration {
-  __type?: "CreateFileSystemWindowsConfiguration";
   /**
    * <p>The throughput of an Amazon FSx file system, measured in megabytes per second, in 2 to
    *             the <i>n</i>th increments, between 2^3 (8) and 2^11 (2048).</p>
@@ -1092,8 +1049,6 @@ export namespace CreateFileSystemWindowsConfiguration {
       ),
     }),
   });
-  export const isa = (o: any): o is CreateFileSystemWindowsConfiguration =>
-    __isa(o, "CreateFileSystemWindowsConfiguration");
 }
 
 /**
@@ -1101,7 +1056,6 @@ export namespace CreateFileSystemWindowsConfiguration {
  *             the <code>CreateFileSystem</code> operation.</p>
  */
 export interface DataRepositoryConfiguration {
-  __type?: "DataRepositoryConfiguration";
   /**
    * <p>Describes the file system's linked S3 data repository's <code>AutoImportPolicy</code>. The AutoImportPolicy configures how your FSx
    *             for Lustre file system automatically updates its contents
@@ -1199,7 +1153,6 @@ export namespace DataRepositoryConfiguration {
   export const filterSensitiveLog = (obj: DataRepositoryConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataRepositoryConfiguration => __isa(o, "DataRepositoryConfiguration");
 }
 
 /**
@@ -1207,7 +1160,6 @@ export namespace DataRepositoryConfiguration {
  *             set to <code>MISCONFIGURED</code>.</p>
  */
 export interface DataRepositoryFailureDetails {
-  __type?: "DataRepositoryFailureDetails";
   /**
    * <p>A detailed error message.</p>
    */
@@ -1218,7 +1170,6 @@ export namespace DataRepositoryFailureDetails {
   export const filterSensitiveLog = (obj: DataRepositoryFailureDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataRepositoryFailureDetails => __isa(o, "DataRepositoryFailureDetails");
 }
 
 export enum DataRepositoryLifecycle {
@@ -1235,7 +1186,6 @@ export enum DataRepositoryLifecycle {
  *             repository.</p>
  */
 export interface DataRepositoryTask {
-  __type?: "DataRepositoryTask";
   /**
    * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify AWS
    *             resources. We require an ARN when you need to specify a resource unambiguously across
@@ -1349,7 +1299,6 @@ export namespace DataRepositoryTask {
   export const filterSensitiveLog = (obj: DataRepositoryTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataRepositoryTask => __isa(o, "DataRepositoryTask");
 }
 
 /**
@@ -1368,7 +1317,6 @@ export namespace DataRepositoryTaskEnded {
   export const filterSensitiveLog = (obj: DataRepositoryTaskEnded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataRepositoryTaskEnded => __isa(o, "DataRepositoryTaskEnded");
 }
 
 /**
@@ -1388,14 +1336,12 @@ export namespace DataRepositoryTaskExecuting {
   export const filterSensitiveLog = (obj: DataRepositoryTaskExecuting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataRepositoryTaskExecuting => __isa(o, "DataRepositoryTaskExecuting");
 }
 
 /**
  * <p>Provides information about why a data repository task failed. Only populated when the task <code>Lifecycle</code> is set to <code>FAILED</code>.</p>
  */
 export interface DataRepositoryTaskFailureDetails {
-  __type?: "DataRepositoryTaskFailureDetails";
   /**
    * <p>A detailed error message.</p>
    */
@@ -1406,7 +1352,6 @@ export namespace DataRepositoryTaskFailureDetails {
   export const filterSensitiveLog = (obj: DataRepositoryTaskFailureDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataRepositoryTaskFailureDetails => __isa(o, "DataRepositoryTaskFailureDetails");
 }
 
 /**
@@ -1415,7 +1360,6 @@ export namespace DataRepositoryTaskFailureDetails {
  *             A filter object consists of a filter <code>Name</code>, and one or more <code>Values</code> for the filter.</p>
  */
 export interface DataRepositoryTaskFilter {
-  __type?: "DataRepositoryTaskFilter";
   /**
    * <p>Use Values to include the specific file system IDs and task
    *             lifecycle states for the filters you are using.</p>
@@ -1441,7 +1385,6 @@ export namespace DataRepositoryTaskFilter {
   export const filterSensitiveLog = (obj: DataRepositoryTaskFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataRepositoryTaskFilter => __isa(o, "DataRepositoryTaskFilter");
 }
 
 export enum DataRepositoryTaskFilterName {
@@ -1474,7 +1417,6 @@ export namespace DataRepositoryTaskNotFound {
   export const filterSensitiveLog = (obj: DataRepositoryTaskNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataRepositoryTaskNotFound => __isa(o, "DataRepositoryTaskNotFound");
 }
 
 /**
@@ -1482,7 +1424,6 @@ export namespace DataRepositoryTaskNotFound {
  *             the number successfully processed, and the number of files the task failed to process.</p>
  */
 export interface DataRepositoryTaskStatus {
-  __type?: "DataRepositoryTaskStatus";
   /**
    * <p>A running total of the number of files that the task failed to process.</p>
    */
@@ -1510,7 +1451,6 @@ export namespace DataRepositoryTaskStatus {
   export const filterSensitiveLog = (obj: DataRepositoryTaskStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataRepositoryTaskStatus => __isa(o, "DataRepositoryTaskStatus");
 }
 
 export enum DataRepositoryTaskType {
@@ -1521,7 +1461,6 @@ export enum DataRepositoryTaskType {
  * <p>The request object for <code>DeleteBackup</code> operation.</p>
  */
 export interface DeleteBackupRequest {
-  __type?: "DeleteBackupRequest";
   /**
    * <p>The ID of the backup you want to delete.</p>
    */
@@ -1539,14 +1478,12 @@ export namespace DeleteBackupRequest {
   export const filterSensitiveLog = (obj: DeleteBackupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupRequest => __isa(o, "DeleteBackupRequest");
 }
 
 /**
  * <p>The response object for <code>DeleteBackup</code> operation.</p>
  */
 export interface DeleteBackupResponse {
-  __type?: "DeleteBackupResponse";
   /**
    * <p>The lifecycle of the backup. Should be <code>DELETED</code>.</p>
    */
@@ -1562,7 +1499,6 @@ export namespace DeleteBackupResponse {
   export const filterSensitiveLog = (obj: DeleteBackupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupResponse => __isa(o, "DeleteBackupResponse");
 }
 
 /**
@@ -1570,7 +1506,6 @@ export namespace DeleteBackupResponse {
  *                 <code>DeleteFileSystem</code> operation.</p>
  */
 export interface DeleteFileSystemLustreConfiguration {
-  __type?: "DeleteFileSystemLustreConfiguration";
   /**
    * <p>Set <code>SkipFinalBackup</code> to false if you want to take a final backup of the file
    *             system you are deleting. By default, Amazon FSx will not take a final backup on your behalf when the
@@ -1591,8 +1526,6 @@ export namespace DeleteFileSystemLustreConfiguration {
   export const filterSensitiveLog = (obj: DeleteFileSystemLustreConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileSystemLustreConfiguration =>
-    __isa(o, "DeleteFileSystemLustreConfiguration");
 }
 
 /**
@@ -1600,7 +1533,6 @@ export namespace DeleteFileSystemLustreConfiguration {
  *                 <code>DeleteFileSystem</code> operation.</p>
  */
 export interface DeleteFileSystemLustreResponse {
-  __type?: "DeleteFileSystemLustreResponse";
   /**
    * <p>The ID of the final backup for this file system.</p>
    */
@@ -1616,14 +1548,12 @@ export namespace DeleteFileSystemLustreResponse {
   export const filterSensitiveLog = (obj: DeleteFileSystemLustreResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileSystemLustreResponse => __isa(o, "DeleteFileSystemLustreResponse");
 }
 
 /**
  * <p>The request object for <code>DeleteFileSystem</code> operation.</p>
  */
 export interface DeleteFileSystemRequest {
-  __type?: "DeleteFileSystemRequest";
   /**
    * <p>The configuration object for the Microsoft Windows file system used in the
    *                 <code>DeleteFileSystem</code> operation.</p>
@@ -1653,14 +1583,12 @@ export namespace DeleteFileSystemRequest {
   export const filterSensitiveLog = (obj: DeleteFileSystemRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileSystemRequest => __isa(o, "DeleteFileSystemRequest");
 }
 
 /**
  * <p>The response object for the <code>DeleteFileSystem</code> operation.</p>
  */
 export interface DeleteFileSystemResponse {
-  __type?: "DeleteFileSystemResponse";
   /**
    * <p>The ID of the file system being deleted.</p>
    */
@@ -1689,7 +1617,6 @@ export namespace DeleteFileSystemResponse {
   export const filterSensitiveLog = (obj: DeleteFileSystemResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileSystemResponse => __isa(o, "DeleteFileSystemResponse");
 }
 
 /**
@@ -1697,7 +1624,6 @@ export namespace DeleteFileSystemResponse {
  *                 <code>DeleteFileSystem</code> operation.</p>
  */
 export interface DeleteFileSystemWindowsConfiguration {
-  __type?: "DeleteFileSystemWindowsConfiguration";
   /**
    * <p>By default, Amazon FSx for Windows takes a final backup on your behalf when the
    *                 <code>DeleteFileSystem</code> operation is invoked. Doing this helps protect you
@@ -1716,8 +1642,6 @@ export namespace DeleteFileSystemWindowsConfiguration {
   export const filterSensitiveLog = (obj: DeleteFileSystemWindowsConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileSystemWindowsConfiguration =>
-    __isa(o, "DeleteFileSystemWindowsConfiguration");
 }
 
 /**
@@ -1725,7 +1649,6 @@ export namespace DeleteFileSystemWindowsConfiguration {
  *                 <code>DeleteFileSystem</code> operation.</p>
  */
 export interface DeleteFileSystemWindowsResponse {
-  __type?: "DeleteFileSystemWindowsResponse";
   /**
    * <p>The set of tags applied to the final backup.</p>
    */
@@ -1741,14 +1664,12 @@ export namespace DeleteFileSystemWindowsResponse {
   export const filterSensitiveLog = (obj: DeleteFileSystemWindowsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileSystemWindowsResponse => __isa(o, "DeleteFileSystemWindowsResponse");
 }
 
 /**
  * <p>The request object for <code>DescribeBackups</code> operation.</p>
  */
 export interface DescribeBackupsRequest {
-  __type?: "DescribeBackupsRequest";
   /**
    * <p>Opaque pagination token returned from a previous
    *                 <code>DescribeBackups</code> operation (String). If a token present, the action
@@ -1781,14 +1702,12 @@ export namespace DescribeBackupsRequest {
   export const filterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupsRequest => __isa(o, "DescribeBackupsRequest");
 }
 
 /**
  * <p>Response object for <code>DescribeBackups</code> operation.</p>
  */
 export interface DescribeBackupsResponse {
-  __type?: "DescribeBackupsResponse";
   /**
    * <p>Any array of backups.</p>
    */
@@ -1806,11 +1725,9 @@ export namespace DescribeBackupsResponse {
   export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupsResponse => __isa(o, "DescribeBackupsResponse");
 }
 
 export interface DescribeDataRepositoryTasksRequest {
-  __type?: "DescribeDataRepositoryTasksRequest";
   /**
    * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
    *             present, this token indicates from what point you can continue processing the request, where
@@ -1841,12 +1758,9 @@ export namespace DescribeDataRepositoryTasksRequest {
   export const filterSensitiveLog = (obj: DescribeDataRepositoryTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataRepositoryTasksRequest =>
-    __isa(o, "DescribeDataRepositoryTasksRequest");
 }
 
 export interface DescribeDataRepositoryTasksResponse {
-  __type?: "DescribeDataRepositoryTasksResponse";
   /**
    * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
    *             present, this token indicates from what point you can continue processing the request, where
@@ -1864,15 +1778,12 @@ export namespace DescribeDataRepositoryTasksResponse {
   export const filterSensitiveLog = (obj: DescribeDataRepositoryTasksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataRepositoryTasksResponse =>
-    __isa(o, "DescribeDataRepositoryTasksResponse");
 }
 
 /**
  * <p>The request object for <code>DescribeFileSystems</code> operation.</p>
  */
 export interface DescribeFileSystemsRequest {
-  __type?: "DescribeFileSystemsRequest";
   /**
    * <p>IDs of the file systems whose descriptions you want to retrieve
    *             (String).</p>
@@ -1899,14 +1810,12 @@ export namespace DescribeFileSystemsRequest {
   export const filterSensitiveLog = (obj: DescribeFileSystemsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFileSystemsRequest => __isa(o, "DescribeFileSystemsRequest");
 }
 
 /**
  * <p>The response object for <code>DescribeFileSystems</code> operation.</p>
  */
 export interface DescribeFileSystemsResponse {
-  __type?: "DescribeFileSystemsResponse";
   /**
    * <p>An array of file system descriptions.</p>
    */
@@ -1924,14 +1833,12 @@ export namespace DescribeFileSystemsResponse {
   export const filterSensitiveLog = (obj: DescribeFileSystemsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFileSystemsResponse => __isa(o, "DescribeFileSystemsResponse");
 }
 
 /**
  * <p>A description of a specific Amazon FSx file system.</p>
  */
 export interface FileSystem {
-  __type?: "FileSystem";
   /**
    * <p>A structure providing details of any failures that occur when creating the file system
    *             has failed.</p>
@@ -2085,7 +1992,6 @@ export namespace FileSystem {
   export const filterSensitiveLog = (obj: FileSystem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSystem => __isa(o, "FileSystem");
 }
 
 /**
@@ -2093,7 +1999,6 @@ export namespace FileSystem {
  *             has failed.</p>
  */
 export interface FileSystemFailureDetails {
-  __type?: "FileSystemFailureDetails";
   /**
    * <p>A message describing any failures that occurred during file system creation.</p>
    */
@@ -2104,7 +2009,6 @@ export namespace FileSystemFailureDetails {
   export const filterSensitiveLog = (obj: FileSystemFailureDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSystemFailureDetails => __isa(o, "FileSystemFailureDetails");
 }
 
 export enum FileSystemLifecycle {
@@ -2137,7 +2041,6 @@ export namespace FileSystemNotFound {
   export const filterSensitiveLog = (obj: FileSystemNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSystemNotFound => __isa(o, "FileSystemNotFound");
 }
 
 export enum FileSystemType {
@@ -2150,7 +2053,6 @@ export enum FileSystemType {
  *             filters to return results that meet all applied filter requirements.</p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>The values of the filter. These are all the values for any of the applied
    *             filters.</p>
@@ -2167,7 +2069,6 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export enum FilterName {
@@ -2199,7 +2100,6 @@ export namespace IncompatibleParameterError {
   export const filterSensitiveLog = (obj: IncompatibleParameterError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncompatibleParameterError => __isa(o, "IncompatibleParameterError");
 }
 
 /**
@@ -2218,7 +2118,6 @@ export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -2237,7 +2136,6 @@ export namespace InvalidExportPath {
   export const filterSensitiveLog = (obj: InvalidExportPath): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidExportPath => __isa(o, "InvalidExportPath");
 }
 
 /**
@@ -2256,7 +2154,6 @@ export namespace InvalidImportPath {
   export const filterSensitiveLog = (obj: InvalidImportPath): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidImportPath => __isa(o, "InvalidImportPath");
 }
 
 /**
@@ -2297,7 +2194,6 @@ export namespace InvalidNetworkSettings {
   export const filterSensitiveLog = (obj: InvalidNetworkSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNetworkSettings => __isa(o, "InvalidNetworkSettings");
 }
 
 /**
@@ -2316,14 +2212,12 @@ export namespace InvalidPerUnitStorageThroughput {
   export const filterSensitiveLog = (obj: InvalidPerUnitStorageThroughput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPerUnitStorageThroughput => __isa(o, "InvalidPerUnitStorageThroughput");
 }
 
 /**
  * <p>The request object for <code>ListTagsForResource</code> operation.</p>
  */
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>Opaque pagination token returned from a previous
    *                 <code>ListTagsForResource</code> operation (String). If a token present, the action
@@ -2349,14 +2243,12 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 /**
  * <p>The response object for <code>ListTagsForResource</code> operation.</p>
  */
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>This is present if there are more tags than returned in the response (String). You
    *             can use the <code>NextToken</code> value in the later request to fetch the tags.
@@ -2374,7 +2266,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum LustreDeploymentType {
@@ -2387,7 +2278,6 @@ export enum LustreDeploymentType {
  * <p>The configuration for the Amazon FSx for Lustre file system.</p>
  */
 export interface LustreFileSystemConfiguration {
-  __type?: "LustreFileSystemConfiguration";
   /**
    * <p>You use the <code>MountName</code> value when mounting the file system.</p>
    *         <p>For the <code>SCRATCH_1</code> deployment type, this value is always "<code>fsx</code>".
@@ -2464,7 +2354,6 @@ export namespace LustreFileSystemConfiguration {
   export const filterSensitiveLog = (obj: LustreFileSystemConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LustreFileSystemConfiguration => __isa(o, "LustreFileSystemConfiguration");
 }
 
 /**
@@ -2483,7 +2372,6 @@ export namespace MissingFileSystemConfiguration {
   export const filterSensitiveLog = (obj: MissingFileSystemConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MissingFileSystemConfiguration => __isa(o, "MissingFileSystemConfiguration");
 }
 
 /**
@@ -2508,7 +2396,6 @@ export namespace NotServiceResourceError {
   export const filterSensitiveLog = (obj: NotServiceResourceError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotServiceResourceError => __isa(o, "NotServiceResourceError");
 }
 
 export enum ReportFormat {
@@ -2541,7 +2428,6 @@ export namespace ResourceDoesNotSupportTagging {
   export const filterSensitiveLog = (obj: ResourceDoesNotSupportTagging): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceDoesNotSupportTagging => __isa(o, "ResourceDoesNotSupportTagging");
 }
 
 /**
@@ -2565,7 +2451,6 @@ export namespace ResourceNotFound {
   export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFound => __isa(o, "ResourceNotFound");
 }
 
 /**
@@ -2573,7 +2458,6 @@ export namespace ResourceNotFound {
  *             which the Windows File Server instance is joined.</p>
  */
 export interface SelfManagedActiveDirectoryAttributes {
-  __type?: "SelfManagedActiveDirectoryAttributes";
   /**
    * <p>The fully qualified domain name of the self-managed AD directory.</p>
    */
@@ -2608,8 +2492,6 @@ export namespace SelfManagedActiveDirectoryAttributes {
   export const filterSensitiveLog = (obj: SelfManagedActiveDirectoryAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SelfManagedActiveDirectoryAttributes =>
-    __isa(o, "SelfManagedActiveDirectoryAttributes");
 }
 
 /**
@@ -2618,7 +2500,6 @@ export namespace SelfManagedActiveDirectoryAttributes {
  *             directory.</p>
  */
 export interface SelfManagedActiveDirectoryConfiguration {
-  __type?: "SelfManagedActiveDirectoryConfiguration";
   /**
    * <p>(Optional) The name of the domain group whose members are granted administrative
    *             privileges for the file system. Administrative privileges include taking ownership of
@@ -2688,8 +2569,6 @@ export namespace SelfManagedActiveDirectoryConfiguration {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SelfManagedActiveDirectoryConfiguration =>
-    __isa(o, "SelfManagedActiveDirectoryConfiguration");
 }
 
 /**
@@ -2697,7 +2576,6 @@ export namespace SelfManagedActiveDirectoryConfiguration {
  *             self-managed Microsoft Active Directory (AD) directory.</p>
  */
 export interface SelfManagedActiveDirectoryConfigurationUpdates {
-  __type?: "SelfManagedActiveDirectoryConfigurationUpdates";
   /**
    * <p>The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to
    *             your AD domain. This account must have the permission to join
@@ -2724,8 +2602,6 @@ export namespace SelfManagedActiveDirectoryConfigurationUpdates {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SelfManagedActiveDirectoryConfigurationUpdates =>
-    __isa(o, "SelfManagedActiveDirectoryConfigurationUpdates");
 }
 
 export enum ServiceLimit {
@@ -2758,7 +2634,6 @@ export namespace ServiceLimitExceeded {
   export const filterSensitiveLog = (obj: ServiceLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceLimitExceeded => __isa(o, "ServiceLimitExceeded");
 }
 
 export enum Status {
@@ -2778,7 +2653,6 @@ export enum StorageType {
  * <p>Specifies a key-value pair for a resource tag.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>A value that specifies the <code>TagKey</code>, the name of the tag. Tag keys must
    *             be unique for the resource to which they are attached.</p>
@@ -2798,14 +2672,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p>The request object for the <code>TagResource</code> operation.</p>
  */
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>A list of tags for the resource. If a tag with a given key already exists, the
    *             value is replaced by the one specified in this parameter.</p>
@@ -2823,21 +2695,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p>The response object for the <code>TagResource</code> operation.</p>
  */
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -2856,14 +2724,12 @@ export namespace UnsupportedOperation {
   export const filterSensitiveLog = (obj: UnsupportedOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedOperation => __isa(o, "UnsupportedOperation");
 }
 
 /**
  * <p>The request object for <code>UntagResource</code> action.</p>
  */
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>A list of keys of tags on the resource to untag. In case the tag key doesn't exist,
    *             the call will still succeed to be idempotent.</p>
@@ -2880,21 +2746,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
  * <p>The response object for <code>UntagResource</code> action.</p>
  */
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -2902,7 +2764,6 @@ export namespace UntagResourceResponse {
  *                 <code>UpdateFileSystem</code> operation.</p>
  */
 export interface UpdateFileSystemLustreConfiguration {
-  __type?: "UpdateFileSystemLustreConfiguration";
   /**
    * <p>The number of days to retain automatic backups. Setting this to 0 disables
    *             automatic backups. You can retain automatic backups for a maximum of 35 days. The default is 0.</p>
@@ -2959,15 +2820,12 @@ export namespace UpdateFileSystemLustreConfiguration {
   export const filterSensitiveLog = (obj: UpdateFileSystemLustreConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFileSystemLustreConfiguration =>
-    __isa(o, "UpdateFileSystemLustreConfiguration");
 }
 
 /**
  * <p>The request object for the <code>UpdateFileSystem</code> operation.</p>
  */
 export interface UpdateFileSystemRequest {
-  __type?: "UpdateFileSystemRequest";
   /**
    * <p>A string of up to 64 ASCII characters that Amazon FSx uses to ensure
    *           idempotent updates. This string is automatically filled on your behalf when you use the AWS
@@ -3010,14 +2868,12 @@ export namespace UpdateFileSystemRequest {
       WindowsConfiguration: UpdateFileSystemWindowsConfiguration.filterSensitiveLog(obj.WindowsConfiguration),
     }),
   });
-  export const isa = (o: any): o is UpdateFileSystemRequest => __isa(o, "UpdateFileSystemRequest");
 }
 
 /**
  * <p>The response object for the <code>UpdateFileSystem</code> operation.</p>
  */
 export interface UpdateFileSystemResponse {
-  __type?: "UpdateFileSystemResponse";
   /**
    * <p>A description of the file system that was updated.</p>
    */
@@ -3028,7 +2884,6 @@ export namespace UpdateFileSystemResponse {
   export const filterSensitiveLog = (obj: UpdateFileSystemResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFileSystemResponse => __isa(o, "UpdateFileSystemResponse");
 }
 
 /**
@@ -3037,7 +2892,6 @@ export namespace UpdateFileSystemResponse {
  *             provided in the request.</p>
  */
 export interface UpdateFileSystemWindowsConfiguration {
-  __type?: "UpdateFileSystemWindowsConfiguration";
   /**
    * <p>Sets the target value for a file system's throughput capacity, in MB/s, that you are updating the file system to. Valid values are
    *             8, 16, 32, 64, 128, 256, 512, 1024, 2048. You cannot make a throughput capacity update request if there is an existing throughput capacity update request in progress. For more information,
@@ -3080,8 +2934,6 @@ export namespace UpdateFileSystemWindowsConfiguration {
       ),
     }),
   });
-  export const isa = (o: any): o is UpdateFileSystemWindowsConfiguration =>
-    __isa(o, "UpdateFileSystemWindowsConfiguration");
 }
 
 export enum WindowsDeploymentType {
@@ -3094,7 +2946,6 @@ export enum WindowsDeploymentType {
  * <p>The configuration for this Microsoft Windows file system.</p>
  */
 export interface WindowsFileSystemConfiguration {
-  __type?: "WindowsFileSystemConfiguration";
   /**
    * <p>The list of maintenance operations in progress for this file system.</p>
    */
@@ -3207,5 +3058,4 @@ export namespace WindowsFileSystemConfiguration {
   export const filterSensitiveLog = (obj: WindowsFileSystemConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WindowsFileSystemConfiguration => __isa(o, "WindowsFileSystemConfiguration");
 }

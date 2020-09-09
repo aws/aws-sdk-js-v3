@@ -316,7 +316,6 @@ export const deserializeAws_json1_1CancelDataRepositoryTaskCommand = async (
   contents = deserializeAws_json1_1CancelDataRepositoryTaskResponse(data, context);
   const response: CancelDataRepositoryTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelDataRepositoryTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -404,7 +403,6 @@ export const deserializeAws_json1_1CreateBackupCommand = async (
   contents = deserializeAws_json1_1CreateBackupResponse(data, context);
   const response: CreateBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBackupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -508,7 +506,6 @@ export const deserializeAws_json1_1CreateDataRepositoryTaskCommand = async (
   contents = deserializeAws_json1_1CreateDataRepositoryTaskResponse(data, context);
   const response: CreateDataRepositoryTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDataRepositoryTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -612,7 +609,6 @@ export const deserializeAws_json1_1CreateFileSystemCommand = async (
   contents = deserializeAws_json1_1CreateFileSystemResponse(data, context);
   const response: CreateFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFileSystemResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -740,7 +736,6 @@ export const deserializeAws_json1_1CreateFileSystemFromBackupCommand = async (
   contents = deserializeAws_json1_1CreateFileSystemFromBackupResponse(data, context);
   const response: CreateFileSystemFromBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFileSystemFromBackupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -860,7 +855,6 @@ export const deserializeAws_json1_1DeleteBackupCommand = async (
   contents = deserializeAws_json1_1DeleteBackupResponse(data, context);
   const response: DeleteBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBackupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -956,7 +950,6 @@ export const deserializeAws_json1_1DeleteFileSystemCommand = async (
   contents = deserializeAws_json1_1DeleteFileSystemResponse(data, context);
   const response: DeleteFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFileSystemResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1044,7 +1037,6 @@ export const deserializeAws_json1_1DescribeBackupsCommand = async (
   contents = deserializeAws_json1_1DescribeBackupsResponse(data, context);
   const response: DescribeBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBackupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1124,7 +1116,6 @@ export const deserializeAws_json1_1DescribeDataRepositoryTasksCommand = async (
   contents = deserializeAws_json1_1DescribeDataRepositoryTasksResponse(data, context);
   const response: DescribeDataRepositoryTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDataRepositoryTasksResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1204,7 +1195,6 @@ export const deserializeAws_json1_1DescribeFileSystemsCommand = async (
   contents = deserializeAws_json1_1DescribeFileSystemsResponse(data, context);
   const response: DescribeFileSystemsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFileSystemsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1276,7 +1266,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1364,7 +1353,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1452,7 +1440,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1540,7 +1527,6 @@ export const deserializeAws_json1_1UpdateFileSystemCommand = async (
   contents = deserializeAws_json1_1UpdateFileSystemResponse(data, context);
   const response: UpdateFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFileSystemResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2370,7 +2356,6 @@ const deserializeAws_json1_1ActiveDirectoryBackupAttributes = (
   context: __SerdeContext
 ): ActiveDirectoryBackupAttributes => {
   return {
-    __type: "ActiveDirectoryBackupAttributes",
     ActiveDirectoryId:
       output.ActiveDirectoryId !== undefined && output.ActiveDirectoryId !== null
         ? output.ActiveDirectoryId
@@ -2381,7 +2366,6 @@ const deserializeAws_json1_1ActiveDirectoryBackupAttributes = (
 
 const deserializeAws_json1_1ActiveDirectoryError = (output: any, context: __SerdeContext): ActiveDirectoryError => {
   return {
-    __type: "ActiveDirectoryError",
     ActiveDirectoryId:
       output.ActiveDirectoryId !== undefined && output.ActiveDirectoryId !== null
         ? output.ActiveDirectoryId
@@ -2393,7 +2377,6 @@ const deserializeAws_json1_1ActiveDirectoryError = (output: any, context: __Serd
 
 const deserializeAws_json1_1AdministrativeAction = (output: any, context: __SerdeContext): AdministrativeAction => {
   return {
-    __type: "AdministrativeAction",
     AdministrativeActionType:
       output.AdministrativeActionType !== undefined && output.AdministrativeActionType !== null
         ? output.AdministrativeActionType
@@ -2421,7 +2404,6 @@ const deserializeAws_json1_1AdministrativeActionFailureDetails = (
   context: __SerdeContext
 ): AdministrativeActionFailureDetails => {
   return {
-    __type: "AdministrativeActionFailureDetails",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2432,7 +2414,6 @@ const deserializeAws_json1_1AdministrativeActions = (output: any, context: __Ser
 
 const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Backup => {
   return {
-    __type: "Backup",
     BackupId: output.BackupId !== undefined && output.BackupId !== null ? output.BackupId : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
@@ -2463,28 +2444,24 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
 
 const deserializeAws_json1_1BackupFailureDetails = (output: any, context: __SerdeContext): BackupFailureDetails => {
   return {
-    __type: "BackupFailureDetails",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1BackupInProgress = (output: any, context: __SerdeContext): BackupInProgress => {
   return {
-    __type: "BackupInProgress",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1BackupNotFound = (output: any, context: __SerdeContext): BackupNotFound => {
   return {
-    __type: "BackupNotFound",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1BackupRestoring = (output: any, context: __SerdeContext): BackupRestoring => {
   return {
-    __type: "BackupRestoring",
     FileSystemId: output.FileSystemId !== undefined && output.FileSystemId !== null ? output.FileSystemId : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -2496,7 +2473,6 @@ const deserializeAws_json1_1Backups = (output: any, context: __SerdeContext): Ba
 
 const deserializeAws_json1_1BadRequest = (output: any, context: __SerdeContext): BadRequest => {
   return {
-    __type: "BadRequest",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2506,7 +2482,6 @@ const deserializeAws_json1_1CancelDataRepositoryTaskResponse = (
   context: __SerdeContext
 ): CancelDataRepositoryTaskResponse => {
   return {
-    __type: "CancelDataRepositoryTaskResponse",
     Lifecycle: output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined,
     TaskId: output.TaskId !== undefined && output.TaskId !== null ? output.TaskId : undefined,
   } as any;
@@ -2514,7 +2489,6 @@ const deserializeAws_json1_1CancelDataRepositoryTaskResponse = (
 
 const deserializeAws_json1_1CompletionReport = (output: any, context: __SerdeContext): CompletionReport => {
   return {
-    __type: "CompletionReport",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
     Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
@@ -2524,7 +2498,6 @@ const deserializeAws_json1_1CompletionReport = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1CreateBackupResponse = (output: any, context: __SerdeContext): CreateBackupResponse => {
   return {
-    __type: "CreateBackupResponse",
     Backup:
       output.Backup !== undefined && output.Backup !== null
         ? deserializeAws_json1_1Backup(output.Backup, context)
@@ -2537,7 +2510,6 @@ const deserializeAws_json1_1CreateDataRepositoryTaskResponse = (
   context: __SerdeContext
 ): CreateDataRepositoryTaskResponse => {
   return {
-    __type: "CreateDataRepositoryTaskResponse",
     DataRepositoryTask:
       output.DataRepositoryTask !== undefined && output.DataRepositoryTask !== null
         ? deserializeAws_json1_1DataRepositoryTask(output.DataRepositoryTask, context)
@@ -2550,7 +2522,6 @@ const deserializeAws_json1_1CreateFileSystemFromBackupResponse = (
   context: __SerdeContext
 ): CreateFileSystemFromBackupResponse => {
   return {
-    __type: "CreateFileSystemFromBackupResponse",
     FileSystem:
       output.FileSystem !== undefined && output.FileSystem !== null
         ? deserializeAws_json1_1FileSystem(output.FileSystem, context)
@@ -2563,7 +2534,6 @@ const deserializeAws_json1_1CreateFileSystemResponse = (
   context: __SerdeContext
 ): CreateFileSystemResponse => {
   return {
-    __type: "CreateFileSystemResponse",
     FileSystem:
       output.FileSystem !== undefined && output.FileSystem !== null
         ? deserializeAws_json1_1FileSystem(output.FileSystem, context)
@@ -2576,7 +2546,6 @@ const deserializeAws_json1_1DataRepositoryConfiguration = (
   context: __SerdeContext
 ): DataRepositoryConfiguration => {
   return {
-    __type: "DataRepositoryConfiguration",
     AutoImportPolicy:
       output.AutoImportPolicy !== undefined && output.AutoImportPolicy !== null ? output.AutoImportPolicy : undefined,
     ExportPath: output.ExportPath !== undefined && output.ExportPath !== null ? output.ExportPath : undefined,
@@ -2598,14 +2567,12 @@ const deserializeAws_json1_1DataRepositoryFailureDetails = (
   context: __SerdeContext
 ): DataRepositoryFailureDetails => {
   return {
-    __type: "DataRepositoryFailureDetails",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DataRepositoryTask = (output: any, context: __SerdeContext): DataRepositoryTask => {
   return {
-    __type: "DataRepositoryTask",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -2647,7 +2614,6 @@ const deserializeAws_json1_1DataRepositoryTaskEnded = (
   context: __SerdeContext
 ): DataRepositoryTaskEnded => {
   return {
-    __type: "DataRepositoryTaskEnded",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2657,7 +2623,6 @@ const deserializeAws_json1_1DataRepositoryTaskExecuting = (
   context: __SerdeContext
 ): DataRepositoryTaskExecuting => {
   return {
-    __type: "DataRepositoryTaskExecuting",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2667,7 +2632,6 @@ const deserializeAws_json1_1DataRepositoryTaskFailureDetails = (
   context: __SerdeContext
 ): DataRepositoryTaskFailureDetails => {
   return {
-    __type: "DataRepositoryTaskFailureDetails",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2677,7 +2641,6 @@ const deserializeAws_json1_1DataRepositoryTaskNotFound = (
   context: __SerdeContext
 ): DataRepositoryTaskNotFound => {
   return {
-    __type: "DataRepositoryTaskNotFound",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2695,7 +2658,6 @@ const deserializeAws_json1_1DataRepositoryTaskStatus = (
   context: __SerdeContext
 ): DataRepositoryTaskStatus => {
   return {
-    __type: "DataRepositoryTaskStatus",
     FailedCount: output.FailedCount !== undefined && output.FailedCount !== null ? output.FailedCount : undefined,
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
@@ -2709,7 +2671,6 @@ const deserializeAws_json1_1DataRepositoryTaskStatus = (
 
 const deserializeAws_json1_1DeleteBackupResponse = (output: any, context: __SerdeContext): DeleteBackupResponse => {
   return {
-    __type: "DeleteBackupResponse",
     BackupId: output.BackupId !== undefined && output.BackupId !== null ? output.BackupId : undefined,
     Lifecycle: output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined,
   } as any;
@@ -2720,7 +2681,6 @@ const deserializeAws_json1_1DeleteFileSystemLustreResponse = (
   context: __SerdeContext
 ): DeleteFileSystemLustreResponse => {
   return {
-    __type: "DeleteFileSystemLustreResponse",
     FinalBackupId:
       output.FinalBackupId !== undefined && output.FinalBackupId !== null ? output.FinalBackupId : undefined,
     FinalBackupTags:
@@ -2735,7 +2695,6 @@ const deserializeAws_json1_1DeleteFileSystemResponse = (
   context: __SerdeContext
 ): DeleteFileSystemResponse => {
   return {
-    __type: "DeleteFileSystemResponse",
     FileSystemId: output.FileSystemId !== undefined && output.FileSystemId !== null ? output.FileSystemId : undefined,
     Lifecycle: output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined,
     LustreResponse:
@@ -2754,7 +2713,6 @@ const deserializeAws_json1_1DeleteFileSystemWindowsResponse = (
   context: __SerdeContext
 ): DeleteFileSystemWindowsResponse => {
   return {
-    __type: "DeleteFileSystemWindowsResponse",
     FinalBackupId:
       output.FinalBackupId !== undefined && output.FinalBackupId !== null ? output.FinalBackupId : undefined,
     FinalBackupTags:
@@ -2769,7 +2727,6 @@ const deserializeAws_json1_1DescribeBackupsResponse = (
   context: __SerdeContext
 ): DescribeBackupsResponse => {
   return {
-    __type: "DescribeBackupsResponse",
     Backups:
       output.Backups !== undefined && output.Backups !== null
         ? deserializeAws_json1_1Backups(output.Backups, context)
@@ -2783,7 +2740,6 @@ const deserializeAws_json1_1DescribeDataRepositoryTasksResponse = (
   context: __SerdeContext
 ): DescribeDataRepositoryTasksResponse => {
   return {
-    __type: "DescribeDataRepositoryTasksResponse",
     DataRepositoryTasks:
       output.DataRepositoryTasks !== undefined && output.DataRepositoryTasks !== null
         ? deserializeAws_json1_1DataRepositoryTasks(output.DataRepositoryTasks, context)
@@ -2797,7 +2753,6 @@ const deserializeAws_json1_1DescribeFileSystemsResponse = (
   context: __SerdeContext
 ): DescribeFileSystemsResponse => {
   return {
-    __type: "DescribeFileSystemsResponse",
     FileSystems:
       output.FileSystems !== undefined && output.FileSystems !== null
         ? deserializeAws_json1_1FileSystems(output.FileSystems, context)
@@ -2812,7 +2767,6 @@ const deserializeAws_json1_1DnsIps = (output: any, context: __SerdeContext): str
 
 const deserializeAws_json1_1FileSystem = (output: any, context: __SerdeContext): FileSystem => {
   return {
-    __type: "FileSystem",
     AdministrativeActions:
       output.AdministrativeActions !== undefined && output.AdministrativeActions !== null
         ? deserializeAws_json1_1AdministrativeActions(output.AdministrativeActions, context)
@@ -2863,7 +2817,6 @@ const deserializeAws_json1_1FileSystemFailureDetails = (
   context: __SerdeContext
 ): FileSystemFailureDetails => {
   return {
-    __type: "FileSystemFailureDetails",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2877,7 +2830,6 @@ const deserializeAws_json1_1FileSystemMaintenanceOperations = (
 
 const deserializeAws_json1_1FileSystemNotFound = (output: any, context: __SerdeContext): FileSystemNotFound => {
   return {
-    __type: "FileSystemNotFound",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2891,7 +2843,6 @@ const deserializeAws_json1_1IncompatibleParameterError = (
   context: __SerdeContext
 ): IncompatibleParameterError => {
   return {
-    __type: "IncompatibleParameterError",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Parameter: output.Parameter !== undefined && output.Parameter !== null ? output.Parameter : undefined,
   } as any;
@@ -2899,28 +2850,24 @@ const deserializeAws_json1_1IncompatibleParameterError = (
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    __type: "InternalServerError",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidExportPath = (output: any, context: __SerdeContext): InvalidExportPath => {
   return {
-    __type: "InvalidExportPath",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidImportPath = (output: any, context: __SerdeContext): InvalidImportPath => {
   return {
-    __type: "InvalidImportPath",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidNetworkSettings = (output: any, context: __SerdeContext): InvalidNetworkSettings => {
   return {
-    __type: "InvalidNetworkSettings",
     InvalidSecurityGroupId:
       output.InvalidSecurityGroupId !== undefined && output.InvalidSecurityGroupId !== null
         ? output.InvalidSecurityGroupId
@@ -2936,7 +2883,6 @@ const deserializeAws_json1_1InvalidPerUnitStorageThroughput = (
   context: __SerdeContext
 ): InvalidPerUnitStorageThroughput => {
   return {
-    __type: "InvalidPerUnitStorageThroughput",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2946,7 +2892,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
@@ -2958,7 +2903,6 @@ const deserializeAws_json1_1LustreFileSystemConfiguration = (
   context: __SerdeContext
 ): LustreFileSystemConfiguration => {
   return {
-    __type: "LustreFileSystemConfiguration",
     AutomaticBackupRetentionDays:
       output.AutomaticBackupRetentionDays !== undefined && output.AutomaticBackupRetentionDays !== null
         ? output.AutomaticBackupRetentionDays
@@ -2994,7 +2938,6 @@ const deserializeAws_json1_1MissingFileSystemConfiguration = (
   context: __SerdeContext
 ): MissingFileSystemConfiguration => {
   return {
-    __type: "MissingFileSystemConfiguration",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3008,7 +2951,6 @@ const deserializeAws_json1_1NotServiceResourceError = (
   context: __SerdeContext
 ): NotServiceResourceError => {
   return {
-    __type: "NotServiceResourceError",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
   } as any;
@@ -3019,7 +2961,6 @@ const deserializeAws_json1_1ResourceDoesNotSupportTagging = (
   context: __SerdeContext
 ): ResourceDoesNotSupportTagging => {
   return {
-    __type: "ResourceDoesNotSupportTagging",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
   } as any;
@@ -3027,7 +2968,6 @@ const deserializeAws_json1_1ResourceDoesNotSupportTagging = (
 
 const deserializeAws_json1_1ResourceNotFound = (output: any, context: __SerdeContext): ResourceNotFound => {
   return {
-    __type: "ResourceNotFound",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
   } as any;
@@ -3038,7 +2978,6 @@ const deserializeAws_json1_1SelfManagedActiveDirectoryAttributes = (
   context: __SerdeContext
 ): SelfManagedActiveDirectoryAttributes => {
   return {
-    __type: "SelfManagedActiveDirectoryAttributes",
     DnsIps:
       output.DnsIps !== undefined && output.DnsIps !== null
         ? deserializeAws_json1_1DnsIps(output.DnsIps, context)
@@ -3058,7 +2997,6 @@ const deserializeAws_json1_1SelfManagedActiveDirectoryAttributes = (
 
 const deserializeAws_json1_1ServiceLimitExceeded = (output: any, context: __SerdeContext): ServiceLimitExceeded => {
   return {
-    __type: "ServiceLimitExceeded",
     Limit: output.Limit !== undefined && output.Limit !== null ? output.Limit : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -3070,16 +3008,13 @@ const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
@@ -3088,15 +3023,12 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
 
 const deserializeAws_json1_1UnsupportedOperation = (output: any, context: __SerdeContext): UnsupportedOperation => {
   return {
-    __type: "UnsupportedOperation",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateFileSystemResponse = (
@@ -3104,7 +3036,6 @@ const deserializeAws_json1_1UpdateFileSystemResponse = (
   context: __SerdeContext
 ): UpdateFileSystemResponse => {
   return {
-    __type: "UpdateFileSystemResponse",
     FileSystem:
       output.FileSystem !== undefined && output.FileSystem !== null
         ? deserializeAws_json1_1FileSystem(output.FileSystem, context)
@@ -3117,7 +3048,6 @@ const deserializeAws_json1_1WindowsFileSystemConfiguration = (
   context: __SerdeContext
 ): WindowsFileSystemConfiguration => {
   return {
-    __type: "WindowsFileSystemConfiguration",
     ActiveDirectoryId:
       output.ActiveDirectoryId !== undefined && output.ActiveDirectoryId !== null
         ? output.ActiveDirectoryId

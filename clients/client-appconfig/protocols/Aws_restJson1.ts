@@ -1387,7 +1387,6 @@ export const deserializeAws_restJson1CreateApplicationCommand = async (
   }
   const contents: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Application",
     Description: undefined,
     Id: undefined,
     Name: undefined,
@@ -1459,7 +1458,6 @@ export const deserializeAws_restJson1CreateConfigurationProfileCommand = async (
   }
   const contents: CreateConfigurationProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfigurationProfile",
     ApplicationId: undefined,
     Description: undefined,
     Id: undefined,
@@ -1555,7 +1553,6 @@ export const deserializeAws_restJson1CreateDeploymentStrategyCommand = async (
   }
   const contents: CreateDeploymentStrategyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeploymentStrategy",
     DeploymentDurationInMinutes: undefined,
     Description: undefined,
     FinalBakeTimeInMinutes: undefined,
@@ -1647,7 +1644,6 @@ export const deserializeAws_restJson1CreateEnvironmentCommand = async (
   }
   const contents: CreateEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Environment",
     ApplicationId: undefined,
     Description: undefined,
     Id: undefined,
@@ -1739,7 +1735,6 @@ export const deserializeAws_restJson1CreateHostedConfigurationVersionCommand = a
   }
   const contents: CreateHostedConfigurationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HostedConfigurationVersion",
     ApplicationId: undefined,
     ConfigurationProfileId: undefined,
     Content: undefined,
@@ -2204,7 +2199,6 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
   }
   const contents: GetApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Application",
     Description: undefined,
     Id: undefined,
     Name: undefined,
@@ -2284,7 +2278,6 @@ export const deserializeAws_restJson1GetConfigurationCommand = async (
   }
   const contents: GetConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Configuration",
     ConfigurationVersion: undefined,
     Content: undefined,
     ContentType: undefined,
@@ -2362,7 +2355,6 @@ export const deserializeAws_restJson1GetConfigurationProfileCommand = async (
   }
   const contents: GetConfigurationProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfigurationProfile",
     ApplicationId: undefined,
     Description: undefined,
     Id: undefined,
@@ -2458,7 +2450,6 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
   }
   const contents: GetDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Deployment",
     ApplicationId: undefined,
     CompletedAt: undefined,
     ConfigurationLocationUri: undefined,
@@ -2598,7 +2589,6 @@ export const deserializeAws_restJson1GetDeploymentStrategyCommand = async (
   }
   const contents: GetDeploymentStrategyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeploymentStrategy",
     DeploymentDurationInMinutes: undefined,
     Description: undefined,
     FinalBakeTimeInMinutes: undefined,
@@ -2698,7 +2688,6 @@ export const deserializeAws_restJson1GetEnvironmentCommand = async (
   }
   const contents: GetEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Environment",
     ApplicationId: undefined,
     Description: undefined,
     Id: undefined,
@@ -2790,7 +2779,6 @@ export const deserializeAws_restJson1GetHostedConfigurationVersionCommand = asyn
   }
   const contents: GetHostedConfigurationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HostedConfigurationVersion",
     ApplicationId: undefined,
     ConfigurationProfileId: undefined,
     Content: undefined,
@@ -2880,7 +2868,6 @@ export const deserializeAws_restJson1ListApplicationsCommand = async (
   }
   const contents: ListApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Applications",
     Items: undefined,
     NextToken: undefined,
   };
@@ -2948,7 +2935,6 @@ export const deserializeAws_restJson1ListConfigurationProfilesCommand = async (
   }
   const contents: ListConfigurationProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfigurationProfiles",
     Items: undefined,
     NextToken: undefined,
   };
@@ -3024,7 +3010,6 @@ export const deserializeAws_restJson1ListDeploymentsCommand = async (
   }
   const contents: ListDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Deployments",
     Items: undefined,
     NextToken: undefined,
   };
@@ -3100,7 +3085,6 @@ export const deserializeAws_restJson1ListDeploymentStrategiesCommand = async (
   }
   const contents: ListDeploymentStrategiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeploymentStrategies",
     Items: undefined,
     NextToken: undefined,
   };
@@ -3168,7 +3152,6 @@ export const deserializeAws_restJson1ListEnvironmentsCommand = async (
   }
   const contents: ListEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Environments",
     Items: undefined,
     NextToken: undefined,
   };
@@ -3244,7 +3227,6 @@ export const deserializeAws_restJson1ListHostedConfigurationVersionsCommand = as
   }
   const contents: ListHostedConfigurationVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HostedConfigurationVersions",
     Items: undefined,
     NextToken: undefined,
   };
@@ -3320,7 +3302,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResourceTags",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3392,7 +3373,6 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
   }
   const contents: StartDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Deployment",
     ApplicationId: undefined,
     CompletedAt: undefined,
     ConfigurationLocationUri: undefined,
@@ -3540,7 +3520,6 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
   }
   const contents: StopDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Deployment",
     ApplicationId: undefined,
     CompletedAt: undefined,
     ConfigurationLocationUri: undefined,
@@ -3814,7 +3793,6 @@ export const deserializeAws_restJson1UpdateApplicationCommand = async (
   }
   const contents: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Application",
     Description: undefined,
     Id: undefined,
     Name: undefined,
@@ -3894,7 +3872,6 @@ export const deserializeAws_restJson1UpdateConfigurationProfileCommand = async (
   }
   const contents: UpdateConfigurationProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfigurationProfile",
     ApplicationId: undefined,
     Description: undefined,
     Id: undefined,
@@ -3990,7 +3967,6 @@ export const deserializeAws_restJson1UpdateDeploymentStrategyCommand = async (
   }
   const contents: UpdateDeploymentStrategyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeploymentStrategy",
     DeploymentDurationInMinutes: undefined,
     Description: undefined,
     FinalBakeTimeInMinutes: undefined,
@@ -4090,7 +4066,6 @@ export const deserializeAws_restJson1UpdateEnvironmentCommand = async (
   }
   const contents: UpdateEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Environment",
     ApplicationId: undefined,
     Description: undefined,
     Id: undefined,
@@ -4392,7 +4367,6 @@ const serializeAws_restJson1ValidatorList = (input: Validator[], context: __Serd
 
 const deserializeAws_restJson1Application = (output: any, context: __SerdeContext): Application => {
   return {
-    __type: "Application",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -4408,7 +4382,6 @@ const deserializeAws_restJson1ConfigurationProfileSummary = (
   context: __SerdeContext
 ): ConfigurationProfileSummary => {
   return {
-    __type: "ConfigurationProfileSummary",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -4430,7 +4403,6 @@ const deserializeAws_restJson1ConfigurationProfileSummaryList = (
 
 const deserializeAws_restJson1DeploymentEvent = (output: any, context: __SerdeContext): DeploymentEvent => {
   return {
-    __type: "DeploymentEvent",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     EventType: output.EventType !== undefined && output.EventType !== null ? output.EventType : undefined,
     OccurredAt: output.OccurredAt !== undefined && output.OccurredAt !== null ? new Date(output.OccurredAt) : undefined,
@@ -4448,7 +4420,6 @@ const deserializeAws_restJson1DeploymentList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1DeploymentStrategy = (output: any, context: __SerdeContext): DeploymentStrategy => {
   return {
-    __type: "DeploymentStrategy",
     DeploymentDurationInMinutes:
       output.DeploymentDurationInMinutes !== undefined && output.DeploymentDurationInMinutes !== null
         ? output.DeploymentDurationInMinutes
@@ -4472,7 +4443,6 @@ const deserializeAws_restJson1DeploymentStrategyList = (output: any, context: __
 
 const deserializeAws_restJson1DeploymentSummary = (output: any, context: __SerdeContext): DeploymentSummary => {
   return {
-    __type: "DeploymentSummary",
     CompletedAt:
       output.CompletedAt !== undefined && output.CompletedAt !== null ? new Date(output.CompletedAt) : undefined,
     ConfigurationName:
@@ -4506,7 +4476,6 @@ const deserializeAws_restJson1DeploymentSummary = (output: any, context: __Serde
 
 const deserializeAws_restJson1Environment = (output: any, context: __SerdeContext): Environment => {
   return {
-    __type: "Environment",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -4529,7 +4498,6 @@ const deserializeAws_restJson1HostedConfigurationVersionSummary = (
   context: __SerdeContext
 ): HostedConfigurationVersionSummary => {
   return {
-    __type: "HostedConfigurationVersionSummary",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     ConfigurationProfileId:
@@ -4552,7 +4520,6 @@ const deserializeAws_restJson1HostedConfigurationVersionSummaryList = (
 
 const deserializeAws_restJson1Monitor = (output: any, context: __SerdeContext): Monitor => {
   return {
-    __type: "Monitor",
     AlarmArn: output.AlarmArn !== undefined && output.AlarmArn !== null ? output.AlarmArn : undefined,
     AlarmRoleArn: output.AlarmRoleArn !== undefined && output.AlarmRoleArn !== null ? output.AlarmRoleArn : undefined,
   } as any;
@@ -4574,7 +4541,6 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1Validator = (output: any, context: __SerdeContext): Validator => {
   return {
-    __type: "Validator",
     Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;

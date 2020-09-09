@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>An activity that adds other attributes based on existing attributes in the message.</p>
  */
 export interface AddAttributesActivity {
-  __type?: "AddAttributesActivity";
   /**
    * <p>The name of the 'addAttributes' activity.</p>
    */
@@ -32,14 +31,12 @@ export namespace AddAttributesActivity {
   export const filterSensitiveLog = (obj: AddAttributesActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddAttributesActivity => __isa(o, "AddAttributesActivity");
 }
 
 /**
  * <p>Contains informations about errors.</p>
  */
 export interface BatchPutMessageErrorEntry {
-  __type?: "BatchPutMessageErrorEntry";
   /**
    * <p>The message associated with the error.</p>
    */
@@ -61,11 +58,9 @@ export namespace BatchPutMessageErrorEntry {
   export const filterSensitiveLog = (obj: BatchPutMessageErrorEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutMessageErrorEntry => __isa(o, "BatchPutMessageErrorEntry");
 }
 
 export interface BatchPutMessageRequest {
-  __type?: "BatchPutMessageRequest";
   /**
    * <p>The list of messages to be sent. Each message has format:
    *           '{ "messageId": "string", "payload": "string"}'.</p>
@@ -108,11 +103,9 @@ export namespace BatchPutMessageRequest {
   export const filterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutMessageRequest => __isa(o, "BatchPutMessageRequest");
 }
 
 export interface BatchPutMessageResponse {
-  __type?: "BatchPutMessageResponse";
   /**
    * <p>A list of any errors encountered when sending the messages to the channel.</p>
    */
@@ -123,11 +116,9 @@ export namespace BatchPutMessageResponse {
   export const filterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutMessageResponse => __isa(o, "BatchPutMessageResponse");
 }
 
 export interface CancelPipelineReprocessingRequest {
-  __type?: "CancelPipelineReprocessingRequest";
   /**
    * <p>The name of pipeline for which data reprocessing is canceled.</p>
    */
@@ -143,19 +134,14 @@ export namespace CancelPipelineReprocessingRequest {
   export const filterSensitiveLog = (obj: CancelPipelineReprocessingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelPipelineReprocessingRequest => __isa(o, "CancelPipelineReprocessingRequest");
 }
 
-export interface CancelPipelineReprocessingResponse {
-  __type?: "CancelPipelineReprocessingResponse";
-}
+export interface CancelPipelineReprocessingResponse {}
 
 export namespace CancelPipelineReprocessingResponse {
   export const filterSensitiveLog = (obj: CancelPipelineReprocessingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelPipelineReprocessingResponse =>
-    __isa(o, "CancelPipelineReprocessingResponse");
 }
 
 /**
@@ -163,7 +149,6 @@ export namespace CancelPipelineReprocessingResponse {
  *         Channels archive the raw, unprocessed messages before publishing the data to a pipeline.</p>
  */
 export interface Channel {
-  __type?: "Channel";
   /**
    * <p>When the channel was last updated.</p>
    */
@@ -206,14 +191,12 @@ export namespace Channel {
   export const filterSensitiveLog = (obj: Channel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Channel => __isa(o, "Channel");
 }
 
 /**
  * <p>The activity that determines the source of the messages to be processed.</p>
  */
 export interface ChannelActivity {
-  __type?: "ChannelActivity";
   /**
    * <p>The name of the 'channel' activity.</p>
    */
@@ -234,14 +217,12 @@ export namespace ChannelActivity {
   export const filterSensitiveLog = (obj: ChannelActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelActivity => __isa(o, "ChannelActivity");
 }
 
 /**
  * <p>Statistics information about the channel.</p>
  */
 export interface ChannelStatistics {
-  __type?: "ChannelStatistics";
   /**
    * <p>The estimated size of the channel.</p>
    */
@@ -252,7 +233,6 @@ export namespace ChannelStatistics {
   export const filterSensitiveLog = (obj: ChannelStatistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelStatistics => __isa(o, "ChannelStatistics");
 }
 
 export enum ChannelStatus {
@@ -267,7 +247,6 @@ export enum ChannelStatus {
  *         of the channel.</p>
  */
 export interface ChannelStorage {
-  __type?: "ChannelStorage";
   /**
    * <p>Use this to store channel data in an S3 bucket managed by the AWS IoT Analytics service.
    *         The choice of service-managed or customer-managed S3 storage cannot be changed after creation
@@ -287,14 +266,12 @@ export namespace ChannelStorage {
   export const filterSensitiveLog = (obj: ChannelStorage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelStorage => __isa(o, "ChannelStorage");
 }
 
 /**
  * <p>Where channel data is stored.</p>
  */
 export interface ChannelStorageSummary {
-  __type?: "ChannelStorageSummary";
   /**
    * <p>Used to store channel data in an S3 bucket managed by the AWS IoT Analytics service.</p>
    */
@@ -310,14 +287,12 @@ export namespace ChannelStorageSummary {
   export const filterSensitiveLog = (obj: ChannelStorageSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelStorageSummary => __isa(o, "ChannelStorageSummary");
 }
 
 /**
  * <p>A summary of information about a channel.</p>
  */
 export interface ChannelSummary {
-  __type?: "ChannelSummary";
   /**
    * <p>The status of the channel.</p>
    */
@@ -348,7 +323,6 @@ export namespace ChannelSummary {
   export const filterSensitiveLog = (obj: ChannelSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChannelSummary => __isa(o, "ChannelSummary");
 }
 
 export enum ComputeType {
@@ -360,7 +334,6 @@ export enum ComputeType {
  * <p>Information needed to run the "containerAction" to produce data set contents.</p>
  */
 export interface ContainerDatasetAction {
-  __type?: "ContainerDatasetAction";
   /**
    * <p>The ARN of the role which gives permission to the system to access needed resources in order
    *           to run the "containerAction". This includes, at minimum, permission to retrieve the data set
@@ -392,11 +365,9 @@ export namespace ContainerDatasetAction {
   export const filterSensitiveLog = (obj: ContainerDatasetAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerDatasetAction => __isa(o, "ContainerDatasetAction");
 }
 
 export interface CreateChannelRequest {
-  __type?: "CreateChannelRequest";
   /**
    * <p>Where channel data is stored. You may choose one of "serviceManagedS3" or "customerManagedS3"
    *         storage. If not specified, the default is "serviceManagedS3". This cannot be changed after creation
@@ -425,11 +396,9 @@ export namespace CreateChannelRequest {
   export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateChannelRequest => __isa(o, "CreateChannelRequest");
 }
 
 export interface CreateChannelResponse {
-  __type?: "CreateChannelResponse";
   /**
    * <p>How long, in days, message data is kept for the channel.</p>
    */
@@ -450,11 +419,9 @@ export namespace CreateChannelResponse {
   export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateChannelResponse => __isa(o, "CreateChannelResponse");
 }
 
 export interface CreateDatasetContentRequest {
-  __type?: "CreateDatasetContentRequest";
   /**
    * <p>The name of the data set.</p>
    */
@@ -465,11 +432,9 @@ export namespace CreateDatasetContentRequest {
   export const filterSensitiveLog = (obj: CreateDatasetContentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetContentRequest => __isa(o, "CreateDatasetContentRequest");
 }
 
 export interface CreateDatasetContentResponse {
-  __type?: "CreateDatasetContentResponse";
   /**
    * <p>The version ID of the data set contents which are being created.</p>
    */
@@ -480,11 +445,9 @@ export namespace CreateDatasetContentResponse {
   export const filterSensitiveLog = (obj: CreateDatasetContentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetContentResponse => __isa(o, "CreateDatasetContentResponse");
 }
 
 export interface CreateDatasetRequest {
-  __type?: "CreateDatasetRequest";
   /**
    * <p>[Optional] How many versions of data set contents are kept. If not specified or set to null, only the
    *         latest version plus the latest succeeded version (if they are different) are kept for
@@ -534,11 +497,9 @@ export namespace CreateDatasetRequest {
   export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetRequest => __isa(o, "CreateDatasetRequest");
 }
 
 export interface CreateDatasetResponse {
-  __type?: "CreateDatasetResponse";
   /**
    * <p>How long, in days, data set contents are kept for the data set.</p>
    */
@@ -559,11 +520,9 @@ export namespace CreateDatasetResponse {
   export const filterSensitiveLog = (obj: CreateDatasetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetResponse => __isa(o, "CreateDatasetResponse");
 }
 
 export interface CreateDatastoreRequest {
-  __type?: "CreateDatastoreRequest";
   /**
    * <p>How long, in days, message data is kept for the data store. When "customerManagedS3" storage
    *         is selected, this parameter is ignored.</p>
@@ -592,11 +551,9 @@ export namespace CreateDatastoreRequest {
   export const filterSensitiveLog = (obj: CreateDatastoreRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatastoreRequest => __isa(o, "CreateDatastoreRequest");
 }
 
 export interface CreateDatastoreResponse {
-  __type?: "CreateDatastoreResponse";
   /**
    * <p>The ARN of the data store.</p>
    */
@@ -617,11 +574,9 @@ export namespace CreateDatastoreResponse {
   export const filterSensitiveLog = (obj: CreateDatastoreResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatastoreResponse => __isa(o, "CreateDatastoreResponse");
 }
 
 export interface CreatePipelineRequest {
-  __type?: "CreatePipelineRequest";
   /**
    * <p>Metadata which can be used to manage the pipeline.</p>
    */
@@ -659,11 +614,9 @@ export namespace CreatePipelineRequest {
   export const filterSensitiveLog = (obj: CreatePipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePipelineRequest => __isa(o, "CreatePipelineRequest");
 }
 
 export interface CreatePipelineResponse {
-  __type?: "CreatePipelineResponse";
   /**
    * <p>The name of the pipeline.</p>
    */
@@ -679,7 +632,6 @@ export namespace CreatePipelineResponse {
   export const filterSensitiveLog = (obj: CreatePipelineResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePipelineResponse => __isa(o, "CreatePipelineResponse");
 }
 
 /**
@@ -688,7 +640,6 @@ export namespace CreatePipelineResponse {
  *         S3 storage cannot be changed after creation of the channel.</p>
  */
 export interface CustomerManagedChannelS3Storage {
-  __type?: "CustomerManagedChannelS3Storage";
   /**
    * <p>The name of the Amazon S3 bucket in which channel data is stored.</p>
    */
@@ -711,14 +662,12 @@ export namespace CustomerManagedChannelS3Storage {
   export const filterSensitiveLog = (obj: CustomerManagedChannelS3Storage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomerManagedChannelS3Storage => __isa(o, "CustomerManagedChannelS3Storage");
 }
 
 /**
  * <p>Used to store channel data in an S3 bucket that you manage.</p>
  */
 export interface CustomerManagedChannelS3StorageSummary {
-  __type?: "CustomerManagedChannelS3StorageSummary";
   /**
    * <p>The ARN of the role which grants AWS IoT Analytics permission to interact with your Amazon
    *         S3 resources.</p>
@@ -742,8 +691,6 @@ export namespace CustomerManagedChannelS3StorageSummary {
   export const filterSensitiveLog = (obj: CustomerManagedChannelS3StorageSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomerManagedChannelS3StorageSummary =>
-    __isa(o, "CustomerManagedChannelS3StorageSummary");
 }
 
 /**
@@ -752,7 +699,6 @@ export namespace CustomerManagedChannelS3StorageSummary {
  *         S3 storage cannot be changed after creation of the data store.</p>
  */
 export interface CustomerManagedDatastoreS3Storage {
-  __type?: "CustomerManagedDatastoreS3Storage";
   /**
    * <p>The ARN of the role which grants AWS IoT Analytics permission to interact with your Amazon S3 resources.</p>
    */
@@ -775,14 +721,12 @@ export namespace CustomerManagedDatastoreS3Storage {
   export const filterSensitiveLog = (obj: CustomerManagedDatastoreS3Storage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomerManagedDatastoreS3Storage => __isa(o, "CustomerManagedDatastoreS3Storage");
 }
 
 /**
  * <p>Used to store data store data in an S3 bucket that you manage.</p>
  */
 export interface CustomerManagedDatastoreS3StorageSummary {
-  __type?: "CustomerManagedDatastoreS3StorageSummary";
   /**
    * <p>The name of the Amazon S3 bucket in which data store data is stored.</p>
    */
@@ -805,15 +749,12 @@ export namespace CustomerManagedDatastoreS3StorageSummary {
   export const filterSensitiveLog = (obj: CustomerManagedDatastoreS3StorageSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomerManagedDatastoreS3StorageSummary =>
-    __isa(o, "CustomerManagedDatastoreS3StorageSummary");
 }
 
 /**
  * <p>Information about a data set.</p>
  */
 export interface Dataset {
-  __type?: "Dataset";
   /**
    * <p>[Optional] How many versions of data set contents are kept. If not specified or set to null, only the
    *         latest version plus the latest succeeded version (if they are different) are kept for
@@ -873,14 +814,12 @@ export namespace Dataset {
   export const filterSensitiveLog = (obj: Dataset): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Dataset => __isa(o, "Dataset");
 }
 
 /**
  * <p>A "DatasetAction" object that specifies how data set contents are automatically created.</p>
  */
 export interface DatasetAction {
-  __type?: "DatasetAction";
   /**
    * <p>Information which allows the system to run a containerized application in order to create
    *           the data set contents. The application must be in a Docker container along with any needed
@@ -903,14 +842,12 @@ export namespace DatasetAction {
   export const filterSensitiveLog = (obj: DatasetAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetAction => __isa(o, "DatasetAction");
 }
 
 /**
  * <p>Information about the action which automatically creates the data set's contents.</p>
  */
 export interface DatasetActionSummary {
-  __type?: "DatasetActionSummary";
   /**
    * <p>The type of action by which the data set's contents are automatically created.</p>
    */
@@ -926,7 +863,6 @@ export namespace DatasetActionSummary {
   export const filterSensitiveLog = (obj: DatasetActionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetActionSummary => __isa(o, "DatasetActionSummary");
 }
 
 export enum DatasetActionType {
@@ -938,7 +874,6 @@ export enum DatasetActionType {
  * <p>The destination to which data set contents are delivered.</p>
  */
 export interface DatasetContentDeliveryDestination {
-  __type?: "DatasetContentDeliveryDestination";
   /**
    * <p>Configuration information for delivery of data set contents to Amazon S3.</p>
    */
@@ -954,14 +889,12 @@ export namespace DatasetContentDeliveryDestination {
   export const filterSensitiveLog = (obj: DatasetContentDeliveryDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetContentDeliveryDestination => __isa(o, "DatasetContentDeliveryDestination");
 }
 
 /**
  * <p>When data set contents are created they are delivered to destination specified here.</p>
  */
 export interface DatasetContentDeliveryRule {
-  __type?: "DatasetContentDeliveryRule";
   /**
    * <p>The destination to which data set contents are delivered.</p>
    */
@@ -977,7 +910,6 @@ export namespace DatasetContentDeliveryRule {
   export const filterSensitiveLog = (obj: DatasetContentDeliveryRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetContentDeliveryRule => __isa(o, "DatasetContentDeliveryRule");
 }
 
 export enum DatasetContentState {
@@ -990,7 +922,6 @@ export enum DatasetContentState {
  * <p>The state of the data set contents and the reason they are in this state.</p>
  */
 export interface DatasetContentStatus {
-  __type?: "DatasetContentStatus";
   /**
    * <p>The reason the data set contents are in this state.</p>
    */
@@ -1007,14 +938,12 @@ export namespace DatasetContentStatus {
   export const filterSensitiveLog = (obj: DatasetContentStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetContentStatus => __isa(o, "DatasetContentStatus");
 }
 
 /**
  * <p>Summary information about data set contents.</p>
  */
 export interface DatasetContentSummary {
-  __type?: "DatasetContentSummary";
   /**
    * <p>The status of the data set contents.</p>
    */
@@ -1045,7 +974,6 @@ export namespace DatasetContentSummary {
   export const filterSensitiveLog = (obj: DatasetContentSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetContentSummary => __isa(o, "DatasetContentSummary");
 }
 
 /**
@@ -1053,7 +981,6 @@ export namespace DatasetContentSummary {
  *           application.</p>
  */
 export interface DatasetContentVersionValue {
-  __type?: "DatasetContentVersionValue";
   /**
    * <p>The name of the data set whose latest contents are used as input to the notebook or
    *           application.</p>
@@ -1065,14 +992,12 @@ export namespace DatasetContentVersionValue {
   export const filterSensitiveLog = (obj: DatasetContentVersionValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetContentVersionValue => __isa(o, "DatasetContentVersionValue");
 }
 
 /**
  * <p>The reference to a data set entry.</p>
  */
 export interface DatasetEntry {
-  __type?: "DatasetEntry";
   /**
    * <p>The name of the data set item.</p>
    */
@@ -1088,7 +1013,6 @@ export namespace DatasetEntry {
   export const filterSensitiveLog = (obj: DatasetEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetEntry => __isa(o, "DatasetEntry");
 }
 
 export enum DatasetStatus {
@@ -1101,7 +1025,6 @@ export enum DatasetStatus {
  * <p>A summary of information about a data set.</p>
  */
 export interface DatasetSummary {
-  __type?: "DatasetSummary";
   /**
    * <p>The time the data set was created.</p>
    */
@@ -1139,7 +1062,6 @@ export namespace DatasetSummary {
   export const filterSensitiveLog = (obj: DatasetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetSummary => __isa(o, "DatasetSummary");
 }
 
 /**
@@ -1147,7 +1069,6 @@ export namespace DatasetSummary {
  *      that specifies when the data set is automatically updated.</p>
  */
 export interface DatasetTrigger {
-  __type?: "DatasetTrigger";
   /**
    * <p>The "Schedule" when the trigger is initiated.</p>
    */
@@ -1163,14 +1084,12 @@ export namespace DatasetTrigger {
   export const filterSensitiveLog = (obj: DatasetTrigger): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetTrigger => __isa(o, "DatasetTrigger");
 }
 
 /**
  * <p>Information about a data store.</p>
  */
 export interface Datastore {
-  __type?: "Datastore";
   /**
    * <p>Where data store data is stored. You may choose one of "serviceManagedS3" or "customerManagedS3"
    *         storage. If not specified, the default is "serviceManagedS3". This cannot be changed after the data
@@ -1228,14 +1147,12 @@ export namespace Datastore {
   export const filterSensitiveLog = (obj: Datastore): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Datastore => __isa(o, "Datastore");
 }
 
 /**
  * <p>The 'datastore' activity that specifies where to store the processed data.</p>
  */
 export interface DatastoreActivity {
-  __type?: "DatastoreActivity";
   /**
    * <p>The name of the data store where processed messages are stored.</p>
    */
@@ -1251,14 +1168,12 @@ export namespace DatastoreActivity {
   export const filterSensitiveLog = (obj: DatastoreActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatastoreActivity => __isa(o, "DatastoreActivity");
 }
 
 /**
  * <p>Statistical information about the data store.</p>
  */
 export interface DatastoreStatistics {
-  __type?: "DatastoreStatistics";
   /**
    * <p>The estimated size of the data store.</p>
    */
@@ -1269,7 +1184,6 @@ export namespace DatastoreStatistics {
   export const filterSensitiveLog = (obj: DatastoreStatistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatastoreStatistics => __isa(o, "DatastoreStatistics");
 }
 
 export enum DatastoreStatus {
@@ -1284,7 +1198,6 @@ export enum DatastoreStatus {
  *         store is created.</p>
  */
 export interface DatastoreStorage {
-  __type?: "DatastoreStorage";
   /**
    * <p>Use this to store data store data in an S3 bucket that you manage. When customer managed storage is
    *         selected, the "retentionPeriod" parameter is ignored. The choice of service-managed or customer-managed
@@ -1304,14 +1217,12 @@ export namespace DatastoreStorage {
   export const filterSensitiveLog = (obj: DatastoreStorage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatastoreStorage => __isa(o, "DatastoreStorage");
 }
 
 /**
  * <p>Where data store data is stored.</p>
  */
 export interface DatastoreStorageSummary {
-  __type?: "DatastoreStorageSummary";
   /**
    * <p>Used to store data store data in an S3 bucket that you manage.</p>
    */
@@ -1327,14 +1238,12 @@ export namespace DatastoreStorageSummary {
   export const filterSensitiveLog = (obj: DatastoreStorageSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatastoreStorageSummary => __isa(o, "DatastoreStorageSummary");
 }
 
 /**
  * <p>A summary of information about a data store.</p>
  */
 export interface DatastoreSummary {
-  __type?: "DatastoreSummary";
   /**
    * <p>Where data store data is stored.</p>
    */
@@ -1365,11 +1274,9 @@ export namespace DatastoreSummary {
   export const filterSensitiveLog = (obj: DatastoreSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatastoreSummary => __isa(o, "DatastoreSummary");
 }
 
 export interface DeleteChannelRequest {
-  __type?: "DeleteChannelRequest";
   /**
    * <p>The name of the channel to delete.</p>
    */
@@ -1380,11 +1287,9 @@ export namespace DeleteChannelRequest {
   export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteChannelRequest => __isa(o, "DeleteChannelRequest");
 }
 
 export interface DeleteDatasetContentRequest {
-  __type?: "DeleteDatasetContentRequest";
   /**
    * <p>The name of the data set whose content is deleted.</p>
    */
@@ -1402,11 +1307,9 @@ export namespace DeleteDatasetContentRequest {
   export const filterSensitiveLog = (obj: DeleteDatasetContentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDatasetContentRequest => __isa(o, "DeleteDatasetContentRequest");
 }
 
 export interface DeleteDatasetRequest {
-  __type?: "DeleteDatasetRequest";
   /**
    * <p>The name of the data set to delete.</p>
    */
@@ -1417,11 +1320,9 @@ export namespace DeleteDatasetRequest {
   export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDatasetRequest => __isa(o, "DeleteDatasetRequest");
 }
 
 export interface DeleteDatastoreRequest {
-  __type?: "DeleteDatastoreRequest";
   /**
    * <p>The name of the data store to delete.</p>
    */
@@ -1432,11 +1333,9 @@ export namespace DeleteDatastoreRequest {
   export const filterSensitiveLog = (obj: DeleteDatastoreRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDatastoreRequest => __isa(o, "DeleteDatastoreRequest");
 }
 
 export interface DeletePipelineRequest {
-  __type?: "DeletePipelineRequest";
   /**
    * <p>The name of the pipeline to delete.</p>
    */
@@ -1447,14 +1346,12 @@ export namespace DeletePipelineRequest {
   export const filterSensitiveLog = (obj: DeletePipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePipelineRequest => __isa(o, "DeletePipelineRequest");
 }
 
 /**
  * <p>Used to limit data to that which has arrived since the last execution of the action.</p>
  */
 export interface DeltaTime {
-  __type?: "DeltaTime";
   /**
    * <p>The number of seconds of estimated "in flight" lag time of message data.  When you create
    *        data set contents using message data from a specified time frame, some message data may still be
@@ -1478,11 +1375,9 @@ export namespace DeltaTime {
   export const filterSensitiveLog = (obj: DeltaTime): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeltaTime => __isa(o, "DeltaTime");
 }
 
 export interface DescribeChannelRequest {
-  __type?: "DescribeChannelRequest";
   /**
    * <p>The name of the channel whose information is retrieved.</p>
    */
@@ -1499,11 +1394,9 @@ export namespace DescribeChannelRequest {
   export const filterSensitiveLog = (obj: DescribeChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeChannelRequest => __isa(o, "DescribeChannelRequest");
 }
 
 export interface DescribeChannelResponse {
-  __type?: "DescribeChannelResponse";
   /**
    * <p>Statistics about the channel. Included if the 'includeStatistics' parameter is set
    *          to true in the request.</p>
@@ -1520,11 +1413,9 @@ export namespace DescribeChannelResponse {
   export const filterSensitiveLog = (obj: DescribeChannelResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeChannelResponse => __isa(o, "DescribeChannelResponse");
 }
 
 export interface DescribeDatasetRequest {
-  __type?: "DescribeDatasetRequest";
   /**
    * <p>The name of the data set whose information is retrieved.</p>
    */
@@ -1535,11 +1426,9 @@ export namespace DescribeDatasetRequest {
   export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetRequest => __isa(o, "DescribeDatasetRequest");
 }
 
 export interface DescribeDatasetResponse {
-  __type?: "DescribeDatasetResponse";
   /**
    * <p>An object that contains information about the data set.</p>
    */
@@ -1550,11 +1439,9 @@ export namespace DescribeDatasetResponse {
   export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetResponse => __isa(o, "DescribeDatasetResponse");
 }
 
 export interface DescribeDatastoreRequest {
-  __type?: "DescribeDatastoreRequest";
   /**
    * <p>The name of the data store</p>
    */
@@ -1571,11 +1458,9 @@ export namespace DescribeDatastoreRequest {
   export const filterSensitiveLog = (obj: DescribeDatastoreRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDatastoreRequest => __isa(o, "DescribeDatastoreRequest");
 }
 
 export interface DescribeDatastoreResponse {
-  __type?: "DescribeDatastoreResponse";
   /**
    * <p>Information about the data store.</p>
    */
@@ -1592,22 +1477,17 @@ export namespace DescribeDatastoreResponse {
   export const filterSensitiveLog = (obj: DescribeDatastoreResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDatastoreResponse => __isa(o, "DescribeDatastoreResponse");
 }
 
-export interface DescribeLoggingOptionsRequest {
-  __type?: "DescribeLoggingOptionsRequest";
-}
+export interface DescribeLoggingOptionsRequest {}
 
 export namespace DescribeLoggingOptionsRequest {
   export const filterSensitiveLog = (obj: DescribeLoggingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoggingOptionsRequest => __isa(o, "DescribeLoggingOptionsRequest");
 }
 
 export interface DescribeLoggingOptionsResponse {
-  __type?: "DescribeLoggingOptionsResponse";
   /**
    * <p>The current settings of the AWS IoT Analytics logging options.</p>
    */
@@ -1618,11 +1498,9 @@ export namespace DescribeLoggingOptionsResponse {
   export const filterSensitiveLog = (obj: DescribeLoggingOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLoggingOptionsResponse => __isa(o, "DescribeLoggingOptionsResponse");
 }
 
 export interface DescribePipelineRequest {
-  __type?: "DescribePipelineRequest";
   /**
    * <p>The name of the pipeline whose information is retrieved.</p>
    */
@@ -1633,11 +1511,9 @@ export namespace DescribePipelineRequest {
   export const filterSensitiveLog = (obj: DescribePipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePipelineRequest => __isa(o, "DescribePipelineRequest");
 }
 
 export interface DescribePipelineResponse {
-  __type?: "DescribePipelineResponse";
   /**
    * <p>A "Pipeline" object
    *         that contains information about the pipeline.</p>
@@ -1649,14 +1525,12 @@ export namespace DescribePipelineResponse {
   export const filterSensitiveLog = (obj: DescribePipelineResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePipelineResponse => __isa(o, "DescribePipelineResponse");
 }
 
 /**
  * <p>An activity that adds data from the AWS IoT device registry to your message.</p>
  */
 export interface DeviceRegistryEnrichActivity {
-  __type?: "DeviceRegistryEnrichActivity";
   /**
    * <p>The name of the attribute that is added to the message.</p>
    */
@@ -1687,14 +1561,12 @@ export namespace DeviceRegistryEnrichActivity {
   export const filterSensitiveLog = (obj: DeviceRegistryEnrichActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceRegistryEnrichActivity => __isa(o, "DeviceRegistryEnrichActivity");
 }
 
 /**
  * <p>An activity that adds information from the AWS IoT Device Shadows service to a message.</p>
  */
 export interface DeviceShadowEnrichActivity {
-  __type?: "DeviceShadowEnrichActivity";
   /**
    * <p>The name of the 'deviceShadowEnrich' activity.</p>
    */
@@ -1726,14 +1598,12 @@ export namespace DeviceShadowEnrichActivity {
   export const filterSensitiveLog = (obj: DeviceShadowEnrichActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceShadowEnrichActivity => __isa(o, "DeviceShadowEnrichActivity");
 }
 
 /**
  * <p>The estimated size of the resource.</p>
  */
 export interface EstimatedResourceSize {
-  __type?: "EstimatedResourceSize";
   /**
    * <p>The time when the estimate of the size of the resource was made.</p>
    */
@@ -1749,14 +1619,12 @@ export namespace EstimatedResourceSize {
   export const filterSensitiveLog = (obj: EstimatedResourceSize): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EstimatedResourceSize => __isa(o, "EstimatedResourceSize");
 }
 
 /**
  * <p>An activity that filters a message based on its attributes.</p>
  */
 export interface FilterActivity {
-  __type?: "FilterActivity";
   /**
    * <p>An expression that looks like a SQL WHERE clause that must return a Boolean value.</p>
    */
@@ -1777,11 +1645,9 @@ export namespace FilterActivity {
   export const filterSensitiveLog = (obj: FilterActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FilterActivity => __isa(o, "FilterActivity");
 }
 
 export interface GetDatasetContentRequest {
-  __type?: "GetDatasetContentRequest";
   /**
    * <p>The name of the data set whose contents are retrieved.</p>
    */
@@ -1800,11 +1666,9 @@ export namespace GetDatasetContentRequest {
   export const filterSensitiveLog = (obj: GetDatasetContentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDatasetContentRequest => __isa(o, "GetDatasetContentRequest");
 }
 
 export interface GetDatasetContentResponse {
-  __type?: "GetDatasetContentResponse";
   /**
    * <p>A list of "DatasetEntry" objects.</p>
    */
@@ -1825,7 +1689,6 @@ export namespace GetDatasetContentResponse {
   export const filterSensitiveLog = (obj: GetDatasetContentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDatasetContentResponse => __isa(o, "GetDatasetContentResponse");
 }
 
 /**
@@ -1833,7 +1696,6 @@ export namespace GetDatasetContentResponse {
  *         load) service.</p>
  */
 export interface GlueConfiguration {
-  __type?: "GlueConfiguration";
   /**
    * <p>The name of the database in your AWS Glue Data Catalog in which the table is located. (An AWS
    *         Glue Data Catalog database contains Glue Data tables.)</p>
@@ -1852,7 +1714,6 @@ export namespace GlueConfiguration {
   export const filterSensitiveLog = (obj: GlueConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlueConfiguration => __isa(o, "GlueConfiguration");
 }
 
 /**
@@ -1868,7 +1729,6 @@ export namespace InternalFailureException {
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
@@ -1884,14 +1744,12 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>Configuration information for delivery of data set contents to AWS IoT Events.</p>
  */
 export interface IotEventsDestinationConfiguration {
-  __type?: "IotEventsDestinationConfiguration";
   /**
    * <p>The ARN of the role which grants AWS IoT Analytics permission to deliver data set contents
    *         to an AWS IoT Events input.</p>
@@ -1908,14 +1766,12 @@ export namespace IotEventsDestinationConfiguration {
   export const filterSensitiveLog = (obj: IotEventsDestinationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IotEventsDestinationConfiguration => __isa(o, "IotEventsDestinationConfiguration");
 }
 
 /**
  * <p>An activity that runs a Lambda function to modify the message.</p>
  */
 export interface LambdaActivity {
-  __type?: "LambdaActivity";
   /**
    * <p>The next activity in the pipeline.</p>
    */
@@ -1943,7 +1799,6 @@ export namespace LambdaActivity {
   export const filterSensitiveLog = (obj: LambdaActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaActivity => __isa(o, "LambdaActivity");
 }
 
 /**
@@ -1959,11 +1814,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListChannelsRequest {
-  __type?: "ListChannelsRequest";
   /**
    * <p>The maximum number of results to return in this request.</p>
    *          <p>The default value is 100.</p>
@@ -1980,11 +1833,9 @@ export namespace ListChannelsRequest {
   export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChannelsRequest => __isa(o, "ListChannelsRequest");
 }
 
 export interface ListChannelsResponse {
-  __type?: "ListChannelsResponse";
   /**
    * <p>A list of "ChannelSummary" objects.</p>
    */
@@ -2001,11 +1852,9 @@ export namespace ListChannelsResponse {
   export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChannelsResponse => __isa(o, "ListChannelsResponse");
 }
 
 export interface ListDatasetContentsRequest {
-  __type?: "ListDatasetContentsRequest";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -2039,11 +1888,9 @@ export namespace ListDatasetContentsRequest {
   export const filterSensitiveLog = (obj: ListDatasetContentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatasetContentsRequest => __isa(o, "ListDatasetContentsRequest");
 }
 
 export interface ListDatasetContentsResponse {
-  __type?: "ListDatasetContentsResponse";
   /**
    * <p>Summary information about data set contents that have been created.</p>
    */
@@ -2060,11 +1907,9 @@ export namespace ListDatasetContentsResponse {
   export const filterSensitiveLog = (obj: ListDatasetContentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatasetContentsResponse => __isa(o, "ListDatasetContentsResponse");
 }
 
 export interface ListDatasetsRequest {
-  __type?: "ListDatasetsRequest";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -2081,11 +1926,9 @@ export namespace ListDatasetsRequest {
   export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatasetsRequest => __isa(o, "ListDatasetsRequest");
 }
 
 export interface ListDatasetsResponse {
-  __type?: "ListDatasetsResponse";
   /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
    *           more results.</p>
@@ -2102,11 +1945,9 @@ export namespace ListDatasetsResponse {
   export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatasetsResponse => __isa(o, "ListDatasetsResponse");
 }
 
 export interface ListDatastoresRequest {
-  __type?: "ListDatastoresRequest";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -2123,11 +1964,9 @@ export namespace ListDatastoresRequest {
   export const filterSensitiveLog = (obj: ListDatastoresRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatastoresRequest => __isa(o, "ListDatastoresRequest");
 }
 
 export interface ListDatastoresResponse {
-  __type?: "ListDatastoresResponse";
   /**
    * <p>A list of "DatastoreSummary" objects.</p>
    */
@@ -2144,11 +1983,9 @@ export namespace ListDatastoresResponse {
   export const filterSensitiveLog = (obj: ListDatastoresResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatastoresResponse => __isa(o, "ListDatastoresResponse");
 }
 
 export interface ListPipelinesRequest {
-  __type?: "ListPipelinesRequest";
   /**
    * <p>The token for the next set of results.</p>
    */
@@ -2165,11 +2002,9 @@ export namespace ListPipelinesRequest {
   export const filterSensitiveLog = (obj: ListPipelinesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPipelinesRequest => __isa(o, "ListPipelinesRequest");
 }
 
 export interface ListPipelinesResponse {
-  __type?: "ListPipelinesResponse";
   /**
    * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
    *           more results.</p>
@@ -2186,11 +2021,9 @@ export namespace ListPipelinesResponse {
   export const filterSensitiveLog = (obj: ListPipelinesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPipelinesResponse => __isa(o, "ListPipelinesResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The ARN of the resource whose tags you want to list.</p>
    */
@@ -2201,11 +2034,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags (metadata) which you have assigned to the resource.</p>
    */
@@ -2216,7 +2047,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum LoggingLevel {
@@ -2227,7 +2057,6 @@ export enum LoggingLevel {
  * <p>Information about logging options.</p>
  */
 export interface LoggingOptions {
-  __type?: "LoggingOptions";
   /**
    * <p>The logging level.  Currently, only "ERROR" is supported.</p>
    */
@@ -2249,14 +2078,12 @@ export namespace LoggingOptions {
   export const filterSensitiveLog = (obj: LoggingOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggingOptions => __isa(o, "LoggingOptions");
 }
 
 /**
  * <p>An activity that computes an arithmetic expression using the message's attributes.</p>
  */
 export interface MathActivity {
-  __type?: "MathActivity";
   /**
    * <p>The name of the attribute that contains the result of the math operation.</p>
    */
@@ -2282,14 +2109,12 @@ export namespace MathActivity {
   export const filterSensitiveLog = (obj: MathActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MathActivity => __isa(o, "MathActivity");
 }
 
 /**
  * <p>Information about a message.</p>
  */
 export interface Message {
-  __type?: "Message";
   /**
    * <p>The ID you wish to assign to the message. Each "messageId" must be unique
    *           within each batch sent.</p>
@@ -2307,14 +2132,12 @@ export namespace Message {
   export const filterSensitiveLog = (obj: Message): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Message => __isa(o, "Message");
 }
 
 /**
  * <p>The value of the variable as a structure that specifies an output file URI.</p>
  */
 export interface OutputFileUriValue {
-  __type?: "OutputFileUriValue";
   /**
    * <p>The URI of the location where data set contents are stored, usually the URI of a file in an
    *           S3 bucket.</p>
@@ -2326,14 +2149,12 @@ export namespace OutputFileUriValue {
   export const filterSensitiveLog = (obj: OutputFileUriValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputFileUriValue => __isa(o, "OutputFileUriValue");
 }
 
 /**
  * <p>Contains information about a pipeline.</p>
  */
 export interface Pipeline {
-  __type?: "Pipeline";
   /**
    * <p>When the pipeline was created.</p>
    */
@@ -2369,14 +2190,12 @@ export namespace Pipeline {
   export const filterSensitiveLog = (obj: Pipeline): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Pipeline => __isa(o, "Pipeline");
 }
 
 /**
  * <p>An activity that performs a transformation on a message.</p>
  */
 export interface PipelineActivity {
-  __type?: "PipelineActivity";
   /**
    * <p>Adds information from the AWS IoT Device Shadows service to a message.</p>
    */
@@ -2434,14 +2253,12 @@ export namespace PipelineActivity {
   export const filterSensitiveLog = (obj: PipelineActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineActivity => __isa(o, "PipelineActivity");
 }
 
 /**
  * <p>A summary of information about a pipeline.</p>
  */
 export interface PipelineSummary {
-  __type?: "PipelineSummary";
   /**
    * <p>When the pipeline was created.</p>
    */
@@ -2467,11 +2284,9 @@ export namespace PipelineSummary {
   export const filterSensitiveLog = (obj: PipelineSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PipelineSummary => __isa(o, "PipelineSummary");
 }
 
 export interface PutLoggingOptionsRequest {
-  __type?: "PutLoggingOptionsRequest";
   /**
    * <p>The new values of the AWS IoT Analytics logging options.</p>
    */
@@ -2482,7 +2297,6 @@ export namespace PutLoggingOptionsRequest {
   export const filterSensitiveLog = (obj: PutLoggingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLoggingOptionsRequest => __isa(o, "PutLoggingOptionsRequest");
 }
 
 /**
@@ -2490,7 +2304,6 @@ export namespace PutLoggingOptionsRequest {
  *           frame in which it arrives.</p>
  */
 export interface QueryFilter {
-  __type?: "QueryFilter";
   /**
    * <p>Used to limit data to that which has arrived since the last execution of the action.</p>
    */
@@ -2501,14 +2314,12 @@ export namespace QueryFilter {
   export const filterSensitiveLog = (obj: QueryFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryFilter => __isa(o, "QueryFilter");
 }
 
 /**
  * <p>An activity that removes attributes from a message.</p>
  */
 export interface RemoveAttributesActivity {
-  __type?: "RemoveAttributesActivity";
   /**
    * <p>The next activity in the pipeline.</p>
    */
@@ -2529,7 +2340,6 @@ export namespace RemoveAttributesActivity {
   export const filterSensitiveLog = (obj: RemoveAttributesActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveAttributesActivity => __isa(o, "RemoveAttributesActivity");
 }
 
 export enum ReprocessingStatus {
@@ -2543,7 +2353,6 @@ export enum ReprocessingStatus {
  * <p>Information about pipeline reprocessing.</p>
  */
 export interface ReprocessingSummary {
-  __type?: "ReprocessingSummary";
   /**
    * <p>The status of the pipeline reprocessing.</p>
    */
@@ -2564,7 +2373,6 @@ export namespace ReprocessingSummary {
   export const filterSensitiveLog = (obj: ReprocessingSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReprocessingSummary => __isa(o, "ReprocessingSummary");
 }
 
 /**
@@ -2589,14 +2397,12 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
  * <p>The configuration of the resource used to execute the "containerAction".</p>
  */
 export interface ResourceConfiguration {
-  __type?: "ResourceConfiguration";
   /**
    * <p>The size (in GB) of the persistent storage available to the resource instance used to
    *           execute the "containerAction" (min: 1, max: 50).</p>
@@ -2614,7 +2420,6 @@ export namespace ResourceConfiguration {
   export const filterSensitiveLog = (obj: ResourceConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceConfiguration => __isa(o, "ResourceConfiguration");
 }
 
 /**
@@ -2630,14 +2435,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>How long, in days, message data is kept.</p>
  */
 export interface RetentionPeriod {
-  __type?: "RetentionPeriod";
   /**
    * <p>If true, message data is kept indefinitely.</p>
    */
@@ -2653,11 +2456,9 @@ export namespace RetentionPeriod {
   export const filterSensitiveLog = (obj: RetentionPeriod): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetentionPeriod => __isa(o, "RetentionPeriod");
 }
 
 export interface RunPipelineActivityRequest {
-  __type?: "RunPipelineActivityRequest";
   /**
    * <p>The pipeline activity that is run. This must not be a 'channel' activity or a
    *           'datastore' activity because these activities are used in a pipeline only to load the
@@ -2677,11 +2478,9 @@ export namespace RunPipelineActivityRequest {
   export const filterSensitiveLog = (obj: RunPipelineActivityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RunPipelineActivityRequest => __isa(o, "RunPipelineActivityRequest");
 }
 
 export interface RunPipelineActivityResponse {
-  __type?: "RunPipelineActivityResponse";
   /**
    * <p>The enriched or transformed sample message payloads as base64-encoded strings.
    *           (The results of running the pipeline activity on each input sample message payload,
@@ -2699,14 +2498,12 @@ export namespace RunPipelineActivityResponse {
   export const filterSensitiveLog = (obj: RunPipelineActivityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RunPipelineActivityResponse => __isa(o, "RunPipelineActivityResponse");
 }
 
 /**
  * <p>Configuration information for delivery of data set contents to Amazon S3.</p>
  */
 export interface S3DestinationConfiguration {
-  __type?: "S3DestinationConfiguration";
   /**
    * <p>Configuration information for coordination with the AWS Glue ETL (extract, transform and
    *         load) service.</p>
@@ -2738,11 +2535,9 @@ export namespace S3DestinationConfiguration {
   export const filterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3DestinationConfiguration => __isa(o, "S3DestinationConfiguration");
 }
 
 export interface SampleChannelDataRequest {
-  __type?: "SampleChannelDataRequest";
   /**
    * <p>The end of the time window from which sample messages are retrieved.</p>
    */
@@ -2769,11 +2564,9 @@ export namespace SampleChannelDataRequest {
   export const filterSensitiveLog = (obj: SampleChannelDataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SampleChannelDataRequest => __isa(o, "SampleChannelDataRequest");
 }
 
 export interface SampleChannelDataResponse {
-  __type?: "SampleChannelDataResponse";
   /**
    * <p>The list of message samples.  Each sample message is returned as a base64-encoded
    *           string.</p>
@@ -2785,14 +2578,12 @@ export namespace SampleChannelDataResponse {
   export const filterSensitiveLog = (obj: SampleChannelDataResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SampleChannelDataResponse => __isa(o, "SampleChannelDataResponse");
 }
 
 /**
  * <p>The schedule for when to trigger an update.</p>
  */
 export interface Schedule {
-  __type?: "Schedule";
   /**
    * <p>The expression that defines when to trigger an update. For more information, see
    *           <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">
@@ -2805,7 +2596,6 @@ export namespace Schedule {
   export const filterSensitiveLog = (obj: Schedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Schedule => __isa(o, "Schedule");
 }
 
 /**
@@ -2813,7 +2603,6 @@ export namespace Schedule {
  *         from the original message.</p>
  */
 export interface SelectAttributesActivity {
-  __type?: "SelectAttributesActivity";
   /**
    * <p>The name of the 'selectAttributes' activity.</p>
    */
@@ -2834,7 +2623,6 @@ export namespace SelectAttributesActivity {
   export const filterSensitiveLog = (obj: SelectAttributesActivity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SelectAttributesActivity => __isa(o, "SelectAttributesActivity");
 }
 
 /**
@@ -2842,30 +2630,23 @@ export namespace SelectAttributesActivity {
  *         The choice of service-managed or customer-managed S3 storage cannot be changed after creation
  *         of the channel.</p>
  */
-export interface ServiceManagedChannelS3Storage {
-  __type?: "ServiceManagedChannelS3Storage";
-}
+export interface ServiceManagedChannelS3Storage {}
 
 export namespace ServiceManagedChannelS3Storage {
   export const filterSensitiveLog = (obj: ServiceManagedChannelS3Storage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceManagedChannelS3Storage => __isa(o, "ServiceManagedChannelS3Storage");
 }
 
 /**
  * <p>Used to store channel data in an S3 bucket managed by the AWS IoT Analytics service.</p>
  */
-export interface ServiceManagedChannelS3StorageSummary {
-  __type?: "ServiceManagedChannelS3StorageSummary";
-}
+export interface ServiceManagedChannelS3StorageSummary {}
 
 export namespace ServiceManagedChannelS3StorageSummary {
   export const filterSensitiveLog = (obj: ServiceManagedChannelS3StorageSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceManagedChannelS3StorageSummary =>
-    __isa(o, "ServiceManagedChannelS3StorageSummary");
 }
 
 /**
@@ -2873,30 +2654,23 @@ export namespace ServiceManagedChannelS3StorageSummary {
  *         The choice of service-managed or customer-managed S3 storage cannot be changed after creation
  *         of the data store.</p>
  */
-export interface ServiceManagedDatastoreS3Storage {
-  __type?: "ServiceManagedDatastoreS3Storage";
-}
+export interface ServiceManagedDatastoreS3Storage {}
 
 export namespace ServiceManagedDatastoreS3Storage {
   export const filterSensitiveLog = (obj: ServiceManagedDatastoreS3Storage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceManagedDatastoreS3Storage => __isa(o, "ServiceManagedDatastoreS3Storage");
 }
 
 /**
  * <p>Used to store data store data in an S3 bucket managed by the AWS IoT Analytics service.</p>
  */
-export interface ServiceManagedDatastoreS3StorageSummary {
-  __type?: "ServiceManagedDatastoreS3StorageSummary";
-}
+export interface ServiceManagedDatastoreS3StorageSummary {}
 
 export namespace ServiceManagedDatastoreS3StorageSummary {
   export const filterSensitiveLog = (obj: ServiceManagedDatastoreS3StorageSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceManagedDatastoreS3StorageSummary =>
-    __isa(o, "ServiceManagedDatastoreS3StorageSummary");
 }
 
 /**
@@ -2912,14 +2686,12 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
  * <p>The SQL query to modify the message.</p>
  */
 export interface SqlQueryDatasetAction {
-  __type?: "SqlQueryDatasetAction";
   /**
    * <p>Pre-filters applied to message data.</p>
    */
@@ -2935,11 +2707,9 @@ export namespace SqlQueryDatasetAction {
   export const filterSensitiveLog = (obj: SqlQueryDatasetAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqlQueryDatasetAction => __isa(o, "SqlQueryDatasetAction");
 }
 
 export interface StartPipelineReprocessingRequest {
-  __type?: "StartPipelineReprocessingRequest";
   /**
    * <p>The end time (exclusive) of raw message data that is reprocessed.</p>
    */
@@ -2960,11 +2730,9 @@ export namespace StartPipelineReprocessingRequest {
   export const filterSensitiveLog = (obj: StartPipelineReprocessingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartPipelineReprocessingRequest => __isa(o, "StartPipelineReprocessingRequest");
 }
 
 export interface StartPipelineReprocessingResponse {
-  __type?: "StartPipelineReprocessingResponse";
   /**
    * <p>The ID of the pipeline reprocessing activity that was started.</p>
    */
@@ -2975,14 +2743,12 @@ export namespace StartPipelineReprocessingResponse {
   export const filterSensitiveLog = (obj: StartPipelineReprocessingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartPipelineReprocessingResponse => __isa(o, "StartPipelineReprocessingResponse");
 }
 
 /**
  * <p>A set of key/value pairs which are used to manage the resource.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The tag's value.</p>
    */
@@ -2998,11 +2764,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The new or modified tags for the resource.</p>
    */
@@ -3018,18 +2782,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -3045,7 +2805,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -3053,7 +2812,6 @@ export namespace ThrottlingException {
  *           generation.</p>
  */
 export interface TriggeringDataset {
-  __type?: "TriggeringDataset";
   /**
    * <p>The name of the data set whose content generation triggers the new data set content
    *           generation.</p>
@@ -3065,11 +2823,9 @@ export namespace TriggeringDataset {
   export const filterSensitiveLog = (obj: TriggeringDataset): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TriggeringDataset => __isa(o, "TriggeringDataset");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The keys of those tags which you want to remove.</p>
    */
@@ -3085,22 +2841,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateChannelRequest {
-  __type?: "UpdateChannelRequest";
   /**
    * <p>The name of the channel to be updated.</p>
    */
@@ -3124,11 +2875,9 @@ export namespace UpdateChannelRequest {
   export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateChannelRequest => __isa(o, "UpdateChannelRequest");
 }
 
 export interface UpdateDatasetRequest {
-  __type?: "UpdateDatasetRequest";
   /**
    * <p>The name of the data set to update.</p>
    */
@@ -3168,11 +2917,9 @@ export namespace UpdateDatasetRequest {
   export const filterSensitiveLog = (obj: UpdateDatasetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDatasetRequest => __isa(o, "UpdateDatasetRequest");
 }
 
 export interface UpdateDatastoreRequest {
-  __type?: "UpdateDatastoreRequest";
   /**
    * <p>The name of the data store to be updated.</p>
    */
@@ -3196,11 +2943,9 @@ export namespace UpdateDatastoreRequest {
   export const filterSensitiveLog = (obj: UpdateDatastoreRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDatastoreRequest => __isa(o, "UpdateDatastoreRequest");
 }
 
 export interface UpdatePipelineRequest {
-  __type?: "UpdatePipelineRequest";
   /**
    * <p>The name of the pipeline to update.</p>
    */
@@ -3233,7 +2978,6 @@ export namespace UpdatePipelineRequest {
   export const filterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePipelineRequest => __isa(o, "UpdatePipelineRequest");
 }
 
 /**
@@ -3242,7 +2986,6 @@ export namespace UpdatePipelineRequest {
  *           "outputFileUriValue".</p>
  */
 export interface Variable {
-  __type?: "Variable";
   /**
    * <p>The value of the variable as a string.</p>
    */
@@ -3273,14 +3016,12 @@ export namespace Variable {
   export const filterSensitiveLog = (obj: Variable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Variable => __isa(o, "Variable");
 }
 
 /**
  * <p>Information about the versioning of data set contents.</p>
  */
 export interface VersioningConfiguration {
-  __type?: "VersioningConfiguration";
   /**
    * <p>How many versions of data set contents will be kept. The "unlimited" parameter must be false.</p>
    */
@@ -3296,5 +3037,4 @@ export namespace VersioningConfiguration {
   export const filterSensitiveLog = (obj: VersioningConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VersioningConfiguration => __isa(o, "VersioningConfiguration");
 }

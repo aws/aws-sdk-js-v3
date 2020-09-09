@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum DataSetType {
@@ -33,7 +33,6 @@ export enum DataSetType {
  * Container for the parameters to the GenerateDataSet operation.
  */
 export interface GenerateDataSetRequest {
-  __type?: "GenerateDataSetRequest";
   /**
    * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
    *         error has occurred.
@@ -174,14 +173,12 @@ export namespace GenerateDataSetRequest {
   export const filterSensitiveLog = (obj: GenerateDataSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateDataSetRequest => __isa(o, "GenerateDataSetRequest");
 }
 
 /**
  * Container for the result of the GenerateDataSet operation.
  */
 export interface GenerateDataSetResult {
-  __type?: "GenerateDataSetResult";
   /**
    * A unique identifier representing a specific request to the GenerateDataSet operation. This identifier can be
    *         used to correlate a request with notifications from the SNS topic.
@@ -193,7 +190,6 @@ export namespace GenerateDataSetResult {
   export const filterSensitiveLog = (obj: GenerateDataSetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateDataSetResult => __isa(o, "GenerateDataSetResult");
 }
 
 /**
@@ -212,15 +208,12 @@ export namespace MarketplaceCommerceAnalyticsException {
   export const filterSensitiveLog = (obj: MarketplaceCommerceAnalyticsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MarketplaceCommerceAnalyticsException =>
-    __isa(o, "MarketplaceCommerceAnalyticsException");
 }
 
 /**
  * Container for the parameters to the StartSupportDataExport operation.
  */
 export interface StartSupportDataExportRequest {
-  __type?: "StartSupportDataExportRequest";
   /**
    * The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
    */
@@ -279,14 +272,12 @@ export namespace StartSupportDataExportRequest {
   export const filterSensitiveLog = (obj: StartSupportDataExportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSupportDataExportRequest => __isa(o, "StartSupportDataExportRequest");
 }
 
 /**
  * Container for the result of the StartSupportDataExport operation.
  */
 export interface StartSupportDataExportResult {
-  __type?: "StartSupportDataExportResult";
   /**
    * A unique identifier representing a specific request to the StartSupportDataExport operation. This identifier can be
    *         used to correlate a request with notifications from the SNS topic.
@@ -298,7 +289,6 @@ export namespace StartSupportDataExportResult {
   export const filterSensitiveLog = (obj: StartSupportDataExportResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartSupportDataExportResult => __isa(o, "StartSupportDataExportResult");
 }
 
 export type SupportDataSetType = "customer_support_contacts_data" | "test_customer_support_contacts_data";

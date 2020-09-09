@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,14 +17,12 @@ export namespace ActorDoesNotExistException {
   export const filterSensitiveLog = (obj: ActorDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActorDoesNotExistException => __isa(o, "ActorDoesNotExistException");
 }
 
 /**
  * <p>Returns information about a specific approval on a pull request.</p>
  */
 export interface Approval {
-  __type?: "Approval";
   /**
    * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
@@ -40,14 +38,12 @@ export namespace Approval {
   export const filterSensitiveLog = (obj: Approval): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Approval => __isa(o, "Approval");
 }
 
 /**
  * <p>Returns information about an approval rule.</p>
  */
 export interface ApprovalRule {
-  __type?: "ApprovalRule";
   /**
    * <p>The date the approval rule was created, in timestamp format.</p>
    */
@@ -93,7 +89,6 @@ export namespace ApprovalRule {
   export const filterSensitiveLog = (obj: ApprovalRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRule => __isa(o, "ApprovalRule");
 }
 
 /**
@@ -112,8 +107,6 @@ export namespace ApprovalRuleContentRequiredException {
   export const filterSensitiveLog = (obj: ApprovalRuleContentRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleContentRequiredException =>
-    __isa(o, "ApprovalRuleContentRequiredException");
 }
 
 /**
@@ -132,14 +125,12 @@ export namespace ApprovalRuleDoesNotExistException {
   export const filterSensitiveLog = (obj: ApprovalRuleDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleDoesNotExistException => __isa(o, "ApprovalRuleDoesNotExistException");
 }
 
 /**
  * <p>Returns information about an event for an approval rule.</p>
  */
 export interface ApprovalRuleEventMetadata {
-  __type?: "ApprovalRuleEventMetadata";
   /**
    * <p>The content of the approval rule.</p>
    */
@@ -160,7 +151,6 @@ export namespace ApprovalRuleEventMetadata {
   export const filterSensitiveLog = (obj: ApprovalRuleEventMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleEventMetadata => __isa(o, "ApprovalRuleEventMetadata");
 }
 
 /**
@@ -180,8 +170,6 @@ export namespace ApprovalRuleNameAlreadyExistsException {
   export const filterSensitiveLog = (obj: ApprovalRuleNameAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleNameAlreadyExistsException =>
-    __isa(o, "ApprovalRuleNameAlreadyExistsException");
 }
 
 /**
@@ -200,14 +188,12 @@ export namespace ApprovalRuleNameRequiredException {
   export const filterSensitiveLog = (obj: ApprovalRuleNameRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleNameRequiredException => __isa(o, "ApprovalRuleNameRequiredException");
 }
 
 /**
  * <p>Returns information about an override event for approval rules for a pull request.</p>
  */
 export interface ApprovalRuleOverriddenEventMetadata {
-  __type?: "ApprovalRuleOverriddenEventMetadata";
   /**
    * <p>The revision ID of the pull request when the override event occurred.</p>
    */
@@ -223,15 +209,12 @@ export namespace ApprovalRuleOverriddenEventMetadata {
   export const filterSensitiveLog = (obj: ApprovalRuleOverriddenEventMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleOverriddenEventMetadata =>
-    __isa(o, "ApprovalRuleOverriddenEventMetadata");
 }
 
 /**
  * <p>Returns information about an approval rule template.</p>
  */
 export interface ApprovalRuleTemplate {
-  __type?: "ApprovalRuleTemplate";
   /**
    * <p>The content of the approval rule template.</p>
    */
@@ -277,7 +260,6 @@ export namespace ApprovalRuleTemplate {
   export const filterSensitiveLog = (obj: ApprovalRuleTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleTemplate => __isa(o, "ApprovalRuleTemplate");
 }
 
 /**
@@ -296,8 +278,6 @@ export namespace ApprovalRuleTemplateContentRequiredException {
   export const filterSensitiveLog = (obj: ApprovalRuleTemplateContentRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleTemplateContentRequiredException =>
-    __isa(o, "ApprovalRuleTemplateContentRequiredException");
 }
 
 /**
@@ -317,8 +297,6 @@ export namespace ApprovalRuleTemplateDoesNotExistException {
   export const filterSensitiveLog = (obj: ApprovalRuleTemplateDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleTemplateDoesNotExistException =>
-    __isa(o, "ApprovalRuleTemplateDoesNotExistException");
 }
 
 /**
@@ -338,8 +316,6 @@ export namespace ApprovalRuleTemplateInUseException {
   export const filterSensitiveLog = (obj: ApprovalRuleTemplateInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleTemplateInUseException =>
-    __isa(o, "ApprovalRuleTemplateInUseException");
 }
 
 /**
@@ -360,8 +336,6 @@ export namespace ApprovalRuleTemplateNameAlreadyExistsException {
   export const filterSensitiveLog = (obj: ApprovalRuleTemplateNameAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleTemplateNameAlreadyExistsException =>
-    __isa(o, "ApprovalRuleTemplateNameAlreadyExistsException");
 }
 
 /**
@@ -380,8 +354,6 @@ export namespace ApprovalRuleTemplateNameRequiredException {
   export const filterSensitiveLog = (obj: ApprovalRuleTemplateNameRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalRuleTemplateNameRequiredException =>
-    __isa(o, "ApprovalRuleTemplateNameRequiredException");
 }
 
 export enum ApprovalState {
@@ -393,7 +365,6 @@ export enum ApprovalState {
  * <p>Returns information about a change in the approval state for a pull request.</p>
  */
 export interface ApprovalStateChangedEventMetadata {
-  __type?: "ApprovalStateChangedEventMetadata";
   /**
    * <p>The revision ID of the pull request when the approval state changed.</p>
    */
@@ -409,7 +380,6 @@ export namespace ApprovalStateChangedEventMetadata {
   export const filterSensitiveLog = (obj: ApprovalStateChangedEventMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalStateChangedEventMetadata => __isa(o, "ApprovalStateChangedEventMetadata");
 }
 
 /**
@@ -428,11 +398,9 @@ export namespace ApprovalStateRequiredException {
   export const filterSensitiveLog = (obj: ApprovalStateRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApprovalStateRequiredException => __isa(o, "ApprovalStateRequiredException");
 }
 
 export interface AssociateApprovalRuleTemplateWithRepositoryInput {
-  __type?: "AssociateApprovalRuleTemplateWithRepositoryInput";
   /**
    * <p>The name of the repository that you want to associate with the template.</p>
    */
@@ -448,8 +416,6 @@ export namespace AssociateApprovalRuleTemplateWithRepositoryInput {
   export const filterSensitiveLog = (obj: AssociateApprovalRuleTemplateWithRepositoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateApprovalRuleTemplateWithRepositoryInput =>
-    __isa(o, "AssociateApprovalRuleTemplateWithRepositoryInput");
 }
 
 /**
@@ -468,14 +434,12 @@ export namespace AuthorDoesNotExistException {
   export const filterSensitiveLog = (obj: AuthorDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorDoesNotExistException => __isa(o, "AuthorDoesNotExistException");
 }
 
 /**
  * <p>Returns information about errors in a BatchAssociateApprovalRuleTemplateWithRepositories operation.</p>
  */
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
-  __type?: "BatchAssociateApprovalRuleTemplateWithRepositoriesError";
   /**
    * <p>An error message that provides details about why the repository name was not found or not valid.</p>
    */
@@ -496,12 +460,9 @@ export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesError {
   export const filterSensitiveLog = (obj: BatchAssociateApprovalRuleTemplateWithRepositoriesError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchAssociateApprovalRuleTemplateWithRepositoriesError =>
-    __isa(o, "BatchAssociateApprovalRuleTemplateWithRepositoriesError");
 }
 
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
-  __type?: "BatchAssociateApprovalRuleTemplateWithRepositoriesInput";
   /**
    * <p>The name of the template you want to associate with one or more repositories.</p>
    */
@@ -520,12 +481,9 @@ export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
   export const filterSensitiveLog = (obj: BatchAssociateApprovalRuleTemplateWithRepositoriesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchAssociateApprovalRuleTemplateWithRepositoriesInput =>
-    __isa(o, "BatchAssociateApprovalRuleTemplateWithRepositoriesInput");
 }
 
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
-  __type?: "BatchAssociateApprovalRuleTemplateWithRepositoriesOutput";
   /**
    * <p>A list of any errors that might have occurred while attempting to create the association between the template and the repositories.</p>
    */
@@ -541,15 +499,12 @@ export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
   export const filterSensitiveLog = (obj: BatchAssociateApprovalRuleTemplateWithRepositoriesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchAssociateApprovalRuleTemplateWithRepositoriesOutput =>
-    __isa(o, "BatchAssociateApprovalRuleTemplateWithRepositoriesOutput");
 }
 
 /**
  * <p>Returns information about errors in a BatchDescribeMergeConflicts operation.</p>
  */
 export interface BatchDescribeMergeConflictsError {
-  __type?: "BatchDescribeMergeConflictsError";
   /**
    * <p>The name of the exception.</p>
    */
@@ -570,11 +525,9 @@ export namespace BatchDescribeMergeConflictsError {
   export const filterSensitiveLog = (obj: BatchDescribeMergeConflictsError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDescribeMergeConflictsError => __isa(o, "BatchDescribeMergeConflictsError");
 }
 
 export interface BatchDescribeMergeConflictsInput {
-  __type?: "BatchDescribeMergeConflictsInput";
   /**
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
@@ -638,11 +591,9 @@ export namespace BatchDescribeMergeConflictsInput {
   export const filterSensitiveLog = (obj: BatchDescribeMergeConflictsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDescribeMergeConflictsInput => __isa(o, "BatchDescribeMergeConflictsInput");
 }
 
 export interface BatchDescribeMergeConflictsOutput {
-  __type?: "BatchDescribeMergeConflictsOutput";
   /**
    * <p>The commit ID of the merge base.</p>
    */
@@ -678,14 +629,12 @@ export namespace BatchDescribeMergeConflictsOutput {
   export const filterSensitiveLog = (obj: BatchDescribeMergeConflictsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDescribeMergeConflictsOutput => __isa(o, "BatchDescribeMergeConflictsOutput");
 }
 
 /**
  * <p>Returns information about errors in a BatchDisassociateApprovalRuleTemplateFromRepositories operation.</p>
  */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
-  __type?: "BatchDisassociateApprovalRuleTemplateFromRepositoriesError";
   /**
    * <p>An error code that specifies whether the repository name was not valid or not
    *             found.</p>
@@ -707,12 +656,9 @@ export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
   export const filterSensitiveLog = (obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesError =>
-    __isa(o, "BatchDisassociateApprovalRuleTemplateFromRepositoriesError");
 }
 
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
-  __type?: "BatchDisassociateApprovalRuleTemplateFromRepositoriesInput";
   /**
    * <p>The repository names that you want to disassociate from the approval rule
    *             template.</p>
@@ -732,12 +678,9 @@ export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
   export const filterSensitiveLog = (obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesInput =>
-    __isa(o, "BatchDisassociateApprovalRuleTemplateFromRepositoriesInput");
 }
 
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
-  __type?: "BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput";
   /**
    * <p>A list of repository names that have had their association with the template
    *             removed.</p>
@@ -754,15 +697,12 @@ export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
   export const filterSensitiveLog = (obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput =>
-    __isa(o, "BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput");
 }
 
 /**
  * <p>Returns information about errors in a BatchGetCommits operation.</p>
  */
 export interface BatchGetCommitsError {
-  __type?: "BatchGetCommitsError";
   /**
    * <p>A commit ID that either could not be found or was not in a valid format.</p>
    */
@@ -783,11 +723,9 @@ export namespace BatchGetCommitsError {
   export const filterSensitiveLog = (obj: BatchGetCommitsError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetCommitsError => __isa(o, "BatchGetCommitsError");
 }
 
 export interface BatchGetCommitsInput {
-  __type?: "BatchGetCommitsInput";
   /**
    * <p>The name of the repository that contains the commits.</p>
    */
@@ -807,11 +745,9 @@ export namespace BatchGetCommitsInput {
   export const filterSensitiveLog = (obj: BatchGetCommitsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetCommitsInput => __isa(o, "BatchGetCommitsInput");
 }
 
 export interface BatchGetCommitsOutput {
-  __type?: "BatchGetCommitsOutput";
   /**
    * <p>An array of commit data type objects, each of which contains information about a specified commit.</p>
    */
@@ -829,14 +765,12 @@ export namespace BatchGetCommitsOutput {
   export const filterSensitiveLog = (obj: BatchGetCommitsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetCommitsOutput => __isa(o, "BatchGetCommitsOutput");
 }
 
 /**
  * <p>Represents the input of a batch get repositories operation.</p>
  */
 export interface BatchGetRepositoriesInput {
-  __type?: "BatchGetRepositoriesInput";
   /**
    * <p>The names of the repositories to get information about.</p>
    *         <note>
@@ -850,14 +784,12 @@ export namespace BatchGetRepositoriesInput {
   export const filterSensitiveLog = (obj: BatchGetRepositoriesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetRepositoriesInput => __isa(o, "BatchGetRepositoriesInput");
 }
 
 /**
  * <p>Represents the output of a batch get repositories operation.</p>
  */
 export interface BatchGetRepositoriesOutput {
-  __type?: "BatchGetRepositoriesOutput";
   /**
    * <p>Returns a list of repository names for which information could not be found.</p>
    */
@@ -873,7 +805,6 @@ export namespace BatchGetRepositoriesOutput {
   export const filterSensitiveLog = (obj: BatchGetRepositoriesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetRepositoriesOutput => __isa(o, "BatchGetRepositoriesOutput");
 }
 
 /**
@@ -892,8 +823,6 @@ export namespace BeforeCommitIdAndAfterCommitIdAreSameException {
   export const filterSensitiveLog = (obj: BeforeCommitIdAndAfterCommitIdAreSameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BeforeCommitIdAndAfterCommitIdAreSameException =>
-    __isa(o, "BeforeCommitIdAndAfterCommitIdAreSameException");
 }
 
 /**
@@ -912,7 +841,6 @@ export namespace BlobIdDoesNotExistException {
   export const filterSensitiveLog = (obj: BlobIdDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlobIdDoesNotExistException => __isa(o, "BlobIdDoesNotExistException");
 }
 
 /**
@@ -931,14 +859,12 @@ export namespace BlobIdRequiredException {
   export const filterSensitiveLog = (obj: BlobIdRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlobIdRequiredException => __isa(o, "BlobIdRequiredException");
 }
 
 /**
  * <p>Returns information about a specific Git blob object.</p>
  */
 export interface BlobMetadata {
-  __type?: "BlobMetadata";
   /**
    * <p>The path to the blob and associated file name, if any.</p>
    */
@@ -977,7 +903,6 @@ export namespace BlobMetadata {
   export const filterSensitiveLog = (obj: BlobMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlobMetadata => __isa(o, "BlobMetadata");
 }
 
 /**
@@ -996,14 +921,12 @@ export namespace BranchDoesNotExistException {
   export const filterSensitiveLog = (obj: BranchDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BranchDoesNotExistException => __isa(o, "BranchDoesNotExistException");
 }
 
 /**
  * <p>Returns information about a branch.</p>
  */
 export interface BranchInfo {
-  __type?: "BranchInfo";
   /**
    * <p>The name of the branch.</p>
    */
@@ -1019,7 +942,6 @@ export namespace BranchInfo {
   export const filterSensitiveLog = (obj: BranchInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BranchInfo => __isa(o, "BranchInfo");
 }
 
 /**
@@ -1039,7 +961,6 @@ export namespace BranchNameExistsException {
   export const filterSensitiveLog = (obj: BranchNameExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BranchNameExistsException => __isa(o, "BranchNameExistsException");
 }
 
 /**
@@ -1059,7 +980,6 @@ export namespace BranchNameIsTagNameException {
   export const filterSensitiveLog = (obj: BranchNameIsTagNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BranchNameIsTagNameException => __isa(o, "BranchNameIsTagNameException");
 }
 
 /**
@@ -1078,7 +998,6 @@ export namespace BranchNameRequiredException {
   export const filterSensitiveLog = (obj: BranchNameRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BranchNameRequiredException => __isa(o, "BranchNameRequiredException");
 }
 
 /**
@@ -1098,8 +1017,6 @@ export namespace CannotDeleteApprovalRuleFromTemplateException {
   export const filterSensitiveLog = (obj: CannotDeleteApprovalRuleFromTemplateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CannotDeleteApprovalRuleFromTemplateException =>
-    __isa(o, "CannotDeleteApprovalRuleFromTemplateException");
 }
 
 /**
@@ -1119,8 +1036,6 @@ export namespace CannotModifyApprovalRuleFromTemplateException {
   export const filterSensitiveLog = (obj: CannotModifyApprovalRuleFromTemplateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CannotModifyApprovalRuleFromTemplateException =>
-    __isa(o, "CannotModifyApprovalRuleFromTemplateException");
 }
 
 export enum ChangeTypeEnum {
@@ -1149,15 +1064,12 @@ export namespace ClientRequestTokenRequiredException {
   export const filterSensitiveLog = (obj: ClientRequestTokenRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientRequestTokenRequiredException =>
-    __isa(o, "ClientRequestTokenRequiredException");
 }
 
 /**
  * <p>Returns information about a specific comment.</p>
  */
 export interface Comment {
-  __type?: "Comment";
   /**
    * <p>A Boolean value indicating whether the comment has been deleted.</p>
    */
@@ -1216,7 +1128,6 @@ export namespace Comment {
   export const filterSensitiveLog = (obj: Comment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Comment => __isa(o, "Comment");
 }
 
 /**
@@ -1235,7 +1146,6 @@ export namespace CommentContentRequiredException {
   export const filterSensitiveLog = (obj: CommentContentRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommentContentRequiredException => __isa(o, "CommentContentRequiredException");
 }
 
 /**
@@ -1254,8 +1164,6 @@ export namespace CommentContentSizeLimitExceededException {
   export const filterSensitiveLog = (obj: CommentContentSizeLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommentContentSizeLimitExceededException =>
-    __isa(o, "CommentContentSizeLimitExceededException");
 }
 
 /**
@@ -1274,7 +1182,6 @@ export namespace CommentDeletedException {
   export const filterSensitiveLog = (obj: CommentDeletedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommentDeletedException => __isa(o, "CommentDeletedException");
 }
 
 /**
@@ -1294,7 +1201,6 @@ export namespace CommentDoesNotExistException {
   export const filterSensitiveLog = (obj: CommentDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommentDoesNotExistException => __isa(o, "CommentDoesNotExistException");
 }
 
 /**
@@ -1313,7 +1219,6 @@ export namespace CommentIdRequiredException {
   export const filterSensitiveLog = (obj: CommentIdRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommentIdRequiredException => __isa(o, "CommentIdRequiredException");
 }
 
 /**
@@ -1332,15 +1237,12 @@ export namespace CommentNotCreatedByCallerException {
   export const filterSensitiveLog = (obj: CommentNotCreatedByCallerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommentNotCreatedByCallerException =>
-    __isa(o, "CommentNotCreatedByCallerException");
 }
 
 /**
  * <p>Returns information about comments on the comparison between two commits.</p>
  */
 export interface CommentsForComparedCommit {
-  __type?: "CommentsForComparedCommit";
   /**
    * <p>An array of comment objects. Each comment object contains information about a comment on the comparison
    *          between commits.</p>
@@ -1385,14 +1287,12 @@ export namespace CommentsForComparedCommit {
   export const filterSensitiveLog = (obj: CommentsForComparedCommit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommentsForComparedCommit => __isa(o, "CommentsForComparedCommit");
 }
 
 /**
  * <p>Returns information about comments on a pull request.</p>
  */
 export interface CommentsForPullRequest {
-  __type?: "CommentsForPullRequest";
   /**
    * <p>The full blob ID of the file on which you want to comment on the source commit.</p>
    */
@@ -1443,14 +1343,12 @@ export namespace CommentsForPullRequest {
   export const filterSensitiveLog = (obj: CommentsForPullRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommentsForPullRequest => __isa(o, "CommentsForPullRequest");
 }
 
 /**
  * <p>Returns information about a specific commit.</p>
  */
 export interface Commit {
-  __type?: "Commit";
   /**
    * <p>Any other data associated with the specified commit.</p>
    */
@@ -1498,7 +1396,6 @@ export namespace Commit {
   export const filterSensitiveLog = (obj: Commit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Commit => __isa(o, "Commit");
 }
 
 /**
@@ -1517,7 +1414,6 @@ export namespace CommitDoesNotExistException {
   export const filterSensitiveLog = (obj: CommitDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommitDoesNotExistException => __isa(o, "CommitDoesNotExistException");
 }
 
 /**
@@ -1536,7 +1432,6 @@ export namespace CommitIdDoesNotExistException {
   export const filterSensitiveLog = (obj: CommitIdDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommitIdDoesNotExistException => __isa(o, "CommitIdDoesNotExistException");
 }
 
 /**
@@ -1555,7 +1450,6 @@ export namespace CommitIdRequiredException {
   export const filterSensitiveLog = (obj: CommitIdRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommitIdRequiredException => __isa(o, "CommitIdRequiredException");
 }
 
 /**
@@ -1574,7 +1468,6 @@ export namespace CommitIdsLimitExceededException {
   export const filterSensitiveLog = (obj: CommitIdsLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommitIdsLimitExceededException => __isa(o, "CommitIdsLimitExceededException");
 }
 
 /**
@@ -1593,7 +1486,6 @@ export namespace CommitIdsListRequiredException {
   export const filterSensitiveLog = (obj: CommitIdsListRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommitIdsListRequiredException => __isa(o, "CommitIdsListRequiredException");
 }
 
 /**
@@ -1612,8 +1504,6 @@ export namespace CommitMessageLengthExceededException {
   export const filterSensitiveLog = (obj: CommitMessageLengthExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommitMessageLengthExceededException =>
-    __isa(o, "CommitMessageLengthExceededException");
 }
 
 /**
@@ -1632,7 +1522,6 @@ export namespace CommitRequiredException {
   export const filterSensitiveLog = (obj: CommitRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommitRequiredException => __isa(o, "CommitRequiredException");
 }
 
 /**
@@ -1651,15 +1540,12 @@ export namespace ConcurrentReferenceUpdateException {
   export const filterSensitiveLog = (obj: ConcurrentReferenceUpdateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentReferenceUpdateException =>
-    __isa(o, "ConcurrentReferenceUpdateException");
 }
 
 /**
  * <p>Information about conflicts in a merge operation.</p>
  */
 export interface Conflict {
-  __type?: "Conflict";
   /**
    * <p>A list of hunks that contain the differences between files or lines causing the conflict.</p>
    */
@@ -1675,7 +1561,6 @@ export namespace Conflict {
   export const filterSensitiveLog = (obj: Conflict): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Conflict => __isa(o, "Conflict");
 }
 
 export enum ConflictDetailLevelTypeEnum {
@@ -1687,7 +1572,6 @@ export enum ConflictDetailLevelTypeEnum {
  * <p>Information about the metadata for a conflict in a merge operation.</p>
  */
 export interface ConflictMetadata {
-  __type?: "ConflictMetadata";
   /**
    * <p>A boolean value indicating whether there are conflicts in the file mode of a file.</p>
    */
@@ -1743,7 +1627,6 @@ export namespace ConflictMetadata {
   export const filterSensitiveLog = (obj: ConflictMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictMetadata => __isa(o, "ConflictMetadata");
 }
 
 /**
@@ -1751,7 +1634,6 @@ export namespace ConflictMetadata {
  *             resolving conflicts during a merge.</p>
  */
 export interface ConflictResolution {
-  __type?: "ConflictResolution";
   /**
    * <p>Files to be deleted as part of the merge conflict resolution.</p>
    */
@@ -1772,7 +1654,6 @@ export namespace ConflictResolution {
   export const filterSensitiveLog = (obj: ConflictResolution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictResolution => __isa(o, "ConflictResolution");
 }
 
 export enum ConflictResolutionStrategyTypeEnum {
@@ -1783,7 +1664,6 @@ export enum ConflictResolutionStrategyTypeEnum {
 }
 
 export interface CreateApprovalRuleTemplateInput {
-  __type?: "CreateApprovalRuleTemplateInput";
   /**
    * <p>The name of the approval rule template. Provide descriptive names, because this name
    *             is applied to the approval rules created automatically in associated
@@ -1851,11 +1731,9 @@ export namespace CreateApprovalRuleTemplateInput {
   export const filterSensitiveLog = (obj: CreateApprovalRuleTemplateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApprovalRuleTemplateInput => __isa(o, "CreateApprovalRuleTemplateInput");
 }
 
 export interface CreateApprovalRuleTemplateOutput {
-  __type?: "CreateApprovalRuleTemplateOutput";
   /**
    * <p>The content and structure of the created approval rule template.</p>
    */
@@ -1866,14 +1744,12 @@ export namespace CreateApprovalRuleTemplateOutput {
   export const filterSensitiveLog = (obj: CreateApprovalRuleTemplateOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApprovalRuleTemplateOutput => __isa(o, "CreateApprovalRuleTemplateOutput");
 }
 
 /**
  * <p>Represents the input of a create branch operation.</p>
  */
 export interface CreateBranchInput {
-  __type?: "CreateBranchInput";
   /**
    * <p>The ID of the commit to point the new branch to.</p>
    */
@@ -1894,11 +1770,9 @@ export namespace CreateBranchInput {
   export const filterSensitiveLog = (obj: CreateBranchInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBranchInput => __isa(o, "CreateBranchInput");
 }
 
 export interface CreateCommitInput {
-  __type?: "CreateCommitInput";
   /**
    * <p>The commit message you want to include in the commit. Commit messages are limited to
    *             256 KB. If no message is specified, a default message is used.</p>
@@ -1959,11 +1833,9 @@ export namespace CreateCommitInput {
   export const filterSensitiveLog = (obj: CreateCommitInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCommitInput => __isa(o, "CreateCommitInput");
 }
 
 export interface CreateCommitOutput {
-  __type?: "CreateCommitOutput";
   /**
    * <p>The files added as part of the committed file changes.</p>
    */
@@ -1994,11 +1866,9 @@ export namespace CreateCommitOutput {
   export const filterSensitiveLog = (obj: CreateCommitOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCommitOutput => __isa(o, "CreateCommitOutput");
 }
 
 export interface CreatePullRequestApprovalRuleInput {
-  __type?: "CreatePullRequestApprovalRuleInput";
   /**
    * <p>The system-generated ID of the pull request for which you want to create the approval rule.</p>
    */
@@ -2061,12 +1931,9 @@ export namespace CreatePullRequestApprovalRuleInput {
   export const filterSensitiveLog = (obj: CreatePullRequestApprovalRuleInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePullRequestApprovalRuleInput =>
-    __isa(o, "CreatePullRequestApprovalRuleInput");
 }
 
 export interface CreatePullRequestApprovalRuleOutput {
-  __type?: "CreatePullRequestApprovalRuleOutput";
   /**
    * <p>Information about the created approval rule.</p>
    */
@@ -2077,12 +1944,9 @@ export namespace CreatePullRequestApprovalRuleOutput {
   export const filterSensitiveLog = (obj: CreatePullRequestApprovalRuleOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePullRequestApprovalRuleOutput =>
-    __isa(o, "CreatePullRequestApprovalRuleOutput");
 }
 
 export interface CreatePullRequestInput {
-  __type?: "CreatePullRequestInput";
   /**
    * <p>The title of the pull request. This title is used to identify the pull request to
    *             other users in the repository.</p>
@@ -2118,11 +1982,9 @@ export namespace CreatePullRequestInput {
   export const filterSensitiveLog = (obj: CreatePullRequestInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePullRequestInput => __isa(o, "CreatePullRequestInput");
 }
 
 export interface CreatePullRequestOutput {
-  __type?: "CreatePullRequestOutput";
   /**
    * <p>Information about the newly created pull request.</p>
    */
@@ -2133,14 +1995,12 @@ export namespace CreatePullRequestOutput {
   export const filterSensitiveLog = (obj: CreatePullRequestOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePullRequestOutput => __isa(o, "CreatePullRequestOutput");
 }
 
 /**
  * <p>Represents the input of a create repository operation.</p>
  */
 export interface CreateRepositoryInput {
-  __type?: "CreateRepositoryInput";
   /**
    * <p>A comment or description about the new repository.</p>
    *         <note>
@@ -2175,14 +2035,12 @@ export namespace CreateRepositoryInput {
   export const filterSensitiveLog = (obj: CreateRepositoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRepositoryInput => __isa(o, "CreateRepositoryInput");
 }
 
 /**
  * <p>Represents the output of a create repository operation.</p>
  */
 export interface CreateRepositoryOutput {
-  __type?: "CreateRepositoryOutput";
   /**
    * <p>Information about the newly created repository.</p>
    */
@@ -2193,11 +2051,9 @@ export namespace CreateRepositoryOutput {
   export const filterSensitiveLog = (obj: CreateRepositoryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRepositoryOutput => __isa(o, "CreateRepositoryOutput");
 }
 
 export interface CreateUnreferencedMergeCommitInput {
-  __type?: "CreateUnreferencedMergeCommitInput";
   /**
    * <p>The name of the repository where you want to create the unreferenced merge commit.</p>
    */
@@ -2269,12 +2125,9 @@ export namespace CreateUnreferencedMergeCommitInput {
   export const filterSensitiveLog = (obj: CreateUnreferencedMergeCommitInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUnreferencedMergeCommitInput =>
-    __isa(o, "CreateUnreferencedMergeCommitInput");
 }
 
 export interface CreateUnreferencedMergeCommitOutput {
-  __type?: "CreateUnreferencedMergeCommitOutput";
   /**
    * <p>The full commit ID of the commit that contains your merge results.</p>
    */
@@ -2290,8 +2143,6 @@ export namespace CreateUnreferencedMergeCommitOutput {
   export const filterSensitiveLog = (obj: CreateUnreferencedMergeCommitOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUnreferencedMergeCommitOutput =>
-    __isa(o, "CreateUnreferencedMergeCommitOutput");
 }
 
 /**
@@ -2310,12 +2161,9 @@ export namespace DefaultBranchCannotBeDeletedException {
   export const filterSensitiveLog = (obj: DefaultBranchCannotBeDeletedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DefaultBranchCannotBeDeletedException =>
-    __isa(o, "DefaultBranchCannotBeDeletedException");
 }
 
 export interface DeleteApprovalRuleTemplateInput {
-  __type?: "DeleteApprovalRuleTemplateInput";
   /**
    * <p>The name of the approval rule template to delete.</p>
    */
@@ -2326,11 +2174,9 @@ export namespace DeleteApprovalRuleTemplateInput {
   export const filterSensitiveLog = (obj: DeleteApprovalRuleTemplateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApprovalRuleTemplateInput => __isa(o, "DeleteApprovalRuleTemplateInput");
 }
 
 export interface DeleteApprovalRuleTemplateOutput {
-  __type?: "DeleteApprovalRuleTemplateOutput";
   /**
    * <p>The system-generated ID of the deleted approval rule template. If the template has
    *             been previously deleted, the only response is a 200 OK.</p>
@@ -2342,14 +2188,12 @@ export namespace DeleteApprovalRuleTemplateOutput {
   export const filterSensitiveLog = (obj: DeleteApprovalRuleTemplateOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApprovalRuleTemplateOutput => __isa(o, "DeleteApprovalRuleTemplateOutput");
 }
 
 /**
  * <p>Represents the input of a delete branch operation.</p>
  */
 export interface DeleteBranchInput {
-  __type?: "DeleteBranchInput";
   /**
    * <p>The name of the repository that contains the branch to be deleted.</p>
    */
@@ -2365,14 +2209,12 @@ export namespace DeleteBranchInput {
   export const filterSensitiveLog = (obj: DeleteBranchInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBranchInput => __isa(o, "DeleteBranchInput");
 }
 
 /**
  * <p>Represents the output of a delete branch operation.</p>
  */
 export interface DeleteBranchOutput {
-  __type?: "DeleteBranchOutput";
   /**
    * <p>Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.</p>
    */
@@ -2383,11 +2225,9 @@ export namespace DeleteBranchOutput {
   export const filterSensitiveLog = (obj: DeleteBranchOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBranchOutput => __isa(o, "DeleteBranchOutput");
 }
 
 export interface DeleteCommentContentInput {
-  __type?: "DeleteCommentContentInput";
   /**
    * <p>The unique, system-generated ID of the comment. To get this ID, use  <a>GetCommentsForComparedCommit</a>
    *          or <a>GetCommentsForPullRequest</a>.</p>
@@ -2399,11 +2239,9 @@ export namespace DeleteCommentContentInput {
   export const filterSensitiveLog = (obj: DeleteCommentContentInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCommentContentInput => __isa(o, "DeleteCommentContentInput");
 }
 
 export interface DeleteCommentContentOutput {
-  __type?: "DeleteCommentContentOutput";
   /**
    * <p>Information about the comment you just deleted.</p>
    */
@@ -2414,14 +2252,12 @@ export namespace DeleteCommentContentOutput {
   export const filterSensitiveLog = (obj: DeleteCommentContentOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCommentContentOutput => __isa(o, "DeleteCommentContentOutput");
 }
 
 /**
  * <p>A file that is deleted as part of a commit.</p>
  */
 export interface DeleteFileEntry {
-  __type?: "DeleteFileEntry";
   /**
    * <p>The full path of the file to be deleted, including the name of the file.</p>
    */
@@ -2432,11 +2268,9 @@ export namespace DeleteFileEntry {
   export const filterSensitiveLog = (obj: DeleteFileEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileEntry => __isa(o, "DeleteFileEntry");
 }
 
 export interface DeleteFileInput {
-  __type?: "DeleteFileInput";
   /**
    * <p>The email address for the commit that deletes the file. If no email address is
    *             specified, the email address is left blank.</p>
@@ -2493,11 +2327,9 @@ export namespace DeleteFileInput {
   export const filterSensitiveLog = (obj: DeleteFileInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileInput => __isa(o, "DeleteFileInput");
 }
 
 export interface DeleteFileOutput {
-  __type?: "DeleteFileOutput";
   /**
    * <p>The blob ID removed from the tree as part of deleting the file.</p>
    */
@@ -2524,11 +2356,9 @@ export namespace DeleteFileOutput {
   export const filterSensitiveLog = (obj: DeleteFileOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileOutput => __isa(o, "DeleteFileOutput");
 }
 
 export interface DeletePullRequestApprovalRuleInput {
-  __type?: "DeletePullRequestApprovalRuleInput";
   /**
    * <p>The system-generated ID of the pull request that contains the approval rule you want to delete.</p>
    */
@@ -2544,12 +2374,9 @@ export namespace DeletePullRequestApprovalRuleInput {
   export const filterSensitiveLog = (obj: DeletePullRequestApprovalRuleInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePullRequestApprovalRuleInput =>
-    __isa(o, "DeletePullRequestApprovalRuleInput");
 }
 
 export interface DeletePullRequestApprovalRuleOutput {
-  __type?: "DeletePullRequestApprovalRuleOutput";
   /**
    * <p>The ID of the deleted approval rule. </p>
    *         <note>
@@ -2564,15 +2391,12 @@ export namespace DeletePullRequestApprovalRuleOutput {
   export const filterSensitiveLog = (obj: DeletePullRequestApprovalRuleOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePullRequestApprovalRuleOutput =>
-    __isa(o, "DeletePullRequestApprovalRuleOutput");
 }
 
 /**
  * <p>Represents the input of a delete repository operation.</p>
  */
 export interface DeleteRepositoryInput {
-  __type?: "DeleteRepositoryInput";
   /**
    * <p>The name of the repository to delete.</p>
    */
@@ -2583,14 +2407,12 @@ export namespace DeleteRepositoryInput {
   export const filterSensitiveLog = (obj: DeleteRepositoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryInput => __isa(o, "DeleteRepositoryInput");
 }
 
 /**
  * <p>Represents the output of a delete repository operation.</p>
  */
 export interface DeleteRepositoryOutput {
-  __type?: "DeleteRepositoryOutput";
   /**
    * <p>The ID of the repository that was deleted.</p>
    */
@@ -2601,11 +2423,9 @@ export namespace DeleteRepositoryOutput {
   export const filterSensitiveLog = (obj: DeleteRepositoryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRepositoryOutput => __isa(o, "DeleteRepositoryOutput");
 }
 
 export interface DescribeMergeConflictsInput {
-  __type?: "DescribeMergeConflictsInput";
   /**
    * <p>The merge option or strategy you want to use to merge the code.</p>
    */
@@ -2664,11 +2484,9 @@ export namespace DescribeMergeConflictsInput {
   export const filterSensitiveLog = (obj: DescribeMergeConflictsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMergeConflictsInput => __isa(o, "DescribeMergeConflictsInput");
 }
 
 export interface DescribeMergeConflictsOutput {
-  __type?: "DescribeMergeConflictsOutput";
   /**
    * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
    */
@@ -2704,11 +2522,9 @@ export namespace DescribeMergeConflictsOutput {
   export const filterSensitiveLog = (obj: DescribeMergeConflictsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMergeConflictsOutput => __isa(o, "DescribeMergeConflictsOutput");
 }
 
 export interface DescribePullRequestEventsInput {
-  __type?: "DescribePullRequestEventsInput";
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
@@ -2743,11 +2559,9 @@ export namespace DescribePullRequestEventsInput {
   export const filterSensitiveLog = (obj: DescribePullRequestEventsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePullRequestEventsInput => __isa(o, "DescribePullRequestEventsInput");
 }
 
 export interface DescribePullRequestEventsOutput {
-  __type?: "DescribePullRequestEventsOutput";
   /**
    * <p>Information about the pull request events.</p>
    */
@@ -2763,14 +2577,12 @@ export namespace DescribePullRequestEventsOutput {
   export const filterSensitiveLog = (obj: DescribePullRequestEventsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePullRequestEventsOutput => __isa(o, "DescribePullRequestEventsOutput");
 }
 
 /**
  * <p>Returns information about a set of differences for a commit specifier.</p>
  */
 export interface Difference {
-  __type?: "Difference";
   /**
    * <p>Whether the change type of the difference is an addition (A), deletion (D), or modification (M).</p>
    */
@@ -2793,7 +2605,6 @@ export namespace Difference {
   export const filterSensitiveLog = (obj: Difference): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Difference => __isa(o, "Difference");
 }
 
 /**
@@ -2813,12 +2624,9 @@ export namespace DirectoryNameConflictsWithFileNameException {
   export const filterSensitiveLog = (obj: DirectoryNameConflictsWithFileNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DirectoryNameConflictsWithFileNameException =>
-    __isa(o, "DirectoryNameConflictsWithFileNameException");
 }
 
 export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
-  __type?: "DisassociateApprovalRuleTemplateFromRepositoryInput";
   /**
    * <p>The name of the approval rule template to disassociate from a specified repository.</p>
    */
@@ -2834,8 +2642,6 @@ export namespace DisassociateApprovalRuleTemplateFromRepositoryInput {
   export const filterSensitiveLog = (obj: DisassociateApprovalRuleTemplateFromRepositoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateApprovalRuleTemplateFromRepositoryInput =>
-    __isa(o, "DisassociateApprovalRuleTemplateFromRepositoryInput");
 }
 
 /**
@@ -2854,8 +2660,6 @@ export namespace EncryptionIntegrityChecksFailedException {
   export const filterSensitiveLog = (obj: EncryptionIntegrityChecksFailedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionIntegrityChecksFailedException =>
-    __isa(o, "EncryptionIntegrityChecksFailedException");
 }
 
 /**
@@ -2874,8 +2678,6 @@ export namespace EncryptionKeyAccessDeniedException {
   export const filterSensitiveLog = (obj: EncryptionKeyAccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionKeyAccessDeniedException =>
-    __isa(o, "EncryptionKeyAccessDeniedException");
 }
 
 /**
@@ -2894,7 +2696,6 @@ export namespace EncryptionKeyDisabledException {
   export const filterSensitiveLog = (obj: EncryptionKeyDisabledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionKeyDisabledException => __isa(o, "EncryptionKeyDisabledException");
 }
 
 /**
@@ -2913,7 +2714,6 @@ export namespace EncryptionKeyNotFoundException {
   export const filterSensitiveLog = (obj: EncryptionKeyNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionKeyNotFoundException => __isa(o, "EncryptionKeyNotFoundException");
 }
 
 /**
@@ -2932,11 +2732,9 @@ export namespace EncryptionKeyUnavailableException {
   export const filterSensitiveLog = (obj: EncryptionKeyUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionKeyUnavailableException => __isa(o, "EncryptionKeyUnavailableException");
 }
 
 export interface EvaluatePullRequestApprovalRulesInput {
-  __type?: "EvaluatePullRequestApprovalRulesInput";
   /**
    * <p>The system-generated ID for the pull request revision. To retrieve the most recent
    *             revision ID for a pull request, use
@@ -2954,12 +2752,9 @@ export namespace EvaluatePullRequestApprovalRulesInput {
   export const filterSensitiveLog = (obj: EvaluatePullRequestApprovalRulesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EvaluatePullRequestApprovalRulesInput =>
-    __isa(o, "EvaluatePullRequestApprovalRulesInput");
 }
 
 export interface EvaluatePullRequestApprovalRulesOutput {
-  __type?: "EvaluatePullRequestApprovalRulesOutput";
   /**
    * <p>The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have
    *         not been met (if any), whether the pull request is in the approved state, and whether the pull request approval rule has been set aside by an override. </p>
@@ -2971,15 +2766,12 @@ export namespace EvaluatePullRequestApprovalRulesOutput {
   export const filterSensitiveLog = (obj: EvaluatePullRequestApprovalRulesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EvaluatePullRequestApprovalRulesOutput =>
-    __isa(o, "EvaluatePullRequestApprovalRulesOutput");
 }
 
 /**
  * <p>Returns information about the approval rules applied to a pull request and whether conditions have been met.</p>
  */
 export interface Evaluation {
-  __type?: "Evaluation";
   /**
    * <p>The names of the approval rules that have not had their conditions met.</p>
    */
@@ -3005,14 +2797,12 @@ export namespace Evaluation {
   export const filterSensitiveLog = (obj: Evaluation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Evaluation => __isa(o, "Evaluation");
 }
 
 /**
  * <p>Returns information about a file in a repository.</p>
  */
 export interface File {
-  __type?: "File";
   /**
    * <p>The fully qualified path to the file in the repository.</p>
    */
@@ -3038,7 +2828,6 @@ export namespace File {
   export const filterSensitiveLog = (obj: File): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is File => __isa(o, "File");
 }
 
 /**
@@ -3059,8 +2848,6 @@ export namespace FileContentAndSourceFileSpecifiedException {
   export const filterSensitiveLog = (obj: FileContentAndSourceFileSpecifiedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileContentAndSourceFileSpecifiedException =>
-    __isa(o, "FileContentAndSourceFileSpecifiedException");
 }
 
 /**
@@ -3079,7 +2866,6 @@ export namespace FileContentRequiredException {
   export const filterSensitiveLog = (obj: FileContentRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileContentRequiredException => __isa(o, "FileContentRequiredException");
 }
 
 /**
@@ -3100,8 +2886,6 @@ export namespace FileContentSizeLimitExceededException {
   export const filterSensitiveLog = (obj: FileContentSizeLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileContentSizeLimitExceededException =>
-    __isa(o, "FileContentSizeLimitExceededException");
 }
 
 /**
@@ -3121,7 +2905,6 @@ export namespace FileDoesNotExistException {
   export const filterSensitiveLog = (obj: FileDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileDoesNotExistException => __isa(o, "FileDoesNotExistException");
 }
 
 /**
@@ -3140,14 +2923,12 @@ export namespace FileEntryRequiredException {
   export const filterSensitiveLog = (obj: FileEntryRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileEntryRequiredException => __isa(o, "FileEntryRequiredException");
 }
 
 /**
  * <p>A file to be added, updated, or deleted as part of a commit.</p>
  */
 export interface FileMetadata {
-  __type?: "FileMetadata";
   /**
    * <p>The blob ID that contains the file information.</p>
    */
@@ -3169,7 +2950,6 @@ export namespace FileMetadata {
   export const filterSensitiveLog = (obj: FileMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileMetadata => __isa(o, "FileMetadata");
 }
 
 /**
@@ -3189,14 +2969,12 @@ export namespace FileModeRequiredException {
   export const filterSensitiveLog = (obj: FileModeRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileModeRequiredException => __isa(o, "FileModeRequiredException");
 }
 
 /**
  * <p>Information about file modes in a merge or pull request.</p>
  */
 export interface FileModes {
-  __type?: "FileModes";
   /**
    * <p>The file mode of a file in the base of a merge or pull request.</p>
    */
@@ -3217,7 +2995,6 @@ export namespace FileModes {
   export const filterSensitiveLog = (obj: FileModes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileModes => __isa(o, "FileModes");
 }
 
 export enum FileModeTypeEnum {
@@ -3243,8 +3020,6 @@ export namespace FileNameConflictsWithDirectoryNameException {
   export const filterSensitiveLog = (obj: FileNameConflictsWithDirectoryNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileNameConflictsWithDirectoryNameException =>
-    __isa(o, "FileNameConflictsWithDirectoryNameException");
 }
 
 /**
@@ -3264,15 +3039,12 @@ export namespace FilePathConflictsWithSubmodulePathException {
   export const filterSensitiveLog = (obj: FilePathConflictsWithSubmodulePathException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FilePathConflictsWithSubmodulePathException =>
-    __isa(o, "FilePathConflictsWithSubmodulePathException");
 }
 
 /**
  * <p>Information about the size of files in a merge or pull request.</p>
  */
 export interface FileSizes {
-  __type?: "FileSizes";
   /**
    * <p>The size of a file in the destination of a merge or pull request.</p>
    */
@@ -3293,7 +3065,6 @@ export namespace FileSizes {
   export const filterSensitiveLog = (obj: FileSizes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSizes => __isa(o, "FileSizes");
 }
 
 /**
@@ -3313,14 +3084,12 @@ export namespace FileTooLargeException {
   export const filterSensitiveLog = (obj: FileTooLargeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileTooLargeException => __isa(o, "FileTooLargeException");
 }
 
 /**
  * <p>Returns information about a folder in a repository.</p>
  */
 export interface Folder {
-  __type?: "Folder";
   /**
    * <p>The relative path of the specified folder from the folder where the query originated.</p>
    */
@@ -3341,7 +3110,6 @@ export namespace Folder {
   export const filterSensitiveLog = (obj: Folder): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Folder => __isa(o, "Folder");
 }
 
 /**
@@ -3362,8 +3130,6 @@ export namespace FolderContentSizeLimitExceededException {
   export const filterSensitiveLog = (obj: FolderContentSizeLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FolderContentSizeLimitExceededException =>
-    __isa(o, "FolderContentSizeLimitExceededException");
 }
 
 /**
@@ -3383,11 +3149,9 @@ export namespace FolderDoesNotExistException {
   export const filterSensitiveLog = (obj: FolderDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FolderDoesNotExistException => __isa(o, "FolderDoesNotExistException");
 }
 
 export interface GetApprovalRuleTemplateInput {
-  __type?: "GetApprovalRuleTemplateInput";
   /**
    * <p>The name of the approval rule template for which you want to get information.</p>
    */
@@ -3398,11 +3162,9 @@ export namespace GetApprovalRuleTemplateInput {
   export const filterSensitiveLog = (obj: GetApprovalRuleTemplateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApprovalRuleTemplateInput => __isa(o, "GetApprovalRuleTemplateInput");
 }
 
 export interface GetApprovalRuleTemplateOutput {
-  __type?: "GetApprovalRuleTemplateOutput";
   /**
    * <p>The content and structure of the approval rule template.</p>
    */
@@ -3413,14 +3175,12 @@ export namespace GetApprovalRuleTemplateOutput {
   export const filterSensitiveLog = (obj: GetApprovalRuleTemplateOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApprovalRuleTemplateOutput => __isa(o, "GetApprovalRuleTemplateOutput");
 }
 
 /**
  * <p>Represents the input of a get blob operation.</p>
  */
 export interface GetBlobInput {
-  __type?: "GetBlobInput";
   /**
    * <p>The ID of the blob, which is its SHA-1 pointer.</p>
    */
@@ -3436,14 +3196,12 @@ export namespace GetBlobInput {
   export const filterSensitiveLog = (obj: GetBlobInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBlobInput => __isa(o, "GetBlobInput");
 }
 
 /**
  * <p>Represents the output of a get blob operation.</p>
  */
 export interface GetBlobOutput {
-  __type?: "GetBlobOutput";
   /**
    * <p>The content of the blob, usually a file.</p>
    */
@@ -3454,14 +3212,12 @@ export namespace GetBlobOutput {
   export const filterSensitiveLog = (obj: GetBlobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBlobOutput => __isa(o, "GetBlobOutput");
 }
 
 /**
  * <p>Represents the input of a get branch operation.</p>
  */
 export interface GetBranchInput {
-  __type?: "GetBranchInput";
   /**
    * <p>The name of the repository that contains the branch for which you want to retrieve information.</p>
    */
@@ -3477,14 +3233,12 @@ export namespace GetBranchInput {
   export const filterSensitiveLog = (obj: GetBranchInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBranchInput => __isa(o, "GetBranchInput");
 }
 
 /**
  * <p>Represents the output of a get branch operation.</p>
  */
 export interface GetBranchOutput {
-  __type?: "GetBranchOutput";
   /**
    * <p>The name of the branch.</p>
    */
@@ -3495,11 +3249,9 @@ export namespace GetBranchOutput {
   export const filterSensitiveLog = (obj: GetBranchOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBranchOutput => __isa(o, "GetBranchOutput");
 }
 
 export interface GetCommentInput {
-  __type?: "GetCommentInput";
   /**
    * <p>The unique, system-generated ID of the comment. To get this ID, use  <a>GetCommentsForComparedCommit</a>
    *             or <a>GetCommentsForPullRequest</a>.</p>
@@ -3511,11 +3263,9 @@ export namespace GetCommentInput {
   export const filterSensitiveLog = (obj: GetCommentInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCommentInput => __isa(o, "GetCommentInput");
 }
 
 export interface GetCommentOutput {
-  __type?: "GetCommentOutput";
   /**
    * <p>The contents of the comment.</p>
    */
@@ -3526,11 +3276,9 @@ export namespace GetCommentOutput {
   export const filterSensitiveLog = (obj: GetCommentOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCommentOutput => __isa(o, "GetCommentOutput");
 }
 
 export interface GetCommentReactionsInput {
-  __type?: "GetCommentReactionsInput";
   /**
    * <p>The ID of the comment for which you want to get reactions information.</p>
    */
@@ -3556,11 +3304,9 @@ export namespace GetCommentReactionsInput {
   export const filterSensitiveLog = (obj: GetCommentReactionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCommentReactionsInput => __isa(o, "GetCommentReactionsInput");
 }
 
 export interface GetCommentReactionsOutput {
-  __type?: "GetCommentReactionsOutput";
   /**
    * <p>An array of reactions to the specified comment.</p>
    */
@@ -3576,11 +3322,9 @@ export namespace GetCommentReactionsOutput {
   export const filterSensitiveLog = (obj: GetCommentReactionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCommentReactionsOutput => __isa(o, "GetCommentReactionsOutput");
 }
 
 export interface GetCommentsForComparedCommitInput {
-  __type?: "GetCommentsForComparedCommitInput";
   /**
    * <p>To establish the directionality of the comparison, the full commit ID of the before
    *             commit.</p>
@@ -3614,11 +3358,9 @@ export namespace GetCommentsForComparedCommitInput {
   export const filterSensitiveLog = (obj: GetCommentsForComparedCommitInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCommentsForComparedCommitInput => __isa(o, "GetCommentsForComparedCommitInput");
 }
 
 export interface GetCommentsForComparedCommitOutput {
-  __type?: "GetCommentsForComparedCommitOutput";
   /**
    * <p>A list of comment objects on the compared commit.</p>
    */
@@ -3634,12 +3376,9 @@ export namespace GetCommentsForComparedCommitOutput {
   export const filterSensitiveLog = (obj: GetCommentsForComparedCommitOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCommentsForComparedCommitOutput =>
-    __isa(o, "GetCommentsForComparedCommitOutput");
 }
 
 export interface GetCommentsForPullRequestInput {
-  __type?: "GetCommentsForPullRequestInput";
   /**
    * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.</p>
    */
@@ -3677,11 +3416,9 @@ export namespace GetCommentsForPullRequestInput {
   export const filterSensitiveLog = (obj: GetCommentsForPullRequestInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCommentsForPullRequestInput => __isa(o, "GetCommentsForPullRequestInput");
 }
 
 export interface GetCommentsForPullRequestOutput {
-  __type?: "GetCommentsForPullRequestOutput";
   /**
    * <p>An array of comment objects on the pull request.</p>
    */
@@ -3697,14 +3434,12 @@ export namespace GetCommentsForPullRequestOutput {
   export const filterSensitiveLog = (obj: GetCommentsForPullRequestOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCommentsForPullRequestOutput => __isa(o, "GetCommentsForPullRequestOutput");
 }
 
 /**
  * <p>Represents the input of a get commit operation.</p>
  */
 export interface GetCommitInput {
-  __type?: "GetCommitInput";
   /**
    * <p>The name of the repository to which the commit was made.</p>
    */
@@ -3720,14 +3455,12 @@ export namespace GetCommitInput {
   export const filterSensitiveLog = (obj: GetCommitInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCommitInput => __isa(o, "GetCommitInput");
 }
 
 /**
  * <p>Represents the output of a get commit operation.</p>
  */
 export interface GetCommitOutput {
-  __type?: "GetCommitOutput";
   /**
    * <p>A commit data type object that contains information about the specified commit.</p>
    */
@@ -3738,11 +3471,9 @@ export namespace GetCommitOutput {
   export const filterSensitiveLog = (obj: GetCommitOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCommitOutput => __isa(o, "GetCommitOutput");
 }
 
 export interface GetDifferencesInput {
-  __type?: "GetDifferencesInput";
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
@@ -3793,11 +3524,9 @@ export namespace GetDifferencesInput {
   export const filterSensitiveLog = (obj: GetDifferencesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDifferencesInput => __isa(o, "GetDifferencesInput");
 }
 
 export interface GetDifferencesOutput {
-  __type?: "GetDifferencesOutput";
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
@@ -3814,11 +3543,9 @@ export namespace GetDifferencesOutput {
   export const filterSensitiveLog = (obj: GetDifferencesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDifferencesOutput => __isa(o, "GetDifferencesOutput");
 }
 
 export interface GetFileInput {
-  __type?: "GetFileInput";
   /**
    * <p>The name of the repository that contains the file.</p>
    */
@@ -3843,11 +3570,9 @@ export namespace GetFileInput {
   export const filterSensitiveLog = (obj: GetFileInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFileInput => __isa(o, "GetFileInput");
 }
 
 export interface GetFileOutput {
-  __type?: "GetFileOutput";
   /**
    * <p>The full commit ID of the commit that contains the content returned by GetFile.</p>
    */
@@ -3889,11 +3614,9 @@ export namespace GetFileOutput {
   export const filterSensitiveLog = (obj: GetFileOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFileOutput => __isa(o, "GetFileOutput");
 }
 
 export interface GetFolderInput {
-  __type?: "GetFolderInput";
   /**
    * <p>The fully qualified path to the folder whose contents are returned, including the
    *             folder name. For example, /examples is a fully-qualified path to a folder named examples
@@ -3919,11 +3642,9 @@ export namespace GetFolderInput {
   export const filterSensitiveLog = (obj: GetFolderInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFolderInput => __isa(o, "GetFolderInput");
 }
 
 export interface GetFolderOutput {
-  __type?: "GetFolderOutput";
   /**
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the folder.</p>
    */
@@ -3966,11 +3687,9 @@ export namespace GetFolderOutput {
   export const filterSensitiveLog = (obj: GetFolderOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFolderOutput => __isa(o, "GetFolderOutput");
 }
 
 export interface GetMergeCommitInput {
-  __type?: "GetMergeCommitInput";
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
@@ -4008,11 +3727,9 @@ export namespace GetMergeCommitInput {
   export const filterSensitiveLog = (obj: GetMergeCommitInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMergeCommitInput => __isa(o, "GetMergeCommitInput");
 }
 
 export interface GetMergeCommitOutput {
-  __type?: "GetMergeCommitOutput";
   /**
    * <p>The commit ID for the merge commit created when the source branch was merged into the
    *             destination branch. If the fast-forward merge strategy was used, there is no merge
@@ -4040,11 +3757,9 @@ export namespace GetMergeCommitOutput {
   export const filterSensitiveLog = (obj: GetMergeCommitOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMergeCommitOutput => __isa(o, "GetMergeCommitOutput");
 }
 
 export interface GetMergeConflictsInput {
-  __type?: "GetMergeConflictsInput";
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
@@ -4098,11 +3813,9 @@ export namespace GetMergeConflictsInput {
   export const filterSensitiveLog = (obj: GetMergeConflictsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMergeConflictsInput => __isa(o, "GetMergeConflictsInput");
 }
 
 export interface GetMergeConflictsOutput {
-  __type?: "GetMergeConflictsOutput";
   /**
    * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
    */
@@ -4139,11 +3852,9 @@ export namespace GetMergeConflictsOutput {
   export const filterSensitiveLog = (obj: GetMergeConflictsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMergeConflictsOutput => __isa(o, "GetMergeConflictsOutput");
 }
 
 export interface GetMergeOptionsInput {
-  __type?: "GetMergeOptionsInput";
   /**
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
@@ -4181,11 +3892,9 @@ export namespace GetMergeOptionsInput {
   export const filterSensitiveLog = (obj: GetMergeOptionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMergeOptionsInput => __isa(o, "GetMergeOptionsInput");
 }
 
 export interface GetMergeOptionsOutput {
-  __type?: "GetMergeOptionsOutput";
   /**
    * <p>The merge option or strategy used to merge the code.</p>
    */
@@ -4211,11 +3920,9 @@ export namespace GetMergeOptionsOutput {
   export const filterSensitiveLog = (obj: GetMergeOptionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMergeOptionsOutput => __isa(o, "GetMergeOptionsOutput");
 }
 
 export interface GetPullRequestApprovalStatesInput {
-  __type?: "GetPullRequestApprovalStatesInput";
   /**
    * <p>The system-generated ID for the pull request revision.</p>
    */
@@ -4231,11 +3938,9 @@ export namespace GetPullRequestApprovalStatesInput {
   export const filterSensitiveLog = (obj: GetPullRequestApprovalStatesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPullRequestApprovalStatesInput => __isa(o, "GetPullRequestApprovalStatesInput");
 }
 
 export interface GetPullRequestApprovalStatesOutput {
-  __type?: "GetPullRequestApprovalStatesOutput";
   /**
    * <p>Information about users who have approved the pull request.</p>
    */
@@ -4246,12 +3951,9 @@ export namespace GetPullRequestApprovalStatesOutput {
   export const filterSensitiveLog = (obj: GetPullRequestApprovalStatesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPullRequestApprovalStatesOutput =>
-    __isa(o, "GetPullRequestApprovalStatesOutput");
 }
 
 export interface GetPullRequestInput {
-  __type?: "GetPullRequestInput";
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
@@ -4262,11 +3964,9 @@ export namespace GetPullRequestInput {
   export const filterSensitiveLog = (obj: GetPullRequestInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPullRequestInput => __isa(o, "GetPullRequestInput");
 }
 
 export interface GetPullRequestOutput {
-  __type?: "GetPullRequestOutput";
   /**
    * <p>Information about the specified pull request.</p>
    */
@@ -4277,11 +3977,9 @@ export namespace GetPullRequestOutput {
   export const filterSensitiveLog = (obj: GetPullRequestOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPullRequestOutput => __isa(o, "GetPullRequestOutput");
 }
 
 export interface GetPullRequestOverrideStateInput {
-  __type?: "GetPullRequestOverrideStateInput";
   /**
    * <p>The ID of the pull request for which you want to get information about whether approval rules have been set aside (overridden).</p>
    */
@@ -4299,11 +3997,9 @@ export namespace GetPullRequestOverrideStateInput {
   export const filterSensitiveLog = (obj: GetPullRequestOverrideStateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPullRequestOverrideStateInput => __isa(o, "GetPullRequestOverrideStateInput");
 }
 
 export interface GetPullRequestOverrideStateOutput {
-  __type?: "GetPullRequestOverrideStateOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.</p>
    */
@@ -4319,14 +4015,12 @@ export namespace GetPullRequestOverrideStateOutput {
   export const filterSensitiveLog = (obj: GetPullRequestOverrideStateOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPullRequestOverrideStateOutput => __isa(o, "GetPullRequestOverrideStateOutput");
 }
 
 /**
  * <p>Represents the input of a get repository operation.</p>
  */
 export interface GetRepositoryInput {
-  __type?: "GetRepositoryInput";
   /**
    * <p>The name of the repository to get information about.</p>
    */
@@ -4337,14 +4031,12 @@ export namespace GetRepositoryInput {
   export const filterSensitiveLog = (obj: GetRepositoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryInput => __isa(o, "GetRepositoryInput");
 }
 
 /**
  * <p>Represents the output of a get repository operation.</p>
  */
 export interface GetRepositoryOutput {
-  __type?: "GetRepositoryOutput";
   /**
    * <p>Information about the repository.</p>
    */
@@ -4355,14 +4047,12 @@ export namespace GetRepositoryOutput {
   export const filterSensitiveLog = (obj: GetRepositoryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryOutput => __isa(o, "GetRepositoryOutput");
 }
 
 /**
  * <p>Represents the input of a get repository triggers operation.</p>
  */
 export interface GetRepositoryTriggersInput {
-  __type?: "GetRepositoryTriggersInput";
   /**
    * <p>The name of the repository for which the trigger is configured.</p>
    */
@@ -4373,14 +4063,12 @@ export namespace GetRepositoryTriggersInput {
   export const filterSensitiveLog = (obj: GetRepositoryTriggersInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryTriggersInput => __isa(o, "GetRepositoryTriggersInput");
 }
 
 /**
  * <p>Represents the output of a get repository triggers operation.</p>
  */
 export interface GetRepositoryTriggersOutput {
-  __type?: "GetRepositoryTriggersOutput";
   /**
    * <p>The system-generated unique ID for the trigger.</p>
    */
@@ -4396,7 +4084,6 @@ export namespace GetRepositoryTriggersOutput {
   export const filterSensitiveLog = (obj: GetRepositoryTriggersOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRepositoryTriggersOutput => __isa(o, "GetRepositoryTriggersOutput");
 }
 
 /**
@@ -4416,8 +4103,6 @@ export namespace IdempotencyParameterMismatchException {
   export const filterSensitiveLog = (obj: IdempotencyParameterMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdempotencyParameterMismatchException =>
-    __isa(o, "IdempotencyParameterMismatchException");
 }
 
 /**
@@ -4437,7 +4122,6 @@ export namespace InvalidActorArnException {
   export const filterSensitiveLog = (obj: InvalidActorArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidActorArnException => __isa(o, "InvalidActorArnException");
 }
 
 /**
@@ -4456,8 +4140,6 @@ export namespace InvalidApprovalRuleContentException {
   export const filterSensitiveLog = (obj: InvalidApprovalRuleContentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidApprovalRuleContentException =>
-    __isa(o, "InvalidApprovalRuleContentException");
 }
 
 /**
@@ -4476,7 +4158,6 @@ export namespace InvalidApprovalRuleNameException {
   export const filterSensitiveLog = (obj: InvalidApprovalRuleNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidApprovalRuleNameException => __isa(o, "InvalidApprovalRuleNameException");
 }
 
 /**
@@ -4495,8 +4176,6 @@ export namespace InvalidApprovalRuleTemplateContentException {
   export const filterSensitiveLog = (obj: InvalidApprovalRuleTemplateContentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidApprovalRuleTemplateContentException =>
-    __isa(o, "InvalidApprovalRuleTemplateContentException");
 }
 
 /**
@@ -4518,8 +4197,6 @@ export namespace InvalidApprovalRuleTemplateDescriptionException {
   export const filterSensitiveLog = (obj: InvalidApprovalRuleTemplateDescriptionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidApprovalRuleTemplateDescriptionException =>
-    __isa(o, "InvalidApprovalRuleTemplateDescriptionException");
 }
 
 /**
@@ -4541,8 +4218,6 @@ export namespace InvalidApprovalRuleTemplateNameException {
   export const filterSensitiveLog = (obj: InvalidApprovalRuleTemplateNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidApprovalRuleTemplateNameException =>
-    __isa(o, "InvalidApprovalRuleTemplateNameException");
 }
 
 /**
@@ -4561,7 +4236,6 @@ export namespace InvalidApprovalStateException {
   export const filterSensitiveLog = (obj: InvalidApprovalStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidApprovalStateException => __isa(o, "InvalidApprovalStateException");
 }
 
 /**
@@ -4580,7 +4254,6 @@ export namespace InvalidAuthorArnException {
   export const filterSensitiveLog = (obj: InvalidAuthorArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidAuthorArnException => __isa(o, "InvalidAuthorArnException");
 }
 
 /**
@@ -4599,7 +4272,6 @@ export namespace InvalidBlobIdException {
   export const filterSensitiveLog = (obj: InvalidBlobIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidBlobIdException => __isa(o, "InvalidBlobIdException");
 }
 
 /**
@@ -4618,7 +4290,6 @@ export namespace InvalidBranchNameException {
   export const filterSensitiveLog = (obj: InvalidBranchNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidBranchNameException => __isa(o, "InvalidBranchNameException");
 }
 
 /**
@@ -4637,8 +4308,6 @@ export namespace InvalidClientRequestTokenException {
   export const filterSensitiveLog = (obj: InvalidClientRequestTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidClientRequestTokenException =>
-    __isa(o, "InvalidClientRequestTokenException");
 }
 
 /**
@@ -4657,7 +4326,6 @@ export namespace InvalidCommentIdException {
   export const filterSensitiveLog = (obj: InvalidCommentIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCommentIdException => __isa(o, "InvalidCommentIdException");
 }
 
 /**
@@ -4676,7 +4344,6 @@ export namespace InvalidCommitException {
   export const filterSensitiveLog = (obj: InvalidCommitException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCommitException => __isa(o, "InvalidCommitException");
 }
 
 /**
@@ -4695,7 +4362,6 @@ export namespace InvalidCommitIdException {
   export const filterSensitiveLog = (obj: InvalidCommitIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCommitIdException => __isa(o, "InvalidCommitIdException");
 }
 
 /**
@@ -4714,8 +4380,6 @@ export namespace InvalidConflictDetailLevelException {
   export const filterSensitiveLog = (obj: InvalidConflictDetailLevelException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidConflictDetailLevelException =>
-    __isa(o, "InvalidConflictDetailLevelException");
 }
 
 /**
@@ -4734,8 +4398,6 @@ export namespace InvalidConflictResolutionException {
   export const filterSensitiveLog = (obj: InvalidConflictResolutionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidConflictResolutionException =>
-    __isa(o, "InvalidConflictResolutionException");
 }
 
 /**
@@ -4754,8 +4416,6 @@ export namespace InvalidConflictResolutionStrategyException {
   export const filterSensitiveLog = (obj: InvalidConflictResolutionStrategyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidConflictResolutionStrategyException =>
-    __isa(o, "InvalidConflictResolutionStrategyException");
 }
 
 /**
@@ -4774,7 +4434,6 @@ export namespace InvalidContinuationTokenException {
   export const filterSensitiveLog = (obj: InvalidContinuationTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidContinuationTokenException => __isa(o, "InvalidContinuationTokenException");
 }
 
 /**
@@ -4793,7 +4452,6 @@ export namespace InvalidDeletionParameterException {
   export const filterSensitiveLog = (obj: InvalidDeletionParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeletionParameterException => __isa(o, "InvalidDeletionParameterException");
 }
 
 /**
@@ -4813,7 +4471,6 @@ export namespace InvalidDescriptionException {
   export const filterSensitiveLog = (obj: InvalidDescriptionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDescriptionException => __isa(o, "InvalidDescriptionException");
 }
 
 /**
@@ -4832,8 +4489,6 @@ export namespace InvalidDestinationCommitSpecifierException {
   export const filterSensitiveLog = (obj: InvalidDestinationCommitSpecifierException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDestinationCommitSpecifierException =>
-    __isa(o, "InvalidDestinationCommitSpecifierException");
 }
 
 /**
@@ -4853,7 +4508,6 @@ export namespace InvalidEmailException {
   export const filterSensitiveLog = (obj: InvalidEmailException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEmailException => __isa(o, "InvalidEmailException");
 }
 
 /**
@@ -4873,7 +4527,6 @@ export namespace InvalidFileLocationException {
   export const filterSensitiveLog = (obj: InvalidFileLocationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidFileLocationException => __isa(o, "InvalidFileLocationException");
 }
 
 /**
@@ -4892,7 +4545,6 @@ export namespace InvalidFileModeException {
   export const filterSensitiveLog = (obj: InvalidFileModeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidFileModeException => __isa(o, "InvalidFileModeException");
 }
 
 /**
@@ -4911,7 +4563,6 @@ export namespace InvalidFilePositionException {
   export const filterSensitiveLog = (obj: InvalidFilePositionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidFilePositionException => __isa(o, "InvalidFilePositionException");
 }
 
 /**
@@ -4930,7 +4581,6 @@ export namespace InvalidMaxConflictFilesException {
   export const filterSensitiveLog = (obj: InvalidMaxConflictFilesException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidMaxConflictFilesException => __isa(o, "InvalidMaxConflictFilesException");
 }
 
 /**
@@ -4949,7 +4599,6 @@ export namespace InvalidMaxMergeHunksException {
   export const filterSensitiveLog = (obj: InvalidMaxMergeHunksException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidMaxMergeHunksException => __isa(o, "InvalidMaxMergeHunksException");
 }
 
 /**
@@ -4968,7 +4617,6 @@ export namespace InvalidMaxResultsException {
   export const filterSensitiveLog = (obj: InvalidMaxResultsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidMaxResultsException => __isa(o, "InvalidMaxResultsException");
 }
 
 /**
@@ -4987,7 +4635,6 @@ export namespace InvalidMergeOptionException {
   export const filterSensitiveLog = (obj: InvalidMergeOptionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidMergeOptionException => __isa(o, "InvalidMergeOptionException");
 }
 
 /**
@@ -5006,7 +4653,6 @@ export namespace InvalidOrderException {
   export const filterSensitiveLog = (obj: InvalidOrderException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOrderException => __isa(o, "InvalidOrderException");
 }
 
 /**
@@ -5025,7 +4671,6 @@ export namespace InvalidOverrideStatusException {
   export const filterSensitiveLog = (obj: InvalidOverrideStatusException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOverrideStatusException => __isa(o, "InvalidOverrideStatusException");
 }
 
 /**
@@ -5045,7 +4690,6 @@ export namespace InvalidParentCommitIdException {
   export const filterSensitiveLog = (obj: InvalidParentCommitIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParentCommitIdException => __isa(o, "InvalidParentCommitIdException");
 }
 
 /**
@@ -5064,7 +4708,6 @@ export namespace InvalidPathException {
   export const filterSensitiveLog = (obj: InvalidPathException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPathException => __isa(o, "InvalidPathException");
 }
 
 /**
@@ -5083,8 +4726,6 @@ export namespace InvalidPullRequestEventTypeException {
   export const filterSensitiveLog = (obj: InvalidPullRequestEventTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPullRequestEventTypeException =>
-    __isa(o, "InvalidPullRequestEventTypeException");
 }
 
 /**
@@ -5103,7 +4744,6 @@ export namespace InvalidPullRequestIdException {
   export const filterSensitiveLog = (obj: InvalidPullRequestIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPullRequestIdException => __isa(o, "InvalidPullRequestIdException");
 }
 
 /**
@@ -5122,7 +4762,6 @@ export namespace InvalidPullRequestStatusException {
   export const filterSensitiveLog = (obj: InvalidPullRequestStatusException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPullRequestStatusException => __isa(o, "InvalidPullRequestStatusException");
 }
 
 /**
@@ -5141,8 +4780,6 @@ export namespace InvalidPullRequestStatusUpdateException {
   export const filterSensitiveLog = (obj: InvalidPullRequestStatusUpdateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPullRequestStatusUpdateException =>
-    __isa(o, "InvalidPullRequestStatusUpdateException");
 }
 
 /**
@@ -5161,7 +4798,6 @@ export namespace InvalidReactionUserArnException {
   export const filterSensitiveLog = (obj: InvalidReactionUserArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidReactionUserArnException => __isa(o, "InvalidReactionUserArnException");
 }
 
 /**
@@ -5180,7 +4816,6 @@ export namespace InvalidReactionValueException {
   export const filterSensitiveLog = (obj: InvalidReactionValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidReactionValueException => __isa(o, "InvalidReactionValueException");
 }
 
 /**
@@ -5201,7 +4836,6 @@ export namespace InvalidReferenceNameException {
   export const filterSensitiveLog = (obj: InvalidReferenceNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidReferenceNameException => __isa(o, "InvalidReferenceNameException");
 }
 
 /**
@@ -5220,8 +4854,6 @@ export namespace InvalidRelativeFileVersionEnumException {
   export const filterSensitiveLog = (obj: InvalidRelativeFileVersionEnumException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRelativeFileVersionEnumException =>
-    __isa(o, "InvalidRelativeFileVersionEnumException");
 }
 
 /**
@@ -5240,8 +4872,6 @@ export namespace InvalidReplacementContentException {
   export const filterSensitiveLog = (obj: InvalidReplacementContentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidReplacementContentException =>
-    __isa(o, "InvalidReplacementContentException");
 }
 
 /**
@@ -5260,7 +4890,6 @@ export namespace InvalidReplacementTypeException {
   export const filterSensitiveLog = (obj: InvalidReplacementTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidReplacementTypeException => __isa(o, "InvalidReplacementTypeException");
 }
 
 /**
@@ -5279,8 +4908,6 @@ export namespace InvalidRepositoryDescriptionException {
   export const filterSensitiveLog = (obj: InvalidRepositoryDescriptionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRepositoryDescriptionException =>
-    __isa(o, "InvalidRepositoryDescriptionException");
 }
 
 /**
@@ -5305,7 +4932,6 @@ export namespace InvalidRepositoryNameException {
   export const filterSensitiveLog = (obj: InvalidRepositoryNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRepositoryNameException => __isa(o, "InvalidRepositoryNameException");
 }
 
 /**
@@ -5324,8 +4950,6 @@ export namespace InvalidRepositoryTriggerBranchNameException {
   export const filterSensitiveLog = (obj: InvalidRepositoryTriggerBranchNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRepositoryTriggerBranchNameException =>
-    __isa(o, "InvalidRepositoryTriggerBranchNameException");
 }
 
 /**
@@ -5344,8 +4968,6 @@ export namespace InvalidRepositoryTriggerCustomDataException {
   export const filterSensitiveLog = (obj: InvalidRepositoryTriggerCustomDataException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRepositoryTriggerCustomDataException =>
-    __isa(o, "InvalidRepositoryTriggerCustomDataException");
 }
 
 /**
@@ -5364,8 +4986,6 @@ export namespace InvalidRepositoryTriggerDestinationArnException {
   export const filterSensitiveLog = (obj: InvalidRepositoryTriggerDestinationArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRepositoryTriggerDestinationArnException =>
-    __isa(o, "InvalidRepositoryTriggerDestinationArnException");
 }
 
 /**
@@ -5384,8 +5004,6 @@ export namespace InvalidRepositoryTriggerEventsException {
   export const filterSensitiveLog = (obj: InvalidRepositoryTriggerEventsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRepositoryTriggerEventsException =>
-    __isa(o, "InvalidRepositoryTriggerEventsException");
 }
 
 /**
@@ -5404,8 +5022,6 @@ export namespace InvalidRepositoryTriggerNameException {
   export const filterSensitiveLog = (obj: InvalidRepositoryTriggerNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRepositoryTriggerNameException =>
-    __isa(o, "InvalidRepositoryTriggerNameException");
 }
 
 /**
@@ -5426,8 +5042,6 @@ export namespace InvalidRepositoryTriggerRegionException {
   export const filterSensitiveLog = (obj: InvalidRepositoryTriggerRegionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRepositoryTriggerRegionException =>
-    __isa(o, "InvalidRepositoryTriggerRegionException");
 }
 
 /**
@@ -5448,7 +5062,6 @@ export namespace InvalidResourceArnException {
   export const filterSensitiveLog = (obj: InvalidResourceArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidResourceArnException => __isa(o, "InvalidResourceArnException");
 }
 
 /**
@@ -5467,7 +5080,6 @@ export namespace InvalidRevisionIdException {
   export const filterSensitiveLog = (obj: InvalidRevisionIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRevisionIdException => __isa(o, "InvalidRevisionIdException");
 }
 
 /**
@@ -5486,7 +5098,6 @@ export namespace InvalidRuleContentSha256Exception {
   export const filterSensitiveLog = (obj: InvalidRuleContentSha256Exception): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRuleContentSha256Exception => __isa(o, "InvalidRuleContentSha256Exception");
 }
 
 /**
@@ -5505,7 +5116,6 @@ export namespace InvalidSortByException {
   export const filterSensitiveLog = (obj: InvalidSortByException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSortByException => __isa(o, "InvalidSortByException");
 }
 
 /**
@@ -5524,8 +5134,6 @@ export namespace InvalidSourceCommitSpecifierException {
   export const filterSensitiveLog = (obj: InvalidSourceCommitSpecifierException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSourceCommitSpecifierException =>
-    __isa(o, "InvalidSourceCommitSpecifierException");
 }
 
 /**
@@ -5544,7 +5152,6 @@ export namespace InvalidSystemTagUsageException {
   export const filterSensitiveLog = (obj: InvalidSystemTagUsageException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSystemTagUsageException => __isa(o, "InvalidSystemTagUsageException");
 }
 
 /**
@@ -5563,7 +5170,6 @@ export namespace InvalidTagKeysListException {
   export const filterSensitiveLog = (obj: InvalidTagKeysListException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagKeysListException => __isa(o, "InvalidTagKeysListException");
 }
 
 /**
@@ -5582,7 +5188,6 @@ export namespace InvalidTagsMapException {
   export const filterSensitiveLog = (obj: InvalidTagsMapException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagsMapException => __isa(o, "InvalidTagsMapException");
 }
 
 /**
@@ -5601,7 +5206,6 @@ export namespace InvalidTargetBranchException {
   export const filterSensitiveLog = (obj: InvalidTargetBranchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTargetBranchException => __isa(o, "InvalidTargetBranchException");
 }
 
 /**
@@ -5620,7 +5224,6 @@ export namespace InvalidTargetException {
   export const filterSensitiveLog = (obj: InvalidTargetException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTargetException => __isa(o, "InvalidTargetException");
 }
 
 /**
@@ -5640,7 +5243,6 @@ export namespace InvalidTargetsException {
   export const filterSensitiveLog = (obj: InvalidTargetsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTargetsException => __isa(o, "InvalidTargetsException");
 }
 
 /**
@@ -5659,14 +5261,12 @@ export namespace InvalidTitleException {
   export const filterSensitiveLog = (obj: InvalidTitleException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTitleException => __isa(o, "InvalidTitleException");
 }
 
 /**
  * <p>Information about whether a file is binary or textual in a merge or pull request operation.</p>
  */
 export interface IsBinaryFile {
-  __type?: "IsBinaryFile";
   /**
    * <p>The binary or non-binary status of a file in the base of a merge or pull request.</p>
    */
@@ -5687,11 +5287,9 @@ export namespace IsBinaryFile {
   export const filterSensitiveLog = (obj: IsBinaryFile): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IsBinaryFile => __isa(o, "IsBinaryFile");
 }
 
 export interface ListApprovalRuleTemplatesInput {
-  __type?: "ListApprovalRuleTemplatesInput";
   /**
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    */
@@ -5708,11 +5306,9 @@ export namespace ListApprovalRuleTemplatesInput {
   export const filterSensitiveLog = (obj: ListApprovalRuleTemplatesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApprovalRuleTemplatesInput => __isa(o, "ListApprovalRuleTemplatesInput");
 }
 
 export interface ListApprovalRuleTemplatesOutput {
-  __type?: "ListApprovalRuleTemplatesOutput";
   /**
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
@@ -5728,11 +5324,9 @@ export namespace ListApprovalRuleTemplatesOutput {
   export const filterSensitiveLog = (obj: ListApprovalRuleTemplatesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApprovalRuleTemplatesOutput => __isa(o, "ListApprovalRuleTemplatesOutput");
 }
 
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
-  __type?: "ListAssociatedApprovalRuleTemplatesForRepositoryInput";
   /**
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    */
@@ -5754,12 +5348,9 @@ export namespace ListAssociatedApprovalRuleTemplatesForRepositoryInput {
   export const filterSensitiveLog = (obj: ListAssociatedApprovalRuleTemplatesForRepositoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssociatedApprovalRuleTemplatesForRepositoryInput =>
-    __isa(o, "ListAssociatedApprovalRuleTemplatesForRepositoryInput");
 }
 
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
-  __type?: "ListAssociatedApprovalRuleTemplatesForRepositoryOutput";
   /**
    * <p>The names of all approval rule templates associated with the repository.</p>
    */
@@ -5775,15 +5366,12 @@ export namespace ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
   export const filterSensitiveLog = (obj: ListAssociatedApprovalRuleTemplatesForRepositoryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssociatedApprovalRuleTemplatesForRepositoryOutput =>
-    __isa(o, "ListAssociatedApprovalRuleTemplatesForRepositoryOutput");
 }
 
 /**
  * <p>Represents the input of a list branches operation.</p>
  */
 export interface ListBranchesInput {
-  __type?: "ListBranchesInput";
   /**
    * <p>An enumeration token that allows the operation to batch the results.</p>
    */
@@ -5799,14 +5387,12 @@ export namespace ListBranchesInput {
   export const filterSensitiveLog = (obj: ListBranchesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBranchesInput => __isa(o, "ListBranchesInput");
 }
 
 /**
  * <p>Represents the output of a list branches operation.</p>
  */
 export interface ListBranchesOutput {
-  __type?: "ListBranchesOutput";
   /**
    * <p>An enumeration token that returns the batch of the results.</p>
    */
@@ -5822,11 +5408,9 @@ export namespace ListBranchesOutput {
   export const filterSensitiveLog = (obj: ListBranchesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBranchesOutput => __isa(o, "ListBranchesOutput");
 }
 
 export interface ListPullRequestsInput {
-  __type?: "ListPullRequestsInput";
   /**
    * <p>The name of the repository for which you want to list pull requests.</p>
    */
@@ -5859,11 +5443,9 @@ export namespace ListPullRequestsInput {
   export const filterSensitiveLog = (obj: ListPullRequestsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPullRequestsInput => __isa(o, "ListPullRequestsInput");
 }
 
 export interface ListPullRequestsOutput {
-  __type?: "ListPullRequestsOutput";
   /**
    * <p>The system-generated IDs of the pull requests.</p>
    */
@@ -5879,11 +5461,9 @@ export namespace ListPullRequestsOutput {
   export const filterSensitiveLog = (obj: ListPullRequestsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPullRequestsOutput => __isa(o, "ListPullRequestsOutput");
 }
 
 export interface ListRepositoriesForApprovalRuleTemplateInput {
-  __type?: "ListRepositoriesForApprovalRuleTemplateInput";
   /**
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    */
@@ -5905,12 +5485,9 @@ export namespace ListRepositoriesForApprovalRuleTemplateInput {
   export const filterSensitiveLog = (obj: ListRepositoriesForApprovalRuleTemplateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRepositoriesForApprovalRuleTemplateInput =>
-    __isa(o, "ListRepositoriesForApprovalRuleTemplateInput");
 }
 
 export interface ListRepositoriesForApprovalRuleTemplateOutput {
-  __type?: "ListRepositoriesForApprovalRuleTemplateOutput";
   /**
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
@@ -5926,15 +5503,12 @@ export namespace ListRepositoriesForApprovalRuleTemplateOutput {
   export const filterSensitiveLog = (obj: ListRepositoriesForApprovalRuleTemplateOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRepositoriesForApprovalRuleTemplateOutput =>
-    __isa(o, "ListRepositoriesForApprovalRuleTemplateOutput");
 }
 
 /**
  * <p>Represents the input of a list repositories operation.</p>
  */
 export interface ListRepositoriesInput {
-  __type?: "ListRepositoriesInput";
   /**
    * <p>The criteria used to sort the results of a list repositories operation.</p>
    */
@@ -5957,14 +5531,12 @@ export namespace ListRepositoriesInput {
   export const filterSensitiveLog = (obj: ListRepositoriesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRepositoriesInput => __isa(o, "ListRepositoriesInput");
 }
 
 /**
  * <p>Represents the output of a list repositories operation.</p>
  */
 export interface ListRepositoriesOutput {
-  __type?: "ListRepositoriesOutput";
   /**
    * <p>Lists the repositories called by the list repositories operation.</p>
    */
@@ -5982,11 +5554,9 @@ export namespace ListRepositoriesOutput {
   export const filterSensitiveLog = (obj: ListRepositoriesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRepositoriesOutput => __isa(o, "ListRepositoriesOutput");
 }
 
 export interface ListTagsForResourceInput {
-  __type?: "ListTagsForResourceInput";
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
@@ -6004,11 +5574,9 @@ export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
-  __type?: "ListTagsForResourceOutput";
   /**
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
@@ -6024,14 +5592,12 @@ export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
  * <p>Returns information about the location of a change or comment in the comparison between two commits or a pull request.</p>
  */
 export interface Location {
-  __type?: "Location";
   /**
    * <p>The name of the file being compared, including its extension and subdirectory, if any.</p>
    */
@@ -6053,7 +5619,6 @@ export namespace Location {
   export const filterSensitiveLog = (obj: Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Location => __isa(o, "Location");
 }
 
 /**
@@ -6072,7 +5637,6 @@ export namespace ManualMergeRequiredException {
   export const filterSensitiveLog = (obj: ManualMergeRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManualMergeRequiredException => __isa(o, "ManualMergeRequiredException");
 }
 
 /**
@@ -6091,7 +5655,6 @@ export namespace MaximumBranchesExceededException {
   export const filterSensitiveLog = (obj: MaximumBranchesExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaximumBranchesExceededException => __isa(o, "MaximumBranchesExceededException");
 }
 
 /**
@@ -6110,8 +5673,6 @@ export namespace MaximumConflictResolutionEntriesExceededException {
   export const filterSensitiveLog = (obj: MaximumConflictResolutionEntriesExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaximumConflictResolutionEntriesExceededException =>
-    __isa(o, "MaximumConflictResolutionEntriesExceededException");
 }
 
 /**
@@ -6130,8 +5691,6 @@ export namespace MaximumFileContentToLoadExceededException {
   export const filterSensitiveLog = (obj: MaximumFileContentToLoadExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaximumFileContentToLoadExceededException =>
-    __isa(o, "MaximumFileContentToLoadExceededException");
 }
 
 /**
@@ -6151,8 +5710,6 @@ export namespace MaximumFileEntriesExceededException {
   export const filterSensitiveLog = (obj: MaximumFileEntriesExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaximumFileEntriesExceededException =>
-    __isa(o, "MaximumFileEntriesExceededException");
 }
 
 /**
@@ -6171,8 +5728,6 @@ export namespace MaximumItemsToCompareExceededException {
   export const filterSensitiveLog = (obj: MaximumItemsToCompareExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaximumItemsToCompareExceededException =>
-    __isa(o, "MaximumItemsToCompareExceededException");
 }
 
 /**
@@ -6191,8 +5746,6 @@ export namespace MaximumNumberOfApprovalsExceededException {
   export const filterSensitiveLog = (obj: MaximumNumberOfApprovalsExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaximumNumberOfApprovalsExceededException =>
-    __isa(o, "MaximumNumberOfApprovalsExceededException");
 }
 
 /**
@@ -6212,8 +5765,6 @@ export namespace MaximumOpenPullRequestsExceededException {
   export const filterSensitiveLog = (obj: MaximumOpenPullRequestsExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaximumOpenPullRequestsExceededException =>
-    __isa(o, "MaximumOpenPullRequestsExceededException");
 }
 
 /**
@@ -6232,8 +5783,6 @@ export namespace MaximumRepositoryNamesExceededException {
   export const filterSensitiveLog = (obj: MaximumRepositoryNamesExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaximumRepositoryNamesExceededException =>
-    __isa(o, "MaximumRepositoryNamesExceededException");
 }
 
 /**
@@ -6252,8 +5801,6 @@ export namespace MaximumRepositoryTriggersExceededException {
   export const filterSensitiveLog = (obj: MaximumRepositoryTriggersExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaximumRepositoryTriggersExceededException =>
-    __isa(o, "MaximumRepositoryTriggersExceededException");
 }
 
 /**
@@ -6273,12 +5820,9 @@ export namespace MaximumRuleTemplatesAssociatedWithRepositoryException {
   export const filterSensitiveLog = (obj: MaximumRuleTemplatesAssociatedWithRepositoryException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MaximumRuleTemplatesAssociatedWithRepositoryException =>
-    __isa(o, "MaximumRuleTemplatesAssociatedWithRepositoryException");
 }
 
 export interface MergeBranchesByFastForwardInput {
-  __type?: "MergeBranchesByFastForwardInput";
   /**
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
@@ -6306,11 +5850,9 @@ export namespace MergeBranchesByFastForwardInput {
   export const filterSensitiveLog = (obj: MergeBranchesByFastForwardInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeBranchesByFastForwardInput => __isa(o, "MergeBranchesByFastForwardInput");
 }
 
 export interface MergeBranchesByFastForwardOutput {
-  __type?: "MergeBranchesByFastForwardOutput";
   /**
    * <p>The commit ID of the merge in the destination or target branch.</p>
    */
@@ -6326,11 +5868,9 @@ export namespace MergeBranchesByFastForwardOutput {
   export const filterSensitiveLog = (obj: MergeBranchesByFastForwardOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeBranchesByFastForwardOutput => __isa(o, "MergeBranchesByFastForwardOutput");
 }
 
 export interface MergeBranchesBySquashInput {
-  __type?: "MergeBranchesBySquashInput";
   /**
    * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If this is specified as true, a .gitkeep file is
@@ -6403,11 +5943,9 @@ export namespace MergeBranchesBySquashInput {
   export const filterSensitiveLog = (obj: MergeBranchesBySquashInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeBranchesBySquashInput => __isa(o, "MergeBranchesBySquashInput");
 }
 
 export interface MergeBranchesBySquashOutput {
-  __type?: "MergeBranchesBySquashOutput";
   /**
    * <p>The tree ID of the merge in the destination or target branch.</p>
    */
@@ -6423,11 +5961,9 @@ export namespace MergeBranchesBySquashOutput {
   export const filterSensitiveLog = (obj: MergeBranchesBySquashOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeBranchesBySquashOutput => __isa(o, "MergeBranchesBySquashOutput");
 }
 
 export interface MergeBranchesByThreeWayInput {
-  __type?: "MergeBranchesByThreeWayInput";
   /**
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
@@ -6500,11 +6036,9 @@ export namespace MergeBranchesByThreeWayInput {
   export const filterSensitiveLog = (obj: MergeBranchesByThreeWayInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeBranchesByThreeWayInput => __isa(o, "MergeBranchesByThreeWayInput");
 }
 
 export interface MergeBranchesByThreeWayOutput {
-  __type?: "MergeBranchesByThreeWayOutput";
   /**
    * <p>The tree ID of the merge in the destination or target branch.</p>
    */
@@ -6520,14 +6054,12 @@ export namespace MergeBranchesByThreeWayOutput {
   export const filterSensitiveLog = (obj: MergeBranchesByThreeWayOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeBranchesByThreeWayOutput => __isa(o, "MergeBranchesByThreeWayOutput");
 }
 
 /**
  * <p>Information about merge hunks in a merge or pull request operation.</p>
  */
 export interface MergeHunk {
-  __type?: "MergeHunk";
   /**
    * <p>Information about the merge hunk in the base of a merge or pull request.</p>
    */
@@ -6557,14 +6089,12 @@ export namespace MergeHunk {
   export const filterSensitiveLog = (obj: MergeHunk): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeHunk => __isa(o, "MergeHunk");
 }
 
 /**
  * <p>Information about the details of a merge hunk that contains a conflict in a merge or pull request operation.</p>
  */
 export interface MergeHunkDetail {
-  __type?: "MergeHunkDetail";
   /**
    * <p>The end position of the hunk in the merge result.</p>
    */
@@ -6586,14 +6116,12 @@ export namespace MergeHunkDetail {
   export const filterSensitiveLog = (obj: MergeHunkDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeHunkDetail => __isa(o, "MergeHunkDetail");
 }
 
 /**
  * <p>Returns information about a merge or potential merge between a source reference and a destination reference in a pull request.</p>
  */
 export interface MergeMetadata {
-  __type?: "MergeMetadata";
   /**
    * <p>The merge strategy used in the merge.</p>
    */
@@ -6619,14 +6147,12 @@ export namespace MergeMetadata {
   export const filterSensitiveLog = (obj: MergeMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeMetadata => __isa(o, "MergeMetadata");
 }
 
 /**
  * <p>Information about the file operation conflicts in a merge operation.</p>
  */
 export interface MergeOperations {
-  __type?: "MergeOperations";
   /**
    * <p>The operation on a file in the destination of a merge or pull request.</p>
    */
@@ -6643,7 +6169,6 @@ export namespace MergeOperations {
   export const filterSensitiveLog = (obj: MergeOperations): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeOperations => __isa(o, "MergeOperations");
 }
 
 /**
@@ -6662,7 +6187,6 @@ export namespace MergeOptionRequiredException {
   export const filterSensitiveLog = (obj: MergeOptionRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergeOptionRequiredException => __isa(o, "MergeOptionRequiredException");
 }
 
 export enum MergeOptionTypeEnum {
@@ -6672,7 +6196,6 @@ export enum MergeOptionTypeEnum {
 }
 
 export interface MergePullRequestByFastForwardInput {
-  __type?: "MergePullRequestByFastForwardInput";
   /**
    * <p>The name of the repository where the pull request was created.</p>
    */
@@ -6694,12 +6217,9 @@ export namespace MergePullRequestByFastForwardInput {
   export const filterSensitiveLog = (obj: MergePullRequestByFastForwardInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergePullRequestByFastForwardInput =>
-    __isa(o, "MergePullRequestByFastForwardInput");
 }
 
 export interface MergePullRequestByFastForwardOutput {
-  __type?: "MergePullRequestByFastForwardOutput";
   /**
    * <p>Information about the specified pull request, including the merge.</p>
    */
@@ -6710,12 +6230,9 @@ export namespace MergePullRequestByFastForwardOutput {
   export const filterSensitiveLog = (obj: MergePullRequestByFastForwardOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergePullRequestByFastForwardOutput =>
-    __isa(o, "MergePullRequestByFastForwardOutput");
 }
 
 export interface MergePullRequestBySquashInput {
-  __type?: "MergePullRequestBySquashInput";
   /**
    * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
    *             exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
@@ -6782,11 +6299,9 @@ export namespace MergePullRequestBySquashInput {
   export const filterSensitiveLog = (obj: MergePullRequestBySquashInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergePullRequestBySquashInput => __isa(o, "MergePullRequestBySquashInput");
 }
 
 export interface MergePullRequestBySquashOutput {
-  __type?: "MergePullRequestBySquashOutput";
   /**
    * <p>Returns information about a pull request.</p>
    */
@@ -6797,11 +6312,9 @@ export namespace MergePullRequestBySquashOutput {
   export const filterSensitiveLog = (obj: MergePullRequestBySquashOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergePullRequestBySquashOutput => __isa(o, "MergePullRequestBySquashOutput");
 }
 
 export interface MergePullRequestByThreeWayInput {
-  __type?: "MergePullRequestByThreeWayInput";
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
@@ -6868,11 +6381,9 @@ export namespace MergePullRequestByThreeWayInput {
   export const filterSensitiveLog = (obj: MergePullRequestByThreeWayInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergePullRequestByThreeWayInput => __isa(o, "MergePullRequestByThreeWayInput");
 }
 
 export interface MergePullRequestByThreeWayOutput {
-  __type?: "MergePullRequestByThreeWayOutput";
   /**
    * <p>Returns information about a pull request.</p>
    */
@@ -6883,7 +6394,6 @@ export namespace MergePullRequestByThreeWayOutput {
   export const filterSensitiveLog = (obj: MergePullRequestByThreeWayOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MergePullRequestByThreeWayOutput => __isa(o, "MergePullRequestByThreeWayOutput");
 }
 
 /**
@@ -6902,8 +6412,6 @@ export namespace MultipleConflictResolutionEntriesException {
   export const filterSensitiveLog = (obj: MultipleConflictResolutionEntriesException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MultipleConflictResolutionEntriesException =>
-    __isa(o, "MultipleConflictResolutionEntriesException");
 }
 
 /**
@@ -6922,8 +6430,6 @@ export namespace MultipleRepositoriesInPullRequestException {
   export const filterSensitiveLog = (obj: MultipleRepositoriesInPullRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MultipleRepositoriesInPullRequestException =>
-    __isa(o, "MultipleRepositoriesInPullRequestException");
 }
 
 /**
@@ -6942,7 +6448,6 @@ export namespace NameLengthExceededException {
   export const filterSensitiveLog = (obj: NameLengthExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NameLengthExceededException => __isa(o, "NameLengthExceededException");
 }
 
 /**
@@ -6961,7 +6466,6 @@ export namespace NoChangeException {
   export const filterSensitiveLog = (obj: NoChangeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoChangeException => __isa(o, "NoChangeException");
 }
 
 /**
@@ -6980,7 +6484,6 @@ export namespace NumberOfRulesExceededException {
   export const filterSensitiveLog = (obj: NumberOfRulesExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NumberOfRulesExceededException => __isa(o, "NumberOfRulesExceededException");
 }
 
 /**
@@ -6999,8 +6502,6 @@ export namespace NumberOfRuleTemplatesExceededException {
   export const filterSensitiveLog = (obj: NumberOfRuleTemplatesExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NumberOfRuleTemplatesExceededException =>
-    __isa(o, "NumberOfRuleTemplatesExceededException");
 }
 
 export enum ObjectTypeEnum {
@@ -7014,7 +6515,6 @@ export enum ObjectTypeEnum {
  * <p>Information about the type of an object in a merge operation.</p>
  */
 export interface ObjectTypes {
-  __type?: "ObjectTypes";
   /**
    * <p>The type of the object in the destination branch.</p>
    */
@@ -7035,7 +6535,6 @@ export namespace ObjectTypes {
   export const filterSensitiveLog = (obj: ObjectTypes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectTypes => __isa(o, "ObjectTypes");
 }
 
 export enum OrderEnum {
@@ -7047,7 +6546,6 @@ export enum OrderEnum {
  * <p>Returns information about the template that created the approval rule for a pull request.</p>
  */
 export interface OriginApprovalRuleTemplate {
-  __type?: "OriginApprovalRuleTemplate";
   /**
    * <p>The name of the template that created the approval rule.</p>
    */
@@ -7063,7 +6561,6 @@ export namespace OriginApprovalRuleTemplate {
   export const filterSensitiveLog = (obj: OriginApprovalRuleTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginApprovalRuleTemplate => __isa(o, "OriginApprovalRuleTemplate");
 }
 
 /**
@@ -7082,11 +6579,9 @@ export namespace OverrideAlreadySetException {
   export const filterSensitiveLog = (obj: OverrideAlreadySetException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OverrideAlreadySetException => __isa(o, "OverrideAlreadySetException");
 }
 
 export interface OverridePullRequestApprovalRulesInput {
-  __type?: "OverridePullRequestApprovalRulesInput";
   /**
    * <p>The system-generated ID of the most recent revision of the pull request. You cannot override approval rules for anything but the most recent revision of a pull request.
    *             To get the revision ID, use GetPullRequest.</p>
@@ -7111,8 +6606,6 @@ export namespace OverridePullRequestApprovalRulesInput {
   export const filterSensitiveLog = (obj: OverridePullRequestApprovalRulesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OverridePullRequestApprovalRulesInput =>
-    __isa(o, "OverridePullRequestApprovalRulesInput");
 }
 
 export enum OverrideStatus {
@@ -7136,7 +6629,6 @@ export namespace OverrideStatusRequiredException {
   export const filterSensitiveLog = (obj: OverrideStatusRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OverrideStatusRequiredException => __isa(o, "OverrideStatusRequiredException");
 }
 
 /**
@@ -7155,7 +6647,6 @@ export namespace ParentCommitDoesNotExistException {
   export const filterSensitiveLog = (obj: ParentCommitDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParentCommitDoesNotExistException => __isa(o, "ParentCommitDoesNotExistException");
 }
 
 /**
@@ -7175,7 +6666,6 @@ export namespace ParentCommitIdOutdatedException {
   export const filterSensitiveLog = (obj: ParentCommitIdOutdatedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParentCommitIdOutdatedException => __isa(o, "ParentCommitIdOutdatedException");
 }
 
 /**
@@ -7195,7 +6685,6 @@ export namespace ParentCommitIdRequiredException {
   export const filterSensitiveLog = (obj: ParentCommitIdRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParentCommitIdRequiredException => __isa(o, "ParentCommitIdRequiredException");
 }
 
 /**
@@ -7214,7 +6703,6 @@ export namespace PathDoesNotExistException {
   export const filterSensitiveLog = (obj: PathDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PathDoesNotExistException => __isa(o, "PathDoesNotExistException");
 }
 
 /**
@@ -7233,11 +6721,9 @@ export namespace PathRequiredException {
   export const filterSensitiveLog = (obj: PathRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PathRequiredException => __isa(o, "PathRequiredException");
 }
 
 export interface PostCommentForComparedCommitInput {
-  __type?: "PostCommentForComparedCommitInput";
   /**
    * <p>The content of the comment you want to make.</p>
    */
@@ -7279,11 +6765,9 @@ export namespace PostCommentForComparedCommitInput {
   export const filterSensitiveLog = (obj: PostCommentForComparedCommitInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PostCommentForComparedCommitInput => __isa(o, "PostCommentForComparedCommitInput");
 }
 
 export interface PostCommentForComparedCommitOutput {
-  __type?: "PostCommentForComparedCommitOutput";
   /**
    * <p>The location of the comment in the comparison between the two commits.</p>
    */
@@ -7324,12 +6808,9 @@ export namespace PostCommentForComparedCommitOutput {
   export const filterSensitiveLog = (obj: PostCommentForComparedCommitOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PostCommentForComparedCommitOutput =>
-    __isa(o, "PostCommentForComparedCommitOutput");
 }
 
 export interface PostCommentForPullRequestInput {
-  __type?: "PostCommentForPullRequestInput";
   /**
    * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.</p>
    */
@@ -7375,11 +6856,9 @@ export namespace PostCommentForPullRequestInput {
   export const filterSensitiveLog = (obj: PostCommentForPullRequestInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PostCommentForPullRequestInput => __isa(o, "PostCommentForPullRequestInput");
 }
 
 export interface PostCommentForPullRequestOutput {
-  __type?: "PostCommentForPullRequestOutput";
   /**
    * <p>The full commit ID of the commit in the source branch used to create the pull request,
    *             or in the case of an updated pull request, the full commit ID of the commit used to update the pull request.</p>
@@ -7427,11 +6906,9 @@ export namespace PostCommentForPullRequestOutput {
   export const filterSensitiveLog = (obj: PostCommentForPullRequestOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PostCommentForPullRequestOutput => __isa(o, "PostCommentForPullRequestOutput");
 }
 
 export interface PostCommentReplyInput {
-  __type?: "PostCommentReplyInput";
   /**
    * <p>The contents of your reply to a comment.</p>
    */
@@ -7456,11 +6933,9 @@ export namespace PostCommentReplyInput {
   export const filterSensitiveLog = (obj: PostCommentReplyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PostCommentReplyInput => __isa(o, "PostCommentReplyInput");
 }
 
 export interface PostCommentReplyOutput {
-  __type?: "PostCommentReplyOutput";
   /**
    * <p>Information about the reply to a comment.</p>
    */
@@ -7471,14 +6946,12 @@ export namespace PostCommentReplyOutput {
   export const filterSensitiveLog = (obj: PostCommentReplyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PostCommentReplyOutput => __isa(o, "PostCommentReplyOutput");
 }
 
 /**
  * <p>Returns information about a pull request.</p>
  */
 export interface PullRequest {
-  __type?: "PullRequest";
   /**
    * <p>The user-defined description of the pull request. This description can be used to clarify what should be reviewed and other details of the request.</p>
    */
@@ -7543,7 +7016,6 @@ export namespace PullRequest {
   export const filterSensitiveLog = (obj: PullRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequest => __isa(o, "PullRequest");
 }
 
 /**
@@ -7562,7 +7034,6 @@ export namespace PullRequestAlreadyClosedException {
   export const filterSensitiveLog = (obj: PullRequestAlreadyClosedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequestAlreadyClosedException => __isa(o, "PullRequestAlreadyClosedException");
 }
 
 /**
@@ -7581,8 +7052,6 @@ export namespace PullRequestApprovalRulesNotSatisfiedException {
   export const filterSensitiveLog = (obj: PullRequestApprovalRulesNotSatisfiedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequestApprovalRulesNotSatisfiedException =>
-    __isa(o, "PullRequestApprovalRulesNotSatisfiedException");
 }
 
 /**
@@ -7602,15 +7071,12 @@ export namespace PullRequestCannotBeApprovedByAuthorException {
   export const filterSensitiveLog = (obj: PullRequestCannotBeApprovedByAuthorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequestCannotBeApprovedByAuthorException =>
-    __isa(o, "PullRequestCannotBeApprovedByAuthorException");
 }
 
 /**
  * <p>Metadata about the pull request that is used when comparing the pull request source with its destination.</p>
  */
 export interface PullRequestCreatedEventMetadata {
-  __type?: "PullRequestCreatedEventMetadata";
   /**
    * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
    */
@@ -7636,7 +7102,6 @@ export namespace PullRequestCreatedEventMetadata {
   export const filterSensitiveLog = (obj: PullRequestCreatedEventMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequestCreatedEventMetadata => __isa(o, "PullRequestCreatedEventMetadata");
 }
 
 /**
@@ -7655,14 +7120,12 @@ export namespace PullRequestDoesNotExistException {
   export const filterSensitiveLog = (obj: PullRequestDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequestDoesNotExistException => __isa(o, "PullRequestDoesNotExistException");
 }
 
 /**
  * <p>Returns information about a pull request event.</p>
  */
 export interface PullRequestEvent {
-  __type?: "PullRequestEvent";
   /**
    * <p>Information about the change in status for the pull request event.</p>
    */
@@ -7727,7 +7190,6 @@ export namespace PullRequestEvent {
   export const filterSensitiveLog = (obj: PullRequestEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequestEvent => __isa(o, "PullRequestEvent");
 }
 
 export enum PullRequestEventType {
@@ -7758,14 +7220,12 @@ export namespace PullRequestIdRequiredException {
   export const filterSensitiveLog = (obj: PullRequestIdRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequestIdRequiredException => __isa(o, "PullRequestIdRequiredException");
 }
 
 /**
  * <p>Returns information about the change in the merge state for a pull request event. </p>
  */
 export interface PullRequestMergedStateChangedEventMetadata {
-  __type?: "PullRequestMergedStateChangedEventMetadata";
   /**
    * <p>The name of the branch that the pull request is merged into.</p>
    */
@@ -7786,15 +7246,12 @@ export namespace PullRequestMergedStateChangedEventMetadata {
   export const filterSensitiveLog = (obj: PullRequestMergedStateChangedEventMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequestMergedStateChangedEventMetadata =>
-    __isa(o, "PullRequestMergedStateChangedEventMetadata");
 }
 
 /**
  * <p>Information about an update to the source branch of a pull request.</p>
  */
 export interface PullRequestSourceReferenceUpdatedEventMetadata {
-  __type?: "PullRequestSourceReferenceUpdatedEventMetadata";
   /**
    * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was updated.</p>
    */
@@ -7820,15 +7277,12 @@ export namespace PullRequestSourceReferenceUpdatedEventMetadata {
   export const filterSensitiveLog = (obj: PullRequestSourceReferenceUpdatedEventMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequestSourceReferenceUpdatedEventMetadata =>
-    __isa(o, "PullRequestSourceReferenceUpdatedEventMetadata");
 }
 
 /**
  * <p>Information about a change to the status of a pull request.</p>
  */
 export interface PullRequestStatusChangedEventMetadata {
-  __type?: "PullRequestStatusChangedEventMetadata";
   /**
    * <p>The changed status of the pull request.</p>
    */
@@ -7839,8 +7293,6 @@ export namespace PullRequestStatusChangedEventMetadata {
   export const filterSensitiveLog = (obj: PullRequestStatusChangedEventMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequestStatusChangedEventMetadata =>
-    __isa(o, "PullRequestStatusChangedEventMetadata");
 }
 
 export enum PullRequestStatusEnum {
@@ -7864,15 +7316,12 @@ export namespace PullRequestStatusRequiredException {
   export const filterSensitiveLog = (obj: PullRequestStatusRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequestStatusRequiredException =>
-    __isa(o, "PullRequestStatusRequiredException");
 }
 
 /**
  * <p>Returns information about a pull request target.</p>
  */
 export interface PullRequestTarget {
-  __type?: "PullRequestTarget";
   /**
    * <p>The name of the repository that contains the pull request source and destination branches.</p>
    */
@@ -7916,11 +7365,9 @@ export namespace PullRequestTarget {
   export const filterSensitiveLog = (obj: PullRequestTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PullRequestTarget => __isa(o, "PullRequestTarget");
 }
 
 export interface PutCommentReactionInput {
-  __type?: "PutCommentReactionInput";
   /**
    * <p>The ID of the comment to which you want to add or update a reaction.</p>
    */
@@ -7937,14 +7384,12 @@ export namespace PutCommentReactionInput {
   export const filterSensitiveLog = (obj: PutCommentReactionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutCommentReactionInput => __isa(o, "PutCommentReactionInput");
 }
 
 /**
  * <p>Information about a file added or updated as part of a commit.</p>
  */
 export interface PutFileEntry {
-  __type?: "PutFileEntry";
   /**
    * <p>The name and full path of the file that contains the changes you want to make as part of the commit,
    *         if you are not providing the file content directly.</p>
@@ -7971,7 +7416,6 @@ export namespace PutFileEntry {
   export const filterSensitiveLog = (obj: PutFileEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutFileEntry => __isa(o, "PutFileEntry");
 }
 
 /**
@@ -7990,11 +7434,9 @@ export namespace PutFileEntryConflictException {
   export const filterSensitiveLog = (obj: PutFileEntryConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutFileEntryConflictException => __isa(o, "PutFileEntryConflictException");
 }
 
 export interface PutFileInput {
-  __type?: "PutFileInput";
   /**
    * <p>The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository,
    *             no commit ID is required. If this is not an empty repository, a commit ID is required. </p>
@@ -8056,11 +7498,9 @@ export namespace PutFileInput {
   export const filterSensitiveLog = (obj: PutFileInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutFileInput => __isa(o, "PutFileInput");
 }
 
 export interface PutFileOutput {
-  __type?: "PutFileOutput";
   /**
    * <p>The ID of the blob, which is its SHA-1 pointer.</p>
    */
@@ -8081,14 +7521,12 @@ export namespace PutFileOutput {
   export const filterSensitiveLog = (obj: PutFileOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutFileOutput => __isa(o, "PutFileOutput");
 }
 
 /**
  * <p>Represents the input of a put repository triggers operation.</p>
  */
 export interface PutRepositoryTriggersInput {
-  __type?: "PutRepositoryTriggersInput";
   /**
    * <p>The JSON block of configuration information for each trigger.</p>
    */
@@ -8104,14 +7542,12 @@ export namespace PutRepositoryTriggersInput {
   export const filterSensitiveLog = (obj: PutRepositoryTriggersInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRepositoryTriggersInput => __isa(o, "PutRepositoryTriggersInput");
 }
 
 /**
  * <p>Represents the output of a put repository triggers operation.</p>
  */
 export interface PutRepositoryTriggersOutput {
-  __type?: "PutRepositoryTriggersOutput";
   /**
    * <p>The system-generated unique ID for the create or update operation.</p>
    */
@@ -8122,14 +7558,12 @@ export namespace PutRepositoryTriggersOutput {
   export const filterSensitiveLog = (obj: PutRepositoryTriggersOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRepositoryTriggersOutput => __isa(o, "PutRepositoryTriggersOutput");
 }
 
 /**
  * <p>Information about the reaction values provided by users on a comment.</p>
  */
 export interface ReactionForComment {
-  __type?: "ReactionForComment";
   /**
    * <p>The Amazon Resource Names (ARNs) of users who have provided reactions to the comment.</p>
    */
@@ -8151,7 +7585,6 @@ export namespace ReactionForComment {
   export const filterSensitiveLog = (obj: ReactionForComment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReactionForComment => __isa(o, "ReactionForComment");
 }
 
 /**
@@ -8170,14 +7603,12 @@ export namespace ReactionLimitExceededException {
   export const filterSensitiveLog = (obj: ReactionLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReactionLimitExceededException => __isa(o, "ReactionLimitExceededException");
 }
 
 /**
  * <p>Information about the values for reactions to a comment. AWS CodeCommit supports a limited set of reactions.</p>
  */
 export interface ReactionValueFormats {
-  __type?: "ReactionValueFormats";
   /**
    * <p>The Emoji Version 1.0 graphic of the reaction. These graphics are interpreted slightly differently on different operating systems.</p>
    */
@@ -8198,7 +7629,6 @@ export namespace ReactionValueFormats {
   export const filterSensitiveLog = (obj: ReactionValueFormats): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReactionValueFormats => __isa(o, "ReactionValueFormats");
 }
 
 /**
@@ -8217,7 +7647,6 @@ export namespace ReactionValueRequiredException {
   export const filterSensitiveLog = (obj: ReactionValueRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReactionValueRequiredException => __isa(o, "ReactionValueRequiredException");
 }
 
 /**
@@ -8236,7 +7665,6 @@ export namespace ReferenceDoesNotExistException {
   export const filterSensitiveLog = (obj: ReferenceDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReferenceDoesNotExistException => __isa(o, "ReferenceDoesNotExistException");
 }
 
 /**
@@ -8255,7 +7683,6 @@ export namespace ReferenceNameRequiredException {
   export const filterSensitiveLog = (obj: ReferenceNameRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReferenceNameRequiredException => __isa(o, "ReferenceNameRequiredException");
 }
 
 /**
@@ -8274,8 +7701,6 @@ export namespace ReferenceTypeNotSupportedException {
   export const filterSensitiveLog = (obj: ReferenceTypeNotSupportedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReferenceTypeNotSupportedException =>
-    __isa(o, "ReferenceTypeNotSupportedException");
 }
 
 export enum RelativeFileVersionEnum {
@@ -8287,7 +7712,6 @@ export enum RelativeFileVersionEnum {
  * <p>Information about a replacement content entry in the conflict of a merge or pull request operation.</p>
  */
 export interface ReplaceContentEntry {
-  __type?: "ReplaceContentEntry";
   /**
    * <p>The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.</p>
    */
@@ -8313,7 +7737,6 @@ export namespace ReplaceContentEntry {
   export const filterSensitiveLog = (obj: ReplaceContentEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplaceContentEntry => __isa(o, "ReplaceContentEntry");
 }
 
 /**
@@ -8332,8 +7755,6 @@ export namespace ReplacementContentRequiredException {
   export const filterSensitiveLog = (obj: ReplacementContentRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplacementContentRequiredException =>
-    __isa(o, "ReplacementContentRequiredException");
 }
 
 export enum ReplacementTypeEnum {
@@ -8359,7 +7780,6 @@ export namespace ReplacementTypeRequiredException {
   export const filterSensitiveLog = (obj: ReplacementTypeRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplacementTypeRequiredException => __isa(o, "ReplacementTypeRequiredException");
 }
 
 /**
@@ -8378,7 +7798,6 @@ export namespace RepositoryDoesNotExistException {
   export const filterSensitiveLog = (obj: RepositoryDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryDoesNotExistException => __isa(o, "RepositoryDoesNotExistException");
 }
 
 /**
@@ -8397,14 +7816,12 @@ export namespace RepositoryLimitExceededException {
   export const filterSensitiveLog = (obj: RepositoryLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryLimitExceededException => __isa(o, "RepositoryLimitExceededException");
 }
 
 /**
  * <p>Information about a repository.</p>
  */
 export interface RepositoryMetadata {
-  __type?: "RepositoryMetadata";
   /**
    * <p>The URL to use for cloning the repository over HTTPS.</p>
    */
@@ -8460,7 +7877,6 @@ export namespace RepositoryMetadata {
   export const filterSensitiveLog = (obj: RepositoryMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryMetadata => __isa(o, "RepositoryMetadata");
 }
 
 /**
@@ -8479,14 +7895,12 @@ export namespace RepositoryNameExistsException {
   export const filterSensitiveLog = (obj: RepositoryNameExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryNameExistsException => __isa(o, "RepositoryNameExistsException");
 }
 
 /**
  * <p>Information about a repository name and ID.</p>
  */
 export interface RepositoryNameIdPair {
-  __type?: "RepositoryNameIdPair";
   /**
    * <p>The ID associated with the repository.</p>
    */
@@ -8502,7 +7916,6 @@ export namespace RepositoryNameIdPair {
   export const filterSensitiveLog = (obj: RepositoryNameIdPair): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryNameIdPair => __isa(o, "RepositoryNameIdPair");
 }
 
 /**
@@ -8521,7 +7934,6 @@ export namespace RepositoryNameRequiredException {
   export const filterSensitiveLog = (obj: RepositoryNameRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryNameRequiredException => __isa(o, "RepositoryNameRequiredException");
 }
 
 /**
@@ -8540,7 +7952,6 @@ export namespace RepositoryNamesRequiredException {
   export const filterSensitiveLog = (obj: RepositoryNamesRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryNamesRequiredException => __isa(o, "RepositoryNamesRequiredException");
 }
 
 /**
@@ -8559,15 +7970,12 @@ export namespace RepositoryNotAssociatedWithPullRequestException {
   export const filterSensitiveLog = (obj: RepositoryNotAssociatedWithPullRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryNotAssociatedWithPullRequestException =>
-    __isa(o, "RepositoryNotAssociatedWithPullRequestException");
 }
 
 /**
  * <p>Information about a trigger for a repository.</p>
  */
 export interface RepositoryTrigger {
-  __type?: "RepositoryTrigger";
   /**
    * <p>Any custom data associated with the trigger to be included in the information sent to
    *             the target of the trigger.</p>
@@ -8610,7 +8018,6 @@ export namespace RepositoryTrigger {
   export const filterSensitiveLog = (obj: RepositoryTrigger): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryTrigger => __isa(o, "RepositoryTrigger");
 }
 
 /**
@@ -8630,8 +8037,6 @@ export namespace RepositoryTriggerBranchNameListRequiredException {
   export const filterSensitiveLog = (obj: RepositoryTriggerBranchNameListRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryTriggerBranchNameListRequiredException =>
-    __isa(o, "RepositoryTriggerBranchNameListRequiredException");
 }
 
 /**
@@ -8651,8 +8056,6 @@ export namespace RepositoryTriggerDestinationArnRequiredException {
   export const filterSensitiveLog = (obj: RepositoryTriggerDestinationArnRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryTriggerDestinationArnRequiredException =>
-    __isa(o, "RepositoryTriggerDestinationArnRequiredException");
 }
 
 export enum RepositoryTriggerEventEnum {
@@ -8678,15 +8081,12 @@ export namespace RepositoryTriggerEventsListRequiredException {
   export const filterSensitiveLog = (obj: RepositoryTriggerEventsListRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryTriggerEventsListRequiredException =>
-    __isa(o, "RepositoryTriggerEventsListRequiredException");
 }
 
 /**
  * <p>A trigger failed to run.</p>
  */
 export interface RepositoryTriggerExecutionFailure {
-  __type?: "RepositoryTriggerExecutionFailure";
   /**
    * <p>Message information about the trigger that did not run.</p>
    */
@@ -8702,7 +8102,6 @@ export namespace RepositoryTriggerExecutionFailure {
   export const filterSensitiveLog = (obj: RepositoryTriggerExecutionFailure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryTriggerExecutionFailure => __isa(o, "RepositoryTriggerExecutionFailure");
 }
 
 /**
@@ -8721,8 +8120,6 @@ export namespace RepositoryTriggerNameRequiredException {
   export const filterSensitiveLog = (obj: RepositoryTriggerNameRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryTriggerNameRequiredException =>
-    __isa(o, "RepositoryTriggerNameRequiredException");
 }
 
 /**
@@ -8741,8 +8138,6 @@ export namespace RepositoryTriggersListRequiredException {
   export const filterSensitiveLog = (obj: RepositoryTriggersListRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RepositoryTriggersListRequiredException =>
-    __isa(o, "RepositoryTriggersListRequiredException");
 }
 
 /**
@@ -8763,7 +8158,6 @@ export namespace ResourceArnRequiredException {
   export const filterSensitiveLog = (obj: ResourceArnRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceArnRequiredException => __isa(o, "ResourceArnRequiredException");
 }
 
 /**
@@ -8782,7 +8176,6 @@ export namespace RestrictedSourceFileException {
   export const filterSensitiveLog = (obj: RestrictedSourceFileException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestrictedSourceFileException => __isa(o, "RestrictedSourceFileException");
 }
 
 /**
@@ -8801,7 +8194,6 @@ export namespace RevisionIdRequiredException {
   export const filterSensitiveLog = (obj: RevisionIdRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevisionIdRequiredException => __isa(o, "RevisionIdRequiredException");
 }
 
 /**
@@ -8820,7 +8212,6 @@ export namespace RevisionNotCurrentException {
   export const filterSensitiveLog = (obj: RevisionNotCurrentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevisionNotCurrentException => __isa(o, "RevisionNotCurrentException");
 }
 
 /**
@@ -8840,7 +8231,6 @@ export namespace SameFileContentException {
   export const filterSensitiveLog = (obj: SameFileContentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SameFileContentException => __isa(o, "SameFileContentException");
 }
 
 /**
@@ -8861,14 +8251,12 @@ export namespace SamePathRequestException {
   export const filterSensitiveLog = (obj: SamePathRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SamePathRequestException => __isa(o, "SamePathRequestException");
 }
 
 /**
  * <p>Information about the file mode changes.</p>
  */
 export interface SetFileModeEntry {
-  __type?: "SetFileModeEntry";
   /**
    * <p>The file mode for the file.</p>
    */
@@ -8884,7 +8272,6 @@ export namespace SetFileModeEntry {
   export const filterSensitiveLog = (obj: SetFileModeEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetFileModeEntry => __isa(o, "SetFileModeEntry");
 }
 
 export enum SortByEnum {
@@ -8909,8 +8296,6 @@ export namespace SourceAndDestinationAreSameException {
   export const filterSensitiveLog = (obj: SourceAndDestinationAreSameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceAndDestinationAreSameException =>
-    __isa(o, "SourceAndDestinationAreSameException");
 }
 
 /**
@@ -8929,15 +8314,12 @@ export namespace SourceFileOrContentRequiredException {
   export const filterSensitiveLog = (obj: SourceFileOrContentRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceFileOrContentRequiredException =>
-    __isa(o, "SourceFileOrContentRequiredException");
 }
 
 /**
  * <p>Information about a source file that is part of changes made in a commit.</p>
  */
 export interface SourceFileSpecifier {
-  __type?: "SourceFileSpecifier";
   /**
    * <p>Whether to remove the source file from the parent commit.</p>
    */
@@ -8953,14 +8335,12 @@ export namespace SourceFileSpecifier {
   export const filterSensitiveLog = (obj: SourceFileSpecifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceFileSpecifier => __isa(o, "SourceFileSpecifier");
 }
 
 /**
  * <p>Returns information about a submodule reference in a repository folder.</p>
  */
 export interface SubModule {
-  __type?: "SubModule";
   /**
    * <p>The fully qualified path to the folder that contains the reference to the submodule.</p>
    */
@@ -8981,14 +8361,12 @@ export namespace SubModule {
   export const filterSensitiveLog = (obj: SubModule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubModule => __isa(o, "SubModule");
 }
 
 /**
  * <p>Returns information about a symbolic link in a repository folder.</p>
  */
 export interface SymbolicLink {
-  __type?: "SymbolicLink";
   /**
    * <p>The blob ID that contains the information about the symbolic link.</p>
    */
@@ -9014,7 +8392,6 @@ export namespace SymbolicLink {
   export const filterSensitiveLog = (obj: SymbolicLink): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SymbolicLink => __isa(o, "SymbolicLink");
 }
 
 /**
@@ -9033,7 +8410,6 @@ export namespace TagKeysListRequiredException {
   export const filterSensitiveLog = (obj: TagKeysListRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagKeysListRequiredException => __isa(o, "TagKeysListRequiredException");
 }
 
 /**
@@ -9052,11 +8428,9 @@ export namespace TagPolicyException {
   export const filterSensitiveLog = (obj: TagPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagPolicyException => __isa(o, "TagPolicyException");
 }
 
 export interface TagResourceInput {
-  __type?: "TagResourceInput";
   /**
    * <p>The key-value pair to use when tagging this repository.</p>
    */
@@ -9072,7 +8446,6 @@ export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 /**
@@ -9091,14 +8464,12 @@ export namespace TagsMapRequiredException {
   export const filterSensitiveLog = (obj: TagsMapRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagsMapRequiredException => __isa(o, "TagsMapRequiredException");
 }
 
 /**
  * <p>Returns information about a target for a pull request.</p>
  */
 export interface Target {
-  __type?: "Target";
   /**
    * <p>The branch of the repository that contains the changes for the pull request. Also known as the source branch.</p>
    */
@@ -9120,7 +8491,6 @@ export namespace Target {
   export const filterSensitiveLog = (obj: Target): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Target => __isa(o, "Target");
 }
 
 /**
@@ -9139,7 +8509,6 @@ export namespace TargetRequiredException {
   export const filterSensitiveLog = (obj: TargetRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetRequiredException => __isa(o, "TargetRequiredException");
 }
 
 /**
@@ -9158,14 +8527,12 @@ export namespace TargetsRequiredException {
   export const filterSensitiveLog = (obj: TargetsRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetsRequiredException => __isa(o, "TargetsRequiredException");
 }
 
 /**
  * <p>Represents the input of a test repository triggers operation.</p>
  */
 export interface TestRepositoryTriggersInput {
-  __type?: "TestRepositoryTriggersInput";
   /**
    * <p>The name of the repository in which to test the triggers.</p>
    */
@@ -9181,14 +8548,12 @@ export namespace TestRepositoryTriggersInput {
   export const filterSensitiveLog = (obj: TestRepositoryTriggersInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestRepositoryTriggersInput => __isa(o, "TestRepositoryTriggersInput");
 }
 
 /**
  * <p>Represents the output of a test repository triggers operation.</p>
  */
 export interface TestRepositoryTriggersOutput {
-  __type?: "TestRepositoryTriggersOutput";
   /**
    * <p>The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.</p>
    */
@@ -9205,7 +8570,6 @@ export namespace TestRepositoryTriggersOutput {
   export const filterSensitiveLog = (obj: TestRepositoryTriggersOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestRepositoryTriggersOutput => __isa(o, "TestRepositoryTriggersOutput");
 }
 
 /**
@@ -9225,8 +8589,6 @@ export namespace TipOfSourceReferenceIsDifferentException {
   export const filterSensitiveLog = (obj: TipOfSourceReferenceIsDifferentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TipOfSourceReferenceIsDifferentException =>
-    __isa(o, "TipOfSourceReferenceIsDifferentException");
 }
 
 /**
@@ -9246,7 +8608,6 @@ export namespace TipsDivergenceExceededException {
   export const filterSensitiveLog = (obj: TipsDivergenceExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TipsDivergenceExceededException => __isa(o, "TipsDivergenceExceededException");
 }
 
 /**
@@ -9265,7 +8626,6 @@ export namespace TitleRequiredException {
   export const filterSensitiveLog = (obj: TitleRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TitleRequiredException => __isa(o, "TitleRequiredException");
 }
 
 /**
@@ -9284,11 +8644,9 @@ export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to remove tags.</p>
    */
@@ -9304,11 +8662,9 @@ export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 export interface UpdateApprovalRuleTemplateContentInput {
-  __type?: "UpdateApprovalRuleTemplateContentInput";
   /**
    * <p>The content that replaces the existing content of the rule. Content statements must be
    *             complete. You cannot provide only the changes.</p>
@@ -9332,12 +8688,9 @@ export namespace UpdateApprovalRuleTemplateContentInput {
   export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateContentInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApprovalRuleTemplateContentInput =>
-    __isa(o, "UpdateApprovalRuleTemplateContentInput");
 }
 
 export interface UpdateApprovalRuleTemplateContentOutput {
-  __type?: "UpdateApprovalRuleTemplateContentOutput";
   /**
    * <p>Returns information about an approval rule template.</p>
    */
@@ -9348,12 +8701,9 @@ export namespace UpdateApprovalRuleTemplateContentOutput {
   export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateContentOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApprovalRuleTemplateContentOutput =>
-    __isa(o, "UpdateApprovalRuleTemplateContentOutput");
 }
 
 export interface UpdateApprovalRuleTemplateDescriptionInput {
-  __type?: "UpdateApprovalRuleTemplateDescriptionInput";
   /**
    * <p>The name of the template for which you want to update the description.</p>
    */
@@ -9369,12 +8719,9 @@ export namespace UpdateApprovalRuleTemplateDescriptionInput {
   export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateDescriptionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApprovalRuleTemplateDescriptionInput =>
-    __isa(o, "UpdateApprovalRuleTemplateDescriptionInput");
 }
 
 export interface UpdateApprovalRuleTemplateDescriptionOutput {
-  __type?: "UpdateApprovalRuleTemplateDescriptionOutput";
   /**
    * <p>The structure and content of the updated approval rule template.</p>
    */
@@ -9385,12 +8732,9 @@ export namespace UpdateApprovalRuleTemplateDescriptionOutput {
   export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateDescriptionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApprovalRuleTemplateDescriptionOutput =>
-    __isa(o, "UpdateApprovalRuleTemplateDescriptionOutput");
 }
 
 export interface UpdateApprovalRuleTemplateNameInput {
-  __type?: "UpdateApprovalRuleTemplateNameInput";
   /**
    * <p>The new name you want to apply to the approval rule template.</p>
    */
@@ -9406,12 +8750,9 @@ export namespace UpdateApprovalRuleTemplateNameInput {
   export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateNameInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApprovalRuleTemplateNameInput =>
-    __isa(o, "UpdateApprovalRuleTemplateNameInput");
 }
 
 export interface UpdateApprovalRuleTemplateNameOutput {
-  __type?: "UpdateApprovalRuleTemplateNameOutput";
   /**
    * <p>The structure and content of the updated approval rule template.</p>
    */
@@ -9422,12 +8763,9 @@ export namespace UpdateApprovalRuleTemplateNameOutput {
   export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateNameOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApprovalRuleTemplateNameOutput =>
-    __isa(o, "UpdateApprovalRuleTemplateNameOutput");
 }
 
 export interface UpdateCommentInput {
-  __type?: "UpdateCommentInput";
   /**
    * <p>The updated content to replace the existing content of the comment.</p>
    */
@@ -9444,11 +8782,9 @@ export namespace UpdateCommentInput {
   export const filterSensitiveLog = (obj: UpdateCommentInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCommentInput => __isa(o, "UpdateCommentInput");
 }
 
 export interface UpdateCommentOutput {
-  __type?: "UpdateCommentOutput";
   /**
    * <p>Information about the updated comment.</p>
    */
@@ -9459,14 +8795,12 @@ export namespace UpdateCommentOutput {
   export const filterSensitiveLog = (obj: UpdateCommentOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCommentOutput => __isa(o, "UpdateCommentOutput");
 }
 
 /**
  * <p>Represents the input of an update default branch operation.</p>
  */
 export interface UpdateDefaultBranchInput {
-  __type?: "UpdateDefaultBranchInput";
   /**
    * <p>The name of the repository to set or change the default branch for.</p>
    */
@@ -9482,11 +8816,9 @@ export namespace UpdateDefaultBranchInput {
   export const filterSensitiveLog = (obj: UpdateDefaultBranchInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDefaultBranchInput => __isa(o, "UpdateDefaultBranchInput");
 }
 
 export interface UpdatePullRequestApprovalRuleContentInput {
-  __type?: "UpdatePullRequestApprovalRuleContentInput";
   /**
    * <p>The updated content for the approval rule.</p>
    *         <note>
@@ -9554,12 +8886,9 @@ export namespace UpdatePullRequestApprovalRuleContentInput {
   export const filterSensitiveLog = (obj: UpdatePullRequestApprovalRuleContentInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestApprovalRuleContentInput =>
-    __isa(o, "UpdatePullRequestApprovalRuleContentInput");
 }
 
 export interface UpdatePullRequestApprovalRuleContentOutput {
-  __type?: "UpdatePullRequestApprovalRuleContentOutput";
   /**
    * <p>Information about the updated approval rule.</p>
    */
@@ -9570,12 +8899,9 @@ export namespace UpdatePullRequestApprovalRuleContentOutput {
   export const filterSensitiveLog = (obj: UpdatePullRequestApprovalRuleContentOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestApprovalRuleContentOutput =>
-    __isa(o, "UpdatePullRequestApprovalRuleContentOutput");
 }
 
 export interface UpdatePullRequestApprovalStateInput {
-  __type?: "UpdatePullRequestApprovalStateInput";
   /**
    * <p>The system-generated ID of the revision.</p>
    */
@@ -9596,12 +8922,9 @@ export namespace UpdatePullRequestApprovalStateInput {
   export const filterSensitiveLog = (obj: UpdatePullRequestApprovalStateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestApprovalStateInput =>
-    __isa(o, "UpdatePullRequestApprovalStateInput");
 }
 
 export interface UpdatePullRequestDescriptionInput {
-  __type?: "UpdatePullRequestDescriptionInput";
   /**
    * <p>The updated content of the description for the pull request. This content replaces the
    *             existing description.</p>
@@ -9618,11 +8941,9 @@ export namespace UpdatePullRequestDescriptionInput {
   export const filterSensitiveLog = (obj: UpdatePullRequestDescriptionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestDescriptionInput => __isa(o, "UpdatePullRequestDescriptionInput");
 }
 
 export interface UpdatePullRequestDescriptionOutput {
-  __type?: "UpdatePullRequestDescriptionOutput";
   /**
    * <p>Information about the updated pull request.</p>
    */
@@ -9633,12 +8954,9 @@ export namespace UpdatePullRequestDescriptionOutput {
   export const filterSensitiveLog = (obj: UpdatePullRequestDescriptionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestDescriptionOutput =>
-    __isa(o, "UpdatePullRequestDescriptionOutput");
 }
 
 export interface UpdatePullRequestStatusInput {
-  __type?: "UpdatePullRequestStatusInput";
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
@@ -9656,11 +8974,9 @@ export namespace UpdatePullRequestStatusInput {
   export const filterSensitiveLog = (obj: UpdatePullRequestStatusInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestStatusInput => __isa(o, "UpdatePullRequestStatusInput");
 }
 
 export interface UpdatePullRequestStatusOutput {
-  __type?: "UpdatePullRequestStatusOutput";
   /**
    * <p>Information about the pull request.</p>
    */
@@ -9671,11 +8987,9 @@ export namespace UpdatePullRequestStatusOutput {
   export const filterSensitiveLog = (obj: UpdatePullRequestStatusOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestStatusOutput => __isa(o, "UpdatePullRequestStatusOutput");
 }
 
 export interface UpdatePullRequestTitleInput {
-  __type?: "UpdatePullRequestTitleInput";
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
@@ -9691,11 +9005,9 @@ export namespace UpdatePullRequestTitleInput {
   export const filterSensitiveLog = (obj: UpdatePullRequestTitleInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestTitleInput => __isa(o, "UpdatePullRequestTitleInput");
 }
 
 export interface UpdatePullRequestTitleOutput {
-  __type?: "UpdatePullRequestTitleOutput";
   /**
    * <p>Information about the updated pull request.</p>
    */
@@ -9706,14 +9018,12 @@ export namespace UpdatePullRequestTitleOutput {
   export const filterSensitiveLog = (obj: UpdatePullRequestTitleOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePullRequestTitleOutput => __isa(o, "UpdatePullRequestTitleOutput");
 }
 
 /**
  * <p>Represents the input of an update repository description operation.</p>
  */
 export interface UpdateRepositoryDescriptionInput {
-  __type?: "UpdateRepositoryDescriptionInput";
   /**
    * <p>The name of the repository to set or change the comment or description for.</p>
    */
@@ -9729,14 +9039,12 @@ export namespace UpdateRepositoryDescriptionInput {
   export const filterSensitiveLog = (obj: UpdateRepositoryDescriptionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRepositoryDescriptionInput => __isa(o, "UpdateRepositoryDescriptionInput");
 }
 
 /**
  * <p>Represents the input of an update repository description operation.</p>
  */
 export interface UpdateRepositoryNameInput {
-  __type?: "UpdateRepositoryNameInput";
   /**
    * <p>The new name for the repository.</p>
    */
@@ -9752,14 +9060,12 @@ export namespace UpdateRepositoryNameInput {
   export const filterSensitiveLog = (obj: UpdateRepositoryNameInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRepositoryNameInput => __isa(o, "UpdateRepositoryNameInput");
 }
 
 /**
  * <p>Information about the user who made a specified commit.</p>
  */
 export interface UserInfo {
-  __type?: "UserInfo";
   /**
    * <p>The name of the user who made the specified commit.</p>
    */
@@ -9780,5 +9086,4 @@ export namespace UserInfo {
   export const filterSensitiveLog = (obj: UserInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserInfo => __isa(o, "UserInfo");
 }

@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Provides information about your AWS account.</p>
  */
 export interface AccountInfo {
-  __type?: "AccountInfo";
   /**
    * <p>The identifier of the AWS account that is assigned to the user.</p>
    */
@@ -26,11 +25,9 @@ export namespace AccountInfo {
   export const filterSensitiveLog = (obj: AccountInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountInfo => __isa(o, "AccountInfo");
 }
 
 export interface GetRoleCredentialsRequest {
-  __type?: "GetRoleCredentialsRequest";
   /**
    * <p>The identifier for the AWS account that is assigned to the user.</p>
    */
@@ -53,11 +50,9 @@ export namespace GetRoleCredentialsRequest {
     ...obj,
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetRoleCredentialsRequest => __isa(o, "GetRoleCredentialsRequest");
 }
 
 export interface GetRoleCredentialsResponse {
-  __type?: "GetRoleCredentialsResponse";
   /**
    * <p>The credentials for the role that is assigned to the user.</p>
    */
@@ -69,7 +64,6 @@ export namespace GetRoleCredentialsResponse {
     ...obj,
     ...(obj.roleCredentials && { roleCredentials: RoleCredentials.filterSensitiveLog(obj.roleCredentials) }),
   });
-  export const isa = (o: any): o is GetRoleCredentialsResponse => __isa(o, "GetRoleCredentialsResponse");
 }
 
 /**
@@ -86,11 +80,9 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export interface ListAccountRolesRequest {
-  __type?: "ListAccountRolesRequest";
   /**
    * <p>The page token from the previous response output when you request subsequent pages.</p>
    */
@@ -118,11 +110,9 @@ export namespace ListAccountRolesRequest {
     ...obj,
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ListAccountRolesRequest => __isa(o, "ListAccountRolesRequest");
 }
 
 export interface ListAccountRolesResponse {
-  __type?: "ListAccountRolesResponse";
   /**
    * <p>The page token client that is used to retrieve the list of accounts.</p>
    */
@@ -138,11 +128,9 @@ export namespace ListAccountRolesResponse {
   export const filterSensitiveLog = (obj: ListAccountRolesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccountRolesResponse => __isa(o, "ListAccountRolesResponse");
 }
 
 export interface ListAccountsRequest {
-  __type?: "ListAccountsRequest";
   /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
    *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
@@ -165,11 +153,9 @@ export namespace ListAccountsRequest {
     ...obj,
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ListAccountsRequest => __isa(o, "ListAccountsRequest");
 }
 
 export interface ListAccountsResponse {
-  __type?: "ListAccountsResponse";
   /**
    * <p>A paginated response with the list of account information and the next token if more results are available.</p>
    */
@@ -185,11 +171,9 @@ export namespace ListAccountsResponse {
   export const filterSensitiveLog = (obj: ListAccountsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccountsResponse => __isa(o, "ListAccountsResponse");
 }
 
 export interface LogoutRequest {
-  __type?: "LogoutRequest";
   /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
    *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
@@ -202,7 +186,6 @@ export namespace LogoutRequest {
     ...obj,
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is LogoutRequest => __isa(o, "LogoutRequest");
 }
 
 /**
@@ -218,14 +201,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>Provides information about the role credentials that are assigned to the user.</p>
  */
 export interface RoleCredentials {
-  __type?: "RoleCredentials";
   /**
    * <p>The key that is used to sign the request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
    *         <i>AWS IAM User Guide</i>.</p>
@@ -257,14 +238,12 @@ export namespace RoleCredentials {
     ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
     ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is RoleCredentials => __isa(o, "RoleCredentials");
 }
 
 /**
  * <p>Provides information about the role that is assigned to the user.</p>
  */
 export interface RoleInfo {
-  __type?: "RoleInfo";
   /**
    * <p>The friendly name of the role that is assigned to the user.</p>
    */
@@ -280,7 +259,6 @@ export namespace RoleInfo {
   export const filterSensitiveLog = (obj: RoleInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoleInfo => __isa(o, "RoleInfo");
 }
 
 /**
@@ -296,7 +274,6 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -312,5 +289,4 @@ export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }

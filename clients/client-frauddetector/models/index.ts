@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,14 +14,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>Provides the error of the batch create variable API.</p>
  */
 export interface BatchCreateVariableError {
-  __type?: "BatchCreateVariableError";
   /**
    * <p>The error code. </p>
    */
@@ -42,11 +40,9 @@ export namespace BatchCreateVariableError {
   export const filterSensitiveLog = (obj: BatchCreateVariableError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchCreateVariableError => __isa(o, "BatchCreateVariableError");
 }
 
 export interface BatchCreateVariableRequest {
-  __type?: "BatchCreateVariableRequest";
   /**
    * <p>A collection of key and value pairs.</p>
    */
@@ -62,11 +58,9 @@ export namespace BatchCreateVariableRequest {
   export const filterSensitiveLog = (obj: BatchCreateVariableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchCreateVariableRequest => __isa(o, "BatchCreateVariableRequest");
 }
 
 export interface BatchCreateVariableResult {
-  __type?: "BatchCreateVariableResult";
   /**
    * <p>Provides the errors for the <code>BatchCreateVariable</code> request.</p>
    */
@@ -77,14 +71,12 @@ export namespace BatchCreateVariableResult {
   export const filterSensitiveLog = (obj: BatchCreateVariableResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchCreateVariableResult => __isa(o, "BatchCreateVariableResult");
 }
 
 /**
  * <p>Provides the error of the batch get variable API.</p>
  */
 export interface BatchGetVariableError {
-  __type?: "BatchGetVariableError";
   /**
    * <p>The error name. </p>
    */
@@ -105,11 +97,9 @@ export namespace BatchGetVariableError {
   export const filterSensitiveLog = (obj: BatchGetVariableError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetVariableError => __isa(o, "BatchGetVariableError");
 }
 
 export interface BatchGetVariableRequest {
-  __type?: "BatchGetVariableRequest";
   /**
    * <p>The list of variable names to get.</p>
    */
@@ -120,11 +110,9 @@ export namespace BatchGetVariableRequest {
   export const filterSensitiveLog = (obj: BatchGetVariableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetVariableRequest => __isa(o, "BatchGetVariableRequest");
 }
 
 export interface BatchGetVariableResult {
-  __type?: "BatchGetVariableResult";
   /**
    * <p>The returned variables.</p>
    */
@@ -140,7 +128,6 @@ export namespace BatchGetVariableResult {
   export const filterSensitiveLog = (obj: BatchGetVariableResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetVariableResult => __isa(o, "BatchGetVariableResult");
 }
 
 /**
@@ -167,11 +154,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateDetectorVersionRequest {
-  __type?: "CreateDetectorVersionRequest";
   /**
    * <p>The description of the detector version.</p>
    */
@@ -216,11 +201,9 @@ export namespace CreateDetectorVersionRequest {
   export const filterSensitiveLog = (obj: CreateDetectorVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDetectorVersionRequest => __isa(o, "CreateDetectorVersionRequest");
 }
 
 export interface CreateDetectorVersionResult {
-  __type?: "CreateDetectorVersionResult";
   /**
    * <p>The status of the detector version.</p>
    */
@@ -241,11 +224,9 @@ export namespace CreateDetectorVersionResult {
   export const filterSensitiveLog = (obj: CreateDetectorVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDetectorVersionResult => __isa(o, "CreateDetectorVersionResult");
 }
 
 export interface CreateModelRequest {
-  __type?: "CreateModelRequest";
   /**
    * <p>A collection of key and value pairs.</p>
    */
@@ -276,22 +257,17 @@ export namespace CreateModelRequest {
   export const filterSensitiveLog = (obj: CreateModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateModelRequest => __isa(o, "CreateModelRequest");
 }
 
-export interface CreateModelResult {
-  __type?: "CreateModelResult";
-}
+export interface CreateModelResult {}
 
 export namespace CreateModelResult {
   export const filterSensitiveLog = (obj: CreateModelResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateModelResult => __isa(o, "CreateModelResult");
 }
 
 export interface CreateModelVersionRequest {
-  __type?: "CreateModelVersionRequest";
   /**
    * <p>The model type.</p>
    */
@@ -327,11 +303,9 @@ export namespace CreateModelVersionRequest {
   export const filterSensitiveLog = (obj: CreateModelVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateModelVersionRequest => __isa(o, "CreateModelVersionRequest");
 }
 
 export interface CreateModelVersionResult {
-  __type?: "CreateModelVersionResult";
   /**
    * <p>The model ID.</p>
    */
@@ -357,11 +331,9 @@ export namespace CreateModelVersionResult {
   export const filterSensitiveLog = (obj: CreateModelVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateModelVersionResult => __isa(o, "CreateModelVersionResult");
 }
 
 export interface CreateRuleRequest {
-  __type?: "CreateRuleRequest";
   /**
    * <p>The language of the rule.</p>
    */
@@ -403,11 +375,9 @@ export namespace CreateRuleRequest {
     ...obj,
     ...(obj.expression && { expression: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateRuleRequest => __isa(o, "CreateRuleRequest");
 }
 
 export interface CreateRuleResult {
-  __type?: "CreateRuleResult";
   /**
    * <p>The created rule.</p>
    */
@@ -418,11 +388,9 @@ export namespace CreateRuleResult {
   export const filterSensitiveLog = (obj: CreateRuleResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRuleResult => __isa(o, "CreateRuleResult");
 }
 
 export interface CreateVariableRequest {
-  __type?: "CreateVariableRequest";
   /**
    * <p>The default value for the variable when no value is received.</p>
    */
@@ -466,18 +434,14 @@ export namespace CreateVariableRequest {
   export const filterSensitiveLog = (obj: CreateVariableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVariableRequest => __isa(o, "CreateVariableRequest");
 }
 
-export interface CreateVariableResult {
-  __type?: "CreateVariableResult";
-}
+export interface CreateVariableResult {}
 
 export namespace CreateVariableResult {
   export const filterSensitiveLog = (obj: CreateVariableResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVariableResult => __isa(o, "CreateVariableResult");
 }
 
 export enum DataSource {
@@ -497,7 +461,6 @@ export enum DataType {
  * <p>The model training validation messages.</p>
  */
 export interface DataValidationMetrics {
-  __type?: "DataValidationMetrics";
   /**
    * <p>The field-specific model training validation messages.</p>
    */
@@ -513,11 +476,9 @@ export namespace DataValidationMetrics {
   export const filterSensitiveLog = (obj: DataValidationMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataValidationMetrics => __isa(o, "DataValidationMetrics");
 }
 
 export interface DeleteDetectorRequest {
-  __type?: "DeleteDetectorRequest";
   /**
    * <p>The ID of the detector to delete.</p>
    */
@@ -528,22 +489,17 @@ export namespace DeleteDetectorRequest {
   export const filterSensitiveLog = (obj: DeleteDetectorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDetectorRequest => __isa(o, "DeleteDetectorRequest");
 }
 
-export interface DeleteDetectorResult {
-  __type?: "DeleteDetectorResult";
-}
+export interface DeleteDetectorResult {}
 
 export namespace DeleteDetectorResult {
   export const filterSensitiveLog = (obj: DeleteDetectorResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDetectorResult => __isa(o, "DeleteDetectorResult");
 }
 
 export interface DeleteDetectorVersionRequest {
-  __type?: "DeleteDetectorVersionRequest";
   /**
    * <p>The ID of the detector version to delete.</p>
    */
@@ -559,22 +515,17 @@ export namespace DeleteDetectorVersionRequest {
   export const filterSensitiveLog = (obj: DeleteDetectorVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDetectorVersionRequest => __isa(o, "DeleteDetectorVersionRequest");
 }
 
-export interface DeleteDetectorVersionResult {
-  __type?: "DeleteDetectorVersionResult";
-}
+export interface DeleteDetectorVersionResult {}
 
 export namespace DeleteDetectorVersionResult {
   export const filterSensitiveLog = (obj: DeleteDetectorVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDetectorVersionResult => __isa(o, "DeleteDetectorVersionResult");
 }
 
 export interface DeleteEventRequest {
-  __type?: "DeleteEventRequest";
   /**
    * <p>The ID of the event to delete.</p>
    */
@@ -590,22 +541,17 @@ export namespace DeleteEventRequest {
   export const filterSensitiveLog = (obj: DeleteEventRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEventRequest => __isa(o, "DeleteEventRequest");
 }
 
-export interface DeleteEventResult {
-  __type?: "DeleteEventResult";
-}
+export interface DeleteEventResult {}
 
 export namespace DeleteEventResult {
   export const filterSensitiveLog = (obj: DeleteEventResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEventResult => __isa(o, "DeleteEventResult");
 }
 
 export interface DeleteRuleRequest {
-  __type?: "DeleteRuleRequest";
   /**
    * <p>A rule.</p>
    */
@@ -616,22 +562,17 @@ export namespace DeleteRuleRequest {
   export const filterSensitiveLog = (obj: DeleteRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRuleRequest => __isa(o, "DeleteRuleRequest");
 }
 
-export interface DeleteRuleResult {
-  __type?: "DeleteRuleResult";
-}
+export interface DeleteRuleResult {}
 
 export namespace DeleteRuleResult {
   export const filterSensitiveLog = (obj: DeleteRuleResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRuleResult => __isa(o, "DeleteRuleResult");
 }
 
 export interface DescribeDetectorRequest {
-  __type?: "DescribeDetectorRequest";
   /**
    * <p>The detector ID.</p>
    */
@@ -652,11 +593,9 @@ export namespace DescribeDetectorRequest {
   export const filterSensitiveLog = (obj: DescribeDetectorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDetectorRequest => __isa(o, "DescribeDetectorRequest");
 }
 
 export interface DescribeDetectorResult {
-  __type?: "DescribeDetectorResult";
   /**
    * <p>The status and description for each detector version.</p>
    */
@@ -682,11 +621,9 @@ export namespace DescribeDetectorResult {
   export const filterSensitiveLog = (obj: DescribeDetectorResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDetectorResult => __isa(o, "DescribeDetectorResult");
 }
 
 export interface DescribeModelVersionsRequest {
-  __type?: "DescribeModelVersionsRequest";
   /**
    * <p>The maximum number of results to return.</p>
    */
@@ -717,11 +654,9 @@ export namespace DescribeModelVersionsRequest {
   export const filterSensitiveLog = (obj: DescribeModelVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeModelVersionsRequest => __isa(o, "DescribeModelVersionsRequest");
 }
 
 export interface DescribeModelVersionsResult {
-  __type?: "DescribeModelVersionsResult";
   /**
    * <p>The next token.</p>
    */
@@ -737,14 +672,12 @@ export namespace DescribeModelVersionsResult {
   export const filterSensitiveLog = (obj: DescribeModelVersionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeModelVersionsResult => __isa(o, "DescribeModelVersionsResult");
 }
 
 /**
  * <p>The detector.</p>
  */
 export interface Detector {
-  __type?: "Detector";
   /**
    * <p>Timestamp of when the detector was created.</p>
    */
@@ -780,7 +713,6 @@ export namespace Detector {
   export const filterSensitiveLog = (obj: Detector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Detector => __isa(o, "Detector");
 }
 
 export enum DetectorVersionStatus {
@@ -793,7 +725,6 @@ export enum DetectorVersionStatus {
  * <p>The summary of the detector version.</p>
  */
 export interface DetectorVersionSummary {
-  __type?: "DetectorVersionSummary";
   /**
    * <p>The detector version status. </p>
    */
@@ -819,14 +750,12 @@ export namespace DetectorVersionSummary {
   export const filterSensitiveLog = (obj: DetectorVersionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectorVersionSummary => __isa(o, "DetectorVersionSummary");
 }
 
 /**
  * <p>The entity details. </p>
  */
 export interface Entity {
-  __type?: "Entity";
   /**
    * <p>The entity ID. If you do not know the <code>entityId</code>, you can pass <code>unknown</code>, which is areserved string literal.</p>
    */
@@ -842,14 +771,12 @@ export namespace Entity {
   export const filterSensitiveLog = (obj: Entity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Entity => __isa(o, "Entity");
 }
 
 /**
  * <p>The entity type details.</p>
  */
 export interface EntityType {
-  __type?: "EntityType";
   /**
    * <p>The entity type ARN.</p>
    */
@@ -880,14 +807,12 @@ export namespace EntityType {
   export const filterSensitiveLog = (obj: EntityType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityType => __isa(o, "EntityType");
 }
 
 /**
  * <p>The event type details.</p>
  */
 export interface EventType {
-  __type?: "EventType";
   /**
    * <p>The event type description.</p>
    */
@@ -933,14 +858,12 @@ export namespace EventType {
   export const filterSensitiveLog = (obj: EventType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventType => __isa(o, "EventType");
 }
 
 /**
  * <p>Details for the external events data used for model version training.</p>
  */
 export interface ExternalEventsDetail {
-  __type?: "ExternalEventsDetail";
   /**
    * <p>The ARN of the role that provides Amazon Fraud Detector access to the data location.</p>
    */
@@ -956,14 +879,12 @@ export namespace ExternalEventsDetail {
   export const filterSensitiveLog = (obj: ExternalEventsDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExternalEventsDetail => __isa(o, "ExternalEventsDetail");
 }
 
 /**
  * <p>The Amazon SageMaker model.</p>
  */
 export interface ExternalModel {
-  __type?: "ExternalModel";
   /**
    * <p>The model ARN.</p>
    */
@@ -1014,14 +935,12 @@ export namespace ExternalModel {
   export const filterSensitiveLog = (obj: ExternalModel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExternalModel => __isa(o, "ExternalModel");
 }
 
 /**
  * <p>The message details.</p>
  */
 export interface FieldValidationMessage {
-  __type?: "FieldValidationMessage";
   /**
    * <p>The message type.</p>
    */
@@ -1052,14 +971,12 @@ export namespace FieldValidationMessage {
   export const filterSensitiveLog = (obj: FieldValidationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldValidationMessage => __isa(o, "FieldValidationMessage");
 }
 
 /**
  * <p>The message details.</p>
  */
 export interface FileValidationMessage {
-  __type?: "FileValidationMessage";
   /**
    * <p>The message content.</p>
    */
@@ -1080,11 +997,9 @@ export namespace FileValidationMessage {
   export const filterSensitiveLog = (obj: FileValidationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileValidationMessage => __isa(o, "FileValidationMessage");
 }
 
 export interface GetDetectorsRequest {
-  __type?: "GetDetectorsRequest";
   /**
    * <p>The maximum number of objects to return for the request.</p>
    */
@@ -1105,11 +1020,9 @@ export namespace GetDetectorsRequest {
   export const filterSensitiveLog = (obj: GetDetectorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDetectorsRequest => __isa(o, "GetDetectorsRequest");
 }
 
 export interface GetDetectorsResult {
-  __type?: "GetDetectorsResult";
   /**
    * <p>The detectors.</p>
    */
@@ -1125,11 +1038,9 @@ export namespace GetDetectorsResult {
   export const filterSensitiveLog = (obj: GetDetectorsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDetectorsResult => __isa(o, "GetDetectorsResult");
 }
 
 export interface GetDetectorVersionRequest {
-  __type?: "GetDetectorVersionRequest";
   /**
    * <p>The detector version ID.</p>
    */
@@ -1145,11 +1056,9 @@ export namespace GetDetectorVersionRequest {
   export const filterSensitiveLog = (obj: GetDetectorVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDetectorVersionRequest => __isa(o, "GetDetectorVersionRequest");
 }
 
 export interface GetDetectorVersionResult {
-  __type?: "GetDetectorVersionResult";
   /**
    * <p>The Amazon SageMaker model endpoints included in the detector version.</p>
    */
@@ -1215,11 +1124,9 @@ export namespace GetDetectorVersionResult {
   export const filterSensitiveLog = (obj: GetDetectorVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDetectorVersionResult => __isa(o, "GetDetectorVersionResult");
 }
 
 export interface GetEntityTypesRequest {
-  __type?: "GetEntityTypesRequest";
   /**
    * <p>The name.</p>
    */
@@ -1240,11 +1147,9 @@ export namespace GetEntityTypesRequest {
   export const filterSensitiveLog = (obj: GetEntityTypesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEntityTypesRequest => __isa(o, "GetEntityTypesRequest");
 }
 
 export interface GetEntityTypesResult {
-  __type?: "GetEntityTypesResult";
   /**
    * <p>The next page token.</p>
    */
@@ -1260,11 +1165,9 @@ export namespace GetEntityTypesResult {
   export const filterSensitiveLog = (obj: GetEntityTypesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEntityTypesResult => __isa(o, "GetEntityTypesResult");
 }
 
 export interface GetEventPredictionRequest {
-  __type?: "GetEventPredictionRequest";
   /**
    * <p>The unique ID used to identify the event.</p>
    */
@@ -1312,11 +1215,9 @@ export namespace GetEventPredictionRequest {
     ...(obj.eventVariables && { eventVariables: SENSITIVE_STRING }),
     ...(obj.externalModelEndpointDataBlobs && { externalModelEndpointDataBlobs: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetEventPredictionRequest => __isa(o, "GetEventPredictionRequest");
 }
 
 export interface GetEventPredictionResult {
-  __type?: "GetEventPredictionResult";
   /**
    * <p>The model scores. Amazon Fraud Detector generates model scores between 0 and 1000, where 0 is low fraud risk and 1000 is high fraud risk. Model scores are directly related to the false positive rate (FPR). For example, a score of 600 corresponds to an estimated 10% false positive rate whereas a score of 900 corresponds to an estimated 2% false positive rate.</p>
    */
@@ -1332,11 +1233,9 @@ export namespace GetEventPredictionResult {
   export const filterSensitiveLog = (obj: GetEventPredictionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEventPredictionResult => __isa(o, "GetEventPredictionResult");
 }
 
 export interface GetEventTypesRequest {
-  __type?: "GetEventTypesRequest";
   /**
    * <p>The maximum number of objects to return for the request.</p>
    */
@@ -1357,11 +1256,9 @@ export namespace GetEventTypesRequest {
   export const filterSensitiveLog = (obj: GetEventTypesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEventTypesRequest => __isa(o, "GetEventTypesRequest");
 }
 
 export interface GetEventTypesResult {
-  __type?: "GetEventTypesResult";
   /**
    * <p>The next page token.</p>
    */
@@ -1377,11 +1274,9 @@ export namespace GetEventTypesResult {
   export const filterSensitiveLog = (obj: GetEventTypesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEventTypesResult => __isa(o, "GetEventTypesResult");
 }
 
 export interface GetExternalModelsRequest {
-  __type?: "GetExternalModelsRequest";
   /**
    * <p>The maximum number of objects to return for the request.</p>
    */
@@ -1402,11 +1297,9 @@ export namespace GetExternalModelsRequest {
   export const filterSensitiveLog = (obj: GetExternalModelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExternalModelsRequest => __isa(o, "GetExternalModelsRequest");
 }
 
 export interface GetExternalModelsResult {
-  __type?: "GetExternalModelsResult";
   /**
    * <p>The next page token to be used in subsequent requests.</p>
    */
@@ -1422,11 +1315,9 @@ export namespace GetExternalModelsResult {
   export const filterSensitiveLog = (obj: GetExternalModelsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExternalModelsResult => __isa(o, "GetExternalModelsResult");
 }
 
 export interface GetKMSEncryptionKeyResult {
-  __type?: "GetKMSEncryptionKeyResult";
   /**
    * <p>The KMS encryption key.</p>
    */
@@ -1437,11 +1328,9 @@ export namespace GetKMSEncryptionKeyResult {
   export const filterSensitiveLog = (obj: GetKMSEncryptionKeyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetKMSEncryptionKeyResult => __isa(o, "GetKMSEncryptionKeyResult");
 }
 
 export interface GetLabelsRequest {
-  __type?: "GetLabelsRequest";
   /**
    * <p>The name of the label or labels to get.</p>
    */
@@ -1462,11 +1351,9 @@ export namespace GetLabelsRequest {
   export const filterSensitiveLog = (obj: GetLabelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLabelsRequest => __isa(o, "GetLabelsRequest");
 }
 
 export interface GetLabelsResult {
-  __type?: "GetLabelsResult";
   /**
    * <p>The next page token.</p>
    */
@@ -1482,11 +1369,9 @@ export namespace GetLabelsResult {
   export const filterSensitiveLog = (obj: GetLabelsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLabelsResult => __isa(o, "GetLabelsResult");
 }
 
 export interface GetModelsRequest {
-  __type?: "GetModelsRequest";
   /**
    * <p>The model type.</p>
    */
@@ -1512,11 +1397,9 @@ export namespace GetModelsRequest {
   export const filterSensitiveLog = (obj: GetModelsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetModelsRequest => __isa(o, "GetModelsRequest");
 }
 
 export interface GetModelsResult {
-  __type?: "GetModelsResult";
   /**
    * <p>The next page token to be used in subsequent requests.</p>
    */
@@ -1532,11 +1415,9 @@ export namespace GetModelsResult {
   export const filterSensitiveLog = (obj: GetModelsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetModelsResult => __isa(o, "GetModelsResult");
 }
 
 export interface GetModelVersionRequest {
-  __type?: "GetModelVersionRequest";
   /**
    * <p>The model ID.</p>
    */
@@ -1557,11 +1438,9 @@ export namespace GetModelVersionRequest {
   export const filterSensitiveLog = (obj: GetModelVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetModelVersionRequest => __isa(o, "GetModelVersionRequest");
 }
 
 export interface GetModelVersionResult {
-  __type?: "GetModelVersionResult";
   /**
    * <p>The model version ARN.</p>
    */
@@ -1607,11 +1486,9 @@ export namespace GetModelVersionResult {
   export const filterSensitiveLog = (obj: GetModelVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetModelVersionResult => __isa(o, "GetModelVersionResult");
 }
 
 export interface GetOutcomesRequest {
-  __type?: "GetOutcomesRequest";
   /**
    * <p>The name of the outcome or outcomes to get.</p>
    */
@@ -1632,11 +1509,9 @@ export namespace GetOutcomesRequest {
   export const filterSensitiveLog = (obj: GetOutcomesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOutcomesRequest => __isa(o, "GetOutcomesRequest");
 }
 
 export interface GetOutcomesResult {
-  __type?: "GetOutcomesResult";
   /**
    * <p>The next page token for subsequent requests.</p>
    */
@@ -1652,11 +1527,9 @@ export namespace GetOutcomesResult {
   export const filterSensitiveLog = (obj: GetOutcomesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOutcomesResult => __isa(o, "GetOutcomesResult");
 }
 
 export interface GetRulesRequest {
-  __type?: "GetRulesRequest";
   /**
    * <p>The maximum number of rules to return for the request.</p>
    */
@@ -1687,11 +1560,9 @@ export namespace GetRulesRequest {
   export const filterSensitiveLog = (obj: GetRulesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRulesRequest => __isa(o, "GetRulesRequest");
 }
 
 export interface GetRulesResult {
-  __type?: "GetRulesResult";
   /**
    * <p>The details of the requested rule.</p>
    */
@@ -1708,11 +1579,9 @@ export namespace GetRulesResult {
     ...obj,
     ...(obj.ruleDetails && { ruleDetails: obj.ruleDetails.map((item) => RuleDetail.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is GetRulesResult => __isa(o, "GetRulesResult");
 }
 
 export interface GetVariablesRequest {
-  __type?: "GetVariablesRequest";
   /**
    * <p>The name of the variable. </p>
    */
@@ -1733,11 +1602,9 @@ export namespace GetVariablesRequest {
   export const filterSensitiveLog = (obj: GetVariablesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVariablesRequest => __isa(o, "GetVariablesRequest");
 }
 
 export interface GetVariablesResult {
-  __type?: "GetVariablesResult";
   /**
    * <p>The names of the variables returned. </p>
    */
@@ -1753,7 +1620,6 @@ export namespace GetVariablesResult {
   export const filterSensitiveLog = (obj: GetVariablesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVariablesResult => __isa(o, "GetVariablesResult");
 }
 
 /**
@@ -1769,14 +1635,12 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * <p>The KMS key details.</p>
  */
 export interface KMSKey {
-  __type?: "KMSKey";
   /**
    * <p>The encryption key ARN.</p>
    */
@@ -1787,14 +1651,12 @@ export namespace KMSKey {
   export const filterSensitiveLog = (obj: KMSKey): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSKey => __isa(o, "KMSKey");
 }
 
 /**
  * <p>The label details.</p>
  */
 export interface Label {
-  __type?: "Label";
   /**
    * <p>Timestamp of when the label was last updated.</p>
    */
@@ -1825,14 +1687,12 @@ export namespace Label {
   export const filterSensitiveLog = (obj: Label): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Label => __isa(o, "Label");
 }
 
 /**
  * <p>The label schema.</p>
  */
 export interface LabelSchema {
-  __type?: "LabelSchema";
   /**
    * <p>The label mapper maps the Amazon Fraud Detector supported model classification labels (<code>FRAUD</code>, <code>LEGIT</code>) to the appropriate event type labels. For example, if "<code>FRAUD</code>" and "<code>LEGIT</code>" are Amazon Fraud Detector supported labels, this mapper could be: <code>{"FRAUD" => ["0"]</code>, <code>"LEGIT" => ["1"]}</code> or <code>{"FRAUD" => ["false"]</code>, <code>"LEGIT" => ["true"]}</code> or <code>{"FRAUD" => ["fraud", "abuse"]</code>, <code>"LEGIT" => ["legit", "safe"]}</code>. The value part of the mapper is a list, because you may have multiple label variants from your event type for a single Amazon Fraud Detector label.
    *         </p>
@@ -1844,7 +1704,6 @@ export namespace LabelSchema {
   export const filterSensitiveLog = (obj: LabelSchema): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelSchema => __isa(o, "LabelSchema");
 }
 
 export enum Language {
@@ -1852,7 +1711,6 @@ export enum Language {
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The next token from the previous results.</p>
    */
@@ -1873,11 +1731,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResult {
-  __type?: "ListTagsForResourceResult";
   /**
    * <p>A collection of key and value pairs.</p>
    */
@@ -1893,14 +1749,12 @@ export namespace ListTagsForResourceResult {
   export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResult => __isa(o, "ListTagsForResourceResult");
 }
 
 /**
  * <p>Model performance metrics data points.</p>
  */
 export interface MetricDataPoint {
-  __type?: "MetricDataPoint";
   /**
    * <p>The model threshold that specifies an acceptable fraud capture rate. For example, a threshold of 500 means any model score 500 or above is labeled as fraud.</p>
    */
@@ -1926,14 +1780,12 @@ export namespace MetricDataPoint {
   export const filterSensitiveLog = (obj: MetricDataPoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricDataPoint => __isa(o, "MetricDataPoint");
 }
 
 /**
  * <p>The model.</p>
  */
 export interface Model {
-  __type?: "Model";
   /**
    * <p>The model description.</p>
    */
@@ -1974,14 +1826,12 @@ export namespace Model {
   export const filterSensitiveLog = (obj: Model): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Model => __isa(o, "Model");
 }
 
 /**
  * <p>A pre-formed Amazon SageMaker model input you can include if your detector version includes an imported Amazon SageMaker model endpoint with pass-through input configuration.</p>
  */
 export interface ModelEndpointDataBlob {
-  __type?: "ModelEndpointDataBlob";
   /**
    * <p>The content type of the Amazon SageMaker model endpoint input data blob. </p>
    */
@@ -1997,7 +1847,6 @@ export namespace ModelEndpointDataBlob {
   export const filterSensitiveLog = (obj: ModelEndpointDataBlob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelEndpointDataBlob => __isa(o, "ModelEndpointDataBlob");
 }
 
 export enum ModelEndpointStatus {
@@ -2009,7 +1858,6 @@ export enum ModelEndpointStatus {
  * <p>The Amazon SageMaker model input configuration.</p>
  */
 export interface ModelInputConfiguration {
-  __type?: "ModelInputConfiguration";
   /**
    * <p> Template for constructing the CSV input-data sent to SageMaker. At event-evaluation,
    *             the placeholders for variable-names in the template will be replaced with the variable
@@ -2045,7 +1893,6 @@ export namespace ModelInputConfiguration {
   export const filterSensitiveLog = (obj: ModelInputConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelInputConfiguration => __isa(o, "ModelInputConfiguration");
 }
 
 export enum ModelInputDataFormat {
@@ -2057,7 +1904,6 @@ export enum ModelInputDataFormat {
  * <p>Provides the Amazon Sagemaker model output configuration.</p>
  */
 export interface ModelOutputConfiguration {
-  __type?: "ModelOutputConfiguration";
   /**
    * <p>A map of CSV index values in the SageMaker response to the Amazon Fraud Detector variables. </p>
    */
@@ -2078,7 +1924,6 @@ export namespace ModelOutputConfiguration {
   export const filterSensitiveLog = (obj: ModelOutputConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelOutputConfiguration => __isa(o, "ModelOutputConfiguration");
 }
 
 export enum ModelOutputDataFormat {
@@ -2090,7 +1935,6 @@ export enum ModelOutputDataFormat {
  * <p>The fraud prediction scores.</p>
  */
 export interface ModelScores {
-  __type?: "ModelScores";
   /**
    * <p>The model's fraud prediction scores.</p>
    */
@@ -2106,7 +1950,6 @@ export namespace ModelScores {
   export const filterSensitiveLog = (obj: ModelScores): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelScores => __isa(o, "ModelScores");
 }
 
 export enum ModelSource {
@@ -2121,7 +1964,6 @@ export enum ModelTypeEnum {
  * <p>The model version.</p>
  */
 export interface ModelVersion {
-  __type?: "ModelVersion";
   /**
    * <p>The model ID.</p>
    */
@@ -2147,14 +1989,12 @@ export namespace ModelVersion {
   export const filterSensitiveLog = (obj: ModelVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelVersion => __isa(o, "ModelVersion");
 }
 
 /**
  * <p>The details of the model version.</p>
  */
 export interface ModelVersionDetail {
-  __type?: "ModelVersionDetail";
   /**
    * <p>The model version number.</p>
    */
@@ -2215,7 +2055,6 @@ export namespace ModelVersionDetail {
   export const filterSensitiveLog = (obj: ModelVersionDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelVersionDetail => __isa(o, "ModelVersionDetail");
 }
 
 export enum ModelVersionStatus {
@@ -2227,7 +2066,6 @@ export enum ModelVersionStatus {
  * <p>The outcome.</p>
  */
 export interface Outcome {
-  __type?: "Outcome";
   /**
    * <p>The timestamp when the outcome was last updated.</p>
    */
@@ -2258,11 +2096,9 @@ export namespace Outcome {
   export const filterSensitiveLog = (obj: Outcome): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Outcome => __isa(o, "Outcome");
 }
 
 export interface PutDetectorRequest {
-  __type?: "PutDetectorRequest";
   /**
    * <p>A collection of key and value pairs.</p>
    */
@@ -2288,22 +2124,17 @@ export namespace PutDetectorRequest {
   export const filterSensitiveLog = (obj: PutDetectorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDetectorRequest => __isa(o, "PutDetectorRequest");
 }
 
-export interface PutDetectorResult {
-  __type?: "PutDetectorResult";
-}
+export interface PutDetectorResult {}
 
 export namespace PutDetectorResult {
   export const filterSensitiveLog = (obj: PutDetectorResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDetectorResult => __isa(o, "PutDetectorResult");
 }
 
 export interface PutEntityTypeRequest {
-  __type?: "PutEntityTypeRequest";
   /**
    * <p>The name of the entity type.</p>
    */
@@ -2324,22 +2155,17 @@ export namespace PutEntityTypeRequest {
   export const filterSensitiveLog = (obj: PutEntityTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEntityTypeRequest => __isa(o, "PutEntityTypeRequest");
 }
 
-export interface PutEntityTypeResult {
-  __type?: "PutEntityTypeResult";
-}
+export interface PutEntityTypeResult {}
 
 export namespace PutEntityTypeResult {
   export const filterSensitiveLog = (obj: PutEntityTypeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEntityTypeResult => __isa(o, "PutEntityTypeResult");
 }
 
 export interface PutEventTypeRequest {
-  __type?: "PutEventTypeRequest";
   /**
    * <p>The event type labels.</p>
    */
@@ -2375,22 +2201,17 @@ export namespace PutEventTypeRequest {
   export const filterSensitiveLog = (obj: PutEventTypeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventTypeRequest => __isa(o, "PutEventTypeRequest");
 }
 
-export interface PutEventTypeResult {
-  __type?: "PutEventTypeResult";
-}
+export interface PutEventTypeResult {}
 
 export namespace PutEventTypeResult {
   export const filterSensitiveLog = (obj: PutEventTypeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutEventTypeResult => __isa(o, "PutEventTypeResult");
 }
 
 export interface PutExternalModelRequest {
-  __type?: "PutExternalModelRequest";
   /**
    * <p>The IAM role used to invoke the model endpoint.</p>
    */
@@ -2431,22 +2252,17 @@ export namespace PutExternalModelRequest {
   export const filterSensitiveLog = (obj: PutExternalModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutExternalModelRequest => __isa(o, "PutExternalModelRequest");
 }
 
-export interface PutExternalModelResult {
-  __type?: "PutExternalModelResult";
-}
+export interface PutExternalModelResult {}
 
 export namespace PutExternalModelResult {
   export const filterSensitiveLog = (obj: PutExternalModelResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutExternalModelResult => __isa(o, "PutExternalModelResult");
 }
 
 export interface PutKMSEncryptionKeyRequest {
-  __type?: "PutKMSEncryptionKeyRequest";
   /**
    * <p>The KMS encryption key ARN.</p>
    */
@@ -2457,22 +2273,17 @@ export namespace PutKMSEncryptionKeyRequest {
   export const filterSensitiveLog = (obj: PutKMSEncryptionKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutKMSEncryptionKeyRequest => __isa(o, "PutKMSEncryptionKeyRequest");
 }
 
-export interface PutKMSEncryptionKeyResult {
-  __type?: "PutKMSEncryptionKeyResult";
-}
+export interface PutKMSEncryptionKeyResult {}
 
 export namespace PutKMSEncryptionKeyResult {
   export const filterSensitiveLog = (obj: PutKMSEncryptionKeyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutKMSEncryptionKeyResult => __isa(o, "PutKMSEncryptionKeyResult");
 }
 
 export interface PutLabelRequest {
-  __type?: "PutLabelRequest";
   /**
    * <p></p>
    */
@@ -2493,22 +2304,17 @@ export namespace PutLabelRequest {
   export const filterSensitiveLog = (obj: PutLabelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLabelRequest => __isa(o, "PutLabelRequest");
 }
 
-export interface PutLabelResult {
-  __type?: "PutLabelResult";
-}
+export interface PutLabelResult {}
 
 export namespace PutLabelResult {
   export const filterSensitiveLog = (obj: PutLabelResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLabelResult => __isa(o, "PutLabelResult");
 }
 
 export interface PutOutcomeRequest {
-  __type?: "PutOutcomeRequest";
   /**
    * <p>The outcome description.</p>
    */
@@ -2529,18 +2335,14 @@ export namespace PutOutcomeRequest {
   export const filterSensitiveLog = (obj: PutOutcomeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutOutcomeRequest => __isa(o, "PutOutcomeRequest");
 }
 
-export interface PutOutcomeResult {
-  __type?: "PutOutcomeResult";
-}
+export interface PutOutcomeResult {}
 
 export namespace PutOutcomeResult {
   export const filterSensitiveLog = (obj: PutOutcomeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutOutcomeResult => __isa(o, "PutOutcomeResult");
 }
 
 /**
@@ -2556,14 +2358,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>A rule.</p>
  */
 export interface Rule {
-  __type?: "Rule";
   /**
    * <p>The detector for which the rule is associated.</p>
    */
@@ -2584,14 +2384,12 @@ export namespace Rule {
   export const filterSensitiveLog = (obj: Rule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Rule => __isa(o, "Rule");
 }
 
 /**
  * <p>The details of the rule.</p>
  */
 export interface RuleDetail {
-  __type?: "RuleDetail";
   /**
    * <p>The rule language.</p>
    */
@@ -2648,7 +2446,6 @@ export namespace RuleDetail {
     ...obj,
     ...(obj.expression && { expression: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is RuleDetail => __isa(o, "RuleDetail");
 }
 
 export enum RuleExecutionMode {
@@ -2660,7 +2457,6 @@ export enum RuleExecutionMode {
  * <p>The rule results.</p>
  */
 export interface RuleResult {
-  __type?: "RuleResult";
   /**
    * <p>The outcomes of the matched rule, based on the rule execution mode.</p>
    */
@@ -2676,14 +2472,12 @@ export namespace RuleResult {
   export const filterSensitiveLog = (obj: RuleResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleResult => __isa(o, "RuleResult");
 }
 
 /**
  * <p>A key and value pair. </p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>A value assigned to a tag key.</p>
    */
@@ -2699,11 +2493,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The resource ARN.</p>
    */
@@ -2719,18 +2511,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResult {
-  __type?: "TagResourceResult";
-}
+export interface TagResourceResult {}
 
 export namespace TagResourceResult {
   export const filterSensitiveLog = (obj: TagResourceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResult => __isa(o, "TagResourceResult");
 }
 
 /**
@@ -2746,14 +2534,12 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>The training data schema.</p>
  */
 export interface TrainingDataSchema {
-  __type?: "TrainingDataSchema";
   /**
    * <p>The training data schema variables.</p>
    */
@@ -2769,7 +2555,6 @@ export namespace TrainingDataSchema {
   export const filterSensitiveLog = (obj: TrainingDataSchema): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrainingDataSchema => __isa(o, "TrainingDataSchema");
 }
 
 export enum TrainingDataSourceEnum {
@@ -2780,7 +2565,6 @@ export enum TrainingDataSourceEnum {
  * <p>The training metric details.</p>
  */
 export interface TrainingMetrics {
-  __type?: "TrainingMetrics";
   /**
    * <p>The area under the curve. This summarizes true positive rate (TPR) and false positive rate (FPR) across all possible model score thresholds. A model with no predictive power has an AUC of 0.5, whereas a perfect model has a score of 1.0.</p>
    */
@@ -2796,14 +2580,12 @@ export namespace TrainingMetrics {
   export const filterSensitiveLog = (obj: TrainingMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrainingMetrics => __isa(o, "TrainingMetrics");
 }
 
 /**
  * <p>The training result details.</p>
  */
 export interface TrainingResult {
-  __type?: "TrainingResult";
   /**
    * <p>The validation metrics.</p>
    */
@@ -2819,11 +2601,9 @@ export namespace TrainingResult {
   export const filterSensitiveLog = (obj: TrainingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrainingResult => __isa(o, "TrainingResult");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The ARN of the resource from which to remove the tag.</p>
    */
@@ -2839,22 +2619,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResult {
-  __type?: "UntagResourceResult";
-}
+export interface UntagResourceResult {}
 
 export namespace UntagResourceResult {
   export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResult => __isa(o, "UntagResourceResult");
 }
 
 export interface UpdateDetectorVersionMetadataRequest {
-  __type?: "UpdateDetectorVersionMetadataRequest";
   /**
    * <p>The detector version ID. </p>
    */
@@ -2875,24 +2650,17 @@ export namespace UpdateDetectorVersionMetadataRequest {
   export const filterSensitiveLog = (obj: UpdateDetectorVersionMetadataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDetectorVersionMetadataRequest =>
-    __isa(o, "UpdateDetectorVersionMetadataRequest");
 }
 
-export interface UpdateDetectorVersionMetadataResult {
-  __type?: "UpdateDetectorVersionMetadataResult";
-}
+export interface UpdateDetectorVersionMetadataResult {}
 
 export namespace UpdateDetectorVersionMetadataResult {
   export const filterSensitiveLog = (obj: UpdateDetectorVersionMetadataResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDetectorVersionMetadataResult =>
-    __isa(o, "UpdateDetectorVersionMetadataResult");
 }
 
 export interface UpdateDetectorVersionRequest {
-  __type?: "UpdateDetectorVersionRequest";
   /**
    * <p>The detector version ID. </p>
    */
@@ -2936,22 +2704,17 @@ export namespace UpdateDetectorVersionRequest {
   export const filterSensitiveLog = (obj: UpdateDetectorVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDetectorVersionRequest => __isa(o, "UpdateDetectorVersionRequest");
 }
 
-export interface UpdateDetectorVersionResult {
-  __type?: "UpdateDetectorVersionResult";
-}
+export interface UpdateDetectorVersionResult {}
 
 export namespace UpdateDetectorVersionResult {
   export const filterSensitiveLog = (obj: UpdateDetectorVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDetectorVersionResult => __isa(o, "UpdateDetectorVersionResult");
 }
 
 export interface UpdateDetectorVersionStatusRequest {
-  __type?: "UpdateDetectorVersionStatusRequest";
   /**
    * <p>The detector ID. </p>
    */
@@ -2972,23 +2735,17 @@ export namespace UpdateDetectorVersionStatusRequest {
   export const filterSensitiveLog = (obj: UpdateDetectorVersionStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDetectorVersionStatusRequest =>
-    __isa(o, "UpdateDetectorVersionStatusRequest");
 }
 
-export interface UpdateDetectorVersionStatusResult {
-  __type?: "UpdateDetectorVersionStatusResult";
-}
+export interface UpdateDetectorVersionStatusResult {}
 
 export namespace UpdateDetectorVersionStatusResult {
   export const filterSensitiveLog = (obj: UpdateDetectorVersionStatusResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDetectorVersionStatusResult => __isa(o, "UpdateDetectorVersionStatusResult");
 }
 
 export interface UpdateModelRequest {
-  __type?: "UpdateModelRequest";
   /**
    * <p>The model type.</p>
    */
@@ -3009,22 +2766,17 @@ export namespace UpdateModelRequest {
   export const filterSensitiveLog = (obj: UpdateModelRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateModelRequest => __isa(o, "UpdateModelRequest");
 }
 
-export interface UpdateModelResult {
-  __type?: "UpdateModelResult";
-}
+export interface UpdateModelResult {}
 
 export namespace UpdateModelResult {
   export const filterSensitiveLog = (obj: UpdateModelResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateModelResult => __isa(o, "UpdateModelResult");
 }
 
 export interface UpdateModelVersionRequest {
-  __type?: "UpdateModelVersionRequest";
   /**
    * <p>A collection of key and value pairs.</p>
    */
@@ -3055,11 +2807,9 @@ export namespace UpdateModelVersionRequest {
   export const filterSensitiveLog = (obj: UpdateModelVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateModelVersionRequest => __isa(o, "UpdateModelVersionRequest");
 }
 
 export interface UpdateModelVersionResult {
-  __type?: "UpdateModelVersionResult";
   /**
    * <p>The model type.</p>
    */
@@ -3085,11 +2835,9 @@ export namespace UpdateModelVersionResult {
   export const filterSensitiveLog = (obj: UpdateModelVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateModelVersionResult => __isa(o, "UpdateModelVersionResult");
 }
 
 export interface UpdateModelVersionStatusRequest {
-  __type?: "UpdateModelVersionStatusRequest";
   /**
    * <p>The model ID of the model version to update.</p>
    */
@@ -3115,22 +2863,17 @@ export namespace UpdateModelVersionStatusRequest {
   export const filterSensitiveLog = (obj: UpdateModelVersionStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateModelVersionStatusRequest => __isa(o, "UpdateModelVersionStatusRequest");
 }
 
-export interface UpdateModelVersionStatusResult {
-  __type?: "UpdateModelVersionStatusResult";
-}
+export interface UpdateModelVersionStatusResult {}
 
 export namespace UpdateModelVersionStatusResult {
   export const filterSensitiveLog = (obj: UpdateModelVersionStatusResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateModelVersionStatusResult => __isa(o, "UpdateModelVersionStatusResult");
 }
 
 export interface UpdateRuleMetadataRequest {
-  __type?: "UpdateRuleMetadataRequest";
   /**
    * <p>The rule to update.</p>
    */
@@ -3146,22 +2889,17 @@ export namespace UpdateRuleMetadataRequest {
   export const filterSensitiveLog = (obj: UpdateRuleMetadataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRuleMetadataRequest => __isa(o, "UpdateRuleMetadataRequest");
 }
 
-export interface UpdateRuleMetadataResult {
-  __type?: "UpdateRuleMetadataResult";
-}
+export interface UpdateRuleMetadataResult {}
 
 export namespace UpdateRuleMetadataResult {
   export const filterSensitiveLog = (obj: UpdateRuleMetadataResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRuleMetadataResult => __isa(o, "UpdateRuleMetadataResult");
 }
 
 export interface UpdateRuleVersionRequest {
-  __type?: "UpdateRuleVersionRequest";
   /**
    * <p>The tags to assign to the rule version.</p>
    */
@@ -3198,11 +2936,9 @@ export namespace UpdateRuleVersionRequest {
     ...obj,
     ...(obj.expression && { expression: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateRuleVersionRequest => __isa(o, "UpdateRuleVersionRequest");
 }
 
 export interface UpdateRuleVersionResult {
-  __type?: "UpdateRuleVersionResult";
   /**
    * <p>The new rule version that was created.</p>
    */
@@ -3213,11 +2949,9 @@ export namespace UpdateRuleVersionResult {
   export const filterSensitiveLog = (obj: UpdateRuleVersionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRuleVersionResult => __isa(o, "UpdateRuleVersionResult");
 }
 
 export interface UpdateVariableRequest {
-  __type?: "UpdateVariableRequest";
   /**
    * <p>The variable type. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
    */
@@ -3243,18 +2977,14 @@ export namespace UpdateVariableRequest {
   export const filterSensitiveLog = (obj: UpdateVariableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVariableRequest => __isa(o, "UpdateVariableRequest");
 }
 
-export interface UpdateVariableResult {
-  __type?: "UpdateVariableResult";
-}
+export interface UpdateVariableResult {}
 
 export namespace UpdateVariableResult {
   export const filterSensitiveLog = (obj: UpdateVariableResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVariableResult => __isa(o, "UpdateVariableResult");
 }
 
 /**
@@ -3270,14 +3000,12 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 /**
  * <p>The variable.</p>
  */
 export interface Variable {
-  __type?: "Variable";
   /**
    * <p>The default value of the variable.</p>
    */
@@ -3330,14 +3058,12 @@ export namespace Variable {
   export const filterSensitiveLog = (obj: Variable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Variable => __isa(o, "Variable");
 }
 
 /**
  * <p>A variable in the list of variables for the batch create variable request.</p>
  */
 export interface VariableEntry {
-  __type?: "VariableEntry";
   /**
    * <p>The name of the variable.</p>
    */
@@ -3375,5 +3101,4 @@ export namespace VariableEntry {
   export const filterSensitiveLog = (obj: VariableEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VariableEntry => __isa(o, "VariableEntry");
 }

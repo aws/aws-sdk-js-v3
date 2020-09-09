@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,11 +17,9 @@ export namespace AlreadyExistsException {
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 export interface BatchGrantPermissionsRequest {
-  __type?: "BatchGrantPermissionsRequest";
   /**
    * <p>A list of up to 20 entries for resource permissions to be granted by batch operation to the principal.</p>
    */
@@ -37,11 +35,9 @@ export namespace BatchGrantPermissionsRequest {
   export const filterSensitiveLog = (obj: BatchGrantPermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGrantPermissionsRequest => __isa(o, "BatchGrantPermissionsRequest");
 }
 
 export interface BatchGrantPermissionsResponse {
-  __type?: "BatchGrantPermissionsResponse";
   /**
    * <p>A list of failures to grant permissions to the resources.</p>
    */
@@ -52,14 +48,12 @@ export namespace BatchGrantPermissionsResponse {
   export const filterSensitiveLog = (obj: BatchGrantPermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGrantPermissionsResponse => __isa(o, "BatchGrantPermissionsResponse");
 }
 
 /**
  * <p>A list of failures when performing a batch grant or batch revoke operation.</p>
  */
 export interface BatchPermissionsFailureEntry {
-  __type?: "BatchPermissionsFailureEntry";
   /**
    * <p>An identifier for an entry of the batch request.</p>
    */
@@ -75,14 +69,12 @@ export namespace BatchPermissionsFailureEntry {
   export const filterSensitiveLog = (obj: BatchPermissionsFailureEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPermissionsFailureEntry => __isa(o, "BatchPermissionsFailureEntry");
 }
 
 /**
  * <p>A permission to a resource granted by batch operation to the principal.</p>
  */
 export interface BatchPermissionsRequestEntry {
-  __type?: "BatchPermissionsRequestEntry";
   /**
    * <p>Indicates if the option to pass permissions is granted.</p>
    */
@@ -113,11 +105,9 @@ export namespace BatchPermissionsRequestEntry {
   export const filterSensitiveLog = (obj: BatchPermissionsRequestEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPermissionsRequestEntry => __isa(o, "BatchPermissionsRequestEntry");
 }
 
 export interface BatchRevokePermissionsRequest {
-  __type?: "BatchRevokePermissionsRequest";
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
    */
@@ -133,11 +123,9 @@ export namespace BatchRevokePermissionsRequest {
   export const filterSensitiveLog = (obj: BatchRevokePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchRevokePermissionsRequest => __isa(o, "BatchRevokePermissionsRequest");
 }
 
 export interface BatchRevokePermissionsResponse {
-  __type?: "BatchRevokePermissionsResponse";
   /**
    * <p>A list of failures to revoke permissions to the resources.</p>
    */
@@ -148,28 +136,23 @@ export namespace BatchRevokePermissionsResponse {
   export const filterSensitiveLog = (obj: BatchRevokePermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchRevokePermissionsResponse => __isa(o, "BatchRevokePermissionsResponse");
 }
 
 /**
  * <p>A structure for the catalog object.</p>
  */
-export interface CatalogResource {
-  __type?: "CatalogResource";
-}
+export interface CatalogResource {}
 
 export namespace CatalogResource {
   export const filterSensitiveLog = (obj: CatalogResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CatalogResource => __isa(o, "CatalogResource");
 }
 
 /**
  * <p>A wildcard object, consisting of an optional list of excluded column names or indexes.</p>
  */
 export interface ColumnWildcard {
-  __type?: "ColumnWildcard";
   /**
    * <p>Excludes column names. Any column with this name will be excluded.</p>
    */
@@ -180,7 +163,6 @@ export namespace ColumnWildcard {
   export const filterSensitiveLog = (obj: ColumnWildcard): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColumnWildcard => __isa(o, "ColumnWildcard");
 }
 
 export enum ComparisonOperator {
@@ -213,14 +195,12 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
  * <p>A structure for the database object.</p>
  */
 export interface DatabaseResource {
-  __type?: "DatabaseResource";
   /**
    * <p>The name of the database resource. Unique to the Data Catalog.</p>
    */
@@ -236,14 +216,12 @@ export namespace DatabaseResource {
   export const filterSensitiveLog = (obj: DatabaseResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatabaseResource => __isa(o, "DatabaseResource");
 }
 
 /**
  * <p>The AWS Lake Formation principal. Supported principals are IAM users or IAM roles.</p>
  */
 export interface DataLakePrincipal {
-  __type?: "DataLakePrincipal";
   /**
    * <p>An identifier for the AWS Lake Formation principal.</p>
    */
@@ -254,7 +232,6 @@ export namespace DataLakePrincipal {
   export const filterSensitiveLog = (obj: DataLakePrincipal): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataLakePrincipal => __isa(o, "DataLakePrincipal");
 }
 
 export enum DataLakeResourceType {
@@ -268,7 +245,6 @@ export enum DataLakeResourceType {
  * <p>A structure representing a list of AWS Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.</p>
  */
 export interface DataLakeSettings {
-  __type?: "DataLakeSettings";
   /**
    * <p>A structure representing a list of up to three principal permissions entries for default create table permissions.</p>
    */
@@ -296,14 +272,12 @@ export namespace DataLakeSettings {
   export const filterSensitiveLog = (obj: DataLakeSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataLakeSettings => __isa(o, "DataLakeSettings");
 }
 
 /**
  * <p>A structure for a data location object where permissions are granted or revoked. </p>
  */
 export interface DataLocationResource {
-  __type?: "DataLocationResource";
   /**
    * <p>The identifier for the Data Catalog where the location is registered with AWS Lake Formation. By default, it is the account ID of the caller.</p>
    */
@@ -319,11 +293,9 @@ export namespace DataLocationResource {
   export const filterSensitiveLog = (obj: DataLocationResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataLocationResource => __isa(o, "DataLocationResource");
 }
 
 export interface DeregisterResourceRequest {
-  __type?: "DeregisterResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to deregister.</p>
    */
@@ -334,22 +306,17 @@ export namespace DeregisterResourceRequest {
   export const filterSensitiveLog = (obj: DeregisterResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterResourceRequest => __isa(o, "DeregisterResourceRequest");
 }
 
-export interface DeregisterResourceResponse {
-  __type?: "DeregisterResourceResponse";
-}
+export interface DeregisterResourceResponse {}
 
 export namespace DeregisterResourceResponse {
   export const filterSensitiveLog = (obj: DeregisterResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterResourceResponse => __isa(o, "DeregisterResourceResponse");
 }
 
 export interface DescribeResourceRequest {
-  __type?: "DescribeResourceRequest";
   /**
    * <p>The resource ARN.</p>
    */
@@ -360,11 +327,9 @@ export namespace DescribeResourceRequest {
   export const filterSensitiveLog = (obj: DescribeResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeResourceRequest => __isa(o, "DescribeResourceRequest");
 }
 
 export interface DescribeResourceResponse {
-  __type?: "DescribeResourceResponse";
   /**
    * <p>A structure containing information about an AWS Lake Formation resource.</p>
    */
@@ -375,7 +340,6 @@ export namespace DescribeResourceResponse {
   export const filterSensitiveLog = (obj: DescribeResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeResourceResponse => __isa(o, "DescribeResourceResponse");
 }
 
 /**
@@ -394,14 +358,12 @@ export namespace EntityNotFoundException {
   export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityNotFoundException => __isa(o, "EntityNotFoundException");
 }
 
 /**
  * <p>Contains details about an error.</p>
  */
 export interface ErrorDetail {
-  __type?: "ErrorDetail";
   /**
    * <p>The code associated with this error.</p>
    */
@@ -417,7 +379,6 @@ export namespace ErrorDetail {
   export const filterSensitiveLog = (obj: ErrorDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorDetail => __isa(o, "ErrorDetail");
 }
 
 export enum FieldNameString {
@@ -430,7 +391,6 @@ export enum FieldNameString {
  * <p>This structure describes the filtering of columns in a table based on a filter condition.</p>
  */
 export interface FilterCondition {
-  __type?: "FilterCondition";
   /**
    * <p>The field to filter in the filter condition.</p>
    */
@@ -451,11 +411,9 @@ export namespace FilterCondition {
   export const filterSensitiveLog = (obj: FilterCondition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FilterCondition => __isa(o, "FilterCondition");
 }
 
 export interface GetDataLakeSettingsRequest {
-  __type?: "GetDataLakeSettingsRequest";
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
    */
@@ -466,11 +424,9 @@ export namespace GetDataLakeSettingsRequest {
   export const filterSensitiveLog = (obj: GetDataLakeSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataLakeSettingsRequest => __isa(o, "GetDataLakeSettingsRequest");
 }
 
 export interface GetDataLakeSettingsResponse {
-  __type?: "GetDataLakeSettingsResponse";
   /**
    * <p>A structure representing a list of AWS Lake Formation principals designated as data lake administrators.</p>
    */
@@ -481,11 +437,9 @@ export namespace GetDataLakeSettingsResponse {
   export const filterSensitiveLog = (obj: GetDataLakeSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataLakeSettingsResponse => __isa(o, "GetDataLakeSettingsResponse");
 }
 
 export interface GetEffectivePermissionsForPathRequest {
-  __type?: "GetEffectivePermissionsForPathRequest";
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
    */
@@ -511,12 +465,9 @@ export namespace GetEffectivePermissionsForPathRequest {
   export const filterSensitiveLog = (obj: GetEffectivePermissionsForPathRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEffectivePermissionsForPathRequest =>
-    __isa(o, "GetEffectivePermissionsForPathRequest");
 }
 
 export interface GetEffectivePermissionsForPathResponse {
-  __type?: "GetEffectivePermissionsForPathResponse";
   /**
    * <p>A list of the permissions for the specified table or database resource located at the path in Amazon S3.</p>
    */
@@ -532,12 +483,9 @@ export namespace GetEffectivePermissionsForPathResponse {
   export const filterSensitiveLog = (obj: GetEffectivePermissionsForPathResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEffectivePermissionsForPathResponse =>
-    __isa(o, "GetEffectivePermissionsForPathResponse");
 }
 
 export interface GrantPermissionsRequest {
-  __type?: "GrantPermissionsRequest";
   /**
    * <p>The permissions granted to the principal on the resource. AWS Lake Formation defines privileges to grant and revoke access to metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. AWS Lake Formation requires that each principal be authorized to perform a specific task on AWS Lake Formation resources. </p>
    */
@@ -569,18 +517,14 @@ export namespace GrantPermissionsRequest {
   export const filterSensitiveLog = (obj: GrantPermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrantPermissionsRequest => __isa(o, "GrantPermissionsRequest");
 }
 
-export interface GrantPermissionsResponse {
-  __type?: "GrantPermissionsResponse";
-}
+export interface GrantPermissionsResponse {}
 
 export namespace GrantPermissionsResponse {
   export const filterSensitiveLog = (obj: GrantPermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrantPermissionsResponse => __isa(o, "GrantPermissionsResponse");
 }
 
 /**
@@ -599,7 +543,6 @@ export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
@@ -618,11 +561,9 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 export interface ListPermissionsRequest {
-  __type?: "ListPermissionsRequest";
   /**
    * <p>A continuation token, if this is not the first call to retrieve this list.</p>
    */
@@ -659,11 +600,9 @@ export namespace ListPermissionsRequest {
   export const filterSensitiveLog = (obj: ListPermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPermissionsRequest => __isa(o, "ListPermissionsRequest");
 }
 
 export interface ListPermissionsResponse {
-  __type?: "ListPermissionsResponse";
   /**
    * <p>A continuation token, if this is not the first call to retrieve this list.</p>
    */
@@ -679,11 +618,9 @@ export namespace ListPermissionsResponse {
   export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPermissionsResponse => __isa(o, "ListPermissionsResponse");
 }
 
 export interface ListResourcesRequest {
-  __type?: "ListResourcesRequest";
   /**
    * <p>The maximum number of resource results.</p>
    */
@@ -704,11 +641,9 @@ export namespace ListResourcesRequest {
   export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourcesRequest => __isa(o, "ListResourcesRequest");
 }
 
 export interface ListResourcesResponse {
-  __type?: "ListResourcesResponse";
   /**
    * <p>A summary of the data lake resources.</p>
    */
@@ -724,7 +659,6 @@ export namespace ListResourcesResponse {
   export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourcesResponse => __isa(o, "ListResourcesResponse");
 }
 
 /**
@@ -743,7 +677,6 @@ export namespace OperationTimeoutException {
   export const filterSensitiveLog = (obj: OperationTimeoutException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationTimeoutException => __isa(o, "OperationTimeoutException");
 }
 
 export enum Permission {
@@ -763,7 +696,6 @@ export enum Permission {
  * <p>Permissions granted to a principal.</p>
  */
 export interface PrincipalPermissions {
-  __type?: "PrincipalPermissions";
   /**
    * <p>The permissions that are granted to the principal.</p>
    */
@@ -779,14 +711,12 @@ export namespace PrincipalPermissions {
   export const filterSensitiveLog = (obj: PrincipalPermissions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrincipalPermissions => __isa(o, "PrincipalPermissions");
 }
 
 /**
  * <p>The permissions granted or revoked on a resource.</p>
  */
 export interface PrincipalResourcePermissions {
-  __type?: "PrincipalResourcePermissions";
   /**
    * <p>The resource where permissions are to be granted or revoked.</p>
    */
@@ -812,11 +742,9 @@ export namespace PrincipalResourcePermissions {
   export const filterSensitiveLog = (obj: PrincipalResourcePermissions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrincipalResourcePermissions => __isa(o, "PrincipalResourcePermissions");
 }
 
 export interface PutDataLakeSettingsRequest {
-  __type?: "PutDataLakeSettingsRequest";
   /**
    * <p>A structure representing a list of AWS Lake Formation principals designated as data lake administrators.</p>
    */
@@ -832,22 +760,17 @@ export namespace PutDataLakeSettingsRequest {
   export const filterSensitiveLog = (obj: PutDataLakeSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDataLakeSettingsRequest => __isa(o, "PutDataLakeSettingsRequest");
 }
 
-export interface PutDataLakeSettingsResponse {
-  __type?: "PutDataLakeSettingsResponse";
-}
+export interface PutDataLakeSettingsResponse {}
 
 export namespace PutDataLakeSettingsResponse {
   export const filterSensitiveLog = (obj: PutDataLakeSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDataLakeSettingsResponse => __isa(o, "PutDataLakeSettingsResponse");
 }
 
 export interface RegisterResourceRequest {
-  __type?: "RegisterResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to register.</p>
    */
@@ -870,25 +793,20 @@ export namespace RegisterResourceRequest {
   export const filterSensitiveLog = (obj: RegisterResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterResourceRequest => __isa(o, "RegisterResourceRequest");
 }
 
-export interface RegisterResourceResponse {
-  __type?: "RegisterResourceResponse";
-}
+export interface RegisterResourceResponse {}
 
 export namespace RegisterResourceResponse {
   export const filterSensitiveLog = (obj: RegisterResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterResourceResponse => __isa(o, "RegisterResourceResponse");
 }
 
 /**
  * <p>A structure for the resource.</p>
  */
 export interface Resource {
-  __type?: "Resource";
   /**
    * <p>The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.</p>
    */
@@ -919,14 +837,12 @@ export namespace Resource {
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Resource => __isa(o, "Resource");
 }
 
 /**
  * <p>A structure containing information about an AWS Lake Formation resource.</p>
  */
 export interface ResourceInfo {
-  __type?: "ResourceInfo";
   /**
    * <p>The IAM role that registered a resource.</p>
    */
@@ -947,11 +863,9 @@ export namespace ResourceInfo {
   export const filterSensitiveLog = (obj: ResourceInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInfo => __isa(o, "ResourceInfo");
 }
 
 export interface RevokePermissionsRequest {
-  __type?: "RevokePermissionsRequest";
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
    */
@@ -983,25 +897,20 @@ export namespace RevokePermissionsRequest {
   export const filterSensitiveLog = (obj: RevokePermissionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokePermissionsRequest => __isa(o, "RevokePermissionsRequest");
 }
 
-export interface RevokePermissionsResponse {
-  __type?: "RevokePermissionsResponse";
-}
+export interface RevokePermissionsResponse {}
 
 export namespace RevokePermissionsResponse {
   export const filterSensitiveLog = (obj: RevokePermissionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokePermissionsResponse => __isa(o, "RevokePermissionsResponse");
 }
 
 /**
  * <p>A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
  */
 export interface TableResource {
-  __type?: "TableResource";
   /**
    * <p>A wildcard object representing every table under a database.</p>
    *
@@ -1029,21 +938,17 @@ export namespace TableResource {
   export const filterSensitiveLog = (obj: TableResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableResource => __isa(o, "TableResource");
 }
 
 /**
  * <p>A wildcard object representing every table under a database.</p>
  */
-export interface TableWildcard {
-  __type?: "TableWildcard";
-}
+export interface TableWildcard {}
 
 export namespace TableWildcard {
   export const filterSensitiveLog = (obj: TableWildcard): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableWildcard => __isa(o, "TableWildcard");
 }
 
 /**
@@ -1051,7 +956,6 @@ export namespace TableWildcard {
  * 	        <p>This object must take a value for at least one of <code>ColumnsNames</code>, <code>ColumnsIndexes</code>, or <code>ColumnsWildcard</code>.</p>
  */
 export interface TableWithColumnsResource {
-  __type?: "TableWithColumnsResource";
   /**
    * <p>The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. </p>
    */
@@ -1082,11 +986,9 @@ export namespace TableWithColumnsResource {
   export const filterSensitiveLog = (obj: TableWithColumnsResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableWithColumnsResource => __isa(o, "TableWithColumnsResource");
 }
 
 export interface UpdateResourceRequest {
-  __type?: "UpdateResourceRequest";
   /**
    * <p>The resource ARN.</p>
    */
@@ -1102,16 +1004,12 @@ export namespace UpdateResourceRequest {
   export const filterSensitiveLog = (obj: UpdateResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceRequest => __isa(o, "UpdateResourceRequest");
 }
 
-export interface UpdateResourceResponse {
-  __type?: "UpdateResourceResponse";
-}
+export interface UpdateResourceResponse {}
 
 export namespace UpdateResourceResponse {
   export const filterSensitiveLog = (obj: UpdateResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateResourceResponse => __isa(o, "UpdateResourceResponse");
 }

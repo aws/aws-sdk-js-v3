@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,14 +17,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>The destination for the asset.</p>
  */
 export interface AssetDestinationEntry {
-  __type?: "AssetDestinationEntry";
   /**
    * <p>The S3 bucket that is the destination for the asset.</p>
    */
@@ -45,11 +43,9 @@ export namespace AssetDestinationEntry {
   export const filterSensitiveLog = (obj: AssetDestinationEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetDestinationEntry => __isa(o, "AssetDestinationEntry");
 }
 
 export interface AssetDetails {
-  __type?: "AssetDetails";
   /**
    * <p>The S3 object that is the asset.</p>
    */
@@ -60,14 +56,12 @@ export namespace AssetDetails {
   export const filterSensitiveLog = (obj: AssetDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetDetails => __isa(o, "AssetDetails");
 }
 
 /**
  * <p>An asset in AWS Data Exchange is a piece of data that can be stored as an S3 object. The asset can be a structured data file, an image file, or some other data file. When you create an import job for your files, you create an asset in AWS Data Exchange for each of those files.</p>
  */
 export interface AssetEntry {
-  __type?: "AssetEntry";
   /**
    * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This parameter is returned when an asset owner is viewing the entitled copy of its owned asset.</p>
    */
@@ -123,14 +117,12 @@ export namespace AssetEntry {
   export const filterSensitiveLog = (obj: AssetEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetEntry => __isa(o, "AssetEntry");
 }
 
 /**
  * <p>The source of the assets.</p>
  */
 export interface AssetSourceEntry {
-  __type?: "AssetSourceEntry";
   /**
    * <p>The S3 bucket that's part of the source of the asset.</p>
    */
@@ -146,7 +138,6 @@ export namespace AssetSourceEntry {
   export const filterSensitiveLog = (obj: AssetSourceEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetSourceEntry => __isa(o, "AssetSourceEntry");
 }
 
 export enum AssetType {
@@ -154,7 +145,6 @@ export enum AssetType {
 }
 
 export interface CancelJobRequest {
-  __type?: "CancelJobRequest";
   /**
    * <p>The unique identifier for a job.</p>
    */
@@ -165,7 +155,6 @@ export namespace CancelJobRequest {
   export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJobRequest => __isa(o, "CancelJobRequest");
 }
 
 export enum Code {
@@ -204,14 +193,12 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
  * <p>The request body for CreateDataSet.</p>
  */
 export interface CreateDataSetRequest {
-  __type?: "CreateDataSetRequest";
   /**
    * <p>A description for the data set. This value can be up to 16,348 characters long.</p>
    */
@@ -237,11 +224,9 @@ export namespace CreateDataSetRequest {
   export const filterSensitiveLog = (obj: CreateDataSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSetRequest => __isa(o, "CreateDataSetRequest");
 }
 
 export interface CreateDataSetResponse {
-  __type?: "CreateDataSetResponse";
   /**
    * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
    */
@@ -302,14 +287,12 @@ export namespace CreateDataSetResponse {
   export const filterSensitiveLog = (obj: CreateDataSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSetResponse => __isa(o, "CreateDataSetResponse");
 }
 
 /**
  * <p>The request body for CreateJob.</p>
  */
 export interface CreateJobRequest {
-  __type?: "CreateJobRequest";
   /**
    * <p>The details for the CreateJob request.</p>
    */
@@ -325,11 +308,9 @@ export namespace CreateJobRequest {
   export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobRequest => __isa(o, "CreateJobRequest");
 }
 
 export interface CreateJobResponse {
-  __type?: "CreateJobResponse";
   /**
    * <p>The job type.</p>
    */
@@ -375,14 +356,12 @@ export namespace CreateJobResponse {
   export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobResponse => __isa(o, "CreateJobResponse");
 }
 
 /**
  * <p>The request body for CreateRevision.</p>
  */
 export interface CreateRevisionRequest {
-  __type?: "CreateRevisionRequest";
   /**
    * <p>An optional comment about the revision.</p>
    */
@@ -403,11 +382,9 @@ export namespace CreateRevisionRequest {
   export const filterSensitiveLog = (obj: CreateRevisionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRevisionRequest => __isa(o, "CreateRevisionRequest");
 }
 
 export interface CreateRevisionResponse {
-  __type?: "CreateRevisionResponse";
   /**
    * <p>An optional comment about the revision.</p>
    */
@@ -458,14 +435,12 @@ export namespace CreateRevisionResponse {
   export const filterSensitiveLog = (obj: CreateRevisionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRevisionResponse => __isa(o, "CreateRevisionResponse");
 }
 
 /**
  * <p>A data set is an AWS resource with one or more revisions.</p>
  */
 export interface DataSetEntry {
-  __type?: "DataSetEntry";
   /**
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
@@ -521,11 +496,9 @@ export namespace DataSetEntry {
   export const filterSensitiveLog = (obj: DataSetEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSetEntry => __isa(o, "DataSetEntry");
 }
 
 export interface DeleteAssetRequest {
-  __type?: "DeleteAssetRequest";
   /**
    * <p>The unique identifier for a data set.</p>
    */
@@ -546,11 +519,9 @@ export namespace DeleteAssetRequest {
   export const filterSensitiveLog = (obj: DeleteAssetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAssetRequest => __isa(o, "DeleteAssetRequest");
 }
 
 export interface DeleteDataSetRequest {
-  __type?: "DeleteDataSetRequest";
   /**
    * <p>The unique identifier for a data set.</p>
    */
@@ -561,11 +532,9 @@ export namespace DeleteDataSetRequest {
   export const filterSensitiveLog = (obj: DeleteDataSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDataSetRequest => __isa(o, "DeleteDataSetRequest");
 }
 
 export interface DeleteRevisionRequest {
-  __type?: "DeleteRevisionRequest";
   /**
    * <p>The unique identifier for a data set.</p>
    */
@@ -581,11 +550,9 @@ export namespace DeleteRevisionRequest {
   export const filterSensitiveLog = (obj: DeleteRevisionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRevisionRequest => __isa(o, "DeleteRevisionRequest");
 }
 
 export interface Details {
-  __type?: "Details";
   /**
    * <p>The list of sources for the assets.</p>
    */
@@ -598,14 +565,12 @@ export namespace Details {
   export const filterSensitiveLog = (obj: Details): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Details => __isa(o, "Details");
 }
 
 /**
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ExportAssetsToS3RequestDetails {
-  __type?: "ExportAssetsToS3RequestDetails";
   /**
    * <p>The destination for the asset.</p>
    */
@@ -631,14 +596,12 @@ export namespace ExportAssetsToS3RequestDetails {
   export const filterSensitiveLog = (obj: ExportAssetsToS3RequestDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportAssetsToS3RequestDetails => __isa(o, "ExportAssetsToS3RequestDetails");
 }
 
 /**
  * <p>Details about the export to Amazon S3 response.</p>
  */
 export interface ExportAssetsToS3ResponseDetails {
-  __type?: "ExportAssetsToS3ResponseDetails";
   /**
    * <p>The destination in Amazon S3 where the asset is exported.</p>
    */
@@ -664,14 +627,12 @@ export namespace ExportAssetsToS3ResponseDetails {
   export const filterSensitiveLog = (obj: ExportAssetsToS3ResponseDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportAssetsToS3ResponseDetails => __isa(o, "ExportAssetsToS3ResponseDetails");
 }
 
 /**
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ExportAssetToSignedUrlRequestDetails {
-  __type?: "ExportAssetToSignedUrlRequestDetails";
   /**
    * <p>The unique identifier for the revision associated with this export request.</p>
    */
@@ -692,15 +653,12 @@ export namespace ExportAssetToSignedUrlRequestDetails {
   export const filterSensitiveLog = (obj: ExportAssetToSignedUrlRequestDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportAssetToSignedUrlRequestDetails =>
-    __isa(o, "ExportAssetToSignedUrlRequestDetails");
 }
 
 /**
  * <p>The details of the export to signed URL response.</p>
  */
 export interface ExportAssetToSignedUrlResponseDetails {
-  __type?: "ExportAssetToSignedUrlResponseDetails";
   /**
    * <p>The unique identifier for the asset associated with this export job.</p>
    */
@@ -731,15 +689,12 @@ export namespace ExportAssetToSignedUrlResponseDetails {
   export const filterSensitiveLog = (obj: ExportAssetToSignedUrlResponseDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportAssetToSignedUrlResponseDetails =>
-    __isa(o, "ExportAssetToSignedUrlResponseDetails");
 }
 
 /**
  * <p>Encryption configuration of the export job. Includes the encryption type as well as the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption type.</p>
  */
 export interface ExportServerSideEncryption {
-  __type?: "ExportServerSideEncryption";
   /**
    * <p>The Amazon Resource Name (ARN) of the the AWS KMS key you want to use to encrypt the Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption type.</p>
    */
@@ -755,11 +710,9 @@ export namespace ExportServerSideEncryption {
   export const filterSensitiveLog = (obj: ExportServerSideEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportServerSideEncryption => __isa(o, "ExportServerSideEncryption");
 }
 
 export interface GetAssetRequest {
-  __type?: "GetAssetRequest";
   /**
    * <p>The unique identifier for an asset.</p>
    */
@@ -780,11 +733,9 @@ export namespace GetAssetRequest {
   export const filterSensitiveLog = (obj: GetAssetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssetRequest => __isa(o, "GetAssetRequest");
 }
 
 export interface GetAssetResponse {
-  __type?: "GetAssetResponse";
   /**
    * <p>The unique identifier for the revision associated with this asset.</p>
    */
@@ -840,11 +791,9 @@ export namespace GetAssetResponse {
   export const filterSensitiveLog = (obj: GetAssetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssetResponse => __isa(o, "GetAssetResponse");
 }
 
 export interface GetDataSetRequest {
-  __type?: "GetDataSetRequest";
   /**
    * <p>The unique identifier for a data set.</p>
    */
@@ -855,11 +804,9 @@ export namespace GetDataSetRequest {
   export const filterSensitiveLog = (obj: GetDataSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataSetRequest => __isa(o, "GetDataSetRequest");
 }
 
 export interface GetDataSetResponse {
-  __type?: "GetDataSetResponse";
   /**
    * <p>The unique identifier for the data set.</p>
    */
@@ -920,11 +867,9 @@ export namespace GetDataSetResponse {
   export const filterSensitiveLog = (obj: GetDataSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataSetResponse => __isa(o, "GetDataSetResponse");
 }
 
 export interface GetJobRequest {
-  __type?: "GetJobRequest";
   /**
    * <p>The unique identifier for a job.</p>
    */
@@ -935,11 +880,9 @@ export namespace GetJobRequest {
   export const filterSensitiveLog = (obj: GetJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobRequest => __isa(o, "GetJobRequest");
 }
 
 export interface GetJobResponse {
-  __type?: "GetJobResponse";
   /**
    * <p>The unique identifier for the job.</p>
    */
@@ -985,11 +928,9 @@ export namespace GetJobResponse {
   export const filterSensitiveLog = (obj: GetJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobResponse => __isa(o, "GetJobResponse");
 }
 
 export interface GetRevisionRequest {
-  __type?: "GetRevisionRequest";
   /**
    * <p>The unique identifier for a revision.</p>
    */
@@ -1005,11 +946,9 @@ export namespace GetRevisionRequest {
   export const filterSensitiveLog = (obj: GetRevisionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRevisionRequest => __isa(o, "GetRevisionRequest");
 }
 
 export interface GetRevisionResponse {
-  __type?: "GetRevisionResponse";
   /**
    * <p>The unique identifier for the revision.</p>
    */
@@ -1060,11 +999,9 @@ export namespace GetRevisionResponse {
   export const filterSensitiveLog = (obj: GetRevisionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRevisionResponse => __isa(o, "GetRevisionResponse");
 }
 
 export interface ImportAssetFromSignedUrlJobErrorDetails {
-  __type?: "ImportAssetFromSignedUrlJobErrorDetails";
   /**
    * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
    */
@@ -1075,15 +1012,12 @@ export namespace ImportAssetFromSignedUrlJobErrorDetails {
   export const filterSensitiveLog = (obj: ImportAssetFromSignedUrlJobErrorDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportAssetFromSignedUrlJobErrorDetails =>
-    __isa(o, "ImportAssetFromSignedUrlJobErrorDetails");
 }
 
 /**
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ImportAssetFromSignedUrlRequestDetails {
-  __type?: "ImportAssetFromSignedUrlRequestDetails";
   /**
    * <p>The unique identifier for the data set associated with this import job.</p>
    */
@@ -1109,15 +1043,12 @@ export namespace ImportAssetFromSignedUrlRequestDetails {
   export const filterSensitiveLog = (obj: ImportAssetFromSignedUrlRequestDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportAssetFromSignedUrlRequestDetails =>
-    __isa(o, "ImportAssetFromSignedUrlRequestDetails");
 }
 
 /**
  * <p>The details in the response for an import request, including the signed URL and other information.</p>
  */
 export interface ImportAssetFromSignedUrlResponseDetails {
-  __type?: "ImportAssetFromSignedUrlResponseDetails";
   /**
    * <p>The signed URL.</p>
    */
@@ -1153,15 +1084,12 @@ export namespace ImportAssetFromSignedUrlResponseDetails {
   export const filterSensitiveLog = (obj: ImportAssetFromSignedUrlResponseDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportAssetFromSignedUrlResponseDetails =>
-    __isa(o, "ImportAssetFromSignedUrlResponseDetails");
 }
 
 /**
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ImportAssetsFromS3RequestDetails {
-  __type?: "ImportAssetsFromS3RequestDetails";
   /**
    * <p>Is a list of S3 bucket and object key pairs.</p>
    */
@@ -1182,14 +1110,12 @@ export namespace ImportAssetsFromS3RequestDetails {
   export const filterSensitiveLog = (obj: ImportAssetsFromS3RequestDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportAssetsFromS3RequestDetails => __isa(o, "ImportAssetsFromS3RequestDetails");
 }
 
 /**
  * <p>Details from an import from Amazon S3 response.</p>
  */
 export interface ImportAssetsFromS3ResponseDetails {
-  __type?: "ImportAssetsFromS3ResponseDetails";
   /**
    * <p>The unique identifier for the data set associated with this import job.</p>
    */
@@ -1210,7 +1136,6 @@ export namespace ImportAssetsFromS3ResponseDetails {
   export const filterSensitiveLog = (obj: ImportAssetsFromS3ResponseDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportAssetsFromS3ResponseDetails => __isa(o, "ImportAssetsFromS3ResponseDetails");
 }
 
 /**
@@ -1229,14 +1154,12 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * AWS Data Exchange Jobs are asynchronous import or export operations used to create or copy assets. A data set owner can both import and export as they see fit. Someone with an entitlement to a data set can only export. Jobs are deleted 90 days after they are created.
  */
 export interface JobEntry {
-  __type?: "JobEntry";
   /**
    * <p>The ARN for the job.</p>
    */
@@ -1282,14 +1205,12 @@ export namespace JobEntry {
   export const filterSensitiveLog = (obj: JobEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobEntry => __isa(o, "JobEntry");
 }
 
 /**
  * An error that occurred with the job request.
  */
 export interface JobError {
-  __type?: "JobError";
   /**
    * The type of resource related to the error.
    */
@@ -1326,7 +1247,6 @@ export namespace JobError {
   export const filterSensitiveLog = (obj: JobError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobError => __isa(o, "JobError");
 }
 
 export enum JobErrorLimitName {
@@ -1355,7 +1275,6 @@ export enum LimitName {
 }
 
 export interface ListDataSetRevisionsRequest {
-  __type?: "ListDataSetRevisionsRequest";
   /**
    * <p>The maximum number of results returned by a single call.</p>
    */
@@ -1376,11 +1295,9 @@ export namespace ListDataSetRevisionsRequest {
   export const filterSensitiveLog = (obj: ListDataSetRevisionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSetRevisionsRequest => __isa(o, "ListDataSetRevisionsRequest");
 }
 
 export interface ListDataSetRevisionsResponse {
-  __type?: "ListDataSetRevisionsResponse";
   /**
    * <p>The asset objects listed by the request.</p>
    */
@@ -1396,11 +1313,9 @@ export namespace ListDataSetRevisionsResponse {
   export const filterSensitiveLog = (obj: ListDataSetRevisionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSetRevisionsResponse => __isa(o, "ListDataSetRevisionsResponse");
 }
 
 export interface ListDataSetsRequest {
-  __type?: "ListDataSetsRequest";
   /**
    * <p>The maximum number of results returned by a single call.</p>
    */
@@ -1421,11 +1336,9 @@ export namespace ListDataSetsRequest {
   export const filterSensitiveLog = (obj: ListDataSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSetsRequest => __isa(o, "ListDataSetsRequest");
 }
 
 export interface ListDataSetsResponse {
-  __type?: "ListDataSetsResponse";
   /**
    * <p>The data set objects listed by the request.</p>
    */
@@ -1441,11 +1354,9 @@ export namespace ListDataSetsResponse {
   export const filterSensitiveLog = (obj: ListDataSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSetsResponse => __isa(o, "ListDataSetsResponse");
 }
 
 export interface ListJobsRequest {
-  __type?: "ListJobsRequest";
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
@@ -1471,11 +1382,9 @@ export namespace ListJobsRequest {
   export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 export interface ListJobsResponse {
-  __type?: "ListJobsResponse";
   /**
    * <p>The jobs listed by the request.</p>
    */
@@ -1491,11 +1400,9 @@ export namespace ListJobsResponse {
   export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsResponse => __isa(o, "ListJobsResponse");
 }
 
 export interface ListRevisionAssetsRequest {
-  __type?: "ListRevisionAssetsRequest";
   /**
    * <p>The unique identifier for a revision.</p>
    */
@@ -1521,11 +1428,9 @@ export namespace ListRevisionAssetsRequest {
   export const filterSensitiveLog = (obj: ListRevisionAssetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRevisionAssetsRequest => __isa(o, "ListRevisionAssetsRequest");
 }
 
 export interface ListRevisionAssetsResponse {
-  __type?: "ListRevisionAssetsResponse";
   /**
    * <p>The asset objects listed by the request.</p>
    */
@@ -1541,11 +1446,9 @@ export namespace ListRevisionAssetsResponse {
   export const filterSensitiveLog = (obj: ListRevisionAssetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRevisionAssetsResponse => __isa(o, "ListRevisionAssetsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
    */
@@ -1556,11 +1459,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * A label that consists of a customer-defined key and an optional value.
    */
@@ -1571,7 +1472,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum Origin {
@@ -1580,7 +1480,6 @@ export enum Origin {
 }
 
 export interface OriginDetails {
-  __type?: "OriginDetails";
   ProductId: string | undefined;
 }
 
@@ -1588,14 +1487,12 @@ export namespace OriginDetails {
   export const filterSensitiveLog = (obj: OriginDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OriginDetails => __isa(o, "OriginDetails");
 }
 
 /**
  * <p>The details for the request.</p>
  */
 export interface RequestDetails {
-  __type?: "RequestDetails";
   /**
    * <p>Details about the export to signed URL request.</p>
    */
@@ -1621,7 +1518,6 @@ export namespace RequestDetails {
   export const filterSensitiveLog = (obj: RequestDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestDetails => __isa(o, "RequestDetails");
 }
 
 /**
@@ -1650,7 +1546,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum ResourceType {
@@ -1664,7 +1559,6 @@ export enum ResourceType {
  * <p>Details for the response.</p>
  */
 export interface ResponseDetails {
-  __type?: "ResponseDetails";
   /**
    * <p>Details for the export to Amazon S3 response.</p>
    */
@@ -1690,14 +1584,12 @@ export namespace ResponseDetails {
   export const filterSensitiveLog = (obj: ResponseDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResponseDetails => __isa(o, "ResponseDetails");
 }
 
 /**
  * <p>A revision is a container for one or more assets.</p>
  */
 export interface RevisionEntry {
-  __type?: "RevisionEntry";
   /**
    * <p>The unique identifier for the data set associated with this revision.</p>
    */
@@ -1743,14 +1635,12 @@ export namespace RevisionEntry {
   export const filterSensitiveLog = (obj: RevisionEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevisionEntry => __isa(o, "RevisionEntry");
 }
 
 /**
  * <p>The S3 object that is the asset.</p>
  */
 export interface S3SnapshotAsset {
-  __type?: "S3SnapshotAsset";
   /**
    * <p>The size of the S3 object that is the object.</p>
    */
@@ -1761,7 +1651,6 @@ export namespace S3SnapshotAsset {
   export const filterSensitiveLog = (obj: S3SnapshotAsset): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3SnapshotAsset => __isa(o, "S3SnapshotAsset");
 }
 
 export enum ServerSideEncryptionTypes {
@@ -1795,11 +1684,9 @@ export namespace ServiceLimitExceededException {
   export const filterSensitiveLog = (obj: ServiceLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceLimitExceededException => __isa(o, "ServiceLimitExceededException");
 }
 
 export interface StartJobRequest {
-  __type?: "StartJobRequest";
   /**
    * <p>The unique identifier for a job.</p>
    */
@@ -1810,18 +1697,14 @@ export namespace StartJobRequest {
   export const filterSensitiveLog = (obj: StartJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartJobRequest => __isa(o, "StartJobRequest");
 }
 
-export interface StartJobResponse {
-  __type?: "StartJobResponse";
-}
+export interface StartJobResponse {}
 
 export namespace StartJobResponse {
   export const filterSensitiveLog = (obj: StartJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartJobResponse => __isa(o, "StartJobResponse");
 }
 
 export enum State {
@@ -1837,7 +1720,6 @@ export enum State {
  * <p>The request body for TagResource.</p>
  */
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>
    */
@@ -1853,7 +1735,6 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -1872,7 +1753,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export enum Type {
@@ -1883,7 +1763,6 @@ export enum Type {
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * The key tags.
    */
@@ -1899,14 +1778,12 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
  * <p>The request body for UpdateAsset.</p>
  */
 export interface UpdateAssetRequest {
-  __type?: "UpdateAssetRequest";
   /**
    * <p>The unique identifier for an asset.</p>
    */
@@ -1932,11 +1809,9 @@ export namespace UpdateAssetRequest {
   export const filterSensitiveLog = (obj: UpdateAssetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAssetRequest => __isa(o, "UpdateAssetRequest");
 }
 
 export interface UpdateAssetResponse {
-  __type?: "UpdateAssetResponse";
   /**
    * <p>The date and time that the asset was created, in ISO 8601 format.</p>
    */
@@ -1992,14 +1867,12 @@ export namespace UpdateAssetResponse {
   export const filterSensitiveLog = (obj: UpdateAssetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAssetResponse => __isa(o, "UpdateAssetResponse");
 }
 
 /**
  * <p>The request body for UpdateDataSet.</p>
  */
 export interface UpdateDataSetRequest {
-  __type?: "UpdateDataSetRequest";
   /**
    * <p>The description for the data set.</p>
    */
@@ -2020,11 +1893,9 @@ export namespace UpdateDataSetRequest {
   export const filterSensitiveLog = (obj: UpdateDataSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSetRequest => __isa(o, "UpdateDataSetRequest");
 }
 
 export interface UpdateDataSetResponse {
-  __type?: "UpdateDataSetResponse";
   /**
    * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
    */
@@ -2080,14 +1951,12 @@ export namespace UpdateDataSetResponse {
   export const filterSensitiveLog = (obj: UpdateDataSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSetResponse => __isa(o, "UpdateDataSetResponse");
 }
 
 /**
  * <p>The request body for UpdateRevision.</p>
  */
 export interface UpdateRevisionRequest {
-  __type?: "UpdateRevisionRequest";
   /**
    * <p>The unique identifier for a data set.</p>
    */
@@ -2113,11 +1982,9 @@ export namespace UpdateRevisionRequest {
   export const filterSensitiveLog = (obj: UpdateRevisionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRevisionRequest => __isa(o, "UpdateRevisionRequest");
 }
 
 export interface UpdateRevisionResponse {
-  __type?: "UpdateRevisionResponse";
   /**
    * <p>The ARN for the revision.</p>
    */
@@ -2163,7 +2030,6 @@ export namespace UpdateRevisionResponse {
   export const filterSensitiveLog = (obj: UpdateRevisionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRevisionResponse => __isa(o, "UpdateRevisionResponse");
 }
 
 /**
@@ -2182,5 +2048,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

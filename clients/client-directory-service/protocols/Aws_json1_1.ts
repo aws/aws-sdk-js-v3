@@ -1067,7 +1067,6 @@ export const deserializeAws_json1_1AcceptSharedDirectoryCommand = async (
   contents = deserializeAws_json1_1AcceptSharedDirectoryResult(data, context);
   const response: AcceptSharedDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptSharedDirectoryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1155,7 +1154,6 @@ export const deserializeAws_json1_1AddIpRoutesCommand = async (
   contents = deserializeAws_json1_1AddIpRoutesResult(data, context);
   const response: AddIpRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddIpRoutesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1259,7 +1257,6 @@ export const deserializeAws_json1_1AddTagsToResourceCommand = async (
   contents = deserializeAws_json1_1AddTagsToResourceResult(data, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddTagsToResourceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1347,7 +1344,6 @@ export const deserializeAws_json1_1CancelSchemaExtensionCommand = async (
   contents = deserializeAws_json1_1CancelSchemaExtensionResult(data, context);
   const response: CancelSchemaExtensionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelSchemaExtensionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1419,7 +1415,6 @@ export const deserializeAws_json1_1ConnectDirectoryCommand = async (
   contents = deserializeAws_json1_1ConnectDirectoryResult(data, context);
   const response: ConnectDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConnectDirectoryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1499,7 +1494,6 @@ export const deserializeAws_json1_1CreateAliasCommand = async (
   contents = deserializeAws_json1_1CreateAliasResult(data, context);
   const response: CreateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAliasResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1587,7 +1581,6 @@ export const deserializeAws_json1_1CreateComputerCommand = async (
   contents = deserializeAws_json1_1CreateComputerResult(data, context);
   const response: CreateComputerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateComputerResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1699,7 +1692,6 @@ export const deserializeAws_json1_1CreateConditionalForwarderCommand = async (
   contents = deserializeAws_json1_1CreateConditionalForwarderResult(data, context);
   const response: CreateConditionalForwarderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateConditionalForwarderResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1803,7 +1795,6 @@ export const deserializeAws_json1_1CreateDirectoryCommand = async (
   contents = deserializeAws_json1_1CreateDirectoryResult(data, context);
   const response: CreateDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDirectoryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1883,7 +1874,6 @@ export const deserializeAws_json1_1CreateLogSubscriptionCommand = async (
   contents = deserializeAws_json1_1CreateLogSubscriptionResult(data, context);
   const response: CreateLogSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLogSubscriptionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1979,7 +1969,6 @@ export const deserializeAws_json1_1CreateMicrosoftADCommand = async (
   contents = deserializeAws_json1_1CreateMicrosoftADResult(data, context);
   const response: CreateMicrosoftADCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMicrosoftADResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2067,7 +2056,6 @@ export const deserializeAws_json1_1CreateSnapshotCommand = async (
   contents = deserializeAws_json1_1CreateSnapshotResult(data, context);
   const response: CreateSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2155,7 +2143,6 @@ export const deserializeAws_json1_1CreateTrustCommand = async (
   contents = deserializeAws_json1_1CreateTrustResult(data, context);
   const response: CreateTrustCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTrustResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2251,7 +2238,6 @@ export const deserializeAws_json1_1DeleteConditionalForwarderCommand = async (
   contents = deserializeAws_json1_1DeleteConditionalForwarderResult(data, context);
   const response: DeleteConditionalForwarderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteConditionalForwarderResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2347,7 +2333,6 @@ export const deserializeAws_json1_1DeleteDirectoryCommand = async (
   contents = deserializeAws_json1_1DeleteDirectoryResult(data, context);
   const response: DeleteDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDirectoryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2419,7 +2404,6 @@ export const deserializeAws_json1_1DeleteLogSubscriptionCommand = async (
   contents = deserializeAws_json1_1DeleteLogSubscriptionResult(data, context);
   const response: DeleteLogSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLogSubscriptionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2499,7 +2483,6 @@ export const deserializeAws_json1_1DeleteSnapshotCommand = async (
   contents = deserializeAws_json1_1DeleteSnapshotResult(data, context);
   const response: DeleteSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2579,7 +2562,6 @@ export const deserializeAws_json1_1DeleteTrustCommand = async (
   contents = deserializeAws_json1_1DeleteTrustResult(data, context);
   const response: DeleteTrustCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTrustResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2667,7 +2649,6 @@ export const deserializeAws_json1_1DeregisterCertificateCommand = async (
   contents = deserializeAws_json1_1DeregisterCertificateResult(data, context);
   const response: DeregisterCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterCertificateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2779,7 +2760,6 @@ export const deserializeAws_json1_1DeregisterEventTopicCommand = async (
   contents = deserializeAws_json1_1DeregisterEventTopicResult(data, context);
   const response: DeregisterEventTopicCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterEventTopicResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2859,7 +2839,6 @@ export const deserializeAws_json1_1DescribeCertificateCommand = async (
   contents = deserializeAws_json1_1DescribeCertificateResult(data, context);
   const response: DescribeCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCertificateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2955,7 +2934,6 @@ export const deserializeAws_json1_1DescribeConditionalForwardersCommand = async 
   contents = deserializeAws_json1_1DescribeConditionalForwardersResult(data, context);
   const response: DescribeConditionalForwardersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConditionalForwardersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3051,7 +3029,6 @@ export const deserializeAws_json1_1DescribeDirectoriesCommand = async (
   contents = deserializeAws_json1_1DescribeDirectoriesResult(data, context);
   const response: DescribeDirectoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDirectoriesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3139,7 +3116,6 @@ export const deserializeAws_json1_1DescribeDomainControllersCommand = async (
   contents = deserializeAws_json1_1DescribeDomainControllersResult(data, context);
   const response: DescribeDomainControllersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDomainControllersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3235,7 +3211,6 @@ export const deserializeAws_json1_1DescribeEventTopicsCommand = async (
   contents = deserializeAws_json1_1DescribeEventTopicsResult(data, context);
   const response: DescribeEventTopicsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventTopicsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3315,7 +3290,6 @@ export const deserializeAws_json1_1DescribeLDAPSSettingsCommand = async (
   contents = deserializeAws_json1_1DescribeLDAPSSettingsResult(data, context);
   const response: DescribeLDAPSSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLDAPSSettingsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3411,7 +3385,6 @@ export const deserializeAws_json1_1DescribeSharedDirectoriesCommand = async (
   contents = deserializeAws_json1_1DescribeSharedDirectoriesResult(data, context);
   const response: DescribeSharedDirectoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSharedDirectoriesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3507,7 +3480,6 @@ export const deserializeAws_json1_1DescribeSnapshotsCommand = async (
   contents = deserializeAws_json1_1DescribeSnapshotsResult(data, context);
   const response: DescribeSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSnapshotsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3595,7 +3567,6 @@ export const deserializeAws_json1_1DescribeTrustsCommand = async (
   contents = deserializeAws_json1_1DescribeTrustsResult(data, context);
   const response: DescribeTrustsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTrustsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3691,7 +3662,6 @@ export const deserializeAws_json1_1DisableLDAPSCommand = async (
   contents = deserializeAws_json1_1DisableLDAPSResult(data, context);
   const response: DisableLDAPSCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableLDAPSResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3795,7 +3765,6 @@ export const deserializeAws_json1_1DisableRadiusCommand = async (
   contents = deserializeAws_json1_1DisableRadiusResult(data, context);
   const response: DisableRadiusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableRadiusResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3867,7 +3836,6 @@ export const deserializeAws_json1_1DisableSsoCommand = async (
   contents = deserializeAws_json1_1DisableSsoResult(data, context);
   const response: DisableSsoCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableSsoResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3955,7 +3923,6 @@ export const deserializeAws_json1_1EnableLDAPSCommand = async (
   contents = deserializeAws_json1_1EnableLDAPSResult(data, context);
   const response: EnableLDAPSCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableLDAPSResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4067,7 +4034,6 @@ export const deserializeAws_json1_1EnableRadiusCommand = async (
   contents = deserializeAws_json1_1EnableRadiusResult(data, context);
   const response: EnableRadiusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableRadiusResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4155,7 +4121,6 @@ export const deserializeAws_json1_1EnableSsoCommand = async (
   contents = deserializeAws_json1_1EnableSsoResult(data, context);
   const response: EnableSsoCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableSsoResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4243,7 +4208,6 @@ export const deserializeAws_json1_1GetDirectoryLimitsCommand = async (
   contents = deserializeAws_json1_1GetDirectoryLimitsResult(data, context);
   const response: GetDirectoryLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDirectoryLimitsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4315,7 +4279,6 @@ export const deserializeAws_json1_1GetSnapshotLimitsCommand = async (
   contents = deserializeAws_json1_1GetSnapshotLimitsResult(data, context);
   const response: GetSnapshotLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSnapshotLimitsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4387,7 +4350,6 @@ export const deserializeAws_json1_1ListCertificatesCommand = async (
   contents = deserializeAws_json1_1ListCertificatesResult(data, context);
   const response: ListCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCertificatesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4483,7 +4445,6 @@ export const deserializeAws_json1_1ListIpRoutesCommand = async (
   contents = deserializeAws_json1_1ListIpRoutesResult(data, context);
   const response: ListIpRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListIpRoutesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4571,7 +4532,6 @@ export const deserializeAws_json1_1ListLogSubscriptionsCommand = async (
   contents = deserializeAws_json1_1ListLogSubscriptionsResult(data, context);
   const response: ListLogSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLogSubscriptionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4651,7 +4611,6 @@ export const deserializeAws_json1_1ListSchemaExtensionsCommand = async (
   contents = deserializeAws_json1_1ListSchemaExtensionsResult(data, context);
   const response: ListSchemaExtensionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSchemaExtensionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4731,7 +4690,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResult(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4819,7 +4777,6 @@ export const deserializeAws_json1_1RegisterCertificateCommand = async (
   contents = deserializeAws_json1_1RegisterCertificateResult(data, context);
   const response: RegisterCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterCertificateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4939,7 +4896,6 @@ export const deserializeAws_json1_1RegisterEventTopicCommand = async (
   contents = deserializeAws_json1_1RegisterEventTopicResult(data, context);
   const response: RegisterEventTopicCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterEventTopicResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5019,7 +4975,6 @@ export const deserializeAws_json1_1RejectSharedDirectoryCommand = async (
   contents = deserializeAws_json1_1RejectSharedDirectoryResult(data, context);
   const response: RejectSharedDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectSharedDirectoryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5107,7 +5062,6 @@ export const deserializeAws_json1_1RemoveIpRoutesCommand = async (
   contents = deserializeAws_json1_1RemoveIpRoutesResult(data, context);
   const response: RemoveIpRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveIpRoutesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5195,7 +5149,6 @@ export const deserializeAws_json1_1RemoveTagsFromResourceCommand = async (
   contents = deserializeAws_json1_1RemoveTagsFromResourceResult(data, context);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveTagsFromResourceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5275,7 +5228,6 @@ export const deserializeAws_json1_1ResetUserPasswordCommand = async (
   contents = deserializeAws_json1_1ResetUserPasswordResult(data, context);
   const response: ResetUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResetUserPasswordResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5379,7 +5331,6 @@ export const deserializeAws_json1_1RestoreFromSnapshotCommand = async (
   contents = deserializeAws_json1_1RestoreFromSnapshotResult(data, context);
   const response: RestoreFromSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreFromSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5459,7 +5410,6 @@ export const deserializeAws_json1_1ShareDirectoryCommand = async (
   contents = deserializeAws_json1_1ShareDirectoryResult(data, context);
   const response: ShareDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ShareDirectoryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5587,7 +5537,6 @@ export const deserializeAws_json1_1StartSchemaExtensionCommand = async (
   contents = deserializeAws_json1_1StartSchemaExtensionResult(data, context);
   const response: StartSchemaExtensionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartSchemaExtensionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5683,7 +5632,6 @@ export const deserializeAws_json1_1UnshareDirectoryCommand = async (
   contents = deserializeAws_json1_1UnshareDirectoryResult(data, context);
   const response: UnshareDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UnshareDirectoryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5771,7 +5719,6 @@ export const deserializeAws_json1_1UpdateConditionalForwarderCommand = async (
   contents = deserializeAws_json1_1UpdateConditionalForwarderResult(data, context);
   const response: UpdateConditionalForwarderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateConditionalForwarderResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5867,7 +5814,6 @@ export const deserializeAws_json1_1UpdateNumberOfDomainControllersCommand = asyn
   contents = deserializeAws_json1_1UpdateNumberOfDomainControllersResult(data, context);
   const response: UpdateNumberOfDomainControllersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateNumberOfDomainControllersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5971,7 +5917,6 @@ export const deserializeAws_json1_1UpdateRadiusCommand = async (
   contents = deserializeAws_json1_1UpdateRadiusResult(data, context);
   const response: UpdateRadiusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRadiusResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6051,7 +5996,6 @@ export const deserializeAws_json1_1UpdateTrustCommand = async (
   contents = deserializeAws_json1_1UpdateTrustResult(data, context);
   const response: UpdateTrustCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTrustResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6131,7 +6075,6 @@ export const deserializeAws_json1_1VerifyTrustCommand = async (
   contents = deserializeAws_json1_1VerifyTrustResult(data, context);
   const response: VerifyTrustCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VerifyTrustResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7372,7 +7315,6 @@ const deserializeAws_json1_1AcceptSharedDirectoryResult = (
   context: __SerdeContext
 ): AcceptSharedDirectoryResult => {
   return {
-    __type: "AcceptSharedDirectoryResult",
     SharedDirectory:
       output.SharedDirectory !== undefined && output.SharedDirectory !== null
         ? deserializeAws_json1_1SharedDirectory(output.SharedDirectory, context)
@@ -7382,30 +7324,24 @@ const deserializeAws_json1_1AcceptSharedDirectoryResult = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1AddIpRoutesResult = (output: any, context: __SerdeContext): AddIpRoutesResult => {
-  return {
-    __type: "AddIpRoutesResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AddTagsToResourceResult = (
   output: any,
   context: __SerdeContext
 ): AddTagsToResourceResult => {
-  return {
-    __type: "AddTagsToResourceResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Attribute = (output: any, context: __SerdeContext): Attribute => {
   return {
-    __type: "Attribute",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -7420,7 +7356,6 @@ const deserializeAws_json1_1AuthenticationFailedException = (
   context: __SerdeContext
 ): AuthenticationFailedException => {
   return {
-    __type: "AuthenticationFailedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -7434,14 +7369,11 @@ const deserializeAws_json1_1CancelSchemaExtensionResult = (
   output: any,
   context: __SerdeContext
 ): CancelSchemaExtensionResult => {
-  return {
-    __type: "CancelSchemaExtensionResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext): Certificate => {
   return {
-    __type: "Certificate",
     CertificateId:
       output.CertificateId !== undefined && output.CertificateId !== null ? output.CertificateId : undefined,
     CommonName: output.CommonName !== undefined && output.CommonName !== null ? output.CommonName : undefined,
@@ -7463,7 +7395,6 @@ const deserializeAws_json1_1CertificateAlreadyExistsException = (
   context: __SerdeContext
 ): CertificateAlreadyExistsException => {
   return {
-    __type: "CertificateAlreadyExistsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -7474,7 +7405,6 @@ const deserializeAws_json1_1CertificateDoesNotExistException = (
   context: __SerdeContext
 ): CertificateDoesNotExistException => {
   return {
-    __type: "CertificateDoesNotExistException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -7482,7 +7412,6 @@ const deserializeAws_json1_1CertificateDoesNotExistException = (
 
 const deserializeAws_json1_1CertificateInfo = (output: any, context: __SerdeContext): CertificateInfo => {
   return {
-    __type: "CertificateInfo",
     CertificateId:
       output.CertificateId !== undefined && output.CertificateId !== null ? output.CertificateId : undefined,
     CommonName: output.CommonName !== undefined && output.CommonName !== null ? output.CommonName : undefined,
@@ -7499,7 +7428,6 @@ const deserializeAws_json1_1CertificateInUseException = (
   context: __SerdeContext
 ): CertificateInUseException => {
   return {
-    __type: "CertificateInUseException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -7510,7 +7438,6 @@ const deserializeAws_json1_1CertificateLimitExceededException = (
   context: __SerdeContext
 ): CertificateLimitExceededException => {
   return {
-    __type: "CertificateLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -7522,7 +7449,6 @@ const deserializeAws_json1_1CertificatesInfo = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ClientException = (output: any, context: __SerdeContext): ClientException => {
   return {
-    __type: "ClientException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -7530,7 +7456,6 @@ const deserializeAws_json1_1ClientException = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1Computer = (output: any, context: __SerdeContext): Computer => {
   return {
-    __type: "Computer",
     ComputerAttributes:
       output.ComputerAttributes !== undefined && output.ComputerAttributes !== null
         ? deserializeAws_json1_1Attributes(output.ComputerAttributes, context)
@@ -7542,7 +7467,6 @@ const deserializeAws_json1_1Computer = (output: any, context: __SerdeContext): C
 
 const deserializeAws_json1_1ConditionalForwarder = (output: any, context: __SerdeContext): ConditionalForwarder => {
   return {
-    __type: "ConditionalForwarder",
     DnsIpAddrs:
       output.DnsIpAddrs !== undefined && output.DnsIpAddrs !== null
         ? deserializeAws_json1_1DnsIpAddrs(output.DnsIpAddrs, context)
@@ -7560,14 +7484,12 @@ const deserializeAws_json1_1ConditionalForwarders = (output: any, context: __Ser
 
 const deserializeAws_json1_1ConnectDirectoryResult = (output: any, context: __SerdeContext): ConnectDirectoryResult => {
   return {
-    __type: "ConnectDirectoryResult",
     DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateAliasResult = (output: any, context: __SerdeContext): CreateAliasResult => {
   return {
-    __type: "CreateAliasResult",
     Alias: output.Alias !== undefined && output.Alias !== null ? output.Alias : undefined,
     DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
   } as any;
@@ -7575,7 +7497,6 @@ const deserializeAws_json1_1CreateAliasResult = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1CreateComputerResult = (output: any, context: __SerdeContext): CreateComputerResult => {
   return {
-    __type: "CreateComputerResult",
     Computer:
       output.Computer !== undefined && output.Computer !== null
         ? deserializeAws_json1_1Computer(output.Computer, context)
@@ -7587,14 +7508,11 @@ const deserializeAws_json1_1CreateConditionalForwarderResult = (
   output: any,
   context: __SerdeContext
 ): CreateConditionalForwarderResult => {
-  return {
-    __type: "CreateConditionalForwarderResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateDirectoryResult = (output: any, context: __SerdeContext): CreateDirectoryResult => {
   return {
-    __type: "CreateDirectoryResult",
     DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
   } as any;
 };
@@ -7603,9 +7521,7 @@ const deserializeAws_json1_1CreateLogSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): CreateLogSubscriptionResult => {
-  return {
-    __type: "CreateLogSubscriptionResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateMicrosoftADResult = (
@@ -7613,21 +7529,18 @@ const deserializeAws_json1_1CreateMicrosoftADResult = (
   context: __SerdeContext
 ): CreateMicrosoftADResult => {
   return {
-    __type: "CreateMicrosoftADResult",
     DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateSnapshotResult = (output: any, context: __SerdeContext): CreateSnapshotResult => {
   return {
-    __type: "CreateSnapshotResult",
     SnapshotId: output.SnapshotId !== undefined && output.SnapshotId !== null ? output.SnapshotId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateTrustResult = (output: any, context: __SerdeContext): CreateTrustResult => {
   return {
-    __type: "CreateTrustResult",
     TrustId: output.TrustId !== undefined && output.TrustId !== null ? output.TrustId : undefined,
   } as any;
 };
@@ -7636,14 +7549,11 @@ const deserializeAws_json1_1DeleteConditionalForwarderResult = (
   output: any,
   context: __SerdeContext
 ): DeleteConditionalForwarderResult => {
-  return {
-    __type: "DeleteConditionalForwarderResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteDirectoryResult = (output: any, context: __SerdeContext): DeleteDirectoryResult => {
   return {
-    __type: "DeleteDirectoryResult",
     DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
   } as any;
 };
@@ -7652,21 +7562,17 @@ const deserializeAws_json1_1DeleteLogSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): DeleteLogSubscriptionResult => {
-  return {
-    __type: "DeleteLogSubscriptionResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteSnapshotResult = (output: any, context: __SerdeContext): DeleteSnapshotResult => {
   return {
-    __type: "DeleteSnapshotResult",
     SnapshotId: output.SnapshotId !== undefined && output.SnapshotId !== null ? output.SnapshotId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteTrustResult = (output: any, context: __SerdeContext): DeleteTrustResult => {
   return {
-    __type: "DeleteTrustResult",
     TrustId: output.TrustId !== undefined && output.TrustId !== null ? output.TrustId : undefined,
   } as any;
 };
@@ -7675,18 +7581,14 @@ const deserializeAws_json1_1DeregisterCertificateResult = (
   output: any,
   context: __SerdeContext
 ): DeregisterCertificateResult => {
-  return {
-    __type: "DeregisterCertificateResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeregisterEventTopicResult = (
   output: any,
   context: __SerdeContext
 ): DeregisterEventTopicResult => {
-  return {
-    __type: "DeregisterEventTopicResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeCertificateResult = (
@@ -7694,7 +7596,6 @@ const deserializeAws_json1_1DescribeCertificateResult = (
   context: __SerdeContext
 ): DescribeCertificateResult => {
   return {
-    __type: "DescribeCertificateResult",
     Certificate:
       output.Certificate !== undefined && output.Certificate !== null
         ? deserializeAws_json1_1Certificate(output.Certificate, context)
@@ -7707,7 +7608,6 @@ const deserializeAws_json1_1DescribeConditionalForwardersResult = (
   context: __SerdeContext
 ): DescribeConditionalForwardersResult => {
   return {
-    __type: "DescribeConditionalForwardersResult",
     ConditionalForwarders:
       output.ConditionalForwarders !== undefined && output.ConditionalForwarders !== null
         ? deserializeAws_json1_1ConditionalForwarders(output.ConditionalForwarders, context)
@@ -7720,7 +7620,6 @@ const deserializeAws_json1_1DescribeDirectoriesResult = (
   context: __SerdeContext
 ): DescribeDirectoriesResult => {
   return {
-    __type: "DescribeDirectoriesResult",
     DirectoryDescriptions:
       output.DirectoryDescriptions !== undefined && output.DirectoryDescriptions !== null
         ? deserializeAws_json1_1DirectoryDescriptions(output.DirectoryDescriptions, context)
@@ -7734,7 +7633,6 @@ const deserializeAws_json1_1DescribeDomainControllersResult = (
   context: __SerdeContext
 ): DescribeDomainControllersResult => {
   return {
-    __type: "DescribeDomainControllersResult",
     DomainControllers:
       output.DomainControllers !== undefined && output.DomainControllers !== null
         ? deserializeAws_json1_1DomainControllers(output.DomainControllers, context)
@@ -7748,7 +7646,6 @@ const deserializeAws_json1_1DescribeEventTopicsResult = (
   context: __SerdeContext
 ): DescribeEventTopicsResult => {
   return {
-    __type: "DescribeEventTopicsResult",
     EventTopics:
       output.EventTopics !== undefined && output.EventTopics !== null
         ? deserializeAws_json1_1EventTopics(output.EventTopics, context)
@@ -7761,7 +7658,6 @@ const deserializeAws_json1_1DescribeLDAPSSettingsResult = (
   context: __SerdeContext
 ): DescribeLDAPSSettingsResult => {
   return {
-    __type: "DescribeLDAPSSettingsResult",
     LDAPSSettingsInfo:
       output.LDAPSSettingsInfo !== undefined && output.LDAPSSettingsInfo !== null
         ? deserializeAws_json1_1LDAPSSettingsInfo(output.LDAPSSettingsInfo, context)
@@ -7775,7 +7671,6 @@ const deserializeAws_json1_1DescribeSharedDirectoriesResult = (
   context: __SerdeContext
 ): DescribeSharedDirectoriesResult => {
   return {
-    __type: "DescribeSharedDirectoriesResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SharedDirectories:
       output.SharedDirectories !== undefined && output.SharedDirectories !== null
@@ -7789,7 +7684,6 @@ const deserializeAws_json1_1DescribeSnapshotsResult = (
   context: __SerdeContext
 ): DescribeSnapshotsResult => {
   return {
-    __type: "DescribeSnapshotsResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Snapshots:
       output.Snapshots !== undefined && output.Snapshots !== null
@@ -7800,7 +7694,6 @@ const deserializeAws_json1_1DescribeSnapshotsResult = (
 
 const deserializeAws_json1_1DescribeTrustsResult = (output: any, context: __SerdeContext): DescribeTrustsResult => {
   return {
-    __type: "DescribeTrustsResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Trusts:
       output.Trusts !== undefined && output.Trusts !== null
@@ -7814,7 +7707,6 @@ const deserializeAws_json1_1DirectoryAlreadySharedException = (
   context: __SerdeContext
 ): DirectoryAlreadySharedException => {
   return {
-    __type: "DirectoryAlreadySharedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -7825,7 +7717,6 @@ const deserializeAws_json1_1DirectoryConnectSettingsDescription = (
   context: __SerdeContext
 ): DirectoryConnectSettingsDescription => {
   return {
-    __type: "DirectoryConnectSettingsDescription",
     AvailabilityZones:
       output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
         ? deserializeAws_json1_1AvailabilityZones(output.AvailabilityZones, context)
@@ -7848,7 +7739,6 @@ const deserializeAws_json1_1DirectoryConnectSettingsDescription = (
 
 const deserializeAws_json1_1DirectoryDescription = (output: any, context: __SerdeContext): DirectoryDescription => {
   return {
-    __type: "DirectoryDescription",
     AccessUrl: output.AccessUrl !== undefined && output.AccessUrl !== null ? output.AccessUrl : undefined,
     Alias: output.Alias !== undefined && output.Alias !== null ? output.Alias : undefined,
     ConnectSettings:
@@ -7909,7 +7799,6 @@ const deserializeAws_json1_1DirectoryDoesNotExistException = (
   context: __SerdeContext
 ): DirectoryDoesNotExistException => {
   return {
-    __type: "DirectoryDoesNotExistException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -7920,7 +7809,6 @@ const deserializeAws_json1_1DirectoryLimitExceededException = (
   context: __SerdeContext
 ): DirectoryLimitExceededException => {
   return {
-    __type: "DirectoryLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -7928,7 +7816,6 @@ const deserializeAws_json1_1DirectoryLimitExceededException = (
 
 const deserializeAws_json1_1DirectoryLimits = (output: any, context: __SerdeContext): DirectoryLimits => {
   return {
-    __type: "DirectoryLimits",
     CloudOnlyDirectoriesCurrentCount:
       output.CloudOnlyDirectoriesCurrentCount !== undefined && output.CloudOnlyDirectoriesCurrentCount !== null
         ? output.CloudOnlyDirectoriesCurrentCount
@@ -7973,7 +7860,6 @@ const deserializeAws_json1_1DirectoryNotSharedException = (
   context: __SerdeContext
 ): DirectoryNotSharedException => {
   return {
-    __type: "DirectoryNotSharedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -7984,7 +7870,6 @@ const deserializeAws_json1_1DirectoryUnavailableException = (
   context: __SerdeContext
 ): DirectoryUnavailableException => {
   return {
-    __type: "DirectoryUnavailableException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -7995,7 +7880,6 @@ const deserializeAws_json1_1DirectoryVpcSettingsDescription = (
   context: __SerdeContext
 ): DirectoryVpcSettingsDescription => {
   return {
-    __type: "DirectoryVpcSettingsDescription",
     AvailabilityZones:
       output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
         ? deserializeAws_json1_1AvailabilityZones(output.AvailabilityZones, context)
@@ -8011,21 +7895,15 @@ const deserializeAws_json1_1DirectoryVpcSettingsDescription = (
 };
 
 const deserializeAws_json1_1DisableLDAPSResult = (output: any, context: __SerdeContext): DisableLDAPSResult => {
-  return {
-    __type: "DisableLDAPSResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisableRadiusResult = (output: any, context: __SerdeContext): DisableRadiusResult => {
-  return {
-    __type: "DisableRadiusResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisableSsoResult = (output: any, context: __SerdeContext): DisableSsoResult => {
-  return {
-    __type: "DisableSsoResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DnsIpAddrs = (output: any, context: __SerdeContext): string[] => {
@@ -8034,7 +7912,6 @@ const deserializeAws_json1_1DnsIpAddrs = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1DomainController = (output: any, context: __SerdeContext): DomainController => {
   return {
-    __type: "DomainController",
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
@@ -8063,7 +7940,6 @@ const deserializeAws_json1_1DomainControllerLimitExceededException = (
   context: __SerdeContext
 ): DomainControllerLimitExceededException => {
   return {
-    __type: "DomainControllerLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8074,21 +7950,15 @@ const deserializeAws_json1_1DomainControllers = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1EnableLDAPSResult = (output: any, context: __SerdeContext): EnableLDAPSResult => {
-  return {
-    __type: "EnableLDAPSResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1EnableRadiusResult = (output: any, context: __SerdeContext): EnableRadiusResult => {
-  return {
-    __type: "EnableRadiusResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1EnableSsoResult = (output: any, context: __SerdeContext): EnableSsoResult => {
-  return {
-    __type: "EnableSsoResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1EntityAlreadyExistsException = (
@@ -8096,7 +7966,6 @@ const deserializeAws_json1_1EntityAlreadyExistsException = (
   context: __SerdeContext
 ): EntityAlreadyExistsException => {
   return {
-    __type: "EntityAlreadyExistsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8107,7 +7976,6 @@ const deserializeAws_json1_1EntityDoesNotExistException = (
   context: __SerdeContext
 ): EntityDoesNotExistException => {
   return {
-    __type: "EntityDoesNotExistException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8115,7 +7983,6 @@ const deserializeAws_json1_1EntityDoesNotExistException = (
 
 const deserializeAws_json1_1EventTopic = (output: any, context: __SerdeContext): EventTopic => {
   return {
-    __type: "EventTopic",
     CreatedDateTime:
       output.CreatedDateTime !== undefined && output.CreatedDateTime !== null
         ? new Date(Math.round(output.CreatedDateTime * 1000))
@@ -8136,7 +8003,6 @@ const deserializeAws_json1_1GetDirectoryLimitsResult = (
   context: __SerdeContext
 ): GetDirectoryLimitsResult => {
   return {
-    __type: "GetDirectoryLimitsResult",
     DirectoryLimits:
       output.DirectoryLimits !== undefined && output.DirectoryLimits !== null
         ? deserializeAws_json1_1DirectoryLimits(output.DirectoryLimits, context)
@@ -8149,7 +8015,6 @@ const deserializeAws_json1_1GetSnapshotLimitsResult = (
   context: __SerdeContext
 ): GetSnapshotLimitsResult => {
   return {
-    __type: "GetSnapshotLimitsResult",
     SnapshotLimits:
       output.SnapshotLimits !== undefined && output.SnapshotLimits !== null
         ? deserializeAws_json1_1SnapshotLimits(output.SnapshotLimits, context)
@@ -8162,7 +8027,6 @@ const deserializeAws_json1_1InsufficientPermissionsException = (
   context: __SerdeContext
 ): InsufficientPermissionsException => {
   return {
-    __type: "InsufficientPermissionsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8173,7 +8037,6 @@ const deserializeAws_json1_1InvalidCertificateException = (
   context: __SerdeContext
 ): InvalidCertificateException => {
   return {
-    __type: "InvalidCertificateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8184,7 +8047,6 @@ const deserializeAws_json1_1InvalidLDAPSStatusException = (
   context: __SerdeContext
 ): InvalidLDAPSStatusException => {
   return {
-    __type: "InvalidLDAPSStatusException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8195,7 +8057,6 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8206,7 +8067,6 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8217,7 +8077,6 @@ const deserializeAws_json1_1InvalidPasswordException = (
   context: __SerdeContext
 ): InvalidPasswordException => {
   return {
-    __type: "InvalidPasswordException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8225,7 +8084,6 @@ const deserializeAws_json1_1InvalidPasswordException = (
 
 const deserializeAws_json1_1InvalidTargetException = (output: any, context: __SerdeContext): InvalidTargetException => {
   return {
-    __type: "InvalidTargetException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8237,7 +8095,6 @@ const deserializeAws_json1_1IpAddrs = (output: any, context: __SerdeContext): st
 
 const deserializeAws_json1_1IpRouteInfo = (output: any, context: __SerdeContext): IpRouteInfo => {
   return {
-    __type: "IpRouteInfo",
     AddedDateTime:
       output.AddedDateTime !== undefined && output.AddedDateTime !== null
         ? new Date(Math.round(output.AddedDateTime * 1000))
@@ -8259,7 +8116,6 @@ const deserializeAws_json1_1IpRouteLimitExceededException = (
   context: __SerdeContext
 ): IpRouteLimitExceededException => {
   return {
-    __type: "IpRouteLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8271,7 +8127,6 @@ const deserializeAws_json1_1IpRoutesInfo = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1LDAPSSettingInfo = (output: any, context: __SerdeContext): LDAPSSettingInfo => {
   return {
-    __type: "LDAPSSettingInfo",
     LDAPSStatus: output.LDAPSStatus !== undefined && output.LDAPSStatus !== null ? output.LDAPSStatus : undefined,
     LDAPSStatusReason:
       output.LDAPSStatusReason !== undefined && output.LDAPSStatusReason !== null
@@ -8290,7 +8145,6 @@ const deserializeAws_json1_1LDAPSSettingsInfo = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ListCertificatesResult = (output: any, context: __SerdeContext): ListCertificatesResult => {
   return {
-    __type: "ListCertificatesResult",
     CertificatesInfo:
       output.CertificatesInfo !== undefined && output.CertificatesInfo !== null
         ? deserializeAws_json1_1CertificatesInfo(output.CertificatesInfo, context)
@@ -8301,7 +8155,6 @@ const deserializeAws_json1_1ListCertificatesResult = (output: any, context: __Se
 
 const deserializeAws_json1_1ListIpRoutesResult = (output: any, context: __SerdeContext): ListIpRoutesResult => {
   return {
-    __type: "ListIpRoutesResult",
     IpRoutesInfo:
       output.IpRoutesInfo !== undefined && output.IpRoutesInfo !== null
         ? deserializeAws_json1_1IpRoutesInfo(output.IpRoutesInfo, context)
@@ -8315,7 +8168,6 @@ const deserializeAws_json1_1ListLogSubscriptionsResult = (
   context: __SerdeContext
 ): ListLogSubscriptionsResult => {
   return {
-    __type: "ListLogSubscriptionsResult",
     LogSubscriptions:
       output.LogSubscriptions !== undefined && output.LogSubscriptions !== null
         ? deserializeAws_json1_1LogSubscriptions(output.LogSubscriptions, context)
@@ -8329,7 +8181,6 @@ const deserializeAws_json1_1ListSchemaExtensionsResult = (
   context: __SerdeContext
 ): ListSchemaExtensionsResult => {
   return {
-    __type: "ListSchemaExtensionsResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SchemaExtensionsInfo:
       output.SchemaExtensionsInfo !== undefined && output.SchemaExtensionsInfo !== null
@@ -8343,7 +8194,6 @@ const deserializeAws_json1_1ListTagsForResourceResult = (
   context: __SerdeContext
 ): ListTagsForResourceResult => {
   return {
-    __type: "ListTagsForResourceResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
@@ -8352,7 +8202,6 @@ const deserializeAws_json1_1ListTagsForResourceResult = (
 
 const deserializeAws_json1_1LogSubscription = (output: any, context: __SerdeContext): LogSubscription => {
   return {
-    __type: "LogSubscription",
     DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
     LogGroupName: output.LogGroupName !== undefined && output.LogGroupName !== null ? output.LogGroupName : undefined,
     SubscriptionCreatedDateTime:
@@ -8371,7 +8220,6 @@ const deserializeAws_json1_1NoAvailableCertificateException = (
   context: __SerdeContext
 ): NoAvailableCertificateException => {
   return {
-    __type: "NoAvailableCertificateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8379,7 +8227,6 @@ const deserializeAws_json1_1NoAvailableCertificateException = (
 
 const deserializeAws_json1_1OrganizationsException = (output: any, context: __SerdeContext): OrganizationsException => {
   return {
-    __type: "OrganizationsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8390,7 +8237,6 @@ const deserializeAws_json1_1OwnerDirectoryDescription = (
   context: __SerdeContext
 ): OwnerDirectoryDescription => {
   return {
-    __type: "OwnerDirectoryDescription",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
     DnsIpAddrs:
@@ -8411,7 +8257,6 @@ const deserializeAws_json1_1OwnerDirectoryDescription = (
 
 const deserializeAws_json1_1RadiusSettings = (output: any, context: __SerdeContext): RadiusSettings => {
   return {
-    __type: "RadiusSettings",
     AuthenticationProtocol:
       output.AuthenticationProtocol !== undefined && output.AuthenticationProtocol !== null
         ? output.AuthenticationProtocol
@@ -8437,7 +8282,6 @@ const deserializeAws_json1_1RegisterCertificateResult = (
   context: __SerdeContext
 ): RegisterCertificateResult => {
   return {
-    __type: "RegisterCertificateResult",
     CertificateId:
       output.CertificateId !== undefined && output.CertificateId !== null ? output.CertificateId : undefined,
   } as any;
@@ -8447,9 +8291,7 @@ const deserializeAws_json1_1RegisterEventTopicResult = (
   output: any,
   context: __SerdeContext
 ): RegisterEventTopicResult => {
-  return {
-    __type: "RegisterEventTopicResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RejectSharedDirectoryResult = (
@@ -8457,7 +8299,6 @@ const deserializeAws_json1_1RejectSharedDirectoryResult = (
   context: __SerdeContext
 ): RejectSharedDirectoryResult => {
   return {
-    __type: "RejectSharedDirectoryResult",
     SharedDirectoryId:
       output.SharedDirectoryId !== undefined && output.SharedDirectoryId !== null
         ? output.SharedDirectoryId
@@ -8466,41 +8307,32 @@ const deserializeAws_json1_1RejectSharedDirectoryResult = (
 };
 
 const deserializeAws_json1_1RemoveIpRoutesResult = (output: any, context: __SerdeContext): RemoveIpRoutesResult => {
-  return {
-    __type: "RemoveIpRoutesResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RemoveTagsFromResourceResult = (
   output: any,
   context: __SerdeContext
 ): RemoveTagsFromResourceResult => {
-  return {
-    __type: "RemoveTagsFromResourceResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ResetUserPasswordResult = (
   output: any,
   context: __SerdeContext
 ): ResetUserPasswordResult => {
-  return {
-    __type: "ResetUserPasswordResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RestoreFromSnapshotResult = (
   output: any,
   context: __SerdeContext
 ): RestoreFromSnapshotResult => {
-  return {
-    __type: "RestoreFromSnapshotResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1SchemaExtensionInfo = (output: any, context: __SerdeContext): SchemaExtensionInfo => {
   return {
-    __type: "SchemaExtensionInfo",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
     EndDateTime:
@@ -8536,7 +8368,6 @@ const deserializeAws_json1_1Servers = (output: any, context: __SerdeContext): st
 
 const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
   return {
-    __type: "ServiceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8548,7 +8379,6 @@ const deserializeAws_json1_1SharedDirectories = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1SharedDirectory = (output: any, context: __SerdeContext): SharedDirectory => {
   return {
-    __type: "SharedDirectory",
     CreatedDateTime:
       output.CreatedDateTime !== undefined && output.CreatedDateTime !== null
         ? new Date(Math.round(output.CreatedDateTime * 1000))
@@ -8575,7 +8405,6 @@ const deserializeAws_json1_1SharedDirectory = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ShareDirectoryResult = (output: any, context: __SerdeContext): ShareDirectoryResult => {
   return {
-    __type: "ShareDirectoryResult",
     SharedDirectoryId:
       output.SharedDirectoryId !== undefined && output.SharedDirectoryId !== null
         ? output.SharedDirectoryId
@@ -8588,7 +8417,6 @@ const deserializeAws_json1_1ShareLimitExceededException = (
   context: __SerdeContext
 ): ShareLimitExceededException => {
   return {
-    __type: "ShareLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8596,7 +8424,6 @@ const deserializeAws_json1_1ShareLimitExceededException = (
 
 const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   return {
-    __type: "Snapshot",
     DirectoryId: output.DirectoryId !== undefined && output.DirectoryId !== null ? output.DirectoryId : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     SnapshotId: output.SnapshotId !== undefined && output.SnapshotId !== null ? output.SnapshotId : undefined,
@@ -8614,7 +8441,6 @@ const deserializeAws_json1_1SnapshotLimitExceededException = (
   context: __SerdeContext
 ): SnapshotLimitExceededException => {
   return {
-    __type: "SnapshotLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8622,7 +8448,6 @@ const deserializeAws_json1_1SnapshotLimitExceededException = (
 
 const deserializeAws_json1_1SnapshotLimits = (output: any, context: __SerdeContext): SnapshotLimits => {
   return {
-    __type: "SnapshotLimits",
     ManualSnapshotsCurrentCount:
       output.ManualSnapshotsCurrentCount !== undefined && output.ManualSnapshotsCurrentCount !== null
         ? output.ManualSnapshotsCurrentCount
@@ -8647,7 +8472,6 @@ const deserializeAws_json1_1StartSchemaExtensionResult = (
   context: __SerdeContext
 ): StartSchemaExtensionResult => {
   return {
-    __type: "StartSchemaExtensionResult",
     SchemaExtensionId:
       output.SchemaExtensionId !== undefined && output.SchemaExtensionId !== null
         ? output.SchemaExtensionId
@@ -8661,7 +8485,6 @@ const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -8672,7 +8495,6 @@ const deserializeAws_json1_1TagLimitExceededException = (
   context: __SerdeContext
 ): TagLimitExceededException => {
   return {
-    __type: "TagLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8684,7 +8506,6 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
 
 const deserializeAws_json1_1Trust = (output: any, context: __SerdeContext): Trust => {
   return {
-    __type: "Trust",
     CreatedDateTime:
       output.CreatedDateTime !== undefined && output.CreatedDateTime !== null
         ? new Date(Math.round(output.CreatedDateTime * 1000))
@@ -8718,7 +8539,6 @@ const deserializeAws_json1_1Trusts = (output: any, context: __SerdeContext): Tru
 
 const deserializeAws_json1_1UnshareDirectoryResult = (output: any, context: __SerdeContext): UnshareDirectoryResult => {
   return {
-    __type: "UnshareDirectoryResult",
     SharedDirectoryId:
       output.SharedDirectoryId !== undefined && output.SharedDirectoryId !== null
         ? output.SharedDirectoryId
@@ -8731,7 +8551,6 @@ const deserializeAws_json1_1UnsupportedOperationException = (
   context: __SerdeContext
 ): UnsupportedOperationException => {
   return {
-    __type: "UnsupportedOperationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8741,29 +8560,22 @@ const deserializeAws_json1_1UpdateConditionalForwarderResult = (
   output: any,
   context: __SerdeContext
 ): UpdateConditionalForwarderResult => {
-  return {
-    __type: "UpdateConditionalForwarderResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateNumberOfDomainControllersResult = (
   output: any,
   context: __SerdeContext
 ): UpdateNumberOfDomainControllersResult => {
-  return {
-    __type: "UpdateNumberOfDomainControllersResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateRadiusResult = (output: any, context: __SerdeContext): UpdateRadiusResult => {
-  return {
-    __type: "UpdateRadiusResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateTrustResult = (output: any, context: __SerdeContext): UpdateTrustResult => {
   return {
-    __type: "UpdateTrustResult",
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
     TrustId: output.TrustId !== undefined && output.TrustId !== null ? output.TrustId : undefined,
   } as any;
@@ -8774,7 +8586,6 @@ const deserializeAws_json1_1UserDoesNotExistException = (
   context: __SerdeContext
 ): UserDoesNotExistException => {
   return {
-    __type: "UserDoesNotExistException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
   } as any;
@@ -8782,7 +8593,6 @@ const deserializeAws_json1_1UserDoesNotExistException = (
 
 const deserializeAws_json1_1VerifyTrustResult = (output: any, context: __SerdeContext): VerifyTrustResult => {
   return {
-    __type: "VerifyTrustResult",
     TrustId: output.TrustId !== undefined && output.TrustId !== null ? output.TrustId : undefined,
   } as any;
 };

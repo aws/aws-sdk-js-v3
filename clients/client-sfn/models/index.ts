@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,14 +14,12 @@ export namespace ActivityDoesNotExist {
   export const filterSensitiveLog = (obj: ActivityDoesNotExist): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityDoesNotExist => __isa(o, "ActivityDoesNotExist");
 }
 
 /**
  * <p>Contains details about an activity that failed during an execution.</p>
  */
 export interface ActivityFailedEventDetails {
-  __type?: "ActivityFailedEventDetails";
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
@@ -39,7 +37,6 @@ export namespace ActivityFailedEventDetails {
     ...(obj.cause && { cause: SENSITIVE_STRING }),
     ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ActivityFailedEventDetails => __isa(o, "ActivityFailedEventDetails");
 }
 
 /**
@@ -56,14 +53,12 @@ export namespace ActivityLimitExceeded {
   export const filterSensitiveLog = (obj: ActivityLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityLimitExceeded => __isa(o, "ActivityLimitExceeded");
 }
 
 /**
  * <p>Contains details about an activity.</p>
  */
 export interface ActivityListItem {
-  __type?: "ActivityListItem";
   /**
    * <p>The name of the activity.</p>
    *          <p>A name must <i>not</i> contain:</p>
@@ -106,14 +101,12 @@ export namespace ActivityListItem {
   export const filterSensitiveLog = (obj: ActivityListItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityListItem => __isa(o, "ActivityListItem");
 }
 
 /**
  * <p>Contains details about an activity scheduled during an execution.</p>
  */
 export interface ActivityScheduledEventDetails {
-  __type?: "ActivityScheduledEventDetails";
   /**
    * <p>The JSON data input to the activity task.</p>
    */
@@ -140,7 +133,6 @@ export namespace ActivityScheduledEventDetails {
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ActivityScheduledEventDetails => __isa(o, "ActivityScheduledEventDetails");
 }
 
 /**
@@ -148,7 +140,6 @@ export namespace ActivityScheduledEventDetails {
  *       execution.</p>
  */
 export interface ActivityScheduleFailedEventDetails {
-  __type?: "ActivityScheduleFailedEventDetails";
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
@@ -166,15 +157,12 @@ export namespace ActivityScheduleFailedEventDetails {
     ...(obj.cause && { cause: SENSITIVE_STRING }),
     ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ActivityScheduleFailedEventDetails =>
-    __isa(o, "ActivityScheduleFailedEventDetails");
 }
 
 /**
  * <p>Contains details about the start of an activity during an execution.</p>
  */
 export interface ActivityStartedEventDetails {
-  __type?: "ActivityStartedEventDetails";
   /**
    * <p>The name of the worker that the task is assigned to. These names are provided by the
    *       workers when calling <a>GetActivityTask</a>.</p>
@@ -186,7 +174,6 @@ export namespace ActivityStartedEventDetails {
   export const filterSensitiveLog = (obj: ActivityStartedEventDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityStartedEventDetails => __isa(o, "ActivityStartedEventDetails");
 }
 
 /**
@@ -194,7 +181,6 @@ export namespace ActivityStartedEventDetails {
  *       execution.</p>
  */
 export interface ActivitySucceededEventDetails {
-  __type?: "ActivitySucceededEventDetails";
   /**
    * <p>The JSON data output by the activity task.</p>
    */
@@ -206,14 +192,12 @@ export namespace ActivitySucceededEventDetails {
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ActivitySucceededEventDetails => __isa(o, "ActivitySucceededEventDetails");
 }
 
 /**
  * <p>Contains details about an activity timeout that occurred during an execution.</p>
  */
 export interface ActivityTimedOutEventDetails {
-  __type?: "ActivityTimedOutEventDetails";
   /**
    * <p>The error code of the failure.</p>
    */
@@ -231,7 +215,6 @@ export namespace ActivityTimedOutEventDetails {
     ...(obj.error && { error: SENSITIVE_STRING }),
     ...(obj.cause && { cause: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ActivityTimedOutEventDetails => __isa(o, "ActivityTimedOutEventDetails");
 }
 
 /**
@@ -248,14 +231,12 @@ export namespace ActivityWorkerLimitExceeded {
   export const filterSensitiveLog = (obj: ActivityWorkerLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityWorkerLimitExceeded => __isa(o, "ActivityWorkerLimitExceeded");
 }
 
 /**
  * <p></p>
  */
 export interface CloudWatchLogsLogGroup {
-  __type?: "CloudWatchLogsLogGroup";
   /**
    * <p>The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN
    *       must end with <code>:*</code>
@@ -268,11 +249,9 @@ export namespace CloudWatchLogsLogGroup {
   export const filterSensitiveLog = (obj: CloudWatchLogsLogGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchLogsLogGroup => __isa(o, "CloudWatchLogsLogGroup");
 }
 
 export interface CreateActivityInput {
-  __type?: "CreateActivityInput";
   /**
    * <p>The list of tags to add to a resource.</p>
    *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
@@ -317,11 +296,9 @@ export namespace CreateActivityInput {
   export const filterSensitiveLog = (obj: CreateActivityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateActivityInput => __isa(o, "CreateActivityInput");
 }
 
 export interface CreateActivityOutput {
-  __type?: "CreateActivityOutput";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the created activity.</p>
    */
@@ -337,11 +314,9 @@ export namespace CreateActivityOutput {
   export const filterSensitiveLog = (obj: CreateActivityOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateActivityOutput => __isa(o, "CreateActivityOutput");
 }
 
 export interface CreateStateMachineInput {
-  __type?: "CreateStateMachineInput";
   /**
    * <p>Tags to be added when creating a state machine.</p>
    *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
@@ -412,11 +387,9 @@ export namespace CreateStateMachineInput {
     ...obj,
     ...(obj.definition && { definition: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateStateMachineInput => __isa(o, "CreateStateMachineInput");
 }
 
 export interface CreateStateMachineOutput {
-  __type?: "CreateStateMachineOutput";
   /**
    * <p>The date the state machine is created.</p>
    */
@@ -432,11 +405,9 @@ export namespace CreateStateMachineOutput {
   export const filterSensitiveLog = (obj: CreateStateMachineOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStateMachineOutput => __isa(o, "CreateStateMachineOutput");
 }
 
 export interface DeleteActivityInput {
-  __type?: "DeleteActivityInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the activity to delete.</p>
    */
@@ -447,22 +418,17 @@ export namespace DeleteActivityInput {
   export const filterSensitiveLog = (obj: DeleteActivityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteActivityInput => __isa(o, "DeleteActivityInput");
 }
 
-export interface DeleteActivityOutput {
-  __type?: "DeleteActivityOutput";
-}
+export interface DeleteActivityOutput {}
 
 export namespace DeleteActivityOutput {
   export const filterSensitiveLog = (obj: DeleteActivityOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteActivityOutput => __isa(o, "DeleteActivityOutput");
 }
 
 export interface DeleteStateMachineInput {
-  __type?: "DeleteStateMachineInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine to delete.</p>
    */
@@ -473,22 +439,17 @@ export namespace DeleteStateMachineInput {
   export const filterSensitiveLog = (obj: DeleteStateMachineInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStateMachineInput => __isa(o, "DeleteStateMachineInput");
 }
 
-export interface DeleteStateMachineOutput {
-  __type?: "DeleteStateMachineOutput";
-}
+export interface DeleteStateMachineOutput {}
 
 export namespace DeleteStateMachineOutput {
   export const filterSensitiveLog = (obj: DeleteStateMachineOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStateMachineOutput => __isa(o, "DeleteStateMachineOutput");
 }
 
 export interface DescribeActivityInput {
-  __type?: "DescribeActivityInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the activity to describe.</p>
    */
@@ -499,11 +460,9 @@ export namespace DescribeActivityInput {
   export const filterSensitiveLog = (obj: DescribeActivityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeActivityInput => __isa(o, "DescribeActivityInput");
 }
 
 export interface DescribeActivityOutput {
-  __type?: "DescribeActivityOutput";
   /**
    * <p>The date the activity is created.</p>
    */
@@ -546,11 +505,9 @@ export namespace DescribeActivityOutput {
   export const filterSensitiveLog = (obj: DescribeActivityOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeActivityOutput => __isa(o, "DescribeActivityOutput");
 }
 
 export interface DescribeExecutionInput {
-  __type?: "DescribeExecutionInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the execution to describe.</p>
    */
@@ -561,11 +518,9 @@ export namespace DescribeExecutionInput {
   export const filterSensitiveLog = (obj: DescribeExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExecutionInput => __isa(o, "DescribeExecutionInput");
 }
 
 export interface DescribeExecutionOutput {
-  __type?: "DescribeExecutionOutput";
   /**
    * <p>The current status of the execution.</p>
    */
@@ -639,11 +594,9 @@ export namespace DescribeExecutionOutput {
     ...(obj.output && { output: SENSITIVE_STRING }),
     ...(obj.input && { input: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DescribeExecutionOutput => __isa(o, "DescribeExecutionOutput");
 }
 
 export interface DescribeStateMachineForExecutionInput {
-  __type?: "DescribeStateMachineForExecutionInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the execution you want state machine information for.</p>
    */
@@ -654,12 +607,9 @@ export namespace DescribeStateMachineForExecutionInput {
   export const filterSensitiveLog = (obj: DescribeStateMachineForExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStateMachineForExecutionInput =>
-    __isa(o, "DescribeStateMachineForExecutionInput");
 }
 
 export interface DescribeStateMachineForExecutionOutput {
-  __type?: "DescribeStateMachineForExecutionOutput";
   /**
    * <p>The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs
    *       options.</p>
@@ -698,12 +648,9 @@ export namespace DescribeStateMachineForExecutionOutput {
     ...obj,
     ...(obj.definition && { definition: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DescribeStateMachineForExecutionOutput =>
-    __isa(o, "DescribeStateMachineForExecutionOutput");
 }
 
 export interface DescribeStateMachineInput {
-  __type?: "DescribeStateMachineInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine to describe.</p>
    */
@@ -714,11 +661,9 @@ export namespace DescribeStateMachineInput {
   export const filterSensitiveLog = (obj: DescribeStateMachineInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStateMachineInput => __isa(o, "DescribeStateMachineInput");
 }
 
 export interface DescribeStateMachineOutput {
-  __type?: "DescribeStateMachineOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role
    *       maintains security by granting Step Functions access to AWS resources.)</p>
@@ -790,14 +735,12 @@ export namespace DescribeStateMachineOutput {
     ...obj,
     ...(obj.definition && { definition: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DescribeStateMachineOutput => __isa(o, "DescribeStateMachineOutput");
 }
 
 /**
  * <p>Contains details about an abort of an execution.</p>
  */
 export interface ExecutionAbortedEventDetails {
-  __type?: "ExecutionAbortedEventDetails";
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
@@ -815,7 +758,6 @@ export namespace ExecutionAbortedEventDetails {
     ...(obj.cause && { cause: SENSITIVE_STRING }),
     ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExecutionAbortedEventDetails => __isa(o, "ExecutionAbortedEventDetails");
 }
 
 /**
@@ -836,7 +778,6 @@ export namespace ExecutionAlreadyExists {
   export const filterSensitiveLog = (obj: ExecutionAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecutionAlreadyExists => __isa(o, "ExecutionAlreadyExists");
 }
 
 /**
@@ -852,14 +793,12 @@ export namespace ExecutionDoesNotExist {
   export const filterSensitiveLog = (obj: ExecutionDoesNotExist): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecutionDoesNotExist => __isa(o, "ExecutionDoesNotExist");
 }
 
 /**
  * <p>Contains details about an execution failure event.</p>
  */
 export interface ExecutionFailedEventDetails {
-  __type?: "ExecutionFailedEventDetails";
   /**
    * <p>The error code of the failure.</p>
    */
@@ -877,7 +816,6 @@ export namespace ExecutionFailedEventDetails {
     ...(obj.error && { error: SENSITIVE_STRING }),
     ...(obj.cause && { cause: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExecutionFailedEventDetails => __isa(o, "ExecutionFailedEventDetails");
 }
 
 /**
@@ -894,14 +832,12 @@ export namespace ExecutionLimitExceeded {
   export const filterSensitiveLog = (obj: ExecutionLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecutionLimitExceeded => __isa(o, "ExecutionLimitExceeded");
 }
 
 /**
  * <p>Contains details about an execution.</p>
  */
 export interface ExecutionListItem {
-  __type?: "ExecutionListItem";
   /**
    * <p>The current status of the execution.</p>
    */
@@ -959,14 +895,12 @@ export namespace ExecutionListItem {
   export const filterSensitiveLog = (obj: ExecutionListItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecutionListItem => __isa(o, "ExecutionListItem");
 }
 
 /**
  * <p>Contains details about the start of the execution.</p>
  */
 export interface ExecutionStartedEventDetails {
-  __type?: "ExecutionStartedEventDetails";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.</p>
    */
@@ -983,7 +917,6 @@ export namespace ExecutionStartedEventDetails {
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExecutionStartedEventDetails => __isa(o, "ExecutionStartedEventDetails");
 }
 
 export type ExecutionStatus = "ABORTED" | "FAILED" | "RUNNING" | "SUCCEEDED" | "TIMED_OUT";
@@ -992,7 +925,6 @@ export type ExecutionStatus = "ABORTED" | "FAILED" | "RUNNING" | "SUCCEEDED" | "
  * <p>Contains details about the successful termination of the execution.</p>
  */
 export interface ExecutionSucceededEventDetails {
-  __type?: "ExecutionSucceededEventDetails";
   /**
    * <p>The JSON data output by the execution.</p>
    */
@@ -1004,14 +936,12 @@ export namespace ExecutionSucceededEventDetails {
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExecutionSucceededEventDetails => __isa(o, "ExecutionSucceededEventDetails");
 }
 
 /**
  * <p>Contains details about the execution timeout that occurred during the execution.</p>
  */
 export interface ExecutionTimedOutEventDetails {
-  __type?: "ExecutionTimedOutEventDetails";
   /**
    * <p>The error code of the failure.</p>
    */
@@ -1029,11 +959,9 @@ export namespace ExecutionTimedOutEventDetails {
     ...(obj.error && { error: SENSITIVE_STRING }),
     ...(obj.cause && { cause: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExecutionTimedOutEventDetails => __isa(o, "ExecutionTimedOutEventDetails");
 }
 
 export interface GetActivityTaskInput {
-  __type?: "GetActivityTaskInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task
    *       using <a>CreateActivity</a>.)</p>
@@ -1051,11 +979,9 @@ export namespace GetActivityTaskInput {
   export const filterSensitiveLog = (obj: GetActivityTaskInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetActivityTaskInput => __isa(o, "GetActivityTaskInput");
 }
 
 export interface GetActivityTaskOutput {
-  __type?: "GetActivityTaskOutput";
   /**
    * <p>A token that identifies the scheduled task. This token must be copied and included in
    *       subsequent calls to <a>SendTaskHeartbeat</a>, <a>SendTaskSuccess</a> or
@@ -1075,11 +1001,9 @@ export namespace GetActivityTaskOutput {
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetActivityTaskOutput => __isa(o, "GetActivityTaskOutput");
 }
 
 export interface GetExecutionHistoryInput {
-  __type?: "GetExecutionHistoryInput";
   /**
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
    *     The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p>
@@ -1108,11 +1032,9 @@ export namespace GetExecutionHistoryInput {
   export const filterSensitiveLog = (obj: GetExecutionHistoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExecutionHistoryInput => __isa(o, "GetExecutionHistoryInput");
 }
 
 export interface GetExecutionHistoryOutput {
-  __type?: "GetExecutionHistoryOutput";
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
@@ -1130,14 +1052,12 @@ export namespace GetExecutionHistoryOutput {
     ...obj,
     ...(obj.events && { events: obj.events.map((item) => HistoryEvent.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is GetExecutionHistoryOutput => __isa(o, "GetExecutionHistoryOutput");
 }
 
 /**
  * <p>Contains details about the events of an execution.</p>
  */
 export interface HistoryEvent {
-  __type?: "HistoryEvent";
   /**
    * <p>Contains details about an activity schedule event that failed during an execution.</p>
    */
@@ -1423,7 +1343,6 @@ export namespace HistoryEvent {
       taskScheduledEventDetails: TaskScheduledEventDetails.filterSensitiveLog(obj.taskScheduledEventDetails),
     }),
   });
-  export const isa = (o: any): o is HistoryEvent => __isa(o, "HistoryEvent");
 }
 
 export type HistoryEventType =
@@ -1496,7 +1415,6 @@ export namespace InvalidArn {
   export const filterSensitiveLog = (obj: InvalidArn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArn => __isa(o, "InvalidArn");
 }
 
 /**
@@ -1512,7 +1430,6 @@ export namespace InvalidDefinition {
   export const filterSensitiveLog = (obj: InvalidDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDefinition => __isa(o, "InvalidDefinition");
 }
 
 /**
@@ -1528,7 +1445,6 @@ export namespace InvalidExecutionInput {
   export const filterSensitiveLog = (obj: InvalidExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidExecutionInput => __isa(o, "InvalidExecutionInput");
 }
 
 /**
@@ -1544,7 +1460,6 @@ export namespace InvalidLoggingConfiguration {
   export const filterSensitiveLog = (obj: InvalidLoggingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLoggingConfiguration => __isa(o, "InvalidLoggingConfiguration");
 }
 
 /**
@@ -1560,7 +1475,6 @@ export namespace InvalidName {
   export const filterSensitiveLog = (obj: InvalidName): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidName => __isa(o, "InvalidName");
 }
 
 /**
@@ -1576,7 +1490,6 @@ export namespace InvalidOutput {
   export const filterSensitiveLog = (obj: InvalidOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOutput => __isa(o, "InvalidOutput");
 }
 
 /**
@@ -1592,14 +1505,12 @@ export namespace InvalidToken {
   export const filterSensitiveLog = (obj: InvalidToken): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidToken => __isa(o, "InvalidToken");
 }
 
 /**
  * <p>Contains details about a lambda function that failed during an execution.</p>
  */
 export interface LambdaFunctionFailedEventDetails {
-  __type?: "LambdaFunctionFailedEventDetails";
   /**
    * <p>The error code of the failure.</p>
    */
@@ -1617,14 +1528,12 @@ export namespace LambdaFunctionFailedEventDetails {
     ...(obj.error && { error: SENSITIVE_STRING }),
     ...(obj.cause && { cause: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is LambdaFunctionFailedEventDetails => __isa(o, "LambdaFunctionFailedEventDetails");
 }
 
 /**
  * <p>Contains details about a lambda function scheduled during an execution.</p>
  */
 export interface LambdaFunctionScheduledEventDetails {
-  __type?: "LambdaFunctionScheduledEventDetails";
   /**
    * <p>The JSON data input to the lambda function.</p>
    */
@@ -1646,8 +1555,6 @@ export namespace LambdaFunctionScheduledEventDetails {
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is LambdaFunctionScheduledEventDetails =>
-    __isa(o, "LambdaFunctionScheduledEventDetails");
 }
 
 /**
@@ -1655,7 +1562,6 @@ export namespace LambdaFunctionScheduledEventDetails {
  *       execution.</p>
  */
 export interface LambdaFunctionScheduleFailedEventDetails {
-  __type?: "LambdaFunctionScheduleFailedEventDetails";
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
@@ -1673,15 +1579,12 @@ export namespace LambdaFunctionScheduleFailedEventDetails {
     ...(obj.cause && { cause: SENSITIVE_STRING }),
     ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is LambdaFunctionScheduleFailedEventDetails =>
-    __isa(o, "LambdaFunctionScheduleFailedEventDetails");
 }
 
 /**
  * <p>Contains details about a lambda function that failed to start during an execution.</p>
  */
 export interface LambdaFunctionStartFailedEventDetails {
-  __type?: "LambdaFunctionStartFailedEventDetails";
   /**
    * <p>The error code of the failure.</p>
    */
@@ -1699,8 +1602,6 @@ export namespace LambdaFunctionStartFailedEventDetails {
     ...(obj.error && { error: SENSITIVE_STRING }),
     ...(obj.cause && { cause: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is LambdaFunctionStartFailedEventDetails =>
-    __isa(o, "LambdaFunctionStartFailedEventDetails");
 }
 
 /**
@@ -1708,7 +1609,6 @@ export namespace LambdaFunctionStartFailedEventDetails {
  *       execution.</p>
  */
 export interface LambdaFunctionSucceededEventDetails {
-  __type?: "LambdaFunctionSucceededEventDetails";
   /**
    * <p>The JSON data output by the lambda function.</p>
    */
@@ -1720,15 +1620,12 @@ export namespace LambdaFunctionSucceededEventDetails {
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is LambdaFunctionSucceededEventDetails =>
-    __isa(o, "LambdaFunctionSucceededEventDetails");
 }
 
 /**
  * <p>Contains details about a lambda function timeout that occurred during an execution.</p>
  */
 export interface LambdaFunctionTimedOutEventDetails {
-  __type?: "LambdaFunctionTimedOutEventDetails";
   /**
    * <p>The error code of the failure.</p>
    */
@@ -1746,12 +1643,9 @@ export namespace LambdaFunctionTimedOutEventDetails {
     ...(obj.error && { error: SENSITIVE_STRING }),
     ...(obj.cause && { cause: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is LambdaFunctionTimedOutEventDetails =>
-    __isa(o, "LambdaFunctionTimedOutEventDetails");
 }
 
 export interface ListActivitiesInput {
-  __type?: "ListActivitiesInput";
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
@@ -1770,11 +1664,9 @@ export namespace ListActivitiesInput {
   export const filterSensitiveLog = (obj: ListActivitiesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListActivitiesInput => __isa(o, "ListActivitiesInput");
 }
 
 export interface ListActivitiesOutput {
-  __type?: "ListActivitiesOutput";
   /**
    * <p>The list of activities.</p>
    */
@@ -1791,11 +1683,9 @@ export namespace ListActivitiesOutput {
   export const filterSensitiveLog = (obj: ListActivitiesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListActivitiesOutput => __isa(o, "ListActivitiesOutput");
 }
 
 export interface ListExecutionsInput {
-  __type?: "ListExecutionsInput";
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
@@ -1825,11 +1715,9 @@ export namespace ListExecutionsInput {
   export const filterSensitiveLog = (obj: ListExecutionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListExecutionsInput => __isa(o, "ListExecutionsInput");
 }
 
 export interface ListExecutionsOutput {
-  __type?: "ListExecutionsOutput";
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
@@ -1846,11 +1734,9 @@ export namespace ListExecutionsOutput {
   export const filterSensitiveLog = (obj: ListExecutionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListExecutionsOutput => __isa(o, "ListExecutionsOutput");
 }
 
 export interface ListStateMachinesInput {
-  __type?: "ListStateMachinesInput";
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
@@ -1869,11 +1755,9 @@ export namespace ListStateMachinesInput {
   export const filterSensitiveLog = (obj: ListStateMachinesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStateMachinesInput => __isa(o, "ListStateMachinesInput");
 }
 
 export interface ListStateMachinesOutput {
-  __type?: "ListStateMachinesOutput";
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
@@ -1887,11 +1771,9 @@ export namespace ListStateMachinesOutput {
   export const filterSensitiveLog = (obj: ListStateMachinesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStateMachinesOutput => __isa(o, "ListStateMachinesOutput");
 }
 
 export interface ListTagsForResourceInput {
-  __type?: "ListTagsForResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>
    */
@@ -1902,11 +1784,9 @@ export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
-  __type?: "ListTagsForResourceOutput";
   /**
    * <p>An array of tags associated with the resource.</p>
    */
@@ -1917,14 +1797,12 @@ export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
  * <p></p>
  */
 export interface LogDestination {
-  __type?: "LogDestination";
   /**
    * <p>An object describing a CloudWatch log group. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">AWS::Logs::LogGroup</a> in the AWS CloudFormation User Guide.</p>
    */
@@ -1935,7 +1813,6 @@ export namespace LogDestination {
   export const filterSensitiveLog = (obj: LogDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogDestination => __isa(o, "LogDestination");
 }
 
 /**
@@ -1943,7 +1820,6 @@ export namespace LogDestination {
  *       options.</p>
  */
 export interface LoggingConfiguration {
-  __type?: "LoggingConfiguration";
   /**
    * <p>Determines whether execution data is included in your log. When set to <code>FALSE</code>,
    *       data is excluded.</p>
@@ -1966,7 +1842,6 @@ export namespace LoggingConfiguration {
   export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggingConfiguration => __isa(o, "LoggingConfiguration");
 }
 
 export type LogLevel = "ALL" | "ERROR" | "FATAL" | "OFF";
@@ -1975,7 +1850,6 @@ export type LogLevel = "ALL" | "ERROR" | "FATAL" | "OFF";
  * <p>Contains details about an iteration of a Map state.</p>
  */
 export interface MapIterationEventDetails {
-  __type?: "MapIterationEventDetails";
   /**
    * <p>The name of the iteration’s parent Map state.</p>
    */
@@ -1991,14 +1865,12 @@ export namespace MapIterationEventDetails {
   export const filterSensitiveLog = (obj: MapIterationEventDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MapIterationEventDetails => __isa(o, "MapIterationEventDetails");
 }
 
 /**
  * <p>Details about a Map state that was started.</p>
  */
 export interface MapStateStartedEventDetails {
-  __type?: "MapStateStartedEventDetails";
   /**
    * <p>The size of the array for Map state iterations.</p>
    */
@@ -2009,7 +1881,6 @@ export namespace MapStateStartedEventDetails {
   export const filterSensitiveLog = (obj: MapStateStartedEventDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MapStateStartedEventDetails => __isa(o, "MapStateStartedEventDetails");
 }
 
 /**
@@ -2026,7 +1897,6 @@ export namespace MissingRequiredParameter {
   export const filterSensitiveLog = (obj: MissingRequiredParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MissingRequiredParameter => __isa(o, "MissingRequiredParameter");
 }
 
 /**
@@ -2044,11 +1914,9 @@ export namespace ResourceNotFound {
   export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFound => __isa(o, "ResourceNotFound");
 }
 
 export interface SendTaskFailureInput {
-  __type?: "SendTaskFailureInput";
   /**
    * <p>The error code of the failure.</p>
    */
@@ -2073,22 +1941,17 @@ export namespace SendTaskFailureInput {
     ...(obj.error && { error: SENSITIVE_STRING }),
     ...(obj.cause && { cause: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SendTaskFailureInput => __isa(o, "SendTaskFailureInput");
 }
 
-export interface SendTaskFailureOutput {
-  __type?: "SendTaskFailureOutput";
-}
+export interface SendTaskFailureOutput {}
 
 export namespace SendTaskFailureOutput {
   export const filterSensitiveLog = (obj: SendTaskFailureOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendTaskFailureOutput => __isa(o, "SendTaskFailureOutput");
 }
 
 export interface SendTaskHeartbeatInput {
-  __type?: "SendTaskHeartbeatInput";
   /**
    * <p>The token that represents this task. Task tokens are generated by Step Functions when
    *       tasks are assigned to a worker, or in the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html">context object</a> when a
@@ -2101,22 +1964,17 @@ export namespace SendTaskHeartbeatInput {
   export const filterSensitiveLog = (obj: SendTaskHeartbeatInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendTaskHeartbeatInput => __isa(o, "SendTaskHeartbeatInput");
 }
 
-export interface SendTaskHeartbeatOutput {
-  __type?: "SendTaskHeartbeatOutput";
-}
+export interface SendTaskHeartbeatOutput {}
 
 export namespace SendTaskHeartbeatOutput {
   export const filterSensitiveLog = (obj: SendTaskHeartbeatOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendTaskHeartbeatOutput => __isa(o, "SendTaskHeartbeatOutput");
 }
 
 export interface SendTaskSuccessInput {
-  __type?: "SendTaskSuccessInput";
   /**
    * <p>The token that represents this task. Task tokens are generated by Step Functions when
    *       tasks are assigned to a worker, or in the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html">context object</a> when a
@@ -2135,22 +1993,17 @@ export namespace SendTaskSuccessInput {
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SendTaskSuccessInput => __isa(o, "SendTaskSuccessInput");
 }
 
-export interface SendTaskSuccessOutput {
-  __type?: "SendTaskSuccessOutput";
-}
+export interface SendTaskSuccessOutput {}
 
 export namespace SendTaskSuccessOutput {
   export const filterSensitiveLog = (obj: SendTaskSuccessOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendTaskSuccessOutput => __isa(o, "SendTaskSuccessOutput");
 }
 
 export interface StartExecutionInput {
-  __type?: "StartExecutionInput";
   /**
    * <p>The name of the execution. This name must be unique for your AWS account, region, and state machine for 90 days. For more information,
    *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
@@ -2204,11 +2057,9 @@ export namespace StartExecutionInput {
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StartExecutionInput => __isa(o, "StartExecutionInput");
 }
 
 export interface StartExecutionOutput {
-  __type?: "StartExecutionOutput";
   /**
    * <p>The date the execution is started.</p>
    */
@@ -2224,14 +2075,12 @@ export namespace StartExecutionOutput {
   export const filterSensitiveLog = (obj: StartExecutionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartExecutionOutput => __isa(o, "StartExecutionOutput");
 }
 
 /**
  * <p>Contains details about a state entered during an execution.</p>
  */
 export interface StateEnteredEventDetails {
-  __type?: "StateEnteredEventDetails";
   /**
    * <p>The name of the state.</p>
    */
@@ -2248,14 +2097,12 @@ export namespace StateEnteredEventDetails {
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StateEnteredEventDetails => __isa(o, "StateEnteredEventDetails");
 }
 
 /**
  * <p>Contains details about an exit from a state during an execution.</p>
  */
 export interface StateExitedEventDetails {
-  __type?: "StateExitedEventDetails";
   /**
    * <p>The name of the state.</p>
    *          <p>A name must <i>not</i> contain:</p>
@@ -2294,7 +2141,6 @@ export namespace StateExitedEventDetails {
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StateExitedEventDetails => __isa(o, "StateExitedEventDetails");
 }
 
 /**
@@ -2311,7 +2157,6 @@ export namespace StateMachineAlreadyExists {
   export const filterSensitiveLog = (obj: StateMachineAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StateMachineAlreadyExists => __isa(o, "StateMachineAlreadyExists");
 }
 
 /**
@@ -2327,7 +2172,6 @@ export namespace StateMachineDeleting {
   export const filterSensitiveLog = (obj: StateMachineDeleting): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StateMachineDeleting => __isa(o, "StateMachineDeleting");
 }
 
 /**
@@ -2343,7 +2187,6 @@ export namespace StateMachineDoesNotExist {
   export const filterSensitiveLog = (obj: StateMachineDoesNotExist): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StateMachineDoesNotExist => __isa(o, "StateMachineDoesNotExist");
 }
 
 /**
@@ -2360,14 +2203,12 @@ export namespace StateMachineLimitExceeded {
   export const filterSensitiveLog = (obj: StateMachineLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StateMachineLimitExceeded => __isa(o, "StateMachineLimitExceeded");
 }
 
 /**
  * <p>Contains details about the state machine.</p>
  */
 export interface StateMachineListItem {
-  __type?: "StateMachineListItem";
   /**
    * <p>The name of the state machine.</p>
    *          <p>A name must <i>not</i> contain:</p>
@@ -2415,7 +2256,6 @@ export namespace StateMachineListItem {
   export const filterSensitiveLog = (obj: StateMachineListItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StateMachineListItem => __isa(o, "StateMachineListItem");
 }
 
 export type StateMachineStatus = "ACTIVE" | "DELETING";
@@ -2435,11 +2275,9 @@ export namespace StateMachineTypeNotSupported {
   export const filterSensitiveLog = (obj: StateMachineTypeNotSupported): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StateMachineTypeNotSupported => __isa(o, "StateMachineTypeNotSupported");
 }
 
 export interface StopExecutionInput {
-  __type?: "StopExecutionInput";
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
@@ -2462,11 +2300,9 @@ export namespace StopExecutionInput {
     ...(obj.cause && { cause: SENSITIVE_STRING }),
     ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is StopExecutionInput => __isa(o, "StopExecutionInput");
 }
 
 export interface StopExecutionOutput {
-  __type?: "StopExecutionOutput";
   /**
    * <p>The date the execution is stopped.</p>
    */
@@ -2477,7 +2313,6 @@ export namespace StopExecutionOutput {
   export const filterSensitiveLog = (obj: StopExecutionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopExecutionOutput => __isa(o, "StopExecutionOutput");
 }
 
 /**
@@ -2490,7 +2325,6 @@ export namespace StopExecutionOutput {
  *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The key of a tag.</p>
    */
@@ -2506,11 +2340,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceInput {
-  __type?: "TagResourceInput";
   /**
    * <p>The list of tags to add to a resource.</p>
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
@@ -2527,18 +2359,14 @@ export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
-export interface TagResourceOutput {
-  __type?: "TagResourceOutput";
-}
+export interface TagResourceOutput {}
 
 export namespace TagResourceOutput {
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceOutput => __isa(o, "TagResourceOutput");
 }
 
 export interface TaskDoesNotExist extends __SmithyException, $MetadataBearer {
@@ -2551,14 +2379,12 @@ export namespace TaskDoesNotExist {
   export const filterSensitiveLog = (obj: TaskDoesNotExist): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskDoesNotExist => __isa(o, "TaskDoesNotExist");
 }
 
 /**
  * <p>Contains details about a task failure event.</p>
  */
 export interface TaskFailedEventDetails {
-  __type?: "TaskFailedEventDetails";
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
@@ -2586,14 +2412,12 @@ export namespace TaskFailedEventDetails {
     ...(obj.cause && { cause: SENSITIVE_STRING }),
     ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskFailedEventDetails => __isa(o, "TaskFailedEventDetails");
 }
 
 /**
  * <p>Contains details about a task scheduled during an execution.</p>
  */
 export interface TaskScheduledEventDetails {
-  __type?: "TaskScheduledEventDetails";
   /**
    * <p>The action of the resource called by a task state.</p>
    */
@@ -2625,14 +2449,12 @@ export namespace TaskScheduledEventDetails {
     ...obj,
     ...(obj.parameters && { parameters: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskScheduledEventDetails => __isa(o, "TaskScheduledEventDetails");
 }
 
 /**
  * <p>Contains details about the start of a task during an execution.</p>
  */
 export interface TaskStartedEventDetails {
-  __type?: "TaskStartedEventDetails";
   /**
    * <p>The action of the resource called by a task state.</p>
    */
@@ -2648,14 +2470,12 @@ export namespace TaskStartedEventDetails {
   export const filterSensitiveLog = (obj: TaskStartedEventDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskStartedEventDetails => __isa(o, "TaskStartedEventDetails");
 }
 
 /**
  * <p>Contains details about a task that failed to start during an execution.</p>
  */
 export interface TaskStartFailedEventDetails {
-  __type?: "TaskStartFailedEventDetails";
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
@@ -2683,14 +2503,12 @@ export namespace TaskStartFailedEventDetails {
     ...(obj.cause && { cause: SENSITIVE_STRING }),
     ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskStartFailedEventDetails => __isa(o, "TaskStartFailedEventDetails");
 }
 
 /**
  * <p>Contains details about a task that failed to submit during an execution.</p>
  */
 export interface TaskSubmitFailedEventDetails {
-  __type?: "TaskSubmitFailedEventDetails";
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
@@ -2718,14 +2536,12 @@ export namespace TaskSubmitFailedEventDetails {
     ...(obj.cause && { cause: SENSITIVE_STRING }),
     ...(obj.error && { error: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskSubmitFailedEventDetails => __isa(o, "TaskSubmitFailedEventDetails");
 }
 
 /**
  * <p>Contains details about a task submitted to a resource .</p>
  */
 export interface TaskSubmittedEventDetails {
-  __type?: "TaskSubmittedEventDetails";
   /**
    * <p>The response from a resource when a task has started.</p>
    */
@@ -2747,14 +2563,12 @@ export namespace TaskSubmittedEventDetails {
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskSubmittedEventDetails => __isa(o, "TaskSubmittedEventDetails");
 }
 
 /**
  * <p>Contains details about the successful completion of a task state.</p>
  */
 export interface TaskSucceededEventDetails {
-  __type?: "TaskSucceededEventDetails";
   /**
    * <p>The action of the resource called by a task state.</p>
    */
@@ -2777,7 +2591,6 @@ export namespace TaskSucceededEventDetails {
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskSucceededEventDetails => __isa(o, "TaskSucceededEventDetails");
 }
 
 export interface TaskTimedOut extends __SmithyException, $MetadataBearer {
@@ -2790,14 +2603,12 @@ export namespace TaskTimedOut {
   export const filterSensitiveLog = (obj: TaskTimedOut): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskTimedOut => __isa(o, "TaskTimedOut");
 }
 
 /**
  * <p>Contains details about a resource timeout that occurred during an execution.</p>
  */
 export interface TaskTimedOutEventDetails {
-  __type?: "TaskTimedOutEventDetails";
   /**
    * <p>The error code of the failure.</p>
    */
@@ -2825,7 +2636,6 @@ export namespace TaskTimedOutEventDetails {
     ...(obj.error && { error: SENSITIVE_STRING }),
     ...(obj.cause && { cause: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is TaskTimedOutEventDetails => __isa(o, "TaskTimedOutEventDetails");
 }
 
 /**
@@ -2843,11 +2653,9 @@ export namespace TooManyTags {
   export const filterSensitiveLog = (obj: TooManyTags): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTags => __isa(o, "TooManyTags");
 }
 
 export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>
    */
@@ -2863,22 +2671,17 @@ export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
-export interface UntagResourceOutput {
-  __type?: "UntagResourceOutput";
-}
+export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceOutput => __isa(o, "UntagResourceOutput");
 }
 
 export interface UpdateStateMachineInput {
-  __type?: "UpdateStateMachineInput";
   /**
    * <p>The Amazon States Language definition of the state machine. See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a>.</p>
    */
@@ -2906,11 +2709,9 @@ export namespace UpdateStateMachineInput {
     ...obj,
     ...(obj.definition && { definition: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateStateMachineInput => __isa(o, "UpdateStateMachineInput");
 }
 
 export interface UpdateStateMachineOutput {
-  __type?: "UpdateStateMachineOutput";
   /**
    * <p>The date and time the state machine was updated.</p>
    */
@@ -2921,5 +2722,4 @@ export namespace UpdateStateMachineOutput {
   export const filterSensitiveLog = (obj: UpdateStateMachineOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStateMachineOutput => __isa(o, "UpdateStateMachineOutput");
 }

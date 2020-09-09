@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,14 +17,12 @@ export namespace AlreadyStreamedException {
   export const filterSensitiveLog = (obj: AlreadyStreamedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlreadyStreamedException => __isa(o, "AlreadyStreamedException");
 }
 
 /**
  * <p>The input for the BulkPublish operation.</p>
  */
 export interface BulkPublishRequest {
-  __type?: "BulkPublishRequest";
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
@@ -35,14 +33,12 @@ export namespace BulkPublishRequest {
   export const filterSensitiveLog = (obj: BulkPublishRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BulkPublishRequest => __isa(o, "BulkPublishRequest");
 }
 
 /**
  * <p>The output for the BulkPublish operation.</p>
  */
 export interface BulkPublishResponse {
-  __type?: "BulkPublishResponse";
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
@@ -53,7 +49,6 @@ export namespace BulkPublishResponse {
   export const filterSensitiveLog = (obj: BulkPublishResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BulkPublishResponse => __isa(o, "BulkPublishResponse");
 }
 
 export enum BulkPublishStatus {
@@ -67,7 +62,6 @@ export enum BulkPublishStatus {
  * <p>Configuration options for configure Cognito streams.</p>
  */
 export interface CognitoStreams {
-  __type?: "CognitoStreams";
   /**
    * <p>A string containing the reason why streaming of updates to the identity pool was disabled.</p>
    */
@@ -101,7 +95,6 @@ export namespace CognitoStreams {
   export const filterSensitiveLog = (obj: CognitoStreams): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CognitoStreams => __isa(o, "CognitoStreams");
 }
 
 /**
@@ -120,7 +113,6 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -130,7 +122,6 @@ export namespace ConcurrentModificationException {
  *        exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</p>
  */
 export interface Dataset {
-  __type?: "Dataset";
   /**
    * <p>Number of records in this dataset.</p>
    */
@@ -172,14 +163,12 @@ export namespace Dataset {
   export const filterSensitiveLog = (obj: Dataset): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Dataset => __isa(o, "Dataset");
 }
 
 /**
  * <p>A request to delete the specific dataset.</p>
  */
 export interface DeleteDatasetRequest {
-  __type?: "DeleteDatasetRequest";
   /**
    * <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'
    *        (underscore), '-' (dash), and '.' (dot). </p>
@@ -203,14 +192,12 @@ export namespace DeleteDatasetRequest {
   export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDatasetRequest => __isa(o, "DeleteDatasetRequest");
 }
 
 /**
  * <p>Response to a successful DeleteDataset request.</p>
  */
 export interface DeleteDatasetResponse {
-  __type?: "DeleteDatasetResponse";
   /**
    * <p>A collection of data for an identity pool. An identity pool can have multiple
    *        datasets. A dataset is per identity and can be general or associated with a particular entity
@@ -224,7 +211,6 @@ export namespace DeleteDatasetResponse {
   export const filterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDatasetResponse => __isa(o, "DeleteDatasetResponse");
 }
 
 /**
@@ -232,7 +218,6 @@ export namespace DeleteDatasetResponse {
  *        owner and dataset name.</p>
  */
 export interface DescribeDatasetRequest {
-  __type?: "DescribeDatasetRequest";
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
    *        created by Amazon Cognito. GUID generation is unique within a region.</p>
@@ -256,14 +241,12 @@ export namespace DescribeDatasetRequest {
   export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetRequest => __isa(o, "DescribeDatasetRequest");
 }
 
 /**
  * <p>Response to a successful DescribeDataset request.</p>
  */
 export interface DescribeDatasetResponse {
-  __type?: "DescribeDatasetResponse";
   /**
    * <p>Metadata for a collection of data for an identity. An identity can have multiple
    *        datasets. A dataset can be general or associated with a particular entity in an application
@@ -277,14 +260,12 @@ export namespace DescribeDatasetResponse {
   export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetResponse => __isa(o, "DescribeDatasetResponse");
 }
 
 /**
  * <p>A request for usage information about the identity pool.</p>
  */
 export interface DescribeIdentityPoolUsageRequest {
-  __type?: "DescribeIdentityPoolUsageRequest";
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
    *        created by Amazon Cognito. GUID generation is unique within a region.</p>
@@ -296,14 +277,12 @@ export namespace DescribeIdentityPoolUsageRequest {
   export const filterSensitiveLog = (obj: DescribeIdentityPoolUsageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIdentityPoolUsageRequest => __isa(o, "DescribeIdentityPoolUsageRequest");
 }
 
 /**
  * <p>Response to a successful DescribeIdentityPoolUsage request.</p>
  */
 export interface DescribeIdentityPoolUsageResponse {
-  __type?: "DescribeIdentityPoolUsageResponse";
   /**
    * <p>Information about the usage of the identity pool.</p>
    */
@@ -314,14 +293,12 @@ export namespace DescribeIdentityPoolUsageResponse {
   export const filterSensitiveLog = (obj: DescribeIdentityPoolUsageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIdentityPoolUsageResponse => __isa(o, "DescribeIdentityPoolUsageResponse");
 }
 
 /**
  * <p>A request for information about the usage of an identity pool.</p>
  */
 export interface DescribeIdentityUsageRequest {
-  __type?: "DescribeIdentityUsageRequest";
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
    *        created by Amazon Cognito. GUID generation is unique within a region.</p>
@@ -339,14 +316,12 @@ export namespace DescribeIdentityUsageRequest {
   export const filterSensitiveLog = (obj: DescribeIdentityUsageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIdentityUsageRequest => __isa(o, "DescribeIdentityUsageRequest");
 }
 
 /**
  * <p>The response to a successful DescribeIdentityUsage request.</p>
  */
 export interface DescribeIdentityUsageResponse {
-  __type?: "DescribeIdentityUsageResponse";
   /**
    * <p>Usage information for the identity.</p>
    */
@@ -357,7 +332,6 @@ export namespace DescribeIdentityUsageResponse {
   export const filterSensitiveLog = (obj: DescribeIdentityUsageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIdentityUsageResponse => __isa(o, "DescribeIdentityUsageResponse");
 }
 
 /**
@@ -376,14 +350,12 @@ export namespace DuplicateRequestException {
   export const filterSensitiveLog = (obj: DuplicateRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateRequestException => __isa(o, "DuplicateRequestException");
 }
 
 /**
  * <p>The input for the GetBulkPublishDetails operation.</p>
  */
 export interface GetBulkPublishDetailsRequest {
-  __type?: "GetBulkPublishDetailsRequest";
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
@@ -394,14 +366,12 @@ export namespace GetBulkPublishDetailsRequest {
   export const filterSensitiveLog = (obj: GetBulkPublishDetailsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBulkPublishDetailsRequest => __isa(o, "GetBulkPublishDetailsRequest");
 }
 
 /**
  * <p>The output for the GetBulkPublishDetails operation.</p>
  */
 export interface GetBulkPublishDetailsResponse {
-  __type?: "GetBulkPublishDetailsResponse";
   /**
    * <p>Status of the last bulk publish operation, valid values are: </p>
    *          <ul>
@@ -446,14 +416,12 @@ export namespace GetBulkPublishDetailsResponse {
   export const filterSensitiveLog = (obj: GetBulkPublishDetailsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBulkPublishDetailsResponse => __isa(o, "GetBulkPublishDetailsResponse");
 }
 
 /**
  * <p>A request for a list of the configured Cognito Events</p>
  */
 export interface GetCognitoEventsRequest {
-  __type?: "GetCognitoEventsRequest";
   /**
    * <p>The Cognito Identity Pool ID for the request</p>
    */
@@ -464,14 +432,12 @@ export namespace GetCognitoEventsRequest {
   export const filterSensitiveLog = (obj: GetCognitoEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCognitoEventsRequest => __isa(o, "GetCognitoEventsRequest");
 }
 
 /**
  * <p>The response from the GetCognitoEvents request</p>
  */
 export interface GetCognitoEventsResponse {
-  __type?: "GetCognitoEventsResponse";
   /**
    * <p>The Cognito Events returned from the GetCognitoEvents request</p>
    */
@@ -482,14 +448,12 @@ export namespace GetCognitoEventsResponse {
   export const filterSensitiveLog = (obj: GetCognitoEventsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCognitoEventsResponse => __isa(o, "GetCognitoEventsResponse");
 }
 
 /**
  * <p>The input for the GetIdentityPoolConfiguration operation.</p>
  */
 export interface GetIdentityPoolConfigurationRequest {
-  __type?: "GetIdentityPoolConfigurationRequest";
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.</p>
    */
@@ -500,15 +464,12 @@ export namespace GetIdentityPoolConfigurationRequest {
   export const filterSensitiveLog = (obj: GetIdentityPoolConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityPoolConfigurationRequest =>
-    __isa(o, "GetIdentityPoolConfigurationRequest");
 }
 
 /**
  * <p>The output for the GetIdentityPoolConfiguration operation.</p>
  */
 export interface GetIdentityPoolConfigurationResponse {
-  __type?: "GetIdentityPoolConfigurationResponse";
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>
    */
@@ -529,15 +490,12 @@ export namespace GetIdentityPoolConfigurationResponse {
   export const filterSensitiveLog = (obj: GetIdentityPoolConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityPoolConfigurationResponse =>
-    __isa(o, "GetIdentityPoolConfigurationResponse");
 }
 
 /**
  * <p>Usage information for the identity pool.</p>
  */
 export interface IdentityPoolUsage {
-  __type?: "IdentityPoolUsage";
   /**
    * <p>Date on which the identity pool was last modified.</p>
    */
@@ -564,14 +522,12 @@ export namespace IdentityPoolUsage {
   export const filterSensitiveLog = (obj: IdentityPoolUsage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityPoolUsage => __isa(o, "IdentityPoolUsage");
 }
 
 /**
  * <p>Usage information for the identity.</p>
  */
 export interface IdentityUsage {
-  __type?: "IdentityUsage";
   /**
    * <p>Number of datasets for the identity.</p>
    */
@@ -604,7 +560,6 @@ export namespace IdentityUsage {
   export const filterSensitiveLog = (obj: IdentityUsage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityUsage => __isa(o, "IdentityUsage");
 }
 
 /**
@@ -623,7 +578,6 @@ export namespace InternalErrorException {
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
@@ -642,7 +596,6 @@ export namespace InvalidConfigurationException {
   export const filterSensitiveLog = (obj: InvalidConfigurationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidConfigurationException => __isa(o, "InvalidConfigurationException");
 }
 
 /**
@@ -661,8 +614,6 @@ export namespace InvalidLambdaFunctionOutputException {
   export const filterSensitiveLog = (obj: InvalidLambdaFunctionOutputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLambdaFunctionOutputException =>
-    __isa(o, "InvalidLambdaFunctionOutputException");
 }
 
 /**
@@ -681,7 +632,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -699,7 +649,6 @@ export namespace LambdaSocketTimeoutException {
   export const filterSensitiveLog = (obj: LambdaSocketTimeoutException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaSocketTimeoutException => __isa(o, "LambdaSocketTimeoutException");
 }
 
 /**
@@ -718,7 +667,6 @@ export namespace LambdaThrottledException {
   export const filterSensitiveLog = (obj: LambdaThrottledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaThrottledException => __isa(o, "LambdaThrottledException");
 }
 
 /**
@@ -737,14 +685,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>Request for a list of datasets for an identity.</p>
  */
 export interface ListDatasetsRequest {
-  __type?: "ListDatasetsRequest";
   /**
    * <p>A pagination token for obtaining the next page of results.</p>
    */
@@ -770,14 +716,12 @@ export namespace ListDatasetsRequest {
   export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatasetsRequest => __isa(o, "ListDatasetsRequest");
 }
 
 /**
  * <p>Returned for a successful ListDatasets request.</p>
  */
 export interface ListDatasetsResponse {
-  __type?: "ListDatasetsResponse";
   /**
    * <p>Number of datasets returned.</p>
    */
@@ -798,14 +742,12 @@ export namespace ListDatasetsResponse {
   export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatasetsResponse => __isa(o, "ListDatasetsResponse");
 }
 
 /**
  * <p>A request for usage information on an identity pool.</p>
  */
 export interface ListIdentityPoolUsageRequest {
-  __type?: "ListIdentityPoolUsageRequest";
   /**
    * <p>A pagination token for obtaining the next page of results.</p>
    */
@@ -821,14 +763,12 @@ export namespace ListIdentityPoolUsageRequest {
   export const filterSensitiveLog = (obj: ListIdentityPoolUsageRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIdentityPoolUsageRequest => __isa(o, "ListIdentityPoolUsageRequest");
 }
 
 /**
  * <p>Returned for a successful ListIdentityPoolUsage request.</p>
  */
 export interface ListIdentityPoolUsageResponse {
-  __type?: "ListIdentityPoolUsageResponse";
   /**
    * <p>Usage information for the identity pools.</p>
    */
@@ -854,14 +794,12 @@ export namespace ListIdentityPoolUsageResponse {
   export const filterSensitiveLog = (obj: ListIdentityPoolUsageResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIdentityPoolUsageResponse => __isa(o, "ListIdentityPoolUsageResponse");
 }
 
 /**
  * <p>A request for a list of records.</p>
  */
 export interface ListRecordsRequest {
-  __type?: "ListRecordsRequest";
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>
    */
@@ -902,14 +840,12 @@ export namespace ListRecordsRequest {
   export const filterSensitiveLog = (obj: ListRecordsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRecordsRequest => __isa(o, "ListRecordsRequest");
 }
 
 /**
  * <p>Returned for a successful ListRecordsRequest.</p>
  */
 export interface ListRecordsResponse {
-  __type?: "ListRecordsResponse";
   /**
    * <p>Total number of records.</p>
    */
@@ -960,7 +896,6 @@ export namespace ListRecordsResponse {
   export const filterSensitiveLog = (obj: ListRecordsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRecordsResponse => __isa(o, "ListRecordsResponse");
 }
 
 /**
@@ -979,7 +914,6 @@ export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 export type Operation = "remove" | "replace";
@@ -990,7 +924,6 @@ export type Platform = "ADM" | "APNS" | "APNS_SANDBOX" | "GCM";
  * <p>Configuration options to be applied to the identity pool.</p>
  */
 export interface PushSync {
-  __type?: "PushSync";
   /**
    * <p>List of SNS platform application ARNs that could be used by clients.</p>
    */
@@ -1006,14 +939,12 @@ export namespace PushSync {
   export const filterSensitiveLog = (obj: PushSync): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PushSync => __isa(o, "PushSync");
 }
 
 /**
  * <p>The basic data structure of a dataset.</p>
  */
 export interface _Record {
-  __type?: "Record";
   /**
    * <p>The last modified date of the client device.</p>
    */
@@ -1049,14 +980,12 @@ export namespace _Record {
   export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
 
 /**
  * <p>An update operation for a record.</p>
  */
 export interface RecordPatch {
-  __type?: "RecordPatch";
   /**
    * <p>The key associated with the record patch.</p>
    */
@@ -1087,14 +1016,12 @@ export namespace RecordPatch {
   export const filterSensitiveLog = (obj: RecordPatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecordPatch => __isa(o, "RecordPatch");
 }
 
 /**
  * <p>A request to RegisterDevice.</p>
  */
 export interface RegisterDeviceRequest {
-  __type?: "RegisterDeviceRequest";
   /**
    * <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.</p>
    */
@@ -1120,14 +1047,12 @@ export namespace RegisterDeviceRequest {
   export const filterSensitiveLog = (obj: RegisterDeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterDeviceRequest => __isa(o, "RegisterDeviceRequest");
 }
 
 /**
  * <p>Response to a RegisterDevice request.</p>
  */
 export interface RegisterDeviceResponse {
-  __type?: "RegisterDeviceResponse";
   /**
    * <p>The unique ID generated for this device by Cognito.</p>
    */
@@ -1138,7 +1063,6 @@ export namespace RegisterDeviceResponse {
   export const filterSensitiveLog = (obj: RegisterDeviceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterDeviceResponse => __isa(o, "RegisterDeviceResponse");
 }
 
 /**
@@ -1157,7 +1081,6 @@ export namespace ResourceConflictException {
   export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceConflictException => __isa(o, "ResourceConflictException");
 }
 
 /**
@@ -1176,14 +1099,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>A request to configure Cognito Events.</p>
  */
 export interface SetCognitoEventsRequest {
-  __type?: "SetCognitoEventsRequest";
   /**
    * <p>The events to configure</p>
    */
@@ -1199,14 +1120,12 @@ export namespace SetCognitoEventsRequest {
   export const filterSensitiveLog = (obj: SetCognitoEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetCognitoEventsRequest => __isa(o, "SetCognitoEventsRequest");
 }
 
 /**
  * <p>The input for the SetIdentityPoolConfiguration operation.</p>
  */
 export interface SetIdentityPoolConfigurationRequest {
-  __type?: "SetIdentityPoolConfigurationRequest";
   /**
    * <p>Options to apply to this identity pool for push synchronization.</p>
    */
@@ -1227,15 +1146,12 @@ export namespace SetIdentityPoolConfigurationRequest {
   export const filterSensitiveLog = (obj: SetIdentityPoolConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityPoolConfigurationRequest =>
-    __isa(o, "SetIdentityPoolConfigurationRequest");
 }
 
 /**
  * <p>The output for the SetIdentityPoolConfiguration operation</p>
  */
 export interface SetIdentityPoolConfigurationResponse {
-  __type?: "SetIdentityPoolConfigurationResponse";
   /**
    * <p>Options to apply to this identity pool for Amazon Cognito streams.</p>
    */
@@ -1256,8 +1172,6 @@ export namespace SetIdentityPoolConfigurationResponse {
   export const filterSensitiveLog = (obj: SetIdentityPoolConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityPoolConfigurationResponse =>
-    __isa(o, "SetIdentityPoolConfigurationResponse");
 }
 
 export type StreamingStatus = "DISABLED" | "ENABLED";
@@ -1266,7 +1180,6 @@ export type StreamingStatus = "DISABLED" | "ENABLED";
  * <p>A request to SubscribeToDatasetRequest.</p>
  */
 export interface SubscribeToDatasetRequest {
-  __type?: "SubscribeToDatasetRequest";
   /**
    * <p>The name of the dataset to subcribe to.</p>
    */
@@ -1292,21 +1205,17 @@ export namespace SubscribeToDatasetRequest {
   export const filterSensitiveLog = (obj: SubscribeToDatasetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscribeToDatasetRequest => __isa(o, "SubscribeToDatasetRequest");
 }
 
 /**
  * <p>Response to a SubscribeToDataset request.</p>
  */
-export interface SubscribeToDatasetResponse {
-  __type?: "SubscribeToDatasetResponse";
-}
+export interface SubscribeToDatasetResponse {}
 
 export namespace SubscribeToDatasetResponse {
   export const filterSensitiveLog = (obj: SubscribeToDatasetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscribeToDatasetResponse => __isa(o, "SubscribeToDatasetResponse");
 }
 
 /**
@@ -1325,14 +1234,12 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
  * <p>A request to UnsubscribeFromDataset.</p>
  */
 export interface UnsubscribeFromDatasetRequest {
-  __type?: "UnsubscribeFromDatasetRequest";
   /**
    * <p>Unique ID for this identity.</p>
    */
@@ -1358,28 +1265,23 @@ export namespace UnsubscribeFromDatasetRequest {
   export const filterSensitiveLog = (obj: UnsubscribeFromDatasetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsubscribeFromDatasetRequest => __isa(o, "UnsubscribeFromDatasetRequest");
 }
 
 /**
  * <p>Response to an UnsubscribeFromDataset request.</p>
  */
-export interface UnsubscribeFromDatasetResponse {
-  __type?: "UnsubscribeFromDatasetResponse";
-}
+export interface UnsubscribeFromDatasetResponse {}
 
 export namespace UnsubscribeFromDatasetResponse {
   export const filterSensitiveLog = (obj: UnsubscribeFromDatasetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsubscribeFromDatasetResponse => __isa(o, "UnsubscribeFromDatasetResponse");
 }
 
 /**
  * <p>A request to post updates to records or add and delete records for a dataset and user.</p>
  */
 export interface UpdateRecordsRequest {
-  __type?: "UpdateRecordsRequest";
   /**
    * <p>A list of patch operations.</p>
    */
@@ -1420,14 +1322,12 @@ export namespace UpdateRecordsRequest {
   export const filterSensitiveLog = (obj: UpdateRecordsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRecordsRequest => __isa(o, "UpdateRecordsRequest");
 }
 
 /**
  * <p>Returned for a successful UpdateRecordsRequest.</p>
  */
 export interface UpdateRecordsResponse {
-  __type?: "UpdateRecordsResponse";
   /**
    * <p>A list of records that have been updated.</p>
    */
@@ -1438,5 +1338,4 @@ export namespace UpdateRecordsResponse {
   export const filterSensitiveLog = (obj: UpdateRecordsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRecordsResponse => __isa(o, "UpdateRecordsResponse");
 }

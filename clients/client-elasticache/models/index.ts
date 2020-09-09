@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Represents the input of an AddTagsToResource operation.</p>
  */
 export interface AddTagsToResourceMessage {
-  __type?: "AddTagsToResourceMessage";
   /**
    * <p>A list of cost allocation tags to be added to this resource. A tag is a key-value pair.
    *           A tag key must be accompanied by a tag value.</p>
@@ -26,14 +25,12 @@ export namespace AddTagsToResourceMessage {
   export const filterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsToResourceMessage => __isa(o, "AddTagsToResourceMessage");
 }
 
 /**
  * <p>Represents the allowed node types you can use to modify your cluster or replication group.</p>
  */
 export interface AllowedNodeTypeModificationsMessage {
-  __type?: "AllowedNodeTypeModificationsMessage";
   /**
    * <p>A string list, each element of which specifies a cache node type which you can use
    *             to scale your cluster or replication group.</p>
@@ -55,8 +52,6 @@ export namespace AllowedNodeTypeModificationsMessage {
   export const filterSensitiveLog = (obj: AllowedNodeTypeModificationsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AllowedNodeTypeModificationsMessage =>
-    __isa(o, "AllowedNodeTypeModificationsMessage");
 }
 
 /**
@@ -72,8 +67,6 @@ export namespace APICallRateForCustomerExceededFault {
   export const filterSensitiveLog = (obj: APICallRateForCustomerExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is APICallRateForCustomerExceededFault =>
-    __isa(o, "APICallRateForCustomerExceededFault");
 }
 
 /**
@@ -89,7 +82,6 @@ export namespace AuthorizationAlreadyExistsFault {
   export const filterSensitiveLog = (obj: AuthorizationAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizationAlreadyExistsFault => __isa(o, "AuthorizationAlreadyExistsFault");
 }
 
 /**
@@ -105,14 +97,12 @@ export namespace AuthorizationNotFoundFault {
   export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizationNotFoundFault => __isa(o, "AuthorizationNotFoundFault");
 }
 
 /**
  * <p>Represents the input of an AuthorizeCacheSecurityGroupIngress operation.</p>
  */
 export interface AuthorizeCacheSecurityGroupIngressMessage {
-  __type?: "AuthorizeCacheSecurityGroupIngressMessage";
   /**
    * <p>The AWS account number of the Amazon EC2 security group owner.
    *             Note that this is not the same thing as an AWS access key ID -
@@ -135,12 +125,9 @@ export namespace AuthorizeCacheSecurityGroupIngressMessage {
   export const filterSensitiveLog = (obj: AuthorizeCacheSecurityGroupIngressMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizeCacheSecurityGroupIngressMessage =>
-    __isa(o, "AuthorizeCacheSecurityGroupIngressMessage");
 }
 
 export interface AuthorizeCacheSecurityGroupIngressResult {
-  __type?: "AuthorizeCacheSecurityGroupIngressResult";
   /**
    * <p>Represents the output of one of the following operations:</p>
    *         <ul>
@@ -168,8 +155,6 @@ export namespace AuthorizeCacheSecurityGroupIngressResult {
   export const filterSensitiveLog = (obj: AuthorizeCacheSecurityGroupIngressResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizeCacheSecurityGroupIngressResult =>
-    __isa(o, "AuthorizeCacheSecurityGroupIngressResult");
 }
 
 export type AuthTokenUpdateStatus = "ROTATING" | "SETTING";
@@ -187,7 +172,6 @@ export enum AutomaticFailoverStatus {
  * <p>Describes an Availability Zone in which the cluster is launched.</p>
  */
 export interface AvailabilityZone {
-  __type?: "AvailabilityZone";
   /**
    * <p>The name of the Availability Zone.</p>
    */
@@ -198,7 +182,6 @@ export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 export enum AZMode {
@@ -207,7 +190,6 @@ export enum AZMode {
 }
 
 export interface BatchApplyUpdateActionMessage {
-  __type?: "BatchApplyUpdateActionMessage";
   /**
    * <p>The replication group IDs</p>
    */
@@ -228,11 +210,9 @@ export namespace BatchApplyUpdateActionMessage {
   export const filterSensitiveLog = (obj: BatchApplyUpdateActionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchApplyUpdateActionMessage => __isa(o, "BatchApplyUpdateActionMessage");
 }
 
 export interface BatchStopUpdateActionMessage {
-  __type?: "BatchStopUpdateActionMessage";
   /**
    * <p>The replication group IDs</p>
    */
@@ -253,14 +233,12 @@ export namespace BatchStopUpdateActionMessage {
   export const filterSensitiveLog = (obj: BatchStopUpdateActionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchStopUpdateActionMessage => __isa(o, "BatchStopUpdateActionMessage");
 }
 
 /**
  * <p>Contains all of the attributes of a specific cluster.</p>
  */
 export interface CacheCluster {
-  __type?: "CacheCluster";
   /**
    * <p>The URL of the web page where you can download the latest ElastiCache client library.</p>
    */
@@ -663,7 +641,6 @@ export namespace CacheCluster {
   export const filterSensitiveLog = (obj: CacheCluster): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheCluster => __isa(o, "CacheCluster");
 }
 
 /**
@@ -679,14 +656,12 @@ export namespace CacheClusterAlreadyExistsFault {
   export const filterSensitiveLog = (obj: CacheClusterAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheClusterAlreadyExistsFault => __isa(o, "CacheClusterAlreadyExistsFault");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeCacheClusters</code> operation.</p>
  */
 export interface CacheClusterMessage {
-  __type?: "CacheClusterMessage";
   /**
    * <p>A list of clusters. Each item in the list contains detailed information about one cluster.</p>
    */
@@ -702,7 +677,6 @@ export namespace CacheClusterMessage {
   export const filterSensitiveLog = (obj: CacheClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheClusterMessage => __isa(o, "CacheClusterMessage");
 }
 
 /**
@@ -718,14 +692,12 @@ export namespace CacheClusterNotFoundFault {
   export const filterSensitiveLog = (obj: CacheClusterNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheClusterNotFoundFault => __isa(o, "CacheClusterNotFoundFault");
 }
 
 /**
  * <p>Provides all of the details about a particular cache engine version.</p>
  */
 export interface CacheEngineVersion {
-  __type?: "CacheEngineVersion";
   /**
    * <p>The name of the cache engine.</p>
    */
@@ -765,14 +737,12 @@ export namespace CacheEngineVersion {
   export const filterSensitiveLog = (obj: CacheEngineVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheEngineVersion => __isa(o, "CacheEngineVersion");
 }
 
 /**
  * <p>Represents the output of a <a>DescribeCacheEngineVersions</a> operation.</p>
  */
 export interface CacheEngineVersionMessage {
-  __type?: "CacheEngineVersionMessage";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    */
@@ -789,7 +759,6 @@ export namespace CacheEngineVersionMessage {
   export const filterSensitiveLog = (obj: CacheEngineVersionMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheEngineVersionMessage => __isa(o, "CacheEngineVersionMessage");
 }
 
 /**
@@ -966,7 +935,6 @@ export namespace CacheEngineVersionMessage {
  *          </ul>
  */
 export interface CacheNode {
-  __type?: "CacheNode";
   /**
    * <p>The ID of the primary node to which this read replica node is synchronized.
    *             If this field is empty, this node is not associated with a primary cluster.</p>
@@ -1008,7 +976,6 @@ export namespace CacheNode {
   export const filterSensitiveLog = (obj: CacheNode): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheNode => __isa(o, "CacheNode");
 }
 
 /**
@@ -1017,7 +984,6 @@ export namespace CacheNode {
  *             larger <code>maxmemory</code> value than a <code>cache.m1.small</code> type.</p>
  */
 export interface CacheNodeTypeSpecificParameter {
-  __type?: "CacheNodeTypeSpecificParameter";
   /**
    * <p>A description of the parameter.</p>
    */
@@ -1073,14 +1039,12 @@ export namespace CacheNodeTypeSpecificParameter {
   export const filterSensitiveLog = (obj: CacheNodeTypeSpecificParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheNodeTypeSpecificParameter => __isa(o, "CacheNodeTypeSpecificParameter");
 }
 
 /**
  * <p>A value that applies only to a certain cache node type.</p>
  */
 export interface CacheNodeTypeSpecificValue {
-  __type?: "CacheNodeTypeSpecificValue";
   /**
    * <p>The cache node type for which this value applies.</p>
    */
@@ -1096,14 +1060,12 @@ export namespace CacheNodeTypeSpecificValue {
   export const filterSensitiveLog = (obj: CacheNodeTypeSpecificValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheNodeTypeSpecificValue => __isa(o, "CacheNodeTypeSpecificValue");
 }
 
 /**
  * <p>The status of the service update on the cache node</p>
  */
 export interface CacheNodeUpdateStatus {
-  __type?: "CacheNodeUpdateStatus";
   /**
    * <p>The date when the NodeUpdateStatus was last modified></p>
    */
@@ -1149,14 +1111,12 @@ export namespace CacheNodeUpdateStatus {
   export const filterSensitiveLog = (obj: CacheNodeUpdateStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheNodeUpdateStatus => __isa(o, "CacheNodeUpdateStatus");
 }
 
 /**
  * <p>Represents the output of a <code>CreateCacheParameterGroup</code> operation.</p>
  */
 export interface CacheParameterGroup {
-  __type?: "CacheParameterGroup";
   /**
    * <p>The description for this cache parameter group.</p>
    */
@@ -1196,7 +1156,6 @@ export namespace CacheParameterGroup {
   export const filterSensitiveLog = (obj: CacheParameterGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheParameterGroup => __isa(o, "CacheParameterGroup");
 }
 
 /**
@@ -1212,15 +1171,12 @@ export namespace CacheParameterGroupAlreadyExistsFault {
   export const filterSensitiveLog = (obj: CacheParameterGroupAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheParameterGroupAlreadyExistsFault =>
-    __isa(o, "CacheParameterGroupAlreadyExistsFault");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeCacheParameters</code> operation.</p>
  */
 export interface CacheParameterGroupDetails {
-  __type?: "CacheParameterGroupDetails";
   /**
    * <p>A list of <a>Parameter</a> instances.</p>
    */
@@ -1242,7 +1198,6 @@ export namespace CacheParameterGroupDetails {
   export const filterSensitiveLog = (obj: CacheParameterGroupDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheParameterGroupDetails => __isa(o, "CacheParameterGroupDetails");
 }
 
 /**
@@ -1261,7 +1216,6 @@ export namespace CacheParameterGroupDetails {
  *          </ul>
  */
 export interface CacheParameterGroupNameMessage {
-  __type?: "CacheParameterGroupNameMessage";
   /**
    * <p>The name of the cache parameter group.</p>
    */
@@ -1272,7 +1226,6 @@ export namespace CacheParameterGroupNameMessage {
   export const filterSensitiveLog = (obj: CacheParameterGroupNameMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheParameterGroupNameMessage => __isa(o, "CacheParameterGroupNameMessage");
 }
 
 /**
@@ -1288,7 +1241,6 @@ export namespace CacheParameterGroupNotFoundFault {
   export const filterSensitiveLog = (obj: CacheParameterGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheParameterGroupNotFoundFault => __isa(o, "CacheParameterGroupNotFoundFault");
 }
 
 /**
@@ -1304,15 +1256,12 @@ export namespace CacheParameterGroupQuotaExceededFault {
   export const filterSensitiveLog = (obj: CacheParameterGroupQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheParameterGroupQuotaExceededFault =>
-    __isa(o, "CacheParameterGroupQuotaExceededFault");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeCacheParameterGroups</code> operation.</p>
  */
 export interface CacheParameterGroupsMessage {
-  __type?: "CacheParameterGroupsMessage";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    */
@@ -1329,14 +1278,12 @@ export namespace CacheParameterGroupsMessage {
   export const filterSensitiveLog = (obj: CacheParameterGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheParameterGroupsMessage => __isa(o, "CacheParameterGroupsMessage");
 }
 
 /**
  * <p>Status of the cache parameter group.</p>
  */
 export interface CacheParameterGroupStatus {
-  __type?: "CacheParameterGroupStatus";
   /**
    * <p>The name of the cache parameter group.</p>
    */
@@ -1358,7 +1305,6 @@ export namespace CacheParameterGroupStatus {
   export const filterSensitiveLog = (obj: CacheParameterGroupStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheParameterGroupStatus => __isa(o, "CacheParameterGroupStatus");
 }
 
 /**
@@ -1382,7 +1328,6 @@ export namespace CacheParameterGroupStatus {
  *          </ul>
  */
 export interface CacheSecurityGroup {
-  __type?: "CacheSecurityGroup";
   /**
    * <p>The name of the cache security group.</p>
    */
@@ -1413,7 +1358,6 @@ export namespace CacheSecurityGroup {
   export const filterSensitiveLog = (obj: CacheSecurityGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSecurityGroup => __isa(o, "CacheSecurityGroup");
 }
 
 /**
@@ -1429,15 +1373,12 @@ export namespace CacheSecurityGroupAlreadyExistsFault {
   export const filterSensitiveLog = (obj: CacheSecurityGroupAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSecurityGroupAlreadyExistsFault =>
-    __isa(o, "CacheSecurityGroupAlreadyExistsFault");
 }
 
 /**
  * <p>Represents a cluster's status within a particular cache security group.</p>
  */
 export interface CacheSecurityGroupMembership {
-  __type?: "CacheSecurityGroupMembership";
   /**
    * <p>The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cluster are modified.</p>
    */
@@ -1453,14 +1394,12 @@ export namespace CacheSecurityGroupMembership {
   export const filterSensitiveLog = (obj: CacheSecurityGroupMembership): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSecurityGroupMembership => __isa(o, "CacheSecurityGroupMembership");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeCacheSecurityGroups</code> operation.</p>
  */
 export interface CacheSecurityGroupMessage {
-  __type?: "CacheSecurityGroupMessage";
   /**
    * <p>A list of cache security groups. Each element in the list contains detailed information about one group.</p>
    */
@@ -1476,7 +1415,6 @@ export namespace CacheSecurityGroupMessage {
   export const filterSensitiveLog = (obj: CacheSecurityGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSecurityGroupMessage => __isa(o, "CacheSecurityGroupMessage");
 }
 
 /**
@@ -1492,7 +1430,6 @@ export namespace CacheSecurityGroupNotFoundFault {
   export const filterSensitiveLog = (obj: CacheSecurityGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSecurityGroupNotFoundFault => __isa(o, "CacheSecurityGroupNotFoundFault");
 }
 
 /**
@@ -1508,8 +1445,6 @@ export namespace CacheSecurityGroupQuotaExceededFault {
   export const filterSensitiveLog = (obj: CacheSecurityGroupQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSecurityGroupQuotaExceededFault =>
-    __isa(o, "CacheSecurityGroupQuotaExceededFault");
 }
 
 /**
@@ -1528,7 +1463,6 @@ export namespace CacheSecurityGroupQuotaExceededFault {
  *          </ul>
  */
 export interface CacheSubnetGroup {
-  __type?: "CacheSubnetGroup";
   /**
    * <p>A list of subnets associated with the cache subnet group.</p>
    */
@@ -1559,7 +1493,6 @@ export namespace CacheSubnetGroup {
   export const filterSensitiveLog = (obj: CacheSubnetGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSubnetGroup => __isa(o, "CacheSubnetGroup");
 }
 
 /**
@@ -1575,8 +1508,6 @@ export namespace CacheSubnetGroupAlreadyExistsFault {
   export const filterSensitiveLog = (obj: CacheSubnetGroupAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSubnetGroupAlreadyExistsFault =>
-    __isa(o, "CacheSubnetGroupAlreadyExistsFault");
 }
 
 /**
@@ -1592,14 +1523,12 @@ export namespace CacheSubnetGroupInUse {
   export const filterSensitiveLog = (obj: CacheSubnetGroupInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSubnetGroupInUse => __isa(o, "CacheSubnetGroupInUse");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeCacheSubnetGroups</code> operation.</p>
  */
 export interface CacheSubnetGroupMessage {
-  __type?: "CacheSubnetGroupMessage";
   /**
    * <p>A list of cache subnet groups. Each element in the list contains detailed information about one group.</p>
    */
@@ -1615,7 +1544,6 @@ export namespace CacheSubnetGroupMessage {
   export const filterSensitiveLog = (obj: CacheSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSubnetGroupMessage => __isa(o, "CacheSubnetGroupMessage");
 }
 
 /**
@@ -1631,7 +1559,6 @@ export namespace CacheSubnetGroupNotFoundFault {
   export const filterSensitiveLog = (obj: CacheSubnetGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSubnetGroupNotFoundFault => __isa(o, "CacheSubnetGroupNotFoundFault");
 }
 
 /**
@@ -1647,8 +1574,6 @@ export namespace CacheSubnetGroupQuotaExceededFault {
   export const filterSensitiveLog = (obj: CacheSubnetGroupQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSubnetGroupQuotaExceededFault =>
-    __isa(o, "CacheSubnetGroupQuotaExceededFault");
 }
 
 /**
@@ -1664,7 +1589,6 @@ export namespace CacheSubnetQuotaExceededFault {
   export const filterSensitiveLog = (obj: CacheSubnetQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSubnetQuotaExceededFault => __isa(o, "CacheSubnetQuotaExceededFault");
 }
 
 export type ChangeType = "immediate" | "requires-reboot";
@@ -1682,12 +1606,9 @@ export namespace ClusterQuotaForCustomerExceededFault {
   export const filterSensitiveLog = (obj: ClusterQuotaForCustomerExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClusterQuotaForCustomerExceededFault =>
-    __isa(o, "ClusterQuotaForCustomerExceededFault");
 }
 
 export interface CompleteMigrationMessage {
-  __type?: "CompleteMigrationMessage";
   /**
    * <p>Forces the migration to stop without ensuring that data is in sync. It is recommended to use this option only to abort the migration and not recommended when application wants to continue migration to ElastiCache.</p>
    */
@@ -1703,11 +1624,9 @@ export namespace CompleteMigrationMessage {
   export const filterSensitiveLog = (obj: CompleteMigrationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteMigrationMessage => __isa(o, "CompleteMigrationMessage");
 }
 
 export interface CompleteMigrationResponse {
-  __type?: "CompleteMigrationResponse";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
@@ -1718,7 +1637,6 @@ export namespace CompleteMigrationResponse {
   export const filterSensitiveLog = (obj: CompleteMigrationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteMigrationResponse => __isa(o, "CompleteMigrationResponse");
 }
 
 /**
@@ -1726,7 +1644,6 @@ export namespace CompleteMigrationResponse {
  *             Each node group (shard) configuration has the following members: NodeGroupId, NewReplicaCount, and PreferredAvailabilityZones. </p>
  */
 export interface ConfigureShard {
-  __type?: "ConfigureShard";
   /**
    * <p>A list of <code>PreferredAvailabilityZone</code> strings that specify which availability zones the
    *             replication group's nodes are to be in. The nummber of <code>PreferredAvailabilityZone</code> values must
@@ -1772,14 +1689,12 @@ export namespace ConfigureShard {
   export const filterSensitiveLog = (obj: ConfigureShard): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigureShard => __isa(o, "ConfigureShard");
 }
 
 /**
  * <p>Represents the input of a <code>CopySnapshotMessage</code> operation.</p>
  */
 export interface CopySnapshotMessage {
-  __type?: "CopySnapshotMessage";
   /**
    * <p>The ID of the KMS key used to encrypt the target snapshot.</p>
    */
@@ -1813,11 +1728,9 @@ export namespace CopySnapshotMessage {
   export const filterSensitiveLog = (obj: CopySnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopySnapshotMessage => __isa(o, "CopySnapshotMessage");
 }
 
 export interface CopySnapshotResult {
-  __type?: "CopySnapshotResult";
   /**
    * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
    */
@@ -1828,14 +1741,12 @@ export namespace CopySnapshotResult {
   export const filterSensitiveLog = (obj: CopySnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopySnapshotResult => __isa(o, "CopySnapshotResult");
 }
 
 /**
  * <p>Represents the input of a CreateCacheCluster operation.</p>
  */
 export interface CreateCacheClusterMessage {
-  __type?: "CreateCacheClusterMessage";
   /**
    * <p>The EC2 Availability Zone in which the cluster is created.</p>
    *         <p>All nodes belonging to this cluster are placed in the preferred Availability Zone.
@@ -2271,11 +2182,9 @@ export namespace CreateCacheClusterMessage {
   export const filterSensitiveLog = (obj: CreateCacheClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCacheClusterMessage => __isa(o, "CreateCacheClusterMessage");
 }
 
 export interface CreateCacheClusterResult {
-  __type?: "CreateCacheClusterResult";
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
    */
@@ -2286,14 +2195,12 @@ export namespace CreateCacheClusterResult {
   export const filterSensitiveLog = (obj: CreateCacheClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCacheClusterResult => __isa(o, "CreateCacheClusterResult");
 }
 
 /**
  * <p>Represents the input of a <code>CreateCacheParameterGroup</code> operation.</p>
  */
 export interface CreateCacheParameterGroupMessage {
-  __type?: "CreateCacheParameterGroupMessage";
   /**
    * <p>A user-specified name for the cache parameter group.</p>
    */
@@ -2323,11 +2230,9 @@ export namespace CreateCacheParameterGroupMessage {
   export const filterSensitiveLog = (obj: CreateCacheParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCacheParameterGroupMessage => __isa(o, "CreateCacheParameterGroupMessage");
 }
 
 export interface CreateCacheParameterGroupResult {
-  __type?: "CreateCacheParameterGroupResult";
   /**
    * <p>Represents the output of a <code>CreateCacheParameterGroup</code> operation.</p>
    */
@@ -2338,14 +2243,12 @@ export namespace CreateCacheParameterGroupResult {
   export const filterSensitiveLog = (obj: CreateCacheParameterGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCacheParameterGroupResult => __isa(o, "CreateCacheParameterGroupResult");
 }
 
 /**
  * <p>Represents the input of a <code>CreateCacheSecurityGroup</code> operation.</p>
  */
 export interface CreateCacheSecurityGroupMessage {
-  __type?: "CreateCacheSecurityGroupMessage";
   /**
    * <p>A name for the cache security group. This value is stored as a lowercase string.</p>
    *         <p>Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word "Default".</p>
@@ -2364,11 +2267,9 @@ export namespace CreateCacheSecurityGroupMessage {
   export const filterSensitiveLog = (obj: CreateCacheSecurityGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCacheSecurityGroupMessage => __isa(o, "CreateCacheSecurityGroupMessage");
 }
 
 export interface CreateCacheSecurityGroupResult {
-  __type?: "CreateCacheSecurityGroupResult";
   /**
    * <p>Represents the output of one of the following operations:</p>
    *         <ul>
@@ -2396,14 +2297,12 @@ export namespace CreateCacheSecurityGroupResult {
   export const filterSensitiveLog = (obj: CreateCacheSecurityGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCacheSecurityGroupResult => __isa(o, "CreateCacheSecurityGroupResult");
 }
 
 /**
  * <p>Represents the input of a <code>CreateCacheSubnetGroup</code> operation.</p>
  */
 export interface CreateCacheSubnetGroupMessage {
-  __type?: "CreateCacheSubnetGroupMessage";
   /**
    * <p>A list of VPC subnet IDs for the cache subnet group.</p>
    */
@@ -2427,11 +2326,9 @@ export namespace CreateCacheSubnetGroupMessage {
   export const filterSensitiveLog = (obj: CreateCacheSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCacheSubnetGroupMessage => __isa(o, "CreateCacheSubnetGroupMessage");
 }
 
 export interface CreateCacheSubnetGroupResult {
-  __type?: "CreateCacheSubnetGroupResult";
   /**
    * <p>Represents the output of one of the following operations:</p>
    *         <ul>
@@ -2454,11 +2351,9 @@ export namespace CreateCacheSubnetGroupResult {
   export const filterSensitiveLog = (obj: CreateCacheSubnetGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCacheSubnetGroupResult => __isa(o, "CreateCacheSubnetGroupResult");
 }
 
 export interface CreateGlobalReplicationGroupMessage {
-  __type?: "CreateGlobalReplicationGroupMessage";
   /**
    * <p>The suffix name of a Global Datastore. The suffix guarantees uniqueness of the Global Datastore name across multiple regions.</p>
    */
@@ -2479,12 +2374,9 @@ export namespace CreateGlobalReplicationGroupMessage {
   export const filterSensitiveLog = (obj: CreateGlobalReplicationGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGlobalReplicationGroupMessage =>
-    __isa(o, "CreateGlobalReplicationGroupMessage");
 }
 
 export interface CreateGlobalReplicationGroupResult {
-  __type?: "CreateGlobalReplicationGroupResult";
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
@@ -2504,15 +2396,12 @@ export namespace CreateGlobalReplicationGroupResult {
   export const filterSensitiveLog = (obj: CreateGlobalReplicationGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGlobalReplicationGroupResult =>
-    __isa(o, "CreateGlobalReplicationGroupResult");
 }
 
 /**
  * <p>Represents the input of a <code>CreateReplicationGroup</code> operation.</p>
  */
 export interface CreateReplicationGroupMessage {
-  __type?: "CreateReplicationGroupMessage";
   /**
    * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
    *         <p>You cannot modify the value of <code>TransitEncryptionEnabled</code>
@@ -3040,11 +2929,9 @@ export namespace CreateReplicationGroupMessage {
   export const filterSensitiveLog = (obj: CreateReplicationGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReplicationGroupMessage => __isa(o, "CreateReplicationGroupMessage");
 }
 
 export interface CreateReplicationGroupResult {
-  __type?: "CreateReplicationGroupResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
@@ -3055,14 +2942,12 @@ export namespace CreateReplicationGroupResult {
   export const filterSensitiveLog = (obj: CreateReplicationGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReplicationGroupResult => __isa(o, "CreateReplicationGroupResult");
 }
 
 /**
  * <p>Represents the input of a <code>CreateSnapshot</code> operation.</p>
  */
 export interface CreateSnapshotMessage {
-  __type?: "CreateSnapshotMessage";
   /**
    * <p>The identifier of an existing cluster. The snapshot is created from this cluster.</p>
    */
@@ -3088,11 +2973,9 @@ export namespace CreateSnapshotMessage {
   export const filterSensitiveLog = (obj: CreateSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotMessage => __isa(o, "CreateSnapshotMessage");
 }
 
 export interface CreateSnapshotResult {
-  __type?: "CreateSnapshotResult";
   /**
    * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
    */
@@ -3103,14 +2986,12 @@ export namespace CreateSnapshotResult {
   export const filterSensitiveLog = (obj: CreateSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotResult => __isa(o, "CreateSnapshotResult");
 }
 
 /**
  * <p>The endpoint from which data should be migrated.</p>
  */
 export interface CustomerNodeEndpoint {
-  __type?: "CustomerNodeEndpoint";
   /**
    * <p>The address of the node endpoint</p>
    */
@@ -3126,11 +3007,9 @@ export namespace CustomerNodeEndpoint {
   export const filterSensitiveLog = (obj: CustomerNodeEndpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomerNodeEndpoint => __isa(o, "CustomerNodeEndpoint");
 }
 
 export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
-  __type?: "DecreaseNodeGroupsInGlobalReplicationGroupMessage";
   /**
    * <p>If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster.
    *
@@ -3165,12 +3044,9 @@ export namespace DecreaseNodeGroupsInGlobalReplicationGroupMessage {
   export const filterSensitiveLog = (obj: DecreaseNodeGroupsInGlobalReplicationGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecreaseNodeGroupsInGlobalReplicationGroupMessage =>
-    __isa(o, "DecreaseNodeGroupsInGlobalReplicationGroupMessage");
 }
 
 export interface DecreaseNodeGroupsInGlobalReplicationGroupResult {
-  __type?: "DecreaseNodeGroupsInGlobalReplicationGroupResult";
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
@@ -3190,12 +3066,9 @@ export namespace DecreaseNodeGroupsInGlobalReplicationGroupResult {
   export const filterSensitiveLog = (obj: DecreaseNodeGroupsInGlobalReplicationGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecreaseNodeGroupsInGlobalReplicationGroupResult =>
-    __isa(o, "DecreaseNodeGroupsInGlobalReplicationGroupResult");
 }
 
 export interface DecreaseReplicaCountMessage {
-  __type?: "DecreaseReplicaCountMessage";
   /**
    * <p>A list of the node ids to remove from the replication group or node group (shard).</p>
    */
@@ -3250,11 +3123,9 @@ export namespace DecreaseReplicaCountMessage {
   export const filterSensitiveLog = (obj: DecreaseReplicaCountMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecreaseReplicaCountMessage => __isa(o, "DecreaseReplicaCountMessage");
 }
 
 export interface DecreaseReplicaCountResult {
-  __type?: "DecreaseReplicaCountResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
@@ -3265,14 +3136,12 @@ export namespace DecreaseReplicaCountResult {
   export const filterSensitiveLog = (obj: DecreaseReplicaCountResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecreaseReplicaCountResult => __isa(o, "DecreaseReplicaCountResult");
 }
 
 /**
  * <p>Represents the input of a <code>DeleteCacheCluster</code> operation.</p>
  */
 export interface DeleteCacheClusterMessage {
-  __type?: "DeleteCacheClusterMessage";
   /**
    * <p>The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot.
    *             ElastiCache creates the snapshot, and then deletes the cluster immediately afterward.</p>
@@ -3289,11 +3158,9 @@ export namespace DeleteCacheClusterMessage {
   export const filterSensitiveLog = (obj: DeleteCacheClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCacheClusterMessage => __isa(o, "DeleteCacheClusterMessage");
 }
 
 export interface DeleteCacheClusterResult {
-  __type?: "DeleteCacheClusterResult";
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
    */
@@ -3304,14 +3171,12 @@ export namespace DeleteCacheClusterResult {
   export const filterSensitiveLog = (obj: DeleteCacheClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCacheClusterResult => __isa(o, "DeleteCacheClusterResult");
 }
 
 /**
  * <p>Represents the input of a <code>DeleteCacheParameterGroup</code> operation.</p>
  */
 export interface DeleteCacheParameterGroupMessage {
-  __type?: "DeleteCacheParameterGroupMessage";
   /**
    * <p>The name of the cache parameter group to delete.</p>
    *         <note>
@@ -3325,14 +3190,12 @@ export namespace DeleteCacheParameterGroupMessage {
   export const filterSensitiveLog = (obj: DeleteCacheParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCacheParameterGroupMessage => __isa(o, "DeleteCacheParameterGroupMessage");
 }
 
 /**
  * <p>Represents the input of a <code>DeleteCacheSecurityGroup</code> operation.</p>
  */
 export interface DeleteCacheSecurityGroupMessage {
-  __type?: "DeleteCacheSecurityGroupMessage";
   /**
    * <p>The name of the cache security group to delete.</p>
    *         <note>
@@ -3346,14 +3209,12 @@ export namespace DeleteCacheSecurityGroupMessage {
   export const filterSensitiveLog = (obj: DeleteCacheSecurityGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCacheSecurityGroupMessage => __isa(o, "DeleteCacheSecurityGroupMessage");
 }
 
 /**
  * <p>Represents the input of a <code>DeleteCacheSubnetGroup</code> operation.</p>
  */
 export interface DeleteCacheSubnetGroupMessage {
-  __type?: "DeleteCacheSubnetGroupMessage";
   /**
    * <p>The name of the cache subnet group to delete.</p>
    *         <p>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</p>
@@ -3365,11 +3226,9 @@ export namespace DeleteCacheSubnetGroupMessage {
   export const filterSensitiveLog = (obj: DeleteCacheSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCacheSubnetGroupMessage => __isa(o, "DeleteCacheSubnetGroupMessage");
 }
 
 export interface DeleteGlobalReplicationGroupMessage {
-  __type?: "DeleteGlobalReplicationGroupMessage";
   /**
    * <p>The name of the Global Datastore</p>
    */
@@ -3385,12 +3244,9 @@ export namespace DeleteGlobalReplicationGroupMessage {
   export const filterSensitiveLog = (obj: DeleteGlobalReplicationGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGlobalReplicationGroupMessage =>
-    __isa(o, "DeleteGlobalReplicationGroupMessage");
 }
 
 export interface DeleteGlobalReplicationGroupResult {
-  __type?: "DeleteGlobalReplicationGroupResult";
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
@@ -3410,15 +3266,12 @@ export namespace DeleteGlobalReplicationGroupResult {
   export const filterSensitiveLog = (obj: DeleteGlobalReplicationGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGlobalReplicationGroupResult =>
-    __isa(o, "DeleteGlobalReplicationGroupResult");
 }
 
 /**
  * <p>Represents the input of a <code>DeleteReplicationGroup</code> operation.</p>
  */
 export interface DeleteReplicationGroupMessage {
-  __type?: "DeleteReplicationGroupMessage";
   /**
    * <p>If set to <code>true</code>, all of the read replicas are deleted,
    *             but the primary node is retained.</p>
@@ -3443,11 +3296,9 @@ export namespace DeleteReplicationGroupMessage {
   export const filterSensitiveLog = (obj: DeleteReplicationGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReplicationGroupMessage => __isa(o, "DeleteReplicationGroupMessage");
 }
 
 export interface DeleteReplicationGroupResult {
-  __type?: "DeleteReplicationGroupResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
@@ -3458,14 +3309,12 @@ export namespace DeleteReplicationGroupResult {
   export const filterSensitiveLog = (obj: DeleteReplicationGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReplicationGroupResult => __isa(o, "DeleteReplicationGroupResult");
 }
 
 /**
  * <p>Represents the input of a <code>DeleteSnapshot</code> operation.</p>
  */
 export interface DeleteSnapshotMessage {
-  __type?: "DeleteSnapshotMessage";
   /**
    * <p>The name of the snapshot to be deleted.</p>
    */
@@ -3476,11 +3325,9 @@ export namespace DeleteSnapshotMessage {
   export const filterSensitiveLog = (obj: DeleteSnapshotMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSnapshotMessage => __isa(o, "DeleteSnapshotMessage");
 }
 
 export interface DeleteSnapshotResult {
-  __type?: "DeleteSnapshotResult";
   /**
    * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
    */
@@ -3491,14 +3338,12 @@ export namespace DeleteSnapshotResult {
   export const filterSensitiveLog = (obj: DeleteSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSnapshotResult => __isa(o, "DeleteSnapshotResult");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeCacheClusters</code> operation.</p>
  */
 export interface DescribeCacheClustersMessage {
-  __type?: "DescribeCacheClustersMessage";
   /**
    * <p>An optional flag that can be included in the <code>DescribeCacheCluster</code> request
    *             to retrieve information about the individual cache nodes.</p>
@@ -3541,14 +3386,12 @@ export namespace DescribeCacheClustersMessage {
   export const filterSensitiveLog = (obj: DescribeCacheClustersMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCacheClustersMessage => __isa(o, "DescribeCacheClustersMessage");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeCacheEngineVersions</code> operation.</p>
  */
 export interface DescribeCacheEngineVersionsMessage {
-  __type?: "DescribeCacheEngineVersionsMessage";
   /**
    * <p>The cache engine version to return.</p>
    *         <p>Example: <code>1.4.14</code>
@@ -3616,15 +3459,12 @@ export namespace DescribeCacheEngineVersionsMessage {
   export const filterSensitiveLog = (obj: DescribeCacheEngineVersionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCacheEngineVersionsMessage =>
-    __isa(o, "DescribeCacheEngineVersionsMessage");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeCacheParameterGroups</code> operation.</p>
  */
 export interface DescribeCacheParameterGroupsMessage {
-  __type?: "DescribeCacheParameterGroupsMessage";
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
@@ -3652,15 +3492,12 @@ export namespace DescribeCacheParameterGroupsMessage {
   export const filterSensitiveLog = (obj: DescribeCacheParameterGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCacheParameterGroupsMessage =>
-    __isa(o, "DescribeCacheParameterGroupsMessage");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeCacheParameters</code> operation.</p>
  */
 export interface DescribeCacheParametersMessage {
-  __type?: "DescribeCacheParametersMessage";
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
@@ -3696,14 +3533,12 @@ export namespace DescribeCacheParametersMessage {
   export const filterSensitiveLog = (obj: DescribeCacheParametersMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCacheParametersMessage => __isa(o, "DescribeCacheParametersMessage");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeCacheSecurityGroups</code> operation.</p>
  */
 export interface DescribeCacheSecurityGroupsMessage {
-  __type?: "DescribeCacheSecurityGroupsMessage";
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
@@ -3731,15 +3566,12 @@ export namespace DescribeCacheSecurityGroupsMessage {
   export const filterSensitiveLog = (obj: DescribeCacheSecurityGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCacheSecurityGroupsMessage =>
-    __isa(o, "DescribeCacheSecurityGroupsMessage");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeCacheSubnetGroups</code> operation.</p>
  */
 export interface DescribeCacheSubnetGroupsMessage {
-  __type?: "DescribeCacheSubnetGroupsMessage";
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
@@ -3768,14 +3600,12 @@ export namespace DescribeCacheSubnetGroupsMessage {
   export const filterSensitiveLog = (obj: DescribeCacheSubnetGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCacheSubnetGroupsMessage => __isa(o, "DescribeCacheSubnetGroupsMessage");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeEngineDefaultParameters</code> operation.</p>
  */
 export interface DescribeEngineDefaultParametersMessage {
-  __type?: "DescribeEngineDefaultParametersMessage";
   /**
    * <p>The name of the cache parameter group family.</p>
    *         <p>Valid values are:
@@ -3812,12 +3642,9 @@ export namespace DescribeEngineDefaultParametersMessage {
   export const filterSensitiveLog = (obj: DescribeEngineDefaultParametersMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEngineDefaultParametersMessage =>
-    __isa(o, "DescribeEngineDefaultParametersMessage");
 }
 
 export interface DescribeEngineDefaultParametersResult {
-  __type?: "DescribeEngineDefaultParametersResult";
   /**
    * <p>Represents the output of a <code>DescribeEngineDefaultParameters</code> operation.</p>
    */
@@ -3828,15 +3655,12 @@ export namespace DescribeEngineDefaultParametersResult {
   export const filterSensitiveLog = (obj: DescribeEngineDefaultParametersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEngineDefaultParametersResult =>
-    __isa(o, "DescribeEngineDefaultParametersResult");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeEvents</code> operation.</p>
  */
 export interface DescribeEventsMessage {
-  __type?: "DescribeEventsMessage";
   /**
    * <p>The end of the time interval for which to retrieve events, specified in ISO 8601 format.</p>
    *         <p>
@@ -3891,11 +3715,9 @@ export namespace DescribeEventsMessage {
   export const filterSensitiveLog = (obj: DescribeEventsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEventsMessage => __isa(o, "DescribeEventsMessage");
 }
 
 export interface DescribeGlobalReplicationGroupsMessage {
-  __type?: "DescribeGlobalReplicationGroupsMessage";
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. </p>
    */
@@ -3921,12 +3743,9 @@ export namespace DescribeGlobalReplicationGroupsMessage {
   export const filterSensitiveLog = (obj: DescribeGlobalReplicationGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGlobalReplicationGroupsMessage =>
-    __isa(o, "DescribeGlobalReplicationGroupsMessage");
 }
 
 export interface DescribeGlobalReplicationGroupsResult {
-  __type?: "DescribeGlobalReplicationGroupsResult";
   /**
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. ></p>
    */
@@ -3942,15 +3761,12 @@ export namespace DescribeGlobalReplicationGroupsResult {
   export const filterSensitiveLog = (obj: DescribeGlobalReplicationGroupsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGlobalReplicationGroupsResult =>
-    __isa(o, "DescribeGlobalReplicationGroupsResult");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeReplicationGroups</code> operation.</p>
  */
 export interface DescribeReplicationGroupsMessage {
-  __type?: "DescribeReplicationGroupsMessage";
   /**
    * <p>The identifier for the replication group to be described. This parameter is not case sensitive.</p>
    *         <p>If you do not specify this parameter, information about all replication groups is returned.</p>
@@ -3979,14 +3795,12 @@ export namespace DescribeReplicationGroupsMessage {
   export const filterSensitiveLog = (obj: DescribeReplicationGroupsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReplicationGroupsMessage => __isa(o, "DescribeReplicationGroupsMessage");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeReservedCacheNodes</code> operation.</p>
  */
 export interface DescribeReservedCacheNodesMessage {
-  __type?: "DescribeReservedCacheNodesMessage";
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
@@ -4217,14 +4031,12 @@ export namespace DescribeReservedCacheNodesMessage {
   export const filterSensitiveLog = (obj: DescribeReservedCacheNodesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedCacheNodesMessage => __isa(o, "DescribeReservedCacheNodesMessage");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeReservedCacheNodesOfferings</code> operation.</p>
  */
 export interface DescribeReservedCacheNodesOfferingsMessage {
-  __type?: "DescribeReservedCacheNodesOfferingsMessage";
   /**
    * <p>The cache node type filter value.
    *             Use this parameter to show only the available offerings matching the specified cache node type.</p>
@@ -4452,12 +4264,9 @@ export namespace DescribeReservedCacheNodesOfferingsMessage {
   export const filterSensitiveLog = (obj: DescribeReservedCacheNodesOfferingsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReservedCacheNodesOfferingsMessage =>
-    __isa(o, "DescribeReservedCacheNodesOfferingsMessage");
 }
 
 export interface DescribeServiceUpdatesMessage {
-  __type?: "DescribeServiceUpdatesMessage";
   /**
    * <p>An optional marker returned from a prior request.
    *            Use this marker for pagination of results from this operation. If this
@@ -4486,14 +4295,12 @@ export namespace DescribeServiceUpdatesMessage {
   export const filterSensitiveLog = (obj: DescribeServiceUpdatesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeServiceUpdatesMessage => __isa(o, "DescribeServiceUpdatesMessage");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeSnapshots</code> operation.</p>
  */
 export interface DescribeSnapshotsListMessage {
-  __type?: "DescribeSnapshotsListMessage";
   /**
    * <p>An optional marker returned from a prior request.
    *             Use this marker for pagination of results from this operation.
@@ -4512,14 +4319,12 @@ export namespace DescribeSnapshotsListMessage {
   export const filterSensitiveLog = (obj: DescribeSnapshotsListMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotsListMessage => __isa(o, "DescribeSnapshotsListMessage");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeSnapshotsMessage</code> operation.</p>
  */
 export interface DescribeSnapshotsMessage {
-  __type?: "DescribeSnapshotsMessage";
   /**
    * <p>A Boolean value which if true, the node group (shard) configuration is included in the snapshot description.</p>
    */
@@ -4572,11 +4377,9 @@ export namespace DescribeSnapshotsMessage {
   export const filterSensitiveLog = (obj: DescribeSnapshotsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotsMessage => __isa(o, "DescribeSnapshotsMessage");
 }
 
 export interface DescribeUpdateActionsMessage {
-  __type?: "DescribeUpdateActionsMessage";
   /**
    * <p>Dictates whether to include node level update status in the response </p>
    */
@@ -4635,11 +4438,9 @@ export namespace DescribeUpdateActionsMessage {
   export const filterSensitiveLog = (obj: DescribeUpdateActionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUpdateActionsMessage => __isa(o, "DescribeUpdateActionsMessage");
 }
 
 export interface DisassociateGlobalReplicationGroupMessage {
-  __type?: "DisassociateGlobalReplicationGroupMessage";
   /**
    * <p>The name of the secondary cluster you wish to remove from the Global Datastore</p>
    */
@@ -4660,12 +4461,9 @@ export namespace DisassociateGlobalReplicationGroupMessage {
   export const filterSensitiveLog = (obj: DisassociateGlobalReplicationGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateGlobalReplicationGroupMessage =>
-    __isa(o, "DisassociateGlobalReplicationGroupMessage");
 }
 
 export interface DisassociateGlobalReplicationGroupResult {
-  __type?: "DisassociateGlobalReplicationGroupResult";
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
@@ -4685,15 +4483,12 @@ export namespace DisassociateGlobalReplicationGroupResult {
   export const filterSensitiveLog = (obj: DisassociateGlobalReplicationGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateGlobalReplicationGroupResult =>
-    __isa(o, "DisassociateGlobalReplicationGroupResult");
 }
 
 /**
  * <p>Provides ownership and status information for an Amazon EC2 security group.</p>
  */
 export interface EC2SecurityGroup {
-  __type?: "EC2SecurityGroup";
   /**
    * <p>The name of the Amazon EC2 security group.</p>
    */
@@ -4714,14 +4509,12 @@ export namespace EC2SecurityGroup {
   export const filterSensitiveLog = (obj: EC2SecurityGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EC2SecurityGroup => __isa(o, "EC2SecurityGroup");
 }
 
 /**
  * <p>Represents the information required for client programs to connect to a cache node.</p>
  */
 export interface Endpoint {
-  __type?: "Endpoint";
   /**
    * <p>The port number that the cache engine is listening on.</p>
    */
@@ -4737,14 +4530,12 @@ export namespace Endpoint {
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeEngineDefaultParameters</code> operation.</p>
  */
 export interface EngineDefaults {
-  __type?: "EngineDefaults";
   /**
    * <p>Specifies the name of the cache parameter group family to which the engine default parameters apply.</p>
    *         <p>Valid values are:
@@ -4779,7 +4570,6 @@ export namespace EngineDefaults {
   export const filterSensitiveLog = (obj: EngineDefaults): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EngineDefaults => __isa(o, "EngineDefaults");
 }
 
 /**
@@ -4787,7 +4577,6 @@ export namespace EngineDefaults {
  *             Some examples of events are creating a cluster, adding or removing a cache node, or rebooting a node.</p>
  */
 export interface Event {
-  __type?: "Event";
   /**
    * <p>The date and time when the event occurred.</p>
    */
@@ -4815,14 +4604,12 @@ export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeEvents</code> operation.</p>
  */
 export interface EventsMessage {
-  __type?: "EventsMessage";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    */
@@ -4838,11 +4625,9 @@ export namespace EventsMessage {
   export const filterSensitiveLog = (obj: EventsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventsMessage => __isa(o, "EventsMessage");
 }
 
 export interface FailoverGlobalReplicationGroupMessage {
-  __type?: "FailoverGlobalReplicationGroupMessage";
   /**
    * <p>The name of the primary replication group</p>
    */
@@ -4863,12 +4648,9 @@ export namespace FailoverGlobalReplicationGroupMessage {
   export const filterSensitiveLog = (obj: FailoverGlobalReplicationGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailoverGlobalReplicationGroupMessage =>
-    __isa(o, "FailoverGlobalReplicationGroupMessage");
 }
 
 export interface FailoverGlobalReplicationGroupResult {
-  __type?: "FailoverGlobalReplicationGroupResult";
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
@@ -4888,15 +4670,12 @@ export namespace FailoverGlobalReplicationGroupResult {
   export const filterSensitiveLog = (obj: FailoverGlobalReplicationGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailoverGlobalReplicationGroupResult =>
-    __isa(o, "FailoverGlobalReplicationGroupResult");
 }
 
 /**
  * <p>Indicates the slot configuration and global identifier for a slice group.</p>
  */
 export interface GlobalNodeGroup {
-  __type?: "GlobalNodeGroup";
   /**
    * <p>The keyspace for this node group</p>
    */
@@ -4912,7 +4691,6 @@ export namespace GlobalNodeGroup {
   export const filterSensitiveLog = (obj: GlobalNodeGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalNodeGroup => __isa(o, "GlobalNodeGroup");
 }
 
 /**
@@ -4928,7 +4706,6 @@ export namespace GlobalNodeGroup {
  *          </ul>
  */
 export interface GlobalReplicationGroup {
-  __type?: "GlobalReplicationGroup";
   /**
    * <p>A flag that enables in-transit encryption when set to true.
    *
@@ -5011,7 +4788,6 @@ export namespace GlobalReplicationGroup {
   export const filterSensitiveLog = (obj: GlobalReplicationGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalReplicationGroup => __isa(o, "GlobalReplicationGroup");
 }
 
 /**
@@ -5027,15 +4803,12 @@ export namespace GlobalReplicationGroupAlreadyExistsFault {
   export const filterSensitiveLog = (obj: GlobalReplicationGroupAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalReplicationGroupAlreadyExistsFault =>
-    __isa(o, "GlobalReplicationGroupAlreadyExistsFault");
 }
 
 /**
  * <p>The name of the Global Datastore and role of this replication group in the Global Datastore.</p>
  */
 export interface GlobalReplicationGroupInfo {
-  __type?: "GlobalReplicationGroupInfo";
   /**
    * <p>The role of the replication group in a Global Datastore. Can be primary or secondary.</p>
    */
@@ -5051,14 +4824,12 @@ export namespace GlobalReplicationGroupInfo {
   export const filterSensitiveLog = (obj: GlobalReplicationGroupInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalReplicationGroupInfo => __isa(o, "GlobalReplicationGroupInfo");
 }
 
 /**
  * <p>A member of a Global Datastore. It contains the Replication Group Id, the AWS region and the role of the replication group. </p>
  */
 export interface GlobalReplicationGroupMember {
-  __type?: "GlobalReplicationGroupMember";
   /**
    * <p>Indicates the role of the replication group, primary or secondary.</p>
    */
@@ -5089,7 +4860,6 @@ export namespace GlobalReplicationGroupMember {
   export const filterSensitiveLog = (obj: GlobalReplicationGroupMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalReplicationGroupMember => __isa(o, "GlobalReplicationGroupMember");
 }
 
 /**
@@ -5105,12 +4875,9 @@ export namespace GlobalReplicationGroupNotFoundFault {
   export const filterSensitiveLog = (obj: GlobalReplicationGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalReplicationGroupNotFoundFault =>
-    __isa(o, "GlobalReplicationGroupNotFoundFault");
 }
 
 export interface IncreaseNodeGroupsInGlobalReplicationGroupMessage {
-  __type?: "IncreaseNodeGroupsInGlobalReplicationGroupMessage";
   /**
    * <p>The number of node groups you wish to add</p>
    */
@@ -5136,12 +4903,9 @@ export namespace IncreaseNodeGroupsInGlobalReplicationGroupMessage {
   export const filterSensitiveLog = (obj: IncreaseNodeGroupsInGlobalReplicationGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncreaseNodeGroupsInGlobalReplicationGroupMessage =>
-    __isa(o, "IncreaseNodeGroupsInGlobalReplicationGroupMessage");
 }
 
 export interface IncreaseNodeGroupsInGlobalReplicationGroupResult {
-  __type?: "IncreaseNodeGroupsInGlobalReplicationGroupResult";
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
@@ -5161,12 +4925,9 @@ export namespace IncreaseNodeGroupsInGlobalReplicationGroupResult {
   export const filterSensitiveLog = (obj: IncreaseNodeGroupsInGlobalReplicationGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncreaseNodeGroupsInGlobalReplicationGroupResult =>
-    __isa(o, "IncreaseNodeGroupsInGlobalReplicationGroupResult");
 }
 
 export interface IncreaseReplicaCountMessage {
-  __type?: "IncreaseReplicaCountMessage";
   /**
    * <p>A list of <code>ConfigureShard</code> objects that can be used to configure each shard
    *             in a Redis (cluster mode enabled) replication group. The <code>ConfigureShard</code> has three members:
@@ -5199,11 +4960,9 @@ export namespace IncreaseReplicaCountMessage {
   export const filterSensitiveLog = (obj: IncreaseReplicaCountMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncreaseReplicaCountMessage => __isa(o, "IncreaseReplicaCountMessage");
 }
 
 export interface IncreaseReplicaCountResult {
-  __type?: "IncreaseReplicaCountResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
@@ -5214,7 +4973,6 @@ export namespace IncreaseReplicaCountResult {
   export const filterSensitiveLog = (obj: IncreaseReplicaCountResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncreaseReplicaCountResult => __isa(o, "IncreaseReplicaCountResult");
 }
 
 /**
@@ -5231,8 +4989,6 @@ export namespace InsufficientCacheClusterCapacityFault {
   export const filterSensitiveLog = (obj: InsufficientCacheClusterCapacityFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientCacheClusterCapacityFault =>
-    __isa(o, "InsufficientCacheClusterCapacityFault");
 }
 
 /**
@@ -5248,7 +5004,6 @@ export namespace InvalidARNFault {
   export const filterSensitiveLog = (obj: InvalidARNFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidARNFault => __isa(o, "InvalidARNFault");
 }
 
 /**
@@ -5264,7 +5019,6 @@ export namespace InvalidCacheClusterStateFault {
   export const filterSensitiveLog = (obj: InvalidCacheClusterStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCacheClusterStateFault => __isa(o, "InvalidCacheClusterStateFault");
 }
 
 /**
@@ -5280,8 +5034,6 @@ export namespace InvalidCacheParameterGroupStateFault {
   export const filterSensitiveLog = (obj: InvalidCacheParameterGroupStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCacheParameterGroupStateFault =>
-    __isa(o, "InvalidCacheParameterGroupStateFault");
 }
 
 /**
@@ -5297,8 +5049,6 @@ export namespace InvalidCacheSecurityGroupStateFault {
   export const filterSensitiveLog = (obj: InvalidCacheSecurityGroupStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCacheSecurityGroupStateFault =>
-    __isa(o, "InvalidCacheSecurityGroupStateFault");
 }
 
 /**
@@ -5314,8 +5064,6 @@ export namespace InvalidGlobalReplicationGroupStateFault {
   export const filterSensitiveLog = (obj: InvalidGlobalReplicationGroupStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidGlobalReplicationGroupStateFault =>
-    __isa(o, "InvalidGlobalReplicationGroupStateFault");
 }
 
 /**
@@ -5331,7 +5079,6 @@ export namespace InvalidKMSKeyFault {
   export const filterSensitiveLog = (obj: InvalidKMSKeyFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidKMSKeyFault => __isa(o, "InvalidKMSKeyFault");
 }
 
 /**
@@ -5350,8 +5097,6 @@ export namespace InvalidParameterCombinationException {
   export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterCombinationException =>
-    __isa(o, "InvalidParameterCombinationException");
 }
 
 /**
@@ -5370,7 +5115,6 @@ export namespace InvalidParameterValueException {
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
@@ -5386,7 +5130,6 @@ export namespace InvalidReplicationGroupStateFault {
   export const filterSensitiveLog = (obj: InvalidReplicationGroupStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidReplicationGroupStateFault => __isa(o, "InvalidReplicationGroupStateFault");
 }
 
 /**
@@ -5402,7 +5145,6 @@ export namespace InvalidSnapshotStateFault {
   export const filterSensitiveLog = (obj: InvalidSnapshotStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSnapshotStateFault => __isa(o, "InvalidSnapshotStateFault");
 }
 
 /**
@@ -5418,7 +5160,6 @@ export namespace InvalidSubnet {
   export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSubnet => __isa(o, "InvalidSubnet");
 }
 
 /**
@@ -5434,14 +5175,12 @@ export namespace InvalidVPCNetworkStateFault {
   export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidVPCNetworkStateFault => __isa(o, "InvalidVPCNetworkStateFault");
 }
 
 /**
  * <p>The input parameters for the <code>ListAllowedNodeTypeModifications</code> operation.</p>
  */
 export interface ListAllowedNodeTypeModificationsMessage {
-  __type?: "ListAllowedNodeTypeModificationsMessage";
   /**
    * <p>The name of the replication group want to scale up to a larger node type.
    *         ElastiCache uses the replication group id to identify the current node type being used by
@@ -5470,15 +5209,12 @@ export namespace ListAllowedNodeTypeModificationsMessage {
   export const filterSensitiveLog = (obj: ListAllowedNodeTypeModificationsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAllowedNodeTypeModificationsMessage =>
-    __isa(o, "ListAllowedNodeTypeModificationsMessage");
 }
 
 /**
  * <p>The input parameters for the <code>ListTagsForResource</code> operation.</p>
  */
 export interface ListTagsForResourceMessage {
-  __type?: "ListTagsForResourceMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which you want the list of tags,
    *             for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
@@ -5492,14 +5228,12 @@ export namespace ListTagsForResourceMessage {
   export const filterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceMessage => __isa(o, "ListTagsForResourceMessage");
 }
 
 /**
  * <p>Represents the input of a <code>ModifyCacheCluster</code> operation.</p>
  */
 export interface ModifyCacheClusterMessage {
-  __type?: "ModifyCacheClusterMessage";
   /**
    * <p>The upgraded version of the cache engine to be run on the cache nodes.</p>
    *
@@ -5849,11 +5583,9 @@ export namespace ModifyCacheClusterMessage {
   export const filterSensitiveLog = (obj: ModifyCacheClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyCacheClusterMessage => __isa(o, "ModifyCacheClusterMessage");
 }
 
 export interface ModifyCacheClusterResult {
-  __type?: "ModifyCacheClusterResult";
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
    */
@@ -5864,14 +5596,12 @@ export namespace ModifyCacheClusterResult {
   export const filterSensitiveLog = (obj: ModifyCacheClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyCacheClusterResult => __isa(o, "ModifyCacheClusterResult");
 }
 
 /**
  * <p>Represents the input of a <code>ModifyCacheParameterGroup</code> operation.</p>
  */
 export interface ModifyCacheParameterGroupMessage {
-  __type?: "ModifyCacheParameterGroupMessage";
   /**
    * <p>An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be modified per request.</p>
    */
@@ -5887,14 +5617,12 @@ export namespace ModifyCacheParameterGroupMessage {
   export const filterSensitiveLog = (obj: ModifyCacheParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyCacheParameterGroupMessage => __isa(o, "ModifyCacheParameterGroupMessage");
 }
 
 /**
  * <p>Represents the input of a <code>ModifyCacheSubnetGroup</code> operation.</p>
  */
 export interface ModifyCacheSubnetGroupMessage {
-  __type?: "ModifyCacheSubnetGroupMessage";
   /**
    * <p>The name for the cache subnet group. This value is stored as a lowercase string.</p>
    *         <p>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</p>
@@ -5918,11 +5646,9 @@ export namespace ModifyCacheSubnetGroupMessage {
   export const filterSensitiveLog = (obj: ModifyCacheSubnetGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyCacheSubnetGroupMessage => __isa(o, "ModifyCacheSubnetGroupMessage");
 }
 
 export interface ModifyCacheSubnetGroupResult {
-  __type?: "ModifyCacheSubnetGroupResult";
   /**
    * <p>Represents the output of one of the following operations:</p>
    *         <ul>
@@ -5945,11 +5671,9 @@ export namespace ModifyCacheSubnetGroupResult {
   export const filterSensitiveLog = (obj: ModifyCacheSubnetGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyCacheSubnetGroupResult => __isa(o, "ModifyCacheSubnetGroupResult");
 }
 
 export interface ModifyGlobalReplicationGroupMessage {
-  __type?: "ModifyGlobalReplicationGroupMessage";
   /**
    * <p>A valid cache node type that you want to scale this Global Datastore to.</p>
    */
@@ -5987,12 +5711,9 @@ export namespace ModifyGlobalReplicationGroupMessage {
   export const filterSensitiveLog = (obj: ModifyGlobalReplicationGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyGlobalReplicationGroupMessage =>
-    __isa(o, "ModifyGlobalReplicationGroupMessage");
 }
 
 export interface ModifyGlobalReplicationGroupResult {
-  __type?: "ModifyGlobalReplicationGroupResult";
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
@@ -6012,15 +5733,12 @@ export namespace ModifyGlobalReplicationGroupResult {
   export const filterSensitiveLog = (obj: ModifyGlobalReplicationGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyGlobalReplicationGroupResult =>
-    __isa(o, "ModifyGlobalReplicationGroupResult");
 }
 
 /**
  * <p>Represents the input of a <code>ModifyReplicationGroups</code> operation.</p>
  */
 export interface ModifyReplicationGroupMessage {
-  __type?: "ModifyReplicationGroupMessage";
   /**
    * <p>The daily time range (in UTC) during which ElastiCache  begins taking a daily snapshot of
    *             the node group (shard) specified by <code>SnapshottingClusterId</code>.</p>
@@ -6241,11 +5959,9 @@ export namespace ModifyReplicationGroupMessage {
   export const filterSensitiveLog = (obj: ModifyReplicationGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReplicationGroupMessage => __isa(o, "ModifyReplicationGroupMessage");
 }
 
 export interface ModifyReplicationGroupResult {
-  __type?: "ModifyReplicationGroupResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
@@ -6256,14 +5972,12 @@ export namespace ModifyReplicationGroupResult {
   export const filterSensitiveLog = (obj: ModifyReplicationGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReplicationGroupResult => __isa(o, "ModifyReplicationGroupResult");
 }
 
 /**
  * <p>Represents the input for a <code>ModifyReplicationGroupShardConfiguration</code> operation.</p>
  */
 export interface ModifyReplicationGroupShardConfigurationMessage {
-  __type?: "ModifyReplicationGroupShardConfigurationMessage";
   /**
    * <p>If the value of <code>NodeGroupCount</code> is less than the
    *             current number of node groups (shards), then either <code>NodeGroupsToRemove</code> or
@@ -6321,12 +6035,9 @@ export namespace ModifyReplicationGroupShardConfigurationMessage {
   export const filterSensitiveLog = (obj: ModifyReplicationGroupShardConfigurationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReplicationGroupShardConfigurationMessage =>
-    __isa(o, "ModifyReplicationGroupShardConfigurationMessage");
 }
 
 export interface ModifyReplicationGroupShardConfigurationResult {
-  __type?: "ModifyReplicationGroupShardConfigurationResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
@@ -6337,8 +6048,6 @@ export namespace ModifyReplicationGroupShardConfigurationResult {
   export const filterSensitiveLog = (obj: ModifyReplicationGroupShardConfigurationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModifyReplicationGroupShardConfigurationResult =>
-    __isa(o, "ModifyReplicationGroupShardConfigurationResult");
 }
 
 export enum MultiAZStatus {
@@ -6352,7 +6061,6 @@ export enum MultiAZStatus {
  *             All the other nodes are read-only Replica nodes.</p>
  */
 export interface NodeGroup {
-  __type?: "NodeGroup";
   /**
    * <p>A list containing information about individual nodes within the node group (shard).</p>
    */
@@ -6391,7 +6099,6 @@ export namespace NodeGroup {
   export const filterSensitiveLog = (obj: NodeGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeGroup => __isa(o, "NodeGroup");
 }
 
 /**
@@ -6399,7 +6106,6 @@ export namespace NodeGroup {
  *             Each node group (shard) configuration has the following: <code>Slots</code>, <code>PrimaryAvailabilityZone</code>, <code>ReplicaAvailabilityZones</code>, <code>ReplicaCount</code>.</p>
  */
 export interface NodeGroupConfiguration {
-  __type?: "NodeGroupConfiguration";
   /**
    * <p>Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these
    *             configuration values apply to.</p>
@@ -6437,14 +6143,12 @@ export namespace NodeGroupConfiguration {
   export const filterSensitiveLog = (obj: NodeGroupConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeGroupConfiguration => __isa(o, "NodeGroupConfiguration");
 }
 
 /**
  * <p>Represents a single node within a node group (shard).</p>
  */
 export interface NodeGroupMember {
-  __type?: "NodeGroupMember";
   /**
    * <p>The role that is currently assigned to the node - <code>primary</code> or
    *             <code>replica</code>. This member is only applicable for Redis (cluster mode disabled)
@@ -6478,14 +6182,12 @@ export namespace NodeGroupMember {
   export const filterSensitiveLog = (obj: NodeGroupMember): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeGroupMember => __isa(o, "NodeGroupMember");
 }
 
 /**
  * <p>The status of the service update on the node group member  </p>
  */
 export interface NodeGroupMemberUpdateStatus {
-  __type?: "NodeGroupMemberUpdateStatus";
   /**
    * <p>The update status of the node</p>
    */
@@ -6536,7 +6238,6 @@ export namespace NodeGroupMemberUpdateStatus {
   export const filterSensitiveLog = (obj: NodeGroupMemberUpdateStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeGroupMemberUpdateStatus => __isa(o, "NodeGroupMemberUpdateStatus");
 }
 
 /**
@@ -6553,7 +6254,6 @@ export namespace NodeGroupNotFoundFault {
   export const filterSensitiveLog = (obj: NodeGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeGroupNotFoundFault => __isa(o, "NodeGroupNotFoundFault");
 }
 
 /**
@@ -6570,15 +6270,12 @@ export namespace NodeGroupsPerReplicationGroupQuotaExceededFault {
   export const filterSensitiveLog = (obj: NodeGroupsPerReplicationGroupQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeGroupsPerReplicationGroupQuotaExceededFault =>
-    __isa(o, "NodeGroupsPerReplicationGroupQuotaExceededFault");
 }
 
 /**
  * <p>The status of the service update on the node group </p>
  */
 export interface NodeGroupUpdateStatus {
-  __type?: "NodeGroupUpdateStatus";
   /**
    * <p>The ID of the node group</p>
    */
@@ -6594,7 +6291,6 @@ export namespace NodeGroupUpdateStatus {
   export const filterSensitiveLog = (obj: NodeGroupUpdateStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeGroupUpdateStatus => __isa(o, "NodeGroupUpdateStatus");
 }
 
 /**
@@ -6610,7 +6306,6 @@ export namespace NodeQuotaForClusterExceededFault {
   export const filterSensitiveLog = (obj: NodeQuotaForClusterExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeQuotaForClusterExceededFault => __isa(o, "NodeQuotaForClusterExceededFault");
 }
 
 /**
@@ -6626,14 +6321,12 @@ export namespace NodeQuotaForCustomerExceededFault {
   export const filterSensitiveLog = (obj: NodeQuotaForCustomerExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeQuotaForCustomerExceededFault => __isa(o, "NodeQuotaForCustomerExceededFault");
 }
 
 /**
  * <p>Represents an individual cache node in a snapshot of a cluster.</p>
  */
 export interface NodeSnapshot {
-  __type?: "NodeSnapshot";
   /**
    * <p>The cache node identifier for the node in the source cluster.</p>
    */
@@ -6674,7 +6367,6 @@ export namespace NodeSnapshot {
   export const filterSensitiveLog = (obj: NodeSnapshot): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeSnapshot => __isa(o, "NodeSnapshot");
 }
 
 export enum NodeUpdateInitiatedBy {
@@ -6704,7 +6396,6 @@ export namespace NoOperationFault {
   export const filterSensitiveLog = (obj: NoOperationFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoOperationFault => __isa(o, "NoOperationFault");
 }
 
 /**
@@ -6713,7 +6404,6 @@ export namespace NoOperationFault {
  *             using Amazon Simple Notification Service (SNS).</p>
  */
 export interface NotificationConfiguration {
-  __type?: "NotificationConfiguration";
   /**
    * <p>The current state of the topic.</p>
    */
@@ -6729,14 +6419,12 @@ export namespace NotificationConfiguration {
   export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotificationConfiguration => __isa(o, "NotificationConfiguration");
 }
 
 /**
  * <p>Describes an individual setting that controls some aspect of ElastiCache behavior.</p>
  */
 export interface Parameter {
-  __type?: "Parameter";
   /**
    * <p>A description of the parameter.</p>
    */
@@ -6791,14 +6479,12 @@ export namespace Parameter {
   export const filterSensitiveLog = (obj: Parameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Parameter => __isa(o, "Parameter");
 }
 
 /**
  * <p>Describes a name-value pair that is used to update the value of a parameter.</p>
  */
 export interface ParameterNameValue {
-  __type?: "ParameterNameValue";
   /**
    * <p>The value of the parameter.</p>
    */
@@ -6814,7 +6500,6 @@ export namespace ParameterNameValue {
   export const filterSensitiveLog = (obj: ParameterNameValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParameterNameValue => __isa(o, "ParameterNameValue");
 }
 
 export enum PendingAutomaticFailoverStatus {
@@ -6827,7 +6512,6 @@ export enum PendingAutomaticFailoverStatus {
  *             or that are currently being applied.</p>
  */
 export interface PendingModifiedValues {
-  __type?: "PendingModifiedValues";
   /**
    * <p>The new number of cache nodes for the cluster.</p>
    *         <p>For clusters running Redis, this value must be 1.
@@ -6861,14 +6545,12 @@ export namespace PendingModifiedValues {
   export const filterSensitiveLog = (obj: PendingModifiedValues): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PendingModifiedValues => __isa(o, "PendingModifiedValues");
 }
 
 /**
  * <p>Update action that has been processed for the corresponding apply/stop request</p>
  */
 export interface ProcessedUpdateAction {
-  __type?: "ProcessedUpdateAction";
   /**
    * <p>The unique ID of the service update</p>
    */
@@ -6894,14 +6576,12 @@ export namespace ProcessedUpdateAction {
   export const filterSensitiveLog = (obj: ProcessedUpdateAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProcessedUpdateAction => __isa(o, "ProcessedUpdateAction");
 }
 
 /**
  * <p>Represents the input of a <code>PurchaseReservedCacheNodesOffering</code> operation.</p>
  */
 export interface PurchaseReservedCacheNodesOfferingMessage {
-  __type?: "PurchaseReservedCacheNodesOfferingMessage";
   /**
    * <p>The ID of the reserved cache node offering to purchase.</p>
    *         <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code>
@@ -6932,12 +6612,9 @@ export namespace PurchaseReservedCacheNodesOfferingMessage {
   export const filterSensitiveLog = (obj: PurchaseReservedCacheNodesOfferingMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseReservedCacheNodesOfferingMessage =>
-    __isa(o, "PurchaseReservedCacheNodesOfferingMessage");
 }
 
 export interface PurchaseReservedCacheNodesOfferingResult {
-  __type?: "PurchaseReservedCacheNodesOfferingResult";
   /**
    * <p>Represents the output of a <code>PurchaseReservedCacheNodesOffering</code> operation.</p>
    */
@@ -6948,12 +6625,9 @@ export namespace PurchaseReservedCacheNodesOfferingResult {
   export const filterSensitiveLog = (obj: PurchaseReservedCacheNodesOfferingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseReservedCacheNodesOfferingResult =>
-    __isa(o, "PurchaseReservedCacheNodesOfferingResult");
 }
 
 export interface RebalanceSlotsInGlobalReplicationGroupMessage {
-  __type?: "RebalanceSlotsInGlobalReplicationGroupMessage";
   /**
    * <p>The name of the Global Datastore</p>
    */
@@ -6969,12 +6643,9 @@ export namespace RebalanceSlotsInGlobalReplicationGroupMessage {
   export const filterSensitiveLog = (obj: RebalanceSlotsInGlobalReplicationGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebalanceSlotsInGlobalReplicationGroupMessage =>
-    __isa(o, "RebalanceSlotsInGlobalReplicationGroupMessage");
 }
 
 export interface RebalanceSlotsInGlobalReplicationGroupResult {
-  __type?: "RebalanceSlotsInGlobalReplicationGroupResult";
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different AWS region. The secondary cluster accepts only reads. The primary
    *         cluster automatically replicates updates to the secondary cluster.</p>
@@ -6994,15 +6665,12 @@ export namespace RebalanceSlotsInGlobalReplicationGroupResult {
   export const filterSensitiveLog = (obj: RebalanceSlotsInGlobalReplicationGroupResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebalanceSlotsInGlobalReplicationGroupResult =>
-    __isa(o, "RebalanceSlotsInGlobalReplicationGroupResult");
 }
 
 /**
  * <p>Represents the input of a <code>RebootCacheCluster</code> operation.</p>
  */
 export interface RebootCacheClusterMessage {
-  __type?: "RebootCacheClusterMessage";
   /**
    * <p>The cluster identifier. This parameter is stored as a lowercase string.</p>
    */
@@ -7018,11 +6686,9 @@ export namespace RebootCacheClusterMessage {
   export const filterSensitiveLog = (obj: RebootCacheClusterMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootCacheClusterMessage => __isa(o, "RebootCacheClusterMessage");
 }
 
 export interface RebootCacheClusterResult {
-  __type?: "RebootCacheClusterResult";
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
    */
@@ -7033,7 +6699,6 @@ export namespace RebootCacheClusterResult {
   export const filterSensitiveLog = (obj: RebootCacheClusterResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootCacheClusterResult => __isa(o, "RebootCacheClusterResult");
 }
 
 /**
@@ -7041,7 +6706,6 @@ export namespace RebootCacheClusterResult {
  *             or for a reserved cache node offering.</p>
  */
 export interface RecurringCharge {
-  __type?: "RecurringCharge";
   /**
    * <p>The monetary amount of the recurring charge.</p>
    */
@@ -7057,14 +6721,12 @@ export namespace RecurringCharge {
   export const filterSensitiveLog = (obj: RecurringCharge): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecurringCharge => __isa(o, "RecurringCharge");
 }
 
 /**
  * <p>A list of the replication groups </p>
  */
 export interface RegionalConfiguration {
-  __type?: "RegionalConfiguration";
   /**
    * <p>The AWS region where the cluster is stored</p>
    */
@@ -7085,14 +6747,12 @@ export namespace RegionalConfiguration {
   export const filterSensitiveLog = (obj: RegionalConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegionalConfiguration => __isa(o, "RegionalConfiguration");
 }
 
 /**
  * <p>Represents the input of a <code>RemoveTagsFromResource</code> operation.</p>
  */
 export interface RemoveTagsFromResourceMessage {
-  __type?: "RemoveTagsFromResourceMessage";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which you want the tags removed,
    *             for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
@@ -7111,14 +6771,12 @@ export namespace RemoveTagsFromResourceMessage {
   export const filterSensitiveLog = (obj: RemoveTagsFromResourceMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromResourceMessage => __isa(o, "RemoveTagsFromResourceMessage");
 }
 
 /**
  * <p>Contains all of the attributes of a specific Redis replication group.</p>
  */
 export interface ReplicationGroup {
-  __type?: "ReplicationGroup";
   /**
    * <p>Indicates the status of automatic failover for this Redis replication group.</p>
    */
@@ -7277,7 +6935,6 @@ export namespace ReplicationGroup {
   export const filterSensitiveLog = (obj: ReplicationGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationGroup => __isa(o, "ReplicationGroup");
 }
 
 /**
@@ -7293,8 +6950,6 @@ export namespace ReplicationGroupAlreadyExistsFault {
   export const filterSensitiveLog = (obj: ReplicationGroupAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationGroupAlreadyExistsFault =>
-    __isa(o, "ReplicationGroupAlreadyExistsFault");
 }
 
 /**
@@ -7310,15 +6965,12 @@ export namespace ReplicationGroupAlreadyUnderMigrationFault {
   export const filterSensitiveLog = (obj: ReplicationGroupAlreadyUnderMigrationFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationGroupAlreadyUnderMigrationFault =>
-    __isa(o, "ReplicationGroupAlreadyUnderMigrationFault");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeReplicationGroups</code> operation.</p>
  */
 export interface ReplicationGroupMessage {
-  __type?: "ReplicationGroupMessage";
   /**
    * <p>A list of replication groups. Each item in the list contains detailed information about one replication group.</p>
    */
@@ -7334,7 +6986,6 @@ export namespace ReplicationGroupMessage {
   export const filterSensitiveLog = (obj: ReplicationGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationGroupMessage => __isa(o, "ReplicationGroupMessage");
 }
 
 /**
@@ -7350,7 +7001,6 @@ export namespace ReplicationGroupNotFoundFault {
   export const filterSensitiveLog = (obj: ReplicationGroupNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationGroupNotFoundFault => __isa(o, "ReplicationGroupNotFoundFault");
 }
 
 /**
@@ -7366,8 +7016,6 @@ export namespace ReplicationGroupNotUnderMigrationFault {
   export const filterSensitiveLog = (obj: ReplicationGroupNotUnderMigrationFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationGroupNotUnderMigrationFault =>
-    __isa(o, "ReplicationGroupNotUnderMigrationFault");
 }
 
 /**
@@ -7375,7 +7023,6 @@ export namespace ReplicationGroupNotUnderMigrationFault {
  *             either immediately or during the next maintenance window.</p>
  */
 export interface ReplicationGroupPendingModifiedValues {
-  __type?: "ReplicationGroupPendingModifiedValues";
   /**
    * <p>The status of an online resharding operation.</p>
    */
@@ -7402,15 +7049,12 @@ export namespace ReplicationGroupPendingModifiedValues {
   export const filterSensitiveLog = (obj: ReplicationGroupPendingModifiedValues): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationGroupPendingModifiedValues =>
-    __isa(o, "ReplicationGroupPendingModifiedValues");
 }
 
 /**
  * <p>Represents the output of a <code>PurchaseReservedCacheNodesOffering</code> operation.</p>
  */
 export interface ReservedCacheNode {
-  __type?: "ReservedCacheNode";
   /**
    * <p>The fixed price charged for this reserved cache node.</p>
    */
@@ -7651,7 +7295,6 @@ export namespace ReservedCacheNode {
   export const filterSensitiveLog = (obj: ReservedCacheNode): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedCacheNode => __isa(o, "ReservedCacheNode");
 }
 
 /**
@@ -7667,15 +7310,12 @@ export namespace ReservedCacheNodeAlreadyExistsFault {
   export const filterSensitiveLog = (obj: ReservedCacheNodeAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedCacheNodeAlreadyExistsFault =>
-    __isa(o, "ReservedCacheNodeAlreadyExistsFault");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeReservedCacheNodes</code> operation.</p>
  */
 export interface ReservedCacheNodeMessage {
-  __type?: "ReservedCacheNodeMessage";
   /**
    * <p>A list of reserved cache nodes. Each element in the list contains detailed information about one node.</p>
    */
@@ -7691,7 +7331,6 @@ export namespace ReservedCacheNodeMessage {
   export const filterSensitiveLog = (obj: ReservedCacheNodeMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedCacheNodeMessage => __isa(o, "ReservedCacheNodeMessage");
 }
 
 /**
@@ -7707,7 +7346,6 @@ export namespace ReservedCacheNodeNotFoundFault {
   export const filterSensitiveLog = (obj: ReservedCacheNodeNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedCacheNodeNotFoundFault => __isa(o, "ReservedCacheNodeNotFoundFault");
 }
 
 /**
@@ -7723,15 +7361,12 @@ export namespace ReservedCacheNodeQuotaExceededFault {
   export const filterSensitiveLog = (obj: ReservedCacheNodeQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedCacheNodeQuotaExceededFault =>
-    __isa(o, "ReservedCacheNodeQuotaExceededFault");
 }
 
 /**
  * <p>Describes all of the attributes of a reserved cache node offering.</p>
  */
 export interface ReservedCacheNodesOffering {
-  __type?: "ReservedCacheNodesOffering";
   /**
    * <p>The cache node type for the reserved cache node.</p>
    *         <p>The following node types are supported by ElastiCache.
@@ -7944,14 +7579,12 @@ export namespace ReservedCacheNodesOffering {
   export const filterSensitiveLog = (obj: ReservedCacheNodesOffering): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedCacheNodesOffering => __isa(o, "ReservedCacheNodesOffering");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeReservedCacheNodesOfferings</code> operation.</p>
  */
 export interface ReservedCacheNodesOfferingMessage {
-  __type?: "ReservedCacheNodesOfferingMessage";
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    */
@@ -7967,7 +7600,6 @@ export namespace ReservedCacheNodesOfferingMessage {
   export const filterSensitiveLog = (obj: ReservedCacheNodesOfferingMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedCacheNodesOfferingMessage => __isa(o, "ReservedCacheNodesOfferingMessage");
 }
 
 /**
@@ -7983,15 +7615,12 @@ export namespace ReservedCacheNodesOfferingNotFoundFault {
   export const filterSensitiveLog = (obj: ReservedCacheNodesOfferingNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReservedCacheNodesOfferingNotFoundFault =>
-    __isa(o, "ReservedCacheNodesOfferingNotFoundFault");
 }
 
 /**
  * <p>Represents the input of a <code>ResetCacheParameterGroup</code> operation.</p>
  */
 export interface ResetCacheParameterGroupMessage {
-  __type?: "ResetCacheParameterGroupMessage";
   /**
    * <p>The name of the cache parameter group to reset.</p>
    */
@@ -8021,7 +7650,6 @@ export namespace ResetCacheParameterGroupMessage {
   export const filterSensitiveLog = (obj: ResetCacheParameterGroupMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetCacheParameterGroupMessage => __isa(o, "ResetCacheParameterGroupMessage");
 }
 
 /**
@@ -8029,7 +7657,6 @@ export namespace ResetCacheParameterGroupMessage {
  *             the configuration of a node group in the resharded cluster.</p>
  */
 export interface ReshardingConfiguration {
-  __type?: "ReshardingConfiguration";
   /**
    * <p>Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these
    *             configuration values apply to.</p>
@@ -8046,14 +7673,12 @@ export namespace ReshardingConfiguration {
   export const filterSensitiveLog = (obj: ReshardingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReshardingConfiguration => __isa(o, "ReshardingConfiguration");
 }
 
 /**
  * <p>The status of an online resharding operation.</p>
  */
 export interface ReshardingStatus {
-  __type?: "ReshardingStatus";
   /**
    * <p>Represents the progress of an online resharding operation.</p>
    */
@@ -8064,14 +7689,12 @@ export namespace ReshardingStatus {
   export const filterSensitiveLog = (obj: ReshardingStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReshardingStatus => __isa(o, "ReshardingStatus");
 }
 
 /**
  * <p>Represents the input of a <code>RevokeCacheSecurityGroupIngress</code> operation.</p>
  */
 export interface RevokeCacheSecurityGroupIngressMessage {
-  __type?: "RevokeCacheSecurityGroupIngressMessage";
   /**
    * <p>The name of the cache security group to revoke ingress from.</p>
    */
@@ -8094,12 +7717,9 @@ export namespace RevokeCacheSecurityGroupIngressMessage {
   export const filterSensitiveLog = (obj: RevokeCacheSecurityGroupIngressMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeCacheSecurityGroupIngressMessage =>
-    __isa(o, "RevokeCacheSecurityGroupIngressMessage");
 }
 
 export interface RevokeCacheSecurityGroupIngressResult {
-  __type?: "RevokeCacheSecurityGroupIngressResult";
   /**
    * <p>Represents the output of one of the following operations:</p>
    *         <ul>
@@ -8127,15 +7747,12 @@ export namespace RevokeCacheSecurityGroupIngressResult {
   export const filterSensitiveLog = (obj: RevokeCacheSecurityGroupIngressResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeCacheSecurityGroupIngressResult =>
-    __isa(o, "RevokeCacheSecurityGroupIngressResult");
 }
 
 /**
  * <p>Represents a single cache security group and its status.</p>
  */
 export interface SecurityGroupMembership {
-  __type?: "SecurityGroupMembership";
   /**
    * <p>The identifier of the cache security group.</p>
    */
@@ -8153,7 +7770,6 @@ export namespace SecurityGroupMembership {
   export const filterSensitiveLog = (obj: SecurityGroupMembership): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityGroupMembership => __isa(o, "SecurityGroupMembership");
 }
 
 /**
@@ -8169,14 +7785,12 @@ export namespace ServiceLinkedRoleNotFoundFault {
   export const filterSensitiveLog = (obj: ServiceLinkedRoleNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceLinkedRoleNotFoundFault => __isa(o, "ServiceLinkedRoleNotFoundFault");
 }
 
 /**
  * <p>An update that you can apply to your Redis clusters.</p>
  */
 export interface ServiceUpdate {
-  __type?: "ServiceUpdate";
   /**
    * <p>Indicates whether the service update will be automatically applied once the recommended apply-by date has expired. </p>
    */
@@ -8242,7 +7856,6 @@ export namespace ServiceUpdate {
   export const filterSensitiveLog = (obj: ServiceUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUpdate => __isa(o, "ServiceUpdate");
 }
 
 /**
@@ -8258,7 +7871,6 @@ export namespace ServiceUpdateNotFoundFault {
   export const filterSensitiveLog = (obj: ServiceUpdateNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUpdateNotFoundFault => __isa(o, "ServiceUpdateNotFoundFault");
 }
 
 export enum ServiceUpdateSeverity {
@@ -8269,7 +7881,6 @@ export enum ServiceUpdateSeverity {
 }
 
 export interface ServiceUpdatesMessage {
-  __type?: "ServiceUpdatesMessage";
   /**
    * <p>A list of service updates</p>
    */
@@ -8288,7 +7899,6 @@ export namespace ServiceUpdatesMessage {
   export const filterSensitiveLog = (obj: ServiceUpdatesMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUpdatesMessage => __isa(o, "ServiceUpdatesMessage");
 }
 
 export enum ServiceUpdateStatus {
@@ -8311,7 +7921,6 @@ export enum SlaMet {
  * <p>Represents the progress of an online resharding operation.</p>
  */
 export interface SlotMigration {
-  __type?: "SlotMigration";
   /**
    * <p>The percentage of the slot migration that is complete.</p>
    */
@@ -8322,14 +7931,12 @@ export namespace SlotMigration {
   export const filterSensitiveLog = (obj: SlotMigration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SlotMigration => __isa(o, "SlotMigration");
 }
 
 /**
  * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
  */
 export interface Snapshot {
-  __type?: "Snapshot";
   /**
    * <p>The name of the cache subnet group associated with the source cluster.</p>
    */
@@ -8692,7 +8299,6 @@ export namespace Snapshot {
   export const filterSensitiveLog = (obj: Snapshot): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Snapshot => __isa(o, "Snapshot");
 }
 
 /**
@@ -8708,7 +8314,6 @@ export namespace SnapshotAlreadyExistsFault {
   export const filterSensitiveLog = (obj: SnapshotAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotAlreadyExistsFault => __isa(o, "SnapshotAlreadyExistsFault");
 }
 
 /**
@@ -8734,7 +8339,6 @@ export namespace SnapshotFeatureNotSupportedFault {
   export const filterSensitiveLog = (obj: SnapshotFeatureNotSupportedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotFeatureNotSupportedFault => __isa(o, "SnapshotFeatureNotSupportedFault");
 }
 
 /**
@@ -8750,7 +8354,6 @@ export namespace SnapshotNotFoundFault {
   export const filterSensitiveLog = (obj: SnapshotNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotNotFoundFault => __isa(o, "SnapshotNotFoundFault");
 }
 
 /**
@@ -8766,7 +8369,6 @@ export namespace SnapshotQuotaExceededFault {
   export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SnapshotQuotaExceededFault => __isa(o, "SnapshotQuotaExceededFault");
 }
 
 export type SourceType =
@@ -8777,7 +8379,6 @@ export type SourceType =
   | "replication-group";
 
 export interface StartMigrationMessage {
-  __type?: "StartMigrationMessage";
   /**
    * <p>List of endpoints from which data should be migrated. For Redis (cluster mode disabled), list should have only one element.</p>
    */
@@ -8793,11 +8394,9 @@ export namespace StartMigrationMessage {
   export const filterSensitiveLog = (obj: StartMigrationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMigrationMessage => __isa(o, "StartMigrationMessage");
 }
 
 export interface StartMigrationResponse {
-  __type?: "StartMigrationResponse";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
@@ -8808,7 +8407,6 @@ export namespace StartMigrationResponse {
   export const filterSensitiveLog = (obj: StartMigrationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMigrationResponse => __isa(o, "StartMigrationResponse");
 }
 
 /**
@@ -8816,7 +8414,6 @@ export namespace StartMigrationResponse {
  *             This parameter refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with ElastiCache.</p>
  */
 export interface Subnet {
-  __type?: "Subnet";
   /**
    * <p>The unique identifier for the subnet.</p>
    */
@@ -8832,7 +8429,6 @@ export namespace Subnet {
   export const filterSensitiveLog = (obj: Subnet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Subnet => __isa(o, "Subnet");
 }
 
 /**
@@ -8848,7 +8444,6 @@ export namespace SubnetInUse {
   export const filterSensitiveLog = (obj: SubnetInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubnetInUse => __isa(o, "SubnetInUse");
 }
 
 /**
@@ -8856,7 +8451,6 @@ export namespace SubnetInUse {
  *             Tags are composed of a Key/Value pair. A tag with a null Value is permitted.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The key for the tag. May not be null.</p>
    */
@@ -8872,7 +8466,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -8880,7 +8473,6 @@ export namespace Tag {
  *             <code>ListTagsForResource</code>, and <code>RemoveTagsFromResource</code> operations.</p>
  */
 export interface TagListMessage {
-  __type?: "TagListMessage";
   /**
    * <p>A list of cost allocation tags as key-value pairs.</p>
    */
@@ -8891,7 +8483,6 @@ export namespace TagListMessage {
   export const filterSensitiveLog = (obj: TagListMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagListMessage => __isa(o, "TagListMessage");
 }
 
 /**
@@ -8907,7 +8498,6 @@ export namespace TagNotFoundFault {
   export const filterSensitiveLog = (obj: TagNotFoundFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagNotFoundFault => __isa(o, "TagNotFoundFault");
 }
 
 /**
@@ -8923,11 +8513,9 @@ export namespace TagQuotaPerResourceExceeded {
   export const filterSensitiveLog = (obj: TagQuotaPerResourceExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagQuotaPerResourceExceeded => __isa(o, "TagQuotaPerResourceExceeded");
 }
 
 export interface TestFailoverMessage {
-  __type?: "TestFailoverMessage";
   /**
    * <p>The name of the node group (called shard in the console) in this replication group on
    *             which automatic failover is to be tested.
@@ -8946,7 +8534,6 @@ export namespace TestFailoverMessage {
   export const filterSensitiveLog = (obj: TestFailoverMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestFailoverMessage => __isa(o, "TestFailoverMessage");
 }
 
 /**
@@ -8962,11 +8549,9 @@ export namespace TestFailoverNotAvailableFault {
   export const filterSensitiveLog = (obj: TestFailoverNotAvailableFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestFailoverNotAvailableFault => __isa(o, "TestFailoverNotAvailableFault");
 }
 
 export interface TestFailoverResult {
-  __type?: "TestFailoverResult";
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
@@ -8977,14 +8562,12 @@ export namespace TestFailoverResult {
   export const filterSensitiveLog = (obj: TestFailoverResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestFailoverResult => __isa(o, "TestFailoverResult");
 }
 
 /**
  * <p>Filters update actions from the service updates that are in available status during the time range.</p>
  */
 export interface TimeRangeFilter {
-  __type?: "TimeRangeFilter";
   /**
    * <p>The start time of the time range filter</p>
    */
@@ -9000,14 +8583,12 @@ export namespace TimeRangeFilter {
   export const filterSensitiveLog = (obj: TimeRangeFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeRangeFilter => __isa(o, "TimeRangeFilter");
 }
 
 /**
  * <p>Update action that has failed to be processed for the corresponding apply/stop request</p>
  */
 export interface UnprocessedUpdateAction {
-  __type?: "UnprocessedUpdateAction";
   /**
    * <p>The replication group ID</p>
    */
@@ -9038,14 +8619,12 @@ export namespace UnprocessedUpdateAction {
   export const filterSensitiveLog = (obj: UnprocessedUpdateAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnprocessedUpdateAction => __isa(o, "UnprocessedUpdateAction");
 }
 
 /**
  * <p>The status of the service update for a specific replication group</p>
  */
 export interface UpdateAction {
-  __type?: "UpdateAction";
   /**
    * <p>Reflects the nature of the service update  </p>
    */
@@ -9137,11 +8716,9 @@ export namespace UpdateAction {
   export const filterSensitiveLog = (obj: UpdateAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAction => __isa(o, "UpdateAction");
 }
 
 export interface UpdateActionResultsMessage {
-  __type?: "UpdateActionResultsMessage";
   /**
    * <p>Update actions that haven't been processed successfully</p>
    */
@@ -9157,11 +8734,9 @@ export namespace UpdateActionResultsMessage {
   export const filterSensitiveLog = (obj: UpdateActionResultsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateActionResultsMessage => __isa(o, "UpdateActionResultsMessage");
 }
 
 export interface UpdateActionsMessage {
-  __type?: "UpdateActionsMessage";
   /**
    * <p>An optional marker returned from a prior request.
    *            Use this marker for pagination of results from this operation. If this
@@ -9180,7 +8755,6 @@ export namespace UpdateActionsMessage {
   export const filterSensitiveLog = (obj: UpdateActionsMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateActionsMessage => __isa(o, "UpdateActionsMessage");
 }
 
 export enum UpdateActionStatus {

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AccessDeniedErrorCode {
@@ -38,11 +38,9 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface AddAttributesToFindingsRequest {
-  __type?: "AddAttributesToFindingsRequest";
   /**
    * <p>The ARNs that specify the findings that you want to assign attributes to.</p>
    */
@@ -58,11 +56,9 @@ export namespace AddAttributesToFindingsRequest {
   export const filterSensitiveLog = (obj: AddAttributesToFindingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddAttributesToFindingsRequest => __isa(o, "AddAttributesToFindingsRequest");
 }
 
 export interface AddAttributesToFindingsResponse {
-  __type?: "AddAttributesToFindingsResponse";
   /**
    * <p>Attribute details that cannot be described. An error code is provided for each failed
    *          item.</p>
@@ -74,7 +70,6 @@ export namespace AddAttributesToFindingsResponse {
   export const filterSensitiveLog = (obj: AddAttributesToFindingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddAttributesToFindingsResponse => __isa(o, "AddAttributesToFindingsResponse");
 }
 
 /**
@@ -83,7 +78,6 @@ export namespace AddAttributesToFindingsResponse {
  *          started assessment run.</p>
  */
 export interface AgentAlreadyRunningAssessment {
-  __type?: "AgentAlreadyRunningAssessment";
   /**
    * <p>ID of the agent that is running on an EC2 instance that is already participating in
    *          another started assessment run.</p>
@@ -100,7 +94,6 @@ export namespace AgentAlreadyRunningAssessment {
   export const filterSensitiveLog = (obj: AgentAlreadyRunningAssessment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AgentAlreadyRunningAssessment => __isa(o, "AgentAlreadyRunningAssessment");
 }
 
 /**
@@ -108,7 +101,6 @@ export namespace AgentAlreadyRunningAssessment {
  *          request parameter in the <a>ListAssessmentRunAgents</a> action.</p>
  */
 export interface AgentFilter {
-  __type?: "AgentFilter";
   /**
    * <p>The detailed health state of the agent. Values can be set to <b>IDLE</b>, <b>RUNNING</b>, <b>SHUTDOWN</b>, <b>UNHEALTHY</b>, <b>THROTTLED</b>, and <b>UNKNOWN</b>. </p>
    */
@@ -124,7 +116,6 @@ export namespace AgentFilter {
   export const filterSensitiveLog = (obj: AgentFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AgentFilter => __isa(o, "AgentFilter");
 }
 
 export enum AgentHealth {
@@ -146,7 +137,6 @@ export enum AgentHealthCode {
  * <p>Used as a response element in the <a>PreviewAgents</a> action.</p>
  */
 export interface AgentPreview {
-  __type?: "AgentPreview";
   /**
    * <p>The health status of the Amazon Inspector Agent.</p>
    */
@@ -196,7 +186,6 @@ export namespace AgentPreview {
   export const filterSensitiveLog = (obj: AgentPreview): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AgentPreview => __isa(o, "AgentPreview");
 }
 
 /**
@@ -231,8 +220,6 @@ export namespace AgentsAlreadyRunningAssessmentException {
   export const filterSensitiveLog = (obj: AgentsAlreadyRunningAssessmentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AgentsAlreadyRunningAssessmentException =>
-    __isa(o, "AgentsAlreadyRunningAssessmentException");
 }
 
 /**
@@ -242,7 +229,6 @@ export namespace AgentsAlreadyRunningAssessmentException {
  *          action.</p>
  */
 export interface AssessmentRun {
-  __type?: "AssessmentRun";
   /**
    * <p>Provides a total count of generated findings per severity.</p>
    */
@@ -327,7 +313,6 @@ export namespace AssessmentRun {
   export const filterSensitiveLog = (obj: AssessmentRun): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssessmentRun => __isa(o, "AssessmentRun");
 }
 
 /**
@@ -335,7 +320,6 @@ export namespace AssessmentRun {
  *          response element in the <a>ListAssessmentRunAgents</a> action.</p>
  */
 export interface AssessmentRunAgent {
-  __type?: "AssessmentRunAgent";
   /**
    * <p>The ARN of the assessment run that is associated with the agent.</p>
    */
@@ -378,7 +362,6 @@ export namespace AssessmentRunAgent {
   export const filterSensitiveLog = (obj: AssessmentRunAgent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssessmentRunAgent => __isa(o, "AssessmentRunAgent");
 }
 
 /**
@@ -386,7 +369,6 @@ export namespace AssessmentRunAgent {
  *          action.</p>
  */
 export interface AssessmentRunFilter {
-  __type?: "AssessmentRunFilter";
   /**
    * <p>For a record to match a filter, an explicit value or a string containing a wildcard
    *          that is specified for this data type property must match the value of the <b>assessmentRunName</b> property of the <a>AssessmentRun</a>
@@ -441,7 +423,6 @@ export namespace AssessmentRunFilter {
   export const filterSensitiveLog = (obj: AssessmentRunFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssessmentRunFilter => __isa(o, "AssessmentRunFilter");
 }
 
 /**
@@ -477,7 +458,6 @@ export namespace AssessmentRunInProgressException {
   export const filterSensitiveLog = (obj: AssessmentRunInProgressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssessmentRunInProgressException => __isa(o, "AssessmentRunInProgressException");
 }
 
 /**
@@ -485,7 +465,6 @@ export namespace AssessmentRunInProgressException {
  *          type.</p>
  */
 export interface AssessmentRunNotification {
-  __type?: "AssessmentRunNotification";
   /**
    * <p>The message included in the notification.</p>
    */
@@ -522,7 +501,6 @@ export namespace AssessmentRunNotification {
   export const filterSensitiveLog = (obj: AssessmentRunNotification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssessmentRunNotification => __isa(o, "AssessmentRunNotification");
 }
 
 export enum AssessmentRunNotificationSnsStatusCode {
@@ -553,7 +531,6 @@ export enum AssessmentRunState {
  *          type.</p>
  */
 export interface AssessmentRunStateChange {
-  __type?: "AssessmentRunStateChange";
   /**
    * <p>The assessment run state.</p>
    */
@@ -569,7 +546,6 @@ export namespace AssessmentRunStateChange {
   export const filterSensitiveLog = (obj: AssessmentRunStateChange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssessmentRunStateChange => __isa(o, "AssessmentRunStateChange");
 }
 
 /**
@@ -577,7 +553,6 @@ export namespace AssessmentRunStateChange {
  *          the response element in the <a>DescribeAssessmentTargets</a> action.</p>
  */
 export interface AssessmentTarget {
-  __type?: "AssessmentTarget";
   /**
    * <p>The ARN that specifies the Amazon Inspector assessment target.</p>
    */
@@ -609,7 +584,6 @@ export namespace AssessmentTarget {
   export const filterSensitiveLog = (obj: AssessmentTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssessmentTarget => __isa(o, "AssessmentTarget");
 }
 
 /**
@@ -617,7 +591,6 @@ export namespace AssessmentTarget {
  *          action.</p>
  */
 export interface AssessmentTargetFilter {
-  __type?: "AssessmentTargetFilter";
   /**
    * <p>For a record to match a filter, an explicit value or a string that contains a
    *          wildcard that is specified for this data type property must match the value of the
@@ -630,7 +603,6 @@ export namespace AssessmentTargetFilter {
   export const filterSensitiveLog = (obj: AssessmentTargetFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssessmentTargetFilter => __isa(o, "AssessmentTargetFilter");
 }
 
 /**
@@ -639,7 +611,6 @@ export namespace AssessmentTargetFilter {
  *          action.</p>
  */
 export interface AssessmentTemplate {
-  __type?: "AssessmentTemplate";
   /**
    * <p>The ARN of the assessment target that corresponds to this assessment
    *          template.</p>
@@ -696,7 +667,6 @@ export namespace AssessmentTemplate {
   export const filterSensitiveLog = (obj: AssessmentTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssessmentTemplate => __isa(o, "AssessmentTemplate");
 }
 
 /**
@@ -704,7 +674,6 @@ export namespace AssessmentTemplate {
  *          action.</p>
  */
 export interface AssessmentTemplateFilter {
-  __type?: "AssessmentTemplateFilter";
   /**
    * <p>For a record to match a filter, an explicit value or a string that contains a
    *          wildcard that is specified for this data type property must match the value of the
@@ -731,14 +700,12 @@ export namespace AssessmentTemplateFilter {
   export const filterSensitiveLog = (obj: AssessmentTemplateFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssessmentTemplateFilter => __isa(o, "AssessmentTemplateFilter");
 }
 
 /**
  * <p>A collection of attributes of the host from which the finding is generated.</p>
  */
 export interface AssetAttributes {
-  __type?: "AssetAttributes";
   /**
    * <p>The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where
    *          the finding is generated.</p>
@@ -788,7 +755,6 @@ export namespace AssetAttributes {
   export const filterSensitiveLog = (obj: AssetAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssetAttributes => __isa(o, "AssetAttributes");
 }
 
 export enum AssetType {
@@ -800,7 +766,6 @@ export enum AssetType {
  *          actions.</p>
  */
 export interface Attribute {
-  __type?: "Attribute";
   /**
    * <p>The attribute key.</p>
    */
@@ -816,11 +781,9 @@ export namespace Attribute {
   export const filterSensitiveLog = (obj: Attribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Attribute => __isa(o, "Attribute");
 }
 
 export interface CreateAssessmentTargetRequest {
-  __type?: "CreateAssessmentTargetRequest";
   /**
    * <p>The ARN that specifies the resource group that is used to create the assessment
    *          target. If resourceGroupArn is not specified, all EC2 instances in the current AWS account
@@ -839,11 +802,9 @@ export namespace CreateAssessmentTargetRequest {
   export const filterSensitiveLog = (obj: CreateAssessmentTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAssessmentTargetRequest => __isa(o, "CreateAssessmentTargetRequest");
 }
 
 export interface CreateAssessmentTargetResponse {
-  __type?: "CreateAssessmentTargetResponse";
   /**
    * <p>The ARN that specifies the assessment target that is created.</p>
    */
@@ -854,11 +815,9 @@ export namespace CreateAssessmentTargetResponse {
   export const filterSensitiveLog = (obj: CreateAssessmentTargetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAssessmentTargetResponse => __isa(o, "CreateAssessmentTargetResponse");
 }
 
 export interface CreateAssessmentTemplateRequest {
-  __type?: "CreateAssessmentTemplateRequest";
   /**
    * <p>The ARNs that specify the rules packages that you want to attach to the assessment
    *          template.</p>
@@ -897,11 +856,9 @@ export namespace CreateAssessmentTemplateRequest {
   export const filterSensitiveLog = (obj: CreateAssessmentTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAssessmentTemplateRequest => __isa(o, "CreateAssessmentTemplateRequest");
 }
 
 export interface CreateAssessmentTemplateResponse {
-  __type?: "CreateAssessmentTemplateResponse";
   /**
    * <p>The ARN that specifies the assessment template that is created.</p>
    */
@@ -912,11 +869,9 @@ export namespace CreateAssessmentTemplateResponse {
   export const filterSensitiveLog = (obj: CreateAssessmentTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAssessmentTemplateResponse => __isa(o, "CreateAssessmentTemplateResponse");
 }
 
 export interface CreateExclusionsPreviewRequest {
-  __type?: "CreateExclusionsPreviewRequest";
   /**
    * <p>The ARN that specifies the assessment template for which you want to create an
    *          exclusions preview.</p>
@@ -928,11 +883,9 @@ export namespace CreateExclusionsPreviewRequest {
   export const filterSensitiveLog = (obj: CreateExclusionsPreviewRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateExclusionsPreviewRequest => __isa(o, "CreateExclusionsPreviewRequest");
 }
 
 export interface CreateExclusionsPreviewResponse {
-  __type?: "CreateExclusionsPreviewResponse";
   /**
    * <p>Specifies the unique identifier of the requested exclusions preview. You can use the
    *          unique identifier to retrieve the exclusions preview when running the GetExclusionsPreview
@@ -945,11 +898,9 @@ export namespace CreateExclusionsPreviewResponse {
   export const filterSensitiveLog = (obj: CreateExclusionsPreviewResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateExclusionsPreviewResponse => __isa(o, "CreateExclusionsPreviewResponse");
 }
 
 export interface CreateResourceGroupRequest {
-  __type?: "CreateResourceGroupRequest";
   /**
    * <p>A collection of keys and an array of possible values,
    *          '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.</p>
@@ -962,11 +913,9 @@ export namespace CreateResourceGroupRequest {
   export const filterSensitiveLog = (obj: CreateResourceGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResourceGroupRequest => __isa(o, "CreateResourceGroupRequest");
 }
 
 export interface CreateResourceGroupResponse {
-  __type?: "CreateResourceGroupResponse";
   /**
    * <p>The ARN that specifies the resource group that is created.</p>
    */
@@ -977,11 +926,9 @@ export namespace CreateResourceGroupResponse {
   export const filterSensitiveLog = (obj: CreateResourceGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateResourceGroupResponse => __isa(o, "CreateResourceGroupResponse");
 }
 
 export interface DeleteAssessmentRunRequest {
-  __type?: "DeleteAssessmentRunRequest";
   /**
    * <p>The ARN that specifies the assessment run that you want to delete.</p>
    */
@@ -992,11 +939,9 @@ export namespace DeleteAssessmentRunRequest {
   export const filterSensitiveLog = (obj: DeleteAssessmentRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAssessmentRunRequest => __isa(o, "DeleteAssessmentRunRequest");
 }
 
 export interface DeleteAssessmentTargetRequest {
-  __type?: "DeleteAssessmentTargetRequest";
   /**
    * <p>The ARN that specifies the assessment target that you want to delete.</p>
    */
@@ -1007,11 +952,9 @@ export namespace DeleteAssessmentTargetRequest {
   export const filterSensitiveLog = (obj: DeleteAssessmentTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAssessmentTargetRequest => __isa(o, "DeleteAssessmentTargetRequest");
 }
 
 export interface DeleteAssessmentTemplateRequest {
-  __type?: "DeleteAssessmentTemplateRequest";
   /**
    * <p>The ARN that specifies the assessment template that you want to delete.</p>
    */
@@ -1022,11 +965,9 @@ export namespace DeleteAssessmentTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteAssessmentTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAssessmentTemplateRequest => __isa(o, "DeleteAssessmentTemplateRequest");
 }
 
 export interface DescribeAssessmentRunsRequest {
-  __type?: "DescribeAssessmentRunsRequest";
   /**
    * <p>The ARN that specifies the assessment run that you want to describe.</p>
    */
@@ -1037,11 +978,9 @@ export namespace DescribeAssessmentRunsRequest {
   export const filterSensitiveLog = (obj: DescribeAssessmentRunsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssessmentRunsRequest => __isa(o, "DescribeAssessmentRunsRequest");
 }
 
 export interface DescribeAssessmentRunsResponse {
-  __type?: "DescribeAssessmentRunsResponse";
   /**
    * <p>Information about the assessment run.</p>
    */
@@ -1058,11 +997,9 @@ export namespace DescribeAssessmentRunsResponse {
   export const filterSensitiveLog = (obj: DescribeAssessmentRunsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssessmentRunsResponse => __isa(o, "DescribeAssessmentRunsResponse");
 }
 
 export interface DescribeAssessmentTargetsRequest {
-  __type?: "DescribeAssessmentTargetsRequest";
   /**
    * <p>The ARNs that specifies the assessment targets that you want to describe.</p>
    */
@@ -1073,11 +1010,9 @@ export namespace DescribeAssessmentTargetsRequest {
   export const filterSensitiveLog = (obj: DescribeAssessmentTargetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssessmentTargetsRequest => __isa(o, "DescribeAssessmentTargetsRequest");
 }
 
 export interface DescribeAssessmentTargetsResponse {
-  __type?: "DescribeAssessmentTargetsResponse";
   /**
    * <p>Assessment target details that cannot be described. An error code is provided for
    *          each failed item.</p>
@@ -1094,11 +1029,9 @@ export namespace DescribeAssessmentTargetsResponse {
   export const filterSensitiveLog = (obj: DescribeAssessmentTargetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssessmentTargetsResponse => __isa(o, "DescribeAssessmentTargetsResponse");
 }
 
 export interface DescribeAssessmentTemplatesRequest {
-  __type?: "DescribeAssessmentTemplatesRequest";
   assessmentTemplateArns: string[] | undefined;
 }
 
@@ -1106,12 +1039,9 @@ export namespace DescribeAssessmentTemplatesRequest {
   export const filterSensitiveLog = (obj: DescribeAssessmentTemplatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssessmentTemplatesRequest =>
-    __isa(o, "DescribeAssessmentTemplatesRequest");
 }
 
 export interface DescribeAssessmentTemplatesResponse {
-  __type?: "DescribeAssessmentTemplatesResponse";
   /**
    * <p>Information about the assessment templates.</p>
    */
@@ -1128,12 +1058,9 @@ export namespace DescribeAssessmentTemplatesResponse {
   export const filterSensitiveLog = (obj: DescribeAssessmentTemplatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAssessmentTemplatesResponse =>
-    __isa(o, "DescribeAssessmentTemplatesResponse");
 }
 
 export interface DescribeCrossAccountAccessRoleResponse {
-  __type?: "DescribeCrossAccountAccessRoleResponse";
   /**
    * <p>A Boolean value that specifies whether the IAM role has the necessary policies
    *          attached to enable Amazon Inspector to access your AWS account.</p>
@@ -1156,12 +1083,9 @@ export namespace DescribeCrossAccountAccessRoleResponse {
   export const filterSensitiveLog = (obj: DescribeCrossAccountAccessRoleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCrossAccountAccessRoleResponse =>
-    __isa(o, "DescribeCrossAccountAccessRoleResponse");
 }
 
 export interface DescribeExclusionsRequest {
-  __type?: "DescribeExclusionsRequest";
   /**
    * <p>The list of ARNs that specify the exclusions that you want to describe.</p>
    */
@@ -1178,11 +1102,9 @@ export namespace DescribeExclusionsRequest {
   export const filterSensitiveLog = (obj: DescribeExclusionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExclusionsRequest => __isa(o, "DescribeExclusionsRequest");
 }
 
 export interface DescribeExclusionsResponse {
-  __type?: "DescribeExclusionsResponse";
   /**
    * <p>Information about the exclusions.</p>
    */
@@ -1199,11 +1121,9 @@ export namespace DescribeExclusionsResponse {
   export const filterSensitiveLog = (obj: DescribeExclusionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExclusionsResponse => __isa(o, "DescribeExclusionsResponse");
 }
 
 export interface DescribeFindingsRequest {
-  __type?: "DescribeFindingsRequest";
   /**
    * <p>The locale into which you want to translate a finding description, recommendation,
    *          and the short description that identifies the finding.</p>
@@ -1220,11 +1140,9 @@ export namespace DescribeFindingsRequest {
   export const filterSensitiveLog = (obj: DescribeFindingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFindingsRequest => __isa(o, "DescribeFindingsRequest");
 }
 
 export interface DescribeFindingsResponse {
-  __type?: "DescribeFindingsResponse";
   /**
    * <p>Information about the finding.</p>
    */
@@ -1241,11 +1159,9 @@ export namespace DescribeFindingsResponse {
   export const filterSensitiveLog = (obj: DescribeFindingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFindingsResponse => __isa(o, "DescribeFindingsResponse");
 }
 
 export interface DescribeResourceGroupsRequest {
-  __type?: "DescribeResourceGroupsRequest";
   /**
    * <p>The ARN that specifies the resource group that you want to describe.</p>
    */
@@ -1256,11 +1172,9 @@ export namespace DescribeResourceGroupsRequest {
   export const filterSensitiveLog = (obj: DescribeResourceGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeResourceGroupsRequest => __isa(o, "DescribeResourceGroupsRequest");
 }
 
 export interface DescribeResourceGroupsResponse {
-  __type?: "DescribeResourceGroupsResponse";
   /**
    * <p>Resource group details that cannot be described. An error code is provided for each
    *          failed item.</p>
@@ -1277,11 +1191,9 @@ export namespace DescribeResourceGroupsResponse {
   export const filterSensitiveLog = (obj: DescribeResourceGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeResourceGroupsResponse => __isa(o, "DescribeResourceGroupsResponse");
 }
 
 export interface DescribeRulesPackagesRequest {
-  __type?: "DescribeRulesPackagesRequest";
   /**
    * <p>The locale that you want to translate a rules package description into.</p>
    */
@@ -1297,11 +1209,9 @@ export namespace DescribeRulesPackagesRequest {
   export const filterSensitiveLog = (obj: DescribeRulesPackagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRulesPackagesRequest => __isa(o, "DescribeRulesPackagesRequest");
 }
 
 export interface DescribeRulesPackagesResponse {
-  __type?: "DescribeRulesPackagesResponse";
   /**
    * <p>Information about the rules package.</p>
    */
@@ -1318,7 +1228,6 @@ export namespace DescribeRulesPackagesResponse {
   export const filterSensitiveLog = (obj: DescribeRulesPackagesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRulesPackagesResponse => __isa(o, "DescribeRulesPackagesResponse");
 }
 
 /**
@@ -1326,7 +1235,6 @@ export namespace DescribeRulesPackagesResponse {
  *          type.</p>
  */
 export interface DurationRange {
-  __type?: "DurationRange";
   /**
    * <p>The maximum value of the duration range. Must be less than or equal to 604800 seconds
    *          (1 week).</p>
@@ -1343,14 +1251,12 @@ export namespace DurationRange {
   export const filterSensitiveLog = (obj: DurationRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DurationRange => __isa(o, "DurationRange");
 }
 
 /**
  * <p>This data type is used in the <a>Subscription</a> data type.</p>
  */
 export interface EventSubscription {
-  __type?: "EventSubscription";
   /**
    * <p>The time at which <a>SubscribeToEvent</a> is called.</p>
    */
@@ -1367,14 +1273,12 @@ export namespace EventSubscription {
   export const filterSensitiveLog = (obj: EventSubscription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventSubscription => __isa(o, "EventSubscription");
 }
 
 /**
  * <p>Contains information about what was excluded from an assessment run.</p>
  */
 export interface Exclusion {
-  __type?: "Exclusion";
   /**
    * <p>The description of the exclusion.</p>
    */
@@ -1410,7 +1314,6 @@ export namespace Exclusion {
   export const filterSensitiveLog = (obj: Exclusion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Exclusion => __isa(o, "Exclusion");
 }
 
 /**
@@ -1418,7 +1321,6 @@ export namespace Exclusion {
  *          state of the assessment template.</p>
  */
 export interface ExclusionPreview {
-  __type?: "ExclusionPreview";
   /**
    * <p>The description of the exclusion preview.</p>
    */
@@ -1449,14 +1351,12 @@ export namespace ExclusionPreview {
   export const filterSensitiveLog = (obj: ExclusionPreview): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExclusionPreview => __isa(o, "ExclusionPreview");
 }
 
 /**
  * <p>Includes details about the failed items.</p>
  */
 export interface FailedItemDetails {
-  __type?: "FailedItemDetails";
   /**
    * <p>Indicates whether you can immediately retry a request for this item for a specified
    *          resource.</p>
@@ -1473,7 +1373,6 @@ export namespace FailedItemDetails {
   export const filterSensitiveLog = (obj: FailedItemDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailedItemDetails => __isa(o, "FailedItemDetails");
 }
 
 export enum FailedItemErrorCode {
@@ -1490,7 +1389,6 @@ export enum FailedItemErrorCode {
  *          response element in the <a>DescribeFindings</a> action.</p>
  */
 export interface Finding {
-  __type?: "Finding";
   /**
    * <p>The finding severity. Values can be set to High, Medium, Low, and
    *          Informational.</p>
@@ -1587,7 +1485,6 @@ export namespace Finding {
   export const filterSensitiveLog = (obj: Finding): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Finding => __isa(o, "Finding");
 }
 
 /**
@@ -1595,7 +1492,6 @@ export namespace Finding {
  *          action.</p>
  */
 export interface FindingFilter {
-  __type?: "FindingFilter";
   /**
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>rulesPackageArn</b> property of the <a>Finding</a> data
@@ -1651,11 +1547,9 @@ export namespace FindingFilter {
   export const filterSensitiveLog = (obj: FindingFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FindingFilter => __isa(o, "FindingFilter");
 }
 
 export interface GetAssessmentReportRequest {
-  __type?: "GetAssessmentReportRequest";
   /**
    * <p>Specifies the file format (html or pdf) of the assessment report that you want to
    *          generate.</p>
@@ -1680,11 +1574,9 @@ export namespace GetAssessmentReportRequest {
   export const filterSensitiveLog = (obj: GetAssessmentReportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssessmentReportRequest => __isa(o, "GetAssessmentReportRequest");
 }
 
 export interface GetAssessmentReportResponse {
-  __type?: "GetAssessmentReportResponse";
   /**
    * <p>Specifies the status of the request to generate an assessment report. </p>
    */
@@ -1701,11 +1593,9 @@ export namespace GetAssessmentReportResponse {
   export const filterSensitiveLog = (obj: GetAssessmentReportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAssessmentReportResponse => __isa(o, "GetAssessmentReportResponse");
 }
 
 export interface GetExclusionsPreviewRequest {
-  __type?: "GetExclusionsPreviewRequest";
   /**
    * <p>The ARN that specifies the assessment template for which the exclusions preview was
    *          requested.</p>
@@ -1742,11 +1632,9 @@ export namespace GetExclusionsPreviewRequest {
   export const filterSensitiveLog = (obj: GetExclusionsPreviewRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExclusionsPreviewRequest => __isa(o, "GetExclusionsPreviewRequest");
 }
 
 export interface GetExclusionsPreviewResponse {
-  __type?: "GetExclusionsPreviewResponse";
   /**
    * <p>Information about the exclusions included in the preview.</p>
    */
@@ -1770,11 +1658,9 @@ export namespace GetExclusionsPreviewResponse {
   export const filterSensitiveLog = (obj: GetExclusionsPreviewResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExclusionsPreviewResponse => __isa(o, "GetExclusionsPreviewResponse");
 }
 
 export interface GetTelemetryMetadataRequest {
-  __type?: "GetTelemetryMetadataRequest";
   /**
    * <p>The ARN that specifies the assessment run that has the telemetry data that you want
    *          to obtain.</p>
@@ -1786,11 +1672,9 @@ export namespace GetTelemetryMetadataRequest {
   export const filterSensitiveLog = (obj: GetTelemetryMetadataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTelemetryMetadataRequest => __isa(o, "GetTelemetryMetadataRequest");
 }
 
 export interface GetTelemetryMetadataResponse {
-  __type?: "GetTelemetryMetadataResponse";
   /**
    * <p>Telemetry details.</p>
    */
@@ -1801,7 +1685,6 @@ export namespace GetTelemetryMetadataResponse {
   export const filterSensitiveLog = (obj: GetTelemetryMetadataResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTelemetryMetadataResponse => __isa(o, "GetTelemetryMetadataResponse");
 }
 
 export enum InspectorEvent {
@@ -1816,7 +1699,6 @@ export enum InspectorEvent {
  * <p>This data type is used in the <a>Finding</a> data type.</p>
  */
 export interface InspectorServiceAttributes {
-  __type?: "InspectorServiceAttributes";
   /**
    * <p>The ARN of the assessment run during which the finding is generated.</p>
    */
@@ -1837,7 +1719,6 @@ export namespace InspectorServiceAttributes {
   export const filterSensitiveLog = (obj: InspectorServiceAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InspectorServiceAttributes => __isa(o, "InspectorServiceAttributes");
 }
 
 /**
@@ -1861,7 +1742,6 @@ export namespace InternalException {
   export const filterSensitiveLog = (obj: InternalException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalException => __isa(o, "InternalException");
 }
 
 export enum InvalidCrossAccountRoleErrorCode {
@@ -1896,7 +1776,6 @@ export namespace InvalidCrossAccountRoleException {
   export const filterSensitiveLog = (obj: InvalidCrossAccountRoleException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCrossAccountRoleException => __isa(o, "InvalidCrossAccountRoleException");
 }
 
 export enum InvalidInputErrorCode {
@@ -1983,7 +1862,6 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 export enum LimitExceededErrorCode {
@@ -2021,11 +1899,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAssessmentRunAgentsRequest {
-  __type?: "ListAssessmentRunAgentsRequest";
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListAssessmentRunAgents</b>
@@ -2060,11 +1936,9 @@ export namespace ListAssessmentRunAgentsRequest {
   export const filterSensitiveLog = (obj: ListAssessmentRunAgentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentRunAgentsRequest => __isa(o, "ListAssessmentRunAgentsRequest");
 }
 
 export interface ListAssessmentRunAgentsResponse {
-  __type?: "ListAssessmentRunAgentsResponse";
   /**
    * <p>A list of ARNs that specifies the agents returned by the action.</p>
    */
@@ -2082,11 +1956,9 @@ export namespace ListAssessmentRunAgentsResponse {
   export const filterSensitiveLog = (obj: ListAssessmentRunAgentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentRunAgentsResponse => __isa(o, "ListAssessmentRunAgentsResponse");
 }
 
 export interface ListAssessmentRunsRequest {
-  __type?: "ListAssessmentRunsRequest";
   /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
    *          response.</p>
@@ -2122,11 +1994,9 @@ export namespace ListAssessmentRunsRequest {
   export const filterSensitiveLog = (obj: ListAssessmentRunsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentRunsRequest => __isa(o, "ListAssessmentRunsRequest");
 }
 
 export interface ListAssessmentRunsResponse {
-  __type?: "ListAssessmentRunsResponse";
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
@@ -2145,11 +2015,9 @@ export namespace ListAssessmentRunsResponse {
   export const filterSensitiveLog = (obj: ListAssessmentRunsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentRunsResponse => __isa(o, "ListAssessmentRunsResponse");
 }
 
 export interface ListAssessmentTargetsRequest {
-  __type?: "ListAssessmentTargetsRequest";
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListAssessmentTargets</b>
@@ -2179,11 +2047,9 @@ export namespace ListAssessmentTargetsRequest {
   export const filterSensitiveLog = (obj: ListAssessmentTargetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentTargetsRequest => __isa(o, "ListAssessmentTargetsRequest");
 }
 
 export interface ListAssessmentTargetsResponse {
-  __type?: "ListAssessmentTargetsResponse";
   /**
    * <p>A list of ARNs that specifies the assessment targets that are returned by the
    *          action.</p>
@@ -2202,11 +2068,9 @@ export namespace ListAssessmentTargetsResponse {
   export const filterSensitiveLog = (obj: ListAssessmentTargetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentTargetsResponse => __isa(o, "ListAssessmentTargetsResponse");
 }
 
 export interface ListAssessmentTemplatesRequest {
-  __type?: "ListAssessmentTemplatesRequest";
   /**
    * <p>A list of ARNs that specifies the assessment targets whose assessment templates you
    *          want to list.</p>
@@ -2242,11 +2106,9 @@ export namespace ListAssessmentTemplatesRequest {
   export const filterSensitiveLog = (obj: ListAssessmentTemplatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentTemplatesRequest => __isa(o, "ListAssessmentTemplatesRequest");
 }
 
 export interface ListAssessmentTemplatesResponse {
-  __type?: "ListAssessmentTemplatesResponse";
   /**
    * <p>A list of ARNs that specifies the assessment templates returned by the
    *          action.</p>
@@ -2265,11 +2127,9 @@ export namespace ListAssessmentTemplatesResponse {
   export const filterSensitiveLog = (obj: ListAssessmentTemplatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssessmentTemplatesResponse => __isa(o, "ListAssessmentTemplatesResponse");
 }
 
 export interface ListEventSubscriptionsRequest {
-  __type?: "ListEventSubscriptionsRequest";
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListEventSubscriptions</b>
@@ -2296,11 +2156,9 @@ export namespace ListEventSubscriptionsRequest {
   export const filterSensitiveLog = (obj: ListEventSubscriptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEventSubscriptionsRequest => __isa(o, "ListEventSubscriptionsRequest");
 }
 
 export interface ListEventSubscriptionsResponse {
-  __type?: "ListEventSubscriptionsResponse";
   /**
    * <p>Details of the returned event subscriptions.</p>
    */
@@ -2318,11 +2176,9 @@ export namespace ListEventSubscriptionsResponse {
   export const filterSensitiveLog = (obj: ListEventSubscriptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEventSubscriptionsResponse => __isa(o, "ListEventSubscriptionsResponse");
 }
 
 export interface ListExclusionsRequest {
-  __type?: "ListExclusionsRequest";
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 100. The maximum value is 500.</p>
@@ -2348,11 +2204,9 @@ export namespace ListExclusionsRequest {
   export const filterSensitiveLog = (obj: ListExclusionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListExclusionsRequest => __isa(o, "ListExclusionsRequest");
 }
 
 export interface ListExclusionsResponse {
-  __type?: "ListExclusionsResponse";
   /**
    * <p>A list of exclusions' ARNs returned by the action.</p>
    */
@@ -2371,11 +2225,9 @@ export namespace ListExclusionsResponse {
   export const filterSensitiveLog = (obj: ListExclusionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListExclusionsResponse => __isa(o, "ListExclusionsResponse");
 }
 
 export interface ListFindingsRequest {
-  __type?: "ListFindingsRequest";
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListFindings</b> action.
@@ -2411,11 +2263,9 @@ export namespace ListFindingsRequest {
   export const filterSensitiveLog = (obj: ListFindingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFindingsRequest => __isa(o, "ListFindingsRequest");
 }
 
 export interface ListFindingsResponse {
-  __type?: "ListFindingsResponse";
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
@@ -2433,11 +2283,9 @@ export namespace ListFindingsResponse {
   export const filterSensitiveLog = (obj: ListFindingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFindingsResponse => __isa(o, "ListFindingsResponse");
 }
 
 export interface ListRulesPackagesRequest {
-  __type?: "ListRulesPackagesRequest";
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListRulesPackages</b>
@@ -2458,11 +2306,9 @@ export namespace ListRulesPackagesRequest {
   export const filterSensitiveLog = (obj: ListRulesPackagesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRulesPackagesRequest => __isa(o, "ListRulesPackagesRequest");
 }
 
 export interface ListRulesPackagesResponse {
-  __type?: "ListRulesPackagesResponse";
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
@@ -2480,11 +2326,9 @@ export namespace ListRulesPackagesResponse {
   export const filterSensitiveLog = (obj: ListRulesPackagesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRulesPackagesResponse => __isa(o, "ListRulesPackagesResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The ARN that specifies the assessment template whose tags you want to list.</p>
    */
@@ -2495,11 +2339,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>A collection of key and value pairs.</p>
    */
@@ -2510,7 +2352,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum Locale {
@@ -2523,7 +2364,6 @@ export enum Locale {
  *          type.</p>
  */
 export interface NetworkInterface {
-  __type?: "NetworkInterface";
   /**
    * <p>The ID of the network interface.</p>
    */
@@ -2581,7 +2421,6 @@ export namespace NetworkInterface {
   export const filterSensitiveLog = (obj: NetworkInterface): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterface => __isa(o, "NetworkInterface");
 }
 
 export enum NoSuchEntityErrorCode {
@@ -2622,11 +2461,9 @@ export namespace NoSuchEntityException {
   export const filterSensitiveLog = (obj: NoSuchEntityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchEntityException => __isa(o, "NoSuchEntityException");
 }
 
 export interface PreviewAgentsRequest {
-  __type?: "PreviewAgentsRequest";
   /**
    * <p>The ARN of the assessment target whose agents you want to preview.</p>
    */
@@ -2652,11 +2489,9 @@ export namespace PreviewAgentsRequest {
   export const filterSensitiveLog = (obj: PreviewAgentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PreviewAgentsRequest => __isa(o, "PreviewAgentsRequest");
 }
 
 export interface PreviewAgentsResponse {
-  __type?: "PreviewAgentsResponse";
   /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
@@ -2674,7 +2509,6 @@ export namespace PreviewAgentsResponse {
   export const filterSensitiveLog = (obj: PreviewAgentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PreviewAgentsResponse => __isa(o, "PreviewAgentsResponse");
 }
 
 /**
@@ -2691,8 +2525,6 @@ export namespace PreviewGenerationInProgressException {
   export const filterSensitiveLog = (obj: PreviewGenerationInProgressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PreviewGenerationInProgressException =>
-    __isa(o, "PreviewGenerationInProgressException");
 }
 
 export enum PreviewStatus {
@@ -2706,7 +2538,6 @@ export enum PreviewStatus {
  *          action.</p>
  */
 export interface PrivateIp {
-  __type?: "PrivateIp";
   /**
    * <p>The full IP address of the network inteface.</p>
    */
@@ -2722,11 +2553,9 @@ export namespace PrivateIp {
   export const filterSensitiveLog = (obj: PrivateIp): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrivateIp => __isa(o, "PrivateIp");
 }
 
 export interface RegisterCrossAccountAccessRoleRequest {
-  __type?: "RegisterCrossAccountAccessRoleRequest";
   /**
    * <p>The ARN of the IAM role that grants Amazon Inspector access to AWS Services needed to
    *          perform security assessments. </p>
@@ -2738,12 +2567,9 @@ export namespace RegisterCrossAccountAccessRoleRequest {
   export const filterSensitiveLog = (obj: RegisterCrossAccountAccessRoleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterCrossAccountAccessRoleRequest =>
-    __isa(o, "RegisterCrossAccountAccessRoleRequest");
 }
 
 export interface RemoveAttributesFromFindingsRequest {
-  __type?: "RemoveAttributesFromFindingsRequest";
   /**
    * <p>The ARNs that specify the findings that you want to remove attributes from.</p>
    */
@@ -2760,12 +2586,9 @@ export namespace RemoveAttributesFromFindingsRequest {
   export const filterSensitiveLog = (obj: RemoveAttributesFromFindingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveAttributesFromFindingsRequest =>
-    __isa(o, "RemoveAttributesFromFindingsRequest");
 }
 
 export interface RemoveAttributesFromFindingsResponse {
-  __type?: "RemoveAttributesFromFindingsResponse";
   /**
    * <p>Attributes details that cannot be described. An error code is provided for each
    *          failed item.</p>
@@ -2777,8 +2600,6 @@ export namespace RemoveAttributesFromFindingsResponse {
   export const filterSensitiveLog = (obj: RemoveAttributesFromFindingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveAttributesFromFindingsResponse =>
-    __isa(o, "RemoveAttributesFromFindingsResponse");
 }
 
 export enum ReportFileFormat {
@@ -2804,7 +2625,6 @@ export enum ReportType {
  *          action.</p>
  */
 export interface ResourceGroup {
-  __type?: "ResourceGroup";
   /**
    * <p>The tags (key and value pairs) of the resource group. This data type property is used
    *          in the <a>CreateResourceGroup</a> action.</p>
@@ -2826,7 +2646,6 @@ export namespace ResourceGroup {
   export const filterSensitiveLog = (obj: ResourceGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceGroup => __isa(o, "ResourceGroup");
 }
 
 /**
@@ -2834,7 +2653,6 @@ export namespace ResourceGroup {
  *          data type.</p>
  */
 export interface ResourceGroupTag {
-  __type?: "ResourceGroupTag";
   /**
    * <p>A tag key.</p>
    */
@@ -2850,7 +2668,6 @@ export namespace ResourceGroupTag {
   export const filterSensitiveLog = (obj: ResourceGroupTag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceGroupTag => __isa(o, "ResourceGroupTag");
 }
 
 /**
@@ -2858,7 +2675,6 @@ export namespace ResourceGroupTag {
  *          as the response element in the <a>DescribeRulesPackages</a> action.</p>
  */
 export interface RulesPackage {
-  __type?: "RulesPackage";
   /**
    * <p>The name of the rules package.</p>
    */
@@ -2889,7 +2705,6 @@ export namespace RulesPackage {
   export const filterSensitiveLog = (obj: RulesPackage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RulesPackage => __isa(o, "RulesPackage");
 }
 
 /**
@@ -2897,7 +2712,6 @@ export namespace RulesPackage {
  *          resources.</p>
  */
 export interface Scope {
-  __type?: "Scope";
   /**
    * <p>The resource identifier for the specified scope type.</p>
    */
@@ -2913,7 +2727,6 @@ export namespace Scope {
   export const filterSensitiveLog = (obj: Scope): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Scope => __isa(o, "Scope");
 }
 
 export enum ScopeType {
@@ -2927,7 +2740,6 @@ export enum ScopeType {
  *          type.</p>
  */
 export interface SecurityGroup {
-  __type?: "SecurityGroup";
   /**
    * <p>The name of the security group.</p>
    */
@@ -2943,7 +2755,6 @@ export namespace SecurityGroup {
   export const filterSensitiveLog = (obj: SecurityGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityGroup => __isa(o, "SecurityGroup");
 }
 
 /**
@@ -2967,12 +2778,9 @@ export namespace ServiceTemporarilyUnavailableException {
   export const filterSensitiveLog = (obj: ServiceTemporarilyUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceTemporarilyUnavailableException =>
-    __isa(o, "ServiceTemporarilyUnavailableException");
 }
 
 export interface SetTagsForResourceRequest {
-  __type?: "SetTagsForResourceRequest";
   /**
    * <p>A collection of key and value pairs that you want to set to the assessment
    *          template.</p>
@@ -2989,7 +2797,6 @@ export namespace SetTagsForResourceRequest {
   export const filterSensitiveLog = (obj: SetTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetTagsForResourceRequest => __isa(o, "SetTagsForResourceRequest");
 }
 
 export enum Severity {
@@ -3001,7 +2808,6 @@ export enum Severity {
 }
 
 export interface StartAssessmentRunRequest {
-  __type?: "StartAssessmentRunRequest";
   /**
    * <p>The ARN of the assessment template of the assessment run that you want to
    *          start.</p>
@@ -3019,11 +2825,9 @@ export namespace StartAssessmentRunRequest {
   export const filterSensitiveLog = (obj: StartAssessmentRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartAssessmentRunRequest => __isa(o, "StartAssessmentRunRequest");
 }
 
 export interface StartAssessmentRunResponse {
-  __type?: "StartAssessmentRunResponse";
   /**
    * <p>The ARN of the assessment run that has been started.</p>
    */
@@ -3034,7 +2838,6 @@ export namespace StartAssessmentRunResponse {
   export const filterSensitiveLog = (obj: StartAssessmentRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartAssessmentRunResponse => __isa(o, "StartAssessmentRunResponse");
 }
 
 export enum StopAction {
@@ -3043,7 +2846,6 @@ export enum StopAction {
 }
 
 export interface StopAssessmentRunRequest {
-  __type?: "StopAssessmentRunRequest";
   /**
    * <p>The ARN of the assessment run that you want to stop.</p>
    */
@@ -3062,11 +2864,9 @@ export namespace StopAssessmentRunRequest {
   export const filterSensitiveLog = (obj: StopAssessmentRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopAssessmentRunRequest => __isa(o, "StopAssessmentRunRequest");
 }
 
 export interface SubscribeToEventRequest {
-  __type?: "SubscribeToEventRequest";
   /**
    * <p>The ARN of the SNS topic to which the SNS notifications are sent.</p>
    */
@@ -3088,14 +2888,12 @@ export namespace SubscribeToEventRequest {
   export const filterSensitiveLog = (obj: SubscribeToEventRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubscribeToEventRequest => __isa(o, "SubscribeToEventRequest");
 }
 
 /**
  * <p>This data type is used as a response element in the <a>ListEventSubscriptions</a> action.</p>
  */
 export interface Subscription {
-  __type?: "Subscription";
   /**
    * <p>The list of existing event subscriptions.</p>
    */
@@ -3118,14 +2916,12 @@ export namespace Subscription {
   export const filterSensitiveLog = (obj: Subscription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Subscription => __isa(o, "Subscription");
 }
 
 /**
  * <p>A key and value pair. This data type is used as a request parameter in the <a>SetTagsForResource</a> action and a response element in the <a>ListTagsForResource</a> action.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>A value assigned to a tag key.</p>
    */
@@ -3141,7 +2937,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -3149,7 +2944,6 @@ export namespace Tag {
  *          agent. This data type is used as the response element in the <a>GetTelemetryMetadata</a> action.</p>
  */
 export interface TelemetryMetadata {
-  __type?: "TelemetryMetadata";
   /**
    * <p>The count of messages that the agent sends to the Amazon Inspector service.</p>
    */
@@ -3171,7 +2965,6 @@ export namespace TelemetryMetadata {
   export const filterSensitiveLog = (obj: TelemetryMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TelemetryMetadata => __isa(o, "TelemetryMetadata");
 }
 
 /**
@@ -3179,7 +2972,6 @@ export namespace TelemetryMetadata {
  *          type.</p>
  */
 export interface TimestampRange {
-  __type?: "TimestampRange";
   /**
    * <p>The maximum value of the timestamp range.</p>
    */
@@ -3195,11 +2987,9 @@ export namespace TimestampRange {
   export const filterSensitiveLog = (obj: TimestampRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimestampRange => __isa(o, "TimestampRange");
 }
 
 export interface UnsubscribeFromEventRequest {
-  __type?: "UnsubscribeFromEventRequest";
   /**
    * <p>The ARN of the assessment template that is used during the event for which you want
    *          to stop receiving SNS notifications.</p>
@@ -3221,7 +3011,6 @@ export namespace UnsubscribeFromEventRequest {
   export const filterSensitiveLog = (obj: UnsubscribeFromEventRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsubscribeFromEventRequest => __isa(o, "UnsubscribeFromEventRequest");
 }
 
 /**
@@ -3242,11 +3031,9 @@ export namespace UnsupportedFeatureException {
   export const filterSensitiveLog = (obj: UnsupportedFeatureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedFeatureException => __isa(o, "UnsupportedFeatureException");
 }
 
 export interface UpdateAssessmentTargetRequest {
-  __type?: "UpdateAssessmentTargetRequest";
   /**
    * <p>The ARN of the assessment target that you want to update.</p>
    */
@@ -3268,5 +3055,4 @@ export namespace UpdateAssessmentTargetRequest {
   export const filterSensitiveLog = (obj: UpdateAssessmentTargetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAssessmentTargetRequest => __isa(o, "UpdateAssessmentTargetRequest");
 }

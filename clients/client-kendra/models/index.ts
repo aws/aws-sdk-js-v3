@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Access Control List files for the documents in a data source.</p>
  */
 export interface AccessControlListConfiguration {
-  __type?: "AccessControlListConfiguration";
   /**
    * <p>Path to the AWS S3 bucket that contains the ACL files.</p>
    */
@@ -16,7 +15,6 @@ export namespace AccessControlListConfiguration {
   export const filterSensitiveLog = (obj: AccessControlListConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessControlListConfiguration => __isa(o, "AccessControlListConfiguration");
 }
 
 /**
@@ -32,7 +30,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -40,7 +37,6 @@ export namespace AccessDeniedException {
  *             response by groups.</p>
  */
 export interface AclConfiguration {
-  __type?: "AclConfiguration";
   /**
    * <p>A list of groups, separated by semi-colons, that filters a query response based on
    *             user context. The document is only returned to users that are in one of the groups
@@ -54,14 +50,12 @@ export namespace AclConfiguration {
   export const filterSensitiveLog = (obj: AclConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AclConfiguration => __isa(o, "AclConfiguration");
 }
 
 /**
  * <p>An attribute returned from an index query.</p>
  */
 export interface AdditionalResultAttribute {
-  __type?: "AdditionalResultAttribute";
   /**
    * <p>The key that identifies the attribute.</p>
    */
@@ -82,14 +76,12 @@ export namespace AdditionalResultAttribute {
   export const filterSensitiveLog = (obj: AdditionalResultAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdditionalResultAttribute => __isa(o, "AdditionalResultAttribute");
 }
 
 /**
  * <p>An attribute returned with a document from a search.</p>
  */
 export interface AdditionalResultAttributeValue {
-  __type?: "AdditionalResultAttributeValue";
   /**
    * <p>The text associated with the attribute and information about the highlight to apply to
    *             the text.</p>
@@ -101,7 +93,6 @@ export namespace AdditionalResultAttributeValue {
   export const filterSensitiveLog = (obj: AdditionalResultAttributeValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AdditionalResultAttributeValue => __isa(o, "AdditionalResultAttributeValue");
 }
 
 export enum AdditionalResultAttributeValueType {
@@ -131,7 +122,6 @@ export enum AdditionalResultAttributeValueType {
  *          with the message "<code>AttributeFilter</code> cannot have a depth of more than 2."</p>
  */
 export interface AttributeFilter {
-  __type?: "AttributeFilter";
   /**
    * <p>Performs an equals operation on two document attributes.</p>
    */
@@ -193,11 +183,9 @@ export namespace AttributeFilter {
   export const filterSensitiveLog = (obj: AttributeFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributeFilter => __isa(o, "AttributeFilter");
 }
 
 export interface BatchDeleteDocumentRequest {
-  __type?: "BatchDeleteDocumentRequest";
   /**
    * <p>The identifier of the index that contains the documents to delete.</p>
    */
@@ -218,11 +206,9 @@ export namespace BatchDeleteDocumentRequest {
   export const filterSensitiveLog = (obj: BatchDeleteDocumentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteDocumentRequest => __isa(o, "BatchDeleteDocumentRequest");
 }
 
 export interface BatchDeleteDocumentResponse {
-  __type?: "BatchDeleteDocumentResponse";
   /**
    * <p>A list of documents that could not be removed from the index. Each entry contains an error
    *       message that indicates why the document couldn't be removed from the index.</p>
@@ -234,7 +220,6 @@ export namespace BatchDeleteDocumentResponse {
   export const filterSensitiveLog = (obj: BatchDeleteDocumentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteDocumentResponse => __isa(o, "BatchDeleteDocumentResponse");
 }
 
 /**
@@ -242,7 +227,6 @@ export namespace BatchDeleteDocumentResponse {
  *                 <a>BatchDeleteDocument</a> operation.</p>
  */
 export interface BatchDeleteDocumentResponseFailedDocument {
-  __type?: "BatchDeleteDocumentResponseFailedDocument";
   /**
    * <p>The error code for why the document couldn't be removed from the index.</p>
    */
@@ -263,12 +247,9 @@ export namespace BatchDeleteDocumentResponseFailedDocument {
   export const filterSensitiveLog = (obj: BatchDeleteDocumentResponseFailedDocument): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteDocumentResponseFailedDocument =>
-    __isa(o, "BatchDeleteDocumentResponseFailedDocument");
 }
 
 export interface BatchPutDocumentRequest {
-  __type?: "BatchPutDocumentRequest";
   /**
    * <p>One or more documents to add to the index. </p>
    *          <p>Documents have the following file size limits.</p>
@@ -306,11 +287,9 @@ export namespace BatchPutDocumentRequest {
   export const filterSensitiveLog = (obj: BatchPutDocumentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutDocumentRequest => __isa(o, "BatchPutDocumentRequest");
 }
 
 export interface BatchPutDocumentResponse {
-  __type?: "BatchPutDocumentResponse";
   /**
    * <p>A list of documents that were not added to the index because the document failed a
    *       validation check. Each document contains an error message that indicates why the document
@@ -327,14 +306,12 @@ export namespace BatchPutDocumentResponse {
   export const filterSensitiveLog = (obj: BatchPutDocumentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutDocumentResponse => __isa(o, "BatchPutDocumentResponse");
 }
 
 /**
  * <p>Provides information about a document that could not be indexed.</p>
  */
 export interface BatchPutDocumentResponseFailedDocument {
-  __type?: "BatchPutDocumentResponseFailedDocument";
   /**
    * <p>The type of error that caused the document to fail to be indexed.</p>
    */
@@ -355,8 +332,6 @@ export namespace BatchPutDocumentResponseFailedDocument {
   export const filterSensitiveLog = (obj: BatchPutDocumentResponseFailedDocument): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPutDocumentResponseFailedDocument =>
-    __isa(o, "BatchPutDocumentResponseFailedDocument");
 }
 
 /**
@@ -364,7 +339,6 @@ export namespace BatchPutDocumentResponseFailedDocument {
  *             units to tune an index to your requirements.</p>
  */
 export interface CapacityUnitsConfiguration {
-  __type?: "CapacityUnitsConfiguration";
   /**
    * <p>The amount of extra query capacity for an index. Each capacity unit provides 0.5
    *             queries per second and 40,000 queries per day.</p>
@@ -382,7 +356,6 @@ export namespace CapacityUnitsConfiguration {
   export const filterSensitiveLog = (obj: CapacityUnitsConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CapacityUnitsConfiguration => __isa(o, "CapacityUnitsConfiguration");
 }
 
 /**
@@ -391,7 +364,6 @@ export namespace CapacityUnitsConfiguration {
  *             information.</p>
  */
 export interface ClickFeedback {
-  __type?: "ClickFeedback";
   /**
    * <p>The Unix timestamp of the date and time that the result was clicked.</p>
    */
@@ -407,7 +379,6 @@ export namespace ClickFeedback {
   export const filterSensitiveLog = (obj: ClickFeedback): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClickFeedback => __isa(o, "ClickFeedback");
 }
 
 /**
@@ -415,7 +386,6 @@ export namespace ClickFeedback {
  *             index.</p>
  */
 export interface ColumnConfiguration {
-  __type?: "ColumnConfiguration";
   /**
    * <p>One to five columns that indicate when a document in the database has changed.</p>
    */
@@ -447,7 +417,6 @@ export namespace ColumnConfiguration {
   export const filterSensitiveLog = (obj: ColumnConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColumnConfiguration => __isa(o, "ColumnConfiguration");
 }
 
 /**
@@ -463,14 +432,12 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
  * <p>Provides the information necessary to connect to a database.</p>
  */
 export interface ConnectionConfiguration {
-  __type?: "ConnectionConfiguration";
   /**
    * <p>The Amazon Resource Name (ARN) of credentials stored in AWS Secrets Manager. The
    *             credentials should be a user/password pair. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html">Using a
@@ -507,7 +474,6 @@ export namespace ConnectionConfiguration {
   export const filterSensitiveLog = (obj: ConnectionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectionConfiguration => __isa(o, "ConnectionConfiguration");
 }
 
 export enum ContentType {
@@ -519,7 +485,6 @@ export enum ContentType {
 }
 
 export interface CreateDataSourceRequest {
-  __type?: "CreateDataSourceRequest";
   /**
    * <p>A description for the data source.</p>
    */
@@ -572,11 +537,9 @@ export namespace CreateDataSourceRequest {
   export const filterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSourceRequest => __isa(o, "CreateDataSourceRequest");
 }
 
 export interface CreateDataSourceResponse {
-  __type?: "CreateDataSourceResponse";
   /**
    * <p>A unique identifier for the data source.</p>
    */
@@ -587,11 +550,9 @@ export namespace CreateDataSourceResponse {
   export const filterSensitiveLog = (obj: CreateDataSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSourceResponse => __isa(o, "CreateDataSourceResponse");
 }
 
 export interface CreateFaqRequest {
-  __type?: "CreateFaqRequest";
   /**
    * <p>The name that should be associated with the FAQ.</p>
    */
@@ -630,11 +591,9 @@ export namespace CreateFaqRequest {
   export const filterSensitiveLog = (obj: CreateFaqRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFaqRequest => __isa(o, "CreateFaqRequest");
 }
 
 export interface CreateFaqResponse {
-  __type?: "CreateFaqResponse";
   /**
    * <p>The unique identifier of the FAQ.</p>
    */
@@ -645,11 +604,9 @@ export namespace CreateFaqResponse {
   export const filterSensitiveLog = (obj: CreateFaqResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFaqResponse => __isa(o, "CreateFaqResponse");
 }
 
 export interface CreateIndexRequest {
-  __type?: "CreateIndexRequest";
   /**
    * <p>The identifier of the AWS KMS customer managed key (CMK) to use to encrypt data indexed by
    *       Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs.</p>
@@ -704,11 +661,9 @@ export namespace CreateIndexRequest {
       ),
     }),
   });
-  export const isa = (o: any): o is CreateIndexRequest => __isa(o, "CreateIndexRequest");
 }
 
 export interface CreateIndexResponse {
-  __type?: "CreateIndexResponse";
   /**
    * <p>The unique identifier of the index. Use this identifier when you query an index, set up a
    *       data source, or index a document.</p>
@@ -720,14 +675,12 @@ export namespace CreateIndexResponse {
   export const filterSensitiveLog = (obj: CreateIndexResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIndexResponse => __isa(o, "CreateIndexResponse");
 }
 
 /**
  * <p>Provides the information necessary to connect a database to an index. </p>
  */
 export interface DatabaseConfiguration {
-  __type?: "DatabaseConfiguration";
   /**
    * <p>The information necessary to connect to a database.</p>
    */
@@ -766,7 +719,6 @@ export namespace DatabaseConfiguration {
   export const filterSensitiveLog = (obj: DatabaseConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatabaseConfiguration => __isa(o, "DatabaseConfiguration");
 }
 
 export enum DatabaseEngineType {
@@ -780,7 +732,6 @@ export enum DatabaseEngineType {
  * <p>Configuration information for a Amazon Kendra data source.</p>
  */
 export interface DataSourceConfiguration {
-  __type?: "DataSourceConfiguration";
   /**
    * <p>Provides information necessary to create a connector for a Microsoft SharePoint
    *             site.</p>
@@ -819,7 +770,6 @@ export namespace DataSourceConfiguration {
   export const filterSensitiveLog = (obj: DataSourceConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSourceConfiguration => __isa(o, "DataSourceConfiguration");
 }
 
 export enum DataSourceStatus {
@@ -834,7 +784,6 @@ export enum DataSourceStatus {
  * <p>Summary information for a Amazon Kendra data source. Returned in a call to .</p>
  */
 export interface DataSourceSummary {
-  __type?: "DataSourceSummary";
   /**
    * <p>The unique identifier for the data source.</p>
    */
@@ -871,14 +820,12 @@ export namespace DataSourceSummary {
   export const filterSensitiveLog = (obj: DataSourceSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSourceSummary => __isa(o, "DataSourceSummary");
 }
 
 /**
  * <p>Provides information about a synchronization job.</p>
  */
 export interface DataSourceSyncJob {
-  __type?: "DataSourceSyncJob";
   /**
    * <p>The UNIX datetime that the synchronization job was started.</p>
    */
@@ -933,7 +880,6 @@ export namespace DataSourceSyncJob {
   export const filterSensitiveLog = (obj: DataSourceSyncJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSourceSyncJob => __isa(o, "DataSourceSyncJob");
 }
 
 /**
@@ -941,7 +887,6 @@ export namespace DataSourceSyncJob {
  *             optional and should only be supplied when documents are deleted by a connector.</p>
  */
 export interface DataSourceSyncJobMetrics {
-  __type?: "DataSourceSyncJobMetrics";
   /**
    * <p>The number of documents that failed to sync from the data source up to now in the data
    *             source sync run.</p>
@@ -977,14 +922,12 @@ export namespace DataSourceSyncJobMetrics {
   export const filterSensitiveLog = (obj: DataSourceSyncJobMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSourceSyncJobMetrics => __isa(o, "DataSourceSyncJobMetrics");
 }
 
 /**
  * <p>Maps a particular data source sync job to a particular data source.</p>
  */
 export interface DataSourceSyncJobMetricTarget {
-  __type?: "DataSourceSyncJobMetricTarget";
   /**
    * <p>The ID of the data source that is running the sync job.</p>
    */
@@ -1000,7 +943,6 @@ export namespace DataSourceSyncJobMetricTarget {
   export const filterSensitiveLog = (obj: DataSourceSyncJobMetricTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSourceSyncJobMetricTarget => __isa(o, "DataSourceSyncJobMetricTarget");
 }
 
 export enum DataSourceSyncJobStatus {
@@ -1018,7 +960,6 @@ export enum DataSourceSyncJobStatus {
  *             the fields in the index using the <a>UpdateIndex</a> operation.</p>
  */
 export interface DataSourceToIndexFieldMapping {
-  __type?: "DataSourceToIndexFieldMapping";
   /**
    * <p>The name of the column or attribute in the data source.</p>
    */
@@ -1039,7 +980,6 @@ export namespace DataSourceToIndexFieldMapping {
   export const filterSensitiveLog = (obj: DataSourceToIndexFieldMapping): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSourceToIndexFieldMapping => __isa(o, "DataSourceToIndexFieldMapping");
 }
 
 export enum DataSourceType {
@@ -1055,7 +995,6 @@ export enum DataSourceType {
  * <p>Provides information for connecting to an Amazon VPC.</p>
  */
 export interface DataSourceVpcConfiguration {
-  __type?: "DataSourceVpcConfiguration";
   /**
    * <p>A list of identifiers of security groups within your Amazon VPC. The security groups
    *             should enable Amazon Kendra to connect to the data source.</p>
@@ -1074,11 +1013,9 @@ export namespace DataSourceVpcConfiguration {
   export const filterSensitiveLog = (obj: DataSourceVpcConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSourceVpcConfiguration => __isa(o, "DataSourceVpcConfiguration");
 }
 
 export interface DeleteDataSourceRequest {
-  __type?: "DeleteDataSourceRequest";
   /**
    * <p>The unique identifier of the data source to delete.</p>
    */
@@ -1094,11 +1031,9 @@ export namespace DeleteDataSourceRequest {
   export const filterSensitiveLog = (obj: DeleteDataSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDataSourceRequest => __isa(o, "DeleteDataSourceRequest");
 }
 
 export interface DeleteFaqRequest {
-  __type?: "DeleteFaqRequest";
   /**
    * <p>The index to remove the FAQ from.</p>
    */
@@ -1114,11 +1049,9 @@ export namespace DeleteFaqRequest {
   export const filterSensitiveLog = (obj: DeleteFaqRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFaqRequest => __isa(o, "DeleteFaqRequest");
 }
 
 export interface DeleteIndexRequest {
-  __type?: "DeleteIndexRequest";
   /**
    * <p>The identifier of the index to delete.</p>
    */
@@ -1129,11 +1062,9 @@ export namespace DeleteIndexRequest {
   export const filterSensitiveLog = (obj: DeleteIndexRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIndexRequest => __isa(o, "DeleteIndexRequest");
 }
 
 export interface DescribeDataSourceRequest {
-  __type?: "DescribeDataSourceRequest";
   /**
    * <p>The unique identifier of the data source to describe.</p>
    */
@@ -1149,11 +1080,9 @@ export namespace DescribeDataSourceRequest {
   export const filterSensitiveLog = (obj: DescribeDataSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataSourceRequest => __isa(o, "DescribeDataSourceRequest");
 }
 
 export interface DescribeDataSourceResponse {
-  __type?: "DescribeDataSourceResponse";
   /**
    * <p>The identifier of the index that contains the data source.</p>
    */
@@ -1226,11 +1155,9 @@ export namespace DescribeDataSourceResponse {
   export const filterSensitiveLog = (obj: DescribeDataSourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataSourceResponse => __isa(o, "DescribeDataSourceResponse");
 }
 
 export interface DescribeFaqRequest {
-  __type?: "DescribeFaqRequest";
   /**
    * <p>The unique identifier of the FAQ.</p>
    */
@@ -1246,11 +1173,9 @@ export namespace DescribeFaqRequest {
   export const filterSensitiveLog = (obj: DescribeFaqRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFaqRequest => __isa(o, "DescribeFaqRequest");
 }
 
 export interface DescribeFaqResponse {
-  __type?: "DescribeFaqResponse";
   /**
    * <p>The identifier of the FAQ.</p>
    */
@@ -1309,11 +1234,9 @@ export namespace DescribeFaqResponse {
   export const filterSensitiveLog = (obj: DescribeFaqResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFaqResponse => __isa(o, "DescribeFaqResponse");
 }
 
 export interface DescribeIndexRequest {
-  __type?: "DescribeIndexRequest";
   /**
    * <p>The name of the index to describe.</p>
    */
@@ -1324,11 +1247,9 @@ export namespace DescribeIndexRequest {
   export const filterSensitiveLog = (obj: DescribeIndexRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeIndexRequest => __isa(o, "DescribeIndexRequest");
 }
 
 export interface DescribeIndexResponse {
-  __type?: "DescribeIndexResponse";
   /**
    * <p>When th e<code>Status</code> field value is <code>FAILED</code>, the
    *         <code>ErrorMessage</code> field contains a message that explains why.</p>
@@ -1414,14 +1335,12 @@ export namespace DescribeIndexResponse {
       ),
     }),
   });
-  export const isa = (o: any): o is DescribeIndexResponse => __isa(o, "DescribeIndexResponse");
 }
 
 /**
  * <p>A document in an index.</p>
  */
 export interface Document {
-  __type?: "Document";
   /**
    * <p>Information to use for user context filtering.</p>
    */
@@ -1468,14 +1387,12 @@ export namespace Document {
   export const filterSensitiveLog = (obj: Document): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Document => __isa(o, "Document");
 }
 
 /**
  * <p>A custom attribute value assigned to a document. </p>
  */
 export interface DocumentAttribute {
-  __type?: "DocumentAttribute";
   /**
    * <p>The value of the attribute.</p>
    */
@@ -1491,7 +1408,6 @@ export namespace DocumentAttribute {
   export const filterSensitiveLog = (obj: DocumentAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentAttribute => __isa(o, "DocumentAttribute");
 }
 
 /**
@@ -1499,7 +1415,6 @@ export namespace DocumentAttribute {
  *             attribute.</p>
  */
 export interface DocumentAttributeValue {
-  __type?: "DocumentAttributeValue";
   /**
    * <p>A string, such as "department".</p>
    */
@@ -1525,7 +1440,6 @@ export namespace DocumentAttributeValue {
   export const filterSensitiveLog = (obj: DocumentAttributeValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentAttributeValue => __isa(o, "DocumentAttributeValue");
 }
 
 /**
@@ -1533,7 +1447,6 @@ export namespace DocumentAttributeValue {
  *             search.</p>
  */
 export interface DocumentAttributeValueCountPair {
-  __type?: "DocumentAttributeValueCountPair";
   /**
    * <p>The number of documents in the response that have the attribute value for the
    *             key.</p>
@@ -1550,7 +1463,6 @@ export namespace DocumentAttributeValueCountPair {
   export const filterSensitiveLog = (obj: DocumentAttributeValueCountPair): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentAttributeValueCountPair => __isa(o, "DocumentAttributeValueCountPair");
 }
 
 export enum DocumentAttributeValueType {
@@ -1564,7 +1476,6 @@ export enum DocumentAttributeValueType {
  * <p>Specifies the properties of a custom index field.</p>
  */
 export interface DocumentMetadataConfiguration {
-  __type?: "DocumentMetadataConfiguration";
   /**
    * <p>Provides information about how the field is used during a search.</p>
    */
@@ -1591,7 +1502,6 @@ export namespace DocumentMetadataConfiguration {
   export const filterSensitiveLog = (obj: DocumentMetadataConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentMetadataConfiguration => __isa(o, "DocumentMetadataConfiguration");
 }
 
 /**
@@ -1600,7 +1510,6 @@ export namespace DocumentMetadataConfiguration {
  *             contains metadata about a single document.</p>
  */
 export interface DocumentsMetadataConfiguration {
-  __type?: "DocumentsMetadataConfiguration";
   /**
    * <p>A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3
    *             bucket might contain multiple metadata files. Use <code>S3Prefix</code> to include only
@@ -1613,7 +1522,6 @@ export namespace DocumentsMetadataConfiguration {
   export const filterSensitiveLog = (obj: DocumentsMetadataConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DocumentsMetadataConfiguration => __isa(o, "DocumentsMetadataConfiguration");
 }
 
 export enum ErrorCode {
@@ -1625,7 +1533,6 @@ export enum ErrorCode {
  * <p>Information about a document attribute</p>
  */
 export interface Facet {
-  __type?: "Facet";
   /**
    * <p>The unique key for the document attribute.</p>
    */
@@ -1636,14 +1543,12 @@ export namespace Facet {
   export const filterSensitiveLog = (obj: Facet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Facet => __isa(o, "Facet");
 }
 
 /**
  * <p>The facet values for the documents in the response.</p>
  */
 export interface FacetResult {
-  __type?: "FacetResult";
   /**
    * <p>An array of key/value pairs, where the key is the value of the attribute and the count
    *          is the number of documents that share the key value.</p>
@@ -1661,7 +1566,6 @@ export namespace FacetResult {
   export const filterSensitiveLog = (obj: FacetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FacetResult => __isa(o, "FacetResult");
 }
 
 /**
@@ -1669,7 +1573,6 @@ export namespace FacetResult {
  *             index.</p>
  */
 export interface FaqStatistics {
-  __type?: "FaqStatistics";
   /**
    * <p>The total number of FAQ questions and answers contained in the index.</p>
    */
@@ -1680,7 +1583,6 @@ export namespace FaqStatistics {
   export const filterSensitiveLog = (obj: FaqStatistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FaqStatistics => __isa(o, "FaqStatistics");
 }
 
 export enum FaqStatus {
@@ -1696,7 +1598,6 @@ export enum FaqStatus {
  *             index.</p>
  */
 export interface FaqSummary {
-  __type?: "FaqSummary";
   /**
    * <p>The UNIX datetime that the FAQ was last updated.</p>
    */
@@ -1728,7 +1629,6 @@ export namespace FaqSummary {
   export const filterSensitiveLog = (obj: FaqSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FaqSummary => __isa(o, "FaqSummary");
 }
 
 /**
@@ -1736,7 +1636,6 @@ export namespace FaqSummary {
  *             can quickly identify terms in the response.</p>
  */
 export interface Highlight {
-  __type?: "Highlight";
   /**
    * <p>Indicates whether the response is the best response. True if this is the best
    *             response; otherwise, false.</p>
@@ -1758,14 +1657,12 @@ export namespace Highlight {
   export const filterSensitiveLog = (obj: Highlight): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Highlight => __isa(o, "Highlight");
 }
 
 /**
  * <p>A summary of information about an index.</p>
  */
 export interface IndexConfigurationSummary {
-  __type?: "IndexConfigurationSummary";
   /**
    * <p>A unique identifier for the index. Use this to identify the index when you are using
    *             operations such as <code>Query</code>, <code>DescribeIndex</code>,
@@ -1806,7 +1703,6 @@ export namespace IndexConfigurationSummary {
   export const filterSensitiveLog = (obj: IndexConfigurationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IndexConfigurationSummary => __isa(o, "IndexConfigurationSummary");
 }
 
 export enum IndexEdition {
@@ -1819,7 +1715,6 @@ export enum IndexEdition {
  *             answers in an index.</p>
  */
 export interface IndexStatistics {
-  __type?: "IndexStatistics";
   /**
    * <p>The number of question and answer topics in the index.</p>
    */
@@ -1835,7 +1730,6 @@ export namespace IndexStatistics {
   export const filterSensitiveLog = (obj: IndexStatistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IndexStatistics => __isa(o, "IndexStatistics");
 }
 
 export enum IndexStatus {
@@ -1860,11 +1754,9 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListDataSourcesRequest {
-  __type?: "ListDataSourcesRequest";
   /**
    * <p>The identifier of the index that contains the data source.</p>
    */
@@ -1887,11 +1779,9 @@ export namespace ListDataSourcesRequest {
   export const filterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSourcesRequest => __isa(o, "ListDataSourcesRequest");
 }
 
 export interface ListDataSourcesResponse {
-  __type?: "ListDataSourcesResponse";
   /**
    * <p>If the response is truncated, Amazon Kendra returns this token that you can use in the
    *       subsequent request to retrieve the next set of data sources. </p>
@@ -1908,11 +1798,9 @@ export namespace ListDataSourcesResponse {
   export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSourcesResponse => __isa(o, "ListDataSourcesResponse");
 }
 
 export interface ListDataSourceSyncJobsRequest {
-  __type?: "ListDataSourceSyncJobsRequest";
   /**
    * <p>The identifier of the data source.</p>
    */
@@ -1952,11 +1840,9 @@ export namespace ListDataSourceSyncJobsRequest {
   export const filterSensitiveLog = (obj: ListDataSourceSyncJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSourceSyncJobsRequest => __isa(o, "ListDataSourceSyncJobsRequest");
 }
 
 export interface ListDataSourceSyncJobsResponse {
-  __type?: "ListDataSourceSyncJobsResponse";
   /**
    * <p>A history of synchronization jobs for the data source.</p>
    */
@@ -1976,11 +1862,9 @@ export namespace ListDataSourceSyncJobsResponse {
   export const filterSensitiveLog = (obj: ListDataSourceSyncJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDataSourceSyncJobsResponse => __isa(o, "ListDataSourceSyncJobsResponse");
 }
 
 export interface ListFaqsRequest {
-  __type?: "ListFaqsRequest";
   /**
    * <p>The index that contains the FAQ lists.</p>
    */
@@ -2003,11 +1887,9 @@ export namespace ListFaqsRequest {
   export const filterSensitiveLog = (obj: ListFaqsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFaqsRequest => __isa(o, "ListFaqsRequest");
 }
 
 export interface ListFaqsResponse {
-  __type?: "ListFaqsResponse";
   /**
    * <p>information about the FAQs associated with the specified index.</p>
    */
@@ -2027,11 +1909,9 @@ export namespace ListFaqsResponse {
   export const filterSensitiveLog = (obj: ListFaqsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFaqsResponse => __isa(o, "ListFaqsResponse");
 }
 
 export interface ListIndicesRequest {
-  __type?: "ListIndicesRequest";
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve),
    *       Amazon Kendra returns a pagination token in the response. You can use this pagination token to
@@ -2049,11 +1929,9 @@ export namespace ListIndicesRequest {
   export const filterSensitiveLog = (obj: ListIndicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIndicesRequest => __isa(o, "ListIndicesRequest");
 }
 
 export interface ListIndicesResponse {
-  __type?: "ListIndicesResponse";
   /**
    * <p>An array of summary information for one or more indexes.</p>
    */
@@ -2070,11 +1948,9 @@ export namespace ListIndicesResponse {
   export const filterSensitiveLog = (obj: ListIndicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIndicesResponse => __isa(o, "ListIndicesResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the index, FAQ, or data source to get a list of tags
    *       for.</p>
@@ -2086,11 +1962,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>A list of tags associated with the index, FAQ, or data source.</p>
    */
@@ -2101,14 +1975,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>Provides configuration information for data sources that connect to OneDrive.</p>
  */
 export interface OneDriveConfiguration {
-  __type?: "OneDriveConfiguration";
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user
    *             name and password to connect to OneDrive. The user namd should be the application ID for
@@ -2156,14 +2028,12 @@ export namespace OneDriveConfiguration {
   export const filterSensitiveLog = (obj: OneDriveConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OneDriveConfiguration => __isa(o, "OneDriveConfiguration");
 }
 
 /**
  * <p>User accounts whose documents should be indexed.</p>
  */
 export interface OneDriveUsers {
-  __type?: "OneDriveUsers";
   /**
    * <p>A list of users whose documents should be indexed. Specify the user names in email
    *             format, for example, <code>username@tenantdomain</code>. If you need to index the
@@ -2183,7 +2053,6 @@ export namespace OneDriveUsers {
   export const filterSensitiveLog = (obj: OneDriveUsers): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OneDriveUsers => __isa(o, "OneDriveUsers");
 }
 
 export enum Order {
@@ -2195,7 +2064,6 @@ export enum Order {
  * <p>Provides user and group information for document access filtering.</p>
  */
 export interface Principal {
-  __type?: "Principal";
   /**
    * <p>The type of principal.</p>
    */
@@ -2216,7 +2084,6 @@ export namespace Principal {
   export const filterSensitiveLog = (obj: Principal): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Principal => __isa(o, "Principal");
 }
 
 export enum PrincipalType {
@@ -2230,7 +2097,6 @@ export enum QueryIdentifiersEnclosingOption {
 }
 
 export interface QueryRequest {
-  __type?: "QueryRequest";
   /**
    * <p>Provides information that determines how the results of the query are sorted. You can
    *          set the field that Amazon Kendra should sort the results on, and specify whether the results should
@@ -2298,11 +2164,9 @@ export namespace QueryRequest {
   export const filterSensitiveLog = (obj: QueryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryRequest => __isa(o, "QueryRequest");
 }
 
 export interface QueryResult {
-  __type?: "QueryResult";
   /**
    * <p>The results of the search.</p>
    */
@@ -2331,7 +2195,6 @@ export namespace QueryResult {
   export const filterSensitiveLog = (obj: QueryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryResult => __isa(o, "QueryResult");
 }
 
 /**
@@ -2341,7 +2204,6 @@ export namespace QueryResult {
  *          document, and relevant text from the document that satisfies the query.</p>
  */
 export interface QueryResultItem {
-  __type?: "QueryResultItem";
   /**
    * <p>The unique identifier for the query result.</p>
    */
@@ -2390,7 +2252,6 @@ export namespace QueryResultItem {
   export const filterSensitiveLog = (obj: QueryResultItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryResultItem => __isa(o, "QueryResultItem");
 }
 
 export enum QueryResultType {
@@ -2410,7 +2271,6 @@ export enum ReadAccessType {
  *             based on these tuning parameters.</p>
  */
 export interface Relevance {
-  __type?: "Relevance";
   /**
    * <p>Indicates that this field determines how "fresh" a document is. For example, if
    *             document 1 was created on November 5, and document 2 was created on October 31, document
@@ -2465,7 +2325,6 @@ export namespace Relevance {
   export const filterSensitiveLog = (obj: Relevance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Relevance => __isa(o, "Relevance");
 }
 
 /**
@@ -2473,7 +2332,6 @@ export namespace Relevance {
  *                 <a>SubmitFeedback</a> operation to provide relevance information.</p>
  */
 export interface RelevanceFeedback {
-  __type?: "RelevanceFeedback";
   /**
    * <p>The unique identifier of the search result that the user provided relevance feedback
    *             for.</p>
@@ -2490,7 +2348,6 @@ export namespace RelevanceFeedback {
   export const filterSensitiveLog = (obj: RelevanceFeedback): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelevanceFeedback => __isa(o, "RelevanceFeedback");
 }
 
 export enum RelevanceType {
@@ -2511,7 +2368,6 @@ export namespace ResourceAlreadyExistException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistException => __isa(o, "ResourceAlreadyExistException");
 }
 
 /**
@@ -2527,7 +2383,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -2543,7 +2398,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -2559,7 +2413,6 @@ export namespace ResourceUnavailableException {
   export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceUnavailableException => __isa(o, "ResourceUnavailableException");
 }
 
 /**
@@ -2567,7 +2420,6 @@ export namespace ResourceUnavailableException {
  *             S3 bucket.</p>
  */
 export interface S3DataSourceConfiguration {
-  __type?: "S3DataSourceConfiguration";
   /**
    * <p>A list of glob patterns for documents that should not be indexed. If a document that
    *             matches an inclusion prefix also matches an exclusion pattern, the document is not
@@ -2605,14 +2457,12 @@ export namespace S3DataSourceConfiguration {
   export const filterSensitiveLog = (obj: S3DataSourceConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3DataSourceConfiguration => __isa(o, "S3DataSourceConfiguration");
 }
 
 /**
  * <p>Information required to find a specific file in an Amazon S3 bucket.</p>
  */
 export interface S3Path {
-  __type?: "S3Path";
   /**
    * <p>The name of the file.</p>
    */
@@ -2628,7 +2478,6 @@ export namespace S3Path {
   export const filterSensitiveLog = (obj: S3Path): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Path => __isa(o, "S3Path");
 }
 
 /**
@@ -2636,7 +2485,6 @@ export namespace S3Path {
  *             object comes from the Salesforce FeedItem table.</p>
  */
 export interface SalesforceChatterFeedConfiguration {
-  __type?: "SalesforceChatterFeedConfiguration";
   /**
    * <p>Filters the documents in the feed based on status of the user. When you specify
    *                 <code>ACTIVE_USERS</code> only documents from users who have an active account are
@@ -2667,8 +2515,6 @@ export namespace SalesforceChatterFeedConfiguration {
   export const filterSensitiveLog = (obj: SalesforceChatterFeedConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SalesforceChatterFeedConfiguration =>
-    __isa(o, "SalesforceChatterFeedConfiguration");
 }
 
 export enum SalesforceChatterFeedIncludeFilterType {
@@ -2680,7 +2526,6 @@ export enum SalesforceChatterFeedIncludeFilterType {
  * <p>Provides configuration information for connecting to a Salesforce data source.</p>
  */
 export interface SalesforceConfiguration {
-  __type?: "SalesforceConfiguration";
   /**
    * <p>A list of regular expression patterns. Documents that match the patterns are included
    *             in the index. Documents that don't match the patterns are excluded from the index. If a
@@ -2771,14 +2616,12 @@ export namespace SalesforceConfiguration {
   export const filterSensitiveLog = (obj: SalesforceConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SalesforceConfiguration => __isa(o, "SalesforceConfiguration");
 }
 
 /**
  * <p>Provides configuration information for indexing Salesforce custom articles.</p>
  */
 export interface SalesforceCustomKnowledgeArticleTypeConfiguration {
-  __type?: "SalesforceCustomKnowledgeArticleTypeConfiguration";
   /**
    * <p>One or more objects that map fields in the custom knowledge article to fields in the
    *             Amazon Kendra index.</p>
@@ -2807,8 +2650,6 @@ export namespace SalesforceCustomKnowledgeArticleTypeConfiguration {
   export const filterSensitiveLog = (obj: SalesforceCustomKnowledgeArticleTypeConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SalesforceCustomKnowledgeArticleTypeConfiguration =>
-    __isa(o, "SalesforceCustomKnowledgeArticleTypeConfiguration");
 }
 
 /**
@@ -2818,7 +2659,6 @@ export namespace SalesforceCustomKnowledgeArticleTypeConfiguration {
  *         </p>
  */
 export interface SalesforceKnowledgeArticleConfiguration {
-  __type?: "SalesforceKnowledgeArticleConfiguration";
   /**
    * <p>Provides configuration information for standard Salesforce knowledge articles.</p>
    */
@@ -2840,8 +2680,6 @@ export namespace SalesforceKnowledgeArticleConfiguration {
   export const filterSensitiveLog = (obj: SalesforceKnowledgeArticleConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SalesforceKnowledgeArticleConfiguration =>
-    __isa(o, "SalesforceKnowledgeArticleConfiguration");
 }
 
 export enum SalesforceKnowledgeArticleState {
@@ -2854,7 +2692,6 @@ export enum SalesforceKnowledgeArticleState {
  * <p>Provides configuration information for standard Salesforce knowledge articles.</p>
  */
 export interface SalesforceStandardKnowledgeArticleTypeConfiguration {
-  __type?: "SalesforceStandardKnowledgeArticleTypeConfiguration";
   /**
    * <p>The name of the field that contains the document title.</p>
    */
@@ -2876,8 +2713,6 @@ export namespace SalesforceStandardKnowledgeArticleTypeConfiguration {
   export const filterSensitiveLog = (obj: SalesforceStandardKnowledgeArticleTypeConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SalesforceStandardKnowledgeArticleTypeConfiguration =>
-    __isa(o, "SalesforceStandardKnowledgeArticleTypeConfiguration");
 }
 
 /**
@@ -2885,7 +2720,6 @@ export namespace SalesforceStandardKnowledgeArticleTypeConfiguration {
  *             objects. </p>
  */
 export interface SalesforceStandardObjectAttachmentConfiguration {
-  __type?: "SalesforceStandardObjectAttachmentConfiguration";
   /**
    * <p>The name of the field used for the document title.</p>
    */
@@ -2901,15 +2735,12 @@ export namespace SalesforceStandardObjectAttachmentConfiguration {
   export const filterSensitiveLog = (obj: SalesforceStandardObjectAttachmentConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SalesforceStandardObjectAttachmentConfiguration =>
-    __isa(o, "SalesforceStandardObjectAttachmentConfiguration");
 }
 
 /**
  * <p>Specifies confguration information for indexing a single standard object.</p>
  */
 export interface SalesforceStandardObjectConfiguration {
-  __type?: "SalesforceStandardObjectConfiguration";
   /**
    * <p>The name of the field in the standard object table that contains the document
    *             titleB.</p>
@@ -2938,8 +2769,6 @@ export namespace SalesforceStandardObjectConfiguration {
   export const filterSensitiveLog = (obj: SalesforceStandardObjectConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SalesforceStandardObjectConfiguration =>
-    __isa(o, "SalesforceStandardObjectConfiguration");
 }
 
 export enum SalesforceStandardObjectName {
@@ -2966,7 +2795,6 @@ export enum SalesforceStandardObjectName {
  * <p>Provides information about how a custom index field is used during a search.</p>
  */
 export interface Search {
-  __type?: "Search";
   /**
    * <p>Indicates that the field can be used to create search facets, a count of results for
    *             each value in the field. The default is <code>false</code> .</p>
@@ -3000,7 +2828,6 @@ export namespace Search {
   export const filterSensitiveLog = (obj: Search): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Search => __isa(o, "Search");
 }
 
 /**
@@ -3008,7 +2835,6 @@ export namespace Search {
  *             indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs.</p>
  */
 export interface ServerSideEncryptionConfiguration {
-  __type?: "ServerSideEncryptionConfiguration";
   /**
    * <p>The identifier of the AWS KMS customer master key (CMK). Amazon Kendra doesn't support
    *             asymmetric CMKs.</p>
@@ -3021,7 +2847,6 @@ export namespace ServerSideEncryptionConfiguration {
     ...obj,
     ...(obj.KmsKeyId && { KmsKeyId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ServerSideEncryptionConfiguration => __isa(o, "ServerSideEncryptionConfiguration");
 }
 
 export enum ServiceNowBuildVersionType {
@@ -3034,7 +2859,6 @@ export enum ServiceNowBuildVersionType {
  *             source.</p>
  */
 export interface ServiceNowConfiguration {
-  __type?: "ServiceNowConfiguration";
   /**
    * <p>The identifier of the release that the ServiceNow host is running. If the host is not
    *             running the <code>LONDON</code> release, use <code>OTHERS</code>.</p>
@@ -3071,7 +2895,6 @@ export namespace ServiceNowConfiguration {
   export const filterSensitiveLog = (obj: ServiceNowConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceNowConfiguration => __isa(o, "ServiceNowConfiguration");
 }
 
 /**
@@ -3079,7 +2902,6 @@ export namespace ServiceNowConfiguration {
  *             site.</p>
  */
 export interface ServiceNowKnowledgeArticleConfiguration {
-  __type?: "ServiceNowKnowledgeArticleConfiguration";
   /**
    * <p>The name of the ServiceNow field that is mapped to the index document title
    *             field.</p>
@@ -3123,8 +2945,6 @@ export namespace ServiceNowKnowledgeArticleConfiguration {
   export const filterSensitiveLog = (obj: ServiceNowKnowledgeArticleConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceNowKnowledgeArticleConfiguration =>
-    __isa(o, "ServiceNowKnowledgeArticleConfiguration");
 }
 
 /**
@@ -3132,7 +2952,6 @@ export namespace ServiceNowKnowledgeArticleConfiguration {
  *             ServiceNow site</p>
  */
 export interface ServiceNowServiceCatalogConfiguration {
-  __type?: "ServiceNowServiceCatalogConfiguration";
   /**
    * <p>The name of the ServiceNow field that is mapped to the index document title
    *             field.</p>
@@ -3172,8 +2991,6 @@ export namespace ServiceNowServiceCatalogConfiguration {
   export const filterSensitiveLog = (obj: ServiceNowServiceCatalogConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceNowServiceCatalogConfiguration =>
-    __isa(o, "ServiceNowServiceCatalogConfiguration");
 }
 
 /**
@@ -3189,7 +3006,6 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
@@ -3197,7 +3013,6 @@ export namespace ServiceQuotaExceededException {
  *             source.</p>
  */
 export interface SharePointConfiguration {
-  __type?: "SharePointConfiguration";
   /**
    * <p>A list of regular expression patterns. Documents that match the patterns are excluded
    *             from the index. Documents that don't match the patterns are included in the index. If a
@@ -3275,7 +3090,6 @@ export namespace SharePointConfiguration {
   export const filterSensitiveLog = (obj: SharePointConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SharePointConfiguration => __isa(o, "SharePointConfiguration");
 }
 
 export enum SharePointVersion {
@@ -3289,7 +3103,6 @@ export enum SharePointVersion {
  *             exception.</p>
  */
 export interface SortingConfiguration {
-  __type?: "SortingConfiguration";
   /**
    * <p>The order that the results should be returned in. In case of ties, the relevance
    *             assigned to the result by Amazon Kendra is used as the tie-breaker.</p>
@@ -3325,7 +3138,6 @@ export namespace SortingConfiguration {
   export const filterSensitiveLog = (obj: SortingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SortingConfiguration => __isa(o, "SortingConfiguration");
 }
 
 export enum SortOrder {
@@ -3337,7 +3149,6 @@ export enum SortOrder {
  * <p>Provides information that configures Amazon Kendra to use a SQL database.</p>
  */
 export interface SqlConfiguration {
-  __type?: "SqlConfiguration";
   /**
    * <p>Determines whether Amazon Kendra encloses SQL identifiers in double quotes (") when making a
    *             database query.</p>
@@ -3357,11 +3168,9 @@ export namespace SqlConfiguration {
   export const filterSensitiveLog = (obj: SqlConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqlConfiguration => __isa(o, "SqlConfiguration");
 }
 
 export interface StartDataSourceSyncJobRequest {
-  __type?: "StartDataSourceSyncJobRequest";
   /**
    * <p>The identifier of the data source to synchronize.</p>
    */
@@ -3377,11 +3186,9 @@ export namespace StartDataSourceSyncJobRequest {
   export const filterSensitiveLog = (obj: StartDataSourceSyncJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDataSourceSyncJobRequest => __isa(o, "StartDataSourceSyncJobRequest");
 }
 
 export interface StartDataSourceSyncJobResponse {
-  __type?: "StartDataSourceSyncJobResponse";
   /**
    * <p>Identifies a particular synchronization job.</p>
    */
@@ -3392,11 +3199,9 @@ export namespace StartDataSourceSyncJobResponse {
   export const filterSensitiveLog = (obj: StartDataSourceSyncJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDataSourceSyncJobResponse => __isa(o, "StartDataSourceSyncJobResponse");
 }
 
 export interface StopDataSourceSyncJobRequest {
-  __type?: "StopDataSourceSyncJobRequest";
   /**
    * <p>The identifier of the data source for which to stop the synchronization jobs.</p>
    */
@@ -3412,11 +3217,9 @@ export namespace StopDataSourceSyncJobRequest {
   export const filterSensitiveLog = (obj: StopDataSourceSyncJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopDataSourceSyncJobRequest => __isa(o, "StopDataSourceSyncJobRequest");
 }
 
 export interface SubmitFeedbackRequest {
-  __type?: "SubmitFeedbackRequest";
   /**
    * <p>The identifier of the index that was queried.</p>
    */
@@ -3445,7 +3248,6 @@ export namespace SubmitFeedbackRequest {
   export const filterSensitiveLog = (obj: SubmitFeedbackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubmitFeedbackRequest => __isa(o, "SubmitFeedbackRequest");
 }
 
 /**
@@ -3454,7 +3256,6 @@ export namespace SubmitFeedbackRequest {
  *       = + - @.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value associated with the tag. The value may be an empty string but it can't be
    *       null.</p>
@@ -3472,11 +3273,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the index, FAQ, or data source to tag.</p>
    */
@@ -3493,25 +3292,20 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>Provides information about text documents indexed in an index.</p>
  */
 export interface TextDocumentStatistics {
-  __type?: "TextDocumentStatistics";
   /**
    * <p>The number of text documents indexed.</p>
    */
@@ -3527,14 +3321,12 @@ export namespace TextDocumentStatistics {
   export const filterSensitiveLog = (obj: TextDocumentStatistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TextDocumentStatistics => __isa(o, "TextDocumentStatistics");
 }
 
 /**
  * <p>Provides text and information about where to highlight the text.</p>
  */
 export interface TextWithHighlights {
-  __type?: "TextWithHighlights";
   /**
    * <p>The beginning and end of the text that should be highlighted.</p>
    */
@@ -3550,7 +3342,6 @@ export namespace TextWithHighlights {
   export const filterSensitiveLog = (obj: TextWithHighlights): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TextWithHighlights => __isa(o, "TextWithHighlights");
 }
 
 /**
@@ -3566,14 +3357,12 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>Provides a range of time.</p>
  */
 export interface TimeRange {
-  __type?: "TimeRange";
   /**
    * <p>The UNIX datetime of the beginning of the time range.</p>
    */
@@ -3589,11 +3378,9 @@ export namespace TimeRange {
   export const filterSensitiveLog = (obj: TimeRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeRange => __isa(o, "TimeRange");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the index, FAQ, or data source to remove the tag
    *       from.</p>
@@ -3611,22 +3398,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateDataSourceRequest {
-  __type?: "UpdateDataSourceRequest";
   /**
    * <p>The unique identifier of the data source to update.</p>
    */
@@ -3669,11 +3451,9 @@ export namespace UpdateDataSourceRequest {
   export const filterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSourceRequest => __isa(o, "UpdateDataSourceRequest");
 }
 
 export interface UpdateIndexRequest {
-  __type?: "UpdateIndexRequest";
   /**
    * <p>Sets the number of addtional storage and query capacity units that should be
    *     used by the index. You can change the capacity of the index up to 5 times per day.</p>
@@ -3713,7 +3493,6 @@ export namespace UpdateIndexRequest {
   export const filterSensitiveLog = (obj: UpdateIndexRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIndexRequest => __isa(o, "UpdateIndexRequest");
 }
 
 /**
@@ -3729,5 +3508,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

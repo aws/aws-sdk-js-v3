@@ -160,7 +160,6 @@ export const deserializeAws_json1_1AnalyzeDocumentCommand = async (
   contents = deserializeAws_json1_1AnalyzeDocumentResponse(data, context);
   const response: AnalyzeDocumentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AnalyzeDocumentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -288,7 +287,6 @@ export const deserializeAws_json1_1DetectDocumentTextCommand = async (
   contents = deserializeAws_json1_1DetectDocumentTextResponse(data, context);
   const response: DetectDocumentTextCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectDocumentTextResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -408,7 +406,6 @@ export const deserializeAws_json1_1GetDocumentAnalysisCommand = async (
   contents = deserializeAws_json1_1GetDocumentAnalysisResponse(data, context);
   const response: GetDocumentAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDocumentAnalysisResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -504,7 +501,6 @@ export const deserializeAws_json1_1GetDocumentTextDetectionCommand = async (
   contents = deserializeAws_json1_1GetDocumentTextDetectionResponse(data, context);
   const response: GetDocumentTextDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDocumentTextDetectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -600,7 +596,6 @@ export const deserializeAws_json1_1StartDocumentAnalysisCommand = async (
   contents = deserializeAws_json1_1StartDocumentAnalysisResponse(data, context);
   const response: StartDocumentAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartDocumentAnalysisResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -736,7 +731,6 @@ export const deserializeAws_json1_1StartDocumentTextDetectionCommand = async (
   contents = deserializeAws_json1_1StartDocumentTextDetectionResponse(data, context);
   const response: StartDocumentTextDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartDocumentTextDetectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1192,7 +1186,6 @@ const serializeAws_json1_1StartDocumentTextDetectionRequest = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -1203,7 +1196,6 @@ const deserializeAws_json1_1AnalyzeDocumentResponse = (
   context: __SerdeContext
 ): AnalyzeDocumentResponse => {
   return {
-    __type: "AnalyzeDocumentResponse",
     AnalyzeDocumentModelVersion:
       output.AnalyzeDocumentModelVersion !== undefined && output.AnalyzeDocumentModelVersion !== null
         ? output.AnalyzeDocumentModelVersion
@@ -1225,7 +1217,6 @@ const deserializeAws_json1_1AnalyzeDocumentResponse = (
 
 const deserializeAws_json1_1BadDocumentException = (output: any, context: __SerdeContext): BadDocumentException => {
   return {
-    __type: "BadDocumentException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -1233,7 +1224,6 @@ const deserializeAws_json1_1BadDocumentException = (output: any, context: __Serd
 
 const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Block => {
   return {
-    __type: "Block",
     BlockType: output.BlockType !== undefined && output.BlockType !== null ? output.BlockType : undefined,
     ColumnIndex: output.ColumnIndex !== undefined && output.ColumnIndex !== null ? output.ColumnIndex : undefined,
     ColumnSpan: output.ColumnSpan !== undefined && output.ColumnSpan !== null ? output.ColumnSpan : undefined,
@@ -1266,7 +1256,6 @@ const deserializeAws_json1_1BlockList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
   return {
-    __type: "BoundingBox",
     Height: output.Height !== undefined && output.Height !== null ? output.Height : undefined,
     Left: output.Left !== undefined && output.Left !== null ? output.Left : undefined,
     Top: output.Top !== undefined && output.Top !== null ? output.Top : undefined,
@@ -1279,7 +1268,6 @@ const deserializeAws_json1_1DetectDocumentTextResponse = (
   context: __SerdeContext
 ): DetectDocumentTextResponse => {
   return {
-    __type: "DetectDocumentTextResponse",
     Blocks:
       output.Blocks !== undefined && output.Blocks !== null
         ? deserializeAws_json1_1BlockList(output.Blocks, context)
@@ -1297,7 +1285,6 @@ const deserializeAws_json1_1DetectDocumentTextResponse = (
 
 const deserializeAws_json1_1DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
   return {
-    __type: "DocumentMetadata",
     Pages: output.Pages !== undefined && output.Pages !== null ? output.Pages : undefined,
   } as any;
 };
@@ -1307,7 +1294,6 @@ const deserializeAws_json1_1DocumentTooLargeException = (
   context: __SerdeContext
 ): DocumentTooLargeException => {
   return {
-    __type: "DocumentTooLargeException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -1319,7 +1305,6 @@ const deserializeAws_json1_1EntityTypes = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1Geometry = (output: any, context: __SerdeContext): Geometry => {
   return {
-    __type: "Geometry",
     BoundingBox:
       output.BoundingBox !== undefined && output.BoundingBox !== null
         ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
@@ -1336,7 +1321,6 @@ const deserializeAws_json1_1GetDocumentAnalysisResponse = (
   context: __SerdeContext
 ): GetDocumentAnalysisResponse => {
   return {
-    __type: "GetDocumentAnalysisResponse",
     AnalyzeDocumentModelVersion:
       output.AnalyzeDocumentModelVersion !== undefined && output.AnalyzeDocumentModelVersion !== null
         ? output.AnalyzeDocumentModelVersion
@@ -1365,7 +1349,6 @@ const deserializeAws_json1_1GetDocumentTextDetectionResponse = (
   context: __SerdeContext
 ): GetDocumentTextDetectionResponse => {
   return {
-    __type: "GetDocumentTextDetectionResponse",
     Blocks:
       output.Blocks !== undefined && output.Blocks !== null
         ? deserializeAws_json1_1BlockList(output.Blocks, context)
@@ -1394,7 +1377,6 @@ const deserializeAws_json1_1HumanLoopActivationOutput = (
   context: __SerdeContext
 ): HumanLoopActivationOutput => {
   return {
-    __type: "HumanLoopActivationOutput",
     HumanLoopActivationConditionsEvaluationResults:
       output.HumanLoopActivationConditionsEvaluationResults !== undefined &&
       output.HumanLoopActivationConditionsEvaluationResults !== null
@@ -1417,7 +1399,6 @@ const deserializeAws_json1_1HumanLoopQuotaExceededException = (
   context: __SerdeContext
 ): HumanLoopQuotaExceededException => {
   return {
-    __type: "HumanLoopQuotaExceededException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     QuotaCode: output.QuotaCode !== undefined && output.QuotaCode !== null ? output.QuotaCode : undefined,
@@ -1431,7 +1412,6 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
   context: __SerdeContext
 ): IdempotentParameterMismatchException => {
   return {
-    __type: "IdempotentParameterMismatchException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -1443,7 +1423,6 @@ const deserializeAws_json1_1IdList = (output: any, context: __SerdeContext): str
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    __type: "InternalServerError",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -1451,7 +1430,6 @@ const deserializeAws_json1_1InternalServerError = (output: any, context: __Serde
 
 const deserializeAws_json1_1InvalidJobIdException = (output: any, context: __SerdeContext): InvalidJobIdException => {
   return {
-    __type: "InvalidJobIdException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -1462,7 +1440,6 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -1473,7 +1450,6 @@ const deserializeAws_json1_1InvalidS3ObjectException = (
   context: __SerdeContext
 ): InvalidS3ObjectException => {
   return {
-    __type: "InvalidS3ObjectException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -1481,7 +1457,6 @@ const deserializeAws_json1_1InvalidS3ObjectException = (
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -1493,7 +1468,6 @@ const deserializeAws_json1_1Pages = (output: any, context: __SerdeContext): numb
 
 const deserializeAws_json1_1Point = (output: any, context: __SerdeContext): Point => {
   return {
-    __type: "Point",
     X: output.X !== undefined && output.X !== null ? output.X : undefined,
     Y: output.Y !== undefined && output.Y !== null ? output.Y : undefined,
   } as any;
@@ -1508,7 +1482,6 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
   context: __SerdeContext
 ): ProvisionedThroughputExceededException => {
   return {
-    __type: "ProvisionedThroughputExceededException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -1516,7 +1489,6 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
 
 const deserializeAws_json1_1Relationship = (output: any, context: __SerdeContext): Relationship => {
   return {
-    __type: "Relationship",
     Ids:
       output.Ids !== undefined && output.Ids !== null ? deserializeAws_json1_1IdList(output.Ids, context) : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
@@ -1532,7 +1504,6 @@ const deserializeAws_json1_1StartDocumentAnalysisResponse = (
   context: __SerdeContext
 ): StartDocumentAnalysisResponse => {
   return {
-    __type: "StartDocumentAnalysisResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -1542,14 +1513,12 @@ const deserializeAws_json1_1StartDocumentTextDetectionResponse = (
   context: __SerdeContext
 ): StartDocumentTextDetectionResponse => {
   return {
-    __type: "StartDocumentTextDetectionResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    __type: "ThrottlingException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -1560,7 +1529,6 @@ const deserializeAws_json1_1UnsupportedDocumentException = (
   context: __SerdeContext
 ): UnsupportedDocumentException => {
   return {
-    __type: "UnsupportedDocumentException",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -1568,7 +1536,6 @@ const deserializeAws_json1_1UnsupportedDocumentException = (
 
 const deserializeAws_json1_1Warning = (output: any, context: __SerdeContext): Warning => {
   return {
-    __type: "Warning",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     Pages:
       output.Pages !== undefined && output.Pages !== null

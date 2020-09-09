@@ -479,7 +479,6 @@ export const deserializeAws_restJson1CreateCanaryCommand = async (
   }
   const contents: CreateCanaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCanaryResponse",
     Canary: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -543,7 +542,6 @@ export const deserializeAws_restJson1DeleteCanaryCommand = async (
   }
   const contents: DeleteCanaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCanaryResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -619,7 +617,6 @@ export const deserializeAws_restJson1DescribeCanariesCommand = async (
   }
   const contents: DescribeCanariesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCanariesResponse",
     Canaries: undefined,
     NextToken: undefined,
   };
@@ -687,7 +684,6 @@ export const deserializeAws_restJson1DescribeCanariesLastRunCommand = async (
   }
   const contents: DescribeCanariesLastRunCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCanariesLastRunResponse",
     CanariesLastRun: undefined,
     NextToken: undefined,
   };
@@ -755,7 +751,6 @@ export const deserializeAws_restJson1DescribeRuntimeVersionsCommand = async (
   }
   const contents: DescribeRuntimeVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRuntimeVersionsResponse",
     NextToken: undefined,
     RuntimeVersions: undefined,
   };
@@ -823,7 +818,6 @@ export const deserializeAws_restJson1GetCanaryCommand = async (
   }
   const contents: GetCanaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCanaryResponse",
     Canary: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -887,7 +881,6 @@ export const deserializeAws_restJson1GetCanaryRunsCommand = async (
   }
   const contents: GetCanaryRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCanaryRunsResponse",
     CanaryRuns: undefined,
     NextToken: undefined,
   };
@@ -963,7 +956,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1035,7 +1027,6 @@ export const deserializeAws_restJson1StartCanaryCommand = async (
   }
   const contents: StartCanaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartCanaryResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1111,7 +1102,6 @@ export const deserializeAws_restJson1StopCanaryCommand = async (
   }
   const contents: StopCanaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopCanaryResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1187,7 +1177,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1255,7 +1244,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1323,7 +1311,6 @@ export const deserializeAws_restJson1UpdateCanaryCommand = async (
   }
   const contents: UpdateCanaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateCanaryResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1519,7 +1506,6 @@ const deserializeAws_restJson1CanariesLastRun = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): Canary => {
   return {
-    __type: "Canary",
     ArtifactS3Location:
       output.ArtifactS3Location !== undefined && output.ArtifactS3Location !== null
         ? output.ArtifactS3Location
@@ -1572,7 +1558,6 @@ const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): C
 
 const deserializeAws_restJson1CanaryCodeOutput = (output: any, context: __SerdeContext): CanaryCodeOutput => {
   return {
-    __type: "CanaryCodeOutput",
     Handler: output.Handler !== undefined && output.Handler !== null ? output.Handler : undefined,
     SourceLocationArn:
       output.SourceLocationArn !== undefined && output.SourceLocationArn !== null
@@ -1583,7 +1568,6 @@ const deserializeAws_restJson1CanaryCodeOutput = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1CanaryLastRun = (output: any, context: __SerdeContext): CanaryLastRun => {
   return {
-    __type: "CanaryLastRun",
     CanaryName: output.CanaryName !== undefined && output.CanaryName !== null ? output.CanaryName : undefined,
     LastRun:
       output.LastRun !== undefined && output.LastRun !== null
@@ -1594,7 +1578,6 @@ const deserializeAws_restJson1CanaryLastRun = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1CanaryRun = (output: any, context: __SerdeContext): CanaryRun => {
   return {
-    __type: "CanaryRun",
     ArtifactS3Location:
       output.ArtifactS3Location !== undefined && output.ArtifactS3Location !== null
         ? output.ArtifactS3Location
@@ -1613,7 +1596,6 @@ const deserializeAws_restJson1CanaryRun = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1CanaryRunConfigOutput = (output: any, context: __SerdeContext): CanaryRunConfigOutput => {
   return {
-    __type: "CanaryRunConfigOutput",
     MemoryInMB: output.MemoryInMB !== undefined && output.MemoryInMB !== null ? output.MemoryInMB : undefined,
     TimeoutInSeconds:
       output.TimeoutInSeconds !== undefined && output.TimeoutInSeconds !== null ? output.TimeoutInSeconds : undefined,
@@ -1626,7 +1608,6 @@ const deserializeAws_restJson1CanaryRuns = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1CanaryRunStatus = (output: any, context: __SerdeContext): CanaryRunStatus => {
   return {
-    __type: "CanaryRunStatus",
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
     StateReasonCode:
@@ -1636,7 +1617,6 @@ const deserializeAws_restJson1CanaryRunStatus = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1CanaryRunTimeline = (output: any, context: __SerdeContext): CanaryRunTimeline => {
   return {
-    __type: "CanaryRunTimeline",
     Completed:
       output.Completed !== undefined && output.Completed !== null
         ? new Date(Math.round(output.Completed * 1000))
@@ -1648,7 +1628,6 @@ const deserializeAws_restJson1CanaryRunTimeline = (output: any, context: __Serde
 
 const deserializeAws_restJson1CanaryScheduleOutput = (output: any, context: __SerdeContext): CanaryScheduleOutput => {
   return {
-    __type: "CanaryScheduleOutput",
     DurationInSeconds:
       output.DurationInSeconds !== undefined && output.DurationInSeconds !== null
         ? output.DurationInSeconds
@@ -1659,7 +1638,6 @@ const deserializeAws_restJson1CanaryScheduleOutput = (output: any, context: __Se
 
 const deserializeAws_restJson1CanaryStatus = (output: any, context: __SerdeContext): CanaryStatus => {
   return {
-    __type: "CanaryStatus",
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
     StateReasonCode:
@@ -1669,7 +1647,6 @@ const deserializeAws_restJson1CanaryStatus = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1CanaryTimeline = (output: any, context: __SerdeContext): CanaryTimeline => {
   return {
-    __type: "CanaryTimeline",
     Created:
       output.Created !== undefined && output.Created !== null ? new Date(Math.round(output.Created * 1000)) : undefined,
     LastModified:
@@ -1689,7 +1666,6 @@ const deserializeAws_restJson1CanaryTimeline = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1RuntimeVersion = (output: any, context: __SerdeContext): RuntimeVersion => {
   return {
-    __type: "RuntimeVersion",
     DeprecationDate:
       output.DeprecationDate !== undefined && output.DeprecationDate !== null
         ? new Date(Math.round(output.DeprecationDate * 1000))
@@ -1727,7 +1703,6 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1VpcConfigOutput = (output: any, context: __SerdeContext): VpcConfigOutput => {
   return {
-    __type: "VpcConfigOutput",
     SecurityGroupIds:
       output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
         ? deserializeAws_restJson1SecurityGroupIds(output.SecurityGroupIds, context)

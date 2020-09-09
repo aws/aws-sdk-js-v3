@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -18,7 +18,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export enum AccessDirection {
@@ -43,14 +42,12 @@ export namespace AccountSetupInProgressException {
   export const filterSensitiveLog = (obj: AccountSetupInProgressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountSetupInProgressException => __isa(o, "AccountSetupInProgressException");
 }
 
 /**
  * <p>Describes an add-on that is enabled for an Amazon Lightsail resource.</p>
  */
 export interface AddOn {
-  __type?: "AddOn";
   /**
    * <p>The next daily time an automatic snapshot will be created.</p>
    *          <p>The time shown is in <code>HH:00</code> format, and in Coordinated Universal Time
@@ -84,7 +81,6 @@ export namespace AddOn {
   export const filterSensitiveLog = (obj: AddOn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddOn => __isa(o, "AddOn");
 }
 
 /**
@@ -97,7 +93,6 @@ export namespace AddOn {
  *          </note>
  */
 export interface AddOnRequest {
-  __type?: "AddOnRequest";
   /**
    * <p>The add-on type.</p>
    */
@@ -114,7 +109,6 @@ export namespace AddOnRequest {
   export const filterSensitiveLog = (obj: AddOnRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddOnRequest => __isa(o, "AddOnRequest");
 }
 
 export enum AddOnType {
@@ -128,7 +122,6 @@ export enum AddOnType {
  *         in Amazon Lightsail</a>.</p>
  */
 export interface Alarm {
-  __type?: "Alarm";
   /**
    * <p>The current state of the alarm.</p>
    *          <p>An alarm has the following possible states:</p>
@@ -308,7 +301,6 @@ export namespace Alarm {
   export const filterSensitiveLog = (obj: Alarm): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Alarm => __isa(o, "Alarm");
 }
 
 export enum AlarmState {
@@ -318,7 +310,6 @@ export enum AlarmState {
 }
 
 export interface AllocateStaticIpRequest {
-  __type?: "AllocateStaticIpRequest";
   /**
    * <p>The name of the static IP address.</p>
    */
@@ -329,11 +320,9 @@ export namespace AllocateStaticIpRequest {
   export const filterSensitiveLog = (obj: AllocateStaticIpRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AllocateStaticIpRequest => __isa(o, "AllocateStaticIpRequest");
 }
 
 export interface AllocateStaticIpResult {
-  __type?: "AllocateStaticIpResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -345,11 +334,9 @@ export namespace AllocateStaticIpResult {
   export const filterSensitiveLog = (obj: AllocateStaticIpResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AllocateStaticIpResult => __isa(o, "AllocateStaticIpResult");
 }
 
 export interface AttachCertificateToDistributionRequest {
-  __type?: "AttachCertificateToDistributionRequest";
   /**
    * <p>The name of the certificate to attach to a distribution.</p>
    *
@@ -382,12 +369,9 @@ export namespace AttachCertificateToDistributionRequest {
   export const filterSensitiveLog = (obj: AttachCertificateToDistributionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachCertificateToDistributionRequest =>
-    __isa(o, "AttachCertificateToDistributionRequest");
 }
 
 export interface AttachCertificateToDistributionResult {
-  __type?: "AttachCertificateToDistributionResult";
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
    *       timestamp of the request, and the resources affected by the request.</p>
@@ -399,12 +383,9 @@ export namespace AttachCertificateToDistributionResult {
   export const filterSensitiveLog = (obj: AttachCertificateToDistributionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachCertificateToDistributionResult =>
-    __isa(o, "AttachCertificateToDistributionResult");
 }
 
 export interface AttachDiskRequest {
-  __type?: "AttachDiskRequest";
   /**
    * <p>The disk path to expose to the instance (e.g., <code>/dev/xvdf</code>).</p>
    */
@@ -425,11 +406,9 @@ export namespace AttachDiskRequest {
   export const filterSensitiveLog = (obj: AttachDiskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachDiskRequest => __isa(o, "AttachDiskRequest");
 }
 
 export interface AttachDiskResult {
-  __type?: "AttachDiskResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -441,7 +420,6 @@ export namespace AttachDiskResult {
   export const filterSensitiveLog = (obj: AttachDiskResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachDiskResult => __isa(o, "AttachDiskResult");
 }
 
 /**
@@ -449,7 +427,6 @@ export namespace AttachDiskResult {
  *       automatic snapshot.</p>
  */
 export interface AttachedDisk {
-  __type?: "AttachedDisk";
   /**
    * <p>The path of the disk (e.g., <code>/dev/xvdf</code>).</p>
    */
@@ -465,11 +442,9 @@ export namespace AttachedDisk {
   export const filterSensitiveLog = (obj: AttachedDisk): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachedDisk => __isa(o, "AttachedDisk");
 }
 
 export interface AttachInstancesToLoadBalancerRequest {
-  __type?: "AttachInstancesToLoadBalancerRequest";
   /**
    * <p>An array of strings representing the instance name(s) you want to attach to your load
    *       balancer.</p>
@@ -491,12 +466,9 @@ export namespace AttachInstancesToLoadBalancerRequest {
   export const filterSensitiveLog = (obj: AttachInstancesToLoadBalancerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachInstancesToLoadBalancerRequest =>
-    __isa(o, "AttachInstancesToLoadBalancerRequest");
 }
 
 export interface AttachInstancesToLoadBalancerResult {
-  __type?: "AttachInstancesToLoadBalancerResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -508,12 +480,9 @@ export namespace AttachInstancesToLoadBalancerResult {
   export const filterSensitiveLog = (obj: AttachInstancesToLoadBalancerResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachInstancesToLoadBalancerResult =>
-    __isa(o, "AttachInstancesToLoadBalancerResult");
 }
 
 export interface AttachLoadBalancerTlsCertificateRequest {
-  __type?: "AttachLoadBalancerTlsCertificateRequest";
   /**
    * <p>The name of the load balancer to which you want to associate the SSL/TLS
    *       certificate.</p>
@@ -530,12 +499,9 @@ export namespace AttachLoadBalancerTlsCertificateRequest {
   export const filterSensitiveLog = (obj: AttachLoadBalancerTlsCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachLoadBalancerTlsCertificateRequest =>
-    __isa(o, "AttachLoadBalancerTlsCertificateRequest");
 }
 
 export interface AttachLoadBalancerTlsCertificateResult {
-  __type?: "AttachLoadBalancerTlsCertificateResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -549,12 +515,9 @@ export namespace AttachLoadBalancerTlsCertificateResult {
   export const filterSensitiveLog = (obj: AttachLoadBalancerTlsCertificateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachLoadBalancerTlsCertificateResult =>
-    __isa(o, "AttachLoadBalancerTlsCertificateResult");
 }
 
 export interface AttachStaticIpRequest {
-  __type?: "AttachStaticIpRequest";
   /**
    * <p>The name of the static IP.</p>
    */
@@ -570,11 +533,9 @@ export namespace AttachStaticIpRequest {
   export const filterSensitiveLog = (obj: AttachStaticIpRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachStaticIpRequest => __isa(o, "AttachStaticIpRequest");
 }
 
 export interface AttachStaticIpResult {
-  __type?: "AttachStaticIpResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -586,7 +547,6 @@ export namespace AttachStaticIpResult {
   export const filterSensitiveLog = (obj: AttachStaticIpResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachStaticIpResult => __isa(o, "AttachStaticIpResult");
 }
 
 /**
@@ -625,7 +585,6 @@ export namespace AttachStaticIpResult {
  *          </ul>
  */
 export interface AutoSnapshotAddOnRequest {
-  __type?: "AutoSnapshotAddOnRequest";
   /**
    * <p>The daily time when an automatic snapshot will be created.</p>
    *          <p>Constraints:</p>
@@ -649,14 +608,12 @@ export namespace AutoSnapshotAddOnRequest {
   export const filterSensitiveLog = (obj: AutoSnapshotAddOnRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoSnapshotAddOnRequest => __isa(o, "AutoSnapshotAddOnRequest");
 }
 
 /**
  * <p>Describes an automatic snapshot.</p>
  */
 export interface AutoSnapshotDetails {
-  __type?: "AutoSnapshotDetails";
   /**
    * <p>The status of the automatic snapshot.</p>
    */
@@ -683,7 +640,6 @@ export namespace AutoSnapshotDetails {
   export const filterSensitiveLog = (obj: AutoSnapshotDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoSnapshotDetails => __isa(o, "AutoSnapshotDetails");
 }
 
 export enum AutoSnapshotStatus {
@@ -697,7 +653,6 @@ export enum AutoSnapshotStatus {
  * <p>Describes an Availability Zone.</p>
  */
 export interface AvailabilityZone {
-  __type?: "AvailabilityZone";
   /**
    * <p>The state of the Availability Zone.</p>
    */
@@ -714,7 +669,6 @@ export namespace AvailabilityZone {
   export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 export enum BehaviorEnum {
@@ -726,7 +680,6 @@ export enum BehaviorEnum {
  * <p>Describes a blueprint (a virtual private server image).</p>
  */
 export interface Blueprint {
-  __type?: "Blueprint";
   /**
    * <p>The friendly name of the blueprint (e.g., <code>Amazon Linux</code>).</p>
    */
@@ -801,7 +754,6 @@ export namespace Blueprint {
   export const filterSensitiveLog = (obj: Blueprint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Blueprint => __isa(o, "Blueprint");
 }
 
 export enum BlueprintType {
@@ -814,7 +766,6 @@ export enum BlueprintType {
  *         <i>instance</i>).</p>
  */
 export interface Bundle {
-  __type?: "Bundle";
   /**
    * <p>The number of vCPUs included in the bundle (e.g., <code>2</code>).</p>
    */
@@ -882,7 +833,6 @@ export namespace Bundle {
   export const filterSensitiveLog = (obj: Bundle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Bundle => __isa(o, "Bundle");
 }
 
 /**
@@ -890,7 +840,6 @@ export namespace Bundle {
  *       distribution.</p>
  */
 export interface CacheBehavior {
-  __type?: "CacheBehavior";
   /**
    * <p>The cache behavior of the distribution.</p>
    *
@@ -927,7 +876,6 @@ export namespace CacheBehavior {
   export const filterSensitiveLog = (obj: CacheBehavior): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheBehavior => __isa(o, "CacheBehavior");
 }
 
 /**
@@ -945,7 +893,6 @@ export namespace CacheBehavior {
  *          <p>if the cacheBehavior's behavior is set to 'cache', then</p>
  */
 export interface CacheBehaviorPerPath {
-  __type?: "CacheBehaviorPerPath";
   /**
    * <p>The cache behavior for the specified path.</p>
    *
@@ -1029,7 +976,6 @@ export namespace CacheBehaviorPerPath {
   export const filterSensitiveLog = (obj: CacheBehaviorPerPath): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheBehaviorPerPath => __isa(o, "CacheBehaviorPerPath");
 }
 
 /**
@@ -1041,7 +987,6 @@ export namespace CacheBehaviorPerPath {
  *       <code>cache</code>.</p>
  */
 export interface CacheSettings {
-  __type?: "CacheSettings";
   /**
    * <p>An object that describes the headers that are forwarded to the origin. Your content is
    *       cached based on the headers that are forwarded.</p>
@@ -1149,7 +1094,6 @@ export namespace CacheSettings {
   export const filterSensitiveLog = (obj: CacheSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheSettings => __isa(o, "CacheSettings");
 }
 
 /**
@@ -1162,7 +1106,6 @@ export namespace CacheSettings {
  *          </note>
  */
 export interface Certificate {
-  __type?: "Certificate";
   /**
    * <p>The timestamp when the certificate was revoked. This value is present only when the
    *       certificate status is <code>REVOKED</code>.</p>
@@ -1345,7 +1288,6 @@ export namespace Certificate {
   export const filterSensitiveLog = (obj: Certificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Certificate => __isa(o, "Certificate");
 }
 
 export enum CertificateStatus {
@@ -1362,7 +1304,6 @@ export enum CertificateStatus {
  * <p>Describes an Amazon Lightsail SSL/TLS certificate.</p>
  */
 export interface CertificateSummary {
-  __type?: "CertificateSummary";
   /**
    * <p>The domain name of the certificate.</p>
    */
@@ -1395,11 +1336,9 @@ export namespace CertificateSummary {
   export const filterSensitiveLog = (obj: CertificateSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateSummary => __isa(o, "CertificateSummary");
 }
 
 export interface CloseInstancePublicPortsRequest {
-  __type?: "CloseInstancePublicPortsRequest";
   /**
    * <p>An object to describe the ports to close for the specified instance.</p>
    */
@@ -1415,11 +1354,9 @@ export namespace CloseInstancePublicPortsRequest {
   export const filterSensitiveLog = (obj: CloseInstancePublicPortsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloseInstancePublicPortsRequest => __isa(o, "CloseInstancePublicPortsRequest");
 }
 
 export interface CloseInstancePublicPortsResult {
-  __type?: "CloseInstancePublicPortsResult";
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
    *       timestamp of the request, and the resources affected by the request.</p>
@@ -1431,7 +1368,6 @@ export namespace CloseInstancePublicPortsResult {
   export const filterSensitiveLog = (obj: CloseInstancePublicPortsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloseInstancePublicPortsResult => __isa(o, "CloseInstancePublicPortsResult");
 }
 
 /**
@@ -1441,7 +1377,6 @@ export namespace CloseInstancePublicPortsResult {
  *       create a new Amazon Elastic Compute Cloud instance from an exported Lightsail instance snapshot.</p>
  */
 export interface CloudFormationStackRecord {
-  __type?: "CloudFormationStackRecord";
   /**
    * <p>The Lightsail resource type (e.g., <code>CloudFormationStackRecord</code>).</p>
    */
@@ -1490,7 +1425,6 @@ export namespace CloudFormationStackRecord {
   export const filterSensitiveLog = (obj: CloudFormationStackRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudFormationStackRecord => __isa(o, "CloudFormationStackRecord");
 }
 
 /**
@@ -1498,7 +1432,6 @@ export namespace CloudFormationStackRecord {
  *       record).</p>
  */
 export interface CloudFormationStackRecordSourceInfo {
-  __type?: "CloudFormationStackRecordSourceInfo";
   /**
    * <p>The Lightsail resource type (e.g., <code>ExportSnapshotRecord</code>).</p>
    */
@@ -1519,8 +1452,6 @@ export namespace CloudFormationStackRecordSourceInfo {
   export const filterSensitiveLog = (obj: CloudFormationStackRecordSourceInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudFormationStackRecordSourceInfo =>
-    __isa(o, "CloudFormationStackRecordSourceInfo");
 }
 
 export enum CloudFormationStackRecordSourceType {
@@ -1539,7 +1470,6 @@ export enum ComparisonOperator {
  *          <p>A contact method is a way to send you notifications. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
  */
 export interface ContactMethod {
-  __type?: "ContactMethod";
   /**
    * <p>The Amazon Resource Name (ARN) of the contact method.</p>
    */
@@ -1610,7 +1540,6 @@ export namespace ContactMethod {
   export const filterSensitiveLog = (obj: ContactMethod): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContactMethod => __isa(o, "ContactMethod");
 }
 
 export enum ContactMethodStatus {
@@ -1637,7 +1566,6 @@ export enum ContactProtocol {
  *       requests.</p>
  */
 export interface CookieObject {
-  __type?: "CookieObject";
   /**
    * <p>Specifies which cookies to forward to the distribution's origin for a cache behavior:
    *         <code>all</code>, <code>none</code>, or <code>allow-list</code> to forward only the cookies
@@ -1655,11 +1583,9 @@ export namespace CookieObject {
   export const filterSensitiveLog = (obj: CookieObject): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CookieObject => __isa(o, "CookieObject");
 }
 
 export interface CopySnapshotRequest {
-  __type?: "CopySnapshotRequest";
   /**
    * <p>The AWS Region where the source manual or automatic snapshot is located.</p>
    */
@@ -1739,11 +1665,9 @@ export namespace CopySnapshotRequest {
   export const filterSensitiveLog = (obj: CopySnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopySnapshotRequest => __isa(o, "CopySnapshotRequest");
 }
 
 export interface CopySnapshotResult {
-  __type?: "CopySnapshotResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -1755,11 +1679,9 @@ export namespace CopySnapshotResult {
   export const filterSensitiveLog = (obj: CopySnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopySnapshotResult => __isa(o, "CopySnapshotResult");
 }
 
 export interface CreateCertificateRequest {
-  __type?: "CreateCertificateRequest";
   /**
    * <p>The tag keys and optional values to add to the certificate during create.</p>
    *
@@ -1793,11 +1715,9 @@ export namespace CreateCertificateRequest {
   export const filterSensitiveLog = (obj: CreateCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCertificateRequest => __isa(o, "CreateCertificateRequest");
 }
 
 export interface CreateCertificateResult {
-  __type?: "CreateCertificateResult";
   /**
    * <p>An object that describes the certificate created.</p>
    */
@@ -1814,11 +1734,9 @@ export namespace CreateCertificateResult {
   export const filterSensitiveLog = (obj: CreateCertificateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCertificateResult => __isa(o, "CreateCertificateResult");
 }
 
 export interface CreateCloudFormationStackRequest {
-  __type?: "CreateCloudFormationStackRequest";
   /**
    * <p>An array of parameters that will be used to create the new Amazon EC2 instance. You can only
    *       pass one instance entry at a time in this array. You will get an invalid parameter error if
@@ -1831,11 +1749,9 @@ export namespace CreateCloudFormationStackRequest {
   export const filterSensitiveLog = (obj: CreateCloudFormationStackRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCloudFormationStackRequest => __isa(o, "CreateCloudFormationStackRequest");
 }
 
 export interface CreateCloudFormationStackResult {
-  __type?: "CreateCloudFormationStackResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -1847,11 +1763,9 @@ export namespace CreateCloudFormationStackResult {
   export const filterSensitiveLog = (obj: CreateCloudFormationStackResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCloudFormationStackResult => __isa(o, "CreateCloudFormationStackResult");
 }
 
 export interface CreateContactMethodRequest {
-  __type?: "CreateContactMethodRequest";
   /**
    * <p>The protocol of the contact method, such as <code>Email</code> or <code>SMS</code> (text
    *       messaging).</p>
@@ -1899,11 +1813,9 @@ export namespace CreateContactMethodRequest {
   export const filterSensitiveLog = (obj: CreateContactMethodRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateContactMethodRequest => __isa(o, "CreateContactMethodRequest");
 }
 
 export interface CreateContactMethodResult {
-  __type?: "CreateContactMethodResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -1915,11 +1827,9 @@ export namespace CreateContactMethodResult {
   export const filterSensitiveLog = (obj: CreateContactMethodResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateContactMethodResult => __isa(o, "CreateContactMethodResult");
 }
 
 export interface CreateDiskFromSnapshotRequest {
-  __type?: "CreateDiskFromSnapshotRequest";
   /**
    * <p>The name of the source disk from which the source automatic snapshot was created.</p>
    *          <p>Constraints:</p>
@@ -2025,11 +1935,9 @@ export namespace CreateDiskFromSnapshotRequest {
   export const filterSensitiveLog = (obj: CreateDiskFromSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDiskFromSnapshotRequest => __isa(o, "CreateDiskFromSnapshotRequest");
 }
 
 export interface CreateDiskFromSnapshotResult {
-  __type?: "CreateDiskFromSnapshotResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2041,11 +1949,9 @@ export namespace CreateDiskFromSnapshotResult {
   export const filterSensitiveLog = (obj: CreateDiskFromSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDiskFromSnapshotResult => __isa(o, "CreateDiskFromSnapshotResult");
 }
 
 export interface CreateDiskRequest {
-  __type?: "CreateDiskRequest";
   /**
    * <p>The size of the disk in GB (e.g., <code>32</code>).</p>
    */
@@ -2081,11 +1987,9 @@ export namespace CreateDiskRequest {
   export const filterSensitiveLog = (obj: CreateDiskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDiskRequest => __isa(o, "CreateDiskRequest");
 }
 
 export interface CreateDiskResult {
-  __type?: "CreateDiskResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2097,11 +2001,9 @@ export namespace CreateDiskResult {
   export const filterSensitiveLog = (obj: CreateDiskResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDiskResult => __isa(o, "CreateDiskResult");
 }
 
 export interface CreateDiskSnapshotRequest {
-  __type?: "CreateDiskSnapshotRequest";
   /**
    * <p>The unique name of the source disk (e.g., <code>Disk-Virginia-1</code>).</p>
    *          <note>
@@ -2140,11 +2042,9 @@ export namespace CreateDiskSnapshotRequest {
   export const filterSensitiveLog = (obj: CreateDiskSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDiskSnapshotRequest => __isa(o, "CreateDiskSnapshotRequest");
 }
 
 export interface CreateDiskSnapshotResult {
-  __type?: "CreateDiskSnapshotResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2156,11 +2056,9 @@ export namespace CreateDiskSnapshotResult {
   export const filterSensitiveLog = (obj: CreateDiskSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDiskSnapshotResult => __isa(o, "CreateDiskSnapshotResult");
 }
 
 export interface CreateDistributionRequest {
-  __type?: "CreateDistributionRequest";
   /**
    * <p>The tag keys and optional values to add to the distribution during create.</p>
    *
@@ -2212,11 +2110,9 @@ export namespace CreateDistributionRequest {
   export const filterSensitiveLog = (obj: CreateDistributionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDistributionRequest => __isa(o, "CreateDistributionRequest");
 }
 
 export interface CreateDistributionResult {
-  __type?: "CreateDistributionResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2233,11 +2129,9 @@ export namespace CreateDistributionResult {
   export const filterSensitiveLog = (obj: CreateDistributionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDistributionResult => __isa(o, "CreateDistributionResult");
 }
 
 export interface CreateDomainEntryRequest {
-  __type?: "CreateDomainEntryRequest";
   /**
    * <p>An array of key-value pairs containing information about the domain entry request.</p>
    */
@@ -2254,11 +2148,9 @@ export namespace CreateDomainEntryRequest {
   export const filterSensitiveLog = (obj: CreateDomainEntryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainEntryRequest => __isa(o, "CreateDomainEntryRequest");
 }
 
 export interface CreateDomainEntryResult {
-  __type?: "CreateDomainEntryResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2270,11 +2162,9 @@ export namespace CreateDomainEntryResult {
   export const filterSensitiveLog = (obj: CreateDomainEntryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainEntryResult => __isa(o, "CreateDomainEntryResult");
 }
 
 export interface CreateDomainRequest {
-  __type?: "CreateDomainRequest";
   /**
    * <p>The domain name to manage (e.g., <code>example.com</code>).</p>
    *          <note>
@@ -2297,11 +2187,9 @@ export namespace CreateDomainRequest {
   export const filterSensitiveLog = (obj: CreateDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainRequest => __isa(o, "CreateDomainRequest");
 }
 
 export interface CreateDomainResult {
-  __type?: "CreateDomainResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2313,11 +2201,9 @@ export namespace CreateDomainResult {
   export const filterSensitiveLog = (obj: CreateDomainResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDomainResult => __isa(o, "CreateDomainResult");
 }
 
 export interface CreateInstancesFromSnapshotRequest {
-  __type?: "CreateInstancesFromSnapshotRequest";
   /**
    * <p>The name for your key pair.</p>
    */
@@ -2448,12 +2334,9 @@ export namespace CreateInstancesFromSnapshotRequest {
   export const filterSensitiveLog = (obj: CreateInstancesFromSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstancesFromSnapshotRequest =>
-    __isa(o, "CreateInstancesFromSnapshotRequest");
 }
 
 export interface CreateInstancesFromSnapshotResult {
-  __type?: "CreateInstancesFromSnapshotResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2465,11 +2348,9 @@ export namespace CreateInstancesFromSnapshotResult {
   export const filterSensitiveLog = (obj: CreateInstancesFromSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstancesFromSnapshotResult => __isa(o, "CreateInstancesFromSnapshotResult");
 }
 
 export interface CreateInstanceSnapshotRequest {
-  __type?: "CreateInstanceSnapshotRequest";
   /**
    * <p>The name for your new snapshot.</p>
    */
@@ -2491,11 +2372,9 @@ export namespace CreateInstanceSnapshotRequest {
   export const filterSensitiveLog = (obj: CreateInstanceSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceSnapshotRequest => __isa(o, "CreateInstanceSnapshotRequest");
 }
 
 export interface CreateInstanceSnapshotResult {
-  __type?: "CreateInstanceSnapshotResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2507,11 +2386,9 @@ export namespace CreateInstanceSnapshotResult {
   export const filterSensitiveLog = (obj: CreateInstanceSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstanceSnapshotResult => __isa(o, "CreateInstanceSnapshotResult");
 }
 
 export interface CreateInstancesRequest {
-  __type?: "CreateInstancesRequest";
   /**
    * <p>The ID for a virtual private server image (e.g., <code>app_wordpress_4_4</code> or
    *         <code>app_lamp_7_0</code>). Use the <code>get blueprints</code> operation to return a list
@@ -2591,11 +2468,9 @@ export namespace CreateInstancesRequest {
   export const filterSensitiveLog = (obj: CreateInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstancesRequest => __isa(o, "CreateInstancesRequest");
 }
 
 export interface CreateInstancesResult {
-  __type?: "CreateInstancesResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2607,11 +2482,9 @@ export namespace CreateInstancesResult {
   export const filterSensitiveLog = (obj: CreateInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateInstancesResult => __isa(o, "CreateInstancesResult");
 }
 
 export interface CreateKeyPairRequest {
-  __type?: "CreateKeyPairRequest";
   /**
    * <p>The tag keys and optional values to add to the resource during create.</p>
    *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
@@ -2628,11 +2501,9 @@ export namespace CreateKeyPairRequest {
   export const filterSensitiveLog = (obj: CreateKeyPairRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateKeyPairRequest => __isa(o, "CreateKeyPairRequest");
 }
 
 export interface CreateKeyPairResult {
-  __type?: "CreateKeyPairResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2660,11 +2531,9 @@ export namespace CreateKeyPairResult {
   export const filterSensitiveLog = (obj: CreateKeyPairResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateKeyPairResult => __isa(o, "CreateKeyPairResult");
 }
 
 export interface CreateLoadBalancerRequest {
-  __type?: "CreateLoadBalancerRequest";
   /**
    * <p>The instance port where you're creating your load balancer.</p>
    */
@@ -2717,11 +2586,9 @@ export namespace CreateLoadBalancerRequest {
   export const filterSensitiveLog = (obj: CreateLoadBalancerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoadBalancerRequest => __isa(o, "CreateLoadBalancerRequest");
 }
 
 export interface CreateLoadBalancerResult {
-  __type?: "CreateLoadBalancerResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2733,11 +2600,9 @@ export namespace CreateLoadBalancerResult {
   export const filterSensitiveLog = (obj: CreateLoadBalancerResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoadBalancerResult => __isa(o, "CreateLoadBalancerResult");
 }
 
 export interface CreateLoadBalancerTlsCertificateRequest {
-  __type?: "CreateLoadBalancerTlsCertificateRequest";
   /**
    * <p>An array of strings listing alternative domains and subdomains for your SSL/TLS
    *       certificate. Lightsail will de-dupe the names for you. You can have a maximum of 9
@@ -2776,12 +2641,9 @@ export namespace CreateLoadBalancerTlsCertificateRequest {
   export const filterSensitiveLog = (obj: CreateLoadBalancerTlsCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoadBalancerTlsCertificateRequest =>
-    __isa(o, "CreateLoadBalancerTlsCertificateRequest");
 }
 
 export interface CreateLoadBalancerTlsCertificateResult {
-  __type?: "CreateLoadBalancerTlsCertificateResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2793,12 +2655,9 @@ export namespace CreateLoadBalancerTlsCertificateResult {
   export const filterSensitiveLog = (obj: CreateLoadBalancerTlsCertificateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLoadBalancerTlsCertificateResult =>
-    __isa(o, "CreateLoadBalancerTlsCertificateResult");
 }
 
 export interface CreateRelationalDatabaseFromSnapshotRequest {
-  __type?: "CreateRelationalDatabaseFromSnapshotRequest";
   /**
    * <p>Specifies the accessibility options for your new database. A value of <code>true</code>
    *       specifies a database that is available to resources outside of your Lightsail account. A
@@ -2894,12 +2753,9 @@ export namespace CreateRelationalDatabaseFromSnapshotRequest {
   export const filterSensitiveLog = (obj: CreateRelationalDatabaseFromSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRelationalDatabaseFromSnapshotRequest =>
-    __isa(o, "CreateRelationalDatabaseFromSnapshotRequest");
 }
 
 export interface CreateRelationalDatabaseFromSnapshotResult {
-  __type?: "CreateRelationalDatabaseFromSnapshotResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -2911,12 +2767,9 @@ export namespace CreateRelationalDatabaseFromSnapshotResult {
   export const filterSensitiveLog = (obj: CreateRelationalDatabaseFromSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRelationalDatabaseFromSnapshotResult =>
-    __isa(o, "CreateRelationalDatabaseFromSnapshotResult");
 }
 
 export interface CreateRelationalDatabaseRequest {
-  __type?: "CreateRelationalDatabaseRequest";
   /**
    * <p>The daily time range during which automated backups are created for your new database if
    *       automated backups are enabled.</p>
@@ -3074,11 +2927,9 @@ export namespace CreateRelationalDatabaseRequest {
     ...obj,
     ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateRelationalDatabaseRequest => __isa(o, "CreateRelationalDatabaseRequest");
 }
 
 export interface CreateRelationalDatabaseResult {
-  __type?: "CreateRelationalDatabaseResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3090,11 +2941,9 @@ export namespace CreateRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: CreateRelationalDatabaseResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRelationalDatabaseResult => __isa(o, "CreateRelationalDatabaseResult");
 }
 
 export interface CreateRelationalDatabaseSnapshotRequest {
-  __type?: "CreateRelationalDatabaseSnapshotRequest";
   /**
    * <p>The tag keys and optional values to add to the resource during create.</p>
    *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
@@ -3125,12 +2974,9 @@ export namespace CreateRelationalDatabaseSnapshotRequest {
   export const filterSensitiveLog = (obj: CreateRelationalDatabaseSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRelationalDatabaseSnapshotRequest =>
-    __isa(o, "CreateRelationalDatabaseSnapshotRequest");
 }
 
 export interface CreateRelationalDatabaseSnapshotResult {
-  __type?: "CreateRelationalDatabaseSnapshotResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3142,12 +2988,9 @@ export namespace CreateRelationalDatabaseSnapshotResult {
   export const filterSensitiveLog = (obj: CreateRelationalDatabaseSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRelationalDatabaseSnapshotResult =>
-    __isa(o, "CreateRelationalDatabaseSnapshotResult");
 }
 
 export interface DeleteAlarmRequest {
-  __type?: "DeleteAlarmRequest";
   /**
    * <p>The name of the alarm to delete.</p>
    */
@@ -3158,11 +3001,9 @@ export namespace DeleteAlarmRequest {
   export const filterSensitiveLog = (obj: DeleteAlarmRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAlarmRequest => __isa(o, "DeleteAlarmRequest");
 }
 
 export interface DeleteAlarmResult {
-  __type?: "DeleteAlarmResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3174,11 +3015,9 @@ export namespace DeleteAlarmResult {
   export const filterSensitiveLog = (obj: DeleteAlarmResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAlarmResult => __isa(o, "DeleteAlarmResult");
 }
 
 export interface DeleteAutoSnapshotRequest {
-  __type?: "DeleteAutoSnapshotRequest";
   /**
    * <p>The name of the source instance or disk from which to delete the automatic
    *       snapshot.</p>
@@ -3197,11 +3036,9 @@ export namespace DeleteAutoSnapshotRequest {
   export const filterSensitiveLog = (obj: DeleteAutoSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAutoSnapshotRequest => __isa(o, "DeleteAutoSnapshotRequest");
 }
 
 export interface DeleteAutoSnapshotResult {
-  __type?: "DeleteAutoSnapshotResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3213,11 +3050,9 @@ export namespace DeleteAutoSnapshotResult {
   export const filterSensitiveLog = (obj: DeleteAutoSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAutoSnapshotResult => __isa(o, "DeleteAutoSnapshotResult");
 }
 
 export interface DeleteCertificateRequest {
-  __type?: "DeleteCertificateRequest";
   /**
    * <p>The name of the certificate to delete.</p>
    *
@@ -3231,11 +3066,9 @@ export namespace DeleteCertificateRequest {
   export const filterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCertificateRequest => __isa(o, "DeleteCertificateRequest");
 }
 
 export interface DeleteCertificateResult {
-  __type?: "DeleteCertificateResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3247,11 +3080,9 @@ export namespace DeleteCertificateResult {
   export const filterSensitiveLog = (obj: DeleteCertificateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCertificateResult => __isa(o, "DeleteCertificateResult");
 }
 
 export interface DeleteContactMethodRequest {
-  __type?: "DeleteContactMethodRequest";
   /**
    * <p>The protocol that will be deleted, such as <code>Email</code> or <code>SMS</code> (text
    *       messaging).</p>
@@ -3268,11 +3099,9 @@ export namespace DeleteContactMethodRequest {
   export const filterSensitiveLog = (obj: DeleteContactMethodRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteContactMethodRequest => __isa(o, "DeleteContactMethodRequest");
 }
 
 export interface DeleteContactMethodResult {
-  __type?: "DeleteContactMethodResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3284,11 +3113,9 @@ export namespace DeleteContactMethodResult {
   export const filterSensitiveLog = (obj: DeleteContactMethodResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteContactMethodResult => __isa(o, "DeleteContactMethodResult");
 }
 
 export interface DeleteDiskRequest {
-  __type?: "DeleteDiskRequest";
   /**
    * <p>A Boolean value to indicate whether to delete the enabled add-ons for the disk.</p>
    */
@@ -3304,11 +3131,9 @@ export namespace DeleteDiskRequest {
   export const filterSensitiveLog = (obj: DeleteDiskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDiskRequest => __isa(o, "DeleteDiskRequest");
 }
 
 export interface DeleteDiskResult {
-  __type?: "DeleteDiskResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3320,11 +3145,9 @@ export namespace DeleteDiskResult {
   export const filterSensitiveLog = (obj: DeleteDiskResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDiskResult => __isa(o, "DeleteDiskResult");
 }
 
 export interface DeleteDiskSnapshotRequest {
-  __type?: "DeleteDiskSnapshotRequest";
   /**
    * <p>The name of the disk snapshot you want to delete (e.g.,
    *       <code>my-disk-snapshot</code>).</p>
@@ -3336,11 +3159,9 @@ export namespace DeleteDiskSnapshotRequest {
   export const filterSensitiveLog = (obj: DeleteDiskSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDiskSnapshotRequest => __isa(o, "DeleteDiskSnapshotRequest");
 }
 
 export interface DeleteDiskSnapshotResult {
-  __type?: "DeleteDiskSnapshotResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3352,11 +3173,9 @@ export namespace DeleteDiskSnapshotResult {
   export const filterSensitiveLog = (obj: DeleteDiskSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDiskSnapshotResult => __isa(o, "DeleteDiskSnapshotResult");
 }
 
 export interface DeleteDistributionRequest {
-  __type?: "DeleteDistributionRequest";
   /**
    * <p>The name of the distribution to delete.</p>
    *
@@ -3370,11 +3189,9 @@ export namespace DeleteDistributionRequest {
   export const filterSensitiveLog = (obj: DeleteDistributionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDistributionRequest => __isa(o, "DeleteDistributionRequest");
 }
 
 export interface DeleteDistributionResult {
-  __type?: "DeleteDistributionResult";
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
    *       timestamp of the request, and the resources affected by the request.</p>
@@ -3386,11 +3203,9 @@ export namespace DeleteDistributionResult {
   export const filterSensitiveLog = (obj: DeleteDistributionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDistributionResult => __isa(o, "DeleteDistributionResult");
 }
 
 export interface DeleteDomainEntryRequest {
-  __type?: "DeleteDomainEntryRequest";
   /**
    * <p>The name of the domain entry to delete.</p>
    */
@@ -3406,11 +3221,9 @@ export namespace DeleteDomainEntryRequest {
   export const filterSensitiveLog = (obj: DeleteDomainEntryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainEntryRequest => __isa(o, "DeleteDomainEntryRequest");
 }
 
 export interface DeleteDomainEntryResult {
-  __type?: "DeleteDomainEntryResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3422,11 +3235,9 @@ export namespace DeleteDomainEntryResult {
   export const filterSensitiveLog = (obj: DeleteDomainEntryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainEntryResult => __isa(o, "DeleteDomainEntryResult");
 }
 
 export interface DeleteDomainRequest {
-  __type?: "DeleteDomainRequest";
   /**
    * <p>The specific domain name to delete.</p>
    */
@@ -3437,11 +3248,9 @@ export namespace DeleteDomainRequest {
   export const filterSensitiveLog = (obj: DeleteDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainRequest => __isa(o, "DeleteDomainRequest");
 }
 
 export interface DeleteDomainResult {
-  __type?: "DeleteDomainResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3453,11 +3262,9 @@ export namespace DeleteDomainResult {
   export const filterSensitiveLog = (obj: DeleteDomainResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDomainResult => __isa(o, "DeleteDomainResult");
 }
 
 export interface DeleteInstanceRequest {
-  __type?: "DeleteInstanceRequest";
   /**
    * <p>The name of the instance to delete.</p>
    */
@@ -3473,11 +3280,9 @@ export namespace DeleteInstanceRequest {
   export const filterSensitiveLog = (obj: DeleteInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInstanceRequest => __isa(o, "DeleteInstanceRequest");
 }
 
 export interface DeleteInstanceResult {
-  __type?: "DeleteInstanceResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3489,11 +3294,9 @@ export namespace DeleteInstanceResult {
   export const filterSensitiveLog = (obj: DeleteInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInstanceResult => __isa(o, "DeleteInstanceResult");
 }
 
 export interface DeleteInstanceSnapshotRequest {
-  __type?: "DeleteInstanceSnapshotRequest";
   /**
    * <p>The name of the snapshot to delete.</p>
    */
@@ -3504,11 +3307,9 @@ export namespace DeleteInstanceSnapshotRequest {
   export const filterSensitiveLog = (obj: DeleteInstanceSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInstanceSnapshotRequest => __isa(o, "DeleteInstanceSnapshotRequest");
 }
 
 export interface DeleteInstanceSnapshotResult {
-  __type?: "DeleteInstanceSnapshotResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3520,11 +3321,9 @@ export namespace DeleteInstanceSnapshotResult {
   export const filterSensitiveLog = (obj: DeleteInstanceSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInstanceSnapshotResult => __isa(o, "DeleteInstanceSnapshotResult");
 }
 
 export interface DeleteKeyPairRequest {
-  __type?: "DeleteKeyPairRequest";
   /**
    * <p>The name of the key pair to delete.</p>
    */
@@ -3535,11 +3334,9 @@ export namespace DeleteKeyPairRequest {
   export const filterSensitiveLog = (obj: DeleteKeyPairRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteKeyPairRequest => __isa(o, "DeleteKeyPairRequest");
 }
 
 export interface DeleteKeyPairResult {
-  __type?: "DeleteKeyPairResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3551,11 +3348,9 @@ export namespace DeleteKeyPairResult {
   export const filterSensitiveLog = (obj: DeleteKeyPairResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteKeyPairResult => __isa(o, "DeleteKeyPairResult");
 }
 
 export interface DeleteKnownHostKeysRequest {
-  __type?: "DeleteKnownHostKeysRequest";
   /**
    * <p>The name of the instance for which you want to reset the host key or certificate.</p>
    */
@@ -3566,11 +3361,9 @@ export namespace DeleteKnownHostKeysRequest {
   export const filterSensitiveLog = (obj: DeleteKnownHostKeysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteKnownHostKeysRequest => __isa(o, "DeleteKnownHostKeysRequest");
 }
 
 export interface DeleteKnownHostKeysResult {
-  __type?: "DeleteKnownHostKeysResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3582,11 +3375,9 @@ export namespace DeleteKnownHostKeysResult {
   export const filterSensitiveLog = (obj: DeleteKnownHostKeysResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteKnownHostKeysResult => __isa(o, "DeleteKnownHostKeysResult");
 }
 
 export interface DeleteLoadBalancerRequest {
-  __type?: "DeleteLoadBalancerRequest";
   /**
    * <p>The name of the load balancer you want to delete.</p>
    */
@@ -3597,11 +3388,9 @@ export namespace DeleteLoadBalancerRequest {
   export const filterSensitiveLog = (obj: DeleteLoadBalancerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoadBalancerRequest => __isa(o, "DeleteLoadBalancerRequest");
 }
 
 export interface DeleteLoadBalancerResult {
-  __type?: "DeleteLoadBalancerResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3613,11 +3402,9 @@ export namespace DeleteLoadBalancerResult {
   export const filterSensitiveLog = (obj: DeleteLoadBalancerResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoadBalancerResult => __isa(o, "DeleteLoadBalancerResult");
 }
 
 export interface DeleteLoadBalancerTlsCertificateRequest {
-  __type?: "DeleteLoadBalancerTlsCertificateRequest";
   /**
    * <p>When <code>true</code>, forces the deletion of an SSL/TLS certificate.</p>
    *          <p>There can be two certificates associated with a Lightsail load balancer: the primary and
@@ -3641,12 +3428,9 @@ export namespace DeleteLoadBalancerTlsCertificateRequest {
   export const filterSensitiveLog = (obj: DeleteLoadBalancerTlsCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoadBalancerTlsCertificateRequest =>
-    __isa(o, "DeleteLoadBalancerTlsCertificateRequest");
 }
 
 export interface DeleteLoadBalancerTlsCertificateResult {
-  __type?: "DeleteLoadBalancerTlsCertificateResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3658,12 +3442,9 @@ export namespace DeleteLoadBalancerTlsCertificateResult {
   export const filterSensitiveLog = (obj: DeleteLoadBalancerTlsCertificateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoadBalancerTlsCertificateResult =>
-    __isa(o, "DeleteLoadBalancerTlsCertificateResult");
 }
 
 export interface DeleteRelationalDatabaseRequest {
-  __type?: "DeleteRelationalDatabaseRequest";
   /**
    * <p>The name of the database that you are deleting.</p>
    */
@@ -3704,11 +3485,9 @@ export namespace DeleteRelationalDatabaseRequest {
   export const filterSensitiveLog = (obj: DeleteRelationalDatabaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRelationalDatabaseRequest => __isa(o, "DeleteRelationalDatabaseRequest");
 }
 
 export interface DeleteRelationalDatabaseResult {
-  __type?: "DeleteRelationalDatabaseResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3720,11 +3499,9 @@ export namespace DeleteRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: DeleteRelationalDatabaseResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRelationalDatabaseResult => __isa(o, "DeleteRelationalDatabaseResult");
 }
 
 export interface DeleteRelationalDatabaseSnapshotRequest {
-  __type?: "DeleteRelationalDatabaseSnapshotRequest";
   /**
    * <p>The name of the database snapshot that you are deleting.</p>
    */
@@ -3735,12 +3512,9 @@ export namespace DeleteRelationalDatabaseSnapshotRequest {
   export const filterSensitiveLog = (obj: DeleteRelationalDatabaseSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRelationalDatabaseSnapshotRequest =>
-    __isa(o, "DeleteRelationalDatabaseSnapshotRequest");
 }
 
 export interface DeleteRelationalDatabaseSnapshotResult {
-  __type?: "DeleteRelationalDatabaseSnapshotResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3752,15 +3526,12 @@ export namespace DeleteRelationalDatabaseSnapshotResult {
   export const filterSensitiveLog = (obj: DeleteRelationalDatabaseSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRelationalDatabaseSnapshotResult =>
-    __isa(o, "DeleteRelationalDatabaseSnapshotResult");
 }
 
 /**
  * <p>Describes the destination of a record.</p>
  */
 export interface DestinationInfo {
-  __type?: "DestinationInfo";
   /**
    * <p>The destination service of the record.</p>
    */
@@ -3776,11 +3547,9 @@ export namespace DestinationInfo {
   export const filterSensitiveLog = (obj: DestinationInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DestinationInfo => __isa(o, "DestinationInfo");
 }
 
 export interface DetachCertificateFromDistributionRequest {
-  __type?: "DetachCertificateFromDistributionRequest";
   /**
    * <p>The name of the distribution from which to detach the certificate.</p>
    *
@@ -3794,12 +3563,9 @@ export namespace DetachCertificateFromDistributionRequest {
   export const filterSensitiveLog = (obj: DetachCertificateFromDistributionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachCertificateFromDistributionRequest =>
-    __isa(o, "DetachCertificateFromDistributionRequest");
 }
 
 export interface DetachCertificateFromDistributionResult {
-  __type?: "DetachCertificateFromDistributionResult";
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
    *       timestamp of the request, and the resources affected by the request.</p>
@@ -3811,12 +3577,9 @@ export namespace DetachCertificateFromDistributionResult {
   export const filterSensitiveLog = (obj: DetachCertificateFromDistributionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachCertificateFromDistributionResult =>
-    __isa(o, "DetachCertificateFromDistributionResult");
 }
 
 export interface DetachDiskRequest {
-  __type?: "DetachDiskRequest";
   /**
    * <p>The unique name of the disk you want to detach from your instance (e.g.,
    *         <code>my-disk</code>).</p>
@@ -3828,11 +3591,9 @@ export namespace DetachDiskRequest {
   export const filterSensitiveLog = (obj: DetachDiskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachDiskRequest => __isa(o, "DetachDiskRequest");
 }
 
 export interface DetachDiskResult {
-  __type?: "DetachDiskResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3844,11 +3605,9 @@ export namespace DetachDiskResult {
   export const filterSensitiveLog = (obj: DetachDiskResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachDiskResult => __isa(o, "DetachDiskResult");
 }
 
 export interface DetachInstancesFromLoadBalancerRequest {
-  __type?: "DetachInstancesFromLoadBalancerRequest";
   /**
    * <p>An array of strings containing the names of the instances you want to detach from the load
    *       balancer.</p>
@@ -3865,12 +3624,9 @@ export namespace DetachInstancesFromLoadBalancerRequest {
   export const filterSensitiveLog = (obj: DetachInstancesFromLoadBalancerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachInstancesFromLoadBalancerRequest =>
-    __isa(o, "DetachInstancesFromLoadBalancerRequest");
 }
 
 export interface DetachInstancesFromLoadBalancerResult {
-  __type?: "DetachInstancesFromLoadBalancerResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3882,12 +3638,9 @@ export namespace DetachInstancesFromLoadBalancerResult {
   export const filterSensitiveLog = (obj: DetachInstancesFromLoadBalancerResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachInstancesFromLoadBalancerResult =>
-    __isa(o, "DetachInstancesFromLoadBalancerResult");
 }
 
 export interface DetachStaticIpRequest {
-  __type?: "DetachStaticIpRequest";
   /**
    * <p>The name of the static IP to detach from the instance.</p>
    */
@@ -3898,11 +3651,9 @@ export namespace DetachStaticIpRequest {
   export const filterSensitiveLog = (obj: DetachStaticIpRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachStaticIpRequest => __isa(o, "DetachStaticIpRequest");
 }
 
 export interface DetachStaticIpResult {
-  __type?: "DetachStaticIpResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3914,11 +3665,9 @@ export namespace DetachStaticIpResult {
   export const filterSensitiveLog = (obj: DetachStaticIpResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachStaticIpResult => __isa(o, "DetachStaticIpResult");
 }
 
 export interface DisableAddOnRequest {
-  __type?: "DisableAddOnRequest";
   /**
    * <p>The add-on type to disable.</p>
    */
@@ -3934,11 +3683,9 @@ export namespace DisableAddOnRequest {
   export const filterSensitiveLog = (obj: DisableAddOnRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableAddOnRequest => __isa(o, "DisableAddOnRequest");
 }
 
 export interface DisableAddOnResult {
-  __type?: "DisableAddOnResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -3950,14 +3697,12 @@ export namespace DisableAddOnResult {
   export const filterSensitiveLog = (obj: DisableAddOnResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableAddOnResult => __isa(o, "DisableAddOnResult");
 }
 
 /**
  * <p>Describes a system disk or a block storage disk.</p>
  */
 export interface Disk {
-  __type?: "Disk";
   /**
    * <p>(Deprecated) The attachment state of the disk.</p>
    *          <note>
@@ -4062,14 +3807,12 @@ export namespace Disk {
   export const filterSensitiveLog = (obj: Disk): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Disk => __isa(o, "Disk");
 }
 
 /**
  * <p>Describes a disk.</p>
  */
 export interface DiskInfo {
-  __type?: "DiskInfo";
   /**
    * <p>A Boolean value indicating whether this disk is a system disk (has an operating system
    *       loaded on it).</p>
@@ -4096,14 +3839,12 @@ export namespace DiskInfo {
   export const filterSensitiveLog = (obj: DiskInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiskInfo => __isa(o, "DiskInfo");
 }
 
 /**
  * <p>Describes a block storage disk mapping.</p>
  */
 export interface DiskMap {
-  __type?: "DiskMap";
   /**
    * <p>The original disk path exposed to the instance (for example,
    *       <code>/dev/sdh</code>).</p>
@@ -4120,14 +3861,12 @@ export namespace DiskMap {
   export const filterSensitiveLog = (obj: DiskMap): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiskMap => __isa(o, "DiskMap");
 }
 
 /**
  * <p>Describes a block storage disk snapshot.</p>
  */
 export interface DiskSnapshot {
-  __type?: "DiskSnapshot";
   /**
    * <p>The support code. Include this code in your email to support when you have questions about
    *       an instance or another resource in Lightsail. This code enables our support team to look up
@@ -4216,14 +3955,12 @@ export namespace DiskSnapshot {
   export const filterSensitiveLog = (obj: DiskSnapshot): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiskSnapshot => __isa(o, "DiskSnapshot");
 }
 
 /**
  * <p>Describes a disk snapshot.</p>
  */
 export interface DiskSnapshotInfo {
-  __type?: "DiskSnapshotInfo";
   /**
    * <p>The size of the disk in GB (e.g., <code>32</code>).</p>
    */
@@ -4234,7 +3971,6 @@ export namespace DiskSnapshotInfo {
   export const filterSensitiveLog = (obj: DiskSnapshotInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiskSnapshotInfo => __isa(o, "DiskSnapshotInfo");
 }
 
 export enum DiskSnapshotState {
@@ -4256,7 +3992,6 @@ export enum DiskState {
  * <p>Describes the specifications of a distribution bundle.</p>
  */
 export interface DistributionBundle {
-  __type?: "DistributionBundle";
   /**
    * <p>The name of the distribution bundle.</p>
    */
@@ -4288,7 +4023,6 @@ export namespace DistributionBundle {
   export const filterSensitiveLog = (obj: DistributionBundle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DistributionBundle => __isa(o, "DistributionBundle");
 }
 
 export enum DistributionMetricName {
@@ -4304,7 +4038,6 @@ export enum DistributionMetricName {
  * <p>Describes a domain where you are storing recordsets in Lightsail.</p>
  */
 export interface Domain {
-  __type?: "Domain";
   /**
    * <p>The AWS Region and Availability Zones where the domain recordset was created.</p>
    */
@@ -4355,14 +4088,12 @@ export namespace Domain {
   export const filterSensitiveLog = (obj: Domain): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Domain => __isa(o, "Domain");
 }
 
 /**
  * <p>Describes a domain recordset entry.</p>
  */
 export interface DomainEntry {
-  __type?: "DomainEntry";
   /**
    * <p>The target AWS name server (e.g., <code>ns-111.awsdns-22.com.</code>).</p>
    *          <p>For Lightsail load balancers, the value looks like
@@ -4447,14 +4178,12 @@ export namespace DomainEntry {
   export const filterSensitiveLog = (obj: DomainEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainEntry => __isa(o, "DomainEntry");
 }
 
 /**
  * <p>Describes the domain validation records of an Amazon Lightsail SSL/TLS certificate.</p>
  */
 export interface DomainValidationRecord {
-  __type?: "DomainValidationRecord";
   /**
    * <p>The domain name of the certificate validation record. For example,
    *         <code>example.com</code> or <code>www.example.com</code>.</p>
@@ -4472,22 +4201,17 @@ export namespace DomainValidationRecord {
   export const filterSensitiveLog = (obj: DomainValidationRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainValidationRecord => __isa(o, "DomainValidationRecord");
 }
 
-export interface DownloadDefaultKeyPairRequest {
-  __type?: "DownloadDefaultKeyPairRequest";
-}
+export interface DownloadDefaultKeyPairRequest {}
 
 export namespace DownloadDefaultKeyPairRequest {
   export const filterSensitiveLog = (obj: DownloadDefaultKeyPairRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DownloadDefaultKeyPairRequest => __isa(o, "DownloadDefaultKeyPairRequest");
 }
 
 export interface DownloadDefaultKeyPairResult {
-  __type?: "DownloadDefaultKeyPairResult";
   /**
    * <p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>
    */
@@ -4503,11 +4227,9 @@ export namespace DownloadDefaultKeyPairResult {
   export const filterSensitiveLog = (obj: DownloadDefaultKeyPairResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DownloadDefaultKeyPairResult => __isa(o, "DownloadDefaultKeyPairResult");
 }
 
 export interface EnableAddOnRequest {
-  __type?: "EnableAddOnRequest";
   /**
    * <p>An array of strings representing the add-on to enable or modify.</p>
    */
@@ -4523,11 +4245,9 @@ export namespace EnableAddOnRequest {
   export const filterSensitiveLog = (obj: EnableAddOnRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableAddOnRequest => __isa(o, "EnableAddOnRequest");
 }
 
 export interface EnableAddOnResult {
-  __type?: "EnableAddOnResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -4539,14 +4259,12 @@ export namespace EnableAddOnResult {
   export const filterSensitiveLog = (obj: EnableAddOnResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableAddOnResult => __isa(o, "EnableAddOnResult");
 }
 
 /**
  * <p>Describes an export snapshot record.</p>
  */
 export interface ExportSnapshotRecord {
-  __type?: "ExportSnapshotRecord";
   /**
    * <p>The Amazon Resource Name (ARN) of the export snapshot record.</p>
    */
@@ -4592,14 +4310,12 @@ export namespace ExportSnapshotRecord {
   export const filterSensitiveLog = (obj: ExportSnapshotRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportSnapshotRecord => __isa(o, "ExportSnapshotRecord");
 }
 
 /**
  * <p>Describes the source of an export snapshot record.</p>
  */
 export interface ExportSnapshotRecordSourceInfo {
-  __type?: "ExportSnapshotRecordSourceInfo";
   /**
    * <p>A list of objects describing an instance snapshot.</p>
    */
@@ -4646,7 +4362,6 @@ export namespace ExportSnapshotRecordSourceInfo {
   export const filterSensitiveLog = (obj: ExportSnapshotRecordSourceInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportSnapshotRecordSourceInfo => __isa(o, "ExportSnapshotRecordSourceInfo");
 }
 
 export enum ExportSnapshotRecordSourceType {
@@ -4655,7 +4370,6 @@ export enum ExportSnapshotRecordSourceType {
 }
 
 export interface ExportSnapshotRequest {
-  __type?: "ExportSnapshotRequest";
   /**
    * <p>The name of the instance or disk snapshot to be exported to Amazon EC2.</p>
    */
@@ -4666,11 +4380,9 @@ export namespace ExportSnapshotRequest {
   export const filterSensitiveLog = (obj: ExportSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportSnapshotRequest => __isa(o, "ExportSnapshotRequest");
 }
 
 export interface ExportSnapshotResult {
-  __type?: "ExportSnapshotResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -4682,7 +4394,6 @@ export namespace ExportSnapshotResult {
   export const filterSensitiveLog = (obj: ExportSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportSnapshotResult => __isa(o, "ExportSnapshotResult");
 }
 
 export enum ForwardValues {
@@ -4692,7 +4403,6 @@ export enum ForwardValues {
 }
 
 export interface GetActiveNamesRequest {
-  __type?: "GetActiveNamesRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetActiveNames</code> request. If your
@@ -4706,11 +4416,9 @@ export namespace GetActiveNamesRequest {
   export const filterSensitiveLog = (obj: GetActiveNamesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetActiveNamesRequest => __isa(o, "GetActiveNamesRequest");
 }
 
 export interface GetActiveNamesResult {
-  __type?: "GetActiveNamesResult";
   /**
    * <p>The token to advance to the next page of resutls from your request.</p>
    *          <p>A next page token is not returned if there are no more results to display.</p>
@@ -4729,11 +4437,9 @@ export namespace GetActiveNamesResult {
   export const filterSensitiveLog = (obj: GetActiveNamesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetActiveNamesResult => __isa(o, "GetActiveNamesResult");
 }
 
 export interface GetAlarmsRequest {
-  __type?: "GetAlarmsRequest";
   /**
    * <p>The name of the Lightsail resource being monitored by the alarm.</p>
    *          <p>Specify a monitored resource name to return information about all alarms for a specific
@@ -4760,11 +4466,9 @@ export namespace GetAlarmsRequest {
   export const filterSensitiveLog = (obj: GetAlarmsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAlarmsRequest => __isa(o, "GetAlarmsRequest");
 }
 
 export interface GetAlarmsResult {
-  __type?: "GetAlarmsResult";
   /**
    * <p>The token to advance to the next page of resutls from your request.</p>
    *          <p>A next page token is not returned if there are no more results to display.</p>
@@ -4783,11 +4487,9 @@ export namespace GetAlarmsResult {
   export const filterSensitiveLog = (obj: GetAlarmsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAlarmsResult => __isa(o, "GetAlarmsResult");
 }
 
 export interface GetAutoSnapshotsRequest {
-  __type?: "GetAutoSnapshotsRequest";
   /**
    * <p>The name of the source instance or disk from which to get automatic snapshot
    *       information.</p>
@@ -4799,11 +4501,9 @@ export namespace GetAutoSnapshotsRequest {
   export const filterSensitiveLog = (obj: GetAutoSnapshotsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAutoSnapshotsRequest => __isa(o, "GetAutoSnapshotsRequest");
 }
 
 export interface GetAutoSnapshotsResult {
-  __type?: "GetAutoSnapshotsResult";
   /**
    * <p>An array of objects that describe the automatic snapshots that are available for the
    *       specified source instance or disk.</p>
@@ -4825,11 +4525,9 @@ export namespace GetAutoSnapshotsResult {
   export const filterSensitiveLog = (obj: GetAutoSnapshotsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAutoSnapshotsResult => __isa(o, "GetAutoSnapshotsResult");
 }
 
 export interface GetBlueprintsRequest {
-  __type?: "GetBlueprintsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetBlueprints</code> request. If your
@@ -4848,11 +4546,9 @@ export namespace GetBlueprintsRequest {
   export const filterSensitiveLog = (obj: GetBlueprintsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBlueprintsRequest => __isa(o, "GetBlueprintsRequest");
 }
 
 export interface GetBlueprintsResult {
-  __type?: "GetBlueprintsResult";
   /**
    * <p>An array of key-value pairs that contains information about the available
    *       blueprints.</p>
@@ -4872,11 +4568,9 @@ export namespace GetBlueprintsResult {
   export const filterSensitiveLog = (obj: GetBlueprintsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBlueprintsResult => __isa(o, "GetBlueprintsResult");
 }
 
 export interface GetBundlesRequest {
-  __type?: "GetBundlesRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetBundles</code> request. If your results
@@ -4896,11 +4590,9 @@ export namespace GetBundlesRequest {
   export const filterSensitiveLog = (obj: GetBundlesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBundlesRequest => __isa(o, "GetBundlesRequest");
 }
 
 export interface GetBundlesResult {
-  __type?: "GetBundlesResult";
   /**
    * <p>An array of key-value pairs that contains information about the available bundles.</p>
    */
@@ -4919,11 +4611,9 @@ export namespace GetBundlesResult {
   export const filterSensitiveLog = (obj: GetBundlesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBundlesResult => __isa(o, "GetBundlesResult");
 }
 
 export interface GetCertificatesRequest {
-  __type?: "GetCertificatesRequest";
   /**
    * <p>Indicates whether to include detailed information about the certificates in the
    *       response.</p>
@@ -4957,11 +4647,9 @@ export namespace GetCertificatesRequest {
   export const filterSensitiveLog = (obj: GetCertificatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCertificatesRequest => __isa(o, "GetCertificatesRequest");
 }
 
 export interface GetCertificatesResult {
-  __type?: "GetCertificatesResult";
   /**
    * <p>An object that describes certificates.</p>
    */
@@ -4972,11 +4660,9 @@ export namespace GetCertificatesResult {
   export const filterSensitiveLog = (obj: GetCertificatesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCertificatesResult => __isa(o, "GetCertificatesResult");
 }
 
 export interface GetCloudFormationStackRecordsRequest {
-  __type?: "GetCloudFormationStackRecordsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetClouFormationStackRecords</code> request.
@@ -4990,12 +4676,9 @@ export namespace GetCloudFormationStackRecordsRequest {
   export const filterSensitiveLog = (obj: GetCloudFormationStackRecordsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCloudFormationStackRecordsRequest =>
-    __isa(o, "GetCloudFormationStackRecordsRequest");
 }
 
 export interface GetCloudFormationStackRecordsResult {
-  __type?: "GetCloudFormationStackRecordsResult";
   /**
    * <p>A list of objects describing the CloudFormation stack records.</p>
    */
@@ -5015,12 +4698,9 @@ export namespace GetCloudFormationStackRecordsResult {
   export const filterSensitiveLog = (obj: GetCloudFormationStackRecordsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCloudFormationStackRecordsResult =>
-    __isa(o, "GetCloudFormationStackRecordsResult");
 }
 
 export interface GetContactMethodsRequest {
-  __type?: "GetContactMethodsRequest";
   /**
    * <p>The protocols used to send notifications, such as <code>Email</code>, or <code>SMS</code>
    *       (text messaging).</p>
@@ -5034,11 +4714,9 @@ export namespace GetContactMethodsRequest {
   export const filterSensitiveLog = (obj: GetContactMethodsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetContactMethodsRequest => __isa(o, "GetContactMethodsRequest");
 }
 
 export interface GetContactMethodsResult {
-  __type?: "GetContactMethodsResult";
   /**
    * <p>An array of objects that describe the contact methods.</p>
    */
@@ -5049,11 +4727,9 @@ export namespace GetContactMethodsResult {
   export const filterSensitiveLog = (obj: GetContactMethodsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetContactMethodsResult => __isa(o, "GetContactMethodsResult");
 }
 
 export interface GetDiskRequest {
-  __type?: "GetDiskRequest";
   /**
    * <p>The name of the disk (e.g., <code>my-disk</code>).</p>
    */
@@ -5064,11 +4740,9 @@ export namespace GetDiskRequest {
   export const filterSensitiveLog = (obj: GetDiskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDiskRequest => __isa(o, "GetDiskRequest");
 }
 
 export interface GetDiskResult {
-  __type?: "GetDiskResult";
   /**
    * <p>An object containing information about the disk.</p>
    */
@@ -5079,11 +4753,9 @@ export namespace GetDiskResult {
   export const filterSensitiveLog = (obj: GetDiskResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDiskResult => __isa(o, "GetDiskResult");
 }
 
 export interface GetDiskSnapshotRequest {
-  __type?: "GetDiskSnapshotRequest";
   /**
    * <p>The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>).</p>
    */
@@ -5094,11 +4766,9 @@ export namespace GetDiskSnapshotRequest {
   export const filterSensitiveLog = (obj: GetDiskSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDiskSnapshotRequest => __isa(o, "GetDiskSnapshotRequest");
 }
 
 export interface GetDiskSnapshotResult {
-  __type?: "GetDiskSnapshotResult";
   /**
    * <p>An object containing information about the disk snapshot.</p>
    */
@@ -5109,11 +4779,9 @@ export namespace GetDiskSnapshotResult {
   export const filterSensitiveLog = (obj: GetDiskSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDiskSnapshotResult => __isa(o, "GetDiskSnapshotResult");
 }
 
 export interface GetDiskSnapshotsRequest {
-  __type?: "GetDiskSnapshotsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetDiskSnapshots</code> request. If your
@@ -5127,11 +4795,9 @@ export namespace GetDiskSnapshotsRequest {
   export const filterSensitiveLog = (obj: GetDiskSnapshotsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDiskSnapshotsRequest => __isa(o, "GetDiskSnapshotsRequest");
 }
 
 export interface GetDiskSnapshotsResult {
-  __type?: "GetDiskSnapshotsResult";
   /**
    * <p>An array of objects containing information about all block storage disk snapshots.</p>
    */
@@ -5150,11 +4816,9 @@ export namespace GetDiskSnapshotsResult {
   export const filterSensitiveLog = (obj: GetDiskSnapshotsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDiskSnapshotsResult => __isa(o, "GetDiskSnapshotsResult");
 }
 
 export interface GetDisksRequest {
-  __type?: "GetDisksRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetDisks</code> request. If your results are
@@ -5168,11 +4832,9 @@ export namespace GetDisksRequest {
   export const filterSensitiveLog = (obj: GetDisksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDisksRequest => __isa(o, "GetDisksRequest");
 }
 
 export interface GetDisksResult {
-  __type?: "GetDisksResult";
   /**
    * <p>An array of objects containing information about all block storage disks.</p>
    */
@@ -5191,22 +4853,17 @@ export namespace GetDisksResult {
   export const filterSensitiveLog = (obj: GetDisksResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDisksResult => __isa(o, "GetDisksResult");
 }
 
-export interface GetDistributionBundlesRequest {
-  __type?: "GetDistributionBundlesRequest";
-}
+export interface GetDistributionBundlesRequest {}
 
 export namespace GetDistributionBundlesRequest {
   export const filterSensitiveLog = (obj: GetDistributionBundlesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDistributionBundlesRequest => __isa(o, "GetDistributionBundlesRequest");
 }
 
 export interface GetDistributionBundlesResult {
-  __type?: "GetDistributionBundlesResult";
   /**
    * <p>An object that describes a distribution bundle.</p>
    */
@@ -5217,11 +4874,9 @@ export namespace GetDistributionBundlesResult {
   export const filterSensitiveLog = (obj: GetDistributionBundlesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDistributionBundlesResult => __isa(o, "GetDistributionBundlesResult");
 }
 
 export interface GetDistributionLatestCacheResetRequest {
-  __type?: "GetDistributionLatestCacheResetRequest";
   /**
    * <p>The name of the distribution for which to return the timestamp of the last cache
    *       reset.</p>
@@ -5239,12 +4894,9 @@ export namespace GetDistributionLatestCacheResetRequest {
   export const filterSensitiveLog = (obj: GetDistributionLatestCacheResetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDistributionLatestCacheResetRequest =>
-    __isa(o, "GetDistributionLatestCacheResetRequest");
 }
 
 export interface GetDistributionLatestCacheResetResult {
-  __type?: "GetDistributionLatestCacheResetResult";
   /**
    * <p>The status of the last cache reset.</p>
    */
@@ -5261,12 +4913,9 @@ export namespace GetDistributionLatestCacheResetResult {
   export const filterSensitiveLog = (obj: GetDistributionLatestCacheResetResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDistributionLatestCacheResetResult =>
-    __isa(o, "GetDistributionLatestCacheResetResult");
 }
 
 export interface GetDistributionMetricDataRequest {
-  __type?: "GetDistributionMetricDataRequest";
   /**
    * <p>The metric for which you want to return information.</p>
    *
@@ -5446,11 +5095,9 @@ export namespace GetDistributionMetricDataRequest {
   export const filterSensitiveLog = (obj: GetDistributionMetricDataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDistributionMetricDataRequest => __isa(o, "GetDistributionMetricDataRequest");
 }
 
 export interface GetDistributionMetricDataResult {
-  __type?: "GetDistributionMetricDataResult";
   /**
    * <p>An array of objects that describe the metric data returned.</p>
    */
@@ -5466,11 +5113,9 @@ export namespace GetDistributionMetricDataResult {
   export const filterSensitiveLog = (obj: GetDistributionMetricDataResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDistributionMetricDataResult => __isa(o, "GetDistributionMetricDataResult");
 }
 
 export interface GetDistributionsRequest {
-  __type?: "GetDistributionsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *
@@ -5496,11 +5141,9 @@ export namespace GetDistributionsRequest {
   export const filterSensitiveLog = (obj: GetDistributionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDistributionsRequest => __isa(o, "GetDistributionsRequest");
 }
 
 export interface GetDistributionsResult {
-  __type?: "GetDistributionsResult";
   /**
    * <p>An array of objects that describe your distributions.</p>
    */
@@ -5520,11 +5163,9 @@ export namespace GetDistributionsResult {
   export const filterSensitiveLog = (obj: GetDistributionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDistributionsResult => __isa(o, "GetDistributionsResult");
 }
 
 export interface GetDomainRequest {
-  __type?: "GetDomainRequest";
   /**
    * <p>The domain name for which your want to return information about.</p>
    */
@@ -5535,11 +5176,9 @@ export namespace GetDomainRequest {
   export const filterSensitiveLog = (obj: GetDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainRequest => __isa(o, "GetDomainRequest");
 }
 
 export interface GetDomainResult {
-  __type?: "GetDomainResult";
   /**
    * <p>An array of key-value pairs containing information about your get domain request.</p>
    */
@@ -5550,11 +5189,9 @@ export namespace GetDomainResult {
   export const filterSensitiveLog = (obj: GetDomainResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainResult => __isa(o, "GetDomainResult");
 }
 
 export interface GetDomainsRequest {
-  __type?: "GetDomainsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetDomains</code> request. If your results
@@ -5568,11 +5205,9 @@ export namespace GetDomainsRequest {
   export const filterSensitiveLog = (obj: GetDomainsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainsRequest => __isa(o, "GetDomainsRequest");
 }
 
 export interface GetDomainsResult {
-  __type?: "GetDomainsResult";
   /**
    * <p>An array of key-value pairs containing information about each of the domain entries in the
    *       user's account.</p>
@@ -5592,11 +5227,9 @@ export namespace GetDomainsResult {
   export const filterSensitiveLog = (obj: GetDomainsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDomainsResult => __isa(o, "GetDomainsResult");
 }
 
 export interface GetExportSnapshotRecordsRequest {
-  __type?: "GetExportSnapshotRecordsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetExportSnapshotRecords</code> request. If
@@ -5610,11 +5243,9 @@ export namespace GetExportSnapshotRecordsRequest {
   export const filterSensitiveLog = (obj: GetExportSnapshotRecordsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExportSnapshotRecordsRequest => __isa(o, "GetExportSnapshotRecordsRequest");
 }
 
 export interface GetExportSnapshotRecordsResult {
-  __type?: "GetExportSnapshotRecordsResult";
   /**
    * <p>A list of objects describing the export snapshot records.</p>
    */
@@ -5633,11 +5264,9 @@ export namespace GetExportSnapshotRecordsResult {
   export const filterSensitiveLog = (obj: GetExportSnapshotRecordsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetExportSnapshotRecordsResult => __isa(o, "GetExportSnapshotRecordsResult");
 }
 
 export interface GetInstanceAccessDetailsRequest {
-  __type?: "GetInstanceAccessDetailsRequest";
   /**
    * <p>The protocol to use to connect to your instance. Defaults to <code>ssh</code>.</p>
    */
@@ -5653,11 +5282,9 @@ export namespace GetInstanceAccessDetailsRequest {
   export const filterSensitiveLog = (obj: GetInstanceAccessDetailsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceAccessDetailsRequest => __isa(o, "GetInstanceAccessDetailsRequest");
 }
 
 export interface GetInstanceAccessDetailsResult {
-  __type?: "GetInstanceAccessDetailsResult";
   /**
    * <p>An array of key-value pairs containing information about a get instance access
    *       request.</p>
@@ -5669,11 +5296,9 @@ export namespace GetInstanceAccessDetailsResult {
   export const filterSensitiveLog = (obj: GetInstanceAccessDetailsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceAccessDetailsResult => __isa(o, "GetInstanceAccessDetailsResult");
 }
 
 export interface GetInstanceMetricDataRequest {
-  __type?: "GetInstanceMetricDataRequest";
   /**
    * <p>The start time of the time period.</p>
    */
@@ -5871,11 +5496,9 @@ export namespace GetInstanceMetricDataRequest {
   export const filterSensitiveLog = (obj: GetInstanceMetricDataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceMetricDataRequest => __isa(o, "GetInstanceMetricDataRequest");
 }
 
 export interface GetInstanceMetricDataResult {
-  __type?: "GetInstanceMetricDataResult";
   /**
    * <p>An array of objects that describe the metric data returned.</p>
    */
@@ -5891,11 +5514,9 @@ export namespace GetInstanceMetricDataResult {
   export const filterSensitiveLog = (obj: GetInstanceMetricDataResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceMetricDataResult => __isa(o, "GetInstanceMetricDataResult");
 }
 
 export interface GetInstancePortStatesRequest {
-  __type?: "GetInstancePortStatesRequest";
   /**
    * <p>The name of the instance for which to return firewall port states.</p>
    */
@@ -5906,11 +5527,9 @@ export namespace GetInstancePortStatesRequest {
   export const filterSensitiveLog = (obj: GetInstancePortStatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstancePortStatesRequest => __isa(o, "GetInstancePortStatesRequest");
 }
 
 export interface GetInstancePortStatesResult {
-  __type?: "GetInstancePortStatesResult";
   /**
    * <p>An array of objects that describe the firewall port states for the specified
    *       instance.</p>
@@ -5922,11 +5541,9 @@ export namespace GetInstancePortStatesResult {
   export const filterSensitiveLog = (obj: GetInstancePortStatesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstancePortStatesResult => __isa(o, "GetInstancePortStatesResult");
 }
 
 export interface GetInstanceRequest {
-  __type?: "GetInstanceRequest";
   /**
    * <p>The name of the instance.</p>
    */
@@ -5937,11 +5554,9 @@ export namespace GetInstanceRequest {
   export const filterSensitiveLog = (obj: GetInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceRequest => __isa(o, "GetInstanceRequest");
 }
 
 export interface GetInstanceResult {
-  __type?: "GetInstanceResult";
   /**
    * <p>An array of key-value pairs containing information about the specified instance.</p>
    */
@@ -5952,11 +5567,9 @@ export namespace GetInstanceResult {
   export const filterSensitiveLog = (obj: GetInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceResult => __isa(o, "GetInstanceResult");
 }
 
 export interface GetInstanceSnapshotRequest {
-  __type?: "GetInstanceSnapshotRequest";
   /**
    * <p>The name of the snapshot for which you are requesting information.</p>
    */
@@ -5967,11 +5580,9 @@ export namespace GetInstanceSnapshotRequest {
   export const filterSensitiveLog = (obj: GetInstanceSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceSnapshotRequest => __isa(o, "GetInstanceSnapshotRequest");
 }
 
 export interface GetInstanceSnapshotResult {
-  __type?: "GetInstanceSnapshotResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your get instance
    *       snapshot request.</p>
@@ -5983,11 +5594,9 @@ export namespace GetInstanceSnapshotResult {
   export const filterSensitiveLog = (obj: GetInstanceSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceSnapshotResult => __isa(o, "GetInstanceSnapshotResult");
 }
 
 export interface GetInstanceSnapshotsRequest {
-  __type?: "GetInstanceSnapshotsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetInstanceSnapshots</code> request. If your
@@ -6001,11 +5610,9 @@ export namespace GetInstanceSnapshotsRequest {
   export const filterSensitiveLog = (obj: GetInstanceSnapshotsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceSnapshotsRequest => __isa(o, "GetInstanceSnapshotsRequest");
 }
 
 export interface GetInstanceSnapshotsResult {
-  __type?: "GetInstanceSnapshotsResult";
   /**
    * <p>The token to advance to the next page of resutls from your request.</p>
    *          <p>A next page token is not returned if there are no more results to display.</p>
@@ -6025,11 +5632,9 @@ export namespace GetInstanceSnapshotsResult {
   export const filterSensitiveLog = (obj: GetInstanceSnapshotsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceSnapshotsResult => __isa(o, "GetInstanceSnapshotsResult");
 }
 
 export interface GetInstancesRequest {
-  __type?: "GetInstancesRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetInstances</code> request. If your results
@@ -6043,11 +5648,9 @@ export namespace GetInstancesRequest {
   export const filterSensitiveLog = (obj: GetInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstancesRequest => __isa(o, "GetInstancesRequest");
 }
 
 export interface GetInstancesResult {
-  __type?: "GetInstancesResult";
   /**
    * <p>An array of key-value pairs containing information about your instances.</p>
    */
@@ -6066,11 +5669,9 @@ export namespace GetInstancesResult {
   export const filterSensitiveLog = (obj: GetInstancesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstancesResult => __isa(o, "GetInstancesResult");
 }
 
 export interface GetInstanceStateRequest {
-  __type?: "GetInstanceStateRequest";
   /**
    * <p>The name of the instance to get state information about.</p>
    */
@@ -6081,11 +5682,9 @@ export namespace GetInstanceStateRequest {
   export const filterSensitiveLog = (obj: GetInstanceStateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceStateRequest => __isa(o, "GetInstanceStateRequest");
 }
 
 export interface GetInstanceStateResult {
-  __type?: "GetInstanceStateResult";
   /**
    * <p>The state of the instance.</p>
    */
@@ -6096,11 +5695,9 @@ export namespace GetInstanceStateResult {
   export const filterSensitiveLog = (obj: GetInstanceStateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceStateResult => __isa(o, "GetInstanceStateResult");
 }
 
 export interface GetKeyPairRequest {
-  __type?: "GetKeyPairRequest";
   /**
    * <p>The name of the key pair for which you are requesting information.</p>
    */
@@ -6111,11 +5708,9 @@ export namespace GetKeyPairRequest {
   export const filterSensitiveLog = (obj: GetKeyPairRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetKeyPairRequest => __isa(o, "GetKeyPairRequest");
 }
 
 export interface GetKeyPairResult {
-  __type?: "GetKeyPairResult";
   /**
    * <p>An array of key-value pairs containing information about the key pair.</p>
    */
@@ -6126,11 +5721,9 @@ export namespace GetKeyPairResult {
   export const filterSensitiveLog = (obj: GetKeyPairResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetKeyPairResult => __isa(o, "GetKeyPairResult");
 }
 
 export interface GetKeyPairsRequest {
-  __type?: "GetKeyPairsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetKeyPairs</code> request. If your results
@@ -6144,11 +5737,9 @@ export namespace GetKeyPairsRequest {
   export const filterSensitiveLog = (obj: GetKeyPairsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetKeyPairsRequest => __isa(o, "GetKeyPairsRequest");
 }
 
 export interface GetKeyPairsResult {
-  __type?: "GetKeyPairsResult";
   /**
    * <p>An array of key-value pairs containing information about the key pairs.</p>
    */
@@ -6167,11 +5758,9 @@ export namespace GetKeyPairsResult {
   export const filterSensitiveLog = (obj: GetKeyPairsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetKeyPairsResult => __isa(o, "GetKeyPairsResult");
 }
 
 export interface GetLoadBalancerMetricDataRequest {
-  __type?: "GetLoadBalancerMetricDataRequest";
   /**
    * <p>The granularity, in seconds, of the returned data points.</p>
    */
@@ -6412,11 +6001,9 @@ export namespace GetLoadBalancerMetricDataRequest {
   export const filterSensitiveLog = (obj: GetLoadBalancerMetricDataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoadBalancerMetricDataRequest => __isa(o, "GetLoadBalancerMetricDataRequest");
 }
 
 export interface GetLoadBalancerMetricDataResult {
-  __type?: "GetLoadBalancerMetricDataResult";
   /**
    * <p>An array of objects that describe the metric data returned.</p>
    */
@@ -6432,11 +6019,9 @@ export namespace GetLoadBalancerMetricDataResult {
   export const filterSensitiveLog = (obj: GetLoadBalancerMetricDataResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoadBalancerMetricDataResult => __isa(o, "GetLoadBalancerMetricDataResult");
 }
 
 export interface GetLoadBalancerRequest {
-  __type?: "GetLoadBalancerRequest";
   /**
    * <p>The name of the load balancer.</p>
    */
@@ -6447,11 +6032,9 @@ export namespace GetLoadBalancerRequest {
   export const filterSensitiveLog = (obj: GetLoadBalancerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoadBalancerRequest => __isa(o, "GetLoadBalancerRequest");
 }
 
 export interface GetLoadBalancerResult {
-  __type?: "GetLoadBalancerResult";
   /**
    * <p>An object containing information about your load balancer.</p>
    */
@@ -6462,11 +6045,9 @@ export namespace GetLoadBalancerResult {
   export const filterSensitiveLog = (obj: GetLoadBalancerResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoadBalancerResult => __isa(o, "GetLoadBalancerResult");
 }
 
 export interface GetLoadBalancersRequest {
-  __type?: "GetLoadBalancersRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetLoadBalancers</code> request. If your
@@ -6480,11 +6061,9 @@ export namespace GetLoadBalancersRequest {
   export const filterSensitiveLog = (obj: GetLoadBalancersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoadBalancersRequest => __isa(o, "GetLoadBalancersRequest");
 }
 
 export interface GetLoadBalancersResult {
-  __type?: "GetLoadBalancersResult";
   /**
    * <p>An array of LoadBalancer objects describing your load balancers.</p>
    */
@@ -6503,11 +6082,9 @@ export namespace GetLoadBalancersResult {
   export const filterSensitiveLog = (obj: GetLoadBalancersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoadBalancersResult => __isa(o, "GetLoadBalancersResult");
 }
 
 export interface GetLoadBalancerTlsCertificatesRequest {
-  __type?: "GetLoadBalancerTlsCertificatesRequest";
   /**
    * <p>The name of the load balancer you associated with your SSL/TLS certificate.</p>
    */
@@ -6518,12 +6095,9 @@ export namespace GetLoadBalancerTlsCertificatesRequest {
   export const filterSensitiveLog = (obj: GetLoadBalancerTlsCertificatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoadBalancerTlsCertificatesRequest =>
-    __isa(o, "GetLoadBalancerTlsCertificatesRequest");
 }
 
 export interface GetLoadBalancerTlsCertificatesResult {
-  __type?: "GetLoadBalancerTlsCertificatesResult";
   /**
    * <p>An array of LoadBalancerTlsCertificate objects describing your SSL/TLS
    *       certificates.</p>
@@ -6535,12 +6109,9 @@ export namespace GetLoadBalancerTlsCertificatesResult {
   export const filterSensitiveLog = (obj: GetLoadBalancerTlsCertificatesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoadBalancerTlsCertificatesResult =>
-    __isa(o, "GetLoadBalancerTlsCertificatesResult");
 }
 
 export interface GetOperationRequest {
-  __type?: "GetOperationRequest";
   /**
    * <p>A GUID used to identify the operation.</p>
    */
@@ -6551,11 +6122,9 @@ export namespace GetOperationRequest {
   export const filterSensitiveLog = (obj: GetOperationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOperationRequest => __isa(o, "GetOperationRequest");
 }
 
 export interface GetOperationResult {
-  __type?: "GetOperationResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -6567,11 +6136,9 @@ export namespace GetOperationResult {
   export const filterSensitiveLog = (obj: GetOperationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOperationResult => __isa(o, "GetOperationResult");
 }
 
 export interface GetOperationsForResourceRequest {
-  __type?: "GetOperationsForResourceRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetOperationsForResource</code> request. If
@@ -6590,11 +6157,9 @@ export namespace GetOperationsForResourceRequest {
   export const filterSensitiveLog = (obj: GetOperationsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOperationsForResourceRequest => __isa(o, "GetOperationsForResourceRequest");
 }
 
 export interface GetOperationsForResourceResult {
-  __type?: "GetOperationsForResourceResult";
   /**
    * <p>The token to advance to the next page of resutls from your request.</p>
    *          <p>A next page token is not returned if there are no more results to display.</p>
@@ -6624,11 +6189,9 @@ export namespace GetOperationsForResourceResult {
   export const filterSensitiveLog = (obj: GetOperationsForResourceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOperationsForResourceResult => __isa(o, "GetOperationsForResourceResult");
 }
 
 export interface GetOperationsRequest {
-  __type?: "GetOperationsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetOperations</code> request. If your
@@ -6642,11 +6205,9 @@ export namespace GetOperationsRequest {
   export const filterSensitiveLog = (obj: GetOperationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOperationsRequest => __isa(o, "GetOperationsRequest");
 }
 
 export interface GetOperationsResult {
-  __type?: "GetOperationsResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -6666,11 +6227,9 @@ export namespace GetOperationsResult {
   export const filterSensitiveLog = (obj: GetOperationsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOperationsResult => __isa(o, "GetOperationsResult");
 }
 
 export interface GetRegionsRequest {
-  __type?: "GetRegionsRequest";
   /**
    * <p>A Boolean value indicating whether to also include Availability Zones in your get regions
    *       request. Availability Zones are indicated with a letter: e.g., <code>us-east-2a</code>.</p>
@@ -6689,11 +6248,9 @@ export namespace GetRegionsRequest {
   export const filterSensitiveLog = (obj: GetRegionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRegionsRequest => __isa(o, "GetRegionsRequest");
 }
 
 export interface GetRegionsResult {
-  __type?: "GetRegionsResult";
   /**
    * <p>An array of key-value pairs containing information about your get regions request.</p>
    */
@@ -6704,11 +6261,9 @@ export namespace GetRegionsResult {
   export const filterSensitiveLog = (obj: GetRegionsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRegionsResult => __isa(o, "GetRegionsResult");
 }
 
 export interface GetRelationalDatabaseBlueprintsRequest {
-  __type?: "GetRelationalDatabaseBlueprintsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseBlueprints</code>
@@ -6722,12 +6277,9 @@ export namespace GetRelationalDatabaseBlueprintsRequest {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseBlueprintsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseBlueprintsRequest =>
-    __isa(o, "GetRelationalDatabaseBlueprintsRequest");
 }
 
 export interface GetRelationalDatabaseBlueprintsResult {
-  __type?: "GetRelationalDatabaseBlueprintsResult";
   /**
    * <p>An object describing the result of your get relational database blueprints request.</p>
    */
@@ -6747,12 +6299,9 @@ export namespace GetRelationalDatabaseBlueprintsResult {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseBlueprintsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseBlueprintsResult =>
-    __isa(o, "GetRelationalDatabaseBlueprintsResult");
 }
 
 export interface GetRelationalDatabaseBundlesRequest {
-  __type?: "GetRelationalDatabaseBundlesRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseBundles</code> request.
@@ -6766,12 +6315,9 @@ export namespace GetRelationalDatabaseBundlesRequest {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseBundlesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseBundlesRequest =>
-    __isa(o, "GetRelationalDatabaseBundlesRequest");
 }
 
 export interface GetRelationalDatabaseBundlesResult {
-  __type?: "GetRelationalDatabaseBundlesResult";
   /**
    * <p>The token to advance to the next page of resutls from your request.</p>
    *          <p>A next page token is not returned if there are no more results to display.</p>
@@ -6790,12 +6336,9 @@ export namespace GetRelationalDatabaseBundlesResult {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseBundlesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseBundlesResult =>
-    __isa(o, "GetRelationalDatabaseBundlesResult");
 }
 
 export interface GetRelationalDatabaseEventsRequest {
-  __type?: "GetRelationalDatabaseEventsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseEvents</code> request.
@@ -6823,12 +6366,9 @@ export namespace GetRelationalDatabaseEventsRequest {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseEventsRequest =>
-    __isa(o, "GetRelationalDatabaseEventsRequest");
 }
 
 export interface GetRelationalDatabaseEventsResult {
-  __type?: "GetRelationalDatabaseEventsResult";
   /**
    * <p>An object describing the result of your get relational database events request.</p>
    */
@@ -6847,11 +6387,9 @@ export namespace GetRelationalDatabaseEventsResult {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseEventsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseEventsResult => __isa(o, "GetRelationalDatabaseEventsResult");
 }
 
 export interface GetRelationalDatabaseLogEventsRequest {
-  __type?: "GetRelationalDatabaseLogEventsRequest";
   /**
    * <p>The end of the time interval from which to get log events.</p>
    *          <p>Constraints:</p>
@@ -6921,12 +6459,9 @@ export namespace GetRelationalDatabaseLogEventsRequest {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseLogEventsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseLogEventsRequest =>
-    __isa(o, "GetRelationalDatabaseLogEventsRequest");
 }
 
 export interface GetRelationalDatabaseLogEventsResult {
-  __type?: "GetRelationalDatabaseLogEventsResult";
   /**
    * <p>An object describing the result of your get relational database log events request.</p>
    */
@@ -6949,12 +6484,9 @@ export namespace GetRelationalDatabaseLogEventsResult {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseLogEventsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseLogEventsResult =>
-    __isa(o, "GetRelationalDatabaseLogEventsResult");
 }
 
 export interface GetRelationalDatabaseLogStreamsRequest {
-  __type?: "GetRelationalDatabaseLogStreamsRequest";
   /**
    * <p>The name of your database for which to get log streams.</p>
    */
@@ -6965,12 +6497,9 @@ export namespace GetRelationalDatabaseLogStreamsRequest {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseLogStreamsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseLogStreamsRequest =>
-    __isa(o, "GetRelationalDatabaseLogStreamsRequest");
 }
 
 export interface GetRelationalDatabaseLogStreamsResult {
-  __type?: "GetRelationalDatabaseLogStreamsResult";
   /**
    * <p>An object describing the result of your get relational database log streams
    *       request.</p>
@@ -6982,12 +6511,9 @@ export namespace GetRelationalDatabaseLogStreamsResult {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseLogStreamsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseLogStreamsResult =>
-    __isa(o, "GetRelationalDatabaseLogStreamsResult");
 }
 
 export interface GetRelationalDatabaseMasterUserPasswordRequest {
-  __type?: "GetRelationalDatabaseMasterUserPasswordRequest";
   /**
    * <p>The password version to return.</p>
    *          <p>Specifying <code>CURRENT</code> or <code>PREVIOUS</code> returns the current or previous
@@ -7010,12 +6536,9 @@ export namespace GetRelationalDatabaseMasterUserPasswordRequest {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseMasterUserPasswordRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseMasterUserPasswordRequest =>
-    __isa(o, "GetRelationalDatabaseMasterUserPasswordRequest");
 }
 
 export interface GetRelationalDatabaseMasterUserPasswordResult {
-  __type?: "GetRelationalDatabaseMasterUserPasswordResult";
   /**
    * <p>The timestamp when the specified version of the master user password was created.</p>
    */
@@ -7032,12 +6555,9 @@ export namespace GetRelationalDatabaseMasterUserPasswordResult {
     ...obj,
     ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetRelationalDatabaseMasterUserPasswordResult =>
-    __isa(o, "GetRelationalDatabaseMasterUserPasswordResult");
 }
 
 export interface GetRelationalDatabaseMetricDataRequest {
-  __type?: "GetRelationalDatabaseMetricDataRequest";
   /**
    * <p>The metric for which you want to return information.</p>
    *          <p>Valid relational database metric names are listed below, along with the most useful
@@ -7212,12 +6732,9 @@ export namespace GetRelationalDatabaseMetricDataRequest {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseMetricDataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseMetricDataRequest =>
-    __isa(o, "GetRelationalDatabaseMetricDataRequest");
 }
 
 export interface GetRelationalDatabaseMetricDataResult {
-  __type?: "GetRelationalDatabaseMetricDataResult";
   /**
    * <p>An array of objects that describe the metric data returned.</p>
    */
@@ -7233,12 +6750,9 @@ export namespace GetRelationalDatabaseMetricDataResult {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseMetricDataResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseMetricDataResult =>
-    __isa(o, "GetRelationalDatabaseMetricDataResult");
 }
 
 export interface GetRelationalDatabaseParametersRequest {
-  __type?: "GetRelationalDatabaseParametersRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseParameters</code>
@@ -7257,12 +6771,9 @@ export namespace GetRelationalDatabaseParametersRequest {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseParametersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseParametersRequest =>
-    __isa(o, "GetRelationalDatabaseParametersRequest");
 }
 
 export interface GetRelationalDatabaseParametersResult {
-  __type?: "GetRelationalDatabaseParametersResult";
   /**
    * <p>The token to advance to the next page of resutls from your request.</p>
    *          <p>A next page token is not returned if there are no more results to display.</p>
@@ -7282,12 +6793,9 @@ export namespace GetRelationalDatabaseParametersResult {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseParametersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseParametersResult =>
-    __isa(o, "GetRelationalDatabaseParametersResult");
 }
 
 export interface GetRelationalDatabaseRequest {
-  __type?: "GetRelationalDatabaseRequest";
   /**
    * <p>The name of the database that you are looking up.</p>
    */
@@ -7298,11 +6806,9 @@ export namespace GetRelationalDatabaseRequest {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseRequest => __isa(o, "GetRelationalDatabaseRequest");
 }
 
 export interface GetRelationalDatabaseResult {
-  __type?: "GetRelationalDatabaseResult";
   /**
    * <p>An object describing the specified database.</p>
    */
@@ -7313,11 +6819,9 @@ export namespace GetRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseResult => __isa(o, "GetRelationalDatabaseResult");
 }
 
 export interface GetRelationalDatabaseSnapshotRequest {
-  __type?: "GetRelationalDatabaseSnapshotRequest";
   /**
    * <p>The name of the database snapshot for which to get information.</p>
    */
@@ -7328,12 +6832,9 @@ export namespace GetRelationalDatabaseSnapshotRequest {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseSnapshotRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseSnapshotRequest =>
-    __isa(o, "GetRelationalDatabaseSnapshotRequest");
 }
 
 export interface GetRelationalDatabaseSnapshotResult {
-  __type?: "GetRelationalDatabaseSnapshotResult";
   /**
    * <p>An object describing the specified database snapshot.</p>
    */
@@ -7344,12 +6845,9 @@ export namespace GetRelationalDatabaseSnapshotResult {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseSnapshotResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseSnapshotResult =>
-    __isa(o, "GetRelationalDatabaseSnapshotResult");
 }
 
 export interface GetRelationalDatabaseSnapshotsRequest {
-  __type?: "GetRelationalDatabaseSnapshotsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseSnapshots</code>
@@ -7363,12 +6861,9 @@ export namespace GetRelationalDatabaseSnapshotsRequest {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseSnapshotsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseSnapshotsRequest =>
-    __isa(o, "GetRelationalDatabaseSnapshotsRequest");
 }
 
 export interface GetRelationalDatabaseSnapshotsResult {
-  __type?: "GetRelationalDatabaseSnapshotsResult";
   /**
    * <p>The token to advance to the next page of resutls from your request.</p>
    *          <p>A next page token is not returned if there are no more results to display.</p>
@@ -7388,12 +6883,9 @@ export namespace GetRelationalDatabaseSnapshotsResult {
   export const filterSensitiveLog = (obj: GetRelationalDatabaseSnapshotsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabaseSnapshotsResult =>
-    __isa(o, "GetRelationalDatabaseSnapshotsResult");
 }
 
 export interface GetRelationalDatabasesRequest {
-  __type?: "GetRelationalDatabasesRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetRelationalDatabases</code> request. If
@@ -7407,11 +6899,9 @@ export namespace GetRelationalDatabasesRequest {
   export const filterSensitiveLog = (obj: GetRelationalDatabasesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabasesRequest => __isa(o, "GetRelationalDatabasesRequest");
 }
 
 export interface GetRelationalDatabasesResult {
-  __type?: "GetRelationalDatabasesResult";
   /**
    * <p>An object describing the result of your get relational databases request.</p>
    */
@@ -7430,11 +6920,9 @@ export namespace GetRelationalDatabasesResult {
   export const filterSensitiveLog = (obj: GetRelationalDatabasesResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRelationalDatabasesResult => __isa(o, "GetRelationalDatabasesResult");
 }
 
 export interface GetStaticIpRequest {
-  __type?: "GetStaticIpRequest";
   /**
    * <p>The name of the static IP in Lightsail.</p>
    */
@@ -7445,11 +6933,9 @@ export namespace GetStaticIpRequest {
   export const filterSensitiveLog = (obj: GetStaticIpRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStaticIpRequest => __isa(o, "GetStaticIpRequest");
 }
 
 export interface GetStaticIpResult {
-  __type?: "GetStaticIpResult";
   /**
    * <p>An array of key-value pairs containing information about the requested static IP.</p>
    */
@@ -7460,11 +6946,9 @@ export namespace GetStaticIpResult {
   export const filterSensitiveLog = (obj: GetStaticIpResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStaticIpResult => __isa(o, "GetStaticIpResult");
 }
 
 export interface GetStaticIpsRequest {
-  __type?: "GetStaticIpsRequest";
   /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetStaticIps</code> request. If your results
@@ -7478,11 +6962,9 @@ export namespace GetStaticIpsRequest {
   export const filterSensitiveLog = (obj: GetStaticIpsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStaticIpsRequest => __isa(o, "GetStaticIpsRequest");
 }
 
 export interface GetStaticIpsResult {
-  __type?: "GetStaticIpsResult";
   /**
    * <p>An array of key-value pairs containing information about your get static IPs
    *       request.</p>
@@ -7502,7 +6984,6 @@ export namespace GetStaticIpsResult {
   export const filterSensitiveLog = (obj: GetStaticIpsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStaticIpsResult => __isa(o, "GetStaticIpsResult");
 }
 
 export enum HeaderEnum {
@@ -7538,7 +7019,6 @@ export enum HeaderEnum {
  *       </p>
  */
 export interface HeaderObject {
-  __type?: "HeaderObject";
   /**
    * <p>The specific headers to forward to your distribution's origin.</p>
    */
@@ -7580,14 +7060,12 @@ export namespace HeaderObject {
   export const filterSensitiveLog = (obj: HeaderObject): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HeaderObject => __isa(o, "HeaderObject");
 }
 
 /**
  * <p>Describes the public SSH host keys or the RDP certificate.</p>
  */
 export interface HostKeyAttributes {
-  __type?: "HostKeyAttributes";
   /**
    * <p>The SSH host key algorithm or the RDP certificate format.</p>
    *          <p>For SSH host keys, the algorithm may be <code>ssh-rsa</code>,
@@ -7661,11 +7139,9 @@ export namespace HostKeyAttributes {
   export const filterSensitiveLog = (obj: HostKeyAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostKeyAttributes => __isa(o, "HostKeyAttributes");
 }
 
 export interface ImportKeyPairRequest {
-  __type?: "ImportKeyPairRequest";
   /**
    * <p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>
    */
@@ -7681,11 +7157,9 @@ export namespace ImportKeyPairRequest {
   export const filterSensitiveLog = (obj: ImportKeyPairRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportKeyPairRequest => __isa(o, "ImportKeyPairRequest");
 }
 
 export interface ImportKeyPairResult {
-  __type?: "ImportKeyPairResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -7697,7 +7171,6 @@ export namespace ImportKeyPairResult {
   export const filterSensitiveLog = (obj: ImportKeyPairResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportKeyPairResult => __isa(o, "ImportKeyPairResult");
 }
 
 /**
@@ -7709,7 +7182,6 @@ export namespace ImportKeyPairResult {
  *       servers.</p>
  */
 export interface InputOrigin {
-  __type?: "InputOrigin";
   /**
    * <p>The AWS Region name of the origin resource.</p>
    */
@@ -7731,14 +7203,12 @@ export namespace InputOrigin {
   export const filterSensitiveLog = (obj: InputOrigin): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputOrigin => __isa(o, "InputOrigin");
 }
 
 /**
  * <p>Describes an instance (a virtual private server).</p>
  */
 export interface Instance {
-  __type?: "Instance";
   /**
    * <p>A Boolean value indicating whether this instance has a static IP assigned to it.</p>
    */
@@ -7852,7 +7322,6 @@ export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
 
 /**
@@ -7860,7 +7329,6 @@ export namespace Instance {
  *       instances.</p>
  */
 export interface InstanceAccessDetails {
-  __type?: "InstanceAccessDetails";
   /**
    * <p>For RDP access, the password for your Amazon Lightsail instance. Password will be an empty
    *       string if the password for your new instance is not ready yet. When you create an instance, it
@@ -7931,7 +7399,6 @@ export namespace InstanceAccessDetails {
   export const filterSensitiveLog = (obj: InstanceAccessDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceAccessDetails => __isa(o, "InstanceAccessDetails");
 }
 
 export enum InstanceAccessProtocol {
@@ -7944,7 +7411,6 @@ export enum InstanceAccessProtocol {
  *         <code>create cloud formation stack</code> operation.</p>
  */
 export interface InstanceEntry {
-  __type?: "InstanceEntry";
   /**
    * <p>The name of the export snapshot record, which contains the exported Lightsail instance
    *       snapshot that will be used as the source of the new Amazon EC2 instance.</p>
@@ -8011,14 +7477,12 @@ export namespace InstanceEntry {
   export const filterSensitiveLog = (obj: InstanceEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceEntry => __isa(o, "InstanceEntry");
 }
 
 /**
  * <p>Describes the hardware for the instance.</p>
  */
 export interface InstanceHardware {
-  __type?: "InstanceHardware";
   /**
    * <p>The disks attached to the instance.</p>
    */
@@ -8039,7 +7503,6 @@ export namespace InstanceHardware {
   export const filterSensitiveLog = (obj: InstanceHardware): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceHardware => __isa(o, "InstanceHardware");
 }
 
 export enum InstanceHealthReason {
@@ -8069,7 +7532,6 @@ export enum InstanceHealthState {
  * <p>Describes information about the health of the instance.</p>
  */
 export interface InstanceHealthSummary {
-  __type?: "InstanceHealthSummary";
   /**
    * <p>The name of the Lightsail instance for which you are requesting health check
    *       data.</p>
@@ -8211,7 +7673,6 @@ export namespace InstanceHealthSummary {
   export const filterSensitiveLog = (obj: InstanceHealthSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceHealthSummary => __isa(o, "InstanceHealthSummary");
 }
 
 export enum InstanceMetricName {
@@ -8229,7 +7690,6 @@ export enum InstanceMetricName {
  * <p>Describes monthly data transfer rates and port information for an instance.</p>
  */
 export interface InstanceNetworking {
-  __type?: "InstanceNetworking";
   /**
    * <p>The amount of data in GB allocated for monthly data transfers.</p>
    */
@@ -8245,7 +7705,6 @@ export namespace InstanceNetworking {
   export const filterSensitiveLog = (obj: InstanceNetworking): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceNetworking => __isa(o, "InstanceNetworking");
 }
 
 export enum InstancePlatform {
@@ -8257,7 +7716,6 @@ export enum InstancePlatform {
  * <p>Describes information about ports for an Amazon Lightsail instance.</p>
  */
 export interface InstancePortInfo {
-  __type?: "InstancePortInfo";
   /**
    * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
    *          <p>The only alias currently supported is <code>lightsail-connect</code>, which allows IP
@@ -8376,7 +7834,6 @@ export namespace InstancePortInfo {
   export const filterSensitiveLog = (obj: InstancePortInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstancePortInfo => __isa(o, "InstancePortInfo");
 }
 
 /**
@@ -8384,7 +7841,6 @@ export namespace InstancePortInfo {
  *       through the ports, and the protocol.</p>
  */
 export interface InstancePortState {
-  __type?: "InstancePortState";
   /**
    * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
    *          <p>The only alias currently supported is <code>lightsail-connect</code>, which allows IP
@@ -8487,14 +7943,12 @@ export namespace InstancePortState {
   export const filterSensitiveLog = (obj: InstancePortState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstancePortState => __isa(o, "InstancePortState");
 }
 
 /**
  * <p>Describes an instance snapshot.</p>
  */
 export interface InstanceSnapshot {
-  __type?: "InstanceSnapshot";
   /**
    * <p>The size in GB of the SSD.</p>
    */
@@ -8589,14 +8043,12 @@ export namespace InstanceSnapshot {
   export const filterSensitiveLog = (obj: InstanceSnapshot): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceSnapshot => __isa(o, "InstanceSnapshot");
 }
 
 /**
  * <p>Describes an instance snapshot.</p>
  */
 export interface InstanceSnapshotInfo {
-  __type?: "InstanceSnapshotInfo";
   /**
    * <p>The blueprint ID from which the source instance (e.g., <code>os_debian_8_3</code>).</p>
    */
@@ -8618,7 +8070,6 @@ export namespace InstanceSnapshotInfo {
   export const filterSensitiveLog = (obj: InstanceSnapshotInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceSnapshotInfo => __isa(o, "InstanceSnapshotInfo");
 }
 
 export enum InstanceSnapshotState {
@@ -8631,7 +8082,6 @@ export enum InstanceSnapshotState {
  * <p>Describes the virtual private server (or <i>instance</i>) status.</p>
  */
 export interface InstanceState {
-  __type?: "InstanceState";
   /**
    * <p>The state of the instance (e.g., <code>running</code> or <code>pending</code>).</p>
    */
@@ -8647,7 +8097,6 @@ export namespace InstanceState {
   export const filterSensitiveLog = (obj: InstanceState): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceState => __isa(o, "InstanceState");
 }
 
 /**
@@ -8671,22 +8120,17 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
-export interface IsVpcPeeredRequest {
-  __type?: "IsVpcPeeredRequest";
-}
+export interface IsVpcPeeredRequest {}
 
 export namespace IsVpcPeeredRequest {
   export const filterSensitiveLog = (obj: IsVpcPeeredRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IsVpcPeeredRequest => __isa(o, "IsVpcPeeredRequest");
 }
 
 export interface IsVpcPeeredResult {
-  __type?: "IsVpcPeeredResult";
   /**
    * <p>Returns <code>true</code> if the Lightsail VPC is peered; otherwise,
    *       <code>false</code>.</p>
@@ -8698,14 +8142,12 @@ export namespace IsVpcPeeredResult {
   export const filterSensitiveLog = (obj: IsVpcPeeredResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IsVpcPeeredResult => __isa(o, "IsVpcPeeredResult");
 }
 
 /**
  * <p>Describes the SSH key pair.</p>
  */
 export interface KeyPair {
-  __type?: "KeyPair";
   /**
    * <p>The friendly name of the SSH key pair.</p>
    */
@@ -8756,14 +8198,12 @@ export namespace KeyPair {
   export const filterSensitiveLog = (obj: KeyPair): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyPair => __isa(o, "KeyPair");
 }
 
 /**
  * <p>Describes an Amazon Lightsail content delivery network (CDN) distribution.</p>
  */
 export interface LightsailDistribution {
-  __type?: "LightsailDistribution";
   /**
    * <p>An array of objects that describe the per-path cache behavior of the distribution.</p>
    */
@@ -8881,14 +8321,12 @@ export namespace LightsailDistribution {
   export const filterSensitiveLog = (obj: LightsailDistribution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LightsailDistribution => __isa(o, "LightsailDistribution");
 }
 
 /**
  * <p>Describes the Lightsail load balancer.</p>
  */
 export interface LoadBalancer {
-  __type?: "LoadBalancer";
   /**
    * <p>The path you specified to perform your health checks. If no path is specified, the load
    *       balancer tries to make a request to the default (root) page.</p>
@@ -8988,7 +8426,6 @@ export namespace LoadBalancer {
   export const filterSensitiveLog = (obj: LoadBalancer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancer => __isa(o, "LoadBalancer");
 }
 
 export enum LoadBalancerAttributeName {
@@ -9030,7 +8467,6 @@ export enum LoadBalancerState {
  *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
  */
 export interface LoadBalancerTlsCertificate {
-  __type?: "LoadBalancerTlsCertificate";
   /**
    * <p>The issuer of the certificate.</p>
    */
@@ -9304,7 +8740,6 @@ export namespace LoadBalancerTlsCertificate {
   export const filterSensitiveLog = (obj: LoadBalancerTlsCertificate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerTlsCertificate => __isa(o, "LoadBalancerTlsCertificate");
 }
 
 export enum LoadBalancerTlsCertificateDomainStatus {
@@ -9318,7 +8753,6 @@ export enum LoadBalancerTlsCertificateDomainStatus {
  *       validate domain ownership.</p>
  */
 export interface LoadBalancerTlsCertificateDomainValidationOption {
-  __type?: "LoadBalancerTlsCertificateDomainValidationOption";
   /**
    * <p>The status of the domain validation. Valid values are listed below.</p>
    */
@@ -9334,15 +8768,12 @@ export namespace LoadBalancerTlsCertificateDomainValidationOption {
   export const filterSensitiveLog = (obj: LoadBalancerTlsCertificateDomainValidationOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerTlsCertificateDomainValidationOption =>
-    __isa(o, "LoadBalancerTlsCertificateDomainValidationOption");
 }
 
 /**
  * <p>Describes the validation record of each domain name in the SSL/TLS certificate.</p>
  */
 export interface LoadBalancerTlsCertificateDomainValidationRecord {
-  __type?: "LoadBalancerTlsCertificateDomainValidationRecord";
   /**
    * <p>The value for that type.</p>
    */
@@ -9375,8 +8806,6 @@ export namespace LoadBalancerTlsCertificateDomainValidationRecord {
   export const filterSensitiveLog = (obj: LoadBalancerTlsCertificateDomainValidationRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerTlsCertificateDomainValidationRecord =>
-    __isa(o, "LoadBalancerTlsCertificateDomainValidationRecord");
 }
 
 export enum LoadBalancerTlsCertificateFailureReason {
@@ -9442,7 +8871,6 @@ export enum LoadBalancerTlsCertificateRenewalStatus {
  *          </ul>
  */
 export interface LoadBalancerTlsCertificateRenewalSummary {
-  __type?: "LoadBalancerTlsCertificateRenewalSummary";
   /**
    * <p>Contains information about the validation of each domain name in the certificate, as it
    *       pertains to Lightsail's managed renewal. This is different from the initial validation that
@@ -9498,8 +8926,6 @@ export namespace LoadBalancerTlsCertificateRenewalSummary {
   export const filterSensitiveLog = (obj: LoadBalancerTlsCertificateRenewalSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerTlsCertificateRenewalSummary =>
-    __isa(o, "LoadBalancerTlsCertificateRenewalSummary");
 }
 
 export enum LoadBalancerTlsCertificateRevocationReason {
@@ -9530,7 +8956,6 @@ export enum LoadBalancerTlsCertificateStatus {
  * <p>Provides a summary of SSL/TLS certificate metadata.</p>
  */
 export interface LoadBalancerTlsCertificateSummary {
-  __type?: "LoadBalancerTlsCertificateSummary";
   /**
    * <p>The name of the SSL/TLS certificate.</p>
    */
@@ -9547,14 +8972,12 @@ export namespace LoadBalancerTlsCertificateSummary {
   export const filterSensitiveLog = (obj: LoadBalancerTlsCertificateSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerTlsCertificateSummary => __isa(o, "LoadBalancerTlsCertificateSummary");
 }
 
 /**
  * <p>Describes a database log event.</p>
  */
 export interface LogEvent {
-  __type?: "LogEvent";
   /**
    * <p>The timestamp when the database log event was created.</p>
    */
@@ -9570,14 +8993,12 @@ export namespace LogEvent {
   export const filterSensitiveLog = (obj: LogEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LogEvent => __isa(o, "LogEvent");
 }
 
 /**
  * <p>Describes the metric data point.</p>
  */
 export interface MetricDatapoint {
-  __type?: "MetricDatapoint";
   /**
    * <p>The maximum.</p>
    */
@@ -9618,7 +9039,6 @@ export namespace MetricDatapoint {
   export const filterSensitiveLog = (obj: MetricDatapoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricDatapoint => __isa(o, "MetricDatapoint");
 }
 
 export enum MetricName {
@@ -9694,7 +9114,6 @@ export enum MetricUnit {
  *         in Amazon Lightsail</a>.</p>
  */
 export interface MonitoredResourceInfo {
-  __type?: "MonitoredResourceInfo";
   /**
    * <p>The name of the Lightsail resource being monitored.</p>
    */
@@ -9717,7 +9136,6 @@ export namespace MonitoredResourceInfo {
   export const filterSensitiveLog = (obj: MonitoredResourceInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonitoredResourceInfo => __isa(o, "MonitoredResourceInfo");
 }
 
 /**
@@ -9725,7 +9143,6 @@ export namespace MonitoredResourceInfo {
  *         <i>instance</i>).</p>
  */
 export interface MonthlyTransfer {
-  __type?: "MonthlyTransfer";
   /**
    * <p>The amount allocated per month (in GB).</p>
    */
@@ -9736,7 +9153,6 @@ export namespace MonthlyTransfer {
   export const filterSensitiveLog = (obj: MonthlyTransfer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MonthlyTransfer => __isa(o, "MonthlyTransfer");
 }
 
 export enum NetworkProtocol {
@@ -9762,11 +9178,9 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export interface OpenInstancePublicPortsRequest {
-  __type?: "OpenInstancePublicPortsRequest";
   /**
    * <p>The name of the instance for which to open ports.</p>
    */
@@ -9782,11 +9196,9 @@ export namespace OpenInstancePublicPortsRequest {
   export const filterSensitiveLog = (obj: OpenInstancePublicPortsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OpenInstancePublicPortsRequest => __isa(o, "OpenInstancePublicPortsRequest");
 }
 
 export interface OpenInstancePublicPortsResult {
-  __type?: "OpenInstancePublicPortsResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -9798,14 +9210,12 @@ export namespace OpenInstancePublicPortsResult {
   export const filterSensitiveLog = (obj: OpenInstancePublicPortsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OpenInstancePublicPortsResult => __isa(o, "OpenInstancePublicPortsResult");
 }
 
 /**
  * <p>Describes the API operation.</p>
  */
 export interface Operation {
-  __type?: "Operation";
   /**
    * <p>The timestamp when the status was changed (e.g., <code>1479816991.349</code>).</p>
    */
@@ -9872,7 +9282,6 @@ export namespace Operation {
   export const filterSensitiveLog = (obj: Operation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Operation => __isa(o, "Operation");
 }
 
 /**
@@ -9891,7 +9300,6 @@ export namespace OperationFailureException {
   export const filterSensitiveLog = (obj: OperationFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationFailureException => __isa(o, "OperationFailureException");
 }
 
 export enum OperationStatus {
@@ -9978,7 +9386,6 @@ export enum OperationType {
  *       servers.</p>
  */
 export interface Origin {
-  __type?: "Origin";
   /**
    * <p>The AWS Region name of the origin resource.</p>
    */
@@ -10005,7 +9412,6 @@ export namespace Origin {
   export const filterSensitiveLog = (obj: Origin): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Origin => __isa(o, "Origin");
 }
 
 export enum OriginProtocolPolicyEnum {
@@ -10018,7 +9424,6 @@ export enum OriginProtocolPolicyEnum {
  *       key pair name.</p>
  */
 export interface PasswordData {
-  __type?: "PasswordData";
   /**
    * <p>The encrypted password. Ciphertext will be an empty string if access to your new instance
    *       is not ready yet. When you create an instance, it can take up to 15 minutes for the instance
@@ -10049,22 +9454,17 @@ export namespace PasswordData {
   export const filterSensitiveLog = (obj: PasswordData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PasswordData => __isa(o, "PasswordData");
 }
 
-export interface PeerVpcRequest {
-  __type?: "PeerVpcRequest";
-}
+export interface PeerVpcRequest {}
 
 export namespace PeerVpcRequest {
   export const filterSensitiveLog = (obj: PeerVpcRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PeerVpcRequest => __isa(o, "PeerVpcRequest");
 }
 
 export interface PeerVpcResult {
-  __type?: "PeerVpcResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -10076,14 +9476,12 @@ export namespace PeerVpcResult {
   export const filterSensitiveLog = (obj: PeerVpcResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PeerVpcResult => __isa(o, "PeerVpcResult");
 }
 
 /**
  * <p>Describes a pending database maintenance action.</p>
  */
 export interface PendingMaintenanceAction {
-  __type?: "PendingMaintenanceAction";
   /**
    * <p>The effective date of the pending database maintenance action.</p>
    */
@@ -10104,14 +9502,12 @@ export namespace PendingMaintenanceAction {
   export const filterSensitiveLog = (obj: PendingMaintenanceAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PendingMaintenanceAction => __isa(o, "PendingMaintenanceAction");
 }
 
 /**
  * <p>Describes a pending database value modification.</p>
  */
 export interface PendingModifiedRelationalDatabaseValues {
-  __type?: "PendingModifiedRelationalDatabaseValues";
   /**
    * <p>The database engine version.</p>
    */
@@ -10132,8 +9528,6 @@ export namespace PendingModifiedRelationalDatabaseValues {
   export const filterSensitiveLog = (obj: PendingModifiedRelationalDatabaseValues): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PendingModifiedRelationalDatabaseValues =>
-    __isa(o, "PendingModifiedRelationalDatabaseValues");
 }
 
 export enum PortAccessType {
@@ -10146,7 +9540,6 @@ export enum PortAccessType {
  *       instance through the ports, and the protocol.</p>
  */
 export interface PortInfo {
-  __type?: "PortInfo";
   /**
    * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
    *          <p>The only alias currently supported is <code>lightsail-connect</code>, which allows IP
@@ -10252,7 +9645,6 @@ export namespace PortInfo {
   export const filterSensitiveLog = (obj: PortInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PortInfo => __isa(o, "PortInfo");
 }
 
 export enum PortInfoSourceType {
@@ -10268,7 +9660,6 @@ export enum PortState {
 }
 
 export interface PutAlarmRequest {
-  __type?: "PutAlarmRequest";
   /**
    * <p>The name of the Lightsail resource that will be monitored.</p>
    *          <p>Instances, load balancers, and relational databases are the only Lightsail resources
@@ -10443,11 +9834,9 @@ export namespace PutAlarmRequest {
   export const filterSensitiveLog = (obj: PutAlarmRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAlarmRequest => __isa(o, "PutAlarmRequest");
 }
 
 export interface PutAlarmResult {
-  __type?: "PutAlarmResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -10459,11 +9848,9 @@ export namespace PutAlarmResult {
   export const filterSensitiveLog = (obj: PutAlarmResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAlarmResult => __isa(o, "PutAlarmResult");
 }
 
 export interface PutInstancePublicPortsRequest {
-  __type?: "PutInstancePublicPortsRequest";
   /**
    * <p>The name of the instance for which to open ports.</p>
    */
@@ -10479,11 +9866,9 @@ export namespace PutInstancePublicPortsRequest {
   export const filterSensitiveLog = (obj: PutInstancePublicPortsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutInstancePublicPortsRequest => __isa(o, "PutInstancePublicPortsRequest");
 }
 
 export interface PutInstancePublicPortsResult {
-  __type?: "PutInstancePublicPortsResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -10495,7 +9880,6 @@ export namespace PutInstancePublicPortsResult {
   export const filterSensitiveLog = (obj: PutInstancePublicPortsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutInstancePublicPortsResult => __isa(o, "PutInstancePublicPortsResult");
 }
 
 /**
@@ -10507,7 +9891,6 @@ export namespace PutInstancePublicPortsResult {
  *       requests.</p>
  */
 export interface QueryStringObject {
-  __type?: "QueryStringObject";
   /**
    * <p>The specific query strings that the distribution forwards to the origin.</p>
    *
@@ -10529,11 +9912,9 @@ export namespace QueryStringObject {
   export const filterSensitiveLog = (obj: QueryStringObject): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryStringObject => __isa(o, "QueryStringObject");
 }
 
 export interface RebootInstanceRequest {
-  __type?: "RebootInstanceRequest";
   /**
    * <p>The name of the instance to reboot.</p>
    */
@@ -10544,11 +9925,9 @@ export namespace RebootInstanceRequest {
   export const filterSensitiveLog = (obj: RebootInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootInstanceRequest => __isa(o, "RebootInstanceRequest");
 }
 
 export interface RebootInstanceResult {
-  __type?: "RebootInstanceResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -10560,11 +9939,9 @@ export namespace RebootInstanceResult {
   export const filterSensitiveLog = (obj: RebootInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootInstanceResult => __isa(o, "RebootInstanceResult");
 }
 
 export interface RebootRelationalDatabaseRequest {
-  __type?: "RebootRelationalDatabaseRequest";
   /**
    * <p>The name of your database to reboot.</p>
    */
@@ -10575,11 +9952,9 @@ export namespace RebootRelationalDatabaseRequest {
   export const filterSensitiveLog = (obj: RebootRelationalDatabaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootRelationalDatabaseRequest => __isa(o, "RebootRelationalDatabaseRequest");
 }
 
 export interface RebootRelationalDatabaseResult {
-  __type?: "RebootRelationalDatabaseResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -10591,7 +9966,6 @@ export namespace RebootRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: RebootRelationalDatabaseResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RebootRelationalDatabaseResult => __isa(o, "RebootRelationalDatabaseResult");
 }
 
 export enum RecordState {
@@ -10604,7 +9978,6 @@ export enum RecordState {
  * <p>Describes the AWS Region.</p>
  */
 export interface Region {
-  __type?: "Region";
   /**
    * <p>The continent code (e.g., <code>NA</code>, meaning North America).</p>
    */
@@ -10643,7 +10016,6 @@ export namespace Region {
   export const filterSensitiveLog = (obj: Region): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Region => __isa(o, "Region");
 }
 
 export enum RegionName {
@@ -10667,7 +10039,6 @@ export enum RegionName {
  * <p>Describes a database.</p>
  */
 export interface RelationalDatabase {
-  __type?: "RelationalDatabase";
   /**
    * <p>The database software (for example, <code>MySQL</code>).</p>
    */
@@ -10818,7 +10189,6 @@ export namespace RelationalDatabase {
   export const filterSensitiveLog = (obj: RelationalDatabase): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelationalDatabase => __isa(o, "RelationalDatabase");
 }
 
 /**
@@ -10826,7 +10196,6 @@ export namespace RelationalDatabase {
  *       of a database.</p>
  */
 export interface RelationalDatabaseBlueprint {
-  __type?: "RelationalDatabaseBlueprint";
   /**
    * <p>The database engine version for the database blueprint (for example,
    *       <code>5.7.23</code>).</p>
@@ -10864,7 +10233,6 @@ export namespace RelationalDatabaseBlueprint {
   export const filterSensitiveLog = (obj: RelationalDatabaseBlueprint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelationalDatabaseBlueprint => __isa(o, "RelationalDatabaseBlueprint");
 }
 
 /**
@@ -10872,7 +10240,6 @@ export namespace RelationalDatabaseBlueprint {
  *       database.</p>
  */
 export interface RelationalDatabaseBundle {
-  __type?: "RelationalDatabaseBundle";
   /**
    * <p>The ID for the database bundle.</p>
    */
@@ -10923,14 +10290,12 @@ export namespace RelationalDatabaseBundle {
   export const filterSensitiveLog = (obj: RelationalDatabaseBundle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelationalDatabaseBundle => __isa(o, "RelationalDatabaseBundle");
 }
 
 /**
  * <p>Describes an endpoint for a database.</p>
  */
 export interface RelationalDatabaseEndpoint {
-  __type?: "RelationalDatabaseEndpoint";
   /**
    * <p>Specifies the port that the database is listening on.</p>
    */
@@ -10946,7 +10311,6 @@ export namespace RelationalDatabaseEndpoint {
   export const filterSensitiveLog = (obj: RelationalDatabaseEndpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelationalDatabaseEndpoint => __isa(o, "RelationalDatabaseEndpoint");
 }
 
 export enum RelationalDatabaseEngine {
@@ -10957,7 +10321,6 @@ export enum RelationalDatabaseEngine {
  * <p>Describes an event for a database.</p>
  */
 export interface RelationalDatabaseEvent {
-  __type?: "RelationalDatabaseEvent";
   /**
    * <p>The timestamp when the database event was created.</p>
    */
@@ -10983,14 +10346,12 @@ export namespace RelationalDatabaseEvent {
   export const filterSensitiveLog = (obj: RelationalDatabaseEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelationalDatabaseEvent => __isa(o, "RelationalDatabaseEvent");
 }
 
 /**
  * <p>Describes the hardware of a database.</p>
  */
 export interface RelationalDatabaseHardware {
-  __type?: "RelationalDatabaseHardware";
   /**
    * <p>The amount of RAM in GB for the database.</p>
    */
@@ -11011,7 +10372,6 @@ export namespace RelationalDatabaseHardware {
   export const filterSensitiveLog = (obj: RelationalDatabaseHardware): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelationalDatabaseHardware => __isa(o, "RelationalDatabaseHardware");
 }
 
 export enum RelationalDatabaseMetricName {
@@ -11027,7 +10387,6 @@ export enum RelationalDatabaseMetricName {
  * <p>Describes the parameters of a database.</p>
  */
 export interface RelationalDatabaseParameter {
-  __type?: "RelationalDatabaseParameter";
   /**
    * <p>Specifies the name of the parameter.</p>
    */
@@ -11074,7 +10433,6 @@ export namespace RelationalDatabaseParameter {
   export const filterSensitiveLog = (obj: RelationalDatabaseParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelationalDatabaseParameter => __isa(o, "RelationalDatabaseParameter");
 }
 
 export enum RelationalDatabasePasswordVersion {
@@ -11087,7 +10445,6 @@ export enum RelationalDatabasePasswordVersion {
  * <p>Describes a database snapshot.</p>
  */
 export interface RelationalDatabaseSnapshot {
-  __type?: "RelationalDatabaseSnapshot";
   /**
    * <p>The size of the disk in GB (for example, <code>32</code>) for the database
    *       snapshot.</p>
@@ -11176,11 +10533,9 @@ export namespace RelationalDatabaseSnapshot {
   export const filterSensitiveLog = (obj: RelationalDatabaseSnapshot): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RelationalDatabaseSnapshot => __isa(o, "RelationalDatabaseSnapshot");
 }
 
 export interface ReleaseStaticIpRequest {
-  __type?: "ReleaseStaticIpRequest";
   /**
    * <p>The name of the static IP to delete.</p>
    */
@@ -11191,11 +10546,9 @@ export namespace ReleaseStaticIpRequest {
   export const filterSensitiveLog = (obj: ReleaseStaticIpRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReleaseStaticIpRequest => __isa(o, "ReleaseStaticIpRequest");
 }
 
 export interface ReleaseStaticIpResult {
-  __type?: "ReleaseStaticIpResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -11207,7 +10560,6 @@ export namespace ReleaseStaticIpResult {
   export const filterSensitiveLog = (obj: ReleaseStaticIpResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReleaseStaticIpResult => __isa(o, "ReleaseStaticIpResult");
 }
 
 export enum RenewalStatus {
@@ -11221,7 +10573,6 @@ export enum RenewalStatus {
  * <p>Describes the status of a SSL/TLS certificate renewal managed by Amazon Lightsail.</p>
  */
 export interface RenewalSummary {
-  __type?: "RenewalSummary";
   /**
    * <p>The timestamp when the certificate was last updated.</p>
    */
@@ -11287,11 +10638,9 @@ export namespace RenewalSummary {
   export const filterSensitiveLog = (obj: RenewalSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RenewalSummary => __isa(o, "RenewalSummary");
 }
 
 export interface ResetDistributionCacheRequest {
-  __type?: "ResetDistributionCacheRequest";
   /**
    * <p>The name of the distribution for which to reset cache.</p>
    *
@@ -11305,11 +10654,9 @@ export namespace ResetDistributionCacheRequest {
   export const filterSensitiveLog = (obj: ResetDistributionCacheRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetDistributionCacheRequest => __isa(o, "ResetDistributionCacheRequest");
 }
 
 export interface ResetDistributionCacheResult {
-  __type?: "ResetDistributionCacheResult";
   /**
    * <p>The timestamp of the reset cache request (e.g., <code>1479734909.17</code>) in Unix time
    *       format.</p>
@@ -11332,14 +10679,12 @@ export namespace ResetDistributionCacheResult {
   export const filterSensitiveLog = (obj: ResetDistributionCacheResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetDistributionCacheResult => __isa(o, "ResetDistributionCacheResult");
 }
 
 /**
  * <p>Describes the resource location.</p>
  */
 export interface ResourceLocation {
-  __type?: "ResourceLocation";
   /**
    * <p>The Availability Zone. Follows the format <code>us-east-2a</code> (case-sensitive).</p>
    */
@@ -11355,7 +10700,6 @@ export namespace ResourceLocation {
   export const filterSensitiveLog = (obj: ResourceLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceLocation => __isa(o, "ResourceLocation");
 }
 
 /**
@@ -11363,7 +10707,6 @@ export namespace ResourceLocation {
  *       for an Amazon Lightsail certificate.</p>
  */
 export interface ResourceRecord {
-  __type?: "ResourceRecord";
   /**
    * <p>The name of the record.</p>
    */
@@ -11384,7 +10727,6 @@ export namespace ResourceRecord {
   export const filterSensitiveLog = (obj: ResourceRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceRecord => __isa(o, "ResourceRecord");
 }
 
 export enum ResourceType {
@@ -11409,7 +10751,6 @@ export enum ResourceType {
 }
 
 export interface SendContactMethodVerificationRequest {
-  __type?: "SendContactMethodVerificationRequest";
   /**
    * <p>The protocol to verify, such as <code>Email</code> or <code>SMS</code> (text
    *       messaging).</p>
@@ -11421,12 +10762,9 @@ export namespace SendContactMethodVerificationRequest {
   export const filterSensitiveLog = (obj: SendContactMethodVerificationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendContactMethodVerificationRequest =>
-    __isa(o, "SendContactMethodVerificationRequest");
 }
 
 export interface SendContactMethodVerificationResult {
-  __type?: "SendContactMethodVerificationResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -11438,8 +10776,6 @@ export namespace SendContactMethodVerificationResult {
   export const filterSensitiveLog = (obj: SendContactMethodVerificationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendContactMethodVerificationResult =>
-    __isa(o, "SendContactMethodVerificationResult");
 }
 
 /**
@@ -11458,11 +10794,9 @@ export namespace ServiceException {
   export const filterSensitiveLog = (obj: ServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceException => __isa(o, "ServiceException");
 }
 
 export interface StartInstanceRequest {
-  __type?: "StartInstanceRequest";
   /**
    * <p>The name of the instance (a virtual private server) to start.</p>
    */
@@ -11473,11 +10807,9 @@ export namespace StartInstanceRequest {
   export const filterSensitiveLog = (obj: StartInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartInstanceRequest => __isa(o, "StartInstanceRequest");
 }
 
 export interface StartInstanceResult {
-  __type?: "StartInstanceResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -11489,11 +10821,9 @@ export namespace StartInstanceResult {
   export const filterSensitiveLog = (obj: StartInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartInstanceResult => __isa(o, "StartInstanceResult");
 }
 
 export interface StartRelationalDatabaseRequest {
-  __type?: "StartRelationalDatabaseRequest";
   /**
    * <p>The name of your database to start.</p>
    */
@@ -11504,11 +10834,9 @@ export namespace StartRelationalDatabaseRequest {
   export const filterSensitiveLog = (obj: StartRelationalDatabaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartRelationalDatabaseRequest => __isa(o, "StartRelationalDatabaseRequest");
 }
 
 export interface StartRelationalDatabaseResult {
-  __type?: "StartRelationalDatabaseResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -11520,14 +10848,12 @@ export namespace StartRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: StartRelationalDatabaseResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartRelationalDatabaseResult => __isa(o, "StartRelationalDatabaseResult");
 }
 
 /**
  * <p>Describes the static IP.</p>
  */
 export interface StaticIp {
-  __type?: "StaticIp";
   /**
    * <p>The name of the static IP (e.g., <code>StaticIP-Ohio-EXAMPLE</code>).</p>
    */
@@ -11582,11 +10908,9 @@ export namespace StaticIp {
   export const filterSensitiveLog = (obj: StaticIp): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StaticIp => __isa(o, "StaticIp");
 }
 
 export interface StopInstanceRequest {
-  __type?: "StopInstanceRequest";
   /**
    * <p>The name of the instance (a virtual private server) to stop.</p>
    */
@@ -11608,11 +10932,9 @@ export namespace StopInstanceRequest {
   export const filterSensitiveLog = (obj: StopInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopInstanceRequest => __isa(o, "StopInstanceRequest");
 }
 
 export interface StopInstanceResult {
-  __type?: "StopInstanceResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -11624,11 +10946,9 @@ export namespace StopInstanceResult {
   export const filterSensitiveLog = (obj: StopInstanceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopInstanceResult => __isa(o, "StopInstanceResult");
 }
 
 export interface StopRelationalDatabaseRequest {
-  __type?: "StopRelationalDatabaseRequest";
   /**
    * <p>The name of your new database snapshot to be created before stopping your database.</p>
    */
@@ -11644,11 +10964,9 @@ export namespace StopRelationalDatabaseRequest {
   export const filterSensitiveLog = (obj: StopRelationalDatabaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopRelationalDatabaseRequest => __isa(o, "StopRelationalDatabaseRequest");
 }
 
 export interface StopRelationalDatabaseResult {
-  __type?: "StopRelationalDatabaseResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -11660,7 +10978,6 @@ export namespace StopRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: StopRelationalDatabaseResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopRelationalDatabaseResult => __isa(o, "StopRelationalDatabaseResult");
 }
 
 /**
@@ -11669,7 +10986,6 @@ export namespace StopRelationalDatabaseResult {
  *         Dev Guide</a>.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value of the tag.</p>
    *          <p>Constraints: Tag values accept a maximum of 256 letters, numbers, spaces in UTF-8, or the
@@ -11689,11 +11005,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to add a tag.</p>
    */
@@ -11714,11 +11028,9 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResult {
-  __type?: "TagResourceResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -11730,11 +11042,9 @@ export namespace TagResourceResult {
   export const filterSensitiveLog = (obj: TagResourceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResult => __isa(o, "TagResourceResult");
 }
 
 export interface TestAlarmRequest {
-  __type?: "TestAlarmRequest";
   /**
    * <p>The alarm state to test.</p>
    *          <p>An alarm has the following possible states that can be tested:</p>
@@ -11767,11 +11077,9 @@ export namespace TestAlarmRequest {
   export const filterSensitiveLog = (obj: TestAlarmRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestAlarmRequest => __isa(o, "TestAlarmRequest");
 }
 
 export interface TestAlarmResult {
-  __type?: "TestAlarmResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -11783,7 +11091,6 @@ export namespace TestAlarmResult {
   export const filterSensitiveLog = (obj: TestAlarmResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestAlarmResult => __isa(o, "TestAlarmResult");
 }
 
 export enum TreatMissingData {
@@ -11809,22 +11116,17 @@ export namespace UnauthenticatedException {
   export const filterSensitiveLog = (obj: UnauthenticatedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthenticatedException => __isa(o, "UnauthenticatedException");
 }
 
-export interface UnpeerVpcRequest {
-  __type?: "UnpeerVpcRequest";
-}
+export interface UnpeerVpcRequest {}
 
 export namespace UnpeerVpcRequest {
   export const filterSensitiveLog = (obj: UnpeerVpcRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnpeerVpcRequest => __isa(o, "UnpeerVpcRequest");
 }
 
 export interface UnpeerVpcResult {
-  __type?: "UnpeerVpcResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -11836,11 +11138,9 @@ export namespace UnpeerVpcResult {
   export const filterSensitiveLog = (obj: UnpeerVpcResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnpeerVpcResult => __isa(o, "UnpeerVpcResult");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The name of the resource from which you are removing a tag.</p>
    */
@@ -11861,11 +11161,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResult {
-  __type?: "UntagResourceResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -11877,11 +11175,9 @@ export namespace UntagResourceResult {
   export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResult => __isa(o, "UntagResourceResult");
 }
 
 export interface UpdateDistributionBundleRequest {
-  __type?: "UpdateDistributionBundleRequest";
   /**
    * <p>The bundle ID of the new bundle to apply to your distribution.</p>
    *          <p>Use the <code>GetDistributionBundles</code> action to get a list of distribution bundle
@@ -11902,11 +11198,9 @@ export namespace UpdateDistributionBundleRequest {
   export const filterSensitiveLog = (obj: UpdateDistributionBundleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDistributionBundleRequest => __isa(o, "UpdateDistributionBundleRequest");
 }
 
 export interface UpdateDistributionBundleResult {
-  __type?: "UpdateDistributionBundleResult";
   /**
    * <p>Describes the API operation.</p>
    */
@@ -11917,11 +11211,9 @@ export namespace UpdateDistributionBundleResult {
   export const filterSensitiveLog = (obj: UpdateDistributionBundleResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDistributionBundleResult => __isa(o, "UpdateDistributionBundleResult");
 }
 
 export interface UpdateDistributionRequest {
-  __type?: "UpdateDistributionRequest";
   /**
    * <p>An object that describes the default cache behavior for the distribution.</p>
    */
@@ -11968,11 +11260,9 @@ export namespace UpdateDistributionRequest {
   export const filterSensitiveLog = (obj: UpdateDistributionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDistributionRequest => __isa(o, "UpdateDistributionRequest");
 }
 
 export interface UpdateDistributionResult {
-  __type?: "UpdateDistributionResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -11984,11 +11274,9 @@ export namespace UpdateDistributionResult {
   export const filterSensitiveLog = (obj: UpdateDistributionResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDistributionResult => __isa(o, "UpdateDistributionResult");
 }
 
 export interface UpdateDomainEntryRequest {
-  __type?: "UpdateDomainEntryRequest";
   /**
    * <p>An array of key-value pairs containing information about the domain entry.</p>
    */
@@ -12004,11 +11292,9 @@ export namespace UpdateDomainEntryRequest {
   export const filterSensitiveLog = (obj: UpdateDomainEntryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainEntryRequest => __isa(o, "UpdateDomainEntryRequest");
 }
 
 export interface UpdateDomainEntryResult {
-  __type?: "UpdateDomainEntryResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -12020,11 +11306,9 @@ export namespace UpdateDomainEntryResult {
   export const filterSensitiveLog = (obj: UpdateDomainEntryResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDomainEntryResult => __isa(o, "UpdateDomainEntryResult");
 }
 
 export interface UpdateLoadBalancerAttributeRequest {
-  __type?: "UpdateLoadBalancerAttributeRequest";
   /**
    * <p>The name of the load balancer that you want to modify (e.g.,
    *       <code>my-load-balancer</code>.</p>
@@ -12046,12 +11330,9 @@ export namespace UpdateLoadBalancerAttributeRequest {
   export const filterSensitiveLog = (obj: UpdateLoadBalancerAttributeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLoadBalancerAttributeRequest =>
-    __isa(o, "UpdateLoadBalancerAttributeRequest");
 }
 
 export interface UpdateLoadBalancerAttributeResult {
-  __type?: "UpdateLoadBalancerAttributeResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -12063,11 +11344,9 @@ export namespace UpdateLoadBalancerAttributeResult {
   export const filterSensitiveLog = (obj: UpdateLoadBalancerAttributeResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLoadBalancerAttributeResult => __isa(o, "UpdateLoadBalancerAttributeResult");
 }
 
 export interface UpdateRelationalDatabaseParametersRequest {
-  __type?: "UpdateRelationalDatabaseParametersRequest";
   /**
    * <p>The name of your database for which to update parameters.</p>
    */
@@ -12083,12 +11362,9 @@ export namespace UpdateRelationalDatabaseParametersRequest {
   export const filterSensitiveLog = (obj: UpdateRelationalDatabaseParametersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRelationalDatabaseParametersRequest =>
-    __isa(o, "UpdateRelationalDatabaseParametersRequest");
 }
 
 export interface UpdateRelationalDatabaseParametersResult {
-  __type?: "UpdateRelationalDatabaseParametersResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -12100,12 +11376,9 @@ export namespace UpdateRelationalDatabaseParametersResult {
   export const filterSensitiveLog = (obj: UpdateRelationalDatabaseParametersResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRelationalDatabaseParametersResult =>
-    __isa(o, "UpdateRelationalDatabaseParametersResult");
 }
 
 export interface UpdateRelationalDatabaseRequest {
-  __type?: "UpdateRelationalDatabaseRequest";
   /**
    * <p>The daily time range during which automated backups are created for your database if
    *       automated backups are enabled.</p>
@@ -12219,11 +11492,9 @@ export namespace UpdateRelationalDatabaseRequest {
     ...obj,
     ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateRelationalDatabaseRequest => __isa(o, "UpdateRelationalDatabaseRequest");
 }
 
 export interface UpdateRelationalDatabaseResult {
-  __type?: "UpdateRelationalDatabaseResult";
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
@@ -12235,5 +11506,4 @@ export namespace UpdateRelationalDatabaseResult {
   export const filterSensitiveLog = (obj: UpdateRelationalDatabaseResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRelationalDatabaseResult => __isa(o, "UpdateRelationalDatabaseResult");
 }

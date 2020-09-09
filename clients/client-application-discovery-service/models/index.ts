@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       agent/connector configuration was updated.</p>
  */
 export interface AgentConfigurationStatus {
-  __type?: "AgentConfigurationStatus";
   /**
    * <p>The agent/connector ID.</p>
    */
@@ -31,7 +30,6 @@ export namespace AgentConfigurationStatus {
   export const filterSensitiveLog = (obj: AgentConfigurationStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AgentConfigurationStatus => __isa(o, "AgentConfigurationStatus");
 }
 
 /**
@@ -41,7 +39,6 @@ export namespace AgentConfigurationStatus {
  *       version for each agent.</p>
  */
 export interface AgentInfo {
-  __type?: "AgentInfo";
   /**
    * <p>Time since agent or connector health was reported.</p>
    */
@@ -98,14 +95,12 @@ export namespace AgentInfo {
   export const filterSensitiveLog = (obj: AgentInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AgentInfo => __isa(o, "AgentInfo");
 }
 
 /**
  * <p>Network details about the host where the agent/connector resides.</p>
  */
 export interface AgentNetworkInfo {
-  __type?: "AgentNetworkInfo";
   /**
    * <p>The MAC address for the host where the agent/connector resides.</p>
    */
@@ -121,7 +116,6 @@ export namespace AgentNetworkInfo {
   export const filterSensitiveLog = (obj: AgentNetworkInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AgentNetworkInfo => __isa(o, "AgentNetworkInfo");
 }
 
 export enum AgentStatus {
@@ -134,7 +128,6 @@ export enum AgentStatus {
 }
 
 export interface AssociateConfigurationItemsToApplicationRequest {
-  __type?: "AssociateConfigurationItemsToApplicationRequest";
   /**
    * <p>The configuration ID of an application with which items are to be associated.</p>
    */
@@ -150,20 +143,14 @@ export namespace AssociateConfigurationItemsToApplicationRequest {
   export const filterSensitiveLog = (obj: AssociateConfigurationItemsToApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateConfigurationItemsToApplicationRequest =>
-    __isa(o, "AssociateConfigurationItemsToApplicationRequest");
 }
 
-export interface AssociateConfigurationItemsToApplicationResponse {
-  __type?: "AssociateConfigurationItemsToApplicationResponse";
-}
+export interface AssociateConfigurationItemsToApplicationResponse {}
 
 export namespace AssociateConfigurationItemsToApplicationResponse {
   export const filterSensitiveLog = (obj: AssociateConfigurationItemsToApplicationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateConfigurationItemsToApplicationResponse =>
-    __isa(o, "AssociateConfigurationItemsToApplicationResponse");
 }
 
 /**
@@ -180,7 +167,6 @@ export namespace AuthorizationErrorException {
   export const filterSensitiveLog = (obj: AuthorizationErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizationErrorException => __isa(o, "AuthorizationErrorException");
 }
 
 /**
@@ -188,7 +174,6 @@ export namespace AuthorizationErrorException {
  *       command.</p>
  */
 export interface BatchDeleteImportDataError {
-  __type?: "BatchDeleteImportDataError";
   /**
    * <p>The unique import ID associated with the error that occurred.</p>
    */
@@ -209,7 +194,6 @@ export namespace BatchDeleteImportDataError {
   export const filterSensitiveLog = (obj: BatchDeleteImportDataError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteImportDataError => __isa(o, "BatchDeleteImportDataError");
 }
 
 export enum BatchDeleteImportDataErrorCode {
@@ -219,7 +203,6 @@ export enum BatchDeleteImportDataErrorCode {
 }
 
 export interface BatchDeleteImportDataRequest {
-  __type?: "BatchDeleteImportDataRequest";
   /**
    * <p>The IDs for the import tasks that you want to delete.</p>
    */
@@ -230,11 +213,9 @@ export namespace BatchDeleteImportDataRequest {
   export const filterSensitiveLog = (obj: BatchDeleteImportDataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteImportDataRequest => __isa(o, "BatchDeleteImportDataRequest");
 }
 
 export interface BatchDeleteImportDataResponse {
-  __type?: "BatchDeleteImportDataResponse";
   /**
    * <p>Error messages returned for each import task that you deleted as a response for this
    *       command.</p>
@@ -246,7 +227,6 @@ export namespace BatchDeleteImportDataResponse {
   export const filterSensitiveLog = (obj: BatchDeleteImportDataResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteImportDataResponse => __isa(o, "BatchDeleteImportDataResponse");
 }
 
 export enum ConfigurationItemType {
@@ -261,7 +241,6 @@ export enum ConfigurationItemType {
  *       assets.</p>
  */
 export interface ConfigurationTag {
-  __type?: "ConfigurationTag";
   /**
    * <p>The configuration ID for the item to tag. You can specify a list of keys and
    *       values.</p>
@@ -296,7 +275,6 @@ export namespace ConfigurationTag {
   export const filterSensitiveLog = (obj: ConfigurationTag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationTag => __isa(o, "ConfigurationTag");
 }
 
 /**
@@ -312,14 +290,12 @@ export namespace ConflictErrorException {
   export const filterSensitiveLog = (obj: ConflictErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictErrorException => __isa(o, "ConflictErrorException");
 }
 
 /**
  * <p>A list of continuous export descriptions.</p>
  */
 export interface ContinuousExportDescription {
-  __type?: "ContinuousExportDescription";
   /**
    * <p>The type of data collector used to gather this data (currently only offered for
    *       AGENT).</p>
@@ -442,7 +418,6 @@ export namespace ContinuousExportDescription {
   export const filterSensitiveLog = (obj: ContinuousExportDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContinuousExportDescription => __isa(o, "ContinuousExportDescription");
 }
 
 export enum ContinuousExportStatus {
@@ -456,7 +431,6 @@ export enum ContinuousExportStatus {
 }
 
 export interface CreateApplicationRequest {
-  __type?: "CreateApplicationRequest";
   /**
    * <p>Name of the application to be created.</p>
    */
@@ -472,11 +446,9 @@ export namespace CreateApplicationRequest {
   export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationRequest => __isa(o, "CreateApplicationRequest");
 }
 
 export interface CreateApplicationResponse {
-  __type?: "CreateApplicationResponse";
   /**
    * <p>Configuration ID of an application to be created.</p>
    */
@@ -487,11 +459,9 @@ export namespace CreateApplicationResponse {
   export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationResponse => __isa(o, "CreateApplicationResponse");
 }
 
 export interface CreateTagsRequest {
-  __type?: "CreateTagsRequest";
   /**
    * <p>A list of configuration items that you want to tag.</p>
    */
@@ -512,25 +482,20 @@ export namespace CreateTagsRequest {
   export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTagsRequest => __isa(o, "CreateTagsRequest");
 }
 
-export interface CreateTagsResponse {
-  __type?: "CreateTagsResponse";
-}
+export interface CreateTagsResponse {}
 
 export namespace CreateTagsResponse {
   export const filterSensitiveLog = (obj: CreateTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTagsResponse => __isa(o, "CreateTagsResponse");
 }
 
 /**
  * <p>Inventory data for installed discovery agents.</p>
  */
 export interface CustomerAgentInfo {
-  __type?: "CustomerAgentInfo";
   /**
    * <p>Total number of discovery agents.</p>
    */
@@ -571,14 +536,12 @@ export namespace CustomerAgentInfo {
   export const filterSensitiveLog = (obj: CustomerAgentInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomerAgentInfo => __isa(o, "CustomerAgentInfo");
 }
 
 /**
  * <p>Inventory data for installed discovery connectors.</p>
  */
 export interface CustomerConnectorInfo {
-  __type?: "CustomerConnectorInfo";
   /**
    * <p>Number of blacklisted discovery connectors.</p>
    */
@@ -619,7 +582,6 @@ export namespace CustomerConnectorInfo {
   export const filterSensitiveLog = (obj: CustomerConnectorInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomerConnectorInfo => __isa(o, "CustomerConnectorInfo");
 }
 
 export enum DataSource {
@@ -627,7 +589,6 @@ export enum DataSource {
 }
 
 export interface DeleteApplicationsRequest {
-  __type?: "DeleteApplicationsRequest";
   /**
    * <p>Configuration ID of an application to be deleted.</p>
    */
@@ -638,22 +599,17 @@ export namespace DeleteApplicationsRequest {
   export const filterSensitiveLog = (obj: DeleteApplicationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationsRequest => __isa(o, "DeleteApplicationsRequest");
 }
 
-export interface DeleteApplicationsResponse {
-  __type?: "DeleteApplicationsResponse";
-}
+export interface DeleteApplicationsResponse {}
 
 export namespace DeleteApplicationsResponse {
   export const filterSensitiveLog = (obj: DeleteApplicationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationsResponse => __isa(o, "DeleteApplicationsResponse");
 }
 
 export interface DeleteTagsRequest {
-  __type?: "DeleteTagsRequest";
   /**
    * <p>Tags that you want to delete from one or more configuration items. Specify the tags
    *       that you want to delete in a <i>key</i>-<i>value</i> format. For
@@ -674,22 +630,17 @@ export namespace DeleteTagsRequest {
   export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsRequest => __isa(o, "DeleteTagsRequest");
 }
 
-export interface DeleteTagsResponse {
-  __type?: "DeleteTagsResponse";
-}
+export interface DeleteTagsResponse {}
 
 export namespace DeleteTagsResponse {
   export const filterSensitiveLog = (obj: DeleteTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsResponse => __isa(o, "DeleteTagsResponse");
 }
 
 export interface DescribeAgentsRequest {
-  __type?: "DescribeAgentsRequest";
   /**
    * <p>You can filter the request using various logical operators and a
    *         <i>key</i>-<i>value</i> format. For example: </p>
@@ -725,11 +676,9 @@ export namespace DescribeAgentsRequest {
   export const filterSensitiveLog = (obj: DescribeAgentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAgentsRequest => __isa(o, "DescribeAgentsRequest");
 }
 
 export interface DescribeAgentsResponse {
-  __type?: "DescribeAgentsResponse";
   /**
    * <p>Lists agents or the Connector by ID or lists all agents/Connectors associated with your
    *       user account if you did not specify an agent/Connector ID. The output includes agent/Connector
@@ -751,11 +700,9 @@ export namespace DescribeAgentsResponse {
   export const filterSensitiveLog = (obj: DescribeAgentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAgentsResponse => __isa(o, "DescribeAgentsResponse");
 }
 
 export interface DescribeConfigurationsRequest {
-  __type?: "DescribeConfigurationsRequest";
   /**
    * <p>One or more configuration IDs.</p>
    */
@@ -766,11 +713,9 @@ export namespace DescribeConfigurationsRequest {
   export const filterSensitiveLog = (obj: DescribeConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationsRequest => __isa(o, "DescribeConfigurationsRequest");
 }
 
 export interface DescribeConfigurationsResponse {
-  __type?: "DescribeConfigurationsResponse";
   /**
    * <p>A key in the response map. The value is an array of data.</p>
    */
@@ -781,11 +726,9 @@ export namespace DescribeConfigurationsResponse {
   export const filterSensitiveLog = (obj: DescribeConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationsResponse => __isa(o, "DescribeConfigurationsResponse");
 }
 
 export interface DescribeContinuousExportsRequest {
-  __type?: "DescribeContinuousExportsRequest";
   /**
    * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
    */
@@ -807,11 +750,9 @@ export namespace DescribeContinuousExportsRequest {
   export const filterSensitiveLog = (obj: DescribeContinuousExportsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeContinuousExportsRequest => __isa(o, "DescribeContinuousExportsRequest");
 }
 
 export interface DescribeContinuousExportsResponse {
-  __type?: "DescribeContinuousExportsResponse";
   /**
    * <p>A list of continuous export descriptions.</p>
    */
@@ -827,11 +768,9 @@ export namespace DescribeContinuousExportsResponse {
   export const filterSensitiveLog = (obj: DescribeContinuousExportsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeContinuousExportsResponse => __isa(o, "DescribeContinuousExportsResponse");
 }
 
 export interface DescribeExportConfigurationsRequest {
-  __type?: "DescribeExportConfigurationsRequest";
   /**
    * <p>A list of continuous export IDs to search for.</p>
    */
@@ -853,12 +792,9 @@ export namespace DescribeExportConfigurationsRequest {
   export const filterSensitiveLog = (obj: DescribeExportConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExportConfigurationsRequest =>
-    __isa(o, "DescribeExportConfigurationsRequest");
 }
 
 export interface DescribeExportConfigurationsResponse {
-  __type?: "DescribeExportConfigurationsResponse";
   /**
    * <p>The token from the previous call to describe-export-tasks.</p>
    */
@@ -874,12 +810,9 @@ export namespace DescribeExportConfigurationsResponse {
   export const filterSensitiveLog = (obj: DescribeExportConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExportConfigurationsResponse =>
-    __isa(o, "DescribeExportConfigurationsResponse");
 }
 
 export interface DescribeExportTasksRequest {
-  __type?: "DescribeExportTasksRequest";
   /**
    * <p>One or more filters.</p>
    *          <ul>
@@ -919,11 +852,9 @@ export namespace DescribeExportTasksRequest {
   export const filterSensitiveLog = (obj: DescribeExportTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExportTasksRequest => __isa(o, "DescribeExportTasksRequest");
 }
 
 export interface DescribeExportTasksResponse {
-  __type?: "DescribeExportTasksResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future
    *         <code>DescribeExportTasks</code> request. When the results of a
@@ -945,11 +876,9 @@ export namespace DescribeExportTasksResponse {
   export const filterSensitiveLog = (obj: DescribeExportTasksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeExportTasksResponse => __isa(o, "DescribeExportTasksResponse");
 }
 
 export interface DescribeImportTasksRequest {
-  __type?: "DescribeImportTasksRequest";
   /**
    * <p>The token to request a specific page of results.</p>
    */
@@ -972,11 +901,9 @@ export namespace DescribeImportTasksRequest {
   export const filterSensitiveLog = (obj: DescribeImportTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImportTasksRequest => __isa(o, "DescribeImportTasksRequest");
 }
 
 export interface DescribeImportTasksResponse {
-  __type?: "DescribeImportTasksResponse";
   /**
    * <p>A returned array of import tasks that match any applied filters, up to the specified
    *       number of maximum results.</p>
@@ -993,11 +920,9 @@ export namespace DescribeImportTasksResponse {
   export const filterSensitiveLog = (obj: DescribeImportTasksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeImportTasksResponse => __isa(o, "DescribeImportTasksResponse");
 }
 
 export interface DescribeTagsRequest {
-  __type?: "DescribeTagsRequest";
   /**
    * <p>You can filter the list using a <i>key</i>-<i>value</i>
    *       format. You can separate these items by using logical operators. Allowed filters include
@@ -1021,11 +946,9 @@ export namespace DescribeTagsRequest {
   export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsRequest => __isa(o, "DescribeTagsRequest");
 }
 
 export interface DescribeTagsResponse {
-  __type?: "DescribeTagsResponse";
   /**
    * <p>The call returns a token. Use this token to get the next set of results.</p>
    */
@@ -1042,11 +965,9 @@ export namespace DescribeTagsResponse {
   export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsResponse => __isa(o, "DescribeTagsResponse");
 }
 
 export interface DisassociateConfigurationItemsFromApplicationRequest {
-  __type?: "DisassociateConfigurationItemsFromApplicationRequest";
   /**
    * <p>Configuration ID of an application from which each item is disassociated.</p>
    */
@@ -1062,24 +983,17 @@ export namespace DisassociateConfigurationItemsFromApplicationRequest {
   export const filterSensitiveLog = (obj: DisassociateConfigurationItemsFromApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateConfigurationItemsFromApplicationRequest =>
-    __isa(o, "DisassociateConfigurationItemsFromApplicationRequest");
 }
 
-export interface DisassociateConfigurationItemsFromApplicationResponse {
-  __type?: "DisassociateConfigurationItemsFromApplicationResponse";
-}
+export interface DisassociateConfigurationItemsFromApplicationResponse {}
 
 export namespace DisassociateConfigurationItemsFromApplicationResponse {
   export const filterSensitiveLog = (obj: DisassociateConfigurationItemsFromApplicationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateConfigurationItemsFromApplicationResponse =>
-    __isa(o, "DisassociateConfigurationItemsFromApplicationResponse");
 }
 
 export interface ExportConfigurationsResponse {
-  __type?: "ExportConfigurationsResponse";
   /**
    * <p>A unique identifier that you can use to query the export status.</p>
    */
@@ -1090,7 +1004,6 @@ export namespace ExportConfigurationsResponse {
   export const filterSensitiveLog = (obj: ExportConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportConfigurationsResponse => __isa(o, "ExportConfigurationsResponse");
 }
 
 export enum ExportDataFormat {
@@ -1103,7 +1016,6 @@ export enum ExportDataFormat {
  *       for export using the <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html">StartExportTask</a> action.</p>
  */
 export interface ExportFilter {
-  __type?: "ExportFilter";
   /**
    * <p>A single <code>agentId</code> for a Discovery Agent. An <code>agentId</code> can be
    *       found using the <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeAgents</a> action. Typically an ADS <code>agentId</code> is in the form
@@ -1128,7 +1040,6 @@ export namespace ExportFilter {
   export const filterSensitiveLog = (obj: ExportFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportFilter => __isa(o, "ExportFilter");
 }
 
 /**
@@ -1136,7 +1047,6 @@ export namespace ExportFilter {
  *       objects.</p>
  */
 export interface ExportInfo {
-  __type?: "ExportInfo";
   /**
    * <p>A URL for an Amazon S3 bucket where you can review the exported data. The URL is
    *       displayed only if the export succeeded.</p>
@@ -1190,7 +1100,6 @@ export namespace ExportInfo {
   export const filterSensitiveLog = (obj: ExportInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportInfo => __isa(o, "ExportInfo");
 }
 
 export enum ExportStatus {
@@ -1206,7 +1115,6 @@ export enum ExportStatus {
  *         Guide</i>. </p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>The name of the filter.</p>
    */
@@ -1234,22 +1142,17 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
-export interface GetDiscoverySummaryRequest {
-  __type?: "GetDiscoverySummaryRequest";
-}
+export interface GetDiscoverySummaryRequest {}
 
 export namespace GetDiscoverySummaryRequest {
   export const filterSensitiveLog = (obj: GetDiscoverySummaryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDiscoverySummaryRequest => __isa(o, "GetDiscoverySummaryRequest");
 }
 
 export interface GetDiscoverySummaryResponse {
-  __type?: "GetDiscoverySummaryResponse";
   /**
    * <p>The number of servers mapped to tags.</p>
    */
@@ -1285,7 +1188,6 @@ export namespace GetDiscoverySummaryResponse {
   export const filterSensitiveLog = (obj: GetDiscoverySummaryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDiscoverySummaryResponse => __isa(o, "GetDiscoverySummaryResponse");
 }
 
 /**
@@ -1301,7 +1203,6 @@ export namespace HomeRegionNotSetException {
   export const filterSensitiveLog = (obj: HomeRegionNotSetException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HomeRegionNotSetException => __isa(o, "HomeRegionNotSetException");
 }
 
 export enum ImportStatus {
@@ -1323,7 +1224,6 @@ export enum ImportStatus {
  *       information, times, IDs, the Amazon S3 Object URL for the import file, and more.</p>
  */
 export interface ImportTask {
-  __type?: "ImportTask";
   /**
    * <p>The time that the import task request was deleted, presented in the Unix time stamp
    *       format.</p>
@@ -1419,7 +1319,6 @@ export namespace ImportTask {
   export const filterSensitiveLog = (obj: ImportTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportTask => __isa(o, "ImportTask");
 }
 
 /**
@@ -1431,7 +1330,6 @@ export namespace ImportTask {
  *          </note>
  */
 export interface ImportTaskFilter {
-  __type?: "ImportTaskFilter";
   /**
    * <p>The name, status, or import task ID for a specific import task.</p>
    */
@@ -1448,7 +1346,6 @@ export namespace ImportTaskFilter {
   export const filterSensitiveLog = (obj: ImportTaskFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportTaskFilter => __isa(o, "ImportTaskFilter");
 }
 
 export enum ImportTaskFilterName {
@@ -1470,7 +1367,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -1487,11 +1383,9 @@ export namespace InvalidParameterValueException {
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 export interface ListConfigurationsRequest {
-  __type?: "ListConfigurationsRequest";
   /**
    * <p>The total number of items to return. The maximum value is 100.</p>
    */
@@ -1534,11 +1428,9 @@ export namespace ListConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationsRequest => __isa(o, "ListConfigurationsRequest");
 }
 
 export interface ListConfigurationsResponse {
-  __type?: "ListConfigurationsResponse";
   /**
    * <p>Returns configuration details, including the configuration ID, attribute names, and
    *       attribute values.</p>
@@ -1559,11 +1451,9 @@ export namespace ListConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationsResponse => __isa(o, "ListConfigurationsResponse");
 }
 
 export interface ListServerNeighborsRequest {
-  __type?: "ListServerNeighborsRequest";
   /**
    * <p>Maximum number of results to return in a single page of output.</p>
    */
@@ -1598,11 +1488,9 @@ export namespace ListServerNeighborsRequest {
   export const filterSensitiveLog = (obj: ListServerNeighborsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServerNeighborsRequest => __isa(o, "ListServerNeighborsRequest");
 }
 
 export interface ListServerNeighborsResponse {
-  __type?: "ListServerNeighborsResponse";
   /**
    * <p>Count of distinct servers that are one hop away from the given server.</p>
    */
@@ -1627,14 +1515,12 @@ export namespace ListServerNeighborsResponse {
   export const filterSensitiveLog = (obj: ListServerNeighborsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServerNeighborsResponse => __isa(o, "ListServerNeighborsResponse");
 }
 
 /**
  * <p>Details about neighboring servers.</p>
  */
 export interface NeighborConnectionDetail {
-  __type?: "NeighborConnectionDetail";
   /**
    * <p>The number of open network connections with the neighboring server.</p>
    */
@@ -1665,7 +1551,6 @@ export namespace NeighborConnectionDetail {
   export const filterSensitiveLog = (obj: NeighborConnectionDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NeighborConnectionDetail => __isa(o, "NeighborConnectionDetail");
 }
 
 /**
@@ -1681,14 +1566,12 @@ export namespace OperationNotPermittedException {
   export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationNotPermittedException => __isa(o, "OperationNotPermittedException");
 }
 
 /**
  * <p>A field and direction for ordered output.</p>
  */
 export interface OrderByElement {
-  __type?: "OrderByElement";
   /**
    * <p>The field on which to order.</p>
    */
@@ -1704,7 +1587,6 @@ export namespace OrderByElement {
   export const filterSensitiveLog = (obj: OrderByElement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrderByElement => __isa(o, "OrderByElement");
 }
 
 export enum OrderString {
@@ -1729,7 +1611,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -1746,7 +1627,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1762,22 +1642,17 @@ export namespace ServerInternalErrorException {
   export const filterSensitiveLog = (obj: ServerInternalErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServerInternalErrorException => __isa(o, "ServerInternalErrorException");
 }
 
-export interface StartContinuousExportRequest {
-  __type?: "StartContinuousExportRequest";
-}
+export interface StartContinuousExportRequest {}
 
 export namespace StartContinuousExportRequest {
   export const filterSensitiveLog = (obj: StartContinuousExportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartContinuousExportRequest => __isa(o, "StartContinuousExportRequest");
 }
 
 export interface StartContinuousExportResponse {
-  __type?: "StartContinuousExportResponse";
   /**
    * <p>The name of the s3 bucket where the export data parquet files are stored.</p>
    */
@@ -1816,11 +1691,9 @@ export namespace StartContinuousExportResponse {
   export const filterSensitiveLog = (obj: StartContinuousExportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartContinuousExportResponse => __isa(o, "StartContinuousExportResponse");
 }
 
 export interface StartDataCollectionByAgentIdsRequest {
-  __type?: "StartDataCollectionByAgentIdsRequest";
   /**
    * <p>The IDs of the agents or connectors from which to start collecting data. If you send a
    *       request to an agent/connector ID that you do not have permission to contact, according to your
@@ -1837,12 +1710,9 @@ export namespace StartDataCollectionByAgentIdsRequest {
   export const filterSensitiveLog = (obj: StartDataCollectionByAgentIdsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDataCollectionByAgentIdsRequest =>
-    __isa(o, "StartDataCollectionByAgentIdsRequest");
 }
 
 export interface StartDataCollectionByAgentIdsResponse {
-  __type?: "StartDataCollectionByAgentIdsResponse";
   /**
    * <p>Information about agents or the connector that were instructed to start collecting
    *       data. Information includes the agent/connector ID, a description of the operation performed,
@@ -1855,12 +1725,9 @@ export namespace StartDataCollectionByAgentIdsResponse {
   export const filterSensitiveLog = (obj: StartDataCollectionByAgentIdsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartDataCollectionByAgentIdsResponse =>
-    __isa(o, "StartDataCollectionByAgentIdsResponse");
 }
 
 export interface StartExportTaskRequest {
-  __type?: "StartExportTaskRequest";
   /**
    * <p>The start timestamp for exported data from the single Application Discovery Agent
    *       selected in the filters. If no value is specified, data is exported starting from the first
@@ -1900,11 +1767,9 @@ export namespace StartExportTaskRequest {
   export const filterSensitiveLog = (obj: StartExportTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartExportTaskRequest => __isa(o, "StartExportTaskRequest");
 }
 
 export interface StartExportTaskResponse {
-  __type?: "StartExportTaskResponse";
   /**
    * <p>A unique identifier used to query the status of an export request.</p>
    */
@@ -1915,11 +1780,9 @@ export namespace StartExportTaskResponse {
   export const filterSensitiveLog = (obj: StartExportTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartExportTaskResponse => __isa(o, "StartExportTaskResponse");
 }
 
 export interface StartImportTaskRequest {
-  __type?: "StartImportTaskRequest";
   /**
    * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
    *
@@ -1954,11 +1817,9 @@ export namespace StartImportTaskRequest {
   export const filterSensitiveLog = (obj: StartImportTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartImportTaskRequest => __isa(o, "StartImportTaskRequest");
 }
 
 export interface StartImportTaskResponse {
-  __type?: "StartImportTaskResponse";
   /**
    * <p>An array of information related to the import task request including status information,
    *       times, IDs, the Amazon S3 Object URL for the import file, and more. </p>
@@ -1970,11 +1831,9 @@ export namespace StartImportTaskResponse {
   export const filterSensitiveLog = (obj: StartImportTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartImportTaskResponse => __isa(o, "StartImportTaskResponse");
 }
 
 export interface StopContinuousExportRequest {
-  __type?: "StopContinuousExportRequest";
   /**
    * <p>The unique ID assigned to this export.</p>
    */
@@ -1985,11 +1844,9 @@ export namespace StopContinuousExportRequest {
   export const filterSensitiveLog = (obj: StopContinuousExportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopContinuousExportRequest => __isa(o, "StopContinuousExportRequest");
 }
 
 export interface StopContinuousExportResponse {
-  __type?: "StopContinuousExportResponse";
   /**
    * <p>Timestamp that represents when this continuous export started collecting
    *       data.</p>
@@ -2006,11 +1863,9 @@ export namespace StopContinuousExportResponse {
   export const filterSensitiveLog = (obj: StopContinuousExportResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopContinuousExportResponse => __isa(o, "StopContinuousExportResponse");
 }
 
 export interface StopDataCollectionByAgentIdsRequest {
-  __type?: "StopDataCollectionByAgentIdsRequest";
   /**
    * <p>The IDs of the agents or connectors from which to stop collecting data.</p>
    */
@@ -2021,12 +1876,9 @@ export namespace StopDataCollectionByAgentIdsRequest {
   export const filterSensitiveLog = (obj: StopDataCollectionByAgentIdsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopDataCollectionByAgentIdsRequest =>
-    __isa(o, "StopDataCollectionByAgentIdsRequest");
 }
 
 export interface StopDataCollectionByAgentIdsResponse {
-  __type?: "StopDataCollectionByAgentIdsResponse";
   /**
    * <p>Information about the agents or connector that were instructed to stop collecting data.
    *       Information includes the agent/connector ID, a description of the operation performed, and
@@ -2039,15 +1891,12 @@ export namespace StopDataCollectionByAgentIdsResponse {
   export const filterSensitiveLog = (obj: StopDataCollectionByAgentIdsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopDataCollectionByAgentIdsResponse =>
-    __isa(o, "StopDataCollectionByAgentIdsResponse");
 }
 
 /**
  * <p>Metadata that help you categorize IT assets.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The type of tag on which to filter.</p>
    */
@@ -2063,7 +1912,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -2071,7 +1919,6 @@ export namespace Tag {
  *         <code>configurationId</code>.</p>
  */
 export interface TagFilter {
-  __type?: "TagFilter";
   /**
    * <p>Values for the tag filter.</p>
    */
@@ -2087,11 +1934,9 @@ export namespace TagFilter {
   export const filterSensitiveLog = (obj: TagFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
 export interface UpdateApplicationRequest {
-  __type?: "UpdateApplicationRequest";
   /**
    * <p>New name of the application to be updated.</p>
    */
@@ -2112,16 +1957,12 @@ export namespace UpdateApplicationRequest {
   export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationRequest => __isa(o, "UpdateApplicationRequest");
 }
 
-export interface UpdateApplicationResponse {
-  __type?: "UpdateApplicationResponse";
-}
+export interface UpdateApplicationResponse {}
 
 export namespace UpdateApplicationResponse {
   export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationResponse => __isa(o, "UpdateApplicationResponse");
 }

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -10,7 +10,6 @@ import { Readable } from "stream";
  *             Amazon S3 Glacier</a>.</p>
  */
 export interface AbortMultipartUploadInput {
-  __type?: "AbortMultipartUploadInput";
   /**
    * <p>The name of the vault.</p>
    */
@@ -35,14 +34,12 @@ export namespace AbortMultipartUploadInput {
   export const filterSensitiveLog = (obj: AbortMultipartUploadInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AbortMultipartUploadInput => __isa(o, "AbortMultipartUploadInput");
 }
 
 /**
  * <p>The input values for <code>AbortVaultLock</code>.</p>
  */
 export interface AbortVaultLockInput {
-  __type?: "AbortVaultLockInput";
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
    *          account ID associated with the credentials used to sign the request. You can either specify
@@ -62,7 +59,6 @@ export namespace AbortVaultLockInput {
   export const filterSensitiveLog = (obj: AbortVaultLockInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AbortVaultLockInput => __isa(o, "AbortVaultLockInput");
 }
 
 export enum ActionCode {
@@ -75,7 +71,6 @@ export enum ActionCode {
  * <p>The input values for <code>AddTagsToVault</code>.</p>
  */
 export interface AddTagsToVaultInput {
-  __type?: "AddTagsToVaultInput";
   /**
    * <p>The tags to add to the vault. Each tag is composed of a key and a value. The value
    *          can be an empty string.</p>
@@ -101,7 +96,6 @@ export namespace AddTagsToVaultInput {
   export const filterSensitiveLog = (obj: AddTagsToVaultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsToVaultInput => __isa(o, "AddTagsToVaultInput");
 }
 
 /**
@@ -111,7 +105,6 @@ export namespace AddTagsToVaultInput {
  *             Amazon S3 Glacier</a>.</p>
  */
 export interface ArchiveCreationOutput {
-  __type?: "ArchiveCreationOutput";
   /**
    * <p>The checksum of the archive computed by Amazon S3 Glacier.</p>
    */
@@ -132,7 +125,6 @@ export namespace ArchiveCreationOutput {
   export const filterSensitiveLog = (obj: ArchiveCreationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArchiveCreationOutput => __isa(o, "ArchiveCreationOutput");
 }
 
 export enum CannedACL {
@@ -152,7 +144,6 @@ export enum CannedACL {
  *          Glacier returns the URI path of the newly created archive resource.</p>
  */
 export interface CompleteMultipartUploadInput {
-  __type?: "CompleteMultipartUploadInput";
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
@@ -191,14 +182,12 @@ export namespace CompleteMultipartUploadInput {
   export const filterSensitiveLog = (obj: CompleteMultipartUploadInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteMultipartUploadInput => __isa(o, "CompleteMultipartUploadInput");
 }
 
 /**
  * <p>The input values for <code>CompleteVaultLock</code>.</p>
  */
 export interface CompleteVaultLockInput {
-  __type?: "CompleteVaultLockInput";
   /**
    * <p>The name of the vault.</p>
    */
@@ -223,14 +212,12 @@ export namespace CompleteVaultLockInput {
   export const filterSensitiveLog = (obj: CompleteVaultLockInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteVaultLockInput => __isa(o, "CompleteVaultLockInput");
 }
 
 /**
  * <p>Provides options to create a vault.</p>
  */
 export interface CreateVaultInput {
-  __type?: "CreateVaultInput";
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
    *          account ID associated with the credentials used to sign the request. You can either specify
@@ -250,14 +237,12 @@ export namespace CreateVaultInput {
   export const filterSensitiveLog = (obj: CreateVaultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVaultInput => __isa(o, "CreateVaultInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface CreateVaultOutput {
-  __type?: "CreateVaultOutput";
   /**
    * <p>The URI of the vault that was created.</p>
    */
@@ -268,14 +253,12 @@ export namespace CreateVaultOutput {
   export const filterSensitiveLog = (obj: CreateVaultOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVaultOutput => __isa(o, "CreateVaultOutput");
 }
 
 /**
  * <p>Contains information about the comma-separated value (CSV) file to select from.</p>
  */
 export interface CSVInput {
-  __type?: "CSVInput";
   /**
    * <p>Describes the first line of input. Valid values are <code>None</code>,
    *                 <code>Ignore</code>, and <code>Use</code>.</p>
@@ -315,7 +298,6 @@ export namespace CSVInput {
   export const filterSensitiveLog = (obj: CSVInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CSVInput => __isa(o, "CSVInput");
 }
 
 /**
@@ -323,7 +305,6 @@ export namespace CSVInput {
  *             are stored in.</p>
  */
 export interface CSVOutput {
-  __type?: "CSVOutput";
   /**
    * <p>A value used to separate individual records from each other.</p>
    */
@@ -357,14 +338,12 @@ export namespace CSVOutput {
   export const filterSensitiveLog = (obj: CSVOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CSVOutput => __isa(o, "CSVOutput");
 }
 
 /**
  * <p>Data retrieval policy.</p>
  */
 export interface DataRetrievalPolicy {
-  __type?: "DataRetrievalPolicy";
   /**
    * <p>The policy rule. Although this is a list type, currently there must be only one rule,
    *          which contains a Strategy field and optionally a BytesPerHour field.</p>
@@ -376,14 +355,12 @@ export namespace DataRetrievalPolicy {
   export const filterSensitiveLog = (obj: DataRetrievalPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataRetrievalPolicy => __isa(o, "DataRetrievalPolicy");
 }
 
 /**
  * <p>Data retrieval policy rule.</p>
  */
 export interface DataRetrievalRule {
-  __type?: "DataRetrievalRule";
   /**
    * <p>The maximum number of bytes that can be retrieved in an hour.</p>
    *          <p>This field is required only if the value of the Strategy field is
@@ -403,14 +380,12 @@ export namespace DataRetrievalRule {
   export const filterSensitiveLog = (obj: DataRetrievalRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataRetrievalRule => __isa(o, "DataRetrievalRule");
 }
 
 /**
  * <p>Provides options for deleting an archive from an Amazon S3 Glacier vault.</p>
  */
 export interface DeleteArchiveInput {
-  __type?: "DeleteArchiveInput";
   /**
    * <p>The name of the vault.</p>
    */
@@ -435,14 +410,12 @@ export namespace DeleteArchiveInput {
   export const filterSensitiveLog = (obj: DeleteArchiveInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteArchiveInput => __isa(o, "DeleteArchiveInput");
 }
 
 /**
  * <p>DeleteVaultAccessPolicy input.</p>
  */
 export interface DeleteVaultAccessPolicyInput {
-  __type?: "DeleteVaultAccessPolicyInput";
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
@@ -462,14 +435,12 @@ export namespace DeleteVaultAccessPolicyInput {
   export const filterSensitiveLog = (obj: DeleteVaultAccessPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVaultAccessPolicyInput => __isa(o, "DeleteVaultAccessPolicyInput");
 }
 
 /**
  * <p>Provides options for deleting a vault from Amazon S3 Glacier.</p>
  */
 export interface DeleteVaultInput {
-  __type?: "DeleteVaultInput";
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
@@ -489,7 +460,6 @@ export namespace DeleteVaultInput {
   export const filterSensitiveLog = (obj: DeleteVaultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVaultInput => __isa(o, "DeleteVaultInput");
 }
 
 /**
@@ -497,7 +467,6 @@ export namespace DeleteVaultInput {
  *          Glacier vault.</p>
  */
 export interface DeleteVaultNotificationsInput {
-  __type?: "DeleteVaultNotificationsInput";
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
@@ -517,14 +486,12 @@ export namespace DeleteVaultNotificationsInput {
   export const filterSensitiveLog = (obj: DeleteVaultNotificationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVaultNotificationsInput => __isa(o, "DeleteVaultNotificationsInput");
 }
 
 /**
  * <p>Provides options for retrieving a job description.</p>
  */
 export interface DescribeJobInput {
-  __type?: "DescribeJobInput";
   /**
    * <p>The ID of the job to describe.</p>
    */
@@ -549,7 +516,6 @@ export namespace DescribeJobInput {
   export const filterSensitiveLog = (obj: DescribeJobInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobInput => __isa(o, "DescribeJobInput");
 }
 
 /**
@@ -557,7 +523,6 @@ export namespace DescribeJobInput {
  *          Glacier.</p>
  */
 export interface DescribeVaultInput {
-  __type?: "DescribeVaultInput";
   /**
    * <p>The name of the vault.</p>
    */
@@ -577,14 +542,12 @@ export namespace DescribeVaultInput {
   export const filterSensitiveLog = (obj: DescribeVaultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVaultInput => __isa(o, "DescribeVaultInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface DescribeVaultOutput {
-  __type?: "DescribeVaultOutput";
   /**
    * <p>Total size, in bytes, of the archives in the vault as of the last inventory date.
    *          This field will return null if an inventory has not yet run on the vault, for example if
@@ -628,14 +591,12 @@ export namespace DescribeVaultOutput {
   export const filterSensitiveLog = (obj: DescribeVaultOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVaultOutput => __isa(o, "DescribeVaultOutput");
 }
 
 /**
  * <p>Contains information about the encryption used to store the job results in Amazon S3. </p>
  */
 export interface Encryption {
-  __type?: "Encryption";
   /**
    * <p>Optional. If the encryption type is <code>aws:kms</code>, you can use this value to
    *             specify the encryption context for the job results.</p>
@@ -660,7 +621,6 @@ export namespace Encryption {
   export const filterSensitiveLog = (obj: Encryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Encryption => __isa(o, "Encryption");
 }
 
 export enum EncryptionType {
@@ -682,7 +642,6 @@ export enum FileHeaderInfo {
  * <p>Input for GetDataRetrievalPolicy.</p>
  */
 export interface GetDataRetrievalPolicyInput {
-  __type?: "GetDataRetrievalPolicyInput";
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
    *          account ID associated with the credentials used to sign the request. You can either specify
@@ -697,7 +656,6 @@ export namespace GetDataRetrievalPolicyInput {
   export const filterSensitiveLog = (obj: GetDataRetrievalPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataRetrievalPolicyInput => __isa(o, "GetDataRetrievalPolicyInput");
 }
 
 /**
@@ -705,7 +663,6 @@ export namespace GetDataRetrievalPolicyInput {
  *          request.</p>
  */
 export interface GetDataRetrievalPolicyOutput {
-  __type?: "GetDataRetrievalPolicyOutput";
   /**
    * <p>Contains the returned data retrieval policy in JSON format.</p>
    */
@@ -716,14 +673,12 @@ export namespace GetDataRetrievalPolicyOutput {
   export const filterSensitiveLog = (obj: GetDataRetrievalPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataRetrievalPolicyOutput => __isa(o, "GetDataRetrievalPolicyOutput");
 }
 
 /**
  * <p>Provides options for downloading output of an Amazon S3 Glacier job.</p>
  */
 export interface GetJobOutputInput {
-  __type?: "GetJobOutputInput";
   /**
    * <p>The name of the vault.</p>
    */
@@ -788,14 +743,12 @@ export namespace GetJobOutputInput {
   export const filterSensitiveLog = (obj: GetJobOutputInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobOutputInput => __isa(o, "GetJobOutputInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface GetJobOutputOutput {
-  __type?: "GetJobOutputOutput";
   /**
    * <p>Indicates the range units accepted. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFC2616</a>. </p>
    */
@@ -856,14 +809,12 @@ export namespace GetJobOutputOutput {
   export const filterSensitiveLog = (obj: GetJobOutputOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobOutputOutput => __isa(o, "GetJobOutputOutput");
 }
 
 /**
  * <p>Input for GetVaultAccessPolicy.</p>
  */
 export interface GetVaultAccessPolicyInput {
-  __type?: "GetVaultAccessPolicyInput";
   /**
    * <p>The name of the vault.</p>
    */
@@ -883,14 +834,12 @@ export namespace GetVaultAccessPolicyInput {
   export const filterSensitiveLog = (obj: GetVaultAccessPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVaultAccessPolicyInput => __isa(o, "GetVaultAccessPolicyInput");
 }
 
 /**
  * <p>Output for GetVaultAccessPolicy.</p>
  */
 export interface GetVaultAccessPolicyOutput {
-  __type?: "GetVaultAccessPolicyOutput";
   /**
    * <p>Contains the returned vault access policy as a JSON string.</p>
    */
@@ -901,14 +850,12 @@ export namespace GetVaultAccessPolicyOutput {
   export const filterSensitiveLog = (obj: GetVaultAccessPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVaultAccessPolicyOutput => __isa(o, "GetVaultAccessPolicyOutput");
 }
 
 /**
  * <p>The input values for <code>GetVaultLock</code>.</p>
  */
 export interface GetVaultLockInput {
-  __type?: "GetVaultLockInput";
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
@@ -928,14 +875,12 @@ export namespace GetVaultLockInput {
   export const filterSensitiveLog = (obj: GetVaultLockInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVaultLockInput => __isa(o, "GetVaultLockInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface GetVaultLockOutput {
-  __type?: "GetVaultLockOutput";
   /**
    * <p>The state of the vault lock. <code>InProgress</code> or
    *          <code>Locked</code>.</p>
@@ -965,7 +910,6 @@ export namespace GetVaultLockOutput {
   export const filterSensitiveLog = (obj: GetVaultLockOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVaultLockOutput => __isa(o, "GetVaultLockOutput");
 }
 
 /**
@@ -973,7 +917,6 @@ export namespace GetVaultLockOutput {
  *          Glacier vault.</p>
  */
 export interface GetVaultNotificationsInput {
-  __type?: "GetVaultNotificationsInput";
   /**
    * <p>The name of the vault.</p>
    */
@@ -993,14 +936,12 @@ export namespace GetVaultNotificationsInput {
   export const filterSensitiveLog = (obj: GetVaultNotificationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVaultNotificationsInput => __isa(o, "GetVaultNotificationsInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface GetVaultNotificationsOutput {
-  __type?: "GetVaultNotificationsOutput";
   /**
    * <p>Returns the notification configuration set on the vault.</p>
    */
@@ -1011,14 +952,12 @@ export namespace GetVaultNotificationsOutput {
   export const filterSensitiveLog = (obj: GetVaultNotificationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetVaultNotificationsOutput => __isa(o, "GetVaultNotificationsOutput");
 }
 
 /**
  * <p>Contains the description of an Amazon S3 Glacier job.</p>
  */
 export interface GlacierJobDescription {
-  __type?: "GlacierJobDescription";
   /**
    * <p>An opaque string that identifies an Amazon S3 Glacier job.</p>
    */
@@ -1176,14 +1115,12 @@ export namespace GlacierJobDescription {
   export const filterSensitiveLog = (obj: GlacierJobDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlacierJobDescription => __isa(o, "GlacierJobDescription");
 }
 
 /**
  * <p>Contains information about a grant.</p>
  */
 export interface Grant {
-  __type?: "Grant";
   /**
    * <p>Specifies the permission given to the grantee. </p>
    */
@@ -1199,14 +1136,12 @@ export namespace Grant {
   export const filterSensitiveLog = (obj: Grant): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Grant => __isa(o, "Grant");
 }
 
 /**
  * <p>Contains information about the grantee.</p>
  */
 export interface Grantee {
-  __type?: "Grantee";
   /**
    * <p>The canonical user ID of the grantee.</p>
    */
@@ -1237,14 +1172,12 @@ export namespace Grantee {
   export const filterSensitiveLog = (obj: Grantee): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Grantee => __isa(o, "Grantee");
 }
 
 /**
  * <p>Provides options for initiating an Amazon S3 Glacier job.</p>
  */
 export interface InitiateJobInput {
-  __type?: "InitiateJobInput";
   /**
    * <p>The name of the vault.</p>
    */
@@ -1269,14 +1202,12 @@ export namespace InitiateJobInput {
   export const filterSensitiveLog = (obj: InitiateJobInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InitiateJobInput => __isa(o, "InitiateJobInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface InitiateJobOutput {
-  __type?: "InitiateJobOutput";
   /**
    * <p>The relative URI path of the job.</p>
    */
@@ -1297,7 +1228,6 @@ export namespace InitiateJobOutput {
   export const filterSensitiveLog = (obj: InitiateJobOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InitiateJobOutput => __isa(o, "InitiateJobOutput");
 }
 
 /**
@@ -1305,7 +1235,6 @@ export namespace InitiateJobOutput {
  *          vault.</p>
  */
 export interface InitiateMultipartUploadInput {
-  __type?: "InitiateMultipartUploadInput";
   /**
    * <p>The size of each part except the last, in bytes. The last part can be smaller than
    *          this part size.</p>
@@ -1339,14 +1268,12 @@ export namespace InitiateMultipartUploadInput {
   export const filterSensitiveLog = (obj: InitiateMultipartUploadInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InitiateMultipartUploadInput => __isa(o, "InitiateMultipartUploadInput");
 }
 
 /**
  * <p>The Amazon S3 Glacier response to your request.</p>
  */
 export interface InitiateMultipartUploadOutput {
-  __type?: "InitiateMultipartUploadOutput";
   /**
    * <p>The relative URI path of the multipart upload ID Amazon S3 Glacier created.</p>
    */
@@ -1363,14 +1290,12 @@ export namespace InitiateMultipartUploadOutput {
   export const filterSensitiveLog = (obj: InitiateMultipartUploadOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InitiateMultipartUploadOutput => __isa(o, "InitiateMultipartUploadOutput");
 }
 
 /**
  * <p>The input values for <code>InitiateVaultLock</code>.</p>
  */
 export interface InitiateVaultLockInput {
-  __type?: "InitiateVaultLockInput";
   /**
    * <p>The name of the vault.</p>
    */
@@ -1396,14 +1321,12 @@ export namespace InitiateVaultLockInput {
   export const filterSensitiveLog = (obj: InitiateVaultLockInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InitiateVaultLockInput => __isa(o, "InitiateVaultLockInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface InitiateVaultLockOutput {
-  __type?: "InitiateVaultLockOutput";
   /**
    * <p>The lock ID, which is used to complete the vault locking process.</p>
    */
@@ -1414,14 +1337,12 @@ export namespace InitiateVaultLockOutput {
   export const filterSensitiveLog = (obj: InitiateVaultLockOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InitiateVaultLockOutput => __isa(o, "InitiateVaultLockOutput");
 }
 
 /**
  * <p>Describes how the archive is serialized.</p>
  */
 export interface InputSerialization {
-  __type?: "InputSerialization";
   /**
    * <p>Describes the serialization of a CSV-encoded object.</p>
    */
@@ -1432,7 +1353,6 @@ export namespace InputSerialization {
   export const filterSensitiveLog = (obj: InputSerialization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputSerialization => __isa(o, "InputSerialization");
 }
 
 /**
@@ -1452,7 +1372,6 @@ export namespace InsufficientCapacityException {
   export const filterSensitiveLog = (obj: InsufficientCapacityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientCapacityException => __isa(o, "InsufficientCapacityException");
 }
 
 /**
@@ -1481,14 +1400,12 @@ export namespace InvalidParameterValueException {
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
  * <p>Describes the options for a range inventory retrieval job.</p>
  */
 export interface InventoryRetrievalJobDescription {
-  __type?: "InventoryRetrievalJobDescription";
   /**
    * <p>The output format for the vault inventory list, which is set by the <b>InitiateJob</b> request when initiating a job to retrieve a vault
    *             inventory. Valid values are <code>CSV</code> and <code>JSON</code>.</p>
@@ -1529,14 +1446,12 @@ export namespace InventoryRetrievalJobDescription {
   export const filterSensitiveLog = (obj: InventoryRetrievalJobDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InventoryRetrievalJobDescription => __isa(o, "InventoryRetrievalJobDescription");
 }
 
 /**
  * <p>Provides options for specifying a range inventory retrieval job.</p>
  */
 export interface InventoryRetrievalJobInput {
-  __type?: "InventoryRetrievalJobInput";
   /**
    * <p>The end of the date range in UTC for vault inventory retrieval that includes archives
    *          created before this date. This value should be a string in the ISO 8601 date format, for
@@ -1570,14 +1485,12 @@ export namespace InventoryRetrievalJobInput {
   export const filterSensitiveLog = (obj: InventoryRetrievalJobInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InventoryRetrievalJobInput => __isa(o, "InventoryRetrievalJobInput");
 }
 
 /**
  * <p>Provides options for defining a job.</p>
  */
 export interface JobParameters {
-  __type?: "JobParameters";
   /**
    * <p>The byte range to retrieve for an archive retrieval. in the form
    *             "<i>StartByteValue</i>-<i>EndByteValue</i>" If not
@@ -1655,7 +1568,6 @@ export namespace JobParameters {
   export const filterSensitiveLog = (obj: JobParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobParameters => __isa(o, "JobParameters");
 }
 
 /**
@@ -1684,14 +1596,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>Provides options for retrieving a job list for an Amazon S3 Glacier vault.</p>
  */
 export interface ListJobsInput {
-  __type?: "ListJobsInput";
   /**
    * <p>The state of the jobs to return. You can specify <code>true</code> or
    *             <code>false</code>.</p>
@@ -1738,14 +1648,12 @@ export namespace ListJobsInput {
   export const filterSensitiveLog = (obj: ListJobsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsInput => __isa(o, "ListJobsInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListJobsOutput {
-  __type?: "ListJobsOutput";
   /**
    * <p>
    *          An opaque string used for pagination that specifies the job at which the listing of jobs should begin.
@@ -1766,7 +1674,6 @@ export namespace ListJobsOutput {
   export const filterSensitiveLog = (obj: ListJobsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsOutput => __isa(o, "ListJobsOutput");
 }
 
 /**
@@ -1774,7 +1681,6 @@ export namespace ListJobsOutput {
  *          Glacier vault.</p>
  */
 export interface ListMultipartUploadsInput {
-  __type?: "ListMultipartUploadsInput";
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
@@ -1808,14 +1714,12 @@ export namespace ListMultipartUploadsInput {
   export const filterSensitiveLog = (obj: ListMultipartUploadsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMultipartUploadsInput => __isa(o, "ListMultipartUploadsInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListMultipartUploadsOutput {
-  __type?: "ListMultipartUploadsOutput";
   /**
    * <p>An opaque string that represents where to continue pagination of the results. You use
    *          the marker in a new List Multipart Uploads request to obtain more uploads in the list. If
@@ -1833,7 +1737,6 @@ export namespace ListMultipartUploadsOutput {
   export const filterSensitiveLog = (obj: ListMultipartUploadsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMultipartUploadsOutput => __isa(o, "ListMultipartUploadsOutput");
 }
 
 /**
@@ -1841,7 +1744,6 @@ export namespace ListMultipartUploadsOutput {
  *          in a specific multipart upload.</p>
  */
 export interface ListPartsInput {
-  __type?: "ListPartsInput";
   /**
    * <p>An opaque string used for pagination. This value specifies the part at which the
    *          listing of parts should begin. Get the marker value from the response of a previous List
@@ -1881,14 +1783,12 @@ export namespace ListPartsInput {
   export const filterSensitiveLog = (obj: ListPartsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPartsInput => __isa(o, "ListPartsInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListPartsOutput {
-  __type?: "ListPartsOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the vault to which the multipart upload was
    *          initiated.</p>
@@ -1936,11 +1836,9 @@ export namespace ListPartsOutput {
   export const filterSensitiveLog = (obj: ListPartsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPartsOutput => __isa(o, "ListPartsOutput");
 }
 
 export interface ListProvisionedCapacityInput {
-  __type?: "ListProvisionedCapacityInput";
   /**
    * <p>The AWS account ID of the account that owns the vault. You can either specify an AWS
    *          account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS
@@ -1954,11 +1852,9 @@ export namespace ListProvisionedCapacityInput {
   export const filterSensitiveLog = (obj: ListProvisionedCapacityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProvisionedCapacityInput => __isa(o, "ListProvisionedCapacityInput");
 }
 
 export interface ListProvisionedCapacityOutput {
-  __type?: "ListProvisionedCapacityOutput";
   /**
    * <p>The response body contains the following JSON fields.</p>
    */
@@ -1969,14 +1865,12 @@ export namespace ListProvisionedCapacityOutput {
   export const filterSensitiveLog = (obj: ListProvisionedCapacityOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProvisionedCapacityOutput => __isa(o, "ListProvisionedCapacityOutput");
 }
 
 /**
  * <p>The input value for <code>ListTagsForVaultInput</code>.</p>
  */
 export interface ListTagsForVaultInput {
-  __type?: "ListTagsForVaultInput";
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
@@ -1996,14 +1890,12 @@ export namespace ListTagsForVaultInput {
   export const filterSensitiveLog = (obj: ListTagsForVaultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForVaultInput => __isa(o, "ListTagsForVaultInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListTagsForVaultOutput {
-  __type?: "ListTagsForVaultOutput";
   /**
    * <p>The tags attached to the vault. Each tag is composed of a key and a value.</p>
    */
@@ -2014,7 +1906,6 @@ export namespace ListTagsForVaultOutput {
   export const filterSensitiveLog = (obj: ListTagsForVaultOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForVaultOutput => __isa(o, "ListTagsForVaultOutput");
 }
 
 /**
@@ -2022,7 +1913,6 @@ export namespace ListTagsForVaultOutput {
  *          list provides metadata information for each vault.</p>
  */
 export interface ListVaultsInput {
-  __type?: "ListVaultsInput";
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
    *          account ID associated with the credentials used to sign the request. You can either specify
@@ -2050,14 +1940,12 @@ export namespace ListVaultsInput {
   export const filterSensitiveLog = (obj: ListVaultsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVaultsInput => __isa(o, "ListVaultsInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface ListVaultsOutput {
-  __type?: "ListVaultsOutput";
   /**
    * <p>List of vaults.</p>
    */
@@ -2074,7 +1962,6 @@ export namespace ListVaultsOutput {
   export const filterSensitiveLog = (obj: ListVaultsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVaultsOutput => __isa(o, "ListVaultsOutput");
 }
 
 /**
@@ -2103,14 +1990,12 @@ export namespace MissingParameterValueException {
   export const filterSensitiveLog = (obj: MissingParameterValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MissingParameterValueException => __isa(o, "MissingParameterValueException");
 }
 
 /**
  * <p>Contains information about the location where the select job results are stored.</p>
  */
 export interface OutputLocation {
-  __type?: "OutputLocation";
   /**
    * <p>Describes an S3 location that will receive the results of the job request.</p>
    */
@@ -2121,14 +2006,12 @@ export namespace OutputLocation {
   export const filterSensitiveLog = (obj: OutputLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputLocation => __isa(o, "OutputLocation");
 }
 
 /**
  * <p>Describes how the select output is serialized.</p>
  */
 export interface OutputSerialization {
-  __type?: "OutputSerialization";
   /**
    * <p>Describes the serialization of CSV-encoded query results.</p>
    */
@@ -2139,14 +2022,12 @@ export namespace OutputSerialization {
   export const filterSensitiveLog = (obj: OutputSerialization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputSerialization => __isa(o, "OutputSerialization");
 }
 
 /**
  * <p>A list of the part sizes of the multipart upload.</p>
  */
 export interface PartListElement {
-  __type?: "PartListElement";
   /**
    * <p>The byte range of a part, inclusive of the upper value of the range.</p>
    */
@@ -2163,7 +2044,6 @@ export namespace PartListElement {
   export const filterSensitiveLog = (obj: PartListElement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PartListElement => __isa(o, "PartListElement");
 }
 
 export enum Permission {
@@ -2201,14 +2081,12 @@ export namespace PolicyEnforcedException {
   export const filterSensitiveLog = (obj: PolicyEnforcedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyEnforcedException => __isa(o, "PolicyEnforcedException");
 }
 
 /**
  * <p>The definition for a provisioned capacity unit.</p>
  */
 export interface ProvisionedCapacityDescription {
-  __type?: "ProvisionedCapacityDescription";
   /**
    * <p>The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).</p>
    */
@@ -2229,11 +2107,9 @@ export namespace ProvisionedCapacityDescription {
   export const filterSensitiveLog = (obj: ProvisionedCapacityDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionedCapacityDescription => __isa(o, "ProvisionedCapacityDescription");
 }
 
 export interface PurchaseProvisionedCapacityInput {
-  __type?: "PurchaseProvisionedCapacityInput";
   /**
    * <p>The AWS account ID of the account that owns the vault. You can either specify an AWS
    *          account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS
@@ -2247,11 +2123,9 @@ export namespace PurchaseProvisionedCapacityInput {
   export const filterSensitiveLog = (obj: PurchaseProvisionedCapacityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseProvisionedCapacityInput => __isa(o, "PurchaseProvisionedCapacityInput");
 }
 
 export interface PurchaseProvisionedCapacityOutput {
-  __type?: "PurchaseProvisionedCapacityOutput";
   /**
    * <p>The ID that identifies the provisioned capacity unit.</p>
    */
@@ -2262,7 +2136,6 @@ export namespace PurchaseProvisionedCapacityOutput {
   export const filterSensitiveLog = (obj: PurchaseProvisionedCapacityOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PurchaseProvisionedCapacityOutput => __isa(o, "PurchaseProvisionedCapacityOutput");
 }
 
 export enum QuoteFields {
@@ -2274,7 +2147,6 @@ export enum QuoteFields {
  * <p>The input value for <code>RemoveTagsFromVaultInput</code>.</p>
  */
 export interface RemoveTagsFromVaultInput {
-  __type?: "RemoveTagsFromVaultInput";
   /**
    * <p>The name of the vault.</p>
    */
@@ -2299,7 +2171,6 @@ export namespace RemoveTagsFromVaultInput {
   export const filterSensitiveLog = (obj: RemoveTagsFromVaultInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromVaultInput => __isa(o, "RemoveTagsFromVaultInput");
 }
 
 /**
@@ -2330,7 +2201,6 @@ export namespace RequestTimeoutException {
   export const filterSensitiveLog = (obj: RequestTimeoutException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestTimeoutException => __isa(o, "RequestTimeoutException");
 }
 
 /**
@@ -2361,14 +2231,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>Contains information about the location in Amazon S3 where the select job results are stored.</p>
  */
 export interface S3Location {
-  __type?: "S3Location";
   /**
    * <p>The canned access control list (ACL) to apply to the job results.</p>
    */
@@ -2414,14 +2282,12 @@ export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
 
 /**
  * <p>Contains information about the parameters used for a select.</p>
  */
 export interface SelectParameters {
-  __type?: "SelectParameters";
   /**
    * <p>The type of the provided expression, for example <code>SQL</code>.</p>
    */
@@ -2447,7 +2313,6 @@ export namespace SelectParameters {
   export const filterSensitiveLog = (obj: SelectParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SelectParameters => __isa(o, "SelectParameters");
 }
 
 /**
@@ -2476,14 +2341,12 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
  * <p>SetDataRetrievalPolicy input.</p>
  */
 export interface SetDataRetrievalPolicyInput {
-  __type?: "SetDataRetrievalPolicyInput";
   /**
    * <p>The data retrieval policy in JSON format.</p>
    */
@@ -2503,14 +2366,12 @@ export namespace SetDataRetrievalPolicyInput {
   export const filterSensitiveLog = (obj: SetDataRetrievalPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetDataRetrievalPolicyInput => __isa(o, "SetDataRetrievalPolicyInput");
 }
 
 /**
  * <p>SetVaultAccessPolicy input.</p>
  */
 export interface SetVaultAccessPolicyInput {
-  __type?: "SetVaultAccessPolicyInput";
   /**
    * <p>The vault access policy as a JSON string.</p>
    */
@@ -2535,7 +2396,6 @@ export namespace SetVaultAccessPolicyInput {
   export const filterSensitiveLog = (obj: SetVaultAccessPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetVaultAccessPolicyInput => __isa(o, "SetVaultAccessPolicyInput");
 }
 
 /**
@@ -2543,7 +2403,6 @@ export namespace SetVaultAccessPolicyInput {
  *          happen to a vault.</p>
  */
 export interface SetVaultNotificationsInput {
-  __type?: "SetVaultNotificationsInput";
   /**
    * <p>The name of the vault.</p>
    */
@@ -2568,7 +2427,6 @@ export namespace SetVaultNotificationsInput {
   export const filterSensitiveLog = (obj: SetVaultNotificationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetVaultNotificationsInput => __isa(o, "SetVaultNotificationsInput");
 }
 
 export enum StatusCode {
@@ -2593,7 +2451,6 @@ export enum Type {
  * <p>Provides options to add an archive to a vault.</p>
  */
 export interface UploadArchiveInput {
-  __type?: "UploadArchiveInput";
   /**
    * <p>The data to upload.</p>
    */
@@ -2628,14 +2485,12 @@ export namespace UploadArchiveInput {
   export const filterSensitiveLog = (obj: UploadArchiveInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadArchiveInput => __isa(o, "UploadArchiveInput");
 }
 
 /**
  * <p>A list of in-progress multipart uploads for a vault.</p>
  */
 export interface UploadListElement {
-  __type?: "UploadListElement";
   /**
    * <p>The part size, in bytes, specified in the Initiate Multipart Upload request. This is
    *          the size of all the parts in the upload except the last part, which may be smaller than
@@ -2669,7 +2524,6 @@ export namespace UploadListElement {
   export const filterSensitiveLog = (obj: UploadListElement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadListElement => __isa(o, "UploadListElement");
 }
 
 /**
@@ -2677,7 +2531,6 @@ export namespace UploadListElement {
  *          operation.</p>
  */
 export interface UploadMultipartPartInput {
-  __type?: "UploadMultipartPartInput";
   /**
    * <p>The SHA256 tree hash of the data being uploaded.</p>
    */
@@ -2720,14 +2573,12 @@ export namespace UploadMultipartPartInput {
   export const filterSensitiveLog = (obj: UploadMultipartPartInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadMultipartPartInput => __isa(o, "UploadMultipartPartInput");
 }
 
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface UploadMultipartPartOutput {
-  __type?: "UploadMultipartPartOutput";
   /**
    * <p>The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded part.</p>
    */
@@ -2738,14 +2589,12 @@ export namespace UploadMultipartPartOutput {
   export const filterSensitiveLog = (obj: UploadMultipartPartOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UploadMultipartPartOutput => __isa(o, "UploadMultipartPartOutput");
 }
 
 /**
  * <p>Contains the vault access policy.</p>
  */
 export interface VaultAccessPolicy {
-  __type?: "VaultAccessPolicy";
   /**
    * <p>The vault access policy.</p>
    */
@@ -2756,14 +2605,12 @@ export namespace VaultAccessPolicy {
   export const filterSensitiveLog = (obj: VaultAccessPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VaultAccessPolicy => __isa(o, "VaultAccessPolicy");
 }
 
 /**
  * <p>Contains the vault lock policy.</p>
  */
 export interface VaultLockPolicy {
-  __type?: "VaultLockPolicy";
   /**
    * <p>The vault lock policy.</p>
    */
@@ -2774,14 +2621,12 @@ export namespace VaultLockPolicy {
   export const filterSensitiveLog = (obj: VaultLockPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VaultLockPolicy => __isa(o, "VaultLockPolicy");
 }
 
 /**
  * <p>Represents a vault's notification configuration.</p>
  */
 export interface VaultNotificationConfig {
-  __type?: "VaultNotificationConfig";
   /**
    * <p>A list of one or more events for which Amazon S3 Glacier will send a notification to the
    *          specified Amazon SNS topic.</p>
@@ -2799,5 +2644,4 @@ export namespace VaultNotificationConfig {
   export const filterSensitiveLog = (obj: VaultNotificationConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VaultNotificationConfig => __isa(o, "VaultNotificationConfig");
 }

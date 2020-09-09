@@ -105,7 +105,6 @@ export const deserializeAws_json1_1DeleteReportDefinitionCommand = async (
   contents = deserializeAws_json1_1DeleteReportDefinitionResponse(data, context);
   const response: DeleteReportDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteReportDefinitionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -169,7 +168,6 @@ export const deserializeAws_json1_1DescribeReportDefinitionsCommand = async (
   contents = deserializeAws_json1_1DescribeReportDefinitionsResponse(data, context);
   const response: DescribeReportDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReportDefinitionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -225,7 +223,6 @@ export const deserializeAws_json1_1ModifyReportDefinitionCommand = async (
   contents = deserializeAws_json1_1ModifyReportDefinitionResponse(data, context);
   const response: ModifyReportDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyReportDefinitionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -289,7 +286,6 @@ export const deserializeAws_json1_1PutReportDefinitionCommand = async (
   contents = deserializeAws_json1_1PutReportDefinitionResponse(data, context);
   const response: PutReportDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutReportDefinitionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -502,7 +498,6 @@ const deserializeAws_json1_1DeleteReportDefinitionResponse = (
   context: __SerdeContext
 ): DeleteReportDefinitionResponse => {
   return {
-    __type: "DeleteReportDefinitionResponse",
     ResponseMessage:
       output.ResponseMessage !== undefined && output.ResponseMessage !== null ? output.ResponseMessage : undefined,
   } as any;
@@ -513,7 +508,6 @@ const deserializeAws_json1_1DescribeReportDefinitionsResponse = (
   context: __SerdeContext
 ): DescribeReportDefinitionsResponse => {
   return {
-    __type: "DescribeReportDefinitionsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ReportDefinitions:
       output.ReportDefinitions !== undefined && output.ReportDefinitions !== null
@@ -527,14 +521,12 @@ const deserializeAws_json1_1DuplicateReportNameException = (
   context: __SerdeContext
 ): DuplicateReportNameException => {
   return {
-    __type: "DuplicateReportNameException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
-    __type: "InternalErrorException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -543,23 +535,18 @@ const deserializeAws_json1_1ModifyReportDefinitionResponse = (
   output: any,
   context: __SerdeContext
 ): ModifyReportDefinitionResponse => {
-  return {
-    __type: "ModifyReportDefinitionResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutReportDefinitionResponse = (
   output: any,
   context: __SerdeContext
 ): PutReportDefinitionResponse => {
-  return {
-    __type: "PutReportDefinitionResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ReportDefinition = (output: any, context: __SerdeContext): ReportDefinition => {
   return {
-    __type: "ReportDefinition",
     AdditionalArtifacts:
       output.AdditionalArtifacts !== undefined && output.AdditionalArtifacts !== null
         ? deserializeAws_json1_1AdditionalArtifactList(output.AdditionalArtifacts, context)
@@ -593,7 +580,6 @@ const deserializeAws_json1_1ReportLimitReachedException = (
   context: __SerdeContext
 ): ReportLimitReachedException => {
   return {
-    __type: "ReportLimitReachedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -604,7 +590,6 @@ const deserializeAws_json1_1SchemaElementList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    __type: "ValidationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -43,7 +43,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          </ul>
  */
 export interface ActivateGatewayInput {
-  __type?: "ActivateGatewayInput";
   /**
    * <p>A value that defines the type of gateway to activate. The type specified is critical to
    *          all later functions of the gateway and cannot be changed after activation. The default
@@ -137,7 +136,6 @@ export namespace ActivateGatewayInput {
   export const filterSensitiveLog = (obj: ActivateGatewayInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivateGatewayInput => __isa(o, "ActivateGatewayInput");
 }
 
 /**
@@ -153,7 +151,6 @@ export namespace ActivateGatewayInput {
  *          </note>
  */
 export interface ActivateGatewayOutput {
-  __type?: "ActivateGatewayOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -165,7 +162,6 @@ export namespace ActivateGatewayOutput {
   export const filterSensitiveLog = (obj: ActivateGatewayOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivateGatewayOutput => __isa(o, "ActivateGatewayOutput");
 }
 
 export type ActiveDirectoryStatus =
@@ -178,7 +174,6 @@ export type ActiveDirectoryStatus =
   | "UNKNOWN_ERROR";
 
 export interface AddCacheInput {
-  __type?: "AddCacheInput";
   /**
    * <p>An array of strings that identify disks that are to be configured as working storage.
    *          Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs
@@ -197,11 +192,9 @@ export namespace AddCacheInput {
   export const filterSensitiveLog = (obj: AddCacheInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddCacheInput => __isa(o, "AddCacheInput");
 }
 
 export interface AddCacheOutput {
-  __type?: "AddCacheOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -213,14 +206,12 @@ export namespace AddCacheOutput {
   export const filterSensitiveLog = (obj: AddCacheOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddCacheOutput => __isa(o, "AddCacheOutput");
 }
 
 /**
  * <p>AddTagsToResourceInput</p>
  */
 export interface AddTagsToResourceInput {
-  __type?: "AddTagsToResourceInput";
   /**
    * <p>The key-value pair that represents the tag you want to add to the resource. The value
    *          can be an empty string.</p>
@@ -244,14 +235,12 @@ export namespace AddTagsToResourceInput {
   export const filterSensitiveLog = (obj: AddTagsToResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsToResourceInput => __isa(o, "AddTagsToResourceInput");
 }
 
 /**
  * <p>AddTagsToResourceOutput</p>
  */
 export interface AddTagsToResourceOutput {
-  __type?: "AddTagsToResourceOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you want to add tags to.</p>
    */
@@ -262,11 +251,9 @@ export namespace AddTagsToResourceOutput {
   export const filterSensitiveLog = (obj: AddTagsToResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsToResourceOutput => __isa(o, "AddTagsToResourceOutput");
 }
 
 export interface AddUploadBufferInput {
-  __type?: "AddUploadBufferInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -285,11 +272,9 @@ export namespace AddUploadBufferInput {
   export const filterSensitiveLog = (obj: AddUploadBufferInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddUploadBufferInput => __isa(o, "AddUploadBufferInput");
 }
 
 export interface AddUploadBufferOutput {
-  __type?: "AddUploadBufferOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -301,7 +286,6 @@ export namespace AddUploadBufferOutput {
   export const filterSensitiveLog = (obj: AddUploadBufferOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddUploadBufferOutput => __isa(o, "AddUploadBufferOutput");
 }
 
 /**
@@ -316,7 +300,6 @@ export namespace AddUploadBufferOutput {
  *          </ul>
  */
 export interface AddWorkingStorageInput {
-  __type?: "AddWorkingStorageInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -335,7 +318,6 @@ export namespace AddWorkingStorageInput {
   export const filterSensitiveLog = (obj: AddWorkingStorageInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddWorkingStorageInput => __isa(o, "AddWorkingStorageInput");
 }
 
 /**
@@ -343,7 +325,6 @@ export namespace AddWorkingStorageInput {
  *          storage was configured.</p>
  */
 export interface AddWorkingStorageOutput {
-  __type?: "AddWorkingStorageOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -355,11 +336,9 @@ export namespace AddWorkingStorageOutput {
   export const filterSensitiveLog = (obj: AddWorkingStorageOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddWorkingStorageOutput => __isa(o, "AddWorkingStorageOutput");
 }
 
 export interface AssignTapePoolInput {
-  __type?: "AssignTapePoolInput";
   /**
    * <p>The ID of the pool that you want to add your tape to for archiving. The tape in this
    *          pool is archived in the S3 storage class that is associated with the pool. When you use
@@ -382,11 +361,9 @@ export namespace AssignTapePoolInput {
   export const filterSensitiveLog = (obj: AssignTapePoolInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssignTapePoolInput => __isa(o, "AssignTapePoolInput");
 }
 
 export interface AssignTapePoolOutput {
-  __type?: "AssignTapePoolOutput";
   /**
    * <p>The unique Amazon Resource Names (ARN) of the virtual tape that was added to the tape
    *          pool.</p>
@@ -398,14 +375,12 @@ export namespace AssignTapePoolOutput {
   export const filterSensitiveLog = (obj: AssignTapePoolOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssignTapePoolOutput => __isa(o, "AssignTapePoolOutput");
 }
 
 /**
  * <p>AttachVolumeInput</p>
  */
 export interface AttachVolumeInput {
-  __type?: "AttachVolumeInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume to attach to the specified gateway.</p>
    */
@@ -450,14 +425,12 @@ export namespace AttachVolumeInput {
   export const filterSensitiveLog = (obj: AttachVolumeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachVolumeInput => __isa(o, "AttachVolumeInput");
 }
 
 /**
  * <p>AttachVolumeOutput</p>
  */
 export interface AttachVolumeOutput {
-  __type?: "AttachVolumeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume that was attached to the gateway.</p>
    */
@@ -474,7 +447,6 @@ export namespace AttachVolumeOutput {
   export const filterSensitiveLog = (obj: AttachVolumeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttachVolumeOutput => __isa(o, "AttachVolumeOutput");
 }
 
 /**
@@ -482,7 +454,6 @@ export namespace AttachVolumeOutput {
  *          automatic tape creation rules and the gateway that is using the policies.</p>
  */
 export interface AutomaticTapeCreationPolicyInfo {
-  __type?: "AutomaticTapeCreationPolicyInfo";
   /**
    * <p>An automatic tape creation policy consists of a list of automatic tape creation rules.
    *          This returns the rules that determine when and how to automatically create new
@@ -501,7 +472,6 @@ export namespace AutomaticTapeCreationPolicyInfo {
   export const filterSensitiveLog = (obj: AutomaticTapeCreationPolicyInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutomaticTapeCreationPolicyInfo => __isa(o, "AutomaticTapeCreationPolicyInfo");
 }
 
 /**
@@ -509,7 +479,6 @@ export namespace AutomaticTapeCreationPolicyInfo {
  *          rule defines when and how to create new tapes.</p>
  */
 export interface AutomaticTapeCreationRule {
-  __type?: "AutomaticTapeCreationRule";
   /**
    * <p>The ID of the pool that you want to add your tape to for archiving. The tape in this
    *          pool is archived in the Amazon S3 storage class that is associated with the pool. When you
@@ -549,7 +518,6 @@ export namespace AutomaticTapeCreationRule {
   export const filterSensitiveLog = (obj: AutomaticTapeCreationRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutomaticTapeCreationRule => __isa(o, "AutomaticTapeCreationRule");
 }
 
 export type AvailabilityMonitorTestStatus = "COMPLETE" | "FAILED" | "PENDING";
@@ -558,7 +526,6 @@ export type AvailabilityMonitorTestStatus = "COMPLETE" | "FAILED" | "PENDING";
  * <p>Lists refresh cache information.</p>
  */
 export interface CacheAttributes {
-  __type?: "CacheAttributes";
   /**
    * <p>Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of
    *          time since the last refresh after which access to the directory would cause the file
@@ -574,14 +541,12 @@ export namespace CacheAttributes {
   export const filterSensitiveLog = (obj: CacheAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CacheAttributes => __isa(o, "CacheAttributes");
 }
 
 /**
  * <p>Describes an iSCSI cached volume.</p>
  */
 export interface CachediSCSIVolume {
-  __type?: "CachediSCSIVolume";
   /**
    * <p>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
    *          S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can
@@ -677,14 +642,12 @@ export namespace CachediSCSIVolume {
   export const filterSensitiveLog = (obj: CachediSCSIVolume): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CachediSCSIVolume => __isa(o, "CachediSCSIVolume");
 }
 
 /**
  * <p>CancelArchivalInput</p>
  */
 export interface CancelArchivalInput {
-  __type?: "CancelArchivalInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -702,14 +665,12 @@ export namespace CancelArchivalInput {
   export const filterSensitiveLog = (obj: CancelArchivalInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelArchivalInput => __isa(o, "CancelArchivalInput");
 }
 
 /**
  * <p>CancelArchivalOutput</p>
  */
 export interface CancelArchivalOutput {
-  __type?: "CancelArchivalOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual tape for which archiving was
    *          canceled.</p>
@@ -721,14 +682,12 @@ export namespace CancelArchivalOutput {
   export const filterSensitiveLog = (obj: CancelArchivalOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelArchivalOutput => __isa(o, "CancelArchivalOutput");
 }
 
 /**
  * <p>CancelRetrievalInput</p>
  */
 export interface CancelRetrievalInput {
-  __type?: "CancelRetrievalInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual tape you want to cancel retrieval
    *          for.</p>
@@ -746,14 +705,12 @@ export namespace CancelRetrievalInput {
   export const filterSensitiveLog = (obj: CancelRetrievalInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelRetrievalInput => __isa(o, "CancelRetrievalInput");
 }
 
 /**
  * <p>CancelRetrievalOutput</p>
  */
 export interface CancelRetrievalOutput {
-  __type?: "CancelRetrievalOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual tape for which retrieval was
    *          canceled.</p>
@@ -765,7 +722,6 @@ export namespace CancelRetrievalOutput {
   export const filterSensitiveLog = (obj: CancelRetrievalOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelRetrievalOutput => __isa(o, "CancelRetrievalOutput");
 }
 
 export type CaseSensitivity = "CaseSensitive" | "ClientSpecified";
@@ -775,7 +731,6 @@ export type CaseSensitivity = "CaseSensitive" | "ClientSpecified";
  *          authentication between your gateway and iSCSI initiators.</p>
  */
 export interface ChapInfo {
-  __type?: "ChapInfo";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume.</p>
    *
@@ -807,11 +762,9 @@ export namespace ChapInfo {
     ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
     ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ChapInfo => __isa(o, "ChapInfo");
 }
 
 export interface CreateCachediSCSIVolumeInput {
-  __type?: "CreateCachediSCSIVolumeInput";
   /**
    * <p>The ARN for an existing volume. Specifying this ARN makes the new volume into an exact
    *          copy of the specified existing volume's latest recovery point. The
@@ -900,11 +853,9 @@ export namespace CreateCachediSCSIVolumeInput {
   export const filterSensitiveLog = (obj: CreateCachediSCSIVolumeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCachediSCSIVolumeInput => __isa(o, "CreateCachediSCSIVolumeInput");
 }
 
 export interface CreateCachediSCSIVolumeOutput {
-  __type?: "CreateCachediSCSIVolumeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the configured volume.</p>
    */
@@ -921,14 +872,12 @@ export namespace CreateCachediSCSIVolumeOutput {
   export const filterSensitiveLog = (obj: CreateCachediSCSIVolumeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCachediSCSIVolumeOutput => __isa(o, "CreateCachediSCSIVolumeOutput");
 }
 
 /**
  * <p>CreateNFSFileShareInput</p>
  */
 export interface CreateNFSFileShareInput {
-  __type?: "CreateNFSFileShareInput";
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
    *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
@@ -1089,14 +1038,12 @@ export namespace CreateNFSFileShareInput {
   export const filterSensitiveLog = (obj: CreateNFSFileShareInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNFSFileShareInput => __isa(o, "CreateNFSFileShareInput");
 }
 
 /**
  * <p>CreateNFSFileShareOutput</p>
  */
 export interface CreateNFSFileShareOutput {
-  __type?: "CreateNFSFileShareOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the newly created file share.</p>
    */
@@ -1107,14 +1054,12 @@ export namespace CreateNFSFileShareOutput {
   export const filterSensitiveLog = (obj: CreateNFSFileShareOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateNFSFileShareOutput => __isa(o, "CreateNFSFileShareOutput");
 }
 
 /**
  * <p>CreateSMBFileShareInput</p>
  */
 export interface CreateSMBFileShareInput {
-  __type?: "CreateSMBFileShareInput";
   /**
    * <p>The ARN of the file gateway on which you want to create a file share.</p>
    */
@@ -1309,14 +1254,12 @@ export namespace CreateSMBFileShareInput {
   export const filterSensitiveLog = (obj: CreateSMBFileShareInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSMBFileShareInput => __isa(o, "CreateSMBFileShareInput");
 }
 
 /**
  * <p>CreateSMBFileShareOutput</p>
  */
 export interface CreateSMBFileShareOutput {
-  __type?: "CreateSMBFileShareOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the newly created file share.</p>
    */
@@ -1327,11 +1270,9 @@ export namespace CreateSMBFileShareOutput {
   export const filterSensitiveLog = (obj: CreateSMBFileShareOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSMBFileShareOutput => __isa(o, "CreateSMBFileShareOutput");
 }
 
 export interface CreateSnapshotFromVolumeRecoveryPointInput {
-  __type?: "CreateSnapshotFromVolumeRecoveryPointInput";
   /**
    * <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value
    *          pair.</p>
@@ -1364,12 +1305,9 @@ export namespace CreateSnapshotFromVolumeRecoveryPointInput {
   export const filterSensitiveLog = (obj: CreateSnapshotFromVolumeRecoveryPointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotFromVolumeRecoveryPointInput =>
-    __isa(o, "CreateSnapshotFromVolumeRecoveryPointInput");
 }
 
 export interface CreateSnapshotFromVolumeRecoveryPointOutput {
-  __type?: "CreateSnapshotFromVolumeRecoveryPointOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
    *          specified VolumeARN.</p>
@@ -1391,8 +1329,6 @@ export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
   export const filterSensitiveLog = (obj: CreateSnapshotFromVolumeRecoveryPointOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotFromVolumeRecoveryPointOutput =>
-    __isa(o, "CreateSnapshotFromVolumeRecoveryPointOutput");
 }
 
 /**
@@ -1412,7 +1348,6 @@ export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
  *          </ul>
  */
 export interface CreateSnapshotInput {
-  __type?: "CreateSnapshotInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
    *          operation to return a list of gateway volumes.</p>
@@ -1445,14 +1380,12 @@ export namespace CreateSnapshotInput {
   export const filterSensitiveLog = (obj: CreateSnapshotInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotInput => __isa(o, "CreateSnapshotInput");
 }
 
 /**
  * <p>A JSON object containing the following fields:</p>
  */
 export interface CreateSnapshotOutput {
-  __type?: "CreateSnapshotOutput";
   /**
    * <p>The snapshot ID that is used to refer to the snapshot in future operations such as
    *          describing snapshots (Amazon Elastic Compute Cloud API <code>DescribeSnapshots</code>) or
@@ -1470,7 +1403,6 @@ export namespace CreateSnapshotOutput {
   export const filterSensitiveLog = (obj: CreateSnapshotOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSnapshotOutput => __isa(o, "CreateSnapshotOutput");
 }
 
 /**
@@ -1505,7 +1437,6 @@ export namespace CreateSnapshotOutput {
  *          </ul>
  */
 export interface CreateStorediSCSIVolumeInput {
-  __type?: "CreateStorediSCSIVolumeInput";
   /**
    * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
@@ -1591,14 +1522,12 @@ export namespace CreateStorediSCSIVolumeInput {
   export const filterSensitiveLog = (obj: CreateStorediSCSIVolumeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStorediSCSIVolumeInput => __isa(o, "CreateStorediSCSIVolumeInput");
 }
 
 /**
  * <p>A JSON object containing the following fields:</p>
  */
 export interface CreateStorediSCSIVolumeOutput {
-  __type?: "CreateStorediSCSIVolumeOutput";
   /**
    * <p>The size of the volume in bytes.</p>
    */
@@ -1620,14 +1549,12 @@ export namespace CreateStorediSCSIVolumeOutput {
   export const filterSensitiveLog = (obj: CreateStorediSCSIVolumeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStorediSCSIVolumeOutput => __isa(o, "CreateStorediSCSIVolumeOutput");
 }
 
 /**
  * <p>CreateTapesInput</p>
  */
 export interface CreateTapesInput {
-  __type?: "CreateTapesInput";
   /**
    * <p>The unique Amazon Resource Name (ARN) that represents the gateway to associate the
    *          virtual tapes with. Use the <a>ListGateways</a> operation to return a list of
@@ -1716,14 +1643,12 @@ export namespace CreateTapesInput {
   export const filterSensitiveLog = (obj: CreateTapesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTapesInput => __isa(o, "CreateTapesInput");
 }
 
 /**
  * <p>CreateTapeOutput</p>
  */
 export interface CreateTapesOutput {
-  __type?: "CreateTapesOutput";
   /**
    * <p>A list of unique Amazon Resource Names (ARNs) that represents the virtual tapes that
    *          were created.</p>
@@ -1735,14 +1660,12 @@ export namespace CreateTapesOutput {
   export const filterSensitiveLog = (obj: CreateTapesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTapesOutput => __isa(o, "CreateTapesOutput");
 }
 
 /**
  * <p>CreateTapeWithBarcodeInput</p>
  */
 export interface CreateTapeWithBarcodeInput {
-  __type?: "CreateTapeWithBarcodeInput";
   /**
    * <p>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS KMS
    *          key, or <code>false</code> to use a key managed by Amazon S3. Optional.</p>
@@ -1814,14 +1737,12 @@ export namespace CreateTapeWithBarcodeInput {
   export const filterSensitiveLog = (obj: CreateTapeWithBarcodeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTapeWithBarcodeInput => __isa(o, "CreateTapeWithBarcodeInput");
 }
 
 /**
  * <p>CreateTapeOutput</p>
  */
 export interface CreateTapeWithBarcodeOutput {
-  __type?: "CreateTapeWithBarcodeOutput";
   /**
    * <p>A unique Amazon Resource Name (ARN) that represents the virtual tape that was
    *          created.</p>
@@ -1833,11 +1754,9 @@ export namespace CreateTapeWithBarcodeOutput {
   export const filterSensitiveLog = (obj: CreateTapeWithBarcodeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTapeWithBarcodeOutput => __isa(o, "CreateTapeWithBarcodeOutput");
 }
 
 export interface DeleteAutomaticTapeCreationPolicyInput {
-  __type?: "DeleteAutomaticTapeCreationPolicyInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -1849,12 +1768,9 @@ export namespace DeleteAutomaticTapeCreationPolicyInput {
   export const filterSensitiveLog = (obj: DeleteAutomaticTapeCreationPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAutomaticTapeCreationPolicyInput =>
-    __isa(o, "DeleteAutomaticTapeCreationPolicyInput");
 }
 
 export interface DeleteAutomaticTapeCreationPolicyOutput {
-  __type?: "DeleteAutomaticTapeCreationPolicyOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -1866,8 +1782,6 @@ export namespace DeleteAutomaticTapeCreationPolicyOutput {
   export const filterSensitiveLog = (obj: DeleteAutomaticTapeCreationPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAutomaticTapeCreationPolicyOutput =>
-    __isa(o, "DeleteAutomaticTapeCreationPolicyOutput");
 }
 
 /**
@@ -1882,7 +1796,6 @@ export namespace DeleteAutomaticTapeCreationPolicyOutput {
  *          </ul>
  */
 export interface DeleteBandwidthRateLimitInput {
-  __type?: "DeleteBandwidthRateLimitInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -1903,7 +1816,6 @@ export namespace DeleteBandwidthRateLimitInput {
   export const filterSensitiveLog = (obj: DeleteBandwidthRateLimitInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBandwidthRateLimitInput => __isa(o, "DeleteBandwidthRateLimitInput");
 }
 
 /**
@@ -1911,7 +1823,6 @@ export namespace DeleteBandwidthRateLimitInput {
  *          rate information was deleted.</p>
  */
 export interface DeleteBandwidthRateLimitOutput {
-  __type?: "DeleteBandwidthRateLimitOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -1923,7 +1834,6 @@ export namespace DeleteBandwidthRateLimitOutput {
   export const filterSensitiveLog = (obj: DeleteBandwidthRateLimitOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBandwidthRateLimitOutput => __isa(o, "DeleteBandwidthRateLimitOutput");
 }
 
 /**
@@ -1943,7 +1853,6 @@ export namespace DeleteBandwidthRateLimitOutput {
  *          </ul>
  */
 export interface DeleteChapCredentialsInput {
-  __type?: "DeleteChapCredentialsInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
    *          specified VolumeARN.</p>
@@ -1960,14 +1869,12 @@ export namespace DeleteChapCredentialsInput {
   export const filterSensitiveLog = (obj: DeleteChapCredentialsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteChapCredentialsInput => __isa(o, "DeleteChapCredentialsInput");
 }
 
 /**
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DeleteChapCredentialsOutput {
-  __type?: "DeleteChapCredentialsOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the target.</p>
    */
@@ -1983,14 +1890,12 @@ export namespace DeleteChapCredentialsOutput {
   export const filterSensitiveLog = (obj: DeleteChapCredentialsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteChapCredentialsOutput => __isa(o, "DeleteChapCredentialsOutput");
 }
 
 /**
  * <p>DeleteFileShareInput</p>
  */
 export interface DeleteFileShareInput {
-  __type?: "DeleteFileShareInput";
   /**
    * <p>If this value is set to <code>true</code>, the operation deletes a file share
    *          immediately and aborts all data uploads to AWS. Otherwise, the file share is not deleted
@@ -2012,14 +1917,12 @@ export namespace DeleteFileShareInput {
   export const filterSensitiveLog = (obj: DeleteFileShareInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileShareInput => __isa(o, "DeleteFileShareInput");
 }
 
 /**
  * <p>DeleteFileShareOutput</p>
  */
 export interface DeleteFileShareOutput {
-  __type?: "DeleteFileShareOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted file share.</p>
    */
@@ -2030,14 +1933,12 @@ export namespace DeleteFileShareOutput {
   export const filterSensitiveLog = (obj: DeleteFileShareOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFileShareOutput => __isa(o, "DeleteFileShareOutput");
 }
 
 /**
  * <p>A JSON object containing the ID of the gateway to delete.</p>
  */
 export interface DeleteGatewayInput {
-  __type?: "DeleteGatewayInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -2049,14 +1950,12 @@ export namespace DeleteGatewayInput {
   export const filterSensitiveLog = (obj: DeleteGatewayInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGatewayInput => __isa(o, "DeleteGatewayInput");
 }
 
 /**
  * <p>A JSON object containing the ID of the deleted gateway.</p>
  */
 export interface DeleteGatewayOutput {
-  __type?: "DeleteGatewayOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -2068,11 +1967,9 @@ export namespace DeleteGatewayOutput {
   export const filterSensitiveLog = (obj: DeleteGatewayOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGatewayOutput => __isa(o, "DeleteGatewayOutput");
 }
 
 export interface DeleteSnapshotScheduleInput {
-  __type?: "DeleteSnapshotScheduleInput";
   /**
    * <p>The volume which snapshot schedule to delete.</p>
    */
@@ -2083,11 +1980,9 @@ export namespace DeleteSnapshotScheduleInput {
   export const filterSensitiveLog = (obj: DeleteSnapshotScheduleInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSnapshotScheduleInput => __isa(o, "DeleteSnapshotScheduleInput");
 }
 
 export interface DeleteSnapshotScheduleOutput {
-  __type?: "DeleteSnapshotScheduleOutput";
   /**
    * <p>The volume which snapshot schedule was deleted.</p>
    */
@@ -2098,14 +1993,12 @@ export namespace DeleteSnapshotScheduleOutput {
   export const filterSensitiveLog = (obj: DeleteSnapshotScheduleOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSnapshotScheduleOutput => __isa(o, "DeleteSnapshotScheduleOutput");
 }
 
 /**
  * <p>DeleteTapeArchiveInput</p>
  */
 export interface DeleteTapeArchiveInput {
-  __type?: "DeleteTapeArchiveInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual tape shelf
    *          (VTS).</p>
@@ -2117,14 +2010,12 @@ export namespace DeleteTapeArchiveInput {
   export const filterSensitiveLog = (obj: DeleteTapeArchiveInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTapeArchiveInput => __isa(o, "DeleteTapeArchiveInput");
 }
 
 /**
  * <p>DeleteTapeArchiveOutput</p>
  */
 export interface DeleteTapeArchiveOutput {
-  __type?: "DeleteTapeArchiveOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual tape that was deleted from the virtual
    *          tape shelf (VTS).</p>
@@ -2136,14 +2027,12 @@ export namespace DeleteTapeArchiveOutput {
   export const filterSensitiveLog = (obj: DeleteTapeArchiveOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTapeArchiveOutput => __isa(o, "DeleteTapeArchiveOutput");
 }
 
 /**
  * <p>DeleteTapeInput</p>
  */
 export interface DeleteTapeInput {
-  __type?: "DeleteTapeInput";
   /**
    * <p>The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is
    *          associated with. Use the <a>ListGateways</a> operation to return a list of
@@ -2161,14 +2050,12 @@ export namespace DeleteTapeInput {
   export const filterSensitiveLog = (obj: DeleteTapeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTapeInput => __isa(o, "DeleteTapeInput");
 }
 
 /**
  * <p>DeleteTapeOutput</p>
  */
 export interface DeleteTapeOutput {
-  __type?: "DeleteTapeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted virtual tape.</p>
    */
@@ -2179,7 +2066,6 @@ export namespace DeleteTapeOutput {
   export const filterSensitiveLog = (obj: DeleteTapeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTapeOutput => __isa(o, "DeleteTapeOutput");
 }
 
 /**
@@ -2187,7 +2073,6 @@ export namespace DeleteTapeOutput {
  *          delete.</p>
  */
 export interface DeleteVolumeInput {
-  __type?: "DeleteVolumeInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
    *          operation to return a list of gateway volumes.</p>
@@ -2199,7 +2084,6 @@ export namespace DeleteVolumeInput {
   export const filterSensitiveLog = (obj: DeleteVolumeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVolumeInput => __isa(o, "DeleteVolumeInput");
 }
 
 /**
@@ -2207,7 +2091,6 @@ export namespace DeleteVolumeInput {
  *          deleted.</p>
  */
 export interface DeleteVolumeOutput {
-  __type?: "DeleteVolumeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same
    *          ARN you provided in the request.</p>
@@ -2219,11 +2102,9 @@ export namespace DeleteVolumeOutput {
   export const filterSensitiveLog = (obj: DeleteVolumeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVolumeOutput => __isa(o, "DeleteVolumeOutput");
 }
 
 export interface DescribeAvailabilityMonitorTestInput {
-  __type?: "DescribeAvailabilityMonitorTestInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -2235,12 +2116,9 @@ export namespace DescribeAvailabilityMonitorTestInput {
   export const filterSensitiveLog = (obj: DescribeAvailabilityMonitorTestInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAvailabilityMonitorTestInput =>
-    __isa(o, "DescribeAvailabilityMonitorTestInput");
 }
 
 export interface DescribeAvailabilityMonitorTestOutput {
-  __type?: "DescribeAvailabilityMonitorTestOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -2264,15 +2142,12 @@ export namespace DescribeAvailabilityMonitorTestOutput {
   export const filterSensitiveLog = (obj: DescribeAvailabilityMonitorTestOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAvailabilityMonitorTestOutput =>
-    __isa(o, "DescribeAvailabilityMonitorTestOutput");
 }
 
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway.</p>
  */
 export interface DescribeBandwidthRateLimitInput {
-  __type?: "DescribeBandwidthRateLimitInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -2284,14 +2159,12 @@ export namespace DescribeBandwidthRateLimitInput {
   export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBandwidthRateLimitInput => __isa(o, "DescribeBandwidthRateLimitInput");
 }
 
 /**
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DescribeBandwidthRateLimitOutput {
-  __type?: "DescribeBandwidthRateLimitOutput";
   /**
    * <p>The average upload bandwidth rate limit in bits per second. This field does not appear
    *          in the response if the upload rate limit is not set.</p>
@@ -2315,11 +2188,9 @@ export namespace DescribeBandwidthRateLimitOutput {
   export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBandwidthRateLimitOutput => __isa(o, "DescribeBandwidthRateLimitOutput");
 }
 
 export interface DescribeCachediSCSIVolumesInput {
-  __type?: "DescribeCachediSCSIVolumesInput";
   /**
    * <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
    *          cached volume. All of the specified cached volumes must be from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
@@ -2331,14 +2202,12 @@ export namespace DescribeCachediSCSIVolumesInput {
   export const filterSensitiveLog = (obj: DescribeCachediSCSIVolumesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCachediSCSIVolumesInput => __isa(o, "DescribeCachediSCSIVolumesInput");
 }
 
 /**
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DescribeCachediSCSIVolumesOutput {
-  __type?: "DescribeCachediSCSIVolumesOutput";
   /**
    * <p>An array of objects where each object contains metadata about one cached volume.</p>
    */
@@ -2349,11 +2218,9 @@ export namespace DescribeCachediSCSIVolumesOutput {
   export const filterSensitiveLog = (obj: DescribeCachediSCSIVolumesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCachediSCSIVolumesOutput => __isa(o, "DescribeCachediSCSIVolumesOutput");
 }
 
 export interface DescribeCacheInput {
-  __type?: "DescribeCacheInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -2365,11 +2232,9 @@ export namespace DescribeCacheInput {
   export const filterSensitiveLog = (obj: DescribeCacheInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCacheInput => __isa(o, "DescribeCacheInput");
 }
 
 export interface DescribeCacheOutput {
-  __type?: "DescribeCacheOutput";
   /**
    * <p>Percent use of the gateway's cache storage. This metric applies only to the
    *          gateway-cached volume setup. The sample is taken at the end of the reporting period.</p>
@@ -2418,7 +2283,6 @@ export namespace DescribeCacheOutput {
   export const filterSensitiveLog = (obj: DescribeCacheOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCacheOutput => __isa(o, "DescribeCacheOutput");
 }
 
 /**
@@ -2426,7 +2290,6 @@ export namespace DescribeCacheOutput {
  *          target.</p>
  */
 export interface DescribeChapCredentialsInput {
-  __type?: "DescribeChapCredentialsInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
    *          specified VolumeARN.</p>
@@ -2438,14 +2301,12 @@ export namespace DescribeChapCredentialsInput {
   export const filterSensitiveLog = (obj: DescribeChapCredentialsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeChapCredentialsInput => __isa(o, "DescribeChapCredentialsInput");
 }
 
 /**
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DescribeChapCredentialsOutput {
-  __type?: "DescribeChapCredentialsOutput";
   /**
    * <p>An array of <a>ChapInfo</a> objects that represent CHAP credentials. Each
    *          object in the array contains CHAP credential information for one target-initiator pair. If
@@ -2491,14 +2352,12 @@ export namespace DescribeChapCredentialsOutput {
       ChapCredentials: obj.ChapCredentials.map((item) => ChapInfo.filterSensitiveLog(item)),
     }),
   });
-  export const isa = (o: any): o is DescribeChapCredentialsOutput => __isa(o, "DescribeChapCredentialsOutput");
 }
 
 /**
  * <p>A JSON object containing the ID of the gateway.</p>
  */
 export interface DescribeGatewayInformationInput {
-  __type?: "DescribeGatewayInformationInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -2510,14 +2369,12 @@ export namespace DescribeGatewayInformationInput {
   export const filterSensitiveLog = (obj: DescribeGatewayInformationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGatewayInformationInput => __isa(o, "DescribeGatewayInformationInput");
 }
 
 /**
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DescribeGatewayInformationOutput {
-  __type?: "DescribeGatewayInformationOutput";
   /**
    * <p>The name you configured for your gateway.</p>
    */
@@ -2617,14 +2474,12 @@ export namespace DescribeGatewayInformationOutput {
   export const filterSensitiveLog = (obj: DescribeGatewayInformationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGatewayInformationOutput => __isa(o, "DescribeGatewayInformationOutput");
 }
 
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway.</p>
  */
 export interface DescribeMaintenanceStartTimeInput {
-  __type?: "DescribeMaintenanceStartTimeInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -2636,7 +2491,6 @@ export namespace DescribeMaintenanceStartTimeInput {
   export const filterSensitiveLog = (obj: DescribeMaintenanceStartTimeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMaintenanceStartTimeInput => __isa(o, "DescribeMaintenanceStartTimeInput");
 }
 
 /**
@@ -2671,7 +2525,6 @@ export namespace DescribeMaintenanceStartTimeInput {
  *          </ul>
  */
 export interface DescribeMaintenanceStartTimeOutput {
-  __type?: "DescribeMaintenanceStartTimeOutput";
   /**
    * <p>An ordinal number between 0 and 6 that represents the day of the week, where 0
    *          represents Sunday and 6 represents Saturday. The day of week is in the time zone of the
@@ -2717,15 +2570,12 @@ export namespace DescribeMaintenanceStartTimeOutput {
   export const filterSensitiveLog = (obj: DescribeMaintenanceStartTimeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMaintenanceStartTimeOutput =>
-    __isa(o, "DescribeMaintenanceStartTimeOutput");
 }
 
 /**
  * <p>DescribeNFSFileSharesInput</p>
  */
 export interface DescribeNFSFileSharesInput {
-  __type?: "DescribeNFSFileSharesInput";
   /**
    * <p>An array containing the Amazon Resource Name (ARN) of each file share to be
    *          described.</p>
@@ -2737,14 +2587,12 @@ export namespace DescribeNFSFileSharesInput {
   export const filterSensitiveLog = (obj: DescribeNFSFileSharesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNFSFileSharesInput => __isa(o, "DescribeNFSFileSharesInput");
 }
 
 /**
  * <p>DescribeNFSFileSharesOutput</p>
  */
 export interface DescribeNFSFileSharesOutput {
-  __type?: "DescribeNFSFileSharesOutput";
   /**
    * <p>An array containing a description for each requested file share.</p>
    */
@@ -2755,14 +2603,12 @@ export namespace DescribeNFSFileSharesOutput {
   export const filterSensitiveLog = (obj: DescribeNFSFileSharesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeNFSFileSharesOutput => __isa(o, "DescribeNFSFileSharesOutput");
 }
 
 /**
  * <p>DescribeSMBFileSharesInput</p>
  */
 export interface DescribeSMBFileSharesInput {
-  __type?: "DescribeSMBFileSharesInput";
   /**
    * <p>An array containing the Amazon Resource Name (ARN) of each file share to be
    *          described.</p>
@@ -2774,14 +2620,12 @@ export namespace DescribeSMBFileSharesInput {
   export const filterSensitiveLog = (obj: DescribeSMBFileSharesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSMBFileSharesInput => __isa(o, "DescribeSMBFileSharesInput");
 }
 
 /**
  * <p>DescribeSMBFileSharesOutput</p>
  */
 export interface DescribeSMBFileSharesOutput {
-  __type?: "DescribeSMBFileSharesOutput";
   /**
    * <p>An array containing a description for each requested file share.</p>
    */
@@ -2792,11 +2636,9 @@ export namespace DescribeSMBFileSharesOutput {
   export const filterSensitiveLog = (obj: DescribeSMBFileSharesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSMBFileSharesOutput => __isa(o, "DescribeSMBFileSharesOutput");
 }
 
 export interface DescribeSMBSettingsInput {
-  __type?: "DescribeSMBSettingsInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -2808,11 +2650,9 @@ export namespace DescribeSMBSettingsInput {
   export const filterSensitiveLog = (obj: DescribeSMBSettingsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSMBSettingsInput => __isa(o, "DescribeSMBSettingsInput");
 }
 
 export interface DescribeSMBSettingsOutput {
-  __type?: "DescribeSMBSettingsOutput";
   /**
    * <p>Indicates the status of a gateway that is a member of the Active Directory
    *          domain.</p>
@@ -2908,7 +2748,6 @@ export namespace DescribeSMBSettingsOutput {
   export const filterSensitiveLog = (obj: DescribeSMBSettingsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSMBSettingsOutput => __isa(o, "DescribeSMBSettingsOutput");
 }
 
 /**
@@ -2916,7 +2755,6 @@ export namespace DescribeSMBSettingsOutput {
  *          of the volume.</p>
  */
 export interface DescribeSnapshotScheduleInput {
-  __type?: "DescribeSnapshotScheduleInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
    *          operation to return a list of gateway volumes.</p>
@@ -2928,11 +2766,9 @@ export namespace DescribeSnapshotScheduleInput {
   export const filterSensitiveLog = (obj: DescribeSnapshotScheduleInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotScheduleInput => __isa(o, "DescribeSnapshotScheduleInput");
 }
 
 export interface DescribeSnapshotScheduleOutput {
-  __type?: "DescribeSnapshotScheduleOutput";
   /**
    * <p>A value that indicates the time zone of the gateway.</p>
    */
@@ -2972,14 +2808,12 @@ export namespace DescribeSnapshotScheduleOutput {
   export const filterSensitiveLog = (obj: DescribeSnapshotScheduleOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSnapshotScheduleOutput => __isa(o, "DescribeSnapshotScheduleOutput");
 }
 
 /**
  * <p>A JSON object containing a list of <a>DescribeStorediSCSIVolumesInput$VolumeARNs</a>.</p>
  */
 export interface DescribeStorediSCSIVolumesInput {
-  __type?: "DescribeStorediSCSIVolumesInput";
   /**
    * <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
    *          stored volume. All of the specified stored volumes must be from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
@@ -2991,11 +2825,9 @@ export namespace DescribeStorediSCSIVolumesInput {
   export const filterSensitiveLog = (obj: DescribeStorediSCSIVolumesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStorediSCSIVolumesInput => __isa(o, "DescribeStorediSCSIVolumesInput");
 }
 
 export interface DescribeStorediSCSIVolumesOutput {
-  __type?: "DescribeStorediSCSIVolumesOutput";
   /**
    * <p>Describes a single unit of output from <a>DescribeStorediSCSIVolumes</a>. The
    *          following fields are returned:</p>
@@ -3089,14 +2921,12 @@ export namespace DescribeStorediSCSIVolumesOutput {
   export const filterSensitiveLog = (obj: DescribeStorediSCSIVolumesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStorediSCSIVolumesOutput => __isa(o, "DescribeStorediSCSIVolumesOutput");
 }
 
 /**
  * <p>DescribeTapeArchivesInput</p>
  */
 export interface DescribeTapeArchivesInput {
-  __type?: "DescribeTapeArchivesInput";
   /**
    * <p>Specifies that the number of virtual tapes described be limited to the specified
    *          number.</p>
@@ -3120,14 +2950,12 @@ export namespace DescribeTapeArchivesInput {
   export const filterSensitiveLog = (obj: DescribeTapeArchivesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTapeArchivesInput => __isa(o, "DescribeTapeArchivesInput");
 }
 
 /**
  * <p>DescribeTapeArchivesOutput</p>
  */
 export interface DescribeTapeArchivesOutput {
-  __type?: "DescribeTapeArchivesOutput";
   /**
    * <p>An opaque string that indicates the position at which the virtual tapes that were
    *          fetched for description ended. Use this marker in your next request to fetch the next set
@@ -3149,14 +2977,12 @@ export namespace DescribeTapeArchivesOutput {
   export const filterSensitiveLog = (obj: DescribeTapeArchivesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTapeArchivesOutput => __isa(o, "DescribeTapeArchivesOutput");
 }
 
 /**
  * <p>DescribeTapeRecoveryPointsInput</p>
  */
 export interface DescribeTapeRecoveryPointsInput {
-  __type?: "DescribeTapeRecoveryPointsInput";
   /**
    * <p>Specifies that the number of virtual tape recovery points that are described be limited
    *          to the specified number.</p>
@@ -3180,14 +3006,12 @@ export namespace DescribeTapeRecoveryPointsInput {
   export const filterSensitiveLog = (obj: DescribeTapeRecoveryPointsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTapeRecoveryPointsInput => __isa(o, "DescribeTapeRecoveryPointsInput");
 }
 
 /**
  * <p>DescribeTapeRecoveryPointsOutput</p>
  */
 export interface DescribeTapeRecoveryPointsOutput {
-  __type?: "DescribeTapeRecoveryPointsOutput";
   /**
    * <p>An opaque string that indicates the position at which the virtual tape recovery points
    *          that were listed for description ended.</p>
@@ -3214,14 +3038,12 @@ export namespace DescribeTapeRecoveryPointsOutput {
   export const filterSensitiveLog = (obj: DescribeTapeRecoveryPointsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTapeRecoveryPointsOutput => __isa(o, "DescribeTapeRecoveryPointsOutput");
 }
 
 /**
  * <p>DescribeTapesInput</p>
  */
 export interface DescribeTapesInput {
-  __type?: "DescribeTapesInput";
   /**
    * <p>A marker value, obtained in a previous call to <code>DescribeTapes</code>. This marker
    *          indicates which page of results to retrieve.</p>
@@ -3258,14 +3080,12 @@ export namespace DescribeTapesInput {
   export const filterSensitiveLog = (obj: DescribeTapesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTapesInput => __isa(o, "DescribeTapesInput");
 }
 
 /**
  * <p>DescribeTapesOutput</p>
  */
 export interface DescribeTapesOutput {
-  __type?: "DescribeTapesOutput";
   /**
    * <p>An array of virtual tape descriptions.</p>
    */
@@ -3285,11 +3105,9 @@ export namespace DescribeTapesOutput {
   export const filterSensitiveLog = (obj: DescribeTapesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTapesOutput => __isa(o, "DescribeTapesOutput");
 }
 
 export interface DescribeUploadBufferInput {
-  __type?: "DescribeUploadBufferInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -3301,11 +3119,9 @@ export namespace DescribeUploadBufferInput {
   export const filterSensitiveLog = (obj: DescribeUploadBufferInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUploadBufferInput => __isa(o, "DescribeUploadBufferInput");
 }
 
 export interface DescribeUploadBufferOutput {
-  __type?: "DescribeUploadBufferOutput";
   /**
    * <p>An array of the gateway's local disk IDs that are configured as working storage.
    *          Each local disk ID is specified as a string (minimum length of 1 and maximum length of
@@ -3335,14 +3151,12 @@ export namespace DescribeUploadBufferOutput {
   export const filterSensitiveLog = (obj: DescribeUploadBufferOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUploadBufferOutput => __isa(o, "DescribeUploadBufferOutput");
 }
 
 /**
  * <p>DescribeVTLDevicesInput</p>
  */
 export interface DescribeVTLDevicesInput {
-  __type?: "DescribeVTLDevicesInput";
   /**
    * <p>An opaque string that indicates the position at which to begin describing the VTL
    *          devices.</p>
@@ -3377,14 +3191,12 @@ export namespace DescribeVTLDevicesInput {
   export const filterSensitiveLog = (obj: DescribeVTLDevicesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVTLDevicesInput => __isa(o, "DescribeVTLDevicesInput");
 }
 
 /**
  * <p>DescribeVTLDevicesOutput</p>
  */
 export interface DescribeVTLDevicesOutput {
-  __type?: "DescribeVTLDevicesOutput";
   /**
    * <p>An array of VTL device objects composed of the Amazon Resource Name (ARN) of the VTL
    *          devices.</p>
@@ -3410,14 +3222,12 @@ export namespace DescribeVTLDevicesOutput {
   export const filterSensitiveLog = (obj: DescribeVTLDevicesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVTLDevicesOutput => __isa(o, "DescribeVTLDevicesOutput");
 }
 
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway.</p>
  */
 export interface DescribeWorkingStorageInput {
-  __type?: "DescribeWorkingStorageInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -3429,14 +3239,12 @@ export namespace DescribeWorkingStorageInput {
   export const filterSensitiveLog = (obj: DescribeWorkingStorageInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkingStorageInput => __isa(o, "DescribeWorkingStorageInput");
 }
 
 /**
  * <p>A JSON object containing the following fields:</p>
  */
 export interface DescribeWorkingStorageOutput {
-  __type?: "DescribeWorkingStorageOutput";
   /**
    * <p>The total working storage in bytes allocated for the gateway. If no working storage is
    *          configured for the gateway, this field returns 0.</p>
@@ -3468,14 +3276,12 @@ export namespace DescribeWorkingStorageOutput {
   export const filterSensitiveLog = (obj: DescribeWorkingStorageOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkingStorageOutput => __isa(o, "DescribeWorkingStorageOutput");
 }
 
 /**
  * <p>AttachVolumeInput</p>
  */
 export interface DetachVolumeInput {
-  __type?: "DetachVolumeInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume to detach from the gateway.</p>
    */
@@ -3497,14 +3303,12 @@ export namespace DetachVolumeInput {
   export const filterSensitiveLog = (obj: DetachVolumeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachVolumeInput => __isa(o, "DetachVolumeInput");
 }
 
 /**
  * <p>AttachVolumeOutput</p>
  */
 export interface DetachVolumeOutput {
-  __type?: "DetachVolumeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume that was detached.</p>
    */
@@ -3515,14 +3319,12 @@ export namespace DetachVolumeOutput {
   export const filterSensitiveLog = (obj: DetachVolumeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetachVolumeOutput => __isa(o, "DetachVolumeOutput");
 }
 
 /**
  * <p>Lists iSCSI information about a VTL device.</p>
  */
 export interface DeviceiSCSIAttributes {
-  __type?: "DeviceiSCSIAttributes";
   /**
    * <p>Indicates whether mutual CHAP is enabled for the iSCSI target.</p>
    */
@@ -3549,14 +3351,12 @@ export namespace DeviceiSCSIAttributes {
   export const filterSensitiveLog = (obj: DeviceiSCSIAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceiSCSIAttributes => __isa(o, "DeviceiSCSIAttributes");
 }
 
 /**
  * <p>DisableGatewayInput</p>
  */
 export interface DisableGatewayInput {
-  __type?: "DisableGatewayInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -3568,14 +3368,12 @@ export namespace DisableGatewayInput {
   export const filterSensitiveLog = (obj: DisableGatewayInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableGatewayInput => __isa(o, "DisableGatewayInput");
 }
 
 /**
  * <p>DisableGatewayOutput</p>
  */
 export interface DisableGatewayOutput {
-  __type?: "DisableGatewayOutput";
   /**
    * <p>The unique Amazon Resource Name (ARN) of the disabled gateway.</p>
    */
@@ -3586,14 +3384,12 @@ export namespace DisableGatewayOutput {
   export const filterSensitiveLog = (obj: DisableGatewayOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableGatewayOutput => __isa(o, "DisableGatewayOutput");
 }
 
 /**
  * <p>Represents a gateway's local disk.</p>
  */
 export interface Disk {
-  __type?: "Disk";
   /**
    * <p>The device node of a local disk as assigned by the virtualization environment.</p>
    */
@@ -3645,7 +3441,6 @@ export namespace Disk {
   export const filterSensitiveLog = (obj: Disk): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Disk => __isa(o, "Disk");
 }
 
 export type ErrorCode =
@@ -3716,7 +3511,6 @@ export type ErrorCode =
  * <p>Describes a file share.</p>
  */
 export interface FileShareInfo {
-  __type?: "FileShareInfo";
   /**
    * <p>The type of the file share.</p>
    */
@@ -3752,7 +3546,6 @@ export namespace FileShareInfo {
   export const filterSensitiveLog = (obj: FileShareInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileShareInfo => __isa(o, "FileShareInfo");
 }
 
 export type FileShareType = "NFS" | "SMB";
@@ -3761,7 +3554,6 @@ export type FileShareType = "NFS" | "SMB";
  * <p>Describes a gateway object.</p>
  */
 export interface GatewayInfo {
-  __type?: "GatewayInfo";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -3808,7 +3600,6 @@ export namespace GatewayInfo {
   export const filterSensitiveLog = (obj: GatewayInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GatewayInfo => __isa(o, "GatewayInfo");
 }
 
 export type HostEnvironment = "EC2" | "HYPER-V" | "KVM" | "OTHER" | "VMWARE";
@@ -3836,7 +3627,6 @@ export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -3862,14 +3652,12 @@ export namespace InvalidGatewayRequestException {
   export const filterSensitiveLog = (obj: InvalidGatewayRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidGatewayRequestException => __isa(o, "InvalidGatewayRequestException");
 }
 
 /**
  * <p>JoinDomainInput</p>
  */
 export interface JoinDomainInput {
-  __type?: "JoinDomainInput";
   /**
    * <p>Sets the user name of user who has permission to add the gateway to the Active Directory
    *          domain. The domain user account should be enabled to join computers to the domain. For
@@ -3921,14 +3709,12 @@ export namespace JoinDomainInput {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is JoinDomainInput => __isa(o, "JoinDomainInput");
 }
 
 /**
  * <p>JoinDomainOutput</p>
  */
 export interface JoinDomainOutput {
-  __type?: "JoinDomainOutput";
   /**
    * <p>The unique Amazon Resource Name (ARN) of the gateway that joined the domain.</p>
    */
@@ -3981,11 +3767,9 @@ export namespace JoinDomainOutput {
   export const filterSensitiveLog = (obj: JoinDomainOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JoinDomainOutput => __isa(o, "JoinDomainOutput");
 }
 
 export interface ListAutomaticTapeCreationPoliciesInput {
-  __type?: "ListAutomaticTapeCreationPoliciesInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -3997,12 +3781,9 @@ export namespace ListAutomaticTapeCreationPoliciesInput {
   export const filterSensitiveLog = (obj: ListAutomaticTapeCreationPoliciesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAutomaticTapeCreationPoliciesInput =>
-    __isa(o, "ListAutomaticTapeCreationPoliciesInput");
 }
 
 export interface ListAutomaticTapeCreationPoliciesOutput {
-  __type?: "ListAutomaticTapeCreationPoliciesOutput";
   /**
    * <p>Gets a listing of information about the gateway's automatic tape creation policies,
    *          including the automatic tape creation rules and the gateway that is using the
@@ -4015,15 +3796,12 @@ export namespace ListAutomaticTapeCreationPoliciesOutput {
   export const filterSensitiveLog = (obj: ListAutomaticTapeCreationPoliciesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAutomaticTapeCreationPoliciesOutput =>
-    __isa(o, "ListAutomaticTapeCreationPoliciesOutput");
 }
 
 /**
  * <p>ListFileShareInput</p>
  */
 export interface ListFileSharesInput {
-  __type?: "ListFileSharesInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway whose file shares you want to list. If
    *          this field is not present, all file shares under your account are listed.</p>
@@ -4048,14 +3826,12 @@ export namespace ListFileSharesInput {
   export const filterSensitiveLog = (obj: ListFileSharesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFileSharesInput => __isa(o, "ListFileSharesInput");
 }
 
 /**
  * <p>ListFileShareOutput</p>
  */
 export interface ListFileSharesOutput {
-  __type?: "ListFileSharesOutput";
   /**
    * <p>If the request includes <code>Marker</code>, the response returns that value in this
    *          field.</p>
@@ -4079,7 +3855,6 @@ export namespace ListFileSharesOutput {
   export const filterSensitiveLog = (obj: ListFileSharesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFileSharesOutput => __isa(o, "ListFileSharesOutput");
 }
 
 /**
@@ -4099,7 +3874,6 @@ export namespace ListFileSharesOutput {
  *          </ul>
  */
 export interface ListGatewaysInput {
-  __type?: "ListGatewaysInput";
   /**
    * <p>An opaque string that indicates the position at which to begin the returned list of
    *          gateways.</p>
@@ -4117,11 +3891,9 @@ export namespace ListGatewaysInput {
   export const filterSensitiveLog = (obj: ListGatewaysInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGatewaysInput => __isa(o, "ListGatewaysInput");
 }
 
 export interface ListGatewaysOutput {
-  __type?: "ListGatewaysOutput";
   /**
    * <p>Use the marker in your next request to fetch the next set of gateways in the list. If
    *          there are no more gateways to list, this field does not appear in the response.</p>
@@ -4138,14 +3910,12 @@ export namespace ListGatewaysOutput {
   export const filterSensitiveLog = (obj: ListGatewaysOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGatewaysOutput => __isa(o, "ListGatewaysOutput");
 }
 
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway.</p>
  */
 export interface ListLocalDisksInput {
-  __type?: "ListLocalDisksInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -4157,11 +3927,9 @@ export namespace ListLocalDisksInput {
   export const filterSensitiveLog = (obj: ListLocalDisksInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLocalDisksInput => __isa(o, "ListLocalDisksInput");
 }
 
 export interface ListLocalDisksOutput {
-  __type?: "ListLocalDisksOutput";
   /**
    * <p>A JSON object containing the following fields:</p>
    *
@@ -4186,14 +3954,12 @@ export namespace ListLocalDisksOutput {
   export const filterSensitiveLog = (obj: ListLocalDisksOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLocalDisksOutput => __isa(o, "ListLocalDisksOutput");
 }
 
 /**
  * <p>ListTagsForResourceInput</p>
  */
 export interface ListTagsForResourceInput {
-  __type?: "ListTagsForResourceInput";
   /**
    * <p>An opaque string that indicates the position at which to begin returning the list of
    *          tags.</p>
@@ -4216,14 +3982,12 @@ export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 /**
  * <p>ListTagsForResourceOutput</p>
  */
 export interface ListTagsForResourceOutput {
-  __type?: "ListTagsForResourceOutput";
   /**
    * <p>he Amazon Resource Name (ARN) of the resource for which you want to list tags.</p>
    */
@@ -4245,7 +4009,6 @@ export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
@@ -4270,7 +4033,6 @@ export namespace ListTagsForResourceOutput {
  *          </ul>
  */
 export interface ListTapesInput {
-  __type?: "ListTapesInput";
   /**
    * <p>The Amazon Resource Name (ARN) of each of the tapes you want to list. If you don't
    *          specify a tape ARN, the response lists all tapes in both your VTL and VTS.</p>
@@ -4293,7 +4055,6 @@ export namespace ListTapesInput {
   export const filterSensitiveLog = (obj: ListTapesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTapesInput => __isa(o, "ListTapesInput");
 }
 
 /**
@@ -4313,7 +4074,6 @@ export namespace ListTapesInput {
  *          </ul>
  */
 export interface ListTapesOutput {
-  __type?: "ListTapesOutput";
   /**
    * <p>An array of <a>TapeInfo</a> objects, where each object describes a single
    *          tape. If there are no tapes in the tape library or VTS, then the <code>TapeInfos</code> is
@@ -4333,14 +4093,12 @@ export namespace ListTapesOutput {
   export const filterSensitiveLog = (obj: ListTapesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTapesOutput => __isa(o, "ListTapesOutput");
 }
 
 /**
  * <p>ListVolumeInitiatorsInput</p>
  */
 export interface ListVolumeInitiatorsInput {
-  __type?: "ListVolumeInitiatorsInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
    *          operation to return a list of gateway volumes for the gateway.</p>
@@ -4352,14 +4110,12 @@ export namespace ListVolumeInitiatorsInput {
   export const filterSensitiveLog = (obj: ListVolumeInitiatorsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVolumeInitiatorsInput => __isa(o, "ListVolumeInitiatorsInput");
 }
 
 /**
  * <p>ListVolumeInitiatorsOutput</p>
  */
 export interface ListVolumeInitiatorsOutput {
-  __type?: "ListVolumeInitiatorsOutput";
   /**
    * <p>The host names and port numbers of all iSCSI initiators that are connected to the
    *          gateway.</p>
@@ -4371,11 +4127,9 @@ export namespace ListVolumeInitiatorsOutput {
   export const filterSensitiveLog = (obj: ListVolumeInitiatorsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVolumeInitiatorsOutput => __isa(o, "ListVolumeInitiatorsOutput");
 }
 
 export interface ListVolumeRecoveryPointsInput {
-  __type?: "ListVolumeRecoveryPointsInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -4387,11 +4141,9 @@ export namespace ListVolumeRecoveryPointsInput {
   export const filterSensitiveLog = (obj: ListVolumeRecoveryPointsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVolumeRecoveryPointsInput => __isa(o, "ListVolumeRecoveryPointsInput");
 }
 
 export interface ListVolumeRecoveryPointsOutput {
-  __type?: "ListVolumeRecoveryPointsOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -4408,7 +4160,6 @@ export namespace ListVolumeRecoveryPointsOutput {
   export const filterSensitiveLog = (obj: ListVolumeRecoveryPointsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVolumeRecoveryPointsOutput => __isa(o, "ListVolumeRecoveryPointsOutput");
 }
 
 /**
@@ -4428,7 +4179,6 @@ export namespace ListVolumeRecoveryPointsOutput {
  *          </ul>
  */
 export interface ListVolumesInput {
-  __type?: "ListVolumesInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -4452,7 +4202,6 @@ export namespace ListVolumesInput {
   export const filterSensitiveLog = (obj: ListVolumesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVolumesInput => __isa(o, "ListVolumesInput");
 }
 
 /**
@@ -4472,7 +4221,6 @@ export namespace ListVolumesInput {
  *          </ul>
  */
 export interface ListVolumesOutput {
-  __type?: "ListVolumesOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -4497,14 +4245,12 @@ export namespace ListVolumesOutput {
   export const filterSensitiveLog = (obj: ListVolumesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVolumesOutput => __isa(o, "ListVolumesOutput");
 }
 
 /**
  * <p>Describes a gateway's network interface.</p>
  */
 export interface NetworkInterface {
-  __type?: "NetworkInterface";
   /**
    * <p>The Internet Protocol version 6 (IPv6) address of the interface. <i>Currently not
    *             supported</i>.</p>
@@ -4530,7 +4276,6 @@ export namespace NetworkInterface {
   export const filterSensitiveLog = (obj: NetworkInterface): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterface => __isa(o, "NetworkInterface");
 }
 
 /**
@@ -4541,7 +4286,6 @@ export namespace NetworkInterface {
  *          only supported for file gateways.</p>
  */
 export interface NFSFileShareDefaults {
-  __type?: "NFSFileShareDefaults";
   /**
    * <p>The default owner ID for files in the file share (unless the files have another owner ID
    *          specified). The default value is <code>nfsnobody</code>.</p>
@@ -4572,7 +4316,6 @@ export namespace NFSFileShareDefaults {
   export const filterSensitiveLog = (obj: NFSFileShareDefaults): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NFSFileShareDefaults => __isa(o, "NFSFileShareDefaults");
 }
 
 /**
@@ -4581,7 +4324,6 @@ export namespace NFSFileShareDefaults {
  *          file gateways.</p>
  */
 export interface NFSFileShareInfo {
-  __type?: "NFSFileShareInfo";
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
    *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
@@ -4756,11 +4498,9 @@ export namespace NFSFileShareInfo {
   export const filterSensitiveLog = (obj: NFSFileShareInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NFSFileShareInfo => __isa(o, "NFSFileShareInfo");
 }
 
 export interface NotifyWhenUploadedInput {
-  __type?: "NotifyWhenUploadedInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the file share.</p>
    */
@@ -4771,11 +4511,9 @@ export namespace NotifyWhenUploadedInput {
   export const filterSensitiveLog = (obj: NotifyWhenUploadedInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotifyWhenUploadedInput => __isa(o, "NotifyWhenUploadedInput");
 }
 
 export interface NotifyWhenUploadedOutput {
-  __type?: "NotifyWhenUploadedOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the file share.</p>
    */
@@ -4792,7 +4530,6 @@ export namespace NotifyWhenUploadedOutput {
   export const filterSensitiveLog = (obj: NotifyWhenUploadedOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotifyWhenUploadedOutput => __isa(o, "NotifyWhenUploadedOutput");
 }
 
 export type ObjectACL =
@@ -4808,7 +4545,6 @@ export type ObjectACL =
  * <p>RefreshCacheInput</p>
  */
 export interface RefreshCacheInput {
-  __type?: "RefreshCacheInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the file share you want to refresh.</p>
    */
@@ -4841,14 +4577,12 @@ export namespace RefreshCacheInput {
   export const filterSensitiveLog = (obj: RefreshCacheInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RefreshCacheInput => __isa(o, "RefreshCacheInput");
 }
 
 /**
  * <p>RefreshCacheOutput</p>
  */
 export interface RefreshCacheOutput {
-  __type?: "RefreshCacheOutput";
   /**
    * <p>The randomly generated ID of the notification that was sent. This ID is in UUID
    *          format.</p>
@@ -4865,14 +4599,12 @@ export namespace RefreshCacheOutput {
   export const filterSensitiveLog = (obj: RefreshCacheOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RefreshCacheOutput => __isa(o, "RefreshCacheOutput");
 }
 
 /**
  * <p>RemoveTagsFromResourceInput</p>
  */
 export interface RemoveTagsFromResourceInput {
-  __type?: "RemoveTagsFromResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you want to remove the tags from.</p>
    */
@@ -4889,14 +4621,12 @@ export namespace RemoveTagsFromResourceInput {
   export const filterSensitiveLog = (obj: RemoveTagsFromResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromResourceInput => __isa(o, "RemoveTagsFromResourceInput");
 }
 
 /**
  * <p>RemoveTagsFromResourceOutput</p>
  */
 export interface RemoveTagsFromResourceOutput {
-  __type?: "RemoveTagsFromResourceOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that the tags were removed from.</p>
    */
@@ -4907,11 +4637,9 @@ export namespace RemoveTagsFromResourceOutput {
   export const filterSensitiveLog = (obj: RemoveTagsFromResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromResourceOutput => __isa(o, "RemoveTagsFromResourceOutput");
 }
 
 export interface ResetCacheInput {
-  __type?: "ResetCacheInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -4923,11 +4651,9 @@ export namespace ResetCacheInput {
   export const filterSensitiveLog = (obj: ResetCacheInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetCacheInput => __isa(o, "ResetCacheInput");
 }
 
 export interface ResetCacheOutput {
-  __type?: "ResetCacheOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -4939,14 +4665,12 @@ export namespace ResetCacheOutput {
   export const filterSensitiveLog = (obj: ResetCacheOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetCacheOutput => __isa(o, "ResetCacheOutput");
 }
 
 /**
  * <p>RetrieveTapeArchiveInput</p>
  */
 export interface RetrieveTapeArchiveInput {
-  __type?: "RetrieveTapeArchiveInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to.
    *          Use the <a>ListGateways</a> operation to return a list of gateways for your
@@ -4968,14 +4692,12 @@ export namespace RetrieveTapeArchiveInput {
   export const filterSensitiveLog = (obj: RetrieveTapeArchiveInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetrieveTapeArchiveInput => __isa(o, "RetrieveTapeArchiveInput");
 }
 
 /**
  * <p>RetrieveTapeArchiveOutput</p>
  */
 export interface RetrieveTapeArchiveOutput {
-  __type?: "RetrieveTapeArchiveOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the retrieved virtual tape.</p>
    */
@@ -4986,14 +4708,12 @@ export namespace RetrieveTapeArchiveOutput {
   export const filterSensitiveLog = (obj: RetrieveTapeArchiveOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetrieveTapeArchiveOutput => __isa(o, "RetrieveTapeArchiveOutput");
 }
 
 /**
  * <p>RetrieveTapeRecoveryPointInput</p>
  */
 export interface RetrieveTapeRecoveryPointInput {
-  __type?: "RetrieveTapeRecoveryPointInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -5011,14 +4731,12 @@ export namespace RetrieveTapeRecoveryPointInput {
   export const filterSensitiveLog = (obj: RetrieveTapeRecoveryPointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetrieveTapeRecoveryPointInput => __isa(o, "RetrieveTapeRecoveryPointInput");
 }
 
 /**
  * <p>RetrieveTapeRecoveryPointOutput</p>
  */
 export interface RetrieveTapeRecoveryPointOutput {
-  __type?: "RetrieveTapeRecoveryPointOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was
    *          retrieved.</p>
@@ -5030,7 +4748,6 @@ export namespace RetrieveTapeRecoveryPointOutput {
   export const filterSensitiveLog = (obj: RetrieveTapeRecoveryPointOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetrieveTapeRecoveryPointOutput => __isa(o, "RetrieveTapeRecoveryPointOutput");
 }
 
 /**
@@ -5056,14 +4773,12 @@ export namespace ServiceUnavailableError {
   export const filterSensitiveLog = (obj: ServiceUnavailableError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableError => __isa(o, "ServiceUnavailableError");
 }
 
 /**
  * <p>SetLocalConsolePasswordInput</p>
  */
 export interface SetLocalConsolePasswordInput {
-  __type?: "SetLocalConsolePasswordInput";
   /**
    * <p>The password you want to set for your VM local console.</p>
    */
@@ -5081,11 +4796,9 @@ export namespace SetLocalConsolePasswordInput {
     ...obj,
     ...(obj.LocalConsolePassword && { LocalConsolePassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SetLocalConsolePasswordInput => __isa(o, "SetLocalConsolePasswordInput");
 }
 
 export interface SetLocalConsolePasswordOutput {
-  __type?: "SetLocalConsolePasswordOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -5097,14 +4810,12 @@ export namespace SetLocalConsolePasswordOutput {
   export const filterSensitiveLog = (obj: SetLocalConsolePasswordOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetLocalConsolePasswordOutput => __isa(o, "SetLocalConsolePasswordOutput");
 }
 
 /**
  * <p>SetSMBGuestPasswordInput</p>
  */
 export interface SetSMBGuestPasswordInput {
-  __type?: "SetSMBGuestPasswordInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the file gateway the SMB file share is associated
    *          with.</p>
@@ -5122,11 +4833,9 @@ export namespace SetSMBGuestPasswordInput {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SetSMBGuestPasswordInput => __isa(o, "SetSMBGuestPasswordInput");
 }
 
 export interface SetSMBGuestPasswordOutput {
-  __type?: "SetSMBGuestPasswordOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -5138,7 +4847,6 @@ export namespace SetSMBGuestPasswordOutput {
   export const filterSensitiveLog = (obj: SetSMBGuestPasswordOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetSMBGuestPasswordOutput => __isa(o, "SetSMBGuestPasswordOutput");
 }
 
 /**
@@ -5146,7 +4854,6 @@ export namespace SetSMBGuestPasswordOutput {
  *          down.</p>
  */
 export interface ShutdownGatewayInput {
-  __type?: "ShutdownGatewayInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -5158,7 +4865,6 @@ export namespace ShutdownGatewayInput {
   export const filterSensitiveLog = (obj: ShutdownGatewayInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ShutdownGatewayInput => __isa(o, "ShutdownGatewayInput");
 }
 
 /**
@@ -5166,7 +4872,6 @@ export namespace ShutdownGatewayInput {
  *          down.</p>
  */
 export interface ShutdownGatewayOutput {
-  __type?: "ShutdownGatewayOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -5178,7 +4883,6 @@ export namespace ShutdownGatewayOutput {
   export const filterSensitiveLog = (obj: ShutdownGatewayOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ShutdownGatewayOutput => __isa(o, "ShutdownGatewayOutput");
 }
 
 /**
@@ -5187,7 +4891,6 @@ export namespace ShutdownGatewayOutput {
  *          for file gateways.</p>
  */
 export interface SMBFileShareInfo {
-  __type?: "SMBFileShareInfo";
   /**
    * <p>A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key
    *          name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can
@@ -5388,13 +5091,11 @@ export namespace SMBFileShareInfo {
   export const filterSensitiveLog = (obj: SMBFileShareInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SMBFileShareInfo => __isa(o, "SMBFileShareInfo");
 }
 
 export type SMBSecurityStrategy = "ClientSpecified" | "MandatoryEncryption" | "MandatorySigning";
 
 export interface StartAvailabilityMonitorTestInput {
-  __type?: "StartAvailabilityMonitorTestInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -5406,11 +5107,9 @@ export namespace StartAvailabilityMonitorTestInput {
   export const filterSensitiveLog = (obj: StartAvailabilityMonitorTestInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartAvailabilityMonitorTestInput => __isa(o, "StartAvailabilityMonitorTestInput");
 }
 
 export interface StartAvailabilityMonitorTestOutput {
-  __type?: "StartAvailabilityMonitorTestOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -5422,15 +5121,12 @@ export namespace StartAvailabilityMonitorTestOutput {
   export const filterSensitiveLog = (obj: StartAvailabilityMonitorTestOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartAvailabilityMonitorTestOutput =>
-    __isa(o, "StartAvailabilityMonitorTestOutput");
 }
 
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway to start.</p>
  */
 export interface StartGatewayInput {
-  __type?: "StartGatewayInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -5442,7 +5138,6 @@ export namespace StartGatewayInput {
   export const filterSensitiveLog = (obj: StartGatewayInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartGatewayInput => __isa(o, "StartGatewayInput");
 }
 
 /**
@@ -5450,7 +5145,6 @@ export namespace StartGatewayInput {
  *          restarted.</p>
  */
 export interface StartGatewayOutput {
-  __type?: "StartGatewayOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -5462,7 +5156,6 @@ export namespace StartGatewayOutput {
   export const filterSensitiveLog = (obj: StartGatewayOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartGatewayOutput => __isa(o, "StartGatewayOutput");
 }
 
 /**
@@ -5471,7 +5164,6 @@ export namespace StartGatewayOutput {
  *          the error.</p>
  */
 export interface StorageGatewayError {
-  __type?: "StorageGatewayError";
   /**
    * <p>Human-readable text that provides detail about the error that occurred.</p>
    */
@@ -5487,14 +5179,12 @@ export namespace StorageGatewayError {
   export const filterSensitiveLog = (obj: StorageGatewayError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StorageGatewayError => __isa(o, "StorageGatewayError");
 }
 
 /**
  * <p>Describes an iSCSI stored volume.</p>
  */
 export interface StorediSCSIVolume {
-  __type?: "StorediSCSIVolume";
   /**
    * <p>The Amazon Resource Name (ARN) of the storage volume.</p>
    */
@@ -5604,7 +5294,6 @@ export namespace StorediSCSIVolume {
   export const filterSensitiveLog = (obj: StorediSCSIVolume): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StorediSCSIVolume => __isa(o, "StorediSCSIVolume");
 }
 
 /**
@@ -5613,7 +5302,6 @@ export namespace StorediSCSIVolume {
  *          characters: + - = . _ : /.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>Tag key. The key can't start with aws:.</p>
    */
@@ -5629,14 +5317,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p>Describes a virtual tape object.</p>
  */
 export interface Tape {
-  __type?: "Tape";
   /**
    * <p>The barcode that identifies a specific virtual tape.</p>
    */
@@ -5707,14 +5393,12 @@ export namespace Tape {
   export const filterSensitiveLog = (obj: Tape): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tape => __isa(o, "Tape");
 }
 
 /**
  * <p>Represents a virtual tape that is archived in the virtual tape shelf (VTS).</p>
  */
 export interface TapeArchive {
-  __type?: "TapeArchive";
   /**
    * <p>The Amazon Resource Name (ARN) of the tape gateway that the virtual tape is being
    *          retrieved to.</p>
@@ -5786,14 +5470,12 @@ export namespace TapeArchive {
   export const filterSensitiveLog = (obj: TapeArchive): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TapeArchive => __isa(o, "TapeArchive");
 }
 
 /**
  * <p>Describes a virtual tape.</p>
  */
 export interface TapeInfo {
-  __type?: "TapeInfo";
   /**
    * <p>The Amazon Resource Name (ARN) of a virtual tape.</p>
    */
@@ -5836,14 +5518,12 @@ export namespace TapeInfo {
   export const filterSensitiveLog = (obj: TapeInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TapeInfo => __isa(o, "TapeInfo");
 }
 
 /**
  * <p>Describes a recovery point.</p>
  */
 export interface TapeRecoveryPointInfo {
-  __type?: "TapeRecoveryPointInfo";
   /**
    * <p>The time when the point-in-time view of the virtual tape was replicated for later
    *          recovery.</p>
@@ -5873,11 +5553,9 @@ export namespace TapeRecoveryPointInfo {
   export const filterSensitiveLog = (obj: TapeRecoveryPointInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TapeRecoveryPointInfo => __isa(o, "TapeRecoveryPointInfo");
 }
 
 export interface UpdateAutomaticTapeCreationPolicyInput {
-  __type?: "UpdateAutomaticTapeCreationPolicyInput";
   /**
    * <p>An automatic tape creation policy consists of a list of automatic tape creation rules.
    *          The rules determine when and how to automatically create new tapes.</p>
@@ -5895,12 +5573,9 @@ export namespace UpdateAutomaticTapeCreationPolicyInput {
   export const filterSensitiveLog = (obj: UpdateAutomaticTapeCreationPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAutomaticTapeCreationPolicyInput =>
-    __isa(o, "UpdateAutomaticTapeCreationPolicyInput");
 }
 
 export interface UpdateAutomaticTapeCreationPolicyOutput {
-  __type?: "UpdateAutomaticTapeCreationPolicyOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -5912,8 +5587,6 @@ export namespace UpdateAutomaticTapeCreationPolicyOutput {
   export const filterSensitiveLog = (obj: UpdateAutomaticTapeCreationPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAutomaticTapeCreationPolicyOutput =>
-    __isa(o, "UpdateAutomaticTapeCreationPolicyOutput");
 }
 
 /**
@@ -5933,7 +5606,6 @@ export namespace UpdateAutomaticTapeCreationPolicyOutput {
  *          </ul>
  */
 export interface UpdateBandwidthRateLimitInput {
-  __type?: "UpdateBandwidthRateLimitInput";
   /**
    * <p>The average upload bandwidth rate limit in bits per second.</p>
    */
@@ -5955,7 +5627,6 @@ export namespace UpdateBandwidthRateLimitInput {
   export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBandwidthRateLimitInput => __isa(o, "UpdateBandwidthRateLimitInput");
 }
 
 /**
@@ -5963,7 +5634,6 @@ export namespace UpdateBandwidthRateLimitInput {
  *          information was updated.</p>
  */
 export interface UpdateBandwidthRateLimitOutput {
-  __type?: "UpdateBandwidthRateLimitOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -5975,7 +5645,6 @@ export namespace UpdateBandwidthRateLimitOutput {
   export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBandwidthRateLimitOutput => __isa(o, "UpdateBandwidthRateLimitOutput");
 }
 
 /**
@@ -6006,7 +5675,6 @@ export namespace UpdateBandwidthRateLimitOutput {
  *          </ul>
  */
 export interface UpdateChapCredentialsInput {
-  __type?: "UpdateChapCredentialsInput";
   /**
    * <p>The secret key that the initiator (for example, the Windows client) must provide to
    *          participate in mutual CHAP with the target.</p>
@@ -6047,14 +5715,12 @@ export namespace UpdateChapCredentialsInput {
     ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
     ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateChapCredentialsInput => __isa(o, "UpdateChapCredentialsInput");
 }
 
 /**
  * <p>A JSON object containing the following fields:</p>
  */
 export interface UpdateChapCredentialsOutput {
-  __type?: "UpdateChapCredentialsOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the target. This is the same target specified in the
    *          request.</p>
@@ -6072,11 +5738,9 @@ export namespace UpdateChapCredentialsOutput {
   export const filterSensitiveLog = (obj: UpdateChapCredentialsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateChapCredentialsOutput => __isa(o, "UpdateChapCredentialsOutput");
 }
 
 export interface UpdateGatewayInformationInput {
-  __type?: "UpdateGatewayInformationInput";
   /**
    * <p>The name you configured for your gateway.</p>
    */
@@ -6107,7 +5771,6 @@ export namespace UpdateGatewayInformationInput {
   export const filterSensitiveLog = (obj: UpdateGatewayInformationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewayInformationInput => __isa(o, "UpdateGatewayInformationInput");
 }
 
 /**
@@ -6115,7 +5778,6 @@ export namespace UpdateGatewayInformationInput {
  *          updated.</p>
  */
 export interface UpdateGatewayInformationOutput {
-  __type?: "UpdateGatewayInformationOutput";
   /**
    * <p>The name you configured for your gateway.</p>
    */
@@ -6132,14 +5794,12 @@ export namespace UpdateGatewayInformationOutput {
   export const filterSensitiveLog = (obj: UpdateGatewayInformationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewayInformationOutput => __isa(o, "UpdateGatewayInformationOutput");
 }
 
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway to update.</p>
  */
 export interface UpdateGatewaySoftwareNowInput {
-  __type?: "UpdateGatewaySoftwareNowInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -6151,7 +5811,6 @@ export namespace UpdateGatewaySoftwareNowInput {
   export const filterSensitiveLog = (obj: UpdateGatewaySoftwareNowInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewaySoftwareNowInput => __isa(o, "UpdateGatewaySoftwareNowInput");
 }
 
 /**
@@ -6159,7 +5818,6 @@ export namespace UpdateGatewaySoftwareNowInput {
  *          updated.</p>
  */
 export interface UpdateGatewaySoftwareNowOutput {
-  __type?: "UpdateGatewaySoftwareNowOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -6171,7 +5829,6 @@ export namespace UpdateGatewaySoftwareNowOutput {
   export const filterSensitiveLog = (obj: UpdateGatewaySoftwareNowOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGatewaySoftwareNowOutput => __isa(o, "UpdateGatewaySoftwareNowOutput");
 }
 
 /**
@@ -6201,7 +5858,6 @@ export namespace UpdateGatewaySoftwareNowOutput {
  *          </ul>
  */
 export interface UpdateMaintenanceStartTimeInput {
-  __type?: "UpdateMaintenanceStartTimeInput";
   /**
    * <p>The minute component of the maintenance start time represented as
    *             <i>mm</i>, where <i>mm</i> is the minute (00 to 59). The
@@ -6240,7 +5896,6 @@ export namespace UpdateMaintenanceStartTimeInput {
   export const filterSensitiveLog = (obj: UpdateMaintenanceStartTimeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMaintenanceStartTimeInput => __isa(o, "UpdateMaintenanceStartTimeInput");
 }
 
 /**
@@ -6248,7 +5903,6 @@ export namespace UpdateMaintenanceStartTimeInput {
  *          start time is updated.</p>
  */
 export interface UpdateMaintenanceStartTimeOutput {
-  __type?: "UpdateMaintenanceStartTimeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -6260,14 +5914,12 @@ export namespace UpdateMaintenanceStartTimeOutput {
   export const filterSensitiveLog = (obj: UpdateMaintenanceStartTimeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMaintenanceStartTimeOutput => __isa(o, "UpdateMaintenanceStartTimeOutput");
 }
 
 /**
  * <p>UpdateNFSFileShareInput</p>
  */
 export interface UpdateNFSFileShareInput {
-  __type?: "UpdateNFSFileShareInput";
   /**
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
    *          that a file gateway puts objects into. The default value is <code>private</code>.</p>
@@ -6396,14 +6048,12 @@ export namespace UpdateNFSFileShareInput {
   export const filterSensitiveLog = (obj: UpdateNFSFileShareInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNFSFileShareInput => __isa(o, "UpdateNFSFileShareInput");
 }
 
 /**
  * <p>UpdateNFSFileShareOutput</p>
  */
 export interface UpdateNFSFileShareOutput {
-  __type?: "UpdateNFSFileShareOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the updated file share.</p>
    */
@@ -6414,14 +6064,12 @@ export namespace UpdateNFSFileShareOutput {
   export const filterSensitiveLog = (obj: UpdateNFSFileShareOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateNFSFileShareOutput => __isa(o, "UpdateNFSFileShareOutput");
 }
 
 /**
  * <p>UpdateSMBFileShareInput</p>
  */
 export interface UpdateSMBFileShareInput {
-  __type?: "UpdateSMBFileShareInput";
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
    *          The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
@@ -6572,14 +6220,12 @@ export namespace UpdateSMBFileShareInput {
   export const filterSensitiveLog = (obj: UpdateSMBFileShareInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSMBFileShareInput => __isa(o, "UpdateSMBFileShareInput");
 }
 
 /**
  * <p>UpdateSMBFileShareOutput</p>
  */
 export interface UpdateSMBFileShareOutput {
-  __type?: "UpdateSMBFileShareOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the updated SMB file share.</p>
    */
@@ -6590,11 +6236,9 @@ export namespace UpdateSMBFileShareOutput {
   export const filterSensitiveLog = (obj: UpdateSMBFileShareOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSMBFileShareOutput => __isa(o, "UpdateSMBFileShareOutput");
 }
 
 export interface UpdateSMBSecurityStrategyInput {
-  __type?: "UpdateSMBSecurityStrategyInput";
   /**
    * <p>Specifies the type of security strategy.</p>
    *
@@ -6624,11 +6268,9 @@ export namespace UpdateSMBSecurityStrategyInput {
   export const filterSensitiveLog = (obj: UpdateSMBSecurityStrategyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSMBSecurityStrategyInput => __isa(o, "UpdateSMBSecurityStrategyInput");
 }
 
 export interface UpdateSMBSecurityStrategyOutput {
-  __type?: "UpdateSMBSecurityStrategyOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -6640,7 +6282,6 @@ export namespace UpdateSMBSecurityStrategyOutput {
   export const filterSensitiveLog = (obj: UpdateSMBSecurityStrategyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSMBSecurityStrategyOutput => __isa(o, "UpdateSMBSecurityStrategyOutput");
 }
 
 /**
@@ -6670,7 +6311,6 @@ export namespace UpdateSMBSecurityStrategyOutput {
  *          </ul>
  */
 export interface UpdateSnapshotScheduleInput {
-  __type?: "UpdateSnapshotScheduleInput";
   /**
    * <p>Frequency of snapshots. Specify the number of hours between snapshots.</p>
    */
@@ -6712,7 +6352,6 @@ export namespace UpdateSnapshotScheduleInput {
   export const filterSensitiveLog = (obj: UpdateSnapshotScheduleInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSnapshotScheduleInput => __isa(o, "UpdateSnapshotScheduleInput");
 }
 
 /**
@@ -6720,7 +6359,6 @@ export namespace UpdateSnapshotScheduleInput {
  *          volume.</p>
  */
 export interface UpdateSnapshotScheduleOutput {
-  __type?: "UpdateSnapshotScheduleOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
    *          operation to return a list of gateway volumes.</p>
@@ -6732,11 +6370,9 @@ export namespace UpdateSnapshotScheduleOutput {
   export const filterSensitiveLog = (obj: UpdateSnapshotScheduleOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSnapshotScheduleOutput => __isa(o, "UpdateSnapshotScheduleOutput");
 }
 
 export interface UpdateVTLDeviceTypeInput {
-  __type?: "UpdateVTLDeviceTypeInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the medium changer you want to select.</p>
    */
@@ -6755,14 +6391,12 @@ export namespace UpdateVTLDeviceTypeInput {
   export const filterSensitiveLog = (obj: UpdateVTLDeviceTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVTLDeviceTypeInput => __isa(o, "UpdateVTLDeviceTypeInput");
 }
 
 /**
  * <p>UpdateVTLDeviceTypeOutput</p>
  */
 export interface UpdateVTLDeviceTypeOutput {
-  __type?: "UpdateVTLDeviceTypeOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the medium changer you have selected.</p>
    */
@@ -6773,14 +6407,12 @@ export namespace UpdateVTLDeviceTypeOutput {
   export const filterSensitiveLog = (obj: UpdateVTLDeviceTypeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateVTLDeviceTypeOutput => __isa(o, "UpdateVTLDeviceTypeOutput");
 }
 
 /**
  * <p>Describes a storage volume object.</p>
  */
 export interface VolumeInfo {
-  __type?: "VolumeInfo";
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and AWS Region.</p>
@@ -6838,14 +6470,12 @@ export namespace VolumeInfo {
   export const filterSensitiveLog = (obj: VolumeInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeInfo => __isa(o, "VolumeInfo");
 }
 
 /**
  * <p>Lists iSCSI information about a volume.</p>
  */
 export interface VolumeiSCSIAttributes {
-  __type?: "VolumeiSCSIAttributes";
   /**
    * <p>The logical disk number.</p>
    */
@@ -6876,14 +6506,12 @@ export namespace VolumeiSCSIAttributes {
   export const filterSensitiveLog = (obj: VolumeiSCSIAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeiSCSIAttributes => __isa(o, "VolumeiSCSIAttributes");
 }
 
 /**
  * <p>Describes a storage volume recovery point object.</p>
  */
 export interface VolumeRecoveryPointInfo {
-  __type?: "VolumeRecoveryPointInfo";
   /**
    * <p>The size of the volume in bytes.</p>
    */
@@ -6914,14 +6542,12 @@ export namespace VolumeRecoveryPointInfo {
   export const filterSensitiveLog = (obj: VolumeRecoveryPointInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VolumeRecoveryPointInfo => __isa(o, "VolumeRecoveryPointInfo");
 }
 
 /**
  * <p>Represents a device object associated with a tape gateway.</p>
  */
 export interface VTLDevice {
-  __type?: "VTLDevice";
   /**
    * <p>Specifies the model number of device that the VTL device emulates.</p>
    */
@@ -6953,5 +6579,4 @@ export namespace VTLDevice {
   export const filterSensitiveLog = (obj: VTLDevice): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VTLDevice => __isa(o, "VTLDevice");
 }

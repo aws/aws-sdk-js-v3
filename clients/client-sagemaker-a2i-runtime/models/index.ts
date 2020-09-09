@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -15,7 +15,6 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export enum ContentClassifier {
@@ -24,7 +23,6 @@ export enum ContentClassifier {
 }
 
 export interface DeleteHumanLoopRequest {
-  __type?: "DeleteHumanLoopRequest";
   /**
    * <p>The name of the human loop that you want to delete.</p>
    */
@@ -35,22 +33,17 @@ export namespace DeleteHumanLoopRequest {
   export const filterSensitiveLog = (obj: DeleteHumanLoopRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHumanLoopRequest => __isa(o, "DeleteHumanLoopRequest");
 }
 
-export interface DeleteHumanLoopResponse {
-  __type?: "DeleteHumanLoopResponse";
-}
+export interface DeleteHumanLoopResponse {}
 
 export namespace DeleteHumanLoopResponse {
   export const filterSensitiveLog = (obj: DeleteHumanLoopResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHumanLoopResponse => __isa(o, "DeleteHumanLoopResponse");
 }
 
 export interface DescribeHumanLoopRequest {
-  __type?: "DescribeHumanLoopRequest";
   /**
    * <p>The name of the human loop that you want information about.</p>
    */
@@ -61,11 +54,9 @@ export namespace DescribeHumanLoopRequest {
   export const filterSensitiveLog = (obj: DescribeHumanLoopRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHumanLoopRequest => __isa(o, "DescribeHumanLoopRequest");
 }
 
 export interface DescribeHumanLoopResponse {
-  __type?: "DescribeHumanLoopResponse";
   /**
    * <p>The status of the human loop. </p>
    */
@@ -115,14 +106,12 @@ export namespace DescribeHumanLoopResponse {
   export const filterSensitiveLog = (obj: DescribeHumanLoopResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeHumanLoopResponse => __isa(o, "DescribeHumanLoopResponse");
 }
 
 /**
  * <p>Attributes of the data specified by the customer. Use these to describe the data to be labeled.</p>
  */
 export interface HumanLoopDataAttributes {
-  __type?: "HumanLoopDataAttributes";
   /**
    * <p>Declares that your content is free of personally identifiable information or adult content.</p>
    *          <p>Amazon SageMaker can restrict the Amazon Mechanical Turk workers who can view your task based on this information.</p>
@@ -134,14 +123,12 @@ export namespace HumanLoopDataAttributes {
   export const filterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopDataAttributes => __isa(o, "HumanLoopDataAttributes");
 }
 
 /**
  * <p>An object containing the human loop input in JSON format.</p>
  */
 export interface HumanLoopInput {
-  __type?: "HumanLoopInput";
   /**
    * <p>Serialized input from the human loop. The input must be a string representation of a file in JSON format.</p>
    */
@@ -152,14 +139,12 @@ export namespace HumanLoopInput {
   export const filterSensitiveLog = (obj: HumanLoopInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopInput => __isa(o, "HumanLoopInput");
 }
 
 /**
  * <p>Information about where the human output will be stored.</p>
  */
 export interface HumanLoopOutput {
-  __type?: "HumanLoopOutput";
   /**
    * <p>The location of the Amazon S3 object where Amazon Augmented AI stores your human loop output.</p>
    */
@@ -170,7 +155,6 @@ export namespace HumanLoopOutput {
   export const filterSensitiveLog = (obj: HumanLoopOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopOutput => __isa(o, "HumanLoopOutput");
 }
 
 export enum HumanLoopStatus {
@@ -185,7 +169,6 @@ export enum HumanLoopStatus {
  * <p>Summary information about the human loop.</p>
  */
 export interface HumanLoopSummary {
-  __type?: "HumanLoopSummary";
   /**
    * <p>The name of the human loop.</p>
    */
@@ -218,7 +201,6 @@ export namespace HumanLoopSummary {
   export const filterSensitiveLog = (obj: HumanLoopSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HumanLoopSummary => __isa(o, "HumanLoopSummary");
 }
 
 /**
@@ -235,11 +217,9 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListHumanLoopsRequest {
-  __type?: "ListHumanLoopsRequest";
   /**
    * <p>(Optional) The timestamp of the date when you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.</p>
    */
@@ -278,11 +258,9 @@ export namespace ListHumanLoopsRequest {
   export const filterSensitiveLog = (obj: ListHumanLoopsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHumanLoopsRequest => __isa(o, "ListHumanLoopsRequest");
 }
 
 export interface ListHumanLoopsResponse {
-  __type?: "ListHumanLoopsResponse";
   /**
    * <p>A token to display the next page of results.</p>
    */
@@ -298,7 +276,6 @@ export namespace ListHumanLoopsResponse {
   export const filterSensitiveLog = (obj: ListHumanLoopsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHumanLoopsResponse => __isa(o, "ListHumanLoopsResponse");
 }
 
 /**
@@ -316,7 +293,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -336,7 +312,6 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 export enum SortOrder {
@@ -345,7 +320,6 @@ export enum SortOrder {
 }
 
 export interface StartHumanLoopRequest {
-  __type?: "StartHumanLoopRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the flow definition associated with this human
    *       loop.</p>
@@ -373,11 +347,9 @@ export namespace StartHumanLoopRequest {
   export const filterSensitiveLog = (obj: StartHumanLoopRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartHumanLoopRequest => __isa(o, "StartHumanLoopRequest");
 }
 
 export interface StartHumanLoopResponse {
-  __type?: "StartHumanLoopResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the human loop.</p>
    */
@@ -388,11 +360,9 @@ export namespace StartHumanLoopResponse {
   export const filterSensitiveLog = (obj: StartHumanLoopResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartHumanLoopResponse => __isa(o, "StartHumanLoopResponse");
 }
 
 export interface StopHumanLoopRequest {
-  __type?: "StopHumanLoopRequest";
   /**
    * <p>The name of the human loop that you want to stop.</p>
    */
@@ -403,18 +373,14 @@ export namespace StopHumanLoopRequest {
   export const filterSensitiveLog = (obj: StopHumanLoopRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopHumanLoopRequest => __isa(o, "StopHumanLoopRequest");
 }
 
-export interface StopHumanLoopResponse {
-  __type?: "StopHumanLoopResponse";
-}
+export interface StopHumanLoopResponse {}
 
 export namespace StopHumanLoopResponse {
   export const filterSensitiveLog = (obj: StopHumanLoopResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopHumanLoopResponse => __isa(o, "StopHumanLoopResponse");
 }
 
 /**
@@ -432,7 +398,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -449,5 +414,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

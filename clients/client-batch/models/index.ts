@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum ArrayJobDependency {
@@ -10,7 +10,6 @@ export enum ArrayJobDependency {
  * <p>An object representing an AWS Batch array job.</p>
  */
 export interface ArrayProperties {
-  __type?: "ArrayProperties";
   /**
    * <p>The size of the array job.</p>
    */
@@ -21,14 +20,12 @@ export namespace ArrayProperties {
   export const filterSensitiveLog = (obj: ArrayProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArrayProperties => __isa(o, "ArrayProperties");
 }
 
 /**
  * <p>An object representing the array properties of a job.</p>
  */
 export interface ArrayPropertiesDetail {
-  __type?: "ArrayPropertiesDetail";
   /**
    * <p>The job index within the array that is associated with this job. This parameter is returned for array job
    *    children.</p>
@@ -51,14 +48,12 @@ export namespace ArrayPropertiesDetail {
   export const filterSensitiveLog = (obj: ArrayPropertiesDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArrayPropertiesDetail => __isa(o, "ArrayPropertiesDetail");
 }
 
 /**
  * <p>An object representing the array properties of a job.</p>
  */
 export interface ArrayPropertiesSummary {
-  __type?: "ArrayPropertiesSummary";
   /**
    * <p>The job index within the array that is associated with this job. This parameter is returned for children of
    *    array jobs.</p>
@@ -75,14 +70,12 @@ export namespace ArrayPropertiesSummary {
   export const filterSensitiveLog = (obj: ArrayPropertiesSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArrayPropertiesSummary => __isa(o, "ArrayPropertiesSummary");
 }
 
 /**
  * <p>An object representing the details of a container that is part of a job attempt.</p>
  */
 export interface AttemptContainerDetail {
-  __type?: "AttemptContainerDetail";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.</p>
    */
@@ -122,14 +115,12 @@ export namespace AttemptContainerDetail {
   export const filterSensitiveLog = (obj: AttemptContainerDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttemptContainerDetail => __isa(o, "AttemptContainerDetail");
 }
 
 /**
  * <p>An object representing a job attempt.</p>
  */
 export interface AttemptDetail {
-  __type?: "AttemptDetail";
   /**
    * <p>The Unix timestamp (in seconds and milliseconds) for when the attempt was started (when the attempt transitioned
    *    from the <code>STARTING</code> state to the <code>RUNNING</code> state).</p>
@@ -158,11 +149,9 @@ export namespace AttemptDetail {
   export const filterSensitiveLog = (obj: AttemptDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttemptDetail => __isa(o, "AttemptDetail");
 }
 
 export interface CancelJobRequest {
-  __type?: "CancelJobRequest";
   /**
    * <p>The AWS Batch job ID of the job to cancel.</p>
    */
@@ -180,18 +169,14 @@ export namespace CancelJobRequest {
   export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJobRequest => __isa(o, "CancelJobRequest");
 }
 
-export interface CancelJobResponse {
-  __type?: "CancelJobResponse";
-}
+export interface CancelJobResponse {}
 
 export namespace CancelJobResponse {
   export const filterSensitiveLog = (obj: CancelJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelJobResponse => __isa(o, "CancelJobResponse");
 }
 
 export enum CEState {
@@ -227,14 +212,12 @@ export namespace ClientException {
   export const filterSensitiveLog = (obj: ClientException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClientException => __isa(o, "ClientException");
 }
 
 /**
  * <p>An object representing an AWS Batch compute environment.</p>
  */
 export interface ComputeEnvironmentDetail {
-  __type?: "ComputeEnvironmentDetail";
   /**
    * <p>The state of the compute environment. The valid values are <code>ENABLED</code> or <code>DISABLED</code>.</p>
    *          <p>If the state is <code>ENABLED</code>, then the AWS Batch scheduler can attempt to place jobs from an associated
@@ -294,7 +277,6 @@ export namespace ComputeEnvironmentDetail {
   export const filterSensitiveLog = (obj: ComputeEnvironmentDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComputeEnvironmentDetail => __isa(o, "ComputeEnvironmentDetail");
 }
 
 /**
@@ -303,7 +285,6 @@ export namespace ComputeEnvironmentDetail {
  *    environment with a lower order integer value is tried for job placement first.</p>
  */
 export interface ComputeEnvironmentOrder {
-  __type?: "ComputeEnvironmentOrder";
   /**
    * <p>The order of the compute environment.</p>
    */
@@ -319,14 +300,12 @@ export namespace ComputeEnvironmentOrder {
   export const filterSensitiveLog = (obj: ComputeEnvironmentOrder): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComputeEnvironmentOrder => __isa(o, "ComputeEnvironmentOrder");
 }
 
 /**
  * <p>An object representing an AWS Batch compute resource.</p>
  */
 export interface ComputeResource {
-  __type?: "ComputeResource";
   /**
    * <p>The Amazon EC2 security groups associated with instances launched in the compute environment. One or more security
    *    groups must be specified, either in <code>securityGroupIds</code> or using a launch template referenced in
@@ -456,14 +435,12 @@ export namespace ComputeResource {
   export const filterSensitiveLog = (obj: ComputeResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComputeResource => __isa(o, "ComputeResource");
 }
 
 /**
  * <p>An object representing the attributes of a compute environment that can be updated.</p>
  */
 export interface ComputeResourceUpdate {
-  __type?: "ComputeResourceUpdate";
   /**
    * <p>The maximum number of Amazon EC2 vCPUs that an environment can reach.</p>
    */
@@ -484,14 +461,12 @@ export namespace ComputeResourceUpdate {
   export const filterSensitiveLog = (obj: ComputeResourceUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ComputeResourceUpdate => __isa(o, "ComputeResourceUpdate");
 }
 
 /**
  * <p>An object representing the details of a container that is part of a job.</p>
  */
 export interface ContainerDetail {
-  __type?: "ContainerDetail";
   /**
    * <p>The Amazon Resource Name (ARN) associated with the job upon execution.</p>
    */
@@ -611,14 +586,12 @@ export namespace ContainerDetail {
   export const filterSensitiveLog = (obj: ContainerDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerDetail => __isa(o, "ContainerDetail");
 }
 
 /**
  * <p>The overrides that should be sent to a container.</p>
  */
 export interface ContainerOverrides {
-  __type?: "ContainerOverrides";
   /**
    * <p>The command to send to the container that overrides the default command from the Docker image or the job
    *    definition.</p>
@@ -664,7 +637,6 @@ export namespace ContainerOverrides {
   export const filterSensitiveLog = (obj: ContainerOverrides): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerOverrides => __isa(o, "ContainerOverrides");
 }
 
 /**
@@ -672,7 +644,6 @@ export namespace ContainerOverrides {
  *    job.</p>
  */
 export interface ContainerProperties {
-  __type?: "ContainerProperties";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.</p>
    */
@@ -807,14 +778,12 @@ export namespace ContainerProperties {
   export const filterSensitiveLog = (obj: ContainerProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerProperties => __isa(o, "ContainerProperties");
 }
 
 /**
  * <p>An object representing summary details of a container within a job.</p>
  */
 export interface ContainerSummary {
-  __type?: "ContainerSummary";
   /**
    * <p>The exit code to return upon completion.</p>
    */
@@ -831,7 +800,6 @@ export namespace ContainerSummary {
   export const filterSensitiveLog = (obj: ContainerSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerSummary => __isa(o, "ContainerSummary");
 }
 
 export enum CRAllocationStrategy {
@@ -841,7 +809,6 @@ export enum CRAllocationStrategy {
 }
 
 export interface CreateComputeEnvironmentRequest {
-  __type?: "CreateComputeEnvironmentRequest";
   /**
    * <p>The state of the compute environment. If the state is <code>ENABLED</code>, then the compute environment accepts
    *    jobs from a queue and can scale out automatically based on queues.</p>
@@ -885,11 +852,9 @@ export namespace CreateComputeEnvironmentRequest {
   export const filterSensitiveLog = (obj: CreateComputeEnvironmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateComputeEnvironmentRequest => __isa(o, "CreateComputeEnvironmentRequest");
 }
 
 export interface CreateComputeEnvironmentResponse {
-  __type?: "CreateComputeEnvironmentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the compute environment.</p>
    */
@@ -905,11 +870,9 @@ export namespace CreateComputeEnvironmentResponse {
   export const filterSensitiveLog = (obj: CreateComputeEnvironmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateComputeEnvironmentResponse => __isa(o, "CreateComputeEnvironmentResponse");
 }
 
 export interface CreateJobQueueRequest {
-  __type?: "CreateJobQueueRequest";
   /**
    * <p>The name of the job queue.</p>
    */
@@ -941,11 +904,9 @@ export namespace CreateJobQueueRequest {
   export const filterSensitiveLog = (obj: CreateJobQueueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobQueueRequest => __isa(o, "CreateJobQueueRequest");
 }
 
 export interface CreateJobQueueResponse {
-  __type?: "CreateJobQueueResponse";
   /**
    * <p>The name of the job queue.</p>
    */
@@ -961,7 +922,6 @@ export namespace CreateJobQueueResponse {
   export const filterSensitiveLog = (obj: CreateJobQueueResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobQueueResponse => __isa(o, "CreateJobQueueResponse");
 }
 
 export enum CRType {
@@ -970,7 +930,6 @@ export enum CRType {
 }
 
 export interface DeleteComputeEnvironmentRequest {
-  __type?: "DeleteComputeEnvironmentRequest";
   /**
    * <p>The name or Amazon Resource Name (ARN) of the compute environment to delete.</p>
    */
@@ -981,22 +940,17 @@ export namespace DeleteComputeEnvironmentRequest {
   export const filterSensitiveLog = (obj: DeleteComputeEnvironmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteComputeEnvironmentRequest => __isa(o, "DeleteComputeEnvironmentRequest");
 }
 
-export interface DeleteComputeEnvironmentResponse {
-  __type?: "DeleteComputeEnvironmentResponse";
-}
+export interface DeleteComputeEnvironmentResponse {}
 
 export namespace DeleteComputeEnvironmentResponse {
   export const filterSensitiveLog = (obj: DeleteComputeEnvironmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteComputeEnvironmentResponse => __isa(o, "DeleteComputeEnvironmentResponse");
 }
 
 export interface DeleteJobQueueRequest {
-  __type?: "DeleteJobQueueRequest";
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the queue to delete.</p>
    */
@@ -1007,22 +961,17 @@ export namespace DeleteJobQueueRequest {
   export const filterSensitiveLog = (obj: DeleteJobQueueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJobQueueRequest => __isa(o, "DeleteJobQueueRequest");
 }
 
-export interface DeleteJobQueueResponse {
-  __type?: "DeleteJobQueueResponse";
-}
+export interface DeleteJobQueueResponse {}
 
 export namespace DeleteJobQueueResponse {
   export const filterSensitiveLog = (obj: DeleteJobQueueResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJobQueueResponse => __isa(o, "DeleteJobQueueResponse");
 }
 
 export interface DeregisterJobDefinitionRequest {
-  __type?: "DeregisterJobDefinitionRequest";
   /**
    * <p>The name and revision (<code>name:revision</code>) or full Amazon Resource Name (ARN) of the job definition to deregister.</p>
    */
@@ -1033,22 +982,17 @@ export namespace DeregisterJobDefinitionRequest {
   export const filterSensitiveLog = (obj: DeregisterJobDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterJobDefinitionRequest => __isa(o, "DeregisterJobDefinitionRequest");
 }
 
-export interface DeregisterJobDefinitionResponse {
-  __type?: "DeregisterJobDefinitionResponse";
-}
+export interface DeregisterJobDefinitionResponse {}
 
 export namespace DeregisterJobDefinitionResponse {
   export const filterSensitiveLog = (obj: DeregisterJobDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterJobDefinitionResponse => __isa(o, "DeregisterJobDefinitionResponse");
 }
 
 export interface DescribeComputeEnvironmentsRequest {
-  __type?: "DescribeComputeEnvironmentsRequest";
   /**
    * <p>A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.</p>
    */
@@ -1081,12 +1025,9 @@ export namespace DescribeComputeEnvironmentsRequest {
   export const filterSensitiveLog = (obj: DescribeComputeEnvironmentsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeComputeEnvironmentsRequest =>
-    __isa(o, "DescribeComputeEnvironmentsRequest");
 }
 
 export interface DescribeComputeEnvironmentsResponse {
-  __type?: "DescribeComputeEnvironmentsResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeComputeEnvironments</code> request. When
    *    the results of a <code>DescribeJobDefinitions</code> request exceed <code>maxResults</code>, this value can be used
@@ -1105,12 +1046,9 @@ export namespace DescribeComputeEnvironmentsResponse {
   export const filterSensitiveLog = (obj: DescribeComputeEnvironmentsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeComputeEnvironmentsResponse =>
-    __isa(o, "DescribeComputeEnvironmentsResponse");
 }
 
 export interface DescribeJobDefinitionsRequest {
-  __type?: "DescribeJobDefinitionsRequest";
   /**
    * <p>The status with which to filter job definitions.</p>
    */
@@ -1153,11 +1091,9 @@ export namespace DescribeJobDefinitionsRequest {
   export const filterSensitiveLog = (obj: DescribeJobDefinitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobDefinitionsRequest => __isa(o, "DescribeJobDefinitionsRequest");
 }
 
 export interface DescribeJobDefinitionsResponse {
-  __type?: "DescribeJobDefinitionsResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeJobDefinitions</code> request. When the
    *    results of a <code>DescribeJobDefinitions</code> request exceed <code>maxResults</code>, this value can be used to
@@ -1175,11 +1111,9 @@ export namespace DescribeJobDefinitionsResponse {
   export const filterSensitiveLog = (obj: DescribeJobDefinitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobDefinitionsResponse => __isa(o, "DescribeJobDefinitionsResponse");
 }
 
 export interface DescribeJobQueuesRequest {
-  __type?: "DescribeJobQueuesRequest";
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeJobQueues</code> request where
    *     <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the
@@ -1211,11 +1145,9 @@ export namespace DescribeJobQueuesRequest {
   export const filterSensitiveLog = (obj: DescribeJobQueuesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobQueuesRequest => __isa(o, "DescribeJobQueuesRequest");
 }
 
 export interface DescribeJobQueuesResponse {
-  __type?: "DescribeJobQueuesResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>DescribeJobQueues</code> request. When the results
    *    of a <code>DescribeJobQueues</code> request exceed <code>maxResults</code>, this value can be used to retrieve the
@@ -1233,11 +1165,9 @@ export namespace DescribeJobQueuesResponse {
   export const filterSensitiveLog = (obj: DescribeJobQueuesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobQueuesResponse => __isa(o, "DescribeJobQueuesResponse");
 }
 
 export interface DescribeJobsRequest {
-  __type?: "DescribeJobsRequest";
   /**
    * <p>A list of up to 100 job IDs.</p>
    */
@@ -1248,11 +1178,9 @@ export namespace DescribeJobsRequest {
   export const filterSensitiveLog = (obj: DescribeJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobsRequest => __isa(o, "DescribeJobsRequest");
 }
 
 export interface DescribeJobsResponse {
-  __type?: "DescribeJobsResponse";
   /**
    * <p>The list of jobs.</p>
    */
@@ -1263,14 +1191,12 @@ export namespace DescribeJobsResponse {
   export const filterSensitiveLog = (obj: DescribeJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobsResponse => __isa(o, "DescribeJobsResponse");
 }
 
 /**
  * <p>An object representing a container instance host device.</p>
  */
 export interface Device {
-  __type?: "Device";
   /**
    * <p>The path for the device on the host container instance.</p>
    */
@@ -1293,7 +1219,6 @@ export namespace Device {
   export const filterSensitiveLog = (obj: Device): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Device => __isa(o, "Device");
 }
 
 export enum DeviceCgroupPermission {
@@ -1308,7 +1233,6 @@ export enum DeviceCgroupPermission {
  *    to persist after the containers associated with it stop running.</p>
  */
 export interface Host {
-  __type?: "Host";
   /**
    * <p>The path on the host container instance that is presented to the container. If this parameter is empty, then the
    *    Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume
@@ -1323,14 +1247,12 @@ export namespace Host {
   export const filterSensitiveLog = (obj: Host): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Host => __isa(o, "Host");
 }
 
 /**
  * <p>An object representing an AWS Batch job definition.</p>
  */
 export interface JobDefinition {
-  __type?: "JobDefinition";
   /**
    * <p>An object with various properties specific to multi-node parallel jobs.</p>
    */
@@ -1390,7 +1312,6 @@ export namespace JobDefinition {
   export const filterSensitiveLog = (obj: JobDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobDefinition => __isa(o, "JobDefinition");
 }
 
 export enum JobDefinitionType {
@@ -1402,7 +1323,6 @@ export enum JobDefinitionType {
  * <p>An object representing an AWS Batch job dependency.</p>
  */
 export interface JobDependency {
-  __type?: "JobDependency";
   /**
    * <p>The type of the job dependency.</p>
    */
@@ -1418,14 +1338,12 @@ export namespace JobDependency {
   export const filterSensitiveLog = (obj: JobDependency): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobDependency => __isa(o, "JobDependency");
 }
 
 /**
  * <p>An object representing an AWS Batch job.</p>
  */
 export interface JobDetail {
-  __type?: "JobDetail";
   /**
    * <p>The name of the job.</p>
    */
@@ -1531,14 +1449,12 @@ export namespace JobDetail {
   export const filterSensitiveLog = (obj: JobDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobDetail => __isa(o, "JobDetail");
 }
 
 /**
  * <p>An object representing the details of an AWS Batch job queue.</p>
  */
 export interface JobQueueDetail {
-  __type?: "JobQueueDetail";
   /**
    * <p>Describes the ability of the queue to accept new jobs.</p>
    */
@@ -1580,7 +1496,6 @@ export namespace JobQueueDetail {
   export const filterSensitiveLog = (obj: JobQueueDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobQueueDetail => __isa(o, "JobQueueDetail");
 }
 
 export enum JobStatus {
@@ -1597,7 +1512,6 @@ export enum JobStatus {
  * <p>An object representing summary details of a job.</p>
  */
 export interface JobSummary {
-  __type?: "JobSummary";
   /**
    * <p>The current status for the job.</p>
    */
@@ -1657,14 +1571,12 @@ export namespace JobSummary {
   export const filterSensitiveLog = (obj: JobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobSummary => __isa(o, "JobSummary");
 }
 
 /**
  * <p>An object representing a job timeout configuration.</p>
  */
 export interface JobTimeout {
-  __type?: "JobTimeout";
   /**
    * <p>The time duration in seconds (measured from the job attempt's <code>startedAt</code> timestamp) after which
    *    AWS Batch terminates your jobs if they have not finished.</p>
@@ -1676,7 +1588,6 @@ export namespace JobTimeout {
   export const filterSensitiveLog = (obj: JobTimeout): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobTimeout => __isa(o, "JobTimeout");
 }
 
 export enum JQState {
@@ -1697,7 +1608,6 @@ export enum JQStatus {
  * <p>A key-value pair object.</p>
  */
 export interface KeyValuePair {
-  __type?: "KeyValuePair";
   /**
    * <p>The value of the key-value pair. For environment variables, this is the value of the environment
    *    variable.</p>
@@ -1714,7 +1624,6 @@ export namespace KeyValuePair {
   export const filterSensitiveLog = (obj: KeyValuePair): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyValuePair => __isa(o, "KeyValuePair");
 }
 
 /**
@@ -1722,7 +1631,6 @@ export namespace KeyValuePair {
  *    template ID or launch template name in the request, but not both.</p>
  */
 export interface LaunchTemplateSpecification {
-  __type?: "LaunchTemplateSpecification";
   /**
    * <p>The ID of the launch template.</p>
    */
@@ -1744,14 +1652,12 @@ export namespace LaunchTemplateSpecification {
   export const filterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateSpecification => __isa(o, "LaunchTemplateSpecification");
 }
 
 /**
  * <p>Linux-specific modifications that are applied to the container, such as details for device mappings.</p>
  */
 export interface LinuxParameters {
-  __type?: "LinuxParameters";
   /**
    * <p>Any host devices to expose to the container. This parameter maps to <code>Devices</code> in the
    *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--device</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
@@ -1763,11 +1669,9 @@ export namespace LinuxParameters {
   export const filterSensitiveLog = (obj: LinuxParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LinuxParameters => __isa(o, "LinuxParameters");
 }
 
 export interface ListJobsRequest {
-  __type?: "ListJobsRequest";
   /**
    * <p>The job ID for an array job. Specifying an array job ID with this parameter lists all child jobs from within the
    *    specified array.</p>
@@ -1817,11 +1721,9 @@ export namespace ListJobsRequest {
   export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 export interface ListJobsResponse {
-  __type?: "ListJobsResponse";
   /**
    * <p>A list of job summaries that match the request.</p>
    */
@@ -1839,7 +1741,6 @@ export namespace ListJobsResponse {
   export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsResponse => __isa(o, "ListJobsResponse");
 }
 
 /**
@@ -1848,7 +1749,6 @@ export namespace ListJobsResponse {
  *     container</a> section of the Docker Remote API and the <code>--volume</code> option to docker run.</p>
  */
 export interface MountPoint {
-  __type?: "MountPoint";
   /**
    * <p>If this value is <code>true</code>, the container has read-only access to the volume; otherwise, the container
    *    can write to the volume. The default value is <code>false</code>.</p>
@@ -1870,14 +1770,12 @@ export namespace MountPoint {
   export const filterSensitiveLog = (obj: MountPoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MountPoint => __isa(o, "MountPoint");
 }
 
 /**
  * <p>An object representing the elastic network interface for a multi-node parallel job node.</p>
  */
 export interface NetworkInterface {
-  __type?: "NetworkInterface";
   /**
    * <p>The private IPv6 address for the network interface.</p>
    */
@@ -1898,14 +1796,12 @@ export namespace NetworkInterface {
   export const filterSensitiveLog = (obj: NetworkInterface): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NetworkInterface => __isa(o, "NetworkInterface");
 }
 
 /**
  * <p>An object representing the details of a multi-node parallel job node.</p>
  */
 export interface NodeDetails {
-  __type?: "NodeDetails";
   /**
    * <p>Specifies whether the current node is the main node for a multi-node parallel job.</p>
    */
@@ -1922,7 +1818,6 @@ export namespace NodeDetails {
   export const filterSensitiveLog = (obj: NodeDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeDetails => __isa(o, "NodeDetails");
 }
 
 /**
@@ -1930,7 +1825,6 @@ export namespace NodeDetails {
  *    operation.</p>
  */
 export interface NodeOverrides {
-  __type?: "NodeOverrides";
   /**
    * <p>The number of nodes to use with a multi-node parallel job. This value overrides the number of nodes that are
    *    specified in the job definition. To use this override:</p>
@@ -1961,14 +1855,12 @@ export namespace NodeOverrides {
   export const filterSensitiveLog = (obj: NodeOverrides): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeOverrides => __isa(o, "NodeOverrides");
 }
 
 /**
  * <p>An object representing the node properties of a multi-node parallel job.</p>
  */
 export interface NodeProperties {
-  __type?: "NodeProperties";
   /**
    * <p>A list of node ranges and their properties associated with a multi-node parallel job.</p>
    */
@@ -1990,14 +1882,12 @@ export namespace NodeProperties {
   export const filterSensitiveLog = (obj: NodeProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeProperties => __isa(o, "NodeProperties");
 }
 
 /**
  * <p>An object representing the properties of a node that is associated with a multi-node parallel job.</p>
  */
 export interface NodePropertiesSummary {
-  __type?: "NodePropertiesSummary";
   /**
    * <p>Specifies whether the current node is the main node for a multi-node parallel job.</p>
    */
@@ -2019,7 +1909,6 @@ export namespace NodePropertiesSummary {
   export const filterSensitiveLog = (obj: NodePropertiesSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodePropertiesSummary => __isa(o, "NodePropertiesSummary");
 }
 
 /**
@@ -2027,7 +1916,6 @@ export namespace NodePropertiesSummary {
  *    operation.</p>
  */
 export interface NodePropertyOverride {
-  __type?: "NodePropertyOverride";
   /**
    * <p>The range of nodes, using node index values, with which to override. A range of <code>0:3</code> indicates nodes
    *    with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>),
@@ -2046,14 +1934,12 @@ export namespace NodePropertyOverride {
   export const filterSensitiveLog = (obj: NodePropertyOverride): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodePropertyOverride => __isa(o, "NodePropertyOverride");
 }
 
 /**
  * <p>An object representing the properties of the node range for a multi-node parallel job.</p>
  */
 export interface NodeRangeProperty {
-  __type?: "NodeRangeProperty";
   /**
    * <p>The container details for the node range.</p>
    */
@@ -2073,11 +1959,9 @@ export namespace NodeRangeProperty {
   export const filterSensitiveLog = (obj: NodeRangeProperty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NodeRangeProperty => __isa(o, "NodeRangeProperty");
 }
 
 export interface RegisterJobDefinitionRequest {
-  __type?: "RegisterJobDefinitionRequest";
   /**
    * <p>An object with various properties specific to multi-node parallel jobs. If you specify node properties for a
    *    job, it becomes a multi-node parallel job. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node Parallel Jobs</a> in the
@@ -2133,11 +2017,9 @@ export namespace RegisterJobDefinitionRequest {
   export const filterSensitiveLog = (obj: RegisterJobDefinitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterJobDefinitionRequest => __isa(o, "RegisterJobDefinitionRequest");
 }
 
 export interface RegisterJobDefinitionResponse {
-  __type?: "RegisterJobDefinitionResponse";
   /**
    * <p>The revision of the job definition.</p>
    */
@@ -2158,7 +2040,6 @@ export namespace RegisterJobDefinitionResponse {
   export const filterSensitiveLog = (obj: RegisterJobDefinitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterJobDefinitionResponse => __isa(o, "RegisterJobDefinitionResponse");
 }
 
 /**
@@ -2166,7 +2047,6 @@ export namespace RegisterJobDefinitionResponse {
  *     <code>GPU</code>.</p>
  */
 export interface ResourceRequirement {
-  __type?: "ResourceRequirement";
   /**
    * <p>The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a
    *    job should not exceed the number of available GPUs on the compute resource that the job is launched on.</p>
@@ -2184,7 +2064,6 @@ export namespace ResourceRequirement {
   export const filterSensitiveLog = (obj: ResourceRequirement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceRequirement => __isa(o, "ResourceRequirement");
 }
 
 export enum ResourceType {
@@ -2195,7 +2074,6 @@ export enum ResourceType {
  * <p>The retry strategy associated with a job.</p>
  */
 export interface RetryStrategy {
-  __type?: "RetryStrategy";
   /**
    * <p>The number of times to move a job to the <code>RUNNABLE</code> status. You may specify between 1 and 10
    *    attempts. If the value of <code>attempts</code> is greater than one, the job is retried on failure the same number of
@@ -2208,7 +2086,6 @@ export namespace RetryStrategy {
   export const filterSensitiveLog = (obj: RetryStrategy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetryStrategy => __isa(o, "RetryStrategy");
 }
 
 /**
@@ -2224,11 +2101,9 @@ export namespace ServerException {
   export const filterSensitiveLog = (obj: ServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServerException => __isa(o, "ServerException");
 }
 
 export interface SubmitJobRequest {
-  __type?: "SubmitJobRequest";
   /**
    * <p>The array properties for the submitted job, such as the size of the array. The array size can be between 2 and
    *    10,000. If you specify array properties for a job, it becomes an array job. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html">Array Jobs</a> in the
@@ -2307,11 +2182,9 @@ export namespace SubmitJobRequest {
   export const filterSensitiveLog = (obj: SubmitJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubmitJobRequest => __isa(o, "SubmitJobRequest");
 }
 
 export interface SubmitJobResponse {
-  __type?: "SubmitJobResponse";
   /**
    * <p>The unique identifier for the job.</p>
    */
@@ -2327,11 +2200,9 @@ export namespace SubmitJobResponse {
   export const filterSensitiveLog = (obj: SubmitJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubmitJobResponse => __isa(o, "SubmitJobResponse");
 }
 
 export interface TerminateJobRequest {
-  __type?: "TerminateJobRequest";
   /**
    * <p>A message to attach to the job that explains the reason for canceling it. This message is returned by future
    *     <a>DescribeJobs</a> operations on the job. This message is also recorded in the AWS Batch activity
@@ -2349,25 +2220,20 @@ export namespace TerminateJobRequest {
   export const filterSensitiveLog = (obj: TerminateJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateJobRequest => __isa(o, "TerminateJobRequest");
 }
 
-export interface TerminateJobResponse {
-  __type?: "TerminateJobResponse";
-}
+export interface TerminateJobResponse {}
 
 export namespace TerminateJobResponse {
   export const filterSensitiveLog = (obj: TerminateJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateJobResponse => __isa(o, "TerminateJobResponse");
 }
 
 /**
  * <p>The <code>ulimit</code> settings to pass to the container.</p>
  */
 export interface Ulimit {
-  __type?: "Ulimit";
   /**
    * <p>The hard limit for the <code>ulimit</code> type.</p>
    */
@@ -2388,11 +2254,9 @@ export namespace Ulimit {
   export const filterSensitiveLog = (obj: Ulimit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Ulimit => __isa(o, "Ulimit");
 }
 
 export interface UpdateComputeEnvironmentRequest {
-  __type?: "UpdateComputeEnvironmentRequest";
   /**
    * <p>Details of the compute resources managed by the compute environment. Required for a managed compute
    *    environment.</p>
@@ -2429,11 +2293,9 @@ export namespace UpdateComputeEnvironmentRequest {
   export const filterSensitiveLog = (obj: UpdateComputeEnvironmentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateComputeEnvironmentRequest => __isa(o, "UpdateComputeEnvironmentRequest");
 }
 
 export interface UpdateComputeEnvironmentResponse {
-  __type?: "UpdateComputeEnvironmentResponse";
   /**
    * <p>The name of the compute environment.</p>
    */
@@ -2449,11 +2311,9 @@ export namespace UpdateComputeEnvironmentResponse {
   export const filterSensitiveLog = (obj: UpdateComputeEnvironmentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateComputeEnvironmentResponse => __isa(o, "UpdateComputeEnvironmentResponse");
 }
 
 export interface UpdateJobQueueRequest {
-  __type?: "UpdateJobQueueRequest";
   /**
    * <p>Details the set of compute environments mapped to a job queue and their order relative to each other. This is
    *    one of the parameters used by the job scheduler to determine which compute environment should execute a given
@@ -2484,11 +2344,9 @@ export namespace UpdateJobQueueRequest {
   export const filterSensitiveLog = (obj: UpdateJobQueueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobQueueRequest => __isa(o, "UpdateJobQueueRequest");
 }
 
 export interface UpdateJobQueueResponse {
-  __type?: "UpdateJobQueueResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the job queue.</p>
    */
@@ -2504,14 +2362,12 @@ export namespace UpdateJobQueueResponse {
   export const filterSensitiveLog = (obj: UpdateJobQueueResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobQueueResponse => __isa(o, "UpdateJobQueueResponse");
 }
 
 /**
  * <p>A data volume used in a job's container properties.</p>
  */
 export interface Volume {
-  __type?: "Volume";
   /**
    * <p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host
    *    container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path
@@ -2531,5 +2387,4 @@ export namespace Volume {
   export const filterSensitiveLog = (obj: Volume): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Volume => __isa(o, "Volume");
 }

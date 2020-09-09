@@ -45,7 +45,6 @@ export const deserializeAws_json1_1QueryForecastCommand = async (
   contents = deserializeAws_json1_1QueryForecastResponse(data, context);
   const response: QueryForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "QueryForecastResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -218,7 +217,6 @@ const serializeAws_json1_1QueryForecastRequest = (input: QueryForecastRequest, c
 
 const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): DataPoint => {
   return {
-    __type: "DataPoint",
     Timestamp: output.Timestamp !== undefined && output.Timestamp !== null ? output.Timestamp : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -226,7 +224,6 @@ const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Forecast = (output: any, context: __SerdeContext): Forecast => {
   return {
-    __type: "Forecast",
     Predictions:
       output.Predictions !== undefined && output.Predictions !== null
         ? deserializeAws_json1_1Predictions(output.Predictions, context)
@@ -236,7 +233,6 @@ const deserializeAws_json1_1Forecast = (output: any, context: __SerdeContext): F
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    __type: "InvalidInputException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -246,14 +242,12 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -270,7 +264,6 @@ const deserializeAws_json1_1Predictions = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1QueryForecastResponse = (output: any, context: __SerdeContext): QueryForecastResponse => {
   return {
-    __type: "QueryForecastResponse",
     Forecast:
       output.Forecast !== undefined && output.Forecast !== null
         ? deserializeAws_json1_1Forecast(output.Forecast, context)
@@ -280,7 +273,6 @@ const deserializeAws_json1_1QueryForecastResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -290,7 +282,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };

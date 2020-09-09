@@ -1,9 +1,8 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 export interface GetRawMessageContentRequest {
-  __type?: "GetRawMessageContentRequest";
   /**
    * <p>The identifier of the email message to retrieve.</p>
    */
@@ -14,11 +13,9 @@ export namespace GetRawMessageContentRequest {
   export const filterSensitiveLog = (obj: GetRawMessageContentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRawMessageContentRequest => __isa(o, "GetRawMessageContentRequest");
 }
 
 export interface GetRawMessageContentResponse {
-  __type?: "GetRawMessageContentResponse";
   /**
    * <p>The raw content of the email message, in MIME format.</p>
    */
@@ -29,7 +26,6 @@ export namespace GetRawMessageContentResponse {
   export const filterSensitiveLog = (obj: GetRawMessageContentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRawMessageContentResponse => __isa(o, "GetRawMessageContentResponse");
 }
 
 /**
@@ -45,5 +41,4 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }

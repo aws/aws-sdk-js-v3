@@ -210,7 +210,6 @@ export const deserializeAws_restJson1DeleteObjectCommand = async (
   }
   const contents: DeleteObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteObjectResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -278,7 +277,6 @@ export const deserializeAws_restJson1DescribeObjectCommand = async (
   }
   const contents: DescribeObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeObjectResponse",
     CacheControl: undefined,
     ContentLength: undefined,
     ContentType: undefined,
@@ -366,7 +364,6 @@ export const deserializeAws_restJson1GetObjectCommand = async (
   }
   const contents: GetObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetObjectResponse",
     Body: undefined,
     CacheControl: undefined,
     ContentLength: undefined,
@@ -468,7 +465,6 @@ export const deserializeAws_restJson1ListItemsCommand = async (
   }
   const contents: ListItemsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListItemsResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -536,7 +532,6 @@ export const deserializeAws_restJson1PutObjectCommand = async (
   }
   const contents: PutObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutObjectResponse",
     ContentSHA256: undefined,
     ETag: undefined,
     StorageClass: undefined,
@@ -669,7 +664,6 @@ const deserializeAws_restJson1RequestedRangeNotSatisfiableExceptionResponse = as
 
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
-    __type: "Item",
     ContentLength:
       output.ContentLength !== undefined && output.ContentLength !== null ? output.ContentLength : undefined,
     ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AttributeType {
@@ -13,7 +13,6 @@ export enum AttributeType {
  *       This object is part of the <a>ParameterRanges</a> object.</p>
  */
 export interface CategoricalParameterRange {
-  __type?: "CategoricalParameterRange";
   /**
    * <p>A list of the tunable categories for the hyperparameter.</p>
    */
@@ -29,7 +28,6 @@ export namespace CategoricalParameterRange {
   export const filterSensitiveLog = (obj: CategoricalParameterRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CategoricalParameterRange => __isa(o, "CategoricalParameterRange");
 }
 
 /**
@@ -37,7 +35,6 @@ export namespace CategoricalParameterRange {
  *       This object is part of the <a>ParameterRanges</a> object.</p>
  */
 export interface ContinuousParameterRange {
-  __type?: "ContinuousParameterRange";
   /**
    * <p>The name of the hyperparameter to tune.</p>
    */
@@ -91,11 +88,9 @@ export namespace ContinuousParameterRange {
   export const filterSensitiveLog = (obj: ContinuousParameterRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContinuousParameterRange => __isa(o, "ContinuousParameterRange");
 }
 
 export interface CreateDatasetGroupRequest {
-  __type?: "CreateDatasetGroupRequest";
   /**
    * <p>A name for the dataset group.</p>
    */
@@ -153,11 +148,9 @@ export namespace CreateDatasetGroupRequest {
   export const filterSensitiveLog = (obj: CreateDatasetGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetGroupRequest => __isa(o, "CreateDatasetGroupRequest");
 }
 
 export interface CreateDatasetGroupResponse {
-  __type?: "CreateDatasetGroupResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
@@ -168,11 +161,9 @@ export namespace CreateDatasetGroupResponse {
   export const filterSensitiveLog = (obj: CreateDatasetGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetGroupResponse => __isa(o, "CreateDatasetGroupResponse");
 }
 
 export interface CreateDatasetImportJobRequest {
-  __type?: "CreateDatasetImportJobRequest";
   /**
    * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
    *       can assume to access the data. The training data must be stored in an Amazon S3 bucket.</p>
@@ -249,11 +240,9 @@ export namespace CreateDatasetImportJobRequest {
   export const filterSensitiveLog = (obj: CreateDatasetImportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetImportJobRequest => __isa(o, "CreateDatasetImportJobRequest");
 }
 
 export interface CreateDatasetImportJobResponse {
-  __type?: "CreateDatasetImportJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
    */
@@ -264,11 +253,9 @@ export namespace CreateDatasetImportJobResponse {
   export const filterSensitiveLog = (obj: CreateDatasetImportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetImportJobResponse => __isa(o, "CreateDatasetImportJobResponse");
 }
 
 export interface CreateDatasetRequest {
-  __type?: "CreateDatasetRequest";
   /**
    * <p>The optional metadata that you apply to the dataset to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
@@ -347,11 +334,9 @@ export namespace CreateDatasetRequest {
   export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetRequest => __isa(o, "CreateDatasetRequest");
 }
 
 export interface CreateDatasetResponse {
-  __type?: "CreateDatasetResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
@@ -362,11 +347,9 @@ export namespace CreateDatasetResponse {
   export const filterSensitiveLog = (obj: CreateDatasetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatasetResponse => __isa(o, "CreateDatasetResponse");
 }
 
 export interface CreateForecastExportJobRequest {
-  __type?: "CreateForecastExportJobRequest";
   /**
    * <p>The name for the forecast export job.</p>
    */
@@ -420,11 +403,9 @@ export namespace CreateForecastExportJobRequest {
   export const filterSensitiveLog = (obj: CreateForecastExportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateForecastExportJobRequest => __isa(o, "CreateForecastExportJobRequest");
 }
 
 export interface CreateForecastExportJobResponse {
-  __type?: "CreateForecastExportJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the export job.</p>
    */
@@ -435,11 +416,9 @@ export namespace CreateForecastExportJobResponse {
   export const filterSensitiveLog = (obj: CreateForecastExportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateForecastExportJobResponse => __isa(o, "CreateForecastExportJobResponse");
 }
 
 export interface CreateForecastRequest {
-  __type?: "CreateForecastRequest";
   /**
    * <p>A name for the forecast.</p>
    */
@@ -493,11 +472,9 @@ export namespace CreateForecastRequest {
   export const filterSensitiveLog = (obj: CreateForecastRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateForecastRequest => __isa(o, "CreateForecastRequest");
 }
 
 export interface CreateForecastResponse {
-  __type?: "CreateForecastResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast.</p>
    */
@@ -508,11 +485,9 @@ export namespace CreateForecastResponse {
   export const filterSensitiveLog = (obj: CreateForecastResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateForecastResponse => __isa(o, "CreateForecastResponse");
 }
 
 export interface CreatePredictorRequest {
-  __type?: "CreatePredictorRequest";
   /**
    * <p>A name for the predictor.</p>
    */
@@ -670,11 +645,9 @@ export namespace CreatePredictorRequest {
   export const filterSensitiveLog = (obj: CreatePredictorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePredictorRequest => __isa(o, "CreatePredictorRequest");
 }
 
 export interface CreatePredictorResponse {
-  __type?: "CreatePredictorResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
    */
@@ -685,7 +658,6 @@ export namespace CreatePredictorResponse {
   export const filterSensitiveLog = (obj: CreatePredictorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePredictorResponse => __isa(o, "CreatePredictorResponse");
 }
 
 /**
@@ -694,7 +666,6 @@ export namespace CreatePredictorResponse {
  *       submitted in the <a>CreateForecastExportJob</a> request.</p>
  */
 export interface DataDestination {
-  __type?: "DataDestination";
   /**
    * <p>The path to an Amazon Simple Storage Service (Amazon S3) bucket along with the credentials to access the
    *       bucket.</p>
@@ -706,7 +677,6 @@ export namespace DataDestination {
   export const filterSensitiveLog = (obj: DataDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataDestination => __isa(o, "DataDestination");
 }
 
 /**
@@ -715,7 +685,6 @@ export namespace DataDestination {
  *         <code>DatasetGroupArn</code>.</p>
  */
 export interface DatasetGroupSummary {
-  __type?: "DatasetGroupSummary";
   /**
    * <p>When the dataset group was created.</p>
    */
@@ -743,7 +712,6 @@ export namespace DatasetGroupSummary {
   export const filterSensitiveLog = (obj: DatasetGroupSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetGroupSummary => __isa(o, "DatasetGroupSummary");
 }
 
 /**
@@ -752,7 +720,6 @@ export namespace DatasetGroupSummary {
  *         <code>DatasetImportJobArn</code>.</p>
  */
 export interface DatasetImportJobSummary {
-  __type?: "DatasetImportJobSummary";
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    */
@@ -832,7 +799,6 @@ export namespace DatasetImportJobSummary {
   export const filterSensitiveLog = (obj: DatasetImportJobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetImportJobSummary => __isa(o, "DatasetImportJobSummary");
 }
 
 /**
@@ -841,7 +807,6 @@ export namespace DatasetImportJobSummary {
  *       operation, and provide the <code>DatasetArn</code>.</p>
  */
 export interface DatasetSummary {
-  __type?: "DatasetSummary";
   /**
    * <p>When the dataset was created.</p>
    */
@@ -881,7 +846,6 @@ export namespace DatasetSummary {
   export const filterSensitiveLog = (obj: DatasetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatasetSummary => __isa(o, "DatasetSummary");
 }
 
 export enum DatasetType {
@@ -896,7 +860,6 @@ export enum DatasetType {
  *       <a>CreateDatasetImportJob</a> request.</p>
  */
 export interface DataSource {
-  __type?: "DataSource";
   /**
    * <p>The path to the training data stored in an Amazon Simple Storage Service (Amazon S3) bucket along with the
    *       credentials to access the data.</p>
@@ -908,11 +871,9 @@ export namespace DataSource {
   export const filterSensitiveLog = (obj: DataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
 
 export interface DeleteDatasetGroupRequest {
-  __type?: "DeleteDatasetGroupRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group to delete.</p>
    */
@@ -923,11 +884,9 @@ export namespace DeleteDatasetGroupRequest {
   export const filterSensitiveLog = (obj: DeleteDatasetGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDatasetGroupRequest => __isa(o, "DeleteDatasetGroupRequest");
 }
 
 export interface DeleteDatasetImportJobRequest {
-  __type?: "DeleteDatasetImportJobRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job to delete.</p>
    */
@@ -938,11 +897,9 @@ export namespace DeleteDatasetImportJobRequest {
   export const filterSensitiveLog = (obj: DeleteDatasetImportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDatasetImportJobRequest => __isa(o, "DeleteDatasetImportJobRequest");
 }
 
 export interface DeleteDatasetRequest {
-  __type?: "DeleteDatasetRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset to delete.</p>
    */
@@ -953,11 +910,9 @@ export namespace DeleteDatasetRequest {
   export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDatasetRequest => __isa(o, "DeleteDatasetRequest");
 }
 
 export interface DeleteForecastExportJobRequest {
-  __type?: "DeleteForecastExportJobRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast export job to delete.</p>
    */
@@ -968,11 +923,9 @@ export namespace DeleteForecastExportJobRequest {
   export const filterSensitiveLog = (obj: DeleteForecastExportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteForecastExportJobRequest => __isa(o, "DeleteForecastExportJobRequest");
 }
 
 export interface DeleteForecastRequest {
-  __type?: "DeleteForecastRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast to delete.</p>
    */
@@ -983,11 +936,9 @@ export namespace DeleteForecastRequest {
   export const filterSensitiveLog = (obj: DeleteForecastRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteForecastRequest => __isa(o, "DeleteForecastRequest");
 }
 
 export interface DeletePredictorRequest {
-  __type?: "DeletePredictorRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor to delete.</p>
    */
@@ -998,11 +949,9 @@ export namespace DeletePredictorRequest {
   export const filterSensitiveLog = (obj: DeletePredictorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePredictorRequest => __isa(o, "DeletePredictorRequest");
 }
 
 export interface DescribeDatasetGroupRequest {
-  __type?: "DescribeDatasetGroupRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
@@ -1013,11 +962,9 @@ export namespace DescribeDatasetGroupRequest {
   export const filterSensitiveLog = (obj: DescribeDatasetGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetGroupRequest => __isa(o, "DescribeDatasetGroupRequest");
 }
 
 export interface DescribeDatasetGroupResponse {
-  __type?: "DescribeDatasetGroupResponse";
   /**
    * <p>When the dataset group was created or last updated from a call to the <a>UpdateDatasetGroup</a> operation. While the dataset group is being updated,
    *         <code>LastModificationTime</code> is the current time of the
@@ -1091,11 +1038,9 @@ export namespace DescribeDatasetGroupResponse {
   export const filterSensitiveLog = (obj: DescribeDatasetGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetGroupResponse => __isa(o, "DescribeDatasetGroupResponse");
 }
 
 export interface DescribeDatasetImportJobRequest {
-  __type?: "DescribeDatasetImportJobRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
    */
@@ -1106,11 +1051,9 @@ export namespace DescribeDatasetImportJobRequest {
   export const filterSensitiveLog = (obj: DescribeDatasetImportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetImportJobRequest => __isa(o, "DescribeDatasetImportJobRequest");
 }
 
 export interface DescribeDatasetImportJobResponse {
-  __type?: "DescribeDatasetImportJobResponse";
   /**
    * <p>The size of the dataset in gigabytes (GB) after the import job has finished.</p>
    */
@@ -1224,11 +1167,9 @@ export namespace DescribeDatasetImportJobResponse {
   export const filterSensitiveLog = (obj: DescribeDatasetImportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetImportJobResponse => __isa(o, "DescribeDatasetImportJobResponse");
 }
 
 export interface DescribeDatasetRequest {
-  __type?: "DescribeDatasetRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
@@ -1239,11 +1180,9 @@ export namespace DescribeDatasetRequest {
   export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetRequest => __isa(o, "DescribeDatasetRequest");
 }
 
 export interface DescribeDatasetResponse {
-  __type?: "DescribeDatasetResponse";
   /**
    * <p>When you create a dataset, <code>LastModificationTime</code> is the same as
    *         <code>CreationTime</code>. While data is being imported to the dataset,
@@ -1341,11 +1280,9 @@ export namespace DescribeDatasetResponse {
   export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDatasetResponse => __isa(o, "DescribeDatasetResponse");
 }
 
 export interface DescribeForecastExportJobRequest {
-  __type?: "DescribeForecastExportJobRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast export job.</p>
    */
@@ -1356,11 +1293,9 @@ export namespace DescribeForecastExportJobRequest {
   export const filterSensitiveLog = (obj: DescribeForecastExportJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeForecastExportJobRequest => __isa(o, "DescribeForecastExportJobRequest");
 }
 
 export interface DescribeForecastExportJobResponse {
-  __type?: "DescribeForecastExportJobResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the exported forecast.</p>
    */
@@ -1429,11 +1364,9 @@ export namespace DescribeForecastExportJobResponse {
   export const filterSensitiveLog = (obj: DescribeForecastExportJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeForecastExportJobResponse => __isa(o, "DescribeForecastExportJobResponse");
 }
 
 export interface DescribeForecastRequest {
-  __type?: "DescribeForecastRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast.</p>
    */
@@ -1444,11 +1377,9 @@ export namespace DescribeForecastRequest {
   export const filterSensitiveLog = (obj: DescribeForecastRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeForecastRequest => __isa(o, "DescribeForecastRequest");
 }
 
 export interface DescribeForecastResponse {
-  __type?: "DescribeForecastResponse";
   /**
    * <p>The ARN of the dataset group that provided the data used to train the predictor.</p>
    */
@@ -1525,11 +1456,9 @@ export namespace DescribeForecastResponse {
   export const filterSensitiveLog = (obj: DescribeForecastResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeForecastResponse => __isa(o, "DescribeForecastResponse");
 }
 
 export interface DescribePredictorRequest {
-  __type?: "DescribePredictorRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor that you want information about.</p>
    */
@@ -1540,11 +1469,9 @@ export namespace DescribePredictorRequest {
   export const filterSensitiveLog = (obj: DescribePredictorRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePredictorRequest => __isa(o, "DescribePredictorRequest");
 }
 
 export interface DescribePredictorResponse {
-  __type?: "DescribePredictorResponse";
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    */
@@ -1686,7 +1613,6 @@ export namespace DescribePredictorResponse {
   export const filterSensitiveLog = (obj: DescribePredictorResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePredictorResponse => __isa(o, "DescribePredictorResponse");
 }
 
 export enum Domain {
@@ -1705,7 +1631,6 @@ export enum Domain {
  *       <a>CreateDataset</a> and <a>CreatePredictor</a> requests.</p>
  */
 export interface EncryptionConfig {
-  __type?: "EncryptionConfig";
   /**
    * <p>The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.</p>
    *          <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your
@@ -1723,7 +1648,6 @@ export namespace EncryptionConfig {
   export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionConfig => __isa(o, "EncryptionConfig");
 }
 
 /**
@@ -1732,7 +1656,6 @@ export namespace EncryptionConfig {
  *       but you can override them in the <a>CreatePredictor</a> request.</p>
  */
 export interface EvaluationParameters {
-  __type?: "EvaluationParameters";
   /**
    * <p>The point from the end of the dataset where you want to split the data for model training
    *       and testing (evaluation). Specify the value as the number of data points. The default is the
@@ -1756,7 +1679,6 @@ export namespace EvaluationParameters {
   export const filterSensitiveLog = (obj: EvaluationParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EvaluationParameters => __isa(o, "EvaluationParameters");
 }
 
 /**
@@ -1764,7 +1686,6 @@ export namespace EvaluationParameters {
  *       <a>GetAccuracyMetrics</a> response.</p>
  */
 export interface EvaluationResult {
-  __type?: "EvaluationResult";
   /**
    * <p>The array of test windows used for evaluating the algorithm. The
    *       <code>NumberOfBacktestWindows</code> from the <a>EvaluationParameters</a>
@@ -1782,7 +1703,6 @@ export namespace EvaluationResult {
   export const filterSensitiveLog = (obj: EvaluationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EvaluationResult => __isa(o, "EvaluationResult");
 }
 
 export enum EvaluationType {
@@ -1818,7 +1738,6 @@ export enum EvaluationType {
  *          </p>
  */
 export interface Featurization {
-  __type?: "Featurization";
   /**
    * <p>The name of the schema attribute that specifies the data field to be featurized. Amazon Forecast supports the target field of
    *       the <code>TARGET_TIME_SERIES</code> and the <code>RELATED_TIME_SERIES</code> datasets. For example, for the <code>RETAIL</code> domain, the target is
@@ -1839,7 +1758,6 @@ export namespace Featurization {
   export const filterSensitiveLog = (obj: Featurization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Featurization => __isa(o, "Featurization");
 }
 
 /**
@@ -1857,7 +1775,6 @@ export namespace Featurization {
  *       featurization configurations.</p>
  */
 export interface FeaturizationConfig {
-  __type?: "FeaturizationConfig";
   /**
    * <p>An array of dimension (field) names that specify how to group the generated forecast.</p>
    *          <p>For example, suppose that you are generating a forecast for item sales across all of
@@ -1892,7 +1809,6 @@ export namespace FeaturizationConfig {
   export const filterSensitiveLog = (obj: FeaturizationConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FeaturizationConfig => __isa(o, "FeaturizationConfig");
 }
 
 /**
@@ -1914,7 +1830,6 @@ export namespace FeaturizationConfig {
  *          </p>
  */
 export interface FeaturizationMethod {
-  __type?: "FeaturizationMethod";
   /**
    * <p>The name of the method. The "filling" method is the only supported method.</p>
    */
@@ -1974,7 +1889,6 @@ export namespace FeaturizationMethod {
   export const filterSensitiveLog = (obj: FeaturizationMethod): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FeaturizationMethod => __isa(o, "FeaturizationMethod");
 }
 
 export enum FeaturizationMethodName {
@@ -1989,7 +1903,6 @@ export enum FeaturizationMethodName {
  *       value.</p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>The name of the parameter to filter on.</p>
    */
@@ -2011,7 +1924,6 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export enum FilterConditionString {
@@ -2025,7 +1937,6 @@ export enum FilterConditionString {
  *         <code>ForecastExportJobArn</code>.</p>
  */
 export interface ForecastExportJobSummary {
-  __type?: "ForecastExportJobSummary";
   /**
    * <p>When the forecast export job was created.</p>
    */
@@ -2089,7 +2000,6 @@ export namespace ForecastExportJobSummary {
   export const filterSensitiveLog = (obj: ForecastExportJobSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForecastExportJobSummary => __isa(o, "ForecastExportJobSummary");
 }
 
 /**
@@ -2098,7 +2008,6 @@ export namespace ForecastExportJobSummary {
  *       operation, and provide the <code>ForecastArn</code> that is listed in the summary.</p>
  */
 export interface ForecastSummary {
-  __type?: "ForecastSummary";
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    */
@@ -2171,11 +2080,9 @@ export namespace ForecastSummary {
   export const filterSensitiveLog = (obj: ForecastSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForecastSummary => __isa(o, "ForecastSummary");
 }
 
 export interface GetAccuracyMetricsRequest {
-  __type?: "GetAccuracyMetricsRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor to get metrics for.</p>
    */
@@ -2186,11 +2093,9 @@ export namespace GetAccuracyMetricsRequest {
   export const filterSensitiveLog = (obj: GetAccuracyMetricsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccuracyMetricsRequest => __isa(o, "GetAccuracyMetricsRequest");
 }
 
 export interface GetAccuracyMetricsResponse {
-  __type?: "GetAccuracyMetricsResponse";
   /**
    * <p>An array of results from evaluating the predictor.</p>
    */
@@ -2201,7 +2106,6 @@ export namespace GetAccuracyMetricsResponse {
   export const filterSensitiveLog = (obj: GetAccuracyMetricsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccuracyMetricsResponse => __isa(o, "GetAccuracyMetricsResponse");
 }
 
 /**
@@ -2216,7 +2120,6 @@ export namespace GetAccuracyMetricsResponse {
  *       algorithm, the training data, and the specified metric objective.</p>
  */
 export interface HyperParameterTuningJobConfig {
-  __type?: "HyperParameterTuningJobConfig";
   /**
    * <p>Specifies the ranges of valid values for the hyperparameters.</p>
    */
@@ -2227,7 +2130,6 @@ export namespace HyperParameterTuningJobConfig {
   export const filterSensitiveLog = (obj: HyperParameterTuningJobConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HyperParameterTuningJobConfig => __isa(o, "HyperParameterTuningJobConfig");
 }
 
 /**
@@ -2236,7 +2138,6 @@ export namespace HyperParameterTuningJobConfig {
  *       request.</p>
  */
 export interface InputDataConfig {
-  __type?: "InputDataConfig";
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
@@ -2253,7 +2154,6 @@ export namespace InputDataConfig {
   export const filterSensitiveLog = (obj: InputDataConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputDataConfig => __isa(o, "InputDataConfig");
 }
 
 /**
@@ -2261,7 +2161,6 @@ export namespace InputDataConfig {
  *       This object is part of the <a>ParameterRanges</a> object.</p>
  */
 export interface IntegerParameterRange {
-  __type?: "IntegerParameterRange";
   /**
    * <p>The scale that hyperparameter tuning uses to search the hyperparameter range.
    *       Valid values:</p>
@@ -2314,7 +2213,6 @@ export namespace IntegerParameterRange {
   export const filterSensitiveLog = (obj: IntegerParameterRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IntegerParameterRange => __isa(o, "IntegerParameterRange");
 }
 
 /**
@@ -2331,7 +2229,6 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
@@ -2347,7 +2244,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -2363,11 +2259,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListDatasetGroupsRequest {
-  __type?: "ListDatasetGroupsRequest";
   /**
    * <p>The number of items to return in the response.</p>
    */
@@ -2385,11 +2279,9 @@ export namespace ListDatasetGroupsRequest {
   export const filterSensitiveLog = (obj: ListDatasetGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatasetGroupsRequest => __isa(o, "ListDatasetGroupsRequest");
 }
 
 export interface ListDatasetGroupsResponse {
-  __type?: "ListDatasetGroupsResponse";
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
    *       results, use the token in the next request.</p>
@@ -2406,11 +2298,9 @@ export namespace ListDatasetGroupsResponse {
   export const filterSensitiveLog = (obj: ListDatasetGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatasetGroupsResponse => __isa(o, "ListDatasetGroupsResponse");
 }
 
 export interface ListDatasetImportJobsRequest {
-  __type?: "ListDatasetImportJobsRequest";
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The
    *       condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include
@@ -2462,11 +2352,9 @@ export namespace ListDatasetImportJobsRequest {
   export const filterSensitiveLog = (obj: ListDatasetImportJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatasetImportJobsRequest => __isa(o, "ListDatasetImportJobsRequest");
 }
 
 export interface ListDatasetImportJobsResponse {
-  __type?: "ListDatasetImportJobsResponse";
   /**
    * <p>An array of objects that summarize each dataset import job's properties.</p>
    */
@@ -2483,11 +2371,9 @@ export namespace ListDatasetImportJobsResponse {
   export const filterSensitiveLog = (obj: ListDatasetImportJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatasetImportJobsResponse => __isa(o, "ListDatasetImportJobsResponse");
 }
 
 export interface ListDatasetsRequest {
-  __type?: "ListDatasetsRequest";
   /**
    * <p>If the result of the previous request was truncated, the response includes a
    *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
@@ -2505,11 +2391,9 @@ export namespace ListDatasetsRequest {
   export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatasetsRequest => __isa(o, "ListDatasetsRequest");
 }
 
 export interface ListDatasetsResponse {
-  __type?: "ListDatasetsResponse";
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
    *       results, use the token in the next request.</p>
@@ -2526,11 +2410,9 @@ export namespace ListDatasetsResponse {
   export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDatasetsResponse => __isa(o, "ListDatasetsResponse");
 }
 
 export interface ListForecastExportJobsRequest {
-  __type?: "ListForecastExportJobsRequest";
   /**
    * <p>The number of items to return in the response.</p>
    */
@@ -2583,11 +2465,9 @@ export namespace ListForecastExportJobsRequest {
   export const filterSensitiveLog = (obj: ListForecastExportJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListForecastExportJobsRequest => __isa(o, "ListForecastExportJobsRequest");
 }
 
 export interface ListForecastExportJobsResponse {
-  __type?: "ListForecastExportJobsResponse";
   /**
    * <p>An array of objects that summarize each export job's properties.</p>
    */
@@ -2604,11 +2484,9 @@ export namespace ListForecastExportJobsResponse {
   export const filterSensitiveLog = (obj: ListForecastExportJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListForecastExportJobsResponse => __isa(o, "ListForecastExportJobsResponse");
 }
 
 export interface ListForecastsRequest {
-  __type?: "ListForecastsRequest";
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The
    *       condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include
@@ -2659,11 +2537,9 @@ export namespace ListForecastsRequest {
   export const filterSensitiveLog = (obj: ListForecastsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListForecastsRequest => __isa(o, "ListForecastsRequest");
 }
 
 export interface ListForecastsResponse {
-  __type?: "ListForecastsResponse";
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set
    *       of results, use the token in the next request.</p>
@@ -2680,11 +2556,9 @@ export namespace ListForecastsResponse {
   export const filterSensitiveLog = (obj: ListForecastsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListForecastsResponse => __isa(o, "ListForecastsResponse");
 }
 
 export interface ListPredictorsRequest {
-  __type?: "ListPredictorsRequest";
   /**
    * <p>The number of items to return in the response.</p>
    */
@@ -2735,11 +2609,9 @@ export namespace ListPredictorsRequest {
   export const filterSensitiveLog = (obj: ListPredictorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPredictorsRequest => __isa(o, "ListPredictorsRequest");
 }
 
 export interface ListPredictorsResponse {
-  __type?: "ListPredictorsResponse";
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
    *       results, use the token in the next request.</p>
@@ -2756,11 +2628,9 @@ export namespace ListPredictorsResponse {
   export const filterSensitiveLog = (obj: ListPredictorsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPredictorsResponse => __isa(o, "ListPredictorsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are Forecast dataset groups, datasets, dataset import jobs, predictors, forecasts, and forecast export jobs.</p>
    */
@@ -2771,11 +2641,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags for the resource.</p>
    */
@@ -2786,7 +2654,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -2794,7 +2661,6 @@ export namespace ListTagsForResourceResponse {
  *       is part of the <a>WindowSummary</a> object.</p>
  */
 export interface Metrics {
-  __type?: "Metrics";
   /**
    * <p>The root mean square error (RMSE).</p>
    */
@@ -2811,7 +2677,6 @@ export namespace Metrics {
   export const filterSensitiveLog = (obj: Metrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Metrics => __isa(o, "Metrics");
 }
 
 /**
@@ -2821,7 +2686,6 @@ export namespace Metrics {
  *       <a>HyperParameterTuningJobConfig</a> object.</p>
  */
 export interface ParameterRanges {
-  __type?: "ParameterRanges";
   /**
    * <p>Specifies the tunable range for each continuous hyperparameter.</p>
    */
@@ -2842,14 +2706,12 @@ export namespace ParameterRanges {
   export const filterSensitiveLog = (obj: ParameterRanges): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParameterRanges => __isa(o, "ParameterRanges");
 }
 
 /**
  * <p>The algorithm used to perform a backtest and the status of those tests.</p>
  */
 export interface PredictorExecution {
-  __type?: "PredictorExecution";
   /**
    * <p>An array of test windows used to evaluate the algorithm. The
    *         <code>NumberOfBacktestWindows</code> from the
@@ -2867,7 +2729,6 @@ export namespace PredictorExecution {
   export const filterSensitiveLog = (obj: PredictorExecution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PredictorExecution => __isa(o, "PredictorExecution");
 }
 
 /**
@@ -2876,7 +2737,6 @@ export namespace PredictorExecution {
  *       first. You specify the number of backtests to perform when you call the  operation.</p>
  */
 export interface PredictorExecutionDetails {
-  __type?: "PredictorExecutionDetails";
   /**
    * <p>An array of the backtests performed to evaluate the accuracy of the predictor against a
    *       particular algorithm. The <code>NumberOfBacktestWindows</code> from the  object determines the number of windows in the
@@ -2889,7 +2749,6 @@ export namespace PredictorExecutionDetails {
   export const filterSensitiveLog = (obj: PredictorExecutionDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PredictorExecutionDetails => __isa(o, "PredictorExecutionDetails");
 }
 
 /**
@@ -2897,7 +2756,6 @@ export namespace PredictorExecutionDetails {
  *       <code>PredictorArn</code>.</p>
  */
 export interface PredictorSummary {
-  __type?: "PredictorSummary";
   /**
    * <p>When the model training task was created.</p>
    */
@@ -2971,7 +2829,6 @@ export namespace PredictorSummary {
   export const filterSensitiveLog = (obj: PredictorSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PredictorSummary => __isa(o, "PredictorSummary");
 }
 
 /**
@@ -2987,7 +2844,6 @@ export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
@@ -3003,7 +2859,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -3020,7 +2875,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -3032,7 +2886,6 @@ export namespace ResourceNotFoundException {
  *       <a>CreateForecastExportJob</a> request.</p>
  */
 export interface S3Config {
-  __type?: "S3Config";
   /**
    * <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3
    *       bucket or files. If you provide a value for the <code>KMSKeyArn</code> key, the role must
@@ -3057,7 +2910,6 @@ export namespace S3Config {
   export const filterSensitiveLog = (obj: S3Config): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Config => __isa(o, "S3Config");
 }
 
 export enum ScalingType {
@@ -3071,7 +2923,6 @@ export enum ScalingType {
  * <p>Defines the fields of a dataset. You specify this object in the <a>CreateDataset</a> request.</p>
  */
 export interface Schema {
-  __type?: "Schema";
   /**
    * <p>An array of attributes specifying the name and type of each field in a dataset.</p>
    */
@@ -3082,7 +2933,6 @@ export namespace Schema {
   export const filterSensitiveLog = (obj: Schema): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Schema => __isa(o, "Schema");
 }
 
 /**
@@ -3091,7 +2941,6 @@ export namespace Schema {
  *         <code>SchemaAttribute</code> objects.</p>
  */
 export interface SchemaAttribute {
-  __type?: "SchemaAttribute";
   /**
    * <p>The name of the dataset field.</p>
    */
@@ -3107,7 +2956,6 @@ export namespace SchemaAttribute {
   export const filterSensitiveLog = (obj: SchemaAttribute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SchemaAttribute => __isa(o, "SchemaAttribute");
 }
 
 /**
@@ -3115,7 +2963,6 @@ export namespace SchemaAttribute {
  *       the <a>CreateDatasetImportJob</a> operation.</p>
  */
 export interface Statistics {
-  __type?: "Statistics";
   /**
    * <p>The number of NAN (not a number) values in the field.</p>
    */
@@ -3161,7 +3008,6 @@ export namespace Statistics {
   export const filterSensitiveLog = (obj: Statistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Statistics => __isa(o, "Statistics");
 }
 
 /**
@@ -3238,7 +3084,6 @@ export namespace Statistics {
  *          </ul>
  */
 export interface SupplementaryFeature {
-  __type?: "SupplementaryFeature";
   /**
    * <p>The name of the feature. This must be "holiday".</p>
    */
@@ -3352,7 +3197,6 @@ export namespace SupplementaryFeature {
   export const filterSensitiveLog = (obj: SupplementaryFeature): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SupplementaryFeature => __isa(o, "SupplementaryFeature");
 }
 
 /**
@@ -3383,7 +3227,6 @@ export namespace SupplementaryFeature {
  *          </ul>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>One part of a key-value pair that makes up a tag. A <code>key</code> is a general label that acts like a category for more specific tag values.</p>
    */
@@ -3399,11 +3242,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The tags to add to the resource. A tag is an array of key-value pairs.</p>
    *          <p>The following basic restrictions apply to tags:</p>
@@ -3443,18 +3284,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -3462,7 +3299,6 @@ export namespace TagResourceResponse {
  *       applicable.</p>
  */
 export interface TestWindowSummary {
-  __type?: "TestWindowSummary";
   /**
    * <p>The time at which the test ended.</p>
    */
@@ -3505,11 +3341,9 @@ export namespace TestWindowSummary {
   export const filterSensitiveLog = (obj: TestWindowSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestWindowSummary => __isa(o, "TestWindowSummary");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The keys of the tags to be removed.</p>
    */
@@ -3525,22 +3359,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateDatasetGroupRequest {
-  __type?: "UpdateDatasetGroupRequest";
   /**
    * <p>An array of the Amazon Resource Names (ARNs) of the datasets to add to the dataset
    *       group.</p>
@@ -3557,18 +3386,14 @@ export namespace UpdateDatasetGroupRequest {
   export const filterSensitiveLog = (obj: UpdateDatasetGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDatasetGroupRequest => __isa(o, "UpdateDatasetGroupRequest");
 }
 
-export interface UpdateDatasetGroupResponse {
-  __type?: "UpdateDatasetGroupResponse";
-}
+export interface UpdateDatasetGroupResponse {}
 
 export namespace UpdateDatasetGroupResponse {
   export const filterSensitiveLog = (obj: UpdateDatasetGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDatasetGroupResponse => __isa(o, "UpdateDatasetGroupResponse");
 }
 
 /**
@@ -3576,7 +3401,6 @@ export namespace UpdateDatasetGroupResponse {
  *       <a>Metrics</a> object.</p>
  */
 export interface WeightedQuantileLoss {
-  __type?: "WeightedQuantileLoss";
   /**
    * <p>The difference between the predicted value and the actual value over the quantile,
    *       weighted (normalized) by dividing by the sum over all quantiles.</p>
@@ -3595,7 +3419,6 @@ export namespace WeightedQuantileLoss {
   export const filterSensitiveLog = (obj: WeightedQuantileLoss): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WeightedQuantileLoss => __isa(o, "WeightedQuantileLoss");
 }
 
 /**
@@ -3606,7 +3429,6 @@ export namespace WeightedQuantileLoss {
  *       <a>EvaluationParameters</a> object.</p>
  */
 export interface WindowSummary {
-  __type?: "WindowSummary";
   /**
    * <p>The type of evaluation.</p>
    *          <ul>
@@ -3647,5 +3469,4 @@ export namespace WindowSummary {
   export const filterSensitiveLog = (obj: WindowSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WindowSummary => __isa(o, "WindowSummary");
 }

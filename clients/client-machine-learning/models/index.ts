@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddTagsInput {
-  __type?: "AddTagsInput";
   /**
    * <p>The type of the ML object to tag.</p>
    */
@@ -23,14 +22,12 @@ export namespace AddTagsInput {
   export const filterSensitiveLog = (obj: AddTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsInput => __isa(o, "AddTagsInput");
 }
 
 /**
  * <p>Amazon ML returns the following elements.</p>
  */
 export interface AddTagsOutput {
-  __type?: "AddTagsOutput";
   /**
    * <p>The ID of the ML object that was tagged.</p>
    */
@@ -46,7 +43,6 @@ export namespace AddTagsOutput {
   export const filterSensitiveLog = (obj: AddTagsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsOutput => __isa(o, "AddTagsOutput");
 }
 
 export enum Algorithm {
@@ -59,7 +55,6 @@ export enum Algorithm {
  *             <code>Batch Prediction</code>.</p>
  */
 export interface BatchPrediction {
-  __type?: "BatchPrediction";
   /**
    * <p>The status of the <code>BatchPrediction</code>. This element can have one of the following values:</p>
    *         <ul>
@@ -169,7 +164,6 @@ export namespace BatchPrediction {
   export const filterSensitiveLog = (obj: BatchPrediction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchPrediction => __isa(o, "BatchPrediction");
 }
 
 export enum BatchPredictionFilterVariable {
@@ -184,7 +178,6 @@ export enum BatchPredictionFilterVariable {
 }
 
 export interface CreateBatchPredictionInput {
-  __type?: "CreateBatchPredictionInput";
   /**
    * <p>A user-supplied ID that uniquely identifies the
    *                 <code>BatchPrediction</code>.</p>
@@ -217,7 +210,6 @@ export namespace CreateBatchPredictionInput {
   export const filterSensitiveLog = (obj: CreateBatchPredictionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBatchPredictionInput => __isa(o, "CreateBatchPredictionInput");
 }
 
 /**
@@ -227,7 +219,6 @@ export namespace CreateBatchPredictionInput {
  *         </p>
  */
 export interface CreateBatchPredictionOutput {
-  __type?: "CreateBatchPredictionOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>BatchPrediction</code>. This value is identical to the value of the
    *             <code>BatchPredictionId</code> in the request.</p>
@@ -239,11 +230,9 @@ export namespace CreateBatchPredictionOutput {
   export const filterSensitiveLog = (obj: CreateBatchPredictionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBatchPredictionOutput => __isa(o, "CreateBatchPredictionOutput");
 }
 
 export interface CreateDataSourceFromRDSInput {
-  __type?: "CreateDataSourceFromRDSInput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>. Typically, an Amazon Resource Number (ARN)
    *             becomes the ID for a <code>DataSource</code>.</p>
@@ -327,7 +316,6 @@ export namespace CreateDataSourceFromRDSInput {
   export const filterSensitiveLog = (obj: CreateDataSourceFromRDSInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSourceFromRDSInput => __isa(o, "CreateDataSourceFromRDSInput");
 }
 
 /**
@@ -339,7 +327,6 @@ export namespace CreateDataSourceFromRDSInput {
  *             the pipeline using the <code>pipelineId </code> from the describe call.</p>
  */
 export interface CreateDataSourceFromRDSOutput {
-  __type?: "CreateDataSourceFromRDSOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the
    *             <code>DataSourceID</code> in the request.
@@ -352,11 +339,9 @@ export namespace CreateDataSourceFromRDSOutput {
   export const filterSensitiveLog = (obj: CreateDataSourceFromRDSOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSourceFromRDSOutput => __isa(o, "CreateDataSourceFromRDSOutput");
 }
 
 export interface CreateDataSourceFromRedshiftInput {
-  __type?: "CreateDataSourceFromRedshiftInput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</p>
    */
@@ -439,7 +424,6 @@ export namespace CreateDataSourceFromRedshiftInput {
   export const filterSensitiveLog = (obj: CreateDataSourceFromRedshiftInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSourceFromRedshiftInput => __isa(o, "CreateDataSourceFromRedshiftInput");
 }
 
 /**
@@ -448,7 +432,6 @@ export namespace CreateDataSourceFromRedshiftInput {
  *         the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. </p>
  */
 export interface CreateDataSourceFromRedshiftOutput {
-  __type?: "CreateDataSourceFromRedshiftOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the
    *             <code>DataSourceID</code> in the request.
@@ -461,12 +444,9 @@ export namespace CreateDataSourceFromRedshiftOutput {
   export const filterSensitiveLog = (obj: CreateDataSourceFromRedshiftOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSourceFromRedshiftOutput =>
-    __isa(o, "CreateDataSourceFromRedshiftOutput");
 }
 
 export interface CreateDataSourceFromS3Input {
-  __type?: "CreateDataSourceFromS3Input";
   /**
    * <p>A user-supplied identifier that uniquely identifies the <code>DataSource</code>. </p>
    */
@@ -511,7 +491,6 @@ export namespace CreateDataSourceFromS3Input {
   export const filterSensitiveLog = (obj: CreateDataSourceFromS3Input): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSourceFromS3Input => __isa(o, "CreateDataSourceFromS3Input");
 }
 
 /**
@@ -520,7 +499,6 @@ export namespace CreateDataSourceFromS3Input {
  *             the <code>GetBatchPrediction</code> operation and checking the <code>Status</code> parameter. </p>
  */
 export interface CreateDataSourceFromS3Output {
-  __type?: "CreateDataSourceFromS3Output";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>. This value should be identical to the value of the
    *             <code>DataSourceID</code> in the request.
@@ -533,11 +511,9 @@ export namespace CreateDataSourceFromS3Output {
   export const filterSensitiveLog = (obj: CreateDataSourceFromS3Output): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDataSourceFromS3Output => __isa(o, "CreateDataSourceFromS3Output");
 }
 
 export interface CreateEvaluationInput {
-  __type?: "CreateEvaluationInput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>Evaluation</code>.</p>
    */
@@ -565,7 +541,6 @@ export namespace CreateEvaluationInput {
   export const filterSensitiveLog = (obj: CreateEvaluationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEvaluationInput => __isa(o, "CreateEvaluationInput");
 }
 
 /**
@@ -577,7 +552,6 @@ export namespace CreateEvaluationInput {
  *         </p>
  */
 export interface CreateEvaluationOutput {
-  __type?: "CreateEvaluationOutput";
   /**
    * <p>The user-supplied ID that uniquely identifies the <code>Evaluation</code>. This value should be identical to the value of the
    *             <code>EvaluationId</code> in the request.</p>
@@ -589,11 +563,9 @@ export namespace CreateEvaluationOutput {
   export const filterSensitiveLog = (obj: CreateEvaluationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEvaluationOutput => __isa(o, "CreateEvaluationOutput");
 }
 
 export interface CreateMLModelInput {
-  __type?: "CreateMLModelInput";
   /**
    * <p>The Amazon Simple Storage Service (Amazon S3) location and file name that contains the <code>MLModel</code> recipe. You must specify either the recipe or its URI. If you don't specify a recipe or its URI, Amazon ML creates a default.</p>
    */
@@ -691,7 +663,6 @@ export namespace CreateMLModelInput {
   export const filterSensitiveLog = (obj: CreateMLModelInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMLModelInput => __isa(o, "CreateMLModelInput");
 }
 
 /**
@@ -701,7 +672,6 @@ export namespace CreateMLModelInput {
  *         </p>
  */
 export interface CreateMLModelOutput {
-  __type?: "CreateMLModelOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>. This value should be identical to the value of the
    *             <code>MLModelId</code> in the request.
@@ -714,11 +684,9 @@ export namespace CreateMLModelOutput {
   export const filterSensitiveLog = (obj: CreateMLModelOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMLModelOutput => __isa(o, "CreateMLModelOutput");
 }
 
 export interface CreateRealtimeEndpointInput {
-  __type?: "CreateRealtimeEndpointInput";
   /**
    * <p>The ID assigned to the <code>MLModel</code> during creation.</p>
    */
@@ -729,7 +697,6 @@ export namespace CreateRealtimeEndpointInput {
   export const filterSensitiveLog = (obj: CreateRealtimeEndpointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRealtimeEndpointInput => __isa(o, "CreateRealtimeEndpointInput");
 }
 
 /**
@@ -739,7 +706,6 @@ export namespace CreateRealtimeEndpointInput {
  *             <b>Note:</b> The endpoint information includes the URI of the <code>MLModel</code>; that is, the location to send online prediction requests for the specified <code>MLModel</code>.</p>
  */
 export interface CreateRealtimeEndpointOutput {
-  __type?: "CreateRealtimeEndpointOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>. This value should be identical to the value of the
    *             <code>MLModelId</code> in the request.</p>
@@ -757,7 +723,6 @@ export namespace CreateRealtimeEndpointOutput {
   export const filterSensitiveLog = (obj: CreateRealtimeEndpointOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRealtimeEndpointOutput => __isa(o, "CreateRealtimeEndpointOutput");
 }
 
 /**
@@ -765,7 +730,6 @@ export namespace CreateRealtimeEndpointOutput {
  *          <p>  The content consists of the detailed metadata and data file information and the current status of the <code>DataSource</code>. </p>
  */
 export interface DataSource {
-  __type?: "DataSource";
   /**
    * <p>The location and name of the data in Amazon Simple Storage Service (Amazon S3) that is used by a <code>DataSource</code>.</p>
    */
@@ -882,7 +846,6 @@ export namespace DataSource {
   export const filterSensitiveLog = (obj: DataSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataSource => __isa(o, "DataSource");
 }
 
 export enum DataSourceFilterVariable {
@@ -895,7 +858,6 @@ export enum DataSourceFilterVariable {
 }
 
 export interface DeleteBatchPredictionInput {
-  __type?: "DeleteBatchPredictionInput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>BatchPrediction</code>.</p>
    */
@@ -906,7 +868,6 @@ export namespace DeleteBatchPredictionInput {
   export const filterSensitiveLog = (obj: DeleteBatchPredictionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBatchPredictionInput => __isa(o, "DeleteBatchPredictionInput");
 }
 
 /**
@@ -915,7 +876,6 @@ export namespace DeleteBatchPredictionInput {
  *             <code>BatchPrediction</code> is marked as <code>DELETED</code>.</p>
  */
 export interface DeleteBatchPredictionOutput {
-  __type?: "DeleteBatchPredictionOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>BatchPrediction</code>. This value should be identical to the value of the <code>BatchPredictionID</code> in the request.</p>
    */
@@ -926,11 +886,9 @@ export namespace DeleteBatchPredictionOutput {
   export const filterSensitiveLog = (obj: DeleteBatchPredictionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBatchPredictionOutput => __isa(o, "DeleteBatchPredictionOutput");
 }
 
 export interface DeleteDataSourceInput {
-  __type?: "DeleteDataSourceInput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</p>
    */
@@ -941,14 +899,12 @@ export namespace DeleteDataSourceInput {
   export const filterSensitiveLog = (obj: DeleteDataSourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDataSourceInput => __isa(o, "DeleteDataSourceInput");
 }
 
 /**
  * <p> Represents the output of a <code>DeleteDataSource</code> operation.</p>
  */
 export interface DeleteDataSourceOutput {
-  __type?: "DeleteDataSourceOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>. This value should be identical to the value of the <code>DataSourceID</code> in the request.</p>
    */
@@ -959,11 +915,9 @@ export namespace DeleteDataSourceOutput {
   export const filterSensitiveLog = (obj: DeleteDataSourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDataSourceOutput => __isa(o, "DeleteDataSourceOutput");
 }
 
 export interface DeleteEvaluationInput {
-  __type?: "DeleteEvaluationInput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>Evaluation</code> to delete.</p>
    */
@@ -974,7 +928,6 @@ export namespace DeleteEvaluationInput {
   export const filterSensitiveLog = (obj: DeleteEvaluationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEvaluationInput => __isa(o, "DeleteEvaluationInput");
 }
 
 /**
@@ -983,7 +936,6 @@ export namespace DeleteEvaluationInput {
  *             <code>Evaluation</code> is marked as <code>DELETED</code>.</p>
  */
 export interface DeleteEvaluationOutput {
-  __type?: "DeleteEvaluationOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>Evaluation</code>. This value should be identical to the value of the <code>EvaluationId</code> in the request.</p>
    */
@@ -994,11 +946,9 @@ export namespace DeleteEvaluationOutput {
   export const filterSensitiveLog = (obj: DeleteEvaluationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEvaluationOutput => __isa(o, "DeleteEvaluationOutput");
 }
 
 export interface DeleteMLModelInput {
-  __type?: "DeleteMLModelInput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>.</p>
    */
@@ -1009,7 +959,6 @@ export namespace DeleteMLModelInput {
   export const filterSensitiveLog = (obj: DeleteMLModelInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMLModelInput => __isa(o, "DeleteMLModelInput");
 }
 
 /**
@@ -1018,7 +967,6 @@ export namespace DeleteMLModelInput {
  *             <code>MLModel</code> is marked as <code>DELETED</code>.</p>
  */
 export interface DeleteMLModelOutput {
-  __type?: "DeleteMLModelOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>. This value should be identical to the value of the <code>MLModelID</code> in the request.</p>
    */
@@ -1029,11 +977,9 @@ export namespace DeleteMLModelOutput {
   export const filterSensitiveLog = (obj: DeleteMLModelOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMLModelOutput => __isa(o, "DeleteMLModelOutput");
 }
 
 export interface DeleteRealtimeEndpointInput {
-  __type?: "DeleteRealtimeEndpointInput";
   /**
    * <p>The ID assigned to the <code>MLModel</code> during creation.</p>
    */
@@ -1044,7 +990,6 @@ export namespace DeleteRealtimeEndpointInput {
   export const filterSensitiveLog = (obj: DeleteRealtimeEndpointInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRealtimeEndpointInput => __isa(o, "DeleteRealtimeEndpointInput");
 }
 
 /**
@@ -1052,7 +997,6 @@ export namespace DeleteRealtimeEndpointInput {
  *         <p>The result contains the <code>MLModelId</code> and the endpoint information for the <code>MLModel</code>. </p>
  */
 export interface DeleteRealtimeEndpointOutput {
-  __type?: "DeleteRealtimeEndpointOutput";
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>. This value should be identical to the value of the
    *             <code>MLModelId</code> in the request.</p>
@@ -1070,11 +1014,9 @@ export namespace DeleteRealtimeEndpointOutput {
   export const filterSensitiveLog = (obj: DeleteRealtimeEndpointOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRealtimeEndpointOutput => __isa(o, "DeleteRealtimeEndpointOutput");
 }
 
 export interface DeleteTagsInput {
-  __type?: "DeleteTagsInput";
   /**
    * <p>The type of the tagged ML object.</p>
    */
@@ -1095,14 +1037,12 @@ export namespace DeleteTagsInput {
   export const filterSensitiveLog = (obj: DeleteTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsInput => __isa(o, "DeleteTagsInput");
 }
 
 /**
  * <p>Amazon ML returns the following elements.</p>
  */
 export interface DeleteTagsOutput {
-  __type?: "DeleteTagsOutput";
   /**
    * <p>The ID of the ML object from which tags were deleted.</p>
    */
@@ -1118,11 +1058,9 @@ export namespace DeleteTagsOutput {
   export const filterSensitiveLog = (obj: DeleteTagsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTagsOutput => __isa(o, "DeleteTagsOutput");
 }
 
 export interface DescribeBatchPredictionsInput {
-  __type?: "DescribeBatchPredictionsInput";
   /**
    * <p>A two-value parameter that determines the sequence of the resulting list of <code>MLModel</code>s.</p>
    *         <ul>
@@ -1247,14 +1185,12 @@ export namespace DescribeBatchPredictionsInput {
   export const filterSensitiveLog = (obj: DescribeBatchPredictionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBatchPredictionsInput => __isa(o, "DescribeBatchPredictionsInput");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeBatchPredictions</code> operation. The content is essentially a list of <code>BatchPrediction</code>s.</p>
  */
 export interface DescribeBatchPredictionsOutput {
-  __type?: "DescribeBatchPredictionsOutput";
   /**
    * <p>A list of <code>BatchPrediction</code> objects that meet the search criteria.
    *         </p>
@@ -1271,11 +1207,9 @@ export namespace DescribeBatchPredictionsOutput {
   export const filterSensitiveLog = (obj: DescribeBatchPredictionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBatchPredictionsOutput => __isa(o, "DescribeBatchPredictionsOutput");
 }
 
 export interface DescribeDataSourcesInput {
-  __type?: "DescribeDataSourcesInput";
   /**
    * <p>The not equal to operator. The <code>DataSource</code> results will have <code>FilterVariable</code> values not equal to the value specified with <code>NE</code>.</p>
    */
@@ -1391,14 +1325,12 @@ export namespace DescribeDataSourcesInput {
   export const filterSensitiveLog = (obj: DescribeDataSourcesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataSourcesInput => __isa(o, "DescribeDataSourcesInput");
 }
 
 /**
  * <p>Represents the query results from a <a>DescribeDataSources</a> operation. The content is essentially a list of <code>DataSource</code>.</p>
  */
 export interface DescribeDataSourcesOutput {
-  __type?: "DescribeDataSourcesOutput";
   /**
    * <p>An ID of the next page in the paginated results that indicates at least one more page follows.</p>
    */
@@ -1415,11 +1347,9 @@ export namespace DescribeDataSourcesOutput {
   export const filterSensitiveLog = (obj: DescribeDataSourcesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDataSourcesOutput => __isa(o, "DescribeDataSourcesOutput");
 }
 
 export interface DescribeEvaluationsInput {
-  __type?: "DescribeEvaluationsInput";
   /**
    * <p>The ID of the page in the paginated results.</p>
    */
@@ -1544,14 +1474,12 @@ export namespace DescribeEvaluationsInput {
   export const filterSensitiveLog = (obj: DescribeEvaluationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEvaluationsInput => __isa(o, "DescribeEvaluationsInput");
 }
 
 /**
  * <p>Represents the query results from a <code>DescribeEvaluations</code> operation. The content is essentially a list of <code>Evaluation</code>.</p>
  */
 export interface DescribeEvaluationsOutput {
-  __type?: "DescribeEvaluationsOutput";
   /**
    * <p>A list of <code>Evaluation</code> that meet the search criteria.
    *         </p>
@@ -1568,11 +1496,9 @@ export namespace DescribeEvaluationsOutput {
   export const filterSensitiveLog = (obj: DescribeEvaluationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEvaluationsOutput => __isa(o, "DescribeEvaluationsOutput");
 }
 
 export interface DescribeMLModelsInput {
-  __type?: "DescribeMLModelsInput";
   /**
    * <p>The not equal to operator. The <code>MLModel</code> results will have <code>FilterVariable</code> values not equal to the value specified with <code>NE</code>.</p>
    */
@@ -1705,14 +1631,12 @@ export namespace DescribeMLModelsInput {
   export const filterSensitiveLog = (obj: DescribeMLModelsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMLModelsInput => __isa(o, "DescribeMLModelsInput");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeMLModels</code> operation. The content is essentially a list of <code>MLModel</code>.</p>
  */
 export interface DescribeMLModelsOutput {
-  __type?: "DescribeMLModelsOutput";
   /**
    * <p>A list of <code>MLModel</code> that meet the search criteria.</p>
    */
@@ -1728,11 +1652,9 @@ export namespace DescribeMLModelsOutput {
   export const filterSensitiveLog = (obj: DescribeMLModelsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMLModelsOutput => __isa(o, "DescribeMLModelsOutput");
 }
 
 export interface DescribeTagsInput {
-  __type?: "DescribeTagsInput";
   /**
    * <p>The ID of the ML object. For example, <code>exampleModelId</code>. </p>
    */
@@ -1748,14 +1670,12 @@ export namespace DescribeTagsInput {
   export const filterSensitiveLog = (obj: DescribeTagsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsInput => __isa(o, "DescribeTagsInput");
 }
 
 /**
  * <p>Amazon ML returns the following elements.</p>
  */
 export interface DescribeTagsOutput {
-  __type?: "DescribeTagsOutput";
   /**
    * <p>A list of tags associated with the ML object.</p>
    */
@@ -1776,7 +1696,6 @@ export namespace DescribeTagsOutput {
   export const filterSensitiveLog = (obj: DescribeTagsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTagsOutput => __isa(o, "DescribeTagsOutput");
 }
 
 export enum DetailsAttributes {
@@ -1798,7 +1717,6 @@ export enum EntityStatus {
  *             <code>Evaluation</code>.</p>
  */
 export interface Evaluation {
-  __type?: "Evaluation";
   /**
    * <p>Measurements of how well the <code>MLModel</code> performed, using observations referenced
    *         by the <code>DataSource</code>. One of the following metrics is returned, based on the type of the <code>MLModel</code>:
@@ -1912,7 +1830,6 @@ export namespace Evaluation {
   export const filterSensitiveLog = (obj: Evaluation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Evaluation => __isa(o, "Evaluation");
 }
 
 export enum EvaluationFilterVariable {
@@ -1927,7 +1844,6 @@ export enum EvaluationFilterVariable {
 }
 
 export interface GetBatchPredictionInput {
-  __type?: "GetBatchPredictionInput";
   /**
    * <p>An ID assigned to the <code>BatchPrediction</code> at creation.</p>
    */
@@ -1938,14 +1854,12 @@ export namespace GetBatchPredictionInput {
   export const filterSensitiveLog = (obj: GetBatchPredictionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBatchPredictionInput => __isa(o, "GetBatchPredictionInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetBatchPrediction</code> operation and describes a <code>BatchPrediction</code>.</p>
  */
 export interface GetBatchPredictionOutput {
-  __type?: "GetBatchPredictionOutput";
   /**
    * <p>The ID of the <code>MLModel</code> that generated predictions for the <code>BatchPrediction</code> request.</p>
    */
@@ -2060,11 +1974,9 @@ export namespace GetBatchPredictionOutput {
   export const filterSensitiveLog = (obj: GetBatchPredictionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBatchPredictionOutput => __isa(o, "GetBatchPredictionOutput");
 }
 
 export interface GetDataSourceInput {
-  __type?: "GetDataSourceInput";
   /**
    * <p>The ID assigned to the <code>DataSource</code> at creation.</p>
    */
@@ -2082,14 +1994,12 @@ export namespace GetDataSourceInput {
   export const filterSensitiveLog = (obj: GetDataSourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataSourceInput => __isa(o, "GetDataSourceInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetDataSource</code> operation and describes a <code>DataSource</code>.</p>
  */
 export interface GetDataSourceOutput {
-  __type?: "GetDataSourceOutput";
   /**
    * <p>The epoch time when Amazon Machine Learning marked the <code>DataSource</code> as <code>INPROGRESS</code>. <code>StartedAt</code> isn't available if the <code>DataSource</code> is in the <code>PENDING</code> state.</p>
    */
@@ -2222,11 +2132,9 @@ export namespace GetDataSourceOutput {
   export const filterSensitiveLog = (obj: GetDataSourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataSourceOutput => __isa(o, "GetDataSourceOutput");
 }
 
 export interface GetEvaluationInput {
-  __type?: "GetEvaluationInput";
   /**
    * <p>The ID of the <code>Evaluation</code> to retrieve. The evaluation of each <code>MLModel</code> is recorded and cataloged. The ID provides the means to access the information. </p>
    */
@@ -2237,14 +2145,12 @@ export namespace GetEvaluationInput {
   export const filterSensitiveLog = (obj: GetEvaluationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEvaluationInput => __isa(o, "GetEvaluationInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetEvaluation</code> operation and describes an <code>Evaluation</code>.</p>
  */
 export interface GetEvaluationOutput {
-  __type?: "GetEvaluationOutput";
   /**
    * <p>The evaluation ID which is same as the <code>EvaluationId</code> in the request.</p>
    */
@@ -2362,11 +2268,9 @@ export namespace GetEvaluationOutput {
   export const filterSensitiveLog = (obj: GetEvaluationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEvaluationOutput => __isa(o, "GetEvaluationOutput");
 }
 
 export interface GetMLModelInput {
-  __type?: "GetMLModelInput";
   /**
    * <p>Specifies whether the <code>GetMLModel</code> operation should return <code>Recipe</code>.</p>
    *         <p>If true, <code>Recipe</code> is returned.</p>
@@ -2384,14 +2288,12 @@ export namespace GetMLModelInput {
   export const filterSensitiveLog = (obj: GetMLModelInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMLModelInput => __isa(o, "GetMLModelInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetMLModel</code> operation, and provides detailed information about a <code>MLModel</code>.</p>
  */
 export interface GetMLModelOutput {
-  __type?: "GetMLModelOutput";
   /**
    * <p>The recipe to use when training the <code>MLModel</code>. The <code>Recipe</code>
    *             provides detailed information about the observation data to use during training, and
@@ -2594,7 +2496,6 @@ export namespace GetMLModelOutput {
   export const filterSensitiveLog = (obj: GetMLModelOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMLModelOutput => __isa(o, "GetMLModelOutput");
 }
 
 /**
@@ -2611,8 +2512,6 @@ export namespace IdempotentParameterMismatchException {
   export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdempotentParameterMismatchException =>
-    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
@@ -2629,7 +2528,6 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
@@ -2646,7 +2544,6 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
@@ -2662,7 +2559,6 @@ export namespace InvalidTagException {
   export const filterSensitiveLog = (obj: InvalidTagException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagException => __isa(o, "InvalidTagException");
 }
 
 /**
@@ -2679,7 +2575,6 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2687,7 +2582,6 @@ export namespace LimitExceededException {
  *          <p>The content consists of the detailed metadata and the current status of the <code>MLModel</code>.</p>
  */
 export interface MLModel {
-  __type?: "MLModel";
   /**
    * <p>The time that the <code>MLModel</code> was created. The time is expressed in epoch time.</p>
    */
@@ -2879,7 +2773,6 @@ export namespace MLModel {
   export const filterSensitiveLog = (obj: MLModel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MLModel => __isa(o, "MLModel");
 }
 
 export enum MLModelFilterVariable {
@@ -2920,7 +2813,6 @@ export enum MLModelType {
  *         </p>
  */
 export interface PerformanceMetrics {
-  __type?: "PerformanceMetrics";
   /**
    * <p>Specific performance metric information.</p>
    */
@@ -2931,11 +2823,9 @@ export namespace PerformanceMetrics {
   export const filterSensitiveLog = (obj: PerformanceMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PerformanceMetrics => __isa(o, "PerformanceMetrics");
 }
 
 export interface PredictInput {
-  __type?: "PredictInput";
   /**
    * <p>A map of variable name-value pairs that represent an observation.</p>
    */
@@ -2956,7 +2846,6 @@ export namespace PredictInput {
   export const filterSensitiveLog = (obj: PredictInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PredictInput => __isa(o, "PredictInput");
 }
 
 /**
@@ -2990,7 +2879,6 @@ export namespace PredictInput {
  *          </ul>
  */
 export interface Prediction {
-  __type?: "Prediction";
   /**
    * <p>Provides any additional details regarding the prediction.</p>
    */
@@ -3018,7 +2906,6 @@ export namespace Prediction {
   export const filterSensitiveLog = (obj: Prediction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Prediction => __isa(o, "Prediction");
 }
 
 /**
@@ -3034,11 +2921,9 @@ export namespace PredictorNotMountedException {
   export const filterSensitiveLog = (obj: PredictorNotMountedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PredictorNotMountedException => __isa(o, "PredictorNotMountedException");
 }
 
 export interface PredictOutput {
-  __type?: "PredictOutput";
   /**
    * <p>The output from a <code>Predict</code> operation: </p>
    *
@@ -3076,14 +2961,12 @@ export namespace PredictOutput {
   export const filterSensitiveLog = (obj: PredictOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PredictOutput => __isa(o, "PredictOutput");
 }
 
 /**
  * <p>The database details of an Amazon RDS database.</p>
  */
 export interface RDSDatabase {
-  __type?: "RDSDatabase";
   /**
    * <p>The name of a database hosted on an RDS DB instance.</p>
    */
@@ -3099,14 +2982,12 @@ export namespace RDSDatabase {
   export const filterSensitiveLog = (obj: RDSDatabase): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RDSDatabase => __isa(o, "RDSDatabase");
 }
 
 /**
  * <p>The database credentials to connect to a database on an RDS DB instance.</p>
  */
 export interface RDSDatabaseCredentials {
-  __type?: "RDSDatabaseCredentials";
   /**
    * <p>The password to be used by Amazon ML to connect to a database on an RDS DB instance.
    *             The password should have sufficient permissions to execute the <code>RDSSelectQuery</code> query.</p>
@@ -3124,14 +3005,12 @@ export namespace RDSDatabaseCredentials {
   export const filterSensitiveLog = (obj: RDSDatabaseCredentials): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RDSDatabaseCredentials => __isa(o, "RDSDatabaseCredentials");
 }
 
 /**
  * <p>The data specification of an Amazon Relational Database Service (Amazon RDS) <code>DataSource</code>.</p>
  */
 export interface RDSDataSpec {
-  __type?: "RDSDataSpec";
   /**
    * <p>The subnet ID to be used to access a VPC-based RDS DB instance. This attribute is used by Data Pipeline to carry out the copy task from Amazon RDS to Amazon S3.</p>
    */
@@ -3295,14 +3174,12 @@ export namespace RDSDataSpec {
   export const filterSensitiveLog = (obj: RDSDataSpec): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RDSDataSpec => __isa(o, "RDSDataSpec");
 }
 
 /**
  * <p>The datasource details that are specific to Amazon RDS.</p>
  */
 export interface RDSMetadata {
-  __type?: "RDSMetadata";
   /**
    * <p>The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance to carry out the copy task from Amazon RDS to Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role templates</a> for data pipelines.</p>
    */
@@ -3339,14 +3216,12 @@ export namespace RDSMetadata {
   export const filterSensitiveLog = (obj: RDSMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RDSMetadata => __isa(o, "RDSMetadata");
 }
 
 /**
  * <p> Describes the real-time endpoint information for an <code>MLModel</code>.</p>
  */
 export interface RealtimeEndpointInfo {
-  __type?: "RealtimeEndpointInfo";
   /**
    * <p> The current status of the real-time endpoint for the <code>MLModel</code>. This element can have one of the following values: </p>
    *         <ul>
@@ -3388,7 +3263,6 @@ export namespace RealtimeEndpointInfo {
   export const filterSensitiveLog = (obj: RealtimeEndpointInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RealtimeEndpointInfo => __isa(o, "RealtimeEndpointInfo");
 }
 
 export enum RealtimeEndpointStatus {
@@ -3402,7 +3276,6 @@ export enum RealtimeEndpointStatus {
  * <p>Describes the database details required to connect to an Amazon Redshift database.</p>
  */
 export interface RedshiftDatabase {
-  __type?: "RedshiftDatabase";
   /**
    * <p>The ID of an Amazon Redshift cluster.</p>
    */
@@ -3418,14 +3291,12 @@ export namespace RedshiftDatabase {
   export const filterSensitiveLog = (obj: RedshiftDatabase): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RedshiftDatabase => __isa(o, "RedshiftDatabase");
 }
 
 /**
  * <p>Describes the database credentials for connecting to a database on an Amazon Redshift cluster.</p>
  */
 export interface RedshiftDatabaseCredentials {
-  __type?: "RedshiftDatabaseCredentials";
   /**
    * <p>A username to be used by Amazon Machine Learning (Amazon ML)to connect to a database on an Amazon Redshift cluster.
    *           The username should have sufficient permissions to execute the <code>RedshiftSelectSqlQuery</code> query. The username should be valid for an Amazon Redshift <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">USER</a>.</p>
@@ -3443,14 +3314,12 @@ export namespace RedshiftDatabaseCredentials {
   export const filterSensitiveLog = (obj: RedshiftDatabaseCredentials): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RedshiftDatabaseCredentials => __isa(o, "RedshiftDatabaseCredentials");
 }
 
 /**
  * <p>Describes the data specification of an Amazon Redshift <code>DataSource</code>.</p>
  */
 export interface RedshiftDataSpec {
-  __type?: "RedshiftDataSpec";
   /**
    * <p>A JSON string that represents the splitting and rearrangement
    *     processing to be applied to a <code>DataSource</code>. If the <code>DataRearrangement</code>
@@ -3593,14 +3462,12 @@ export namespace RedshiftDataSpec {
   export const filterSensitiveLog = (obj: RedshiftDataSpec): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RedshiftDataSpec => __isa(o, "RedshiftDataSpec");
 }
 
 /**
  * <p>Describes the <code>DataSource</code> details specific to Amazon Redshift.</p>
  */
 export interface RedshiftMetadata {
-  __type?: "RedshiftMetadata";
   /**
    * <p> The SQL query that is specified during <a>CreateDataSourceFromRedshift</a>. Returns only if <code>Verbose</code> is true in GetDataSourceInput. </p>
    */
@@ -3622,7 +3489,6 @@ export namespace RedshiftMetadata {
   export const filterSensitiveLog = (obj: RedshiftMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RedshiftMetadata => __isa(o, "RedshiftMetadata");
 }
 
 /**
@@ -3639,14 +3505,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p> Describes the data specification of a <code>DataSource</code>.</p>
  */
 export interface S3DataSpec {
-  __type?: "S3DataSpec";
   /**
    * <p>A JSON string that represents the splitting and rearrangement
    *     processing to be applied to a <code>DataSource</code>. If the <code>DataRearrangement</code>
@@ -3775,7 +3639,6 @@ export namespace S3DataSpec {
   export const filterSensitiveLog = (obj: S3DataSpec): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3DataSpec => __isa(o, "S3DataSpec");
 }
 
 export enum SortOrder {
@@ -3787,7 +3650,6 @@ export enum SortOrder {
  * <p>A custom key-value pair associated with an ML object, such as an ML model.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>A unique identifier for the tag. Valid characters include Unicode letters, digits, white space, _, ., /, =, +, -, %, and @.</p>
    */
@@ -3803,7 +3665,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export enum TaggableResourceType {
@@ -3826,11 +3687,9 @@ export namespace TagLimitExceededException {
   export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagLimitExceededException => __isa(o, "TagLimitExceededException");
 }
 
 export interface UpdateBatchPredictionInput {
-  __type?: "UpdateBatchPredictionInput";
   /**
    * <p>A new user-supplied name or description of the <code>BatchPrediction</code>.</p>
    */
@@ -3846,7 +3705,6 @@ export namespace UpdateBatchPredictionInput {
   export const filterSensitiveLog = (obj: UpdateBatchPredictionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBatchPredictionInput => __isa(o, "UpdateBatchPredictionInput");
 }
 
 /**
@@ -3854,7 +3712,6 @@ export namespace UpdateBatchPredictionInput {
  *         <p>You can see the updated content by using the <code>GetBatchPrediction</code> operation.</p>
  */
 export interface UpdateBatchPredictionOutput {
-  __type?: "UpdateBatchPredictionOutput";
   /**
    * <p>The ID assigned to the <code>BatchPrediction</code> during creation.  This value should be identical to the value
    *             of the <code>BatchPredictionId</code> in the request.</p>
@@ -3866,11 +3723,9 @@ export namespace UpdateBatchPredictionOutput {
   export const filterSensitiveLog = (obj: UpdateBatchPredictionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBatchPredictionOutput => __isa(o, "UpdateBatchPredictionOutput");
 }
 
 export interface UpdateDataSourceInput {
-  __type?: "UpdateDataSourceInput";
   /**
    * <p>The ID assigned to the <code>DataSource</code> during creation.</p>
    */
@@ -3886,7 +3741,6 @@ export namespace UpdateDataSourceInput {
   export const filterSensitiveLog = (obj: UpdateDataSourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSourceInput => __isa(o, "UpdateDataSourceInput");
 }
 
 /**
@@ -3894,7 +3748,6 @@ export namespace UpdateDataSourceInput {
  *         <p>You can see the updated content by using the <code>GetBatchPrediction</code> operation.</p>
  */
 export interface UpdateDataSourceOutput {
-  __type?: "UpdateDataSourceOutput";
   /**
    * <p>The ID assigned to the <code>DataSource</code> during creation.  This value should be identical to the value
    *             of the <code>DataSourceID</code> in the request.</p>
@@ -3906,11 +3759,9 @@ export namespace UpdateDataSourceOutput {
   export const filterSensitiveLog = (obj: UpdateDataSourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDataSourceOutput => __isa(o, "UpdateDataSourceOutput");
 }
 
 export interface UpdateEvaluationInput {
-  __type?: "UpdateEvaluationInput";
   /**
    * <p>A new user-supplied name or description of the <code>Evaluation</code> that will replace the current content. </p>
    */
@@ -3926,7 +3777,6 @@ export namespace UpdateEvaluationInput {
   export const filterSensitiveLog = (obj: UpdateEvaluationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEvaluationInput => __isa(o, "UpdateEvaluationInput");
 }
 
 /**
@@ -3934,7 +3784,6 @@ export namespace UpdateEvaluationInput {
  *         <p>You can see the updated content by using the <code>GetEvaluation</code> operation.</p>
  */
 export interface UpdateEvaluationOutput {
-  __type?: "UpdateEvaluationOutput";
   /**
    * <p>The ID assigned to the <code>Evaluation</code> during creation.  This value should be identical to the value
    *             of the <code>Evaluation</code> in the request.</p>
@@ -3946,11 +3795,9 @@ export namespace UpdateEvaluationOutput {
   export const filterSensitiveLog = (obj: UpdateEvaluationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEvaluationOutput => __isa(o, "UpdateEvaluationOutput");
 }
 
 export interface UpdateMLModelInput {
-  __type?: "UpdateMLModelInput";
   /**
    * <p>The <code>ScoreThreshold</code> used in binary classification <code>MLModel</code> that marks the boundary between a positive prediction and a negative prediction.</p>
    *         <p>Output values greater than or equal to the <code>ScoreThreshold</code> receive a positive result from the <code>MLModel</code>, such as <code>true</code>. Output values less than the <code>ScoreThreshold</code> receive a negative response from the <code>MLModel</code>, such as <code>false</code>.</p>
@@ -3972,7 +3819,6 @@ export namespace UpdateMLModelInput {
   export const filterSensitiveLog = (obj: UpdateMLModelInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMLModelInput => __isa(o, "UpdateMLModelInput");
 }
 
 /**
@@ -3980,7 +3826,6 @@ export namespace UpdateMLModelInput {
  *         <p>You can see the updated content by using the <code>GetMLModel</code> operation.</p>
  */
 export interface UpdateMLModelOutput {
-  __type?: "UpdateMLModelOutput";
   /**
    * <p>The ID assigned to the <code>MLModel</code> during creation.  This value should be identical to the value
    *             of the <code>MLModelID</code> in the request.</p>
@@ -3992,5 +3837,4 @@ export namespace UpdateMLModelOutput {
   export const filterSensitiveLog = (obj: UpdateMLModelOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMLModelOutput => __isa(o, "UpdateMLModelOutput");
 }

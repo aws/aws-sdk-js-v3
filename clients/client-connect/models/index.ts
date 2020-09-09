@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum Channel {
@@ -10,7 +10,6 @@ export enum Channel {
  * <p>A chat message.</p>
  */
 export interface ChatMessage {
-  __type?: "ChatMessage";
   /**
    * <p>The content of the chat message.</p>
    */
@@ -26,7 +25,6 @@ export namespace ChatMessage {
   export const filterSensitiveLog = (obj: ChatMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChatMessage => __isa(o, "ChatMessage");
 }
 
 export enum Comparison {
@@ -37,7 +35,6 @@ export enum Comparison {
  * <p>Contains summary information about a contact flow.</p>
  */
 export interface ContactFlowSummary {
-  __type?: "ContactFlowSummary";
   /**
    * <p>The name of the contact flow.</p>
    */
@@ -63,7 +60,6 @@ export namespace ContactFlowSummary {
   export const filterSensitiveLog = (obj: ContactFlowSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContactFlowSummary => __isa(o, "ContactFlowSummary");
 }
 
 export enum ContactFlowType {
@@ -94,11 +90,9 @@ export namespace ContactNotFoundException {
   export const filterSensitiveLog = (obj: ContactNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContactNotFoundException => __isa(o, "ContactNotFoundException");
 }
 
 export interface CreateUserRequest {
-  __type?: "CreateUserRequest";
   /**
    * <p>One or more tags.</p>
    */
@@ -163,11 +157,9 @@ export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserRequest => __isa(o, "CreateUserRequest");
 }
 
 export interface CreateUserResponse {
-  __type?: "CreateUserResponse";
   /**
    * <p>The identifier of the user account.</p>
    */
@@ -183,14 +175,12 @@ export namespace CreateUserResponse {
   export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserResponse => __isa(o, "CreateUserResponse");
 }
 
 /**
  * <p>Contains credentials to use for federation.</p>
  */
 export interface Credentials {
-  __type?: "Credentials";
   /**
    * <p>Renews the expiration timer for a generated token.</p>
    */
@@ -219,7 +209,6 @@ export namespace Credentials {
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
     ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Credentials => __isa(o, "Credentials");
 }
 
 /**
@@ -227,7 +216,6 @@ export namespace Credentials {
  *    Guide</i>.</p>
  */
 export interface CurrentMetric {
-  __type?: "CurrentMetric";
   /**
    * <p>The unit for the metric.</p>
    */
@@ -243,14 +231,12 @@ export namespace CurrentMetric {
   export const filterSensitiveLog = (obj: CurrentMetric): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CurrentMetric => __isa(o, "CurrentMetric");
 }
 
 /**
  * <p>Contains the data for a real-time metric.</p>
  */
 export interface CurrentMetricData {
-  __type?: "CurrentMetricData";
   /**
    * <p>The value of the metric.</p>
    */
@@ -266,7 +252,6 @@ export namespace CurrentMetricData {
   export const filterSensitiveLog = (obj: CurrentMetricData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CurrentMetricData => __isa(o, "CurrentMetricData");
 }
 
 export enum CurrentMetricName {
@@ -289,7 +274,6 @@ export enum CurrentMetricName {
  * <p>Contains information about a set of real-time metrics.</p>
  */
 export interface CurrentMetricResult {
-  __type?: "CurrentMetricResult";
   /**
    * <p>The dimensions for the metrics.</p>
    */
@@ -305,11 +289,9 @@ export namespace CurrentMetricResult {
   export const filterSensitiveLog = (obj: CurrentMetricResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CurrentMetricResult => __isa(o, "CurrentMetricResult");
 }
 
 export interface DeleteUserRequest {
-  __type?: "DeleteUserRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -325,11 +307,9 @@ export namespace DeleteUserRequest {
   export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserRequest => __isa(o, "DeleteUserRequest");
 }
 
 export interface DescribeUserHierarchyGroupRequest {
-  __type?: "DescribeUserHierarchyGroupRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -345,11 +325,9 @@ export namespace DescribeUserHierarchyGroupRequest {
   export const filterSensitiveLog = (obj: DescribeUserHierarchyGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserHierarchyGroupRequest => __isa(o, "DescribeUserHierarchyGroupRequest");
 }
 
 export interface DescribeUserHierarchyGroupResponse {
-  __type?: "DescribeUserHierarchyGroupResponse";
   /**
    * <p>Information about the hierarchy group.</p>
    */
@@ -360,12 +338,9 @@ export namespace DescribeUserHierarchyGroupResponse {
   export const filterSensitiveLog = (obj: DescribeUserHierarchyGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserHierarchyGroupResponse =>
-    __isa(o, "DescribeUserHierarchyGroupResponse");
 }
 
 export interface DescribeUserHierarchyStructureRequest {
-  __type?: "DescribeUserHierarchyStructureRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -376,12 +351,9 @@ export namespace DescribeUserHierarchyStructureRequest {
   export const filterSensitiveLog = (obj: DescribeUserHierarchyStructureRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserHierarchyStructureRequest =>
-    __isa(o, "DescribeUserHierarchyStructureRequest");
 }
 
 export interface DescribeUserHierarchyStructureResponse {
-  __type?: "DescribeUserHierarchyStructureResponse";
   /**
    * <p>Information about the hierarchy structure.</p>
    */
@@ -392,12 +364,9 @@ export namespace DescribeUserHierarchyStructureResponse {
   export const filterSensitiveLog = (obj: DescribeUserHierarchyStructureResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserHierarchyStructureResponse =>
-    __isa(o, "DescribeUserHierarchyStructureResponse");
 }
 
 export interface DescribeUserRequest {
-  __type?: "DescribeUserRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -413,11 +382,9 @@ export namespace DescribeUserRequest {
   export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserRequest => __isa(o, "DescribeUserRequest");
 }
 
 export interface DescribeUserResponse {
-  __type?: "DescribeUserResponse";
   /**
    * <p>Information about the user account and configuration settings.</p>
    */
@@ -428,7 +395,6 @@ export namespace DescribeUserResponse {
   export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeUserResponse => __isa(o, "DescribeUserResponse");
 }
 
 /**
@@ -447,14 +413,12 @@ export namespace DestinationNotAllowedException {
   export const filterSensitiveLog = (obj: DestinationNotAllowedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DestinationNotAllowedException => __isa(o, "DestinationNotAllowedException");
 }
 
 /**
  * <p>Contains information about the dimensions for a set of metrics.</p>
  */
 export interface Dimensions {
-  __type?: "Dimensions";
   /**
    * <p>The channel used for grouping and filters.</p>
    */
@@ -470,7 +434,6 @@ export namespace Dimensions {
   export const filterSensitiveLog = (obj: Dimensions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Dimensions => __isa(o, "Dimensions");
 }
 
 /**
@@ -486,14 +449,12 @@ export namespace DuplicateResourceException {
   export const filterSensitiveLog = (obj: DuplicateResourceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateResourceException => __isa(o, "DuplicateResourceException");
 }
 
 /**
  * <p>Contains the filter to apply when retrieving metrics.</p>
  */
 export interface Filters {
-  __type?: "Filters";
   /**
    * <p>The channel to use to filter the metrics.</p>
    */
@@ -510,11 +471,9 @@ export namespace Filters {
   export const filterSensitiveLog = (obj: Filters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filters => __isa(o, "Filters");
 }
 
 export interface GetContactAttributesRequest {
-  __type?: "GetContactAttributesRequest";
   /**
    * <p>The identifier of the initial contact.</p>
    */
@@ -530,11 +489,9 @@ export namespace GetContactAttributesRequest {
   export const filterSensitiveLog = (obj: GetContactAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetContactAttributesRequest => __isa(o, "GetContactAttributesRequest");
 }
 
 export interface GetContactAttributesResponse {
-  __type?: "GetContactAttributesResponse";
   /**
    * <p>Information about the attributes.</p>
    */
@@ -545,11 +502,9 @@ export namespace GetContactAttributesResponse {
   export const filterSensitiveLog = (obj: GetContactAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetContactAttributesResponse => __isa(o, "GetContactAttributesResponse");
 }
 
 export interface GetCurrentMetricDataRequest {
-  __type?: "GetCurrentMetricDataRequest";
   /**
    * <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is
    *    retrieved only for the resources associated with the queues or channels included in the filter.
@@ -652,11 +607,9 @@ export namespace GetCurrentMetricDataRequest {
   export const filterSensitiveLog = (obj: GetCurrentMetricDataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCurrentMetricDataRequest => __isa(o, "GetCurrentMetricDataRequest");
 }
 
 export interface GetCurrentMetricDataResponse {
-  __type?: "GetCurrentMetricDataResponse";
   /**
    * <p>Information about the real-time metrics.</p>
    */
@@ -679,11 +632,9 @@ export namespace GetCurrentMetricDataResponse {
   export const filterSensitiveLog = (obj: GetCurrentMetricDataResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCurrentMetricDataResponse => __isa(o, "GetCurrentMetricDataResponse");
 }
 
 export interface GetFederationTokenRequest {
-  __type?: "GetFederationTokenRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -694,11 +645,9 @@ export namespace GetFederationTokenRequest {
   export const filterSensitiveLog = (obj: GetFederationTokenRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFederationTokenRequest => __isa(o, "GetFederationTokenRequest");
 }
 
 export interface GetFederationTokenResponse {
-  __type?: "GetFederationTokenResponse";
   /**
    * <p>The credentials to use for federation.</p>
    */
@@ -710,11 +659,9 @@ export namespace GetFederationTokenResponse {
     ...obj,
     ...(obj.Credentials && { Credentials: Credentials.filterSensitiveLog(obj.Credentials) }),
   });
-  export const isa = (o: any): o is GetFederationTokenResponse => __isa(o, "GetFederationTokenResponse");
 }
 
 export interface GetMetricDataRequest {
-  __type?: "GetMetricDataRequest";
   /**
    * <p>The grouping applied to the metrics returned. For example, when results are grouped by
    *    queue, the metrics returned are grouped by queue. The values returned apply to the metrics for
@@ -906,11 +853,9 @@ export namespace GetMetricDataRequest {
   export const filterSensitiveLog = (obj: GetMetricDataRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMetricDataRequest => __isa(o, "GetMetricDataRequest");
 }
 
 export interface GetMetricDataResponse {
-  __type?: "GetMetricDataResponse";
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
@@ -929,7 +874,6 @@ export namespace GetMetricDataResponse {
   export const filterSensitiveLog = (obj: GetMetricDataResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMetricDataResponse => __isa(o, "GetMetricDataResponse");
 }
 
 export enum Grouping {
@@ -941,7 +885,6 @@ export enum Grouping {
  * <p>Contains information about a hierarchy group.</p>
  */
 export interface HierarchyGroup {
-  __type?: "HierarchyGroup";
   /**
    * <p>Information about the levels in the hierarchy group.</p>
    */
@@ -972,14 +915,12 @@ export namespace HierarchyGroup {
   export const filterSensitiveLog = (obj: HierarchyGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HierarchyGroup => __isa(o, "HierarchyGroup");
 }
 
 /**
  * <p>Contains summary information about a hierarchy group.</p>
  */
 export interface HierarchyGroupSummary {
-  __type?: "HierarchyGroupSummary";
   /**
    * <p>The name of the hierarchy group.</p>
    */
@@ -1000,14 +941,12 @@ export namespace HierarchyGroupSummary {
   export const filterSensitiveLog = (obj: HierarchyGroupSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HierarchyGroupSummary => __isa(o, "HierarchyGroupSummary");
 }
 
 /**
  * <p>Contains information about a hierarchy level.</p>
  */
 export interface HierarchyLevel {
-  __type?: "HierarchyLevel";
   /**
    * <p>The name of the hierarchy level.</p>
    */
@@ -1028,14 +967,12 @@ export namespace HierarchyLevel {
   export const filterSensitiveLog = (obj: HierarchyLevel): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HierarchyLevel => __isa(o, "HierarchyLevel");
 }
 
 /**
  * <p>Contains information about the levels of a hierarchy group.</p>
  */
 export interface HierarchyPath {
-  __type?: "HierarchyPath";
   /**
    * <p>Information about level two.</p>
    */
@@ -1066,14 +1003,12 @@ export namespace HierarchyPath {
   export const filterSensitiveLog = (obj: HierarchyPath): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HierarchyPath => __isa(o, "HierarchyPath");
 }
 
 /**
  * <p>Contains information about a hierarchy structure.</p>
  */
 export interface HierarchyStructure {
-  __type?: "HierarchyStructure";
   /**
    * <p>Information about level five.</p>
    */
@@ -1104,7 +1039,6 @@ export namespace HierarchyStructure {
   export const filterSensitiveLog = (obj: HierarchyStructure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HierarchyStructure => __isa(o, "HierarchyStructure");
 }
 
 /**
@@ -1112,7 +1046,6 @@ export namespace HierarchyStructure {
  *    Guide</i>.</p>
  */
 export interface HistoricalMetric {
-  __type?: "HistoricalMetric";
   /**
    * <p>The statistic for the metric.</p>
    */
@@ -1138,14 +1071,12 @@ export namespace HistoricalMetric {
   export const filterSensitiveLog = (obj: HistoricalMetric): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HistoricalMetric => __isa(o, "HistoricalMetric");
 }
 
 /**
  * <p>Contains the data for a historical metric.</p>
  */
 export interface HistoricalMetricData {
-  __type?: "HistoricalMetricData";
   /**
    * <p>The value of the metric.</p>
    */
@@ -1161,7 +1092,6 @@ export namespace HistoricalMetricData {
   export const filterSensitiveLog = (obj: HistoricalMetricData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HistoricalMetricData => __isa(o, "HistoricalMetricData");
 }
 
 export enum HistoricalMetricName {
@@ -1196,7 +1126,6 @@ export enum HistoricalMetricName {
  * <p>Contains information about the historical metrics retrieved.</p>
  */
 export interface HistoricalMetricResult {
-  __type?: "HistoricalMetricResult";
   /**
    * <p>The set of metrics.</p>
    */
@@ -1212,14 +1141,12 @@ export namespace HistoricalMetricResult {
   export const filterSensitiveLog = (obj: HistoricalMetricResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HistoricalMetricResult => __isa(o, "HistoricalMetricResult");
 }
 
 /**
  * <p>Contains summary information about hours of operation for a contact center.</p>
  */
 export interface HoursOfOperationSummary {
-  __type?: "HoursOfOperationSummary";
   /**
    * <p>The Amazon Resource Name (ARN) of the hours of operation.</p>
    */
@@ -1240,7 +1167,6 @@ export namespace HoursOfOperationSummary {
   export const filterSensitiveLog = (obj: HoursOfOperationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HoursOfOperationSummary => __isa(o, "HoursOfOperationSummary");
 }
 
 /**
@@ -1259,7 +1185,6 @@ export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
@@ -1278,7 +1203,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -1297,7 +1221,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -1316,11 +1239,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListContactFlowsRequest {
-  __type?: "ListContactFlowsRequest";
   /**
    * <p>The type of contact flow.</p>
    */
@@ -1347,11 +1268,9 @@ export namespace ListContactFlowsRequest {
   export const filterSensitiveLog = (obj: ListContactFlowsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListContactFlowsRequest => __isa(o, "ListContactFlowsRequest");
 }
 
 export interface ListContactFlowsResponse {
-  __type?: "ListContactFlowsResponse";
   /**
    * <p>Information about the contact flows.</p>
    */
@@ -1367,11 +1286,9 @@ export namespace ListContactFlowsResponse {
   export const filterSensitiveLog = (obj: ListContactFlowsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListContactFlowsResponse => __isa(o, "ListContactFlowsResponse");
 }
 
 export interface ListHoursOfOperationsRequest {
-  __type?: "ListHoursOfOperationsRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -1393,11 +1310,9 @@ export namespace ListHoursOfOperationsRequest {
   export const filterSensitiveLog = (obj: ListHoursOfOperationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHoursOfOperationsRequest => __isa(o, "ListHoursOfOperationsRequest");
 }
 
 export interface ListHoursOfOperationsResponse {
-  __type?: "ListHoursOfOperationsResponse";
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
@@ -1413,11 +1328,9 @@ export namespace ListHoursOfOperationsResponse {
   export const filterSensitiveLog = (obj: ListHoursOfOperationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHoursOfOperationsResponse => __isa(o, "ListHoursOfOperationsResponse");
 }
 
 export interface ListPhoneNumbersRequest {
-  __type?: "ListPhoneNumbersRequest";
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
@@ -1449,11 +1362,9 @@ export namespace ListPhoneNumbersRequest {
   export const filterSensitiveLog = (obj: ListPhoneNumbersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPhoneNumbersRequest => __isa(o, "ListPhoneNumbersRequest");
 }
 
 export interface ListPhoneNumbersResponse {
-  __type?: "ListPhoneNumbersResponse";
   /**
    * <p>Information about the phone numbers.</p>
    */
@@ -1469,11 +1380,9 @@ export namespace ListPhoneNumbersResponse {
   export const filterSensitiveLog = (obj: ListPhoneNumbersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPhoneNumbersResponse => __isa(o, "ListPhoneNumbersResponse");
 }
 
 export interface ListQueuesRequest {
-  __type?: "ListQueuesRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -1500,11 +1409,9 @@ export namespace ListQueuesRequest {
   export const filterSensitiveLog = (obj: ListQueuesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQueuesRequest => __isa(o, "ListQueuesRequest");
 }
 
 export interface ListQueuesResponse {
-  __type?: "ListQueuesResponse";
   /**
    * <p>Information about the queues.</p>
    */
@@ -1520,11 +1427,9 @@ export namespace ListQueuesResponse {
   export const filterSensitiveLog = (obj: ListQueuesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQueuesResponse => __isa(o, "ListQueuesResponse");
 }
 
 export interface ListRoutingProfilesRequest {
-  __type?: "ListRoutingProfilesRequest";
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
@@ -1546,11 +1451,9 @@ export namespace ListRoutingProfilesRequest {
   export const filterSensitiveLog = (obj: ListRoutingProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRoutingProfilesRequest => __isa(o, "ListRoutingProfilesRequest");
 }
 
 export interface ListRoutingProfilesResponse {
-  __type?: "ListRoutingProfilesResponse";
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
@@ -1566,11 +1469,9 @@ export namespace ListRoutingProfilesResponse {
   export const filterSensitiveLog = (obj: ListRoutingProfilesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRoutingProfilesResponse => __isa(o, "ListRoutingProfilesResponse");
 }
 
 export interface ListSecurityProfilesRequest {
-  __type?: "ListSecurityProfilesRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -1592,11 +1493,9 @@ export namespace ListSecurityProfilesRequest {
   export const filterSensitiveLog = (obj: ListSecurityProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSecurityProfilesRequest => __isa(o, "ListSecurityProfilesRequest");
 }
 
 export interface ListSecurityProfilesResponse {
-  __type?: "ListSecurityProfilesResponse";
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
@@ -1612,11 +1511,9 @@ export namespace ListSecurityProfilesResponse {
   export const filterSensitiveLog = (obj: ListSecurityProfilesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSecurityProfilesResponse => __isa(o, "ListSecurityProfilesResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -1627,11 +1524,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>Information about the tags.</p>
    */
@@ -1642,11 +1537,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListUserHierarchyGroupsRequest {
-  __type?: "ListUserHierarchyGroupsRequest";
   /**
    * <p>The maximimum number of results to return per page.</p>
    */
@@ -1668,11 +1561,9 @@ export namespace ListUserHierarchyGroupsRequest {
   export const filterSensitiveLog = (obj: ListUserHierarchyGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserHierarchyGroupsRequest => __isa(o, "ListUserHierarchyGroupsRequest");
 }
 
 export interface ListUserHierarchyGroupsResponse {
-  __type?: "ListUserHierarchyGroupsResponse";
   /**
    * <p>Information about the hierarchy groups.</p>
    */
@@ -1688,11 +1579,9 @@ export namespace ListUserHierarchyGroupsResponse {
   export const filterSensitiveLog = (obj: ListUserHierarchyGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUserHierarchyGroupsResponse => __isa(o, "ListUserHierarchyGroupsResponse");
 }
 
 export interface ListUsersRequest {
-  __type?: "ListUsersRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -1714,11 +1603,9 @@ export namespace ListUsersRequest {
   export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersRequest => __isa(o, "ListUsersRequest");
 }
 
 export interface ListUsersResponse {
-  __type?: "ListUsersResponse";
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
@@ -1734,7 +1621,6 @@ export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsersResponse => __isa(o, "ListUsersResponse");
 }
 
 /**
@@ -1753,15 +1639,12 @@ export namespace OutboundContactNotPermittedException {
   export const filterSensitiveLog = (obj: OutboundContactNotPermittedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutboundContactNotPermittedException =>
-    __isa(o, "OutboundContactNotPermittedException");
 }
 
 /**
  * <p>The customer's details.</p>
  */
 export interface ParticipantDetails {
-  __type?: "ParticipantDetails";
   /**
    * <p>Display name of the participant.</p>
    */
@@ -1772,7 +1655,6 @@ export namespace ParticipantDetails {
   export const filterSensitiveLog = (obj: ParticipantDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParticipantDetails => __isa(o, "ParticipantDetails");
 }
 
 export enum PhoneNumberCountryCode {
@@ -2019,7 +1901,6 @@ export enum PhoneNumberCountryCode {
  * <p>Contains summary information about a phone number for a contact center.</p>
  */
 export interface PhoneNumberSummary {
-  __type?: "PhoneNumberSummary";
   /**
    * <p>The phone number.</p>
    */
@@ -2050,7 +1931,6 @@ export namespace PhoneNumberSummary {
   export const filterSensitiveLog = (obj: PhoneNumberSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PhoneNumberSummary => __isa(o, "PhoneNumberSummary");
 }
 
 export enum PhoneNumberType {
@@ -2067,7 +1947,6 @@ export enum PhoneType {
  * <p>Contains information about a queue resource for which metrics are returned.</p>
  */
 export interface QueueReference {
-  __type?: "QueueReference";
   /**
    * <p>The Amazon Resource Name (ARN) of the queue.</p>
    */
@@ -2083,14 +1962,12 @@ export namespace QueueReference {
   export const filterSensitiveLog = (obj: QueueReference): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueueReference => __isa(o, "QueueReference");
 }
 
 /**
  * <p>Contains summary information about a queue.</p>
  */
 export interface QueueSummary {
-  __type?: "QueueSummary";
   /**
    * <p>The name of the queue.</p>
    */
@@ -2116,7 +1993,6 @@ export namespace QueueSummary {
   export const filterSensitiveLog = (obj: QueueSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueueSummary => __isa(o, "QueueSummary");
 }
 
 export enum QueueType {
@@ -2140,11 +2016,9 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface ResumeContactRecordingRequest {
-  __type?: "ResumeContactRecordingRequest";
   /**
    * <p>The identifier of the contact.</p>
    */
@@ -2166,25 +2040,20 @@ export namespace ResumeContactRecordingRequest {
   export const filterSensitiveLog = (obj: ResumeContactRecordingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResumeContactRecordingRequest => __isa(o, "ResumeContactRecordingRequest");
 }
 
-export interface ResumeContactRecordingResponse {
-  __type?: "ResumeContactRecordingResponse";
-}
+export interface ResumeContactRecordingResponse {}
 
 export namespace ResumeContactRecordingResponse {
   export const filterSensitiveLog = (obj: ResumeContactRecordingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResumeContactRecordingResponse => __isa(o, "ResumeContactRecordingResponse");
 }
 
 /**
  * <p>Contains summary information about a routing profile.</p>
  */
 export interface RoutingProfileSummary {
-  __type?: "RoutingProfileSummary";
   /**
    * <p>The name of the routing profile.</p>
    */
@@ -2205,14 +2074,12 @@ export namespace RoutingProfileSummary {
   export const filterSensitiveLog = (obj: RoutingProfileSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoutingProfileSummary => __isa(o, "RoutingProfileSummary");
 }
 
 /**
  * <p>Contains information about a security profile.</p>
  */
 export interface SecurityProfileSummary {
-  __type?: "SecurityProfileSummary";
   /**
    * <p>The identifier of the security profile.</p>
    */
@@ -2233,11 +2100,9 @@ export namespace SecurityProfileSummary {
   export const filterSensitiveLog = (obj: SecurityProfileSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityProfileSummary => __isa(o, "SecurityProfileSummary");
 }
 
 export interface StartChatContactRequest {
-  __type?: "StartChatContactRequest";
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *    request.</p>
@@ -2277,11 +2142,9 @@ export namespace StartChatContactRequest {
   export const filterSensitiveLog = (obj: StartChatContactRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartChatContactRequest => __isa(o, "StartChatContactRequest");
 }
 
 export interface StartChatContactResponse {
-  __type?: "StartChatContactResponse";
   /**
    * <p>The token used by the chat participant to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat
    *    participant.</p>
@@ -2304,11 +2167,9 @@ export namespace StartChatContactResponse {
   export const filterSensitiveLog = (obj: StartChatContactResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartChatContactResponse => __isa(o, "StartChatContactResponse");
 }
 
 export interface StartContactRecordingRequest {
-  __type?: "StartContactRecordingRequest";
   /**
    * <p>The identifier of the contact.</p>
    */
@@ -2335,22 +2196,17 @@ export namespace StartContactRecordingRequest {
   export const filterSensitiveLog = (obj: StartContactRecordingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartContactRecordingRequest => __isa(o, "StartContactRecordingRequest");
 }
 
-export interface StartContactRecordingResponse {
-  __type?: "StartContactRecordingResponse";
-}
+export interface StartContactRecordingResponse {}
 
 export namespace StartContactRecordingResponse {
   export const filterSensitiveLog = (obj: StartContactRecordingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartContactRecordingResponse => __isa(o, "StartContactRecordingResponse");
 }
 
 export interface StartOutboundVoiceContactRequest {
-  __type?: "StartOutboundVoiceContactRequest";
   /**
    * <p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the
    *    phone number specified in the queue. If you do not specify a queue, the queue defined in the
@@ -2400,11 +2256,9 @@ export namespace StartOutboundVoiceContactRequest {
   export const filterSensitiveLog = (obj: StartOutboundVoiceContactRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartOutboundVoiceContactRequest => __isa(o, "StartOutboundVoiceContactRequest");
 }
 
 export interface StartOutboundVoiceContactResponse {
-  __type?: "StartOutboundVoiceContactResponse";
   /**
    * <p>The identifier of this contact within the Amazon Connect instance.</p>
    */
@@ -2415,7 +2269,6 @@ export namespace StartOutboundVoiceContactResponse {
   export const filterSensitiveLog = (obj: StartOutboundVoiceContactResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartOutboundVoiceContactResponse => __isa(o, "StartOutboundVoiceContactResponse");
 }
 
 export enum Statistic {
@@ -2425,7 +2278,6 @@ export enum Statistic {
 }
 
 export interface StopContactRecordingRequest {
-  __type?: "StopContactRecordingRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -2447,22 +2299,17 @@ export namespace StopContactRecordingRequest {
   export const filterSensitiveLog = (obj: StopContactRecordingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopContactRecordingRequest => __isa(o, "StopContactRecordingRequest");
 }
 
-export interface StopContactRecordingResponse {
-  __type?: "StopContactRecordingResponse";
-}
+export interface StopContactRecordingResponse {}
 
 export namespace StopContactRecordingResponse {
   export const filterSensitiveLog = (obj: StopContactRecordingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopContactRecordingResponse => __isa(o, "StopContactRecordingResponse");
 }
 
 export interface StopContactRequest {
-  __type?: "StopContactRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -2478,22 +2325,17 @@ export namespace StopContactRequest {
   export const filterSensitiveLog = (obj: StopContactRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopContactRequest => __isa(o, "StopContactRequest");
 }
 
-export interface StopContactResponse {
-  __type?: "StopContactResponse";
-}
+export interface StopContactResponse {}
 
 export namespace StopContactResponse {
   export const filterSensitiveLog = (obj: StopContactResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopContactResponse => __isa(o, "StopContactResponse");
 }
 
 export interface SuspendContactRecordingRequest {
-  __type?: "SuspendContactRecordingRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -2515,22 +2357,17 @@ export namespace SuspendContactRecordingRequest {
   export const filterSensitiveLog = (obj: SuspendContactRecordingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuspendContactRecordingRequest => __isa(o, "SuspendContactRecordingRequest");
 }
 
-export interface SuspendContactRecordingResponse {
-  __type?: "SuspendContactRecordingResponse";
-}
+export interface SuspendContactRecordingResponse {}
 
 export namespace SuspendContactRecordingResponse {
   export const filterSensitiveLog = (obj: SuspendContactRecordingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuspendContactRecordingResponse => __isa(o, "SuspendContactRecordingResponse");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>One or more tags. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
@@ -2546,14 +2383,12 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * <p>Contains information about the threshold for service level metrics.</p>
  */
 export interface Threshold {
-  __type?: "Threshold";
   /**
    * <p>The type of comparison. Only "less than" (LT) comparisons are supported.</p>
    */
@@ -2569,7 +2404,6 @@ export namespace Threshold {
   export const filterSensitiveLog = (obj: Threshold): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Threshold => __isa(o, "Threshold");
 }
 
 /**
@@ -2585,7 +2419,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export enum Unit {
@@ -2595,7 +2428,6 @@ export enum Unit {
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -2611,11 +2443,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateContactAttributesRequest {
-  __type?: "UpdateContactAttributesRequest";
   /**
    * <p>The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other
    *    contact attributes.</p>
@@ -2640,22 +2470,17 @@ export namespace UpdateContactAttributesRequest {
   export const filterSensitiveLog = (obj: UpdateContactAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateContactAttributesRequest => __isa(o, "UpdateContactAttributesRequest");
 }
 
-export interface UpdateContactAttributesResponse {
-  __type?: "UpdateContactAttributesResponse";
-}
+export interface UpdateContactAttributesResponse {}
 
 export namespace UpdateContactAttributesResponse {
   export const filterSensitiveLog = (obj: UpdateContactAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateContactAttributesResponse => __isa(o, "UpdateContactAttributesResponse");
 }
 
 export interface UpdateUserHierarchyRequest {
-  __type?: "UpdateUserHierarchyRequest";
   /**
    * <p>The identifier of the hierarchy group.</p>
    */
@@ -2676,11 +2501,9 @@ export namespace UpdateUserHierarchyRequest {
   export const filterSensitiveLog = (obj: UpdateUserHierarchyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserHierarchyRequest => __isa(o, "UpdateUserHierarchyRequest");
 }
 
 export interface UpdateUserIdentityInfoRequest {
-  __type?: "UpdateUserIdentityInfoRequest";
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
@@ -2701,11 +2524,9 @@ export namespace UpdateUserIdentityInfoRequest {
   export const filterSensitiveLog = (obj: UpdateUserIdentityInfoRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserIdentityInfoRequest => __isa(o, "UpdateUserIdentityInfoRequest");
 }
 
 export interface UpdateUserPhoneConfigRequest {
-  __type?: "UpdateUserPhoneConfigRequest";
   /**
    * <p>The identifier of the user account.</p>
    */
@@ -2726,11 +2547,9 @@ export namespace UpdateUserPhoneConfigRequest {
   export const filterSensitiveLog = (obj: UpdateUserPhoneConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserPhoneConfigRequest => __isa(o, "UpdateUserPhoneConfigRequest");
 }
 
 export interface UpdateUserRoutingProfileRequest {
-  __type?: "UpdateUserRoutingProfileRequest";
   /**
    * <p>The identifier of the user account.</p>
    */
@@ -2751,11 +2570,9 @@ export namespace UpdateUserRoutingProfileRequest {
   export const filterSensitiveLog = (obj: UpdateUserRoutingProfileRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserRoutingProfileRequest => __isa(o, "UpdateUserRoutingProfileRequest");
 }
 
 export interface UpdateUserSecurityProfilesRequest {
-  __type?: "UpdateUserSecurityProfilesRequest";
   /**
    * <p>The identifiers of the security profiles for the user.</p>
    */
@@ -2776,14 +2593,12 @@ export namespace UpdateUserSecurityProfilesRequest {
   export const filterSensitiveLog = (obj: UpdateUserSecurityProfilesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserSecurityProfilesRequest => __isa(o, "UpdateUserSecurityProfilesRequest");
 }
 
 /**
  * <p>Contains information about a user account for a Amazon Connect instance.</p>
  */
 export interface User {
-  __type?: "User";
   /**
    * <p>The identifier of the user account in the directory used for identity management.</p>
    */
@@ -2839,14 +2654,12 @@ export namespace User {
   export const filterSensitiveLog = (obj: User): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is User => __isa(o, "User");
 }
 
 /**
  * <p>Contains information about the identity of a user.</p>
  */
 export interface UserIdentityInfo {
-  __type?: "UserIdentityInfo";
   /**
    * <p>The first name. This is required if you are using Amazon Connect or SAML for identity
    *    management.</p>
@@ -2870,7 +2683,6 @@ export namespace UserIdentityInfo {
   export const filterSensitiveLog = (obj: UserIdentityInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserIdentityInfo => __isa(o, "UserIdentityInfo");
 }
 
 /**
@@ -2886,14 +2698,12 @@ export namespace UserNotFoundException {
   export const filterSensitiveLog = (obj: UserNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserNotFoundException => __isa(o, "UserNotFoundException");
 }
 
 /**
  * <p>Contains information about the phone configuration settings for a user.</p>
  */
 export interface UserPhoneConfig {
-  __type?: "UserPhoneConfig";
   /**
    * <p>The Auto accept setting.</p>
    */
@@ -2919,14 +2729,12 @@ export namespace UserPhoneConfig {
   export const filterSensitiveLog = (obj: UserPhoneConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserPhoneConfig => __isa(o, "UserPhoneConfig");
 }
 
 /**
  * <p>Contains summary information about a user.</p>
  */
 export interface UserSummary {
-  __type?: "UserSummary";
   /**
    * <p>The Amazon Connect user name of the user account.</p>
    */
@@ -2947,14 +2755,12 @@ export namespace UserSummary {
   export const filterSensitiveLog = (obj: UserSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserSummary => __isa(o, "UserSummary");
 }
 
 /**
  * <p>Contains information about the recording configuration settings.</p>
  */
 export interface VoiceRecordingConfiguration {
-  __type?: "VoiceRecordingConfiguration";
   /**
    * <p>Identifies which track is being recorded.</p>
    */
@@ -2965,7 +2771,6 @@ export namespace VoiceRecordingConfiguration {
   export const filterSensitiveLog = (obj: VoiceRecordingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VoiceRecordingConfiguration => __isa(o, "VoiceRecordingConfiguration");
 }
 
 export enum VoiceRecordingTrack {

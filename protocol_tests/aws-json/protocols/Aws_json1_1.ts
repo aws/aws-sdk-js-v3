@@ -123,7 +123,6 @@ export const deserializeAws_json1_1KitchenSinkOperationCommand = async (
   contents = deserializeAws_json1_1KitchenSink(data, context);
   const response: KitchenSinkOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "KitchenSink",
     ...contents,
   };
   return Promise.resolve(response);
@@ -187,7 +186,6 @@ export const deserializeAws_json1_1OperationWithOptionalInputOutputCommand = asy
   contents = deserializeAws_json1_1SimpleStruct(data, context);
   const response: OperationWithOptionalInputOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SimpleStruct",
     ...contents,
   };
   return Promise.resolve(response);
@@ -404,14 +402,11 @@ const serializeAws_json1_1StructWithLocationName = (input: StructWithLocationNam
 };
 
 const deserializeAws_json1_1EmptyStruct = (output: any, context: __SerdeContext): EmptyStruct => {
-  return {
-    __type: "EmptyStruct",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ErrorWithMembers = (output: any, context: __SerdeContext): ErrorWithMembers => {
   return {
-    __type: "ErrorWithMembers",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     ComplexData:
       output.ComplexData !== undefined && output.ComplexData !== null
@@ -432,14 +427,11 @@ const deserializeAws_json1_1ErrorWithMembers = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ErrorWithoutMembers = (output: any, context: __SerdeContext): ErrorWithoutMembers => {
-  return {
-    __type: "ErrorWithoutMembers",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext): KitchenSink => {
   return {
-    __type: "KitchenSink",
     Blob: output.Blob !== undefined && output.Blob !== null ? context.base64Decoder(output.Blob) : undefined,
     Boolean: output.Boolean !== undefined && output.Boolean !== null ? output.Boolean : undefined,
     Double: output.Double !== undefined && output.Double !== null ? output.Double : undefined,
@@ -608,14 +600,12 @@ const deserializeAws_json1_1MapOfStructs = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1SimpleStruct = (output: any, context: __SerdeContext): SimpleStruct => {
   return {
-    __type: "SimpleStruct",
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1StructWithLocationName = (output: any, context: __SerdeContext): StructWithLocationName => {
   return {
-    __type: "StructWithLocationName",
     Value: output.RenamedMember !== undefined && output.RenamedMember !== null ? output.RenamedMember : undefined,
   } as any;
 };

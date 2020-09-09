@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddTagsToCertificateRequest {
-  __type?: "AddTagsToCertificateRequest";
   /**
    * <p>The key-value pair that defines the tag. The tag value is optional.</p>
    */
@@ -25,7 +24,6 @@ export namespace AddTagsToCertificateRequest {
   export const filterSensitiveLog = (obj: AddTagsToCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsToCertificateRequest => __isa(o, "AddTagsToCertificateRequest");
 }
 
 /**
@@ -33,7 +31,6 @@ export namespace AddTagsToCertificateRequest {
  *       to a <a>DescribeCertificate</a> request. </p>
  */
 export interface CertificateDetail {
-  __type?: "CertificateDetail";
   /**
    * <p>Specifies whether the certificate is eligible for renewal. At this time, only exported
    *       private certificates can be renewed with the <a>RenewCertificate</a>
@@ -205,7 +202,6 @@ export namespace CertificateDetail {
   export const filterSensitiveLog = (obj: CertificateDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateDetail => __isa(o, "CertificateDetail");
 }
 
 /**
@@ -218,7 +214,6 @@ export namespace CertificateDetail {
  *         Logging</a>. </p>
  */
 export interface CertificateOptions {
-  __type?: "CertificateOptions";
   /**
    * <p>You can opt out of certificate transparency logging by specifying the
    *         <code>DISABLED</code> option. Opt in by specifying <code>ENABLED</code>. </p>
@@ -230,7 +225,6 @@ export namespace CertificateOptions {
   export const filterSensitiveLog = (obj: CertificateOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateOptions => __isa(o, "CertificateOptions");
 }
 
 export enum CertificateStatus {
@@ -248,7 +242,6 @@ export enum CertificateStatus {
  *       action. </p>
  */
 export interface CertificateSummary {
-  __type?: "CertificateSummary";
   /**
    * <p>Amazon Resource Name (ARN) of the certificate. This is of the form:</p>
    *
@@ -271,7 +264,6 @@ export namespace CertificateSummary {
   export const filterSensitiveLog = (obj: CertificateSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateSummary => __isa(o, "CertificateSummary");
 }
 
 export enum CertificateTransparencyLoggingPreference {
@@ -286,7 +278,6 @@ export enum CertificateType {
 }
 
 export interface DeleteCertificateRequest {
-  __type?: "DeleteCertificateRequest";
   /**
    * <p>String that contains the ARN of the ACM certificate to be deleted. This must be of the
    *       form:</p>
@@ -302,11 +293,9 @@ export namespace DeleteCertificateRequest {
   export const filterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCertificateRequest => __isa(o, "DeleteCertificateRequest");
 }
 
 export interface DescribeCertificateRequest {
-  __type?: "DescribeCertificateRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following
    *       form:</p>
@@ -322,11 +311,9 @@ export namespace DescribeCertificateRequest {
   export const filterSensitiveLog = (obj: DescribeCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCertificateRequest => __isa(o, "DescribeCertificateRequest");
 }
 
 export interface DescribeCertificateResponse {
-  __type?: "DescribeCertificateResponse";
   /**
    * <p>Metadata about an ACM certificate.</p>
    */
@@ -337,7 +324,6 @@ export namespace DescribeCertificateResponse {
   export const filterSensitiveLog = (obj: DescribeCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCertificateResponse => __isa(o, "DescribeCertificateResponse");
 }
 
 export enum DomainStatus {
@@ -350,7 +336,6 @@ export enum DomainStatus {
  * <p>Contains information about the validation of each domain name in the certificate.</p>
  */
 export interface DomainValidation {
-  __type?: "DomainValidation";
   /**
    * <p>Contains the CNAME record that you add to your DNS database for domain validation. For
    *       more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">Use DNS to Validate Domain Ownership</a>.</p>
@@ -408,7 +393,6 @@ export namespace DomainValidation {
   export const filterSensitiveLog = (obj: DomainValidation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainValidation => __isa(o, "DomainValidation");
 }
 
 /**
@@ -416,7 +400,6 @@ export namespace DomainValidation {
  *       that enable you to validate domain ownership.</p>
  */
 export interface DomainValidationOption {
-  __type?: "DomainValidationOption";
   /**
    * <p>The domain name that you want ACM to use to send you validation emails. This domain name
    *       is the suffix of the email addresses that you want ACM to use. This must be the same as the
@@ -454,11 +437,9 @@ export namespace DomainValidationOption {
   export const filterSensitiveLog = (obj: DomainValidationOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainValidationOption => __isa(o, "DomainValidationOption");
 }
 
 export interface ExportCertificateRequest {
-  __type?: "ExportCertificateRequest";
   /**
    * <p>An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:</p>
    *          <p>
@@ -483,11 +464,9 @@ export namespace ExportCertificateRequest {
     ...obj,
     ...(obj.Passphrase && { Passphrase: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExportCertificateRequest => __isa(o, "ExportCertificateRequest");
 }
 
 export interface ExportCertificateResponse {
-  __type?: "ExportCertificateResponse";
   /**
    * <p>The base64 PEM-encoded certificate.</p>
    */
@@ -511,7 +490,6 @@ export namespace ExportCertificateResponse {
     ...obj,
     ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ExportCertificateResponse => __isa(o, "ExportCertificateResponse");
 }
 
 /**
@@ -520,7 +498,6 @@ export namespace ExportCertificateResponse {
  *       the Key Usage extension. </p>
  */
 export interface ExtendedKeyUsage {
-  __type?: "ExtendedKeyUsage";
   /**
    * <p>The name of an Extended Key Usage value.</p>
    */
@@ -585,7 +562,6 @@ export namespace ExtendedKeyUsage {
   export const filterSensitiveLog = (obj: ExtendedKeyUsage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExtendedKeyUsage => __isa(o, "ExtendedKeyUsage");
 }
 
 export enum ExtendedKeyUsageName {
@@ -627,7 +603,6 @@ export enum FailureReason {
  *       output of the certificate list. </p>
  */
 export interface Filters {
-  __type?: "Filters";
   /**
    * <p>Specify one or more <a>KeyUsage</a> extension values.</p>
    */
@@ -652,11 +627,9 @@ export namespace Filters {
   export const filterSensitiveLog = (obj: Filters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filters => __isa(o, "Filters");
 }
 
 export interface GetCertificateRequest {
-  __type?: "GetCertificateRequest";
   /**
    * <p>String that contains a certificate ARN in the following format:</p>
    *          <p>
@@ -671,11 +644,9 @@ export namespace GetCertificateRequest {
   export const filterSensitiveLog = (obj: GetCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCertificateRequest => __isa(o, "GetCertificateRequest");
 }
 
 export interface GetCertificateResponse {
-  __type?: "GetCertificateResponse";
   /**
    * <p>Certificates forming the requested certificate's chain of trust. The chain consists of the
    *       certificate of the issuing CA and the intermediate certificates of any other subordinate CAs. </p>
@@ -692,11 +663,9 @@ export namespace GetCertificateResponse {
   export const filterSensitiveLog = (obj: GetCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCertificateResponse => __isa(o, "GetCertificateResponse");
 }
 
 export interface ImportCertificateRequest {
-  __type?: "ImportCertificateRequest";
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name
    *         (ARN)</a> of an imported certificate to replace. To import a new certificate, omit this
@@ -731,11 +700,9 @@ export namespace ImportCertificateRequest {
     ...obj,
     ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ImportCertificateRequest => __isa(o, "ImportCertificateRequest");
 }
 
 export interface ImportCertificateResponse {
-  __type?: "ImportCertificateResponse";
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name
    *         (ARN)</a> of the imported certificate.</p>
@@ -747,7 +714,6 @@ export namespace ImportCertificateResponse {
   export const filterSensitiveLog = (obj: ImportCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportCertificateResponse => __isa(o, "ImportCertificateResponse");
 }
 
 /**
@@ -763,7 +729,6 @@ export namespace InvalidArgsException {
   export const filterSensitiveLog = (obj: InvalidArgsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArgsException => __isa(o, "InvalidArgsException");
 }
 
 /**
@@ -779,7 +744,6 @@ export namespace InvalidArnException {
   export const filterSensitiveLog = (obj: InvalidArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArnException => __isa(o, "InvalidArnException");
 }
 
 /**
@@ -796,8 +760,6 @@ export namespace InvalidDomainValidationOptionsException {
   export const filterSensitiveLog = (obj: InvalidDomainValidationOptionsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDomainValidationOptionsException =>
-    __isa(o, "InvalidDomainValidationOptionsException");
 }
 
 /**
@@ -813,7 +775,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -829,7 +790,6 @@ export namespace InvalidStateException {
   export const filterSensitiveLog = (obj: InvalidStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidStateException => __isa(o, "InvalidStateException");
 }
 
 /**
@@ -846,7 +806,6 @@ export namespace InvalidTagException {
   export const filterSensitiveLog = (obj: InvalidTagException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagException => __isa(o, "InvalidTagException");
 }
 
 export enum KeyAlgorithm {
@@ -863,7 +822,6 @@ export enum KeyAlgorithm {
  *       certificate.</p>
  */
 export interface KeyUsage {
-  __type?: "KeyUsage";
   /**
    * <p>A string value that contains a Key Usage extension name.</p>
    */
@@ -874,7 +832,6 @@ export namespace KeyUsage {
   export const filterSensitiveLog = (obj: KeyUsage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyUsage => __isa(o, "KeyUsage");
 }
 
 export enum KeyUsageName {
@@ -904,11 +861,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListCertificatesRequest {
-  __type?: "ListCertificatesRequest";
   /**
    * <p>Use this parameter when paginating results to specify the maximum number of items to
    *       return in the response. If additional items exist beyond the number you specify, the
@@ -940,11 +895,9 @@ export namespace ListCertificatesRequest {
   export const filterSensitiveLog = (obj: ListCertificatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCertificatesRequest => __isa(o, "ListCertificatesRequest");
 }
 
 export interface ListCertificatesResponse {
-  __type?: "ListCertificatesResponse";
   /**
    * <p>When the list is truncated, this value is present and contains the value to use for the
    *         <code>NextToken</code> parameter in a subsequent pagination request.</p>
@@ -961,11 +914,9 @@ export namespace ListCertificatesResponse {
   export const filterSensitiveLog = (obj: ListCertificatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCertificatesResponse => __isa(o, "ListCertificatesResponse");
 }
 
 export interface ListTagsForCertificateRequest {
-  __type?: "ListTagsForCertificateRequest";
   /**
    * <p>String that contains the ARN of the ACM certificate for which you want to list the tags.
    *       This must have the following form:</p>
@@ -981,11 +932,9 @@ export namespace ListTagsForCertificateRequest {
   export const filterSensitiveLog = (obj: ListTagsForCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForCertificateRequest => __isa(o, "ListTagsForCertificateRequest");
 }
 
 export interface ListTagsForCertificateResponse {
-  __type?: "ListTagsForCertificateResponse";
   /**
    * <p>The key-value pairs that define the applied tags.</p>
    */
@@ -996,7 +945,6 @@ export namespace ListTagsForCertificateResponse {
   export const filterSensitiveLog = (obj: ListTagsForCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForCertificateResponse => __isa(o, "ListTagsForCertificateResponse");
 }
 
 export enum RecordType {
@@ -1004,7 +952,6 @@ export enum RecordType {
 }
 
 export interface RemoveTagsFromCertificateRequest {
-  __type?: "RemoveTagsFromCertificateRequest";
   /**
    * <p>String that contains the ARN of the ACM Certificate with one or more tags that you want
    *       to remove. This must be of the form:</p>
@@ -1027,7 +974,6 @@ export namespace RemoveTagsFromCertificateRequest {
   export const filterSensitiveLog = (obj: RemoveTagsFromCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromCertificateRequest => __isa(o, "RemoveTagsFromCertificateRequest");
 }
 
 export enum RenewalEligibility {
@@ -1047,7 +993,6 @@ export enum RenewalStatus {
  *       structure exists only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
  */
 export interface RenewalSummary {
-  __type?: "RenewalSummary";
   /**
    * <p>The reason that a renewal request was unsuccessful.</p>
    */
@@ -1077,11 +1022,9 @@ export namespace RenewalSummary {
   export const filterSensitiveLog = (obj: RenewalSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RenewalSummary => __isa(o, "RenewalSummary");
 }
 
 export interface RenewCertificateRequest {
-  __type?: "RenewCertificateRequest";
   /**
    * <p>String that contains the ARN of the ACM certificate to be renewed. This must be of the
    *       form:</p>
@@ -1097,11 +1040,9 @@ export namespace RenewCertificateRequest {
   export const filterSensitiveLog = (obj: RenewCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RenewCertificateRequest => __isa(o, "RenewCertificateRequest");
 }
 
 export interface RequestCertificateRequest {
-  __type?: "RequestCertificateRequest";
   /**
    * <p>The domain name that you want ACM to use to send you emails so that you can validate
    *       domain ownership.</p>
@@ -1199,11 +1140,9 @@ export namespace RequestCertificateRequest {
   export const filterSensitiveLog = (obj: RequestCertificateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestCertificateRequest => __isa(o, "RequestCertificateRequest");
 }
 
 export interface RequestCertificateResponse {
-  __type?: "RequestCertificateResponse";
   /**
    * <p>String that contains the ARN of the issued certificate. This must be of the form:</p>
    *          <p>
@@ -1217,7 +1156,6 @@ export namespace RequestCertificateResponse {
   export const filterSensitiveLog = (obj: RequestCertificateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestCertificateResponse => __isa(o, "RequestCertificateResponse");
 }
 
 /**
@@ -1234,11 +1172,9 @@ export namespace RequestInProgressException {
   export const filterSensitiveLog = (obj: RequestInProgressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestInProgressException => __isa(o, "RequestInProgressException");
 }
 
 export interface ResendValidationEmailRequest {
-  __type?: "ResendValidationEmailRequest";
   /**
    * <p>The base validation domain that will act as the suffix of the email addresses that are
    *       used to send the emails. This must be the same as the <code>Domain</code> value or a
@@ -1289,7 +1225,6 @@ export namespace ResendValidationEmailRequest {
   export const filterSensitiveLog = (obj: ResendValidationEmailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResendValidationEmailRequest => __isa(o, "ResendValidationEmailRequest");
 }
 
 /**
@@ -1306,7 +1241,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -1323,7 +1257,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1331,7 +1264,6 @@ export namespace ResourceNotFoundException {
  *       of a domain. This is used by the <a>DescribeCertificate</a> action. </p>
  */
 export interface ResourceRecord {
-  __type?: "ResourceRecord";
   /**
    * <p>The value of the CNAME record to add to your DNS database. This is supplied by
    *       ACM.</p>
@@ -1353,7 +1285,6 @@ export namespace ResourceRecord {
   export const filterSensitiveLog = (obj: ResourceRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceRecord => __isa(o, "ResourceRecord");
 }
 
 export enum RevocationReason {
@@ -1373,7 +1304,6 @@ export enum RevocationReason {
  * <p>A key-value pair that identifies or specifies metadata about an ACM resource.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value of the tag.</p>
    */
@@ -1389,7 +1319,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -1405,7 +1334,6 @@ export namespace TagPolicyException {
   export const filterSensitiveLog = (obj: TagPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagPolicyException => __isa(o, "TagPolicyException");
 }
 
 /**
@@ -1421,11 +1349,9 @@ export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UpdateCertificateOptionsRequest {
-  __type?: "UpdateCertificateOptionsRequest";
   /**
    * <p>Use to update the options for your certificate. Currently, you can specify whether to add
    *       your certificate to a transparency log. Certificate transparency makes it possible to detect
@@ -1448,7 +1374,6 @@ export namespace UpdateCertificateOptionsRequest {
   export const filterSensitiveLog = (obj: UpdateCertificateOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCertificateOptionsRequest => __isa(o, "UpdateCertificateOptionsRequest");
 }
 
 export enum ValidationMethod {

@@ -596,7 +596,6 @@ export const deserializeAws_queryBuildSuggestersCommand = async (
   contents = deserializeAws_queryBuildSuggestersResponse(data.BuildSuggestersResult, context);
   const response: BuildSuggestersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BuildSuggestersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -667,7 +666,6 @@ export const deserializeAws_queryCreateDomainCommand = async (
   contents = deserializeAws_queryCreateDomainResponse(data.CreateDomainResult, context);
   const response: CreateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDomainResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -738,7 +736,6 @@ export const deserializeAws_queryDefineAnalysisSchemeCommand = async (
   contents = deserializeAws_queryDefineAnalysisSchemeResponse(data.DefineAnalysisSchemeResult, context);
   const response: DefineAnalysisSchemeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DefineAnalysisSchemeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -825,7 +822,6 @@ export const deserializeAws_queryDefineExpressionCommand = async (
   contents = deserializeAws_queryDefineExpressionResponse(data.DefineExpressionResult, context);
   const response: DefineExpressionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DefineExpressionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -912,7 +908,6 @@ export const deserializeAws_queryDefineIndexFieldCommand = async (
   contents = deserializeAws_queryDefineIndexFieldResponse(data.DefineIndexFieldResult, context);
   const response: DefineIndexFieldCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DefineIndexFieldResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -999,7 +994,6 @@ export const deserializeAws_queryDefineSuggesterCommand = async (
   contents = deserializeAws_queryDefineSuggesterResponse(data.DefineSuggesterResult, context);
   const response: DefineSuggesterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DefineSuggesterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1086,7 +1080,6 @@ export const deserializeAws_queryDeleteAnalysisSchemeCommand = async (
   contents = deserializeAws_queryDeleteAnalysisSchemeResponse(data.DeleteAnalysisSchemeResult, context);
   const response: DeleteAnalysisSchemeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAnalysisSchemeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1165,7 +1158,6 @@ export const deserializeAws_queryDeleteDomainCommand = async (
   contents = deserializeAws_queryDeleteDomainResponse(data.DeleteDomainResult, context);
   const response: DeleteDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDomainResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1228,7 +1220,6 @@ export const deserializeAws_queryDeleteExpressionCommand = async (
   contents = deserializeAws_queryDeleteExpressionResponse(data.DeleteExpressionResult, context);
   const response: DeleteExpressionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteExpressionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1307,7 +1298,6 @@ export const deserializeAws_queryDeleteIndexFieldCommand = async (
   contents = deserializeAws_queryDeleteIndexFieldResponse(data.DeleteIndexFieldResult, context);
   const response: DeleteIndexFieldCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteIndexFieldResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1386,7 +1376,6 @@ export const deserializeAws_queryDeleteSuggesterCommand = async (
   contents = deserializeAws_queryDeleteSuggesterResponse(data.DeleteSuggesterResult, context);
   const response: DeleteSuggesterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSuggesterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1465,7 +1454,6 @@ export const deserializeAws_queryDescribeAnalysisSchemesCommand = async (
   contents = deserializeAws_queryDescribeAnalysisSchemesResponse(data.DescribeAnalysisSchemesResult, context);
   const response: DescribeAnalysisSchemesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAnalysisSchemesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1536,7 +1524,6 @@ export const deserializeAws_queryDescribeAvailabilityOptionsCommand = async (
   contents = deserializeAws_queryDescribeAvailabilityOptionsResponse(data.DescribeAvailabilityOptionsResult, context);
   const response: DescribeAvailabilityOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAvailabilityOptionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1634,7 +1621,6 @@ export const deserializeAws_queryDescribeDomainEndpointOptionsCommand = async (
   );
   const response: DescribeDomainEndpointOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDomainEndpointOptionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1721,7 +1707,6 @@ export const deserializeAws_queryDescribeDomainsCommand = async (
   contents = deserializeAws_queryDescribeDomainsResponse(data.DescribeDomainsResult, context);
   const response: DescribeDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDomainsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1784,7 +1769,6 @@ export const deserializeAws_queryDescribeExpressionsCommand = async (
   contents = deserializeAws_queryDescribeExpressionsResponse(data.DescribeExpressionsResult, context);
   const response: DescribeExpressionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeExpressionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1855,7 +1839,6 @@ export const deserializeAws_queryDescribeIndexFieldsCommand = async (
   contents = deserializeAws_queryDescribeIndexFieldsResponse(data.DescribeIndexFieldsResult, context);
   const response: DescribeIndexFieldsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeIndexFieldsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1926,7 +1909,6 @@ export const deserializeAws_queryDescribeScalingParametersCommand = async (
   contents = deserializeAws_queryDescribeScalingParametersResponse(data.DescribeScalingParametersResult, context);
   const response: DescribeScalingParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScalingParametersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2000,7 +1982,6 @@ export const deserializeAws_queryDescribeServiceAccessPoliciesCommand = async (
   );
   const response: DescribeServiceAccessPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeServiceAccessPoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2071,7 +2052,6 @@ export const deserializeAws_queryDescribeSuggestersCommand = async (
   contents = deserializeAws_queryDescribeSuggestersResponse(data.DescribeSuggestersResult, context);
   const response: DescribeSuggestersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSuggestersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2142,7 +2122,6 @@ export const deserializeAws_queryIndexDocumentsCommand = async (
   contents = deserializeAws_queryIndexDocumentsResponse(data.IndexDocumentsResult, context);
   const response: IndexDocumentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IndexDocumentsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2213,7 +2192,6 @@ export const deserializeAws_queryListDomainNamesCommand = async (
   contents = deserializeAws_queryListDomainNamesResponse(data.ListDomainNamesResult, context);
   const response: ListDomainNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDomainNamesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2268,7 +2246,6 @@ export const deserializeAws_queryUpdateAvailabilityOptionsCommand = async (
   contents = deserializeAws_queryUpdateAvailabilityOptionsResponse(data.UpdateAvailabilityOptionsResult, context);
   const response: UpdateAvailabilityOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAvailabilityOptionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2371,7 +2348,6 @@ export const deserializeAws_queryUpdateDomainEndpointOptionsCommand = async (
   contents = deserializeAws_queryUpdateDomainEndpointOptionsResponse(data.UpdateDomainEndpointOptionsResult, context);
   const response: UpdateDomainEndpointOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDomainEndpointOptionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2474,7 +2450,6 @@ export const deserializeAws_queryUpdateScalingParametersCommand = async (
   contents = deserializeAws_queryUpdateScalingParametersResponse(data.UpdateScalingParametersResult, context);
   const response: UpdateScalingParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateScalingParametersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2561,7 +2536,6 @@ export const deserializeAws_queryUpdateServiceAccessPoliciesCommand = async (
   contents = deserializeAws_queryUpdateServiceAccessPoliciesResponse(data.UpdateServiceAccessPoliciesResult, context);
   const response: UpdateServiceAccessPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateServiceAccessPoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3557,7 +3531,6 @@ const serializeAws_queryUpdateServiceAccessPoliciesRequest = (
 
 const deserializeAws_queryAccessPoliciesStatus = (output: any, context: __SerdeContext): AccessPoliciesStatus => {
   let contents: any = {
-    __type: "AccessPoliciesStatus",
     Options: undefined,
     Status: undefined,
   };
@@ -3572,7 +3545,6 @@ const deserializeAws_queryAccessPoliciesStatus = (output: any, context: __SerdeC
 
 const deserializeAws_queryAnalysisOptions = (output: any, context: __SerdeContext): AnalysisOptions => {
   let contents: any = {
-    __type: "AnalysisOptions",
     StemmingDictionary: undefined,
     AlgorithmicStemming: undefined,
     Synonyms: undefined,
@@ -3599,7 +3571,6 @@ const deserializeAws_queryAnalysisOptions = (output: any, context: __SerdeContex
 
 const deserializeAws_queryAnalysisScheme = (output: any, context: __SerdeContext): AnalysisScheme => {
   let contents: any = {
-    __type: "AnalysisScheme",
     AnalysisSchemeLanguage: undefined,
     AnalysisSchemeName: undefined,
     AnalysisOptions: undefined,
@@ -3618,7 +3589,6 @@ const deserializeAws_queryAnalysisScheme = (output: any, context: __SerdeContext
 
 const deserializeAws_queryAnalysisSchemeStatus = (output: any, context: __SerdeContext): AnalysisSchemeStatus => {
   let contents: any = {
-    __type: "AnalysisSchemeStatus",
     Status: undefined,
     Options: undefined,
   };
@@ -3640,7 +3610,6 @@ const deserializeAws_queryAvailabilityOptionsStatus = (
   context: __SerdeContext
 ): AvailabilityOptionsStatus => {
   let contents: any = {
-    __type: "AvailabilityOptionsStatus",
     Options: undefined,
     Status: undefined,
   };
@@ -3655,7 +3624,6 @@ const deserializeAws_queryAvailabilityOptionsStatus = (
 
 const deserializeAws_queryBaseException = (output: any, context: __SerdeContext): BaseException => {
   let contents: any = {
-    __type: "BaseException",
     Code: undefined,
     Message: undefined,
   };
@@ -3670,7 +3638,6 @@ const deserializeAws_queryBaseException = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryBuildSuggestersResponse = (output: any, context: __SerdeContext): BuildSuggestersResponse => {
   let contents: any = {
-    __type: "BuildSuggestersResponse",
     FieldNames: undefined,
   };
   if (output.FieldNames === "") {
@@ -3687,7 +3654,6 @@ const deserializeAws_queryBuildSuggestersResponse = (output: any, context: __Ser
 
 const deserializeAws_queryCreateDomainResponse = (output: any, context: __SerdeContext): CreateDomainResponse => {
   let contents: any = {
-    __type: "CreateDomainResponse",
     DomainStatus: undefined,
   };
   if (output["DomainStatus"] !== undefined) {
@@ -3698,7 +3664,6 @@ const deserializeAws_queryCreateDomainResponse = (output: any, context: __SerdeC
 
 const deserializeAws_queryDateArrayOptions = (output: any, context: __SerdeContext): DateArrayOptions => {
   let contents: any = {
-    __type: "DateArrayOptions",
     DefaultValue: undefined,
     ReturnEnabled: undefined,
     SourceFields: undefined,
@@ -3725,7 +3690,6 @@ const deserializeAws_queryDateArrayOptions = (output: any, context: __SerdeConte
 
 const deserializeAws_queryDateOptions = (output: any, context: __SerdeContext): DateOptions => {
   let contents: any = {
-    __type: "DateOptions",
     FacetEnabled: undefined,
     SearchEnabled: undefined,
     DefaultValue: undefined,
@@ -3759,7 +3723,6 @@ const deserializeAws_queryDefineAnalysisSchemeResponse = (
   context: __SerdeContext
 ): DefineAnalysisSchemeResponse => {
   let contents: any = {
-    __type: "DefineAnalysisSchemeResponse",
     AnalysisScheme: undefined,
   };
   if (output["AnalysisScheme"] !== undefined) {
@@ -3773,7 +3736,6 @@ const deserializeAws_queryDefineExpressionResponse = (
   context: __SerdeContext
 ): DefineExpressionResponse => {
   let contents: any = {
-    __type: "DefineExpressionResponse",
     Expression: undefined,
   };
   if (output["Expression"] !== undefined) {
@@ -3787,7 +3749,6 @@ const deserializeAws_queryDefineIndexFieldResponse = (
   context: __SerdeContext
 ): DefineIndexFieldResponse => {
   let contents: any = {
-    __type: "DefineIndexFieldResponse",
     IndexField: undefined,
   };
   if (output["IndexField"] !== undefined) {
@@ -3798,7 +3759,6 @@ const deserializeAws_queryDefineIndexFieldResponse = (
 
 const deserializeAws_queryDefineSuggesterResponse = (output: any, context: __SerdeContext): DefineSuggesterResponse => {
   let contents: any = {
-    __type: "DefineSuggesterResponse",
     Suggester: undefined,
   };
   if (output["Suggester"] !== undefined) {
@@ -3812,7 +3772,6 @@ const deserializeAws_queryDeleteAnalysisSchemeResponse = (
   context: __SerdeContext
 ): DeleteAnalysisSchemeResponse => {
   let contents: any = {
-    __type: "DeleteAnalysisSchemeResponse",
     AnalysisScheme: undefined,
   };
   if (output["AnalysisScheme"] !== undefined) {
@@ -3823,7 +3782,6 @@ const deserializeAws_queryDeleteAnalysisSchemeResponse = (
 
 const deserializeAws_queryDeleteDomainResponse = (output: any, context: __SerdeContext): DeleteDomainResponse => {
   let contents: any = {
-    __type: "DeleteDomainResponse",
     DomainStatus: undefined,
   };
   if (output["DomainStatus"] !== undefined) {
@@ -3837,7 +3795,6 @@ const deserializeAws_queryDeleteExpressionResponse = (
   context: __SerdeContext
 ): DeleteExpressionResponse => {
   let contents: any = {
-    __type: "DeleteExpressionResponse",
     Expression: undefined,
   };
   if (output["Expression"] !== undefined) {
@@ -3851,7 +3808,6 @@ const deserializeAws_queryDeleteIndexFieldResponse = (
   context: __SerdeContext
 ): DeleteIndexFieldResponse => {
   let contents: any = {
-    __type: "DeleteIndexFieldResponse",
     IndexField: undefined,
   };
   if (output["IndexField"] !== undefined) {
@@ -3862,7 +3818,6 @@ const deserializeAws_queryDeleteIndexFieldResponse = (
 
 const deserializeAws_queryDeleteSuggesterResponse = (output: any, context: __SerdeContext): DeleteSuggesterResponse => {
   let contents: any = {
-    __type: "DeleteSuggesterResponse",
     Suggester: undefined,
   };
   if (output["Suggester"] !== undefined) {
@@ -3876,7 +3831,6 @@ const deserializeAws_queryDescribeAnalysisSchemesResponse = (
   context: __SerdeContext
 ): DescribeAnalysisSchemesResponse => {
   let contents: any = {
-    __type: "DescribeAnalysisSchemesResponse",
     AnalysisSchemes: undefined,
   };
   if (output.AnalysisSchemes === "") {
@@ -3896,7 +3850,6 @@ const deserializeAws_queryDescribeAvailabilityOptionsResponse = (
   context: __SerdeContext
 ): DescribeAvailabilityOptionsResponse => {
   let contents: any = {
-    __type: "DescribeAvailabilityOptionsResponse",
     AvailabilityOptions: undefined,
   };
   if (output["AvailabilityOptions"] !== undefined) {
@@ -3913,7 +3866,6 @@ const deserializeAws_queryDescribeDomainEndpointOptionsResponse = (
   context: __SerdeContext
 ): DescribeDomainEndpointOptionsResponse => {
   let contents: any = {
-    __type: "DescribeDomainEndpointOptionsResponse",
     DomainEndpointOptions: undefined,
   };
   if (output["DomainEndpointOptions"] !== undefined) {
@@ -3927,7 +3879,6 @@ const deserializeAws_queryDescribeDomainEndpointOptionsResponse = (
 
 const deserializeAws_queryDescribeDomainsResponse = (output: any, context: __SerdeContext): DescribeDomainsResponse => {
   let contents: any = {
-    __type: "DescribeDomainsResponse",
     DomainStatusList: undefined,
   };
   if (output.DomainStatusList === "") {
@@ -3947,7 +3898,6 @@ const deserializeAws_queryDescribeExpressionsResponse = (
   context: __SerdeContext
 ): DescribeExpressionsResponse => {
   let contents: any = {
-    __type: "DescribeExpressionsResponse",
     Expressions: undefined,
   };
   if (output.Expressions === "") {
@@ -3967,7 +3917,6 @@ const deserializeAws_queryDescribeIndexFieldsResponse = (
   context: __SerdeContext
 ): DescribeIndexFieldsResponse => {
   let contents: any = {
-    __type: "DescribeIndexFieldsResponse",
     IndexFields: undefined,
   };
   if (output.IndexFields === "") {
@@ -3987,7 +3936,6 @@ const deserializeAws_queryDescribeScalingParametersResponse = (
   context: __SerdeContext
 ): DescribeScalingParametersResponse => {
   let contents: any = {
-    __type: "DescribeScalingParametersResponse",
     ScalingParameters: undefined,
   };
   if (output["ScalingParameters"] !== undefined) {
@@ -4001,7 +3949,6 @@ const deserializeAws_queryDescribeServiceAccessPoliciesResponse = (
   context: __SerdeContext
 ): DescribeServiceAccessPoliciesResponse => {
   let contents: any = {
-    __type: "DescribeServiceAccessPoliciesResponse",
     AccessPolicies: undefined,
   };
   if (output["AccessPolicies"] !== undefined) {
@@ -4015,7 +3962,6 @@ const deserializeAws_queryDescribeSuggestersResponse = (
   context: __SerdeContext
 ): DescribeSuggestersResponse => {
   let contents: any = {
-    __type: "DescribeSuggestersResponse",
     Suggesters: undefined,
   };
   if (output.Suggesters === "") {
@@ -4035,7 +3981,6 @@ const deserializeAws_queryDisabledOperationException = (
   context: __SerdeContext
 ): DisabledOperationException => {
   let contents: any = {
-    __type: "DisabledOperationException",
     Message: undefined,
     Code: undefined,
   };
@@ -4053,7 +3998,6 @@ const deserializeAws_queryDocumentSuggesterOptions = (
   context: __SerdeContext
 ): DocumentSuggesterOptions => {
   let contents: any = {
-    __type: "DocumentSuggesterOptions",
     SourceField: undefined,
     FuzzyMatching: undefined,
     SortExpression: undefined,
@@ -4072,7 +4016,6 @@ const deserializeAws_queryDocumentSuggesterOptions = (
 
 const deserializeAws_queryDomainEndpointOptions = (output: any, context: __SerdeContext): DomainEndpointOptions => {
   let contents: any = {
-    __type: "DomainEndpointOptions",
     TLSSecurityPolicy: undefined,
     EnforceHTTPS: undefined,
   };
@@ -4090,7 +4033,6 @@ const deserializeAws_queryDomainEndpointOptionsStatus = (
   context: __SerdeContext
 ): DomainEndpointOptionsStatus => {
   let contents: any = {
-    __type: "DomainEndpointOptionsStatus",
     Options: undefined,
     Status: undefined,
   };
@@ -4115,7 +4057,6 @@ const deserializeAws_queryDomainNameMap = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
   let contents: any = {
-    __type: "DomainStatus",
     RequiresIndexDocuments: undefined,
     SearchInstanceType: undefined,
     Processing: undefined,
@@ -4178,7 +4119,6 @@ const deserializeAws_queryDomainStatusList = (output: any, context: __SerdeConte
 
 const deserializeAws_queryDoubleArrayOptions = (output: any, context: __SerdeContext): DoubleArrayOptions => {
   let contents: any = {
-    __type: "DoubleArrayOptions",
     FacetEnabled: undefined,
     SourceFields: undefined,
     SearchEnabled: undefined,
@@ -4205,7 +4145,6 @@ const deserializeAws_queryDoubleArrayOptions = (output: any, context: __SerdeCon
 
 const deserializeAws_queryDoubleOptions = (output: any, context: __SerdeContext): DoubleOptions => {
   let contents: any = {
-    __type: "DoubleOptions",
     SearchEnabled: undefined,
     SourceField: undefined,
     SortEnabled: undefined,
@@ -4236,7 +4175,6 @@ const deserializeAws_queryDoubleOptions = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryExpression = (output: any, context: __SerdeContext): Expression => {
   let contents: any = {
-    __type: "Expression",
     ExpressionValue: undefined,
     ExpressionName: undefined,
   };
@@ -4251,7 +4189,6 @@ const deserializeAws_queryExpression = (output: any, context: __SerdeContext): E
 
 const deserializeAws_queryExpressionStatus = (output: any, context: __SerdeContext): ExpressionStatus => {
   let contents: any = {
-    __type: "ExpressionStatus",
     Status: undefined,
     Options: undefined,
   };
@@ -4274,7 +4211,6 @@ const deserializeAws_queryFieldNameList = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryIndexDocumentsResponse = (output: any, context: __SerdeContext): IndexDocumentsResponse => {
   let contents: any = {
-    __type: "IndexDocumentsResponse",
     FieldNames: undefined,
   };
   if (output.FieldNames === "") {
@@ -4291,7 +4227,6 @@ const deserializeAws_queryIndexDocumentsResponse = (output: any, context: __Serd
 
 const deserializeAws_queryIndexField = (output: any, context: __SerdeContext): IndexField => {
   let contents: any = {
-    __type: "IndexField",
     DoubleOptions: undefined,
     DoubleArrayOptions: undefined,
     LatLonOptions: undefined,
@@ -4350,7 +4285,6 @@ const deserializeAws_queryIndexField = (output: any, context: __SerdeContext): I
 
 const deserializeAws_queryIndexFieldStatus = (output: any, context: __SerdeContext): IndexFieldStatus => {
   let contents: any = {
-    __type: "IndexFieldStatus",
     Options: undefined,
     Status: undefined,
   };
@@ -4369,7 +4303,6 @@ const deserializeAws_queryIndexFieldStatusList = (output: any, context: __SerdeC
 
 const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContext): IntArrayOptions => {
   let contents: any = {
-    __type: "IntArrayOptions",
     SearchEnabled: undefined,
     FacetEnabled: undefined,
     DefaultValue: undefined,
@@ -4396,7 +4329,6 @@ const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContex
 
 const deserializeAws_queryInternalException = (output: any, context: __SerdeContext): InternalException => {
   let contents: any = {
-    __type: "InternalException",
     Message: undefined,
     Code: undefined,
   };
@@ -4411,7 +4343,6 @@ const deserializeAws_queryInternalException = (output: any, context: __SerdeCont
 
 const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): IntOptions => {
   let contents: any = {
-    __type: "IntOptions",
     SortEnabled: undefined,
     FacetEnabled: undefined,
     SearchEnabled: undefined,
@@ -4442,7 +4373,6 @@ const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): I
 
 const deserializeAws_queryInvalidTypeException = (output: any, context: __SerdeContext): InvalidTypeException => {
   let contents: any = {
-    __type: "InvalidTypeException",
     Code: undefined,
     Message: undefined,
   };
@@ -4457,7 +4387,6 @@ const deserializeAws_queryInvalidTypeException = (output: any, context: __SerdeC
 
 const deserializeAws_queryLatLonOptions = (output: any, context: __SerdeContext): LatLonOptions => {
   let contents: any = {
-    __type: "LatLonOptions",
     SortEnabled: undefined,
     DefaultValue: undefined,
     ReturnEnabled: undefined,
@@ -4488,7 +4417,6 @@ const deserializeAws_queryLatLonOptions = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   let contents: any = {
-    __type: "LimitExceededException",
     Message: undefined,
     Code: undefined,
   };
@@ -4503,7 +4431,6 @@ const deserializeAws_queryLimitExceededException = (output: any, context: __Serd
 
 const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limits => {
   let contents: any = {
-    __type: "Limits",
     MaximumReplicationCount: undefined,
     MaximumPartitionCount: undefined,
   };
@@ -4518,7 +4445,6 @@ const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limit
 
 const deserializeAws_queryListDomainNamesResponse = (output: any, context: __SerdeContext): ListDomainNamesResponse => {
   let contents: any = {
-    __type: "ListDomainNamesResponse",
     DomainNames: undefined,
   };
   if (output.DomainNames === "") {
@@ -4535,7 +4461,6 @@ const deserializeAws_queryListDomainNamesResponse = (output: any, context: __Ser
 
 const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeContext): LiteralArrayOptions => {
   let contents: any = {
-    __type: "LiteralArrayOptions",
     SearchEnabled: undefined,
     FacetEnabled: undefined,
     DefaultValue: undefined,
@@ -4562,7 +4487,6 @@ const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeCo
 
 const deserializeAws_queryLiteralOptions = (output: any, context: __SerdeContext): LiteralOptions => {
   let contents: any = {
-    __type: "LiteralOptions",
     SortEnabled: undefined,
     FacetEnabled: undefined,
     SearchEnabled: undefined,
@@ -4593,7 +4517,6 @@ const deserializeAws_queryLiteralOptions = (output: any, context: __SerdeContext
 
 const deserializeAws_queryOptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
   let contents: any = {
-    __type: "OptionStatus",
     CreationDate: undefined,
     UpdateVersion: undefined,
     PendingDeletion: undefined,
@@ -4623,7 +4546,6 @@ const deserializeAws_queryResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   let contents: any = {
-    __type: "ResourceNotFoundException",
     Code: undefined,
     Message: undefined,
   };
@@ -4638,7 +4560,6 @@ const deserializeAws_queryResourceNotFoundException = (
 
 const deserializeAws_queryScalingParameters = (output: any, context: __SerdeContext): ScalingParameters => {
   let contents: any = {
-    __type: "ScalingParameters",
     DesiredReplicationCount: undefined,
     DesiredPartitionCount: undefined,
     DesiredInstanceType: undefined,
@@ -4657,7 +4578,6 @@ const deserializeAws_queryScalingParameters = (output: any, context: __SerdeCont
 
 const deserializeAws_queryScalingParametersStatus = (output: any, context: __SerdeContext): ScalingParametersStatus => {
   let contents: any = {
-    __type: "ScalingParametersStatus",
     Options: undefined,
     Status: undefined,
   };
@@ -4672,7 +4592,6 @@ const deserializeAws_queryScalingParametersStatus = (output: any, context: __Ser
 
 const deserializeAws_queryServiceEndpoint = (output: any, context: __SerdeContext): ServiceEndpoint => {
   let contents: any = {
-    __type: "ServiceEndpoint",
     Endpoint: undefined,
   };
   if (output["Endpoint"] !== undefined) {
@@ -4683,7 +4602,6 @@ const deserializeAws_queryServiceEndpoint = (output: any, context: __SerdeContex
 
 const deserializeAws_querySuggester = (output: any, context: __SerdeContext): Suggester => {
   let contents: any = {
-    __type: "Suggester",
     SuggesterName: undefined,
     DocumentSuggesterOptions: undefined,
   };
@@ -4701,7 +4619,6 @@ const deserializeAws_querySuggester = (output: any, context: __SerdeContext): Su
 
 const deserializeAws_querySuggesterStatus = (output: any, context: __SerdeContext): SuggesterStatus => {
   let contents: any = {
-    __type: "SuggesterStatus",
     Options: undefined,
     Status: undefined,
   };
@@ -4720,7 +4637,6 @@ const deserializeAws_querySuggesterStatusList = (output: any, context: __SerdeCo
 
 const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeContext): TextArrayOptions => {
   let contents: any = {
-    __type: "TextArrayOptions",
     ReturnEnabled: undefined,
     DefaultValue: undefined,
     SourceFields: undefined,
@@ -4747,7 +4663,6 @@ const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeConte
 
 const deserializeAws_queryTextOptions = (output: any, context: __SerdeContext): TextOptions => {
   let contents: any = {
-    __type: "TextOptions",
     ReturnEnabled: undefined,
     SortEnabled: undefined,
     DefaultValue: undefined,
@@ -4781,7 +4696,6 @@ const deserializeAws_queryUpdateAvailabilityOptionsResponse = (
   context: __SerdeContext
 ): UpdateAvailabilityOptionsResponse => {
   let contents: any = {
-    __type: "UpdateAvailabilityOptionsResponse",
     AvailabilityOptions: undefined,
   };
   if (output["AvailabilityOptions"] !== undefined) {
@@ -4798,7 +4712,6 @@ const deserializeAws_queryUpdateDomainEndpointOptionsResponse = (
   context: __SerdeContext
 ): UpdateDomainEndpointOptionsResponse => {
   let contents: any = {
-    __type: "UpdateDomainEndpointOptionsResponse",
     DomainEndpointOptions: undefined,
   };
   if (output["DomainEndpointOptions"] !== undefined) {
@@ -4815,7 +4728,6 @@ const deserializeAws_queryUpdateScalingParametersResponse = (
   context: __SerdeContext
 ): UpdateScalingParametersResponse => {
   let contents: any = {
-    __type: "UpdateScalingParametersResponse",
     ScalingParameters: undefined,
   };
   if (output["ScalingParameters"] !== undefined) {
@@ -4829,7 +4741,6 @@ const deserializeAws_queryUpdateServiceAccessPoliciesResponse = (
   context: __SerdeContext
 ): UpdateServiceAccessPoliciesResponse => {
   let contents: any = {
-    __type: "UpdateServiceAccessPoliciesResponse",
     AccessPolicies: undefined,
   };
   if (output["AccessPolicies"] !== undefined) {
@@ -4840,7 +4751,6 @@ const deserializeAws_queryUpdateServiceAccessPoliciesResponse = (
 
 const deserializeAws_queryValidationException = (output: any, context: __SerdeContext): ValidationException => {
   let contents: any = {
-    __type: "ValidationException",
     Message: undefined,
     Code: undefined,
   };

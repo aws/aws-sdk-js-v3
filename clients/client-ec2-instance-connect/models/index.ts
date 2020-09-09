@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AuthException {
   export const filterSensitiveLog = (obj: AuthException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthException => __isa(o, "AuthException");
 }
 
 /**
@@ -30,7 +29,6 @@ export namespace EC2InstanceNotFoundException {
   export const filterSensitiveLog = (obj: EC2InstanceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EC2InstanceNotFoundException => __isa(o, "EC2InstanceNotFoundException");
 }
 
 /**
@@ -46,11 +44,9 @@ export namespace InvalidArgsException {
   export const filterSensitiveLog = (obj: InvalidArgsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArgsException => __isa(o, "InvalidArgsException");
 }
 
 export interface SendSSHPublicKeyRequest {
-  __type?: "SendSSHPublicKeyRequest";
   /**
    * <p>The availability zone the EC2 instance was launched in.</p>
    */
@@ -76,11 +72,9 @@ export namespace SendSSHPublicKeyRequest {
   export const filterSensitiveLog = (obj: SendSSHPublicKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendSSHPublicKeyRequest => __isa(o, "SendSSHPublicKeyRequest");
 }
 
 export interface SendSSHPublicKeyResponse {
-  __type?: "SendSSHPublicKeyResponse";
   /**
    * <p>Indicates request success.</p>
    */
@@ -96,7 +90,6 @@ export namespace SendSSHPublicKeyResponse {
   export const filterSensitiveLog = (obj: SendSSHPublicKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendSSHPublicKeyResponse => __isa(o, "SendSSHPublicKeyResponse");
 }
 
 /**
@@ -112,7 +105,6 @@ export namespace ServiceException {
   export const filterSensitiveLog = (obj: ServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceException => __isa(o, "ServiceException");
 }
 
 /**
@@ -128,5 +120,4 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }

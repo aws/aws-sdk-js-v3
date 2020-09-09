@@ -1018,7 +1018,6 @@ export const deserializeAws_json1_1BatchDetectDominantLanguageCommand = async (
   contents = deserializeAws_json1_1BatchDetectDominantLanguageResponse(data, context);
   const response: BatchDetectDominantLanguageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDetectDominantLanguageResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1098,7 +1097,6 @@ export const deserializeAws_json1_1BatchDetectEntitiesCommand = async (
   contents = deserializeAws_json1_1BatchDetectEntitiesResponse(data, context);
   const response: BatchDetectEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDetectEntitiesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1186,7 +1184,6 @@ export const deserializeAws_json1_1BatchDetectKeyPhrasesCommand = async (
   contents = deserializeAws_json1_1BatchDetectKeyPhrasesResponse(data, context);
   const response: BatchDetectKeyPhrasesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDetectKeyPhrasesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1274,7 +1271,6 @@ export const deserializeAws_json1_1BatchDetectSentimentCommand = async (
   contents = deserializeAws_json1_1BatchDetectSentimentResponse(data, context);
   const response: BatchDetectSentimentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDetectSentimentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1362,7 +1358,6 @@ export const deserializeAws_json1_1BatchDetectSyntaxCommand = async (
   contents = deserializeAws_json1_1BatchDetectSyntaxResponse(data, context);
   const response: BatchDetectSyntaxCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDetectSyntaxResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1450,7 +1445,6 @@ export const deserializeAws_json1_1ClassifyDocumentCommand = async (
   contents = deserializeAws_json1_1ClassifyDocumentResponse(data, context);
   const response: ClassifyDocumentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClassifyDocumentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1530,7 +1524,6 @@ export const deserializeAws_json1_1CreateDocumentClassifierCommand = async (
   contents = deserializeAws_json1_1CreateDocumentClassifierResponse(data, context);
   const response: CreateDocumentClassifierCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDocumentClassifierResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1642,7 +1635,6 @@ export const deserializeAws_json1_1CreateEndpointCommand = async (
   contents = deserializeAws_json1_1CreateEndpointResponse(data, context);
   const response: CreateEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEndpointResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1754,7 +1746,6 @@ export const deserializeAws_json1_1CreateEntityRecognizerCommand = async (
   contents = deserializeAws_json1_1CreateEntityRecognizerResponse(data, context);
   const response: CreateEntityRecognizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEntityRecognizerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1866,7 +1857,6 @@ export const deserializeAws_json1_1DeleteDocumentClassifierCommand = async (
   contents = deserializeAws_json1_1DeleteDocumentClassifierResponse(data, context);
   const response: DeleteDocumentClassifierCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDocumentClassifierResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1962,7 +1952,6 @@ export const deserializeAws_json1_1DeleteEndpointCommand = async (
   contents = deserializeAws_json1_1DeleteEndpointResponse(data, context);
   const response: DeleteEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEndpointResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2050,7 +2039,6 @@ export const deserializeAws_json1_1DeleteEntityRecognizerCommand = async (
   contents = deserializeAws_json1_1DeleteEntityRecognizerResponse(data, context);
   const response: DeleteEntityRecognizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEntityRecognizerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2146,7 +2134,6 @@ export const deserializeAws_json1_1DescribeDocumentClassificationJobCommand = as
   contents = deserializeAws_json1_1DescribeDocumentClassificationJobResponse(data, context);
   const response: DescribeDocumentClassificationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDocumentClassificationJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2226,7 +2213,6 @@ export const deserializeAws_json1_1DescribeDocumentClassifierCommand = async (
   contents = deserializeAws_json1_1DescribeDocumentClassifierResponse(data, context);
   const response: DescribeDocumentClassifierCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDocumentClassifierResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2306,7 +2292,6 @@ export const deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand =
   contents = deserializeAws_json1_1DescribeDominantLanguageDetectionJobResponse(data, context);
   const response: DescribeDominantLanguageDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDominantLanguageDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2386,7 +2371,6 @@ export const deserializeAws_json1_1DescribeEndpointCommand = async (
   contents = deserializeAws_json1_1DescribeEndpointResponse(data, context);
   const response: DescribeEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEndpointResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2466,7 +2450,6 @@ export const deserializeAws_json1_1DescribeEntitiesDetectionJobCommand = async (
   contents = deserializeAws_json1_1DescribeEntitiesDetectionJobResponse(data, context);
   const response: DescribeEntitiesDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEntitiesDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2546,7 +2529,6 @@ export const deserializeAws_json1_1DescribeEntityRecognizerCommand = async (
   contents = deserializeAws_json1_1DescribeEntityRecognizerResponse(data, context);
   const response: DescribeEntityRecognizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEntityRecognizerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2626,7 +2608,6 @@ export const deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand = async
   contents = deserializeAws_json1_1DescribeKeyPhrasesDetectionJobResponse(data, context);
   const response: DescribeKeyPhrasesDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeKeyPhrasesDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2706,7 +2687,6 @@ export const deserializeAws_json1_1DescribeSentimentDetectionJobCommand = async 
   contents = deserializeAws_json1_1DescribeSentimentDetectionJobResponse(data, context);
   const response: DescribeSentimentDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSentimentDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2786,7 +2766,6 @@ export const deserializeAws_json1_1DescribeTopicsDetectionJobCommand = async (
   contents = deserializeAws_json1_1DescribeTopicsDetectionJobResponse(data, context);
   const response: DescribeTopicsDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTopicsDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2866,7 +2845,6 @@ export const deserializeAws_json1_1DetectDominantLanguageCommand = async (
   contents = deserializeAws_json1_1DetectDominantLanguageResponse(data, context);
   const response: DetectDominantLanguageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectDominantLanguageResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2938,7 +2916,6 @@ export const deserializeAws_json1_1DetectEntitiesCommand = async (
   contents = deserializeAws_json1_1DetectEntitiesResponse(data, context);
   const response: DetectEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectEntitiesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3026,7 +3003,6 @@ export const deserializeAws_json1_1DetectKeyPhrasesCommand = async (
   contents = deserializeAws_json1_1DetectKeyPhrasesResponse(data, context);
   const response: DetectKeyPhrasesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectKeyPhrasesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3106,7 +3082,6 @@ export const deserializeAws_json1_1DetectSentimentCommand = async (
   contents = deserializeAws_json1_1DetectSentimentResponse(data, context);
   const response: DetectSentimentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectSentimentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3186,7 +3161,6 @@ export const deserializeAws_json1_1DetectSyntaxCommand = async (
   contents = deserializeAws_json1_1DetectSyntaxResponse(data, context);
   const response: DetectSyntaxCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectSyntaxResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3266,7 +3240,6 @@ export const deserializeAws_json1_1ListDocumentClassificationJobsCommand = async
   contents = deserializeAws_json1_1ListDocumentClassificationJobsResponse(data, context);
   const response: ListDocumentClassificationJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDocumentClassificationJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3346,7 +3319,6 @@ export const deserializeAws_json1_1ListDocumentClassifiersCommand = async (
   contents = deserializeAws_json1_1ListDocumentClassifiersResponse(data, context);
   const response: ListDocumentClassifiersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDocumentClassifiersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3426,7 +3398,6 @@ export const deserializeAws_json1_1ListDominantLanguageDetectionJobsCommand = as
   contents = deserializeAws_json1_1ListDominantLanguageDetectionJobsResponse(data, context);
   const response: ListDominantLanguageDetectionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDominantLanguageDetectionJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3506,7 +3477,6 @@ export const deserializeAws_json1_1ListEndpointsCommand = async (
   contents = deserializeAws_json1_1ListEndpointsResponse(data, context);
   const response: ListEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEndpointsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3578,7 +3548,6 @@ export const deserializeAws_json1_1ListEntitiesDetectionJobsCommand = async (
   contents = deserializeAws_json1_1ListEntitiesDetectionJobsResponse(data, context);
   const response: ListEntitiesDetectionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEntitiesDetectionJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3658,7 +3627,6 @@ export const deserializeAws_json1_1ListEntityRecognizersCommand = async (
   contents = deserializeAws_json1_1ListEntityRecognizersResponse(data, context);
   const response: ListEntityRecognizersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEntityRecognizersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3738,7 +3706,6 @@ export const deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand = async (
   contents = deserializeAws_json1_1ListKeyPhrasesDetectionJobsResponse(data, context);
   const response: ListKeyPhrasesDetectionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListKeyPhrasesDetectionJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3818,7 +3785,6 @@ export const deserializeAws_json1_1ListSentimentDetectionJobsCommand = async (
   contents = deserializeAws_json1_1ListSentimentDetectionJobsResponse(data, context);
   const response: ListSentimentDetectionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSentimentDetectionJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3898,7 +3864,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3970,7 +3935,6 @@ export const deserializeAws_json1_1ListTopicsDetectionJobsCommand = async (
   contents = deserializeAws_json1_1ListTopicsDetectionJobsResponse(data, context);
   const response: ListTopicsDetectionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTopicsDetectionJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4050,7 +4014,6 @@ export const deserializeAws_json1_1StartDocumentClassificationJobCommand = async
   contents = deserializeAws_json1_1StartDocumentClassificationJobResponse(data, context);
   const response: StartDocumentClassificationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartDocumentClassificationJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4146,7 +4109,6 @@ export const deserializeAws_json1_1StartDominantLanguageDetectionJobCommand = as
   contents = deserializeAws_json1_1StartDominantLanguageDetectionJobResponse(data, context);
   const response: StartDominantLanguageDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartDominantLanguageDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4226,7 +4188,6 @@ export const deserializeAws_json1_1StartEntitiesDetectionJobCommand = async (
   contents = deserializeAws_json1_1StartEntitiesDetectionJobResponse(data, context);
   const response: StartEntitiesDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartEntitiesDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4322,7 +4283,6 @@ export const deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand = async (
   contents = deserializeAws_json1_1StartKeyPhrasesDetectionJobResponse(data, context);
   const response: StartKeyPhrasesDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartKeyPhrasesDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4402,7 +4362,6 @@ export const deserializeAws_json1_1StartSentimentDetectionJobCommand = async (
   contents = deserializeAws_json1_1StartSentimentDetectionJobResponse(data, context);
   const response: StartSentimentDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartSentimentDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4482,7 +4441,6 @@ export const deserializeAws_json1_1StartTopicsDetectionJobCommand = async (
   contents = deserializeAws_json1_1StartTopicsDetectionJobResponse(data, context);
   const response: StartTopicsDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartTopicsDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4562,7 +4520,6 @@ export const deserializeAws_json1_1StopDominantLanguageDetectionJobCommand = asy
   contents = deserializeAws_json1_1StopDominantLanguageDetectionJobResponse(data, context);
   const response: StopDominantLanguageDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopDominantLanguageDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4634,7 +4591,6 @@ export const deserializeAws_json1_1StopEntitiesDetectionJobCommand = async (
   contents = deserializeAws_json1_1StopEntitiesDetectionJobResponse(data, context);
   const response: StopEntitiesDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopEntitiesDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4706,7 +4662,6 @@ export const deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand = async (
   contents = deserializeAws_json1_1StopKeyPhrasesDetectionJobResponse(data, context);
   const response: StopKeyPhrasesDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopKeyPhrasesDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4778,7 +4733,6 @@ export const deserializeAws_json1_1StopSentimentDetectionJobCommand = async (
   contents = deserializeAws_json1_1StopSentimentDetectionJobResponse(data, context);
   const response: StopSentimentDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopSentimentDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4850,7 +4804,6 @@ export const deserializeAws_json1_1StopTrainingDocumentClassifierCommand = async
   contents = deserializeAws_json1_1StopTrainingDocumentClassifierResponse(data, context);
   const response: StopTrainingDocumentClassifierCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopTrainingDocumentClassifierResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4930,7 +4883,6 @@ export const deserializeAws_json1_1StopTrainingEntityRecognizerCommand = async (
   contents = deserializeAws_json1_1StopTrainingEntityRecognizerResponse(data, context);
   const response: StopTrainingEntityRecognizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopTrainingEntityRecognizerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5010,7 +4962,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5098,7 +5049,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5186,7 +5136,6 @@ export const deserializeAws_json1_1UpdateEndpointCommand = async (
   contents = deserializeAws_json1_1UpdateEndpointResponse(data, context);
   const response: UpdateEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEndpointResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6336,7 +6285,6 @@ const deserializeAws_json1_1BatchDetectDominantLanguageItemResult = (
   context: __SerdeContext
 ): BatchDetectDominantLanguageItemResult => {
   return {
-    __type: "BatchDetectDominantLanguageItemResult",
     Index: output.Index !== undefined && output.Index !== null ? output.Index : undefined,
     Languages:
       output.Languages !== undefined && output.Languages !== null
@@ -6350,7 +6298,6 @@ const deserializeAws_json1_1BatchDetectDominantLanguageResponse = (
   context: __SerdeContext
 ): BatchDetectDominantLanguageResponse => {
   return {
-    __type: "BatchDetectDominantLanguageResponse",
     ErrorList:
       output.ErrorList !== undefined && output.ErrorList !== null
         ? deserializeAws_json1_1BatchItemErrorList(output.ErrorList, context)
@@ -6367,7 +6314,6 @@ const deserializeAws_json1_1BatchDetectEntitiesItemResult = (
   context: __SerdeContext
 ): BatchDetectEntitiesItemResult => {
   return {
-    __type: "BatchDetectEntitiesItemResult",
     Entities:
       output.Entities !== undefined && output.Entities !== null
         ? deserializeAws_json1_1ListOfEntities(output.Entities, context)
@@ -6381,7 +6327,6 @@ const deserializeAws_json1_1BatchDetectEntitiesResponse = (
   context: __SerdeContext
 ): BatchDetectEntitiesResponse => {
   return {
-    __type: "BatchDetectEntitiesResponse",
     ErrorList:
       output.ErrorList !== undefined && output.ErrorList !== null
         ? deserializeAws_json1_1BatchItemErrorList(output.ErrorList, context)
@@ -6398,7 +6343,6 @@ const deserializeAws_json1_1BatchDetectKeyPhrasesItemResult = (
   context: __SerdeContext
 ): BatchDetectKeyPhrasesItemResult => {
   return {
-    __type: "BatchDetectKeyPhrasesItemResult",
     Index: output.Index !== undefined && output.Index !== null ? output.Index : undefined,
     KeyPhrases:
       output.KeyPhrases !== undefined && output.KeyPhrases !== null
@@ -6412,7 +6356,6 @@ const deserializeAws_json1_1BatchDetectKeyPhrasesResponse = (
   context: __SerdeContext
 ): BatchDetectKeyPhrasesResponse => {
   return {
-    __type: "BatchDetectKeyPhrasesResponse",
     ErrorList:
       output.ErrorList !== undefined && output.ErrorList !== null
         ? deserializeAws_json1_1BatchItemErrorList(output.ErrorList, context)
@@ -6429,7 +6372,6 @@ const deserializeAws_json1_1BatchDetectSentimentItemResult = (
   context: __SerdeContext
 ): BatchDetectSentimentItemResult => {
   return {
-    __type: "BatchDetectSentimentItemResult",
     Index: output.Index !== undefined && output.Index !== null ? output.Index : undefined,
     Sentiment: output.Sentiment !== undefined && output.Sentiment !== null ? output.Sentiment : undefined,
     SentimentScore:
@@ -6444,7 +6386,6 @@ const deserializeAws_json1_1BatchDetectSentimentResponse = (
   context: __SerdeContext
 ): BatchDetectSentimentResponse => {
   return {
-    __type: "BatchDetectSentimentResponse",
     ErrorList:
       output.ErrorList !== undefined && output.ErrorList !== null
         ? deserializeAws_json1_1BatchItemErrorList(output.ErrorList, context)
@@ -6461,7 +6402,6 @@ const deserializeAws_json1_1BatchDetectSyntaxItemResult = (
   context: __SerdeContext
 ): BatchDetectSyntaxItemResult => {
   return {
-    __type: "BatchDetectSyntaxItemResult",
     Index: output.Index !== undefined && output.Index !== null ? output.Index : undefined,
     SyntaxTokens:
       output.SyntaxTokens !== undefined && output.SyntaxTokens !== null
@@ -6475,7 +6415,6 @@ const deserializeAws_json1_1BatchDetectSyntaxResponse = (
   context: __SerdeContext
 ): BatchDetectSyntaxResponse => {
   return {
-    __type: "BatchDetectSyntaxResponse",
     ErrorList:
       output.ErrorList !== undefined && output.ErrorList !== null
         ? deserializeAws_json1_1BatchItemErrorList(output.ErrorList, context)
@@ -6489,7 +6428,6 @@ const deserializeAws_json1_1BatchDetectSyntaxResponse = (
 
 const deserializeAws_json1_1BatchItemError = (output: any, context: __SerdeContext): BatchItemError => {
   return {
-    __type: "BatchItemError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     Index: output.Index !== undefined && output.Index !== null ? output.Index : undefined,
@@ -6505,7 +6443,6 @@ const deserializeAws_json1_1BatchSizeLimitExceededException = (
   context: __SerdeContext
 ): BatchSizeLimitExceededException => {
   return {
-    __type: "BatchSizeLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6515,7 +6452,6 @@ const deserializeAws_json1_1ClassifierEvaluationMetrics = (
   context: __SerdeContext
 ): ClassifierEvaluationMetrics => {
   return {
-    __type: "ClassifierEvaluationMetrics",
     Accuracy: output.Accuracy !== undefined && output.Accuracy !== null ? output.Accuracy : undefined,
     F1Score: output.F1Score !== undefined && output.F1Score !== null ? output.F1Score : undefined,
     HammingLoss: output.HammingLoss !== undefined && output.HammingLoss !== null ? output.HammingLoss : undefined,
@@ -6530,7 +6466,6 @@ const deserializeAws_json1_1ClassifierEvaluationMetrics = (
 
 const deserializeAws_json1_1ClassifierMetadata = (output: any, context: __SerdeContext): ClassifierMetadata => {
   return {
-    __type: "ClassifierMetadata",
     EvaluationMetrics:
       output.EvaluationMetrics !== undefined && output.EvaluationMetrics !== null
         ? deserializeAws_json1_1ClassifierEvaluationMetrics(output.EvaluationMetrics, context)
@@ -6553,7 +6488,6 @@ const deserializeAws_json1_1ClassifyDocumentResponse = (
   context: __SerdeContext
 ): ClassifyDocumentResponse => {
   return {
-    __type: "ClassifyDocumentResponse",
     Classes:
       output.Classes !== undefined && output.Classes !== null
         ? deserializeAws_json1_1ListOfClasses(output.Classes, context)
@@ -6570,7 +6504,6 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    __type: "ConcurrentModificationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6580,7 +6513,6 @@ const deserializeAws_json1_1CreateDocumentClassifierResponse = (
   context: __SerdeContext
 ): CreateDocumentClassifierResponse => {
   return {
-    __type: "CreateDocumentClassifierResponse",
     DocumentClassifierArn:
       output.DocumentClassifierArn !== undefined && output.DocumentClassifierArn !== null
         ? output.DocumentClassifierArn
@@ -6590,7 +6522,6 @@ const deserializeAws_json1_1CreateDocumentClassifierResponse = (
 
 const deserializeAws_json1_1CreateEndpointResponse = (output: any, context: __SerdeContext): CreateEndpointResponse => {
   return {
-    __type: "CreateEndpointResponse",
     EndpointArn: output.EndpointArn !== undefined && output.EndpointArn !== null ? output.EndpointArn : undefined,
   } as any;
 };
@@ -6600,7 +6531,6 @@ const deserializeAws_json1_1CreateEntityRecognizerResponse = (
   context: __SerdeContext
 ): CreateEntityRecognizerResponse => {
   return {
-    __type: "CreateEntityRecognizerResponse",
     EntityRecognizerArn:
       output.EntityRecognizerArn !== undefined && output.EntityRecognizerArn !== null
         ? output.EntityRecognizerArn
@@ -6612,24 +6542,18 @@ const deserializeAws_json1_1DeleteDocumentClassifierResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteDocumentClassifierResponse => {
-  return {
-    __type: "DeleteDocumentClassifierResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteEndpointResponse = (output: any, context: __SerdeContext): DeleteEndpointResponse => {
-  return {
-    __type: "DeleteEndpointResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteEntityRecognizerResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteEntityRecognizerResponse => {
-  return {
-    __type: "DeleteEntityRecognizerResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeDocumentClassificationJobResponse = (
@@ -6637,7 +6561,6 @@ const deserializeAws_json1_1DescribeDocumentClassificationJobResponse = (
   context: __SerdeContext
 ): DescribeDocumentClassificationJobResponse => {
   return {
-    __type: "DescribeDocumentClassificationJobResponse",
     DocumentClassificationJobProperties:
       output.DocumentClassificationJobProperties !== undefined && output.DocumentClassificationJobProperties !== null
         ? deserializeAws_json1_1DocumentClassificationJobProperties(output.DocumentClassificationJobProperties, context)
@@ -6650,7 +6573,6 @@ const deserializeAws_json1_1DescribeDocumentClassifierResponse = (
   context: __SerdeContext
 ): DescribeDocumentClassifierResponse => {
   return {
-    __type: "DescribeDocumentClassifierResponse",
     DocumentClassifierProperties:
       output.DocumentClassifierProperties !== undefined && output.DocumentClassifierProperties !== null
         ? deserializeAws_json1_1DocumentClassifierProperties(output.DocumentClassifierProperties, context)
@@ -6663,7 +6585,6 @@ const deserializeAws_json1_1DescribeDominantLanguageDetectionJobResponse = (
   context: __SerdeContext
 ): DescribeDominantLanguageDetectionJobResponse => {
   return {
-    __type: "DescribeDominantLanguageDetectionJobResponse",
     DominantLanguageDetectionJobProperties:
       output.DominantLanguageDetectionJobProperties !== undefined &&
       output.DominantLanguageDetectionJobProperties !== null
@@ -6680,7 +6601,6 @@ const deserializeAws_json1_1DescribeEndpointResponse = (
   context: __SerdeContext
 ): DescribeEndpointResponse => {
   return {
-    __type: "DescribeEndpointResponse",
     EndpointProperties:
       output.EndpointProperties !== undefined && output.EndpointProperties !== null
         ? deserializeAws_json1_1EndpointProperties(output.EndpointProperties, context)
@@ -6693,7 +6613,6 @@ const deserializeAws_json1_1DescribeEntitiesDetectionJobResponse = (
   context: __SerdeContext
 ): DescribeEntitiesDetectionJobResponse => {
   return {
-    __type: "DescribeEntitiesDetectionJobResponse",
     EntitiesDetectionJobProperties:
       output.EntitiesDetectionJobProperties !== undefined && output.EntitiesDetectionJobProperties !== null
         ? deserializeAws_json1_1EntitiesDetectionJobProperties(output.EntitiesDetectionJobProperties, context)
@@ -6706,7 +6625,6 @@ const deserializeAws_json1_1DescribeEntityRecognizerResponse = (
   context: __SerdeContext
 ): DescribeEntityRecognizerResponse => {
   return {
-    __type: "DescribeEntityRecognizerResponse",
     EntityRecognizerProperties:
       output.EntityRecognizerProperties !== undefined && output.EntityRecognizerProperties !== null
         ? deserializeAws_json1_1EntityRecognizerProperties(output.EntityRecognizerProperties, context)
@@ -6719,7 +6637,6 @@ const deserializeAws_json1_1DescribeKeyPhrasesDetectionJobResponse = (
   context: __SerdeContext
 ): DescribeKeyPhrasesDetectionJobResponse => {
   return {
-    __type: "DescribeKeyPhrasesDetectionJobResponse",
     KeyPhrasesDetectionJobProperties:
       output.KeyPhrasesDetectionJobProperties !== undefined && output.KeyPhrasesDetectionJobProperties !== null
         ? deserializeAws_json1_1KeyPhrasesDetectionJobProperties(output.KeyPhrasesDetectionJobProperties, context)
@@ -6732,7 +6649,6 @@ const deserializeAws_json1_1DescribeSentimentDetectionJobResponse = (
   context: __SerdeContext
 ): DescribeSentimentDetectionJobResponse => {
   return {
-    __type: "DescribeSentimentDetectionJobResponse",
     SentimentDetectionJobProperties:
       output.SentimentDetectionJobProperties !== undefined && output.SentimentDetectionJobProperties !== null
         ? deserializeAws_json1_1SentimentDetectionJobProperties(output.SentimentDetectionJobProperties, context)
@@ -6745,7 +6661,6 @@ const deserializeAws_json1_1DescribeTopicsDetectionJobResponse = (
   context: __SerdeContext
 ): DescribeTopicsDetectionJobResponse => {
   return {
-    __type: "DescribeTopicsDetectionJobResponse",
     TopicsDetectionJobProperties:
       output.TopicsDetectionJobProperties !== undefined && output.TopicsDetectionJobProperties !== null
         ? deserializeAws_json1_1TopicsDetectionJobProperties(output.TopicsDetectionJobProperties, context)
@@ -6758,7 +6673,6 @@ const deserializeAws_json1_1DetectDominantLanguageResponse = (
   context: __SerdeContext
 ): DetectDominantLanguageResponse => {
   return {
-    __type: "DetectDominantLanguageResponse",
     Languages:
       output.Languages !== undefined && output.Languages !== null
         ? deserializeAws_json1_1ListOfDominantLanguages(output.Languages, context)
@@ -6768,7 +6682,6 @@ const deserializeAws_json1_1DetectDominantLanguageResponse = (
 
 const deserializeAws_json1_1DetectEntitiesResponse = (output: any, context: __SerdeContext): DetectEntitiesResponse => {
   return {
-    __type: "DetectEntitiesResponse",
     Entities:
       output.Entities !== undefined && output.Entities !== null
         ? deserializeAws_json1_1ListOfEntities(output.Entities, context)
@@ -6781,7 +6694,6 @@ const deserializeAws_json1_1DetectKeyPhrasesResponse = (
   context: __SerdeContext
 ): DetectKeyPhrasesResponse => {
   return {
-    __type: "DetectKeyPhrasesResponse",
     KeyPhrases:
       output.KeyPhrases !== undefined && output.KeyPhrases !== null
         ? deserializeAws_json1_1ListOfKeyPhrases(output.KeyPhrases, context)
@@ -6794,7 +6706,6 @@ const deserializeAws_json1_1DetectSentimentResponse = (
   context: __SerdeContext
 ): DetectSentimentResponse => {
   return {
-    __type: "DetectSentimentResponse",
     Sentiment: output.Sentiment !== undefined && output.Sentiment !== null ? output.Sentiment : undefined,
     SentimentScore:
       output.SentimentScore !== undefined && output.SentimentScore !== null
@@ -6805,7 +6716,6 @@ const deserializeAws_json1_1DetectSentimentResponse = (
 
 const deserializeAws_json1_1DetectSyntaxResponse = (output: any, context: __SerdeContext): DetectSyntaxResponse => {
   return {
-    __type: "DetectSyntaxResponse",
     SyntaxTokens:
       output.SyntaxTokens !== undefined && output.SyntaxTokens !== null
         ? deserializeAws_json1_1ListOfSyntaxTokens(output.SyntaxTokens, context)
@@ -6815,7 +6725,6 @@ const deserializeAws_json1_1DetectSyntaxResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1DocumentClass = (output: any, context: __SerdeContext): DocumentClass => {
   return {
-    __type: "DocumentClass",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
   } as any;
@@ -6826,7 +6735,6 @@ const deserializeAws_json1_1DocumentClassificationJobProperties = (
   context: __SerdeContext
 ): DocumentClassificationJobProperties => {
   return {
-    __type: "DocumentClassificationJobProperties",
     DataAccessRoleArn:
       output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
         ? output.DataAccessRoleArn
@@ -6874,7 +6782,6 @@ const deserializeAws_json1_1DocumentClassifierInputDataConfig = (
   context: __SerdeContext
 ): DocumentClassifierInputDataConfig => {
   return {
-    __type: "DocumentClassifierInputDataConfig",
     LabelDelimiter:
       output.LabelDelimiter !== undefined && output.LabelDelimiter !== null ? output.LabelDelimiter : undefined,
     S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
@@ -6886,7 +6793,6 @@ const deserializeAws_json1_1DocumentClassifierOutputDataConfig = (
   context: __SerdeContext
 ): DocumentClassifierOutputDataConfig => {
   return {
-    __type: "DocumentClassifierOutputDataConfig",
     KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
     S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
   } as any;
@@ -6897,7 +6803,6 @@ const deserializeAws_json1_1DocumentClassifierProperties = (
   context: __SerdeContext
 ): DocumentClassifierProperties => {
   return {
-    __type: "DocumentClassifierProperties",
     ClassifierMetadata:
       output.ClassifierMetadata !== undefined && output.ClassifierMetadata !== null
         ? deserializeAws_json1_1ClassifierMetadata(output.ClassifierMetadata, context)
@@ -6954,7 +6859,6 @@ const deserializeAws_json1_1DocumentClassifierPropertiesList = (
 
 const deserializeAws_json1_1DocumentLabel = (output: any, context: __SerdeContext): DocumentLabel => {
   return {
-    __type: "DocumentLabel",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
   } as any;
@@ -6962,7 +6866,6 @@ const deserializeAws_json1_1DocumentLabel = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1DominantLanguage = (output: any, context: __SerdeContext): DominantLanguage => {
   return {
-    __type: "DominantLanguage",
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
   } as any;
@@ -6973,7 +6876,6 @@ const deserializeAws_json1_1DominantLanguageDetectionJobProperties = (
   context: __SerdeContext
 ): DominantLanguageDetectionJobProperties => {
   return {
-    __type: "DominantLanguageDetectionJobProperties",
     DataAccessRoleArn:
       output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
         ? output.DataAccessRoleArn
@@ -7016,7 +6918,6 @@ const deserializeAws_json1_1DominantLanguageDetectionJobPropertiesList = (
 
 const deserializeAws_json1_1EndpointProperties = (output: any, context: __SerdeContext): EndpointProperties => {
   return {
-    __type: "EndpointProperties",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -7049,7 +6950,6 @@ const deserializeAws_json1_1EntitiesDetectionJobProperties = (
   context: __SerdeContext
 ): EntitiesDetectionJobProperties => {
   return {
-    __type: "EntitiesDetectionJobProperties",
     DataAccessRoleArn:
       output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
         ? output.DataAccessRoleArn
@@ -7095,7 +6995,6 @@ const deserializeAws_json1_1EntitiesDetectionJobPropertiesList = (
 
 const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Entity => {
   return {
-    __type: "Entity",
     BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
     EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
@@ -7109,7 +7008,6 @@ const deserializeAws_json1_1EntityRecognizerAnnotations = (
   context: __SerdeContext
 ): EntityRecognizerAnnotations => {
   return {
-    __type: "EntityRecognizerAnnotations",
     S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
   } as any;
 };
@@ -7119,7 +7017,6 @@ const deserializeAws_json1_1EntityRecognizerDocuments = (
   context: __SerdeContext
 ): EntityRecognizerDocuments => {
   return {
-    __type: "EntityRecognizerDocuments",
     S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
   } as any;
 };
@@ -7129,7 +7026,6 @@ const deserializeAws_json1_1EntityRecognizerEntityList = (
   context: __SerdeContext
 ): EntityRecognizerEntityList => {
   return {
-    __type: "EntityRecognizerEntityList",
     S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
   } as any;
 };
@@ -7139,7 +7035,6 @@ const deserializeAws_json1_1EntityRecognizerEvaluationMetrics = (
   context: __SerdeContext
 ): EntityRecognizerEvaluationMetrics => {
   return {
-    __type: "EntityRecognizerEvaluationMetrics",
     F1Score: output.F1Score !== undefined && output.F1Score !== null ? output.F1Score : undefined,
     Precision: output.Precision !== undefined && output.Precision !== null ? output.Precision : undefined,
     Recall: output.Recall !== undefined && output.Recall !== null ? output.Recall : undefined,
@@ -7151,7 +7046,6 @@ const deserializeAws_json1_1EntityRecognizerInputDataConfig = (
   context: __SerdeContext
 ): EntityRecognizerInputDataConfig => {
   return {
-    __type: "EntityRecognizerInputDataConfig",
     Annotations:
       output.Annotations !== undefined && output.Annotations !== null
         ? deserializeAws_json1_1EntityRecognizerAnnotations(output.Annotations, context)
@@ -7176,7 +7070,6 @@ const deserializeAws_json1_1EntityRecognizerMetadata = (
   context: __SerdeContext
 ): EntityRecognizerMetadata => {
   return {
-    __type: "EntityRecognizerMetadata",
     EntityTypes:
       output.EntityTypes !== undefined && output.EntityTypes !== null
         ? deserializeAws_json1_1EntityRecognizerMetadataEntityTypesList(output.EntityTypes, context)
@@ -7210,7 +7103,6 @@ const deserializeAws_json1_1EntityRecognizerMetadataEntityTypesListItem = (
   context: __SerdeContext
 ): EntityRecognizerMetadataEntityTypesListItem => {
   return {
-    __type: "EntityRecognizerMetadataEntityTypesListItem",
     EvaluationMetrics:
       output.EvaluationMetrics !== undefined && output.EvaluationMetrics !== null
         ? deserializeAws_json1_1EntityTypesEvaluationMetrics(output.EvaluationMetrics, context)
@@ -7228,7 +7120,6 @@ const deserializeAws_json1_1EntityRecognizerProperties = (
   context: __SerdeContext
 ): EntityRecognizerProperties => {
   return {
-    __type: "EntityRecognizerProperties",
     DataAccessRoleArn:
       output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
         ? output.DataAccessRoleArn
@@ -7283,7 +7174,6 @@ const deserializeAws_json1_1EntityTypesEvaluationMetrics = (
   context: __SerdeContext
 ): EntityTypesEvaluationMetrics => {
   return {
-    __type: "EntityTypesEvaluationMetrics",
     F1Score: output.F1Score !== undefined && output.F1Score !== null ? output.F1Score : undefined,
     Precision: output.Precision !== undefined && output.Precision !== null ? output.Precision : undefined,
     Recall: output.Recall !== undefined && output.Recall !== null ? output.Recall : undefined,
@@ -7296,14 +7186,12 @@ const deserializeAws_json1_1EntityTypesList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1EntityTypesListItem = (output: any, context: __SerdeContext): EntityTypesListItem => {
   return {
-    __type: "EntityTypesListItem",
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
   return {
-    __type: "InputDataConfig",
     InputFormat: output.InputFormat !== undefined && output.InputFormat !== null ? output.InputFormat : undefined,
     S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
   } as any;
@@ -7314,14 +7202,12 @@ const deserializeAws_json1_1InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    __type: "InternalServerException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidFilterException = (output: any, context: __SerdeContext): InvalidFilterException => {
   return {
-    __type: "InvalidFilterException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7331,21 +7217,18 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1JobNotFoundException = (output: any, context: __SerdeContext): JobNotFoundException => {
   return {
-    __type: "JobNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1KeyPhrase = (output: any, context: __SerdeContext): KeyPhrase => {
   return {
-    __type: "KeyPhrase",
     BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
     EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
@@ -7358,7 +7241,6 @@ const deserializeAws_json1_1KeyPhrasesDetectionJobProperties = (
   context: __SerdeContext
 ): KeyPhrasesDetectionJobProperties => {
   return {
-    __type: "KeyPhrasesDetectionJobProperties",
     DataAccessRoleArn:
       output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
         ? output.DataAccessRoleArn
@@ -7403,7 +7285,6 @@ const deserializeAws_json1_1KmsKeyValidationException = (
   context: __SerdeContext
 ): KmsKeyValidationException => {
   return {
-    __type: "KmsKeyValidationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7413,7 +7294,6 @@ const deserializeAws_json1_1ListDocumentClassificationJobsResponse = (
   context: __SerdeContext
 ): ListDocumentClassificationJobsResponse => {
   return {
-    __type: "ListDocumentClassificationJobsResponse",
     DocumentClassificationJobPropertiesList:
       output.DocumentClassificationJobPropertiesList !== undefined &&
       output.DocumentClassificationJobPropertiesList !== null
@@ -7431,7 +7311,6 @@ const deserializeAws_json1_1ListDocumentClassifiersResponse = (
   context: __SerdeContext
 ): ListDocumentClassifiersResponse => {
   return {
-    __type: "ListDocumentClassifiersResponse",
     DocumentClassifierPropertiesList:
       output.DocumentClassifierPropertiesList !== undefined && output.DocumentClassifierPropertiesList !== null
         ? deserializeAws_json1_1DocumentClassifierPropertiesList(output.DocumentClassifierPropertiesList, context)
@@ -7445,7 +7324,6 @@ const deserializeAws_json1_1ListDominantLanguageDetectionJobsResponse = (
   context: __SerdeContext
 ): ListDominantLanguageDetectionJobsResponse => {
   return {
-    __type: "ListDominantLanguageDetectionJobsResponse",
     DominantLanguageDetectionJobPropertiesList:
       output.DominantLanguageDetectionJobPropertiesList !== undefined &&
       output.DominantLanguageDetectionJobPropertiesList !== null
@@ -7460,7 +7338,6 @@ const deserializeAws_json1_1ListDominantLanguageDetectionJobsResponse = (
 
 const deserializeAws_json1_1ListEndpointsResponse = (output: any, context: __SerdeContext): ListEndpointsResponse => {
   return {
-    __type: "ListEndpointsResponse",
     EndpointPropertiesList:
       output.EndpointPropertiesList !== undefined && output.EndpointPropertiesList !== null
         ? deserializeAws_json1_1EndpointPropertiesList(output.EndpointPropertiesList, context)
@@ -7474,7 +7351,6 @@ const deserializeAws_json1_1ListEntitiesDetectionJobsResponse = (
   context: __SerdeContext
 ): ListEntitiesDetectionJobsResponse => {
   return {
-    __type: "ListEntitiesDetectionJobsResponse",
     EntitiesDetectionJobPropertiesList:
       output.EntitiesDetectionJobPropertiesList !== undefined && output.EntitiesDetectionJobPropertiesList !== null
         ? deserializeAws_json1_1EntitiesDetectionJobPropertiesList(output.EntitiesDetectionJobPropertiesList, context)
@@ -7488,7 +7364,6 @@ const deserializeAws_json1_1ListEntityRecognizersResponse = (
   context: __SerdeContext
 ): ListEntityRecognizersResponse => {
   return {
-    __type: "ListEntityRecognizersResponse",
     EntityRecognizerPropertiesList:
       output.EntityRecognizerPropertiesList !== undefined && output.EntityRecognizerPropertiesList !== null
         ? deserializeAws_json1_1EntityRecognizerPropertiesList(output.EntityRecognizerPropertiesList, context)
@@ -7502,7 +7377,6 @@ const deserializeAws_json1_1ListKeyPhrasesDetectionJobsResponse = (
   context: __SerdeContext
 ): ListKeyPhrasesDetectionJobsResponse => {
   return {
-    __type: "ListKeyPhrasesDetectionJobsResponse",
     KeyPhrasesDetectionJobPropertiesList:
       output.KeyPhrasesDetectionJobPropertiesList !== undefined && output.KeyPhrasesDetectionJobPropertiesList !== null
         ? deserializeAws_json1_1KeyPhrasesDetectionJobPropertiesList(
@@ -7580,7 +7454,6 @@ const deserializeAws_json1_1ListSentimentDetectionJobsResponse = (
   context: __SerdeContext
 ): ListSentimentDetectionJobsResponse => {
   return {
-    __type: "ListSentimentDetectionJobsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SentimentDetectionJobPropertiesList:
       output.SentimentDetectionJobPropertiesList !== undefined && output.SentimentDetectionJobPropertiesList !== null
@@ -7594,7 +7467,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -7608,7 +7480,6 @@ const deserializeAws_json1_1ListTopicsDetectionJobsResponse = (
   context: __SerdeContext
 ): ListTopicsDetectionJobsResponse => {
   return {
-    __type: "ListTopicsDetectionJobsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TopicsDetectionJobPropertiesList:
       output.TopicsDetectionJobPropertiesList !== undefined && output.TopicsDetectionJobPropertiesList !== null
@@ -7619,7 +7490,6 @@ const deserializeAws_json1_1ListTopicsDetectionJobsResponse = (
 
 const deserializeAws_json1_1OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
   return {
-    __type: "OutputDataConfig",
     KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
     S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
   } as any;
@@ -7627,7 +7497,6 @@ const deserializeAws_json1_1OutputDataConfig = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1PartOfSpeechTag = (output: any, context: __SerdeContext): PartOfSpeechTag => {
   return {
-    __type: "PartOfSpeechTag",
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
     Tag: output.Tag !== undefined && output.Tag !== null ? output.Tag : undefined,
   } as any;
@@ -7635,7 +7504,6 @@ const deserializeAws_json1_1PartOfSpeechTag = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7645,7 +7513,6 @@ const deserializeAws_json1_1ResourceLimitExceededException = (
   context: __SerdeContext
 ): ResourceLimitExceededException => {
   return {
-    __type: "ResourceLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7655,7 +7522,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7665,7 +7531,6 @@ const deserializeAws_json1_1ResourceUnavailableException = (
   context: __SerdeContext
 ): ResourceUnavailableException => {
   return {
-    __type: "ResourceUnavailableException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7679,7 +7544,6 @@ const deserializeAws_json1_1SentimentDetectionJobProperties = (
   context: __SerdeContext
 ): SentimentDetectionJobProperties => {
   return {
-    __type: "SentimentDetectionJobProperties",
     DataAccessRoleArn:
       output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
         ? output.DataAccessRoleArn
@@ -7721,7 +7585,6 @@ const deserializeAws_json1_1SentimentDetectionJobPropertiesList = (
 
 const deserializeAws_json1_1SentimentScore = (output: any, context: __SerdeContext): SentimentScore => {
   return {
-    __type: "SentimentScore",
     Mixed: output.Mixed !== undefined && output.Mixed !== null ? output.Mixed : undefined,
     Negative: output.Negative !== undefined && output.Negative !== null ? output.Negative : undefined,
     Neutral: output.Neutral !== undefined && output.Neutral !== null ? output.Neutral : undefined,
@@ -7734,7 +7597,6 @@ const deserializeAws_json1_1StartDocumentClassificationJobResponse = (
   context: __SerdeContext
 ): StartDocumentClassificationJobResponse => {
   return {
-    __type: "StartDocumentClassificationJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
@@ -7745,7 +7607,6 @@ const deserializeAws_json1_1StartDominantLanguageDetectionJobResponse = (
   context: __SerdeContext
 ): StartDominantLanguageDetectionJobResponse => {
   return {
-    __type: "StartDominantLanguageDetectionJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
@@ -7756,7 +7617,6 @@ const deserializeAws_json1_1StartEntitiesDetectionJobResponse = (
   context: __SerdeContext
 ): StartEntitiesDetectionJobResponse => {
   return {
-    __type: "StartEntitiesDetectionJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
@@ -7767,7 +7627,6 @@ const deserializeAws_json1_1StartKeyPhrasesDetectionJobResponse = (
   context: __SerdeContext
 ): StartKeyPhrasesDetectionJobResponse => {
   return {
-    __type: "StartKeyPhrasesDetectionJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
@@ -7778,7 +7637,6 @@ const deserializeAws_json1_1StartSentimentDetectionJobResponse = (
   context: __SerdeContext
 ): StartSentimentDetectionJobResponse => {
   return {
-    __type: "StartSentimentDetectionJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
@@ -7789,7 +7647,6 @@ const deserializeAws_json1_1StartTopicsDetectionJobResponse = (
   context: __SerdeContext
 ): StartTopicsDetectionJobResponse => {
   return {
-    __type: "StartTopicsDetectionJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
@@ -7800,7 +7657,6 @@ const deserializeAws_json1_1StopDominantLanguageDetectionJobResponse = (
   context: __SerdeContext
 ): StopDominantLanguageDetectionJobResponse => {
   return {
-    __type: "StopDominantLanguageDetectionJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
@@ -7811,7 +7667,6 @@ const deserializeAws_json1_1StopEntitiesDetectionJobResponse = (
   context: __SerdeContext
 ): StopEntitiesDetectionJobResponse => {
   return {
-    __type: "StopEntitiesDetectionJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
@@ -7822,7 +7677,6 @@ const deserializeAws_json1_1StopKeyPhrasesDetectionJobResponse = (
   context: __SerdeContext
 ): StopKeyPhrasesDetectionJobResponse => {
   return {
-    __type: "StopKeyPhrasesDetectionJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
@@ -7833,7 +7687,6 @@ const deserializeAws_json1_1StopSentimentDetectionJobResponse = (
   context: __SerdeContext
 ): StopSentimentDetectionJobResponse => {
   return {
-    __type: "StopSentimentDetectionJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
     JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
@@ -7843,18 +7696,14 @@ const deserializeAws_json1_1StopTrainingDocumentClassifierResponse = (
   output: any,
   context: __SerdeContext
 ): StopTrainingDocumentClassifierResponse => {
-  return {
-    __type: "StopTrainingDocumentClassifierResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StopTrainingEntityRecognizerResponse = (
   output: any,
   context: __SerdeContext
 ): StopTrainingEntityRecognizerResponse => {
-  return {
-    __type: "StopTrainingEntityRecognizerResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Subnets = (output: any, context: __SerdeContext): string[] => {
@@ -7863,7 +7712,6 @@ const deserializeAws_json1_1Subnets = (output: any, context: __SerdeContext): st
 
 const deserializeAws_json1_1SyntaxToken = (output: any, context: __SerdeContext): SyntaxToken => {
   return {
-    __type: "SyntaxToken",
     BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
     EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     PartOfSpeech:
@@ -7877,7 +7725,6 @@ const deserializeAws_json1_1SyntaxToken = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -7888,9 +7735,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TextSizeLimitExceededException = (
@@ -7898,7 +7743,6 @@ const deserializeAws_json1_1TextSizeLimitExceededException = (
   context: __SerdeContext
 ): TextSizeLimitExceededException => {
   return {
-    __type: "TextSizeLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7908,7 +7752,6 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    __type: "TooManyRequestsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7918,14 +7761,12 @@ const deserializeAws_json1_1TooManyTagKeysException = (
   context: __SerdeContext
 ): TooManyTagKeysException => {
   return {
-    __type: "TooManyTagKeysException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
-    __type: "TooManyTagsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7935,7 +7776,6 @@ const deserializeAws_json1_1TopicsDetectionJobProperties = (
   context: __SerdeContext
 ): TopicsDetectionJobProperties => {
   return {
-    __type: "TopicsDetectionJobProperties",
     DataAccessRoleArn:
       output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
         ? output.DataAccessRoleArn
@@ -7981,26 +7821,20 @@ const deserializeAws_json1_1UnsupportedLanguageException = (
   context: __SerdeContext
 ): UnsupportedLanguageException => {
   return {
-    __type: "UnsupportedLanguageException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateEndpointResponse = (output: any, context: __SerdeContext): UpdateEndpointResponse => {
-  return {
-    __type: "UpdateEndpointResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
   return {
-    __type: "VpcConfig",
     SecurityGroupIds:
       output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
         ? deserializeAws_json1_1SecurityGroupIds(output.SecurityGroupIds, context)

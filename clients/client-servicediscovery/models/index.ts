@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CreateHttpNamespaceRequest {
-  __type?: "CreateHttpNamespaceRequest";
   /**
    * <p>The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define.
    *    Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum
@@ -32,11 +31,9 @@ export namespace CreateHttpNamespaceRequest {
   export const filterSensitiveLog = (obj: CreateHttpNamespaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHttpNamespaceRequest => __isa(o, "CreateHttpNamespaceRequest");
 }
 
 export interface CreateHttpNamespaceResponse {
-  __type?: "CreateHttpNamespaceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the
    *    operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
@@ -48,11 +45,9 @@ export namespace CreateHttpNamespaceResponse {
   export const filterSensitiveLog = (obj: CreateHttpNamespaceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHttpNamespaceResponse => __isa(o, "CreateHttpNamespaceResponse");
 }
 
 export interface CreatePrivateDnsNamespaceRequest {
-  __type?: "CreatePrivateDnsNamespaceRequest";
   /**
    * <p>The name that you want to assign to this namespace. When you create a private DNS namespace, AWS Cloud Map
    *    automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.</p>
@@ -88,11 +83,9 @@ export namespace CreatePrivateDnsNamespaceRequest {
   export const filterSensitiveLog = (obj: CreatePrivateDnsNamespaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePrivateDnsNamespaceRequest => __isa(o, "CreatePrivateDnsNamespaceRequest");
 }
 
 export interface CreatePrivateDnsNamespaceResponse {
-  __type?: "CreatePrivateDnsNamespaceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the
    *    operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
@@ -104,11 +97,9 @@ export namespace CreatePrivateDnsNamespaceResponse {
   export const filterSensitiveLog = (obj: CreatePrivateDnsNamespaceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePrivateDnsNamespaceResponse => __isa(o, "CreatePrivateDnsNamespaceResponse");
 }
 
 export interface CreatePublicDnsNamespaceRequest {
-  __type?: "CreatePublicDnsNamespaceRequest";
   /**
    * <p>The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define.
    *    Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum
@@ -138,11 +129,9 @@ export namespace CreatePublicDnsNamespaceRequest {
   export const filterSensitiveLog = (obj: CreatePublicDnsNamespaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePublicDnsNamespaceRequest => __isa(o, "CreatePublicDnsNamespaceRequest");
 }
 
 export interface CreatePublicDnsNamespaceResponse {
-  __type?: "CreatePublicDnsNamespaceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the
    *    operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
@@ -154,11 +143,9 @@ export namespace CreatePublicDnsNamespaceResponse {
   export const filterSensitiveLog = (obj: CreatePublicDnsNamespaceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePublicDnsNamespaceResponse => __isa(o, "CreatePublicDnsNamespaceResponse");
 }
 
 export interface CreateServiceRequest {
-  __type?: "CreateServiceRequest";
   /**
    * <p>The tags to add to the service. Each tag consists of a key and an optional value, both of which you define.
    *    Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum
@@ -241,11 +228,9 @@ export namespace CreateServiceRequest {
   export const filterSensitiveLog = (obj: CreateServiceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateServiceRequest => __isa(o, "CreateServiceRequest");
 }
 
 export interface CreateServiceResponse {
-  __type?: "CreateServiceResponse";
   /**
    * <p>A complex type that contains information about the new service.</p>
    */
@@ -256,7 +241,6 @@ export namespace CreateServiceResponse {
   export const filterSensitiveLog = (obj: CreateServiceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateServiceResponse => __isa(o, "CreateServiceResponse");
 }
 
 /**
@@ -273,7 +257,6 @@ export namespace CustomHealthNotFound {
   export const filterSensitiveLog = (obj: CustomHealthNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomHealthNotFound => __isa(o, "CustomHealthNotFound");
 }
 
 export enum CustomHealthStatus {
@@ -282,7 +265,6 @@ export enum CustomHealthStatus {
 }
 
 export interface DeleteNamespaceRequest {
-  __type?: "DeleteNamespaceRequest";
   /**
    * <p>The ID of the namespace that you want to delete.</p>
    */
@@ -293,11 +275,9 @@ export namespace DeleteNamespaceRequest {
   export const filterSensitiveLog = (obj: DeleteNamespaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNamespaceRequest => __isa(o, "DeleteNamespaceRequest");
 }
 
 export interface DeleteNamespaceResponse {
-  __type?: "DeleteNamespaceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the
    *    operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
@@ -309,11 +289,9 @@ export namespace DeleteNamespaceResponse {
   export const filterSensitiveLog = (obj: DeleteNamespaceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteNamespaceResponse => __isa(o, "DeleteNamespaceResponse");
 }
 
 export interface DeleteServiceRequest {
-  __type?: "DeleteServiceRequest";
   /**
    * <p>The ID of the service that you want to delete.</p>
    */
@@ -324,22 +302,17 @@ export namespace DeleteServiceRequest {
   export const filterSensitiveLog = (obj: DeleteServiceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServiceRequest => __isa(o, "DeleteServiceRequest");
 }
 
-export interface DeleteServiceResponse {
-  __type?: "DeleteServiceResponse";
-}
+export interface DeleteServiceResponse {}
 
 export namespace DeleteServiceResponse {
   export const filterSensitiveLog = (obj: DeleteServiceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteServiceResponse => __isa(o, "DeleteServiceResponse");
 }
 
 export interface DeregisterInstanceRequest {
-  __type?: "DeregisterInstanceRequest";
   /**
    * <p>The value that you specified for <code>Id</code> in the <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request.</p>
    */
@@ -355,11 +328,9 @@ export namespace DeregisterInstanceRequest {
   export const filterSensitiveLog = (obj: DeregisterInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterInstanceRequest => __isa(o, "DeregisterInstanceRequest");
 }
 
 export interface DeregisterInstanceResponse {
-  __type?: "DeregisterInstanceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. For more information, see
    *     <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
@@ -371,11 +342,9 @@ export namespace DeregisterInstanceResponse {
   export const filterSensitiveLog = (obj: DeregisterInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterInstanceResponse => __isa(o, "DeregisterInstanceResponse");
 }
 
 export interface DiscoverInstancesRequest {
-  __type?: "DiscoverInstancesRequest";
   /**
    * <p>The health status of the instances that you want to discover.</p>
    */
@@ -410,11 +379,9 @@ export namespace DiscoverInstancesRequest {
   export const filterSensitiveLog = (obj: DiscoverInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiscoverInstancesRequest => __isa(o, "DiscoverInstancesRequest");
 }
 
 export interface DiscoverInstancesResponse {
-  __type?: "DiscoverInstancesResponse";
   /**
    * <p>A complex type that contains one <code>HttpInstanceSummary</code> for each registered instance.</p>
    */
@@ -425,7 +392,6 @@ export namespace DiscoverInstancesResponse {
   export const filterSensitiveLog = (obj: DiscoverInstancesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DiscoverInstancesResponse => __isa(o, "DiscoverInstancesResponse");
 }
 
 /**
@@ -433,7 +399,6 @@ export namespace DiscoverInstancesResponse {
  *    you register an instance.</p>
  */
 export interface DnsConfig {
-  __type?: "DnsConfig";
   /**
    * <p>The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an
    *    instance and specify this service.</p>
@@ -488,7 +453,6 @@ export namespace DnsConfig {
   export const filterSensitiveLog = (obj: DnsConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DnsConfig => __isa(o, "DnsConfig");
 }
 
 /**
@@ -496,7 +460,6 @@ export namespace DnsConfig {
  *    register an instance.</p>
  */
 export interface DnsConfigChange {
-  __type?: "DnsConfigChange";
   /**
    * <p>An array that contains one <code>DnsRecord</code> object for each Route 53 record that you want AWS Cloud Map to
    *    create when you register an instance.</p>
@@ -508,7 +471,6 @@ export namespace DnsConfigChange {
   export const filterSensitiveLog = (obj: DnsConfigChange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DnsConfigChange => __isa(o, "DnsConfigChange");
 }
 
 /**
@@ -516,7 +478,6 @@ export namespace DnsConfigChange {
  *    namespace.</p>
  */
 export interface DnsProperties {
-  __type?: "DnsProperties";
   /**
    * <p>The ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.</p>
    */
@@ -527,7 +488,6 @@ export namespace DnsProperties {
   export const filterSensitiveLog = (obj: DnsProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DnsProperties => __isa(o, "DnsProperties");
 }
 
 /**
@@ -535,7 +495,6 @@ export namespace DnsProperties {
  *    register an instance.</p>
  */
 export interface DnsRecord {
-  __type?: "DnsRecord";
   /**
    * <p>The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.</p>
    *          <note>
@@ -657,7 +616,6 @@ export namespace DnsRecord {
   export const filterSensitiveLog = (obj: DnsRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DnsRecord => __isa(o, "DnsRecord");
 }
 
 /**
@@ -677,7 +635,6 @@ export namespace DuplicateRequest {
   export const filterSensitiveLog = (obj: DuplicateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DuplicateRequest => __isa(o, "DuplicateRequest");
 }
 
 export enum FilterCondition {
@@ -687,7 +644,6 @@ export enum FilterCondition {
 }
 
 export interface GetInstanceRequest {
-  __type?: "GetInstanceRequest";
   /**
    * <p>The ID of the service that the instance is associated with.</p>
    */
@@ -703,11 +659,9 @@ export namespace GetInstanceRequest {
   export const filterSensitiveLog = (obj: GetInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceRequest => __isa(o, "GetInstanceRequest");
 }
 
 export interface GetInstanceResponse {
-  __type?: "GetInstanceResponse";
   /**
    * <p>A complex type that contains information about a specified instance.</p>
    */
@@ -718,11 +672,9 @@ export namespace GetInstanceResponse {
   export const filterSensitiveLog = (obj: GetInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceResponse => __isa(o, "GetInstanceResponse");
 }
 
 export interface GetInstancesHealthStatusRequest {
-  __type?: "GetInstancesHealthStatusRequest";
   /**
    * <p>The ID of the service that the instance is associated with.</p>
    */
@@ -758,11 +710,9 @@ export namespace GetInstancesHealthStatusRequest {
   export const filterSensitiveLog = (obj: GetInstancesHealthStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstancesHealthStatusRequest => __isa(o, "GetInstancesHealthStatusRequest");
 }
 
 export interface GetInstancesHealthStatusResponse {
-  __type?: "GetInstancesHealthStatusResponse";
   /**
    * <p>A complex type that contains the IDs and the health status of the instances that you specified in the
    *     <code>GetInstancesHealthStatus</code> request.</p>
@@ -781,11 +731,9 @@ export namespace GetInstancesHealthStatusResponse {
   export const filterSensitiveLog = (obj: GetInstancesHealthStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstancesHealthStatusResponse => __isa(o, "GetInstancesHealthStatusResponse");
 }
 
 export interface GetNamespaceRequest {
-  __type?: "GetNamespaceRequest";
   /**
    * <p>The ID of the namespace that you want to get information about.</p>
    */
@@ -796,11 +744,9 @@ export namespace GetNamespaceRequest {
   export const filterSensitiveLog = (obj: GetNamespaceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetNamespaceRequest => __isa(o, "GetNamespaceRequest");
 }
 
 export interface GetNamespaceResponse {
-  __type?: "GetNamespaceResponse";
   /**
    * <p>A complex type that contains information about the specified namespace.</p>
    */
@@ -811,11 +757,9 @@ export namespace GetNamespaceResponse {
   export const filterSensitiveLog = (obj: GetNamespaceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetNamespaceResponse => __isa(o, "GetNamespaceResponse");
 }
 
 export interface GetOperationRequest {
-  __type?: "GetOperationRequest";
   /**
    * <p>The ID of the operation that you want to get more information about.</p>
    */
@@ -826,11 +770,9 @@ export namespace GetOperationRequest {
   export const filterSensitiveLog = (obj: GetOperationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOperationRequest => __isa(o, "GetOperationRequest");
 }
 
 export interface GetOperationResponse {
-  __type?: "GetOperationResponse";
   /**
    * <p>A complex type that contains information about the operation.</p>
    */
@@ -841,11 +783,9 @@ export namespace GetOperationResponse {
   export const filterSensitiveLog = (obj: GetOperationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOperationResponse => __isa(o, "GetOperationResponse");
 }
 
 export interface GetServiceRequest {
-  __type?: "GetServiceRequest";
   /**
    * <p>The ID of the service that you want to get settings for.</p>
    */
@@ -856,11 +796,9 @@ export namespace GetServiceRequest {
   export const filterSensitiveLog = (obj: GetServiceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceRequest => __isa(o, "GetServiceRequest");
 }
 
 export interface GetServiceResponse {
-  __type?: "GetServiceResponse";
   /**
    * <p>A complex type that contains information about the service.</p>
    */
@@ -871,7 +809,6 @@ export namespace GetServiceResponse {
   export const filterSensitiveLog = (obj: GetServiceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceResponse => __isa(o, "GetServiceResponse");
 }
 
 /**
@@ -933,7 +870,6 @@ export namespace GetServiceResponse {
  *    health checks, see <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p>
  */
 export interface HealthCheckConfig {
-  __type?: "HealthCheckConfig";
   /**
    * <p>The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is
    *    healthy.</p>
@@ -989,7 +925,6 @@ export namespace HealthCheckConfig {
   export const filterSensitiveLog = (obj: HealthCheckConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HealthCheckConfig => __isa(o, "HealthCheckConfig");
 }
 
 /**
@@ -1046,7 +981,6 @@ export namespace HealthCheckConfig {
  *          </ol>
  */
 export interface HealthCheckCustomConfig {
-  __type?: "HealthCheckCustomConfig";
   /**
    * <p>The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an
    *     <code>UpdateInstanceCustomHealthStatus</code> request before it changes the health status of a service instance. For
@@ -1064,7 +998,6 @@ export namespace HealthCheckCustomConfig {
   export const filterSensitiveLog = (obj: HealthCheckCustomConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HealthCheckCustomConfig => __isa(o, "HealthCheckCustomConfig");
 }
 
 export enum HealthCheckType {
@@ -1090,7 +1023,6 @@ export enum HealthStatusFilter {
  *    matches the values that you specified in the request.</p>
  */
 export interface HttpInstanceSummary {
-  __type?: "HttpInstanceSummary";
   /**
    * <p>The name of the namespace that you specified when you registered the instance.</p>
    */
@@ -1121,14 +1053,12 @@ export namespace HttpInstanceSummary {
   export const filterSensitiveLog = (obj: HttpInstanceSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpInstanceSummary => __isa(o, "HttpInstanceSummary");
 }
 
 /**
  * <p>A complex type that contains the name of an HTTP namespace.</p>
  */
 export interface HttpProperties {
-  __type?: "HttpProperties";
   /**
    * <p>The name of an HTTP namespace.</p>
    */
@@ -1139,7 +1069,6 @@ export namespace HttpProperties {
   export const filterSensitiveLog = (obj: HttpProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HttpProperties => __isa(o, "HttpProperties");
 }
 
 /**
@@ -1147,7 +1076,6 @@ export namespace HttpProperties {
  *     <code>RegisterInstance</code> request.</p>
  */
 export interface Instance {
-  __type?: "Instance";
   /**
    * <p>A unique string that identifies the request and that allows failed <code>RegisterInstance</code> requests to be
    *    retried without the risk of executing the operation twice. You must use a unique <code>CreatorRequestId</code> string
@@ -1267,7 +1195,6 @@ export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
 
 /**
@@ -1284,7 +1211,6 @@ export namespace InstanceNotFound {
   export const filterSensitiveLog = (obj: InstanceNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceNotFound => __isa(o, "InstanceNotFound");
 }
 
 /**
@@ -1292,7 +1218,6 @@ export namespace InstanceNotFound {
  *    service.</p>
  */
 export interface InstanceSummary {
-  __type?: "InstanceSummary";
   /**
    * <p>The ID for an instance that you created by using a specified service.</p>
    */
@@ -1344,7 +1269,6 @@ export namespace InstanceSummary {
   export const filterSensitiveLog = (obj: InstanceSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceSummary => __isa(o, "InstanceSummary");
 }
 
 /**
@@ -1361,11 +1285,9 @@ export namespace InvalidInput {
   export const filterSensitiveLog = (obj: InvalidInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInput => __isa(o, "InvalidInput");
 }
 
 export interface ListInstancesRequest {
-  __type?: "ListInstancesRequest";
   /**
    * <p>The maximum number of instances that you want AWS Cloud Map to return in the response to a
    *     <code>ListInstances</code> request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up
@@ -1391,11 +1313,9 @@ export namespace ListInstancesRequest {
   export const filterSensitiveLog = (obj: ListInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstancesRequest => __isa(o, "ListInstancesRequest");
 }
 
 export interface ListInstancesResponse {
-  __type?: "ListInstancesResponse";
   /**
    * <p>Summary information about the instances that are associated with the specified service.</p>
    */
@@ -1413,11 +1333,9 @@ export namespace ListInstancesResponse {
   export const filterSensitiveLog = (obj: ListInstancesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListInstancesResponse => __isa(o, "ListInstancesResponse");
 }
 
 export interface ListNamespacesRequest {
-  __type?: "ListNamespacesRequest";
   /**
    * <p>The maximum number of namespaces that you want AWS Cloud Map to return in the response to a
    *     <code>ListNamespaces</code> request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up
@@ -1450,11 +1368,9 @@ export namespace ListNamespacesRequest {
   export const filterSensitiveLog = (obj: ListNamespacesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNamespacesRequest => __isa(o, "ListNamespacesRequest");
 }
 
 export interface ListNamespacesResponse {
-  __type?: "ListNamespacesResponse";
   /**
    * <p>If the response contains <code>NextToken</code>, submit another <code>ListNamespaces</code> request to get the
    *    next group of results. Specify the value of <code>NextToken</code> from the previous response in the next
@@ -1478,11 +1394,9 @@ export namespace ListNamespacesResponse {
   export const filterSensitiveLog = (obj: ListNamespacesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListNamespacesResponse => __isa(o, "ListNamespacesResponse");
 }
 
 export interface ListOperationsRequest {
-  __type?: "ListOperationsRequest";
   /**
    * <p>The maximum number of items that you want AWS Cloud Map to return in the response to a <code>ListOperations</code>
    *    request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up to 100 operations.</p>
@@ -1515,11 +1429,9 @@ export namespace ListOperationsRequest {
   export const filterSensitiveLog = (obj: ListOperationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOperationsRequest => __isa(o, "ListOperationsRequest");
 }
 
 export interface ListOperationsResponse {
-  __type?: "ListOperationsResponse";
   /**
    * <p>If the response contains <code>NextToken</code>, submit another <code>ListOperations</code> request to get the
    *    next group of results. Specify the value of <code>NextToken</code> from the previous response in the next
@@ -1542,11 +1454,9 @@ export namespace ListOperationsResponse {
   export const filterSensitiveLog = (obj: ListOperationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOperationsResponse => __isa(o, "ListOperationsResponse");
 }
 
 export interface ListServicesRequest {
-  __type?: "ListServicesRequest";
   /**
    * <p>The maximum number of services that you want AWS Cloud Map to return in the response to a <code>ListServices</code>
    *    request. If you don't specify a value for <code>MaxResults</code>, AWS Cloud Map returns up to 100 services.</p>
@@ -1578,11 +1488,9 @@ export namespace ListServicesRequest {
   export const filterSensitiveLog = (obj: ListServicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServicesRequest => __isa(o, "ListServicesRequest");
 }
 
 export interface ListServicesResponse {
-  __type?: "ListServicesResponse";
   /**
    * <p>If the response contains <code>NextToken</code>, submit another <code>ListServices</code> request to get the
    *    next group of results. Specify the value of <code>NextToken</code> from the previous response in the next
@@ -1606,11 +1514,9 @@ export namespace ListServicesResponse {
   export const filterSensitiveLog = (obj: ListServicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListServicesResponse => __isa(o, "ListServicesResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
    */
@@ -1621,11 +1527,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags that are assigned to the resource.</p>
    */
@@ -1636,14 +1540,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>A complex type that contains information about a specified namespace.</p>
  */
 export interface Namespace {
-  __type?: "Namespace";
   /**
    * <p>A complex type that contains information that's specific to the type of the namespace.</p>
    */
@@ -1714,7 +1616,6 @@ export namespace Namespace {
   export const filterSensitiveLog = (obj: Namespace): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Namespace => __isa(o, "Namespace");
 }
 
 /**
@@ -1739,7 +1640,6 @@ export namespace NamespaceAlreadyExists {
   export const filterSensitiveLog = (obj: NamespaceAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NamespaceAlreadyExists => __isa(o, "NamespaceAlreadyExists");
 }
 
 /**
@@ -1747,7 +1647,6 @@ export namespace NamespaceAlreadyExists {
  *    namespaces.</p>
  */
 export interface NamespaceFilter {
-  __type?: "NamespaceFilter";
   /**
    * <p>Specify <code>TYPE</code>.</p>
    */
@@ -1788,7 +1687,6 @@ export namespace NamespaceFilter {
   export const filterSensitiveLog = (obj: NamespaceFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NamespaceFilter => __isa(o, "NamespaceFilter");
 }
 
 export enum NamespaceFilterName {
@@ -1808,14 +1706,12 @@ export namespace NamespaceNotFound {
   export const filterSensitiveLog = (obj: NamespaceNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NamespaceNotFound => __isa(o, "NamespaceNotFound");
 }
 
 /**
  * <p>A complex type that contains information that is specific to the namespace type.</p>
  */
 export interface NamespaceProperties {
-  __type?: "NamespaceProperties";
   /**
    * <p>A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a
    *    namespace.</p>
@@ -1832,14 +1728,12 @@ export namespace NamespaceProperties {
   export const filterSensitiveLog = (obj: NamespaceProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NamespaceProperties => __isa(o, "NamespaceProperties");
 }
 
 /**
  * <p>A complex type that contains information about a namespace.</p>
  */
 export interface NamespaceSummary {
-  __type?: "NamespaceSummary";
   /**
    * <p>The date and time that the namespace was created.</p>
    */
@@ -1886,7 +1780,6 @@ export namespace NamespaceSummary {
   export const filterSensitiveLog = (obj: NamespaceSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NamespaceSummary => __isa(o, "NamespaceSummary");
 }
 
 export enum NamespaceType {
@@ -1899,7 +1792,6 @@ export enum NamespaceType {
  * <p>A complex type that contains information about a specified operation.</p>
  */
 export interface Operation {
-  __type?: "Operation";
   /**
    * <p>The date and time that the request was submitted, in Unix date/time format and Coordinated Universal Time (UTC).
    *    The value of <code>CreateDate</code> is accurate to milliseconds. For example, the value <code>1516925490.087</code>
@@ -2024,14 +1916,12 @@ export namespace Operation {
   export const filterSensitiveLog = (obj: Operation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Operation => __isa(o, "Operation");
 }
 
 /**
  * <p>A complex type that lets you select the operations that you want to list.</p>
  */
 export interface OperationFilter {
-  __type?: "OperationFilter";
   /**
    * <p>The operator that you want to use to determine whether an operation matches the specified value. Valid values
    *    for condition include:</p>
@@ -2123,7 +2013,6 @@ export namespace OperationFilter {
   export const filterSensitiveLog = (obj: OperationFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationFilter => __isa(o, "OperationFilter");
 }
 
 export enum OperationFilterName {
@@ -2147,7 +2036,6 @@ export namespace OperationNotFound {
   export const filterSensitiveLog = (obj: OperationNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationNotFound => __isa(o, "OperationNotFound");
 }
 
 export enum OperationStatus {
@@ -2163,7 +2051,6 @@ export enum OperationStatus {
  *    request.</p>
  */
 export interface OperationSummary {
-  __type?: "OperationSummary";
   /**
    * <p>The ID for an operation.</p>
    */
@@ -2199,7 +2086,6 @@ export namespace OperationSummary {
   export const filterSensitiveLog = (obj: OperationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationSummary => __isa(o, "OperationSummary");
 }
 
 export enum OperationTargetType {
@@ -2224,7 +2110,6 @@ export enum RecordType {
 }
 
 export interface RegisterInstanceRequest {
-  __type?: "RegisterInstanceRequest";
   /**
    * <p>A unique string that identifies the request and that allows failed <code>RegisterInstance</code> requests to be
    *    retried without the risk of executing the operation twice. You must use a unique <code>CreatorRequestId</code> string
@@ -2364,11 +2249,9 @@ export namespace RegisterInstanceRequest {
   export const filterSensitiveLog = (obj: RegisterInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterInstanceRequest => __isa(o, "RegisterInstanceRequest");
 }
 
 export interface RegisterInstanceResponse {
-  __type?: "RegisterInstanceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the
    *    operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
@@ -2380,7 +2263,6 @@ export namespace RegisterInstanceResponse {
   export const filterSensitiveLog = (obj: RegisterInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterInstanceResponse => __isa(o, "RegisterInstanceResponse");
 }
 
 /**
@@ -2396,7 +2278,6 @@ export namespace RequestLimitExceeded {
   export const filterSensitiveLog = (obj: RequestLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestLimitExceeded => __isa(o, "RequestLimitExceeded");
 }
 
 /**
@@ -2413,7 +2294,6 @@ export namespace ResourceInUse {
   export const filterSensitiveLog = (obj: ResourceInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUse => __isa(o, "ResourceInUse");
 }
 
 /**
@@ -2429,7 +2309,6 @@ export namespace ResourceLimitExceeded {
   export const filterSensitiveLog = (obj: ResourceLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceLimitExceeded => __isa(o, "ResourceLimitExceeded");
 }
 
 /**
@@ -2445,7 +2324,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum RoutingPolicy {
@@ -2457,7 +2335,6 @@ export enum RoutingPolicy {
  * <p>A complex type that contains information about the specified service.</p>
  */
 export interface Service {
-  __type?: "Service";
   /**
    * <p>The number of instances that are currently associated with the service. Instances that were previously
    *    associated with the service but that have been deleted are not included in the count. The count might not reflect
@@ -2533,7 +2410,6 @@ export namespace Service {
   export const filterSensitiveLog = (obj: Service): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Service => __isa(o, "Service");
 }
 
 /**
@@ -2559,14 +2435,12 @@ export namespace ServiceAlreadyExists {
   export const filterSensitiveLog = (obj: ServiceAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceAlreadyExists => __isa(o, "ServiceAlreadyExists");
 }
 
 /**
  * <p>A complex type that contains changes to an existing service.</p>
  */
 export interface ServiceChange {
-  __type?: "ServiceChange";
   /**
    * <p>A description for the service.</p>
    */
@@ -2643,14 +2517,12 @@ export namespace ServiceChange {
   export const filterSensitiveLog = (obj: ServiceChange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceChange => __isa(o, "ServiceChange");
 }
 
 /**
  * <p>A complex type that lets you specify the namespaces that you want to list services for.</p>
  */
 export interface ServiceFilter {
-  __type?: "ServiceFilter";
   /**
    * <p>Specify <code>NAMESPACE_ID</code>.</p>
    */
@@ -2689,7 +2561,6 @@ export namespace ServiceFilter {
   export const filterSensitiveLog = (obj: ServiceFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceFilter => __isa(o, "ServiceFilter");
 }
 
 export enum ServiceFilterName {
@@ -2709,14 +2580,12 @@ export namespace ServiceNotFound {
   export const filterSensitiveLog = (obj: ServiceNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceNotFound => __isa(o, "ServiceNotFound");
 }
 
 /**
  * <p>A complex type that contains information about a specified service.</p>
  */
 export interface ServiceSummary {
-  __type?: "ServiceSummary";
   /**
    * <p>A complex type that contains information about an optional custom health check. A custom health check, which
    *    requires that you use a third-party health checker to evaluate the health of your resources, is useful in the
@@ -2875,14 +2744,12 @@ export namespace ServiceSummary {
   export const filterSensitiveLog = (obj: ServiceSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceSummary => __isa(o, "ServiceSummary");
 }
 
 /**
  * <p>A custom key-value pair associated with a resource.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The string value that's associated with the key of the tag. You can set the value of a tag to an empty string,
    *    but you can't set the value of a tag to null.</p>
@@ -2899,11 +2766,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The tags to add to the specified resource. Specifying the tag key is required. You can set the value of a tag to
    *    an empty string, but you can't set the value of a tag to null.</p>
@@ -2920,18 +2785,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -2952,11 +2813,9 @@ export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The tag keys to remove from the specified resource.</p>
    */
@@ -2972,22 +2831,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateInstanceCustomHealthStatusRequest {
-  __type?: "UpdateInstanceCustomHealthStatusRequest";
   /**
    * <p>The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.</p>
    */
@@ -3009,12 +2863,9 @@ export namespace UpdateInstanceCustomHealthStatusRequest {
   export const filterSensitiveLog = (obj: UpdateInstanceCustomHealthStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateInstanceCustomHealthStatusRequest =>
-    __isa(o, "UpdateInstanceCustomHealthStatusRequest");
 }
 
 export interface UpdateServiceRequest {
-  __type?: "UpdateServiceRequest";
   /**
    * <p>A complex type that contains the new settings for the service.</p>
    */
@@ -3030,11 +2881,9 @@ export namespace UpdateServiceRequest {
   export const filterSensitiveLog = (obj: UpdateServiceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServiceRequest => __isa(o, "UpdateServiceRequest");
 }
 
 export interface UpdateServiceResponse {
-  __type?: "UpdateServiceResponse";
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the
    *    operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
@@ -3046,5 +2895,4 @@ export namespace UpdateServiceResponse {
   export const filterSensitiveLog = (obj: UpdateServiceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServiceResponse => __isa(o, "UpdateServiceResponse");
 }

@@ -119,7 +119,6 @@ export const deserializeAws_restJson1CreateTokenCommand = async (
   }
   const contents: CreateTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTokenResponse",
     accessToken: undefined,
     expiresIn: undefined,
     idToken: undefined,
@@ -271,7 +270,6 @@ export const deserializeAws_restJson1RegisterClientCommand = async (
   }
   const contents: RegisterClientCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterClientResponse",
     authorizationEndpoint: undefined,
     clientId: undefined,
     clientIdIssuedAt: undefined,
@@ -371,7 +369,6 @@ export const deserializeAws_restJson1StartDeviceAuthorizationCommand = async (
   }
   const contents: StartDeviceAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartDeviceAuthorizationResponse",
     deviceCode: undefined,
     expiresIn: undefined,
     interval: undefined,

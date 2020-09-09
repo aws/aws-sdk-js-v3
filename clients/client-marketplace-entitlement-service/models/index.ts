@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -7,7 +7,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       data capacity in a multi-tenant database.</p>
  */
 export interface Entitlement {
-  __type?: "Entitlement";
   /**
    * <p>The dimension for which the given entitlement applies. Dimensions represent categories of
    *       capacity in a product and are specified when the product is listed in AWS
@@ -47,7 +46,6 @@ export namespace Entitlement {
   export const filterSensitiveLog = (obj: Entitlement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Entitlement => __isa(o, "Entitlement");
 }
 
 /**
@@ -55,7 +53,6 @@ export namespace Entitlement {
  *    for the product.</p>
  */
 export interface EntitlementValue {
-  __type?: "EntitlementValue";
   /**
    * <p>The DoubleValue field will be populated with a double value when the entitlement is a
    *    double type. Otherwise, the field will not be set.</p>
@@ -85,7 +82,6 @@ export namespace EntitlementValue {
   export const filterSensitiveLog = (obj: EntitlementValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntitlementValue => __isa(o, "EntitlementValue");
 }
 
 export enum GetEntitlementFilterName {
@@ -98,7 +94,6 @@ export enum GetEntitlementFilterName {
  *    operation.</p>
  */
 export interface GetEntitlementsRequest {
-  __type?: "GetEntitlementsRequest";
   /**
    * <p>The maximum number of items to retrieve from the GetEntitlements operation. For
    *    pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>
@@ -130,14 +125,12 @@ export namespace GetEntitlementsRequest {
   export const filterSensitiveLog = (obj: GetEntitlementsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEntitlementsRequest => __isa(o, "GetEntitlementsRequest");
 }
 
 /**
  * <p>The GetEntitlementsRequest contains results from the GetEntitlements operation.</p>
  */
 export interface GetEntitlementsResult {
-  __type?: "GetEntitlementsResult";
   /**
    * <p>The set of entitlements found through the GetEntitlements operation. If the result
    *       contains an empty set of entitlements, NextToken might still be present and should be
@@ -157,7 +150,6 @@ export namespace GetEntitlementsResult {
   export const filterSensitiveLog = (obj: GetEntitlementsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEntitlementsResult => __isa(o, "GetEntitlementsResult");
 }
 
 /**
@@ -174,7 +166,6 @@ export namespace InternalServiceErrorException {
   export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 /**
@@ -190,7 +181,6 @@ export namespace InvalidParameterException {
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -206,5 +196,4 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }

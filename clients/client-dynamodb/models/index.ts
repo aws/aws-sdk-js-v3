@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Contains details of a table archival operation.</p>
  */
 export interface ArchivalSummary {
-  __type?: "ArchivalSummary";
   /**
    * <p>The reason DynamoDB archived the table. Currently, the only
    *          possible value is:</p>
@@ -41,7 +40,6 @@ export namespace ArchivalSummary {
   export const filterSensitiveLog = (obj: ArchivalSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArchivalSummary => __isa(o, "ArchivalSummary");
 }
 
 export type AttributeAction = "ADD" | "DELETE" | "PUT";
@@ -50,7 +48,6 @@ export type AttributeAction = "ADD" | "DELETE" | "PUT";
  * <p>Represents an attribute for describing the key schema for the table and indexes.</p>
  */
 export interface AttributeDefinition {
-  __type?: "AttributeDefinition";
   /**
    * <p>The data type for the attribute, where:</p>
    *          <ul>
@@ -80,7 +77,6 @@ export namespace AttributeDefinition {
   export const filterSensitiveLog = (obj: AttributeDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributeDefinition => __isa(o, "AttributeDefinition");
 }
 
 /**
@@ -90,7 +86,6 @@ export namespace AttributeDefinition {
  *                              <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 export interface AttributeValue {
-  __type?: "AttributeValue";
   /**
    * <p>An attribute of type Boolean.  For example:</p>
    *          <p>
@@ -178,7 +173,6 @@ export namespace AttributeValue {
   export const filterSensitiveLog = (obj: AttributeValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributeValue => __isa(o, "AttributeValue");
 }
 
 /**
@@ -194,7 +188,6 @@ export namespace AttributeValue {
  *       rejected with a <code>ValidationException</code> exception.</p>
  */
 export interface AttributeValueUpdate {
-  __type?: "AttributeValueUpdate";
   /**
    * <p>Specifies how to perform the update. Valid values are <code>PUT</code> (default), <code>DELETE</code>,
    *       and <code>ADD</code>. The behavior depends on whether the specified primary key already exists
@@ -299,14 +292,12 @@ export namespace AttributeValueUpdate {
   export const filterSensitiveLog = (obj: AttributeValueUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributeValueUpdate => __isa(o, "AttributeValueUpdate");
 }
 
 /**
  * <p>Represents the properties of the scaling policy.</p>
  */
 export interface AutoScalingPolicyDescription {
-  __type?: "AutoScalingPolicyDescription";
   /**
    * <p>The name of the scaling policy.</p>
    */
@@ -322,14 +313,12 @@ export namespace AutoScalingPolicyDescription {
   export const filterSensitiveLog = (obj: AutoScalingPolicyDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingPolicyDescription => __isa(o, "AutoScalingPolicyDescription");
 }
 
 /**
  * <p>Represents the auto scaling policy to be modified.</p>
  */
 export interface AutoScalingPolicyUpdate {
-  __type?: "AutoScalingPolicyUpdate";
   /**
    * <p>The name of the scaling policy.</p>
    */
@@ -345,7 +334,6 @@ export namespace AutoScalingPolicyUpdate {
   export const filterSensitiveLog = (obj: AutoScalingPolicyUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingPolicyUpdate => __isa(o, "AutoScalingPolicyUpdate");
 }
 
 /**
@@ -353,7 +341,6 @@ export namespace AutoScalingPolicyUpdate {
  *          index.</p>
  */
 export interface AutoScalingSettingsDescription {
-  __type?: "AutoScalingSettingsDescription";
   /**
    * <p>Information about the scaling policies.</p>
    */
@@ -384,7 +371,6 @@ export namespace AutoScalingSettingsDescription {
   export const filterSensitiveLog = (obj: AutoScalingSettingsDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingSettingsDescription => __isa(o, "AutoScalingSettingsDescription");
 }
 
 /**
@@ -392,7 +378,6 @@ export namespace AutoScalingSettingsDescription {
  *          secondary index.</p>
  */
 export interface AutoScalingSettingsUpdate {
-  __type?: "AutoScalingSettingsUpdate";
   /**
    * <p>Disabled auto scaling for this global table or global secondary index.</p>
    */
@@ -423,14 +408,12 @@ export namespace AutoScalingSettingsUpdate {
   export const filterSensitiveLog = (obj: AutoScalingSettingsUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingSettingsUpdate => __isa(o, "AutoScalingSettingsUpdate");
 }
 
 /**
  * <p>Represents the properties of a target tracking scaling policy.</p>
  */
 export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
-  __type?: "AutoScalingTargetTrackingScalingPolicyConfigurationDescription";
   /**
    * <p>The amount of time, in seconds, after a scale out activity completes before another scale out
    *       activity can start. While the cooldown period is in effect, the capacity that has been added
@@ -468,15 +451,12 @@ export namespace AutoScalingTargetTrackingScalingPolicyConfigurationDescription 
   export const filterSensitiveLog = (obj: AutoScalingTargetTrackingScalingPolicyConfigurationDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingTargetTrackingScalingPolicyConfigurationDescription =>
-    __isa(o, "AutoScalingTargetTrackingScalingPolicyConfigurationDescription");
 }
 
 /**
  * <p>Represents the settings of a target tracking scaling policy that will be modified.</p>
  */
 export interface AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
-  __type?: "AutoScalingTargetTrackingScalingPolicyConfigurationUpdate";
   /**
    * <p>The amount of time, in seconds, after a scale out activity completes before another scale out
    *       activity can start. While the cooldown period is in effect, the capacity that has been added
@@ -514,15 +494,12 @@ export namespace AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
   export const filterSensitiveLog = (obj: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingTargetTrackingScalingPolicyConfigurationUpdate =>
-    __isa(o, "AutoScalingTargetTrackingScalingPolicyConfigurationUpdate");
 }
 
 /**
  * <p>Contains the description of the backup created for the table.</p>
  */
 export interface BackupDescription {
-  __type?: "BackupDescription";
   /**
    * <p>Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.</p>
    */
@@ -543,14 +520,12 @@ export namespace BackupDescription {
   export const filterSensitiveLog = (obj: BackupDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupDescription => __isa(o, "BackupDescription");
 }
 
 /**
  * <p>Contains the details of the backup created for the table.</p>
  */
 export interface BackupDetails {
-  __type?: "BackupDetails";
   /**
    * <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED. </p>
    */
@@ -609,7 +584,6 @@ export namespace BackupDetails {
   export const filterSensitiveLog = (obj: BackupDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupDetails => __isa(o, "BackupDetails");
 }
 
 /**
@@ -625,7 +599,6 @@ export namespace BackupInUseException {
   export const filterSensitiveLog = (obj: BackupInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupInUseException => __isa(o, "BackupInUseException");
 }
 
 /**
@@ -641,7 +614,6 @@ export namespace BackupNotFoundException {
   export const filterSensitiveLog = (obj: BackupNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupNotFoundException => __isa(o, "BackupNotFoundException");
 }
 
 export type BackupStatus = "AVAILABLE" | "CREATING" | "DELETED";
@@ -650,7 +622,6 @@ export type BackupStatus = "AVAILABLE" | "CREATING" | "DELETED";
  * <p>Contains details for the backup.</p>
  */
 export interface BackupSummary {
-  __type?: "BackupSummary";
   /**
    * <p>Name of the specified backup.</p>
    */
@@ -725,7 +696,6 @@ export namespace BackupSummary {
   export const filterSensitiveLog = (obj: BackupSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BackupSummary => __isa(o, "BackupSummary");
 }
 
 export enum BackupType {
@@ -745,7 +715,6 @@ export enum BackupTypeFilter {
  * <p>Represents the input of a <code>BatchGetItem</code> operation.</p>
  */
 export interface BatchGetItemInput {
-  __type?: "BatchGetItemInput";
   /**
    * <p>A map of one or more table names and, for each table, a map that describes one or more items to retrieve from that table. Each table name can be used only once per <code>BatchGetItem</code> request.</p>
    *          <p>Each element in the map of items to retrieve consists of the following:</p>
@@ -855,14 +824,12 @@ export namespace BatchGetItemInput {
   export const filterSensitiveLog = (obj: BatchGetItemInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetItemInput => __isa(o, "BatchGetItemInput");
 }
 
 /**
  * <p>Represents the output of a <code>BatchGetItem</code> operation.</p>
  */
 export interface BatchGetItemOutput {
-  __type?: "BatchGetItemOutput";
   /**
    * <p>A map of table name to a list of items. Each object in <code>Responses</code> consists of a table
    *       name, along with a map of attribute data consisting of the data type and attribute value.</p>
@@ -920,14 +887,12 @@ export namespace BatchGetItemOutput {
   export const filterSensitiveLog = (obj: BatchGetItemOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetItemOutput => __isa(o, "BatchGetItemOutput");
 }
 
 /**
  * <p>Represents the input of a <code>BatchWriteItem</code> operation.</p>
  */
 export interface BatchWriteItemInput {
-  __type?: "BatchWriteItemInput";
   /**
    * <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p>
    *          <ul>
@@ -1000,14 +965,12 @@ export namespace BatchWriteItemInput {
   export const filterSensitiveLog = (obj: BatchWriteItemInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchWriteItemInput => __isa(o, "BatchWriteItemInput");
 }
 
 /**
  * <p>Represents the output of a <code>BatchWriteItem</code> operation.</p>
  */
 export interface BatchWriteItemOutput {
-  __type?: "BatchWriteItemOutput";
   /**
    * <p>A map of tables and requests against those tables that were not processed. The
    *         <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide
@@ -1095,7 +1058,6 @@ export namespace BatchWriteItemOutput {
   export const filterSensitiveLog = (obj: BatchWriteItemOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchWriteItemOutput => __isa(o, "BatchWriteItemOutput");
 }
 
 export type BillingMode = "PAY_PER_REQUEST" | "PROVISIONED";
@@ -1104,7 +1066,6 @@ export type BillingMode = "PAY_PER_REQUEST" | "PROVISIONED";
  * <p>Contains the details for the read/write capacity mode.</p>
  */
 export interface BillingModeSummary {
-  __type?: "BillingModeSummary";
   /**
    * <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
    */
@@ -1131,7 +1092,6 @@ export namespace BillingModeSummary {
   export const filterSensitiveLog = (obj: BillingModeSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BillingModeSummary => __isa(o, "BillingModeSummary");
 }
 
 /**
@@ -1142,7 +1102,6 @@ export namespace BillingModeSummary {
  *      </p>
  */
 export interface CancellationReason {
-  __type?: "CancellationReason";
   /**
    * <p>Cancellation reason message description.</p>
    */
@@ -1163,14 +1122,12 @@ export namespace CancellationReason {
   export const filterSensitiveLog = (obj: CancellationReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancellationReason => __isa(o, "CancellationReason");
 }
 
 /**
  * <p>Represents the amount of provisioned throughput capacity consumed on a table or an index.</p>
  */
 export interface Capacity {
-  __type?: "Capacity";
   /**
    * <p>The total number of capacity units consumed on a table or an index.</p>
    */
@@ -1191,7 +1148,6 @@ export namespace Capacity {
   export const filterSensitiveLog = (obj: Capacity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Capacity => __isa(o, "Capacity");
 }
 
 export type ComparisonOperator =
@@ -1230,7 +1186,6 @@ export type ComparisonOperator =
  *          </ul>
  */
 export interface Condition {
-  __type?: "Condition";
   /**
    * <p>One or more values to evaluate against the supplied attribute. The number of values in the
    *       list depends on the <code>ComparisonOperator</code> being used.</p>
@@ -1399,7 +1354,6 @@ export namespace Condition {
   export const filterSensitiveLog = (obj: Condition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Condition => __isa(o, "Condition");
 }
 
 /**
@@ -1418,7 +1372,6 @@ export namespace ConditionalCheckFailedException {
   export const filterSensitiveLog = (obj: ConditionalCheckFailedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConditionalCheckFailedException => __isa(o, "ConditionalCheckFailedException");
 }
 
 export type ConditionalOperator = "AND" | "OR";
@@ -1428,7 +1381,6 @@ export type ConditionalOperator = "AND" | "OR";
  *          specific attributes of the item.</p>
  */
 export interface ConditionCheck {
-  __type?: "ConditionCheck";
   /**
    * <p>One or more values that can be substituted in an expression.</p>
    */
@@ -1468,7 +1420,6 @@ export namespace ConditionCheck {
   export const filterSensitiveLog = (obj: ConditionCheck): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConditionCheck => __isa(o, "ConditionCheck");
 }
 
 /**
@@ -1479,7 +1430,6 @@ export namespace ConditionCheck {
  *         Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 export interface ConsumedCapacity {
-  __type?: "ConsumedCapacity";
   /**
    * <p>The amount of throughput consumed on the table affected by the operation.</p>
    */
@@ -1520,14 +1470,12 @@ export namespace ConsumedCapacity {
   export const filterSensitiveLog = (obj: ConsumedCapacity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConsumedCapacity => __isa(o, "ConsumedCapacity");
 }
 
 /**
  * <p>Represents the continuous backups and point in time recovery settings on the table.</p>
  */
 export interface ContinuousBackupsDescription {
-  __type?: "ContinuousBackupsDescription";
   /**
    * <p>
    *             <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED,
@@ -1545,7 +1493,6 @@ export namespace ContinuousBackupsDescription {
   export const filterSensitiveLog = (obj: ContinuousBackupsDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContinuousBackupsDescription => __isa(o, "ContinuousBackupsDescription");
 }
 
 export type ContinuousBackupsStatus = "DISABLED" | "ENABLED";
@@ -1563,8 +1510,6 @@ export namespace ContinuousBackupsUnavailableException {
   export const filterSensitiveLog = (obj: ContinuousBackupsUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContinuousBackupsUnavailableException =>
-    __isa(o, "ContinuousBackupsUnavailableException");
 }
 
 export type ContributorInsightsAction = "DISABLE" | "ENABLE";
@@ -1575,7 +1520,6 @@ export type ContributorInsightsStatus = "DISABLED" | "DISABLING" | "ENABLED" | "
  * <p>Represents a Contributor Insights summary entry..</p>
  */
 export interface ContributorInsightsSummary {
-  __type?: "ContributorInsightsSummary";
   /**
    * <p>Name of the index associated with the summary, if any.</p>
    */
@@ -1596,11 +1540,9 @@ export namespace ContributorInsightsSummary {
   export const filterSensitiveLog = (obj: ContributorInsightsSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContributorInsightsSummary => __isa(o, "ContributorInsightsSummary");
 }
 
 export interface CreateBackupInput {
-  __type?: "CreateBackupInput";
   /**
    * <p>The name of the table.</p>
    */
@@ -1616,11 +1558,9 @@ export namespace CreateBackupInput {
   export const filterSensitiveLog = (obj: CreateBackupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBackupInput => __isa(o, "CreateBackupInput");
 }
 
 export interface CreateBackupOutput {
-  __type?: "CreateBackupOutput";
   /**
    * <p>Contains the details of the backup created for the table.</p>
    */
@@ -1631,14 +1571,12 @@ export namespace CreateBackupOutput {
   export const filterSensitiveLog = (obj: CreateBackupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBackupOutput => __isa(o, "CreateBackupOutput");
 }
 
 /**
  * <p>Represents a new global secondary index to be added to an existing table.</p>
  */
 export interface CreateGlobalSecondaryIndexAction {
-  __type?: "CreateGlobalSecondaryIndexAction";
   /**
    * <p>Represents attributes that are copied (projected) from the table into an index. These
    *          are in addition to the primary key attributes and index key attributes, which are
@@ -1667,11 +1605,9 @@ export namespace CreateGlobalSecondaryIndexAction {
   export const filterSensitiveLog = (obj: CreateGlobalSecondaryIndexAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGlobalSecondaryIndexAction => __isa(o, "CreateGlobalSecondaryIndexAction");
 }
 
 export interface CreateGlobalTableInput {
-  __type?: "CreateGlobalTableInput";
   /**
    * <p>The global table name.</p>
    */
@@ -1687,11 +1623,9 @@ export namespace CreateGlobalTableInput {
   export const filterSensitiveLog = (obj: CreateGlobalTableInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGlobalTableInput => __isa(o, "CreateGlobalTableInput");
 }
 
 export interface CreateGlobalTableOutput {
-  __type?: "CreateGlobalTableOutput";
   /**
    * <p>Contains the details of the global table.</p>
    */
@@ -1702,14 +1636,12 @@ export namespace CreateGlobalTableOutput {
   export const filterSensitiveLog = (obj: CreateGlobalTableOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGlobalTableOutput => __isa(o, "CreateGlobalTableOutput");
 }
 
 /**
  * <p>Represents a replica to be added.</p>
  */
 export interface CreateReplicaAction {
-  __type?: "CreateReplicaAction";
   /**
    * <p>The Region of the replica to be added.</p>
    */
@@ -1720,14 +1652,12 @@ export namespace CreateReplicaAction {
   export const filterSensitiveLog = (obj: CreateReplicaAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReplicaAction => __isa(o, "CreateReplicaAction");
 }
 
 /**
  * <p>Represents a replica to be created.</p>
  */
 export interface CreateReplicationGroupMemberAction {
-  __type?: "CreateReplicationGroupMemberAction";
   /**
    * <p>The Region where the new replica will be created.</p>
    */
@@ -1757,15 +1687,12 @@ export namespace CreateReplicationGroupMemberAction {
   export const filterSensitiveLog = (obj: CreateReplicationGroupMemberAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReplicationGroupMemberAction =>
-    __isa(o, "CreateReplicationGroupMemberAction");
 }
 
 /**
  * <p>Represents the input of a <code>CreateTable</code> operation.</p>
  */
 export interface CreateTableInput {
-  __type?: "CreateTableInput";
   /**
    * <p>Represents the settings used to enable server-side encryption.</p>
    */
@@ -2024,14 +1951,12 @@ export namespace CreateTableInput {
   export const filterSensitiveLog = (obj: CreateTableInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTableInput => __isa(o, "CreateTableInput");
 }
 
 /**
  * <p>Represents the output of a <code>CreateTable</code> operation.</p>
  */
 export interface CreateTableOutput {
-  __type?: "CreateTableOutput";
   /**
    * <p>Represents the properties of the table.</p>
    */
@@ -2042,14 +1967,12 @@ export namespace CreateTableOutput {
   export const filterSensitiveLog = (obj: CreateTableOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTableOutput => __isa(o, "CreateTableOutput");
 }
 
 /**
  * <p>Represents a request to perform a <code>DeleteItem</code> operation.</p>
  */
 export interface Delete {
-  __type?: "Delete";
   /**
    * <p>Name of the table in which the item to be deleted resides.</p>
    */
@@ -2089,11 +2012,9 @@ export namespace Delete {
   export const filterSensitiveLog = (obj: Delete): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Delete => __isa(o, "Delete");
 }
 
 export interface DeleteBackupInput {
-  __type?: "DeleteBackupInput";
   /**
    * <p>The ARN associated with the backup.</p>
    */
@@ -2104,11 +2025,9 @@ export namespace DeleteBackupInput {
   export const filterSensitiveLog = (obj: DeleteBackupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupInput => __isa(o, "DeleteBackupInput");
 }
 
 export interface DeleteBackupOutput {
-  __type?: "DeleteBackupOutput";
   /**
    * <p>Contains the description of the backup created for the table.</p>
    */
@@ -2119,14 +2038,12 @@ export namespace DeleteBackupOutput {
   export const filterSensitiveLog = (obj: DeleteBackupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBackupOutput => __isa(o, "DeleteBackupOutput");
 }
 
 /**
  * <p>Represents a global secondary index to be deleted from an existing table.</p>
  */
 export interface DeleteGlobalSecondaryIndexAction {
-  __type?: "DeleteGlobalSecondaryIndexAction";
   /**
    * <p>The name of the global secondary index to be deleted.</p>
    */
@@ -2137,14 +2054,12 @@ export namespace DeleteGlobalSecondaryIndexAction {
   export const filterSensitiveLog = (obj: DeleteGlobalSecondaryIndexAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGlobalSecondaryIndexAction => __isa(o, "DeleteGlobalSecondaryIndexAction");
 }
 
 /**
  * <p>Represents the input of a <code>DeleteItem</code> operation.</p>
  */
 export interface DeleteItemInput {
-  __type?: "DeleteItemInput";
   /**
    * <p>One or more values that can be substituted in an expression.</p>
    *          <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following: </p>
@@ -2313,14 +2228,12 @@ export namespace DeleteItemInput {
   export const filterSensitiveLog = (obj: DeleteItemInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteItemInput => __isa(o, "DeleteItemInput");
 }
 
 /**
  * <p>Represents the output of a <code>DeleteItem</code> operation.</p>
  */
 export interface DeleteItemOutput {
-  __type?: "DeleteItemOutput";
   /**
    * <p>Information about item collections, if any, that were affected by the
    *                 <code>DeleteItem</code> operation.
@@ -2373,14 +2286,12 @@ export namespace DeleteItemOutput {
   export const filterSensitiveLog = (obj: DeleteItemOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteItemOutput => __isa(o, "DeleteItemOutput");
 }
 
 /**
  * <p>Represents a replica to be removed.</p>
  */
 export interface DeleteReplicaAction {
-  __type?: "DeleteReplicaAction";
   /**
    * <p>The Region of the replica to be removed.</p>
    */
@@ -2391,14 +2302,12 @@ export namespace DeleteReplicaAction {
   export const filterSensitiveLog = (obj: DeleteReplicaAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReplicaAction => __isa(o, "DeleteReplicaAction");
 }
 
 /**
  * <p>Represents a replica to be deleted.</p>
  */
 export interface DeleteReplicationGroupMemberAction {
-  __type?: "DeleteReplicationGroupMemberAction";
   /**
    * <p>The Region where the replica exists.</p>
    */
@@ -2409,15 +2318,12 @@ export namespace DeleteReplicationGroupMemberAction {
   export const filterSensitiveLog = (obj: DeleteReplicationGroupMemberAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReplicationGroupMemberAction =>
-    __isa(o, "DeleteReplicationGroupMemberAction");
 }
 
 /**
  * <p>Represents a request to perform a <code>DeleteItem</code> operation on an item.</p>
  */
 export interface DeleteRequest {
-  __type?: "DeleteRequest";
   /**
    * <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>
    */
@@ -2428,14 +2334,12 @@ export namespace DeleteRequest {
   export const filterSensitiveLog = (obj: DeleteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRequest => __isa(o, "DeleteRequest");
 }
 
 /**
  * <p>Represents the input of a <code>DeleteTable</code> operation.</p>
  */
 export interface DeleteTableInput {
-  __type?: "DeleteTableInput";
   /**
    * <p>The name of the table to delete.</p>
    */
@@ -2446,14 +2350,12 @@ export namespace DeleteTableInput {
   export const filterSensitiveLog = (obj: DeleteTableInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTableInput => __isa(o, "DeleteTableInput");
 }
 
 /**
  * <p>Represents the output of a <code>DeleteTable</code> operation.</p>
  */
 export interface DeleteTableOutput {
-  __type?: "DeleteTableOutput";
   /**
    * <p>Represents the properties of a table.</p>
    */
@@ -2464,11 +2366,9 @@ export namespace DeleteTableOutput {
   export const filterSensitiveLog = (obj: DeleteTableOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTableOutput => __isa(o, "DeleteTableOutput");
 }
 
 export interface DescribeBackupInput {
-  __type?: "DescribeBackupInput";
   /**
    * <p>The Amazon Resource Name (ARN) associated with the backup.</p>
    */
@@ -2479,11 +2379,9 @@ export namespace DescribeBackupInput {
   export const filterSensitiveLog = (obj: DescribeBackupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupInput => __isa(o, "DescribeBackupInput");
 }
 
 export interface DescribeBackupOutput {
-  __type?: "DescribeBackupOutput";
   /**
    * <p>Contains the description of the backup created for the table.</p>
    */
@@ -2494,11 +2392,9 @@ export namespace DescribeBackupOutput {
   export const filterSensitiveLog = (obj: DescribeBackupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBackupOutput => __isa(o, "DescribeBackupOutput");
 }
 
 export interface DescribeContinuousBackupsInput {
-  __type?: "DescribeContinuousBackupsInput";
   /**
    * <p>Name of the table for which the customer wants to check the continuous backups and point in time recovery settings.</p>
    */
@@ -2509,11 +2405,9 @@ export namespace DescribeContinuousBackupsInput {
   export const filterSensitiveLog = (obj: DescribeContinuousBackupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeContinuousBackupsInput => __isa(o, "DescribeContinuousBackupsInput");
 }
 
 export interface DescribeContinuousBackupsOutput {
-  __type?: "DescribeContinuousBackupsOutput";
   /**
    * <p>Represents the continuous backups and point in time recovery settings on the table.</p>
    */
@@ -2524,11 +2418,9 @@ export namespace DescribeContinuousBackupsOutput {
   export const filterSensitiveLog = (obj: DescribeContinuousBackupsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeContinuousBackupsOutput => __isa(o, "DescribeContinuousBackupsOutput");
 }
 
 export interface DescribeContributorInsightsInput {
-  __type?: "DescribeContributorInsightsInput";
   /**
    * <p>The name of the global secondary index to describe, if applicable.</p>
    */
@@ -2544,11 +2436,9 @@ export namespace DescribeContributorInsightsInput {
   export const filterSensitiveLog = (obj: DescribeContributorInsightsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeContributorInsightsInput => __isa(o, "DescribeContributorInsightsInput");
 }
 
 export interface DescribeContributorInsightsOutput {
-  __type?: "DescribeContributorInsightsOutput";
   /**
    * <p>Returns information about the last failure that encountered.</p>
    *          <p>The most common exceptions for a FAILED status are:</p>
@@ -2600,22 +2490,17 @@ export namespace DescribeContributorInsightsOutput {
   export const filterSensitiveLog = (obj: DescribeContributorInsightsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeContributorInsightsOutput => __isa(o, "DescribeContributorInsightsOutput");
 }
 
-export interface DescribeEndpointsRequest {
-  __type?: "DescribeEndpointsRequest";
-}
+export interface DescribeEndpointsRequest {}
 
 export namespace DescribeEndpointsRequest {
   export const filterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointsRequest => __isa(o, "DescribeEndpointsRequest");
 }
 
 export interface DescribeEndpointsResponse {
-  __type?: "DescribeEndpointsResponse";
   /**
    * <p>List of endpoints.</p>
    */
@@ -2626,11 +2511,9 @@ export namespace DescribeEndpointsResponse {
   export const filterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEndpointsResponse => __isa(o, "DescribeEndpointsResponse");
 }
 
 export interface DescribeGlobalTableInput {
-  __type?: "DescribeGlobalTableInput";
   /**
    * <p>The name of the global table.</p>
    */
@@ -2641,11 +2524,9 @@ export namespace DescribeGlobalTableInput {
   export const filterSensitiveLog = (obj: DescribeGlobalTableInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGlobalTableInput => __isa(o, "DescribeGlobalTableInput");
 }
 
 export interface DescribeGlobalTableOutput {
-  __type?: "DescribeGlobalTableOutput";
   /**
    * <p>Contains the details of the global table.</p>
    */
@@ -2656,11 +2537,9 @@ export namespace DescribeGlobalTableOutput {
   export const filterSensitiveLog = (obj: DescribeGlobalTableOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGlobalTableOutput => __isa(o, "DescribeGlobalTableOutput");
 }
 
 export interface DescribeGlobalTableSettingsInput {
-  __type?: "DescribeGlobalTableSettingsInput";
   /**
    * <p>The name of the global table to describe.</p>
    */
@@ -2671,11 +2550,9 @@ export namespace DescribeGlobalTableSettingsInput {
   export const filterSensitiveLog = (obj: DescribeGlobalTableSettingsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGlobalTableSettingsInput => __isa(o, "DescribeGlobalTableSettingsInput");
 }
 
 export interface DescribeGlobalTableSettingsOutput {
-  __type?: "DescribeGlobalTableSettingsOutput";
   /**
    * <p>The Region-specific settings for the global table.</p>
    */
@@ -2691,28 +2568,23 @@ export namespace DescribeGlobalTableSettingsOutput {
   export const filterSensitiveLog = (obj: DescribeGlobalTableSettingsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGlobalTableSettingsOutput => __isa(o, "DescribeGlobalTableSettingsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeLimits</code> operation. Has no content.</p>
  */
-export interface DescribeLimitsInput {
-  __type?: "DescribeLimitsInput";
-}
+export interface DescribeLimitsInput {}
 
 export namespace DescribeLimitsInput {
   export const filterSensitiveLog = (obj: DescribeLimitsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLimitsInput => __isa(o, "DescribeLimitsInput");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeLimits</code> operation.</p>
  */
 export interface DescribeLimitsOutput {
-  __type?: "DescribeLimitsOutput";
   /**
    * <p>The maximum total write capacity units that your account allows you to provision across
    *             all of your tables in this Region.</p>
@@ -2744,14 +2616,12 @@ export namespace DescribeLimitsOutput {
   export const filterSensitiveLog = (obj: DescribeLimitsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeLimitsOutput => __isa(o, "DescribeLimitsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeTable</code> operation.</p>
  */
 export interface DescribeTableInput {
-  __type?: "DescribeTableInput";
   /**
    * <p>The name of the table to describe.</p>
    */
@@ -2762,14 +2632,12 @@ export namespace DescribeTableInput {
   export const filterSensitiveLog = (obj: DescribeTableInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTableInput => __isa(o, "DescribeTableInput");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeTable</code> operation.</p>
  */
 export interface DescribeTableOutput {
-  __type?: "DescribeTableOutput";
   /**
    * <p>The properties of the table.</p>
    */
@@ -2780,11 +2648,9 @@ export namespace DescribeTableOutput {
   export const filterSensitiveLog = (obj: DescribeTableOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTableOutput => __isa(o, "DescribeTableOutput");
 }
 
 export interface DescribeTableReplicaAutoScalingInput {
-  __type?: "DescribeTableReplicaAutoScalingInput";
   /**
    * <p>The name of the table.</p>
    */
@@ -2795,12 +2661,9 @@ export namespace DescribeTableReplicaAutoScalingInput {
   export const filterSensitiveLog = (obj: DescribeTableReplicaAutoScalingInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTableReplicaAutoScalingInput =>
-    __isa(o, "DescribeTableReplicaAutoScalingInput");
 }
 
 export interface DescribeTableReplicaAutoScalingOutput {
-  __type?: "DescribeTableReplicaAutoScalingOutput";
   /**
    * <p>Represents the auto scaling properties of the table.</p>
    */
@@ -2811,12 +2674,9 @@ export namespace DescribeTableReplicaAutoScalingOutput {
   export const filterSensitiveLog = (obj: DescribeTableReplicaAutoScalingOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTableReplicaAutoScalingOutput =>
-    __isa(o, "DescribeTableReplicaAutoScalingOutput");
 }
 
 export interface DescribeTimeToLiveInput {
-  __type?: "DescribeTimeToLiveInput";
   /**
    * <p>The name of the table to be described.</p>
    */
@@ -2827,11 +2687,9 @@ export namespace DescribeTimeToLiveInput {
   export const filterSensitiveLog = (obj: DescribeTimeToLiveInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTimeToLiveInput => __isa(o, "DescribeTimeToLiveInput");
 }
 
 export interface DescribeTimeToLiveOutput {
-  __type?: "DescribeTimeToLiveOutput";
   /**
    * <p></p>
    */
@@ -2842,14 +2700,12 @@ export namespace DescribeTimeToLiveOutput {
   export const filterSensitiveLog = (obj: DescribeTimeToLiveOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTimeToLiveOutput => __isa(o, "DescribeTimeToLiveOutput");
 }
 
 /**
  * <p>An endpoint information details.</p>
  */
 export interface Endpoint {
-  __type?: "Endpoint";
   /**
    * <p>Endpoint cache time to live (TTL) value.</p>
    */
@@ -2865,7 +2721,6 @@ export namespace Endpoint {
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
 
 /**
@@ -2895,7 +2750,6 @@ export namespace Endpoint {
  *       return a <code>ValidationException</code> exception.</p>
  */
 export interface ExpectedAttributeValue {
-  __type?: "ExpectedAttributeValue";
   /**
    * <p>Represents the data for the expected attribute.</p>
    *          <p>Each attribute value is described as a name-value pair.  The name is the data type, and the value is the data itself.</p>
@@ -3105,14 +2959,12 @@ export namespace ExpectedAttributeValue {
   export const filterSensitiveLog = (obj: ExpectedAttributeValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExpectedAttributeValue => __isa(o, "ExpectedAttributeValue");
 }
 
 /**
  * <p>Represents a failure a contributor insights operation.</p>
  */
 export interface FailureException {
-  __type?: "FailureException";
   /**
    * <p>Description of the failure.</p>
    */
@@ -3128,7 +2980,6 @@ export namespace FailureException {
   export const filterSensitiveLog = (obj: FailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailureException => __isa(o, "FailureException");
 }
 
 /**
@@ -3136,7 +2987,6 @@ export namespace FailureException {
  *         <code>TransactGetItem</code> object.</p>
  */
 export interface Get {
-  __type?: "Get";
   /**
    * <p>One or more substitution tokens for attribute names in the
    *         ProjectionExpression parameter.</p>
@@ -3168,14 +3018,12 @@ export namespace Get {
   export const filterSensitiveLog = (obj: Get): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Get => __isa(o, "Get");
 }
 
 /**
  * <p>Represents the input of a <code>GetItem</code> operation.</p>
  */
 export interface GetItemInput {
-  __type?: "GetItemInput";
   /**
    * <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
    *          <p>If no attribute names are specified, then all attributes are returned. If any of the
@@ -3278,14 +3126,12 @@ export namespace GetItemInput {
   export const filterSensitiveLog = (obj: GetItemInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetItemInput => __isa(o, "GetItemInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetItem</code> operation.</p>
  */
 export interface GetItemOutput {
-  __type?: "GetItemOutput";
   /**
    * <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned
    *             includes the total provisioned throughput consumed, along with statistics for the table
@@ -3307,14 +3153,12 @@ export namespace GetItemOutput {
   export const filterSensitiveLog = (obj: GetItemOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetItemOutput => __isa(o, "GetItemOutput");
 }
 
 /**
  * <p>Represents the properties of a global secondary index.</p>
  */
 export interface GlobalSecondaryIndex {
-  __type?: "GlobalSecondaryIndex";
   /**
    * <p>Represents attributes that are copied (projected) from the table into the global
    *          secondary index. These are in addition to the primary key attributes and index key
@@ -3361,7 +3205,6 @@ export namespace GlobalSecondaryIndex {
   export const filterSensitiveLog = (obj: GlobalSecondaryIndex): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalSecondaryIndex => __isa(o, "GlobalSecondaryIndex");
 }
 
 /**
@@ -3369,7 +3212,6 @@ export namespace GlobalSecondaryIndex {
  *          that will be modified.</p>
  */
 export interface GlobalSecondaryIndexAutoScalingUpdate {
-  __type?: "GlobalSecondaryIndexAutoScalingUpdate";
   /**
    * <p>The name of the global secondary index.</p>
    */
@@ -3386,15 +3228,12 @@ export namespace GlobalSecondaryIndexAutoScalingUpdate {
   export const filterSensitiveLog = (obj: GlobalSecondaryIndexAutoScalingUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalSecondaryIndexAutoScalingUpdate =>
-    __isa(o, "GlobalSecondaryIndexAutoScalingUpdate");
 }
 
 /**
  * <p>Represents the properties of a global secondary index.</p>
  */
 export interface GlobalSecondaryIndexDescription {
-  __type?: "GlobalSecondaryIndexDescription";
   /**
    * <p>Represents attributes that are copied (projected) from the table into the global
    *          secondary index. These are in addition to the primary key attributes and index key
@@ -3494,7 +3333,6 @@ export namespace GlobalSecondaryIndexDescription {
   export const filterSensitiveLog = (obj: GlobalSecondaryIndexDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalSecondaryIndexDescription => __isa(o, "GlobalSecondaryIndexDescription");
 }
 
 /**
@@ -3502,7 +3340,6 @@ export namespace GlobalSecondaryIndexDescription {
  *      when the backup was created.</p>
  */
 export interface GlobalSecondaryIndexInfo {
-  __type?: "GlobalSecondaryIndexInfo";
   /**
    * <p>The name of the global secondary index.</p>
    */
@@ -3549,7 +3386,6 @@ export namespace GlobalSecondaryIndexInfo {
   export const filterSensitiveLog = (obj: GlobalSecondaryIndexInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalSecondaryIndexInfo => __isa(o, "GlobalSecondaryIndexInfo");
 }
 
 /**
@@ -3567,7 +3403,6 @@ export namespace GlobalSecondaryIndexInfo {
  *          </ul>
  */
 export interface GlobalSecondaryIndexUpdate {
-  __type?: "GlobalSecondaryIndexUpdate";
   /**
    * <p>The name of an existing global secondary index, along with new provisioned throughput settings to be applied to that index.</p>
    */
@@ -3615,14 +3450,12 @@ export namespace GlobalSecondaryIndexUpdate {
   export const filterSensitiveLog = (obj: GlobalSecondaryIndexUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalSecondaryIndexUpdate => __isa(o, "GlobalSecondaryIndexUpdate");
 }
 
 /**
  * <p>Represents the properties of a global table.</p>
  */
 export interface GlobalTable {
-  __type?: "GlobalTable";
   /**
    * <p>The Regions where the global table has replicas.</p>
    */
@@ -3638,7 +3471,6 @@ export namespace GlobalTable {
   export const filterSensitiveLog = (obj: GlobalTable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalTable => __isa(o, "GlobalTable");
 }
 
 /**
@@ -3654,14 +3486,12 @@ export namespace GlobalTableAlreadyExistsException {
   export const filterSensitiveLog = (obj: GlobalTableAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalTableAlreadyExistsException => __isa(o, "GlobalTableAlreadyExistsException");
 }
 
 /**
  * <p>Contains details about the global table.</p>
  */
 export interface GlobalTableDescription {
-  __type?: "GlobalTableDescription";
   /**
    * <p>The creation time of the global table.</p>
    */
@@ -3710,14 +3540,12 @@ export namespace GlobalTableDescription {
   export const filterSensitiveLog = (obj: GlobalTableDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalTableDescription => __isa(o, "GlobalTableDescription");
 }
 
 /**
  * <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
  */
 export interface GlobalTableGlobalSecondaryIndexSettingsUpdate {
-  __type?: "GlobalTableGlobalSecondaryIndexSettingsUpdate";
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code>
    *          </p>
@@ -3740,8 +3568,6 @@ export namespace GlobalTableGlobalSecondaryIndexSettingsUpdate {
   export const filterSensitiveLog = (obj: GlobalTableGlobalSecondaryIndexSettingsUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalTableGlobalSecondaryIndexSettingsUpdate =>
-    __isa(o, "GlobalTableGlobalSecondaryIndexSettingsUpdate");
 }
 
 /**
@@ -3757,7 +3583,6 @@ export namespace GlobalTableNotFoundException {
   export const filterSensitiveLog = (obj: GlobalTableNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalTableNotFoundException => __isa(o, "GlobalTableNotFoundException");
 }
 
 export type GlobalTableStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
@@ -3776,8 +3601,6 @@ export namespace IdempotentParameterMismatchException {
   export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdempotentParameterMismatchException =>
-    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
@@ -3793,7 +3616,6 @@ export namespace IndexNotFoundException {
   export const filterSensitiveLog = (obj: IndexNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IndexNotFoundException => __isa(o, "IndexNotFoundException");
 }
 
 export type IndexStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
@@ -3814,7 +3636,6 @@ export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 export interface InvalidEndpointException extends __SmithyException, $MetadataBearer {
@@ -3827,7 +3648,6 @@ export namespace InvalidEndpointException {
   export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEndpointException => __isa(o, "InvalidEndpointException");
 }
 
 /**
@@ -3843,7 +3663,6 @@ export namespace InvalidRestoreTimeException {
   export const filterSensitiveLog = (obj: InvalidRestoreTimeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRestoreTimeException => __isa(o, "InvalidRestoreTimeException");
 }
 
 /**
@@ -3852,7 +3671,6 @@ export namespace InvalidRestoreTimeException {
  *       table does not have any local secondary indexes, this information is not returned in the response.</p>
  */
 export interface ItemCollectionMetrics {
-  __type?: "ItemCollectionMetrics";
   /**
    * <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
    */
@@ -3869,7 +3687,6 @@ export namespace ItemCollectionMetrics {
   export const filterSensitiveLog = (obj: ItemCollectionMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ItemCollectionMetrics => __isa(o, "ItemCollectionMetrics");
 }
 
 /**
@@ -3888,15 +3705,12 @@ export namespace ItemCollectionSizeLimitExceededException {
   export const filterSensitiveLog = (obj: ItemCollectionSizeLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ItemCollectionSizeLimitExceededException =>
-    __isa(o, "ItemCollectionSizeLimitExceededException");
 }
 
 /**
  * <p>Details for the requested item.</p>
  */
 export interface ItemResponse {
-  __type?: "ItemResponse";
   /**
    * <p>Map of attribute data consisting of the data type and attribute value.</p>
    */
@@ -3907,7 +3721,6 @@ export namespace ItemResponse {
   export const filterSensitiveLog = (obj: ItemResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ItemResponse => __isa(o, "ItemResponse");
 }
 
 /**
@@ -3917,7 +3730,6 @@ export namespace ItemResponse {
  *       primary key, you must provide <i>both</i> the partition key and the sort key.</p>
  */
 export interface KeysAndAttributes {
-  __type?: "KeysAndAttributes";
   /**
    * <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars,
    *          sets, or elements of a JSON document. The attributes in the <code>ProjectionExpression</code> must be separated by
@@ -3993,7 +3805,6 @@ export namespace KeysAndAttributes {
   export const filterSensitiveLog = (obj: KeysAndAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeysAndAttributes => __isa(o, "KeysAndAttributes");
 }
 
 /**
@@ -4006,7 +3817,6 @@ export namespace KeysAndAttributes {
  *          <p>A <code>KeySchemaElement</code> must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary.  The attribute cannot be nested within a List or a Map.</p>
  */
 export interface KeySchemaElement {
-  __type?: "KeySchemaElement";
   /**
    * <p>The role that this key attribute will assume:</p>
    *          <ul>
@@ -4040,7 +3850,6 @@ export namespace KeySchemaElement {
   export const filterSensitiveLog = (obj: KeySchemaElement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeySchemaElement => __isa(o, "KeySchemaElement");
 }
 
 export type KeyType = "HASH" | "RANGE";
@@ -4069,11 +3878,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListBackupsInput {
-  __type?: "ListBackupsInput";
   /**
    * <p>The backups from the table specified by <code>BackupType</code> are listed.</p>
    *          <p>Where <code>BackupType</code> can be:</p>
@@ -4129,11 +3936,9 @@ export namespace ListBackupsInput {
   export const filterSensitiveLog = (obj: ListBackupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupsInput => __isa(o, "ListBackupsInput");
 }
 
 export interface ListBackupsOutput {
-  __type?: "ListBackupsOutput";
   /**
    * <p>List of <code>BackupSummary</code> objects.</p>
    */
@@ -4160,11 +3965,9 @@ export namespace ListBackupsOutput {
   export const filterSensitiveLog = (obj: ListBackupsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBackupsOutput => __isa(o, "ListBackupsOutput");
 }
 
 export interface ListContributorInsightsInput {
-  __type?: "ListContributorInsightsInput";
   /**
    * <p>The name of the table.</p>
    */
@@ -4185,11 +3988,9 @@ export namespace ListContributorInsightsInput {
   export const filterSensitiveLog = (obj: ListContributorInsightsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListContributorInsightsInput => __isa(o, "ListContributorInsightsInput");
 }
 
 export interface ListContributorInsightsOutput {
-  __type?: "ListContributorInsightsOutput";
   /**
    * <p>A token to go to the next page if there is one.</p>
    */
@@ -4205,11 +4006,9 @@ export namespace ListContributorInsightsOutput {
   export const filterSensitiveLog = (obj: ListContributorInsightsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListContributorInsightsOutput => __isa(o, "ListContributorInsightsOutput");
 }
 
 export interface ListGlobalTablesInput {
-  __type?: "ListGlobalTablesInput";
   /**
    * <p>The first global table name that this operation will evaluate.</p>
    */
@@ -4232,11 +4031,9 @@ export namespace ListGlobalTablesInput {
   export const filterSensitiveLog = (obj: ListGlobalTablesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGlobalTablesInput => __isa(o, "ListGlobalTablesInput");
 }
 
 export interface ListGlobalTablesOutput {
-  __type?: "ListGlobalTablesOutput";
   /**
    * <p>List of global table names.</p>
    */
@@ -4252,14 +4049,12 @@ export namespace ListGlobalTablesOutput {
   export const filterSensitiveLog = (obj: ListGlobalTablesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGlobalTablesOutput => __isa(o, "ListGlobalTablesOutput");
 }
 
 /**
  * <p>Represents the input of a <code>ListTables</code> operation.</p>
  */
 export interface ListTablesInput {
-  __type?: "ListTablesInput";
   /**
    * <p>A maximum number of table names to return. If this parameter is not specified, the limit is 100.</p>
    */
@@ -4277,14 +4072,12 @@ export namespace ListTablesInput {
   export const filterSensitiveLog = (obj: ListTablesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTablesInput => __isa(o, "ListTablesInput");
 }
 
 /**
  * <p>Represents the output of a <code>ListTables</code> operation.</p>
  */
 export interface ListTablesOutput {
-  __type?: "ListTablesOutput";
   /**
    * <p>The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.</p>
    *          <p>If <code>LastEvaluatedTableName</code> also appears in the output, you can use this value as the
@@ -4307,11 +4100,9 @@ export namespace ListTablesOutput {
   export const filterSensitiveLog = (obj: ListTablesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTablesOutput => __isa(o, "ListTablesOutput");
 }
 
 export interface ListTagsOfResourceInput {
-  __type?: "ListTagsOfResourceInput";
   /**
    * <p>An optional string that, if supplied, must be copied from the output of a previous
    *       call to ListTagOfResource. When provided in this manner, this API fetches the next page of results.</p>
@@ -4328,11 +4119,9 @@ export namespace ListTagsOfResourceInput {
   export const filterSensitiveLog = (obj: ListTagsOfResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsOfResourceInput => __isa(o, "ListTagsOfResourceInput");
 }
 
 export interface ListTagsOfResourceOutput {
-  __type?: "ListTagsOfResourceOutput";
   /**
    * <p>If this value is returned, there are additional results to be displayed. To retrieve them,
    *       call ListTagsOfResource again, with NextToken set to this value.</p>
@@ -4349,14 +4138,12 @@ export namespace ListTagsOfResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsOfResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsOfResourceOutput => __isa(o, "ListTagsOfResourceOutput");
 }
 
 /**
  * <p>Represents the properties of a local secondary index.</p>
  */
 export interface LocalSecondaryIndex {
-  __type?: "LocalSecondaryIndex";
   /**
    * <p>Represents attributes that are copied (projected) from the table into the local
    *          secondary index. These are in addition to the primary key attributes and index key
@@ -4397,14 +4184,12 @@ export namespace LocalSecondaryIndex {
   export const filterSensitiveLog = (obj: LocalSecondaryIndex): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocalSecondaryIndex => __isa(o, "LocalSecondaryIndex");
 }
 
 /**
  * <p>Represents the properties of a local secondary index.</p>
  */
 export interface LocalSecondaryIndexDescription {
-  __type?: "LocalSecondaryIndexDescription";
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the index.</p>
    */
@@ -4460,7 +4245,6 @@ export namespace LocalSecondaryIndexDescription {
   export const filterSensitiveLog = (obj: LocalSecondaryIndexDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocalSecondaryIndexDescription => __isa(o, "LocalSecondaryIndexDescription");
 }
 
 /**
@@ -4468,7 +4252,6 @@ export namespace LocalSecondaryIndexDescription {
  *      when the backup was created.</p>
  */
 export interface LocalSecondaryIndexInfo {
-  __type?: "LocalSecondaryIndexInfo";
   /**
    * <p>Represents the name of the local secondary index.</p>
    */
@@ -4507,14 +4290,12 @@ export namespace LocalSecondaryIndexInfo {
   export const filterSensitiveLog = (obj: LocalSecondaryIndexInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LocalSecondaryIndexInfo => __isa(o, "LocalSecondaryIndexInfo");
 }
 
 /**
  * <p>The description of the point in time settings applied to the table.</p>
  */
 export interface PointInTimeRecoveryDescription {
-  __type?: "PointInTimeRecoveryDescription";
   /**
    * <p>Specifies the earliest point in time you can restore your table to. You can restore your
    *          table to any point in time during the last 35 days. </p>
@@ -4552,14 +4333,12 @@ export namespace PointInTimeRecoveryDescription {
   export const filterSensitiveLog = (obj: PointInTimeRecoveryDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PointInTimeRecoveryDescription => __isa(o, "PointInTimeRecoveryDescription");
 }
 
 /**
  * <p>Represents the settings used to enable point in time recovery.</p>
  */
 export interface PointInTimeRecoverySpecification {
-  __type?: "PointInTimeRecoverySpecification";
   /**
    * <p>Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.</p>
    */
@@ -4570,7 +4349,6 @@ export namespace PointInTimeRecoverySpecification {
   export const filterSensitiveLog = (obj: PointInTimeRecoverySpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PointInTimeRecoverySpecification => __isa(o, "PointInTimeRecoverySpecification");
 }
 
 export type PointInTimeRecoveryStatus = "DISABLED" | "ENABLED";
@@ -4588,15 +4366,12 @@ export namespace PointInTimeRecoveryUnavailableException {
   export const filterSensitiveLog = (obj: PointInTimeRecoveryUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PointInTimeRecoveryUnavailableException =>
-    __isa(o, "PointInTimeRecoveryUnavailableException");
 }
 
 /**
  * <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
  */
 export interface Projection {
-  __type?: "Projection";
   /**
    * <p>The set of attributes that are projected into the index:</p>
    *          <ul>
@@ -4631,7 +4406,6 @@ export namespace Projection {
   export const filterSensitiveLog = (obj: Projection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Projection => __isa(o, "Projection");
 }
 
 export type ProjectionType = "ALL" | "INCLUDE" | "KEYS_ONLY";
@@ -4642,7 +4416,6 @@ export type ProjectionType = "ALL" | "INCLUDE" | "KEYS_ONLY";
  *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 export interface ProvisionedThroughput {
-  __type?: "ProvisionedThroughput";
   /**
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
    *         <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write
@@ -4664,14 +4437,12 @@ export namespace ProvisionedThroughput {
   export const filterSensitiveLog = (obj: ProvisionedThroughput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionedThroughput => __isa(o, "ProvisionedThroughput");
 }
 
 /**
  * <p>Represents the provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.</p>
  */
 export interface ProvisionedThroughputDescription {
-  __type?: "ProvisionedThroughputDescription";
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a
    *         <code>ThrottlingException</code>.</p>
@@ -4707,7 +4478,6 @@ export namespace ProvisionedThroughputDescription {
   export const filterSensitiveLog = (obj: ProvisionedThroughputDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionedThroughputDescription => __isa(o, "ProvisionedThroughputDescription");
 }
 
 /**
@@ -4730,8 +4500,6 @@ export namespace ProvisionedThroughputExceededException {
   export const filterSensitiveLog = (obj: ProvisionedThroughputExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionedThroughputExceededException =>
-    __isa(o, "ProvisionedThroughputExceededException");
 }
 
 /**
@@ -4739,7 +4507,6 @@ export namespace ProvisionedThroughputExceededException {
  *          source table's provisioned throughput settings.</p>
  */
 export interface ProvisionedThroughputOverride {
-  __type?: "ProvisionedThroughputOverride";
   /**
    * <p>Replica-specific read capacity units. If not specified, uses the source table's
    *          read capacity settings.</p>
@@ -4751,14 +4518,12 @@ export namespace ProvisionedThroughputOverride {
   export const filterSensitiveLog = (obj: ProvisionedThroughputOverride): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionedThroughputOverride => __isa(o, "ProvisionedThroughputOverride");
 }
 
 /**
  * <p>Represents a request to perform a <code>PutItem</code> operation.</p>
  */
 export interface Put {
-  __type?: "Put";
   /**
    * <p>One or more values that can be substituted in an expression.</p>
    */
@@ -4801,14 +4566,12 @@ export namespace Put {
   export const filterSensitiveLog = (obj: Put): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Put => __isa(o, "Put");
 }
 
 /**
  * <p>Represents the input of a <code>PutItem</code> operation.</p>
  */
 export interface PutItemInput {
-  __type?: "PutItemInput";
   /**
    * <p>Determines whether item collection metrics are returned.  If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during
    *       the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
@@ -4983,14 +4746,12 @@ export namespace PutItemInput {
   export const filterSensitiveLog = (obj: PutItemInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutItemInput => __isa(o, "PutItemInput");
 }
 
 /**
  * <p>Represents the output of a <code>PutItem</code> operation.</p>
  */
 export interface PutItemOutput {
-  __type?: "PutItemOutput";
   /**
    * <p>Information about item collections, if any, that were affected by the
    *                 <code>PutItem</code> operation. <code>ItemCollectionMetrics</code>
@@ -5041,14 +4802,12 @@ export namespace PutItemOutput {
   export const filterSensitiveLog = (obj: PutItemOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutItemOutput => __isa(o, "PutItemOutput");
 }
 
 /**
  * <p>Represents a request to perform a <code>PutItem</code> operation on an item.</p>
  */
 export interface PutRequest {
-  __type?: "PutRequest";
   /**
    * <p>A map of attribute name to attribute values, representing the primary key of an item to
    *          be processed by <code>PutItem</code>. All of the table's primary key attributes must be
@@ -5063,14 +4822,12 @@ export namespace PutRequest {
   export const filterSensitiveLog = (obj: PutRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutRequest => __isa(o, "PutRequest");
 }
 
 /**
  * <p>Represents the input of a <code>Query</code> operation.</p>
  */
 export interface QueryInput {
-  __type?: "QueryInput";
   /**
    * <p>This is a legacy parameter.  Use <code>KeyConditionExpression</code> instead.   For more information, see
    *           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html">KeyConditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -5431,14 +5188,12 @@ export namespace QueryInput {
   export const filterSensitiveLog = (obj: QueryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryInput => __isa(o, "QueryInput");
 }
 
 /**
  * <p>Represents the output of a <code>Query</code> operation.</p>
  */
 export interface QueryOutput {
-  __type?: "QueryOutput";
   /**
    * <p>The number of items evaluated, before any <code>QueryFilter</code> is applied. A high
    *         <code>ScannedCount</code> value with few, or no, <code>Count</code> results indicates an inefficient
@@ -5486,14 +5241,12 @@ export namespace QueryOutput {
   export const filterSensitiveLog = (obj: QueryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryOutput => __isa(o, "QueryOutput");
 }
 
 /**
  * <p>Represents the properties of a replica.</p>
  */
 export interface Replica {
-  __type?: "Replica";
   /**
    * <p>The Region where the replica needs to be created.</p>
    */
@@ -5504,7 +5257,6 @@ export namespace Replica {
   export const filterSensitiveLog = (obj: Replica): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Replica => __isa(o, "Replica");
 }
 
 /**
@@ -5520,14 +5272,12 @@ export namespace ReplicaAlreadyExistsException {
   export const filterSensitiveLog = (obj: ReplicaAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaAlreadyExistsException => __isa(o, "ReplicaAlreadyExistsException");
 }
 
 /**
  * <p>Represents the auto scaling settings of the replica.</p>
  */
 export interface ReplicaAutoScalingDescription {
-  __type?: "ReplicaAutoScalingDescription";
   /**
    * <p>The Region where the replica exists.</p>
    */
@@ -5578,14 +5328,12 @@ export namespace ReplicaAutoScalingDescription {
   export const filterSensitiveLog = (obj: ReplicaAutoScalingDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaAutoScalingDescription => __isa(o, "ReplicaAutoScalingDescription");
 }
 
 /**
  * <p>Represents the auto scaling settings of a replica that will be modified.</p>
  */
 export interface ReplicaAutoScalingUpdate {
-  __type?: "ReplicaAutoScalingUpdate";
   /**
    * <p>Represents the auto scaling settings of global secondary indexes that will
    *          be modified.</p>
@@ -5608,14 +5356,12 @@ export namespace ReplicaAutoScalingUpdate {
   export const filterSensitiveLog = (obj: ReplicaAutoScalingUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaAutoScalingUpdate => __isa(o, "ReplicaAutoScalingUpdate");
 }
 
 /**
  * <p>Contains the details of the replica.</p>
  */
 export interface ReplicaDescription {
-  __type?: "ReplicaDescription";
   /**
    * <p>The name of the Region.</p>
    */
@@ -5677,14 +5423,12 @@ export namespace ReplicaDescription {
   export const filterSensitiveLog = (obj: ReplicaDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaDescription => __isa(o, "ReplicaDescription");
 }
 
 /**
  * <p>Represents the properties of a replica global secondary index.</p>
  */
 export interface ReplicaGlobalSecondaryIndex {
-  __type?: "ReplicaGlobalSecondaryIndex";
   /**
    * <p>The name of the global secondary index.</p>
    */
@@ -5701,14 +5445,12 @@ export namespace ReplicaGlobalSecondaryIndex {
   export const filterSensitiveLog = (obj: ReplicaGlobalSecondaryIndex): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaGlobalSecondaryIndex => __isa(o, "ReplicaGlobalSecondaryIndex");
 }
 
 /**
  * <p>Represents the auto scaling configuration for a replica global secondary index.</p>
  */
 export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
-  __type?: "ReplicaGlobalSecondaryIndexAutoScalingDescription";
   /**
    * <p>Represents the auto scaling settings for a global table or global secondary
    *          index.</p>
@@ -5754,8 +5496,6 @@ export namespace ReplicaGlobalSecondaryIndexAutoScalingDescription {
   export const filterSensitiveLog = (obj: ReplicaGlobalSecondaryIndexAutoScalingDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaGlobalSecondaryIndexAutoScalingDescription =>
-    __isa(o, "ReplicaGlobalSecondaryIndexAutoScalingDescription");
 }
 
 /**
@@ -5763,7 +5503,6 @@ export namespace ReplicaGlobalSecondaryIndexAutoScalingDescription {
  *          that will be modified.</p>
  */
 export interface ReplicaGlobalSecondaryIndexAutoScalingUpdate {
-  __type?: "ReplicaGlobalSecondaryIndexAutoScalingUpdate";
   /**
    * <p>Represents the auto scaling settings to be modified for a global table or global
    *          secondary index.</p>
@@ -5780,15 +5519,12 @@ export namespace ReplicaGlobalSecondaryIndexAutoScalingUpdate {
   export const filterSensitiveLog = (obj: ReplicaGlobalSecondaryIndexAutoScalingUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaGlobalSecondaryIndexAutoScalingUpdate =>
-    __isa(o, "ReplicaGlobalSecondaryIndexAutoScalingUpdate");
 }
 
 /**
  * <p>Represents the properties of a replica global secondary index.</p>
  */
 export interface ReplicaGlobalSecondaryIndexDescription {
-  __type?: "ReplicaGlobalSecondaryIndexDescription";
   /**
    * <p>If not described, uses the source table GSI's read capacity settings.</p>
    */
@@ -5804,15 +5540,12 @@ export namespace ReplicaGlobalSecondaryIndexDescription {
   export const filterSensitiveLog = (obj: ReplicaGlobalSecondaryIndexDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaGlobalSecondaryIndexDescription =>
-    __isa(o, "ReplicaGlobalSecondaryIndexDescription");
 }
 
 /**
  * <p>Represents the properties of a global secondary index.</p>
  */
 export interface ReplicaGlobalSecondaryIndexSettingsDescription {
-  __type?: "ReplicaGlobalSecondaryIndexSettingsDescription";
   /**
    * <p>Auto scaling settings for a global secondary index replica's write capacity
    *          units.</p>
@@ -5868,15 +5601,12 @@ export namespace ReplicaGlobalSecondaryIndexSettingsDescription {
   export const filterSensitiveLog = (obj: ReplicaGlobalSecondaryIndexSettingsDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaGlobalSecondaryIndexSettingsDescription =>
-    __isa(o, "ReplicaGlobalSecondaryIndexSettingsDescription");
 }
 
 /**
  * <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
  */
 export interface ReplicaGlobalSecondaryIndexSettingsUpdate {
-  __type?: "ReplicaGlobalSecondaryIndexSettingsUpdate";
   /**
    * <p>Auto scaling settings for managing a global secondary index replica's read capacity
    *          units.</p>
@@ -5898,8 +5628,6 @@ export namespace ReplicaGlobalSecondaryIndexSettingsUpdate {
   export const filterSensitiveLog = (obj: ReplicaGlobalSecondaryIndexSettingsUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaGlobalSecondaryIndexSettingsUpdate =>
-    __isa(o, "ReplicaGlobalSecondaryIndexSettingsUpdate");
 }
 
 /**
@@ -5915,14 +5643,12 @@ export namespace ReplicaNotFoundException {
   export const filterSensitiveLog = (obj: ReplicaNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaNotFoundException => __isa(o, "ReplicaNotFoundException");
 }
 
 /**
  * <p>Represents the properties of a replica.</p>
  */
 export interface ReplicaSettingsDescription {
-  __type?: "ReplicaSettingsDescription";
   /**
    * <p>Auto scaling settings for a global table replica's write capacity units.</p>
    */
@@ -5991,14 +5717,12 @@ export namespace ReplicaSettingsDescription {
   export const filterSensitiveLog = (obj: ReplicaSettingsDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaSettingsDescription => __isa(o, "ReplicaSettingsDescription");
 }
 
 /**
  * <p>Represents the settings for a global table in a Region that will be modified.</p>
  */
 export interface ReplicaSettingsUpdate {
-  __type?: "ReplicaSettingsUpdate";
   /**
    * <p>Auto scaling settings for managing a global table replica's read capacity units.</p>
    */
@@ -6027,7 +5751,6 @@ export namespace ReplicaSettingsUpdate {
   export const filterSensitiveLog = (obj: ReplicaSettingsUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaSettingsUpdate => __isa(o, "ReplicaSettingsUpdate");
 }
 
 export type ReplicaStatus = "ACTIVE" | "CREATING" | "CREATION_FAILED" | "DELETING" | "UPDATING";
@@ -6052,7 +5775,6 @@ export type ReplicaStatus = "ACTIVE" | "CREATING" | "CREATION_FAILED" | "DELETIN
  *          </ul>
  */
 export interface ReplicationGroupUpdate {
-  __type?: "ReplicationGroupUpdate";
   /**
    * <p>The parameters required for deleting a replica for the table.</p>
    */
@@ -6073,7 +5795,6 @@ export namespace ReplicationGroupUpdate {
   export const filterSensitiveLog = (obj: ReplicationGroupUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationGroupUpdate => __isa(o, "ReplicationGroupUpdate");
 }
 
 /**
@@ -6091,7 +5812,6 @@ export namespace ReplicationGroupUpdate {
  *          </ul>
  */
 export interface ReplicaUpdate {
-  __type?: "ReplicaUpdate";
   /**
    * <p>The parameters required for creating a replica on an existing global table.</p>
    */
@@ -6107,7 +5827,6 @@ export namespace ReplicaUpdate {
   export const filterSensitiveLog = (obj: ReplicaUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicaUpdate => __isa(o, "ReplicaUpdate");
 }
 
 /**
@@ -6123,7 +5842,6 @@ export namespace RequestLimitExceeded {
   export const filterSensitiveLog = (obj: RequestLimitExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestLimitExceeded => __isa(o, "RequestLimitExceeded");
 }
 
 /**
@@ -6144,7 +5862,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -6164,14 +5881,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>Contains details for the restore.</p>
  */
 export interface RestoreSummary {
-  __type?: "RestoreSummary";
   /**
    * <p>The Amazon Resource Name (ARN) of the backup from which the table was restored.</p>
    */
@@ -6197,11 +5912,9 @@ export namespace RestoreSummary {
   export const filterSensitiveLog = (obj: RestoreSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreSummary => __isa(o, "RestoreSummary");
 }
 
 export interface RestoreTableFromBackupInput {
-  __type?: "RestoreTableFromBackupInput";
   /**
    * <p>List of global secondary indexes for the restored table. The indexes
    *         provided should match existing secondary indexes. You can choose to exclude
@@ -6246,11 +5959,9 @@ export namespace RestoreTableFromBackupInput {
   export const filterSensitiveLog = (obj: RestoreTableFromBackupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreTableFromBackupInput => __isa(o, "RestoreTableFromBackupInput");
 }
 
 export interface RestoreTableFromBackupOutput {
-  __type?: "RestoreTableFromBackupOutput";
   /**
    * <p>The description of the table created from an existing backup.</p>
    */
@@ -6261,11 +5972,9 @@ export namespace RestoreTableFromBackupOutput {
   export const filterSensitiveLog = (obj: RestoreTableFromBackupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreTableFromBackupOutput => __isa(o, "RestoreTableFromBackupOutput");
 }
 
 export interface RestoreTableToPointInTimeInput {
-  __type?: "RestoreTableToPointInTimeInput";
   /**
    * <p>List of local secondary indexes for the restored table. The indexes
    *         provided should match existing secondary indexes. You can choose to exclude
@@ -6327,11 +6036,9 @@ export namespace RestoreTableToPointInTimeInput {
   export const filterSensitiveLog = (obj: RestoreTableToPointInTimeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreTableToPointInTimeInput => __isa(o, "RestoreTableToPointInTimeInput");
 }
 
 export interface RestoreTableToPointInTimeOutput {
-  __type?: "RestoreTableToPointInTimeOutput";
   /**
    * <p>Represents the properties of a table.</p>
    */
@@ -6342,7 +6049,6 @@ export namespace RestoreTableToPointInTimeOutput {
   export const filterSensitiveLog = (obj: RestoreTableToPointInTimeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreTableToPointInTimeOutput => __isa(o, "RestoreTableToPointInTimeOutput");
 }
 
 export type ReturnConsumedCapacity = "INDEXES" | "NONE" | "TOTAL";
@@ -6359,7 +6065,6 @@ export type ScalarAttributeType = "B" | "N" | "S";
  * <p>Represents the input of a <code>Scan</code> operation.</p>
  */
 export interface ScanInput {
-  __type?: "ScanInput";
   /**
    * <p>One or more values that can be substituted in an expression.</p>
    *          <p>Use the <b>:</b> (colon) character in an expression to
@@ -6629,14 +6334,12 @@ export namespace ScanInput {
   export const filterSensitiveLog = (obj: ScanInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScanInput => __isa(o, "ScanInput");
 }
 
 /**
  * <p>Represents the output of a <code>Scan</code> operation.</p>
  */
 export interface ScanOutput {
-  __type?: "ScanOutput";
   /**
    * <p>An array of item attributes that match the scan criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
    */
@@ -6689,7 +6392,6 @@ export namespace ScanOutput {
   export const filterSensitiveLog = (obj: ScanOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScanOutput => __isa(o, "ScanOutput");
 }
 
 export type Select = "ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "COUNT" | "SPECIFIC_ATTRIBUTES";
@@ -6698,7 +6400,6 @@ export type Select = "ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "COUNT" | "
  * <p>Contains the details of the table when the backup was created. </p>
  */
 export interface SourceTableDetails {
-  __type?: "SourceTableDetails";
   /**
    * <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
    */
@@ -6760,14 +6461,12 @@ export namespace SourceTableDetails {
   export const filterSensitiveLog = (obj: SourceTableDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceTableDetails => __isa(o, "SourceTableDetails");
 }
 
 /**
  * <p>Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL. </p>
  */
 export interface SourceTableFeatureDetails {
-  __type?: "SourceTableFeatureDetails";
   /**
    * <p>Represents the LSI properties for the table when the backup was created. It includes the IndexName, KeySchema and Projection for the LSIs on the table at the time of backup. </p>
    */
@@ -6800,14 +6499,12 @@ export namespace SourceTableFeatureDetails {
   export const filterSensitiveLog = (obj: SourceTableFeatureDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceTableFeatureDetails => __isa(o, "SourceTableFeatureDetails");
 }
 
 /**
  * <p>The description of the server-side encryption status on the specified table.</p>
  */
 export interface SSEDescription {
-  __type?: "SSEDescription";
   /**
    * <p>Indicates the time, in UNIX epoch date format, when DynamoDB detected that the table's
    *          AWS KMS key was inaccessible. This attribute will automatically be cleared when DynamoDB
@@ -6855,14 +6552,12 @@ export namespace SSEDescription {
   export const filterSensitiveLog = (obj: SSEDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SSEDescription => __isa(o, "SSEDescription");
 }
 
 /**
  * <p>Represents the settings used to enable server-side encryption.</p>
  */
 export interface SSESpecification {
-  __type?: "SSESpecification";
   /**
    * <p>The AWS KMS customer master key (CMK) that should be used for the AWS KMS encryption. To
    *          specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note
@@ -6896,7 +6591,6 @@ export namespace SSESpecification {
   export const filterSensitiveLog = (obj: SSESpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SSESpecification => __isa(o, "SSESpecification");
 }
 
 export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING" | "UPDATING";
@@ -6907,7 +6601,6 @@ export type SSEType = "AES256" | "KMS";
  * <p>Represents the DynamoDB Streams configuration for a table in DynamoDB.</p>
  */
 export interface StreamSpecification {
-  __type?: "StreamSpecification";
   /**
    * <p>
    *               When an item in the table is modified, <code>StreamViewType</code>
@@ -6947,7 +6640,6 @@ export namespace StreamSpecification {
   export const filterSensitiveLog = (obj: StreamSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamSpecification => __isa(o, "StreamSpecification");
 }
 
 export type StreamViewType = "KEYS_ONLY" | "NEW_AND_OLD_IMAGES" | "NEW_IMAGE" | "OLD_IMAGE";
@@ -6965,14 +6657,12 @@ export namespace TableAlreadyExistsException {
   export const filterSensitiveLog = (obj: TableAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableAlreadyExistsException => __isa(o, "TableAlreadyExistsException");
 }
 
 /**
  * <p>Represents the auto scaling configuration for a global table.</p>
  */
 export interface TableAutoScalingDescription {
-  __type?: "TableAutoScalingDescription";
   /**
    * <p>The current state of the table:</p>
    *          <ul>
@@ -7011,14 +6701,12 @@ export namespace TableAutoScalingDescription {
   export const filterSensitiveLog = (obj: TableAutoScalingDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableAutoScalingDescription => __isa(o, "TableAutoScalingDescription");
 }
 
 /**
  * <p>Represents the properties of a table.</p>
  */
 export interface TableDescription {
-  __type?: "TableDescription";
   /**
    * <p>The description of the server-side encryption status on the specified table.</p>
    */
@@ -7395,7 +7083,6 @@ export namespace TableDescription {
   export const filterSensitiveLog = (obj: TableDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableDescription => __isa(o, "TableDescription");
 }
 
 /**
@@ -7411,7 +7098,6 @@ export namespace TableInUseException {
   export const filterSensitiveLog = (obj: TableInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableInUseException => __isa(o, "TableInUseException");
 }
 
 /**
@@ -7427,7 +7113,6 @@ export namespace TableNotFoundException {
   export const filterSensitiveLog = (obj: TableNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableNotFoundException => __isa(o, "TableNotFoundException");
 }
 
 export type TableStatus =
@@ -7451,7 +7136,6 @@ export type TableStatus =
  *       in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to
    *             one tag with the same key. If you try to add an existing tag (same key), the existing
@@ -7469,11 +7153,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceInput {
-  __type?: "TagResourceInput";
   /**
    * <p>The tags to be assigned to the Amazon DynamoDB resource.</p>
    */
@@ -7489,14 +7171,12 @@ export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 /**
  * <p>The description of the Time to Live (TTL) status on the specified table. </p>
  */
 export interface TimeToLiveDescription {
-  __type?: "TimeToLiveDescription";
   /**
    * <p> The TTL status for the table.</p>
    */
@@ -7512,7 +7192,6 @@ export namespace TimeToLiveDescription {
   export const filterSensitiveLog = (obj: TimeToLiveDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeToLiveDescription => __isa(o, "TimeToLiveDescription");
 }
 
 /**
@@ -7520,7 +7199,6 @@ export namespace TimeToLiveDescription {
  *             table.</p>
  */
 export interface TimeToLiveSpecification {
-  __type?: "TimeToLiveSpecification";
   /**
    * <p>Indicates whether TTL is to be enabled (true) or disabled (false) on the table.</p>
    */
@@ -7537,7 +7215,6 @@ export namespace TimeToLiveSpecification {
   export const filterSensitiveLog = (obj: TimeToLiveSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeToLiveSpecification => __isa(o, "TimeToLiveSpecification");
 }
 
 export type TimeToLiveStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
@@ -7546,7 +7223,6 @@ export type TimeToLiveStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING"
  * <p>Specifies an item to be retrieved as part of the transaction.</p>
  */
 export interface TransactGetItem {
-  __type?: "TransactGetItem";
   /**
    * <p>Contains the primary key that identifies the item to get, together
    *         with the name of the table that contains the item, and optionally
@@ -7559,11 +7235,9 @@ export namespace TransactGetItem {
   export const filterSensitiveLog = (obj: TransactGetItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransactGetItem => __isa(o, "TransactGetItem");
 }
 
 export interface TransactGetItemsInput {
-  __type?: "TransactGetItemsInput";
   /**
    * <p>An ordered array of up to 25 <code>TransactGetItem</code> objects,
    *          each of which contains a <code>Get</code> structure.</p>
@@ -7582,11 +7256,9 @@ export namespace TransactGetItemsInput {
   export const filterSensitiveLog = (obj: TransactGetItemsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransactGetItemsInput => __isa(o, "TransactGetItemsInput");
 }
 
 export interface TransactGetItemsOutput {
-  __type?: "TransactGetItemsOutput";
   /**
    * <p>If the <i>ReturnConsumedCapacity</i> value was <code>TOTAL</code>,
    *          this is an array of <code>ConsumedCapacity</code> objects, one for each table
@@ -7613,7 +7285,6 @@ export namespace TransactGetItemsOutput {
   export const filterSensitiveLog = (obj: TransactGetItemsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransactGetItemsOutput => __isa(o, "TransactGetItemsOutput");
 }
 
 /**
@@ -7836,7 +7507,6 @@ export namespace TransactionCanceledException {
   export const filterSensitiveLog = (obj: TransactionCanceledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransactionCanceledException => __isa(o, "TransactionCanceledException");
 }
 
 /**
@@ -7852,7 +7522,6 @@ export namespace TransactionConflictException {
   export const filterSensitiveLog = (obj: TransactionConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransactionConflictException => __isa(o, "TransactionConflictException");
 }
 
 /**
@@ -7868,14 +7537,12 @@ export namespace TransactionInProgressException {
   export const filterSensitiveLog = (obj: TransactionInProgressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransactionInProgressException => __isa(o, "TransactionInProgressException");
 }
 
 /**
  * <p>A list of requests that can perform update, put, delete, or check operations on multiple items in one or more tables atomically.</p>
  */
 export interface TransactWriteItem {
-  __type?: "TransactWriteItem";
   /**
    * <p>A request to perform a <code>PutItem</code> operation.</p>
    */
@@ -7901,11 +7568,9 @@ export namespace TransactWriteItem {
   export const filterSensitiveLog = (obj: TransactWriteItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransactWriteItem => __isa(o, "TransactWriteItem");
 }
 
 export interface TransactWriteItemsInput {
-  __type?: "TransactWriteItemsInput";
   /**
    * <p>An ordered array of up to 25 <code>TransactWriteItem</code> objects, each of which
    *             contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or
@@ -7969,11 +7634,9 @@ export namespace TransactWriteItemsInput {
   export const filterSensitiveLog = (obj: TransactWriteItemsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransactWriteItemsInput => __isa(o, "TransactWriteItemsInput");
 }
 
 export interface TransactWriteItemsOutput {
-  __type?: "TransactWriteItemsOutput";
   /**
    * <p>The capacity units consumed by the entire <code>TransactWriteItems</code>
    *       operation. The values of the list are ordered according to
@@ -7995,11 +7658,9 @@ export namespace TransactWriteItemsOutput {
   export const filterSensitiveLog = (obj: TransactWriteItemsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransactWriteItemsOutput => __isa(o, "TransactWriteItemsOutput");
 }
 
 export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
   /**
    * <p>The DynamoDB resource that the tags will be removed from. This value is an Amazon
    *             Resource Name (ARN).</p>
@@ -8017,14 +7678,12 @@ export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 /**
  * <p>Represents a request to perform an <code>UpdateItem</code> operation.</p>
  */
 export interface Update {
-  __type?: "Update";
   /**
    * <p>One or more substitution tokens for attribute names in an expression.</p>
    */
@@ -8071,11 +7730,9 @@ export namespace Update {
   export const filterSensitiveLog = (obj: Update): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Update => __isa(o, "Update");
 }
 
 export interface UpdateContinuousBackupsInput {
-  __type?: "UpdateContinuousBackupsInput";
   /**
    * <p>The name of the table.</p>
    */
@@ -8091,11 +7748,9 @@ export namespace UpdateContinuousBackupsInput {
   export const filterSensitiveLog = (obj: UpdateContinuousBackupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateContinuousBackupsInput => __isa(o, "UpdateContinuousBackupsInput");
 }
 
 export interface UpdateContinuousBackupsOutput {
-  __type?: "UpdateContinuousBackupsOutput";
   /**
    * <p>Represents the continuous backups and point in time recovery settings on the table.</p>
    */
@@ -8106,11 +7761,9 @@ export namespace UpdateContinuousBackupsOutput {
   export const filterSensitiveLog = (obj: UpdateContinuousBackupsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateContinuousBackupsOutput => __isa(o, "UpdateContinuousBackupsOutput");
 }
 
 export interface UpdateContributorInsightsInput {
-  __type?: "UpdateContributorInsightsInput";
   /**
    * <p>Represents the contributor insights action.</p>
    */
@@ -8131,11 +7784,9 @@ export namespace UpdateContributorInsightsInput {
   export const filterSensitiveLog = (obj: UpdateContributorInsightsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateContributorInsightsInput => __isa(o, "UpdateContributorInsightsInput");
 }
 
 export interface UpdateContributorInsightsOutput {
-  __type?: "UpdateContributorInsightsOutput";
   /**
    * <p>The status of contributor insights</p>
    */
@@ -8156,14 +7807,12 @@ export namespace UpdateContributorInsightsOutput {
   export const filterSensitiveLog = (obj: UpdateContributorInsightsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateContributorInsightsOutput => __isa(o, "UpdateContributorInsightsOutput");
 }
 
 /**
  * <p>Represents the new provisioned throughput settings to be applied to a global secondary index.</p>
  */
 export interface UpdateGlobalSecondaryIndexAction {
-  __type?: "UpdateGlobalSecondaryIndexAction";
   /**
    * <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
    *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -8180,11 +7829,9 @@ export namespace UpdateGlobalSecondaryIndexAction {
   export const filterSensitiveLog = (obj: UpdateGlobalSecondaryIndexAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGlobalSecondaryIndexAction => __isa(o, "UpdateGlobalSecondaryIndexAction");
 }
 
 export interface UpdateGlobalTableInput {
-  __type?: "UpdateGlobalTableInput";
   /**
    * <p>The global table name.</p>
    */
@@ -8200,11 +7847,9 @@ export namespace UpdateGlobalTableInput {
   export const filterSensitiveLog = (obj: UpdateGlobalTableInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGlobalTableInput => __isa(o, "UpdateGlobalTableInput");
 }
 
 export interface UpdateGlobalTableOutput {
-  __type?: "UpdateGlobalTableOutput";
   /**
    * <p>Contains the details of the global table.</p>
    */
@@ -8215,11 +7860,9 @@ export namespace UpdateGlobalTableOutput {
   export const filterSensitiveLog = (obj: UpdateGlobalTableOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGlobalTableOutput => __isa(o, "UpdateGlobalTableOutput");
 }
 
 export interface UpdateGlobalTableSettingsInput {
-  __type?: "UpdateGlobalTableSettingsInput";
   /**
    * <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
    */
@@ -8268,11 +7911,9 @@ export namespace UpdateGlobalTableSettingsInput {
   export const filterSensitiveLog = (obj: UpdateGlobalTableSettingsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGlobalTableSettingsInput => __isa(o, "UpdateGlobalTableSettingsInput");
 }
 
 export interface UpdateGlobalTableSettingsOutput {
-  __type?: "UpdateGlobalTableSettingsOutput";
   /**
    * <p>The Region-specific settings for the global table.</p>
    */
@@ -8288,14 +7929,12 @@ export namespace UpdateGlobalTableSettingsOutput {
   export const filterSensitiveLog = (obj: UpdateGlobalTableSettingsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGlobalTableSettingsOutput => __isa(o, "UpdateGlobalTableSettingsOutput");
 }
 
 /**
  * <p>Represents the input of an <code>UpdateItem</code> operation.</p>
  */
 export interface UpdateItemInput {
-  __type?: "UpdateItemInput";
   /**
    * <p>Determines whether item collection metrics are returned.  If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during
    *       the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
@@ -8578,14 +8217,12 @@ export namespace UpdateItemInput {
   export const filterSensitiveLog = (obj: UpdateItemInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateItemInput => __isa(o, "UpdateItemInput");
 }
 
 /**
  * <p>Represents the output of an <code>UpdateItem</code> operation.</p>
  */
 export interface UpdateItemOutput {
-  __type?: "UpdateItemOutput";
   /**
    * <p>A map of attribute values as they appear before or after the <code>UpdateItem</code>
    *             operation, as determined by the <code>ReturnValues</code> parameter.</p>
@@ -8638,14 +8275,12 @@ export namespace UpdateItemOutput {
   export const filterSensitiveLog = (obj: UpdateItemOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateItemOutput => __isa(o, "UpdateItemOutput");
 }
 
 /**
  * <p>Represents a replica to be modified.</p>
  */
 export interface UpdateReplicationGroupMemberAction {
-  __type?: "UpdateReplicationGroupMemberAction";
   /**
    * <p>The Region where the replica exists.</p>
    */
@@ -8675,15 +8310,12 @@ export namespace UpdateReplicationGroupMemberAction {
   export const filterSensitiveLog = (obj: UpdateReplicationGroupMemberAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateReplicationGroupMemberAction =>
-    __isa(o, "UpdateReplicationGroupMemberAction");
 }
 
 /**
  * <p>Represents the input of an <code>UpdateTable</code> operation.</p>
  */
 export interface UpdateTableInput {
-  __type?: "UpdateTableInput";
   /**
    * <p>The new server-side encryption settings for the specified table.</p>
    */
@@ -8768,14 +8400,12 @@ export namespace UpdateTableInput {
   export const filterSensitiveLog = (obj: UpdateTableInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTableInput => __isa(o, "UpdateTableInput");
 }
 
 /**
  * <p>Represents the output of an <code>UpdateTable</code> operation.</p>
  */
 export interface UpdateTableOutput {
-  __type?: "UpdateTableOutput";
   /**
    * <p>Represents the properties of the table.</p>
    */
@@ -8786,11 +8416,9 @@ export namespace UpdateTableOutput {
   export const filterSensitiveLog = (obj: UpdateTableOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTableOutput => __isa(o, "UpdateTableOutput");
 }
 
 export interface UpdateTableReplicaAutoScalingInput {
-  __type?: "UpdateTableReplicaAutoScalingInput";
   /**
    * <p>Represents the auto scaling settings of replicas of the table that will be
    *            modified.</p>
@@ -8819,12 +8447,9 @@ export namespace UpdateTableReplicaAutoScalingInput {
   export const filterSensitiveLog = (obj: UpdateTableReplicaAutoScalingInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTableReplicaAutoScalingInput =>
-    __isa(o, "UpdateTableReplicaAutoScalingInput");
 }
 
 export interface UpdateTableReplicaAutoScalingOutput {
-  __type?: "UpdateTableReplicaAutoScalingOutput";
   /**
    * <p>Returns information about the auto scaling settings of a table with replicas.</p>
    */
@@ -8835,15 +8460,12 @@ export namespace UpdateTableReplicaAutoScalingOutput {
   export const filterSensitiveLog = (obj: UpdateTableReplicaAutoScalingOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTableReplicaAutoScalingOutput =>
-    __isa(o, "UpdateTableReplicaAutoScalingOutput");
 }
 
 /**
  * <p>Represents the input of an <code>UpdateTimeToLive</code> operation.</p>
  */
 export interface UpdateTimeToLiveInput {
-  __type?: "UpdateTimeToLiveInput";
   /**
    * <p>Represents the settings used to enable or disable Time to Live for the specified table.</p>
    */
@@ -8859,11 +8481,9 @@ export namespace UpdateTimeToLiveInput {
   export const filterSensitiveLog = (obj: UpdateTimeToLiveInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTimeToLiveInput => __isa(o, "UpdateTimeToLiveInput");
 }
 
 export interface UpdateTimeToLiveOutput {
-  __type?: "UpdateTimeToLiveOutput";
   /**
    * <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>
    */
@@ -8874,7 +8494,6 @@ export namespace UpdateTimeToLiveOutput {
   export const filterSensitiveLog = (obj: UpdateTimeToLiveOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTimeToLiveOutput => __isa(o, "UpdateTimeToLiveOutput");
 }
 
 /**
@@ -8884,7 +8503,6 @@ export namespace UpdateTimeToLiveOutput {
  *          need to provide two separate <code>WriteRequest</code> objects.</p>
  */
 export interface WriteRequest {
-  __type?: "WriteRequest";
   /**
    * <p>A request to perform a <code>DeleteItem</code> operation.</p>
    */
@@ -8900,5 +8518,4 @@ export namespace WriteRequest {
   export const filterSensitiveLog = (obj: WriteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WriteRequest => __isa(o, "WriteRequest");
 }

@@ -222,7 +222,6 @@ export const deserializeAws_json1_0DescribeRecommendationExportJobsCommand = asy
   contents = deserializeAws_json1_0DescribeRecommendationExportJobsResponse(data, context);
   const response: DescribeRecommendationExportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRecommendationExportJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -334,7 +333,6 @@ export const deserializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand 
   contents = deserializeAws_json1_0ExportAutoScalingGroupRecommendationsResponse(data, context);
   const response: ExportAutoScalingGroupRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportAutoScalingGroupRecommendationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -446,7 +444,6 @@ export const deserializeAws_json1_0ExportEC2InstanceRecommendationsCommand = asy
   contents = deserializeAws_json1_0ExportEC2InstanceRecommendationsResponse(data, context);
   const response: ExportEC2InstanceRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportEC2InstanceRecommendationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -558,7 +555,6 @@ export const deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommand = a
   contents = deserializeAws_json1_0GetAutoScalingGroupRecommendationsResponse(data, context);
   const response: GetAutoScalingGroupRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAutoScalingGroupRecommendationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -670,7 +666,6 @@ export const deserializeAws_json1_0GetEC2InstanceRecommendationsCommand = async 
   contents = deserializeAws_json1_0GetEC2InstanceRecommendationsResponse(data, context);
   const response: GetEC2InstanceRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEC2InstanceRecommendationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -782,7 +777,6 @@ export const deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand =
   contents = deserializeAws_json1_0GetEC2RecommendationProjectedMetricsResponse(data, context);
   const response: GetEC2RecommendationProjectedMetricsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEC2RecommendationProjectedMetricsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -894,7 +888,6 @@ export const deserializeAws_json1_0GetEnrollmentStatusCommand = async (
   contents = deserializeAws_json1_0GetEnrollmentStatusResponse(data, context);
   const response: GetEnrollmentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEnrollmentStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -990,7 +983,6 @@ export const deserializeAws_json1_0GetRecommendationSummariesCommand = async (
   contents = deserializeAws_json1_0GetRecommendationSummariesResponse(data, context);
   const response: GetRecommendationSummariesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRecommendationSummariesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1094,7 +1086,6 @@ export const deserializeAws_json1_0UpdateEnrollmentStatusCommand = async (
   contents = deserializeAws_json1_0UpdateEnrollmentStatusResponse(data, context);
   const response: UpdateEnrollmentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEnrollmentStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1497,7 +1488,6 @@ const serializeAws_json1_0UpdateEnrollmentStatusRequest = (
 
 const deserializeAws_json1_0AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -1507,7 +1497,6 @@ const deserializeAws_json1_0AutoScalingGroupConfiguration = (
   context: __SerdeContext
 ): AutoScalingGroupConfiguration => {
   return {
-    __type: "AutoScalingGroupConfiguration",
     desiredCapacity:
       output.desiredCapacity !== undefined && output.desiredCapacity !== null ? output.desiredCapacity : undefined,
     instanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
@@ -1521,7 +1510,6 @@ const deserializeAws_json1_0AutoScalingGroupRecommendation = (
   context: __SerdeContext
 ): AutoScalingGroupRecommendation => {
   return {
-    __type: "AutoScalingGroupRecommendation",
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     autoScalingGroupArn:
       output.autoScalingGroupArn !== undefined && output.autoScalingGroupArn !== null
@@ -1560,7 +1548,6 @@ const deserializeAws_json1_0AutoScalingGroupRecommendationOption = (
   context: __SerdeContext
 ): AutoScalingGroupRecommendationOption => {
   return {
-    __type: "AutoScalingGroupRecommendationOption",
     configuration:
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_json1_0AutoScalingGroupConfiguration(output.configuration, context)
@@ -1594,7 +1581,6 @@ const deserializeAws_json1_0DescribeRecommendationExportJobsResponse = (
   context: __SerdeContext
 ): DescribeRecommendationExportJobsResponse => {
   return {
-    __type: "DescribeRecommendationExportJobsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     recommendationExportJobs:
       output.recommendationExportJobs !== undefined && output.recommendationExportJobs !== null
@@ -1608,7 +1594,6 @@ const deserializeAws_json1_0ExportAutoScalingGroupRecommendationsResponse = (
   context: __SerdeContext
 ): ExportAutoScalingGroupRecommendationsResponse => {
   return {
-    __type: "ExportAutoScalingGroupRecommendationsResponse",
     jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
     s3Destination:
       output.s3Destination !== undefined && output.s3Destination !== null
@@ -1619,7 +1604,6 @@ const deserializeAws_json1_0ExportAutoScalingGroupRecommendationsResponse = (
 
 const deserializeAws_json1_0ExportDestination = (output: any, context: __SerdeContext): ExportDestination => {
   return {
-    __type: "ExportDestination",
     s3:
       output.s3 !== undefined && output.s3 !== null
         ? deserializeAws_json1_0S3Destination(output.s3, context)
@@ -1632,7 +1616,6 @@ const deserializeAws_json1_0ExportEC2InstanceRecommendationsResponse = (
   context: __SerdeContext
 ): ExportEC2InstanceRecommendationsResponse => {
   return {
-    __type: "ExportEC2InstanceRecommendationsResponse",
     jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
     s3Destination:
       output.s3Destination !== undefined && output.s3Destination !== null
@@ -1646,7 +1629,6 @@ const deserializeAws_json1_0GetAutoScalingGroupRecommendationsResponse = (
   context: __SerdeContext
 ): GetAutoScalingGroupRecommendationsResponse => {
   return {
-    __type: "GetAutoScalingGroupRecommendationsResponse",
     autoScalingGroupRecommendations:
       output.autoScalingGroupRecommendations !== undefined && output.autoScalingGroupRecommendations !== null
         ? deserializeAws_json1_0AutoScalingGroupRecommendations(output.autoScalingGroupRecommendations, context)
@@ -1664,7 +1646,6 @@ const deserializeAws_json1_0GetEC2InstanceRecommendationsResponse = (
   context: __SerdeContext
 ): GetEC2InstanceRecommendationsResponse => {
   return {
-    __type: "GetEC2InstanceRecommendationsResponse",
     errors:
       output.errors !== undefined && output.errors !== null
         ? deserializeAws_json1_0GetRecommendationErrors(output.errors, context)
@@ -1682,7 +1663,6 @@ const deserializeAws_json1_0GetEC2RecommendationProjectedMetricsResponse = (
   context: __SerdeContext
 ): GetEC2RecommendationProjectedMetricsResponse => {
   return {
-    __type: "GetEC2RecommendationProjectedMetricsResponse",
     recommendedOptionProjectedMetrics:
       output.recommendedOptionProjectedMetrics !== undefined && output.recommendedOptionProjectedMetrics !== null
         ? deserializeAws_json1_0RecommendedOptionProjectedMetrics(output.recommendedOptionProjectedMetrics, context)
@@ -1695,7 +1675,6 @@ const deserializeAws_json1_0GetEnrollmentStatusResponse = (
   context: __SerdeContext
 ): GetEnrollmentStatusResponse => {
   return {
-    __type: "GetEnrollmentStatusResponse",
     memberAccountsEnrolled:
       output.memberAccountsEnrolled !== undefined && output.memberAccountsEnrolled !== null
         ? output.memberAccountsEnrolled
@@ -1707,7 +1686,6 @@ const deserializeAws_json1_0GetEnrollmentStatusResponse = (
 
 const deserializeAws_json1_0GetRecommendationError = (output: any, context: __SerdeContext): GetRecommendationError => {
   return {
-    __type: "GetRecommendationError",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     identifier: output.identifier !== undefined && output.identifier !== null ? output.identifier : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -1726,7 +1704,6 @@ const deserializeAws_json1_0GetRecommendationSummariesResponse = (
   context: __SerdeContext
 ): GetRecommendationSummariesResponse => {
   return {
-    __type: "GetRecommendationSummariesResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     recommendationSummaries:
       output.recommendationSummaries !== undefined && output.recommendationSummaries !== null
@@ -1737,7 +1714,6 @@ const deserializeAws_json1_0GetRecommendationSummariesResponse = (
 
 const deserializeAws_json1_0InstanceRecommendation = (output: any, context: __SerdeContext): InstanceRecommendation => {
   return {
-    __type: "InstanceRecommendation",
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     currentInstanceType:
       output.currentInstanceType !== undefined && output.currentInstanceType !== null
@@ -1774,7 +1750,6 @@ const deserializeAws_json1_0InstanceRecommendationOption = (
   context: __SerdeContext
 ): InstanceRecommendationOption => {
   return {
-    __type: "InstanceRecommendationOption",
     instanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
     performanceRisk:
       output.performanceRisk !== undefined && output.performanceRisk !== null ? output.performanceRisk : undefined,
@@ -1798,7 +1773,6 @@ const deserializeAws_json1_0InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    __type: "InternalServerException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -1808,14 +1782,12 @@ const deserializeAws_json1_0InvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   return {
-    __type: "InvalidParameterValueException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -1829,21 +1801,18 @@ const deserializeAws_json1_0MissingAuthenticationToken = (
   context: __SerdeContext
 ): MissingAuthenticationToken => {
   return {
-    __type: "MissingAuthenticationToken",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0OptInRequiredException = (output: any, context: __SerdeContext): OptInRequiredException => {
   return {
-    __type: "OptInRequiredException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0ProjectedMetric = (output: any, context: __SerdeContext): ProjectedMetric => {
   return {
-    __type: "ProjectedMetric",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     timestamps:
       output.timestamps !== undefined && output.timestamps !== null
@@ -1872,7 +1841,6 @@ const deserializeAws_json1_0RecommendationExportJob = (
   context: __SerdeContext
 ): RecommendationExportJob => {
   return {
-    __type: "RecommendationExportJob",
     creationTimestamp:
       output.creationTimestamp !== undefined && output.creationTimestamp !== null
         ? new Date(Math.round(output.creationTimestamp * 1000))
@@ -1909,7 +1877,6 @@ const deserializeAws_json1_0RecommendationOptions = (
 
 const deserializeAws_json1_0RecommendationSource = (output: any, context: __SerdeContext): RecommendationSource => {
   return {
-    __type: "RecommendationSource",
     recommendationSourceArn:
       output.recommendationSourceArn !== undefined && output.recommendationSourceArn !== null
         ? output.recommendationSourceArn
@@ -1934,7 +1901,6 @@ const deserializeAws_json1_0RecommendationSummaries = (
 
 const deserializeAws_json1_0RecommendationSummary = (output: any, context: __SerdeContext): RecommendationSummary => {
   return {
-    __type: "RecommendationSummary",
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     recommendationResourceType:
       output.recommendationResourceType !== undefined && output.recommendationResourceType !== null
@@ -1952,7 +1918,6 @@ const deserializeAws_json1_0RecommendedOptionProjectedMetric = (
   context: __SerdeContext
 ): RecommendedOptionProjectedMetric => {
   return {
-    __type: "RecommendedOptionProjectedMetric",
     projectedMetrics:
       output.projectedMetrics !== undefined && output.projectedMetrics !== null
         ? deserializeAws_json1_0ProjectedMetrics(output.projectedMetrics, context)
@@ -1977,14 +1942,12 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0S3Destination = (output: any, context: __SerdeContext): S3Destination => {
   return {
-    __type: "S3Destination",
     bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     metadataKey: output.metadataKey !== undefined && output.metadataKey !== null ? output.metadataKey : undefined,
@@ -1996,7 +1959,6 @@ const deserializeAws_json1_0ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    __type: "ServiceUnavailableException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2007,7 +1969,6 @@ const deserializeAws_json1_0Summaries = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_0Summary = (output: any, context: __SerdeContext): Summary => {
   return {
-    __type: "Summary",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -2015,7 +1976,6 @@ const deserializeAws_json1_0Summary = (output: any, context: __SerdeContext): Su
 
 const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    __type: "ThrottlingException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2029,7 +1989,6 @@ const deserializeAws_json1_0UpdateEnrollmentStatusResponse = (
   context: __SerdeContext
 ): UpdateEnrollmentStatusResponse => {
   return {
-    __type: "UpdateEnrollmentStatusResponse",
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
     statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
   } as any;
@@ -2037,7 +1996,6 @@ const deserializeAws_json1_0UpdateEnrollmentStatusResponse = (
 
 const deserializeAws_json1_0UtilizationMetric = (output: any, context: __SerdeContext): UtilizationMetric => {
   return {
-    __type: "UtilizationMetric",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     statistic: output.statistic !== undefined && output.statistic !== null ? output.statistic : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,

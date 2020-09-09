@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -8,7 +8,6 @@ import { Readable } from "stream";
  *       in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
  */
 export interface AbortIncompleteMultipartUpload {
-  __type?: "AbortIncompleteMultipartUpload";
   /**
    * <p>Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.</p>
    */
@@ -19,11 +18,9 @@ export namespace AbortIncompleteMultipartUpload {
   export const filterSensitiveLog = (obj: AbortIncompleteMultipartUpload): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AbortIncompleteMultipartUpload => __isa(o, "AbortIncompleteMultipartUpload");
 }
 
 export interface AbortMultipartUploadOutput {
-  __type?: "AbortMultipartUploadOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
@@ -34,11 +31,9 @@ export namespace AbortMultipartUploadOutput {
   export const filterSensitiveLog = (obj: AbortMultipartUploadOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AbortMultipartUploadOutput => __isa(o, "AbortMultipartUploadOutput");
 }
 
 export interface AbortMultipartUploadRequest {
-  __type?: "AbortMultipartUploadRequest";
   /**
    * <p>The bucket name to which the upload was taking place. </p>
    *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
@@ -68,7 +63,6 @@ export namespace AbortMultipartUploadRequest {
   export const filterSensitiveLog = (obj: AbortMultipartUploadRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AbortMultipartUploadRequest => __isa(o, "AbortMultipartUploadRequest");
 }
 
 /**
@@ -77,7 +71,6 @@ export namespace AbortMultipartUploadRequest {
  *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
  */
 export interface AccelerateConfiguration {
-  __type?: "AccelerateConfiguration";
   /**
    * <p>Specifies the transfer acceleration status of the bucket.</p>
    */
@@ -88,14 +81,12 @@ export namespace AccelerateConfiguration {
   export const filterSensitiveLog = (obj: AccelerateConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccelerateConfiguration => __isa(o, "AccelerateConfiguration");
 }
 
 /**
  * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
  */
 export interface AccessControlPolicy {
-  __type?: "AccessControlPolicy";
   /**
    * <p>A list of grants.</p>
    */
@@ -111,14 +102,12 @@ export namespace AccessControlPolicy {
   export const filterSensitiveLog = (obj: AccessControlPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessControlPolicy => __isa(o, "AccessControlPolicy");
 }
 
 /**
  * <p>A container for information about access control for replicas.</p>
  */
 export interface AccessControlTranslation {
-  __type?: "AccessControlTranslation";
   /**
    * <p>Specifies the replica ownership. For default and valid values, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html">PUT bucket
    *       replication</a> in the <i>Amazon Simple Storage Service API Reference</i>.</p>
@@ -130,14 +119,12 @@ export namespace AccessControlTranslation {
   export const filterSensitiveLog = (obj: AccessControlTranslation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessControlTranslation => __isa(o, "AccessControlTranslation");
 }
 
 /**
  * <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates in any combination, and an object must match all of the predicates for the filter to apply.</p>
  */
 export interface AnalyticsAndOperator {
-  __type?: "AnalyticsAndOperator";
   /**
    * <p>The list of tags to use when evaluating an AND predicate.</p>
    */
@@ -153,7 +140,6 @@ export namespace AnalyticsAndOperator {
   export const filterSensitiveLog = (obj: AnalyticsAndOperator): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnalyticsAndOperator => __isa(o, "AnalyticsAndOperator");
 }
 
 /**
@@ -161,7 +147,6 @@ export namespace AnalyticsAndOperator {
  *          Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.</p>
  */
 export interface AnalyticsConfiguration {
-  __type?: "AnalyticsConfiguration";
   /**
    * <p>
    *      Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
@@ -184,14 +169,12 @@ export namespace AnalyticsConfiguration {
   export const filterSensitiveLog = (obj: AnalyticsConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnalyticsConfiguration => __isa(o, "AnalyticsConfiguration");
 }
 
 /**
  * <p>Where to publish the analytics results.</p>
  */
 export interface AnalyticsExportDestination {
-  __type?: "AnalyticsExportDestination";
   /**
    * <p>A destination signifying output to an S3 bucket.</p>
    */
@@ -202,14 +185,12 @@ export namespace AnalyticsExportDestination {
   export const filterSensitiveLog = (obj: AnalyticsExportDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnalyticsExportDestination => __isa(o, "AnalyticsExportDestination");
 }
 
 /**
  * <p>The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.</p>
  */
 export interface AnalyticsFilter {
-  __type?: "AnalyticsFilter";
   /**
    * <p>A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.</p>
    */
@@ -230,14 +211,12 @@ export namespace AnalyticsFilter {
   export const filterSensitiveLog = (obj: AnalyticsFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnalyticsFilter => __isa(o, "AnalyticsFilter");
 }
 
 /**
  * <p>Contains information about where to publish the analytics results.</p>
  */
 export interface AnalyticsS3BucketDestination {
-  __type?: "AnalyticsS3BucketDestination";
   /**
    * <p>Specifies the file format used when exporting data to Amazon S3.</p>
    */
@@ -270,7 +249,6 @@ export namespace AnalyticsS3BucketDestination {
   export const filterSensitiveLog = (obj: AnalyticsS3BucketDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnalyticsS3BucketDestination => __isa(o, "AnalyticsS3BucketDestination");
 }
 
 export type AnalyticsS3ExportFileFormat = "CSV";
@@ -280,7 +258,6 @@ export type AnalyticsS3ExportFileFormat = "CSV";
  *          globally unique, and the namespace is shared by all AWS accounts. </p>
  */
 export interface Bucket {
-  __type?: "Bucket";
   /**
    * <p>Date the bucket was created.</p>
    */
@@ -296,7 +273,6 @@ export namespace Bucket {
   export const filterSensitiveLog = (obj: Bucket): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Bucket => __isa(o, "Bucket");
 }
 
 export type BucketAccelerateStatus = "Enabled" | "Suspended";
@@ -313,7 +289,6 @@ export namespace BucketAlreadyExists {
   export const filterSensitiveLog = (obj: BucketAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BucketAlreadyExists => __isa(o, "BucketAlreadyExists");
 }
 
 /**
@@ -331,7 +306,6 @@ export namespace BucketAlreadyOwnedByYou {
   export const filterSensitiveLog = (obj: BucketAlreadyOwnedByYou): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BucketAlreadyOwnedByYou => __isa(o, "BucketAlreadyOwnedByYou");
 }
 
 export type BucketCannedACL = "authenticated-read" | "private" | "public-read" | "public-read-write";
@@ -342,7 +316,6 @@ export type BucketCannedACL = "authenticated-read" | "private" | "public-read" |
  *             Lifecycle Management</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
  */
 export interface BucketLifecycleConfiguration {
-  __type?: "BucketLifecycleConfiguration";
   /**
    * <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
    */
@@ -353,7 +326,6 @@ export namespace BucketLifecycleConfiguration {
   export const filterSensitiveLog = (obj: BucketLifecycleConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BucketLifecycleConfiguration => __isa(o, "BucketLifecycleConfiguration");
 }
 
 export type BucketLocationConstraint =
@@ -373,7 +345,6 @@ export type BucketLocationConstraint =
  * <p>Container for logging status information.</p>
  */
 export interface BucketLoggingStatus {
-  __type?: "BucketLoggingStatus";
   /**
    * <p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for
    *       a bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html">PUT Bucket logging</a> in the
@@ -386,7 +357,6 @@ export namespace BucketLoggingStatus {
   export const filterSensitiveLog = (obj: BucketLoggingStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BucketLoggingStatus => __isa(o, "BucketLoggingStatus");
 }
 
 export type BucketLogsPermission = "FULL_CONTROL" | "READ" | "WRITE";
@@ -401,7 +371,6 @@ export type BucketVersioningStatus = "Enabled" | "Suspended";
  *       </p>
  */
 export interface CommonPrefix {
-  __type?: "CommonPrefix";
   /**
    * <p>Container for the specified common prefix.</p>
    */
@@ -412,14 +381,12 @@ export namespace CommonPrefix {
   export const filterSensitiveLog = (obj: CommonPrefix): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CommonPrefix => __isa(o, "CommonPrefix");
 }
 
 /**
  * <p>The container for the completed multipart upload details.</p>
  */
 export interface CompletedMultipartUpload {
-  __type?: "CompletedMultipartUpload";
   /**
    * <p>Array of CompletedPart data types.</p>
    */
@@ -430,14 +397,12 @@ export namespace CompletedMultipartUpload {
   export const filterSensitiveLog = (obj: CompletedMultipartUpload): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompletedMultipartUpload => __isa(o, "CompletedMultipartUpload");
 }
 
 /**
  * <p>Details of the parts that were uploaded.</p>
  */
 export interface CompletedPart {
-  __type?: "CompletedPart";
   /**
    * <p>Entity tag returned when the part was uploaded.</p>
    */
@@ -453,11 +418,9 @@ export namespace CompletedPart {
   export const filterSensitiveLog = (obj: CompletedPart): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompletedPart => __isa(o, "CompletedPart");
 }
 
 export interface CompleteMultipartUploadOutput {
-  __type?: "CompleteMultipartUploadOutput";
   /**
    * <p>The object key of the newly created object.</p>
    */
@@ -510,11 +473,9 @@ export namespace CompleteMultipartUploadOutput {
     ...obj,
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CompleteMultipartUploadOutput => __isa(o, "CompleteMultipartUploadOutput");
 }
 
 export interface CompleteMultipartUploadRequest {
-  __type?: "CompleteMultipartUploadRequest";
   /**
    * <p>ID for the initiated multipart upload.</p>
    */
@@ -548,7 +509,6 @@ export namespace CompleteMultipartUploadRequest {
   export const filterSensitiveLog = (obj: CompleteMultipartUploadRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteMultipartUploadRequest => __isa(o, "CompleteMultipartUploadRequest");
 }
 
 export type CompressionType = "BZIP2" | "GZIP" | "NONE";
@@ -557,7 +517,6 @@ export type CompressionType = "BZIP2" | "GZIP" | "NONE";
  * <p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the <code>/docs</code> folder, redirect to the <code>/documents</code> folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>
  */
 export interface Condition {
-  __type?: "Condition";
   /**
    * <p>The object key name prefix when the redirect is applied. For example, to redirect requests for
    *             <code>ExamplePage.html</code>, the key prefix will be <code>ExamplePage.html</code>. To
@@ -579,25 +538,20 @@ export namespace Condition {
   export const filterSensitiveLog = (obj: Condition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Condition => __isa(o, "Condition");
 }
 
 /**
  * <p></p>
  */
-export interface ContinuationEvent {
-  __type?: "ContinuationEvent";
-}
+export interface ContinuationEvent {}
 
 export namespace ContinuationEvent {
   export const filterSensitiveLog = (obj: ContinuationEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContinuationEvent => __isa(o, "ContinuationEvent");
 }
 
 export interface CopyObjectOutput {
-  __type?: "CopyObjectOutput";
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
    */
@@ -659,11 +613,9 @@ export namespace CopyObjectOutput {
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
     ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CopyObjectOutput => __isa(o, "CopyObjectOutput");
 }
 
 export interface CopyObjectRequest {
-  __type?: "CopyObjectRequest";
   /**
    * <p>Allows grantee to read the object ACL.</p>
    */
@@ -874,14 +826,12 @@ export namespace CopyObjectRequest {
     ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
     ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CopyObjectRequest => __isa(o, "CopyObjectRequest");
 }
 
 /**
  * <p>Container for all response elements.</p>
  */
 export interface CopyObjectResult {
-  __type?: "CopyObjectResult";
   /**
    * <p>Returns the date that the object was last modified.</p>
    */
@@ -897,14 +847,12 @@ export namespace CopyObjectResult {
   export const filterSensitiveLog = (obj: CopyObjectResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyObjectResult => __isa(o, "CopyObjectResult");
 }
 
 /**
  * <p>Container for all response elements.</p>
  */
 export interface CopyPartResult {
-  __type?: "CopyPartResult";
   /**
    * <p>Entity tag of the object.</p>
    */
@@ -920,7 +868,6 @@ export namespace CopyPartResult {
   export const filterSensitiveLog = (obj: CopyPartResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CopyPartResult => __isa(o, "CopyPartResult");
 }
 
 /**
@@ -929,7 +876,6 @@ export namespace CopyPartResult {
  *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
  */
 export interface CORSConfiguration {
-  __type?: "CORSConfiguration";
   /**
    * <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
    */
@@ -940,14 +886,12 @@ export namespace CORSConfiguration {
   export const filterSensitiveLog = (obj: CORSConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CORSConfiguration => __isa(o, "CORSConfiguration");
 }
 
 /**
  * <p>Specifies a cross-origin access rule for an Amazon S3 bucket.</p>
  */
 export interface CORSRule {
-  __type?: "CORSRule";
   /**
    * <p>The time in seconds that your browser is to cache the preflight response for the specified resource.</p>
    */
@@ -983,14 +927,12 @@ export namespace CORSRule {
   export const filterSensitiveLog = (obj: CORSRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CORSRule => __isa(o, "CORSRule");
 }
 
 /**
  * <p>The configuration information for the bucket.</p>
  */
 export interface CreateBucketConfiguration {
-  __type?: "CreateBucketConfiguration";
   /**
    * <p>Specifies the Region where the bucket will be created. If you don't specify a Region, the
    *          bucket is created in the US East (N. Virginia) Region (us-east-1).</p>
@@ -1002,11 +944,9 @@ export namespace CreateBucketConfiguration {
   export const filterSensitiveLog = (obj: CreateBucketConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBucketConfiguration => __isa(o, "CreateBucketConfiguration");
 }
 
 export interface CreateBucketOutput {
-  __type?: "CreateBucketOutput";
   /**
    * <p>Specifies the Region where the bucket will be created. If you are creating a bucket on
    *          the US East (N. Virginia) Region (us-east-1), you do not need to specify the
@@ -1019,11 +959,9 @@ export namespace CreateBucketOutput {
   export const filterSensitiveLog = (obj: CreateBucketOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBucketOutput => __isa(o, "CreateBucketOutput");
 }
 
 export interface CreateBucketRequest {
-  __type?: "CreateBucketRequest";
   /**
    * <p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>
    */
@@ -1074,11 +1012,9 @@ export namespace CreateBucketRequest {
   export const filterSensitiveLog = (obj: CreateBucketRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBucketRequest => __isa(o, "CreateBucketRequest");
 }
 
 export interface CreateMultipartUploadOutput {
-  __type?: "CreateMultipartUploadOutput";
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the response
    *          will include this header to provide round-trip message integrity verification of the
@@ -1152,11 +1088,9 @@ export namespace CreateMultipartUploadOutput {
     ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateMultipartUploadOutput => __isa(o, "CreateMultipartUploadOutput");
 }
 
 export interface CreateMultipartUploadRequest {
-  __type?: "CreateMultipartUploadRequest";
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *          AES256, aws:kms).</p>
@@ -1312,7 +1246,6 @@ export namespace CreateMultipartUploadRequest {
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
     ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateMultipartUploadRequest => __isa(o, "CreateMultipartUploadRequest");
 }
 
 /**
@@ -1320,7 +1253,6 @@ export namespace CreateMultipartUploadRequest {
  *          formatted.</p>
  */
 export interface CSVInput {
-  __type?: "CSVInput";
   /**
    * <p>Describes the first line of input. Valid values are:</p>
    *          <ul>
@@ -1388,14 +1320,12 @@ export namespace CSVInput {
   export const filterSensitiveLog = (obj: CSVInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CSVInput => __isa(o, "CSVInput");
 }
 
 /**
  * <p>Describes how uncompressed comma-separated values (CSV)-formatted results are formatted.</p>
  */
 export interface CSVOutput {
-  __type?: "CSVOutput";
   /**
    * <p>The single character used for escaping the quote character inside an already escaped
    *       value.</p>
@@ -1439,14 +1369,12 @@ export namespace CSVOutput {
   export const filterSensitiveLog = (obj: CSVOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CSVOutput => __isa(o, "CSVOutput");
 }
 
 /**
  * <p>The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.</p>
  */
 export interface DefaultRetention {
-  __type?: "DefaultRetention";
   /**
    * <p>The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.</p>
    */
@@ -1467,14 +1395,12 @@ export namespace DefaultRetention {
   export const filterSensitiveLog = (obj: DefaultRetention): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DefaultRetention => __isa(o, "DefaultRetention");
 }
 
 /**
  * <p>Container for the objects to delete.</p>
  */
 export interface Delete {
-  __type?: "Delete";
   /**
    * <p>The objects to delete.</p>
    */
@@ -1490,11 +1416,9 @@ export namespace Delete {
   export const filterSensitiveLog = (obj: Delete): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Delete => __isa(o, "Delete");
 }
 
 export interface DeleteBucketAnalyticsConfigurationRequest {
-  __type?: "DeleteBucketAnalyticsConfigurationRequest";
   /**
    * <p>The name of the bucket from which an analytics configuration is deleted.</p>
    */
@@ -1510,12 +1434,9 @@ export namespace DeleteBucketAnalyticsConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteBucketAnalyticsConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBucketAnalyticsConfigurationRequest =>
-    __isa(o, "DeleteBucketAnalyticsConfigurationRequest");
 }
 
 export interface DeleteBucketCorsRequest {
-  __type?: "DeleteBucketCorsRequest";
   /**
    * <p>Specifies the bucket whose <code>cors</code> configuration is being deleted.</p>
    */
@@ -1526,11 +1447,9 @@ export namespace DeleteBucketCorsRequest {
   export const filterSensitiveLog = (obj: DeleteBucketCorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBucketCorsRequest => __isa(o, "DeleteBucketCorsRequest");
 }
 
 export interface DeleteBucketEncryptionRequest {
-  __type?: "DeleteBucketEncryptionRequest";
   /**
    * <p>The name of the bucket containing the server-side encryption configuration to delete.</p>
    */
@@ -1541,11 +1460,9 @@ export namespace DeleteBucketEncryptionRequest {
   export const filterSensitiveLog = (obj: DeleteBucketEncryptionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBucketEncryptionRequest => __isa(o, "DeleteBucketEncryptionRequest");
 }
 
 export interface DeleteBucketInventoryConfigurationRequest {
-  __type?: "DeleteBucketInventoryConfigurationRequest";
   /**
    * <p>The ID used to identify the inventory configuration.</p>
    */
@@ -1561,12 +1478,9 @@ export namespace DeleteBucketInventoryConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteBucketInventoryConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBucketInventoryConfigurationRequest =>
-    __isa(o, "DeleteBucketInventoryConfigurationRequest");
 }
 
 export interface DeleteBucketLifecycleRequest {
-  __type?: "DeleteBucketLifecycleRequest";
   /**
    * <p>The bucket name of the lifecycle to delete.</p>
    */
@@ -1577,11 +1491,9 @@ export namespace DeleteBucketLifecycleRequest {
   export const filterSensitiveLog = (obj: DeleteBucketLifecycleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBucketLifecycleRequest => __isa(o, "DeleteBucketLifecycleRequest");
 }
 
 export interface DeleteBucketMetricsConfigurationRequest {
-  __type?: "DeleteBucketMetricsConfigurationRequest";
   /**
    * <p>The name of the bucket containing the metrics configuration to delete.</p>
    */
@@ -1597,12 +1509,9 @@ export namespace DeleteBucketMetricsConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteBucketMetricsConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBucketMetricsConfigurationRequest =>
-    __isa(o, "DeleteBucketMetricsConfigurationRequest");
 }
 
 export interface DeleteBucketPolicyRequest {
-  __type?: "DeleteBucketPolicyRequest";
   /**
    * <p>The bucket name.</p>
    */
@@ -1613,11 +1522,9 @@ export namespace DeleteBucketPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteBucketPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBucketPolicyRequest => __isa(o, "DeleteBucketPolicyRequest");
 }
 
 export interface DeleteBucketReplicationRequest {
-  __type?: "DeleteBucketReplicationRequest";
   /**
    * <p>
    *       The bucket name.
@@ -1630,11 +1537,9 @@ export namespace DeleteBucketReplicationRequest {
   export const filterSensitiveLog = (obj: DeleteBucketReplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBucketReplicationRequest => __isa(o, "DeleteBucketReplicationRequest");
 }
 
 export interface DeleteBucketRequest {
-  __type?: "DeleteBucketRequest";
   /**
    * <p>Specifies the bucket being deleted.</p>
    */
@@ -1645,11 +1550,9 @@ export namespace DeleteBucketRequest {
   export const filterSensitiveLog = (obj: DeleteBucketRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBucketRequest => __isa(o, "DeleteBucketRequest");
 }
 
 export interface DeleteBucketTaggingRequest {
-  __type?: "DeleteBucketTaggingRequest";
   /**
    * <p>The bucket that has the tag set to be removed.</p>
    */
@@ -1660,11 +1563,9 @@ export namespace DeleteBucketTaggingRequest {
   export const filterSensitiveLog = (obj: DeleteBucketTaggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBucketTaggingRequest => __isa(o, "DeleteBucketTaggingRequest");
 }
 
 export interface DeleteBucketWebsiteRequest {
-  __type?: "DeleteBucketWebsiteRequest";
   /**
    * <p>The bucket name for which you want to remove the website configuration. </p>
    */
@@ -1675,14 +1576,12 @@ export namespace DeleteBucketWebsiteRequest {
   export const filterSensitiveLog = (obj: DeleteBucketWebsiteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBucketWebsiteRequest => __isa(o, "DeleteBucketWebsiteRequest");
 }
 
 /**
  * <p>Information about the deleted object.</p>
  */
 export interface DeletedObject {
-  __type?: "DeletedObject";
   /**
    * <p>The name of the deleted object.</p>
    */
@@ -1708,14 +1607,12 @@ export namespace DeletedObject {
   export const filterSensitiveLog = (obj: DeletedObject): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletedObject => __isa(o, "DeletedObject");
 }
 
 /**
  * <p>Information about the delete marker.</p>
  */
 export interface DeleteMarkerEntry {
-  __type?: "DeleteMarkerEntry";
   /**
    * <p>Version ID of an object.</p>
    */
@@ -1746,7 +1643,6 @@ export namespace DeleteMarkerEntry {
   export const filterSensitiveLog = (obj: DeleteMarkerEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMarkerEntry => __isa(o, "DeleteMarkerEntry");
 }
 
 /**
@@ -1760,7 +1656,6 @@ export namespace DeleteMarkerEntry {
  *          </note>
  */
 export interface DeleteMarkerReplication {
-  __type?: "DeleteMarkerReplication";
   /**
    * <p>Indicates whether to replicate delete markers.</p>
    *          <note>
@@ -1775,13 +1670,11 @@ export namespace DeleteMarkerReplication {
   export const filterSensitiveLog = (obj: DeleteMarkerReplication): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMarkerReplication => __isa(o, "DeleteMarkerReplication");
 }
 
 export type DeleteMarkerReplicationStatus = "Disabled" | "Enabled";
 
 export interface DeleteObjectOutput {
-  __type?: "DeleteObjectOutput";
   /**
    * <p>Returns the version ID of the delete marker created as a result of the DELETE operation.</p>
    */
@@ -1802,11 +1695,9 @@ export namespace DeleteObjectOutput {
   export const filterSensitiveLog = (obj: DeleteObjectOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteObjectOutput => __isa(o, "DeleteObjectOutput");
 }
 
 export interface DeleteObjectRequest {
-  __type?: "DeleteObjectRequest";
   /**
    * <p>VersionId used to reference a specific version of the object.</p>
    */
@@ -1848,11 +1739,9 @@ export namespace DeleteObjectRequest {
   export const filterSensitiveLog = (obj: DeleteObjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteObjectRequest => __isa(o, "DeleteObjectRequest");
 }
 
 export interface DeleteObjectsOutput {
-  __type?: "DeleteObjectsOutput";
   /**
    * <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
    */
@@ -1873,11 +1762,9 @@ export namespace DeleteObjectsOutput {
   export const filterSensitiveLog = (obj: DeleteObjectsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteObjectsOutput => __isa(o, "DeleteObjectsOutput");
 }
 
 export interface DeleteObjectsRequest {
-  __type?: "DeleteObjectsRequest";
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
@@ -1914,11 +1801,9 @@ export namespace DeleteObjectsRequest {
   export const filterSensitiveLog = (obj: DeleteObjectsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteObjectsRequest => __isa(o, "DeleteObjectsRequest");
 }
 
 export interface DeleteObjectTaggingOutput {
-  __type?: "DeleteObjectTaggingOutput";
   /**
    * <p>The versionId of the object the tag-set was removed from.</p>
    */
@@ -1929,11 +1814,9 @@ export namespace DeleteObjectTaggingOutput {
   export const filterSensitiveLog = (obj: DeleteObjectTaggingOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteObjectTaggingOutput => __isa(o, "DeleteObjectTaggingOutput");
 }
 
 export interface DeleteObjectTaggingRequest {
-  __type?: "DeleteObjectTaggingRequest";
   /**
    * <p>The versionId of the object that the tag-set will be removed from.</p>
    */
@@ -1955,11 +1838,9 @@ export namespace DeleteObjectTaggingRequest {
   export const filterSensitiveLog = (obj: DeleteObjectTaggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteObjectTaggingRequest => __isa(o, "DeleteObjectTaggingRequest");
 }
 
 export interface DeletePublicAccessBlockRequest {
-  __type?: "DeletePublicAccessBlockRequest";
   /**
    * <p>The Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want to
    *       delete. </p>
@@ -1971,7 +1852,6 @@ export namespace DeletePublicAccessBlockRequest {
   export const filterSensitiveLog = (obj: DeletePublicAccessBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePublicAccessBlockRequest => __isa(o, "DeletePublicAccessBlockRequest");
 }
 
 /**
@@ -1979,7 +1859,6 @@ export namespace DeletePublicAccessBlockRequest {
  *       and S3 Replication Time Control (S3 RTC).</p>
  */
 export interface Destination {
-  __type?: "Destination";
   /**
    * <p>
    *        The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.
@@ -2037,7 +1916,6 @@ export namespace Destination {
   export const filterSensitiveLog = (obj: Destination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Destination => __isa(o, "Destination");
 }
 
 export type EncodingType = "url";
@@ -2046,7 +1924,6 @@ export type EncodingType = "url";
  * <p>Contains the type of server-side encryption used.</p>
  */
 export interface Encryption {
-  __type?: "Encryption";
   /**
    * <p>If the encryption type is <code>aws:kms</code>, this optional value can be used to specify the
    *          encryption context for the restore results.</p>
@@ -2071,14 +1948,12 @@ export namespace Encryption {
     ...obj,
     ...(obj.KMSKeyId && { KMSKeyId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Encryption => __isa(o, "Encryption");
 }
 
 /**
  * <p>Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.</p>
  */
 export interface EncryptionConfiguration {
-  __type?: "EncryptionConfiguration";
   /**
    * <p>Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket. Amazon
    *         S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric customer managed CMKs. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
@@ -2090,28 +1965,23 @@ export namespace EncryptionConfiguration {
   export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionConfiguration => __isa(o, "EncryptionConfiguration");
 }
 
 /**
  * <p>A message that indicates the request is complete and no more messages will be sent. You should not assume that the request is complete until the client receives an <code>EndEvent</code>.</p>
  */
-export interface EndEvent {
-  __type?: "EndEvent";
-}
+export interface EndEvent {}
 
 export namespace EndEvent {
   export const filterSensitiveLog = (obj: EndEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EndEvent => __isa(o, "EndEvent");
 }
 
 /**
  * <p>Container for all error elements.</p>
  */
 export interface _Error {
-  __type?: "Error";
   /**
    * <p>The error key.</p>
    */
@@ -3953,14 +3823,12 @@ export namespace _Error {
   export const filterSensitiveLog = (obj: _Error): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is _Error => __isa(o, "Error");
 }
 
 /**
  * <p>The error information.</p>
  */
 export interface ErrorDocument {
-  __type?: "ErrorDocument";
   /**
    * <p>The object key name to use when a 4XX class error occurs.</p>
    */
@@ -3971,7 +3839,6 @@ export namespace ErrorDocument {
   export const filterSensitiveLog = (obj: ErrorDocument): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorDocument => __isa(o, "ErrorDocument");
 }
 
 export type Event =
@@ -3999,7 +3866,6 @@ export type Event =
  *             Guide</i>. </p>
  */
 export interface ExistingObjectReplication {
-  __type?: "ExistingObjectReplication";
   /**
    * <p></p>
    */
@@ -4010,7 +3876,6 @@ export namespace ExistingObjectReplication {
   export const filterSensitiveLog = (obj: ExistingObjectReplication): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExistingObjectReplication => __isa(o, "ExistingObjectReplication");
 }
 
 export type ExistingObjectReplicationStatus = "Disabled" | "Enabled";
@@ -4029,7 +3894,6 @@ export enum FileHeaderInfo {
  * <p>Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.</p>
  */
 export interface FilterRule {
-  __type?: "FilterRule";
   /**
    * <p>The object key name prefix or suffix identifying one or more objects to which the filtering
    *       rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes
@@ -4048,13 +3912,11 @@ export namespace FilterRule {
   export const filterSensitiveLog = (obj: FilterRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FilterRule => __isa(o, "FilterRule");
 }
 
 export type FilterRuleName = "prefix" | "suffix";
 
 export interface GetBucketAccelerateConfigurationOutput {
-  __type?: "GetBucketAccelerateConfigurationOutput";
   /**
    * <p>The accelerate configuration of the bucket.</p>
    */
@@ -4065,12 +3927,9 @@ export namespace GetBucketAccelerateConfigurationOutput {
   export const filterSensitiveLog = (obj: GetBucketAccelerateConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketAccelerateConfigurationOutput =>
-    __isa(o, "GetBucketAccelerateConfigurationOutput");
 }
 
 export interface GetBucketAccelerateConfigurationRequest {
-  __type?: "GetBucketAccelerateConfigurationRequest";
   /**
    * <p>Name of the bucket for which the accelerate configuration is retrieved.</p>
    */
@@ -4081,12 +3940,9 @@ export namespace GetBucketAccelerateConfigurationRequest {
   export const filterSensitiveLog = (obj: GetBucketAccelerateConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketAccelerateConfigurationRequest =>
-    __isa(o, "GetBucketAccelerateConfigurationRequest");
 }
 
 export interface GetBucketAclOutput {
-  __type?: "GetBucketAclOutput";
   /**
    * <p>A list of grants.</p>
    */
@@ -4102,11 +3958,9 @@ export namespace GetBucketAclOutput {
   export const filterSensitiveLog = (obj: GetBucketAclOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketAclOutput => __isa(o, "GetBucketAclOutput");
 }
 
 export interface GetBucketAclRequest {
-  __type?: "GetBucketAclRequest";
   /**
    * <p>Specifies the S3 bucket whose ACL is being requested.</p>
    */
@@ -4117,11 +3971,9 @@ export namespace GetBucketAclRequest {
   export const filterSensitiveLog = (obj: GetBucketAclRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketAclRequest => __isa(o, "GetBucketAclRequest");
 }
 
 export interface GetBucketAnalyticsConfigurationOutput {
-  __type?: "GetBucketAnalyticsConfigurationOutput";
   /**
    * <p>The configuration and any analyses for the analytics filter.</p>
    */
@@ -4132,12 +3984,9 @@ export namespace GetBucketAnalyticsConfigurationOutput {
   export const filterSensitiveLog = (obj: GetBucketAnalyticsConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketAnalyticsConfigurationOutput =>
-    __isa(o, "GetBucketAnalyticsConfigurationOutput");
 }
 
 export interface GetBucketAnalyticsConfigurationRequest {
-  __type?: "GetBucketAnalyticsConfigurationRequest";
   /**
    * <p>The name of the bucket from which an analytics configuration is retrieved.</p>
    */
@@ -4153,12 +4002,9 @@ export namespace GetBucketAnalyticsConfigurationRequest {
   export const filterSensitiveLog = (obj: GetBucketAnalyticsConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketAnalyticsConfigurationRequest =>
-    __isa(o, "GetBucketAnalyticsConfigurationRequest");
 }
 
 export interface GetBucketCorsOutput {
-  __type?: "GetBucketCorsOutput";
   /**
    * <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
    */
@@ -4169,11 +4015,9 @@ export namespace GetBucketCorsOutput {
   export const filterSensitiveLog = (obj: GetBucketCorsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketCorsOutput => __isa(o, "GetBucketCorsOutput");
 }
 
 export interface GetBucketCorsRequest {
-  __type?: "GetBucketCorsRequest";
   /**
    * <p>The bucket name for which to get the cors configuration.</p>
    */
@@ -4184,11 +4028,9 @@ export namespace GetBucketCorsRequest {
   export const filterSensitiveLog = (obj: GetBucketCorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketCorsRequest => __isa(o, "GetBucketCorsRequest");
 }
 
 export interface GetBucketEncryptionOutput {
-  __type?: "GetBucketEncryptionOutput";
   /**
    * <p>Specifies the default server-side-encryption configuration.</p>
    */
@@ -4204,11 +4046,9 @@ export namespace GetBucketEncryptionOutput {
       ),
     }),
   });
-  export const isa = (o: any): o is GetBucketEncryptionOutput => __isa(o, "GetBucketEncryptionOutput");
 }
 
 export interface GetBucketEncryptionRequest {
-  __type?: "GetBucketEncryptionRequest";
   /**
    * <p>The name of the bucket from which the server-side encryption configuration is retrieved.</p>
    */
@@ -4219,11 +4059,9 @@ export namespace GetBucketEncryptionRequest {
   export const filterSensitiveLog = (obj: GetBucketEncryptionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketEncryptionRequest => __isa(o, "GetBucketEncryptionRequest");
 }
 
 export interface GetBucketInventoryConfigurationOutput {
-  __type?: "GetBucketInventoryConfigurationOutput";
   /**
    * <p>Specifies the inventory configuration.</p>
    */
@@ -4237,12 +4075,9 @@ export namespace GetBucketInventoryConfigurationOutput {
       InventoryConfiguration: InventoryConfiguration.filterSensitiveLog(obj.InventoryConfiguration),
     }),
   });
-  export const isa = (o: any): o is GetBucketInventoryConfigurationOutput =>
-    __isa(o, "GetBucketInventoryConfigurationOutput");
 }
 
 export interface GetBucketInventoryConfigurationRequest {
-  __type?: "GetBucketInventoryConfigurationRequest";
   /**
    * <p>The ID used to identify the inventory configuration.</p>
    */
@@ -4258,12 +4093,9 @@ export namespace GetBucketInventoryConfigurationRequest {
   export const filterSensitiveLog = (obj: GetBucketInventoryConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketInventoryConfigurationRequest =>
-    __isa(o, "GetBucketInventoryConfigurationRequest");
 }
 
 export interface GetBucketLifecycleConfigurationOutput {
-  __type?: "GetBucketLifecycleConfigurationOutput";
   /**
    * <p>Container for a lifecycle rule.</p>
    */
@@ -4274,12 +4106,9 @@ export namespace GetBucketLifecycleConfigurationOutput {
   export const filterSensitiveLog = (obj: GetBucketLifecycleConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketLifecycleConfigurationOutput =>
-    __isa(o, "GetBucketLifecycleConfigurationOutput");
 }
 
 export interface GetBucketLifecycleConfigurationRequest {
-  __type?: "GetBucketLifecycleConfigurationRequest";
   /**
    * <p>The name of the bucket for which to get the lifecycle information.</p>
    */
@@ -4290,12 +4119,9 @@ export namespace GetBucketLifecycleConfigurationRequest {
   export const filterSensitiveLog = (obj: GetBucketLifecycleConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketLifecycleConfigurationRequest =>
-    __isa(o, "GetBucketLifecycleConfigurationRequest");
 }
 
 export interface GetBucketLocationOutput {
-  __type?: "GetBucketLocationOutput";
   /**
    * <p>Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported
    *          location constraints by Region, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and
@@ -4308,11 +4134,9 @@ export namespace GetBucketLocationOutput {
   export const filterSensitiveLog = (obj: GetBucketLocationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketLocationOutput => __isa(o, "GetBucketLocationOutput");
 }
 
 export interface GetBucketLocationRequest {
-  __type?: "GetBucketLocationRequest";
   /**
    * <p>The name of the bucket for which to get the location.</p>
    */
@@ -4323,11 +4147,9 @@ export namespace GetBucketLocationRequest {
   export const filterSensitiveLog = (obj: GetBucketLocationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketLocationRequest => __isa(o, "GetBucketLocationRequest");
 }
 
 export interface GetBucketLoggingOutput {
-  __type?: "GetBucketLoggingOutput";
   /**
    * <p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for
    *       a bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html">PUT Bucket logging</a> in the
@@ -4340,11 +4162,9 @@ export namespace GetBucketLoggingOutput {
   export const filterSensitiveLog = (obj: GetBucketLoggingOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketLoggingOutput => __isa(o, "GetBucketLoggingOutput");
 }
 
 export interface GetBucketLoggingRequest {
-  __type?: "GetBucketLoggingRequest";
   /**
    * <p>The bucket name for which to get the logging information.</p>
    */
@@ -4355,11 +4175,9 @@ export namespace GetBucketLoggingRequest {
   export const filterSensitiveLog = (obj: GetBucketLoggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketLoggingRequest => __isa(o, "GetBucketLoggingRequest");
 }
 
 export interface GetBucketMetricsConfigurationOutput {
-  __type?: "GetBucketMetricsConfigurationOutput";
   /**
    * <p>Specifies the metrics configuration.</p>
    */
@@ -4370,12 +4188,9 @@ export namespace GetBucketMetricsConfigurationOutput {
   export const filterSensitiveLog = (obj: GetBucketMetricsConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketMetricsConfigurationOutput =>
-    __isa(o, "GetBucketMetricsConfigurationOutput");
 }
 
 export interface GetBucketMetricsConfigurationRequest {
-  __type?: "GetBucketMetricsConfigurationRequest";
   /**
    * <p>The name of the bucket containing the metrics configuration to retrieve.</p>
    */
@@ -4391,12 +4206,9 @@ export namespace GetBucketMetricsConfigurationRequest {
   export const filterSensitiveLog = (obj: GetBucketMetricsConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketMetricsConfigurationRequest =>
-    __isa(o, "GetBucketMetricsConfigurationRequest");
 }
 
 export interface GetBucketNotificationConfigurationRequest {
-  __type?: "GetBucketNotificationConfigurationRequest";
   /**
    * <p>Name of the bucket for which to get the notification configuration.</p>
    */
@@ -4407,12 +4219,9 @@ export namespace GetBucketNotificationConfigurationRequest {
   export const filterSensitiveLog = (obj: GetBucketNotificationConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketNotificationConfigurationRequest =>
-    __isa(o, "GetBucketNotificationConfigurationRequest");
 }
 
 export interface GetBucketPolicyOutput {
-  __type?: "GetBucketPolicyOutput";
   /**
    * <p>The bucket policy as a JSON document.</p>
    */
@@ -4423,11 +4232,9 @@ export namespace GetBucketPolicyOutput {
   export const filterSensitiveLog = (obj: GetBucketPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketPolicyOutput => __isa(o, "GetBucketPolicyOutput");
 }
 
 export interface GetBucketPolicyRequest {
-  __type?: "GetBucketPolicyRequest";
   /**
    * <p>The bucket name for which to get the bucket policy.</p>
    */
@@ -4438,11 +4245,9 @@ export namespace GetBucketPolicyRequest {
   export const filterSensitiveLog = (obj: GetBucketPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketPolicyRequest => __isa(o, "GetBucketPolicyRequest");
 }
 
 export interface GetBucketPolicyStatusOutput {
-  __type?: "GetBucketPolicyStatusOutput";
   /**
    * <p>The policy status for the specified bucket.</p>
    */
@@ -4453,11 +4258,9 @@ export namespace GetBucketPolicyStatusOutput {
   export const filterSensitiveLog = (obj: GetBucketPolicyStatusOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketPolicyStatusOutput => __isa(o, "GetBucketPolicyStatusOutput");
 }
 
 export interface GetBucketPolicyStatusRequest {
-  __type?: "GetBucketPolicyStatusRequest";
   /**
    * <p>The name of the Amazon S3 bucket whose policy status you want to retrieve.</p>
    */
@@ -4468,11 +4271,9 @@ export namespace GetBucketPolicyStatusRequest {
   export const filterSensitiveLog = (obj: GetBucketPolicyStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketPolicyStatusRequest => __isa(o, "GetBucketPolicyStatusRequest");
 }
 
 export interface GetBucketReplicationOutput {
-  __type?: "GetBucketReplicationOutput";
   /**
    * <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a
    *       replication configuration is 2 MB.</p>
@@ -4484,11 +4285,9 @@ export namespace GetBucketReplicationOutput {
   export const filterSensitiveLog = (obj: GetBucketReplicationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketReplicationOutput => __isa(o, "GetBucketReplicationOutput");
 }
 
 export interface GetBucketReplicationRequest {
-  __type?: "GetBucketReplicationRequest";
   /**
    * <p>The bucket name for which to get the replication information.</p>
    */
@@ -4499,11 +4298,9 @@ export namespace GetBucketReplicationRequest {
   export const filterSensitiveLog = (obj: GetBucketReplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketReplicationRequest => __isa(o, "GetBucketReplicationRequest");
 }
 
 export interface GetBucketRequestPaymentOutput {
-  __type?: "GetBucketRequestPaymentOutput";
   /**
    * <p>Specifies who pays for the download and request fees.</p>
    */
@@ -4514,11 +4311,9 @@ export namespace GetBucketRequestPaymentOutput {
   export const filterSensitiveLog = (obj: GetBucketRequestPaymentOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketRequestPaymentOutput => __isa(o, "GetBucketRequestPaymentOutput");
 }
 
 export interface GetBucketRequestPaymentRequest {
-  __type?: "GetBucketRequestPaymentRequest";
   /**
    * <p>The name of the bucket for which to get the payment request configuration</p>
    */
@@ -4529,11 +4324,9 @@ export namespace GetBucketRequestPaymentRequest {
   export const filterSensitiveLog = (obj: GetBucketRequestPaymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketRequestPaymentRequest => __isa(o, "GetBucketRequestPaymentRequest");
 }
 
 export interface GetBucketTaggingOutput {
-  __type?: "GetBucketTaggingOutput";
   /**
    * <p>Contains the tag set.</p>
    */
@@ -4544,11 +4337,9 @@ export namespace GetBucketTaggingOutput {
   export const filterSensitiveLog = (obj: GetBucketTaggingOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketTaggingOutput => __isa(o, "GetBucketTaggingOutput");
 }
 
 export interface GetBucketTaggingRequest {
-  __type?: "GetBucketTaggingRequest";
   /**
    * <p>The name of the bucket for which to get the tagging information.</p>
    */
@@ -4559,11 +4350,9 @@ export namespace GetBucketTaggingRequest {
   export const filterSensitiveLog = (obj: GetBucketTaggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketTaggingRequest => __isa(o, "GetBucketTaggingRequest");
 }
 
 export interface GetBucketVersioningOutput {
-  __type?: "GetBucketVersioningOutput";
   /**
    * <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</p>
    */
@@ -4579,11 +4368,9 @@ export namespace GetBucketVersioningOutput {
   export const filterSensitiveLog = (obj: GetBucketVersioningOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketVersioningOutput => __isa(o, "GetBucketVersioningOutput");
 }
 
 export interface GetBucketVersioningRequest {
-  __type?: "GetBucketVersioningRequest";
   /**
    * <p>The name of the bucket for which to get the versioning information.</p>
    */
@@ -4594,11 +4381,9 @@ export namespace GetBucketVersioningRequest {
   export const filterSensitiveLog = (obj: GetBucketVersioningRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketVersioningRequest => __isa(o, "GetBucketVersioningRequest");
 }
 
 export interface GetBucketWebsiteOutput {
-  __type?: "GetBucketWebsiteOutput";
   /**
    * <p>Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.</p>
    */
@@ -4624,11 +4409,9 @@ export namespace GetBucketWebsiteOutput {
   export const filterSensitiveLog = (obj: GetBucketWebsiteOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketWebsiteOutput => __isa(o, "GetBucketWebsiteOutput");
 }
 
 export interface GetBucketWebsiteRequest {
-  __type?: "GetBucketWebsiteRequest";
   /**
    * <p>The bucket name for which to get the website configuration.</p>
    */
@@ -4639,11 +4422,9 @@ export namespace GetBucketWebsiteRequest {
   export const filterSensitiveLog = (obj: GetBucketWebsiteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetBucketWebsiteRequest => __isa(o, "GetBucketWebsiteRequest");
 }
 
 export interface GetObjectAclOutput {
-  __type?: "GetObjectAclOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
@@ -4665,11 +4446,9 @@ export namespace GetObjectAclOutput {
   export const filterSensitiveLog = (obj: GetObjectAclOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectAclOutput => __isa(o, "GetObjectAclOutput");
 }
 
 export interface GetObjectAclRequest {
-  __type?: "GetObjectAclRequest";
   /**
    * <p>VersionId used to reference a specific version of the object.</p>
    */
@@ -4699,11 +4478,9 @@ export namespace GetObjectAclRequest {
   export const filterSensitiveLog = (obj: GetObjectAclRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectAclRequest => __isa(o, "GetObjectAclRequest");
 }
 
 export interface GetObjectLegalHoldOutput {
-  __type?: "GetObjectLegalHoldOutput";
   /**
    * <p>The current Legal Hold status for the specified object.</p>
    */
@@ -4714,11 +4491,9 @@ export namespace GetObjectLegalHoldOutput {
   export const filterSensitiveLog = (obj: GetObjectLegalHoldOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectLegalHoldOutput => __isa(o, "GetObjectLegalHoldOutput");
 }
 
 export interface GetObjectLegalHoldRequest {
-  __type?: "GetObjectLegalHoldRequest";
   /**
    * <p>The key name for the object whose Legal Hold
    *       status you want to retrieve.</p>
@@ -4750,11 +4525,9 @@ export namespace GetObjectLegalHoldRequest {
   export const filterSensitiveLog = (obj: GetObjectLegalHoldRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectLegalHoldRequest => __isa(o, "GetObjectLegalHoldRequest");
 }
 
 export interface GetObjectLockConfigurationOutput {
-  __type?: "GetObjectLockConfigurationOutput";
   /**
    * <p>The specified bucket's Object Lock configuration.</p>
    */
@@ -4765,11 +4538,9 @@ export namespace GetObjectLockConfigurationOutput {
   export const filterSensitiveLog = (obj: GetObjectLockConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectLockConfigurationOutput => __isa(o, "GetObjectLockConfigurationOutput");
 }
 
 export interface GetObjectLockConfigurationRequest {
-  __type?: "GetObjectLockConfigurationRequest";
   /**
    * <p>The bucket whose Object Lock configuration you want to retrieve.</p>
    */
@@ -4780,11 +4551,9 @@ export namespace GetObjectLockConfigurationRequest {
   export const filterSensitiveLog = (obj: GetObjectLockConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectLockConfigurationRequest => __isa(o, "GetObjectLockConfigurationRequest");
 }
 
 export interface GetObjectOutput {
-  __type?: "GetObjectOutput";
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
    */
@@ -4956,11 +4725,9 @@ export namespace GetObjectOutput {
     ...obj,
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetObjectOutput => __isa(o, "GetObjectOutput");
 }
 
 export interface GetObjectRequest {
-  __type?: "GetObjectRequest";
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
@@ -5075,11 +4842,9 @@ export namespace GetObjectRequest {
     ...obj,
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetObjectRequest => __isa(o, "GetObjectRequest");
 }
 
 export interface GetObjectRetentionOutput {
-  __type?: "GetObjectRetentionOutput";
   /**
    * <p>The container element for an object's retention settings.</p>
    */
@@ -5090,11 +4855,9 @@ export namespace GetObjectRetentionOutput {
   export const filterSensitiveLog = (obj: GetObjectRetentionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectRetentionOutput => __isa(o, "GetObjectRetentionOutput");
 }
 
 export interface GetObjectRetentionRequest {
-  __type?: "GetObjectRetentionRequest";
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
@@ -5124,11 +4887,9 @@ export namespace GetObjectRetentionRequest {
   export const filterSensitiveLog = (obj: GetObjectRetentionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectRetentionRequest => __isa(o, "GetObjectRetentionRequest");
 }
 
 export interface GetObjectTaggingOutput {
-  __type?: "GetObjectTaggingOutput";
   /**
    * <p>Contains the tag set.</p>
    */
@@ -5144,11 +4905,9 @@ export namespace GetObjectTaggingOutput {
   export const filterSensitiveLog = (obj: GetObjectTaggingOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectTaggingOutput => __isa(o, "GetObjectTaggingOutput");
 }
 
 export interface GetObjectTaggingRequest {
-  __type?: "GetObjectTaggingRequest";
   /**
    * <p>The versionId of the object for which to get the tagging information.</p>
    */
@@ -5170,11 +4929,9 @@ export namespace GetObjectTaggingRequest {
   export const filterSensitiveLog = (obj: GetObjectTaggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectTaggingRequest => __isa(o, "GetObjectTaggingRequest");
 }
 
 export interface GetObjectTorrentOutput {
-  __type?: "GetObjectTorrentOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
@@ -5190,11 +4947,9 @@ export namespace GetObjectTorrentOutput {
   export const filterSensitiveLog = (obj: GetObjectTorrentOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectTorrentOutput => __isa(o, "GetObjectTorrentOutput");
 }
 
 export interface GetObjectTorrentRequest {
-  __type?: "GetObjectTorrentRequest";
   /**
    * <p>The object key for which to get the information.</p>
    */
@@ -5218,11 +4973,9 @@ export namespace GetObjectTorrentRequest {
   export const filterSensitiveLog = (obj: GetObjectTorrentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectTorrentRequest => __isa(o, "GetObjectTorrentRequest");
 }
 
 export interface GetPublicAccessBlockOutput {
-  __type?: "GetPublicAccessBlockOutput";
   /**
    * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this Amazon S3
    *       bucket.</p>
@@ -5234,11 +4987,9 @@ export namespace GetPublicAccessBlockOutput {
   export const filterSensitiveLog = (obj: GetPublicAccessBlockOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPublicAccessBlockOutput => __isa(o, "GetPublicAccessBlockOutput");
 }
 
 export interface GetPublicAccessBlockRequest {
-  __type?: "GetPublicAccessBlockRequest";
   /**
    * <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you
    *       want to retrieve. </p>
@@ -5250,14 +5001,12 @@ export namespace GetPublicAccessBlockRequest {
   export const filterSensitiveLog = (obj: GetPublicAccessBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPublicAccessBlockRequest => __isa(o, "GetPublicAccessBlockRequest");
 }
 
 /**
  * <p>Container for S3 Glacier job parameters.</p>
  */
 export interface GlacierJobParameters {
-  __type?: "GlacierJobParameters";
   /**
    * <p>S3 Glacier retrieval tier at which the restore will be processed.</p>
    */
@@ -5268,14 +5017,12 @@ export namespace GlacierJobParameters {
   export const filterSensitiveLog = (obj: GlacierJobParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlacierJobParameters => __isa(o, "GlacierJobParameters");
 }
 
 /**
  * <p>Container for grant information.</p>
  */
 export interface Grant {
-  __type?: "Grant";
   /**
    * <p>Specifies the permission given to the grantee.</p>
    */
@@ -5291,14 +5038,12 @@ export namespace Grant {
   export const filterSensitiveLog = (obj: Grant): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Grant => __isa(o, "Grant");
 }
 
 /**
  * <p>Container for the person being granted permissions.</p>
  */
 export interface Grantee {
-  __type?: "Grantee";
   /**
    * <p>The canonical user ID of the grantee.</p>
    */
@@ -5359,11 +5104,9 @@ export namespace Grantee {
   export const filterSensitiveLog = (obj: Grantee): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Grantee => __isa(o, "Grantee");
 }
 
 export interface HeadBucketRequest {
-  __type?: "HeadBucketRequest";
   /**
    * <p>The bucket name.</p>
    */
@@ -5374,11 +5117,9 @@ export namespace HeadBucketRequest {
   export const filterSensitiveLog = (obj: HeadBucketRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HeadBucketRequest => __isa(o, "HeadBucketRequest");
 }
 
 export interface HeadObjectOutput {
-  __type?: "HeadObjectOutput";
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
    */
@@ -5576,11 +5317,9 @@ export namespace HeadObjectOutput {
     ...obj,
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is HeadObjectOutput => __isa(o, "HeadObjectOutput");
 }
 
 export interface HeadObjectRequest {
-  __type?: "HeadObjectRequest";
   /**
    * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
    *          this header for a message integrity check to ensure that the encryption key was transmitted
@@ -5664,14 +5403,12 @@ export namespace HeadObjectRequest {
     ...obj,
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is HeadObjectRequest => __isa(o, "HeadObjectRequest");
 }
 
 /**
  * <p>Container for the <code>Suffix</code> element.</p>
  */
 export interface IndexDocument {
-  __type?: "IndexDocument";
   /**
    * <p>A suffix that is appended to a request that is for a directory on the website endpoint (for
    *          example,if the suffix is index.html and you make a request to samplebucket/images/ the data
@@ -5685,14 +5422,12 @@ export namespace IndexDocument {
   export const filterSensitiveLog = (obj: IndexDocument): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IndexDocument => __isa(o, "IndexDocument");
 }
 
 /**
  * <p>Container element that identifies who initiated the multipart upload. </p>
  */
 export interface Initiator {
-  __type?: "Initiator";
   /**
    * <p>If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.</p>
    */
@@ -5708,14 +5443,12 @@ export namespace Initiator {
   export const filterSensitiveLog = (obj: Initiator): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Initiator => __isa(o, "Initiator");
 }
 
 /**
  * <p>Describes the serialization format of the object.</p>
  */
 export interface InputSerialization {
-  __type?: "InputSerialization";
   /**
    * <p>Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.</p>
    */
@@ -5741,7 +5474,6 @@ export namespace InputSerialization {
   export const filterSensitiveLog = (obj: InputSerialization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InputSerialization => __isa(o, "InputSerialization");
 }
 
 /**
@@ -5750,7 +5482,6 @@ export namespace InputSerialization {
  *       </p>
  */
 export interface InventoryConfiguration {
-  __type?: "InventoryConfiguration";
   /**
    * <p>Contains the optional fields that are included in the inventory results.</p>
    */
@@ -5792,14 +5523,12 @@ export namespace InventoryConfiguration {
     ...obj,
     ...(obj.Destination && { Destination: InventoryDestination.filterSensitiveLog(obj.Destination) }),
   });
-  export const isa = (o: any): o is InventoryConfiguration => __isa(o, "InventoryConfiguration");
 }
 
 /**
  * <p>Specifies the inventory configuration for an Amazon S3 bucket.</p>
  */
 export interface InventoryDestination {
-  __type?: "InventoryDestination";
   /**
    * <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.</p>
    */
@@ -5813,14 +5542,12 @@ export namespace InventoryDestination {
       S3BucketDestination: InventoryS3BucketDestination.filterSensitiveLog(obj.S3BucketDestination),
     }),
   });
-  export const isa = (o: any): o is InventoryDestination => __isa(o, "InventoryDestination");
 }
 
 /**
  * <p>Contains the type of server-side encryption used to encrypt the inventory results.</p>
  */
 export interface InventoryEncryption {
-  __type?: "InventoryEncryption";
   /**
    * <p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>
    */
@@ -5837,14 +5564,12 @@ export namespace InventoryEncryption {
     ...obj,
     ...(obj.SSEKMS && { SSEKMS: SSEKMS.filterSensitiveLog(obj.SSEKMS) }),
   });
-  export const isa = (o: any): o is InventoryEncryption => __isa(o, "InventoryEncryption");
 }
 
 /**
  * <p>Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.</p>
  */
 export interface InventoryFilter {
-  __type?: "InventoryFilter";
   /**
    * <p>The prefix that an object must have to be included in the inventory results.</p>
    */
@@ -5855,7 +5580,6 @@ export namespace InventoryFilter {
   export const filterSensitiveLog = (obj: InventoryFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InventoryFilter => __isa(o, "InventoryFilter");
 }
 
 export type InventoryFormat = "CSV" | "ORC" | "Parquet";
@@ -5882,7 +5606,6 @@ export type InventoryOptionalField =
  *          inventory results are published.</p>
  */
 export interface InventoryS3BucketDestination {
-  __type?: "InventoryS3BucketDestination";
   /**
    * <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be published.</p>
    */
@@ -5921,14 +5644,12 @@ export namespace InventoryS3BucketDestination {
     ...obj,
     ...(obj.Encryption && { Encryption: InventoryEncryption.filterSensitiveLog(obj.Encryption) }),
   });
-  export const isa = (o: any): o is InventoryS3BucketDestination => __isa(o, "InventoryS3BucketDestination");
 }
 
 /**
  * <p>Specifies the schedule for generating inventory results.</p>
  */
 export interface InventorySchedule {
-  __type?: "InventorySchedule";
   /**
    * <p>Specifies how frequently inventory results are produced.</p>
    */
@@ -5939,14 +5660,12 @@ export namespace InventorySchedule {
   export const filterSensitiveLog = (obj: InventorySchedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InventorySchedule => __isa(o, "InventorySchedule");
 }
 
 /**
  * <p>Specifies JSON as object's input serialization format.</p>
  */
 export interface JSONInput {
-  __type?: "JSONInput";
   /**
    * <p>The type of JSON. Valid values: Document, Lines.</p>
    */
@@ -5957,14 +5676,12 @@ export namespace JSONInput {
   export const filterSensitiveLog = (obj: JSONInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JSONInput => __isa(o, "JSONInput");
 }
 
 /**
  * <p>Specifies JSON as request's output serialization format.</p>
  */
 export interface JSONOutput {
-  __type?: "JSONOutput";
   /**
    * <p>The value used to separate individual records in the output. If no value is specified, Amazon S3 uses a newline character ('\n').</p>
    */
@@ -5975,7 +5692,6 @@ export namespace JSONOutput {
   export const filterSensitiveLog = (obj: JSONOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JSONOutput => __isa(o, "JSONOutput");
 }
 
 export enum JSONType {
@@ -5987,7 +5703,6 @@ export enum JSONType {
  * <p>A container for specifying the configuration for AWS Lambda notifications.</p>
  */
 export interface LambdaFunctionConfiguration {
-  __type?: "LambdaFunctionConfiguration";
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.</p>
    */
@@ -6019,14 +5734,12 @@ export namespace LambdaFunctionConfiguration {
   export const filterSensitiveLog = (obj: LambdaFunctionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaFunctionConfiguration => __isa(o, "LambdaFunctionConfiguration");
 }
 
 /**
  * <p>Container for the expiration for the lifecycle of the object.</p>
  */
 export interface LifecycleExpiration {
-  __type?: "LifecycleExpiration";
   /**
    * <p>Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</p>
    */
@@ -6047,14 +5760,12 @@ export namespace LifecycleExpiration {
   export const filterSensitiveLog = (obj: LifecycleExpiration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecycleExpiration => __isa(o, "LifecycleExpiration");
 }
 
 /**
  * <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
  */
 export interface LifecycleRule {
-  __type?: "LifecycleRule";
   /**
    * <p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>
    */
@@ -6116,14 +5827,12 @@ export namespace LifecycleRule {
   export const filterSensitiveLog = (obj: LifecycleRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecycleRule => __isa(o, "LifecycleRule");
 }
 
 /**
  * <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
  */
 export interface LifecycleRuleAndOperator {
-  __type?: "LifecycleRuleAndOperator";
   /**
    * <p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>
    */
@@ -6139,7 +5848,6 @@ export namespace LifecycleRuleAndOperator {
   export const filterSensitiveLog = (obj: LifecycleRuleAndOperator): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecycleRuleAndOperator => __isa(o, "LifecycleRuleAndOperator");
 }
 
 /**
@@ -6148,7 +5856,6 @@ export namespace LifecycleRuleAndOperator {
  *             <code>And</code> specified.</p>
  */
 export interface LifecycleRuleFilter {
-  __type?: "LifecycleRuleFilter";
   /**
    * <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
    */
@@ -6169,11 +5876,9 @@ export namespace LifecycleRuleFilter {
   export const filterSensitiveLog = (obj: LifecycleRuleFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecycleRuleFilter => __isa(o, "LifecycleRuleFilter");
 }
 
 export interface ListBucketAnalyticsConfigurationsOutput {
-  __type?: "ListBucketAnalyticsConfigurationsOutput";
   /**
    * <p>The marker that is used as a starting point for this analytics configuration list response. This value is present if it was sent in the request.</p>
    */
@@ -6203,12 +5908,9 @@ export namespace ListBucketAnalyticsConfigurationsOutput {
   export const filterSensitiveLog = (obj: ListBucketAnalyticsConfigurationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBucketAnalyticsConfigurationsOutput =>
-    __isa(o, "ListBucketAnalyticsConfigurationsOutput");
 }
 
 export interface ListBucketAnalyticsConfigurationsRequest {
-  __type?: "ListBucketAnalyticsConfigurationsRequest";
   /**
    * <p>The name of the bucket from which analytics configurations are retrieved.</p>
    */
@@ -6224,12 +5926,9 @@ export namespace ListBucketAnalyticsConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListBucketAnalyticsConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBucketAnalyticsConfigurationsRequest =>
-    __isa(o, "ListBucketAnalyticsConfigurationsRequest");
 }
 
 export interface ListBucketInventoryConfigurationsOutput {
-  __type?: "ListBucketInventoryConfigurationsOutput";
   /**
    * <p>The list of inventory configurations for a bucket.</p>
    */
@@ -6263,12 +5962,9 @@ export namespace ListBucketInventoryConfigurationsOutput {
       ),
     }),
   });
-  export const isa = (o: any): o is ListBucketInventoryConfigurationsOutput =>
-    __isa(o, "ListBucketInventoryConfigurationsOutput");
 }
 
 export interface ListBucketInventoryConfigurationsRequest {
-  __type?: "ListBucketInventoryConfigurationsRequest";
   /**
    * <p>The marker used to continue an inventory configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
    */
@@ -6284,12 +5980,9 @@ export namespace ListBucketInventoryConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListBucketInventoryConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBucketInventoryConfigurationsRequest =>
-    __isa(o, "ListBucketInventoryConfigurationsRequest");
 }
 
 export interface ListBucketMetricsConfigurationsOutput {
-  __type?: "ListBucketMetricsConfigurationsOutput";
   /**
    * <p>The list of metrics configurations for a bucket.</p>
    */
@@ -6317,12 +6010,9 @@ export namespace ListBucketMetricsConfigurationsOutput {
   export const filterSensitiveLog = (obj: ListBucketMetricsConfigurationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBucketMetricsConfigurationsOutput =>
-    __isa(o, "ListBucketMetricsConfigurationsOutput");
 }
 
 export interface ListBucketMetricsConfigurationsRequest {
-  __type?: "ListBucketMetricsConfigurationsRequest";
   /**
    * <p>The marker that is used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
    */
@@ -6338,12 +6028,9 @@ export namespace ListBucketMetricsConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListBucketMetricsConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBucketMetricsConfigurationsRequest =>
-    __isa(o, "ListBucketMetricsConfigurationsRequest");
 }
 
 export interface ListBucketsOutput {
-  __type?: "ListBucketsOutput";
   /**
    * <p>The list of buckets owned by the requestor.</p>
    */
@@ -6359,11 +6046,9 @@ export namespace ListBucketsOutput {
   export const filterSensitiveLog = (obj: ListBucketsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBucketsOutput => __isa(o, "ListBucketsOutput");
 }
 
 export interface ListMultipartUploadsOutput {
-  __type?: "ListMultipartUploadsOutput";
   /**
    * <p>When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.</p>
    */
@@ -6437,11 +6122,9 @@ export namespace ListMultipartUploadsOutput {
   export const filterSensitiveLog = (obj: ListMultipartUploadsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMultipartUploadsOutput => __isa(o, "ListMultipartUploadsOutput");
 }
 
 export interface ListMultipartUploadsRequest {
-  __type?: "ListMultipartUploadsRequest";
   /**
    * <p>Character you use to group keys.</p>
    *          <p>All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, <code>CommonPrefixes</code>. If you don't specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under <code>CommonPrefixes</code> result element are not returned elsewhere in the response.</p>
@@ -6491,11 +6174,9 @@ export namespace ListMultipartUploadsRequest {
   export const filterSensitiveLog = (obj: ListMultipartUploadsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMultipartUploadsRequest => __isa(o, "ListMultipartUploadsRequest");
 }
 
 export interface ListObjectsOutput {
-  __type?: "ListObjectsOutput";
   /**
    * <p>Keys that begin with the indicated prefix.</p>
    */
@@ -6564,11 +6245,9 @@ export namespace ListObjectsOutput {
   export const filterSensitiveLog = (obj: ListObjectsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListObjectsOutput => __isa(o, "ListObjectsOutput");
 }
 
 export interface ListObjectsRequest {
-  __type?: "ListObjectsRequest";
   /**
    * <p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>
    */
@@ -6609,11 +6288,9 @@ export namespace ListObjectsRequest {
   export const filterSensitiveLog = (obj: ListObjectsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListObjectsRequest => __isa(o, "ListObjectsRequest");
 }
 
 export interface ListObjectsV2Output {
-  __type?: "ListObjectsV2Output";
   /**
    * <p>If StartAfter was sent with the request, it is included in the response.</p>
    */
@@ -6704,11 +6381,9 @@ export namespace ListObjectsV2Output {
   export const filterSensitiveLog = (obj: ListObjectsV2Output): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListObjectsV2Output => __isa(o, "ListObjectsV2Output");
 }
 
 export interface ListObjectsV2Request {
-  __type?: "ListObjectsV2Request";
   /**
    * <p>Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.</p>
    */
@@ -6761,11 +6436,9 @@ export namespace ListObjectsV2Request {
   export const filterSensitiveLog = (obj: ListObjectsV2Request): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListObjectsV2Request => __isa(o, "ListObjectsV2Request");
 }
 
 export interface ListObjectVersionsOutput {
-  __type?: "ListObjectVersionsOutput";
   /**
    * <p>Container for an object that is a delete marker.</p>
    */
@@ -6855,11 +6528,9 @@ export namespace ListObjectVersionsOutput {
   export const filterSensitiveLog = (obj: ListObjectVersionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListObjectVersionsOutput => __isa(o, "ListObjectVersionsOutput");
 }
 
 export interface ListObjectVersionsRequest {
-  __type?: "ListObjectVersionsRequest";
   /**
    * <p>Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.) You can use prefix with delimiter to roll up numerous objects into a single result under CommonPrefixes. </p>
    */
@@ -6901,11 +6572,9 @@ export namespace ListObjectVersionsRequest {
   export const filterSensitiveLog = (obj: ListObjectVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListObjectVersionsRequest => __isa(o, "ListObjectVersionsRequest");
 }
 
 export interface ListPartsOutput {
-  __type?: "ListPartsOutput";
   /**
    * <p>Container element that identifies who initiated the multipart upload. If the initiator is an
    *          AWS account, this element provides the same information as the <code>Owner</code> element.
@@ -6992,11 +6661,9 @@ export namespace ListPartsOutput {
   export const filterSensitiveLog = (obj: ListPartsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPartsOutput => __isa(o, "ListPartsOutput");
 }
 
 export interface ListPartsRequest {
-  __type?: "ListPartsRequest";
   /**
    * <p>Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.</p>
    */
@@ -7036,7 +6703,6 @@ export namespace ListPartsRequest {
   export const filterSensitiveLog = (obj: ListPartsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListPartsRequest => __isa(o, "ListPartsRequest");
 }
 
 /**
@@ -7045,7 +6711,6 @@ export namespace ListPartsRequest {
  *       <i>Amazon Simple Storage Service API Reference</i>.</p>
  */
 export interface LoggingEnabled {
-  __type?: "LoggingEnabled";
   /**
    * <p>Specifies the bucket where you want Amazon S3 to store server access logs. You can have your
    *          logs delivered to any bucket that you own, including the same bucket that is being logged.
@@ -7072,7 +6737,6 @@ export namespace LoggingEnabled {
   export const filterSensitiveLog = (obj: LoggingEnabled): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggingEnabled => __isa(o, "LoggingEnabled");
 }
 
 export type MetadataDirective = "COPY" | "REPLACE";
@@ -7081,7 +6745,6 @@ export type MetadataDirective = "COPY" | "REPLACE";
  * <p>A metadata key-value pair to store with an object.</p>
  */
 export interface MetadataEntry {
-  __type?: "MetadataEntry";
   /**
    * <p>Name of the Object.</p>
    */
@@ -7097,7 +6760,6 @@ export namespace MetadataEntry {
   export const filterSensitiveLog = (obj: MetadataEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetadataEntry => __isa(o, "MetadataEntry");
 }
 
 /**
@@ -7106,7 +6768,6 @@ export namespace MetadataEntry {
  *          block. </p>
  */
 export interface Metrics {
-  __type?: "Metrics";
   /**
    * <p>
    *     A container specifying the time threshold for emitting the <code>s3:Replication:OperationMissedThreshold</code> event.
@@ -7126,7 +6787,6 @@ export namespace Metrics {
   export const filterSensitiveLog = (obj: Metrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Metrics => __isa(o, "Metrics");
 }
 
 /**
@@ -7135,7 +6795,6 @@ export namespace Metrics {
  *          filter to apply.</p>
  */
 export interface MetricsAndOperator {
-  __type?: "MetricsAndOperator";
   /**
    * <p>The prefix used when evaluating an AND predicate.</p>
    */
@@ -7151,7 +6810,6 @@ export namespace MetricsAndOperator {
   export const filterSensitiveLog = (obj: MetricsAndOperator): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricsAndOperator => __isa(o, "MetricsAndOperator");
 }
 
 /**
@@ -7161,7 +6819,6 @@ export namespace MetricsAndOperator {
  *             PUT Bucket metrics</a> in the <i>Amazon Simple Storage Service API Reference</i>.</p>
  */
 export interface MetricsConfiguration {
-  __type?: "MetricsConfiguration";
   /**
    * <p>Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).</p>
    */
@@ -7177,7 +6834,6 @@ export namespace MetricsConfiguration {
   export const filterSensitiveLog = (obj: MetricsConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricsConfiguration => __isa(o, "MetricsConfiguration");
 }
 
 /**
@@ -7186,7 +6842,6 @@ export namespace MetricsConfiguration {
  *          tag, or a conjunction (MetricsAndOperator).</p>
  */
 export interface MetricsFilter {
-  __type?: "MetricsFilter";
   /**
    * <p>The prefix used when evaluating a metrics filter.</p>
    */
@@ -7207,7 +6862,6 @@ export namespace MetricsFilter {
   export const filterSensitiveLog = (obj: MetricsFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricsFilter => __isa(o, "MetricsFilter");
 }
 
 export type MetricsStatus = "Disabled" | "Enabled";
@@ -7220,7 +6874,6 @@ export type MFADeleteStatus = "Disabled" | "Enabled";
  * <p>Container for the <code>MultipartUpload</code> for the Amazon S3 object.</p>
  */
 export interface MultipartUpload {
-  __type?: "MultipartUpload";
   /**
    * <p>Key of the object for which the multipart upload was initiated.</p>
    */
@@ -7256,7 +6909,6 @@ export namespace MultipartUpload {
   export const filterSensitiveLog = (obj: MultipartUpload): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MultipartUpload => __isa(o, "MultipartUpload");
 }
 
 /**
@@ -7265,7 +6917,6 @@ export namespace MultipartUpload {
  * You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.</p>
  */
 export interface NoncurrentVersionExpiration {
-  __type?: "NoncurrentVersionExpiration";
   /**
    * <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the
    *          associated action. For information about the noncurrent days calculations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">How
@@ -7279,7 +6930,6 @@ export namespace NoncurrentVersionExpiration {
   export const filterSensitiveLog = (obj: NoncurrentVersionExpiration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoncurrentVersionExpiration => __isa(o, "NoncurrentVersionExpiration");
 }
 
 /**
@@ -7288,7 +6938,6 @@ export namespace NoncurrentVersionExpiration {
  * If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the <code>STANDARD_IA</code>, <code>ONEZONE_IA</code>, <code>INTELLIGENT_TIERING</code>, <code>GLACIER</code>, or <code>DEEP_ARCHIVE</code> storage class at a specific period in the object's lifetime.</p>
  */
 export interface NoncurrentVersionTransition {
-  __type?: "NoncurrentVersionTransition";
   /**
    * <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.  For information about the noncurrent days calculations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">How Amazon S3 Calculates How Long an Object Has Been Noncurrent</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
@@ -7304,7 +6953,6 @@ export namespace NoncurrentVersionTransition {
   export const filterSensitiveLog = (obj: NoncurrentVersionTransition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoncurrentVersionTransition => __isa(o, "NoncurrentVersionTransition");
 }
 
 /**
@@ -7319,7 +6967,6 @@ export namespace NoSuchBucket {
   export const filterSensitiveLog = (obj: NoSuchBucket): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchBucket => __isa(o, "NoSuchBucket");
 }
 
 /**
@@ -7334,7 +6981,6 @@ export namespace NoSuchKey {
   export const filterSensitiveLog = (obj: NoSuchKey): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchKey => __isa(o, "NoSuchKey");
 }
 
 /**
@@ -7349,7 +6995,6 @@ export namespace NoSuchUpload {
   export const filterSensitiveLog = (obj: NoSuchUpload): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchUpload => __isa(o, "NoSuchUpload");
 }
 
 /**
@@ -7357,7 +7002,6 @@ export namespace NoSuchUpload {
  *       empty, notifications are turned off for the bucket.</p>
  */
 export interface NotificationConfiguration {
-  __type?: "NotificationConfiguration";
   /**
    * <p>Describes the AWS Lambda functions to invoke and the events for which to invoke them.</p>
    */
@@ -7378,7 +7022,6 @@ export namespace NotificationConfiguration {
   export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotificationConfiguration => __isa(o, "NotificationConfiguration");
 }
 
 /**
@@ -7388,7 +7031,6 @@ export namespace NotificationConfiguration {
  *         Guide</i>.</p>
  */
 export interface NotificationConfigurationFilter {
-  __type?: "NotificationConfigurationFilter";
   /**
    * <p>A container for object key name prefix and suffix filtering rules.</p>
    */
@@ -7399,14 +7041,12 @@ export namespace NotificationConfigurationFilter {
   export const filterSensitiveLog = (obj: NotificationConfigurationFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotificationConfigurationFilter => __isa(o, "NotificationConfigurationFilter");
 }
 
 /**
  * <p>An object consists of data and its descriptive metadata.</p>
  */
 export interface _Object {
-  __type?: "Object";
   /**
    * <p>The owner of the object</p>
    */
@@ -7443,7 +7083,6 @@ export namespace _Object {
   export const filterSensitiveLog = (obj: _Object): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is _Object => __isa(o, "Object");
 }
 
 /**
@@ -7458,7 +7097,6 @@ export namespace ObjectAlreadyInActiveTierError {
   export const filterSensitiveLog = (obj: ObjectAlreadyInActiveTierError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectAlreadyInActiveTierError => __isa(o, "ObjectAlreadyInActiveTierError");
 }
 
 export type ObjectCannedACL =
@@ -7474,7 +7112,6 @@ export type ObjectCannedACL =
  * <p>Object Identifier is unique value to identify objects.</p>
  */
 export interface ObjectIdentifier {
-  __type?: "ObjectIdentifier";
   /**
    * <p>Key name of the object to delete.</p>
    */
@@ -7490,14 +7127,12 @@ export namespace ObjectIdentifier {
   export const filterSensitiveLog = (obj: ObjectIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectIdentifier => __isa(o, "ObjectIdentifier");
 }
 
 /**
  * <p>The container element for Object Lock configuration parameters.</p>
  */
 export interface ObjectLockConfiguration {
-  __type?: "ObjectLockConfiguration";
   /**
    * <p>Indicates whether this bucket has an Object Lock configuration enabled.</p>
    */
@@ -7513,7 +7148,6 @@ export namespace ObjectLockConfiguration {
   export const filterSensitiveLog = (obj: ObjectLockConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectLockConfiguration => __isa(o, "ObjectLockConfiguration");
 }
 
 export type ObjectLockEnabled = "Enabled";
@@ -7522,7 +7156,6 @@ export type ObjectLockEnabled = "Enabled";
  * <p>A Legal Hold configuration for an object.</p>
  */
 export interface ObjectLockLegalHold {
-  __type?: "ObjectLockLegalHold";
   /**
    * <p>Indicates whether the specified object has a Legal Hold in place.</p>
    */
@@ -7533,7 +7166,6 @@ export namespace ObjectLockLegalHold {
   export const filterSensitiveLog = (obj: ObjectLockLegalHold): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectLockLegalHold => __isa(o, "ObjectLockLegalHold");
 }
 
 export type ObjectLockLegalHoldStatus = "OFF" | "ON";
@@ -7544,7 +7176,6 @@ export type ObjectLockMode = "COMPLIANCE" | "GOVERNANCE";
  * <p>A Retention configuration for an object.</p>
  */
 export interface ObjectLockRetention {
-  __type?: "ObjectLockRetention";
   /**
    * <p>Indicates the Retention mode for the specified object.</p>
    */
@@ -7560,7 +7191,6 @@ export namespace ObjectLockRetention {
   export const filterSensitiveLog = (obj: ObjectLockRetention): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectLockRetention => __isa(o, "ObjectLockRetention");
 }
 
 export type ObjectLockRetentionMode = "COMPLIANCE" | "GOVERNANCE";
@@ -7569,7 +7199,6 @@ export type ObjectLockRetentionMode = "COMPLIANCE" | "GOVERNANCE";
  * <p>The container element for an Object Lock rule.</p>
  */
 export interface ObjectLockRule {
-  __type?: "ObjectLockRule";
   /**
    * <p>The default retention period that you want to apply to new objects placed in the specified bucket.</p>
    */
@@ -7580,7 +7209,6 @@ export namespace ObjectLockRule {
   export const filterSensitiveLog = (obj: ObjectLockRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectLockRule => __isa(o, "ObjectLockRule");
 }
 
 /**
@@ -7596,7 +7224,6 @@ export namespace ObjectNotInActiveTierError {
   export const filterSensitiveLog = (obj: ObjectNotInActiveTierError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectNotInActiveTierError => __isa(o, "ObjectNotInActiveTierError");
 }
 
 export type ObjectStorageClass =
@@ -7612,7 +7239,6 @@ export type ObjectStorageClass =
  * <p>The version of an object.</p>
  */
 export interface ObjectVersion {
-  __type?: "ObjectVersion";
   /**
    * <p>The class of storage used to store the object.</p>
    */
@@ -7658,7 +7284,6 @@ export namespace ObjectVersion {
   export const filterSensitiveLog = (obj: ObjectVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectVersion => __isa(o, "ObjectVersion");
 }
 
 export type ObjectVersionStorageClass = "STANDARD";
@@ -7667,7 +7292,6 @@ export type ObjectVersionStorageClass = "STANDARD";
  * <p>Describes the location where the restore job's output is stored.</p>
  */
 export interface OutputLocation {
-  __type?: "OutputLocation";
   /**
    * <p>Describes an S3 location that will receive the results of the restore request.</p>
    */
@@ -7679,14 +7303,12 @@ export namespace OutputLocation {
     ...obj,
     ...(obj.S3 && { S3: S3Location.filterSensitiveLog(obj.S3) }),
   });
-  export const isa = (o: any): o is OutputLocation => __isa(o, "OutputLocation");
 }
 
 /**
  * <p>Describes how results of the Select job are serialized.</p>
  */
 export interface OutputSerialization {
-  __type?: "OutputSerialization";
   /**
    * <p>Describes the serialization of CSV-encoded Select results.</p>
    */
@@ -7702,14 +7324,12 @@ export namespace OutputSerialization {
   export const filterSensitiveLog = (obj: OutputSerialization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutputSerialization => __isa(o, "OutputSerialization");
 }
 
 /**
  * <p>Container for the owner's display name and ID.</p>
  */
 export interface Owner {
-  __type?: "Owner";
   /**
    * <p>Container for the display name of the owner.</p>
    */
@@ -7725,7 +7345,6 @@ export namespace Owner {
   export const filterSensitiveLog = (obj: Owner): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Owner => __isa(o, "Owner");
 }
 
 export type OwnerOverride = "Destination";
@@ -7733,22 +7352,18 @@ export type OwnerOverride = "Destination";
 /**
  * <p>Container for Parquet.</p>
  */
-export interface ParquetInput {
-  __type?: "ParquetInput";
-}
+export interface ParquetInput {}
 
 export namespace ParquetInput {
   export const filterSensitiveLog = (obj: ParquetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParquetInput => __isa(o, "ParquetInput");
 }
 
 /**
  * <p>Container for elements related to a part.</p>
  */
 export interface Part {
-  __type?: "Part";
   /**
    * <p>Entity tag returned when the part was uploaded.</p>
    */
@@ -7774,7 +7389,6 @@ export namespace Part {
   export const filterSensitiveLog = (obj: Part): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Part => __isa(o, "Part");
 }
 
 export type Payer = "BucketOwner" | "Requester";
@@ -7785,7 +7399,6 @@ export type Permission = "FULL_CONTROL" | "READ" | "READ_ACP" | "WRITE" | "WRITE
  * <p>The container element for a bucket's policy status.</p>
  */
 export interface PolicyStatus {
-  __type?: "PolicyStatus";
   /**
    * <p>The policy status for this bucket. <code>TRUE</code> indicates that this bucket is public.
    *         <code>FALSE</code> indicates that the bucket is not public.</p>
@@ -7797,14 +7410,12 @@ export namespace PolicyStatus {
   export const filterSensitiveLog = (obj: PolicyStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyStatus => __isa(o, "PolicyStatus");
 }
 
 /**
  * <p>This data type contains information about progress of an operation.</p>
  */
 export interface Progress {
-  __type?: "Progress";
   /**
    * <p>The current number of object bytes scanned.</p>
    */
@@ -7825,14 +7436,12 @@ export namespace Progress {
   export const filterSensitiveLog = (obj: Progress): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Progress => __isa(o, "Progress");
 }
 
 /**
  * <p>This data type contains information about the progress event of an operation.</p>
  */
 export interface ProgressEvent {
-  __type?: "ProgressEvent";
   /**
    * <p>The Progress event details.</p>
    */
@@ -7843,7 +7452,6 @@ export namespace ProgressEvent {
   export const filterSensitiveLog = (obj: ProgressEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProgressEvent => __isa(o, "ProgressEvent");
 }
 
 export type Protocol = "http" | "https";
@@ -7854,7 +7462,6 @@ export type Protocol = "http" | "https";
  *          Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>
  */
 export interface PublicAccessBlockConfiguration {
-  __type?: "PublicAccessBlockConfiguration";
   /**
    * <p>Specifies whether Amazon S3 should restrict public bucket policies for this bucket.
    *       Setting this element to <code>TRUE</code> restricts access to this bucket to only AWS services
@@ -7906,11 +7513,9 @@ export namespace PublicAccessBlockConfiguration {
   export const filterSensitiveLog = (obj: PublicAccessBlockConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicAccessBlockConfiguration => __isa(o, "PublicAccessBlockConfiguration");
 }
 
 export interface PutBucketAccelerateConfigurationRequest {
-  __type?: "PutBucketAccelerateConfigurationRequest";
   /**
    * <p>Name of the bucket for which the accelerate configuration is set.</p>
    */
@@ -7926,12 +7531,9 @@ export namespace PutBucketAccelerateConfigurationRequest {
   export const filterSensitiveLog = (obj: PutBucketAccelerateConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketAccelerateConfigurationRequest =>
-    __isa(o, "PutBucketAccelerateConfigurationRequest");
 }
 
 export interface PutBucketAclRequest {
-  __type?: "PutBucketAclRequest";
   /**
    * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
    */
@@ -7985,11 +7587,9 @@ export namespace PutBucketAclRequest {
   export const filterSensitiveLog = (obj: PutBucketAclRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketAclRequest => __isa(o, "PutBucketAclRequest");
 }
 
 export interface PutBucketAnalyticsConfigurationRequest {
-  __type?: "PutBucketAnalyticsConfigurationRequest";
   /**
    * <p>The ID that identifies the analytics configuration.</p>
    */
@@ -8010,12 +7610,9 @@ export namespace PutBucketAnalyticsConfigurationRequest {
   export const filterSensitiveLog = (obj: PutBucketAnalyticsConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketAnalyticsConfigurationRequest =>
-    __isa(o, "PutBucketAnalyticsConfigurationRequest");
 }
 
 export interface PutBucketCorsRequest {
-  __type?: "PutBucketCorsRequest";
   /**
    * <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more
    *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource
@@ -8041,11 +7638,9 @@ export namespace PutBucketCorsRequest {
   export const filterSensitiveLog = (obj: PutBucketCorsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketCorsRequest => __isa(o, "PutBucketCorsRequest");
 }
 
 export interface PutBucketEncryptionRequest {
-  __type?: "PutBucketEncryptionRequest";
   /**
    * <p>Specifies the default server-side-encryption configuration.</p>
    */
@@ -8072,11 +7667,9 @@ export namespace PutBucketEncryptionRequest {
       ),
     }),
   });
-  export const isa = (o: any): o is PutBucketEncryptionRequest => __isa(o, "PutBucketEncryptionRequest");
 }
 
 export interface PutBucketInventoryConfigurationRequest {
-  __type?: "PutBucketInventoryConfigurationRequest";
   /**
    * <p>Specifies the inventory configuration.</p>
    */
@@ -8100,12 +7693,9 @@ export namespace PutBucketInventoryConfigurationRequest {
       InventoryConfiguration: InventoryConfiguration.filterSensitiveLog(obj.InventoryConfiguration),
     }),
   });
-  export const isa = (o: any): o is PutBucketInventoryConfigurationRequest =>
-    __isa(o, "PutBucketInventoryConfigurationRequest");
 }
 
 export interface PutBucketLifecycleConfigurationRequest {
-  __type?: "PutBucketLifecycleConfigurationRequest";
   /**
    * <p>The name of the bucket for which to set the configuration.</p>
    */
@@ -8121,12 +7711,9 @@ export namespace PutBucketLifecycleConfigurationRequest {
   export const filterSensitiveLog = (obj: PutBucketLifecycleConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketLifecycleConfigurationRequest =>
-    __isa(o, "PutBucketLifecycleConfigurationRequest");
 }
 
 export interface PutBucketLoggingRequest {
-  __type?: "PutBucketLoggingRequest";
   /**
    * <p>Container for logging status information.</p>
    */
@@ -8147,11 +7734,9 @@ export namespace PutBucketLoggingRequest {
   export const filterSensitiveLog = (obj: PutBucketLoggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketLoggingRequest => __isa(o, "PutBucketLoggingRequest");
 }
 
 export interface PutBucketMetricsConfigurationRequest {
-  __type?: "PutBucketMetricsConfigurationRequest";
   /**
    * <p>The name of the bucket for which the metrics configuration is set.</p>
    */
@@ -8172,12 +7757,9 @@ export namespace PutBucketMetricsConfigurationRequest {
   export const filterSensitiveLog = (obj: PutBucketMetricsConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketMetricsConfigurationRequest =>
-    __isa(o, "PutBucketMetricsConfigurationRequest");
 }
 
 export interface PutBucketNotificationConfigurationRequest {
-  __type?: "PutBucketNotificationConfigurationRequest";
   /**
    * <p>A container for specifying the notification configuration of the bucket. If this element is
    *       empty, notifications are turned off for the bucket.</p>
@@ -8194,12 +7776,9 @@ export namespace PutBucketNotificationConfigurationRequest {
   export const filterSensitiveLog = (obj: PutBucketNotificationConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketNotificationConfigurationRequest =>
-    __isa(o, "PutBucketNotificationConfigurationRequest");
 }
 
 export interface PutBucketPolicyRequest {
-  __type?: "PutBucketPolicyRequest";
   /**
    * <p>The name of the bucket.</p>
    */
@@ -8225,11 +7804,9 @@ export namespace PutBucketPolicyRequest {
   export const filterSensitiveLog = (obj: PutBucketPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketPolicyRequest => __isa(o, "PutBucketPolicyRequest");
 }
 
 export interface PutBucketReplicationRequest {
-  __type?: "PutBucketReplicationRequest";
   /**
    * <p>The name of the bucket</p>
    */
@@ -8256,11 +7833,9 @@ export namespace PutBucketReplicationRequest {
   export const filterSensitiveLog = (obj: PutBucketReplicationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketReplicationRequest => __isa(o, "PutBucketReplicationRequest");
 }
 
 export interface PutBucketRequestPaymentRequest {
-  __type?: "PutBucketRequestPaymentRequest";
   /**
    * <p>Container for Payer.</p>
    */
@@ -8281,11 +7856,9 @@ export namespace PutBucketRequestPaymentRequest {
   export const filterSensitiveLog = (obj: PutBucketRequestPaymentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketRequestPaymentRequest => __isa(o, "PutBucketRequestPaymentRequest");
 }
 
 export interface PutBucketTaggingRequest {
-  __type?: "PutBucketTaggingRequest";
   /**
    * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
    */
@@ -8306,11 +7879,9 @@ export namespace PutBucketTaggingRequest {
   export const filterSensitiveLog = (obj: PutBucketTaggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketTaggingRequest => __isa(o, "PutBucketTaggingRequest");
 }
 
 export interface PutBucketVersioningRequest {
-  __type?: "PutBucketVersioningRequest";
   /**
    * <p>The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.</p>
    */
@@ -8336,11 +7907,9 @@ export namespace PutBucketVersioningRequest {
   export const filterSensitiveLog = (obj: PutBucketVersioningRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketVersioningRequest => __isa(o, "PutBucketVersioningRequest");
 }
 
 export interface PutBucketWebsiteRequest {
-  __type?: "PutBucketWebsiteRequest";
   /**
    * <p>The bucket name.</p>
    */
@@ -8361,11 +7930,9 @@ export namespace PutBucketWebsiteRequest {
   export const filterSensitiveLog = (obj: PutBucketWebsiteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutBucketWebsiteRequest => __isa(o, "PutBucketWebsiteRequest");
 }
 
 export interface PutObjectAclOutput {
-  __type?: "PutObjectAclOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
@@ -8376,11 +7943,9 @@ export namespace PutObjectAclOutput {
   export const filterSensitiveLog = (obj: PutObjectAclOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutObjectAclOutput => __isa(o, "PutObjectAclOutput");
 }
 
 export interface PutObjectAclRequest {
-  __type?: "PutObjectAclRequest";
   /**
    * <p>The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity
    *          check to verify that the request body was not corrupted in transit. For more information, go to
@@ -8454,11 +8019,9 @@ export namespace PutObjectAclRequest {
   export const filterSensitiveLog = (obj: PutObjectAclRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutObjectAclRequest => __isa(o, "PutObjectAclRequest");
 }
 
 export interface PutObjectLegalHoldOutput {
-  __type?: "PutObjectLegalHoldOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
@@ -8469,11 +8032,9 @@ export namespace PutObjectLegalHoldOutput {
   export const filterSensitiveLog = (obj: PutObjectLegalHoldOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutObjectLegalHoldOutput => __isa(o, "PutObjectLegalHoldOutput");
 }
 
 export interface PutObjectLegalHoldRequest {
-  __type?: "PutObjectLegalHoldRequest";
   /**
    * <p>The version ID of the object that you want to place a Legal Hold on.</p>
    */
@@ -8513,11 +8074,9 @@ export namespace PutObjectLegalHoldRequest {
   export const filterSensitiveLog = (obj: PutObjectLegalHoldRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutObjectLegalHoldRequest => __isa(o, "PutObjectLegalHoldRequest");
 }
 
 export interface PutObjectLockConfigurationOutput {
-  __type?: "PutObjectLockConfigurationOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
@@ -8528,11 +8087,9 @@ export namespace PutObjectLockConfigurationOutput {
   export const filterSensitiveLog = (obj: PutObjectLockConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutObjectLockConfigurationOutput => __isa(o, "PutObjectLockConfigurationOutput");
 }
 
 export interface PutObjectLockConfigurationRequest {
-  __type?: "PutObjectLockConfigurationRequest";
   /**
    * <p>The bucket whose Object Lock configuration you want to create or replace.</p>
    */
@@ -8566,11 +8123,9 @@ export namespace PutObjectLockConfigurationRequest {
   export const filterSensitiveLog = (obj: PutObjectLockConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutObjectLockConfigurationRequest => __isa(o, "PutObjectLockConfigurationRequest");
 }
 
 export interface PutObjectOutput {
-  __type?: "PutObjectOutput";
   /**
    * <p>Version of the object.</p>
    */
@@ -8628,11 +8183,9 @@ export namespace PutObjectOutput {
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
     ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutObjectOutput => __isa(o, "PutObjectOutput");
 }
 
 export interface PutObjectRequest {
-  __type?: "PutObjectRequest";
   /**
    * <p>Object data.</p>
    */
@@ -8825,11 +8378,9 @@ export namespace PutObjectRequest {
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is PutObjectRequest => __isa(o, "PutObjectRequest");
 }
 
 export interface PutObjectRetentionOutput {
-  __type?: "PutObjectRetentionOutput";
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
@@ -8840,11 +8391,9 @@ export namespace PutObjectRetentionOutput {
   export const filterSensitiveLog = (obj: PutObjectRetentionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutObjectRetentionOutput => __isa(o, "PutObjectRetentionOutput");
 }
 
 export interface PutObjectRetentionRequest {
-  __type?: "PutObjectRetentionRequest";
   /**
    * <p>The version ID for the object that you want to apply this Object Retention configuration to.</p>
    */
@@ -8889,11 +8438,9 @@ export namespace PutObjectRetentionRequest {
   export const filterSensitiveLog = (obj: PutObjectRetentionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutObjectRetentionRequest => __isa(o, "PutObjectRetentionRequest");
 }
 
 export interface PutObjectTaggingOutput {
-  __type?: "PutObjectTaggingOutput";
   /**
    * <p>The versionId of the object the tag-set was added to.</p>
    */
@@ -8904,11 +8451,9 @@ export namespace PutObjectTaggingOutput {
   export const filterSensitiveLog = (obj: PutObjectTaggingOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutObjectTaggingOutput => __isa(o, "PutObjectTaggingOutput");
 }
 
 export interface PutObjectTaggingRequest {
-  __type?: "PutObjectTaggingRequest";
   /**
    * <p>The versionId of the object that the tag-set will be added to.</p>
    */
@@ -8940,11 +8485,9 @@ export namespace PutObjectTaggingRequest {
   export const filterSensitiveLog = (obj: PutObjectTaggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutObjectTaggingRequest => __isa(o, "PutObjectTaggingRequest");
 }
 
 export interface PutPublicAccessBlockRequest {
-  __type?: "PutPublicAccessBlockRequest";
   /**
    * <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you
    *       want to set.</p>
@@ -8969,7 +8512,6 @@ export namespace PutPublicAccessBlockRequest {
   export const filterSensitiveLog = (obj: PutPublicAccessBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPublicAccessBlockRequest => __isa(o, "PutPublicAccessBlockRequest");
 }
 
 /**
@@ -8977,7 +8519,6 @@ export namespace PutPublicAccessBlockRequest {
  *       Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.</p>
  */
 export interface QueueConfiguration {
-  __type?: "QueueConfiguration";
   /**
    * <p>An optional unique identifier for configurations in a notification configuration. If you don't
    *       provide one, Amazon S3 will assign an ID.</p>
@@ -9008,7 +8549,6 @@ export namespace QueueConfiguration {
   export const filterSensitiveLog = (obj: QueueConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueueConfiguration => __isa(o, "QueueConfiguration");
 }
 
 export enum QuoteFields {
@@ -9020,7 +8560,6 @@ export enum QuoteFields {
  * <p>The container for the records event.</p>
  */
 export interface RecordsEvent {
-  __type?: "RecordsEvent";
   /**
    * <p>The byte array of partial, one or more result records.</p>
    */
@@ -9031,14 +8570,12 @@ export namespace RecordsEvent {
   export const filterSensitiveLog = (obj: RecordsEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecordsEvent => __isa(o, "RecordsEvent");
 }
 
 /**
  * <p>Specifies how requests are redirected. In the event of an error, you can specify a different error code to return.</p>
  */
 export interface Redirect {
-  __type?: "Redirect";
   /**
    * <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
    */
@@ -9069,14 +8606,12 @@ export namespace Redirect {
   export const filterSensitiveLog = (obj: Redirect): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Redirect => __isa(o, "Redirect");
 }
 
 /**
  * <p>Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.</p>
  */
 export interface RedirectAllRequestsTo {
-  __type?: "RedirectAllRequestsTo";
   /**
    * <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
    */
@@ -9092,7 +8627,6 @@ export namespace RedirectAllRequestsTo {
   export const filterSensitiveLog = (obj: RedirectAllRequestsTo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RedirectAllRequestsTo => __isa(o, "RedirectAllRequestsTo");
 }
 
 /**
@@ -9100,7 +8634,6 @@ export namespace RedirectAllRequestsTo {
  *       replication configuration is 2 MB.</p>
  */
 export interface ReplicationConfiguration {
-  __type?: "ReplicationConfiguration";
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes
    *       when replicating objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html">How to Set Up Replication</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
@@ -9118,14 +8651,12 @@ export namespace ReplicationConfiguration {
   export const filterSensitiveLog = (obj: ReplicationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationConfiguration => __isa(o, "ReplicationConfiguration");
 }
 
 /**
  * <p>Specifies which Amazon S3 objects to replicate and where to store the replicas.</p>
  */
 export interface ReplicationRule {
-  __type?: "ReplicationRule";
   /**
    * <p>Specifies whether the rule is enabled.</p>
    */
@@ -9205,7 +8736,6 @@ export namespace ReplicationRule {
   export const filterSensitiveLog = (obj: ReplicationRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationRule => __isa(o, "ReplicationRule");
 }
 
 /**
@@ -9224,7 +8754,6 @@ export namespace ReplicationRule {
  *          </ul>
  */
 export interface ReplicationRuleAndOperator {
-  __type?: "ReplicationRuleAndOperator";
   /**
    * <p>An array of tags containing key and value pairs.</p>
    */
@@ -9241,7 +8770,6 @@ export namespace ReplicationRuleAndOperator {
   export const filterSensitiveLog = (obj: ReplicationRuleAndOperator): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationRuleAndOperator => __isa(o, "ReplicationRuleAndOperator");
 }
 
 /**
@@ -9250,7 +8778,6 @@ export namespace ReplicationRuleAndOperator {
  *         <code>And</code> child element.</p>
  */
 export interface ReplicationRuleFilter {
-  __type?: "ReplicationRuleFilter";
   /**
    * <p>A container for specifying rule filters. The filters determine the subset of objects to
    *       which the rule applies. This element is required only if you specify more than one filter. For
@@ -9285,7 +8812,6 @@ export namespace ReplicationRuleFilter {
   export const filterSensitiveLog = (obj: ReplicationRuleFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationRuleFilter => __isa(o, "ReplicationRuleFilter");
 }
 
 export type ReplicationRuleStatus = "Disabled" | "Enabled";
@@ -9299,7 +8825,6 @@ export type ReplicationStatus = "COMPLETE" | "FAILED" | "PENDING" | "REPLICA";
  *   </p>
  */
 export interface ReplicationTime {
-  __type?: "ReplicationTime";
   /**
    * <p>
    *     Specifies whether the replication time is enabled.
@@ -9318,7 +8843,6 @@ export namespace ReplicationTime {
   export const filterSensitiveLog = (obj: ReplicationTime): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationTime => __isa(o, "ReplicationTime");
 }
 
 export type ReplicationTimeStatus = "Disabled" | "Enabled";
@@ -9329,7 +8853,6 @@ export type ReplicationTimeStatus = "Disabled" | "Enabled";
  *   </p>
  */
 export interface ReplicationTimeValue {
-  __type?: "ReplicationTimeValue";
   /**
    * <p>
    *     Contains an integer specifying time in minutes.
@@ -9343,7 +8866,6 @@ export namespace ReplicationTimeValue {
   export const filterSensitiveLog = (obj: ReplicationTimeValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReplicationTimeValue => __isa(o, "ReplicationTimeValue");
 }
 
 export type RequestCharged = "requester";
@@ -9354,7 +8876,6 @@ export type RequestPayer = "requester";
  * <p>Container for Payer.</p>
  */
 export interface RequestPaymentConfiguration {
-  __type?: "RequestPaymentConfiguration";
   /**
    * <p>Specifies who pays for the download and request fees.</p>
    */
@@ -9365,7 +8886,6 @@ export namespace RequestPaymentConfiguration {
   export const filterSensitiveLog = (obj: RequestPaymentConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestPaymentConfiguration => __isa(o, "RequestPaymentConfiguration");
 }
 
 /**
@@ -9373,7 +8893,6 @@ export namespace RequestPaymentConfiguration {
  *          sent.</p>
  */
 export interface RequestProgress {
-  __type?: "RequestProgress";
   /**
    * <p>Specifies whether periodic QueryProgress frames should be sent. Valid values: TRUE, FALSE. Default value: FALSE.</p>
    */
@@ -9384,11 +8903,9 @@ export namespace RequestProgress {
   export const filterSensitiveLog = (obj: RequestProgress): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestProgress => __isa(o, "RequestProgress");
 }
 
 export interface RestoreObjectOutput {
-  __type?: "RestoreObjectOutput";
   /**
    * <p>Indicates the path in the provided S3 output location where Select results will be restored to.</p>
    */
@@ -9404,11 +8921,9 @@ export namespace RestoreObjectOutput {
   export const filterSensitiveLog = (obj: RestoreObjectOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RestoreObjectOutput => __isa(o, "RestoreObjectOutput");
 }
 
 export interface RestoreObjectRequest {
-  __type?: "RestoreObjectRequest";
   /**
    * <p>VersionId used to reference a specific version of the object.</p>
    */
@@ -9444,14 +8959,12 @@ export namespace RestoreObjectRequest {
     ...obj,
     ...(obj.RestoreRequest && { RestoreRequest: RestoreRequest.filterSensitiveLog(obj.RestoreRequest) }),
   });
-  export const isa = (o: any): o is RestoreObjectRequest => __isa(o, "RestoreObjectRequest");
 }
 
 /**
  * <p>Container for restore job parameters.</p>
  */
 export interface RestoreRequest {
-  __type?: "RestoreRequest";
   /**
    * <p>The optional description for the job.</p>
    */
@@ -9495,7 +9008,6 @@ export namespace RestoreRequest {
     ...obj,
     ...(obj.OutputLocation && { OutputLocation: OutputLocation.filterSensitiveLog(obj.OutputLocation) }),
   });
-  export const isa = (o: any): o is RestoreRequest => __isa(o, "RestoreRequest");
 }
 
 export enum RestoreRequestType {
@@ -9506,7 +9018,6 @@ export enum RestoreRequestType {
  * <p>Specifies the redirect behavior and when a redirect is applied.</p>
  */
 export interface RoutingRule {
-  __type?: "RoutingRule";
   /**
    * <p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the <code>/docs</code> folder, redirect to the <code>/documents</code> folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>
    */
@@ -9524,14 +9035,12 @@ export namespace RoutingRule {
   export const filterSensitiveLog = (obj: RoutingRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoutingRule => __isa(o, "RoutingRule");
 }
 
 /**
  * <p>A container for object key name prefix and suffix filtering rules.</p>
  */
 export interface S3KeyFilter {
-  __type?: "S3KeyFilter";
   /**
    * <p>A list of containers for the key-value pair that defines the criteria for the filter
    *          rule.</p>
@@ -9543,14 +9052,12 @@ export namespace S3KeyFilter {
   export const filterSensitiveLog = (obj: S3KeyFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3KeyFilter => __isa(o, "S3KeyFilter");
 }
 
 /**
  * <p>Describes an Amazon S3 location that will receive the results of the restore request.</p>
  */
 export interface S3Location {
-  __type?: "S3Location";
   /**
    * <p>A list of metadata to store with the restore results in S3.</p>
    */
@@ -9597,7 +9104,6 @@ export namespace S3Location {
     ...obj,
     ...(obj.Encryption && { Encryption: Encryption.filterSensitiveLog(obj.Encryption) }),
   });
-  export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
 
 /**
@@ -9605,7 +9111,6 @@ export namespace S3Location {
  *          but when specified, it must not be empty. See RFC 2616, Section 14.35.1 about how to specify the start and end of the range.</p>
  */
 export interface ScanRange {
-  __type?: "ScanRange";
   /**
    * <p>Specifies the start of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is 0.
    *       If only start is supplied, it means scan from that point to the end of the file.For example; <code><scanrange><start>50</start></scanrange></code> means scan from byte 50 until the end of the file.</p>
@@ -9626,7 +9131,6 @@ export namespace ScanRange {
   export const filterSensitiveLog = (obj: ScanRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScanRange => __isa(o, "ScanRange");
 }
 
 /**
@@ -9641,14 +9145,10 @@ export type SelectObjectContentEventStream =
   | SelectObjectContentEventStream.$UnknownMember;
 
 export namespace SelectObjectContentEventStream {
-  interface $Base {
-    __type?: "SelectObjectContentEventStream";
-  }
-
   /**
    * <p>The Stats Event.</p>
    */
-  export interface StatsMember extends $Base {
+  export interface StatsMember {
     Stats: StatsEvent;
     End?: never;
     Progress?: never;
@@ -9660,7 +9160,7 @@ export namespace SelectObjectContentEventStream {
   /**
    * <p>The End Event.</p>
    */
-  export interface EndMember extends $Base {
+  export interface EndMember {
     Stats?: never;
     End: EndEvent;
     Progress?: never;
@@ -9672,7 +9172,7 @@ export namespace SelectObjectContentEventStream {
   /**
    * <p>The Progress Event.</p>
    */
-  export interface ProgressMember extends $Base {
+  export interface ProgressMember {
     Stats?: never;
     End?: never;
     Progress: ProgressEvent;
@@ -9684,7 +9184,7 @@ export namespace SelectObjectContentEventStream {
   /**
    * <p>The Records Event.</p>
    */
-  export interface RecordsMember extends $Base {
+  export interface RecordsMember {
     Stats?: never;
     End?: never;
     Progress?: never;
@@ -9696,7 +9196,7 @@ export namespace SelectObjectContentEventStream {
   /**
    * <p>The Continuation Event.</p>
    */
-  export interface ContMember extends $Base {
+  export interface ContMember {
     Stats?: never;
     End?: never;
     Progress?: never;
@@ -9705,7 +9205,7 @@ export namespace SelectObjectContentEventStream {
     $unknown?: never;
   }
 
-  export interface $UnknownMember extends $Base {
+  export interface $UnknownMember {
     Stats?: never;
     End?: never;
     Progress?: never;
@@ -9743,7 +9243,6 @@ export namespace SelectObjectContentEventStream {
 }
 
 export interface SelectObjectContentOutput {
-  __type?: "SelectObjectContentOutput";
   /**
    * <p>The array of results.</p>
    */
@@ -9755,7 +9254,6 @@ export namespace SelectObjectContentOutput {
     ...obj,
     ...(obj.Payload && { Payload: "STREAMING_CONTENT" }),
   });
-  export const isa = (o: any): o is SelectObjectContentOutput => __isa(o, "SelectObjectContentOutput");
 }
 
 /**
@@ -9767,7 +9265,6 @@ export namespace SelectObjectContentOutput {
  *         Documentation</a>.</p>
  */
 export interface SelectObjectContentRequest {
-  __type?: "SelectObjectContentRequest";
   /**
    * <p>Specifies if periodic request progress information should be enabled.</p>
    */
@@ -9848,14 +9345,12 @@ export namespace SelectObjectContentRequest {
     ...obj,
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SelectObjectContentRequest => __isa(o, "SelectObjectContentRequest");
 }
 
 /**
  * <p>Describes the parameters for Select job types.</p>
  */
 export interface SelectParameters {
-  __type?: "SelectParameters";
   /**
    * <p>The expression that is used to query the object.</p>
    */
@@ -9881,7 +9376,6 @@ export namespace SelectParameters {
   export const filterSensitiveLog = (obj: SelectParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SelectParameters => __isa(o, "SelectParameters");
 }
 
 export type ServerSideEncryption = "AES256" | "aws:kms";
@@ -9890,7 +9384,6 @@ export type ServerSideEncryption = "AES256" | "aws:kms";
  * <p>Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html">PUT Bucket encryption</a> in the <i>Amazon Simple Storage Service API Reference</i>.</p>
  */
 export interface ServerSideEncryptionByDefault {
-  __type?: "ServerSideEncryptionByDefault";
   /**
    * <p>AWS Key Management Service (KMS) customer master key ID to use for the default encryption. This parameter is allowed if and only if <code>SSEAlgorithm</code> is set to <code>aws:kms</code>.</p>
    *          <p>You can specify the key ID or the Amazon Resource Name (ARN) of the CMK. However, if you are using encryption with cross-account operations, you must use a fully qualified CMK ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy">Using encryption for cross-account operations</a>. </p>
@@ -9924,14 +9417,12 @@ export namespace ServerSideEncryptionByDefault {
     ...obj,
     ...(obj.KMSMasterKeyID && { KMSMasterKeyID: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ServerSideEncryptionByDefault => __isa(o, "ServerSideEncryptionByDefault");
 }
 
 /**
  * <p>Specifies the default server-side-encryption configuration.</p>
  */
 export interface ServerSideEncryptionConfiguration {
-  __type?: "ServerSideEncryptionConfiguration";
   /**
    * <p>Container for information about a particular server-side encryption configuration rule.</p>
    */
@@ -9943,14 +9434,12 @@ export namespace ServerSideEncryptionConfiguration {
     ...obj,
     ...(obj.Rules && { Rules: obj.Rules.map((item) => ServerSideEncryptionRule.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ServerSideEncryptionConfiguration => __isa(o, "ServerSideEncryptionConfiguration");
 }
 
 /**
  * <p>Specifies the default server-side encryption configuration.</p>
  */
 export interface ServerSideEncryptionRule {
-  __type?: "ServerSideEncryptionRule";
   /**
    * <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.</p>
    */
@@ -9966,7 +9455,6 @@ export namespace ServerSideEncryptionRule {
       ),
     }),
   });
-  export const isa = (o: any): o is ServerSideEncryptionRule => __isa(o, "ServerSideEncryptionRule");
 }
 
 /**
@@ -9976,7 +9464,6 @@ export namespace ServerSideEncryptionRule {
  *       server-side encryption using a customer master key (CMK) stored in AWS Key Management Service (SSE-KMS).</p>
  */
 export interface SourceSelectionCriteria {
-  __type?: "SourceSelectionCriteria";
   /**
    * <p> A container for filter information for the selection of Amazon S3 objects encrypted with AWS
    *       KMS.  If you include <code>SourceSelectionCriteria</code> in the replication configuration,
@@ -9989,14 +9476,12 @@ export namespace SourceSelectionCriteria {
   export const filterSensitiveLog = (obj: SourceSelectionCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SourceSelectionCriteria => __isa(o, "SourceSelectionCriteria");
 }
 
 /**
  * <p>Specifies the use of SSE-KMS to encrypt delivered inventory reports.</p>
  */
 export interface SSEKMS {
-  __type?: "SSEKMS";
   /**
    * <p>Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) to use
    *          for encrypting inventory reports.</p>
@@ -10009,7 +9494,6 @@ export namespace SSEKMS {
     ...obj,
     ...(obj.KeyId && { KeyId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SSEKMS => __isa(o, "SSEKMS");
 }
 
 /**
@@ -10017,7 +9501,6 @@ export namespace SSEKMS {
  *       KMS.</p>
  */
 export interface SseKmsEncryptedObjects {
-  __type?: "SseKmsEncryptedObjects";
   /**
    * <p>Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.</p>
    */
@@ -10028,7 +9511,6 @@ export namespace SseKmsEncryptedObjects {
   export const filterSensitiveLog = (obj: SseKmsEncryptedObjects): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SseKmsEncryptedObjects => __isa(o, "SseKmsEncryptedObjects");
 }
 
 export type SseKmsEncryptedObjectsStatus = "Disabled" | "Enabled";
@@ -10036,22 +9518,18 @@ export type SseKmsEncryptedObjectsStatus = "Disabled" | "Enabled";
 /**
  * <p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>
  */
-export interface SSES3 {
-  __type?: "SSES3";
-}
+export interface SSES3 {}
 
 export namespace SSES3 {
   export const filterSensitiveLog = (obj: SSES3): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SSES3 => __isa(o, "SSES3");
 }
 
 /**
  * <p>Container for the stats details.</p>
  */
 export interface Stats {
-  __type?: "Stats";
   /**
    * <p>The total number of bytes of records payload data returned.</p>
    */
@@ -10072,14 +9550,12 @@ export namespace Stats {
   export const filterSensitiveLog = (obj: Stats): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Stats => __isa(o, "Stats");
 }
 
 /**
  * <p>Container for the Stats Event.</p>
  */
 export interface StatsEvent {
-  __type?: "StatsEvent";
   /**
    * <p>The Stats event details.</p>
    */
@@ -10090,7 +9566,6 @@ export namespace StatsEvent {
   export const filterSensitiveLog = (obj: StatsEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StatsEvent => __isa(o, "StatsEvent");
 }
 
 export type StorageClass =
@@ -10106,7 +9581,6 @@ export type StorageClass =
  * <p>Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.</p>
  */
 export interface StorageClassAnalysis {
-  __type?: "StorageClassAnalysis";
   /**
    * <p>Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.</p>
    */
@@ -10117,14 +9591,12 @@ export namespace StorageClassAnalysis {
   export const filterSensitiveLog = (obj: StorageClassAnalysis): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StorageClassAnalysis => __isa(o, "StorageClassAnalysis");
 }
 
 /**
  * <p>Container for data related to the storage class analysis for an Amazon S3 bucket for export.</p>
  */
 export interface StorageClassAnalysisDataExport {
-  __type?: "StorageClassAnalysisDataExport";
   /**
    * <p>The place to store the data for an analysis.</p>
    */
@@ -10140,7 +9612,6 @@ export namespace StorageClassAnalysisDataExport {
   export const filterSensitiveLog = (obj: StorageClassAnalysisDataExport): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StorageClassAnalysisDataExport => __isa(o, "StorageClassAnalysisDataExport");
 }
 
 export type StorageClassAnalysisSchemaVersion = "V_1";
@@ -10149,7 +9620,6 @@ export type StorageClassAnalysisSchemaVersion = "V_1";
  * <p>A container of a key value name pair.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>Name of the tag.</p>
    */
@@ -10165,14 +9635,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p>Container for <code>TagSet</code> elements.</p>
  */
 export interface Tagging {
-  __type?: "Tagging";
   /**
    * <p>A collection for a set of tags</p>
    */
@@ -10183,7 +9651,6 @@ export namespace Tagging {
   export const filterSensitiveLog = (obj: Tagging): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tagging => __isa(o, "Tagging");
 }
 
 export type TaggingDirective = "COPY" | "REPLACE";
@@ -10192,7 +9659,6 @@ export type TaggingDirective = "COPY" | "REPLACE";
  * <p>Container for granting information.</p>
  */
 export interface TargetGrant {
-  __type?: "TargetGrant";
   /**
    * <p>Container for the person being granted permissions.</p>
    */
@@ -10208,7 +9674,6 @@ export namespace TargetGrant {
   export const filterSensitiveLog = (obj: TargetGrant): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetGrant => __isa(o, "TargetGrant");
 }
 
 export type Tier = "Bulk" | "Expedited" | "Standard";
@@ -10218,7 +9683,6 @@ export type Tier = "Bulk" | "Expedited" | "Standard";
  *       Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.</p>
  */
 export interface TopicConfiguration {
-  __type?: "TopicConfiguration";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a
    *       message when it detects events of the specified type.</p>
@@ -10251,14 +9715,12 @@ export namespace TopicConfiguration {
   export const filterSensitiveLog = (obj: TopicConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TopicConfiguration => __isa(o, "TopicConfiguration");
 }
 
 /**
  * <p>Specifies when an object transitions to a specified storage class. For more information about Amazon S3 lifecycle configuration rules, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html">Transitioning Objects Using Amazon S3 Lifecycle</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
  */
 export interface Transition {
-  __type?: "Transition";
   /**
    * <p>Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.</p>
    */
@@ -10279,7 +9741,6 @@ export namespace Transition {
   export const filterSensitiveLog = (obj: Transition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Transition => __isa(o, "Transition");
 }
 
 export type TransitionStorageClass = "DEEP_ARCHIVE" | "GLACIER" | "INTELLIGENT_TIERING" | "ONEZONE_IA" | "STANDARD_IA";
@@ -10287,7 +9748,6 @@ export type TransitionStorageClass = "DEEP_ARCHIVE" | "GLACIER" | "INTELLIGENT_T
 export type Type = "AmazonCustomerByEmail" | "CanonicalUser" | "Group";
 
 export interface UploadPartCopyOutput {
-  __type?: "UploadPartCopyOutput";
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the response
    *          will include this header to provide round-trip message integrity verification of the
@@ -10333,11 +9793,9 @@ export namespace UploadPartCopyOutput {
     ...obj,
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UploadPartCopyOutput => __isa(o, "UploadPartCopyOutput");
 }
 
 export interface UploadPartCopyRequest {
-  __type?: "UploadPartCopyRequest";
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
@@ -10444,11 +9902,9 @@ export namespace UploadPartCopyRequest {
     ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UploadPartCopyRequest => __isa(o, "UploadPartCopyRequest");
 }
 
 export interface UploadPartOutput {
-  __type?: "UploadPartOutput";
   /**
    * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key
    *          (CMK) was used for the object.</p>
@@ -10489,11 +9945,9 @@ export namespace UploadPartOutput {
     ...obj,
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UploadPartOutput => __isa(o, "UploadPartOutput");
 }
 
 export interface UploadPartRequest {
-  __type?: "UploadPartRequest";
   /**
    * <p>Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.</p>
    */
@@ -10566,7 +10020,6 @@ export namespace UploadPartRequest {
     ...obj,
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UploadPartRequest => __isa(o, "UploadPartRequest");
 }
 
 /**
@@ -10574,7 +10027,6 @@ export namespace UploadPartRequest {
  *          <i>Amazon Simple Storage Service API Reference</i>.</p>
  */
 export interface VersioningConfiguration {
-  __type?: "VersioningConfiguration";
   /**
    * <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</p>
    */
@@ -10590,14 +10042,12 @@ export namespace VersioningConfiguration {
   export const filterSensitiveLog = (obj: VersioningConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VersioningConfiguration => __isa(o, "VersioningConfiguration");
 }
 
 /**
  * <p>Specifies website configuration parameters for an Amazon S3 bucket.</p>
  */
 export interface WebsiteConfiguration {
-  __type?: "WebsiteConfiguration";
   /**
    * <p>Rules that define when a redirect is applied and the redirect behavior.</p>
    */
@@ -10626,5 +10076,4 @@ export namespace WebsiteConfiguration {
   export const filterSensitiveLog = (obj: WebsiteConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WebsiteConfiguration => __isa(o, "WebsiteConfiguration");
 }

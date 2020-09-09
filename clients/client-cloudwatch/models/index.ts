@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Represents the history of a specific alarm.</p>
  */
 export interface AlarmHistoryItem {
-  __type?: "AlarmHistoryItem";
   /**
    * <p>Data about the alarm, in JSON format.</p>
    */
@@ -41,7 +40,6 @@ export namespace AlarmHistoryItem {
   export const filterSensitiveLog = (obj: AlarmHistoryItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlarmHistoryItem => __isa(o, "AlarmHistoryItem");
 }
 
 export type AlarmType = "CompositeAlarm" | "MetricAlarm";
@@ -52,7 +50,6 @@ export type AlarmType = "CompositeAlarm" | "MetricAlarm";
  * 			graphed.</p>
  */
 export interface AnomalyDetector {
-  __type?: "AnomalyDetector";
   /**
    * <p>The current status of the anomaly detector's training. The possible values are <code>TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA</code>
    *          </p>
@@ -92,7 +89,6 @@ export namespace AnomalyDetector {
   export const filterSensitiveLog = (obj: AnomalyDetector): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnomalyDetector => __isa(o, "AnomalyDetector");
 }
 
 /**
@@ -101,7 +97,6 @@ export namespace AnomalyDetector {
  * 			use for the metric.</p>
  */
 export interface AnomalyDetectorConfiguration {
-  __type?: "AnomalyDetectorConfiguration";
   /**
    * <p>The time zone to use for the metric. This is useful to enable the model to automatically
    * 			account for daylight savings time changes if the metric is sensitive to such time
@@ -123,7 +118,6 @@ export namespace AnomalyDetectorConfiguration {
   export const filterSensitiveLog = (obj: AnomalyDetectorConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AnomalyDetectorConfiguration => __isa(o, "AnomalyDetectorConfiguration");
 }
 
 export type AnomalyDetectorStateValue = "PENDING_TRAINING" | "TRAINED" | "TRAINED_INSUFFICIENT_DATA";
@@ -141,7 +135,6 @@ export type ComparisonOperator =
  * <p>The details about a composite alarm.</p>
  */
 export interface CompositeAlarm {
-  __type?: "CompositeAlarm";
   /**
    * <p>The rule that this alarm uses to evaluate its alarm state.</p>
    */
@@ -212,7 +205,6 @@ export namespace CompositeAlarm {
   export const filterSensitiveLog = (obj: CompositeAlarm): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompositeAlarm => __isa(o, "CompositeAlarm");
 }
 
 /**
@@ -228,14 +220,12 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
  * <p>Represents a specific dashboard.</p>
  */
 export interface DashboardEntry {
-  __type?: "DashboardEntry";
   /**
    * <p>The size of the dashboard, in bytes.</p>
    */
@@ -262,7 +252,6 @@ export namespace DashboardEntry {
   export const filterSensitiveLog = (obj: DashboardEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardEntry => __isa(o, "DashboardEntry");
 }
 
 /**
@@ -279,7 +268,6 @@ export namespace DashboardInvalidInputError {
   export const filterSensitiveLog = (obj: DashboardInvalidInputError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardInvalidInputError => __isa(o, "DashboardInvalidInputError");
 }
 
 /**
@@ -295,14 +283,12 @@ export namespace DashboardNotFoundError {
   export const filterSensitiveLog = (obj: DashboardNotFoundError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardNotFoundError => __isa(o, "DashboardNotFoundError");
 }
 
 /**
  * <p>An error or warning for the operation.</p>
  */
 export interface DashboardValidationMessage {
-  __type?: "DashboardValidationMessage";
   /**
    * <p>A message describing the error or warning.</p>
    */
@@ -318,14 +304,12 @@ export namespace DashboardValidationMessage {
   export const filterSensitiveLog = (obj: DashboardValidationMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DashboardValidationMessage => __isa(o, "DashboardValidationMessage");
 }
 
 /**
  * <p>Encapsulates the statistical data that CloudWatch computes from metric data.</p>
  */
 export interface Datapoint {
-  __type?: "Datapoint";
   /**
    * <p>The minimum metric value for the data point.</p>
    */
@@ -372,11 +356,9 @@ export namespace Datapoint {
   export const filterSensitiveLog = (obj: Datapoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Datapoint => __isa(o, "Datapoint");
 }
 
 export interface DeleteAlarmsInput {
-  __type?: "DeleteAlarmsInput";
   /**
    * <p>The alarms to be deleted.</p>
    */
@@ -387,11 +369,9 @@ export namespace DeleteAlarmsInput {
   export const filterSensitiveLog = (obj: DeleteAlarmsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAlarmsInput => __isa(o, "DeleteAlarmsInput");
 }
 
 export interface DeleteAnomalyDetectorInput {
-  __type?: "DeleteAnomalyDetectorInput";
   /**
    * <p>The metric name associated with the anomaly detection model to delete.</p>
    */
@@ -417,22 +397,17 @@ export namespace DeleteAnomalyDetectorInput {
   export const filterSensitiveLog = (obj: DeleteAnomalyDetectorInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAnomalyDetectorInput => __isa(o, "DeleteAnomalyDetectorInput");
 }
 
-export interface DeleteAnomalyDetectorOutput {
-  __type?: "DeleteAnomalyDetectorOutput";
-}
+export interface DeleteAnomalyDetectorOutput {}
 
 export namespace DeleteAnomalyDetectorOutput {
   export const filterSensitiveLog = (obj: DeleteAnomalyDetectorOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAnomalyDetectorOutput => __isa(o, "DeleteAnomalyDetectorOutput");
 }
 
 export interface DeleteDashboardsInput {
-  __type?: "DeleteDashboardsInput";
   /**
    * <p>The dashboards to be deleted. This parameter is required.</p>
    */
@@ -443,22 +418,17 @@ export namespace DeleteDashboardsInput {
   export const filterSensitiveLog = (obj: DeleteDashboardsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDashboardsInput => __isa(o, "DeleteDashboardsInput");
 }
 
-export interface DeleteDashboardsOutput {
-  __type?: "DeleteDashboardsOutput";
-}
+export interface DeleteDashboardsOutput {}
 
 export namespace DeleteDashboardsOutput {
   export const filterSensitiveLog = (obj: DeleteDashboardsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDashboardsOutput => __isa(o, "DeleteDashboardsOutput");
 }
 
 export interface DeleteInsightRulesInput {
-  __type?: "DeleteInsightRulesInput";
   /**
    * <p>An array of the rule names to delete. If you need to find out the names of your rules, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html">DescribeInsightRules</a>.</p>
    */
@@ -469,11 +439,9 @@ export namespace DeleteInsightRulesInput {
   export const filterSensitiveLog = (obj: DeleteInsightRulesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInsightRulesInput => __isa(o, "DeleteInsightRulesInput");
 }
 
 export interface DeleteInsightRulesOutput {
-  __type?: "DeleteInsightRulesOutput";
   /**
    * <p>An array listing the rules that could not be deleted. You cannot delete built-in rules.</p>
    */
@@ -484,11 +452,9 @@ export namespace DeleteInsightRulesOutput {
   export const filterSensitiveLog = (obj: DeleteInsightRulesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteInsightRulesOutput => __isa(o, "DeleteInsightRulesOutput");
 }
 
 export interface DescribeAlarmHistoryInput {
-  __type?: "DescribeAlarmHistoryInput";
   /**
    * <p>The maximum number of alarm history records to retrieve.</p>
    */
@@ -537,11 +503,9 @@ export namespace DescribeAlarmHistoryInput {
   export const filterSensitiveLog = (obj: DescribeAlarmHistoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAlarmHistoryInput => __isa(o, "DescribeAlarmHistoryInput");
 }
 
 export interface DescribeAlarmHistoryOutput {
-  __type?: "DescribeAlarmHistoryOutput";
   /**
    * <p>The token that marks the start of the next batch of returned results.</p>
    */
@@ -557,11 +521,9 @@ export namespace DescribeAlarmHistoryOutput {
   export const filterSensitiveLog = (obj: DescribeAlarmHistoryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAlarmHistoryOutput => __isa(o, "DescribeAlarmHistoryOutput");
 }
 
 export interface DescribeAlarmsForMetricInput {
-  __type?: "DescribeAlarmsForMetricInput";
   /**
    * <p>The namespace of the metric.</p>
    */
@@ -605,11 +567,9 @@ export namespace DescribeAlarmsForMetricInput {
   export const filterSensitiveLog = (obj: DescribeAlarmsForMetricInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAlarmsForMetricInput => __isa(o, "DescribeAlarmsForMetricInput");
 }
 
 export interface DescribeAlarmsForMetricOutput {
-  __type?: "DescribeAlarmsForMetricOutput";
   /**
    * <p>The information for each alarm with the specified metric.</p>
    */
@@ -620,11 +580,9 @@ export namespace DescribeAlarmsForMetricOutput {
   export const filterSensitiveLog = (obj: DescribeAlarmsForMetricOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAlarmsForMetricOutput => __isa(o, "DescribeAlarmsForMetricOutput");
 }
 
 export interface DescribeAlarmsInput {
-  __type?: "DescribeAlarmsInput";
   /**
    * <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter,
    * 		only metric alarms are returned.</p>
@@ -711,11 +669,9 @@ export namespace DescribeAlarmsInput {
   export const filterSensitiveLog = (obj: DescribeAlarmsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAlarmsInput => __isa(o, "DescribeAlarmsInput");
 }
 
 export interface DescribeAlarmsOutput {
-  __type?: "DescribeAlarmsOutput";
   /**
    * <p>The token that marks the start of the next batch of returned results.</p>
    */
@@ -736,11 +692,9 @@ export namespace DescribeAlarmsOutput {
   export const filterSensitiveLog = (obj: DescribeAlarmsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAlarmsOutput => __isa(o, "DescribeAlarmsOutput");
 }
 
 export interface DescribeAnomalyDetectorsInput {
-  __type?: "DescribeAnomalyDetectorsInput";
   /**
    * <p>The maximum number of results to return in one operation. The maximum
    * 			value that you can specify is 100.</p>
@@ -779,11 +733,9 @@ export namespace DescribeAnomalyDetectorsInput {
   export const filterSensitiveLog = (obj: DescribeAnomalyDetectorsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAnomalyDetectorsInput => __isa(o, "DescribeAnomalyDetectorsInput");
 }
 
 export interface DescribeAnomalyDetectorsOutput {
-  __type?: "DescribeAnomalyDetectorsOutput";
   /**
    * <p>The list of anomaly detection models returned by the operation.</p>
    */
@@ -800,11 +752,9 @@ export namespace DescribeAnomalyDetectorsOutput {
   export const filterSensitiveLog = (obj: DescribeAnomalyDetectorsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAnomalyDetectorsOutput => __isa(o, "DescribeAnomalyDetectorsOutput");
 }
 
 export interface DescribeInsightRulesInput {
-  __type?: "DescribeInsightRulesInput";
   /**
    * <p>Reserved for future use.</p>
    */
@@ -821,11 +771,9 @@ export namespace DescribeInsightRulesInput {
   export const filterSensitiveLog = (obj: DescribeInsightRulesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInsightRulesInput => __isa(o, "DescribeInsightRulesInput");
 }
 
 export interface DescribeInsightRulesOutput {
-  __type?: "DescribeInsightRulesOutput";
   /**
    * <p>The rules returned by the operation.</p>
    */
@@ -841,7 +789,6 @@ export namespace DescribeInsightRulesOutput {
   export const filterSensitiveLog = (obj: DescribeInsightRulesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInsightRulesOutput => __isa(o, "DescribeInsightRulesOutput");
 }
 
 /**
@@ -851,7 +798,6 @@ export namespace DescribeInsightRulesOutput {
  * 			your metrics, you are creating a new variation of that metric. </p>
  */
 export interface Dimension {
-  __type?: "Dimension";
   /**
    * <p>The value of the dimension.</p>
    */
@@ -868,14 +814,12 @@ export namespace Dimension {
   export const filterSensitiveLog = (obj: Dimension): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Dimension => __isa(o, "Dimension");
 }
 
 /**
  * <p>Represents filters for a dimension.</p>
  */
 export interface DimensionFilter {
-  __type?: "DimensionFilter";
   /**
    * <p>The value of the dimension to be matched.</p>
    */
@@ -891,11 +835,9 @@ export namespace DimensionFilter {
   export const filterSensitiveLog = (obj: DimensionFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DimensionFilter => __isa(o, "DimensionFilter");
 }
 
 export interface DisableAlarmActionsInput {
-  __type?: "DisableAlarmActionsInput";
   /**
    * <p>The names of the alarms.</p>
    */
@@ -906,11 +848,9 @@ export namespace DisableAlarmActionsInput {
   export const filterSensitiveLog = (obj: DisableAlarmActionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableAlarmActionsInput => __isa(o, "DisableAlarmActionsInput");
 }
 
 export interface DisableInsightRulesInput {
-  __type?: "DisableInsightRulesInput";
   /**
    * <p>An array of the rule names to disable. If you need to find out the names of your rules, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html">DescribeInsightRules</a>.</p>
    */
@@ -921,11 +861,9 @@ export namespace DisableInsightRulesInput {
   export const filterSensitiveLog = (obj: DisableInsightRulesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableInsightRulesInput => __isa(o, "DisableInsightRulesInput");
 }
 
 export interface DisableInsightRulesOutput {
-  __type?: "DisableInsightRulesOutput";
   /**
    * <p>An array listing the rules that could not be disabled. You cannot disable built-in rules.</p>
    */
@@ -936,11 +874,9 @@ export namespace DisableInsightRulesOutput {
   export const filterSensitiveLog = (obj: DisableInsightRulesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableInsightRulesOutput => __isa(o, "DisableInsightRulesOutput");
 }
 
 export interface EnableAlarmActionsInput {
-  __type?: "EnableAlarmActionsInput";
   /**
    * <p>The names of the alarms.</p>
    */
@@ -951,11 +887,9 @@ export namespace EnableAlarmActionsInput {
   export const filterSensitiveLog = (obj: EnableAlarmActionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableAlarmActionsInput => __isa(o, "EnableAlarmActionsInput");
 }
 
 export interface EnableInsightRulesInput {
-  __type?: "EnableInsightRulesInput";
   /**
    * <p>An array of the rule names to enable. If you need to find out the names of your rules, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html">DescribeInsightRules</a>.</p>
    */
@@ -966,11 +900,9 @@ export namespace EnableInsightRulesInput {
   export const filterSensitiveLog = (obj: EnableInsightRulesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableInsightRulesInput => __isa(o, "EnableInsightRulesInput");
 }
 
 export interface EnableInsightRulesOutput {
-  __type?: "EnableInsightRulesOutput";
   /**
    * <p>An array listing the rules that could not be enabled. You cannot disable or enable built-in rules.</p>
    */
@@ -981,11 +913,9 @@ export namespace EnableInsightRulesOutput {
   export const filterSensitiveLog = (obj: EnableInsightRulesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableInsightRulesOutput => __isa(o, "EnableInsightRulesOutput");
 }
 
 export interface GetDashboardInput {
-  __type?: "GetDashboardInput";
   /**
    * <p>The name of the dashboard to be described.</p>
    */
@@ -996,11 +926,9 @@ export namespace GetDashboardInput {
   export const filterSensitiveLog = (obj: GetDashboardInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDashboardInput => __isa(o, "GetDashboardInput");
 }
 
 export interface GetDashboardOutput {
-  __type?: "GetDashboardOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
    */
@@ -1023,11 +951,9 @@ export namespace GetDashboardOutput {
   export const filterSensitiveLog = (obj: GetDashboardOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDashboardOutput => __isa(o, "GetDashboardOutput");
 }
 
 export interface GetInsightRuleReportInput {
-  __type?: "GetInsightRuleReportInput";
   /**
    * <p>The start time of the data to use in the report. When used in a raw HTTP Query API, it is formatted as
    * 			<code>yyyy-MM-dd'T'HH:mm:ss</code>. For example,
@@ -1107,11 +1033,9 @@ export namespace GetInsightRuleReportInput {
   export const filterSensitiveLog = (obj: GetInsightRuleReportInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInsightRuleReportInput => __isa(o, "GetInsightRuleReportInput");
 }
 
 export interface GetInsightRuleReportOutput {
-  __type?: "GetInsightRuleReportOutput";
   /**
    * <p>Specifies whether this rule aggregates contributor data by COUNT or SUM.</p>
    */
@@ -1149,11 +1073,9 @@ export namespace GetInsightRuleReportOutput {
   export const filterSensitiveLog = (obj: GetInsightRuleReportOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInsightRuleReportOutput => __isa(o, "GetInsightRuleReportOutput");
 }
 
 export interface GetMetricDataInput {
-  __type?: "GetMetricDataInput";
   /**
    * <p>The metric queries to be returned. A single <code>GetMetricData</code> call can include as many as 500 <code>MetricDataQuery</code>
    * 		structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data. </p>
@@ -1228,11 +1150,9 @@ export namespace GetMetricDataInput {
   export const filterSensitiveLog = (obj: GetMetricDataInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMetricDataInput => __isa(o, "GetMetricDataInput");
 }
 
 export interface GetMetricDataOutput {
-  __type?: "GetMetricDataOutput";
   /**
    * <p>Contains a message about this <code>GetMetricData</code> operation, if the operation results in such a message.
    * 			An example of a message that
@@ -1258,11 +1178,9 @@ export namespace GetMetricDataOutput {
   export const filterSensitiveLog = (obj: GetMetricDataOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMetricDataOutput => __isa(o, "GetMetricDataOutput");
 }
 
 export interface GetMetricStatisticsInput {
-  __type?: "GetMetricStatisticsInput";
   /**
    * <p>The name of the metric, with or without spaces.</p>
    */
@@ -1368,11 +1286,9 @@ export namespace GetMetricStatisticsInput {
   export const filterSensitiveLog = (obj: GetMetricStatisticsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMetricStatisticsInput => __isa(o, "GetMetricStatisticsInput");
 }
 
 export interface GetMetricStatisticsOutput {
-  __type?: "GetMetricStatisticsOutput";
   /**
    * <p>A label for the specified metric.</p>
    */
@@ -1388,11 +1304,9 @@ export namespace GetMetricStatisticsOutput {
   export const filterSensitiveLog = (obj: GetMetricStatisticsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMetricStatisticsOutput => __isa(o, "GetMetricStatisticsOutput");
 }
 
 export interface GetMetricWidgetImageInput {
-  __type?: "GetMetricWidgetImageInput";
   /**
    * <p>A JSON string that defines the bitmap graph to be retrieved. The string includes the
    * 			metrics to include in the graph, statistics, annotations, title, axis limits, and so on.
@@ -1456,11 +1370,9 @@ export namespace GetMetricWidgetImageInput {
   export const filterSensitiveLog = (obj: GetMetricWidgetImageInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMetricWidgetImageInput => __isa(o, "GetMetricWidgetImageInput");
 }
 
 export interface GetMetricWidgetImageOutput {
-  __type?: "GetMetricWidgetImageOutput";
   /**
    * <p>The image of the graph, in the output format specified. The output is base64-encoded.</p>
    */
@@ -1471,7 +1383,6 @@ export namespace GetMetricWidgetImageOutput {
   export const filterSensitiveLog = (obj: GetMetricWidgetImageOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMetricWidgetImageOutput => __isa(o, "GetMetricWidgetImageOutput");
 }
 
 export type HistoryItemType = "Action" | "ConfigurationUpdate" | "StateUpdate";
@@ -1480,7 +1391,6 @@ export type HistoryItemType = "Action" | "ConfigurationUpdate" | "StateUpdate";
  * <p>This structure contains the definition for a Contributor Insights rule.</p>
  */
 export interface InsightRule {
-  __type?: "InsightRule";
   /**
    * <p>Indicates whether the rule is enabled or disabled.</p>
    */
@@ -1511,7 +1421,6 @@ export namespace InsightRule {
   export const filterSensitiveLog = (obj: InsightRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsightRule => __isa(o, "InsightRule");
 }
 
 /**
@@ -1521,7 +1430,6 @@ export namespace InsightRule {
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetInsightRuleReport.html">GetInsightRuleReport</a>.</p>
  */
 export interface InsightRuleContributor {
-  __type?: "InsightRuleContributor";
   /**
    * <p>One of the log entry field keywords that is used to define contributors for this rule.</p>
    */
@@ -1542,7 +1450,6 @@ export namespace InsightRuleContributor {
   export const filterSensitiveLog = (obj: InsightRuleContributor): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsightRuleContributor => __isa(o, "InsightRuleContributor");
 }
 
 /**
@@ -1551,7 +1458,6 @@ export namespace InsightRuleContributor {
  * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_InsightRuleContributor.html">InsightRuleContributor</a>.</p>
  */
 export interface InsightRuleContributorDatapoint {
-  __type?: "InsightRuleContributorDatapoint";
   /**
    * <p>The approximate value that this contributor added during this timestamp.</p>
    */
@@ -1567,7 +1473,6 @@ export namespace InsightRuleContributorDatapoint {
   export const filterSensitiveLog = (obj: InsightRuleContributorDatapoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsightRuleContributorDatapoint => __isa(o, "InsightRuleContributorDatapoint");
 }
 
 /**
@@ -1575,7 +1480,6 @@ export namespace InsightRuleContributorDatapoint {
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetInsightRuleReport.html">GetInsightRuleReport</a>.</p>
  */
 export interface InsightRuleMetricDatapoint {
-  __type?: "InsightRuleMetricDatapoint";
   /**
    * <p>The minimum value from a single contributor during the time period represented by that data point.</p>
    * 		       <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
@@ -1630,7 +1534,6 @@ export namespace InsightRuleMetricDatapoint {
   export const filterSensitiveLog = (obj: InsightRuleMetricDatapoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsightRuleMetricDatapoint => __isa(o, "InsightRuleMetricDatapoint");
 }
 
 /**
@@ -1649,7 +1552,6 @@ export namespace InternalServiceFault {
   export const filterSensitiveLog = (obj: InternalServiceFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceFault => __isa(o, "InternalServiceFault");
 }
 
 /**
@@ -1668,7 +1570,6 @@ export namespace InvalidFormatFault {
   export const filterSensitiveLog = (obj: InvalidFormatFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidFormatFault => __isa(o, "InvalidFormatFault");
 }
 
 /**
@@ -1687,7 +1588,6 @@ export namespace InvalidNextToken {
   export const filterSensitiveLog = (obj: InvalidNextToken): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextToken => __isa(o, "InvalidNextToken");
 }
 
 /**
@@ -1706,8 +1606,6 @@ export namespace InvalidParameterCombinationException {
   export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterCombinationException =>
-    __isa(o, "InvalidParameterCombinationException");
 }
 
 /**
@@ -1726,7 +1624,6 @@ export namespace InvalidParameterValueException {
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
@@ -1742,7 +1639,6 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -1761,11 +1657,9 @@ export namespace LimitExceededFault {
   export const filterSensitiveLog = (obj: LimitExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededFault => __isa(o, "LimitExceededFault");
 }
 
 export interface ListDashboardsInput {
-  __type?: "ListDashboardsInput";
   /**
    * <p>The token returned by a previous call to indicate that there is more data available.</p>
    */
@@ -1785,11 +1679,9 @@ export namespace ListDashboardsInput {
   export const filterSensitiveLog = (obj: ListDashboardsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDashboardsInput => __isa(o, "ListDashboardsInput");
 }
 
 export interface ListDashboardsOutput {
-  __type?: "ListDashboardsOutput";
   /**
    * <p>The list of matching dashboards.</p>
    */
@@ -1805,11 +1697,9 @@ export namespace ListDashboardsOutput {
   export const filterSensitiveLog = (obj: ListDashboardsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDashboardsOutput => __isa(o, "ListDashboardsOutput");
 }
 
 export interface ListMetricsInput {
-  __type?: "ListMetricsInput";
   /**
    * <p>The name of the metric to filter against.</p>
    */
@@ -1847,11 +1737,9 @@ export namespace ListMetricsInput {
   export const filterSensitiveLog = (obj: ListMetricsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMetricsInput => __isa(o, "ListMetricsInput");
 }
 
 export interface ListMetricsOutput {
-  __type?: "ListMetricsOutput";
   /**
    * <p>The token that marks the start of the next batch of returned results. </p>
    */
@@ -1867,11 +1755,9 @@ export namespace ListMetricsOutput {
   export const filterSensitiveLog = (obj: ListMetricsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMetricsOutput => __isa(o, "ListMetricsOutput");
 }
 
 export interface ListTagsForResourceInput {
-  __type?: "ListTagsForResourceInput";
   /**
    * <p>The ARN of the CloudWatch resource that you want to view tags for.</p>
    * 		       <p>The ARN format of an alarm is
@@ -1893,11 +1779,9 @@ export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
-  __type?: "ListTagsForResourceOutput";
   /**
    * <p>The list of tag keys and values associated with the resource you specified.</p>
    */
@@ -1908,14 +1792,12 @@ export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
  * <p>A message returned by the <code>GetMetricData</code>API, including a code and a description.</p>
  */
 export interface MessageData {
-  __type?: "MessageData";
   /**
    * <p>The message text.</p>
    */
@@ -1931,14 +1813,12 @@ export namespace MessageData {
   export const filterSensitiveLog = (obj: MessageData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageData => __isa(o, "MessageData");
 }
 
 /**
  * <p>Represents a specific metric.</p>
  */
 export interface Metric {
-  __type?: "Metric";
   /**
    * <p>The namespace of the metric.</p>
    */
@@ -1959,14 +1839,12 @@ export namespace Metric {
   export const filterSensitiveLog = (obj: Metric): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Metric => __isa(o, "Metric");
 }
 
 /**
  * <p>The details about a metric alarm.</p>
  */
 export interface MetricAlarm {
-  __type?: "MetricAlarm";
   /**
    * <p>The description of the alarm.</p>
    */
@@ -2125,7 +2003,6 @@ export namespace MetricAlarm {
   export const filterSensitiveLog = (obj: MetricAlarm): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricAlarm => __isa(o, "MetricAlarm");
 }
 
 /**
@@ -2153,7 +2030,6 @@ export namespace MetricAlarm {
  * 			operation or a <code>PutMetricAlarm</code> operation. These differences are explained in the following parameter list.</p>
  */
 export interface MetricDataQuery {
-  __type?: "MetricDataQuery";
   /**
    * <p>The math expression to be performed on the returned data, if this object is performing a math expression. This expression
    * 			can use the <code>Id</code> of the other metrics to refer to those metrics, and can also use the <code>Id</code> of other
@@ -2214,7 +2090,6 @@ export namespace MetricDataQuery {
   export const filterSensitiveLog = (obj: MetricDataQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricDataQuery => __isa(o, "MetricDataQuery");
 }
 
 /**
@@ -2223,7 +2098,6 @@ export namespace MetricDataQuery {
  * 			with the timestamps of those data points and other identifying information.</p>
  */
 export interface MetricDataResult {
-  __type?: "MetricDataResult";
   /**
    * <p>The status of the returned data. <code>Complete</code> indicates that all data points in the requested time range were returned.
    * 			<code>PartialData</code> means that an incomplete set of data points were returned.
@@ -2267,7 +2141,6 @@ export namespace MetricDataResult {
   export const filterSensitiveLog = (obj: MetricDataResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricDataResult => __isa(o, "MetricDataResult");
 }
 
 /**
@@ -2275,7 +2148,6 @@ export namespace MetricDataResult {
  * 			to be aggregated into an existing metric.</p>
  */
 export interface MetricDatum {
-  __type?: "MetricDatum";
   /**
    * <p>When you are using a <code>Put</code> operation, this defines what unit you want to use when storing the metric.</p>
    * 		       <p>In
@@ -2347,14 +2219,12 @@ export namespace MetricDatum {
   export const filterSensitiveLog = (obj: MetricDatum): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricDatum => __isa(o, "MetricDatum");
 }
 
 /**
  * <p>This structure defines the metric to be returned, along with the statistics, period, and units.</p>
  */
 export interface MetricStat {
-  __type?: "MetricStat";
   /**
    * <p>The metric to return, including the metric name, namespace, and dimensions.</p>
    */
@@ -2399,7 +2269,6 @@ export namespace MetricStat {
   export const filterSensitiveLog = (obj: MetricStat): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricStat => __isa(o, "MetricStat");
 }
 
 /**
@@ -2418,7 +2287,6 @@ export namespace MissingRequiredParameterException {
   export const filterSensitiveLog = (obj: MissingRequiredParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MissingRequiredParameterException => __isa(o, "MissingRequiredParameterException");
 }
 
 /**
@@ -2426,7 +2294,6 @@ export namespace MissingRequiredParameterException {
  * 		not process one of the rules, the following data is returned for each of those rules.</p>
  */
 export interface PartialFailure {
-  __type?: "PartialFailure";
   /**
    * <p>The type of error.</p>
    */
@@ -2452,11 +2319,9 @@ export namespace PartialFailure {
   export const filterSensitiveLog = (obj: PartialFailure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PartialFailure => __isa(o, "PartialFailure");
 }
 
 export interface PutAnomalyDetectorInput {
-  __type?: "PutAnomalyDetectorInput";
   /**
    * <p>The name of the metric to create the anomaly detection model for.</p>
    */
@@ -2493,22 +2358,17 @@ export namespace PutAnomalyDetectorInput {
   export const filterSensitiveLog = (obj: PutAnomalyDetectorInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAnomalyDetectorInput => __isa(o, "PutAnomalyDetectorInput");
 }
 
-export interface PutAnomalyDetectorOutput {
-  __type?: "PutAnomalyDetectorOutput";
-}
+export interface PutAnomalyDetectorOutput {}
 
 export namespace PutAnomalyDetectorOutput {
   export const filterSensitiveLog = (obj: PutAnomalyDetectorOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAnomalyDetectorOutput => __isa(o, "PutAnomalyDetectorOutput");
 }
 
 export interface PutCompositeAlarmInput {
-  __type?: "PutCompositeAlarmInput";
   /**
    * <p>Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. The default is
    * 			<code>TRUE</code>.</p>
@@ -2636,11 +2496,9 @@ export namespace PutCompositeAlarmInput {
   export const filterSensitiveLog = (obj: PutCompositeAlarmInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutCompositeAlarmInput => __isa(o, "PutCompositeAlarmInput");
 }
 
 export interface PutDashboardInput {
-  __type?: "PutDashboardInput";
   /**
    * <p>The detailed information about the dashboard in JSON format, including the widgets to include and their location
    * 			on the dashboard.  This parameter is required.</p>
@@ -2661,11 +2519,9 @@ export namespace PutDashboardInput {
   export const filterSensitiveLog = (obj: PutDashboardInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDashboardInput => __isa(o, "PutDashboardInput");
 }
 
 export interface PutDashboardOutput {
-  __type?: "PutDashboardOutput";
   /**
    * <p>If the input for <code>PutDashboard</code> was correct and the dashboard was successfully created or modified, this result is empty.</p>
    * 			      <p>If this result includes only warning messages, then the input was valid enough for the dashboard to be
@@ -2680,11 +2536,9 @@ export namespace PutDashboardOutput {
   export const filterSensitiveLog = (obj: PutDashboardOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDashboardOutput => __isa(o, "PutDashboardOutput");
 }
 
 export interface PutInsightRuleInput {
-  __type?: "PutInsightRuleInput";
   /**
    * <p>The state of the rule. Valid values are ENABLED and DISABLED.</p>
    */
@@ -2722,22 +2576,17 @@ export namespace PutInsightRuleInput {
   export const filterSensitiveLog = (obj: PutInsightRuleInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutInsightRuleInput => __isa(o, "PutInsightRuleInput");
 }
 
-export interface PutInsightRuleOutput {
-  __type?: "PutInsightRuleOutput";
-}
+export interface PutInsightRuleOutput {}
 
 export namespace PutInsightRuleOutput {
   export const filterSensitiveLog = (obj: PutInsightRuleOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutInsightRuleOutput => __isa(o, "PutInsightRuleOutput");
 }
 
 export interface PutMetricAlarmInput {
-  __type?: "PutMetricAlarmInput";
   /**
    * <p>The unit of measure for the statistic. For example, the units for the Amazon EC2
    * 			NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance
@@ -2984,11 +2833,9 @@ export namespace PutMetricAlarmInput {
   export const filterSensitiveLog = (obj: PutMetricAlarmInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutMetricAlarmInput => __isa(o, "PutMetricAlarmInput");
 }
 
 export interface PutMetricDataInput {
-  __type?: "PutMetricDataInput";
   /**
    * <p>The namespace for the metric data.</p>
    * 		       <p>To avoid conflicts
@@ -3007,7 +2854,6 @@ export namespace PutMetricDataInput {
   export const filterSensitiveLog = (obj: PutMetricDataInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutMetricDataInput => __isa(o, "PutMetricDataInput");
 }
 
 /**
@@ -3015,7 +2861,6 @@ export namespace PutMetricDataInput {
  * 		anomaly detection model.</p>
  */
 export interface Range {
-  __type?: "Range";
   /**
    * <p>The end time of the range to exclude. The format is <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example,
    * 			<code>2019-07-01T23:59:59</code>.</p>
@@ -3033,7 +2878,6 @@ export namespace Range {
   export const filterSensitiveLog = (obj: Range): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Range => __isa(o, "Range");
 }
 
 export enum RecentlyActive {
@@ -3056,7 +2900,6 @@ export namespace ResourceNotFound {
   export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFound => __isa(o, "ResourceNotFound");
 }
 
 /**
@@ -3074,7 +2917,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum ScanBy {
@@ -3083,7 +2925,6 @@ export enum ScanBy {
 }
 
 export interface SetAlarmStateInput {
-  __type?: "SetAlarmStateInput";
   /**
    * <p>The reason that this alarm is set to this specific state, in text format.</p>
    */
@@ -3111,7 +2952,6 @@ export namespace SetAlarmStateInput {
   export const filterSensitiveLog = (obj: SetAlarmStateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetAlarmStateInput => __isa(o, "SetAlarmStateInput");
 }
 
 export type StandardUnit =
@@ -3151,7 +2991,6 @@ export type Statistic = "Average" | "Maximum" | "Minimum" | "SampleCount" | "Sum
  * <p>Represents a set of statistics that describes a specific metric. </p>
  */
 export interface StatisticSet {
-  __type?: "StatisticSet";
   /**
    * <p>The minimum value of the sample set.</p>
    */
@@ -3177,7 +3016,6 @@ export namespace StatisticSet {
   export const filterSensitiveLog = (obj: StatisticSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StatisticSet => __isa(o, "StatisticSet");
 }
 
 export enum StatusCode {
@@ -3190,7 +3028,6 @@ export enum StatusCode {
  * <p>A key-value pair associated with a CloudWatch resource.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your
    * 		resources.</p>
@@ -3207,11 +3044,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceInput {
-  __type?: "TagResourceInput";
   /**
    * <p>The list of key-value pairs to associate with the alarm.</p>
    */
@@ -3238,22 +3073,17 @@ export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
-export interface TagResourceOutput {
-  __type?: "TagResourceOutput";
-}
+export interface TagResourceOutput {}
 
 export namespace TagResourceOutput {
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceOutput => __isa(o, "TagResourceOutput");
 }
 
 export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
   /**
    * <p>The ARN of the CloudWatch resource that you're removing tags from.</p>
    * 		       <p>The ARN format of an alarm is
@@ -3280,16 +3110,12 @@ export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
-export interface UntagResourceOutput {
-  __type?: "UntagResourceOutput";
-}
+export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceOutput => __isa(o, "UntagResourceOutput");
 }

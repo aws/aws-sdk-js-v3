@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export type AcceptanceType = "ACCEPT" | "REJECT";
@@ -7,7 +7,6 @@ export type AcceptanceType = "ACCEPT" | "REJECT";
  * <p>Represents the input for a request action.</p>
  */
 export interface AcceptMatchInput {
-  __type?: "AcceptMatchInput";
   /**
    * <p>A unique identifier for a matchmaking ticket. The ticket must be in status <code>REQUIRES_ACCEPTANCE</code>; otherwise this
    *             request will fail.</p>
@@ -30,18 +29,14 @@ export namespace AcceptMatchInput {
   export const filterSensitiveLog = (obj: AcceptMatchInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptMatchInput => __isa(o, "AcceptMatchInput");
 }
 
-export interface AcceptMatchOutput {
-  __type?: "AcceptMatchOutput";
-}
+export interface AcceptMatchOutput {}
 
 export namespace AcceptMatchOutput {
   export const filterSensitiveLog = (obj: AcceptMatchOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AcceptMatchOutput => __isa(o, "AcceptMatchOutput");
 }
 
 /**
@@ -80,7 +75,6 @@ export namespace AcceptMatchOutput {
  *          </ul>
  */
 export interface Alias {
-  __type?: "Alias";
   /**
    * <p>The routing configuration, including routing type and fleet target, for the alias. </p>
    */
@@ -121,7 +115,6 @@ export namespace Alias {
   export const filterSensitiveLog = (obj: Alias): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Alias => __isa(o, "Alias");
 }
 
 /**
@@ -131,7 +124,6 @@ export namespace Alias {
  *             available properties.</p>
  */
 export interface AttributeValue {
-  __type?: "AttributeValue";
   /**
    * <p>For a list of up to 10 strings. Maximum length for each string is 100 characters.
    *             Duplicate values are not recognized; all occurrences of the repeated value after the
@@ -160,7 +152,6 @@ export namespace AttributeValue {
   export const filterSensitiveLog = (obj: AttributeValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributeValue => __isa(o, "AttributeValue");
 }
 
 /**
@@ -169,7 +160,6 @@ export namespace AttributeValue {
  *             new set by calling <a>RequestUploadCredentials</a>.</p>
  */
 export interface AwsCredentials {
-  __type?: "AwsCredentials";
   /**
    * <p>Temporary key allowing access to the Amazon GameLift S3 account.</p>
    */
@@ -191,7 +181,6 @@ export namespace AwsCredentials {
   export const filterSensitiveLog = (obj: AwsCredentials): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AwsCredentials => __isa(o, "AwsCredentials");
 }
 
 export enum BackfillMode {
@@ -238,7 +227,6 @@ export enum BalancingStrategy {
  *          </ul>
  */
 export interface Build {
-  __type?: "Build";
   /**
    * <p>A unique identifier for a build.</p>
    */
@@ -307,7 +295,6 @@ export namespace Build {
   export const filterSensitiveLog = (obj: Build): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Build => __isa(o, "Build");
 }
 
 export enum BuildStatus {
@@ -323,7 +310,6 @@ export enum BuildStatus {
  *             in a fleet share the same certificate.</p>
  */
 export interface CertificateConfiguration {
-  __type?: "CertificateConfiguration";
   /**
    * <p>Indicates whether a TLS/SSL certificate was generated for a fleet. </p>
    *         <p> </p>
@@ -336,7 +322,6 @@ export namespace CertificateConfiguration {
   export const filterSensitiveLog = (obj: CertificateConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CertificateConfiguration => __isa(o, "CertificateConfiguration");
 }
 
 export enum CertificateType {
@@ -345,7 +330,6 @@ export enum CertificateType {
 }
 
 export interface ClaimGameServerInput {
-  __type?: "ClaimGameServerInput";
   /**
    * <p>An identifier for the game server group. When claiming a specific game server, this is
    *             the game server group whether the game server is located. When requesting that GameLift FleetIQ
@@ -372,11 +356,9 @@ export namespace ClaimGameServerInput {
   export const filterSensitiveLog = (obj: ClaimGameServerInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClaimGameServerInput => __isa(o, "ClaimGameServerInput");
 }
 
 export interface ClaimGameServerOutput {
-  __type?: "ClaimGameServerOutput";
   /**
    * <p>Object that describes the newly claimed game server resource.</p>
    */
@@ -387,7 +369,6 @@ export namespace ClaimGameServerOutput {
   export const filterSensitiveLog = (obj: ClaimGameServerOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ClaimGameServerOutput => __isa(o, "ClaimGameServerOutput");
 }
 
 export enum ComparisonOperatorType {
@@ -412,14 +393,12 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface CreateAliasInput {
-  __type?: "CreateAliasInput";
   /**
    * <p>A descriptive label that is associated with an alias. Alias names do not need to be unique.</p>
    */
@@ -453,14 +432,12 @@ export namespace CreateAliasInput {
   export const filterSensitiveLog = (obj: CreateAliasInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAliasInput => __isa(o, "CreateAliasInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface CreateAliasOutput {
-  __type?: "CreateAliasOutput";
   /**
    * <p>The newly created alias resource.</p>
    */
@@ -471,14 +448,12 @@ export namespace CreateAliasOutput {
   export const filterSensitiveLog = (obj: CreateAliasOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAliasOutput => __isa(o, "CreateAliasOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface CreateBuildInput {
-  __type?: "CreateBuildInput";
   /**
    * <p>Information indicating where your game build files are stored. Use this parameter only
    *             when creating a build with files stored in an S3 bucket that you own. The storage
@@ -527,14 +502,12 @@ export namespace CreateBuildInput {
   export const filterSensitiveLog = (obj: CreateBuildInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateBuildInput => __isa(o, "CreateBuildInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface CreateBuildOutput {
-  __type?: "CreateBuildOutput";
   /**
    * <p>Amazon S3 location for your game build file, including bucket name and
    *             key.</p>
@@ -560,14 +533,12 @@ export namespace CreateBuildOutput {
     ...obj,
     ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateBuildOutput => __isa(o, "CreateBuildOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface CreateFleetInput {
-  __type?: "CreateFleetInput";
   /**
    * <p>A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift
    *             fleet with. You can find your account ID in the AWS Management Console under account settings. </p>
@@ -764,14 +735,12 @@ export namespace CreateFleetInput {
   export const filterSensitiveLog = (obj: CreateFleetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFleetInput => __isa(o, "CreateFleetInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface CreateFleetOutput {
-  __type?: "CreateFleetOutput";
   /**
    * <p>Properties for the newly created fleet.</p>
    */
@@ -782,11 +751,9 @@ export namespace CreateFleetOutput {
   export const filterSensitiveLog = (obj: CreateFleetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateFleetOutput => __isa(o, "CreateFleetOutput");
 }
 
 export interface CreateGameServerGroupInput {
-  __type?: "CreateGameServerGroupInput";
   /**
    * <p>The maximum number of instances allowed in the EC2 Auto Scaling group. During autoscaling
    *             events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.</p>
@@ -899,11 +866,9 @@ export namespace CreateGameServerGroupInput {
   export const filterSensitiveLog = (obj: CreateGameServerGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGameServerGroupInput => __isa(o, "CreateGameServerGroupInput");
 }
 
 export interface CreateGameServerGroupOutput {
-  __type?: "CreateGameServerGroupOutput";
   /**
    * <p>The newly created game server group object, including the new ARN value for the GameLift FleetIQ game server group
    *             and the object's status.
@@ -917,14 +882,12 @@ export namespace CreateGameServerGroupOutput {
   export const filterSensitiveLog = (obj: CreateGameServerGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGameServerGroupOutput => __isa(o, "CreateGameServerGroupOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface CreateGameSessionInput {
-  __type?: "CreateGameSessionInput";
   /**
    * <p>The maximum number of players that can be connected simultaneously to the game session.</p>
    */
@@ -992,14 +955,12 @@ export namespace CreateGameSessionInput {
   export const filterSensitiveLog = (obj: CreateGameSessionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGameSessionInput => __isa(o, "CreateGameSessionInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface CreateGameSessionOutput {
-  __type?: "CreateGameSessionOutput";
   /**
    * <p>Object that describes the newly created game session record.</p>
    */
@@ -1010,14 +971,12 @@ export namespace CreateGameSessionOutput {
   export const filterSensitiveLog = (obj: CreateGameSessionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGameSessionOutput => __isa(o, "CreateGameSessionOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface CreateGameSessionQueueInput {
-  __type?: "CreateGameSessionQueueInput";
   /**
    * <p>A list of labels to assign to the new game session queue resource. Tags are developer-defined
    *             key-value pairs. Tagging
@@ -1064,14 +1023,12 @@ export namespace CreateGameSessionQueueInput {
   export const filterSensitiveLog = (obj: CreateGameSessionQueueInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGameSessionQueueInput => __isa(o, "CreateGameSessionQueueInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface CreateGameSessionQueueOutput {
-  __type?: "CreateGameSessionQueueOutput";
   /**
    * <p>An object that describes the newly created game session queue.</p>
    */
@@ -1082,14 +1039,12 @@ export namespace CreateGameSessionQueueOutput {
   export const filterSensitiveLog = (obj: CreateGameSessionQueueOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGameSessionQueueOutput => __isa(o, "CreateGameSessionQueueOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface CreateMatchmakingConfigurationInput {
-  __type?: "CreateMatchmakingConfigurationInput";
   /**
    * <p>A human-readable description of the matchmaking configuration. </p>
    */
@@ -1194,15 +1149,12 @@ export namespace CreateMatchmakingConfigurationInput {
   export const filterSensitiveLog = (obj: CreateMatchmakingConfigurationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMatchmakingConfigurationInput =>
-    __isa(o, "CreateMatchmakingConfigurationInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface CreateMatchmakingConfigurationOutput {
-  __type?: "CreateMatchmakingConfigurationOutput";
   /**
    * <p>Object that describes the newly created matchmaking configuration.</p>
    */
@@ -1213,15 +1165,12 @@ export namespace CreateMatchmakingConfigurationOutput {
   export const filterSensitiveLog = (obj: CreateMatchmakingConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMatchmakingConfigurationOutput =>
-    __isa(o, "CreateMatchmakingConfigurationOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface CreateMatchmakingRuleSetInput {
-  __type?: "CreateMatchmakingRuleSetInput";
   /**
    * <p>A list of labels to assign to the new matchmaking rule set resource. Tags are developer-defined
    *             key-value pairs. Tagging
@@ -1253,14 +1202,12 @@ export namespace CreateMatchmakingRuleSetInput {
   export const filterSensitiveLog = (obj: CreateMatchmakingRuleSetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMatchmakingRuleSetInput => __isa(o, "CreateMatchmakingRuleSetInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface CreateMatchmakingRuleSetOutput {
-  __type?: "CreateMatchmakingRuleSetOutput";
   /**
    * <p>The newly created matchmaking rule set.</p>
    */
@@ -1271,14 +1218,12 @@ export namespace CreateMatchmakingRuleSetOutput {
   export const filterSensitiveLog = (obj: CreateMatchmakingRuleSetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMatchmakingRuleSetOutput => __isa(o, "CreateMatchmakingRuleSetOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface CreatePlayerSessionInput {
-  __type?: "CreatePlayerSessionInput";
   /**
    * <p>Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.</p>
    */
@@ -1299,14 +1244,12 @@ export namespace CreatePlayerSessionInput {
   export const filterSensitiveLog = (obj: CreatePlayerSessionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePlayerSessionInput => __isa(o, "CreatePlayerSessionInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface CreatePlayerSessionOutput {
-  __type?: "CreatePlayerSessionOutput";
   /**
    * <p>Object that describes the newly created player session record.</p>
    */
@@ -1317,14 +1260,12 @@ export namespace CreatePlayerSessionOutput {
   export const filterSensitiveLog = (obj: CreatePlayerSessionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePlayerSessionOutput => __isa(o, "CreatePlayerSessionOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface CreatePlayerSessionsInput {
-  __type?: "CreatePlayerSessionsInput";
   /**
    * <p>A unique identifier for the game session to add players to.</p>
    */
@@ -1348,14 +1289,12 @@ export namespace CreatePlayerSessionsInput {
   export const filterSensitiveLog = (obj: CreatePlayerSessionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePlayerSessionsInput => __isa(o, "CreatePlayerSessionsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface CreatePlayerSessionsOutput {
-  __type?: "CreatePlayerSessionsOutput";
   /**
    * <p>A collection of player session objects created for the added players.</p>
    */
@@ -1366,11 +1305,9 @@ export namespace CreatePlayerSessionsOutput {
   export const filterSensitiveLog = (obj: CreatePlayerSessionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePlayerSessionsOutput => __isa(o, "CreatePlayerSessionsOutput");
 }
 
 export interface CreateScriptInput {
-  __type?: "CreateScriptInput";
   /**
    * <p>The version that is associated with a build or script. Version strings do not need to be unique. You can use <a>UpdateScript</a> to change this value later.
    *         </p>
@@ -1420,11 +1357,9 @@ export namespace CreateScriptInput {
   export const filterSensitiveLog = (obj: CreateScriptInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateScriptInput => __isa(o, "CreateScriptInput");
 }
 
 export interface CreateScriptOutput {
-  __type?: "CreateScriptOutput";
   /**
    * <p>The newly created script record with a unique script ID and ARN. The new script's
    *             storage location reflects an Amazon S3 location: (1) If the script was uploaded from an S3
@@ -1440,14 +1375,12 @@ export namespace CreateScriptOutput {
   export const filterSensitiveLog = (obj: CreateScriptOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateScriptOutput => __isa(o, "CreateScriptOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface CreateVpcPeeringAuthorizationInput {
-  __type?: "CreateVpcPeeringAuthorizationInput";
   /**
    * <p>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The
    *             VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the
@@ -1467,15 +1400,12 @@ export namespace CreateVpcPeeringAuthorizationInput {
   export const filterSensitiveLog = (obj: CreateVpcPeeringAuthorizationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcPeeringAuthorizationInput =>
-    __isa(o, "CreateVpcPeeringAuthorizationInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface CreateVpcPeeringAuthorizationOutput {
-  __type?: "CreateVpcPeeringAuthorizationOutput";
   /**
    * <p>Details on the requested VPC peering authorization, including expiration.</p>
    */
@@ -1486,15 +1416,12 @@ export namespace CreateVpcPeeringAuthorizationOutput {
   export const filterSensitiveLog = (obj: CreateVpcPeeringAuthorizationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcPeeringAuthorizationOutput =>
-    __isa(o, "CreateVpcPeeringAuthorizationOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface CreateVpcPeeringConnectionInput {
-  __type?: "CreateVpcPeeringConnectionInput";
   /**
    * <p>A unique identifier for a fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift which GameLift
    *             VPC to peer with. </p>
@@ -1521,25 +1448,20 @@ export namespace CreateVpcPeeringConnectionInput {
   export const filterSensitiveLog = (obj: CreateVpcPeeringConnectionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcPeeringConnectionInput => __isa(o, "CreateVpcPeeringConnectionInput");
 }
 
-export interface CreateVpcPeeringConnectionOutput {
-  __type?: "CreateVpcPeeringConnectionOutput";
-}
+export interface CreateVpcPeeringConnectionOutput {}
 
 export namespace CreateVpcPeeringConnectionOutput {
   export const filterSensitiveLog = (obj: CreateVpcPeeringConnectionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVpcPeeringConnectionOutput => __isa(o, "CreateVpcPeeringConnectionOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DeleteAliasInput {
-  __type?: "DeleteAliasInput";
   /**
    * <p>A unique identifier of the alias that you want to delete. You can use either the alias
    *             ID or ARN value.</p>
@@ -1551,14 +1473,12 @@ export namespace DeleteAliasInput {
   export const filterSensitiveLog = (obj: DeleteAliasInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAliasInput => __isa(o, "DeleteAliasInput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DeleteBuildInput {
-  __type?: "DeleteBuildInput";
   /**
    * <p>A unique identifier for a build to delete. You can use either the build ID or ARN value. </p>
    */
@@ -1569,14 +1489,12 @@ export namespace DeleteBuildInput {
   export const filterSensitiveLog = (obj: DeleteBuildInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteBuildInput => __isa(o, "DeleteBuildInput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DeleteFleetInput {
-  __type?: "DeleteFleetInput";
   /**
    * <p>A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.</p>
    */
@@ -1587,11 +1505,9 @@ export namespace DeleteFleetInput {
   export const filterSensitiveLog = (obj: DeleteFleetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFleetInput => __isa(o, "DeleteFleetInput");
 }
 
 export interface DeleteGameServerGroupInput {
-  __type?: "DeleteGameServerGroupInput";
   /**
    * <p>The type of delete to perform. Options include:</p>
    *         <ul>
@@ -1622,11 +1538,9 @@ export namespace DeleteGameServerGroupInput {
   export const filterSensitiveLog = (obj: DeleteGameServerGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGameServerGroupInput => __isa(o, "DeleteGameServerGroupInput");
 }
 
 export interface DeleteGameServerGroupOutput {
-  __type?: "DeleteGameServerGroupOutput";
   /**
    * <p>An object that describes the deleted game server group resource, with status updated
    *             to DELETE_SCHEDULED. </p>
@@ -1638,14 +1552,12 @@ export namespace DeleteGameServerGroupOutput {
   export const filterSensitiveLog = (obj: DeleteGameServerGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGameServerGroupOutput => __isa(o, "DeleteGameServerGroupOutput");
 }
 
 /**
  * <p>Represents the input for a request action. </p>
  */
 export interface DeleteGameSessionQueueInput {
-  __type?: "DeleteGameSessionQueueInput";
   /**
    * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region. You can use either the queue ID or ARN value. </p>
    */
@@ -1656,25 +1568,20 @@ export namespace DeleteGameSessionQueueInput {
   export const filterSensitiveLog = (obj: DeleteGameSessionQueueInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGameSessionQueueInput => __isa(o, "DeleteGameSessionQueueInput");
 }
 
-export interface DeleteGameSessionQueueOutput {
-  __type?: "DeleteGameSessionQueueOutput";
-}
+export interface DeleteGameSessionQueueOutput {}
 
 export namespace DeleteGameSessionQueueOutput {
   export const filterSensitiveLog = (obj: DeleteGameSessionQueueOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGameSessionQueueOutput => __isa(o, "DeleteGameSessionQueueOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DeleteMatchmakingConfigurationInput {
-  __type?: "DeleteMatchmakingConfigurationInput";
   /**
    * <p>A unique identifier for a matchmaking configuration.  You can use either the configuration name or ARN value.</p>
    */
@@ -1685,27 +1592,20 @@ export namespace DeleteMatchmakingConfigurationInput {
   export const filterSensitiveLog = (obj: DeleteMatchmakingConfigurationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMatchmakingConfigurationInput =>
-    __isa(o, "DeleteMatchmakingConfigurationInput");
 }
 
-export interface DeleteMatchmakingConfigurationOutput {
-  __type?: "DeleteMatchmakingConfigurationOutput";
-}
+export interface DeleteMatchmakingConfigurationOutput {}
 
 export namespace DeleteMatchmakingConfigurationOutput {
   export const filterSensitiveLog = (obj: DeleteMatchmakingConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMatchmakingConfigurationOutput =>
-    __isa(o, "DeleteMatchmakingConfigurationOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DeleteMatchmakingRuleSetInput {
-  __type?: "DeleteMatchmakingRuleSetInput";
   /**
    * <p>A unique identifier for a matchmaking rule set to be deleted. (Note: The rule set name is different from the optional "name"
    *             field in the rule set body.)  You can use either the rule set name or ARN value.</p>
@@ -1717,28 +1617,23 @@ export namespace DeleteMatchmakingRuleSetInput {
   export const filterSensitiveLog = (obj: DeleteMatchmakingRuleSetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMatchmakingRuleSetInput => __isa(o, "DeleteMatchmakingRuleSetInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
-export interface DeleteMatchmakingRuleSetOutput {
-  __type?: "DeleteMatchmakingRuleSetOutput";
-}
+export interface DeleteMatchmakingRuleSetOutput {}
 
 export namespace DeleteMatchmakingRuleSetOutput {
   export const filterSensitiveLog = (obj: DeleteMatchmakingRuleSetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMatchmakingRuleSetOutput => __isa(o, "DeleteMatchmakingRuleSetOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DeleteScalingPolicyInput {
-  __type?: "DeleteScalingPolicyInput";
   /**
    * <p>A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.</p>
    */
@@ -1754,11 +1649,9 @@ export namespace DeleteScalingPolicyInput {
   export const filterSensitiveLog = (obj: DeleteScalingPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteScalingPolicyInput => __isa(o, "DeleteScalingPolicyInput");
 }
 
 export interface DeleteScriptInput {
-  __type?: "DeleteScriptInput";
   /**
    * <p>A unique identifier for a Realtime script to delete. You can use either the script ID or ARN value.</p>
    */
@@ -1769,14 +1662,12 @@ export namespace DeleteScriptInput {
   export const filterSensitiveLog = (obj: DeleteScriptInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteScriptInput => __isa(o, "DeleteScriptInput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DeleteVpcPeeringAuthorizationInput {
-  __type?: "DeleteVpcPeeringAuthorizationInput";
   /**
    * <p>A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet.
    *             You can find your Account ID in the AWS Management Console under account settings.</p>
@@ -1796,27 +1687,20 @@ export namespace DeleteVpcPeeringAuthorizationInput {
   export const filterSensitiveLog = (obj: DeleteVpcPeeringAuthorizationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcPeeringAuthorizationInput =>
-    __isa(o, "DeleteVpcPeeringAuthorizationInput");
 }
 
-export interface DeleteVpcPeeringAuthorizationOutput {
-  __type?: "DeleteVpcPeeringAuthorizationOutput";
-}
+export interface DeleteVpcPeeringAuthorizationOutput {}
 
 export namespace DeleteVpcPeeringAuthorizationOutput {
   export const filterSensitiveLog = (obj: DeleteVpcPeeringAuthorizationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcPeeringAuthorizationOutput =>
-    __isa(o, "DeleteVpcPeeringAuthorizationOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DeleteVpcPeeringConnectionInput {
-  __type?: "DeleteVpcPeeringConnectionInput";
   /**
    * <p>A unique identifier for a VPC peering connection. This value is included in the <a>VpcPeeringConnection</a> object, which can be retrieved by calling <a>DescribeVpcPeeringConnections</a>.</p>
    */
@@ -1833,22 +1717,17 @@ export namespace DeleteVpcPeeringConnectionInput {
   export const filterSensitiveLog = (obj: DeleteVpcPeeringConnectionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcPeeringConnectionInput => __isa(o, "DeleteVpcPeeringConnectionInput");
 }
 
-export interface DeleteVpcPeeringConnectionOutput {
-  __type?: "DeleteVpcPeeringConnectionOutput";
-}
+export interface DeleteVpcPeeringConnectionOutput {}
 
 export namespace DeleteVpcPeeringConnectionOutput {
   export const filterSensitiveLog = (obj: DeleteVpcPeeringConnectionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVpcPeeringConnectionOutput => __isa(o, "DeleteVpcPeeringConnectionOutput");
 }
 
 export interface DeregisterGameServerInput {
-  __type?: "DeregisterGameServerInput";
   /**
    * <p>An identifier for the game server group where the game server to be de-registered is
    *             running. Use either the <a>GameServerGroup</a> name or ARN value.</p>
@@ -1865,14 +1744,12 @@ export namespace DeregisterGameServerInput {
   export const filterSensitiveLog = (obj: DeregisterGameServerInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterGameServerInput => __isa(o, "DeregisterGameServerInput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeAliasInput {
-  __type?: "DescribeAliasInput";
   /**
    * <p>The unique identifier for the fleet alias that you want to retrieve. You can use
    *             either the alias ID or ARN value. </p>
@@ -1884,14 +1761,12 @@ export namespace DescribeAliasInput {
   export const filterSensitiveLog = (obj: DescribeAliasInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAliasInput => __isa(o, "DescribeAliasInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeAliasOutput {
-  __type?: "DescribeAliasOutput";
   /**
    * <p>The requested alias resource.</p>
    */
@@ -1902,14 +1777,12 @@ export namespace DescribeAliasOutput {
   export const filterSensitiveLog = (obj: DescribeAliasOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAliasOutput => __isa(o, "DescribeAliasOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeBuildInput {
-  __type?: "DescribeBuildInput";
   /**
    * <p>A unique identifier for a build to retrieve properties for. You can use either the build ID or ARN value. </p>
    */
@@ -1920,14 +1793,12 @@ export namespace DescribeBuildInput {
   export const filterSensitiveLog = (obj: DescribeBuildInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBuildInput => __isa(o, "DescribeBuildInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeBuildOutput {
-  __type?: "DescribeBuildOutput";
   /**
    * <p>Set of properties describing the requested build.</p>
    */
@@ -1938,14 +1809,12 @@ export namespace DescribeBuildOutput {
   export const filterSensitiveLog = (obj: DescribeBuildOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeBuildOutput => __isa(o, "DescribeBuildOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeEC2InstanceLimitsInput {
-  __type?: "DescribeEC2InstanceLimitsInput";
   /**
    * <p>Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type
    *             determines the computing resources of each instance in the fleet, including CPU, memory,
@@ -1961,14 +1830,12 @@ export namespace DescribeEC2InstanceLimitsInput {
   export const filterSensitiveLog = (obj: DescribeEC2InstanceLimitsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEC2InstanceLimitsInput => __isa(o, "DescribeEC2InstanceLimitsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeEC2InstanceLimitsOutput {
-  __type?: "DescribeEC2InstanceLimitsOutput";
   /**
    * <p>The maximum number of instances for the specified instance
    *             type.</p>
@@ -1980,14 +1847,12 @@ export namespace DescribeEC2InstanceLimitsOutput {
   export const filterSensitiveLog = (obj: DescribeEC2InstanceLimitsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeEC2InstanceLimitsOutput => __isa(o, "DescribeEC2InstanceLimitsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeFleetAttributesInput {
-  __type?: "DescribeFleetAttributesInput";
   /**
    * <p>A list of unique fleet identifiers to retrieve attributes for. You can use either the
    *             fleet ID or ARN value. To retrieve attributes for all current fleets, do not include
@@ -2013,14 +1878,12 @@ export namespace DescribeFleetAttributesInput {
   export const filterSensitiveLog = (obj: DescribeFleetAttributesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetAttributesInput => __isa(o, "DescribeFleetAttributesInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeFleetAttributesOutput {
-  __type?: "DescribeFleetAttributesOutput";
   /**
    * <p>A collection of objects containing attribute metadata for each requested fleet ID.
    *             Attribute objects are returned only for fleets that currently exist.</p>
@@ -2037,14 +1900,12 @@ export namespace DescribeFleetAttributesOutput {
   export const filterSensitiveLog = (obj: DescribeFleetAttributesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetAttributesOutput => __isa(o, "DescribeFleetAttributesOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeFleetCapacityInput {
-  __type?: "DescribeFleetCapacityInput";
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet
    *             IDs.</p>
@@ -2068,14 +1929,12 @@ export namespace DescribeFleetCapacityInput {
   export const filterSensitiveLog = (obj: DescribeFleetCapacityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetCapacityInput => __isa(o, "DescribeFleetCapacityInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeFleetCapacityOutput {
-  __type?: "DescribeFleetCapacityOutput";
   /**
    * <p>A collection of objects containing capacity information for each requested fleet ID.
    *             Leave this parameter empty to retrieve capacity information for all fleets.</p>
@@ -2092,14 +1951,12 @@ export namespace DescribeFleetCapacityOutput {
   export const filterSensitiveLog = (obj: DescribeFleetCapacityOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetCapacityOutput => __isa(o, "DescribeFleetCapacityOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeFleetEventsInput {
-  __type?: "DescribeFleetEventsInput";
   /**
    * <p>Most recent date to retrieve event logs for. If no end time is specified, this call
    *             returns entries from the specified start time up to the present. Format is a number
@@ -2135,14 +1992,12 @@ export namespace DescribeFleetEventsInput {
   export const filterSensitiveLog = (obj: DescribeFleetEventsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetEventsInput => __isa(o, "DescribeFleetEventsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeFleetEventsOutput {
-  __type?: "DescribeFleetEventsOutput";
   /**
    * <p>Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.</p>
    */
@@ -2159,14 +2014,12 @@ export namespace DescribeFleetEventsOutput {
   export const filterSensitiveLog = (obj: DescribeFleetEventsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetEventsOutput => __isa(o, "DescribeFleetEventsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeFleetPortSettingsInput {
-  __type?: "DescribeFleetPortSettingsInput";
   /**
    * <p>A unique identifier for a fleet to retrieve port settings for. You can use either the fleet ID or ARN
    *             value.</p>
@@ -2178,14 +2031,12 @@ export namespace DescribeFleetPortSettingsInput {
   export const filterSensitiveLog = (obj: DescribeFleetPortSettingsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetPortSettingsInput => __isa(o, "DescribeFleetPortSettingsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeFleetPortSettingsOutput {
-  __type?: "DescribeFleetPortSettingsOutput";
   /**
    * <p>The port settings for the requested fleet ID.</p>
    */
@@ -2196,14 +2047,12 @@ export namespace DescribeFleetPortSettingsOutput {
   export const filterSensitiveLog = (obj: DescribeFleetPortSettingsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetPortSettingsOutput => __isa(o, "DescribeFleetPortSettingsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeFleetUtilizationInput {
-  __type?: "DescribeFleetUtilizationInput";
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet
    *             IDs.</p>
@@ -2229,14 +2078,12 @@ export namespace DescribeFleetUtilizationInput {
   export const filterSensitiveLog = (obj: DescribeFleetUtilizationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetUtilizationInput => __isa(o, "DescribeFleetUtilizationInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeFleetUtilizationOutput {
-  __type?: "DescribeFleetUtilizationOutput";
   /**
    * <p>Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.</p>
    */
@@ -2253,11 +2100,9 @@ export namespace DescribeFleetUtilizationOutput {
   export const filterSensitiveLog = (obj: DescribeFleetUtilizationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeFleetUtilizationOutput => __isa(o, "DescribeFleetUtilizationOutput");
 }
 
 export interface DescribeGameServerGroupInput {
-  __type?: "DescribeGameServerGroupInput";
   /**
    * <p>The unique identifier for the game server group being requested. Use either the <a>GameServerGroup</a> name or ARN value.</p>
    */
@@ -2268,11 +2113,9 @@ export namespace DescribeGameServerGroupInput {
   export const filterSensitiveLog = (obj: DescribeGameServerGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGameServerGroupInput => __isa(o, "DescribeGameServerGroupInput");
 }
 
 export interface DescribeGameServerGroupOutput {
-  __type?: "DescribeGameServerGroupOutput";
   /**
    * <p>An object that describes the requested game server group resource. </p>
    */
@@ -2283,11 +2126,9 @@ export namespace DescribeGameServerGroupOutput {
   export const filterSensitiveLog = (obj: DescribeGameServerGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGameServerGroupOutput => __isa(o, "DescribeGameServerGroupOutput");
 }
 
 export interface DescribeGameServerInput {
-  __type?: "DescribeGameServerInput";
   /**
    * <p>The identifier for the game server to be retrieved.</p>
    */
@@ -2304,11 +2145,9 @@ export namespace DescribeGameServerInput {
   export const filterSensitiveLog = (obj: DescribeGameServerInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGameServerInput => __isa(o, "DescribeGameServerInput");
 }
 
 export interface DescribeGameServerOutput {
-  __type?: "DescribeGameServerOutput";
   /**
    * <p>Object that describes the requested game server resource.</p>
    */
@@ -2319,14 +2158,12 @@ export namespace DescribeGameServerOutput {
   export const filterSensitiveLog = (obj: DescribeGameServerOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGameServerOutput => __isa(o, "DescribeGameServerOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeGameSessionDetailsInput {
-  __type?: "DescribeGameSessionDetailsInput";
   /**
    * <p>A unique identifier for a fleet to retrieve all game sessions active on the fleet. You can use either the fleet
    *             ID or ARN value.</p>
@@ -2366,14 +2203,12 @@ export namespace DescribeGameSessionDetailsInput {
   export const filterSensitiveLog = (obj: DescribeGameSessionDetailsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGameSessionDetailsInput => __isa(o, "DescribeGameSessionDetailsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeGameSessionDetailsOutput {
-  __type?: "DescribeGameSessionDetailsOutput";
   /**
    * <p>Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.</p>
    */
@@ -2390,14 +2225,12 @@ export namespace DescribeGameSessionDetailsOutput {
   export const filterSensitiveLog = (obj: DescribeGameSessionDetailsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGameSessionDetailsOutput => __isa(o, "DescribeGameSessionDetailsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeGameSessionPlacementInput {
-  __type?: "DescribeGameSessionPlacementInput";
   /**
    * <p>A unique identifier for a game session placement to retrieve.</p>
    */
@@ -2408,14 +2241,12 @@ export namespace DescribeGameSessionPlacementInput {
   export const filterSensitiveLog = (obj: DescribeGameSessionPlacementInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGameSessionPlacementInput => __isa(o, "DescribeGameSessionPlacementInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeGameSessionPlacementOutput {
-  __type?: "DescribeGameSessionPlacementOutput";
   /**
    * <p>Object that describes the requested game session placement.</p>
    */
@@ -2426,15 +2257,12 @@ export namespace DescribeGameSessionPlacementOutput {
   export const filterSensitiveLog = (obj: DescribeGameSessionPlacementOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGameSessionPlacementOutput =>
-    __isa(o, "DescribeGameSessionPlacementOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeGameSessionQueuesInput {
-  __type?: "DescribeGameSessionQueuesInput";
   /**
    * <p>A list of queue names to retrieve information for. You can use either the queue ID or
    *             ARN value. To request settings for all queues, leave this parameter empty. </p>
@@ -2456,14 +2284,12 @@ export namespace DescribeGameSessionQueuesInput {
   export const filterSensitiveLog = (obj: DescribeGameSessionQueuesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGameSessionQueuesInput => __isa(o, "DescribeGameSessionQueuesInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeGameSessionQueuesOutput {
-  __type?: "DescribeGameSessionQueuesOutput";
   /**
    * <p>A collection of objects that describe the requested game session queues.</p>
    */
@@ -2479,14 +2305,12 @@ export namespace DescribeGameSessionQueuesOutput {
   export const filterSensitiveLog = (obj: DescribeGameSessionQueuesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGameSessionQueuesOutput => __isa(o, "DescribeGameSessionQueuesOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeGameSessionsInput {
-  __type?: "DescribeGameSessionsInput";
   /**
    * <p>A unique identifier for a fleet to retrieve all game sessions for. You can use either the fleet ID or ARN value. </p>
    */
@@ -2525,14 +2349,12 @@ export namespace DescribeGameSessionsInput {
   export const filterSensitiveLog = (obj: DescribeGameSessionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGameSessionsInput => __isa(o, "DescribeGameSessionsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeGameSessionsOutput {
-  __type?: "DescribeGameSessionsOutput";
   /**
    * <p>A collection of objects containing game session properties for each session matching
    *             the request.</p>
@@ -2549,14 +2371,12 @@ export namespace DescribeGameSessionsOutput {
   export const filterSensitiveLog = (obj: DescribeGameSessionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGameSessionsOutput => __isa(o, "DescribeGameSessionsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeInstancesInput {
-  __type?: "DescribeInstancesInput";
   /**
    * <p>Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.</p>
    */
@@ -2584,14 +2404,12 @@ export namespace DescribeInstancesInput {
   export const filterSensitiveLog = (obj: DescribeInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstancesInput => __isa(o, "DescribeInstancesInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeInstancesOutput {
-  __type?: "DescribeInstancesOutput";
   /**
    * <p>A collection of objects containing properties for each instance returned.</p>
    */
@@ -2607,14 +2425,12 @@ export namespace DescribeInstancesOutput {
   export const filterSensitiveLog = (obj: DescribeInstancesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeInstancesOutput => __isa(o, "DescribeInstancesOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeMatchmakingConfigurationsInput {
-  __type?: "DescribeMatchmakingConfigurationsInput";
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. This parameter is limited to 10.</p>
    */
@@ -2642,15 +2458,12 @@ export namespace DescribeMatchmakingConfigurationsInput {
   export const filterSensitiveLog = (obj: DescribeMatchmakingConfigurationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMatchmakingConfigurationsInput =>
-    __isa(o, "DescribeMatchmakingConfigurationsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeMatchmakingConfigurationsOutput {
-  __type?: "DescribeMatchmakingConfigurationsOutput";
   /**
    * <p>A token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.</p>
    */
@@ -2666,15 +2479,12 @@ export namespace DescribeMatchmakingConfigurationsOutput {
   export const filterSensitiveLog = (obj: DescribeMatchmakingConfigurationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMatchmakingConfigurationsOutput =>
-    __isa(o, "DescribeMatchmakingConfigurationsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeMatchmakingInput {
-  __type?: "DescribeMatchmakingInput";
   /**
    * <p>A unique identifier for a matchmaking ticket. You can include up to 10 ID values. </p>
    */
@@ -2685,14 +2495,12 @@ export namespace DescribeMatchmakingInput {
   export const filterSensitiveLog = (obj: DescribeMatchmakingInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMatchmakingInput => __isa(o, "DescribeMatchmakingInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeMatchmakingOutput {
-  __type?: "DescribeMatchmakingOutput";
   /**
    * <p>A collection of existing matchmaking ticket objects matching the request.</p>
    */
@@ -2703,14 +2511,12 @@ export namespace DescribeMatchmakingOutput {
   export const filterSensitiveLog = (obj: DescribeMatchmakingOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMatchmakingOutput => __isa(o, "DescribeMatchmakingOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeMatchmakingRuleSetsInput {
-  __type?: "DescribeMatchmakingRuleSetsInput";
   /**
    * <p>A list of one or more matchmaking rule set names to retrieve details for. (Note: The
    *             rule set name is different from the optional "name" field in the rule set body.) You can
@@ -2733,14 +2539,12 @@ export namespace DescribeMatchmakingRuleSetsInput {
   export const filterSensitiveLog = (obj: DescribeMatchmakingRuleSetsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMatchmakingRuleSetsInput => __isa(o, "DescribeMatchmakingRuleSetsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeMatchmakingRuleSetsOutput {
-  __type?: "DescribeMatchmakingRuleSetsOutput";
   /**
    * <p>A collection of requested matchmaking rule set objects. </p>
    */
@@ -2756,14 +2560,12 @@ export namespace DescribeMatchmakingRuleSetsOutput {
   export const filterSensitiveLog = (obj: DescribeMatchmakingRuleSetsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeMatchmakingRuleSetsOutput => __isa(o, "DescribeMatchmakingRuleSetsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribePlayerSessionsInput {
-  __type?: "DescribePlayerSessionsInput";
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages. If a player session ID is specified, this parameter is ignored.</p>
    */
@@ -2824,14 +2626,12 @@ export namespace DescribePlayerSessionsInput {
   export const filterSensitiveLog = (obj: DescribePlayerSessionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePlayerSessionsInput => __isa(o, "DescribePlayerSessionsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribePlayerSessionsOutput {
-  __type?: "DescribePlayerSessionsOutput";
   /**
    * <p>Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.</p>
    */
@@ -2848,14 +2648,12 @@ export namespace DescribePlayerSessionsOutput {
   export const filterSensitiveLog = (obj: DescribePlayerSessionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribePlayerSessionsOutput => __isa(o, "DescribePlayerSessionsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeRuntimeConfigurationInput {
-  __type?: "DescribeRuntimeConfigurationInput";
   /**
    * <p>A unique identifier for a fleet to get the runtime configuration for. You can use either the fleet ID or ARN
    *             value.</p>
@@ -2867,14 +2665,12 @@ export namespace DescribeRuntimeConfigurationInput {
   export const filterSensitiveLog = (obj: DescribeRuntimeConfigurationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRuntimeConfigurationInput => __isa(o, "DescribeRuntimeConfigurationInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeRuntimeConfigurationOutput {
-  __type?: "DescribeRuntimeConfigurationOutput";
   /**
    * <p>Instructions describing how server processes should be launched and maintained on
    *             each instance in the fleet.</p>
@@ -2886,15 +2682,12 @@ export namespace DescribeRuntimeConfigurationOutput {
   export const filterSensitiveLog = (obj: DescribeRuntimeConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRuntimeConfigurationOutput =>
-    __isa(o, "DescribeRuntimeConfigurationOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeScalingPoliciesInput {
-  __type?: "DescribeScalingPoliciesInput";
   /**
    * <p>A unique identifier for a fleet to retrieve scaling policies for. You can use either the fleet ID or ARN
    *             value.</p>
@@ -2959,14 +2752,12 @@ export namespace DescribeScalingPoliciesInput {
   export const filterSensitiveLog = (obj: DescribeScalingPoliciesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalingPoliciesInput => __isa(o, "DescribeScalingPoliciesInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeScalingPoliciesOutput {
-  __type?: "DescribeScalingPoliciesOutput";
   /**
    * <p>A collection of objects containing the scaling policies matching the
    *             request.</p>
@@ -2983,11 +2774,9 @@ export namespace DescribeScalingPoliciesOutput {
   export const filterSensitiveLog = (obj: DescribeScalingPoliciesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScalingPoliciesOutput => __isa(o, "DescribeScalingPoliciesOutput");
 }
 
 export interface DescribeScriptInput {
-  __type?: "DescribeScriptInput";
   /**
    * <p>A unique identifier for a Realtime script to retrieve properties for. You can use either the script ID or ARN
    *             value.</p>
@@ -2999,11 +2788,9 @@ export namespace DescribeScriptInput {
   export const filterSensitiveLog = (obj: DescribeScriptInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScriptInput => __isa(o, "DescribeScriptInput");
 }
 
 export interface DescribeScriptOutput {
-  __type?: "DescribeScriptOutput";
   /**
    * <p>A set of properties describing the requested script.</p>
    */
@@ -3014,23 +2801,17 @@ export namespace DescribeScriptOutput {
   export const filterSensitiveLog = (obj: DescribeScriptOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeScriptOutput => __isa(o, "DescribeScriptOutput");
 }
 
-export interface DescribeVpcPeeringAuthorizationsInput {
-  __type?: "DescribeVpcPeeringAuthorizationsInput";
-}
+export interface DescribeVpcPeeringAuthorizationsInput {}
 
 export namespace DescribeVpcPeeringAuthorizationsInput {
   export const filterSensitiveLog = (obj: DescribeVpcPeeringAuthorizationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcPeeringAuthorizationsInput =>
-    __isa(o, "DescribeVpcPeeringAuthorizationsInput");
 }
 
 export interface DescribeVpcPeeringAuthorizationsOutput {
-  __type?: "DescribeVpcPeeringAuthorizationsOutput";
   /**
    * <p>A collection of objects that describe all valid VPC peering operations for the
    *             current AWS account.</p>
@@ -3042,15 +2823,12 @@ export namespace DescribeVpcPeeringAuthorizationsOutput {
   export const filterSensitiveLog = (obj: DescribeVpcPeeringAuthorizationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcPeeringAuthorizationsOutput =>
-    __isa(o, "DescribeVpcPeeringAuthorizationsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface DescribeVpcPeeringConnectionsInput {
-  __type?: "DescribeVpcPeeringConnectionsInput";
   /**
    * <p>A unique identifier for a fleet. You can use either the fleet ID or ARN value.</p>
    */
@@ -3061,15 +2839,12 @@ export namespace DescribeVpcPeeringConnectionsInput {
   export const filterSensitiveLog = (obj: DescribeVpcPeeringConnectionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcPeeringConnectionsInput =>
-    __isa(o, "DescribeVpcPeeringConnectionsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface DescribeVpcPeeringConnectionsOutput {
-  __type?: "DescribeVpcPeeringConnectionsOutput";
   /**
    * <p>A collection of VPC peering connection records that match the request.</p>
    */
@@ -3080,8 +2855,6 @@ export namespace DescribeVpcPeeringConnectionsOutput {
   export const filterSensitiveLog = (obj: DescribeVpcPeeringConnectionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeVpcPeeringConnectionsOutput =>
-    __isa(o, "DescribeVpcPeeringConnectionsOutput");
 }
 
 /**
@@ -3089,7 +2862,6 @@ export namespace DescribeVpcPeeringConnectionsOutput {
  *         placement request with <a>StartGameSessionPlacement</a>.</p>
  */
 export interface DesiredPlayerSession {
-  __type?: "DesiredPlayerSession";
   /**
    * <p>Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.</p>
    */
@@ -3105,7 +2877,6 @@ export namespace DesiredPlayerSession {
   export const filterSensitiveLog = (obj: DesiredPlayerSession): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DesiredPlayerSession => __isa(o, "DesiredPlayerSession");
 }
 
 /**
@@ -3147,7 +2918,6 @@ export namespace DesiredPlayerSession {
  *          </ul>
  */
 export interface EC2InstanceCounts {
-  __type?: "EC2InstanceCounts";
   /**
    * <p>Number of instances in the fleet that are no longer active but haven't yet been
    *             terminated.</p>
@@ -3190,7 +2960,6 @@ export namespace EC2InstanceCounts {
   export const filterSensitiveLog = (obj: EC2InstanceCounts): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EC2InstanceCounts => __isa(o, "EC2InstanceCounts");
 }
 
 /**
@@ -3198,7 +2967,6 @@ export namespace EC2InstanceCounts {
  *             (Amazon EC2) instance type. Instance limits can be retrieved by calling <a>DescribeEC2InstanceLimits</a>.</p>
  */
 export interface EC2InstanceLimit {
-  __type?: "EC2InstanceLimit";
   /**
    * <p>Number of instances of the specified type that are currently in use by this AWS
    *             account.</p>
@@ -3224,7 +2992,6 @@ export namespace EC2InstanceLimit {
   export const filterSensitiveLog = (obj: EC2InstanceLimit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EC2InstanceLimit => __isa(o, "EC2InstanceLimit");
 }
 
 export type EC2InstanceType =
@@ -3293,7 +3060,6 @@ export type EC2InstanceType =
  *             information for troubleshooting and debugging problems.</p>
  */
 export interface Event {
-  __type?: "Event";
   /**
    * <p>A unique identifier for a fleet event.</p>
    */
@@ -3465,7 +3231,6 @@ export namespace Event {
   export const filterSensitiveLog = (obj: Event): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Event => __isa(o, "Event");
 }
 
 export enum EventCode {
@@ -3544,7 +3309,6 @@ export enum FleetAction {
  *          </ul>
  */
 export interface FleetAttributes {
-  __type?: "FleetAttributes";
   /**
    * <p>List of fleet actions that have been suspended using <a>StopFleetActions</a>. This includes auto-scaling.</p>
    */
@@ -3741,7 +3505,6 @@ export namespace FleetAttributes {
   export const filterSensitiveLog = (obj: FleetAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FleetAttributes => __isa(o, "FleetAttributes");
 }
 
 /**
@@ -3783,7 +3546,6 @@ export namespace FleetAttributes {
  *          </ul>
  */
 export interface FleetCapacity {
-  __type?: "FleetCapacity";
   /**
    * <p>Current status of fleet capacity.</p>
    */
@@ -3808,7 +3570,6 @@ export namespace FleetCapacity {
   export const filterSensitiveLog = (obj: FleetCapacity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FleetCapacity => __isa(o, "FleetCapacity");
 }
 
 /**
@@ -3826,7 +3587,6 @@ export namespace FleetCapacityExceededException {
   export const filterSensitiveLog = (obj: FleetCapacityExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FleetCapacityExceededException => __isa(o, "FleetCapacityExceededException");
 }
 
 export enum FleetStatus {
@@ -3883,7 +3643,6 @@ export enum FleetType {
  *          </ul>
  */
 export interface FleetUtilization {
-  __type?: "FleetUtilization";
   /**
    * <p>The maximum number of players allowed across all game sessions currently being hosted on all
    *             instances in the fleet.</p>
@@ -3918,7 +3677,6 @@ export namespace FleetUtilization {
   export const filterSensitiveLog = (obj: FleetUtilization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FleetUtilization => __isa(o, "FleetUtilization");
 }
 
 /**
@@ -3929,7 +3687,6 @@ export namespace FleetUtilization {
  *             session. For more information, see the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create"> Amazon GameLift Developer Guide</a>.</p>
  */
 export interface GameProperty {
-  __type?: "GameProperty";
   /**
    * <p>The game property value.</p>
    */
@@ -3945,7 +3702,6 @@ export namespace GameProperty {
   export const filterSensitiveLog = (obj: GameProperty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GameProperty => __isa(o, "GameProperty");
 }
 
 /**
@@ -3956,7 +3712,6 @@ export namespace GameProperty {
  *          <p>A game server resource is created by a successful call to <a>RegisterGameServer</a> and deleted by calling <a>DeregisterGameServer</a>.  </p>
  */
 export interface GameServer {
-  __type?: "GameServer";
   /**
    * <p>The unique identifier for the instance where the game server is located.</p>
    */
@@ -4048,7 +3803,6 @@ export namespace GameServer {
   export const filterSensitiveLog = (obj: GameServer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GameServer => __isa(o, "GameServer");
 }
 
 export enum GameServerClaimStatus {
@@ -4065,7 +3819,6 @@ export enum GameServerClaimStatus {
  *             suspended and resumed by calling <a>SuspendGameServerGroup</a> and <a>ResumeGameServerGroup</a>. </p>
  */
 export interface GameServerGroup {
-  __type?: "GameServerGroup";
   /**
    * <p>A time stamp indicating when this game server group was last updated.</p>
    */
@@ -4189,7 +3942,6 @@ export namespace GameServerGroup {
   export const filterSensitiveLog = (obj: GameServerGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GameServerGroup => __isa(o, "GameServerGroup");
 }
 
 export enum GameServerGroupAction {
@@ -4208,7 +3960,6 @@ export enum GameServerGroupAction {
  *             Scaling group. </p>
  */
 export interface GameServerGroupAutoScalingPolicy {
-  __type?: "GameServerGroupAutoScalingPolicy";
   /**
    * <p>Settings for a target-based scaling policy applied to Auto Scaling group. These
    *             settings are used to create a target-based policy that tracks the GameLift FleetIQ metric
@@ -4231,7 +3982,6 @@ export namespace GameServerGroupAutoScalingPolicy {
   export const filterSensitiveLog = (obj: GameServerGroupAutoScalingPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GameServerGroupAutoScalingPolicy => __isa(o, "GameServerGroupAutoScalingPolicy");
 }
 
 export enum GameServerGroupDeleteOption {
@@ -4367,7 +4117,6 @@ export enum GameServerUtilizationStatus {
  *          </ul>
  */
 export interface GameSession {
-  __type?: "GameSession";
   /**
    * <p>Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
    *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
@@ -4489,7 +4238,6 @@ export namespace GameSession {
   export const filterSensitiveLog = (obj: GameSession): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GameSession => __isa(o, "GameSession");
 }
 
 /**
@@ -4501,7 +4249,6 @@ export namespace GameSession {
  *             calling <a>DescribeMatchmaking</a>.</p>
  */
 export interface GameSessionConnectionInfo {
-  __type?: "GameSessionConnectionInfo";
   /**
    * <p>Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.</p>
    */
@@ -4544,7 +4291,6 @@ export namespace GameSessionConnectionInfo {
   export const filterSensitiveLog = (obj: GameSessionConnectionInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GameSessionConnectionInfo => __isa(o, "GameSessionConnectionInfo");
 }
 
 /**
@@ -4552,7 +4298,6 @@ export namespace GameSessionConnectionInfo {
  *             force.</p>
  */
 export interface GameSessionDetail {
-  __type?: "GameSessionDetail";
   /**
    * <p>Object that describes a game session.</p>
    */
@@ -4581,7 +4326,6 @@ export namespace GameSessionDetail {
   export const filterSensitiveLog = (obj: GameSessionDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GameSessionDetail => __isa(o, "GameSessionDetail");
 }
 
 /**
@@ -4598,7 +4342,6 @@ export namespace GameSessionFullException {
   export const filterSensitiveLog = (obj: GameSessionFullException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GameSessionFullException => __isa(o, "GameSessionFullException");
 }
 
 /**
@@ -4625,7 +4368,6 @@ export namespace GameSessionFullException {
  *          </ul>
  */
 export interface GameSessionPlacement {
-  __type?: "GameSessionPlacement";
   /**
    * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region.</p>
    */
@@ -4783,7 +4525,6 @@ export namespace GameSessionPlacement {
   export const filterSensitiveLog = (obj: GameSessionPlacement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GameSessionPlacement => __isa(o, "GameSessionPlacement");
 }
 
 export enum GameSessionPlacementState {
@@ -4839,7 +4580,6 @@ export enum GameSessionPlacementState {
  *          </ul>
  */
 export interface GameSessionQueue {
-  __type?: "GameSessionQueue";
   /**
    * <p>A descriptive label that is associated with game session queue. Queue names must be unique within each Region.</p>
    */
@@ -4877,7 +4617,6 @@ export namespace GameSessionQueue {
   export const filterSensitiveLog = (obj: GameSessionQueue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GameSessionQueue => __isa(o, "GameSessionQueue");
 }
 
 /**
@@ -4908,7 +4647,6 @@ export namespace GameSessionQueue {
  *          </ul>
  */
 export interface GameSessionQueueDestination {
-  __type?: "GameSessionQueueDestination";
   /**
    * <p>The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which
    *             include a fleet ID or alias ID and a Region name, provide a unique identifier across all
@@ -4921,7 +4659,6 @@ export namespace GameSessionQueueDestination {
   export const filterSensitiveLog = (obj: GameSessionQueueDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GameSessionQueueDestination => __isa(o, "GameSessionQueueDestination");
 }
 
 export enum GameSessionStatus {
@@ -4940,7 +4677,6 @@ export enum GameSessionStatusReason {
  * <p>Represents the input for a request action.</p>
  */
 export interface GetGameSessionLogUrlInput {
-  __type?: "GetGameSessionLogUrlInput";
   /**
    * <p>A unique identifier for the game session to get logs for. </p>
    */
@@ -4951,14 +4687,12 @@ export namespace GetGameSessionLogUrlInput {
   export const filterSensitiveLog = (obj: GetGameSessionLogUrlInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGameSessionLogUrlInput => __isa(o, "GetGameSessionLogUrlInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface GetGameSessionLogUrlOutput {
-  __type?: "GetGameSessionLogUrlOutput";
   /**
    * <p>Location of the requested game session logs, available for download. This URL is
    *             valid for 15 minutes, after which S3 will reject any download request using this URL.
@@ -4972,14 +4706,12 @@ export namespace GetGameSessionLogUrlOutput {
   export const filterSensitiveLog = (obj: GetGameSessionLogUrlOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGameSessionLogUrlOutput => __isa(o, "GetGameSessionLogUrlOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface GetInstanceAccessInput {
-  __type?: "GetInstanceAccessInput";
   /**
    * <p>A unique identifier for a fleet that contains the instance you want access to. You can use either the fleet ID
    *             or ARN value. The fleet can be in any of the following statuses:
@@ -5000,14 +4732,12 @@ export namespace GetInstanceAccessInput {
   export const filterSensitiveLog = (obj: GetInstanceAccessInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetInstanceAccessInput => __isa(o, "GetInstanceAccessInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface GetInstanceAccessOutput {
-  __type?: "GetInstanceAccessOutput";
   /**
    * <p>The connection information for a fleet instance, including IP
    *             address and access credentials.</p>
@@ -5020,7 +4750,6 @@ export namespace GetInstanceAccessOutput {
     ...obj,
     ...(obj.InstanceAccess && { InstanceAccess: InstanceAccess.filterSensitiveLog(obj.InstanceAccess) }),
   });
-  export const isa = (o: any): o is GetInstanceAccessOutput => __isa(o, "GetInstanceAccessOutput");
 }
 
 /**
@@ -5037,8 +4766,6 @@ export namespace IdempotentParameterMismatchException {
   export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdempotentParameterMismatchException =>
-    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
@@ -5046,7 +4773,6 @@ export namespace IdempotentParameterMismatchException {
  *         or more game servers. A fleet may contain zero or more instances.</p>
  */
 export interface Instance {
-  __type?: "Instance";
   /**
    * <p>EC2 instance type that defines the computing resources of this instance.
    *     </p>
@@ -5125,7 +4851,6 @@ export namespace Instance {
   export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Instance => __isa(o, "Instance");
 }
 
 /**
@@ -5133,7 +4858,6 @@ export namespace Instance {
  *         by calling <a>GetInstanceAccess</a>. </p>
  */
 export interface InstanceAccess {
-  __type?: "InstanceAccess";
   /**
    * <p>Operating system that is running on the instance.</p>
    */
@@ -5165,7 +4889,6 @@ export namespace InstanceAccess {
     ...obj,
     ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is InstanceAccess => __isa(o, "InstanceAccess");
 }
 
 /**
@@ -5173,7 +4896,6 @@ export namespace InstanceAccess {
  *         are requested by calling <a>GetInstanceAccess</a> and returned in an <a>InstanceAccess</a> object.</p>
  */
 export interface InstanceCredentials {
-  __type?: "InstanceCredentials";
   /**
    * <p>User login string.</p>
    */
@@ -5191,7 +4913,6 @@ export namespace InstanceCredentials {
   export const filterSensitiveLog = (obj: InstanceCredentials): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceCredentials => __isa(o, "InstanceCredentials");
 }
 
 /**
@@ -5203,7 +4924,6 @@ export namespace InstanceCredentials {
  *             list of viable instance types.</p>
  */
 export interface InstanceDefinition {
-  __type?: "InstanceDefinition";
   /**
    * <p>Instance weighting that indicates how much this instance type contributes to the total
    *             capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the
@@ -5224,7 +4944,6 @@ export namespace InstanceDefinition {
   export const filterSensitiveLog = (obj: InstanceDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceDefinition => __isa(o, "InstanceDefinition");
 }
 
 export enum InstanceStatus {
@@ -5248,7 +4967,6 @@ export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
@@ -5266,7 +4984,6 @@ export namespace InvalidFleetStatusException {
   export const filterSensitiveLog = (obj: InvalidFleetStatusException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidFleetStatusException => __isa(o, "InvalidFleetStatusException");
 }
 
 /**
@@ -5284,7 +5001,6 @@ export namespace InvalidGameSessionStatusException {
   export const filterSensitiveLog = (obj: InvalidGameSessionStatusException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidGameSessionStatusException => __isa(o, "InvalidGameSessionStatusException");
 }
 
 /**
@@ -5301,7 +5017,6 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -5313,7 +5028,6 @@ export namespace InvalidRequestException {
  *             port ranges, one for TCP messaging and one for UDP for use by the Realtime servers.</p>
  */
 export interface IpPermission {
-  __type?: "IpPermission";
   /**
    * <p>A range of allowed IP addresses. This value must be expressed in CIDR notation.
    *             Example: "<code>000.000.000.000/[subnet mask]</code>" or optionally the shortened
@@ -5342,7 +5056,6 @@ export namespace IpPermission {
   export const filterSensitiveLog = (obj: IpPermission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IpPermission => __isa(o, "IpPermission");
 }
 
 export enum IpProtocol {
@@ -5358,7 +5071,6 @@ export enum IpProtocol {
  *             deployed to all instances in a game server group. </p>
  */
 export interface LaunchTemplateSpecification {
-  __type?: "LaunchTemplateSpecification";
   /**
    * <p>A readable identifier for an existing EC2 launch template. </p>
    */
@@ -5381,7 +5093,6 @@ export namespace LaunchTemplateSpecification {
   export const filterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LaunchTemplateSpecification => __isa(o, "LaunchTemplateSpecification");
 }
 
 /**
@@ -5398,14 +5109,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface ListAliasesInput {
-  __type?: "ListAliasesInput";
   /**
    * <p>The routing type to filter results on. Use this parameter to retrieve only aliases
    *             with a certain routing type. To retrieve all aliases, leave this parameter empty.</p>
@@ -5446,14 +5155,12 @@ export namespace ListAliasesInput {
   export const filterSensitiveLog = (obj: ListAliasesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAliasesInput => __isa(o, "ListAliasesInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface ListAliasesOutput {
-  __type?: "ListAliasesOutput";
   /**
    * <p>A token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.</p>
    */
@@ -5469,14 +5176,12 @@ export namespace ListAliasesOutput {
   export const filterSensitiveLog = (obj: ListAliasesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAliasesOutput => __isa(o, "ListAliasesOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface ListBuildsInput {
-  __type?: "ListBuildsInput";
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
    */
@@ -5518,14 +5223,12 @@ export namespace ListBuildsInput {
   export const filterSensitiveLog = (obj: ListBuildsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBuildsInput => __isa(o, "ListBuildsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface ListBuildsOutput {
-  __type?: "ListBuildsOutput";
   /**
    * <p>A collection of build resources that match the request.</p>
    */
@@ -5541,14 +5244,12 @@ export namespace ListBuildsOutput {
   export const filterSensitiveLog = (obj: ListBuildsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListBuildsOutput => __isa(o, "ListBuildsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface ListFleetsInput {
-  __type?: "ListFleetsInput";
   /**
    * <p>A unique identifier for a Realtime script to return fleets for. Use this parameter to return only fleets using a
    *             specified script. Use either the script ID or ARN value. To retrieve all fleets, leave
@@ -5578,14 +5279,12 @@ export namespace ListFleetsInput {
   export const filterSensitiveLog = (obj: ListFleetsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFleetsInput => __isa(o, "ListFleetsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface ListFleetsOutput {
-  __type?: "ListFleetsOutput";
   /**
    * <p>Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.</p>
    */
@@ -5603,11 +5302,9 @@ export namespace ListFleetsOutput {
   export const filterSensitiveLog = (obj: ListFleetsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFleetsOutput => __isa(o, "ListFleetsOutput");
 }
 
 export interface ListGameServerGroupsInput {
-  __type?: "ListGameServerGroupsInput";
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
    */
@@ -5623,11 +5320,9 @@ export namespace ListGameServerGroupsInput {
   export const filterSensitiveLog = (obj: ListGameServerGroupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGameServerGroupsInput => __isa(o, "ListGameServerGroupsInput");
 }
 
 export interface ListGameServerGroupsOutput {
-  __type?: "ListGameServerGroupsOutput";
   /**
    * <p>A collection of game server group objects that match the request.</p>
    */
@@ -5643,11 +5338,9 @@ export namespace ListGameServerGroupsOutput {
   export const filterSensitiveLog = (obj: ListGameServerGroupsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGameServerGroupsOutput => __isa(o, "ListGameServerGroupsOutput");
 }
 
 export interface ListGameServersInput {
-  __type?: "ListGameServersInput";
   /**
    * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.</p>
    */
@@ -5676,11 +5369,9 @@ export namespace ListGameServersInput {
   export const filterSensitiveLog = (obj: ListGameServersInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGameServersInput => __isa(o, "ListGameServersInput");
 }
 
 export interface ListGameServersOutput {
-  __type?: "ListGameServersOutput";
   /**
    * <p>A collection of game server objects that match the request.</p>
    */
@@ -5696,11 +5387,9 @@ export namespace ListGameServersOutput {
   export const filterSensitiveLog = (obj: ListGameServersOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGameServersOutput => __isa(o, "ListGameServersOutput");
 }
 
 export interface ListScriptsInput {
-  __type?: "ListScriptsInput";
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
    */
@@ -5716,11 +5405,9 @@ export namespace ListScriptsInput {
   export const filterSensitiveLog = (obj: ListScriptsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListScriptsInput => __isa(o, "ListScriptsInput");
 }
 
 export interface ListScriptsOutput {
-  __type?: "ListScriptsOutput";
   /**
    * <p>A set of properties describing the requested script.</p>
    */
@@ -5736,11 +5423,9 @@ export namespace ListScriptsOutput {
   export const filterSensitiveLog = (obj: ListScriptsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListScriptsOutput => __isa(o, "ListScriptsOutput");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>
    *             The Amazon Resource Name
@@ -5756,11 +5441,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>
    *             The collection of tags that have been assigned to the specified resource.
@@ -5773,7 +5456,6 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -5784,7 +5466,6 @@ export namespace ListTagsForResourceResponse {
  *             and player session ID in order to claim their assigned player slot.</p>
  */
 export interface MatchedPlayerSession {
-  __type?: "MatchedPlayerSession";
   /**
    * <p>A unique identifier for a player </p>
    */
@@ -5800,7 +5481,6 @@ export namespace MatchedPlayerSession {
   export const filterSensitiveLog = (obj: MatchedPlayerSession): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MatchedPlayerSession => __isa(o, "MatchedPlayerSession");
 }
 
 /**
@@ -5808,7 +5488,6 @@ export namespace MatchedPlayerSession {
  *             requests must specify a matchmaking configuration.</p>
  */
 export interface MatchmakingConfiguration {
-  __type?: "MatchmakingConfiguration";
   /**
    * <p>The method used to backfill game sessions created with this matchmaking configuration.
    *             MANUAL indicates that the game makes backfill requests or does not use the match
@@ -5912,7 +5591,6 @@ export namespace MatchmakingConfiguration {
   export const filterSensitiveLog = (obj: MatchmakingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MatchmakingConfiguration => __isa(o, "MatchmakingConfiguration");
 }
 
 export type MatchmakingConfigurationStatus =
@@ -5965,7 +5643,6 @@ export type MatchmakingConfigurationStatus =
  *          </ul>
  */
 export interface MatchmakingRuleSet {
-  __type?: "MatchmakingRuleSet";
   /**
    * <p>A unique identifier for a matchmaking rule set</p>
    */
@@ -5993,7 +5670,6 @@ export namespace MatchmakingRuleSet {
   export const filterSensitiveLog = (obj: MatchmakingRuleSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MatchmakingRuleSet => __isa(o, "MatchmakingRuleSet");
 }
 
 /**
@@ -6003,7 +5679,6 @@ export namespace MatchmakingRuleSet {
  *             calling <a>DescribeMatchmaking</a> with the ticket ID.</p>
  */
 export interface MatchmakingTicket {
-  __type?: "MatchmakingTicket";
   /**
    * <p>A unique identifier for a matchmaking ticket.</p>
    */
@@ -6128,7 +5803,6 @@ export namespace MatchmakingTicket {
   export const filterSensitiveLog = (obj: MatchmakingTicket): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MatchmakingTicket => __isa(o, "MatchmakingTicket");
 }
 
 export type MetricName =
@@ -6158,7 +5832,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum OperatingSystem {
@@ -6184,7 +5857,6 @@ export namespace OutOfCapacityException {
   export const filterSensitiveLog = (obj: OutOfCapacityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OutOfCapacityException => __isa(o, "OutOfCapacityException");
 }
 
 /**
@@ -6229,7 +5901,6 @@ export namespace OutOfCapacityException {
  *          </ul>
  */
 export interface PlacedPlayerSession {
-  __type?: "PlacedPlayerSession";
   /**
    * <p>A unique identifier for a player that is associated with this player session.</p>
    */
@@ -6245,7 +5916,6 @@ export namespace PlacedPlayerSession {
   export const filterSensitiveLog = (obj: PlacedPlayerSession): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlacedPlayerSession => __isa(o, "PlacedPlayerSession");
 }
 
 /**
@@ -6254,7 +5924,6 @@ export namespace PlacedPlayerSession {
  *             a match has been successfully completed.</p>
  */
 export interface Player {
-  __type?: "Player";
   /**
    * <p>Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. If this property is present, FlexMatch considers placing the match only
    *             in Regions for which latency is reported. </p>
@@ -6289,7 +5958,6 @@ export namespace Player {
   export const filterSensitiveLog = (obj: Player): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Player => __isa(o, "Player");
 }
 
 /**
@@ -6301,7 +5969,6 @@ export namespace Player {
  *     </p>
  */
 export interface PlayerLatency {
-  __type?: "PlayerLatency";
   /**
    * <p>A unique identifier for a player associated with the latency data.</p>
    */
@@ -6323,7 +5990,6 @@ export namespace PlayerLatency {
   export const filterSensitiveLog = (obj: PlayerLatency): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlayerLatency => __isa(o, "PlayerLatency");
 }
 
 /**
@@ -6356,7 +6022,6 @@ export namespace PlayerLatency {
  *          </ul>
  */
 export interface PlayerLatencyPolicy {
-  __type?: "PlayerLatencyPolicy";
   /**
    * <p>The maximum latency value that is allowed for any player, in milliseconds. All
    *             policies must have a value set for this property.</p>
@@ -6375,7 +6040,6 @@ export namespace PlayerLatencyPolicy {
   export const filterSensitiveLog = (obj: PlayerLatencyPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlayerLatencyPolicy => __isa(o, "PlayerLatencyPolicy");
 }
 
 /**
@@ -6428,7 +6092,6 @@ export namespace PlayerLatencyPolicy {
  *          </ul>
  */
 export interface PlayerSession {
-  __type?: "PlayerSession";
   /**
    * <p>A unique identifier for the game session that the player session is connected to.</p>
    */
@@ -6533,7 +6196,6 @@ export namespace PlayerSession {
   export const filterSensitiveLog = (obj: PlayerSession): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PlayerSession => __isa(o, "PlayerSession");
 }
 
 export enum PlayerSessionCreationPolicy {
@@ -6562,7 +6224,6 @@ export enum ProtectionPolicy {
  * <p>Represents the input for a request action.</p>
  */
 export interface PutScalingPolicyInput {
-  __type?: "PutScalingPolicyInput";
   /**
    * <p>Amount of adjustment to make, based on the scaling adjustment type.</p>
    */
@@ -6713,14 +6374,12 @@ export namespace PutScalingPolicyInput {
   export const filterSensitiveLog = (obj: PutScalingPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutScalingPolicyInput => __isa(o, "PutScalingPolicyInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface PutScalingPolicyOutput {
-  __type?: "PutScalingPolicyOutput";
   /**
    * <p>A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.</p>
    */
@@ -6731,11 +6390,9 @@ export namespace PutScalingPolicyOutput {
   export const filterSensitiveLog = (obj: PutScalingPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutScalingPolicyOutput => __isa(o, "PutScalingPolicyOutput");
 }
 
 export interface RegisterGameServerInput {
-  __type?: "RegisterGameServerInput";
   /**
    * <p>A list of labels to assign to the new game server resource. Tags are developer-defined
    *             key-value pairs. Tagging
@@ -6792,11 +6449,9 @@ export namespace RegisterGameServerInput {
   export const filterSensitiveLog = (obj: RegisterGameServerInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterGameServerInput => __isa(o, "RegisterGameServerInput");
 }
 
 export interface RegisterGameServerOutput {
-  __type?: "RegisterGameServerOutput";
   /**
    * <p>Object that describes the newly created game server resource.</p>
    */
@@ -6807,14 +6462,12 @@ export namespace RegisterGameServerOutput {
   export const filterSensitiveLog = (obj: RegisterGameServerOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterGameServerOutput => __isa(o, "RegisterGameServerOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface RequestUploadCredentialsInput {
-  __type?: "RequestUploadCredentialsInput";
   /**
    * <p>A unique identifier for a build to get credentials for. You can use either the build ID or ARN value. </p>
    */
@@ -6825,14 +6478,12 @@ export namespace RequestUploadCredentialsInput {
   export const filterSensitiveLog = (obj: RequestUploadCredentialsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestUploadCredentialsInput => __isa(o, "RequestUploadCredentialsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface RequestUploadCredentialsOutput {
-  __type?: "RequestUploadCredentialsOutput";
   /**
    * <p>AWS credentials required when uploading a game build to the storage location.
    *             These credentials have a limited lifespan and are valid only for the build they were
@@ -6852,14 +6503,12 @@ export namespace RequestUploadCredentialsOutput {
     ...obj,
     ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is RequestUploadCredentialsOutput => __isa(o, "RequestUploadCredentialsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface ResolveAliasInput {
-  __type?: "ResolveAliasInput";
   /**
    * <p>The unique identifier of the alias that you want to retrieve a fleet ID for. You can
    *             use either the alias ID or ARN value.</p>
@@ -6871,14 +6520,12 @@ export namespace ResolveAliasInput {
   export const filterSensitiveLog = (obj: ResolveAliasInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolveAliasInput => __isa(o, "ResolveAliasInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface ResolveAliasOutput {
-  __type?: "ResolveAliasOutput";
   /**
    * <p>The fleet identifier that the alias is pointing to.</p>
    */
@@ -6896,7 +6543,6 @@ export namespace ResolveAliasOutput {
   export const filterSensitiveLog = (obj: ResolveAliasOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResolveAliasOutput => __isa(o, "ResolveAliasOutput");
 }
 
 /**
@@ -6912,7 +6558,6 @@ export namespace ResolveAliasOutput {
  *             past 60 minutes.</p>
  */
 export interface ResourceCreationLimitPolicy {
-  __type?: "ResourceCreationLimitPolicy";
   /**
    * <p>The maximum number of game sessions that an individual can create during the policy
    *             period. </p>
@@ -6929,11 +6574,9 @@ export namespace ResourceCreationLimitPolicy {
   export const filterSensitiveLog = (obj: ResourceCreationLimitPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceCreationLimitPolicy => __isa(o, "ResourceCreationLimitPolicy");
 }
 
 export interface ResumeGameServerGroupInput {
-  __type?: "ResumeGameServerGroupInput";
   /**
    * <p>The action to resume for this game server group.</p>
    */
@@ -6950,11 +6593,9 @@ export namespace ResumeGameServerGroupInput {
   export const filterSensitiveLog = (obj: ResumeGameServerGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResumeGameServerGroupInput => __isa(o, "ResumeGameServerGroupInput");
 }
 
 export interface ResumeGameServerGroupOutput {
-  __type?: "ResumeGameServerGroupOutput";
   /**
    * <p>An object that describes the game server group resource, with the
    *                 <i>SuspendedActions</i> property updated to reflect the resumed
@@ -6967,7 +6608,6 @@ export namespace ResumeGameServerGroupOutput {
   export const filterSensitiveLog = (obj: ResumeGameServerGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResumeGameServerGroupOutput => __isa(o, "ResumeGameServerGroupOutput");
 }
 
 /**
@@ -7006,7 +6646,6 @@ export namespace ResumeGameServerGroupOutput {
  *          </ul>
  */
 export interface RoutingStrategy {
-  __type?: "RoutingStrategy";
   /**
    * <p>The type of routing strategy for the alias.</p>
    *         <p>Possible routing types include the following:</p>
@@ -7041,7 +6680,6 @@ export namespace RoutingStrategy {
   export const filterSensitiveLog = (obj: RoutingStrategy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoutingStrategy => __isa(o, "RoutingStrategy");
 }
 
 export enum RoutingStrategyType {
@@ -7096,7 +6734,6 @@ export enum RoutingStrategyType {
  *          </ul>
  */
 export interface RuntimeConfiguration {
-  __type?: "RuntimeConfiguration";
   /**
    * <p>The maximum number of game sessions with status <code>ACTIVATING</code> to allow on an
    *             instance simultaneously. This setting limits the amount of instance resources that can
@@ -7123,7 +6760,6 @@ export namespace RuntimeConfiguration {
   export const filterSensitiveLog = (obj: RuntimeConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuntimeConfiguration => __isa(o, "RuntimeConfiguration");
 }
 
 /**
@@ -7132,7 +6768,6 @@ export namespace RuntimeConfiguration {
  *             and <a>UpdateScript</a> requests. </p>
  */
 export interface S3Location {
-  __type?: "S3Location";
   /**
    * <p>An S3 bucket identifier. This is the name of the S3 bucket.</p>
    */
@@ -7162,7 +6797,6 @@ export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
 
 export enum ScalingAdjustmentType {
@@ -7225,7 +6859,6 @@ export enum ScalingAdjustmentType {
  *          </ul>
  */
 export interface ScalingPolicy {
-  __type?: "ScalingPolicy";
   /**
    * <p>Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For
    *             detailed descriptions of fleet metrics, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html">Monitor Amazon GameLift
@@ -7419,7 +7052,6 @@ export namespace ScalingPolicy {
   export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScalingPolicy => __isa(o, "ScalingPolicy");
 }
 
 export enum ScalingStatusType {
@@ -7466,7 +7098,6 @@ export enum ScalingStatusType {
  *          </ul>
  */
 export interface Script {
-  __type?: "Script";
   /**
    * <p>The location in S3 where build or script files are stored for access by Amazon GameLift. This
    *             location is specified in <a>CreateBuild</a>, <a>CreateScript</a>,
@@ -7511,14 +7142,12 @@ export namespace Script {
   export const filterSensitiveLog = (obj: Script): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Script => __isa(o, "Script");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface SearchGameSessionsInput {
-  __type?: "SearchGameSessionsInput";
   /**
    * <p>String containing the search criteria for the session search. If no filter
    *             expression is included, the request returns results for all game sessions in the fleet
@@ -7638,14 +7267,12 @@ export namespace SearchGameSessionsInput {
   export const filterSensitiveLog = (obj: SearchGameSessionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchGameSessionsInput => __isa(o, "SearchGameSessionsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface SearchGameSessionsOutput {
-  __type?: "SearchGameSessionsOutput";
   /**
    * <p>Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.</p>
    */
@@ -7662,7 +7289,6 @@ export namespace SearchGameSessionsOutput {
   export const filterSensitiveLog = (obj: SearchGameSessionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchGameSessionsOutput => __isa(o, "SearchGameSessionsOutput");
 }
 
 /**
@@ -7676,7 +7302,6 @@ export namespace SearchGameSessionsOutput {
  *             </code>.</p>
  */
 export interface ServerProcess {
-  __type?: "ServerProcess";
   /**
    * <p>The number of server processes that use this configuration to run concurrently on an
    *             instance.</p>
@@ -7711,7 +7336,6 @@ export namespace ServerProcess {
   export const filterSensitiveLog = (obj: ServerProcess): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServerProcess => __isa(o, "ServerProcess");
 }
 
 export enum SortOrder {
@@ -7720,7 +7344,6 @@ export enum SortOrder {
 }
 
 export interface StartFleetActionsInput {
-  __type?: "StartFleetActionsInput";
   /**
    * <p>List of actions to restart on the fleet.</p>
    */
@@ -7736,25 +7359,20 @@ export namespace StartFleetActionsInput {
   export const filterSensitiveLog = (obj: StartFleetActionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartFleetActionsInput => __isa(o, "StartFleetActionsInput");
 }
 
-export interface StartFleetActionsOutput {
-  __type?: "StartFleetActionsOutput";
-}
+export interface StartFleetActionsOutput {}
 
 export namespace StartFleetActionsOutput {
   export const filterSensitiveLog = (obj: StartFleetActionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartFleetActionsOutput => __isa(o, "StartFleetActionsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface StartGameSessionPlacementInput {
-  __type?: "StartGameSessionPlacementInput";
   /**
    * <p>Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
    *     <a>GameSession</a> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
@@ -7806,14 +7424,12 @@ export namespace StartGameSessionPlacementInput {
   export const filterSensitiveLog = (obj: StartGameSessionPlacementInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartGameSessionPlacementInput => __isa(o, "StartGameSessionPlacementInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface StartGameSessionPlacementOutput {
-  __type?: "StartGameSessionPlacementOutput";
   /**
    * <p>Object that describes the newly created game session placement. This object
    *         includes all the information provided in the request, as well as start/end time stamps
@@ -7826,14 +7442,12 @@ export namespace StartGameSessionPlacementOutput {
   export const filterSensitiveLog = (obj: StartGameSessionPlacementOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartGameSessionPlacementOutput => __isa(o, "StartGameSessionPlacementOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface StartMatchBackfillInput {
-  __type?: "StartMatchBackfillInput";
   /**
    * <p>Match information on all players that are currently assigned to the game session.
    *             This information is used by the matchmaker to find new players and add them to the
@@ -7880,14 +7494,12 @@ export namespace StartMatchBackfillInput {
   export const filterSensitiveLog = (obj: StartMatchBackfillInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMatchBackfillInput => __isa(o, "StartMatchBackfillInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface StartMatchBackfillOutput {
-  __type?: "StartMatchBackfillOutput";
   /**
    * <p>Ticket representing the backfill matchmaking request. This object includes the
    *             information in the request, ticket status, and match results as generated during the
@@ -7900,14 +7512,12 @@ export namespace StartMatchBackfillOutput {
   export const filterSensitiveLog = (obj: StartMatchBackfillOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMatchBackfillOutput => __isa(o, "StartMatchBackfillOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface StartMatchmakingInput {
-  __type?: "StartMatchmakingInput";
   /**
    * <p>Name of the matchmaking configuration to use for this request. Matchmaking
    *             configurations must exist in the same Region as this request. You can use either the
@@ -7935,14 +7545,12 @@ export namespace StartMatchmakingInput {
   export const filterSensitiveLog = (obj: StartMatchmakingInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMatchmakingInput => __isa(o, "StartMatchmakingInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface StartMatchmakingOutput {
-  __type?: "StartMatchmakingOutput";
   /**
    * <p>Ticket representing the matchmaking request. This object include the information
    *             included in the request, ticket status, and match results as generated during the
@@ -7955,11 +7563,9 @@ export namespace StartMatchmakingOutput {
   export const filterSensitiveLog = (obj: StartMatchmakingOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMatchmakingOutput => __isa(o, "StartMatchmakingOutput");
 }
 
 export interface StopFleetActionsInput {
-  __type?: "StopFleetActionsInput";
   /**
    * <p>List of actions to suspend on the fleet. </p>
    */
@@ -7975,25 +7581,20 @@ export namespace StopFleetActionsInput {
   export const filterSensitiveLog = (obj: StopFleetActionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopFleetActionsInput => __isa(o, "StopFleetActionsInput");
 }
 
-export interface StopFleetActionsOutput {
-  __type?: "StopFleetActionsOutput";
-}
+export interface StopFleetActionsOutput {}
 
 export namespace StopFleetActionsOutput {
   export const filterSensitiveLog = (obj: StopFleetActionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopFleetActionsOutput => __isa(o, "StopFleetActionsOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface StopGameSessionPlacementInput {
-  __type?: "StopGameSessionPlacementInput";
   /**
    * <p>A unique identifier for a game session placement to cancel.</p>
    */
@@ -8004,14 +7605,12 @@ export namespace StopGameSessionPlacementInput {
   export const filterSensitiveLog = (obj: StopGameSessionPlacementInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopGameSessionPlacementInput => __isa(o, "StopGameSessionPlacementInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface StopGameSessionPlacementOutput {
-  __type?: "StopGameSessionPlacementOutput";
   /**
    * <p>Object that describes the canceled game session placement, with
    *         <code>CANCELLED</code> status and an end time stamp. </p>
@@ -8023,14 +7622,12 @@ export namespace StopGameSessionPlacementOutput {
   export const filterSensitiveLog = (obj: StopGameSessionPlacementOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopGameSessionPlacementOutput => __isa(o, "StopGameSessionPlacementOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface StopMatchmakingInput {
-  __type?: "StopMatchmakingInput";
   /**
    * <p>A unique identifier for a matchmaking ticket.</p>
    */
@@ -8041,22 +7638,17 @@ export namespace StopMatchmakingInput {
   export const filterSensitiveLog = (obj: StopMatchmakingInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopMatchmakingInput => __isa(o, "StopMatchmakingInput");
 }
 
-export interface StopMatchmakingOutput {
-  __type?: "StopMatchmakingOutput";
-}
+export interface StopMatchmakingOutput {}
 
 export namespace StopMatchmakingOutput {
   export const filterSensitiveLog = (obj: StopMatchmakingOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopMatchmakingOutput => __isa(o, "StopMatchmakingOutput");
 }
 
 export interface SuspendGameServerGroupInput {
-  __type?: "SuspendGameServerGroupInput";
   /**
    * <p>The action to suspend for this game server group.</p>
    */
@@ -8073,11 +7665,9 @@ export namespace SuspendGameServerGroupInput {
   export const filterSensitiveLog = (obj: SuspendGameServerGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuspendGameServerGroupInput => __isa(o, "SuspendGameServerGroupInput");
 }
 
 export interface SuspendGameServerGroupOutput {
-  __type?: "SuspendGameServerGroupOutput";
   /**
    * <p>An object that describes the game server group resource, with the
    *                 <i>SuspendedActions</i> property updated to reflect the suspended
@@ -8090,7 +7680,6 @@ export namespace SuspendGameServerGroupOutput {
   export const filterSensitiveLog = (obj: SuspendGameServerGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SuspendGameServerGroupOutput => __isa(o, "SuspendGameServerGroupOutput");
 }
 
 /**
@@ -8130,7 +7719,6 @@ export namespace SuspendGameServerGroupOutput {
  *          </ul>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>
    *             The key for a developer-defined key:value pair for tagging an AWS resource.
@@ -8150,7 +7738,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -8169,11 +7756,9 @@ export namespace TaggingFailedException {
   export const filterSensitiveLog = (obj: TaggingFailedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaggingFailedException => __isa(o, "TaggingFailedException");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>A list of one or more tags to assign to the specified GameLift resource.
    *             Tags are developer-defined and structured as key-value pairs.
@@ -8197,18 +7782,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -8268,7 +7849,6 @@ export namespace TagResourceResponse {
  *          </ul>
  */
 export interface TargetConfiguration {
-  __type?: "TargetConfiguration";
   /**
    * <p>Desired value to use with a target-based scaling policy. The value must be relevant
    *         for whatever metric the scaling policy is using. For example, in a policy using the
@@ -8283,7 +7863,6 @@ export namespace TargetConfiguration {
   export const filterSensitiveLog = (obj: TargetConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetConfiguration => __isa(o, "TargetConfiguration");
 }
 
 /**
@@ -8297,7 +7876,6 @@ export namespace TargetConfiguration {
  *             metric returns to the target value. </p>
  */
 export interface TargetTrackingConfiguration {
-  __type?: "TargetTrackingConfiguration";
   /**
    * <p>Desired value to use with a game server group target-based scaling policy.  </p>
    */
@@ -8308,7 +7886,6 @@ export namespace TargetTrackingConfiguration {
   export const filterSensitiveLog = (obj: TargetTrackingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetTrackingConfiguration => __isa(o, "TargetTrackingConfiguration");
 }
 
 /**
@@ -8328,7 +7905,6 @@ export namespace TerminalRoutingStrategyException {
   export const filterSensitiveLog = (obj: TerminalRoutingStrategyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminalRoutingStrategyException => __isa(o, "TerminalRoutingStrategyException");
 }
 
 /**
@@ -8344,7 +7920,6 @@ export namespace UnauthorizedException {
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 /**
@@ -8360,11 +7935,9 @@ export namespace UnsupportedRegionException {
   export const filterSensitiveLog = (obj: UnsupportedRegionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedRegionException => __isa(o, "UnsupportedRegionException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to and
    *             uniquely identifies the GameLift resource that you want to remove tags from. GameLift
@@ -8385,25 +7958,20 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface UpdateAliasInput {
-  __type?: "UpdateAliasInput";
   /**
    * <p>The routing configuration, including routing type and fleet target, for the
    *             alias.</p>
@@ -8431,14 +7999,12 @@ export namespace UpdateAliasInput {
   export const filterSensitiveLog = (obj: UpdateAliasInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAliasInput => __isa(o, "UpdateAliasInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface UpdateAliasOutput {
-  __type?: "UpdateAliasOutput";
   /**
    * <p>The updated alias resource.</p>
    */
@@ -8449,14 +8015,12 @@ export namespace UpdateAliasOutput {
   export const filterSensitiveLog = (obj: UpdateAliasOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAliasOutput => __isa(o, "UpdateAliasOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface UpdateBuildInput {
-  __type?: "UpdateBuildInput";
   /**
    * <p>A unique identifier for a build to update. You can use either the build ID or ARN value.  </p>
    */
@@ -8477,14 +8041,12 @@ export namespace UpdateBuildInput {
   export const filterSensitiveLog = (obj: UpdateBuildInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBuildInput => __isa(o, "UpdateBuildInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface UpdateBuildOutput {
-  __type?: "UpdateBuildOutput";
   /**
    * <p>The updated build resource.</p>
    */
@@ -8495,14 +8057,12 @@ export namespace UpdateBuildOutput {
   export const filterSensitiveLog = (obj: UpdateBuildOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateBuildOutput => __isa(o, "UpdateBuildOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface UpdateFleetAttributesInput {
-  __type?: "UpdateFleetAttributesInput";
   /**
    * <p>Names of metric groups to include this fleet in. Amazon CloudWatch uses a fleet
    *             metric group is to aggregate metrics from multiple fleets. Use an existing metric group
@@ -8558,14 +8118,12 @@ export namespace UpdateFleetAttributesInput {
   export const filterSensitiveLog = (obj: UpdateFleetAttributesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFleetAttributesInput => __isa(o, "UpdateFleetAttributesInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface UpdateFleetAttributesOutput {
-  __type?: "UpdateFleetAttributesOutput";
   /**
    * <p>A unique identifier for a fleet that was updated. Use either the fleet ID or ARN value.</p>
    */
@@ -8576,14 +8134,12 @@ export namespace UpdateFleetAttributesOutput {
   export const filterSensitiveLog = (obj: UpdateFleetAttributesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFleetAttributesOutput => __isa(o, "UpdateFleetAttributesOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface UpdateFleetCapacityInput {
-  __type?: "UpdateFleetCapacityInput";
   /**
    * <p>The maximum value allowed for the fleet's instance count. Default if not set is
    *             1.</p>
@@ -8611,14 +8167,12 @@ export namespace UpdateFleetCapacityInput {
   export const filterSensitiveLog = (obj: UpdateFleetCapacityInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFleetCapacityInput => __isa(o, "UpdateFleetCapacityInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface UpdateFleetCapacityOutput {
-  __type?: "UpdateFleetCapacityOutput";
   /**
    * <p>A unique identifier for a fleet that was updated.</p>
    */
@@ -8629,14 +8183,12 @@ export namespace UpdateFleetCapacityOutput {
   export const filterSensitiveLog = (obj: UpdateFleetCapacityOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFleetCapacityOutput => __isa(o, "UpdateFleetCapacityOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface UpdateFleetPortSettingsInput {
-  __type?: "UpdateFleetPortSettingsInput";
   /**
    * <p>A collection of port settings to be added to the fleet resource.</p>
    */
@@ -8658,14 +8210,12 @@ export namespace UpdateFleetPortSettingsInput {
   export const filterSensitiveLog = (obj: UpdateFleetPortSettingsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFleetPortSettingsInput => __isa(o, "UpdateFleetPortSettingsInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface UpdateFleetPortSettingsOutput {
-  __type?: "UpdateFleetPortSettingsOutput";
   /**
    * <p>A unique identifier for a fleet that was updated.</p>
    */
@@ -8676,11 +8226,9 @@ export namespace UpdateFleetPortSettingsOutput {
   export const filterSensitiveLog = (obj: UpdateFleetPortSettingsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFleetPortSettingsOutput => __isa(o, "UpdateFleetPortSettingsOutput");
 }
 
 export interface UpdateGameServerGroupInput {
-  __type?: "UpdateGameServerGroupInput";
   /**
    * <p>The fallback balancing method to use for the game server group when Spot instances in
    *             a Region become unavailable or are not viable for game hosting. Once triggered, this
@@ -8739,11 +8287,9 @@ export namespace UpdateGameServerGroupInput {
   export const filterSensitiveLog = (obj: UpdateGameServerGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGameServerGroupInput => __isa(o, "UpdateGameServerGroupInput");
 }
 
 export interface UpdateGameServerGroupOutput {
-  __type?: "UpdateGameServerGroupOutput";
   /**
    * <p>An object that describes the game server group resource with updated properties. </p>
    */
@@ -8754,11 +8300,9 @@ export namespace UpdateGameServerGroupOutput {
   export const filterSensitiveLog = (obj: UpdateGameServerGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGameServerGroupOutput => __isa(o, "UpdateGameServerGroupOutput");
 }
 
 export interface UpdateGameServerInput {
-  __type?: "UpdateGameServerInput";
   /**
    * <p>Indicates whether the game server is available or is currently hosting
    *             gameplay.</p>
@@ -8801,11 +8345,9 @@ export namespace UpdateGameServerInput {
   export const filterSensitiveLog = (obj: UpdateGameServerInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGameServerInput => __isa(o, "UpdateGameServerInput");
 }
 
 export interface UpdateGameServerOutput {
-  __type?: "UpdateGameServerOutput";
   /**
    * <p>Object that describes the newly updated game server resource.</p>
    */
@@ -8816,14 +8358,12 @@ export namespace UpdateGameServerOutput {
   export const filterSensitiveLog = (obj: UpdateGameServerOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGameServerOutput => __isa(o, "UpdateGameServerOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface UpdateGameSessionInput {
-  __type?: "UpdateGameSessionInput";
   /**
    * <p>Game session protection policy to apply to this game session only.</p>
    *         <ul>
@@ -8867,14 +8407,12 @@ export namespace UpdateGameSessionInput {
   export const filterSensitiveLog = (obj: UpdateGameSessionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGameSessionInput => __isa(o, "UpdateGameSessionInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface UpdateGameSessionOutput {
-  __type?: "UpdateGameSessionOutput";
   /**
    * <p>The updated game session metadata.</p>
    */
@@ -8885,14 +8423,12 @@ export namespace UpdateGameSessionOutput {
   export const filterSensitiveLog = (obj: UpdateGameSessionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGameSessionOutput => __isa(o, "UpdateGameSessionOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface UpdateGameSessionQueueInput {
-  __type?: "UpdateGameSessionQueueInput";
   /**
    * <p>A collection of latency policies to apply when processing game sessions placement requests with
    *             player latency information. Multiple policies are evaluated in order of the maximum latency value,
@@ -8925,14 +8461,12 @@ export namespace UpdateGameSessionQueueInput {
   export const filterSensitiveLog = (obj: UpdateGameSessionQueueInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGameSessionQueueInput => __isa(o, "UpdateGameSessionQueueInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface UpdateGameSessionQueueOutput {
-  __type?: "UpdateGameSessionQueueOutput";
   /**
    * <p>An object that describes the newly updated game session queue.</p>
    */
@@ -8943,14 +8477,12 @@ export namespace UpdateGameSessionQueueOutput {
   export const filterSensitiveLog = (obj: UpdateGameSessionQueueOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGameSessionQueueOutput => __isa(o, "UpdateGameSessionQueueOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface UpdateMatchmakingConfigurationInput {
-  __type?: "UpdateMatchmakingConfigurationInput";
   /**
    * <p>A unique identifier for a matchmaking rule set to use with this configuration. You can use either the rule set name or ARN
    *             value. A matchmaking configuration can only use rule sets that are defined in the same
@@ -9040,15 +8572,12 @@ export namespace UpdateMatchmakingConfigurationInput {
   export const filterSensitiveLog = (obj: UpdateMatchmakingConfigurationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMatchmakingConfigurationInput =>
-    __isa(o, "UpdateMatchmakingConfigurationInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface UpdateMatchmakingConfigurationOutput {
-  __type?: "UpdateMatchmakingConfigurationOutput";
   /**
    * <p>The updated matchmaking configuration.</p>
    */
@@ -9059,15 +8588,12 @@ export namespace UpdateMatchmakingConfigurationOutput {
   export const filterSensitiveLog = (obj: UpdateMatchmakingConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMatchmakingConfigurationOutput =>
-    __isa(o, "UpdateMatchmakingConfigurationOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface UpdateRuntimeConfigurationInput {
-  __type?: "UpdateRuntimeConfigurationInput";
   /**
    * <p>Instructions for launching server processes on each instance in the fleet. Server
    *             processes run either a custom game build executable or a Realtime Servers script. The runtime
@@ -9090,14 +8616,12 @@ export namespace UpdateRuntimeConfigurationInput {
   export const filterSensitiveLog = (obj: UpdateRuntimeConfigurationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRuntimeConfigurationInput => __isa(o, "UpdateRuntimeConfigurationInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface UpdateRuntimeConfigurationOutput {
-  __type?: "UpdateRuntimeConfigurationOutput";
   /**
    * <p>The runtime configuration currently in force. If the update was successful, this
    *             object matches the one in the request.</p>
@@ -9109,11 +8633,9 @@ export namespace UpdateRuntimeConfigurationOutput {
   export const filterSensitiveLog = (obj: UpdateRuntimeConfigurationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRuntimeConfigurationOutput => __isa(o, "UpdateRuntimeConfigurationOutput");
 }
 
 export interface UpdateScriptInput {
-  __type?: "UpdateScriptInput";
   /**
    * <p>The version that is associated with a build or script. Version strings do not need to be unique.</p>
    */
@@ -9155,11 +8677,9 @@ export namespace UpdateScriptInput {
   export const filterSensitiveLog = (obj: UpdateScriptInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateScriptInput => __isa(o, "UpdateScriptInput");
 }
 
 export interface UpdateScriptOutput {
-  __type?: "UpdateScriptOutput";
   /**
    * <p>The newly created script record with a unique script ID. The new script's storage
    *             location reflects an Amazon S3 location: (1) If the script was uploaded from an S3 bucket
@@ -9175,14 +8695,12 @@ export namespace UpdateScriptOutput {
   export const filterSensitiveLog = (obj: UpdateScriptOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateScriptOutput => __isa(o, "UpdateScriptOutput");
 }
 
 /**
  * <p>Represents the input for a request action.</p>
  */
 export interface ValidateMatchmakingRuleSetInput {
-  __type?: "ValidateMatchmakingRuleSetInput";
   /**
    * <p>A collection of matchmaking rules to validate, formatted as a JSON string.</p>
    */
@@ -9193,14 +8711,12 @@ export namespace ValidateMatchmakingRuleSetInput {
   export const filterSensitiveLog = (obj: ValidateMatchmakingRuleSetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidateMatchmakingRuleSetInput => __isa(o, "ValidateMatchmakingRuleSetInput");
 }
 
 /**
  * <p>Represents the returned data in response to a request action.</p>
  */
 export interface ValidateMatchmakingRuleSetOutput {
-  __type?: "ValidateMatchmakingRuleSetOutput";
   /**
    * <p>A response indicating whether the rule set is valid.</p>
    */
@@ -9211,7 +8727,6 @@ export namespace ValidateMatchmakingRuleSetOutput {
   export const filterSensitiveLog = (obj: ValidateMatchmakingRuleSetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidateMatchmakingRuleSetOutput => __isa(o, "ValidateMatchmakingRuleSetOutput");
 }
 
 /**
@@ -9253,7 +8768,6 @@ export namespace ValidateMatchmakingRuleSetOutput {
  *          </ul>
  */
 export interface VpcPeeringAuthorization {
-  __type?: "VpcPeeringAuthorization";
   /**
    * <p></p>
    */
@@ -9289,7 +8803,6 @@ export namespace VpcPeeringAuthorization {
   export const filterSensitiveLog = (obj: VpcPeeringAuthorization): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcPeeringAuthorization => __isa(o, "VpcPeeringAuthorization");
 }
 
 /**
@@ -9330,7 +8843,6 @@ export namespace VpcPeeringAuthorization {
  *          </ul>
  */
 export interface VpcPeeringConnection {
-  __type?: "VpcPeeringConnection";
   /**
    * <p>The status information about the connection. Status indicates if a
    *             connection is pending, successful, or failed.</p>
@@ -9383,7 +8895,6 @@ export namespace VpcPeeringConnection {
   export const filterSensitiveLog = (obj: VpcPeeringConnection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcPeeringConnection => __isa(o, "VpcPeeringConnection");
 }
 
 /**
@@ -9393,7 +8904,6 @@ export namespace VpcPeeringConnection {
  *             communicated as a fleet <a>Event</a>.</p>
  */
 export interface VpcPeeringConnectionStatus {
-  __type?: "VpcPeeringConnectionStatus";
   /**
    * <p>Code indicating the status of a VPC peering connection.</p>
    */
@@ -9409,5 +8919,4 @@ export namespace VpcPeeringConnectionStatus {
   export const filterSensitiveLog = (obj: VpcPeeringConnectionStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcPeeringConnectionStatus => __isa(o, "VpcPeeringConnectionStatus");
 }

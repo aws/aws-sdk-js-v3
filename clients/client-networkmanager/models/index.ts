@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,11 +14,9 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface AssociateCustomerGatewayRequest {
-  __type?: "AssociateCustomerGatewayRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the customer gateway. For more information, see
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>.</p>
@@ -45,11 +43,9 @@ export namespace AssociateCustomerGatewayRequest {
   export const filterSensitiveLog = (obj: AssociateCustomerGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateCustomerGatewayRequest => __isa(o, "AssociateCustomerGatewayRequest");
 }
 
 export interface AssociateCustomerGatewayResponse {
-  __type?: "AssociateCustomerGatewayResponse";
   /**
    * <p>The customer gateway association.</p>
    */
@@ -60,11 +56,9 @@ export namespace AssociateCustomerGatewayResponse {
   export const filterSensitiveLog = (obj: AssociateCustomerGatewayResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateCustomerGatewayResponse => __isa(o, "AssociateCustomerGatewayResponse");
 }
 
 export interface AssociateLinkRequest {
-  __type?: "AssociateLinkRequest";
   /**
    * <p>The ID of the global network.</p>
    */
@@ -85,11 +79,9 @@ export namespace AssociateLinkRequest {
   export const filterSensitiveLog = (obj: AssociateLinkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateLinkRequest => __isa(o, "AssociateLinkRequest");
 }
 
 export interface AssociateLinkResponse {
-  __type?: "AssociateLinkResponse";
   /**
    * <p>The link association.</p>
    */
@@ -100,14 +92,12 @@ export namespace AssociateLinkResponse {
   export const filterSensitiveLog = (obj: AssociateLinkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateLinkResponse => __isa(o, "AssociateLinkResponse");
 }
 
 /**
  * <p>Describes bandwidth information.</p>
  */
 export interface Bandwidth {
-  __type?: "Bandwidth";
   /**
    * <p>Download speed in Mbps.</p>
    */
@@ -123,7 +113,6 @@ export namespace Bandwidth {
   export const filterSensitiveLog = (obj: Bandwidth): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Bandwidth => __isa(o, "Bandwidth");
 }
 
 /**
@@ -149,11 +138,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateDeviceRequest {
-  __type?: "CreateDeviceRequest";
   /**
    * <p>The serial number of the device.</p>
    *         <p>Length Constraints: Maximum length of 128 characters.</p>
@@ -208,11 +195,9 @@ export namespace CreateDeviceRequest {
   export const filterSensitiveLog = (obj: CreateDeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeviceRequest => __isa(o, "CreateDeviceRequest");
 }
 
 export interface CreateDeviceResponse {
-  __type?: "CreateDeviceResponse";
   /**
    * <p>Information about the device.</p>
    */
@@ -223,11 +208,9 @@ export namespace CreateDeviceResponse {
   export const filterSensitiveLog = (obj: CreateDeviceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeviceResponse => __isa(o, "CreateDeviceResponse");
 }
 
 export interface CreateGlobalNetworkRequest {
-  __type?: "CreateGlobalNetworkRequest";
   /**
    * <p>The tags to apply to the resource during creation.</p>
    */
@@ -244,11 +227,9 @@ export namespace CreateGlobalNetworkRequest {
   export const filterSensitiveLog = (obj: CreateGlobalNetworkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGlobalNetworkRequest => __isa(o, "CreateGlobalNetworkRequest");
 }
 
 export interface CreateGlobalNetworkResponse {
-  __type?: "CreateGlobalNetworkResponse";
   /**
    * <p>Information about the global network object.</p>
    */
@@ -259,11 +240,9 @@ export namespace CreateGlobalNetworkResponse {
   export const filterSensitiveLog = (obj: CreateGlobalNetworkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGlobalNetworkResponse => __isa(o, "CreateGlobalNetworkResponse");
 }
 
 export interface CreateLinkRequest {
-  __type?: "CreateLinkRequest";
   /**
    * <p>The tags to apply to the resource during creation.</p>
    */
@@ -309,11 +288,9 @@ export namespace CreateLinkRequest {
   export const filterSensitiveLog = (obj: CreateLinkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLinkRequest => __isa(o, "CreateLinkRequest");
 }
 
 export interface CreateLinkResponse {
-  __type?: "CreateLinkResponse";
   /**
    * <p>Information about the link.</p>
    */
@@ -324,11 +301,9 @@ export namespace CreateLinkResponse {
   export const filterSensitiveLog = (obj: CreateLinkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLinkResponse => __isa(o, "CreateLinkResponse");
 }
 
 export interface CreateSiteRequest {
-  __type?: "CreateSiteRequest";
   /**
    * <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p>
    *         <ul>
@@ -369,11 +344,9 @@ export namespace CreateSiteRequest {
   export const filterSensitiveLog = (obj: CreateSiteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSiteRequest => __isa(o, "CreateSiteRequest");
 }
 
 export interface CreateSiteResponse {
-  __type?: "CreateSiteResponse";
   /**
    * <p>Information about the site.</p>
    */
@@ -384,14 +357,12 @@ export namespace CreateSiteResponse {
   export const filterSensitiveLog = (obj: CreateSiteResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSiteResponse => __isa(o, "CreateSiteResponse");
 }
 
 /**
  * <p>Describes the association between a customer gateway, a device, and a link.</p>
  */
 export interface CustomerGatewayAssociation {
-  __type?: "CustomerGatewayAssociation";
   /**
    * <p>The association state.</p>
    */
@@ -422,7 +393,6 @@ export namespace CustomerGatewayAssociation {
   export const filterSensitiveLog = (obj: CustomerGatewayAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomerGatewayAssociation => __isa(o, "CustomerGatewayAssociation");
 }
 
 export enum CustomerGatewayAssociationState {
@@ -433,7 +403,6 @@ export enum CustomerGatewayAssociationState {
 }
 
 export interface DeleteDeviceRequest {
-  __type?: "DeleteDeviceRequest";
   /**
    * <p>The ID of the device.</p>
    */
@@ -449,11 +418,9 @@ export namespace DeleteDeviceRequest {
   export const filterSensitiveLog = (obj: DeleteDeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeviceRequest => __isa(o, "DeleteDeviceRequest");
 }
 
 export interface DeleteDeviceResponse {
-  __type?: "DeleteDeviceResponse";
   /**
    * <p>Information about the device.</p>
    */
@@ -464,11 +431,9 @@ export namespace DeleteDeviceResponse {
   export const filterSensitiveLog = (obj: DeleteDeviceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeviceResponse => __isa(o, "DeleteDeviceResponse");
 }
 
 export interface DeleteGlobalNetworkRequest {
-  __type?: "DeleteGlobalNetworkRequest";
   /**
    * <p>The ID of the global network.</p>
    */
@@ -479,11 +444,9 @@ export namespace DeleteGlobalNetworkRequest {
   export const filterSensitiveLog = (obj: DeleteGlobalNetworkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGlobalNetworkRequest => __isa(o, "DeleteGlobalNetworkRequest");
 }
 
 export interface DeleteGlobalNetworkResponse {
-  __type?: "DeleteGlobalNetworkResponse";
   /**
    * <p>Information about the global network.</p>
    */
@@ -494,11 +457,9 @@ export namespace DeleteGlobalNetworkResponse {
   export const filterSensitiveLog = (obj: DeleteGlobalNetworkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGlobalNetworkResponse => __isa(o, "DeleteGlobalNetworkResponse");
 }
 
 export interface DeleteLinkRequest {
-  __type?: "DeleteLinkRequest";
   /**
    * <p>The ID of the global network.</p>
    */
@@ -514,11 +475,9 @@ export namespace DeleteLinkRequest {
   export const filterSensitiveLog = (obj: DeleteLinkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLinkRequest => __isa(o, "DeleteLinkRequest");
 }
 
 export interface DeleteLinkResponse {
-  __type?: "DeleteLinkResponse";
   /**
    * <p>Information about the link.</p>
    */
@@ -529,11 +488,9 @@ export namespace DeleteLinkResponse {
   export const filterSensitiveLog = (obj: DeleteLinkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLinkResponse => __isa(o, "DeleteLinkResponse");
 }
 
 export interface DeleteSiteRequest {
-  __type?: "DeleteSiteRequest";
   /**
    * <p>The ID of the global network.</p>
    */
@@ -549,11 +506,9 @@ export namespace DeleteSiteRequest {
   export const filterSensitiveLog = (obj: DeleteSiteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSiteRequest => __isa(o, "DeleteSiteRequest");
 }
 
 export interface DeleteSiteResponse {
-  __type?: "DeleteSiteResponse";
   /**
    * <p>Information about the site.</p>
    */
@@ -564,11 +519,9 @@ export namespace DeleteSiteResponse {
   export const filterSensitiveLog = (obj: DeleteSiteResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSiteResponse => __isa(o, "DeleteSiteResponse");
 }
 
 export interface DeregisterTransitGatewayRequest {
-  __type?: "DeregisterTransitGatewayRequest";
   /**
    * <p>The ID of the global network.</p>
    */
@@ -584,11 +537,9 @@ export namespace DeregisterTransitGatewayRequest {
   export const filterSensitiveLog = (obj: DeregisterTransitGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterTransitGatewayRequest => __isa(o, "DeregisterTransitGatewayRequest");
 }
 
 export interface DeregisterTransitGatewayResponse {
-  __type?: "DeregisterTransitGatewayResponse";
   /**
    * <p>The transit gateway registration information.</p>
    */
@@ -599,11 +550,9 @@ export namespace DeregisterTransitGatewayResponse {
   export const filterSensitiveLog = (obj: DeregisterTransitGatewayResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterTransitGatewayResponse => __isa(o, "DeregisterTransitGatewayResponse");
 }
 
 export interface DescribeGlobalNetworksRequest {
-  __type?: "DescribeGlobalNetworksRequest";
   /**
    * <p>The maximum number of results to return.</p>
    */
@@ -624,11 +573,9 @@ export namespace DescribeGlobalNetworksRequest {
   export const filterSensitiveLog = (obj: DescribeGlobalNetworksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGlobalNetworksRequest => __isa(o, "DescribeGlobalNetworksRequest");
 }
 
 export interface DescribeGlobalNetworksResponse {
-  __type?: "DescribeGlobalNetworksResponse";
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -644,14 +591,12 @@ export namespace DescribeGlobalNetworksResponse {
   export const filterSensitiveLog = (obj: DescribeGlobalNetworksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeGlobalNetworksResponse => __isa(o, "DescribeGlobalNetworksResponse");
 }
 
 /**
  * <p>Describes a device.</p>
  */
 export interface Device {
-  __type?: "Device";
   /**
    * <p>The date and time that the site was created.</p>
    */
@@ -722,7 +667,6 @@ export namespace Device {
   export const filterSensitiveLog = (obj: Device): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Device => __isa(o, "Device");
 }
 
 export enum DeviceState {
@@ -733,7 +677,6 @@ export enum DeviceState {
 }
 
 export interface DisassociateCustomerGatewayRequest {
-  __type?: "DisassociateCustomerGatewayRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the customer gateway. For more information, see
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>.</p>
@@ -750,12 +693,9 @@ export namespace DisassociateCustomerGatewayRequest {
   export const filterSensitiveLog = (obj: DisassociateCustomerGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateCustomerGatewayRequest =>
-    __isa(o, "DisassociateCustomerGatewayRequest");
 }
 
 export interface DisassociateCustomerGatewayResponse {
-  __type?: "DisassociateCustomerGatewayResponse";
   /**
    * <p>Information about the customer gateway association.</p>
    */
@@ -766,12 +706,9 @@ export namespace DisassociateCustomerGatewayResponse {
   export const filterSensitiveLog = (obj: DisassociateCustomerGatewayResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateCustomerGatewayResponse =>
-    __isa(o, "DisassociateCustomerGatewayResponse");
 }
 
 export interface DisassociateLinkRequest {
-  __type?: "DisassociateLinkRequest";
   /**
    * <p>The ID of the device.</p>
    */
@@ -792,11 +729,9 @@ export namespace DisassociateLinkRequest {
   export const filterSensitiveLog = (obj: DisassociateLinkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateLinkRequest => __isa(o, "DisassociateLinkRequest");
 }
 
 export interface DisassociateLinkResponse {
-  __type?: "DisassociateLinkResponse";
   /**
    * <p>Information about the link association.</p>
    */
@@ -807,11 +742,9 @@ export namespace DisassociateLinkResponse {
   export const filterSensitiveLog = (obj: DisassociateLinkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateLinkResponse => __isa(o, "DisassociateLinkResponse");
 }
 
 export interface GetCustomerGatewayAssociationsRequest {
-  __type?: "GetCustomerGatewayAssociationsRequest";
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -838,12 +771,9 @@ export namespace GetCustomerGatewayAssociationsRequest {
   export const filterSensitiveLog = (obj: GetCustomerGatewayAssociationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCustomerGatewayAssociationsRequest =>
-    __isa(o, "GetCustomerGatewayAssociationsRequest");
 }
 
 export interface GetCustomerGatewayAssociationsResponse {
-  __type?: "GetCustomerGatewayAssociationsResponse";
   /**
    * <p>The customer gateway associations.</p>
    */
@@ -859,12 +789,9 @@ export namespace GetCustomerGatewayAssociationsResponse {
   export const filterSensitiveLog = (obj: GetCustomerGatewayAssociationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCustomerGatewayAssociationsResponse =>
-    __isa(o, "GetCustomerGatewayAssociationsResponse");
 }
 
 export interface GetDevicesRequest {
-  __type?: "GetDevicesRequest";
   /**
    * <p>The ID of the global network.</p>
    */
@@ -895,11 +822,9 @@ export namespace GetDevicesRequest {
   export const filterSensitiveLog = (obj: GetDevicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDevicesRequest => __isa(o, "GetDevicesRequest");
 }
 
 export interface GetDevicesResponse {
-  __type?: "GetDevicesResponse";
   /**
    * <p>The devices.</p>
    */
@@ -915,11 +840,9 @@ export namespace GetDevicesResponse {
   export const filterSensitiveLog = (obj: GetDevicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDevicesResponse => __isa(o, "GetDevicesResponse");
 }
 
 export interface GetLinkAssociationsRequest {
-  __type?: "GetLinkAssociationsRequest";
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -950,11 +873,9 @@ export namespace GetLinkAssociationsRequest {
   export const filterSensitiveLog = (obj: GetLinkAssociationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLinkAssociationsRequest => __isa(o, "GetLinkAssociationsRequest");
 }
 
 export interface GetLinkAssociationsResponse {
-  __type?: "GetLinkAssociationsResponse";
   /**
    * <p>The link associations.</p>
    */
@@ -970,11 +891,9 @@ export namespace GetLinkAssociationsResponse {
   export const filterSensitiveLog = (obj: GetLinkAssociationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLinkAssociationsResponse => __isa(o, "GetLinkAssociationsResponse");
 }
 
 export interface GetLinksRequest {
-  __type?: "GetLinksRequest";
   /**
    * <p>The link provider.</p>
    */
@@ -1015,11 +934,9 @@ export namespace GetLinksRequest {
   export const filterSensitiveLog = (obj: GetLinksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLinksRequest => __isa(o, "GetLinksRequest");
 }
 
 export interface GetLinksResponse {
-  __type?: "GetLinksResponse";
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -1035,11 +952,9 @@ export namespace GetLinksResponse {
   export const filterSensitiveLog = (obj: GetLinksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLinksResponse => __isa(o, "GetLinksResponse");
 }
 
 export interface GetSitesRequest {
-  __type?: "GetSitesRequest";
   /**
    * <p>The maximum number of results to return.</p>
    */
@@ -1065,11 +980,9 @@ export namespace GetSitesRequest {
   export const filterSensitiveLog = (obj: GetSitesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSitesRequest => __isa(o, "GetSitesRequest");
 }
 
 export interface GetSitesResponse {
-  __type?: "GetSitesResponse";
   /**
    * <p>The token for the next page of results.</p>
    */
@@ -1085,11 +998,9 @@ export namespace GetSitesResponse {
   export const filterSensitiveLog = (obj: GetSitesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSitesResponse => __isa(o, "GetSitesResponse");
 }
 
 export interface GetTransitGatewayRegistrationsRequest {
-  __type?: "GetTransitGatewayRegistrationsRequest";
   /**
    * <p>The maximum number of results to return.</p>
    */
@@ -1116,12 +1027,9 @@ export namespace GetTransitGatewayRegistrationsRequest {
   export const filterSensitiveLog = (obj: GetTransitGatewayRegistrationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTransitGatewayRegistrationsRequest =>
-    __isa(o, "GetTransitGatewayRegistrationsRequest");
 }
 
 export interface GetTransitGatewayRegistrationsResponse {
-  __type?: "GetTransitGatewayRegistrationsResponse";
   /**
    * <p>The transit gateway registrations.</p>
    */
@@ -1137,15 +1045,12 @@ export namespace GetTransitGatewayRegistrationsResponse {
   export const filterSensitiveLog = (obj: GetTransitGatewayRegistrationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTransitGatewayRegistrationsResponse =>
-    __isa(o, "GetTransitGatewayRegistrationsResponse");
 }
 
 /**
  * <p>Describes a global network.</p>
  */
 export interface GlobalNetwork {
-  __type?: "GlobalNetwork";
   /**
    * <p>The tags for the global network.</p>
    */
@@ -1181,7 +1086,6 @@ export namespace GlobalNetwork {
   export const filterSensitiveLog = (obj: GlobalNetwork): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlobalNetwork => __isa(o, "GlobalNetwork");
 }
 
 export enum GlobalNetworkState {
@@ -1209,14 +1113,12 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * <p>Describes a link.</p>
  */
 export interface Link {
-  __type?: "Link";
   /**
    * <p>The date and time that the link was created.</p>
    */
@@ -1277,14 +1179,12 @@ export namespace Link {
   export const filterSensitiveLog = (obj: Link): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Link => __isa(o, "Link");
 }
 
 /**
  * <p>Describes the association between a device and a link.</p>
  */
 export interface LinkAssociation {
-  __type?: "LinkAssociation";
   /**
    * <p>The ID of the global network.</p>
    */
@@ -1310,7 +1210,6 @@ export namespace LinkAssociation {
   export const filterSensitiveLog = (obj: LinkAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LinkAssociation => __isa(o, "LinkAssociation");
 }
 
 export enum LinkAssociationState {
@@ -1328,7 +1227,6 @@ export enum LinkState {
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -1339,11 +1237,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The list of tags.</p>
    */
@@ -1354,14 +1250,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>Describes a location.</p>
  */
 export interface Location {
-  __type?: "Location";
   /**
    * <p>The physical address.</p>
    */
@@ -1382,11 +1276,9 @@ export namespace Location {
   export const filterSensitiveLog = (obj: Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Location => __isa(o, "Location");
 }
 
 export interface RegisterTransitGatewayRequest {
-  __type?: "RegisterTransitGatewayRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the transit gateway. For more information, see
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>.</p>
@@ -1403,11 +1295,9 @@ export namespace RegisterTransitGatewayRequest {
   export const filterSensitiveLog = (obj: RegisterTransitGatewayRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterTransitGatewayRequest => __isa(o, "RegisterTransitGatewayRequest");
 }
 
 export interface RegisterTransitGatewayResponse {
-  __type?: "RegisterTransitGatewayResponse";
   /**
    * <p>Information about the transit gateway registration.</p>
    */
@@ -1418,7 +1308,6 @@ export namespace RegisterTransitGatewayResponse {
   export const filterSensitiveLog = (obj: RegisterTransitGatewayResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterTransitGatewayResponse => __isa(o, "RegisterTransitGatewayResponse");
 }
 
 /**
@@ -1444,7 +1333,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1483,14 +1371,12 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
  * <p>Describes a site.</p>
  */
 export interface Site {
-  __type?: "Site";
   /**
    * <p>The state of the site.</p>
    */
@@ -1536,7 +1422,6 @@ export namespace Site {
   export const filterSensitiveLog = (obj: Site): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Site => __isa(o, "Site");
 }
 
 export enum SiteState {
@@ -1550,7 +1435,6 @@ export enum SiteState {
  * <p>Describes a tag.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The tag key.</p>
    *         <p>Length Constraints: Maximum length of 128 characters.</p>
@@ -1568,11 +1452,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>The tags to apply to the specified resource.</p>
    */
@@ -1588,18 +1470,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -1620,14 +1498,12 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>Describes the registration of a transit gateway to a global network.</p>
  */
 export interface TransitGatewayRegistration {
-  __type?: "TransitGatewayRegistration";
   /**
    * <p>The state of the transit gateway registration.</p>
    */
@@ -1648,7 +1524,6 @@ export namespace TransitGatewayRegistration {
   export const filterSensitiveLog = (obj: TransitGatewayRegistration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayRegistration => __isa(o, "TransitGatewayRegistration");
 }
 
 export enum TransitGatewayRegistrationState {
@@ -1663,7 +1538,6 @@ export enum TransitGatewayRegistrationState {
  * <p>Describes the status of a transit gateway registration.</p>
  */
 export interface TransitGatewayRegistrationStateReason {
-  __type?: "TransitGatewayRegistrationStateReason";
   /**
    * <p>The message for the state reason.</p>
    */
@@ -1679,12 +1553,9 @@ export namespace TransitGatewayRegistrationStateReason {
   export const filterSensitiveLog = (obj: TransitGatewayRegistrationStateReason): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransitGatewayRegistrationStateReason =>
-    __isa(o, "TransitGatewayRegistrationStateReason");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The tag keys to remove from the specified resource.</p>
    */
@@ -1700,22 +1571,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateDeviceRequest {
-  __type?: "UpdateDeviceRequest";
   /**
    * <p>The serial number of the device.</p>
    *         <p>Length Constraints: Maximum length of 128 characters.</p>
@@ -1770,11 +1636,9 @@ export namespace UpdateDeviceRequest {
   export const filterSensitiveLog = (obj: UpdateDeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeviceRequest => __isa(o, "UpdateDeviceRequest");
 }
 
 export interface UpdateDeviceResponse {
-  __type?: "UpdateDeviceResponse";
   /**
    * <p>Information about the device.</p>
    */
@@ -1785,11 +1649,9 @@ export namespace UpdateDeviceResponse {
   export const filterSensitiveLog = (obj: UpdateDeviceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeviceResponse => __isa(o, "UpdateDeviceResponse");
 }
 
 export interface UpdateGlobalNetworkRequest {
-  __type?: "UpdateGlobalNetworkRequest";
   /**
    * <p>The ID of your global network.</p>
    */
@@ -1806,11 +1668,9 @@ export namespace UpdateGlobalNetworkRequest {
   export const filterSensitiveLog = (obj: UpdateGlobalNetworkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGlobalNetworkRequest => __isa(o, "UpdateGlobalNetworkRequest");
 }
 
 export interface UpdateGlobalNetworkResponse {
-  __type?: "UpdateGlobalNetworkResponse";
   /**
    * <p>Information about the global network object.</p>
    */
@@ -1821,11 +1681,9 @@ export namespace UpdateGlobalNetworkResponse {
   export const filterSensitiveLog = (obj: UpdateGlobalNetworkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGlobalNetworkResponse => __isa(o, "UpdateGlobalNetworkResponse");
 }
 
 export interface UpdateLinkRequest {
-  __type?: "UpdateLinkRequest";
   /**
    * <p>The ID of the link.</p>
    */
@@ -1864,11 +1722,9 @@ export namespace UpdateLinkRequest {
   export const filterSensitiveLog = (obj: UpdateLinkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLinkRequest => __isa(o, "UpdateLinkRequest");
 }
 
 export interface UpdateLinkResponse {
-  __type?: "UpdateLinkResponse";
   /**
    * <p>Information about the link.</p>
    */
@@ -1879,11 +1735,9 @@ export namespace UpdateLinkResponse {
   export const filterSensitiveLog = (obj: UpdateLinkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLinkResponse => __isa(o, "UpdateLinkResponse");
 }
 
 export interface UpdateSiteRequest {
-  __type?: "UpdateSiteRequest";
   /**
    * <p>The ID of the global network.</p>
    */
@@ -1924,11 +1778,9 @@ export namespace UpdateSiteRequest {
   export const filterSensitiveLog = (obj: UpdateSiteRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSiteRequest => __isa(o, "UpdateSiteRequest");
 }
 
 export interface UpdateSiteResponse {
-  __type?: "UpdateSiteResponse";
   /**
    * <p>Information about the site.</p>
    */
@@ -1939,7 +1791,6 @@ export namespace UpdateSiteResponse {
   export const filterSensitiveLog = (obj: UpdateSiteResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateSiteResponse => __isa(o, "UpdateSiteResponse");
 }
 
 /**
@@ -1964,14 +1815,12 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 /**
  * <p>Describes a validation exception for a field.</p>
  */
 export interface ValidationExceptionField {
-  __type?: "ValidationExceptionField";
   /**
    * <p>The message for the field.</p>
    */
@@ -1987,7 +1836,6 @@ export namespace ValidationExceptionField {
   export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationExceptionField => __isa(o, "ValidationExceptionField");
 }
 
 export enum ValidationExceptionReason {

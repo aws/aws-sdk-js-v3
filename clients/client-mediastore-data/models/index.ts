@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -15,11 +15,9 @@ export namespace ContainerNotFoundException {
   export const filterSensitiveLog = (obj: ContainerNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContainerNotFoundException => __isa(o, "ContainerNotFoundException");
 }
 
 export interface DeleteObjectRequest {
-  __type?: "DeleteObjectRequest";
   /**
    * <p>The path (including the file name) where the object is stored in the container.
    *          Format: <folder name>/<folder name>/<file name></p>
@@ -31,22 +29,17 @@ export namespace DeleteObjectRequest {
   export const filterSensitiveLog = (obj: DeleteObjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteObjectRequest => __isa(o, "DeleteObjectRequest");
 }
 
-export interface DeleteObjectResponse {
-  __type?: "DeleteObjectResponse";
-}
+export interface DeleteObjectResponse {}
 
 export namespace DeleteObjectResponse {
   export const filterSensitiveLog = (obj: DeleteObjectResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteObjectResponse => __isa(o, "DeleteObjectResponse");
 }
 
 export interface DescribeObjectRequest {
-  __type?: "DescribeObjectRequest";
   /**
    * <p>The path (including the file name) where the object is stored in the container.
    *          Format: <folder name>/<folder name>/<file name></p>
@@ -58,11 +51,9 @@ export namespace DescribeObjectRequest {
   export const filterSensitiveLog = (obj: DescribeObjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeObjectRequest => __isa(o, "DescribeObjectRequest");
 }
 
 export interface DescribeObjectResponse {
-  __type?: "DescribeObjectResponse";
   /**
    * <p>The date and time that the object was last modified.</p>
    */
@@ -95,11 +86,9 @@ export namespace DescribeObjectResponse {
   export const filterSensitiveLog = (obj: DescribeObjectResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeObjectResponse => __isa(o, "DescribeObjectResponse");
 }
 
 export interface GetObjectRequest {
-  __type?: "GetObjectRequest";
   /**
    * <p>The path (including the file name) where the object is stored in the container.
    *          Format: <folder name>/<folder name>/<file name></p>
@@ -133,11 +122,9 @@ export namespace GetObjectRequest {
   export const filterSensitiveLog = (obj: GetObjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectRequest => __isa(o, "GetObjectRequest");
 }
 
 export interface GetObjectResponse {
-  __type?: "GetObjectResponse";
   /**
    * <p>The content type of the object.</p>
    */
@@ -180,7 +167,6 @@ export namespace GetObjectResponse {
   export const filterSensitiveLog = (obj: GetObjectResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetObjectResponse => __isa(o, "GetObjectResponse");
 }
 
 /**
@@ -196,14 +182,12 @@ export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
  * <p>A metadata entry for a folder or object.</p>
  */
 export interface Item {
-  __type?: "Item";
   /**
    * <p>The name of the item.</p>
    */
@@ -239,7 +223,6 @@ export namespace Item {
   export const filterSensitiveLog = (obj: Item): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Item => __isa(o, "Item");
 }
 
 export enum ItemType {
@@ -248,7 +231,6 @@ export enum ItemType {
 }
 
 export interface ListItemsRequest {
-  __type?: "ListItemsRequest";
   /**
    * <p>The path in the container from which to retrieve items. Format: <folder
    *          name>/<folder name>/<file name></p>
@@ -282,11 +264,9 @@ export namespace ListItemsRequest {
   export const filterSensitiveLog = (obj: ListItemsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListItemsRequest => __isa(o, "ListItemsRequest");
 }
 
 export interface ListItemsResponse {
-  __type?: "ListItemsResponse";
   /**
    * <p>The metadata entries for the folders and objects at the requested path.</p>
    */
@@ -306,7 +286,6 @@ export namespace ListItemsResponse {
   export const filterSensitiveLog = (obj: ListItemsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListItemsResponse => __isa(o, "ListItemsResponse");
 }
 
 /**
@@ -322,11 +301,9 @@ export namespace ObjectNotFoundException {
   export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ObjectNotFoundException => __isa(o, "ObjectNotFoundException");
 }
 
 export interface PutObjectRequest {
-  __type?: "PutObjectRequest";
   /**
    * <p>Indicates the storage class of a <code>Put</code> request. Defaults to
    *          high-performance temporal storage class, and objects are persisted into durable storage
@@ -378,11 +355,9 @@ export namespace PutObjectRequest {
   export const filterSensitiveLog = (obj: PutObjectRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutObjectRequest => __isa(o, "PutObjectRequest");
 }
 
 export interface PutObjectResponse {
-  __type?: "PutObjectResponse";
   /**
    * <p>Unique identifier of the object in the container.</p>
    */
@@ -404,7 +379,6 @@ export namespace PutObjectResponse {
   export const filterSensitiveLog = (obj: PutObjectResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutObjectResponse => __isa(o, "PutObjectResponse");
 }
 
 /**
@@ -420,8 +394,6 @@ export namespace RequestedRangeNotSatisfiableException {
   export const filterSensitiveLog = (obj: RequestedRangeNotSatisfiableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestedRangeNotSatisfiableException =>
-    __isa(o, "RequestedRangeNotSatisfiableException");
 }
 
 export enum StorageClass {

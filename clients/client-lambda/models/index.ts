@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -6,7 +6,6 @@ import { Readable } from "stream";
  * <p>Limits that are related to concurrency and storage. All file and storage sizes are in bytes.</p>
  */
 export interface AccountLimit {
-  __type?: "AccountLimit";
   /**
    * <p>The maximum number of simultaneous function executions.</p>
    */
@@ -39,14 +38,12 @@ export namespace AccountLimit {
   export const filterSensitiveLog = (obj: AccountLimit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountLimit => __isa(o, "AccountLimit");
 }
 
 /**
  * <p>The number of functions and amount of storage in use.</p>
  */
 export interface AccountUsage {
-  __type?: "AccountUsage";
   /**
    * <p>The number of Lambda functions.</p>
    */
@@ -62,11 +59,9 @@ export namespace AccountUsage {
   export const filterSensitiveLog = (obj: AccountUsage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountUsage => __isa(o, "AccountUsage");
 }
 
 export interface AddLayerVersionPermissionRequest {
-  __type?: "AddLayerVersionPermissionRequest";
   /**
    * <p>The API action that grants access to the layer. For example, <code>lambda:GetLayerVersion</code>.</p>
    */
@@ -109,11 +104,9 @@ export namespace AddLayerVersionPermissionRequest {
   export const filterSensitiveLog = (obj: AddLayerVersionPermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddLayerVersionPermissionRequest => __isa(o, "AddLayerVersionPermissionRequest");
 }
 
 export interface AddLayerVersionPermissionResponse {
-  __type?: "AddLayerVersionPermissionResponse";
   /**
    * <p>A unique identifier for the current revision of the policy.</p>
    */
@@ -129,11 +122,9 @@ export namespace AddLayerVersionPermissionResponse {
   export const filterSensitiveLog = (obj: AddLayerVersionPermissionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddLayerVersionPermissionResponse => __isa(o, "AddLayerVersionPermissionResponse");
 }
 
 export interface AddPermissionRequest {
-  __type?: "AddPermissionRequest";
   /**
    * <p>The action that the principal can use on the function. For example, <code>lambda:InvokeFunction</code> or
    *         <code>lambda:GetFunction</code>.</p>
@@ -209,11 +200,9 @@ export namespace AddPermissionRequest {
   export const filterSensitiveLog = (obj: AddPermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddPermissionRequest => __isa(o, "AddPermissionRequest");
 }
 
 export interface AddPermissionResponse {
-  __type?: "AddPermissionResponse";
   /**
    * <p>The permission statement that's added to the function policy.</p>
    */
@@ -224,14 +213,12 @@ export namespace AddPermissionResponse {
   export const filterSensitiveLog = (obj: AddPermissionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddPermissionResponse => __isa(o, "AddPermissionResponse");
 }
 
 /**
  * <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
  */
 export interface AliasConfiguration {
-  __type?: "AliasConfiguration";
   /**
    * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
    *         configuration</a> of the alias.</p>
@@ -268,14 +255,12 @@ export namespace AliasConfiguration {
   export const filterSensitiveLog = (obj: AliasConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AliasConfiguration => __isa(o, "AliasConfiguration");
 }
 
 /**
  * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">traffic-shifting</a> configuration of a Lambda function alias.</p>
  */
 export interface AliasRoutingConfiguration {
-  __type?: "AliasRoutingConfiguration";
   /**
    * <p>The second version, and the percentage of traffic that's routed to it.</p>
    */
@@ -286,7 +271,6 @@ export namespace AliasRoutingConfiguration {
   export const filterSensitiveLog = (obj: AliasRoutingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AliasRoutingConfiguration => __isa(o, "AliasRoutingConfiguration");
 }
 
 /**
@@ -307,11 +291,9 @@ export namespace CodeStorageExceededException {
   export const filterSensitiveLog = (obj: CodeStorageExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeStorageExceededException => __isa(o, "CodeStorageExceededException");
 }
 
 export interface Concurrency {
-  __type?: "Concurrency";
   /**
    * <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing Concurrency</a>.</p>
    */
@@ -322,11 +304,9 @@ export namespace Concurrency {
   export const filterSensitiveLog = (obj: Concurrency): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Concurrency => __isa(o, "Concurrency");
 }
 
 export interface CreateAliasRequest {
-  __type?: "CreateAliasRequest";
   /**
    * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing
    *         configuration</a> of the alias.</p>
@@ -377,11 +357,9 @@ export namespace CreateAliasRequest {
   export const filterSensitiveLog = (obj: CreateAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAliasRequest => __isa(o, "CreateAliasRequest");
 }
 
 export interface CreateEventSourceMappingRequest {
-  __type?: "CreateEventSourceMappingRequest";
   /**
    * <p>Disables the event source mapping to pause polling and invocation.</p>
    */
@@ -500,11 +478,9 @@ export namespace CreateEventSourceMappingRequest {
   export const filterSensitiveLog = (obj: CreateEventSourceMappingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateEventSourceMappingRequest => __isa(o, "CreateEventSourceMappingRequest");
 }
 
 export interface CreateFunctionRequest {
-  __type?: "CreateFunctionRequest";
   /**
    * <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
    *       When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more
@@ -627,7 +603,6 @@ export namespace CreateFunctionRequest {
     ...(obj.Code && { Code: FunctionCode.filterSensitiveLog(obj.Code) }),
     ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
   });
-  export const isa = (o: any): o is CreateFunctionRequest => __isa(o, "CreateFunctionRequest");
 }
 
 /**
@@ -635,7 +610,6 @@ export namespace CreateFunctionRequest {
  *       failed asynchronous invocations.</p>
  */
 export interface DeadLetterConfig {
-  __type?: "DeadLetterConfig";
   /**
    * <p>The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.</p>
    */
@@ -646,11 +620,9 @@ export namespace DeadLetterConfig {
   export const filterSensitiveLog = (obj: DeadLetterConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeadLetterConfig => __isa(o, "DeadLetterConfig");
 }
 
 export interface DeleteAliasRequest {
-  __type?: "DeleteAliasRequest";
   /**
    * <p>The name of the alias.</p>
    */
@@ -685,11 +657,9 @@ export namespace DeleteAliasRequest {
   export const filterSensitiveLog = (obj: DeleteAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAliasRequest => __isa(o, "DeleteAliasRequest");
 }
 
 export interface DeleteEventSourceMappingRequest {
-  __type?: "DeleteEventSourceMappingRequest";
   /**
    * <p>The identifier of the event source mapping.</p>
    */
@@ -700,11 +670,9 @@ export namespace DeleteEventSourceMappingRequest {
   export const filterSensitiveLog = (obj: DeleteEventSourceMappingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteEventSourceMappingRequest => __isa(o, "DeleteEventSourceMappingRequest");
 }
 
 export interface DeleteFunctionConcurrencyRequest {
-  __type?: "DeleteFunctionConcurrencyRequest";
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -734,11 +702,9 @@ export namespace DeleteFunctionConcurrencyRequest {
   export const filterSensitiveLog = (obj: DeleteFunctionConcurrencyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFunctionConcurrencyRequest => __isa(o, "DeleteFunctionConcurrencyRequest");
 }
 
 export interface DeleteFunctionEventInvokeConfigRequest {
-  __type?: "DeleteFunctionEventInvokeConfigRequest";
   /**
    * <p>A version number or alias name.</p>
    */
@@ -773,12 +739,9 @@ export namespace DeleteFunctionEventInvokeConfigRequest {
   export const filterSensitiveLog = (obj: DeleteFunctionEventInvokeConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFunctionEventInvokeConfigRequest =>
-    __isa(o, "DeleteFunctionEventInvokeConfigRequest");
 }
 
 export interface DeleteFunctionRequest {
-  __type?: "DeleteFunctionRequest";
   /**
    * <p>The name of the Lambda function or version.</p>
    *          <p class="title">
@@ -813,11 +776,9 @@ export namespace DeleteFunctionRequest {
   export const filterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFunctionRequest => __isa(o, "DeleteFunctionRequest");
 }
 
 export interface DeleteLayerVersionRequest {
-  __type?: "DeleteLayerVersionRequest";
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
    */
@@ -833,11 +794,9 @@ export namespace DeleteLayerVersionRequest {
   export const filterSensitiveLog = (obj: DeleteLayerVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLayerVersionRequest => __isa(o, "DeleteLayerVersionRequest");
 }
 
 export interface DeleteProvisionedConcurrencyConfigRequest {
-  __type?: "DeleteProvisionedConcurrencyConfigRequest";
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -872,15 +831,12 @@ export namespace DeleteProvisionedConcurrencyConfigRequest {
   export const filterSensitiveLog = (obj: DeleteProvisionedConcurrencyConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteProvisionedConcurrencyConfigRequest =>
-    __isa(o, "DeleteProvisionedConcurrencyConfigRequest");
 }
 
 /**
  * <p>A configuration object that specifies the destination of an event after Lambda processes it.</p>
  */
 export interface DestinationConfig {
-  __type?: "DestinationConfig";
   /**
    * <p>The destination configuration for successful invocations.</p>
    */
@@ -896,7 +852,6 @@ export namespace DestinationConfig {
   export const filterSensitiveLog = (obj: DestinationConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DestinationConfig => __isa(o, "DestinationConfig");
 }
 
 /**
@@ -913,7 +868,6 @@ export namespace EC2AccessDeniedException {
   export const filterSensitiveLog = (obj: EC2AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EC2AccessDeniedException => __isa(o, "EC2AccessDeniedException");
 }
 
 /**
@@ -931,7 +885,6 @@ export namespace EC2ThrottledException {
   export const filterSensitiveLog = (obj: EC2ThrottledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EC2ThrottledException => __isa(o, "EC2ThrottledException");
 }
 
 /**
@@ -949,7 +902,6 @@ export namespace EC2UnexpectedException {
   export const filterSensitiveLog = (obj: EC2UnexpectedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EC2UnexpectedException => __isa(o, "EC2UnexpectedException");
 }
 
 /**
@@ -966,7 +918,6 @@ export namespace EFSIOException {
   export const filterSensitiveLog = (obj: EFSIOException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EFSIOException => __isa(o, "EFSIOException");
 }
 
 /**
@@ -983,7 +934,6 @@ export namespace EFSMountConnectivityException {
   export const filterSensitiveLog = (obj: EFSMountConnectivityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EFSMountConnectivityException => __isa(o, "EFSMountConnectivityException");
 }
 
 /**
@@ -1000,7 +950,6 @@ export namespace EFSMountFailureException {
   export const filterSensitiveLog = (obj: EFSMountFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EFSMountFailureException => __isa(o, "EFSMountFailureException");
 }
 
 /**
@@ -1018,7 +967,6 @@ export namespace EFSMountTimeoutException {
   export const filterSensitiveLog = (obj: EFSMountTimeoutException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EFSMountTimeoutException => __isa(o, "EFSMountTimeoutException");
 }
 
 /**
@@ -1036,14 +984,12 @@ export namespace ENILimitReachedException {
   export const filterSensitiveLog = (obj: ENILimitReachedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ENILimitReachedException => __isa(o, "ENILimitReachedException");
 }
 
 /**
  * <p>A function's environment variable settings.</p>
  */
 export interface Environment {
-  __type?: "Environment";
   /**
    * <p>Environment variable key-value pairs.</p>
    */
@@ -1055,14 +1001,12 @@ export namespace Environment {
     ...obj,
     ...(obj.Variables && { Variables: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is Environment => __isa(o, "Environment");
 }
 
 /**
  * <p>Error messages for environment variables that couldn't be applied.</p>
  */
 export interface EnvironmentError {
-  __type?: "EnvironmentError";
   /**
    * <p>The error message.</p>
    */
@@ -1079,7 +1023,6 @@ export namespace EnvironmentError {
     ...obj,
     ...(obj.Message && { Message: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is EnvironmentError => __isa(o, "EnvironmentError");
 }
 
 /**
@@ -1087,7 +1030,6 @@ export namespace EnvironmentError {
  *       response contains the environment variables. If it failed, the response contains details about the error.</p>
  */
 export interface EnvironmentResponse {
-  __type?: "EnvironmentResponse";
   /**
    * <p>Environment variable key-value pairs.</p>
    */
@@ -1105,7 +1047,6 @@ export namespace EnvironmentResponse {
     ...(obj.Variables && { Variables: SENSITIVE_STRING }),
     ...(obj.Error && { Error: EnvironmentError.filterSensitiveLog(obj.Error) }),
   });
-  export const isa = (o: any): o is EnvironmentResponse => __isa(o, "EnvironmentResponse");
 }
 
 /**
@@ -1113,7 +1054,6 @@ export namespace EnvironmentResponse {
  *       for details.</p>
  */
 export interface EventSourceMappingConfiguration {
-  __type?: "EventSourceMappingConfiguration";
   /**
    * <p>The state of the event source mapping. It can be one of the following: <code>Creating</code>,
    *         <code>Enabling</code>, <code>Enabled</code>, <code>Disabling</code>, <code>Disabled</code>,
@@ -1192,7 +1132,6 @@ export namespace EventSourceMappingConfiguration {
   export const filterSensitiveLog = (obj: EventSourceMappingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventSourceMappingConfiguration => __isa(o, "EventSourceMappingConfiguration");
 }
 
 export enum EventSourcePosition {
@@ -1205,7 +1144,6 @@ export enum EventSourcePosition {
  * <p>Details about the connection between a Lambda function and an Amazon EFS file system.</p>
  */
 export interface FileSystemConfig {
-  __type?: "FileSystemConfig";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.</p>
    */
@@ -1221,7 +1159,6 @@ export namespace FileSystemConfig {
   export const filterSensitiveLog = (obj: FileSystemConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FileSystemConfig => __isa(o, "FileSystemConfig");
 }
 
 /**
@@ -1229,7 +1166,6 @@ export namespace FileSystemConfig {
  *       package directly.</p>
  */
 export interface FunctionCode {
-  __type?: "FunctionCode";
   /**
    * <p>For versioned objects, the version of the deployment package object to use.</p>
    */
@@ -1257,14 +1193,12 @@ export namespace FunctionCode {
     ...obj,
     ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is FunctionCode => __isa(o, "FunctionCode");
 }
 
 /**
  * <p>Details about a function's deployment package.</p>
  */
 export interface FunctionCodeLocation {
-  __type?: "FunctionCodeLocation";
   /**
    * <p>A presigned URL that you can use to download the deployment package.</p>
    */
@@ -1280,14 +1214,12 @@ export namespace FunctionCodeLocation {
   export const filterSensitiveLog = (obj: FunctionCodeLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FunctionCodeLocation => __isa(o, "FunctionCodeLocation");
 }
 
 /**
  * <p>Details about a function's configuration.</p>
  */
 export interface FunctionConfiguration {
-  __type?: "FunctionConfiguration";
   /**
    * <p>The name of the function.</p>
    */
@@ -1434,11 +1366,9 @@ export namespace FunctionConfiguration {
     ...obj,
     ...(obj.Environment && { Environment: EnvironmentResponse.filterSensitiveLog(obj.Environment) }),
   });
-  export const isa = (o: any): o is FunctionConfiguration => __isa(o, "FunctionConfiguration");
 }
 
 export interface FunctionEventInvokeConfig {
-  __type?: "FunctionEventInvokeConfig";
   /**
    * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
    */
@@ -1490,26 +1420,21 @@ export namespace FunctionEventInvokeConfig {
   export const filterSensitiveLog = (obj: FunctionEventInvokeConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FunctionEventInvokeConfig => __isa(o, "FunctionEventInvokeConfig");
 }
 
 export enum FunctionVersion {
   ALL = "ALL",
 }
 
-export interface GetAccountSettingsRequest {
-  __type?: "GetAccountSettingsRequest";
-}
+export interface GetAccountSettingsRequest {}
 
 export namespace GetAccountSettingsRequest {
   export const filterSensitiveLog = (obj: GetAccountSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountSettingsRequest => __isa(o, "GetAccountSettingsRequest");
 }
 
 export interface GetAccountSettingsResponse {
-  __type?: "GetAccountSettingsResponse";
   /**
    * <p>Limits that are related to concurrency and code storage.</p>
    */
@@ -1525,11 +1450,9 @@ export namespace GetAccountSettingsResponse {
   export const filterSensitiveLog = (obj: GetAccountSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountSettingsResponse => __isa(o, "GetAccountSettingsResponse");
 }
 
 export interface GetAliasRequest {
-  __type?: "GetAliasRequest";
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -1564,11 +1487,9 @@ export namespace GetAliasRequest {
   export const filterSensitiveLog = (obj: GetAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAliasRequest => __isa(o, "GetAliasRequest");
 }
 
 export interface GetEventSourceMappingRequest {
-  __type?: "GetEventSourceMappingRequest";
   /**
    * <p>The identifier of the event source mapping.</p>
    */
@@ -1579,11 +1500,9 @@ export namespace GetEventSourceMappingRequest {
   export const filterSensitiveLog = (obj: GetEventSourceMappingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEventSourceMappingRequest => __isa(o, "GetEventSourceMappingRequest");
 }
 
 export interface GetFunctionConcurrencyRequest {
-  __type?: "GetFunctionConcurrencyRequest";
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -1613,11 +1532,9 @@ export namespace GetFunctionConcurrencyRequest {
   export const filterSensitiveLog = (obj: GetFunctionConcurrencyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFunctionConcurrencyRequest => __isa(o, "GetFunctionConcurrencyRequest");
 }
 
 export interface GetFunctionConcurrencyResponse {
-  __type?: "GetFunctionConcurrencyResponse";
   /**
    * <p>The number of simultaneous executions that are reserved for the function.</p>
    */
@@ -1628,11 +1545,9 @@ export namespace GetFunctionConcurrencyResponse {
   export const filterSensitiveLog = (obj: GetFunctionConcurrencyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFunctionConcurrencyResponse => __isa(o, "GetFunctionConcurrencyResponse");
 }
 
 export interface GetFunctionConfigurationRequest {
-  __type?: "GetFunctionConfigurationRequest";
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
@@ -1667,11 +1582,9 @@ export namespace GetFunctionConfigurationRequest {
   export const filterSensitiveLog = (obj: GetFunctionConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFunctionConfigurationRequest => __isa(o, "GetFunctionConfigurationRequest");
 }
 
 export interface GetFunctionEventInvokeConfigRequest {
-  __type?: "GetFunctionEventInvokeConfigRequest";
   /**
    * <p>A version number or alias name.</p>
    */
@@ -1706,12 +1619,9 @@ export namespace GetFunctionEventInvokeConfigRequest {
   export const filterSensitiveLog = (obj: GetFunctionEventInvokeConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFunctionEventInvokeConfigRequest =>
-    __isa(o, "GetFunctionEventInvokeConfigRequest");
 }
 
 export interface GetFunctionRequest {
-  __type?: "GetFunctionRequest";
   /**
    * <p>Specify a version or alias to get details about a published version of the function.</p>
    */
@@ -1746,11 +1656,9 @@ export namespace GetFunctionRequest {
   export const filterSensitiveLog = (obj: GetFunctionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetFunctionRequest => __isa(o, "GetFunctionRequest");
 }
 
 export interface GetFunctionResponse {
-  __type?: "GetFunctionResponse";
   /**
    * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
    */
@@ -1778,11 +1686,9 @@ export namespace GetFunctionResponse {
     ...obj,
     ...(obj.Configuration && { Configuration: FunctionConfiguration.filterSensitiveLog(obj.Configuration) }),
   });
-  export const isa = (o: any): o is GetFunctionResponse => __isa(o, "GetFunctionResponse");
 }
 
 export interface GetLayerVersionByArnRequest {
-  __type?: "GetLayerVersionByArnRequest";
   /**
    * <p>The ARN of the layer version.</p>
    */
@@ -1793,11 +1699,9 @@ export namespace GetLayerVersionByArnRequest {
   export const filterSensitiveLog = (obj: GetLayerVersionByArnRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLayerVersionByArnRequest => __isa(o, "GetLayerVersionByArnRequest");
 }
 
 export interface GetLayerVersionPolicyRequest {
-  __type?: "GetLayerVersionPolicyRequest";
   /**
    * <p>The version number.</p>
    */
@@ -1813,11 +1717,9 @@ export namespace GetLayerVersionPolicyRequest {
   export const filterSensitiveLog = (obj: GetLayerVersionPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLayerVersionPolicyRequest => __isa(o, "GetLayerVersionPolicyRequest");
 }
 
 export interface GetLayerVersionPolicyResponse {
-  __type?: "GetLayerVersionPolicyResponse";
   /**
    * <p>The policy document.</p>
    */
@@ -1833,11 +1735,9 @@ export namespace GetLayerVersionPolicyResponse {
   export const filterSensitiveLog = (obj: GetLayerVersionPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLayerVersionPolicyResponse => __isa(o, "GetLayerVersionPolicyResponse");
 }
 
 export interface GetLayerVersionRequest {
-  __type?: "GetLayerVersionRequest";
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
    */
@@ -1853,11 +1753,9 @@ export namespace GetLayerVersionRequest {
   export const filterSensitiveLog = (obj: GetLayerVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLayerVersionRequest => __isa(o, "GetLayerVersionRequest");
 }
 
 export interface GetLayerVersionResponse {
-  __type?: "GetLayerVersionResponse";
   /**
    * <p>The layer's software license.</p>
    */
@@ -1903,11 +1801,9 @@ export namespace GetLayerVersionResponse {
   export const filterSensitiveLog = (obj: GetLayerVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLayerVersionResponse => __isa(o, "GetLayerVersionResponse");
 }
 
 export interface GetPolicyRequest {
-  __type?: "GetPolicyRequest";
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
@@ -1942,11 +1838,9 @@ export namespace GetPolicyRequest {
   export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPolicyRequest => __isa(o, "GetPolicyRequest");
 }
 
 export interface GetPolicyResponse {
-  __type?: "GetPolicyResponse";
   /**
    * <p>The resource-based policy.</p>
    */
@@ -1962,11 +1856,9 @@ export namespace GetPolicyResponse {
   export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPolicyResponse => __isa(o, "GetPolicyResponse");
 }
 
 export interface GetProvisionedConcurrencyConfigRequest {
-  __type?: "GetProvisionedConcurrencyConfigRequest";
   /**
    * <p>The version number or alias name.</p>
    */
@@ -2001,12 +1893,9 @@ export namespace GetProvisionedConcurrencyConfigRequest {
   export const filterSensitiveLog = (obj: GetProvisionedConcurrencyConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProvisionedConcurrencyConfigRequest =>
-    __isa(o, "GetProvisionedConcurrencyConfigRequest");
 }
 
 export interface GetProvisionedConcurrencyConfigResponse {
-  __type?: "GetProvisionedConcurrencyConfigResponse";
   /**
    * <p>The amount of provisioned concurrency requested.</p>
    */
@@ -2042,8 +1931,6 @@ export namespace GetProvisionedConcurrencyConfigResponse {
   export const filterSensitiveLog = (obj: GetProvisionedConcurrencyConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetProvisionedConcurrencyConfigResponse =>
-    __isa(o, "GetProvisionedConcurrencyConfigResponse");
 }
 
 /**
@@ -2067,7 +1954,6 @@ export namespace InvalidParameterValueException {
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
@@ -2091,7 +1977,6 @@ export namespace InvalidRequestContentException {
   export const filterSensitiveLog = (obj: InvalidRequestContentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestContentException => __isa(o, "InvalidRequestContentException");
 }
 
 /**
@@ -2108,7 +1993,6 @@ export namespace InvalidRuntimeException {
   export const filterSensitiveLog = (obj: InvalidRuntimeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRuntimeException => __isa(o, "InvalidRuntimeException");
 }
 
 /**
@@ -2125,7 +2009,6 @@ export namespace InvalidSecurityGroupIDException {
   export const filterSensitiveLog = (obj: InvalidSecurityGroupIDException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSecurityGroupIDException => __isa(o, "InvalidSecurityGroupIDException");
 }
 
 /**
@@ -2142,7 +2025,6 @@ export namespace InvalidSubnetIDException {
   export const filterSensitiveLog = (obj: InvalidSubnetIDException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSubnetIDException => __isa(o, "InvalidSubnetIDException");
 }
 
 /**
@@ -2159,11 +2041,9 @@ export namespace InvalidZipFileException {
   export const filterSensitiveLog = (obj: InvalidZipFileException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidZipFileException => __isa(o, "InvalidZipFileException");
 }
 
 export interface InvocationRequest {
-  __type?: "InvocationRequest";
   /**
    * <p>Choose from the following options.</p>
    *          <ul>
@@ -2238,11 +2118,9 @@ export namespace InvocationRequest {
     ...obj,
     ...(obj.Payload && { Payload: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is InvocationRequest => __isa(o, "InvocationRequest");
 }
 
 export interface InvocationResponse {
-  __type?: "InvocationResponse";
   /**
    * <p>The last 4 KB of the execution log, which is base64 encoded.</p>
    */
@@ -2271,7 +2149,6 @@ export namespace InvocationResponse {
     ...obj,
     ...(obj.Payload && { Payload: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is InvocationResponse => __isa(o, "InvocationResponse");
 }
 
 export enum InvocationType {
@@ -2281,7 +2158,6 @@ export enum InvocationType {
 }
 
 export interface InvokeAsyncRequest {
-  __type?: "InvokeAsyncRequest";
   /**
    * <p>The JSON that you want to provide to your Lambda function as input.</p>
    */
@@ -2316,21 +2192,17 @@ export namespace InvokeAsyncRequest {
   export const filterSensitiveLog = (obj: InvokeAsyncRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvokeAsyncRequest => __isa(o, "InvokeAsyncRequest");
 }
 
 /**
  * <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation. </p>
  */
-export interface InvokeAsyncResponse {
-  __type?: "InvokeAsyncResponse";
-}
+export interface InvokeAsyncResponse {}
 
 export namespace InvokeAsyncResponse {
   export const filterSensitiveLog = (obj: InvokeAsyncResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvokeAsyncResponse => __isa(o, "InvokeAsyncResponse");
 }
 
 /**
@@ -2348,7 +2220,6 @@ export namespace KMSAccessDeniedException {
   export const filterSensitiveLog = (obj: KMSAccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSAccessDeniedException => __isa(o, "KMSAccessDeniedException");
 }
 
 /**
@@ -2366,7 +2237,6 @@ export namespace KMSDisabledException {
   export const filterSensitiveLog = (obj: KMSDisabledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSDisabledException => __isa(o, "KMSDisabledException");
 }
 
 /**
@@ -2384,7 +2254,6 @@ export namespace KMSInvalidStateException {
   export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSInvalidStateException => __isa(o, "KMSInvalidStateException");
 }
 
 /**
@@ -2402,7 +2271,6 @@ export namespace KMSNotFoundException {
   export const filterSensitiveLog = (obj: KMSNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSNotFoundException => __isa(o, "KMSNotFoundException");
 }
 
 export enum LastUpdateStatus {
@@ -2426,7 +2294,6 @@ export enum LastUpdateStatusReasonCode {
  *         layer</a>.</p>
  */
 export interface Layer {
-  __type?: "Layer";
   /**
    * <p>The Amazon Resource Name (ARN) of the function layer.</p>
    */
@@ -2442,7 +2309,6 @@ export namespace Layer {
   export const filterSensitiveLog = (obj: Layer): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Layer => __isa(o, "Layer");
 }
 
 /**
@@ -2450,7 +2316,6 @@ export namespace Layer {
  *         layer</a>.</p>
  */
 export interface LayersListItem {
-  __type?: "LayersListItem";
   /**
    * <p>The Amazon Resource Name (ARN) of the function layer.</p>
    */
@@ -2471,7 +2336,6 @@ export namespace LayersListItem {
   export const filterSensitiveLog = (obj: LayersListItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LayersListItem => __isa(o, "LayersListItem");
 }
 
 /**
@@ -2480,7 +2344,6 @@ export namespace LayersListItem {
  *       or upload a layer archive directly.</p>
  */
 export interface LayerVersionContentInput {
-  __type?: "LayerVersionContentInput";
   /**
    * <p>The Amazon S3 bucket of the layer archive.</p>
    */
@@ -2508,7 +2371,6 @@ export namespace LayerVersionContentInput {
     ...obj,
     ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is LayerVersionContentInput => __isa(o, "LayerVersionContentInput");
 }
 
 /**
@@ -2516,7 +2378,6 @@ export namespace LayerVersionContentInput {
  *         layer</a>.</p>
  */
 export interface LayerVersionContentOutput {
-  __type?: "LayerVersionContentOutput";
   /**
    * <p>The SHA-256 hash of the layer archive.</p>
    */
@@ -2537,7 +2398,6 @@ export namespace LayerVersionContentOutput {
   export const filterSensitiveLog = (obj: LayerVersionContentOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LayerVersionContentOutput => __isa(o, "LayerVersionContentOutput");
 }
 
 /**
@@ -2545,7 +2405,6 @@ export namespace LayerVersionContentOutput {
  *         layer</a>.</p>
  */
 export interface LayerVersionsListItem {
-  __type?: "LayerVersionsListItem";
   /**
    * <p>The date that the version was created, in ISO 8601 format. For example, <code>2018-11-27T15:10:45.123+0000</code>.</p>
    */
@@ -2581,11 +2440,9 @@ export namespace LayerVersionsListItem {
   export const filterSensitiveLog = (obj: LayerVersionsListItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LayerVersionsListItem => __isa(o, "LayerVersionsListItem");
 }
 
 export interface ListAliasesRequest {
-  __type?: "ListAliasesRequest";
   /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
    */
@@ -2630,11 +2487,9 @@ export namespace ListAliasesRequest {
   export const filterSensitiveLog = (obj: ListAliasesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAliasesRequest => __isa(o, "ListAliasesRequest");
 }
 
 export interface ListAliasesResponse {
-  __type?: "ListAliasesResponse";
   /**
    * <p>A list of aliases.</p>
    */
@@ -2650,11 +2505,9 @@ export namespace ListAliasesResponse {
   export const filterSensitiveLog = (obj: ListAliasesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAliasesResponse => __isa(o, "ListAliasesResponse");
 }
 
 export interface ListEventSourceMappingsRequest {
-  __type?: "ListEventSourceMappingsRequest";
   /**
    * <p>A pagination token returned by a previous call.</p>
    */
@@ -2717,11 +2570,9 @@ export namespace ListEventSourceMappingsRequest {
   export const filterSensitiveLog = (obj: ListEventSourceMappingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEventSourceMappingsRequest => __isa(o, "ListEventSourceMappingsRequest");
 }
 
 export interface ListEventSourceMappingsResponse {
-  __type?: "ListEventSourceMappingsResponse";
   /**
    * <p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>
    */
@@ -2737,11 +2588,9 @@ export namespace ListEventSourceMappingsResponse {
   export const filterSensitiveLog = (obj: ListEventSourceMappingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListEventSourceMappingsResponse => __isa(o, "ListEventSourceMappingsResponse");
 }
 
 export interface ListFunctionEventInvokeConfigsRequest {
-  __type?: "ListFunctionEventInvokeConfigsRequest";
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -2781,12 +2630,9 @@ export namespace ListFunctionEventInvokeConfigsRequest {
   export const filterSensitiveLog = (obj: ListFunctionEventInvokeConfigsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFunctionEventInvokeConfigsRequest =>
-    __isa(o, "ListFunctionEventInvokeConfigsRequest");
 }
 
 export interface ListFunctionEventInvokeConfigsResponse {
-  __type?: "ListFunctionEventInvokeConfigsResponse";
   /**
    * <p>The pagination token that's included if more results are available.</p>
    */
@@ -2802,12 +2648,9 @@ export namespace ListFunctionEventInvokeConfigsResponse {
   export const filterSensitiveLog = (obj: ListFunctionEventInvokeConfigsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFunctionEventInvokeConfigsResponse =>
-    __isa(o, "ListFunctionEventInvokeConfigsResponse");
 }
 
 export interface ListFunctionsRequest {
-  __type?: "ListFunctionsRequest";
   /**
    * <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
    */
@@ -2835,14 +2678,12 @@ export namespace ListFunctionsRequest {
   export const filterSensitiveLog = (obj: ListFunctionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFunctionsRequest => __isa(o, "ListFunctionsRequest");
 }
 
 /**
  * <p>A list of Lambda functions.</p>
  */
 export interface ListFunctionsResponse {
-  __type?: "ListFunctionsResponse";
   /**
    * <p>A list of Lambda functions.</p>
    */
@@ -2859,11 +2700,9 @@ export namespace ListFunctionsResponse {
     ...obj,
     ...(obj.Functions && { Functions: obj.Functions.map((item) => FunctionConfiguration.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListFunctionsResponse => __isa(o, "ListFunctionsResponse");
 }
 
 export interface ListLayersRequest {
-  __type?: "ListLayersRequest";
   /**
    * <p>The maximum number of layers to return.</p>
    */
@@ -2884,11 +2723,9 @@ export namespace ListLayersRequest {
   export const filterSensitiveLog = (obj: ListLayersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLayersRequest => __isa(o, "ListLayersRequest");
 }
 
 export interface ListLayersResponse {
-  __type?: "ListLayersResponse";
   /**
    * <p>A pagination token returned when the response doesn't contain all layers.</p>
    */
@@ -2904,11 +2741,9 @@ export namespace ListLayersResponse {
   export const filterSensitiveLog = (obj: ListLayersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLayersResponse => __isa(o, "ListLayersResponse");
 }
 
 export interface ListLayerVersionsRequest {
-  __type?: "ListLayerVersionsRequest";
   /**
    * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
    */
@@ -2934,11 +2769,9 @@ export namespace ListLayerVersionsRequest {
   export const filterSensitiveLog = (obj: ListLayerVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLayerVersionsRequest => __isa(o, "ListLayerVersionsRequest");
 }
 
 export interface ListLayerVersionsResponse {
-  __type?: "ListLayerVersionsResponse";
   /**
    * <p>A pagination token returned when the response doesn't contain all versions.</p>
    */
@@ -2954,11 +2787,9 @@ export namespace ListLayerVersionsResponse {
   export const filterSensitiveLog = (obj: ListLayerVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLayerVersionsResponse => __isa(o, "ListLayerVersionsResponse");
 }
 
 export interface ListProvisionedConcurrencyConfigsRequest {
-  __type?: "ListProvisionedConcurrencyConfigsRequest";
   /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
    */
@@ -2998,12 +2829,9 @@ export namespace ListProvisionedConcurrencyConfigsRequest {
   export const filterSensitiveLog = (obj: ListProvisionedConcurrencyConfigsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProvisionedConcurrencyConfigsRequest =>
-    __isa(o, "ListProvisionedConcurrencyConfigsRequest");
 }
 
 export interface ListProvisionedConcurrencyConfigsResponse {
-  __type?: "ListProvisionedConcurrencyConfigsResponse";
   /**
    * <p>A list of provisioned concurrency configurations.</p>
    */
@@ -3019,12 +2847,9 @@ export namespace ListProvisionedConcurrencyConfigsResponse {
   export const filterSensitiveLog = (obj: ListProvisionedConcurrencyConfigsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListProvisionedConcurrencyConfigsResponse =>
-    __isa(o, "ListProvisionedConcurrencyConfigsResponse");
 }
 
 export interface ListTagsRequest {
-  __type?: "ListTagsRequest";
   /**
    * <p>The function's Amazon Resource Name (ARN).</p>
    */
@@ -3035,11 +2860,9 @@ export namespace ListTagsRequest {
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 export interface ListTagsResponse {
-  __type?: "ListTagsResponse";
   /**
    * <p>The function's tags.</p>
    */
@@ -3050,11 +2873,9 @@ export namespace ListTagsResponse {
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 export interface ListVersionsByFunctionRequest {
-  __type?: "ListVersionsByFunctionRequest";
   /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
    */
@@ -3094,11 +2915,9 @@ export namespace ListVersionsByFunctionRequest {
   export const filterSensitiveLog = (obj: ListVersionsByFunctionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVersionsByFunctionRequest => __isa(o, "ListVersionsByFunctionRequest");
 }
 
 export interface ListVersionsByFunctionResponse {
-  __type?: "ListVersionsByFunctionResponse";
   /**
    * <p>A list of Lambda function versions.</p>
    */
@@ -3115,7 +2934,6 @@ export namespace ListVersionsByFunctionResponse {
     ...obj,
     ...(obj.Versions && { Versions: obj.Versions.map((item) => FunctionConfiguration.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ListVersionsByFunctionResponse => __isa(o, "ListVersionsByFunctionResponse");
 }
 
 export enum LogType {
@@ -3127,7 +2945,6 @@ export enum LogType {
  * <p>A destination for events that failed processing.</p>
  */
 export interface OnFailure {
-  __type?: "OnFailure";
   /**
    * <p>The Amazon Resource Name (ARN) of the destination resource.</p>
    */
@@ -3138,14 +2955,12 @@ export namespace OnFailure {
   export const filterSensitiveLog = (obj: OnFailure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OnFailure => __isa(o, "OnFailure");
 }
 
 /**
  * <p>A destination for events that were processed successfully.</p>
  */
 export interface OnSuccess {
-  __type?: "OnSuccess";
   /**
    * <p>The Amazon Resource Name (ARN) of the destination resource.</p>
    */
@@ -3156,7 +2971,6 @@ export namespace OnSuccess {
   export const filterSensitiveLog = (obj: OnSuccess): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OnSuccess => __isa(o, "OnSuccess");
 }
 
 /**
@@ -3174,7 +2988,6 @@ export namespace PolicyLengthExceededException {
   export const filterSensitiveLog = (obj: PolicyLengthExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyLengthExceededException => __isa(o, "PolicyLengthExceededException");
 }
 
 /**
@@ -3200,14 +3013,12 @@ export namespace PreconditionFailedException {
   export const filterSensitiveLog = (obj: PreconditionFailedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PreconditionFailedException => __isa(o, "PreconditionFailedException");
 }
 
 /**
  * <p>Details about the provisioned concurrency configuration for a function alias or version.</p>
  */
 export interface ProvisionedConcurrencyConfigListItem {
-  __type?: "ProvisionedConcurrencyConfigListItem";
   /**
    * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
    */
@@ -3248,8 +3059,6 @@ export namespace ProvisionedConcurrencyConfigListItem {
   export const filterSensitiveLog = (obj: ProvisionedConcurrencyConfigListItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionedConcurrencyConfigListItem =>
-    __isa(o, "ProvisionedConcurrencyConfigListItem");
 }
 
 /**
@@ -3266,8 +3075,6 @@ export namespace ProvisionedConcurrencyConfigNotFoundException {
   export const filterSensitiveLog = (obj: ProvisionedConcurrencyConfigNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProvisionedConcurrencyConfigNotFoundException =>
-    __isa(o, "ProvisionedConcurrencyConfigNotFoundException");
 }
 
 export enum ProvisionedConcurrencyStatusEnum {
@@ -3277,7 +3084,6 @@ export enum ProvisionedConcurrencyStatusEnum {
 }
 
 export interface PublishLayerVersionRequest {
-  __type?: "PublishLayerVersionRequest";
   /**
    * <p>The function layer archive.</p>
    */
@@ -3323,11 +3129,9 @@ export namespace PublishLayerVersionRequest {
     ...obj,
     ...(obj.Content && { Content: LayerVersionContentInput.filterSensitiveLog(obj.Content) }),
   });
-  export const isa = (o: any): o is PublishLayerVersionRequest => __isa(o, "PublishLayerVersionRequest");
 }
 
 export interface PublishLayerVersionResponse {
-  __type?: "PublishLayerVersionResponse";
   /**
    * <p>The description of the version.</p>
    */
@@ -3373,11 +3177,9 @@ export namespace PublishLayerVersionResponse {
   export const filterSensitiveLog = (obj: PublishLayerVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublishLayerVersionResponse => __isa(o, "PublishLayerVersionResponse");
 }
 
 export interface PublishVersionRequest {
-  __type?: "PublishVersionRequest";
   /**
    * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid
    *       publishing a version if the function configuration has changed since you last updated it.</p>
@@ -3425,11 +3227,9 @@ export namespace PublishVersionRequest {
   export const filterSensitiveLog = (obj: PublishVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublishVersionRequest => __isa(o, "PublishVersionRequest");
 }
 
 export interface PutFunctionConcurrencyRequest {
-  __type?: "PutFunctionConcurrencyRequest";
   /**
    * <p>The number of simultaneous executions to reserve for the function.</p>
    */
@@ -3464,11 +3264,9 @@ export namespace PutFunctionConcurrencyRequest {
   export const filterSensitiveLog = (obj: PutFunctionConcurrencyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutFunctionConcurrencyRequest => __isa(o, "PutFunctionConcurrencyRequest");
 }
 
 export interface PutFunctionEventInvokeConfigRequest {
-  __type?: "PutFunctionEventInvokeConfigRequest";
   /**
    * <p>A version number or alias name.</p>
    */
@@ -3539,12 +3337,9 @@ export namespace PutFunctionEventInvokeConfigRequest {
   export const filterSensitiveLog = (obj: PutFunctionEventInvokeConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutFunctionEventInvokeConfigRequest =>
-    __isa(o, "PutFunctionEventInvokeConfigRequest");
 }
 
 export interface PutProvisionedConcurrencyConfigRequest {
-  __type?: "PutProvisionedConcurrencyConfigRequest";
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -3584,12 +3379,9 @@ export namespace PutProvisionedConcurrencyConfigRequest {
   export const filterSensitiveLog = (obj: PutProvisionedConcurrencyConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutProvisionedConcurrencyConfigRequest =>
-    __isa(o, "PutProvisionedConcurrencyConfigRequest");
 }
 
 export interface PutProvisionedConcurrencyConfigResponse {
-  __type?: "PutProvisionedConcurrencyConfigResponse";
   /**
    * <p>The amount of provisioned concurrency available.</p>
    */
@@ -3625,12 +3417,9 @@ export namespace PutProvisionedConcurrencyConfigResponse {
   export const filterSensitiveLog = (obj: PutProvisionedConcurrencyConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutProvisionedConcurrencyConfigResponse =>
-    __isa(o, "PutProvisionedConcurrencyConfigResponse");
 }
 
 export interface RemoveLayerVersionPermissionRequest {
-  __type?: "RemoveLayerVersionPermissionRequest";
   /**
    * <p>The version number.</p>
    */
@@ -3657,12 +3446,9 @@ export namespace RemoveLayerVersionPermissionRequest {
   export const filterSensitiveLog = (obj: RemoveLayerVersionPermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveLayerVersionPermissionRequest =>
-    __isa(o, "RemoveLayerVersionPermissionRequest");
 }
 
 export interface RemovePermissionRequest {
-  __type?: "RemovePermissionRequest";
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
@@ -3708,7 +3494,6 @@ export namespace RemovePermissionRequest {
   export const filterSensitiveLog = (obj: RemovePermissionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemovePermissionRequest => __isa(o, "RemovePermissionRequest");
 }
 
 /**
@@ -3726,7 +3511,6 @@ export namespace RequestTooLargeException {
   export const filterSensitiveLog = (obj: RequestTooLargeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestTooLargeException => __isa(o, "RequestTooLargeException");
 }
 
 /**
@@ -3750,7 +3534,6 @@ export namespace ResourceConflictException {
   export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceConflictException => __isa(o, "ResourceConflictException");
 }
 
 /**
@@ -3768,7 +3551,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -3785,7 +3567,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -3810,7 +3591,6 @@ export namespace ResourceNotReadyException {
   export const filterSensitiveLog = (obj: ResourceNotReadyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotReadyException => __isa(o, "ResourceNotReadyException");
 }
 
 export enum Runtime {
@@ -3851,7 +3631,6 @@ export namespace ServiceException {
   export const filterSensitiveLog = (obj: ServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceException => __isa(o, "ServiceException");
 }
 
 export enum State {
@@ -3889,12 +3668,9 @@ export namespace SubnetIPAddressLimitReachedException {
   export const filterSensitiveLog = (obj: SubnetIPAddressLimitReachedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SubnetIPAddressLimitReachedException =>
-    __isa(o, "SubnetIPAddressLimitReachedException");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>A list of tags to apply to the function.</p>
    */
@@ -3910,7 +3686,6 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export enum ThrottleReason {
@@ -3941,7 +3716,6 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -3949,7 +3723,6 @@ export namespace TooManyRequestsException {
  *       to <code>Active</code>.</p>
  */
 export interface TracingConfig {
-  __type?: "TracingConfig";
   /**
    * <p>The tracing mode.</p>
    */
@@ -3960,14 +3733,12 @@ export namespace TracingConfig {
   export const filterSensitiveLog = (obj: TracingConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TracingConfig => __isa(o, "TracingConfig");
 }
 
 /**
  * <p>The function's AWS X-Ray tracing configuration.</p>
  */
 export interface TracingConfigResponse {
-  __type?: "TracingConfigResponse";
   /**
    * <p>The tracing mode.</p>
    */
@@ -3978,7 +3749,6 @@ export namespace TracingConfigResponse {
   export const filterSensitiveLog = (obj: TracingConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TracingConfigResponse => __isa(o, "TracingConfigResponse");
 }
 
 export enum TracingMode {
@@ -4000,11 +3770,9 @@ export namespace UnsupportedMediaTypeException {
   export const filterSensitiveLog = (obj: UnsupportedMediaTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedMediaTypeException => __isa(o, "UnsupportedMediaTypeException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>A list of tag keys to remove from the function.</p>
    */
@@ -4020,11 +3788,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateAliasRequest {
-  __type?: "UpdateAliasRequest";
   /**
    * <p>The name of the alias.</p>
    */
@@ -4081,11 +3847,9 @@ export namespace UpdateAliasRequest {
   export const filterSensitiveLog = (obj: UpdateAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAliasRequest => __isa(o, "UpdateAliasRequest");
 }
 
 export interface UpdateEventSourceMappingRequest {
-  __type?: "UpdateEventSourceMappingRequest";
   /**
    * <p>Disables the event source mapping to pause polling and invocation.</p>
    */
@@ -4178,11 +3942,9 @@ export namespace UpdateEventSourceMappingRequest {
   export const filterSensitiveLog = (obj: UpdateEventSourceMappingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEventSourceMappingRequest => __isa(o, "UpdateEventSourceMappingRequest");
 }
 
 export interface UpdateFunctionCodeRequest {
-  __type?: "UpdateFunctionCodeRequest";
   /**
    * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
    */
@@ -4252,11 +4014,9 @@ export namespace UpdateFunctionCodeRequest {
     ...obj,
     ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateFunctionCodeRequest => __isa(o, "UpdateFunctionCodeRequest");
 }
 
 export interface UpdateFunctionConfigurationRequest {
-  __type?: "UpdateFunctionConfigurationRequest";
   /**
    * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a
    *       function that has changed since you last read it.</p>
@@ -4368,12 +4128,9 @@ export namespace UpdateFunctionConfigurationRequest {
     ...obj,
     ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
   });
-  export const isa = (o: any): o is UpdateFunctionConfigurationRequest =>
-    __isa(o, "UpdateFunctionConfigurationRequest");
 }
 
 export interface UpdateFunctionEventInvokeConfigRequest {
-  __type?: "UpdateFunctionEventInvokeConfigRequest";
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
@@ -4444,15 +4201,12 @@ export namespace UpdateFunctionEventInvokeConfigRequest {
   export const filterSensitiveLog = (obj: UpdateFunctionEventInvokeConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateFunctionEventInvokeConfigRequest =>
-    __isa(o, "UpdateFunctionEventInvokeConfigRequest");
 }
 
 /**
  * <p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  */
 export interface VpcConfig {
-  __type?: "VpcConfig";
   /**
    * <p>A list of VPC subnet IDs.</p>
    */
@@ -4468,14 +4222,12 @@ export namespace VpcConfig {
   export const filterSensitiveLog = (obj: VpcConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfig => __isa(o, "VpcConfig");
 }
 
 /**
  * <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
  */
 export interface VpcConfigResponse {
-  __type?: "VpcConfigResponse";
   /**
    * <p>A list of VPC subnet IDs.</p>
    */
@@ -4496,5 +4248,4 @@ export namespace VpcConfigResponse {
   export const filterSensitiveLog = (obj: VpcConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfigResponse => __isa(o, "VpcConfigResponse");
 }

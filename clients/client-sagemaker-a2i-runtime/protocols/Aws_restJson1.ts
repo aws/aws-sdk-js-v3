@@ -186,7 +186,6 @@ export const deserializeAws_restJson1DeleteHumanLoopCommand = async (
   }
   const contents: DeleteHumanLoopCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteHumanLoopResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -262,7 +261,6 @@ export const deserializeAws_restJson1DescribeHumanLoopCommand = async (
   }
   const contents: DescribeHumanLoopCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeHumanLoopResponse",
     CreationTime: undefined,
     FailureCode: undefined,
     FailureReason: undefined,
@@ -370,7 +368,6 @@ export const deserializeAws_restJson1ListHumanLoopsCommand = async (
   }
   const contents: ListHumanLoopsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHumanLoopsResponse",
     HumanLoopSummaries: undefined,
     NextToken: undefined,
   };
@@ -454,7 +451,6 @@ export const deserializeAws_restJson1StartHumanLoopCommand = async (
   }
   const contents: StartHumanLoopCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartHumanLoopResponse",
     HumanLoopArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -542,7 +538,6 @@ export const deserializeAws_restJson1StopHumanLoopCommand = async (
   }
   const contents: StopHumanLoopCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopHumanLoopResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -737,7 +732,6 @@ const serializeAws_restJson1HumanLoopInput = (input: HumanLoopInput, context: __
 
 const deserializeAws_restJson1HumanLoopOutput = (output: any, context: __SerdeContext): HumanLoopOutput => {
   return {
-    __type: "HumanLoopOutput",
     OutputS3Uri: output.OutputS3Uri !== undefined && output.OutputS3Uri !== null ? output.OutputS3Uri : undefined,
   } as any;
 };
@@ -748,7 +742,6 @@ const deserializeAws_restJson1HumanLoopSummaries = (output: any, context: __Serd
 
 const deserializeAws_restJson1HumanLoopSummary = (output: any, context: __SerdeContext): HumanLoopSummary => {
   return {
-    __type: "HumanLoopSummary",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))

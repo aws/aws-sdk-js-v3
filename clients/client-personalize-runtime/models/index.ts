@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface GetPersonalizedRankingRequest {
-  __type?: "GetPersonalizedRankingRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign to use for generating the personalized
    *       ranking.</p>
@@ -33,11 +32,9 @@ export namespace GetPersonalizedRankingRequest {
     ...obj,
     ...(obj.context && { context: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetPersonalizedRankingRequest => __isa(o, "GetPersonalizedRankingRequest");
 }
 
 export interface GetPersonalizedRankingResponse {
-  __type?: "GetPersonalizedRankingResponse";
   /**
    * <p>A list of items in order of most likely interest to the user. The maximum is 500.</p>
    */
@@ -48,11 +45,9 @@ export namespace GetPersonalizedRankingResponse {
   export const filterSensitiveLog = (obj: GetPersonalizedRankingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPersonalizedRankingResponse => __isa(o, "GetPersonalizedRankingResponse");
 }
 
 export interface GetRecommendationsRequest {
-  __type?: "GetRecommendationsRequest";
   /**
    * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
    *       any interaction information that might be relevant when getting a user's recommendations, such
@@ -94,11 +89,9 @@ export namespace GetRecommendationsRequest {
     ...obj,
     ...(obj.context && { context: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetRecommendationsRequest => __isa(o, "GetRecommendationsRequest");
 }
 
 export interface GetRecommendationsResponse {
-  __type?: "GetRecommendationsResponse";
   /**
    * <p>A list of recommendations sorted in ascending order by prediction score. There can be a
    *       maximum of 500 items in the list.</p>
@@ -110,7 +103,6 @@ export namespace GetRecommendationsResponse {
   export const filterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRecommendationsResponse => __isa(o, "GetRecommendationsResponse");
 }
 
 /**
@@ -126,7 +118,6 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
@@ -135,7 +126,6 @@ export namespace InvalidInputException {
  *       <code>PredictedItem</code>s.</p>
  */
 export interface PredictedItem {
-  __type?: "PredictedItem";
   /**
    * <p>A numeric representation of the model's certainty that the item will be the next user
    *       selection. For more information on scoring logic, see <a>how-scores-work</a>.</p>
@@ -152,7 +142,6 @@ export namespace PredictedItem {
   export const filterSensitiveLog = (obj: PredictedItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PredictedItem => __isa(o, "PredictedItem");
 }
 
 /**
@@ -168,5 +157,4 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }

@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CreateSavingsPlanRequest {
-  __type?: "CreateSavingsPlanRequest";
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
@@ -35,11 +34,9 @@ export namespace CreateSavingsPlanRequest {
   export const filterSensitiveLog = (obj: CreateSavingsPlanRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSavingsPlanRequest => __isa(o, "CreateSavingsPlanRequest");
 }
 
 export interface CreateSavingsPlanResponse {
-  __type?: "CreateSavingsPlanResponse";
   /**
    * <p>The ID of the Savings Plan.</p>
    */
@@ -50,13 +47,11 @@ export namespace CreateSavingsPlanResponse {
   export const filterSensitiveLog = (obj: CreateSavingsPlanResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSavingsPlanResponse => __isa(o, "CreateSavingsPlanResponse");
 }
 
 export type CurrencyCode = "CNY" | "USD";
 
 export interface DescribeSavingsPlanRatesRequest {
-  __type?: "DescribeSavingsPlanRatesRequest";
   /**
    * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
    *          call with the returned token value.</p>
@@ -83,11 +78,9 @@ export namespace DescribeSavingsPlanRatesRequest {
   export const filterSensitiveLog = (obj: DescribeSavingsPlanRatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSavingsPlanRatesRequest => __isa(o, "DescribeSavingsPlanRatesRequest");
 }
 
 export interface DescribeSavingsPlanRatesResponse {
-  __type?: "DescribeSavingsPlanRatesResponse";
   /**
    * <p>Information about the Savings Plans rates.</p>
    */
@@ -109,11 +102,9 @@ export namespace DescribeSavingsPlanRatesResponse {
   export const filterSensitiveLog = (obj: DescribeSavingsPlanRatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSavingsPlanRatesResponse => __isa(o, "DescribeSavingsPlanRatesResponse");
 }
 
 export interface DescribeSavingsPlansOfferingRatesRequest {
-  __type?: "DescribeSavingsPlansOfferingRatesRequest";
   /**
    * <p>The services.</p>
    */
@@ -170,12 +161,9 @@ export namespace DescribeSavingsPlansOfferingRatesRequest {
   export const filterSensitiveLog = (obj: DescribeSavingsPlansOfferingRatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSavingsPlansOfferingRatesRequest =>
-    __isa(o, "DescribeSavingsPlansOfferingRatesRequest");
 }
 
 export interface DescribeSavingsPlansOfferingRatesResponse {
-  __type?: "DescribeSavingsPlansOfferingRatesResponse";
   /**
    * <p>Information about the Savings Plans offering rates.</p>
    */
@@ -192,12 +180,9 @@ export namespace DescribeSavingsPlansOfferingRatesResponse {
   export const filterSensitiveLog = (obj: DescribeSavingsPlansOfferingRatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSavingsPlansOfferingRatesResponse =>
-    __isa(o, "DescribeSavingsPlansOfferingRatesResponse");
 }
 
 export interface DescribeSavingsPlansOfferingsRequest {
-  __type?: "DescribeSavingsPlansOfferingsRequest";
   /**
    * <p>The descriptions.</p>
    */
@@ -269,12 +254,9 @@ export namespace DescribeSavingsPlansOfferingsRequest {
   export const filterSensitiveLog = (obj: DescribeSavingsPlansOfferingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSavingsPlansOfferingsRequest =>
-    __isa(o, "DescribeSavingsPlansOfferingsRequest");
 }
 
 export interface DescribeSavingsPlansOfferingsResponse {
-  __type?: "DescribeSavingsPlansOfferingsResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *        results to return.</p>
@@ -291,12 +273,9 @@ export namespace DescribeSavingsPlansOfferingsResponse {
   export const filterSensitiveLog = (obj: DescribeSavingsPlansOfferingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSavingsPlansOfferingsResponse =>
-    __isa(o, "DescribeSavingsPlansOfferingsResponse");
 }
 
 export interface DescribeSavingsPlansRequest {
-  __type?: "DescribeSavingsPlansRequest";
   /**
    * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
    *        call with the returned token value.</p>
@@ -333,11 +312,9 @@ export namespace DescribeSavingsPlansRequest {
   export const filterSensitiveLog = (obj: DescribeSavingsPlansRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSavingsPlansRequest => __isa(o, "DescribeSavingsPlansRequest");
 }
 
 export interface DescribeSavingsPlansResponse {
-  __type?: "DescribeSavingsPlansResponse";
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *        results to return.</p>
@@ -354,7 +331,6 @@ export namespace DescribeSavingsPlansResponse {
   export const filterSensitiveLog = (obj: DescribeSavingsPlansResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeSavingsPlansResponse => __isa(o, "DescribeSavingsPlansResponse");
 }
 
 /**
@@ -370,11 +346,9 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -385,11 +359,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>Information about the tags.</p>
    */
@@ -400,14 +372,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>Information about a Savings Plan offering.</p>
  */
 export interface ParentSavingsPlanOffering {
-  __type?: "ParentSavingsPlanOffering";
   /**
    * <p>The duration, in seconds.</p>
    */
@@ -443,7 +413,6 @@ export namespace ParentSavingsPlanOffering {
   export const filterSensitiveLog = (obj: ParentSavingsPlanOffering): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParentSavingsPlanOffering => __isa(o, "ParentSavingsPlanOffering");
 }
 
 /**
@@ -459,14 +428,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>Information about a Savings Plan.</p>
  */
 export interface SavingsPlan {
-  __type?: "SavingsPlan";
   /**
    * <p>The hourly commitment, in USD.</p>
    */
@@ -562,14 +529,12 @@ export namespace SavingsPlan {
   export const filterSensitiveLog = (obj: SavingsPlan): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SavingsPlan => __isa(o, "SavingsPlan");
 }
 
 /**
  * <p>Information about a filter.</p>
  */
 export interface SavingsPlanFilter {
-  __type?: "SavingsPlanFilter";
   /**
    * <p>The filter value.</p>
    */
@@ -585,14 +550,12 @@ export namespace SavingsPlanFilter {
   export const filterSensitiveLog = (obj: SavingsPlanFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SavingsPlanFilter => __isa(o, "SavingsPlanFilter");
 }
 
 /**
  * <p>Information about a Savings Plan offering.</p>
  */
 export interface SavingsPlanOffering {
-  __type?: "SavingsPlanOffering";
   /**
    * <p>The plan type.</p>
    */
@@ -653,7 +616,6 @@ export namespace SavingsPlanOffering {
   export const filterSensitiveLog = (obj: SavingsPlanOffering): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SavingsPlanOffering => __isa(o, "SavingsPlanOffering");
 }
 
 export enum SavingsPlanOfferingFilterAttribute {
@@ -665,7 +627,6 @@ export enum SavingsPlanOfferingFilterAttribute {
  * <p>Information about a filter.</p>
  */
 export interface SavingsPlanOfferingFilterElement {
-  __type?: "SavingsPlanOfferingFilterElement";
   /**
    * <p>The filter name.</p>
    */
@@ -681,14 +642,12 @@ export namespace SavingsPlanOfferingFilterElement {
   export const filterSensitiveLog = (obj: SavingsPlanOfferingFilterElement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SavingsPlanOfferingFilterElement => __isa(o, "SavingsPlanOfferingFilterElement");
 }
 
 /**
  * <p>Information about a property.</p>
  */
 export interface SavingsPlanOfferingProperty {
-  __type?: "SavingsPlanOfferingProperty";
   /**
    * <p>The property value.</p>
    */
@@ -704,7 +663,6 @@ export namespace SavingsPlanOfferingProperty {
   export const filterSensitiveLog = (obj: SavingsPlanOfferingProperty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SavingsPlanOfferingProperty => __isa(o, "SavingsPlanOfferingProperty");
 }
 
 export enum SavingsPlanOfferingPropertyKey {
@@ -716,7 +674,6 @@ export enum SavingsPlanOfferingPropertyKey {
  * <p>Information about a Savings Plan offering rate.</p>
  */
 export interface SavingsPlanOfferingRate {
-  __type?: "SavingsPlanOfferingRate";
   /**
    * <p>The service.</p>
    */
@@ -762,14 +719,12 @@ export namespace SavingsPlanOfferingRate {
   export const filterSensitiveLog = (obj: SavingsPlanOfferingRate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SavingsPlanOfferingRate => __isa(o, "SavingsPlanOfferingRate");
 }
 
 /**
  * <p>Information about a filter.</p>
  */
 export interface SavingsPlanOfferingRateFilterElement {
-  __type?: "SavingsPlanOfferingRateFilterElement";
   /**
    * <p>The filter values.</p>
    */
@@ -785,15 +740,12 @@ export namespace SavingsPlanOfferingRateFilterElement {
   export const filterSensitiveLog = (obj: SavingsPlanOfferingRateFilterElement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SavingsPlanOfferingRateFilterElement =>
-    __isa(o, "SavingsPlanOfferingRateFilterElement");
 }
 
 /**
  * <p>Information about a property.</p>
  */
 export interface SavingsPlanOfferingRateProperty {
-  __type?: "SavingsPlanOfferingRateProperty";
   /**
    * <p>The property name.</p>
    */
@@ -809,7 +761,6 @@ export namespace SavingsPlanOfferingRateProperty {
   export const filterSensitiveLog = (obj: SavingsPlanOfferingRateProperty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SavingsPlanOfferingRateProperty => __isa(o, "SavingsPlanOfferingRateProperty");
 }
 
 export enum SavingsPlanPaymentOption {
@@ -828,7 +779,6 @@ export enum SavingsPlanProductType {
  * <p>Information about a Savings Plan rate.</p>
  */
 export interface SavingsPlanRate {
-  __type?: "SavingsPlanRate";
   /**
    * <p>The rate.</p>
    */
@@ -874,14 +824,12 @@ export namespace SavingsPlanRate {
   export const filterSensitiveLog = (obj: SavingsPlanRate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SavingsPlanRate => __isa(o, "SavingsPlanRate");
 }
 
 /**
  * <p>Information about a filter.</p>
  */
 export interface SavingsPlanRateFilter {
-  __type?: "SavingsPlanRateFilter";
   /**
    * <p>The filter values.</p>
    */
@@ -897,7 +845,6 @@ export namespace SavingsPlanRateFilter {
   export const filterSensitiveLog = (obj: SavingsPlanRateFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SavingsPlanRateFilter => __isa(o, "SavingsPlanRateFilter");
 }
 
 export enum SavingsPlanRateFilterAttribute {
@@ -924,7 +871,6 @@ export enum SavingsPlanRateFilterName {
  * <p>Information about a property.</p>
  */
 export interface SavingsPlanRateProperty {
-  __type?: "SavingsPlanRateProperty";
   /**
    * <p>The property value.</p>
    */
@@ -940,7 +886,6 @@ export namespace SavingsPlanRateProperty {
   export const filterSensitiveLog = (obj: SavingsPlanRateProperty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SavingsPlanRateProperty => __isa(o, "SavingsPlanRateProperty");
 }
 
 export enum SavingsPlanRatePropertyKey {
@@ -1000,11 +945,9 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>One or more tags. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
@@ -1020,22 +963,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The tag keys.</p>
    */
@@ -1051,18 +989,14 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -1078,5 +1012,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

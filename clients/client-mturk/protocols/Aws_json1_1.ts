@@ -732,7 +732,6 @@ export const deserializeAws_json1_1AcceptQualificationRequestCommand = async (
   contents = deserializeAws_json1_1AcceptQualificationRequestResponse(data, context);
   const response: AcceptQualificationRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptQualificationRequestResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -796,7 +795,6 @@ export const deserializeAws_json1_1ApproveAssignmentCommand = async (
   contents = deserializeAws_json1_1ApproveAssignmentResponse(data, context);
   const response: ApproveAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ApproveAssignmentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -860,7 +858,6 @@ export const deserializeAws_json1_1AssociateQualificationWithWorkerCommand = asy
   contents = deserializeAws_json1_1AssociateQualificationWithWorkerResponse(data, context);
   const response: AssociateQualificationWithWorkerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateQualificationWithWorkerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -924,7 +921,6 @@ export const deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommand = as
   contents = deserializeAws_json1_1CreateAdditionalAssignmentsForHITResponse(data, context);
   const response: CreateAdditionalAssignmentsForHITCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAdditionalAssignmentsForHITResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -988,7 +984,6 @@ export const deserializeAws_json1_1CreateHITCommand = async (
   contents = deserializeAws_json1_1CreateHITResponse(data, context);
   const response: CreateHITCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHITResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1052,7 +1047,6 @@ export const deserializeAws_json1_1CreateHITTypeCommand = async (
   contents = deserializeAws_json1_1CreateHITTypeResponse(data, context);
   const response: CreateHITTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHITTypeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1116,7 +1110,6 @@ export const deserializeAws_json1_1CreateHITWithHITTypeCommand = async (
   contents = deserializeAws_json1_1CreateHITWithHITTypeResponse(data, context);
   const response: CreateHITWithHITTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHITWithHITTypeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1180,7 +1173,6 @@ export const deserializeAws_json1_1CreateQualificationTypeCommand = async (
   contents = deserializeAws_json1_1CreateQualificationTypeResponse(data, context);
   const response: CreateQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateQualificationTypeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1244,7 +1236,6 @@ export const deserializeAws_json1_1CreateWorkerBlockCommand = async (
   contents = deserializeAws_json1_1CreateWorkerBlockResponse(data, context);
   const response: CreateWorkerBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateWorkerBlockResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1308,7 +1299,6 @@ export const deserializeAws_json1_1DeleteHITCommand = async (
   contents = deserializeAws_json1_1DeleteHITResponse(data, context);
   const response: DeleteHITCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteHITResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1372,7 +1362,6 @@ export const deserializeAws_json1_1DeleteQualificationTypeCommand = async (
   contents = deserializeAws_json1_1DeleteQualificationTypeResponse(data, context);
   const response: DeleteQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteQualificationTypeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1436,7 +1425,6 @@ export const deserializeAws_json1_1DeleteWorkerBlockCommand = async (
   contents = deserializeAws_json1_1DeleteWorkerBlockResponse(data, context);
   const response: DeleteWorkerBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteWorkerBlockResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1500,7 +1488,6 @@ export const deserializeAws_json1_1DisassociateQualificationFromWorkerCommand = 
   contents = deserializeAws_json1_1DisassociateQualificationFromWorkerResponse(data, context);
   const response: DisassociateQualificationFromWorkerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateQualificationFromWorkerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1564,7 +1551,6 @@ export const deserializeAws_json1_1GetAccountBalanceCommand = async (
   contents = deserializeAws_json1_1GetAccountBalanceResponse(data, context);
   const response: GetAccountBalanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccountBalanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1628,7 +1614,6 @@ export const deserializeAws_json1_1GetAssignmentCommand = async (
   contents = deserializeAws_json1_1GetAssignmentResponse(data, context);
   const response: GetAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAssignmentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1692,7 +1677,6 @@ export const deserializeAws_json1_1GetFileUploadURLCommand = async (
   contents = deserializeAws_json1_1GetFileUploadURLResponse(data, context);
   const response: GetFileUploadURLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFileUploadURLResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1756,7 +1740,6 @@ export const deserializeAws_json1_1GetHITCommand = async (
   contents = deserializeAws_json1_1GetHITResponse(data, context);
   const response: GetHITCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHITResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1820,7 +1803,6 @@ export const deserializeAws_json1_1GetQualificationScoreCommand = async (
   contents = deserializeAws_json1_1GetQualificationScoreResponse(data, context);
   const response: GetQualificationScoreCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetQualificationScoreResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1884,7 +1866,6 @@ export const deserializeAws_json1_1GetQualificationTypeCommand = async (
   contents = deserializeAws_json1_1GetQualificationTypeResponse(data, context);
   const response: GetQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetQualificationTypeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1948,7 +1929,6 @@ export const deserializeAws_json1_1ListAssignmentsForHITCommand = async (
   contents = deserializeAws_json1_1ListAssignmentsForHITResponse(data, context);
   const response: ListAssignmentsForHITCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAssignmentsForHITResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2012,7 +1992,6 @@ export const deserializeAws_json1_1ListBonusPaymentsCommand = async (
   contents = deserializeAws_json1_1ListBonusPaymentsResponse(data, context);
   const response: ListBonusPaymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBonusPaymentsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2076,7 +2055,6 @@ export const deserializeAws_json1_1ListHITsCommand = async (
   contents = deserializeAws_json1_1ListHITsResponse(data, context);
   const response: ListHITsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHITsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2140,7 +2118,6 @@ export const deserializeAws_json1_1ListHITsForQualificationTypeCommand = async (
   contents = deserializeAws_json1_1ListHITsForQualificationTypeResponse(data, context);
   const response: ListHITsForQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHITsForQualificationTypeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2204,7 +2181,6 @@ export const deserializeAws_json1_1ListQualificationRequestsCommand = async (
   contents = deserializeAws_json1_1ListQualificationRequestsResponse(data, context);
   const response: ListQualificationRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListQualificationRequestsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2268,7 +2244,6 @@ export const deserializeAws_json1_1ListQualificationTypesCommand = async (
   contents = deserializeAws_json1_1ListQualificationTypesResponse(data, context);
   const response: ListQualificationTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListQualificationTypesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2332,7 +2307,6 @@ export const deserializeAws_json1_1ListReviewableHITsCommand = async (
   contents = deserializeAws_json1_1ListReviewableHITsResponse(data, context);
   const response: ListReviewableHITsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListReviewableHITsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2396,7 +2370,6 @@ export const deserializeAws_json1_1ListReviewPolicyResultsForHITCommand = async 
   contents = deserializeAws_json1_1ListReviewPolicyResultsForHITResponse(data, context);
   const response: ListReviewPolicyResultsForHITCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListReviewPolicyResultsForHITResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2460,7 +2433,6 @@ export const deserializeAws_json1_1ListWorkerBlocksCommand = async (
   contents = deserializeAws_json1_1ListWorkerBlocksResponse(data, context);
   const response: ListWorkerBlocksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListWorkerBlocksResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2524,7 +2496,6 @@ export const deserializeAws_json1_1ListWorkersWithQualificationTypeCommand = asy
   contents = deserializeAws_json1_1ListWorkersWithQualificationTypeResponse(data, context);
   const response: ListWorkersWithQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListWorkersWithQualificationTypeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2588,7 +2559,6 @@ export const deserializeAws_json1_1NotifyWorkersCommand = async (
   contents = deserializeAws_json1_1NotifyWorkersResponse(data, context);
   const response: NotifyWorkersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NotifyWorkersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2652,7 +2622,6 @@ export const deserializeAws_json1_1RejectAssignmentCommand = async (
   contents = deserializeAws_json1_1RejectAssignmentResponse(data, context);
   const response: RejectAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectAssignmentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2716,7 +2685,6 @@ export const deserializeAws_json1_1RejectQualificationRequestCommand = async (
   contents = deserializeAws_json1_1RejectQualificationRequestResponse(data, context);
   const response: RejectQualificationRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectQualificationRequestResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2780,7 +2748,6 @@ export const deserializeAws_json1_1SendBonusCommand = async (
   contents = deserializeAws_json1_1SendBonusResponse(data, context);
   const response: SendBonusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendBonusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2844,7 +2811,6 @@ export const deserializeAws_json1_1SendTestEventNotificationCommand = async (
   contents = deserializeAws_json1_1SendTestEventNotificationResponse(data, context);
   const response: SendTestEventNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendTestEventNotificationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2908,7 +2874,6 @@ export const deserializeAws_json1_1UpdateExpirationForHITCommand = async (
   contents = deserializeAws_json1_1UpdateExpirationForHITResponse(data, context);
   const response: UpdateExpirationForHITCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateExpirationForHITResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2972,7 +2937,6 @@ export const deserializeAws_json1_1UpdateHITReviewStatusCommand = async (
   contents = deserializeAws_json1_1UpdateHITReviewStatusResponse(data, context);
   const response: UpdateHITReviewStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateHITReviewStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3036,7 +3000,6 @@ export const deserializeAws_json1_1UpdateHITTypeOfHITCommand = async (
   contents = deserializeAws_json1_1UpdateHITTypeOfHITResponse(data, context);
   const response: UpdateHITTypeOfHITCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateHITTypeOfHITResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3100,7 +3063,6 @@ export const deserializeAws_json1_1UpdateNotificationSettingsCommand = async (
   contents = deserializeAws_json1_1UpdateNotificationSettingsResponse(data, context);
   const response: UpdateNotificationSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateNotificationSettingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3164,7 +3126,6 @@ export const deserializeAws_json1_1UpdateQualificationTypeCommand = async (
   contents = deserializeAws_json1_1UpdateQualificationTypeResponse(data, context);
   const response: UpdateQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateQualificationTypeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3831,23 +3792,18 @@ const deserializeAws_json1_1AcceptQualificationRequestResponse = (
   output: any,
   context: __SerdeContext
 ): AcceptQualificationRequestResponse => {
-  return {
-    __type: "AcceptQualificationRequestResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ApproveAssignmentResponse = (
   output: any,
   context: __SerdeContext
 ): ApproveAssignmentResponse => {
-  return {
-    __type: "ApproveAssignmentResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Assignment = (output: any, context: __SerdeContext): Assignment => {
   return {
-    __type: "Assignment",
     AcceptTime:
       output.AcceptTime !== undefined && output.AcceptTime !== null
         ? new Date(Math.round(output.AcceptTime * 1000))
@@ -3893,14 +3849,11 @@ const deserializeAws_json1_1AssociateQualificationWithWorkerResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateQualificationWithWorkerResponse => {
-  return {
-    __type: "AssociateQualificationWithWorkerResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1BonusPayment = (output: any, context: __SerdeContext): BonusPayment => {
   return {
-    __type: "BonusPayment",
     AssignmentId: output.AssignmentId !== undefined && output.AssignmentId !== null ? output.AssignmentId : undefined,
     BonusAmount: output.BonusAmount !== undefined && output.BonusAmount !== null ? output.BonusAmount : undefined,
     GrantTime:
@@ -3920,21 +3873,17 @@ const deserializeAws_json1_1CreateAdditionalAssignmentsForHITResponse = (
   output: any,
   context: __SerdeContext
 ): CreateAdditionalAssignmentsForHITResponse => {
-  return {
-    __type: "CreateAdditionalAssignmentsForHITResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateHITResponse = (output: any, context: __SerdeContext): CreateHITResponse => {
   return {
-    __type: "CreateHITResponse",
     HIT: output.HIT !== undefined && output.HIT !== null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateHITTypeResponse = (output: any, context: __SerdeContext): CreateHITTypeResponse => {
   return {
-    __type: "CreateHITTypeResponse",
     HITTypeId: output.HITTypeId !== undefined && output.HITTypeId !== null ? output.HITTypeId : undefined,
   } as any;
 };
@@ -3944,7 +3893,6 @@ const deserializeAws_json1_1CreateHITWithHITTypeResponse = (
   context: __SerdeContext
 ): CreateHITWithHITTypeResponse => {
   return {
-    __type: "CreateHITWithHITTypeResponse",
     HIT: output.HIT !== undefined && output.HIT !== null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
   } as any;
 };
@@ -3954,7 +3902,6 @@ const deserializeAws_json1_1CreateQualificationTypeResponse = (
   context: __SerdeContext
 ): CreateQualificationTypeResponse => {
   return {
-    __type: "CreateQualificationTypeResponse",
     QualificationType:
       output.QualificationType !== undefined && output.QualificationType !== null
         ? deserializeAws_json1_1QualificationType(output.QualificationType, context)
@@ -3966,42 +3913,32 @@ const deserializeAws_json1_1CreateWorkerBlockResponse = (
   output: any,
   context: __SerdeContext
 ): CreateWorkerBlockResponse => {
-  return {
-    __type: "CreateWorkerBlockResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteHITResponse = (output: any, context: __SerdeContext): DeleteHITResponse => {
-  return {
-    __type: "DeleteHITResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteQualificationTypeResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteQualificationTypeResponse => {
-  return {
-    __type: "DeleteQualificationTypeResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteWorkerBlockResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteWorkerBlockResponse => {
-  return {
-    __type: "DeleteWorkerBlockResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateQualificationFromWorkerResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateQualificationFromWorkerResponse => {
-  return {
-    __type: "DisassociateQualificationFromWorkerResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1GetAccountBalanceResponse = (
@@ -4009,7 +3946,6 @@ const deserializeAws_json1_1GetAccountBalanceResponse = (
   context: __SerdeContext
 ): GetAccountBalanceResponse => {
   return {
-    __type: "GetAccountBalanceResponse",
     AvailableBalance:
       output.AvailableBalance !== undefined && output.AvailableBalance !== null ? output.AvailableBalance : undefined,
     OnHoldBalance:
@@ -4019,7 +3955,6 @@ const deserializeAws_json1_1GetAccountBalanceResponse = (
 
 const deserializeAws_json1_1GetAssignmentResponse = (output: any, context: __SerdeContext): GetAssignmentResponse => {
   return {
-    __type: "GetAssignmentResponse",
     Assignment:
       output.Assignment !== undefined && output.Assignment !== null
         ? deserializeAws_json1_1Assignment(output.Assignment, context)
@@ -4033,7 +3968,6 @@ const deserializeAws_json1_1GetFileUploadURLResponse = (
   context: __SerdeContext
 ): GetFileUploadURLResponse => {
   return {
-    __type: "GetFileUploadURLResponse",
     FileUploadURL:
       output.FileUploadURL !== undefined && output.FileUploadURL !== null ? output.FileUploadURL : undefined,
   } as any;
@@ -4041,7 +3975,6 @@ const deserializeAws_json1_1GetFileUploadURLResponse = (
 
 const deserializeAws_json1_1GetHITResponse = (output: any, context: __SerdeContext): GetHITResponse => {
   return {
-    __type: "GetHITResponse",
     HIT: output.HIT !== undefined && output.HIT !== null ? deserializeAws_json1_1HIT(output.HIT, context) : undefined,
   } as any;
 };
@@ -4051,7 +3984,6 @@ const deserializeAws_json1_1GetQualificationScoreResponse = (
   context: __SerdeContext
 ): GetQualificationScoreResponse => {
   return {
-    __type: "GetQualificationScoreResponse",
     Qualification:
       output.Qualification !== undefined && output.Qualification !== null
         ? deserializeAws_json1_1Qualification(output.Qualification, context)
@@ -4064,7 +3996,6 @@ const deserializeAws_json1_1GetQualificationTypeResponse = (
   context: __SerdeContext
 ): GetQualificationTypeResponse => {
   return {
-    __type: "GetQualificationTypeResponse",
     QualificationType:
       output.QualificationType !== undefined && output.QualificationType !== null
         ? deserializeAws_json1_1QualificationType(output.QualificationType, context)
@@ -4074,7 +4005,6 @@ const deserializeAws_json1_1GetQualificationTypeResponse = (
 
 const deserializeAws_json1_1HIT = (output: any, context: __SerdeContext): HIT => {
   return {
-    __type: "HIT",
     AssignmentDurationInSeconds:
       output.AssignmentDurationInSeconds !== undefined && output.AssignmentDurationInSeconds !== null
         ? output.AssignmentDurationInSeconds
@@ -4141,7 +4071,6 @@ const deserializeAws_json1_1ListAssignmentsForHITResponse = (
   context: __SerdeContext
 ): ListAssignmentsForHITResponse => {
   return {
-    __type: "ListAssignmentsForHITResponse",
     Assignments:
       output.Assignments !== undefined && output.Assignments !== null
         ? deserializeAws_json1_1AssignmentList(output.Assignments, context)
@@ -4156,7 +4085,6 @@ const deserializeAws_json1_1ListBonusPaymentsResponse = (
   context: __SerdeContext
 ): ListBonusPaymentsResponse => {
   return {
-    __type: "ListBonusPaymentsResponse",
     BonusPayments:
       output.BonusPayments !== undefined && output.BonusPayments !== null
         ? deserializeAws_json1_1BonusPaymentList(output.BonusPayments, context)
@@ -4171,7 +4099,6 @@ const deserializeAws_json1_1ListHITsForQualificationTypeResponse = (
   context: __SerdeContext
 ): ListHITsForQualificationTypeResponse => {
   return {
-    __type: "ListHITsForQualificationTypeResponse",
     HITs:
       output.HITs !== undefined && output.HITs !== null
         ? deserializeAws_json1_1HITList(output.HITs, context)
@@ -4183,7 +4110,6 @@ const deserializeAws_json1_1ListHITsForQualificationTypeResponse = (
 
 const deserializeAws_json1_1ListHITsResponse = (output: any, context: __SerdeContext): ListHITsResponse => {
   return {
-    __type: "ListHITsResponse",
     HITs:
       output.HITs !== undefined && output.HITs !== null
         ? deserializeAws_json1_1HITList(output.HITs, context)
@@ -4198,7 +4124,6 @@ const deserializeAws_json1_1ListQualificationRequestsResponse = (
   context: __SerdeContext
 ): ListQualificationRequestsResponse => {
   return {
-    __type: "ListQualificationRequestsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     NumResults: output.NumResults !== undefined && output.NumResults !== null ? output.NumResults : undefined,
     QualificationRequests:
@@ -4213,7 +4138,6 @@ const deserializeAws_json1_1ListQualificationTypesResponse = (
   context: __SerdeContext
 ): ListQualificationTypesResponse => {
   return {
-    __type: "ListQualificationTypesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     NumResults: output.NumResults !== undefined && output.NumResults !== null ? output.NumResults : undefined,
     QualificationTypes:
@@ -4228,7 +4152,6 @@ const deserializeAws_json1_1ListReviewableHITsResponse = (
   context: __SerdeContext
 ): ListReviewableHITsResponse => {
   return {
-    __type: "ListReviewableHITsResponse",
     HITs:
       output.HITs !== undefined && output.HITs !== null
         ? deserializeAws_json1_1HITList(output.HITs, context)
@@ -4243,7 +4166,6 @@ const deserializeAws_json1_1ListReviewPolicyResultsForHITResponse = (
   context: __SerdeContext
 ): ListReviewPolicyResultsForHITResponse => {
   return {
-    __type: "ListReviewPolicyResultsForHITResponse",
     AssignmentReviewPolicy:
       output.AssignmentReviewPolicy !== undefined && output.AssignmentReviewPolicy !== null
         ? deserializeAws_json1_1ReviewPolicy(output.AssignmentReviewPolicy, context)
@@ -4270,7 +4192,6 @@ const deserializeAws_json1_1ListWorkerBlocksResponse = (
   context: __SerdeContext
 ): ListWorkerBlocksResponse => {
   return {
-    __type: "ListWorkerBlocksResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     NumResults: output.NumResults !== undefined && output.NumResults !== null ? output.NumResults : undefined,
     WorkerBlocks:
@@ -4285,7 +4206,6 @@ const deserializeAws_json1_1ListWorkersWithQualificationTypeResponse = (
   context: __SerdeContext
 ): ListWorkersWithQualificationTypeResponse => {
   return {
-    __type: "ListWorkersWithQualificationTypeResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     NumResults: output.NumResults !== undefined && output.NumResults !== null ? output.NumResults : undefined,
     Qualifications:
@@ -4297,7 +4217,6 @@ const deserializeAws_json1_1ListWorkersWithQualificationTypeResponse = (
 
 const deserializeAws_json1_1Locale = (output: any, context: __SerdeContext): Locale => {
   return {
-    __type: "Locale",
     Country: output.Country !== undefined && output.Country !== null ? output.Country : undefined,
     Subdivision: output.Subdivision !== undefined && output.Subdivision !== null ? output.Subdivision : undefined,
   } as any;
@@ -4312,7 +4231,6 @@ const deserializeAws_json1_1NotifyWorkersFailureStatus = (
   context: __SerdeContext
 ): NotifyWorkersFailureStatus => {
   return {
-    __type: "NotifyWorkersFailureStatus",
     NotifyWorkersFailureCode:
       output.NotifyWorkersFailureCode !== undefined && output.NotifyWorkersFailureCode !== null
         ? output.NotifyWorkersFailureCode
@@ -4334,7 +4252,6 @@ const deserializeAws_json1_1NotifyWorkersFailureStatusList = (
 
 const deserializeAws_json1_1NotifyWorkersResponse = (output: any, context: __SerdeContext): NotifyWorkersResponse => {
   return {
-    __type: "NotifyWorkersResponse",
     NotifyWorkersFailureStatuses:
       output.NotifyWorkersFailureStatuses !== undefined && output.NotifyWorkersFailureStatuses !== null
         ? deserializeAws_json1_1NotifyWorkersFailureStatusList(output.NotifyWorkersFailureStatuses, context)
@@ -4344,7 +4261,6 @@ const deserializeAws_json1_1NotifyWorkersResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1ParameterMapEntry = (output: any, context: __SerdeContext): ParameterMapEntry => {
   return {
-    __type: "ParameterMapEntry",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Values:
       output.Values !== undefined && output.Values !== null
@@ -4359,7 +4275,6 @@ const deserializeAws_json1_1ParameterMapEntryList = (output: any, context: __Ser
 
 const deserializeAws_json1_1PolicyParameter = (output: any, context: __SerdeContext): PolicyParameter => {
   return {
-    __type: "PolicyParameter",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     MapEntries:
       output.MapEntries !== undefined && output.MapEntries !== null
@@ -4378,7 +4293,6 @@ const deserializeAws_json1_1PolicyParameterList = (output: any, context: __Serde
 
 const deserializeAws_json1_1Qualification = (output: any, context: __SerdeContext): Qualification => {
   return {
-    __type: "Qualification",
     GrantTime:
       output.GrantTime !== undefined && output.GrantTime !== null
         ? new Date(Math.round(output.GrantTime * 1000))
@@ -4403,7 +4317,6 @@ const deserializeAws_json1_1QualificationList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1QualificationRequest = (output: any, context: __SerdeContext): QualificationRequest => {
   return {
-    __type: "QualificationRequest",
     Answer: output.Answer !== undefined && output.Answer !== null ? output.Answer : undefined,
     QualificationRequestId:
       output.QualificationRequestId !== undefined && output.QualificationRequestId !== null
@@ -4434,7 +4347,6 @@ const deserializeAws_json1_1QualificationRequirement = (
   context: __SerdeContext
 ): QualificationRequirement => {
   return {
-    __type: "QualificationRequirement",
     ActionsGuarded:
       output.ActionsGuarded !== undefined && output.ActionsGuarded !== null ? output.ActionsGuarded : undefined,
     Comparator: output.Comparator !== undefined && output.Comparator !== null ? output.Comparator : undefined,
@@ -4466,7 +4378,6 @@ const deserializeAws_json1_1QualificationRequirementList = (
 
 const deserializeAws_json1_1QualificationType = (output: any, context: __SerdeContext): QualificationType => {
   return {
-    __type: "QualificationType",
     AnswerKey: output.AnswerKey !== undefined && output.AnswerKey !== null ? output.AnswerKey : undefined,
     AutoGranted: output.AutoGranted !== undefined && output.AutoGranted !== null ? output.AutoGranted : undefined,
     AutoGrantedValue:
@@ -4508,23 +4419,18 @@ const deserializeAws_json1_1RejectAssignmentResponse = (
   output: any,
   context: __SerdeContext
 ): RejectAssignmentResponse => {
-  return {
-    __type: "RejectAssignmentResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RejectQualificationRequestResponse = (
   output: any,
   context: __SerdeContext
 ): RejectQualificationRequestResponse => {
-  return {
-    __type: "RejectQualificationRequestResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RequestError = (output: any, context: __SerdeContext): RequestError => {
   return {
-    __type: "RequestError",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     TurkErrorCode:
       output.TurkErrorCode !== undefined && output.TurkErrorCode !== null ? output.TurkErrorCode : undefined,
@@ -4533,7 +4439,6 @@ const deserializeAws_json1_1RequestError = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ReviewActionDetail = (output: any, context: __SerdeContext): ReviewActionDetail => {
   return {
-    __type: "ReviewActionDetail",
     ActionId: output.ActionId !== undefined && output.ActionId !== null ? output.ActionId : undefined,
     ActionName: output.ActionName !== undefined && output.ActionName !== null ? output.ActionName : undefined,
     CompleteTime:
@@ -4554,7 +4459,6 @@ const deserializeAws_json1_1ReviewActionDetailList = (output: any, context: __Se
 
 const deserializeAws_json1_1ReviewPolicy = (output: any, context: __SerdeContext): ReviewPolicy => {
   return {
-    __type: "ReviewPolicy",
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1PolicyParameterList(output.Parameters, context)
@@ -4565,7 +4469,6 @@ const deserializeAws_json1_1ReviewPolicy = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ReviewReport = (output: any, context: __SerdeContext): ReviewReport => {
   return {
-    __type: "ReviewReport",
     ReviewActions:
       output.ReviewActions !== undefined && output.ReviewActions !== null
         ? deserializeAws_json1_1ReviewActionDetailList(output.ReviewActions, context)
@@ -4579,7 +4482,6 @@ const deserializeAws_json1_1ReviewReport = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ReviewResultDetail = (output: any, context: __SerdeContext): ReviewResultDetail => {
   return {
-    __type: "ReviewResultDetail",
     ActionId: output.ActionId !== undefined && output.ActionId !== null ? output.ActionId : undefined,
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     QuestionId: output.QuestionId !== undefined && output.QuestionId !== null ? output.QuestionId : undefined,
@@ -4594,23 +4496,18 @@ const deserializeAws_json1_1ReviewResultDetailList = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1SendBonusResponse = (output: any, context: __SerdeContext): SendBonusResponse => {
-  return {
-    __type: "SendBonusResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1SendTestEventNotificationResponse = (
   output: any,
   context: __SerdeContext
 ): SendTestEventNotificationResponse => {
-  return {
-    __type: "SendTestEventNotificationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ServiceFault = (output: any, context: __SerdeContext): ServiceFault => {
   return {
-    __type: "ServiceFault",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     TurkErrorCode:
       output.TurkErrorCode !== undefined && output.TurkErrorCode !== null ? output.TurkErrorCode : undefined,
@@ -4625,36 +4522,28 @@ const deserializeAws_json1_1UpdateExpirationForHITResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateExpirationForHITResponse => {
-  return {
-    __type: "UpdateExpirationForHITResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateHITReviewStatusResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateHITReviewStatusResponse => {
-  return {
-    __type: "UpdateHITReviewStatusResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateHITTypeOfHITResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateHITTypeOfHITResponse => {
-  return {
-    __type: "UpdateHITTypeOfHITResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateNotificationSettingsResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateNotificationSettingsResponse => {
-  return {
-    __type: "UpdateNotificationSettingsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateQualificationTypeResponse = (
@@ -4662,7 +4551,6 @@ const deserializeAws_json1_1UpdateQualificationTypeResponse = (
   context: __SerdeContext
 ): UpdateQualificationTypeResponse => {
   return {
-    __type: "UpdateQualificationTypeResponse",
     QualificationType:
       output.QualificationType !== undefined && output.QualificationType !== null
         ? deserializeAws_json1_1QualificationType(output.QualificationType, context)
@@ -4672,7 +4560,6 @@ const deserializeAws_json1_1UpdateQualificationTypeResponse = (
 
 const deserializeAws_json1_1WorkerBlock = (output: any, context: __SerdeContext): WorkerBlock => {
   return {
-    __type: "WorkerBlock",
     Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
     WorkerId: output.WorkerId !== undefined && output.WorkerId !== null ? output.WorkerId : undefined,
   } as any;

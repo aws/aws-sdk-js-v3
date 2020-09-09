@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -16,11 +16,9 @@ export namespace InternalFailure {
   export const filterSensitiveLog = (obj: InternalFailure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalFailure => __isa(o, "InternalFailure");
 }
 
 export interface InvokeEndpointInput {
-  __type?: "InvokeEndpointInput";
   /**
    * <p>The MIME type of the input data in the request body.</p>
    */
@@ -49,11 +47,9 @@ export namespace InvokeEndpointInput {
     ...obj,
     ...(obj.Body && { Body: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is InvokeEndpointInput => __isa(o, "InvokeEndpointInput");
 }
 
 export interface InvokeEndpointOutput {
-  __type?: "InvokeEndpointOutput";
   /**
    * <p>Includes the inference provided by the model.</p>
    */
@@ -75,7 +71,6 @@ export namespace InvokeEndpointOutput {
     ...obj,
     ...(obj.Body && { Body: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is InvokeEndpointOutput => __isa(o, "InvokeEndpointOutput");
 }
 
 /**
@@ -114,7 +109,6 @@ export namespace ModelError {
   export const filterSensitiveLog = (obj: ModelError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ModelError => __isa(o, "ModelError");
 }
 
 /**
@@ -132,7 +126,6 @@ export namespace ServiceUnavailable {
   export const filterSensitiveLog = (obj: ServiceUnavailable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailable => __isa(o, "ServiceUnavailable");
 }
 
 /**
@@ -151,5 +144,4 @@ export namespace ValidationError {
   export const filterSensitiveLog = (obj: ValidationError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationError => __isa(o, "ValidationError");
 }

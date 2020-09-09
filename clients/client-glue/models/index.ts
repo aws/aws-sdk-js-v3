@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,14 +17,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>Defines an action to be initiated by a trigger.</p>
  */
 export interface Action {
-  __type?: "Action";
   /**
    * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
    *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default
@@ -67,7 +65,6 @@ export namespace Action {
   export const filterSensitiveLog = (obj: Action): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Action => __isa(o, "Action");
 }
 
 /**
@@ -86,11 +83,9 @@ export namespace AlreadyExistsException {
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 export interface BatchCreatePartitionRequest {
-  __type?: "BatchCreatePartitionRequest";
   /**
    * <p>The ID of the catalog in which the partition is to be created. Currently, this should be
    *       the AWS account ID.</p>
@@ -119,11 +114,9 @@ export namespace BatchCreatePartitionRequest {
   export const filterSensitiveLog = (obj: BatchCreatePartitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchCreatePartitionRequest => __isa(o, "BatchCreatePartitionRequest");
 }
 
 export interface BatchCreatePartitionResponse {
-  __type?: "BatchCreatePartitionResponse";
   /**
    * <p>The errors encountered when trying to create the requested partitions.</p>
    */
@@ -134,11 +127,9 @@ export namespace BatchCreatePartitionResponse {
   export const filterSensitiveLog = (obj: BatchCreatePartitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchCreatePartitionResponse => __isa(o, "BatchCreatePartitionResponse");
 }
 
 export interface BatchDeleteConnectionRequest {
-  __type?: "BatchDeleteConnectionRequest";
   /**
    * <p>A list of names of the connections to delete.</p>
    */
@@ -155,11 +146,9 @@ export namespace BatchDeleteConnectionRequest {
   export const filterSensitiveLog = (obj: BatchDeleteConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteConnectionRequest => __isa(o, "BatchDeleteConnectionRequest");
 }
 
 export interface BatchDeleteConnectionResponse {
-  __type?: "BatchDeleteConnectionResponse";
   /**
    * <p>A map of the names of connections that were not successfully
    *        deleted to error details.</p>
@@ -177,11 +166,9 @@ export namespace BatchDeleteConnectionResponse {
   export const filterSensitiveLog = (obj: BatchDeleteConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteConnectionResponse => __isa(o, "BatchDeleteConnectionResponse");
 }
 
 export interface BatchDeletePartitionRequest {
-  __type?: "BatchDeletePartitionRequest";
   /**
    * <p>The name of the catalog database in which the table in question
    *       resides.</p>
@@ -210,11 +197,9 @@ export namespace BatchDeletePartitionRequest {
   export const filterSensitiveLog = (obj: BatchDeletePartitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeletePartitionRequest => __isa(o, "BatchDeletePartitionRequest");
 }
 
 export interface BatchDeletePartitionResponse {
-  __type?: "BatchDeletePartitionResponse";
   /**
    * <p>The errors encountered when trying to delete the requested partitions.</p>
    */
@@ -225,11 +210,9 @@ export namespace BatchDeletePartitionResponse {
   export const filterSensitiveLog = (obj: BatchDeletePartitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeletePartitionResponse => __isa(o, "BatchDeletePartitionResponse");
 }
 
 export interface BatchDeleteTableRequest {
-  __type?: "BatchDeleteTableRequest";
   /**
    * <p>A list of the table to delete.</p>
    */
@@ -252,11 +235,9 @@ export namespace BatchDeleteTableRequest {
   export const filterSensitiveLog = (obj: BatchDeleteTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteTableRequest => __isa(o, "BatchDeleteTableRequest");
 }
 
 export interface BatchDeleteTableResponse {
-  __type?: "BatchDeleteTableResponse";
   /**
    * <p>A list of errors encountered in attempting to delete the specified tables.</p>
    */
@@ -267,11 +248,9 @@ export namespace BatchDeleteTableResponse {
   export const filterSensitiveLog = (obj: BatchDeleteTableResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteTableResponse => __isa(o, "BatchDeleteTableResponse");
 }
 
 export interface BatchDeleteTableVersionRequest {
-  __type?: "BatchDeleteTableVersionRequest";
   /**
    * <p>The database in the catalog in which the table resides. For Hive
    *       compatibility, this name is entirely lowercase.</p>
@@ -300,11 +279,9 @@ export namespace BatchDeleteTableVersionRequest {
   export const filterSensitiveLog = (obj: BatchDeleteTableVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteTableVersionRequest => __isa(o, "BatchDeleteTableVersionRequest");
 }
 
 export interface BatchDeleteTableVersionResponse {
-  __type?: "BatchDeleteTableVersionResponse";
   /**
    * <p>A list of errors encountered while trying to delete
    *       the specified table versions.</p>
@@ -316,11 +293,9 @@ export namespace BatchDeleteTableVersionResponse {
   export const filterSensitiveLog = (obj: BatchDeleteTableVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchDeleteTableVersionResponse => __isa(o, "BatchDeleteTableVersionResponse");
 }
 
 export interface BatchGetCrawlersRequest {
-  __type?: "BatchGetCrawlersRequest";
   /**
    * <p>A list of crawler names, which might be the names returned from the
    *         <code>ListCrawlers</code> operation.</p>
@@ -332,11 +307,9 @@ export namespace BatchGetCrawlersRequest {
   export const filterSensitiveLog = (obj: BatchGetCrawlersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetCrawlersRequest => __isa(o, "BatchGetCrawlersRequest");
 }
 
 export interface BatchGetCrawlersResponse {
-  __type?: "BatchGetCrawlersResponse";
   /**
    * <p>A list of crawler definitions.</p>
    */
@@ -352,11 +325,9 @@ export namespace BatchGetCrawlersResponse {
   export const filterSensitiveLog = (obj: BatchGetCrawlersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetCrawlersResponse => __isa(o, "BatchGetCrawlersResponse");
 }
 
 export interface BatchGetDevEndpointsRequest {
-  __type?: "BatchGetDevEndpointsRequest";
   /**
    * <p>The list of <code>DevEndpoint</code> names, which might be the names returned from the
    *         <code>ListDevEndpoint</code> operation.</p>
@@ -368,11 +339,9 @@ export namespace BatchGetDevEndpointsRequest {
   export const filterSensitiveLog = (obj: BatchGetDevEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetDevEndpointsRequest => __isa(o, "BatchGetDevEndpointsRequest");
 }
 
 export interface BatchGetDevEndpointsResponse {
-  __type?: "BatchGetDevEndpointsResponse";
   /**
    * <p>A list of <code>DevEndpoint</code> definitions.</p>
    */
@@ -388,11 +357,9 @@ export namespace BatchGetDevEndpointsResponse {
   export const filterSensitiveLog = (obj: BatchGetDevEndpointsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetDevEndpointsResponse => __isa(o, "BatchGetDevEndpointsResponse");
 }
 
 export interface BatchGetJobsRequest {
-  __type?: "BatchGetJobsRequest";
   /**
    * <p>A list of job names, which might be the names returned from the <code>ListJobs</code>
    *       operation.</p>
@@ -404,11 +371,9 @@ export namespace BatchGetJobsRequest {
   export const filterSensitiveLog = (obj: BatchGetJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetJobsRequest => __isa(o, "BatchGetJobsRequest");
 }
 
 export interface BatchGetJobsResponse {
-  __type?: "BatchGetJobsResponse";
   /**
    * <p>A list of names of jobs not found.</p>
    */
@@ -424,11 +389,9 @@ export namespace BatchGetJobsResponse {
   export const filterSensitiveLog = (obj: BatchGetJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetJobsResponse => __isa(o, "BatchGetJobsResponse");
 }
 
 export interface BatchGetPartitionRequest {
-  __type?: "BatchGetPartitionRequest";
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
    *       If none is supplied, the AWS account ID is used by default.</p>
@@ -455,11 +418,9 @@ export namespace BatchGetPartitionRequest {
   export const filterSensitiveLog = (obj: BatchGetPartitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetPartitionRequest => __isa(o, "BatchGetPartitionRequest");
 }
 
 export interface BatchGetPartitionResponse {
-  __type?: "BatchGetPartitionResponse";
   /**
    * <p>A list of the partition values in the request for which partitions were not
    *       returned.</p>
@@ -476,11 +437,9 @@ export namespace BatchGetPartitionResponse {
   export const filterSensitiveLog = (obj: BatchGetPartitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetPartitionResponse => __isa(o, "BatchGetPartitionResponse");
 }
 
 export interface BatchGetTriggersRequest {
-  __type?: "BatchGetTriggersRequest";
   /**
    * <p>A list of trigger names, which may be the names returned from the <code>ListTriggers</code> operation.</p>
    */
@@ -491,11 +450,9 @@ export namespace BatchGetTriggersRequest {
   export const filterSensitiveLog = (obj: BatchGetTriggersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetTriggersRequest => __isa(o, "BatchGetTriggersRequest");
 }
 
 export interface BatchGetTriggersResponse {
-  __type?: "BatchGetTriggersResponse";
   /**
    * <p>A list of trigger definitions.</p>
    */
@@ -511,11 +468,9 @@ export namespace BatchGetTriggersResponse {
   export const filterSensitiveLog = (obj: BatchGetTriggersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetTriggersResponse => __isa(o, "BatchGetTriggersResponse");
 }
 
 export interface BatchGetWorkflowsRequest {
-  __type?: "BatchGetWorkflowsRequest";
   /**
    * <p>A list of workflow names, which may be the names returned from the <code>ListWorkflows</code> operation.</p>
    */
@@ -531,11 +486,9 @@ export namespace BatchGetWorkflowsRequest {
   export const filterSensitiveLog = (obj: BatchGetWorkflowsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetWorkflowsRequest => __isa(o, "BatchGetWorkflowsRequest");
 }
 
 export interface BatchGetWorkflowsResponse {
-  __type?: "BatchGetWorkflowsResponse";
   /**
    * <p>A list of workflow resource metadata.</p>
    */
@@ -551,7 +504,6 @@ export namespace BatchGetWorkflowsResponse {
   export const filterSensitiveLog = (obj: BatchGetWorkflowsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetWorkflowsResponse => __isa(o, "BatchGetWorkflowsResponse");
 }
 
 /**
@@ -559,7 +511,6 @@ export namespace BatchGetWorkflowsResponse {
  *       specified job run.</p>
  */
 export interface BatchStopJobRunError {
-  __type?: "BatchStopJobRunError";
   /**
    * <p>The <code>JobRunId</code> of the job run in question.</p>
    */
@@ -580,11 +531,9 @@ export namespace BatchStopJobRunError {
   export const filterSensitiveLog = (obj: BatchStopJobRunError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchStopJobRunError => __isa(o, "BatchStopJobRunError");
 }
 
 export interface BatchStopJobRunRequest {
-  __type?: "BatchStopJobRunRequest";
   /**
    * <p>The name of the job definition for which to stop job runs.</p>
    */
@@ -601,11 +550,9 @@ export namespace BatchStopJobRunRequest {
   export const filterSensitiveLog = (obj: BatchStopJobRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchStopJobRunRequest => __isa(o, "BatchStopJobRunRequest");
 }
 
 export interface BatchStopJobRunResponse {
-  __type?: "BatchStopJobRunResponse";
   /**
    * <p>A list of the errors that were encountered in trying to stop <code>JobRuns</code>,
    *       including the <code>JobRunId</code> for which each error was encountered and details about the
@@ -623,14 +570,12 @@ export namespace BatchStopJobRunResponse {
   export const filterSensitiveLog = (obj: BatchStopJobRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchStopJobRunResponse => __isa(o, "BatchStopJobRunResponse");
 }
 
 /**
  * <p>Records a successful request to stop a specified <code>JobRun</code>.</p>
  */
 export interface BatchStopJobRunSuccessfulSubmission {
-  __type?: "BatchStopJobRunSuccessfulSubmission";
   /**
    * <p>The <code>JobRunId</code> of the job run that was stopped.</p>
    */
@@ -646,15 +591,12 @@ export namespace BatchStopJobRunSuccessfulSubmission {
   export const filterSensitiveLog = (obj: BatchStopJobRunSuccessfulSubmission): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchStopJobRunSuccessfulSubmission =>
-    __isa(o, "BatchStopJobRunSuccessfulSubmission");
 }
 
 /**
  * <p>Defines a binary column statistics data.</p>
  */
 export interface BinaryColumnStatisticsData {
-  __type?: "BinaryColumnStatisticsData";
   /**
    * <p>Number of nulls.</p>
    */
@@ -675,14 +617,12 @@ export namespace BinaryColumnStatisticsData {
   export const filterSensitiveLog = (obj: BinaryColumnStatisticsData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BinaryColumnStatisticsData => __isa(o, "BinaryColumnStatisticsData");
 }
 
 /**
  * <p>Defines a boolean column statistics.</p>
  */
 export interface BooleanColumnStatisticsData {
-  __type?: "BooleanColumnStatisticsData";
   /**
    * <p>Number of true value.</p>
    */
@@ -703,11 +643,9 @@ export namespace BooleanColumnStatisticsData {
   export const filterSensitiveLog = (obj: BooleanColumnStatisticsData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BooleanColumnStatisticsData => __isa(o, "BooleanColumnStatisticsData");
 }
 
 export interface CancelMLTaskRunRequest {
-  __type?: "CancelMLTaskRunRequest";
   /**
    * <p>The unique identifier of the machine learning transform.</p>
    */
@@ -723,11 +661,9 @@ export namespace CancelMLTaskRunRequest {
   export const filterSensitiveLog = (obj: CancelMLTaskRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelMLTaskRunRequest => __isa(o, "CancelMLTaskRunRequest");
 }
 
 export interface CancelMLTaskRunResponse {
-  __type?: "CancelMLTaskRunResponse";
   /**
    * <p>The unique identifier of the machine learning transform.</p>
    */
@@ -748,7 +684,6 @@ export namespace CancelMLTaskRunResponse {
   export const filterSensitiveLog = (obj: CancelMLTaskRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelMLTaskRunResponse => __isa(o, "CancelMLTaskRunResponse");
 }
 
 export enum CatalogEncryptionMode {
@@ -760,7 +695,6 @@ export enum CatalogEncryptionMode {
  * <p>Specifies a table definition in the AWS Glue Data Catalog.</p>
  */
 export interface CatalogEntry {
-  __type?: "CatalogEntry";
   /**
    * <p>The database in which the table metadata resides.</p>
    */
@@ -776,14 +710,12 @@ export namespace CatalogEntry {
   export const filterSensitiveLog = (obj: CatalogEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CatalogEntry => __isa(o, "CatalogEntry");
 }
 
 /**
  * <p>A structure containing migration status information.</p>
  */
 export interface CatalogImportStatus {
-  __type?: "CatalogImportStatus";
   /**
    * <p>
    *             <code>True</code> if the migration has completed, or <code>False</code> otherwise.</p>
@@ -805,14 +737,12 @@ export namespace CatalogImportStatus {
   export const filterSensitiveLog = (obj: CatalogImportStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CatalogImportStatus => __isa(o, "CatalogImportStatus");
 }
 
 /**
  * <p>Specifies an AWS Glue Data Catalog target.</p>
  */
 export interface CatalogTarget {
-  __type?: "CatalogTarget";
   /**
    * <p>The name of the database to be synchronized.</p>
    */
@@ -828,7 +758,6 @@ export namespace CatalogTarget {
   export const filterSensitiveLog = (obj: CatalogTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CatalogTarget => __isa(o, "CatalogTarget");
 }
 
 /**
@@ -842,7 +771,6 @@ export namespace CatalogTarget {
  *       of the fields in the <code>Classifier</code> object.</p>
  */
 export interface Classifier {
-  __type?: "Classifier";
   /**
    * <p>A classifier for comma-separated values (CSV).</p>
    */
@@ -868,14 +796,12 @@ export namespace Classifier {
   export const filterSensitiveLog = (obj: Classifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Classifier => __isa(o, "Classifier");
 }
 
 /**
  * <p>Specifies how Amazon CloudWatch data should be encrypted.</p>
  */
 export interface CloudWatchEncryption {
-  __type?: "CloudWatchEncryption";
   /**
    * <p>The encryption mode to use for CloudWatch data.</p>
    */
@@ -891,7 +817,6 @@ export namespace CloudWatchEncryption {
   export const filterSensitiveLog = (obj: CloudWatchEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchEncryption => __isa(o, "CloudWatchEncryption");
 }
 
 export enum CloudWatchEncryptionMode {
@@ -903,7 +828,6 @@ export enum CloudWatchEncryptionMode {
  * <p>Represents a directional edge in a directed acyclic graph (DAG).</p>
  */
 export interface CodeGenEdge {
-  __type?: "CodeGenEdge";
   /**
    * <p>The ID of the node at which the edge starts.</p>
    */
@@ -924,14 +848,12 @@ export namespace CodeGenEdge {
   export const filterSensitiveLog = (obj: CodeGenEdge): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeGenEdge => __isa(o, "CodeGenEdge");
 }
 
 /**
  * <p>Represents a node in a directed acyclic graph (DAG)</p>
  */
 export interface CodeGenNode {
-  __type?: "CodeGenNode";
   /**
    * <p>The line number of the node.</p>
    */
@@ -957,14 +879,12 @@ export namespace CodeGenNode {
   export const filterSensitiveLog = (obj: CodeGenNode): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeGenNode => __isa(o, "CodeGenNode");
 }
 
 /**
  * <p>An argument or property of a node.</p>
  */
 export interface CodeGenNodeArg {
-  __type?: "CodeGenNodeArg";
   /**
    * <p>True if the value is used as a parameter.</p>
    */
@@ -985,14 +905,12 @@ export namespace CodeGenNodeArg {
   export const filterSensitiveLog = (obj: CodeGenNodeArg): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CodeGenNodeArg => __isa(o, "CodeGenNodeArg");
 }
 
 /**
  * <p>A column in a <code>Table</code>.</p>
  */
 export interface Column {
-  __type?: "Column";
   /**
    * <p>These key-value pairs define properties associated with the column.</p>
    */
@@ -1018,14 +936,12 @@ export namespace Column {
   export const filterSensitiveLog = (obj: Column): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Column => __isa(o, "Column");
 }
 
 /**
  * <p>Defines a column containing error.</p>
  */
 export interface ColumnError {
-  __type?: "ColumnError";
   /**
    * <p>The error message occurred during operation.</p>
    */
@@ -1041,14 +957,12 @@ export namespace ColumnError {
   export const filterSensitiveLog = (obj: ColumnError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColumnError => __isa(o, "ColumnError");
 }
 
 /**
  * <p>Defines a column statistics.</p>
  */
 export interface ColumnStatistics {
-  __type?: "ColumnStatistics";
   /**
    * <p>The analyzed time of the column statistics.</p>
    */
@@ -1074,14 +988,12 @@ export namespace ColumnStatistics {
   export const filterSensitiveLog = (obj: ColumnStatistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColumnStatistics => __isa(o, "ColumnStatistics");
 }
 
 /**
  * <p>Defines a column statistics data.</p>
  */
 export interface ColumnStatisticsData {
-  __type?: "ColumnStatisticsData";
   /**
    * <p>The name of the column.</p>
    */
@@ -1127,14 +1039,12 @@ export namespace ColumnStatisticsData {
   export const filterSensitiveLog = (obj: ColumnStatisticsData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColumnStatisticsData => __isa(o, "ColumnStatisticsData");
 }
 
 /**
  * <p>Defines a column containing error.</p>
  */
 export interface ColumnStatisticsError {
-  __type?: "ColumnStatisticsError";
   /**
    * <p>The ColumnStatistics of the column.</p>
    */
@@ -1150,7 +1060,6 @@ export namespace ColumnStatisticsError {
   export const filterSensitiveLog = (obj: ColumnStatisticsError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ColumnStatisticsError => __isa(o, "ColumnStatisticsError");
 }
 
 export enum ColumnStatisticsType {
@@ -1187,7 +1096,6 @@ export namespace ConcurrentModificationException {
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -1206,14 +1114,12 @@ export namespace ConcurrentRunsExceededException {
   export const filterSensitiveLog = (obj: ConcurrentRunsExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentRunsExceededException => __isa(o, "ConcurrentRunsExceededException");
 }
 
 /**
  * <p>Defines a condition under which a trigger fires.</p>
  */
 export interface Condition {
-  __type?: "Condition";
   /**
    * <p>The name of the crawler to which this condition applies.</p>
    */
@@ -1246,7 +1152,6 @@ export namespace Condition {
   export const filterSensitiveLog = (obj: Condition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Condition => __isa(o, "Condition");
 }
 
 /**
@@ -1265,7 +1170,6 @@ export namespace ConditionCheckFailureException {
   export const filterSensitiveLog = (obj: ConditionCheckFailureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConditionCheckFailureException => __isa(o, "ConditionCheckFailureException");
 }
 
 /**
@@ -1274,7 +1178,6 @@ export namespace ConditionCheckFailureException {
  * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
  */
 export interface ConfusionMatrix {
-  __type?: "ConfusionMatrix";
   /**
    * <p>The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.</p>
    */
@@ -1302,14 +1205,12 @@ export namespace ConfusionMatrix {
   export const filterSensitiveLog = (obj: ConfusionMatrix): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfusionMatrix => __isa(o, "ConfusionMatrix");
 }
 
 /**
  * <p>Defines a connection to a data source.</p>
  */
 export interface Connection {
-  __type?: "Connection";
   /**
    * <p>The name of the connection definition.</p>
    */
@@ -1456,14 +1357,12 @@ export namespace Connection {
   export const filterSensitiveLog = (obj: Connection): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Connection => __isa(o, "Connection");
 }
 
 /**
  * <p>A structure that is used to specify a connection to create or update.</p>
  */
 export interface ConnectionInput {
-  __type?: "ConnectionInput";
   /**
    * <p>The type of the connection. Currently, these types are supported:</p>
    * 	        <ul>
@@ -1515,7 +1414,6 @@ export namespace ConnectionInput {
   export const filterSensitiveLog = (obj: ConnectionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectionInput => __isa(o, "ConnectionInput");
 }
 
 /**
@@ -1533,7 +1431,6 @@ export namespace ConnectionInput {
  *       administrators to have decrypt permission on the password key.</p>
  */
 export interface ConnectionPasswordEncryption {
-  __type?: "ConnectionPasswordEncryption";
   /**
    * <p>An AWS KMS key that is used to encrypt the connection password. </p>
    *
@@ -1555,7 +1452,6 @@ export namespace ConnectionPasswordEncryption {
   export const filterSensitiveLog = (obj: ConnectionPasswordEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectionPasswordEncryption => __isa(o, "ConnectionPasswordEncryption");
 }
 
 export enum ConnectionPropertyKey {
@@ -1586,7 +1482,6 @@ export enum ConnectionPropertyKey {
  * <p>Specifies the connections used by a job.</p>
  */
 export interface ConnectionsList {
-  __type?: "ConnectionsList";
   /**
    * <p>A list of connections used by the job.</p>
    */
@@ -1597,7 +1492,6 @@ export namespace ConnectionsList {
   export const filterSensitiveLog = (obj: ConnectionsList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectionsList => __isa(o, "ConnectionsList");
 }
 
 export enum ConnectionType {
@@ -1611,7 +1505,6 @@ export enum ConnectionType {
  * <p>The details of a crawl in the workflow.</p>
  */
 export interface Crawl {
-  __type?: "Crawl";
   /**
    * <p>The error message associated with the crawl.</p>
    */
@@ -1647,7 +1540,6 @@ export namespace Crawl {
   export const filterSensitiveLog = (obj: Crawl): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Crawl => __isa(o, "Crawl");
 }
 
 /**
@@ -1656,7 +1548,6 @@ export namespace Crawl {
  *       in the AWS Glue Data Catalog.</p>
  */
 export interface Crawler {
-  __type?: "Crawler";
   /**
    * <p>The status of the last crawl, and potentially error information if
    *       an error occurred.</p>
@@ -1754,14 +1645,12 @@ export namespace Crawler {
   export const filterSensitiveLog = (obj: Crawler): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Crawler => __isa(o, "Crawler");
 }
 
 /**
  * <p>Metrics for a specified crawler.</p>
  */
 export interface CrawlerMetrics {
-  __type?: "CrawlerMetrics";
   /**
    * <p>The duration of the crawler's most recent run, in seconds.</p>
    */
@@ -1807,14 +1696,12 @@ export namespace CrawlerMetrics {
   export const filterSensitiveLog = (obj: CrawlerMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CrawlerMetrics => __isa(o, "CrawlerMetrics");
 }
 
 /**
  * <p>The details of a Crawler node present in the workflow.</p>
  */
 export interface CrawlerNodeDetails {
-  __type?: "CrawlerNodeDetails";
   /**
    * <p>A list of crawls represented by the crawl node.</p>
    */
@@ -1825,7 +1712,6 @@ export namespace CrawlerNodeDetails {
   export const filterSensitiveLog = (obj: CrawlerNodeDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CrawlerNodeDetails => __isa(o, "CrawlerNodeDetails");
 }
 
 /**
@@ -1844,7 +1730,6 @@ export namespace CrawlerNotRunningException {
   export const filterSensitiveLog = (obj: CrawlerNotRunningException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CrawlerNotRunningException => __isa(o, "CrawlerNotRunningException");
 }
 
 /**
@@ -1863,7 +1748,6 @@ export namespace CrawlerRunningException {
   export const filterSensitiveLog = (obj: CrawlerRunningException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CrawlerRunningException => __isa(o, "CrawlerRunningException");
 }
 
 export enum CrawlerState {
@@ -1888,14 +1772,12 @@ export namespace CrawlerStoppingException {
   export const filterSensitiveLog = (obj: CrawlerStoppingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CrawlerStoppingException => __isa(o, "CrawlerStoppingException");
 }
 
 /**
  * <p>Specifies data stores to crawl.</p>
  */
 export interface CrawlerTargets {
-  __type?: "CrawlerTargets";
   /**
    * <p>Specifies JDBC targets.</p>
    */
@@ -1921,7 +1803,6 @@ export namespace CrawlerTargets {
   export const filterSensitiveLog = (obj: CrawlerTargets): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CrawlerTargets => __isa(o, "CrawlerTargets");
 }
 
 export enum CrawlState {
@@ -1933,7 +1814,6 @@ export enum CrawlState {
 }
 
 export interface CreateClassifierRequest {
-  __type?: "CreateClassifierRequest";
   /**
    * <p>A <code>JsonClassifier</code> object specifying the classifier
    *       to create.</p>
@@ -1963,22 +1843,17 @@ export namespace CreateClassifierRequest {
   export const filterSensitiveLog = (obj: CreateClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClassifierRequest => __isa(o, "CreateClassifierRequest");
 }
 
-export interface CreateClassifierResponse {
-  __type?: "CreateClassifierResponse";
-}
+export interface CreateClassifierResponse {}
 
 export namespace CreateClassifierResponse {
   export const filterSensitiveLog = (obj: CreateClassifierResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateClassifierResponse => __isa(o, "CreateClassifierResponse");
 }
 
 export interface CreateConnectionRequest {
-  __type?: "CreateConnectionRequest";
   /**
    * <p>The ID of the Data Catalog in which to create the connection. If none is provided, the AWS
    *       account ID is used by default.</p>
@@ -1996,22 +1871,17 @@ export namespace CreateConnectionRequest {
   export const filterSensitiveLog = (obj: CreateConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConnectionRequest => __isa(o, "CreateConnectionRequest");
 }
 
-export interface CreateConnectionResponse {
-  __type?: "CreateConnectionResponse";
-}
+export interface CreateConnectionResponse {}
 
 export namespace CreateConnectionResponse {
   export const filterSensitiveLog = (obj: CreateConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConnectionResponse => __isa(o, "CreateConnectionResponse");
 }
 
 export interface CreateCrawlerRequest {
-  __type?: "CreateCrawlerRequest";
   /**
    * <p>The IAM role or Amazon Resource Name (ARN) of an IAM role used by the new crawler to
    *       access customer resources.</p>
@@ -2088,25 +1958,20 @@ export namespace CreateCrawlerRequest {
   export const filterSensitiveLog = (obj: CreateCrawlerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCrawlerRequest => __isa(o, "CreateCrawlerRequest");
 }
 
-export interface CreateCrawlerResponse {
-  __type?: "CreateCrawlerResponse";
-}
+export interface CreateCrawlerResponse {}
 
 export namespace CreateCrawlerResponse {
   export const filterSensitiveLog = (obj: CreateCrawlerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCrawlerResponse => __isa(o, "CreateCrawlerResponse");
 }
 
 /**
  * <p>Specifies a custom CSV classifier for <code>CreateClassifier</code> to create.</p>
  */
 export interface CreateCsvClassifierRequest {
-  __type?: "CreateCsvClassifierRequest";
   /**
    * <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
    */
@@ -2147,11 +2012,9 @@ export namespace CreateCsvClassifierRequest {
   export const filterSensitiveLog = (obj: CreateCsvClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCsvClassifierRequest => __isa(o, "CreateCsvClassifierRequest");
 }
 
 export interface CreateDatabaseRequest {
-  __type?: "CreateDatabaseRequest";
   /**
    * <p>The metadata for the database.</p>
    */
@@ -2168,22 +2031,17 @@ export namespace CreateDatabaseRequest {
   export const filterSensitiveLog = (obj: CreateDatabaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatabaseRequest => __isa(o, "CreateDatabaseRequest");
 }
 
-export interface CreateDatabaseResponse {
-  __type?: "CreateDatabaseResponse";
-}
+export interface CreateDatabaseResponse {}
 
 export namespace CreateDatabaseResponse {
   export const filterSensitiveLog = (obj: CreateDatabaseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDatabaseResponse => __isa(o, "CreateDatabaseResponse");
 }
 
 export interface CreateDevEndpointRequest {
-  __type?: "CreateDevEndpointRequest";
   /**
    * <p>The subnet ID for the new <code>DevEndpoint</code> to use.</p>
    */
@@ -2307,11 +2165,9 @@ export namespace CreateDevEndpointRequest {
   export const filterSensitiveLog = (obj: CreateDevEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDevEndpointRequest => __isa(o, "CreateDevEndpointRequest");
 }
 
 export interface CreateDevEndpointResponse {
-  __type?: "CreateDevEndpointResponse";
   /**
    * <p>The AWS Availability Zone where this <code>DevEndpoint</code> is located.</p>
    */
@@ -2437,7 +2293,6 @@ export namespace CreateDevEndpointResponse {
   export const filterSensitiveLog = (obj: CreateDevEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDevEndpointResponse => __isa(o, "CreateDevEndpointResponse");
 }
 
 /**
@@ -2445,7 +2300,6 @@ export namespace CreateDevEndpointResponse {
  *       to create.</p>
  */
 export interface CreateGrokClassifierRequest {
-  __type?: "CreateGrokClassifierRequest";
   /**
    * <p>Optional custom grok patterns used by this classifier.</p>
    */
@@ -2472,11 +2326,9 @@ export namespace CreateGrokClassifierRequest {
   export const filterSensitiveLog = (obj: CreateGrokClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGrokClassifierRequest => __isa(o, "CreateGrokClassifierRequest");
 }
 
 export interface CreateJobRequest {
-  __type?: "CreateJobRequest";
   /**
    * <p>The tags to use with this job. You may use tags to limit access to the job. For more information about tags in AWS Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in the developer guide.</p>
    */
@@ -2627,11 +2479,9 @@ export namespace CreateJobRequest {
   export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobRequest => __isa(o, "CreateJobRequest");
 }
 
 export interface CreateJobResponse {
-  __type?: "CreateJobResponse";
   /**
    * <p>The unique name that was provided for this job definition.</p>
    */
@@ -2642,14 +2492,12 @@ export namespace CreateJobResponse {
   export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobResponse => __isa(o, "CreateJobResponse");
 }
 
 /**
  * <p>Specifies a JSON classifier for <code>CreateClassifier</code> to create.</p>
  */
 export interface CreateJsonClassifierRequest {
-  __type?: "CreateJsonClassifierRequest";
   /**
    * <p>The name of the classifier.</p>
    */
@@ -2666,11 +2514,9 @@ export namespace CreateJsonClassifierRequest {
   export const filterSensitiveLog = (obj: CreateJsonClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJsonClassifierRequest => __isa(o, "CreateJsonClassifierRequest");
 }
 
 export interface CreateMLTransformRequest {
-  __type?: "CreateMLTransformRequest";
   /**
    * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
    */
@@ -2804,11 +2650,9 @@ export namespace CreateMLTransformRequest {
   export const filterSensitiveLog = (obj: CreateMLTransformRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMLTransformRequest => __isa(o, "CreateMLTransformRequest");
 }
 
 export interface CreateMLTransformResponse {
-  __type?: "CreateMLTransformResponse";
   /**
    * <p>A unique identifier that is generated for the transform.</p>
    */
@@ -2819,11 +2663,9 @@ export namespace CreateMLTransformResponse {
   export const filterSensitiveLog = (obj: CreateMLTransformResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateMLTransformResponse => __isa(o, "CreateMLTransformResponse");
 }
 
 export interface CreatePartitionRequest {
-  __type?: "CreatePartitionRequest";
   /**
    * <p>The name of the metadata table in which the partition is to be created.</p>
    */
@@ -2851,22 +2693,17 @@ export namespace CreatePartitionRequest {
   export const filterSensitiveLog = (obj: CreatePartitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePartitionRequest => __isa(o, "CreatePartitionRequest");
 }
 
-export interface CreatePartitionResponse {
-  __type?: "CreatePartitionResponse";
-}
+export interface CreatePartitionResponse {}
 
 export namespace CreatePartitionResponse {
   export const filterSensitiveLog = (obj: CreatePartitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatePartitionResponse => __isa(o, "CreatePartitionResponse");
 }
 
 export interface CreateScriptRequest {
-  __type?: "CreateScriptRequest";
   /**
    * <p>A list of the nodes in the DAG.</p>
    */
@@ -2887,11 +2724,9 @@ export namespace CreateScriptRequest {
   export const filterSensitiveLog = (obj: CreateScriptRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateScriptRequest => __isa(o, "CreateScriptRequest");
 }
 
 export interface CreateScriptResponse {
-  __type?: "CreateScriptResponse";
   /**
    * <p>The Scala code generated from the DAG.</p>
    */
@@ -2907,11 +2742,9 @@ export namespace CreateScriptResponse {
   export const filterSensitiveLog = (obj: CreateScriptResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateScriptResponse => __isa(o, "CreateScriptResponse");
 }
 
 export interface CreateSecurityConfigurationRequest {
-  __type?: "CreateSecurityConfigurationRequest";
   /**
    * <p>The name for the new security configuration.</p>
    */
@@ -2927,12 +2760,9 @@ export namespace CreateSecurityConfigurationRequest {
   export const filterSensitiveLog = (obj: CreateSecurityConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSecurityConfigurationRequest =>
-    __isa(o, "CreateSecurityConfigurationRequest");
 }
 
 export interface CreateSecurityConfigurationResponse {
-  __type?: "CreateSecurityConfigurationResponse";
   /**
    * <p>The time at which the new security configuration was created.</p>
    */
@@ -2948,12 +2778,9 @@ export namespace CreateSecurityConfigurationResponse {
   export const filterSensitiveLog = (obj: CreateSecurityConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateSecurityConfigurationResponse =>
-    __isa(o, "CreateSecurityConfigurationResponse");
 }
 
 export interface CreateTableRequest {
-  __type?: "CreateTableRequest";
   /**
    * <p>The ID of the Data Catalog in which to create the <code>Table</code>.
    *       If none is supplied, the AWS account ID is used by default.</p>
@@ -2977,22 +2804,17 @@ export namespace CreateTableRequest {
   export const filterSensitiveLog = (obj: CreateTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTableRequest => __isa(o, "CreateTableRequest");
 }
 
-export interface CreateTableResponse {
-  __type?: "CreateTableResponse";
-}
+export interface CreateTableResponse {}
 
 export namespace CreateTableResponse {
   export const filterSensitiveLog = (obj: CreateTableResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTableResponse => __isa(o, "CreateTableResponse");
 }
 
 export interface CreateTriggerRequest {
-  __type?: "CreateTriggerRequest";
   /**
    * <p>A description of the new trigger.</p>
    */
@@ -3051,11 +2873,9 @@ export namespace CreateTriggerRequest {
   export const filterSensitiveLog = (obj: CreateTriggerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTriggerRequest => __isa(o, "CreateTriggerRequest");
 }
 
 export interface CreateTriggerResponse {
-  __type?: "CreateTriggerResponse";
   /**
    * <p>The name of the trigger.</p>
    */
@@ -3066,11 +2886,9 @@ export namespace CreateTriggerResponse {
   export const filterSensitiveLog = (obj: CreateTriggerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTriggerResponse => __isa(o, "CreateTriggerResponse");
 }
 
 export interface CreateUserDefinedFunctionRequest {
-  __type?: "CreateUserDefinedFunctionRequest";
   /**
    * <p>The name of the catalog database in which to create the function.</p>
    */
@@ -3093,22 +2911,17 @@ export namespace CreateUserDefinedFunctionRequest {
   export const filterSensitiveLog = (obj: CreateUserDefinedFunctionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserDefinedFunctionRequest => __isa(o, "CreateUserDefinedFunctionRequest");
 }
 
-export interface CreateUserDefinedFunctionResponse {
-  __type?: "CreateUserDefinedFunctionResponse";
-}
+export interface CreateUserDefinedFunctionResponse {}
 
 export namespace CreateUserDefinedFunctionResponse {
   export const filterSensitiveLog = (obj: CreateUserDefinedFunctionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateUserDefinedFunctionResponse => __isa(o, "CreateUserDefinedFunctionResponse");
 }
 
 export interface CreateWorkflowRequest {
-  __type?: "CreateWorkflowRequest";
   /**
    * <p>The name to be assigned to the workflow. It should be unique within your account.</p>
    */
@@ -3134,11 +2947,9 @@ export namespace CreateWorkflowRequest {
   export const filterSensitiveLog = (obj: CreateWorkflowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWorkflowRequest => __isa(o, "CreateWorkflowRequest");
 }
 
 export interface CreateWorkflowResponse {
-  __type?: "CreateWorkflowResponse";
   /**
    * <p>The name of the workflow which was provided as part of the request.</p>
    */
@@ -3149,14 +2960,12 @@ export namespace CreateWorkflowResponse {
   export const filterSensitiveLog = (obj: CreateWorkflowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWorkflowResponse => __isa(o, "CreateWorkflowResponse");
 }
 
 /**
  * <p>Specifies an XML classifier for <code>CreateClassifier</code> to create.</p>
  */
 export interface CreateXMLClassifierRequest {
-  __type?: "CreateXMLClassifierRequest";
   /**
    * <p>An identifier of the data format that the classifier matches.</p>
    */
@@ -3181,14 +2990,12 @@ export namespace CreateXMLClassifierRequest {
   export const filterSensitiveLog = (obj: CreateXMLClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateXMLClassifierRequest => __isa(o, "CreateXMLClassifierRequest");
 }
 
 /**
  * <p>A classifier for custom <code>CSV</code> content.</p>
  */
 export interface CsvClassifier {
-  __type?: "CsvClassifier";
   /**
    * <p>The time that this classifier was registered.</p>
    */
@@ -3246,7 +3053,6 @@ export namespace CsvClassifier {
   export const filterSensitiveLog = (obj: CsvClassifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CsvClassifier => __isa(o, "CsvClassifier");
 }
 
 export enum CsvHeaderOption {
@@ -3260,7 +3066,6 @@ export enum CsvHeaderOption {
  *       in a Hive metastore or an RDBMS.</p>
  */
 export interface Database {
-  __type?: "Database";
   /**
    * <p>The name of the database. For Hive compatibility, this is folded to lowercase when it is
    *       stored.</p>
@@ -3308,14 +3113,12 @@ export namespace Database {
   export const filterSensitiveLog = (obj: Database): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Database => __isa(o, "Database");
 }
 
 /**
  * <p>A structure that describes a target database for resource linking.</p>
  */
 export interface DatabaseIdentifier {
-  __type?: "DatabaseIdentifier";
   /**
    * <p>The ID of the Data Catalog in which the database resides.</p>
    */
@@ -3331,14 +3134,12 @@ export namespace DatabaseIdentifier {
   export const filterSensitiveLog = (obj: DatabaseIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatabaseIdentifier => __isa(o, "DatabaseIdentifier");
 }
 
 /**
  * <p>The structure used to create or update a database.</p>
  */
 export interface DatabaseInput {
-  __type?: "DatabaseInput";
   /**
    * <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
    */
@@ -3377,14 +3178,12 @@ export namespace DatabaseInput {
   export const filterSensitiveLog = (obj: DatabaseInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DatabaseInput => __isa(o, "DatabaseInput");
 }
 
 /**
  * <p>Contains configuration information for maintaining Data Catalog security.</p>
  */
 export interface DataCatalogEncryptionSettings {
-  __type?: "DataCatalogEncryptionSettings";
   /**
    * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
    */
@@ -3404,14 +3203,12 @@ export namespace DataCatalogEncryptionSettings {
   export const filterSensitiveLog = (obj: DataCatalogEncryptionSettings): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataCatalogEncryptionSettings => __isa(o, "DataCatalogEncryptionSettings");
 }
 
 /**
  * <p>The AWS Lake Formation principal.</p>
  */
 export interface DataLakePrincipal {
-  __type?: "DataLakePrincipal";
   /**
    * <p>An identifier for the AWS Lake Formation principal.</p>
    */
@@ -3422,14 +3219,12 @@ export namespace DataLakePrincipal {
   export const filterSensitiveLog = (obj: DataLakePrincipal): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataLakePrincipal => __isa(o, "DataLakePrincipal");
 }
 
 /**
  * <p>Defines a date column statistics data.</p>
  */
 export interface DateColumnStatisticsData {
-  __type?: "DateColumnStatisticsData";
   /**
    * <p>Number of distinct values.</p>
    */
@@ -3455,14 +3250,12 @@ export namespace DateColumnStatisticsData {
   export const filterSensitiveLog = (obj: DateColumnStatisticsData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DateColumnStatisticsData => __isa(o, "DateColumnStatisticsData");
 }
 
 /**
  * <p>Defines a decimal column statistics data.</p>
  */
 export interface DecimalColumnStatisticsData {
-  __type?: "DecimalColumnStatisticsData";
   /**
    * <p>Minimum value of the column.</p>
    */
@@ -3488,14 +3281,12 @@ export namespace DecimalColumnStatisticsData {
   export const filterSensitiveLog = (obj: DecimalColumnStatisticsData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecimalColumnStatisticsData => __isa(o, "DecimalColumnStatisticsData");
 }
 
 /**
  * <p>Contains a numeric value in decimal format.</p>
  */
 export interface DecimalNumber {
-  __type?: "DecimalNumber";
   /**
    * <p>The unscaled numeric value.</p>
    */
@@ -3512,7 +3303,6 @@ export namespace DecimalNumber {
   export const filterSensitiveLog = (obj: DecimalNumber): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecimalNumber => __isa(o, "DecimalNumber");
 }
 
 export enum DeleteBehavior {
@@ -3522,7 +3312,6 @@ export enum DeleteBehavior {
 }
 
 export interface DeleteClassifierRequest {
-  __type?: "DeleteClassifierRequest";
   /**
    * <p>Name of the classifier to remove.</p>
    */
@@ -3533,22 +3322,17 @@ export namespace DeleteClassifierRequest {
   export const filterSensitiveLog = (obj: DeleteClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClassifierRequest => __isa(o, "DeleteClassifierRequest");
 }
 
-export interface DeleteClassifierResponse {
-  __type?: "DeleteClassifierResponse";
-}
+export interface DeleteClassifierResponse {}
 
 export namespace DeleteClassifierResponse {
   export const filterSensitiveLog = (obj: DeleteClassifierResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteClassifierResponse => __isa(o, "DeleteClassifierResponse");
 }
 
 export interface DeleteColumnStatisticsForPartitionRequest {
-  __type?: "DeleteColumnStatisticsForPartitionRequest";
   /**
    * <p>The name of the partitions' table.</p>
    */
@@ -3580,24 +3364,17 @@ export namespace DeleteColumnStatisticsForPartitionRequest {
   export const filterSensitiveLog = (obj: DeleteColumnStatisticsForPartitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteColumnStatisticsForPartitionRequest =>
-    __isa(o, "DeleteColumnStatisticsForPartitionRequest");
 }
 
-export interface DeleteColumnStatisticsForPartitionResponse {
-  __type?: "DeleteColumnStatisticsForPartitionResponse";
-}
+export interface DeleteColumnStatisticsForPartitionResponse {}
 
 export namespace DeleteColumnStatisticsForPartitionResponse {
   export const filterSensitiveLog = (obj: DeleteColumnStatisticsForPartitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteColumnStatisticsForPartitionResponse =>
-    __isa(o, "DeleteColumnStatisticsForPartitionResponse");
 }
 
 export interface DeleteColumnStatisticsForTableRequest {
-  __type?: "DeleteColumnStatisticsForTableRequest";
   /**
    * <p>The name of the partitions' table.</p>
    */
@@ -3624,24 +3401,17 @@ export namespace DeleteColumnStatisticsForTableRequest {
   export const filterSensitiveLog = (obj: DeleteColumnStatisticsForTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteColumnStatisticsForTableRequest =>
-    __isa(o, "DeleteColumnStatisticsForTableRequest");
 }
 
-export interface DeleteColumnStatisticsForTableResponse {
-  __type?: "DeleteColumnStatisticsForTableResponse";
-}
+export interface DeleteColumnStatisticsForTableResponse {}
 
 export namespace DeleteColumnStatisticsForTableResponse {
   export const filterSensitiveLog = (obj: DeleteColumnStatisticsForTableResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteColumnStatisticsForTableResponse =>
-    __isa(o, "DeleteColumnStatisticsForTableResponse");
 }
 
 export interface DeleteConnectionRequest {
-  __type?: "DeleteConnectionRequest";
   /**
    * <p>The name of the connection to delete.</p>
    */
@@ -3658,22 +3428,17 @@ export namespace DeleteConnectionRequest {
   export const filterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConnectionRequest => __isa(o, "DeleteConnectionRequest");
 }
 
-export interface DeleteConnectionResponse {
-  __type?: "DeleteConnectionResponse";
-}
+export interface DeleteConnectionResponse {}
 
 export namespace DeleteConnectionResponse {
   export const filterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConnectionResponse => __isa(o, "DeleteConnectionResponse");
 }
 
 export interface DeleteCrawlerRequest {
-  __type?: "DeleteCrawlerRequest";
   /**
    * <p>The name of the crawler to remove.</p>
    */
@@ -3684,22 +3449,17 @@ export namespace DeleteCrawlerRequest {
   export const filterSensitiveLog = (obj: DeleteCrawlerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCrawlerRequest => __isa(o, "DeleteCrawlerRequest");
 }
 
-export interface DeleteCrawlerResponse {
-  __type?: "DeleteCrawlerResponse";
-}
+export interface DeleteCrawlerResponse {}
 
 export namespace DeleteCrawlerResponse {
   export const filterSensitiveLog = (obj: DeleteCrawlerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCrawlerResponse => __isa(o, "DeleteCrawlerResponse");
 }
 
 export interface DeleteDatabaseRequest {
-  __type?: "DeleteDatabaseRequest";
   /**
    * <p>The ID of the Data Catalog in which the database resides. If none is provided, the AWS
    *       account ID is used by default.</p>
@@ -3717,22 +3477,17 @@ export namespace DeleteDatabaseRequest {
   export const filterSensitiveLog = (obj: DeleteDatabaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDatabaseRequest => __isa(o, "DeleteDatabaseRequest");
 }
 
-export interface DeleteDatabaseResponse {
-  __type?: "DeleteDatabaseResponse";
-}
+export interface DeleteDatabaseResponse {}
 
 export namespace DeleteDatabaseResponse {
   export const filterSensitiveLog = (obj: DeleteDatabaseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDatabaseResponse => __isa(o, "DeleteDatabaseResponse");
 }
 
 export interface DeleteDevEndpointRequest {
-  __type?: "DeleteDevEndpointRequest";
   /**
    * <p>The name of the <code>DevEndpoint</code>.</p>
    */
@@ -3743,22 +3498,17 @@ export namespace DeleteDevEndpointRequest {
   export const filterSensitiveLog = (obj: DeleteDevEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDevEndpointRequest => __isa(o, "DeleteDevEndpointRequest");
 }
 
-export interface DeleteDevEndpointResponse {
-  __type?: "DeleteDevEndpointResponse";
-}
+export interface DeleteDevEndpointResponse {}
 
 export namespace DeleteDevEndpointResponse {
   export const filterSensitiveLog = (obj: DeleteDevEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDevEndpointResponse => __isa(o, "DeleteDevEndpointResponse");
 }
 
 export interface DeleteJobRequest {
-  __type?: "DeleteJobRequest";
   /**
    * <p>The name of the job definition to delete.</p>
    */
@@ -3769,11 +3519,9 @@ export namespace DeleteJobRequest {
   export const filterSensitiveLog = (obj: DeleteJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJobRequest => __isa(o, "DeleteJobRequest");
 }
 
 export interface DeleteJobResponse {
-  __type?: "DeleteJobResponse";
   /**
    * <p>The name of the job definition that was deleted.</p>
    */
@@ -3784,11 +3532,9 @@ export namespace DeleteJobResponse {
   export const filterSensitiveLog = (obj: DeleteJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJobResponse => __isa(o, "DeleteJobResponse");
 }
 
 export interface DeleteMLTransformRequest {
-  __type?: "DeleteMLTransformRequest";
   /**
    * <p>The unique identifier of the transform to delete.</p>
    */
@@ -3799,11 +3545,9 @@ export namespace DeleteMLTransformRequest {
   export const filterSensitiveLog = (obj: DeleteMLTransformRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMLTransformRequest => __isa(o, "DeleteMLTransformRequest");
 }
 
 export interface DeleteMLTransformResponse {
-  __type?: "DeleteMLTransformResponse";
   /**
    * <p>The unique identifier of the transform that was deleted.</p>
    */
@@ -3814,11 +3558,9 @@ export namespace DeleteMLTransformResponse {
   export const filterSensitiveLog = (obj: DeleteMLTransformResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteMLTransformResponse => __isa(o, "DeleteMLTransformResponse");
 }
 
 export interface DeletePartitionRequest {
-  __type?: "DeletePartitionRequest";
   /**
    * <p>The name of the table that contains the partition to be deleted.</p>
    */
@@ -3846,22 +3588,17 @@ export namespace DeletePartitionRequest {
   export const filterSensitiveLog = (obj: DeletePartitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePartitionRequest => __isa(o, "DeletePartitionRequest");
 }
 
-export interface DeletePartitionResponse {
-  __type?: "DeletePartitionResponse";
-}
+export interface DeletePartitionResponse {}
 
 export namespace DeletePartitionResponse {
   export const filterSensitiveLog = (obj: DeletePartitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePartitionResponse => __isa(o, "DeletePartitionResponse");
 }
 
 export interface DeleteResourcePolicyRequest {
-  __type?: "DeleteResourcePolicyRequest";
   /**
    * <p>The ARN of the AWS Glue resource for the resource policy to be deleted.</p>
    */
@@ -3877,22 +3614,17 @@ export namespace DeleteResourcePolicyRequest {
   export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourcePolicyRequest => __isa(o, "DeleteResourcePolicyRequest");
 }
 
-export interface DeleteResourcePolicyResponse {
-  __type?: "DeleteResourcePolicyResponse";
-}
+export interface DeleteResourcePolicyResponse {}
 
 export namespace DeleteResourcePolicyResponse {
   export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourcePolicyResponse => __isa(o, "DeleteResourcePolicyResponse");
 }
 
 export interface DeleteSecurityConfigurationRequest {
-  __type?: "DeleteSecurityConfigurationRequest";
   /**
    * <p>The name of the security configuration to delete.</p>
    */
@@ -3903,24 +3635,17 @@ export namespace DeleteSecurityConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteSecurityConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSecurityConfigurationRequest =>
-    __isa(o, "DeleteSecurityConfigurationRequest");
 }
 
-export interface DeleteSecurityConfigurationResponse {
-  __type?: "DeleteSecurityConfigurationResponse";
-}
+export interface DeleteSecurityConfigurationResponse {}
 
 export namespace DeleteSecurityConfigurationResponse {
   export const filterSensitiveLog = (obj: DeleteSecurityConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSecurityConfigurationResponse =>
-    __isa(o, "DeleteSecurityConfigurationResponse");
 }
 
 export interface DeleteTableRequest {
-  __type?: "DeleteTableRequest";
   /**
    * <p>The ID of the Data Catalog where the table resides. If none is provided, the AWS account
    *       ID is used by default.</p>
@@ -3944,22 +3669,17 @@ export namespace DeleteTableRequest {
   export const filterSensitiveLog = (obj: DeleteTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTableRequest => __isa(o, "DeleteTableRequest");
 }
 
-export interface DeleteTableResponse {
-  __type?: "DeleteTableResponse";
-}
+export interface DeleteTableResponse {}
 
 export namespace DeleteTableResponse {
   export const filterSensitiveLog = (obj: DeleteTableResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTableResponse => __isa(o, "DeleteTableResponse");
 }
 
 export interface DeleteTableVersionRequest {
-  __type?: "DeleteTableVersionRequest";
   /**
    * <p>The name of the table. For Hive compatibility,
    *       this name is entirely lowercase.</p>
@@ -3988,22 +3708,17 @@ export namespace DeleteTableVersionRequest {
   export const filterSensitiveLog = (obj: DeleteTableVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTableVersionRequest => __isa(o, "DeleteTableVersionRequest");
 }
 
-export interface DeleteTableVersionResponse {
-  __type?: "DeleteTableVersionResponse";
-}
+export interface DeleteTableVersionResponse {}
 
 export namespace DeleteTableVersionResponse {
   export const filterSensitiveLog = (obj: DeleteTableVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTableVersionResponse => __isa(o, "DeleteTableVersionResponse");
 }
 
 export interface DeleteTriggerRequest {
-  __type?: "DeleteTriggerRequest";
   /**
    * <p>The name of the trigger to delete.</p>
    */
@@ -4014,11 +3729,9 @@ export namespace DeleteTriggerRequest {
   export const filterSensitiveLog = (obj: DeleteTriggerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTriggerRequest => __isa(o, "DeleteTriggerRequest");
 }
 
 export interface DeleteTriggerResponse {
-  __type?: "DeleteTriggerResponse";
   /**
    * <p>The name of the trigger that was deleted.</p>
    */
@@ -4029,11 +3742,9 @@ export namespace DeleteTriggerResponse {
   export const filterSensitiveLog = (obj: DeleteTriggerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTriggerResponse => __isa(o, "DeleteTriggerResponse");
 }
 
 export interface DeleteUserDefinedFunctionRequest {
-  __type?: "DeleteUserDefinedFunctionRequest";
   /**
    * <p>The ID of the Data Catalog where the function to be deleted is
    *       located. If none is supplied, the AWS account ID is used by default.</p>
@@ -4055,22 +3766,17 @@ export namespace DeleteUserDefinedFunctionRequest {
   export const filterSensitiveLog = (obj: DeleteUserDefinedFunctionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserDefinedFunctionRequest => __isa(o, "DeleteUserDefinedFunctionRequest");
 }
 
-export interface DeleteUserDefinedFunctionResponse {
-  __type?: "DeleteUserDefinedFunctionResponse";
-}
+export interface DeleteUserDefinedFunctionResponse {}
 
 export namespace DeleteUserDefinedFunctionResponse {
   export const filterSensitiveLog = (obj: DeleteUserDefinedFunctionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteUserDefinedFunctionResponse => __isa(o, "DeleteUserDefinedFunctionResponse");
 }
 
 export interface DeleteWorkflowRequest {
-  __type?: "DeleteWorkflowRequest";
   /**
    * <p>Name of the workflow to be deleted.</p>
    */
@@ -4081,11 +3787,9 @@ export namespace DeleteWorkflowRequest {
   export const filterSensitiveLog = (obj: DeleteWorkflowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWorkflowRequest => __isa(o, "DeleteWorkflowRequest");
 }
 
 export interface DeleteWorkflowResponse {
-  __type?: "DeleteWorkflowResponse";
   /**
    * <p>Name of the workflow specified in input.</p>
    */
@@ -4096,7 +3800,6 @@ export namespace DeleteWorkflowResponse {
   export const filterSensitiveLog = (obj: DeleteWorkflowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWorkflowResponse => __isa(o, "DeleteWorkflowResponse");
 }
 
 /**
@@ -4104,7 +3807,6 @@ export namespace DeleteWorkflowResponse {
  *       (ETL) scripts.</p>
  */
 export interface DevEndpoint {
-  __type?: "DevEndpoint";
   /**
    * <p>The public key to be used by this <code>DevEndpoint</code> for authentication. This
    *       attribute is provided for backward compatibility because the recommended attribute to use is
@@ -4306,14 +4008,12 @@ export namespace DevEndpoint {
   export const filterSensitiveLog = (obj: DevEndpoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DevEndpoint => __isa(o, "DevEndpoint");
 }
 
 /**
  * <p>Custom libraries to be loaded into a development endpoint.</p>
  */
 export interface DevEndpointCustomLibraries {
-  __type?: "DevEndpointCustomLibraries";
   /**
    * <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
    *       in your <code>DevEndpoint</code>.</p>
@@ -4340,14 +4040,12 @@ export namespace DevEndpointCustomLibraries {
   export const filterSensitiveLog = (obj: DevEndpointCustomLibraries): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DevEndpointCustomLibraries => __isa(o, "DevEndpointCustomLibraries");
 }
 
 /**
  * <p>Defines a double column statistics data.</p>
  */
 export interface DoubleColumnStatisticsData {
-  __type?: "DoubleColumnStatisticsData";
   /**
    * <p>Minimum value of the column.</p>
    */
@@ -4373,14 +4071,12 @@ export namespace DoubleColumnStatisticsData {
   export const filterSensitiveLog = (obj: DoubleColumnStatisticsData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DoubleColumnStatisticsData => __isa(o, "DoubleColumnStatisticsData");
 }
 
 /**
  * <p>Specifies an Amazon DynamoDB table to crawl.</p>
  */
 export interface DynamoDBTarget {
-  __type?: "DynamoDBTarget";
   /**
    * <p>Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.</p>
    *
@@ -4405,7 +4101,6 @@ export namespace DynamoDBTarget {
   export const filterSensitiveLog = (obj: DynamoDBTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DynamoDBTarget => __isa(o, "DynamoDBTarget");
 }
 
 /**
@@ -4413,7 +4108,6 @@ export namespace DynamoDBTarget {
  *       edge belongs to.</p>
  */
 export interface Edge {
-  __type?: "Edge";
   /**
    * <p>The unique of the node within the workflow where the edge starts.</p>
    */
@@ -4429,7 +4123,6 @@ export namespace Edge {
   export const filterSensitiveLog = (obj: Edge): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Edge => __isa(o, "Edge");
 }
 
 export enum EnableHybridValues {
@@ -4441,7 +4134,6 @@ export enum EnableHybridValues {
  * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
  */
 export interface EncryptionAtRest {
-  __type?: "EncryptionAtRest";
   /**
    * <p>The ID of the AWS KMS key to use for encryption at rest.</p>
    */
@@ -4457,14 +4149,12 @@ export namespace EncryptionAtRest {
   export const filterSensitiveLog = (obj: EncryptionAtRest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionAtRest => __isa(o, "EncryptionAtRest");
 }
 
 /**
  * <p>Specifies an encryption configuration.</p>
  */
 export interface EncryptionConfiguration {
-  __type?: "EncryptionConfiguration";
   /**
    * <p>The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.</p>
    */
@@ -4485,7 +4175,6 @@ export namespace EncryptionConfiguration {
   export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptionConfiguration => __isa(o, "EncryptionConfiguration");
 }
 
 /**
@@ -4504,14 +4193,12 @@ export namespace EntityNotFoundException {
   export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EntityNotFoundException => __isa(o, "EntityNotFoundException");
 }
 
 /**
  * <p>Contains details about an error.</p>
  */
 export interface ErrorDetail {
-  __type?: "ErrorDetail";
   /**
    * <p>The code associated with this error.</p>
    */
@@ -4527,14 +4214,12 @@ export namespace ErrorDetail {
   export const filterSensitiveLog = (obj: ErrorDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorDetail => __isa(o, "ErrorDetail");
 }
 
 /**
  * <p>Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
  */
 export interface EvaluationMetrics {
-  __type?: "EvaluationMetrics";
   /**
    * <p>The evaluation metrics for the find matches algorithm.</p>
    */
@@ -4550,14 +4235,12 @@ export namespace EvaluationMetrics {
   export const filterSensitiveLog = (obj: EvaluationMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EvaluationMetrics => __isa(o, "EvaluationMetrics");
 }
 
 /**
  * <p>An execution property of a job.</p>
  */
 export interface ExecutionProperty {
-  __type?: "ExecutionProperty";
   /**
    * <p>The maximum number of concurrent runs allowed for the job.
    *       The default is 1. An error is returned when this threshold is reached.
@@ -4570,7 +4253,6 @@ export namespace ExecutionProperty {
   export const filterSensitiveLog = (obj: ExecutionProperty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecutionProperty => __isa(o, "ExecutionProperty");
 }
 
 export enum ExistCondition {
@@ -4583,7 +4265,6 @@ export enum ExistCondition {
  * <p>Specifies configuration properties for an exporting labels task run.</p>
  */
 export interface ExportLabelsTaskRunProperties {
-  __type?: "ExportLabelsTaskRunProperties";
   /**
    * <p>The Amazon Simple Storage Service (Amazon S3) path where you will export the
    *       labels.</p>
@@ -4595,7 +4276,6 @@ export namespace ExportLabelsTaskRunProperties {
   export const filterSensitiveLog = (obj: ExportLabelsTaskRunProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportLabelsTaskRunProperties => __isa(o, "ExportLabelsTaskRunProperties");
 }
 
 /**
@@ -4605,7 +4285,6 @@ export namespace ExportLabelsTaskRunProperties {
  *       of your data, so they are not precise.</p>
  */
 export interface FindMatchesMetrics {
-  __type?: "FindMatchesMetrics";
   /**
    * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
    * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
@@ -4645,14 +4324,12 @@ export namespace FindMatchesMetrics {
   export const filterSensitiveLog = (obj: FindMatchesMetrics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FindMatchesMetrics => __isa(o, "FindMatchesMetrics");
 }
 
 /**
  * <p>The parameters to configure the find matches transform.</p>
  */
 export interface FindMatchesParameters {
-  __type?: "FindMatchesParameters";
   /**
    * <p>The name of a column that uniquely identifies rows in the source table. Used to help identify matching records.</p>
    */
@@ -4696,14 +4373,12 @@ export namespace FindMatchesParameters {
   export const filterSensitiveLog = (obj: FindMatchesParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FindMatchesParameters => __isa(o, "FindMatchesParameters");
 }
 
 /**
  * <p>Specifies configuration properties for a Find Matches task run.</p>
  */
 export interface FindMatchesTaskRunProperties {
-  __type?: "FindMatchesTaskRunProperties";
   /**
    * <p>The job ID for the Find Matches task run.</p>
    */
@@ -4724,11 +4399,9 @@ export namespace FindMatchesTaskRunProperties {
   export const filterSensitiveLog = (obj: FindMatchesTaskRunProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FindMatchesTaskRunProperties => __isa(o, "FindMatchesTaskRunProperties");
 }
 
 export interface GetCatalogImportStatusRequest {
-  __type?: "GetCatalogImportStatusRequest";
   /**
    * <p>The ID of the catalog to migrate. Currently, this should be the AWS account ID.</p>
    */
@@ -4739,11 +4412,9 @@ export namespace GetCatalogImportStatusRequest {
   export const filterSensitiveLog = (obj: GetCatalogImportStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCatalogImportStatusRequest => __isa(o, "GetCatalogImportStatusRequest");
 }
 
 export interface GetCatalogImportStatusResponse {
-  __type?: "GetCatalogImportStatusResponse";
   /**
    * <p>The status of the specified catalog migration.</p>
    */
@@ -4754,11 +4425,9 @@ export namespace GetCatalogImportStatusResponse {
   export const filterSensitiveLog = (obj: GetCatalogImportStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCatalogImportStatusResponse => __isa(o, "GetCatalogImportStatusResponse");
 }
 
 export interface GetClassifierRequest {
-  __type?: "GetClassifierRequest";
   /**
    * <p>Name of the classifier to retrieve.</p>
    */
@@ -4769,11 +4438,9 @@ export namespace GetClassifierRequest {
   export const filterSensitiveLog = (obj: GetClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetClassifierRequest => __isa(o, "GetClassifierRequest");
 }
 
 export interface GetClassifierResponse {
-  __type?: "GetClassifierResponse";
   /**
    * <p>The requested classifier.</p>
    */
@@ -4784,11 +4451,9 @@ export namespace GetClassifierResponse {
   export const filterSensitiveLog = (obj: GetClassifierResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetClassifierResponse => __isa(o, "GetClassifierResponse");
 }
 
 export interface GetClassifiersRequest {
-  __type?: "GetClassifiersRequest";
   /**
    * <p>An optional continuation token.</p>
    */
@@ -4804,11 +4469,9 @@ export namespace GetClassifiersRequest {
   export const filterSensitiveLog = (obj: GetClassifiersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetClassifiersRequest => __isa(o, "GetClassifiersRequest");
 }
 
 export interface GetClassifiersResponse {
-  __type?: "GetClassifiersResponse";
   /**
    * <p>The requested list of classifier
    *       objects.</p>
@@ -4825,11 +4488,9 @@ export namespace GetClassifiersResponse {
   export const filterSensitiveLog = (obj: GetClassifiersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetClassifiersResponse => __isa(o, "GetClassifiersResponse");
 }
 
 export interface GetColumnStatisticsForPartitionRequest {
-  __type?: "GetColumnStatisticsForPartitionRequest";
   /**
    * <p>The name of the partitions' table.</p>
    */
@@ -4861,12 +4522,9 @@ export namespace GetColumnStatisticsForPartitionRequest {
   export const filterSensitiveLog = (obj: GetColumnStatisticsForPartitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetColumnStatisticsForPartitionRequest =>
-    __isa(o, "GetColumnStatisticsForPartitionRequest");
 }
 
 export interface GetColumnStatisticsForPartitionResponse {
-  __type?: "GetColumnStatisticsForPartitionResponse";
   /**
    * <p>List of ColumnStatistics that failed to be retrieved.</p>
    */
@@ -4882,12 +4540,9 @@ export namespace GetColumnStatisticsForPartitionResponse {
   export const filterSensitiveLog = (obj: GetColumnStatisticsForPartitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetColumnStatisticsForPartitionResponse =>
-    __isa(o, "GetColumnStatisticsForPartitionResponse");
 }
 
 export interface GetColumnStatisticsForTableRequest {
-  __type?: "GetColumnStatisticsForTableRequest";
   /**
    * <p>The name of the partitions' table.</p>
    */
@@ -4914,12 +4569,9 @@ export namespace GetColumnStatisticsForTableRequest {
   export const filterSensitiveLog = (obj: GetColumnStatisticsForTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetColumnStatisticsForTableRequest =>
-    __isa(o, "GetColumnStatisticsForTableRequest");
 }
 
 export interface GetColumnStatisticsForTableResponse {
-  __type?: "GetColumnStatisticsForTableResponse";
   /**
    * <p>List of ColumnStatistics that failed to be retrieved.</p>
    */
@@ -4935,12 +4587,9 @@ export namespace GetColumnStatisticsForTableResponse {
   export const filterSensitiveLog = (obj: GetColumnStatisticsForTableResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetColumnStatisticsForTableResponse =>
-    __isa(o, "GetColumnStatisticsForTableResponse");
 }
 
 export interface GetConnectionRequest {
-  __type?: "GetConnectionRequest";
   /**
    * <p>The name of the connection definition to retrieve.</p>
    */
@@ -4966,11 +4615,9 @@ export namespace GetConnectionRequest {
   export const filterSensitiveLog = (obj: GetConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectionRequest => __isa(o, "GetConnectionRequest");
 }
 
 export interface GetConnectionResponse {
-  __type?: "GetConnectionResponse";
   /**
    * <p>The requested connection definition.</p>
    */
@@ -4981,7 +4628,6 @@ export namespace GetConnectionResponse {
   export const filterSensitiveLog = (obj: GetConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectionResponse => __isa(o, "GetConnectionResponse");
 }
 
 /**
@@ -4989,7 +4635,6 @@ export namespace GetConnectionResponse {
  *       API operation.</p>
  */
 export interface GetConnectionsFilter {
-  __type?: "GetConnectionsFilter";
   /**
    * <p>The type of connections to return. Currently, SFTP is not supported.</p>
    */
@@ -5006,11 +4651,9 @@ export namespace GetConnectionsFilter {
   export const filterSensitiveLog = (obj: GetConnectionsFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectionsFilter => __isa(o, "GetConnectionsFilter");
 }
 
 export interface GetConnectionsRequest {
-  __type?: "GetConnectionsRequest";
   /**
    * <p>Allows you to retrieve the connection metadata without returning the password. For
    *       instance, the AWS Glue console uses this flag to retrieve the connection, and does not display
@@ -5046,11 +4689,9 @@ export namespace GetConnectionsRequest {
   export const filterSensitiveLog = (obj: GetConnectionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectionsRequest => __isa(o, "GetConnectionsRequest");
 }
 
 export interface GetConnectionsResponse {
-  __type?: "GetConnectionsResponse";
   /**
    * <p>A continuation token, if the list of connections returned does not
    *       include the last of the filtered connections.</p>
@@ -5067,11 +4708,9 @@ export namespace GetConnectionsResponse {
   export const filterSensitiveLog = (obj: GetConnectionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetConnectionsResponse => __isa(o, "GetConnectionsResponse");
 }
 
 export interface GetCrawlerMetricsRequest {
-  __type?: "GetCrawlerMetricsRequest";
   /**
    * <p>A list of the names of crawlers about which to retrieve metrics.</p>
    */
@@ -5092,11 +4731,9 @@ export namespace GetCrawlerMetricsRequest {
   export const filterSensitiveLog = (obj: GetCrawlerMetricsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCrawlerMetricsRequest => __isa(o, "GetCrawlerMetricsRequest");
 }
 
 export interface GetCrawlerMetricsResponse {
-  __type?: "GetCrawlerMetricsResponse";
   /**
    * <p>A continuation token, if the returned list does not contain the
    *       last metric available.</p>
@@ -5113,11 +4750,9 @@ export namespace GetCrawlerMetricsResponse {
   export const filterSensitiveLog = (obj: GetCrawlerMetricsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCrawlerMetricsResponse => __isa(o, "GetCrawlerMetricsResponse");
 }
 
 export interface GetCrawlerRequest {
-  __type?: "GetCrawlerRequest";
   /**
    * <p>The name of the crawler to retrieve metadata for.</p>
    */
@@ -5128,11 +4763,9 @@ export namespace GetCrawlerRequest {
   export const filterSensitiveLog = (obj: GetCrawlerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCrawlerRequest => __isa(o, "GetCrawlerRequest");
 }
 
 export interface GetCrawlerResponse {
-  __type?: "GetCrawlerResponse";
   /**
    * <p>The metadata for the specified crawler.</p>
    */
@@ -5143,11 +4776,9 @@ export namespace GetCrawlerResponse {
   export const filterSensitiveLog = (obj: GetCrawlerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCrawlerResponse => __isa(o, "GetCrawlerResponse");
 }
 
 export interface GetCrawlersRequest {
-  __type?: "GetCrawlersRequest";
   /**
    * <p>The number of crawlers to return on each call.</p>
    */
@@ -5163,11 +4794,9 @@ export namespace GetCrawlersRequest {
   export const filterSensitiveLog = (obj: GetCrawlersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCrawlersRequest => __isa(o, "GetCrawlersRequest");
 }
 
 export interface GetCrawlersResponse {
-  __type?: "GetCrawlersResponse";
   /**
    * <p>A continuation token, if the returned list has not reached the end
    *       of those defined in this customer account.</p>
@@ -5184,11 +4813,9 @@ export namespace GetCrawlersResponse {
   export const filterSensitiveLog = (obj: GetCrawlersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCrawlersResponse => __isa(o, "GetCrawlersResponse");
 }
 
 export interface GetDatabaseRequest {
-  __type?: "GetDatabaseRequest";
   /**
    * <p>The name of the database to retrieve. For Hive compatibility, this
    *       should be all lowercase.</p>
@@ -5206,11 +4833,9 @@ export namespace GetDatabaseRequest {
   export const filterSensitiveLog = (obj: GetDatabaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDatabaseRequest => __isa(o, "GetDatabaseRequest");
 }
 
 export interface GetDatabaseResponse {
-  __type?: "GetDatabaseResponse";
   /**
    * <p>The definition of the specified database in the Data Catalog.</p>
    */
@@ -5221,11 +4846,9 @@ export namespace GetDatabaseResponse {
   export const filterSensitiveLog = (obj: GetDatabaseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDatabaseResponse => __isa(o, "GetDatabaseResponse");
 }
 
 export interface GetDatabasesRequest {
-  __type?: "GetDatabasesRequest";
   /**
    * <p>A continuation token, if this is a continuation call.</p>
    */
@@ -5261,11 +4884,9 @@ export namespace GetDatabasesRequest {
   export const filterSensitiveLog = (obj: GetDatabasesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDatabasesRequest => __isa(o, "GetDatabasesRequest");
 }
 
 export interface GetDatabasesResponse {
-  __type?: "GetDatabasesResponse";
   /**
    * <p>A list of <code>Database</code> objects from the specified catalog.</p>
    */
@@ -5282,11 +4903,9 @@ export namespace GetDatabasesResponse {
   export const filterSensitiveLog = (obj: GetDatabasesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDatabasesResponse => __isa(o, "GetDatabasesResponse");
 }
 
 export interface GetDataCatalogEncryptionSettingsRequest {
-  __type?: "GetDataCatalogEncryptionSettingsRequest";
   /**
    * <p>The ID of the Data Catalog to retrieve the security configuration for. If none is
    *       provided, the AWS account ID is used by default.</p>
@@ -5298,12 +4917,9 @@ export namespace GetDataCatalogEncryptionSettingsRequest {
   export const filterSensitiveLog = (obj: GetDataCatalogEncryptionSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataCatalogEncryptionSettingsRequest =>
-    __isa(o, "GetDataCatalogEncryptionSettingsRequest");
 }
 
 export interface GetDataCatalogEncryptionSettingsResponse {
-  __type?: "GetDataCatalogEncryptionSettingsResponse";
   /**
    * <p>The requested security configuration.</p>
    */
@@ -5314,12 +4930,9 @@ export namespace GetDataCatalogEncryptionSettingsResponse {
   export const filterSensitiveLog = (obj: GetDataCatalogEncryptionSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataCatalogEncryptionSettingsResponse =>
-    __isa(o, "GetDataCatalogEncryptionSettingsResponse");
 }
 
 export interface GetDataflowGraphRequest {
-  __type?: "GetDataflowGraphRequest";
   /**
    * <p>The Python script to transform.</p>
    */
@@ -5330,11 +4943,9 @@ export namespace GetDataflowGraphRequest {
   export const filterSensitiveLog = (obj: GetDataflowGraphRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataflowGraphRequest => __isa(o, "GetDataflowGraphRequest");
 }
 
 export interface GetDataflowGraphResponse {
-  __type?: "GetDataflowGraphResponse";
   /**
    * <p>A list of the edges in the resulting DAG.</p>
    */
@@ -5350,11 +4961,9 @@ export namespace GetDataflowGraphResponse {
   export const filterSensitiveLog = (obj: GetDataflowGraphResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDataflowGraphResponse => __isa(o, "GetDataflowGraphResponse");
 }
 
 export interface GetDevEndpointRequest {
-  __type?: "GetDevEndpointRequest";
   /**
    * <p>Name of the <code>DevEndpoint</code> to retrieve information for.</p>
    */
@@ -5365,11 +4974,9 @@ export namespace GetDevEndpointRequest {
   export const filterSensitiveLog = (obj: GetDevEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDevEndpointRequest => __isa(o, "GetDevEndpointRequest");
 }
 
 export interface GetDevEndpointResponse {
-  __type?: "GetDevEndpointResponse";
   /**
    * <p>A <code>DevEndpoint</code> definition.</p>
    */
@@ -5380,11 +4987,9 @@ export namespace GetDevEndpointResponse {
   export const filterSensitiveLog = (obj: GetDevEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDevEndpointResponse => __isa(o, "GetDevEndpointResponse");
 }
 
 export interface GetDevEndpointsRequest {
-  __type?: "GetDevEndpointsRequest";
   /**
    * <p>The maximum size of information to return.</p>
    */
@@ -5400,11 +5005,9 @@ export namespace GetDevEndpointsRequest {
   export const filterSensitiveLog = (obj: GetDevEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDevEndpointsRequest => __isa(o, "GetDevEndpointsRequest");
 }
 
 export interface GetDevEndpointsResponse {
-  __type?: "GetDevEndpointsResponse";
   /**
    * <p>A list of <code>DevEndpoint</code> definitions.</p>
    */
@@ -5421,11 +5024,9 @@ export namespace GetDevEndpointsResponse {
   export const filterSensitiveLog = (obj: GetDevEndpointsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDevEndpointsResponse => __isa(o, "GetDevEndpointsResponse");
 }
 
 export interface GetJobBookmarkRequest {
-  __type?: "GetJobBookmarkRequest";
   /**
    * <p>The name of the job in question.</p>
    */
@@ -5441,11 +5042,9 @@ export namespace GetJobBookmarkRequest {
   export const filterSensitiveLog = (obj: GetJobBookmarkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobBookmarkRequest => __isa(o, "GetJobBookmarkRequest");
 }
 
 export interface GetJobBookmarkResponse {
-  __type?: "GetJobBookmarkResponse";
   /**
    * <p>A structure that defines a point that a job can resume processing.</p>
    */
@@ -5456,11 +5055,9 @@ export namespace GetJobBookmarkResponse {
   export const filterSensitiveLog = (obj: GetJobBookmarkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobBookmarkResponse => __isa(o, "GetJobBookmarkResponse");
 }
 
 export interface GetJobRequest {
-  __type?: "GetJobRequest";
   /**
    * <p>The name of the job definition to retrieve.</p>
    */
@@ -5471,11 +5068,9 @@ export namespace GetJobRequest {
   export const filterSensitiveLog = (obj: GetJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobRequest => __isa(o, "GetJobRequest");
 }
 
 export interface GetJobResponse {
-  __type?: "GetJobResponse";
   /**
    * <p>The requested job definition.</p>
    */
@@ -5486,11 +5081,9 @@ export namespace GetJobResponse {
   export const filterSensitiveLog = (obj: GetJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobResponse => __isa(o, "GetJobResponse");
 }
 
 export interface GetJobRunRequest {
-  __type?: "GetJobRunRequest";
   /**
    * <p>The ID of the job run.</p>
    */
@@ -5511,11 +5104,9 @@ export namespace GetJobRunRequest {
   export const filterSensitiveLog = (obj: GetJobRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobRunRequest => __isa(o, "GetJobRunRequest");
 }
 
 export interface GetJobRunResponse {
-  __type?: "GetJobRunResponse";
   /**
    * <p>The requested job-run metadata.</p>
    */
@@ -5526,11 +5117,9 @@ export namespace GetJobRunResponse {
   export const filterSensitiveLog = (obj: GetJobRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobRunResponse => __isa(o, "GetJobRunResponse");
 }
 
 export interface GetJobRunsRequest {
-  __type?: "GetJobRunsRequest";
   /**
    * <p>The name of the job definition for which to retrieve all job runs.</p>
    */
@@ -5551,11 +5140,9 @@ export namespace GetJobRunsRequest {
   export const filterSensitiveLog = (obj: GetJobRunsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobRunsRequest => __isa(o, "GetJobRunsRequest");
 }
 
 export interface GetJobRunsResponse {
-  __type?: "GetJobRunsResponse";
   /**
    * <p>A continuation token, if not all requested job runs have been returned.</p>
    */
@@ -5571,11 +5158,9 @@ export namespace GetJobRunsResponse {
   export const filterSensitiveLog = (obj: GetJobRunsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobRunsResponse => __isa(o, "GetJobRunsResponse");
 }
 
 export interface GetJobsRequest {
-  __type?: "GetJobsRequest";
   /**
    * <p>A continuation token, if this is a continuation call.</p>
    */
@@ -5591,11 +5176,9 @@ export namespace GetJobsRequest {
   export const filterSensitiveLog = (obj: GetJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobsRequest => __isa(o, "GetJobsRequest");
 }
 
 export interface GetJobsResponse {
-  __type?: "GetJobsResponse";
   /**
    * <p>A list of job definitions.</p>
    */
@@ -5611,11 +5194,9 @@ export namespace GetJobsResponse {
   export const filterSensitiveLog = (obj: GetJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobsResponse => __isa(o, "GetJobsResponse");
 }
 
 export interface GetMappingRequest {
-  __type?: "GetMappingRequest";
   /**
    * <p>A list of target tables.</p>
    */
@@ -5636,11 +5217,9 @@ export namespace GetMappingRequest {
   export const filterSensitiveLog = (obj: GetMappingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMappingRequest => __isa(o, "GetMappingRequest");
 }
 
 export interface GetMappingResponse {
-  __type?: "GetMappingResponse";
   /**
    * <p>A list of mappings to the specified targets.</p>
    */
@@ -5651,11 +5230,9 @@ export namespace GetMappingResponse {
   export const filterSensitiveLog = (obj: GetMappingResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMappingResponse => __isa(o, "GetMappingResponse");
 }
 
 export interface GetMLTaskRunRequest {
-  __type?: "GetMLTaskRunRequest";
   /**
    * <p>The unique identifier of the machine learning transform.</p>
    */
@@ -5671,11 +5248,9 @@ export namespace GetMLTaskRunRequest {
   export const filterSensitiveLog = (obj: GetMLTaskRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMLTaskRunRequest => __isa(o, "GetMLTaskRunRequest");
 }
 
 export interface GetMLTaskRunResponse {
-  __type?: "GetMLTaskRunResponse";
   /**
    * <p>The amount of time (in seconds) that the task run consumed resources.</p>
    */
@@ -5731,11 +5306,9 @@ export namespace GetMLTaskRunResponse {
   export const filterSensitiveLog = (obj: GetMLTaskRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMLTaskRunResponse => __isa(o, "GetMLTaskRunResponse");
 }
 
 export interface GetMLTaskRunsRequest {
-  __type?: "GetMLTaskRunsRequest";
   /**
    * <p>The sorting criteria, in the <code>TaskRunSortCriteria</code> structure, for the task run.</p>
    */
@@ -5766,11 +5339,9 @@ export namespace GetMLTaskRunsRequest {
   export const filterSensitiveLog = (obj: GetMLTaskRunsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMLTaskRunsRequest => __isa(o, "GetMLTaskRunsRequest");
 }
 
 export interface GetMLTaskRunsResponse {
-  __type?: "GetMLTaskRunsResponse";
   /**
    * <p>A pagination token, if more results are available.</p>
    */
@@ -5786,11 +5357,9 @@ export namespace GetMLTaskRunsResponse {
   export const filterSensitiveLog = (obj: GetMLTaskRunsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMLTaskRunsResponse => __isa(o, "GetMLTaskRunsResponse");
 }
 
 export interface GetMLTransformRequest {
-  __type?: "GetMLTransformRequest";
   /**
    * <p>The unique identifier of the transform, generated at the time that the transform was
    *       created.</p>
@@ -5802,11 +5371,9 @@ export namespace GetMLTransformRequest {
   export const filterSensitiveLog = (obj: GetMLTransformRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMLTransformRequest => __isa(o, "GetMLTransformRequest");
 }
 
 export interface GetMLTransformResponse {
-  __type?: "GetMLTransformResponse";
   /**
    * <p>The unique name given to the transform when it was created.</p>
    */
@@ -5921,11 +5488,9 @@ export namespace GetMLTransformResponse {
   export const filterSensitiveLog = (obj: GetMLTransformResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMLTransformResponse => __isa(o, "GetMLTransformResponse");
 }
 
 export interface GetMLTransformsRequest {
-  __type?: "GetMLTransformsRequest";
   /**
    * <p>The maximum number of results to return.</p>
    */
@@ -5951,11 +5516,9 @@ export namespace GetMLTransformsRequest {
   export const filterSensitiveLog = (obj: GetMLTransformsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMLTransformsRequest => __isa(o, "GetMLTransformsRequest");
 }
 
 export interface GetMLTransformsResponse {
-  __type?: "GetMLTransformsResponse";
   /**
    * <p>A list of machine learning transforms.</p>
    */
@@ -5971,11 +5534,9 @@ export namespace GetMLTransformsResponse {
   export const filterSensitiveLog = (obj: GetMLTransformsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetMLTransformsResponse => __isa(o, "GetMLTransformsResponse");
 }
 
 export interface GetPartitionRequest {
-  __type?: "GetPartitionRequest";
   /**
    * <p>The values that define the partition.</p>
    */
@@ -6002,11 +5563,9 @@ export namespace GetPartitionRequest {
   export const filterSensitiveLog = (obj: GetPartitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPartitionRequest => __isa(o, "GetPartitionRequest");
 }
 
 export interface GetPartitionResponse {
-  __type?: "GetPartitionResponse";
   /**
    * <p>The requested information, in the form of a <code>Partition</code>
    *       object.</p>
@@ -6018,11 +5577,9 @@ export namespace GetPartitionResponse {
   export const filterSensitiveLog = (obj: GetPartitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPartitionResponse => __isa(o, "GetPartitionResponse");
 }
 
 export interface GetPartitionsRequest {
-  __type?: "GetPartitionsRequest";
   /**
    * <p>A continuation token, if this is not the first call to retrieve
    *       these partitions.</p>
@@ -6170,11 +5727,9 @@ export namespace GetPartitionsRequest {
   export const filterSensitiveLog = (obj: GetPartitionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPartitionsRequest => __isa(o, "GetPartitionsRequest");
 }
 
 export interface GetPartitionsResponse {
-  __type?: "GetPartitionsResponse";
   /**
    * <p>A continuation token, if the returned list of partitions does not include the last
    *       one.</p>
@@ -6191,11 +5746,9 @@ export namespace GetPartitionsResponse {
   export const filterSensitiveLog = (obj: GetPartitionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPartitionsResponse => __isa(o, "GetPartitionsResponse");
 }
 
 export interface GetPlanRequest {
-  __type?: "GetPlanRequest";
   /**
    * <p>The list of mappings from a source table to target tables.</p>
    */
@@ -6226,11 +5779,9 @@ export namespace GetPlanRequest {
   export const filterSensitiveLog = (obj: GetPlanRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPlanRequest => __isa(o, "GetPlanRequest");
 }
 
 export interface GetPlanResponse {
-  __type?: "GetPlanResponse";
   /**
    * <p>A Python script to perform the mapping.</p>
    */
@@ -6246,11 +5797,9 @@ export namespace GetPlanResponse {
   export const filterSensitiveLog = (obj: GetPlanResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPlanResponse => __isa(o, "GetPlanResponse");
 }
 
 export interface GetResourcePoliciesRequest {
-  __type?: "GetResourcePoliciesRequest";
   /**
    * <p>A continuation token, if this is a continuation request.</p>
    */
@@ -6266,11 +5815,9 @@ export namespace GetResourcePoliciesRequest {
   export const filterSensitiveLog = (obj: GetResourcePoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourcePoliciesRequest => __isa(o, "GetResourcePoliciesRequest");
 }
 
 export interface GetResourcePoliciesResponse {
-  __type?: "GetResourcePoliciesResponse";
   /**
    * <p>A list of the individual resource policies and the account-level resource policy.</p>
    */
@@ -6286,11 +5833,9 @@ export namespace GetResourcePoliciesResponse {
   export const filterSensitiveLog = (obj: GetResourcePoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourcePoliciesResponse => __isa(o, "GetResourcePoliciesResponse");
 }
 
 export interface GetResourcePolicyRequest {
-  __type?: "GetResourcePolicyRequest";
   /**
    * <p>The ARN of the AWS Glue resource for the resource policy to be retrieved. For more
    *       information about AWS Glue resource ARNs, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id">AWS Glue ARN string pattern</a>
@@ -6303,11 +5848,9 @@ export namespace GetResourcePolicyRequest {
   export const filterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourcePolicyRequest => __isa(o, "GetResourcePolicyRequest");
 }
 
 export interface GetResourcePolicyResponse {
-  __type?: "GetResourcePolicyResponse";
   /**
    * <p>Contains the hash value associated with this policy.</p>
    */
@@ -6333,11 +5876,9 @@ export namespace GetResourcePolicyResponse {
   export const filterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourcePolicyResponse => __isa(o, "GetResourcePolicyResponse");
 }
 
 export interface GetSecurityConfigurationRequest {
-  __type?: "GetSecurityConfigurationRequest";
   /**
    * <p>The name of the security configuration to retrieve.</p>
    */
@@ -6348,11 +5889,9 @@ export namespace GetSecurityConfigurationRequest {
   export const filterSensitiveLog = (obj: GetSecurityConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSecurityConfigurationRequest => __isa(o, "GetSecurityConfigurationRequest");
 }
 
 export interface GetSecurityConfigurationResponse {
-  __type?: "GetSecurityConfigurationResponse";
   /**
    * <p>The requested security configuration.</p>
    */
@@ -6363,11 +5902,9 @@ export namespace GetSecurityConfigurationResponse {
   export const filterSensitiveLog = (obj: GetSecurityConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSecurityConfigurationResponse => __isa(o, "GetSecurityConfigurationResponse");
 }
 
 export interface GetSecurityConfigurationsRequest {
-  __type?: "GetSecurityConfigurationsRequest";
   /**
    * <p>A continuation token, if this is a continuation call.</p>
    */
@@ -6383,11 +5920,9 @@ export namespace GetSecurityConfigurationsRequest {
   export const filterSensitiveLog = (obj: GetSecurityConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSecurityConfigurationsRequest => __isa(o, "GetSecurityConfigurationsRequest");
 }
 
 export interface GetSecurityConfigurationsResponse {
-  __type?: "GetSecurityConfigurationsResponse";
   /**
    * <p>A list of security configurations.</p>
    */
@@ -6404,11 +5939,9 @@ export namespace GetSecurityConfigurationsResponse {
   export const filterSensitiveLog = (obj: GetSecurityConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSecurityConfigurationsResponse => __isa(o, "GetSecurityConfigurationsResponse");
 }
 
 export interface GetTableRequest {
-  __type?: "GetTableRequest";
   /**
    * <p>The ID of the Data Catalog where the table resides. If none is provided, the AWS account
    *       ID is used by default.</p>
@@ -6432,11 +5965,9 @@ export namespace GetTableRequest {
   export const filterSensitiveLog = (obj: GetTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTableRequest => __isa(o, "GetTableRequest");
 }
 
 export interface GetTableResponse {
-  __type?: "GetTableResponse";
   /**
    * <p>The <code>Table</code> object that defines the specified table.</p>
    */
@@ -6447,11 +5978,9 @@ export namespace GetTableResponse {
   export const filterSensitiveLog = (obj: GetTableResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTableResponse => __isa(o, "GetTableResponse");
 }
 
 export interface GetTablesRequest {
-  __type?: "GetTablesRequest";
   /**
    * <p>The ID of the Data Catalog where the tables reside. If none is provided, the AWS account
    *       ID is used by default.</p>
@@ -6485,11 +6014,9 @@ export namespace GetTablesRequest {
   export const filterSensitiveLog = (obj: GetTablesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTablesRequest => __isa(o, "GetTablesRequest");
 }
 
 export interface GetTablesResponse {
-  __type?: "GetTablesResponse";
   /**
    * <p>A list of the requested <code>Table</code> objects.</p>
    */
@@ -6506,11 +6033,9 @@ export namespace GetTablesResponse {
   export const filterSensitiveLog = (obj: GetTablesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTablesResponse => __isa(o, "GetTablesResponse");
 }
 
 export interface GetTableVersionRequest {
-  __type?: "GetTableVersionRequest";
   /**
    * <p>The database in the catalog in which the table resides. For Hive
    *       compatibility, this name is entirely lowercase.</p>
@@ -6539,11 +6064,9 @@ export namespace GetTableVersionRequest {
   export const filterSensitiveLog = (obj: GetTableVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTableVersionRequest => __isa(o, "GetTableVersionRequest");
 }
 
 export interface GetTableVersionResponse {
-  __type?: "GetTableVersionResponse";
   /**
    * <p>The requested table version.</p>
    */
@@ -6554,11 +6077,9 @@ export namespace GetTableVersionResponse {
   export const filterSensitiveLog = (obj: GetTableVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTableVersionResponse => __isa(o, "GetTableVersionResponse");
 }
 
 export interface GetTableVersionsRequest {
-  __type?: "GetTableVersionsRequest";
   /**
    * <p>The ID of the Data Catalog where the tables reside. If none is provided, the AWS account
    *       ID is used by default.</p>
@@ -6592,11 +6113,9 @@ export namespace GetTableVersionsRequest {
   export const filterSensitiveLog = (obj: GetTableVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTableVersionsRequest => __isa(o, "GetTableVersionsRequest");
 }
 
 export interface GetTableVersionsResponse {
-  __type?: "GetTableVersionsResponse";
   /**
    * <p>A continuation token, if the list of available versions does
    *       not include the last one.</p>
@@ -6614,11 +6133,9 @@ export namespace GetTableVersionsResponse {
   export const filterSensitiveLog = (obj: GetTableVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTableVersionsResponse => __isa(o, "GetTableVersionsResponse");
 }
 
 export interface GetTagsRequest {
-  __type?: "GetTagsRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which to retrieve tags.</p>
    */
@@ -6629,11 +6146,9 @@ export namespace GetTagsRequest {
   export const filterSensitiveLog = (obj: GetTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTagsRequest => __isa(o, "GetTagsRequest");
 }
 
 export interface GetTagsResponse {
-  __type?: "GetTagsResponse";
   /**
    * <p>The requested tags.</p>
    */
@@ -6644,11 +6159,9 @@ export namespace GetTagsResponse {
   export const filterSensitiveLog = (obj: GetTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTagsResponse => __isa(o, "GetTagsResponse");
 }
 
 export interface GetTriggerRequest {
-  __type?: "GetTriggerRequest";
   /**
    * <p>The name of the trigger to retrieve.</p>
    */
@@ -6659,11 +6172,9 @@ export namespace GetTriggerRequest {
   export const filterSensitiveLog = (obj: GetTriggerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTriggerRequest => __isa(o, "GetTriggerRequest");
 }
 
 export interface GetTriggerResponse {
-  __type?: "GetTriggerResponse";
   /**
    * <p>The requested trigger definition.</p>
    */
@@ -6674,11 +6185,9 @@ export namespace GetTriggerResponse {
   export const filterSensitiveLog = (obj: GetTriggerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTriggerResponse => __isa(o, "GetTriggerResponse");
 }
 
 export interface GetTriggersRequest {
-  __type?: "GetTriggersRequest";
   /**
    * <p>The name of the job to retrieve triggers for. The trigger that can start this job is
    *       returned, and if there is no such trigger, all triggers are returned.</p>
@@ -6700,11 +6209,9 @@ export namespace GetTriggersRequest {
   export const filterSensitiveLog = (obj: GetTriggersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTriggersRequest => __isa(o, "GetTriggersRequest");
 }
 
 export interface GetTriggersResponse {
-  __type?: "GetTriggersResponse";
   /**
    * <p>A list of triggers for the specified job.</p>
    */
@@ -6721,11 +6228,9 @@ export namespace GetTriggersResponse {
   export const filterSensitiveLog = (obj: GetTriggersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTriggersResponse => __isa(o, "GetTriggersResponse");
 }
 
 export interface GetUserDefinedFunctionRequest {
-  __type?: "GetUserDefinedFunctionRequest";
   /**
    * <p>The name of the catalog database where the function is located.</p>
    */
@@ -6747,11 +6252,9 @@ export namespace GetUserDefinedFunctionRequest {
   export const filterSensitiveLog = (obj: GetUserDefinedFunctionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserDefinedFunctionRequest => __isa(o, "GetUserDefinedFunctionRequest");
 }
 
 export interface GetUserDefinedFunctionResponse {
-  __type?: "GetUserDefinedFunctionResponse";
   /**
    * <p>The requested function definition.</p>
    */
@@ -6762,11 +6265,9 @@ export namespace GetUserDefinedFunctionResponse {
   export const filterSensitiveLog = (obj: GetUserDefinedFunctionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserDefinedFunctionResponse => __isa(o, "GetUserDefinedFunctionResponse");
 }
 
 export interface GetUserDefinedFunctionsRequest {
-  __type?: "GetUserDefinedFunctionsRequest";
   /**
    * <p>The name of the catalog database where the functions are located. If none is provided, functions from all the
    *       databases across the catalog will be returned.</p>
@@ -6800,11 +6301,9 @@ export namespace GetUserDefinedFunctionsRequest {
   export const filterSensitiveLog = (obj: GetUserDefinedFunctionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserDefinedFunctionsRequest => __isa(o, "GetUserDefinedFunctionsRequest");
 }
 
 export interface GetUserDefinedFunctionsResponse {
-  __type?: "GetUserDefinedFunctionsResponse";
   /**
    * <p>A list of requested function definitions.</p>
    */
@@ -6821,11 +6320,9 @@ export namespace GetUserDefinedFunctionsResponse {
   export const filterSensitiveLog = (obj: GetUserDefinedFunctionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetUserDefinedFunctionsResponse => __isa(o, "GetUserDefinedFunctionsResponse");
 }
 
 export interface GetWorkflowRequest {
-  __type?: "GetWorkflowRequest";
   /**
    * <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
    */
@@ -6841,11 +6338,9 @@ export namespace GetWorkflowRequest {
   export const filterSensitiveLog = (obj: GetWorkflowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWorkflowRequest => __isa(o, "GetWorkflowRequest");
 }
 
 export interface GetWorkflowResponse {
-  __type?: "GetWorkflowResponse";
   /**
    * <p>The resource metadata for the workflow.</p>
    */
@@ -6856,11 +6351,9 @@ export namespace GetWorkflowResponse {
   export const filterSensitiveLog = (obj: GetWorkflowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWorkflowResponse => __isa(o, "GetWorkflowResponse");
 }
 
 export interface GetWorkflowRunPropertiesRequest {
-  __type?: "GetWorkflowRunPropertiesRequest";
   /**
    * <p>Name of the workflow which was run.</p>
    */
@@ -6876,11 +6369,9 @@ export namespace GetWorkflowRunPropertiesRequest {
   export const filterSensitiveLog = (obj: GetWorkflowRunPropertiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWorkflowRunPropertiesRequest => __isa(o, "GetWorkflowRunPropertiesRequest");
 }
 
 export interface GetWorkflowRunPropertiesResponse {
-  __type?: "GetWorkflowRunPropertiesResponse";
   /**
    * <p>The workflow run properties which were set during the specified run.</p>
    */
@@ -6891,11 +6382,9 @@ export namespace GetWorkflowRunPropertiesResponse {
   export const filterSensitiveLog = (obj: GetWorkflowRunPropertiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWorkflowRunPropertiesResponse => __isa(o, "GetWorkflowRunPropertiesResponse");
 }
 
 export interface GetWorkflowRunRequest {
-  __type?: "GetWorkflowRunRequest";
   /**
    * <p>The ID of the workflow run.</p>
    */
@@ -6916,11 +6405,9 @@ export namespace GetWorkflowRunRequest {
   export const filterSensitiveLog = (obj: GetWorkflowRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWorkflowRunRequest => __isa(o, "GetWorkflowRunRequest");
 }
 
 export interface GetWorkflowRunResponse {
-  __type?: "GetWorkflowRunResponse";
   /**
    * <p>The requested workflow run metadata.</p>
    */
@@ -6931,11 +6418,9 @@ export namespace GetWorkflowRunResponse {
   export const filterSensitiveLog = (obj: GetWorkflowRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWorkflowRunResponse => __isa(o, "GetWorkflowRunResponse");
 }
 
 export interface GetWorkflowRunsRequest {
-  __type?: "GetWorkflowRunsRequest";
   /**
    * <p>Name of the workflow whose metadata of runs should be returned.</p>
    */
@@ -6961,11 +6446,9 @@ export namespace GetWorkflowRunsRequest {
   export const filterSensitiveLog = (obj: GetWorkflowRunsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWorkflowRunsRequest => __isa(o, "GetWorkflowRunsRequest");
 }
 
 export interface GetWorkflowRunsResponse {
-  __type?: "GetWorkflowRunsResponse";
   /**
    * <p>A continuation token, if not all requested workflow runs have been returned.</p>
    */
@@ -6981,7 +6464,6 @@ export namespace GetWorkflowRunsResponse {
   export const filterSensitiveLog = (obj: GetWorkflowRunsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWorkflowRunsResponse => __isa(o, "GetWorkflowRunsResponse");
 }
 
 /**
@@ -7000,14 +6482,12 @@ export namespace GlueEncryptionException {
   export const filterSensitiveLog = (obj: GlueEncryptionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlueEncryptionException => __isa(o, "GlueEncryptionException");
 }
 
 /**
  * <p>A structure for returning a resource policy.</p>
  */
 export interface GluePolicy {
-  __type?: "GluePolicy";
   /**
    * <p>The date and time at which the policy was last updated.</p>
    */
@@ -7033,14 +6513,12 @@ export namespace GluePolicy {
   export const filterSensitiveLog = (obj: GluePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GluePolicy => __isa(o, "GluePolicy");
 }
 
 /**
  * <p>The database and table in the AWS Glue Data Catalog that is used for input or output data.</p>
  */
 export interface GlueTable {
-  __type?: "GlueTable";
   /**
    * <p>A database name in the AWS Glue Data Catalog.</p>
    */
@@ -7066,14 +6544,12 @@ export namespace GlueTable {
   export const filterSensitiveLog = (obj: GlueTable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GlueTable => __isa(o, "GlueTable");
 }
 
 /**
  * <p>A classifier that uses <code>grok</code> patterns.</p>
  */
 export interface GrokClassifier {
-  __type?: "GrokClassifier";
   /**
    * <p>Optional custom grok patterns defined by this classifier.
    *       For more information, see custom patterns in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom Classifiers</a>.</p>
@@ -7117,7 +6593,6 @@ export namespace GrokClassifier {
   export const filterSensitiveLog = (obj: GrokClassifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrokClassifier => __isa(o, "GrokClassifier");
 }
 
 /**
@@ -7136,8 +6611,6 @@ export namespace IdempotentParameterMismatchException {
   export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdempotentParameterMismatchException =>
-    __isa(o, "IdempotentParameterMismatchException");
 }
 
 /**
@@ -7156,11 +6629,9 @@ export namespace IllegalWorkflowStateException {
   export const filterSensitiveLog = (obj: IllegalWorkflowStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IllegalWorkflowStateException => __isa(o, "IllegalWorkflowStateException");
 }
 
 export interface ImportCatalogToGlueRequest {
-  __type?: "ImportCatalogToGlueRequest";
   /**
    * <p>The ID of the catalog to import. Currently, this should be the AWS account ID.</p>
    */
@@ -7171,25 +6642,20 @@ export namespace ImportCatalogToGlueRequest {
   export const filterSensitiveLog = (obj: ImportCatalogToGlueRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportCatalogToGlueRequest => __isa(o, "ImportCatalogToGlueRequest");
 }
 
-export interface ImportCatalogToGlueResponse {
-  __type?: "ImportCatalogToGlueResponse";
-}
+export interface ImportCatalogToGlueResponse {}
 
 export namespace ImportCatalogToGlueResponse {
   export const filterSensitiveLog = (obj: ImportCatalogToGlueResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportCatalogToGlueResponse => __isa(o, "ImportCatalogToGlueResponse");
 }
 
 /**
  * <p>Specifies configuration properties for an importing labels task run.</p>
  */
 export interface ImportLabelsTaskRunProperties {
-  __type?: "ImportLabelsTaskRunProperties";
   /**
    * <p>The Amazon Simple Storage Service (Amazon S3) path from where you will import the
    *       labels.</p>
@@ -7206,7 +6672,6 @@ export namespace ImportLabelsTaskRunProperties {
   export const filterSensitiveLog = (obj: ImportLabelsTaskRunProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportLabelsTaskRunProperties => __isa(o, "ImportLabelsTaskRunProperties");
 }
 
 /**
@@ -7225,7 +6690,6 @@ export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
@@ -7244,14 +6708,12 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
  * <p>Specifies a JDBC data store to crawl.</p>
  */
 export interface JdbcTarget {
-  __type?: "JdbcTarget";
   /**
    * <p>The name of the connection to use to connect to the JDBC target.</p>
    */
@@ -7273,14 +6735,12 @@ export namespace JdbcTarget {
   export const filterSensitiveLog = (obj: JdbcTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JdbcTarget => __isa(o, "JdbcTarget");
 }
 
 /**
  * <p>Specifies a job definition.</p>
  */
 export interface Job {
-  __type?: "Job";
   /**
    * <p>This field is reserved for future use.</p>
    */
@@ -7438,14 +6898,12 @@ export namespace Job {
   export const filterSensitiveLog = (obj: Job): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Job => __isa(o, "Job");
 }
 
 /**
  * <p>Defines a point that a job can resume processing.</p>
  */
 export interface JobBookmarkEntry {
-  __type?: "JobBookmarkEntry";
   /**
    * <p>The bookmark itself.</p>
    */
@@ -7486,14 +6944,12 @@ export namespace JobBookmarkEntry {
   export const filterSensitiveLog = (obj: JobBookmarkEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobBookmarkEntry => __isa(o, "JobBookmarkEntry");
 }
 
 /**
  * <p>Specifies how job bookmark data should be encrypted.</p>
  */
 export interface JobBookmarksEncryption {
-  __type?: "JobBookmarksEncryption";
   /**
    * <p>The encryption mode to use for job bookmarks data.</p>
    */
@@ -7509,7 +6965,6 @@ export namespace JobBookmarksEncryption {
   export const filterSensitiveLog = (obj: JobBookmarksEncryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobBookmarksEncryption => __isa(o, "JobBookmarksEncryption");
 }
 
 export enum JobBookmarksEncryptionMode {
@@ -7521,7 +6976,6 @@ export enum JobBookmarksEncryptionMode {
  * <p>Specifies code executed when a job is run.</p>
  */
 export interface JobCommand {
-  __type?: "JobCommand";
   /**
    * <p>The name of the job command. For an Apache Spark ETL job, this must be
    *       <code>glueetl</code>. For a Python shell job, it must be <code>pythonshell</code>.
@@ -7545,14 +6999,12 @@ export namespace JobCommand {
   export const filterSensitiveLog = (obj: JobCommand): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobCommand => __isa(o, "JobCommand");
 }
 
 /**
  * <p>The details of a Job node present in the workflow.</p>
  */
 export interface JobNodeDetails {
-  __type?: "JobNodeDetails";
   /**
    * <p>The information for the job runs represented by the job node.</p>
    */
@@ -7563,14 +7015,12 @@ export namespace JobNodeDetails {
   export const filterSensitiveLog = (obj: JobNodeDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobNodeDetails => __isa(o, "JobNodeDetails");
 }
 
 /**
  * <p>Contains information about a job run.</p>
  */
 export interface JobRun {
-  __type?: "JobRun";
   /**
    * <p>The number of the attempt to run this job.</p>
    */
@@ -7739,7 +7189,6 @@ export namespace JobRun {
   export const filterSensitiveLog = (obj: JobRun): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobRun => __isa(o, "JobRun");
 }
 
 export enum JobRunState {
@@ -7757,7 +7206,6 @@ export enum JobRunState {
  *       definition is completely overwritten by this information.</p>
  */
 export interface JobUpdate {
-  __type?: "JobUpdate";
   /**
    * <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
    *       for this job.</p>
@@ -7896,14 +7344,12 @@ export namespace JobUpdate {
   export const filterSensitiveLog = (obj: JobUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobUpdate => __isa(o, "JobUpdate");
 }
 
 /**
  * <p>A classifier for <code>JSON</code> content.</p>
  */
 export interface JsonClassifier {
-  __type?: "JsonClassifier";
   /**
    * <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify.
    *       AWS Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
@@ -7935,14 +7381,12 @@ export namespace JsonClassifier {
   export const filterSensitiveLog = (obj: JsonClassifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JsonClassifier => __isa(o, "JsonClassifier");
 }
 
 /**
  * <p>Specifies configuration properties for a labeling set generation task run.</p>
  */
 export interface LabelingSetGenerationTaskRunProperties {
-  __type?: "LabelingSetGenerationTaskRunProperties";
   /**
    * <p>The Amazon Simple Storage Service (Amazon S3) path where you will generate the labeling
    *       set.</p>
@@ -7954,8 +7398,6 @@ export namespace LabelingSetGenerationTaskRunProperties {
   export const filterSensitiveLog = (obj: LabelingSetGenerationTaskRunProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LabelingSetGenerationTaskRunProperties =>
-    __isa(o, "LabelingSetGenerationTaskRunProperties");
 }
 
 export enum Language {
@@ -7967,7 +7409,6 @@ export enum Language {
  * <p>Status and error information about the most recent crawl.</p>
  */
 export interface LastCrawlInfo {
-  __type?: "LastCrawlInfo";
   /**
    * <p>The time at which the crawl started.</p>
    */
@@ -8003,7 +7444,6 @@ export namespace LastCrawlInfo {
   export const filterSensitiveLog = (obj: LastCrawlInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LastCrawlInfo => __isa(o, "LastCrawlInfo");
 }
 
 export enum LastCrawlStatus {
@@ -8013,7 +7453,6 @@ export enum LastCrawlStatus {
 }
 
 export interface ListCrawlersRequest {
-  __type?: "ListCrawlersRequest";
   /**
    * <p>The maximum size of a list to return.</p>
    */
@@ -8034,11 +7473,9 @@ export namespace ListCrawlersRequest {
   export const filterSensitiveLog = (obj: ListCrawlersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCrawlersRequest => __isa(o, "ListCrawlersRequest");
 }
 
 export interface ListCrawlersResponse {
-  __type?: "ListCrawlersResponse";
   /**
    * <p>A continuation token, if the returned list does not contain the
    *       last metric available.</p>
@@ -8055,11 +7492,9 @@ export namespace ListCrawlersResponse {
   export const filterSensitiveLog = (obj: ListCrawlersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCrawlersResponse => __isa(o, "ListCrawlersResponse");
 }
 
 export interface ListDevEndpointsRequest {
-  __type?: "ListDevEndpointsRequest";
   /**
    * <p>The maximum size of a list to return.</p>
    */
@@ -8080,11 +7515,9 @@ export namespace ListDevEndpointsRequest {
   export const filterSensitiveLog = (obj: ListDevEndpointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDevEndpointsRequest => __isa(o, "ListDevEndpointsRequest");
 }
 
 export interface ListDevEndpointsResponse {
-  __type?: "ListDevEndpointsResponse";
   /**
    * <p>The names of all the <code>DevEndpoint</code>s in the account, or the
    *         <code>DevEndpoint</code>s with the specified tags.</p>
@@ -8102,11 +7535,9 @@ export namespace ListDevEndpointsResponse {
   export const filterSensitiveLog = (obj: ListDevEndpointsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDevEndpointsResponse => __isa(o, "ListDevEndpointsResponse");
 }
 
 export interface ListJobsRequest {
-  __type?: "ListJobsRequest";
   /**
    * <p>A continuation token, if this is a continuation request.</p>
    */
@@ -8127,11 +7558,9 @@ export namespace ListJobsRequest {
   export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 export interface ListJobsResponse {
-  __type?: "ListJobsResponse";
   /**
    * <p>The names of all jobs in the account, or the jobs with the specified tags.</p>
    */
@@ -8148,11 +7577,9 @@ export namespace ListJobsResponse {
   export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsResponse => __isa(o, "ListJobsResponse");
 }
 
 export interface ListMLTransformsRequest {
-  __type?: "ListMLTransformsRequest";
   /**
    * <p>A <code>TransformFilterCriteria</code> used to filter the machine learning transforms.</p>
    */
@@ -8183,11 +7610,9 @@ export namespace ListMLTransformsRequest {
   export const filterSensitiveLog = (obj: ListMLTransformsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMLTransformsRequest => __isa(o, "ListMLTransformsRequest");
 }
 
 export interface ListMLTransformsResponse {
-  __type?: "ListMLTransformsResponse";
   /**
    * <p>The identifiers of all the machine learning transforms in the account, or the
    *         machine learning transforms with the specified tags.</p>
@@ -8205,11 +7630,9 @@ export namespace ListMLTransformsResponse {
   export const filterSensitiveLog = (obj: ListMLTransformsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListMLTransformsResponse => __isa(o, "ListMLTransformsResponse");
 }
 
 export interface ListTriggersRequest {
-  __type?: "ListTriggersRequest";
   /**
    * <p> The name of the job for which to retrieve triggers. The trigger that can start this job
    *       is returned. If there is no such trigger, all triggers are returned.</p>
@@ -8236,11 +7659,9 @@ export namespace ListTriggersRequest {
   export const filterSensitiveLog = (obj: ListTriggersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTriggersRequest => __isa(o, "ListTriggersRequest");
 }
 
 export interface ListTriggersResponse {
-  __type?: "ListTriggersResponse";
   /**
    * <p>The names of all triggers in the account, or the triggers with the specified tags.</p>
    */
@@ -8257,11 +7678,9 @@ export namespace ListTriggersResponse {
   export const filterSensitiveLog = (obj: ListTriggersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTriggersResponse => __isa(o, "ListTriggersResponse");
 }
 
 export interface ListWorkflowsRequest {
-  __type?: "ListWorkflowsRequest";
   /**
    * <p>The maximum size of a list to return.</p>
    */
@@ -8277,11 +7696,9 @@ export namespace ListWorkflowsRequest {
   export const filterSensitiveLog = (obj: ListWorkflowsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWorkflowsRequest => __isa(o, "ListWorkflowsRequest");
 }
 
 export interface ListWorkflowsResponse {
-  __type?: "ListWorkflowsResponse";
   /**
    * <p>A continuation token, if not all workflow names have been returned.</p>
    */
@@ -8297,14 +7714,12 @@ export namespace ListWorkflowsResponse {
   export const filterSensitiveLog = (obj: ListWorkflowsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWorkflowsResponse => __isa(o, "ListWorkflowsResponse");
 }
 
 /**
  * <p>The location of resources.</p>
  */
 export interface Location {
-  __type?: "Location";
   /**
    * <p>An Amazon Simple Storage Service (Amazon S3) location.</p>
    */
@@ -8325,7 +7740,6 @@ export namespace Location {
   export const filterSensitiveLog = (obj: Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Location => __isa(o, "Location");
 }
 
 export enum Logical {
@@ -8341,7 +7755,6 @@ export enum LogicalOperator {
  * <p>Defines a long column statistics data.</p>
  */
 export interface LongColumnStatisticsData {
-  __type?: "LongColumnStatisticsData";
   /**
    * <p>Number of nulls.</p>
    */
@@ -8367,14 +7780,12 @@ export namespace LongColumnStatisticsData {
   export const filterSensitiveLog = (obj: LongColumnStatisticsData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LongColumnStatisticsData => __isa(o, "LongColumnStatisticsData");
 }
 
 /**
  * <p>Defines a mapping.</p>
  */
 export interface MappingEntry {
-  __type?: "MappingEntry";
   /**
    * <p>The name of the source table.</p>
    */
@@ -8410,14 +7821,12 @@ export namespace MappingEntry {
   export const filterSensitiveLog = (obj: MappingEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MappingEntry => __isa(o, "MappingEntry");
 }
 
 /**
  * <p>A structure for a machine learning transform.</p>
  */
 export interface MLTransform {
-  __type?: "MLTransform";
   /**
    * <p>A count identifier for the labeling files generated by AWS Glue for this transform. As you create a better transform, you can iteratively download, label, and upload the labeling file.</p>
    */
@@ -8583,7 +7992,6 @@ export namespace MLTransform {
   export const filterSensitiveLog = (obj: MLTransform): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MLTransform => __isa(o, "MLTransform");
 }
 
 /**
@@ -8602,14 +8010,12 @@ export namespace MLTransformNotReadyException {
   export const filterSensitiveLog = (obj: MLTransformNotReadyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MLTransformNotReadyException => __isa(o, "MLTransformNotReadyException");
 }
 
 /**
  * <p>A node represents an AWS Glue component such as a trigger, or job, etc., that is part of a workflow.</p>
  */
 export interface Node {
-  __type?: "Node";
   /**
    * <p>Details of the Job when the node represents a Job.</p>
    */
@@ -8645,7 +8051,6 @@ export namespace Node {
   export const filterSensitiveLog = (obj: Node): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Node => __isa(o, "Node");
 }
 
 export enum NodeType {
@@ -8670,14 +8075,12 @@ export namespace NoScheduleException {
   export const filterSensitiveLog = (obj: NoScheduleException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoScheduleException => __isa(o, "NoScheduleException");
 }
 
 /**
  * <p>Specifies configuration properties of a notification.</p>
  */
 export interface NotificationProperty {
-  __type?: "NotificationProperty";
   /**
    * <p>After a job run starts, the number of minutes to wait before
    *       sending a job run delay notification.</p>
@@ -8689,7 +8092,6 @@ export namespace NotificationProperty {
   export const filterSensitiveLog = (obj: NotificationProperty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotificationProperty => __isa(o, "NotificationProperty");
 }
 
 /**
@@ -8708,14 +8110,12 @@ export namespace OperationTimeoutException {
   export const filterSensitiveLog = (obj: OperationTimeoutException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationTimeoutException => __isa(o, "OperationTimeoutException");
 }
 
 /**
  * <p>Specifies the sort order of a sorted column.</p>
  */
 export interface Order {
-  __type?: "Order";
   /**
    * <p>The name of the column.</p>
    */
@@ -8732,14 +8132,12 @@ export namespace Order {
   export const filterSensitiveLog = (obj: Order): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Order => __isa(o, "Order");
 }
 
 /**
  * <p>Represents a slice of table data.</p>
  */
 export interface Partition {
-  __type?: "Partition";
   /**
    * <p>The last time at which the partition was accessed.</p>
    */
@@ -8792,14 +8190,12 @@ export namespace Partition {
   export const filterSensitiveLog = (obj: Partition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Partition => __isa(o, "Partition");
 }
 
 /**
  * <p>Contains information about a partition error.</p>
  */
 export interface PartitionError {
-  __type?: "PartitionError";
   /**
    * <p>The values that define the partition.</p>
    */
@@ -8815,14 +8211,12 @@ export namespace PartitionError {
   export const filterSensitiveLog = (obj: PartitionError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PartitionError => __isa(o, "PartitionError");
 }
 
 /**
  * <p>The structure used to create and update a partition.</p>
  */
 export interface PartitionInput {
-  __type?: "PartitionInput";
   /**
    * <p>The last time at which column statistics were computed for this partition.</p>
    */
@@ -8856,14 +8250,12 @@ export namespace PartitionInput {
   export const filterSensitiveLog = (obj: PartitionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PartitionInput => __isa(o, "PartitionInput");
 }
 
 /**
  * <p>Contains a list of values defining partitions.</p>
  */
 export interface PartitionValueList {
-  __type?: "PartitionValueList";
   /**
    * <p>The list of values.</p>
    */
@@ -8874,7 +8266,6 @@ export namespace PartitionValueList {
   export const filterSensitiveLog = (obj: PartitionValueList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PartitionValueList => __isa(o, "PartitionValueList");
 }
 
 export enum Permission {
@@ -8893,7 +8284,6 @@ export enum Permission {
  * <p>Specifies the physical requirements for a connection.</p>
  */
 export interface PhysicalConnectionRequirements {
-  __type?: "PhysicalConnectionRequirements";
   /**
    * <p>The security group ID list used by the connection.</p>
    */
@@ -8916,7 +8306,6 @@ export namespace PhysicalConnectionRequirements {
   export const filterSensitiveLog = (obj: PhysicalConnectionRequirements): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PhysicalConnectionRequirements => __isa(o, "PhysicalConnectionRequirements");
 }
 
 /**
@@ -8924,7 +8313,6 @@ export namespace PhysicalConnectionRequirements {
  *       that triggered this job run.</p>
  */
 export interface Predecessor {
-  __type?: "Predecessor";
   /**
    * <p>The name of the job definition used by the predecessor job run.</p>
    */
@@ -8940,14 +8328,12 @@ export namespace Predecessor {
   export const filterSensitiveLog = (obj: Predecessor): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Predecessor => __isa(o, "Predecessor");
 }
 
 /**
  * <p>Defines the predicate of the trigger, which determines when it fires.</p>
  */
 export interface Predicate {
-  __type?: "Predicate";
   /**
    * <p>An optional field if only one condition is listed. If multiple conditions are listed, then
    *       this field is required.</p>
@@ -8964,14 +8350,12 @@ export namespace Predicate {
   export const filterSensitiveLog = (obj: Predicate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Predicate => __isa(o, "Predicate");
 }
 
 /**
  * <p>Permissions granted to a principal.</p>
  */
 export interface PrincipalPermissions {
-  __type?: "PrincipalPermissions";
   /**
    * <p>The permissions that are granted to the principal.</p>
    */
@@ -8987,7 +8371,6 @@ export namespace PrincipalPermissions {
   export const filterSensitiveLog = (obj: PrincipalPermissions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PrincipalPermissions => __isa(o, "PrincipalPermissions");
 }
 
 export enum PrincipalType {
@@ -9000,7 +8383,6 @@ export enum PrincipalType {
  * <p>Defines a property predicate.</p>
  */
 export interface PropertyPredicate {
-  __type?: "PropertyPredicate";
   /**
    * <p>The value of the property.</p>
    */
@@ -9021,11 +8403,9 @@ export namespace PropertyPredicate {
   export const filterSensitiveLog = (obj: PropertyPredicate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PropertyPredicate => __isa(o, "PropertyPredicate");
 }
 
 export interface PutDataCatalogEncryptionSettingsRequest {
-  __type?: "PutDataCatalogEncryptionSettingsRequest";
   /**
    * <p>The security configuration to set.</p>
    */
@@ -9042,24 +8422,17 @@ export namespace PutDataCatalogEncryptionSettingsRequest {
   export const filterSensitiveLog = (obj: PutDataCatalogEncryptionSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDataCatalogEncryptionSettingsRequest =>
-    __isa(o, "PutDataCatalogEncryptionSettingsRequest");
 }
 
-export interface PutDataCatalogEncryptionSettingsResponse {
-  __type?: "PutDataCatalogEncryptionSettingsResponse";
-}
+export interface PutDataCatalogEncryptionSettingsResponse {}
 
 export namespace PutDataCatalogEncryptionSettingsResponse {
   export const filterSensitiveLog = (obj: PutDataCatalogEncryptionSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutDataCatalogEncryptionSettingsResponse =>
-    __isa(o, "PutDataCatalogEncryptionSettingsResponse");
 }
 
 export interface PutResourcePolicyRequest {
-  __type?: "PutResourcePolicyRequest";
   /**
    * <p>The hash value returned when the previous policy was set using
    *         <code>PutResourcePolicy</code>. Its purpose is to prevent concurrent modifications of a
@@ -9098,11 +8471,9 @@ export namespace PutResourcePolicyRequest {
   export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutResourcePolicyRequest => __isa(o, "PutResourcePolicyRequest");
 }
 
 export interface PutResourcePolicyResponse {
-  __type?: "PutResourcePolicyResponse";
   /**
    * <p>A hash of the policy that has just been set. This must
    *       be included in a subsequent call that overwrites or updates
@@ -9115,11 +8486,9 @@ export namespace PutResourcePolicyResponse {
   export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutResourcePolicyResponse => __isa(o, "PutResourcePolicyResponse");
 }
 
 export interface PutWorkflowRunPropertiesRequest {
-  __type?: "PutWorkflowRunPropertiesRequest";
   /**
    * <p>Name of the workflow which was run.</p>
    */
@@ -9140,22 +8509,17 @@ export namespace PutWorkflowRunPropertiesRequest {
   export const filterSensitiveLog = (obj: PutWorkflowRunPropertiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutWorkflowRunPropertiesRequest => __isa(o, "PutWorkflowRunPropertiesRequest");
 }
 
-export interface PutWorkflowRunPropertiesResponse {
-  __type?: "PutWorkflowRunPropertiesResponse";
-}
+export interface PutWorkflowRunPropertiesResponse {}
 
 export namespace PutWorkflowRunPropertiesResponse {
   export const filterSensitiveLog = (obj: PutWorkflowRunPropertiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutWorkflowRunPropertiesResponse => __isa(o, "PutWorkflowRunPropertiesResponse");
 }
 
 export interface ResetJobBookmarkRequest {
-  __type?: "ResetJobBookmarkRequest";
   /**
    * <p>The unique run identifier associated with this job run.</p>
    */
@@ -9171,11 +8535,9 @@ export namespace ResetJobBookmarkRequest {
   export const filterSensitiveLog = (obj: ResetJobBookmarkRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetJobBookmarkRequest => __isa(o, "ResetJobBookmarkRequest");
 }
 
 export interface ResetJobBookmarkResponse {
-  __type?: "ResetJobBookmarkResponse";
   /**
    * <p>The reset bookmark entry.</p>
    */
@@ -9186,7 +8548,6 @@ export namespace ResetJobBookmarkResponse {
   export const filterSensitiveLog = (obj: ResetJobBookmarkResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResetJobBookmarkResponse => __isa(o, "ResetJobBookmarkResponse");
 }
 
 /**
@@ -9205,8 +8566,6 @@ export namespace ResourceNumberLimitExceededException {
   export const filterSensitiveLog = (obj: ResourceNumberLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNumberLimitExceededException =>
-    __isa(o, "ResourceNumberLimitExceededException");
 }
 
 export enum ResourceShareType {
@@ -9224,7 +8583,6 @@ export enum ResourceType {
  * <p>The URIs for function resources.</p>
  */
 export interface ResourceUri {
-  __type?: "ResourceUri";
   /**
    * <p>The URI for accessing the resource.</p>
    */
@@ -9240,11 +8598,9 @@ export namespace ResourceUri {
   export const filterSensitiveLog = (obj: ResourceUri): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceUri => __isa(o, "ResourceUri");
 }
 
 export interface ResumeWorkflowRunRequest {
-  __type?: "ResumeWorkflowRunRequest";
   /**
    * <p>The name of the workflow to resume.</p>
    */
@@ -9265,11 +8621,9 @@ export namespace ResumeWorkflowRunRequest {
   export const filterSensitiveLog = (obj: ResumeWorkflowRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResumeWorkflowRunRequest => __isa(o, "ResumeWorkflowRunRequest");
 }
 
 export interface ResumeWorkflowRunResponse {
-  __type?: "ResumeWorkflowRunResponse";
   /**
    * <p>A list of the node IDs for the nodes that were actually restarted.</p>
    */
@@ -9285,14 +8639,12 @@ export namespace ResumeWorkflowRunResponse {
   export const filterSensitiveLog = (obj: ResumeWorkflowRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResumeWorkflowRunResponse => __isa(o, "ResumeWorkflowRunResponse");
 }
 
 /**
  * <p>Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.</p>
  */
 export interface S3Encryption {
-  __type?: "S3Encryption";
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
    */
@@ -9308,7 +8660,6 @@ export namespace S3Encryption {
   export const filterSensitiveLog = (obj: S3Encryption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Encryption => __isa(o, "S3Encryption");
 }
 
 export enum S3EncryptionMode {
@@ -9321,7 +8672,6 @@ export enum S3EncryptionMode {
  * <p>Specifies a data store in Amazon Simple Storage Service (Amazon S3).</p>
  */
 export interface S3Target {
-  __type?: "S3Target";
   /**
    * <p>A list of glob patterns used to exclude from the crawl.
    *       For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
@@ -9338,14 +8688,12 @@ export namespace S3Target {
   export const filterSensitiveLog = (obj: S3Target): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Target => __isa(o, "S3Target");
 }
 
 /**
  * <p>A scheduling object using a <code>cron</code> statement to schedule an event.</p>
  */
 export interface Schedule {
-  __type?: "Schedule";
   /**
    * <p>The state of the schedule.</p>
    */
@@ -9363,7 +8711,6 @@ export namespace Schedule {
   export const filterSensitiveLog = (obj: Schedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Schedule => __isa(o, "Schedule");
 }
 
 /**
@@ -9382,7 +8729,6 @@ export namespace SchedulerNotRunningException {
   export const filterSensitiveLog = (obj: SchedulerNotRunningException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SchedulerNotRunningException => __isa(o, "SchedulerNotRunningException");
 }
 
 /**
@@ -9401,7 +8747,6 @@ export namespace SchedulerRunningException {
   export const filterSensitiveLog = (obj: SchedulerRunningException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SchedulerRunningException => __isa(o, "SchedulerRunningException");
 }
 
 /**
@@ -9420,7 +8765,6 @@ export namespace SchedulerTransitioningException {
   export const filterSensitiveLog = (obj: SchedulerTransitioningException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SchedulerTransitioningException => __isa(o, "SchedulerTransitioningException");
 }
 
 export enum ScheduleState {
@@ -9433,7 +8777,6 @@ export enum ScheduleState {
  * <p>A policy that specifies update and deletion behaviors for the crawler.</p>
  */
 export interface SchemaChangePolicy {
-  __type?: "SchemaChangePolicy";
   /**
    * <p>The deletion behavior when the crawler finds a deleted object.</p>
    */
@@ -9449,7 +8792,6 @@ export namespace SchemaChangePolicy {
   export const filterSensitiveLog = (obj: SchemaChangePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SchemaChangePolicy => __isa(o, "SchemaChangePolicy");
 }
 
 /**
@@ -9457,7 +8799,6 @@ export namespace SchemaChangePolicy {
  *       run against. The <code>Schema</code> parameter of the <code>MLTransform</code> may contain up to 100 of these structures.</p>
  */
 export interface SchemaColumn {
-  __type?: "SchemaColumn";
   /**
    * <p>The name of the column.</p>
    */
@@ -9473,11 +8814,9 @@ export namespace SchemaColumn {
   export const filterSensitiveLog = (obj: SchemaColumn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SchemaColumn => __isa(o, "SchemaColumn");
 }
 
 export interface SearchTablesRequest {
-  __type?: "SearchTablesRequest";
   /**
    * <p>A list of criteria for sorting the results by a field name, in an ascending or descending order.</p>
    */
@@ -9532,11 +8871,9 @@ export namespace SearchTablesRequest {
   export const filterSensitiveLog = (obj: SearchTablesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchTablesRequest => __isa(o, "SearchTablesRequest");
 }
 
 export interface SearchTablesResponse {
-  __type?: "SearchTablesResponse";
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
    */
@@ -9552,14 +8889,12 @@ export namespace SearchTablesResponse {
   export const filterSensitiveLog = (obj: SearchTablesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchTablesResponse => __isa(o, "SearchTablesResponse");
 }
 
 /**
  * <p>Specifies a security configuration.</p>
  */
 export interface SecurityConfiguration {
-  __type?: "SecurityConfiguration";
   /**
    * <p>The encryption configuration associated with this security configuration.</p>
    */
@@ -9580,7 +8915,6 @@ export namespace SecurityConfiguration {
   export const filterSensitiveLog = (obj: SecurityConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SecurityConfiguration => __isa(o, "SecurityConfiguration");
 }
 
 /**
@@ -9588,7 +8922,6 @@ export namespace SecurityConfiguration {
  *       multiple requests to be executed in parallel.</p>
  */
 export interface Segment {
-  __type?: "Segment";
   /**
    * <p>The zero-based index number of the segment. For example, if the total number of segments
    *       is 4, <code>SegmentNumber</code> values range from 0 through 3.</p>
@@ -9605,7 +8938,6 @@ export namespace Segment {
   export const filterSensitiveLog = (obj: Segment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Segment => __isa(o, "Segment");
 }
 
 /**
@@ -9613,7 +8945,6 @@ export namespace Segment {
  *       extractor and loader.</p>
  */
 export interface SerDeInfo {
-  __type?: "SerDeInfo";
   /**
    * <p>Usually the class that implements the SerDe. An example is
    *         <code>org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe</code>.</p>
@@ -9635,7 +8966,6 @@ export namespace SerDeInfo {
   export const filterSensitiveLog = (obj: SerDeInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SerDeInfo => __isa(o, "SerDeInfo");
 }
 
 /**
@@ -9643,7 +8973,6 @@ export namespace SerDeInfo {
  *       frequency.</p>
  */
 export interface SkewedInfo {
-  __type?: "SkewedInfo";
   /**
    * <p>A list of names of columns that contain skewed values.</p>
    */
@@ -9665,7 +8994,6 @@ export namespace SkewedInfo {
   export const filterSensitiveLog = (obj: SkewedInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SkewedInfo => __isa(o, "SkewedInfo");
 }
 
 export enum Sort {
@@ -9677,7 +9005,6 @@ export enum Sort {
  * <p>Specifies a field to sort by and a sort order.</p>
  */
 export interface SortCriterion {
-  __type?: "SortCriterion";
   /**
    * <p>An ascending or descending sort.</p>
    */
@@ -9693,7 +9020,6 @@ export namespace SortCriterion {
   export const filterSensitiveLog = (obj: SortCriterion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SortCriterion => __isa(o, "SortCriterion");
 }
 
 export enum SortDirectionType {
@@ -9702,7 +9028,6 @@ export enum SortDirectionType {
 }
 
 export interface StartCrawlerRequest {
-  __type?: "StartCrawlerRequest";
   /**
    * <p>Name of the crawler to start.</p>
    */
@@ -9713,22 +9038,17 @@ export namespace StartCrawlerRequest {
   export const filterSensitiveLog = (obj: StartCrawlerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartCrawlerRequest => __isa(o, "StartCrawlerRequest");
 }
 
-export interface StartCrawlerResponse {
-  __type?: "StartCrawlerResponse";
-}
+export interface StartCrawlerResponse {}
 
 export namespace StartCrawlerResponse {
   export const filterSensitiveLog = (obj: StartCrawlerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartCrawlerResponse => __isa(o, "StartCrawlerResponse");
 }
 
 export interface StartCrawlerScheduleRequest {
-  __type?: "StartCrawlerScheduleRequest";
   /**
    * <p>Name of the crawler to schedule.</p>
    */
@@ -9739,22 +9059,17 @@ export namespace StartCrawlerScheduleRequest {
   export const filterSensitiveLog = (obj: StartCrawlerScheduleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartCrawlerScheduleRequest => __isa(o, "StartCrawlerScheduleRequest");
 }
 
-export interface StartCrawlerScheduleResponse {
-  __type?: "StartCrawlerScheduleResponse";
-}
+export interface StartCrawlerScheduleResponse {}
 
 export namespace StartCrawlerScheduleResponse {
   export const filterSensitiveLog = (obj: StartCrawlerScheduleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartCrawlerScheduleResponse => __isa(o, "StartCrawlerScheduleResponse");
 }
 
 export interface StartExportLabelsTaskRunRequest {
-  __type?: "StartExportLabelsTaskRunRequest";
   /**
    * <p>The Amazon S3 path where you export the labels.</p>
    */
@@ -9770,11 +9085,9 @@ export namespace StartExportLabelsTaskRunRequest {
   export const filterSensitiveLog = (obj: StartExportLabelsTaskRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartExportLabelsTaskRunRequest => __isa(o, "StartExportLabelsTaskRunRequest");
 }
 
 export interface StartExportLabelsTaskRunResponse {
-  __type?: "StartExportLabelsTaskRunResponse";
   /**
    * <p>The unique identifier for the task run.</p>
    */
@@ -9785,11 +9098,9 @@ export namespace StartExportLabelsTaskRunResponse {
   export const filterSensitiveLog = (obj: StartExportLabelsTaskRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartExportLabelsTaskRunResponse => __isa(o, "StartExportLabelsTaskRunResponse");
 }
 
 export interface StartImportLabelsTaskRunRequest {
-  __type?: "StartImportLabelsTaskRunRequest";
   /**
    * <p>Indicates whether to overwrite your existing labels.</p>
    */
@@ -9811,11 +9122,9 @@ export namespace StartImportLabelsTaskRunRequest {
   export const filterSensitiveLog = (obj: StartImportLabelsTaskRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartImportLabelsTaskRunRequest => __isa(o, "StartImportLabelsTaskRunRequest");
 }
 
 export interface StartImportLabelsTaskRunResponse {
-  __type?: "StartImportLabelsTaskRunResponse";
   /**
    * <p>The unique identifier for the task run.</p>
    */
@@ -9826,11 +9135,9 @@ export namespace StartImportLabelsTaskRunResponse {
   export const filterSensitiveLog = (obj: StartImportLabelsTaskRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartImportLabelsTaskRunResponse => __isa(o, "StartImportLabelsTaskRunResponse");
 }
 
 export interface StartJobRunRequest {
-  __type?: "StartJobRunRequest";
   /**
    * <p>The name of the job definition to use.</p>
    */
@@ -9929,11 +9236,9 @@ export namespace StartJobRunRequest {
   export const filterSensitiveLog = (obj: StartJobRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartJobRunRequest => __isa(o, "StartJobRunRequest");
 }
 
 export interface StartJobRunResponse {
-  __type?: "StartJobRunResponse";
   /**
    * <p>The ID assigned to this job run.</p>
    */
@@ -9944,11 +9249,9 @@ export namespace StartJobRunResponse {
   export const filterSensitiveLog = (obj: StartJobRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartJobRunResponse => __isa(o, "StartJobRunResponse");
 }
 
 export interface StartMLEvaluationTaskRunRequest {
-  __type?: "StartMLEvaluationTaskRunRequest";
   /**
    * <p>The unique identifier of the machine learning transform.</p>
    */
@@ -9959,11 +9262,9 @@ export namespace StartMLEvaluationTaskRunRequest {
   export const filterSensitiveLog = (obj: StartMLEvaluationTaskRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMLEvaluationTaskRunRequest => __isa(o, "StartMLEvaluationTaskRunRequest");
 }
 
 export interface StartMLEvaluationTaskRunResponse {
-  __type?: "StartMLEvaluationTaskRunResponse";
   /**
    * <p>The unique identifier associated with this run.</p>
    */
@@ -9974,11 +9275,9 @@ export namespace StartMLEvaluationTaskRunResponse {
   export const filterSensitiveLog = (obj: StartMLEvaluationTaskRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMLEvaluationTaskRunResponse => __isa(o, "StartMLEvaluationTaskRunResponse");
 }
 
 export interface StartMLLabelingSetGenerationTaskRunRequest {
-  __type?: "StartMLLabelingSetGenerationTaskRunRequest";
   /**
    * <p>The unique identifier of the machine learning transform.</p>
    */
@@ -9995,12 +9294,9 @@ export namespace StartMLLabelingSetGenerationTaskRunRequest {
   export const filterSensitiveLog = (obj: StartMLLabelingSetGenerationTaskRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMLLabelingSetGenerationTaskRunRequest =>
-    __isa(o, "StartMLLabelingSetGenerationTaskRunRequest");
 }
 
 export interface StartMLLabelingSetGenerationTaskRunResponse {
-  __type?: "StartMLLabelingSetGenerationTaskRunResponse";
   /**
    * <p>The unique run identifier that is associated with this task run.</p>
    */
@@ -10011,12 +9307,9 @@ export namespace StartMLLabelingSetGenerationTaskRunResponse {
   export const filterSensitiveLog = (obj: StartMLLabelingSetGenerationTaskRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartMLLabelingSetGenerationTaskRunResponse =>
-    __isa(o, "StartMLLabelingSetGenerationTaskRunResponse");
 }
 
 export interface StartTriggerRequest {
-  __type?: "StartTriggerRequest";
   /**
    * <p>The name of the trigger to start.</p>
    */
@@ -10027,11 +9320,9 @@ export namespace StartTriggerRequest {
   export const filterSensitiveLog = (obj: StartTriggerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTriggerRequest => __isa(o, "StartTriggerRequest");
 }
 
 export interface StartTriggerResponse {
-  __type?: "StartTriggerResponse";
   /**
    * <p>The name of the trigger that was started.</p>
    */
@@ -10042,11 +9333,9 @@ export namespace StartTriggerResponse {
   export const filterSensitiveLog = (obj: StartTriggerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTriggerResponse => __isa(o, "StartTriggerResponse");
 }
 
 export interface StartWorkflowRunRequest {
-  __type?: "StartWorkflowRunRequest";
   /**
    * <p>The name of the workflow to start.</p>
    */
@@ -10057,11 +9346,9 @@ export namespace StartWorkflowRunRequest {
   export const filterSensitiveLog = (obj: StartWorkflowRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartWorkflowRunRequest => __isa(o, "StartWorkflowRunRequest");
 }
 
 export interface StartWorkflowRunResponse {
-  __type?: "StartWorkflowRunResponse";
   /**
    * <p>An Id for the new run.</p>
    */
@@ -10072,11 +9359,9 @@ export namespace StartWorkflowRunResponse {
   export const filterSensitiveLog = (obj: StartWorkflowRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartWorkflowRunResponse => __isa(o, "StartWorkflowRunResponse");
 }
 
 export interface StopCrawlerRequest {
-  __type?: "StopCrawlerRequest";
   /**
    * <p>Name of the crawler to stop.</p>
    */
@@ -10087,22 +9372,17 @@ export namespace StopCrawlerRequest {
   export const filterSensitiveLog = (obj: StopCrawlerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopCrawlerRequest => __isa(o, "StopCrawlerRequest");
 }
 
-export interface StopCrawlerResponse {
-  __type?: "StopCrawlerResponse";
-}
+export interface StopCrawlerResponse {}
 
 export namespace StopCrawlerResponse {
   export const filterSensitiveLog = (obj: StopCrawlerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopCrawlerResponse => __isa(o, "StopCrawlerResponse");
 }
 
 export interface StopCrawlerScheduleRequest {
-  __type?: "StopCrawlerScheduleRequest";
   /**
    * <p>Name of the crawler whose schedule state to set.</p>
    */
@@ -10113,22 +9393,17 @@ export namespace StopCrawlerScheduleRequest {
   export const filterSensitiveLog = (obj: StopCrawlerScheduleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopCrawlerScheduleRequest => __isa(o, "StopCrawlerScheduleRequest");
 }
 
-export interface StopCrawlerScheduleResponse {
-  __type?: "StopCrawlerScheduleResponse";
-}
+export interface StopCrawlerScheduleResponse {}
 
 export namespace StopCrawlerScheduleResponse {
   export const filterSensitiveLog = (obj: StopCrawlerScheduleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopCrawlerScheduleResponse => __isa(o, "StopCrawlerScheduleResponse");
 }
 
 export interface StopTriggerRequest {
-  __type?: "StopTriggerRequest";
   /**
    * <p>The name of the trigger to stop.</p>
    */
@@ -10139,11 +9414,9 @@ export namespace StopTriggerRequest {
   export const filterSensitiveLog = (obj: StopTriggerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopTriggerRequest => __isa(o, "StopTriggerRequest");
 }
 
 export interface StopTriggerResponse {
-  __type?: "StopTriggerResponse";
   /**
    * <p>The name of the trigger that was stopped.</p>
    */
@@ -10154,11 +9427,9 @@ export namespace StopTriggerResponse {
   export const filterSensitiveLog = (obj: StopTriggerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopTriggerResponse => __isa(o, "StopTriggerResponse");
 }
 
 export interface StopWorkflowRunRequest {
-  __type?: "StopWorkflowRunRequest";
   /**
    * <p>The ID of the workflow run to stop.</p>
    */
@@ -10174,25 +9445,20 @@ export namespace StopWorkflowRunRequest {
   export const filterSensitiveLog = (obj: StopWorkflowRunRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopWorkflowRunRequest => __isa(o, "StopWorkflowRunRequest");
 }
 
-export interface StopWorkflowRunResponse {
-  __type?: "StopWorkflowRunResponse";
-}
+export interface StopWorkflowRunResponse {}
 
 export namespace StopWorkflowRunResponse {
   export const filterSensitiveLog = (obj: StopWorkflowRunResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopWorkflowRunResponse => __isa(o, "StopWorkflowRunResponse");
 }
 
 /**
  * <p>Describes the physical storage of table data.</p>
  */
 export interface StorageDescriptor {
-  __type?: "StorageDescriptor";
   /**
    * <p>The input format: <code>SequenceFileInputFormat</code> (binary),
    *       or <code>TextInputFormat</code>, or a custom format.</p>
@@ -10267,14 +9533,12 @@ export namespace StorageDescriptor {
   export const filterSensitiveLog = (obj: StorageDescriptor): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StorageDescriptor => __isa(o, "StorageDescriptor");
 }
 
 /**
  * <p>Defines a string column statistics data.</p>
  */
 export interface StringColumnStatisticsData {
-  __type?: "StringColumnStatisticsData";
   /**
    * <p>Average value of the column.</p>
    */
@@ -10300,14 +9564,12 @@ export namespace StringColumnStatisticsData {
   export const filterSensitiveLog = (obj: StringColumnStatisticsData): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StringColumnStatisticsData => __isa(o, "StringColumnStatisticsData");
 }
 
 /**
  * <p>Represents a collection of related data organized in columns and rows.</p>
  */
 export interface Table {
-  __type?: "Table";
   /**
    * <p>The last time that the table was accessed. This is usually taken from HDFS, and might not
    *       be reliable.</p>
@@ -10419,14 +9681,12 @@ export namespace Table {
   export const filterSensitiveLog = (obj: Table): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Table => __isa(o, "Table");
 }
 
 /**
  * <p>An error record for table operations.</p>
  */
 export interface TableError {
-  __type?: "TableError";
   /**
    * <p>The details about the error.</p>
    */
@@ -10442,14 +9702,12 @@ export namespace TableError {
   export const filterSensitiveLog = (obj: TableError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableError => __isa(o, "TableError");
 }
 
 /**
  * <p>A structure that describes a target table for resource linking.</p>
  */
 export interface TableIdentifier {
-  __type?: "TableIdentifier";
   /**
    * <p>The ID of the Data Catalog in which the table resides.</p>
    */
@@ -10470,14 +9728,12 @@ export namespace TableIdentifier {
   export const filterSensitiveLog = (obj: TableIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableIdentifier => __isa(o, "TableIdentifier");
 }
 
 /**
  * <p>A structure used to define a table.</p>
  */
 export interface TableInput {
-  __type?: "TableInput";
   /**
    * <p>If the table is a view, the expanded text of the view; otherwise <code>null</code>.</p>
    */
@@ -10557,14 +9813,12 @@ export namespace TableInput {
   export const filterSensitiveLog = (obj: TableInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableInput => __isa(o, "TableInput");
 }
 
 /**
  * <p>Specifies a version of a table.</p>
  */
 export interface TableVersion {
-  __type?: "TableVersion";
   /**
    * <p>The table in question.</p>
    */
@@ -10580,14 +9834,12 @@ export namespace TableVersion {
   export const filterSensitiveLog = (obj: TableVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableVersion => __isa(o, "TableVersion");
 }
 
 /**
  * <p>An error record for table-version operations.</p>
  */
 export interface TableVersionError {
-  __type?: "TableVersionError";
   /**
    * <p>The details about the error.</p>
    */
@@ -10608,11 +9860,9 @@ export namespace TableVersionError {
   export const filterSensitiveLog = (obj: TableVersionError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TableVersionError => __isa(o, "TableVersionError");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>Tags to add to this resource.</p>
    */
@@ -10629,25 +9879,20 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>The sampling parameters that are associated with the machine learning transform.</p>
  */
 export interface TaskRun {
-  __type?: "TaskRun";
   /**
    * <p>The date and time that this task run started.</p>
    */
@@ -10703,7 +9948,6 @@ export namespace TaskRun {
   export const filterSensitiveLog = (obj: TaskRun): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskRun => __isa(o, "TaskRun");
 }
 
 /**
@@ -10711,7 +9955,6 @@ export namespace TaskRun {
  *       transform.</p>
  */
 export interface TaskRunFilterCriteria {
-  __type?: "TaskRunFilterCriteria";
   /**
    * <p>Filter on task runs started before this date.</p>
    */
@@ -10737,14 +9980,12 @@ export namespace TaskRunFilterCriteria {
   export const filterSensitiveLog = (obj: TaskRunFilterCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskRunFilterCriteria => __isa(o, "TaskRunFilterCriteria");
 }
 
 /**
  * <p>The configuration properties for the task run.</p>
  */
 export interface TaskRunProperties {
-  __type?: "TaskRunProperties";
   /**
    * <p>The type of task run.</p>
    */
@@ -10775,7 +10016,6 @@ export namespace TaskRunProperties {
   export const filterSensitiveLog = (obj: TaskRunProperties): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskRunProperties => __isa(o, "TaskRunProperties");
 }
 
 export enum TaskRunSortColumnType {
@@ -10789,7 +10029,6 @@ export enum TaskRunSortColumnType {
  *       transform.</p>
  */
 export interface TaskRunSortCriteria {
-  __type?: "TaskRunSortCriteria";
   /**
    * <p>The sort direction to be used to sort the list of task runs for the machine learning
    *       transform.</p>
@@ -10807,7 +10046,6 @@ export namespace TaskRunSortCriteria {
   export const filterSensitiveLog = (obj: TaskRunSortCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskRunSortCriteria => __isa(o, "TaskRunSortCriteria");
 }
 
 export enum TaskStatusType {
@@ -10832,7 +10070,6 @@ export enum TaskType {
  * <p>The criteria used to filter the machine learning transforms.</p>
  */
 export interface TransformFilterCriteria {
-  __type?: "TransformFilterCriteria";
   /**
    * <p>Filters on datasets with a specific schema. The <code>Map<Column, Type></code>
    *       object is an array of key-value pairs representing the schema this transform accepts, where
@@ -10887,7 +10124,6 @@ export namespace TransformFilterCriteria {
   export const filterSensitiveLog = (obj: TransformFilterCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransformFilterCriteria => __isa(o, "TransformFilterCriteria");
 }
 
 /**
@@ -10895,7 +10131,6 @@ export namespace TransformFilterCriteria {
  *       transform.</p>
  */
 export interface TransformParameters {
-  __type?: "TransformParameters";
   /**
    * <p>The parameters for the find matches algorithm.</p>
    */
@@ -10912,7 +10147,6 @@ export namespace TransformParameters {
   export const filterSensitiveLog = (obj: TransformParameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransformParameters => __isa(o, "TransformParameters");
 }
 
 export enum TransformSortColumnType {
@@ -10927,7 +10161,6 @@ export enum TransformSortColumnType {
  * <p>The sorting criteria that are associated with the machine learning transform.</p>
  */
 export interface TransformSortCriteria {
-  __type?: "TransformSortCriteria";
   /**
    * <p>The column to be used in the sorting criteria that are associated with the machine
    *       learning transform.</p>
@@ -10945,7 +10178,6 @@ export namespace TransformSortCriteria {
   export const filterSensitiveLog = (obj: TransformSortCriteria): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TransformSortCriteria => __isa(o, "TransformSortCriteria");
 }
 
 export enum TransformStatusType {
@@ -10962,7 +10194,6 @@ export enum TransformType {
  * <p>Information about a specific trigger.</p>
  */
 export interface Trigger {
-  __type?: "Trigger";
   /**
    * <p>The predicate of this trigger, which defines when it will fire.</p>
    */
@@ -11016,14 +10247,12 @@ export namespace Trigger {
   export const filterSensitiveLog = (obj: Trigger): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Trigger => __isa(o, "Trigger");
 }
 
 /**
  * <p>The details of a Trigger node present in the workflow.</p>
  */
 export interface TriggerNodeDetails {
-  __type?: "TriggerNodeDetails";
   /**
    * <p>The information of the trigger represented by the trigger node.</p>
    */
@@ -11034,7 +10263,6 @@ export namespace TriggerNodeDetails {
   export const filterSensitiveLog = (obj: TriggerNodeDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TriggerNodeDetails => __isa(o, "TriggerNodeDetails");
 }
 
 export enum TriggerState {
@@ -11059,7 +10287,6 @@ export enum TriggerType {
  *       previous trigger definition by overwriting it completely.</p>
  */
 export interface TriggerUpdate {
-  __type?: "TriggerUpdate";
   /**
    * <p>The predicate of this trigger, which defines when it will fire.</p>
    */
@@ -11093,11 +10320,9 @@ export namespace TriggerUpdate {
   export const filterSensitiveLog = (obj: TriggerUpdate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TriggerUpdate => __isa(o, "TriggerUpdate");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>Tags to remove from this resource.</p>
    */
@@ -11113,18 +10338,14 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export enum UpdateBehavior {
@@ -11133,7 +10354,6 @@ export enum UpdateBehavior {
 }
 
 export interface UpdateClassifierRequest {
-  __type?: "UpdateClassifierRequest";
   /**
    * <p>A <code>GrokClassifier</code> object with updated fields.</p>
    */
@@ -11159,22 +10379,17 @@ export namespace UpdateClassifierRequest {
   export const filterSensitiveLog = (obj: UpdateClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateClassifierRequest => __isa(o, "UpdateClassifierRequest");
 }
 
-export interface UpdateClassifierResponse {
-  __type?: "UpdateClassifierResponse";
-}
+export interface UpdateClassifierResponse {}
 
 export namespace UpdateClassifierResponse {
   export const filterSensitiveLog = (obj: UpdateClassifierResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateClassifierResponse => __isa(o, "UpdateClassifierResponse");
 }
 
 export interface UpdateColumnStatisticsForPartitionRequest {
-  __type?: "UpdateColumnStatisticsForPartitionRequest";
   /**
    * <p>The name of the catalog database where the partitions reside.</p>
    */
@@ -11206,12 +10421,9 @@ export namespace UpdateColumnStatisticsForPartitionRequest {
   export const filterSensitiveLog = (obj: UpdateColumnStatisticsForPartitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateColumnStatisticsForPartitionRequest =>
-    __isa(o, "UpdateColumnStatisticsForPartitionRequest");
 }
 
 export interface UpdateColumnStatisticsForPartitionResponse {
-  __type?: "UpdateColumnStatisticsForPartitionResponse";
   /**
    * <p>Error occurred during updating column statistics data.</p>
    */
@@ -11222,12 +10434,9 @@ export namespace UpdateColumnStatisticsForPartitionResponse {
   export const filterSensitiveLog = (obj: UpdateColumnStatisticsForPartitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateColumnStatisticsForPartitionResponse =>
-    __isa(o, "UpdateColumnStatisticsForPartitionResponse");
 }
 
 export interface UpdateColumnStatisticsForTableRequest {
-  __type?: "UpdateColumnStatisticsForTableRequest";
   /**
    * <p>The name of the catalog database where the partitions reside.</p>
    */
@@ -11254,12 +10463,9 @@ export namespace UpdateColumnStatisticsForTableRequest {
   export const filterSensitiveLog = (obj: UpdateColumnStatisticsForTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateColumnStatisticsForTableRequest =>
-    __isa(o, "UpdateColumnStatisticsForTableRequest");
 }
 
 export interface UpdateColumnStatisticsForTableResponse {
-  __type?: "UpdateColumnStatisticsForTableResponse";
   /**
    * <p>List of ColumnStatisticsErrors.</p>
    */
@@ -11270,12 +10476,9 @@ export namespace UpdateColumnStatisticsForTableResponse {
   export const filterSensitiveLog = (obj: UpdateColumnStatisticsForTableResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateColumnStatisticsForTableResponse =>
-    __isa(o, "UpdateColumnStatisticsForTableResponse");
 }
 
 export interface UpdateConnectionRequest {
-  __type?: "UpdateConnectionRequest";
   /**
    * <p>The ID of the Data Catalog in which the connection resides. If none is provided, the AWS
    *       account ID is used by default.</p>
@@ -11298,22 +10501,17 @@ export namespace UpdateConnectionRequest {
   export const filterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConnectionRequest => __isa(o, "UpdateConnectionRequest");
 }
 
-export interface UpdateConnectionResponse {
-  __type?: "UpdateConnectionResponse";
-}
+export interface UpdateConnectionResponse {}
 
 export namespace UpdateConnectionResponse {
   export const filterSensitiveLog = (obj: UpdateConnectionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConnectionResponse => __isa(o, "UpdateConnectionResponse");
 }
 
 export interface UpdateCrawlerRequest {
-  __type?: "UpdateCrawlerRequest";
   /**
    * <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
    *       crawler.</p>
@@ -11384,22 +10582,17 @@ export namespace UpdateCrawlerRequest {
   export const filterSensitiveLog = (obj: UpdateCrawlerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCrawlerRequest => __isa(o, "UpdateCrawlerRequest");
 }
 
-export interface UpdateCrawlerResponse {
-  __type?: "UpdateCrawlerResponse";
-}
+export interface UpdateCrawlerResponse {}
 
 export namespace UpdateCrawlerResponse {
   export const filterSensitiveLog = (obj: UpdateCrawlerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCrawlerResponse => __isa(o, "UpdateCrawlerResponse");
 }
 
 export interface UpdateCrawlerScheduleRequest {
-  __type?: "UpdateCrawlerScheduleRequest";
   /**
    * <p>The name of the crawler whose schedule to update.</p>
    */
@@ -11417,25 +10610,20 @@ export namespace UpdateCrawlerScheduleRequest {
   export const filterSensitiveLog = (obj: UpdateCrawlerScheduleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCrawlerScheduleRequest => __isa(o, "UpdateCrawlerScheduleRequest");
 }
 
-export interface UpdateCrawlerScheduleResponse {
-  __type?: "UpdateCrawlerScheduleResponse";
-}
+export interface UpdateCrawlerScheduleResponse {}
 
 export namespace UpdateCrawlerScheduleResponse {
   export const filterSensitiveLog = (obj: UpdateCrawlerScheduleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCrawlerScheduleResponse => __isa(o, "UpdateCrawlerScheduleResponse");
 }
 
 /**
  * <p>Specifies a custom CSV classifier to be updated.</p>
  */
 export interface UpdateCsvClassifierRequest {
-  __type?: "UpdateCsvClassifierRequest";
   /**
    * <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
    */
@@ -11477,11 +10665,9 @@ export namespace UpdateCsvClassifierRequest {
   export const filterSensitiveLog = (obj: UpdateCsvClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCsvClassifierRequest => __isa(o, "UpdateCsvClassifierRequest");
 }
 
 export interface UpdateDatabaseRequest {
-  __type?: "UpdateDatabaseRequest";
   /**
    * <p>The ID of the Data Catalog in which the metadata database resides. If none is provided,
    *       the AWS account ID is used by default.</p>
@@ -11505,22 +10691,17 @@ export namespace UpdateDatabaseRequest {
   export const filterSensitiveLog = (obj: UpdateDatabaseRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDatabaseRequest => __isa(o, "UpdateDatabaseRequest");
 }
 
-export interface UpdateDatabaseResponse {
-  __type?: "UpdateDatabaseResponse";
-}
+export interface UpdateDatabaseResponse {}
 
 export namespace UpdateDatabaseResponse {
   export const filterSensitiveLog = (obj: UpdateDatabaseResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDatabaseResponse => __isa(o, "UpdateDatabaseResponse");
 }
 
 export interface UpdateDevEndpointRequest {
-  __type?: "UpdateDevEndpointRequest";
   /**
    * <p>The name of the <code>DevEndpoint</code> to be updated.</p>
    */
@@ -11591,18 +10772,14 @@ export namespace UpdateDevEndpointRequest {
   export const filterSensitiveLog = (obj: UpdateDevEndpointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDevEndpointRequest => __isa(o, "UpdateDevEndpointRequest");
 }
 
-export interface UpdateDevEndpointResponse {
-  __type?: "UpdateDevEndpointResponse";
-}
+export interface UpdateDevEndpointResponse {}
 
 export namespace UpdateDevEndpointResponse {
   export const filterSensitiveLog = (obj: UpdateDevEndpointResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDevEndpointResponse => __isa(o, "UpdateDevEndpointResponse");
 }
 
 /**
@@ -11610,7 +10787,6 @@ export namespace UpdateDevEndpointResponse {
  *       <code>UpdateClassifier</code>.</p>
  */
 export interface UpdateGrokClassifierRequest {
-  __type?: "UpdateGrokClassifierRequest";
   /**
    * <p>Optional custom grok patterns used by this classifier.</p>
    */
@@ -11637,11 +10813,9 @@ export namespace UpdateGrokClassifierRequest {
   export const filterSensitiveLog = (obj: UpdateGrokClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateGrokClassifierRequest => __isa(o, "UpdateGrokClassifierRequest");
 }
 
 export interface UpdateJobRequest {
-  __type?: "UpdateJobRequest";
   /**
    * <p>Specifies the values with which to update the job definition.</p>
    */
@@ -11657,11 +10831,9 @@ export namespace UpdateJobRequest {
   export const filterSensitiveLog = (obj: UpdateJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobRequest => __isa(o, "UpdateJobRequest");
 }
 
 export interface UpdateJobResponse {
-  __type?: "UpdateJobResponse";
   /**
    * <p>Returns the name of the updated job definition.</p>
    */
@@ -11672,14 +10844,12 @@ export namespace UpdateJobResponse {
   export const filterSensitiveLog = (obj: UpdateJobResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobResponse => __isa(o, "UpdateJobResponse");
 }
 
 /**
  * <p>Specifies a JSON classifier to be updated.</p>
  */
 export interface UpdateJsonClassifierRequest {
-  __type?: "UpdateJsonClassifierRequest";
   /**
    * <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify.
    *       AWS Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
@@ -11696,11 +10866,9 @@ export namespace UpdateJsonClassifierRequest {
   export const filterSensitiveLog = (obj: UpdateJsonClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJsonClassifierRequest => __isa(o, "UpdateJsonClassifierRequest");
 }
 
 export interface UpdateMLTransformRequest {
-  __type?: "UpdateMLTransformRequest";
   /**
    * <p>The unique name that you gave the transform when you created it.</p>
    */
@@ -11779,11 +10947,9 @@ export namespace UpdateMLTransformRequest {
   export const filterSensitiveLog = (obj: UpdateMLTransformRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMLTransformRequest => __isa(o, "UpdateMLTransformRequest");
 }
 
 export interface UpdateMLTransformResponse {
-  __type?: "UpdateMLTransformResponse";
   /**
    * <p>The unique identifier for the transform that was updated.</p>
    */
@@ -11794,11 +10960,9 @@ export namespace UpdateMLTransformResponse {
   export const filterSensitiveLog = (obj: UpdateMLTransformResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateMLTransformResponse => __isa(o, "UpdateMLTransformResponse");
 }
 
 export interface UpdatePartitionRequest {
-  __type?: "UpdatePartitionRequest";
   /**
    * <p>List of partition key values that define the partition to update.</p>
    */
@@ -11833,22 +10997,17 @@ export namespace UpdatePartitionRequest {
   export const filterSensitiveLog = (obj: UpdatePartitionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePartitionRequest => __isa(o, "UpdatePartitionRequest");
 }
 
-export interface UpdatePartitionResponse {
-  __type?: "UpdatePartitionResponse";
-}
+export interface UpdatePartitionResponse {}
 
 export namespace UpdatePartitionResponse {
   export const filterSensitiveLog = (obj: UpdatePartitionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdatePartitionResponse => __isa(o, "UpdatePartitionResponse");
 }
 
 export interface UpdateTableRequest {
-  __type?: "UpdateTableRequest";
   /**
    * <p>By default, <code>UpdateTable</code> always creates an archived version of the table
    *       before updating it. However, if <code>skipArchive</code> is set to true,
@@ -11879,22 +11038,17 @@ export namespace UpdateTableRequest {
   export const filterSensitiveLog = (obj: UpdateTableRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTableRequest => __isa(o, "UpdateTableRequest");
 }
 
-export interface UpdateTableResponse {
-  __type?: "UpdateTableResponse";
-}
+export interface UpdateTableResponse {}
 
 export namespace UpdateTableResponse {
   export const filterSensitiveLog = (obj: UpdateTableResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTableResponse => __isa(o, "UpdateTableResponse");
 }
 
 export interface UpdateTriggerRequest {
-  __type?: "UpdateTriggerRequest";
   /**
    * <p>The new values with which to update the trigger.</p>
    */
@@ -11910,11 +11064,9 @@ export namespace UpdateTriggerRequest {
   export const filterSensitiveLog = (obj: UpdateTriggerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTriggerRequest => __isa(o, "UpdateTriggerRequest");
 }
 
 export interface UpdateTriggerResponse {
-  __type?: "UpdateTriggerResponse";
   /**
    * <p>The resulting trigger definition.</p>
    */
@@ -11925,11 +11077,9 @@ export namespace UpdateTriggerResponse {
   export const filterSensitiveLog = (obj: UpdateTriggerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTriggerResponse => __isa(o, "UpdateTriggerResponse");
 }
 
 export interface UpdateUserDefinedFunctionRequest {
-  __type?: "UpdateUserDefinedFunctionRequest";
   /**
    * <p>A <code>FunctionInput</code> object that redefines the function in the Data
    *       Catalog.</p>
@@ -11958,22 +11108,17 @@ export namespace UpdateUserDefinedFunctionRequest {
   export const filterSensitiveLog = (obj: UpdateUserDefinedFunctionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserDefinedFunctionRequest => __isa(o, "UpdateUserDefinedFunctionRequest");
 }
 
-export interface UpdateUserDefinedFunctionResponse {
-  __type?: "UpdateUserDefinedFunctionResponse";
-}
+export interface UpdateUserDefinedFunctionResponse {}
 
 export namespace UpdateUserDefinedFunctionResponse {
   export const filterSensitiveLog = (obj: UpdateUserDefinedFunctionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateUserDefinedFunctionResponse => __isa(o, "UpdateUserDefinedFunctionResponse");
 }
 
 export interface UpdateWorkflowRequest {
-  __type?: "UpdateWorkflowRequest";
   /**
    * <p>A collection of properties to be used as part of each execution of the workflow.</p>
    */
@@ -11994,11 +11139,9 @@ export namespace UpdateWorkflowRequest {
   export const filterSensitiveLog = (obj: UpdateWorkflowRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWorkflowRequest => __isa(o, "UpdateWorkflowRequest");
 }
 
 export interface UpdateWorkflowResponse {
-  __type?: "UpdateWorkflowResponse";
   /**
    * <p>The name of the workflow which was specified in input.</p>
    */
@@ -12009,14 +11152,12 @@ export namespace UpdateWorkflowResponse {
   export const filterSensitiveLog = (obj: UpdateWorkflowResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWorkflowResponse => __isa(o, "UpdateWorkflowResponse");
 }
 
 /**
  * <p>Specifies an XML classifier to be updated.</p>
  */
 export interface UpdateXMLClassifierRequest {
-  __type?: "UpdateXMLClassifierRequest";
   /**
    * <p>An identifier of the data format that the classifier matches.</p>
    */
@@ -12041,7 +11182,6 @@ export namespace UpdateXMLClassifierRequest {
   export const filterSensitiveLog = (obj: UpdateXMLClassifierRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateXMLClassifierRequest => __isa(o, "UpdateXMLClassifierRequest");
 }
 
 /**
@@ -12049,7 +11189,6 @@ export namespace UpdateXMLClassifierRequest {
  *       (<code>UDF</code>) definition.</p>
  */
 export interface UserDefinedFunction {
-  __type?: "UserDefinedFunction";
   /**
    * <p>The name of the catalog database that contains the function.</p>
    */
@@ -12095,14 +11234,12 @@ export namespace UserDefinedFunction {
   export const filterSensitiveLog = (obj: UserDefinedFunction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserDefinedFunction => __isa(o, "UserDefinedFunction");
 }
 
 /**
  * <p>A structure used to create or update a user-defined function.</p>
  */
 export interface UserDefinedFunctionInput {
-  __type?: "UserDefinedFunctionInput";
   /**
    * <p>The owner type.</p>
    */
@@ -12133,7 +11270,6 @@ export namespace UserDefinedFunctionInput {
   export const filterSensitiveLog = (obj: UserDefinedFunctionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UserDefinedFunctionInput => __isa(o, "UserDefinedFunctionInput");
 }
 
 /**
@@ -12152,7 +11288,6 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 /**
@@ -12171,7 +11306,6 @@ export namespace VersionMismatchException {
   export const filterSensitiveLog = (obj: VersionMismatchException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VersionMismatchException => __isa(o, "VersionMismatchException");
 }
 
 export type WorkerType = "G.1X" | "G.2X" | "Standard";
@@ -12181,7 +11315,6 @@ export type WorkerType = "G.1X" | "G.2X" | "Standard";
  *       task.</p>
  */
 export interface Workflow {
-  __type?: "Workflow";
   /**
    * <p>The graph representing all the AWS Glue components that belong to the workflow as nodes and directed
    *       connections between them as edges.</p>
@@ -12223,7 +11356,6 @@ export namespace Workflow {
   export const filterSensitiveLog = (obj: Workflow): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Workflow => __isa(o, "Workflow");
 }
 
 /**
@@ -12231,7 +11363,6 @@ export namespace Workflow {
  *       workflow and all the directed connections between them.</p>
  */
 export interface WorkflowGraph {
-  __type?: "WorkflowGraph";
   /**
    * <p>A list of all the directed connections between the nodes belonging to the workflow.</p>
    */
@@ -12247,14 +11378,12 @@ export namespace WorkflowGraph {
   export const filterSensitiveLog = (obj: WorkflowGraph): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowGraph => __isa(o, "WorkflowGraph");
 }
 
 /**
  * <p>A workflow run is an execution of a workflow providing all the runtime information.</p>
  */
 export interface WorkflowRun {
-  __type?: "WorkflowRun";
   /**
    * <p>The statistics of the run.</p>
    */
@@ -12306,14 +11435,12 @@ export namespace WorkflowRun {
   export const filterSensitiveLog = (obj: WorkflowRun): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowRun => __isa(o, "WorkflowRun");
 }
 
 /**
  * <p>Workflow run statistics provides statistics about the workflow run.</p>
  */
 export interface WorkflowRunStatistics {
-  __type?: "WorkflowRunStatistics";
   /**
    * <p>Total number of Actions that timed out.</p>
    */
@@ -12349,7 +11476,6 @@ export namespace WorkflowRunStatistics {
   export const filterSensitiveLog = (obj: WorkflowRunStatistics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowRunStatistics => __isa(o, "WorkflowRunStatistics");
 }
 
 export enum WorkflowRunStatus {
@@ -12363,7 +11489,6 @@ export enum WorkflowRunStatus {
  * <p>A classifier for <code>XML</code> content.</p>
  */
 export interface XMLClassifier {
-  __type?: "XMLClassifier";
   /**
    * <p>The XML tag designating the element that contains each record in an XML document being
    *       parsed. This can't identify a self-closing element (closed by <code>/></code>). An empty
@@ -12403,5 +11528,4 @@ export namespace XMLClassifier {
   export const filterSensitiveLog = (obj: XMLClassifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is XMLClassifier => __isa(o, "XMLClassifier");
 }

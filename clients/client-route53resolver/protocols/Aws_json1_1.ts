@@ -442,7 +442,6 @@ export const deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand = a
   contents = deserializeAws_json1_1AssociateResolverEndpointIpAddressResponse(data, context);
   const response: AssociateResolverEndpointIpAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateResolverEndpointIpAddressResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -546,7 +545,6 @@ export const deserializeAws_json1_1AssociateResolverRuleCommand = async (
   contents = deserializeAws_json1_1AssociateResolverRuleResponse(data, context);
   const response: AssociateResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateResolverRuleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -650,7 +648,6 @@ export const deserializeAws_json1_1CreateResolverEndpointCommand = async (
   contents = deserializeAws_json1_1CreateResolverEndpointResponse(data, context);
   const response: CreateResolverEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateResolverEndpointResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -754,7 +751,6 @@ export const deserializeAws_json1_1CreateResolverRuleCommand = async (
   contents = deserializeAws_json1_1CreateResolverRuleResponse(data, context);
   const response: CreateResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateResolverRuleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -866,7 +862,6 @@ export const deserializeAws_json1_1DeleteResolverEndpointCommand = async (
   contents = deserializeAws_json1_1DeleteResolverEndpointResponse(data, context);
   const response: DeleteResolverEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteResolverEndpointResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -954,7 +949,6 @@ export const deserializeAws_json1_1DeleteResolverRuleCommand = async (
   contents = deserializeAws_json1_1DeleteResolverRuleResponse(data, context);
   const response: DeleteResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteResolverRuleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1042,7 +1036,6 @@ export const deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand 
   contents = deserializeAws_json1_1DisassociateResolverEndpointIpAddressResponse(data, context);
   const response: DisassociateResolverEndpointIpAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateResolverEndpointIpAddressResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1138,7 +1131,6 @@ export const deserializeAws_json1_1DisassociateResolverRuleCommand = async (
   contents = deserializeAws_json1_1DisassociateResolverRuleResponse(data, context);
   const response: DisassociateResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateResolverRuleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1218,7 +1210,6 @@ export const deserializeAws_json1_1GetResolverEndpointCommand = async (
   contents = deserializeAws_json1_1GetResolverEndpointResponse(data, context);
   const response: GetResolverEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResolverEndpointResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1298,7 +1289,6 @@ export const deserializeAws_json1_1GetResolverRuleCommand = async (
   contents = deserializeAws_json1_1GetResolverRuleResponse(data, context);
   const response: GetResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResolverRuleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1378,7 +1368,6 @@ export const deserializeAws_json1_1GetResolverRuleAssociationCommand = async (
   contents = deserializeAws_json1_1GetResolverRuleAssociationResponse(data, context);
   const response: GetResolverRuleAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResolverRuleAssociationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1458,7 +1447,6 @@ export const deserializeAws_json1_1GetResolverRulePolicyCommand = async (
   contents = deserializeAws_json1_1GetResolverRulePolicyResponse(data, context);
   const response: GetResolverRulePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResolverRulePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1530,7 +1518,6 @@ export const deserializeAws_json1_1ListResolverEndpointIpAddressesCommand = asyn
   contents = deserializeAws_json1_1ListResolverEndpointIpAddressesResponse(data, context);
   const response: ListResolverEndpointIpAddressesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResolverEndpointIpAddressesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1618,7 +1605,6 @@ export const deserializeAws_json1_1ListResolverEndpointsCommand = async (
   contents = deserializeAws_json1_1ListResolverEndpointsResponse(data, context);
   const response: ListResolverEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResolverEndpointsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1706,7 +1692,6 @@ export const deserializeAws_json1_1ListResolverRuleAssociationsCommand = async (
   contents = deserializeAws_json1_1ListResolverRuleAssociationsResponse(data, context);
   const response: ListResolverRuleAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResolverRuleAssociationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1794,7 +1779,6 @@ export const deserializeAws_json1_1ListResolverRulesCommand = async (
   contents = deserializeAws_json1_1ListResolverRulesResponse(data, context);
   const response: ListResolverRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResolverRulesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1882,7 +1866,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1978,7 +1961,6 @@ export const deserializeAws_json1_1PutResolverRulePolicyCommand = async (
   contents = deserializeAws_json1_1PutResolverRulePolicyResponse(data, context);
   const response: PutResolverRulePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutResolverRulePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2058,7 +2040,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2154,7 +2135,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2234,7 +2214,6 @@ export const deserializeAws_json1_1UpdateResolverEndpointCommand = async (
   contents = deserializeAws_json1_1UpdateResolverEndpointResponse(data, context);
   const response: UpdateResolverEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateResolverEndpointResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2322,7 +2301,6 @@ export const deserializeAws_json1_1UpdateResolverRuleCommand = async (
   contents = deserializeAws_json1_1UpdateResolverRuleResponse(data, context);
   const response: UpdateResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateResolverRuleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2912,7 +2890,6 @@ const deserializeAws_json1_1AssociateResolverEndpointIpAddressResponse = (
   context: __SerdeContext
 ): AssociateResolverEndpointIpAddressResponse => {
   return {
-    __type: "AssociateResolverEndpointIpAddressResponse",
     ResolverEndpoint:
       output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
         ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
@@ -2925,7 +2902,6 @@ const deserializeAws_json1_1AssociateResolverRuleResponse = (
   context: __SerdeContext
 ): AssociateResolverRuleResponse => {
   return {
-    __type: "AssociateResolverRuleResponse",
     ResolverRuleAssociation:
       output.ResolverRuleAssociation !== undefined && output.ResolverRuleAssociation !== null
         ? deserializeAws_json1_1ResolverRuleAssociation(output.ResolverRuleAssociation, context)
@@ -2938,7 +2914,6 @@ const deserializeAws_json1_1CreateResolverEndpointResponse = (
   context: __SerdeContext
 ): CreateResolverEndpointResponse => {
   return {
-    __type: "CreateResolverEndpointResponse",
     ResolverEndpoint:
       output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
         ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
@@ -2951,7 +2926,6 @@ const deserializeAws_json1_1CreateResolverRuleResponse = (
   context: __SerdeContext
 ): CreateResolverRuleResponse => {
   return {
-    __type: "CreateResolverRuleResponse",
     ResolverRule:
       output.ResolverRule !== undefined && output.ResolverRule !== null
         ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context)
@@ -2964,7 +2938,6 @@ const deserializeAws_json1_1DeleteResolverEndpointResponse = (
   context: __SerdeContext
 ): DeleteResolverEndpointResponse => {
   return {
-    __type: "DeleteResolverEndpointResponse",
     ResolverEndpoint:
       output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
         ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
@@ -2977,7 +2950,6 @@ const deserializeAws_json1_1DeleteResolverRuleResponse = (
   context: __SerdeContext
 ): DeleteResolverRuleResponse => {
   return {
-    __type: "DeleteResolverRuleResponse",
     ResolverRule:
       output.ResolverRule !== undefined && output.ResolverRule !== null
         ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context)
@@ -2990,7 +2962,6 @@ const deserializeAws_json1_1DisassociateResolverEndpointIpAddressResponse = (
   context: __SerdeContext
 ): DisassociateResolverEndpointIpAddressResponse => {
   return {
-    __type: "DisassociateResolverEndpointIpAddressResponse",
     ResolverEndpoint:
       output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
         ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
@@ -3003,7 +2974,6 @@ const deserializeAws_json1_1DisassociateResolverRuleResponse = (
   context: __SerdeContext
 ): DisassociateResolverRuleResponse => {
   return {
-    __type: "DisassociateResolverRuleResponse",
     ResolverRuleAssociation:
       output.ResolverRuleAssociation !== undefined && output.ResolverRuleAssociation !== null
         ? deserializeAws_json1_1ResolverRuleAssociation(output.ResolverRuleAssociation, context)
@@ -3016,7 +2986,6 @@ const deserializeAws_json1_1GetResolverEndpointResponse = (
   context: __SerdeContext
 ): GetResolverEndpointResponse => {
   return {
-    __type: "GetResolverEndpointResponse",
     ResolverEndpoint:
       output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
         ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
@@ -3029,7 +2998,6 @@ const deserializeAws_json1_1GetResolverRuleAssociationResponse = (
   context: __SerdeContext
 ): GetResolverRuleAssociationResponse => {
   return {
-    __type: "GetResolverRuleAssociationResponse",
     ResolverRuleAssociation:
       output.ResolverRuleAssociation !== undefined && output.ResolverRuleAssociation !== null
         ? deserializeAws_json1_1ResolverRuleAssociation(output.ResolverRuleAssociation, context)
@@ -3042,7 +3010,6 @@ const deserializeAws_json1_1GetResolverRulePolicyResponse = (
   context: __SerdeContext
 ): GetResolverRulePolicyResponse => {
   return {
-    __type: "GetResolverRulePolicyResponse",
     ResolverRulePolicy:
       output.ResolverRulePolicy !== undefined && output.ResolverRulePolicy !== null
         ? output.ResolverRulePolicy
@@ -3055,7 +3022,6 @@ const deserializeAws_json1_1GetResolverRuleResponse = (
   context: __SerdeContext
 ): GetResolverRuleResponse => {
   return {
-    __type: "GetResolverRuleResponse",
     ResolverRule:
       output.ResolverRule !== undefined && output.ResolverRule !== null
         ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context)
@@ -3068,7 +3034,6 @@ const deserializeAws_json1_1InternalServiceErrorException = (
   context: __SerdeContext
 ): InternalServiceErrorException => {
   return {
-    __type: "InternalServiceErrorException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3078,7 +3043,6 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3088,7 +3052,6 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     FieldName: output.FieldName !== undefined && output.FieldName !== null ? output.FieldName : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -3096,7 +3059,6 @@ const deserializeAws_json1_1InvalidParameterException = (
 
 const deserializeAws_json1_1InvalidPolicyDocument = (output: any, context: __SerdeContext): InvalidPolicyDocument => {
   return {
-    __type: "InvalidPolicyDocument",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3106,14 +3068,12 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
   return {
-    __type: "InvalidTagException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3124,7 +3084,6 @@ const deserializeAws_json1_1IpAddressesResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1IpAddressResponse = (output: any, context: __SerdeContext): IpAddressResponse => {
   return {
-    __type: "IpAddressResponse",
     CreationTime: output.CreationTime !== undefined && output.CreationTime !== null ? output.CreationTime : undefined,
     Ip: output.Ip !== undefined && output.Ip !== null ? output.Ip : undefined,
     IpId: output.IpId !== undefined && output.IpId !== null ? output.IpId : undefined,
@@ -3139,7 +3098,6 @@ const deserializeAws_json1_1IpAddressResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
   } as any;
@@ -3150,7 +3108,6 @@ const deserializeAws_json1_1ListResolverEndpointIpAddressesResponse = (
   context: __SerdeContext
 ): ListResolverEndpointIpAddressesResponse => {
   return {
-    __type: "ListResolverEndpointIpAddressesResponse",
     IpAddresses:
       output.IpAddresses !== undefined && output.IpAddresses !== null
         ? deserializeAws_json1_1IpAddressesResponse(output.IpAddresses, context)
@@ -3165,7 +3122,6 @@ const deserializeAws_json1_1ListResolverEndpointsResponse = (
   context: __SerdeContext
 ): ListResolverEndpointsResponse => {
   return {
-    __type: "ListResolverEndpointsResponse",
     MaxResults: output.MaxResults !== undefined && output.MaxResults !== null ? output.MaxResults : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ResolverEndpoints:
@@ -3180,7 +3136,6 @@ const deserializeAws_json1_1ListResolverRuleAssociationsResponse = (
   context: __SerdeContext
 ): ListResolverRuleAssociationsResponse => {
   return {
-    __type: "ListResolverRuleAssociationsResponse",
     MaxResults: output.MaxResults !== undefined && output.MaxResults !== null ? output.MaxResults : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ResolverRuleAssociations:
@@ -3195,7 +3150,6 @@ const deserializeAws_json1_1ListResolverRulesResponse = (
   context: __SerdeContext
 ): ListResolverRulesResponse => {
   return {
-    __type: "ListResolverRulesResponse",
     MaxResults: output.MaxResults !== undefined && output.MaxResults !== null ? output.MaxResults : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ResolverRules:
@@ -3210,7 +3164,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -3224,14 +3177,12 @@ const deserializeAws_json1_1PutResolverRulePolicyResponse = (
   context: __SerdeContext
 ): PutResolverRulePolicyResponse => {
   return {
-    __type: "PutResolverRulePolicyResponse",
     ReturnValue: output.ReturnValue !== undefined && output.ReturnValue !== null ? output.ReturnValue : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResolverEndpoint = (output: any, context: __SerdeContext): ResolverEndpoint => {
   return {
-    __type: "ResolverEndpoint",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationTime: output.CreationTime !== undefined && output.CreationTime !== null ? output.CreationTime : undefined,
     CreatorRequestId:
@@ -3260,7 +3211,6 @@ const deserializeAws_json1_1ResolverEndpoints = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ResolverRule = (output: any, context: __SerdeContext): ResolverRule => {
   return {
-    __type: "ResolverRule",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatorRequestId:
       output.CreatorRequestId !== undefined && output.CreatorRequestId !== null ? output.CreatorRequestId : undefined,
@@ -3289,7 +3239,6 @@ const deserializeAws_json1_1ResolverRuleAssociation = (
   context: __SerdeContext
 ): ResolverRuleAssociation => {
   return {
-    __type: "ResolverRuleAssociation",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ResolverRuleId:
@@ -3317,7 +3266,6 @@ const deserializeAws_json1_1ResourceExistsException = (
   context: __SerdeContext
 ): ResourceExistsException => {
   return {
-    __type: "ResourceExistsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
   } as any;
@@ -3325,7 +3273,6 @@ const deserializeAws_json1_1ResourceExistsException = (
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
   } as any;
@@ -3336,7 +3283,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
   } as any;
@@ -3347,7 +3293,6 @@ const deserializeAws_json1_1ResourceUnavailableException = (
   context: __SerdeContext
 ): ResourceUnavailableException => {
   return {
-    __type: "ResourceUnavailableException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
   } as any;
@@ -3359,7 +3304,6 @@ const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -3370,14 +3314,11 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TargetAddress = (output: any, context: __SerdeContext): TargetAddress => {
   return {
-    __type: "TargetAddress",
     Ip: output.Ip !== undefined && output.Ip !== null ? output.Ip : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
   } as any;
@@ -3389,7 +3330,6 @@ const deserializeAws_json1_1TargetList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    __type: "ThrottlingException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3399,15 +3339,12 @@ const deserializeAws_json1_1UnknownResourceException = (
   context: __SerdeContext
 ): UnknownResourceException => {
   return {
-    __type: "UnknownResourceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateResolverEndpointResponse = (
@@ -3415,7 +3352,6 @@ const deserializeAws_json1_1UpdateResolverEndpointResponse = (
   context: __SerdeContext
 ): UpdateResolverEndpointResponse => {
   return {
-    __type: "UpdateResolverEndpointResponse",
     ResolverEndpoint:
       output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
         ? deserializeAws_json1_1ResolverEndpoint(output.ResolverEndpoint, context)
@@ -3428,7 +3364,6 @@ const deserializeAws_json1_1UpdateResolverRuleResponse = (
   context: __SerdeContext
 ): UpdateResolverRuleResponse => {
   return {
-    __type: "UpdateResolverRuleResponse",
     ResolverRule:
       output.ResolverRule !== undefined && output.ResolverRule !== null
         ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context)

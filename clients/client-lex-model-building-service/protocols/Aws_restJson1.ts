@@ -1534,7 +1534,6 @@ export const deserializeAws_restJson1CreateBotVersionCommand = async (
   }
   const contents: CreateBotVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBotVersionResponse",
     abortStatement: undefined,
     checksum: undefined,
     childDirected: undefined,
@@ -1690,7 +1689,6 @@ export const deserializeAws_restJson1CreateIntentVersionCommand = async (
   }
   const contents: CreateIntentVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateIntentVersionResponse",
     checksum: undefined,
     conclusionStatement: undefined,
     confirmationPrompt: undefined,
@@ -1846,7 +1844,6 @@ export const deserializeAws_restJson1CreateSlotTypeVersionCommand = async (
   }
   const contents: CreateSlotTypeVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSlotTypeVersionResponse",
     checksum: undefined,
     createdDate: undefined,
     description: undefined,
@@ -2776,7 +2773,6 @@ export const deserializeAws_restJson1GetBotCommand = async (
   }
   const contents: GetBotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBotResponse",
     abortStatement: undefined,
     checksum: undefined,
     childDirected: undefined,
@@ -2916,7 +2912,6 @@ export const deserializeAws_restJson1GetBotAliasCommand = async (
   }
   const contents: GetBotAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBotAliasResponse",
     botName: undefined,
     botVersion: undefined,
     checksum: undefined,
@@ -3024,7 +3019,6 @@ export const deserializeAws_restJson1GetBotAliasesCommand = async (
   }
   const contents: GetBotAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBotAliasesResponse",
     BotAliases: undefined,
     nextToken: undefined,
   };
@@ -3100,7 +3094,6 @@ export const deserializeAws_restJson1GetBotChannelAssociationCommand = async (
   }
   const contents: GetBotChannelAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBotChannelAssociationResponse",
     botAlias: undefined,
     botConfiguration: undefined,
     botName: undefined,
@@ -3212,7 +3205,6 @@ export const deserializeAws_restJson1GetBotChannelAssociationsCommand = async (
   }
   const contents: GetBotChannelAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBotChannelAssociationsResponse",
     botChannelAssociations: undefined,
     nextToken: undefined,
   };
@@ -3291,7 +3283,6 @@ export const deserializeAws_restJson1GetBotsCommand = async (
   }
   const contents: GetBotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBotsResponse",
     bots: undefined,
     nextToken: undefined,
   };
@@ -3375,7 +3366,6 @@ export const deserializeAws_restJson1GetBotVersionsCommand = async (
   }
   const contents: GetBotVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBotVersionsResponse",
     bots: undefined,
     nextToken: undefined,
   };
@@ -3459,7 +3449,6 @@ export const deserializeAws_restJson1GetBuiltinIntentCommand = async (
   }
   const contents: GetBuiltinIntentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBuiltinIntentResponse",
     signature: undefined,
     slots: undefined,
     supportedLocales: undefined,
@@ -3547,7 +3536,6 @@ export const deserializeAws_restJson1GetBuiltinIntentsCommand = async (
   }
   const contents: GetBuiltinIntentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBuiltinIntentsResponse",
     intents: undefined,
     nextToken: undefined,
   };
@@ -3623,7 +3611,6 @@ export const deserializeAws_restJson1GetBuiltinSlotTypesCommand = async (
   }
   const contents: GetBuiltinSlotTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBuiltinSlotTypesResponse",
     nextToken: undefined,
     slotTypes: undefined,
   };
@@ -3699,7 +3686,6 @@ export const deserializeAws_restJson1GetExportCommand = async (
   }
   const contents: GetExportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetExportResponse",
     exportStatus: undefined,
     exportType: undefined,
     failureReason: undefined,
@@ -3803,7 +3789,6 @@ export const deserializeAws_restJson1GetImportCommand = async (
   }
   const contents: GetImportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetImportResponse",
     createdDate: undefined,
     failureReason: undefined,
     importId: undefined,
@@ -3907,7 +3892,6 @@ export const deserializeAws_restJson1GetIntentCommand = async (
   }
   const contents: GetIntentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetIntentResponse",
     checksum: undefined,
     conclusionStatement: undefined,
     confirmationPrompt: undefined,
@@ -4047,7 +4031,6 @@ export const deserializeAws_restJson1GetIntentsCommand = async (
   }
   const contents: GetIntentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetIntentsResponse",
     intents: undefined,
     nextToken: undefined,
   };
@@ -4131,7 +4114,6 @@ export const deserializeAws_restJson1GetIntentVersionsCommand = async (
   }
   const contents: GetIntentVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetIntentVersionsResponse",
     intents: undefined,
     nextToken: undefined,
   };
@@ -4215,7 +4197,6 @@ export const deserializeAws_restJson1GetSlotTypeCommand = async (
   }
   const contents: GetSlotTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSlotTypeResponse",
     checksum: undefined,
     createdDate: undefined,
     description: undefined,
@@ -4334,7 +4315,6 @@ export const deserializeAws_restJson1GetSlotTypesCommand = async (
   }
   const contents: GetSlotTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSlotTypesResponse",
     nextToken: undefined,
     slotTypes: undefined,
   };
@@ -4418,7 +4398,6 @@ export const deserializeAws_restJson1GetSlotTypeVersionsCommand = async (
   }
   const contents: GetSlotTypeVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSlotTypeVersionsResponse",
     nextToken: undefined,
     slotTypes: undefined,
   };
@@ -4502,7 +4481,6 @@ export const deserializeAws_restJson1GetUtterancesViewCommand = async (
   }
   const contents: GetUtterancesViewCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUtterancesViewResponse",
     botName: undefined,
     utterances: undefined,
   };
@@ -4578,7 +4556,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4658,7 +4635,6 @@ export const deserializeAws_restJson1PutBotCommand = async (
   }
   const contents: PutBotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutBotResponse",
     abortStatement: undefined,
     checksum: undefined,
     childDirected: undefined,
@@ -4814,7 +4790,6 @@ export const deserializeAws_restJson1PutBotAliasCommand = async (
   }
   const contents: PutBotAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutBotAliasResponse",
     botName: undefined,
     botVersion: undefined,
     checksum: undefined,
@@ -4934,7 +4909,6 @@ export const deserializeAws_restJson1PutIntentCommand = async (
   }
   const contents: PutIntentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutIntentResponse",
     checksum: undefined,
     conclusionStatement: undefined,
     confirmationPrompt: undefined,
@@ -5086,7 +5060,6 @@ export const deserializeAws_restJson1PutSlotTypeCommand = async (
   }
   const contents: PutSlotTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutSlotTypeResponse",
     checksum: undefined,
     createVersion: undefined,
     createdDate: undefined,
@@ -5217,7 +5190,6 @@ export const deserializeAws_restJson1StartImportCommand = async (
   }
   const contents: StartImportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartImportResponse",
     createdDate: undefined,
     importId: undefined,
     importStatus: undefined,
@@ -5313,7 +5285,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5397,7 +5368,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5773,7 +5743,6 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
 
 const deserializeAws_restJson1BotAliasMetadata = (output: any, context: __SerdeContext): BotAliasMetadata => {
   return {
-    __type: "BotAliasMetadata",
     botName: output.botName !== undefined && output.botName !== null ? output.botName : undefined,
     botVersion: output.botVersion !== undefined && output.botVersion !== null ? output.botVersion : undefined,
     checksum: output.checksum !== undefined && output.checksum !== null ? output.checksum : undefined,
@@ -5800,7 +5769,6 @@ const deserializeAws_restJson1BotAliasMetadataList = (output: any, context: __Se
 
 const deserializeAws_restJson1BotChannelAssociation = (output: any, context: __SerdeContext): BotChannelAssociation => {
   return {
-    __type: "BotChannelAssociation",
     botAlias: output.botAlias !== undefined && output.botAlias !== null ? output.botAlias : undefined,
     botConfiguration:
       output.botConfiguration !== undefined && output.botConfiguration !== null
@@ -5829,7 +5797,6 @@ const deserializeAws_restJson1BotChannelAssociationList = (
 
 const deserializeAws_restJson1BotMetadata = (output: any, context: __SerdeContext): BotMetadata => {
   return {
-    __type: "BotMetadata",
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
@@ -5851,7 +5818,6 @@ const deserializeAws_restJson1BotMetadataList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1BuiltinIntentMetadata = (output: any, context: __SerdeContext): BuiltinIntentMetadata => {
   return {
-    __type: "BuiltinIntentMetadata",
     signature: output.signature !== undefined && output.signature !== null ? output.signature : undefined,
     supportedLocales:
       output.supportedLocales !== undefined && output.supportedLocales !== null
@@ -5869,7 +5835,6 @@ const deserializeAws_restJson1BuiltinIntentMetadataList = (
 
 const deserializeAws_restJson1BuiltinIntentSlot = (output: any, context: __SerdeContext): BuiltinIntentSlot => {
   return {
-    __type: "BuiltinIntentSlot",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
 };
@@ -5883,7 +5848,6 @@ const deserializeAws_restJson1BuiltinSlotTypeMetadata = (
   context: __SerdeContext
 ): BuiltinSlotTypeMetadata => {
   return {
-    __type: "BuiltinSlotTypeMetadata",
     signature: output.signature !== undefined && output.signature !== null ? output.signature : undefined,
     supportedLocales:
       output.supportedLocales !== undefined && output.supportedLocales !== null
@@ -5914,7 +5878,6 @@ const deserializeAws_restJson1ChannelConfigurationMap = (
 
 const deserializeAws_restJson1CodeHook = (output: any, context: __SerdeContext): CodeHook => {
   return {
-    __type: "CodeHook",
     messageVersion:
       output.messageVersion !== undefined && output.messageVersion !== null ? output.messageVersion : undefined,
     uri: output.uri !== undefined && output.uri !== null ? output.uri : undefined,
@@ -5926,7 +5889,6 @@ const deserializeAws_restJson1ConversationLogsResponse = (
   context: __SerdeContext
 ): ConversationLogsResponse => {
   return {
-    __type: "ConversationLogsResponse",
     iamRoleArn: output.iamRoleArn !== undefined && output.iamRoleArn !== null ? output.iamRoleArn : undefined,
     logSettings:
       output.logSettings !== undefined && output.logSettings !== null
@@ -5937,7 +5899,6 @@ const deserializeAws_restJson1ConversationLogsResponse = (
 
 const deserializeAws_restJson1EnumerationValue = (output: any, context: __SerdeContext): EnumerationValue => {
   return {
-    __type: "EnumerationValue",
     synonyms:
       output.synonyms !== undefined && output.synonyms !== null
         ? deserializeAws_restJson1SynonymList(output.synonyms, context)
@@ -5952,7 +5913,6 @@ const deserializeAws_restJson1EnumerationValues = (output: any, context: __Serde
 
 const deserializeAws_restJson1FollowUpPrompt = (output: any, context: __SerdeContext): FollowUpPrompt => {
   return {
-    __type: "FollowUpPrompt",
     prompt:
       output.prompt !== undefined && output.prompt !== null
         ? deserializeAws_restJson1Prompt(output.prompt, context)
@@ -5966,7 +5926,6 @@ const deserializeAws_restJson1FollowUpPrompt = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1FulfillmentActivity = (output: any, context: __SerdeContext): FulfillmentActivity => {
   return {
-    __type: "FulfillmentActivity",
     codeHook:
       output.codeHook !== undefined && output.codeHook !== null
         ? deserializeAws_restJson1CodeHook(output.codeHook, context)
@@ -5977,7 +5936,6 @@ const deserializeAws_restJson1FulfillmentActivity = (output: any, context: __Ser
 
 const deserializeAws_restJson1Intent = (output: any, context: __SerdeContext): Intent => {
   return {
-    __type: "Intent",
     intentName: output.intentName !== undefined && output.intentName !== null ? output.intentName : undefined,
     intentVersion:
       output.intentVersion !== undefined && output.intentVersion !== null ? output.intentVersion : undefined,
@@ -5990,7 +5948,6 @@ const deserializeAws_restJson1IntentList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1IntentMetadata = (output: any, context: __SerdeContext): IntentMetadata => {
   return {
-    __type: "IntentMetadata",
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
@@ -6015,7 +5972,6 @@ const deserializeAws_restJson1IntentUtteranceList = (output: any, context: __Ser
 
 const deserializeAws_restJson1KendraConfiguration = (output: any, context: __SerdeContext): KendraConfiguration => {
   return {
-    __type: "KendraConfiguration",
     kendraIndex: output.kendraIndex !== undefined && output.kendraIndex !== null ? output.kendraIndex : undefined,
     queryFilterString:
       output.queryFilterString !== undefined && output.queryFilterString !== null
@@ -6039,7 +5995,6 @@ const deserializeAws_restJson1LocaleList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1LogSettingsResponse = (output: any, context: __SerdeContext): LogSettingsResponse => {
   return {
-    __type: "LogSettingsResponse",
     destination: output.destination !== undefined && output.destination !== null ? output.destination : undefined,
     kmsKeyArn: output.kmsKeyArn !== undefined && output.kmsKeyArn !== null ? output.kmsKeyArn : undefined,
     logType: output.logType !== undefined && output.logType !== null ? output.logType : undefined,
@@ -6058,7 +6013,6 @@ const deserializeAws_restJson1LogSettingsResponseList = (
 
 const deserializeAws_restJson1Message = (output: any, context: __SerdeContext): Message => {
   return {
-    __type: "Message",
     content: output.content !== undefined && output.content !== null ? output.content : undefined,
     contentType: output.contentType !== undefined && output.contentType !== null ? output.contentType : undefined,
     groupNumber: output.groupNumber !== undefined && output.groupNumber !== null ? output.groupNumber : undefined,
@@ -6071,7 +6025,6 @@ const deserializeAws_restJson1MessageList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Prompt = (output: any, context: __SerdeContext): Prompt => {
   return {
-    __type: "Prompt",
     maxAttempts: output.maxAttempts !== undefined && output.maxAttempts !== null ? output.maxAttempts : undefined,
     messages:
       output.messages !== undefined && output.messages !== null
@@ -6083,7 +6036,6 @@ const deserializeAws_restJson1Prompt = (output: any, context: __SerdeContext): P
 
 const deserializeAws_restJson1ResourceReference = (output: any, context: __SerdeContext): ResourceReference => {
   return {
-    __type: "ResourceReference",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
@@ -6091,7 +6043,6 @@ const deserializeAws_restJson1ResourceReference = (output: any, context: __Serde
 
 const deserializeAws_restJson1Slot = (output: any, context: __SerdeContext): Slot => {
   return {
-    __type: "Slot",
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     obfuscationSetting:
@@ -6122,7 +6073,6 @@ const deserializeAws_restJson1SlotList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1SlotTypeConfiguration = (output: any, context: __SerdeContext): SlotTypeConfiguration => {
   return {
-    __type: "SlotTypeConfiguration",
     regexConfiguration:
       output.regexConfiguration !== undefined && output.regexConfiguration !== null
         ? deserializeAws_restJson1SlotTypeRegexConfiguration(output.regexConfiguration, context)
@@ -6139,7 +6089,6 @@ const deserializeAws_restJson1SlotTypeConfigurations = (
 
 const deserializeAws_restJson1SlotTypeMetadata = (output: any, context: __SerdeContext): SlotTypeMetadata => {
   return {
-    __type: "SlotTypeMetadata",
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
@@ -6163,7 +6112,6 @@ const deserializeAws_restJson1SlotTypeRegexConfiguration = (
   context: __SerdeContext
 ): SlotTypeRegexConfiguration => {
   return {
-    __type: "SlotTypeRegexConfiguration",
     pattern: output.pattern !== undefined && output.pattern !== null ? output.pattern : undefined,
   } as any;
 };
@@ -6174,7 +6122,6 @@ const deserializeAws_restJson1SlotUtteranceList = (output: any, context: __Serde
 
 const deserializeAws_restJson1Statement = (output: any, context: __SerdeContext): Statement => {
   return {
-    __type: "Statement",
     messages:
       output.messages !== undefined && output.messages !== null
         ? deserializeAws_restJson1MessageList(output.messages, context)
@@ -6193,7 +6140,6 @@ const deserializeAws_restJson1SynonymList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -6205,7 +6151,6 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1UtteranceData = (output: any, context: __SerdeContext): UtteranceData => {
   return {
-    __type: "UtteranceData",
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
     distinctUsers:
       output.distinctUsers !== undefined && output.distinctUsers !== null ? output.distinctUsers : undefined,
@@ -6224,7 +6169,6 @@ const deserializeAws_restJson1UtteranceData = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1UtteranceList = (output: any, context: __SerdeContext): UtteranceList => {
   return {
-    __type: "UtteranceList",
     botVersion: output.botVersion !== undefined && output.botVersion !== null ? output.botVersion : undefined,
     utterances:
       output.utterances !== undefined && output.utterances !== null

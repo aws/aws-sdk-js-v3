@@ -1,8 +1,7 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CreateLifecyclePolicyRequest {
-  __type?: "CreateLifecyclePolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.</p>
    */
@@ -33,11 +32,9 @@ export namespace CreateLifecyclePolicyRequest {
   export const filterSensitiveLog = (obj: CreateLifecyclePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLifecyclePolicyRequest => __isa(o, "CreateLifecyclePolicyRequest");
 }
 
 export interface CreateLifecyclePolicyResponse {
-  __type?: "CreateLifecyclePolicyResponse";
   /**
    * <p>The identifier of the lifecycle policy.</p>
    */
@@ -48,14 +45,12 @@ export namespace CreateLifecyclePolicyResponse {
   export const filterSensitiveLog = (obj: CreateLifecyclePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLifecyclePolicyResponse => __isa(o, "CreateLifecyclePolicyResponse");
 }
 
 /**
  * <p>Specifies when to create snapshots of EBS volumes.</p> <p>You must specify either a Cron expression or an interval, interval unit, and start time. You cannot specify both.</p>
  */
 export interface CreateRule {
-  __type?: "CreateRule";
   /**
    * <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p> <p>The operation occurs within a one-hour window following the specified time. If you do not specify a time, Amazon DLM selects a time within the next 24 hours.</p>
    */
@@ -81,14 +76,12 @@ export namespace CreateRule {
   export const filterSensitiveLog = (obj: CreateRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRule => __isa(o, "CreateRule");
 }
 
 /**
  * <p>Specifies the retention rule for cross-Region snapshot copies.</p>
  */
 export interface CrossRegionCopyRetainRule {
-  __type?: "CrossRegionCopyRetainRule";
   /**
    * <p>The unit of time for time-based retention.</p>
    */
@@ -104,14 +97,12 @@ export namespace CrossRegionCopyRetainRule {
   export const filterSensitiveLog = (obj: CrossRegionCopyRetainRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CrossRegionCopyRetainRule => __isa(o, "CrossRegionCopyRetainRule");
 }
 
 /**
  * <p>Specifies a rule for cross-Region snapshot copies.</p>
  */
 export interface CrossRegionCopyRule {
-  __type?: "CrossRegionCopyRule";
   /**
    * <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.</p>
    */
@@ -142,11 +133,9 @@ export namespace CrossRegionCopyRule {
   export const filterSensitiveLog = (obj: CrossRegionCopyRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CrossRegionCopyRule => __isa(o, "CrossRegionCopyRule");
 }
 
 export interface DeleteLifecyclePolicyRequest {
-  __type?: "DeleteLifecyclePolicyRequest";
   /**
    * <p>The identifier of the lifecycle policy.</p>
    */
@@ -157,25 +146,20 @@ export namespace DeleteLifecyclePolicyRequest {
   export const filterSensitiveLog = (obj: DeleteLifecyclePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLifecyclePolicyRequest => __isa(o, "DeleteLifecyclePolicyRequest");
 }
 
-export interface DeleteLifecyclePolicyResponse {
-  __type?: "DeleteLifecyclePolicyResponse";
-}
+export interface DeleteLifecyclePolicyResponse {}
 
 export namespace DeleteLifecyclePolicyResponse {
   export const filterSensitiveLog = (obj: DeleteLifecyclePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLifecyclePolicyResponse => __isa(o, "DeleteLifecyclePolicyResponse");
 }
 
 /**
  * <p>Specifies a rule for enabling fast snapshot restore. You can enable fast snapshot restore based on either a count or a time interval.</p>
  */
 export interface FastRestoreRule {
-  __type?: "FastRestoreRule";
   /**
    * <p>The number of snapshots to be enabled with fast snapshot restore.</p>
    */
@@ -201,11 +185,9 @@ export namespace FastRestoreRule {
   export const filterSensitiveLog = (obj: FastRestoreRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FastRestoreRule => __isa(o, "FastRestoreRule");
 }
 
 export interface GetLifecyclePoliciesRequest {
-  __type?: "GetLifecyclePoliciesRequest";
   /**
    * <p>The resource type.</p>
    */
@@ -236,11 +218,9 @@ export namespace GetLifecyclePoliciesRequest {
   export const filterSensitiveLog = (obj: GetLifecyclePoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLifecyclePoliciesRequest => __isa(o, "GetLifecyclePoliciesRequest");
 }
 
 export interface GetLifecyclePoliciesResponse {
-  __type?: "GetLifecyclePoliciesResponse";
   /**
    * <p>Summary information about the lifecycle policies.</p>
    */
@@ -251,11 +231,9 @@ export namespace GetLifecyclePoliciesResponse {
   export const filterSensitiveLog = (obj: GetLifecyclePoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLifecyclePoliciesResponse => __isa(o, "GetLifecyclePoliciesResponse");
 }
 
 export interface GetLifecyclePolicyRequest {
-  __type?: "GetLifecyclePolicyRequest";
   /**
    * <p>The identifier of the lifecycle policy.</p>
    */
@@ -266,11 +244,9 @@ export namespace GetLifecyclePolicyRequest {
   export const filterSensitiveLog = (obj: GetLifecyclePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLifecyclePolicyRequest => __isa(o, "GetLifecyclePolicyRequest");
 }
 
 export interface GetLifecyclePolicyResponse {
-  __type?: "GetLifecyclePolicyResponse";
   /**
    * <p>Detailed information about the lifecycle policy.</p>
    */
@@ -281,7 +257,6 @@ export namespace GetLifecyclePolicyResponse {
   export const filterSensitiveLog = (obj: GetLifecyclePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLifecyclePolicyResponse => __isa(o, "GetLifecyclePolicyResponse");
 }
 
 export enum GettablePolicyStateValues {
@@ -304,7 +279,6 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export enum IntervalUnitValues {
@@ -335,14 +309,12 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>Detailed information about a lifecycle policy.</p>
  */
 export interface LifecyclePolicy {
-  __type?: "LifecyclePolicy";
   /**
    * <p>The Amazon Resource Name (ARN) of the policy.</p>
    */
@@ -398,14 +370,12 @@ export namespace LifecyclePolicy {
   export const filterSensitiveLog = (obj: LifecyclePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicy => __isa(o, "LifecyclePolicy");
 }
 
 /**
  * <p>Summary information about a lifecycle policy.</p>
  */
 export interface LifecyclePolicySummary {
-  __type?: "LifecyclePolicySummary";
   /**
    * <p>The description of the lifecycle policy.</p>
    */
@@ -431,7 +401,6 @@ export namespace LifecyclePolicySummary {
   export const filterSensitiveLog = (obj: LifecyclePolicySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecyclePolicySummary => __isa(o, "LifecyclePolicySummary");
 }
 
 /**
@@ -453,11 +422,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -468,11 +435,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>Information about the tags.</p>
    */
@@ -483,14 +448,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>Specifies optional parameters to add to a policy. The set of valid parameters depends on the combination of policy type and resource type.</p>
  */
 export interface _Parameters {
-  __type?: "Parameters";
   /**
    * <p>[EBS Snapshot Management – Instance policies only] Indicates whether to exclude the root volume from snapshots created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSnapshots.html">CreateSnapshots</a>. The default is false.</p>
    */
@@ -501,14 +464,12 @@ export namespace _Parameters {
   export const filterSensitiveLog = (obj: _Parameters): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is _Parameters => __isa(o, "Parameters");
 }
 
 /**
  * <p>Specifies the configuration of a lifecycle policy.</p>
  */
 export interface PolicyDetails {
-  __type?: "PolicyDetails";
   /**
    * <p>A set of optional parameters for the policy. </p>
    */
@@ -539,7 +500,6 @@ export namespace PolicyDetails {
   export const filterSensitiveLog = (obj: PolicyDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyDetails => __isa(o, "PolicyDetails");
 }
 
 export enum PolicyTypeValues {
@@ -569,7 +529,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum ResourceTypeValues {
@@ -581,7 +540,6 @@ export enum ResourceTypeValues {
  * <p>Specifies the retention rule for a lifecycle policy. You can retain snapshots based on either a count or a time interval.</p>
  */
 export interface RetainRule {
-  __type?: "RetainRule";
   /**
    * <p>The unit of time for time-based retention.</p>
    */
@@ -602,7 +560,6 @@ export namespace RetainRule {
   export const filterSensitiveLog = (obj: RetainRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetainRule => __isa(o, "RetainRule");
 }
 
 export enum RetentionIntervalUnitValues {
@@ -616,7 +573,6 @@ export enum RetentionIntervalUnitValues {
  * <p>Specifies a backup schedule.</p>
  */
 export interface Schedule {
-  __type?: "Schedule";
   /**
    * <p>The rule for cross-Region snapshot copies.</p>
    */
@@ -662,7 +618,6 @@ export namespace Schedule {
   export const filterSensitiveLog = (obj: Schedule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Schedule => __isa(o, "Schedule");
 }
 
 export enum SettablePolicyStateValues {
@@ -674,7 +629,6 @@ export enum SettablePolicyStateValues {
  * <p>Specifies a tag for a resource.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The tag key.</p>
    */
@@ -690,11 +644,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>One or more tags.</p>
    */
@@ -710,22 +662,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The tag keys.</p>
    */
@@ -741,22 +688,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateLifecyclePolicyRequest {
-  __type?: "UpdateLifecyclePolicyRequest";
   /**
    * <p>The identifier of the lifecycle policy.</p>
    */
@@ -787,16 +729,12 @@ export namespace UpdateLifecyclePolicyRequest {
   export const filterSensitiveLog = (obj: UpdateLifecyclePolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLifecyclePolicyRequest => __isa(o, "UpdateLifecyclePolicyRequest");
 }
 
-export interface UpdateLifecyclePolicyResponse {
-  __type?: "UpdateLifecyclePolicyResponse";
-}
+export interface UpdateLifecyclePolicyResponse {}
 
 export namespace UpdateLifecyclePolicyResponse {
   export const filterSensitiveLog = (obj: UpdateLifecyclePolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLifecyclePolicyResponse => __isa(o, "UpdateLifecyclePolicyResponse");
 }

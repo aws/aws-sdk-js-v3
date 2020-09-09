@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Represents the input of, and adds tags to, an on-premises instance operation.</p>
  */
 export interface AddTagsToOnPremisesInstancesInput {
-  __type?: "AddTagsToOnPremisesInstancesInput";
   /**
    * <p>The names of the on-premises instances to which to add tags.</p>
    */
@@ -23,14 +22,12 @@ export namespace AddTagsToOnPremisesInstancesInput {
   export const filterSensitiveLog = (obj: AddTagsToOnPremisesInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddTagsToOnPremisesInstancesInput => __isa(o, "AddTagsToOnPremisesInstancesInput");
 }
 
 /**
  * <p>Information about an alarm.</p>
  */
 export interface Alarm {
-  __type?: "Alarm";
   /**
    * <p>The name of the alarm. Maximum length is 255 characters. Each alarm name can be used
    *             only once in a list of alarms.</p>
@@ -42,14 +39,12 @@ export namespace Alarm {
   export const filterSensitiveLog = (obj: Alarm): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Alarm => __isa(o, "Alarm");
 }
 
 /**
  * <p>Information about alarms associated with the deployment group.</p>
  */
 export interface AlarmConfiguration {
-  __type?: "AlarmConfiguration";
   /**
    * <p>Indicates whether a deployment should continue if information about the current state
    *             of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.</p>
@@ -84,7 +79,6 @@ export namespace AlarmConfiguration {
   export const filterSensitiveLog = (obj: AlarmConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlarmConfiguration => __isa(o, "AlarmConfiguration");
 }
 
 /**
@@ -103,7 +97,6 @@ export namespace AlarmsLimitExceededException {
   export const filterSensitiveLog = (obj: AlarmsLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlarmsLimitExceededException => __isa(o, "AlarmsLimitExceededException");
 }
 
 /**
@@ -123,7 +116,6 @@ export namespace ApplicationAlreadyExistsException {
   export const filterSensitiveLog = (obj: ApplicationAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationAlreadyExistsException => __isa(o, "ApplicationAlreadyExistsException");
 }
 
 /**
@@ -142,14 +134,12 @@ export namespace ApplicationDoesNotExistException {
   export const filterSensitiveLog = (obj: ApplicationDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationDoesNotExistException => __isa(o, "ApplicationDoesNotExistException");
 }
 
 /**
  * <p>Information about an application.</p>
  */
 export interface ApplicationInfo {
-  __type?: "ApplicationInfo";
   /**
    * <p>The time at which the application was created.</p>
    */
@@ -187,7 +177,6 @@ export namespace ApplicationInfo {
   export const filterSensitiveLog = (obj: ApplicationInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationInfo => __isa(o, "ApplicationInfo");
 }
 
 /**
@@ -206,7 +195,6 @@ export namespace ApplicationLimitExceededException {
   export const filterSensitiveLog = (obj: ApplicationLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationLimitExceededException => __isa(o, "ApplicationLimitExceededException");
 }
 
 /**
@@ -225,7 +213,6 @@ export namespace ApplicationNameRequiredException {
   export const filterSensitiveLog = (obj: ApplicationNameRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ApplicationNameRequiredException => __isa(o, "ApplicationNameRequiredException");
 }
 
 export enum ApplicationRevisionSortBy {
@@ -241,7 +228,6 @@ export enum ApplicationRevisionSortBy {
  *             data type. </p>
  */
 export interface AppSpecContent {
-  __type?: "AppSpecContent";
   /**
    * <p> The SHA256 hash value of the revision content. </p>
    */
@@ -265,7 +251,6 @@ export namespace AppSpecContent {
   export const filterSensitiveLog = (obj: AppSpecContent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AppSpecContent => __isa(o, "AppSpecContent");
 }
 
 /**
@@ -286,7 +271,6 @@ export namespace ArnNotSupportedException {
   export const filterSensitiveLog = (obj: ArnNotSupportedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ArnNotSupportedException => __isa(o, "ArnNotSupportedException");
 }
 
 /**
@@ -294,7 +278,6 @@ export namespace ArnNotSupportedException {
  *             of an application revision when a deployment is not completed successfully.</p>
  */
 export interface AutoRollbackConfiguration {
-  __type?: "AutoRollbackConfiguration";
   /**
    * <p>The event type or types that trigger a rollback.</p>
    */
@@ -311,7 +294,6 @@ export namespace AutoRollbackConfiguration {
   export const filterSensitiveLog = (obj: AutoRollbackConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoRollbackConfiguration => __isa(o, "AutoRollbackConfiguration");
 }
 
 export enum AutoRollbackEvent {
@@ -324,7 +306,6 @@ export enum AutoRollbackEvent {
  * <p>Information about an Auto Scaling group.</p>
  */
 export interface AutoScalingGroup {
-  __type?: "AutoScalingGroup";
   /**
    * <p>The Auto Scaling group name.</p>
    */
@@ -340,14 +321,12 @@ export namespace AutoScalingGroup {
   export const filterSensitiveLog = (obj: AutoScalingGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingGroup => __isa(o, "AutoScalingGroup");
 }
 
 /**
  * <p>Represents the input of a <code>BatchGetApplicationRevisions</code> operation.</p>
  */
 export interface BatchGetApplicationRevisionsInput {
-  __type?: "BatchGetApplicationRevisionsInput";
   /**
    * <p>An array of <code>RevisionLocation</code> objects that specify information to get about the application revisions, including type and
    *             location. The maximum number of <code>RevisionLocation</code> objects you can specify is 25.</p>
@@ -365,14 +344,12 @@ export namespace BatchGetApplicationRevisionsInput {
   export const filterSensitiveLog = (obj: BatchGetApplicationRevisionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetApplicationRevisionsInput => __isa(o, "BatchGetApplicationRevisionsInput");
 }
 
 /**
  * <p>Represents the output of a <code>BatchGetApplicationRevisions</code> operation.</p>
  */
 export interface BatchGetApplicationRevisionsOutput {
-  __type?: "BatchGetApplicationRevisionsOutput";
   /**
    * <p>Information about errors that might have occurred during the API call.</p>
    */
@@ -393,15 +370,12 @@ export namespace BatchGetApplicationRevisionsOutput {
   export const filterSensitiveLog = (obj: BatchGetApplicationRevisionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetApplicationRevisionsOutput =>
-    __isa(o, "BatchGetApplicationRevisionsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>BatchGetApplications</code> operation.</p>
  */
 export interface BatchGetApplicationsInput {
-  __type?: "BatchGetApplicationsInput";
   /**
    * <p>A list of application names separated by spaces. The maximum number of application names you can specify is 100.</p>
    */
@@ -412,14 +386,12 @@ export namespace BatchGetApplicationsInput {
   export const filterSensitiveLog = (obj: BatchGetApplicationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetApplicationsInput => __isa(o, "BatchGetApplicationsInput");
 }
 
 /**
  * <p>Represents the output of a <code>BatchGetApplications</code> operation.</p>
  */
 export interface BatchGetApplicationsOutput {
-  __type?: "BatchGetApplicationsOutput";
   /**
    * <p>Information about the applications.</p>
    */
@@ -430,14 +402,12 @@ export namespace BatchGetApplicationsOutput {
   export const filterSensitiveLog = (obj: BatchGetApplicationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetApplicationsOutput => __isa(o, "BatchGetApplicationsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>BatchGetDeploymentGroups</code> operation.</p>
  */
 export interface BatchGetDeploymentGroupsInput {
-  __type?: "BatchGetDeploymentGroupsInput";
   /**
    * <p>The names of the deployment groups.</p>
    */
@@ -454,14 +424,12 @@ export namespace BatchGetDeploymentGroupsInput {
   export const filterSensitiveLog = (obj: BatchGetDeploymentGroupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetDeploymentGroupsInput => __isa(o, "BatchGetDeploymentGroupsInput");
 }
 
 /**
  * <p>Represents the output of a <code>BatchGetDeploymentGroups</code> operation.</p>
  */
 export interface BatchGetDeploymentGroupsOutput {
-  __type?: "BatchGetDeploymentGroupsOutput";
   /**
    * <p>Information about errors that might have occurred during the API call.</p>
    */
@@ -477,14 +445,12 @@ export namespace BatchGetDeploymentGroupsOutput {
   export const filterSensitiveLog = (obj: BatchGetDeploymentGroupsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetDeploymentGroupsOutput => __isa(o, "BatchGetDeploymentGroupsOutput");
 }
 
 /**
  * <p> Represents the input of a <code>BatchGetDeploymentInstances</code> operation. </p>
  */
 export interface BatchGetDeploymentInstancesInput {
-  __type?: "BatchGetDeploymentInstancesInput";
   /**
    * <p>The unique IDs of instances used in the deployment. The maximum number of instance IDs you can specify is 25.</p>
    */
@@ -500,14 +466,12 @@ export namespace BatchGetDeploymentInstancesInput {
   export const filterSensitiveLog = (obj: BatchGetDeploymentInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetDeploymentInstancesInput => __isa(o, "BatchGetDeploymentInstancesInput");
 }
 
 /**
  * <p>Represents the output of a <code>BatchGetDeploymentInstances</code> operation.</p>
  */
 export interface BatchGetDeploymentInstancesOutput {
-  __type?: "BatchGetDeploymentInstancesOutput";
   /**
    * <p>Information about the instance.</p>
    */
@@ -523,14 +487,12 @@ export namespace BatchGetDeploymentInstancesOutput {
   export const filterSensitiveLog = (obj: BatchGetDeploymentInstancesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetDeploymentInstancesOutput => __isa(o, "BatchGetDeploymentInstancesOutput");
 }
 
 /**
  * <p> Represents the input of a <code>BatchGetDeployments</code> operation. </p>
  */
 export interface BatchGetDeploymentsInput {
-  __type?: "BatchGetDeploymentsInput";
   /**
    * <p> A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.</p>
    */
@@ -541,14 +503,12 @@ export namespace BatchGetDeploymentsInput {
   export const filterSensitiveLog = (obj: BatchGetDeploymentsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetDeploymentsInput => __isa(o, "BatchGetDeploymentsInput");
 }
 
 /**
  * <p> Represents the output of a <code>BatchGetDeployments</code> operation. </p>
  */
 export interface BatchGetDeploymentsOutput {
-  __type?: "BatchGetDeploymentsOutput";
   /**
    * <p> Information about the deployments. </p>
    */
@@ -559,11 +519,9 @@ export namespace BatchGetDeploymentsOutput {
   export const filterSensitiveLog = (obj: BatchGetDeploymentsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetDeploymentsOutput => __isa(o, "BatchGetDeploymentsOutput");
 }
 
 export interface BatchGetDeploymentTargetsInput {
-  __type?: "BatchGetDeploymentTargetsInput";
   /**
    * <p> The unique IDs of the deployment targets. The compute platform of the deployment
    *             determines the type of the targets and their formats. The maximum number of deployment target IDs you can specify is 25.</p>
@@ -603,11 +561,9 @@ export namespace BatchGetDeploymentTargetsInput {
   export const filterSensitiveLog = (obj: BatchGetDeploymentTargetsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetDeploymentTargetsInput => __isa(o, "BatchGetDeploymentTargetsInput");
 }
 
 export interface BatchGetDeploymentTargetsOutput {
-  __type?: "BatchGetDeploymentTargetsOutput";
   /**
    * <p> A list of target objects for a deployment. Each target object contains details about
    *             the target, such as its status and lifecycle events. The type of the target objects
@@ -642,14 +598,12 @@ export namespace BatchGetDeploymentTargetsOutput {
   export const filterSensitiveLog = (obj: BatchGetDeploymentTargetsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetDeploymentTargetsOutput => __isa(o, "BatchGetDeploymentTargetsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>BatchGetOnPremisesInstances</code> operation.</p>
  */
 export interface BatchGetOnPremisesInstancesInput {
-  __type?: "BatchGetOnPremisesInstancesInput";
   /**
    * <p>The names of the on-premises instances about which to get information. The maximum number of instance names you can specify is 25.</p>
    */
@@ -660,14 +614,12 @@ export namespace BatchGetOnPremisesInstancesInput {
   export const filterSensitiveLog = (obj: BatchGetOnPremisesInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetOnPremisesInstancesInput => __isa(o, "BatchGetOnPremisesInstancesInput");
 }
 
 /**
  * <p>Represents the output of a <code>BatchGetOnPremisesInstances</code> operation.</p>
  */
 export interface BatchGetOnPremisesInstancesOutput {
-  __type?: "BatchGetOnPremisesInstancesOutput";
   /**
    * <p>Information about the on-premises instances.</p>
    */
@@ -678,7 +630,6 @@ export namespace BatchGetOnPremisesInstancesOutput {
   export const filterSensitiveLog = (obj: BatchGetOnPremisesInstancesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchGetOnPremisesInstancesOutput => __isa(o, "BatchGetOnPremisesInstancesOutput");
 }
 
 /**
@@ -697,14 +648,12 @@ export namespace BatchLimitExceededException {
   export const filterSensitiveLog = (obj: BatchLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BatchLimitExceededException => __isa(o, "BatchLimitExceededException");
 }
 
 /**
  * <p>Information about blue/green deployment options for a deployment group.</p>
  */
 export interface BlueGreenDeploymentConfiguration {
-  __type?: "BlueGreenDeploymentConfiguration";
   /**
    * <p>Information about the action to take when newly provisioned instances are ready to
    *             receive traffic in a blue/green deployment.</p>
@@ -728,7 +677,6 @@ export namespace BlueGreenDeploymentConfiguration {
   export const filterSensitiveLog = (obj: BlueGreenDeploymentConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlueGreenDeploymentConfiguration => __isa(o, "BlueGreenDeploymentConfiguration");
 }
 
 /**
@@ -738,7 +686,6 @@ export namespace BlueGreenDeploymentConfiguration {
  *         </p>
  */
 export interface BlueInstanceTerminationOption {
-  __type?: "BlueInstanceTerminationOption";
   /**
    * <p>For an Amazon EC2 deployment, the number of minutes to wait after a successful blue/green deployment before
    *             terminating instances from the original environment.</p>
@@ -778,7 +725,6 @@ export namespace BlueInstanceTerminationOption {
   export const filterSensitiveLog = (obj: BlueInstanceTerminationOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlueInstanceTerminationOption => __isa(o, "BlueInstanceTerminationOption");
 }
 
 /**
@@ -797,7 +743,6 @@ export namespace BucketNameFilterRequiredException {
   export const filterSensitiveLog = (obj: BucketNameFilterRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BucketNameFilterRequiredException => __isa(o, "BucketNameFilterRequiredException");
 }
 
 export enum BundleType {
@@ -814,7 +759,6 @@ export enum BundleType {
  *             stack update.</p>
  */
 export interface CloudFormationTarget {
-  __type?: "CloudFormationTarget";
   /**
    * <p>The percentage of production traffic that the target version of an AWS CloudFormation
    *             blue/green deployment receives.</p>
@@ -859,7 +803,6 @@ export namespace CloudFormationTarget {
   export const filterSensitiveLog = (obj: CloudFormationTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudFormationTarget => __isa(o, "CloudFormationTarget");
 }
 
 export enum ComputePlatform {
@@ -869,7 +812,6 @@ export enum ComputePlatform {
 }
 
 export interface ContinueDeploymentInput {
-  __type?: "ContinueDeploymentInput";
   /**
    * <p> The unique ID of a blue/green deployment for which you want to start rerouting
    *             traffic to the replacement environment. </p>
@@ -888,14 +830,12 @@ export namespace ContinueDeploymentInput {
   export const filterSensitiveLog = (obj: ContinueDeploymentInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContinueDeploymentInput => __isa(o, "ContinueDeploymentInput");
 }
 
 /**
  * <p>Represents the input of a <code>CreateApplication</code> operation.</p>
  */
 export interface CreateApplicationInput {
-  __type?: "CreateApplicationInput";
   /**
    * <p>The name of the application. This name must be unique with the applicable IAM user or
    *             AWS account.</p>
@@ -921,14 +861,12 @@ export namespace CreateApplicationInput {
   export const filterSensitiveLog = (obj: CreateApplicationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationInput => __isa(o, "CreateApplicationInput");
 }
 
 /**
  * <p>Represents the output of a <code>CreateApplication</code> operation.</p>
  */
 export interface CreateApplicationOutput {
-  __type?: "CreateApplicationOutput";
   /**
    * <p>A unique application ID.</p>
    */
@@ -939,14 +877,12 @@ export namespace CreateApplicationOutput {
   export const filterSensitiveLog = (obj: CreateApplicationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateApplicationOutput => __isa(o, "CreateApplicationOutput");
 }
 
 /**
  * <p>Represents the input of a <code>CreateDeploymentConfig</code> operation.</p>
  */
 export interface CreateDeploymentConfigInput {
-  __type?: "CreateDeploymentConfigInput";
   /**
    * <p>The name of the deployment configuration to create.</p>
    */
@@ -990,14 +926,12 @@ export namespace CreateDeploymentConfigInput {
   export const filterSensitiveLog = (obj: CreateDeploymentConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentConfigInput => __isa(o, "CreateDeploymentConfigInput");
 }
 
 /**
  * <p>Represents the output of a <code>CreateDeploymentConfig</code> operation.</p>
  */
 export interface CreateDeploymentConfigOutput {
-  __type?: "CreateDeploymentConfigOutput";
   /**
    * <p>A unique deployment configuration ID.</p>
    */
@@ -1008,14 +942,12 @@ export namespace CreateDeploymentConfigOutput {
   export const filterSensitiveLog = (obj: CreateDeploymentConfigOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentConfigOutput => __isa(o, "CreateDeploymentConfigOutput");
 }
 
 /**
  * <p>Represents the input of a <code>CreateDeploymentGroup</code> operation.</p>
  */
 export interface CreateDeploymentGroupInput {
-  __type?: "CreateDeploymentGroupInput";
   /**
    * <p>The on-premises instance tags on which to filter. The deployment group includes
    *             on-premises instances with any of the specified tags. Cannot be used in the same call as
@@ -1137,14 +1069,12 @@ export namespace CreateDeploymentGroupInput {
   export const filterSensitiveLog = (obj: CreateDeploymentGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentGroupInput => __isa(o, "CreateDeploymentGroupInput");
 }
 
 /**
  * <p>Represents the output of a <code>CreateDeploymentGroup</code> operation.</p>
  */
 export interface CreateDeploymentGroupOutput {
-  __type?: "CreateDeploymentGroupOutput";
   /**
    * <p>A unique deployment group ID.</p>
    */
@@ -1155,14 +1085,12 @@ export namespace CreateDeploymentGroupOutput {
   export const filterSensitiveLog = (obj: CreateDeploymentGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentGroupOutput => __isa(o, "CreateDeploymentGroupOutput");
 }
 
 /**
  * <p>Represents the input of a <code>CreateDeployment</code> operation.</p>
  */
 export interface CreateDeploymentInput {
-  __type?: "CreateDeploymentInput";
   /**
    * <p>The name of a deployment configuration associated with the IAM user or AWS
    *             account.</p>
@@ -1268,14 +1196,12 @@ export namespace CreateDeploymentInput {
   export const filterSensitiveLog = (obj: CreateDeploymentInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentInput => __isa(o, "CreateDeploymentInput");
 }
 
 /**
  * <p> Represents the output of a <code>CreateDeployment</code> operation. </p>
  */
 export interface CreateDeploymentOutput {
-  __type?: "CreateDeploymentOutput";
   /**
    * <p> The unique ID of a deployment. </p>
    */
@@ -1286,14 +1212,12 @@ export namespace CreateDeploymentOutput {
   export const filterSensitiveLog = (obj: CreateDeploymentOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateDeploymentOutput => __isa(o, "CreateDeploymentOutput");
 }
 
 /**
  * <p>Represents the input of a <code>DeleteApplication</code> operation.</p>
  */
 export interface DeleteApplicationInput {
-  __type?: "DeleteApplicationInput";
   /**
    * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
    *             account.</p>
@@ -1305,14 +1229,12 @@ export namespace DeleteApplicationInput {
   export const filterSensitiveLog = (obj: DeleteApplicationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteApplicationInput => __isa(o, "DeleteApplicationInput");
 }
 
 /**
  * <p>Represents the input of a <code>DeleteDeploymentConfig</code> operation.</p>
  */
 export interface DeleteDeploymentConfigInput {
-  __type?: "DeleteDeploymentConfigInput";
   /**
    * <p>The name of a deployment configuration associated with the IAM user or AWS
    *             account.</p>
@@ -1324,14 +1246,12 @@ export namespace DeleteDeploymentConfigInput {
   export const filterSensitiveLog = (obj: DeleteDeploymentConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeploymentConfigInput => __isa(o, "DeleteDeploymentConfigInput");
 }
 
 /**
  * <p>Represents the input of a <code>DeleteDeploymentGroup</code> operation.</p>
  */
 export interface DeleteDeploymentGroupInput {
-  __type?: "DeleteDeploymentGroupInput";
   /**
    * <p>The name of a deployment group for the specified application.</p>
    */
@@ -1348,14 +1268,12 @@ export namespace DeleteDeploymentGroupInput {
   export const filterSensitiveLog = (obj: DeleteDeploymentGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeploymentGroupInput => __isa(o, "DeleteDeploymentGroupInput");
 }
 
 /**
  * <p>Represents the output of a <code>DeleteDeploymentGroup</code> operation.</p>
  */
 export interface DeleteDeploymentGroupOutput {
-  __type?: "DeleteDeploymentGroupOutput";
   /**
    * <p>If the output contains no data, and the corresponding deployment group contained at
    *             least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto
@@ -1370,14 +1288,12 @@ export namespace DeleteDeploymentGroupOutput {
   export const filterSensitiveLog = (obj: DeleteDeploymentGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteDeploymentGroupOutput => __isa(o, "DeleteDeploymentGroupOutput");
 }
 
 /**
  * <p>Represents the input of a <code>DeleteGitHubAccount</code> operation.</p>
  */
 export interface DeleteGitHubAccountTokenInput {
-  __type?: "DeleteGitHubAccountTokenInput";
   /**
    * <p>The name of the GitHub account connection to delete.</p>
    */
@@ -1388,14 +1304,12 @@ export namespace DeleteGitHubAccountTokenInput {
   export const filterSensitiveLog = (obj: DeleteGitHubAccountTokenInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGitHubAccountTokenInput => __isa(o, "DeleteGitHubAccountTokenInput");
 }
 
 /**
  * <p>Represents the output of a <code>DeleteGitHubAccountToken</code> operation.</p>
  */
 export interface DeleteGitHubAccountTokenOutput {
-  __type?: "DeleteGitHubAccountTokenOutput";
   /**
    * <p>The name of the GitHub account connection that was deleted.</p>
    */
@@ -1406,11 +1320,9 @@ export namespace DeleteGitHubAccountTokenOutput {
   export const filterSensitiveLog = (obj: DeleteGitHubAccountTokenOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteGitHubAccountTokenOutput => __isa(o, "DeleteGitHubAccountTokenOutput");
 }
 
 export interface DeleteResourcesByExternalIdInput {
-  __type?: "DeleteResourcesByExternalIdInput";
   /**
    * <p>The unique ID of an external resource (for example, a CloudFormation stack ID) that is
    *             linked to one or more CodeDeploy resources.</p>
@@ -1422,18 +1334,14 @@ export namespace DeleteResourcesByExternalIdInput {
   export const filterSensitiveLog = (obj: DeleteResourcesByExternalIdInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourcesByExternalIdInput => __isa(o, "DeleteResourcesByExternalIdInput");
 }
 
-export interface DeleteResourcesByExternalIdOutput {
-  __type?: "DeleteResourcesByExternalIdOutput";
-}
+export interface DeleteResourcesByExternalIdOutput {}
 
 export namespace DeleteResourcesByExternalIdOutput {
   export const filterSensitiveLog = (obj: DeleteResourcesByExternalIdOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteResourcesByExternalIdOutput => __isa(o, "DeleteResourcesByExternalIdOutput");
 }
 
 /**
@@ -1452,8 +1360,6 @@ export namespace DeploymentAlreadyCompletedException {
   export const filterSensitiveLog = (obj: DeploymentAlreadyCompletedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentAlreadyCompletedException =>
-    __isa(o, "DeploymentAlreadyCompletedException");
 }
 
 /**
@@ -1473,8 +1379,6 @@ export namespace DeploymentConfigAlreadyExistsException {
   export const filterSensitiveLog = (obj: DeploymentConfigAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentConfigAlreadyExistsException =>
-    __isa(o, "DeploymentConfigAlreadyExistsException");
 }
 
 /**
@@ -1493,15 +1397,12 @@ export namespace DeploymentConfigDoesNotExistException {
   export const filterSensitiveLog = (obj: DeploymentConfigDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentConfigDoesNotExistException =>
-    __isa(o, "DeploymentConfigDoesNotExistException");
 }
 
 /**
  * <p>Information about a deployment configuration.</p>
  */
 export interface DeploymentConfigInfo {
-  __type?: "DeploymentConfigInfo";
   /**
    * <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
    */
@@ -1538,7 +1439,6 @@ export namespace DeploymentConfigInfo {
   export const filterSensitiveLog = (obj: DeploymentConfigInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentConfigInfo => __isa(o, "DeploymentConfigInfo");
 }
 
 /**
@@ -1557,7 +1457,6 @@ export namespace DeploymentConfigInUseException {
   export const filterSensitiveLog = (obj: DeploymentConfigInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentConfigInUseException => __isa(o, "DeploymentConfigInUseException");
 }
 
 /**
@@ -1576,8 +1475,6 @@ export namespace DeploymentConfigLimitExceededException {
   export const filterSensitiveLog = (obj: DeploymentConfigLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentConfigLimitExceededException =>
-    __isa(o, "DeploymentConfigLimitExceededException");
 }
 
 /**
@@ -1596,8 +1493,6 @@ export namespace DeploymentConfigNameRequiredException {
   export const filterSensitiveLog = (obj: DeploymentConfigNameRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentConfigNameRequiredException =>
-    __isa(o, "DeploymentConfigNameRequiredException");
 }
 
 export enum DeploymentCreator {
@@ -1625,7 +1520,6 @@ export namespace DeploymentDoesNotExistException {
   export const filterSensitiveLog = (obj: DeploymentDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentDoesNotExistException => __isa(o, "DeploymentDoesNotExistException");
 }
 
 /**
@@ -1645,8 +1539,6 @@ export namespace DeploymentGroupAlreadyExistsException {
   export const filterSensitiveLog = (obj: DeploymentGroupAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentGroupAlreadyExistsException =>
-    __isa(o, "DeploymentGroupAlreadyExistsException");
 }
 
 /**
@@ -1665,15 +1557,12 @@ export namespace DeploymentGroupDoesNotExistException {
   export const filterSensitiveLog = (obj: DeploymentGroupDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentGroupDoesNotExistException =>
-    __isa(o, "DeploymentGroupDoesNotExistException");
 }
 
 /**
  * <p>Information about a deployment group.</p>
  */
 export interface DeploymentGroupInfo {
-  __type?: "DeploymentGroupInfo";
   /**
    * <p>The on-premises instance tags on which to filter. The deployment group includes
    *             on-premises instances with any of the specified tags.</p>
@@ -1799,7 +1688,6 @@ export namespace DeploymentGroupInfo {
   export const filterSensitiveLog = (obj: DeploymentGroupInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentGroupInfo => __isa(o, "DeploymentGroupInfo");
 }
 
 /**
@@ -1818,8 +1706,6 @@ export namespace DeploymentGroupLimitExceededException {
   export const filterSensitiveLog = (obj: DeploymentGroupLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentGroupLimitExceededException =>
-    __isa(o, "DeploymentGroupLimitExceededException");
 }
 
 /**
@@ -1838,8 +1724,6 @@ export namespace DeploymentGroupNameRequiredException {
   export const filterSensitiveLog = (obj: DeploymentGroupNameRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentGroupNameRequiredException =>
-    __isa(o, "DeploymentGroupNameRequiredException");
 }
 
 /**
@@ -1858,14 +1742,12 @@ export namespace DeploymentIdRequiredException {
   export const filterSensitiveLog = (obj: DeploymentIdRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentIdRequiredException => __isa(o, "DeploymentIdRequiredException");
 }
 
 /**
  * <p>Information about a deployment.</p>
  */
 export interface DeploymentInfo {
-  __type?: "DeploymentInfo";
   /**
    * <p>Information about any error associated with this deployment.</p>
    */
@@ -2084,7 +1966,6 @@ export namespace DeploymentInfo {
   export const filterSensitiveLog = (obj: DeploymentInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentInfo => __isa(o, "DeploymentInfo");
 }
 
 /**
@@ -2103,8 +1984,6 @@ export namespace DeploymentIsNotInReadyStateException {
   export const filterSensitiveLog = (obj: DeploymentIsNotInReadyStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentIsNotInReadyStateException =>
-    __isa(o, "DeploymentIsNotInReadyStateException");
 }
 
 /**
@@ -2123,7 +2002,6 @@ export namespace DeploymentLimitExceededException {
   export const filterSensitiveLog = (obj: DeploymentLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentLimitExceededException => __isa(o, "DeploymentLimitExceededException");
 }
 
 /**
@@ -2142,7 +2020,6 @@ export namespace DeploymentNotStartedException {
   export const filterSensitiveLog = (obj: DeploymentNotStartedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentNotStartedException => __isa(o, "DeploymentNotStartedException");
 }
 
 export enum DeploymentOption {
@@ -2154,7 +2031,6 @@ export enum DeploymentOption {
  * <p>Information about the deployment status of the instances in the deployment.</p>
  */
 export interface DeploymentOverview {
-  __type?: "DeploymentOverview";
   /**
    * <p>The number of instances in the deployment to which revisions have been successfully
    *             deployed.</p>
@@ -2192,7 +2068,6 @@ export namespace DeploymentOverview {
   export const filterSensitiveLog = (obj: DeploymentOverview): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentOverview => __isa(o, "DeploymentOverview");
 }
 
 export enum DeploymentReadyAction {
@@ -2205,7 +2080,6 @@ export enum DeploymentReadyAction {
  *             a blue/green deployment.</p>
  */
 export interface DeploymentReadyOption {
-  __type?: "DeploymentReadyOption";
   /**
    * <p>Information about when to reroute traffic from an original environment to a
    *             replacement environment in a blue/green deployment.</p>
@@ -2237,7 +2111,6 @@ export namespace DeploymentReadyOption {
   export const filterSensitiveLog = (obj: DeploymentReadyOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentReadyOption => __isa(o, "DeploymentReadyOption");
 }
 
 export enum DeploymentStatus {
@@ -2256,7 +2129,6 @@ export enum DeploymentStatus {
  *             run and whether to route deployment traffic behind a load balancer.</p>
  */
 export interface DeploymentStyle {
-  __type?: "DeploymentStyle";
   /**
    * <p>Indicates whether to run an in-place deployment or a blue/green deployment.</p>
    */
@@ -2272,14 +2144,12 @@ export namespace DeploymentStyle {
   export const filterSensitiveLog = (obj: DeploymentStyle): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentStyle => __isa(o, "DeploymentStyle");
 }
 
 /**
  * <p> Information about the deployment target. </p>
  */
 export interface DeploymentTarget {
-  __type?: "DeploymentTarget";
   /**
    * <p> Information about the target for a deployment that uses the EC2/On-premises compute
    *             platform. </p>
@@ -2315,7 +2185,6 @@ export namespace DeploymentTarget {
   export const filterSensitiveLog = (obj: DeploymentTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentTarget => __isa(o, "DeploymentTarget");
 }
 
 /**
@@ -2334,8 +2203,6 @@ export namespace DeploymentTargetDoesNotExistException {
   export const filterSensitiveLog = (obj: DeploymentTargetDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentTargetDoesNotExistException =>
-    __isa(o, "DeploymentTargetDoesNotExistException");
 }
 
 /**
@@ -2354,8 +2221,6 @@ export namespace DeploymentTargetIdRequiredException {
   export const filterSensitiveLog = (obj: DeploymentTargetIdRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentTargetIdRequiredException =>
-    __isa(o, "DeploymentTargetIdRequiredException");
 }
 
 /**
@@ -2376,8 +2241,6 @@ export namespace DeploymentTargetListSizeExceededException {
   export const filterSensitiveLog = (obj: DeploymentTargetListSizeExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentTargetListSizeExceededException =>
-    __isa(o, "DeploymentTargetListSizeExceededException");
 }
 
 export enum DeploymentTargetType {
@@ -2401,7 +2264,6 @@ export enum DeploymentWaitType {
  * <p>Represents the input of a <code>DeregisterOnPremisesInstance</code> operation.</p>
  */
 export interface DeregisterOnPremisesInstanceInput {
-  __type?: "DeregisterOnPremisesInstanceInput";
   /**
    * <p>The name of the on-premises instance to deregister.</p>
    */
@@ -2412,7 +2274,6 @@ export namespace DeregisterOnPremisesInstanceInput {
   export const filterSensitiveLog = (obj: DeregisterOnPremisesInstanceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterOnPremisesInstanceInput => __isa(o, "DeregisterOnPremisesInstanceInput");
 }
 
 /**
@@ -2431,14 +2292,12 @@ export namespace DescriptionTooLongException {
   export const filterSensitiveLog = (obj: DescriptionTooLongException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescriptionTooLongException => __isa(o, "DescriptionTooLongException");
 }
 
 /**
  * <p>Diagnostic information about executable scripts that are part of a deployment.</p>
  */
 export interface Diagnostics {
-  __type?: "Diagnostics";
   /**
    * <p>The last portion of the diagnostic log.</p>
    *         <p>If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.</p>
@@ -2488,14 +2347,12 @@ export namespace Diagnostics {
   export const filterSensitiveLog = (obj: Diagnostics): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Diagnostics => __isa(o, "Diagnostics");
 }
 
 /**
  * <p>Information about an EC2 tag filter.</p>
  */
 export interface EC2TagFilter {
-  __type?: "EC2TagFilter";
   /**
    * <p>The tag filter type:</p>
    *         <ul>
@@ -2530,7 +2387,6 @@ export namespace EC2TagFilter {
   export const filterSensitiveLog = (obj: EC2TagFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EC2TagFilter => __isa(o, "EC2TagFilter");
 }
 
 export enum EC2TagFilterType {
@@ -2543,7 +2399,6 @@ export enum EC2TagFilterType {
  * <p>Information about groups of EC2 instance tags.</p>
  */
 export interface EC2TagSet {
-  __type?: "EC2TagSet";
   /**
    * <p>A list that contains other lists of EC2 instance tag groups. For an instance to be
    *             included in the deployment group, it must be identified by all of the tag groups in the
@@ -2556,7 +2411,6 @@ export namespace EC2TagSet {
   export const filterSensitiveLog = (obj: EC2TagSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EC2TagSet => __isa(o, "EC2TagSet");
 }
 
 /**
@@ -2564,7 +2418,6 @@ export namespace EC2TagSet {
  *             target. </p>
  */
 export interface ECSService {
-  __type?: "ECSService";
   /**
    * <p> The name of the target Amazon ECS service. </p>
    */
@@ -2580,7 +2433,6 @@ export namespace ECSService {
   export const filterSensitiveLog = (obj: ECSService): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ECSService => __isa(o, "ECSService");
 }
 
 /**
@@ -2600,15 +2452,12 @@ export namespace ECSServiceMappingLimitExceededException {
   export const filterSensitiveLog = (obj: ECSServiceMappingLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ECSServiceMappingLimitExceededException =>
-    __isa(o, "ECSServiceMappingLimitExceededException");
 }
 
 /**
  * <p> Information about the target of an Amazon ECS deployment. </p>
  */
 export interface ECSTarget {
-  __type?: "ECSTarget";
   /**
    * <p> The status an Amazon ECS deployment's target ECS application. </p>
    */
@@ -2651,7 +2500,6 @@ export namespace ECSTarget {
   export const filterSensitiveLog = (obj: ECSTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ECSTarget => __isa(o, "ECSTarget");
 }
 
 /**
@@ -2662,7 +2510,6 @@ export namespace ECSTarget {
  *             application in an Amazon ECS service as a task set. </p>
  */
 export interface ECSTaskSet {
-  __type?: "ECSTaskSet";
   /**
    * <p> A unique ID of an <code>ECSTaskSet</code>. </p>
    */
@@ -2734,7 +2581,6 @@ export namespace ECSTaskSet {
   export const filterSensitiveLog = (obj: ECSTaskSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ECSTaskSet => __isa(o, "ECSTaskSet");
 }
 
 /**
@@ -2743,7 +2589,6 @@ export namespace ECSTaskSet {
  *             load balancer.</p>
  */
 export interface ELBInfo {
-  __type?: "ELBInfo";
   /**
    * <p>For blue/green deployments, the name of the load balancer that is used to route
    *             traffic from original instances to replacement instances in a blue/green deployment. For
@@ -2758,7 +2603,6 @@ export namespace ELBInfo {
   export const filterSensitiveLog = (obj: ELBInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ELBInfo => __isa(o, "ELBInfo");
 }
 
 export enum ErrorCode {
@@ -2802,7 +2646,6 @@ export enum ErrorCode {
  * <p>Information about a deployment error.</p>
  */
 export interface ErrorInformation {
-  __type?: "ErrorInformation";
   /**
    * <p>An accompanying error message.</p>
    */
@@ -2873,7 +2716,6 @@ export namespace ErrorInformation {
   export const filterSensitiveLog = (obj: ErrorInformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ErrorInformation => __isa(o, "ErrorInformation");
 }
 
 export enum FileExistsBehavior {
@@ -2886,7 +2728,6 @@ export enum FileExistsBehavior {
  * <p>Information about an application revision.</p>
  */
 export interface GenericRevisionInfo {
-  __type?: "GenericRevisionInfo";
   /**
    * <p>When the revision was last used by AWS CodeDeploy.</p>
    */
@@ -2917,14 +2758,12 @@ export namespace GenericRevisionInfo {
   export const filterSensitiveLog = (obj: GenericRevisionInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenericRevisionInfo => __isa(o, "GenericRevisionInfo");
 }
 
 /**
  * <p>Represents the input of a <code>GetApplication</code> operation.</p>
  */
 export interface GetApplicationInput {
-  __type?: "GetApplicationInput";
   /**
    * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
    *             account.</p>
@@ -2936,14 +2775,12 @@ export namespace GetApplicationInput {
   export const filterSensitiveLog = (obj: GetApplicationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationInput => __isa(o, "GetApplicationInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetApplication</code> operation.</p>
  */
 export interface GetApplicationOutput {
-  __type?: "GetApplicationOutput";
   /**
    * <p>Information about the application.</p>
    */
@@ -2954,14 +2791,12 @@ export namespace GetApplicationOutput {
   export const filterSensitiveLog = (obj: GetApplicationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationOutput => __isa(o, "GetApplicationOutput");
 }
 
 /**
  * <p>Represents the input of a <code>GetApplicationRevision</code> operation.</p>
  */
 export interface GetApplicationRevisionInput {
-  __type?: "GetApplicationRevisionInput";
   /**
    * <p>The name of the application that corresponds to the revision.</p>
    */
@@ -2977,14 +2812,12 @@ export namespace GetApplicationRevisionInput {
   export const filterSensitiveLog = (obj: GetApplicationRevisionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationRevisionInput => __isa(o, "GetApplicationRevisionInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetApplicationRevision</code> operation.</p>
  */
 export interface GetApplicationRevisionOutput {
-  __type?: "GetApplicationRevisionOutput";
   /**
    * <p>General information about the revision.</p>
    */
@@ -3005,14 +2838,12 @@ export namespace GetApplicationRevisionOutput {
   export const filterSensitiveLog = (obj: GetApplicationRevisionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetApplicationRevisionOutput => __isa(o, "GetApplicationRevisionOutput");
 }
 
 /**
  * <p>Represents the input of a <code>GetDeploymentConfig</code> operation.</p>
  */
 export interface GetDeploymentConfigInput {
-  __type?: "GetDeploymentConfigInput";
   /**
    * <p>The name of a deployment configuration associated with the IAM user or AWS
    *             account.</p>
@@ -3024,14 +2855,12 @@ export namespace GetDeploymentConfigInput {
   export const filterSensitiveLog = (obj: GetDeploymentConfigInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentConfigInput => __isa(o, "GetDeploymentConfigInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetDeploymentConfig</code> operation.</p>
  */
 export interface GetDeploymentConfigOutput {
-  __type?: "GetDeploymentConfigOutput";
   /**
    * <p>Information about the deployment configuration.</p>
    */
@@ -3042,14 +2871,12 @@ export namespace GetDeploymentConfigOutput {
   export const filterSensitiveLog = (obj: GetDeploymentConfigOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentConfigOutput => __isa(o, "GetDeploymentConfigOutput");
 }
 
 /**
  * <p>Represents the input of a <code>GetDeploymentGroup</code> operation.</p>
  */
 export interface GetDeploymentGroupInput {
-  __type?: "GetDeploymentGroupInput";
   /**
    * <p>The name of a deployment group for the specified application.</p>
    */
@@ -3066,14 +2893,12 @@ export namespace GetDeploymentGroupInput {
   export const filterSensitiveLog = (obj: GetDeploymentGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentGroupInput => __isa(o, "GetDeploymentGroupInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetDeploymentGroup</code> operation.</p>
  */
 export interface GetDeploymentGroupOutput {
-  __type?: "GetDeploymentGroupOutput";
   /**
    * <p>Information about the deployment group.</p>
    */
@@ -3084,14 +2909,12 @@ export namespace GetDeploymentGroupOutput {
   export const filterSensitiveLog = (obj: GetDeploymentGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentGroupOutput => __isa(o, "GetDeploymentGroupOutput");
 }
 
 /**
  * <p>Represents the input of a <code>GetDeployment</code> operation.</p>
  */
 export interface GetDeploymentInput {
-  __type?: "GetDeploymentInput";
   /**
    * <p> The unique ID of a deployment associated with the IAM user or AWS account. </p>
    */
@@ -3102,14 +2925,12 @@ export namespace GetDeploymentInput {
   export const filterSensitiveLog = (obj: GetDeploymentInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentInput => __isa(o, "GetDeploymentInput");
 }
 
 /**
  * <p> Represents the input of a <code>GetDeploymentInstance</code> operation. </p>
  */
 export interface GetDeploymentInstanceInput {
-  __type?: "GetDeploymentInstanceInput";
   /**
    * <p> The unique ID of an instance in the deployment group. </p>
    */
@@ -3125,14 +2946,12 @@ export namespace GetDeploymentInstanceInput {
   export const filterSensitiveLog = (obj: GetDeploymentInstanceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentInstanceInput => __isa(o, "GetDeploymentInstanceInput");
 }
 
 /**
  * <p> Represents the output of a <code>GetDeploymentInstance</code> operation. </p>
  */
 export interface GetDeploymentInstanceOutput {
-  __type?: "GetDeploymentInstanceOutput";
   /**
    * <p> Information about the instance. </p>
    */
@@ -3143,14 +2962,12 @@ export namespace GetDeploymentInstanceOutput {
   export const filterSensitiveLog = (obj: GetDeploymentInstanceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentInstanceOutput => __isa(o, "GetDeploymentInstanceOutput");
 }
 
 /**
  * <p>Represents the output of a <code>GetDeployment</code> operation.</p>
  */
 export interface GetDeploymentOutput {
-  __type?: "GetDeploymentOutput";
   /**
    * <p>Information about the deployment.</p>
    */
@@ -3161,11 +2978,9 @@ export namespace GetDeploymentOutput {
   export const filterSensitiveLog = (obj: GetDeploymentOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentOutput => __isa(o, "GetDeploymentOutput");
 }
 
 export interface GetDeploymentTargetInput {
-  __type?: "GetDeploymentTargetInput";
   /**
    * <p> The unique ID of a deployment target. </p>
    */
@@ -3181,11 +2996,9 @@ export namespace GetDeploymentTargetInput {
   export const filterSensitiveLog = (obj: GetDeploymentTargetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentTargetInput => __isa(o, "GetDeploymentTargetInput");
 }
 
 export interface GetDeploymentTargetOutput {
-  __type?: "GetDeploymentTargetOutput";
   /**
    * <p> A deployment target that contains information about a deployment such as its status,
    *             lifecycle events, and when it was last updated. It also contains metadata about the
@@ -3200,14 +3013,12 @@ export namespace GetDeploymentTargetOutput {
   export const filterSensitiveLog = (obj: GetDeploymentTargetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeploymentTargetOutput => __isa(o, "GetDeploymentTargetOutput");
 }
 
 /**
  * <p> Represents the input of a <code>GetOnPremisesInstance</code> operation. </p>
  */
 export interface GetOnPremisesInstanceInput {
-  __type?: "GetOnPremisesInstanceInput";
   /**
    * <p> The name of the on-premises instance about which to get information. </p>
    */
@@ -3218,14 +3029,12 @@ export namespace GetOnPremisesInstanceInput {
   export const filterSensitiveLog = (obj: GetOnPremisesInstanceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOnPremisesInstanceInput => __isa(o, "GetOnPremisesInstanceInput");
 }
 
 /**
  * <p> Represents the output of a <code>GetOnPremisesInstance</code> operation. </p>
  */
 export interface GetOnPremisesInstanceOutput {
-  __type?: "GetOnPremisesInstanceOutput";
   /**
    * <p> Information about the on-premises instance. </p>
    */
@@ -3236,7 +3045,6 @@ export namespace GetOnPremisesInstanceOutput {
   export const filterSensitiveLog = (obj: GetOnPremisesInstanceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOnPremisesInstanceOutput => __isa(o, "GetOnPremisesInstanceOutput");
 }
 
 /**
@@ -3255,8 +3063,6 @@ export namespace GitHubAccountTokenDoesNotExistException {
   export const filterSensitiveLog = (obj: GitHubAccountTokenDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GitHubAccountTokenDoesNotExistException =>
-    __isa(o, "GitHubAccountTokenDoesNotExistException");
 }
 
 /**
@@ -3275,15 +3081,12 @@ export namespace GitHubAccountTokenNameRequiredException {
   export const filterSensitiveLog = (obj: GitHubAccountTokenNameRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GitHubAccountTokenNameRequiredException =>
-    __isa(o, "GitHubAccountTokenNameRequiredException");
 }
 
 /**
  * <p>Information about the location of application artifacts stored in GitHub.</p>
  */
 export interface GitHubLocation {
-  __type?: "GitHubLocation";
   /**
    * <p>The GitHub account and repository pair that stores a reference to the commit that
    *             represents the bundled artifacts for the application revision. </p>
@@ -3302,7 +3105,6 @@ export namespace GitHubLocation {
   export const filterSensitiveLog = (obj: GitHubLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GitHubLocation => __isa(o, "GitHubLocation");
 }
 
 export enum GreenFleetProvisioningAction {
@@ -3315,7 +3117,6 @@ export enum GreenFleetProvisioningAction {
  *             blue/green deployment.</p>
  */
 export interface GreenFleetProvisioningOption {
-  __type?: "GreenFleetProvisioningOption";
   /**
    * <p>The method used to add instances to a replacement environment.</p>
    *         <ul>
@@ -3338,7 +3139,6 @@ export namespace GreenFleetProvisioningOption {
   export const filterSensitiveLog = (obj: GreenFleetProvisioningOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GreenFleetProvisioningOption => __isa(o, "GreenFleetProvisioningOption");
 }
 
 /**
@@ -3358,7 +3158,6 @@ export namespace IamArnRequiredException {
   export const filterSensitiveLog = (obj: IamArnRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IamArnRequiredException => __isa(o, "IamArnRequiredException");
 }
 
 /**
@@ -3378,8 +3177,6 @@ export namespace IamSessionArnAlreadyRegisteredException {
   export const filterSensitiveLog = (obj: IamSessionArnAlreadyRegisteredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IamSessionArnAlreadyRegisteredException =>
-    __isa(o, "IamSessionArnAlreadyRegisteredException");
 }
 
 /**
@@ -3398,8 +3195,6 @@ export namespace IamUserArnAlreadyRegisteredException {
   export const filterSensitiveLog = (obj: IamUserArnAlreadyRegisteredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IamUserArnAlreadyRegisteredException =>
-    __isa(o, "IamUserArnAlreadyRegisteredException");
 }
 
 /**
@@ -3418,7 +3213,6 @@ export namespace IamUserArnRequiredException {
   export const filterSensitiveLog = (obj: IamUserArnRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IamUserArnRequiredException => __isa(o, "IamUserArnRequiredException");
 }
 
 export enum InstanceAction {
@@ -3442,7 +3236,6 @@ export namespace InstanceDoesNotExistException {
   export const filterSensitiveLog = (obj: InstanceDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceDoesNotExistException => __isa(o, "InstanceDoesNotExistException");
 }
 
 /**
@@ -3461,14 +3254,12 @@ export namespace InstanceIdRequiredException {
   export const filterSensitiveLog = (obj: InstanceIdRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceIdRequiredException => __isa(o, "InstanceIdRequiredException");
 }
 
 /**
  * <p>Information about an on-premises instance.</p>
  */
 export interface InstanceInfo {
-  __type?: "InstanceInfo";
   /**
    * <p>The ARN of the IAM session associated with the on-premises instance.</p>
    */
@@ -3510,7 +3301,6 @@ export namespace InstanceInfo {
   export const filterSensitiveLog = (obj: InstanceInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceInfo => __isa(o, "InstanceInfo");
 }
 
 /**
@@ -3530,7 +3320,6 @@ export namespace InstanceLimitExceededException {
   export const filterSensitiveLog = (obj: InstanceLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceLimitExceededException => __isa(o, "InstanceLimitExceededException");
 }
 
 /**
@@ -3549,8 +3338,6 @@ export namespace InstanceNameAlreadyRegisteredException {
   export const filterSensitiveLog = (obj: InstanceNameAlreadyRegisteredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceNameAlreadyRegisteredException =>
-    __isa(o, "InstanceNameAlreadyRegisteredException");
 }
 
 /**
@@ -3569,7 +3356,6 @@ export namespace InstanceNameRequiredException {
   export const filterSensitiveLog = (obj: InstanceNameRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceNameRequiredException => __isa(o, "InstanceNameRequiredException");
 }
 
 /**
@@ -3588,7 +3374,6 @@ export namespace InstanceNotRegisteredException {
   export const filterSensitiveLog = (obj: InstanceNotRegisteredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceNotRegisteredException => __isa(o, "InstanceNotRegisteredException");
 }
 
 export enum InstanceStatus {
@@ -3605,7 +3390,6 @@ export enum InstanceStatus {
  * <p>Information about an instance in a deployment.</p>
  */
 export interface InstanceSummary {
-  __type?: "InstanceSummary";
   /**
    * <p> The unique ID of a deployment. </p>
    */
@@ -3679,7 +3463,6 @@ export namespace InstanceSummary {
   export const filterSensitiveLog = (obj: InstanceSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceSummary => __isa(o, "InstanceSummary");
 }
 
 /**
@@ -3687,7 +3470,6 @@ export namespace InstanceSummary {
  *             EC2/On-premises compute platform. </p>
  */
 export interface InstanceTarget {
-  __type?: "InstanceTarget";
   /**
    * <p> A label that identifies whether the instance is an original target
    *             (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>
@@ -3730,7 +3512,6 @@ export namespace InstanceTarget {
   export const filterSensitiveLog = (obj: InstanceTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceTarget => __isa(o, "InstanceTarget");
 }
 
 export enum _InstanceType {
@@ -3771,7 +3552,6 @@ export namespace InvalidAlarmConfigException {
   export const filterSensitiveLog = (obj: InvalidAlarmConfigException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidAlarmConfigException => __isa(o, "InvalidAlarmConfigException");
 }
 
 /**
@@ -3790,7 +3570,6 @@ export namespace InvalidApplicationNameException {
   export const filterSensitiveLog = (obj: InvalidApplicationNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidApplicationNameException => __isa(o, "InvalidApplicationNameException");
 }
 
 /**
@@ -3811,7 +3590,6 @@ export namespace InvalidArnException {
   export const filterSensitiveLog = (obj: InvalidArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArnException => __isa(o, "InvalidArnException");
 }
 
 /**
@@ -3832,8 +3610,6 @@ export namespace InvalidAutoRollbackConfigException {
   export const filterSensitiveLog = (obj: InvalidAutoRollbackConfigException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidAutoRollbackConfigException =>
-    __isa(o, "InvalidAutoRollbackConfigException");
 }
 
 /**
@@ -3852,7 +3628,6 @@ export namespace InvalidAutoScalingGroupException {
   export const filterSensitiveLog = (obj: InvalidAutoScalingGroupException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidAutoScalingGroupException => __isa(o, "InvalidAutoScalingGroupException");
 }
 
 /**
@@ -3872,8 +3647,6 @@ export namespace InvalidBlueGreenDeploymentConfigurationException {
   export const filterSensitiveLog = (obj: InvalidBlueGreenDeploymentConfigurationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidBlueGreenDeploymentConfigurationException =>
-    __isa(o, "InvalidBlueGreenDeploymentConfigurationException");
 }
 
 /**
@@ -3892,7 +3665,6 @@ export namespace InvalidBucketNameFilterException {
   export const filterSensitiveLog = (obj: InvalidBucketNameFilterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidBucketNameFilterException => __isa(o, "InvalidBucketNameFilterException");
 }
 
 /**
@@ -3912,7 +3684,6 @@ export namespace InvalidComputePlatformException {
   export const filterSensitiveLog = (obj: InvalidComputePlatformException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidComputePlatformException => __isa(o, "InvalidComputePlatformException");
 }
 
 /**
@@ -3931,8 +3702,6 @@ export namespace InvalidDeployedStateFilterException {
   export const filterSensitiveLog = (obj: InvalidDeployedStateFilterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeployedStateFilterException =>
-    __isa(o, "InvalidDeployedStateFilterException");
 }
 
 /**
@@ -3951,8 +3720,6 @@ export namespace InvalidDeploymentConfigNameException {
   export const filterSensitiveLog = (obj: InvalidDeploymentConfigNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeploymentConfigNameException =>
-    __isa(o, "InvalidDeploymentConfigNameException");
 }
 
 /**
@@ -3971,8 +3738,6 @@ export namespace InvalidDeploymentGroupNameException {
   export const filterSensitiveLog = (obj: InvalidDeploymentGroupNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeploymentGroupNameException =>
-    __isa(o, "InvalidDeploymentGroupNameException");
 }
 
 /**
@@ -3991,7 +3756,6 @@ export namespace InvalidDeploymentIdException {
   export const filterSensitiveLog = (obj: InvalidDeploymentIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeploymentIdException => __isa(o, "InvalidDeploymentIdException");
 }
 
 /**
@@ -4011,8 +3775,6 @@ export namespace InvalidDeploymentInstanceTypeException {
   export const filterSensitiveLog = (obj: InvalidDeploymentInstanceTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeploymentInstanceTypeException =>
-    __isa(o, "InvalidDeploymentInstanceTypeException");
 }
 
 /**
@@ -4031,7 +3793,6 @@ export namespace InvalidDeploymentStatusException {
   export const filterSensitiveLog = (obj: InvalidDeploymentStatusException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeploymentStatusException => __isa(o, "InvalidDeploymentStatusException");
 }
 
 /**
@@ -4052,7 +3813,6 @@ export namespace InvalidDeploymentStyleException {
   export const filterSensitiveLog = (obj: InvalidDeploymentStyleException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeploymentStyleException => __isa(o, "InvalidDeploymentStyleException");
 }
 
 /**
@@ -4071,8 +3831,6 @@ export namespace InvalidDeploymentTargetIdException {
   export const filterSensitiveLog = (obj: InvalidDeploymentTargetIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeploymentTargetIdException =>
-    __isa(o, "InvalidDeploymentTargetIdException");
 }
 
 /**
@@ -4091,8 +3849,6 @@ export namespace InvalidDeploymentWaitTypeException {
   export const filterSensitiveLog = (obj: InvalidDeploymentWaitTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeploymentWaitTypeException =>
-    __isa(o, "InvalidDeploymentWaitTypeException");
 }
 
 /**
@@ -4112,7 +3868,6 @@ export namespace InvalidEC2TagCombinationException {
   export const filterSensitiveLog = (obj: InvalidEC2TagCombinationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEC2TagCombinationException => __isa(o, "InvalidEC2TagCombinationException");
 }
 
 /**
@@ -4131,7 +3886,6 @@ export namespace InvalidEC2TagException {
   export const filterSensitiveLog = (obj: InvalidEC2TagException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidEC2TagException => __isa(o, "InvalidEC2TagException");
 }
 
 /**
@@ -4150,7 +3904,6 @@ export namespace InvalidECSServiceException {
   export const filterSensitiveLog = (obj: InvalidECSServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidECSServiceException => __isa(o, "InvalidECSServiceException");
 }
 
 /**
@@ -4169,7 +3922,6 @@ export namespace InvalidExternalIdException {
   export const filterSensitiveLog = (obj: InvalidExternalIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidExternalIdException => __isa(o, "InvalidExternalIdException");
 }
 
 /**
@@ -4191,8 +3943,6 @@ export namespace InvalidFileExistsBehaviorException {
   export const filterSensitiveLog = (obj: InvalidFileExistsBehaviorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidFileExistsBehaviorException =>
-    __isa(o, "InvalidFileExistsBehaviorException");
 }
 
 /**
@@ -4211,8 +3961,6 @@ export namespace InvalidGitHubAccountTokenException {
   export const filterSensitiveLog = (obj: InvalidGitHubAccountTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidGitHubAccountTokenException =>
-    __isa(o, "InvalidGitHubAccountTokenException");
 }
 
 /**
@@ -4231,8 +3979,6 @@ export namespace InvalidGitHubAccountTokenNameException {
   export const filterSensitiveLog = (obj: InvalidGitHubAccountTokenNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidGitHubAccountTokenNameException =>
-    __isa(o, "InvalidGitHubAccountTokenNameException");
 }
 
 /**
@@ -4251,7 +3997,6 @@ export namespace InvalidIamSessionArnException {
   export const filterSensitiveLog = (obj: InvalidIamSessionArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidIamSessionArnException => __isa(o, "InvalidIamSessionArnException");
 }
 
 /**
@@ -4270,7 +4015,6 @@ export namespace InvalidIamUserArnException {
   export const filterSensitiveLog = (obj: InvalidIamUserArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidIamUserArnException => __isa(o, "InvalidIamUserArnException");
 }
 
 /**
@@ -4291,8 +4035,6 @@ export namespace InvalidIgnoreApplicationStopFailuresValueException {
   export const filterSensitiveLog = (obj: InvalidIgnoreApplicationStopFailuresValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidIgnoreApplicationStopFailuresValueException =>
-    __isa(o, "InvalidIgnoreApplicationStopFailuresValueException");
 }
 
 /**
@@ -4311,7 +4053,6 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
@@ -4330,7 +4071,6 @@ export namespace InvalidInstanceNameException {
   export const filterSensitiveLog = (obj: InvalidInstanceNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInstanceNameException => __isa(o, "InvalidInstanceNameException");
 }
 
 /**
@@ -4349,7 +4089,6 @@ export namespace InvalidInstanceStatusException {
   export const filterSensitiveLog = (obj: InvalidInstanceStatusException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInstanceStatusException => __isa(o, "InvalidInstanceStatusException");
 }
 
 /**
@@ -4370,7 +4109,6 @@ export namespace InvalidInstanceTypeException {
   export const filterSensitiveLog = (obj: InvalidInstanceTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInstanceTypeException => __isa(o, "InvalidInstanceTypeException");
 }
 
 /**
@@ -4389,7 +4127,6 @@ export namespace InvalidKeyPrefixFilterException {
   export const filterSensitiveLog = (obj: InvalidKeyPrefixFilterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidKeyPrefixFilterException => __isa(o, "InvalidKeyPrefixFilterException");
 }
 
 /**
@@ -4410,8 +4147,6 @@ export namespace InvalidLifecycleEventHookExecutionIdException {
   export const filterSensitiveLog = (obj: InvalidLifecycleEventHookExecutionIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLifecycleEventHookExecutionIdException =>
-    __isa(o, "InvalidLifecycleEventHookExecutionIdException");
 }
 
 /**
@@ -4431,8 +4166,6 @@ export namespace InvalidLifecycleEventHookExecutionStatusException {
   export const filterSensitiveLog = (obj: InvalidLifecycleEventHookExecutionStatusException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLifecycleEventHookExecutionStatusException =>
-    __isa(o, "InvalidLifecycleEventHookExecutionStatusException");
 }
 
 /**
@@ -4451,7 +4184,6 @@ export namespace InvalidLoadBalancerInfoException {
   export const filterSensitiveLog = (obj: InvalidLoadBalancerInfoException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLoadBalancerInfoException => __isa(o, "InvalidLoadBalancerInfoException");
 }
 
 /**
@@ -4470,8 +4202,6 @@ export namespace InvalidMinimumHealthyHostValueException {
   export const filterSensitiveLog = (obj: InvalidMinimumHealthyHostValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidMinimumHealthyHostValueException =>
-    __isa(o, "InvalidMinimumHealthyHostValueException");
 }
 
 /**
@@ -4490,7 +4220,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -4510,8 +4239,6 @@ export namespace InvalidOnPremisesTagCombinationException {
   export const filterSensitiveLog = (obj: InvalidOnPremisesTagCombinationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOnPremisesTagCombinationException =>
-    __isa(o, "InvalidOnPremisesTagCombinationException");
 }
 
 /**
@@ -4530,7 +4257,6 @@ export namespace InvalidOperationException {
   export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOperationException => __isa(o, "InvalidOperationException");
 }
 
 /**
@@ -4549,8 +4275,6 @@ export namespace InvalidRegistrationStatusException {
   export const filterSensitiveLog = (obj: InvalidRegistrationStatusException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRegistrationStatusException =>
-    __isa(o, "InvalidRegistrationStatusException");
 }
 
 /**
@@ -4569,7 +4293,6 @@ export namespace InvalidRevisionException {
   export const filterSensitiveLog = (obj: InvalidRevisionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRevisionException => __isa(o, "InvalidRevisionException");
 }
 
 /**
@@ -4590,7 +4313,6 @@ export namespace InvalidRoleException {
   export const filterSensitiveLog = (obj: InvalidRoleException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRoleException => __isa(o, "InvalidRoleException");
 }
 
 /**
@@ -4610,7 +4332,6 @@ export namespace InvalidSortByException {
   export const filterSensitiveLog = (obj: InvalidSortByException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSortByException => __isa(o, "InvalidSortByException");
 }
 
 /**
@@ -4629,7 +4350,6 @@ export namespace InvalidSortOrderException {
   export const filterSensitiveLog = (obj: InvalidSortOrderException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSortOrderException => __isa(o, "InvalidSortOrderException");
 }
 
 /**
@@ -4648,7 +4368,6 @@ export namespace InvalidTagException {
   export const filterSensitiveLog = (obj: InvalidTagException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagException => __isa(o, "InvalidTagException");
 }
 
 /**
@@ -4667,7 +4386,6 @@ export namespace InvalidTagFilterException {
   export const filterSensitiveLog = (obj: InvalidTagFilterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagFilterException => __isa(o, "InvalidTagFilterException");
 }
 
 /**
@@ -4688,7 +4406,6 @@ export namespace InvalidTagsToAddException {
   export const filterSensitiveLog = (obj: InvalidTagsToAddException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTagsToAddException => __isa(o, "InvalidTagsToAddException");
 }
 
 /**
@@ -4707,7 +4424,6 @@ export namespace InvalidTargetFilterNameException {
   export const filterSensitiveLog = (obj: InvalidTargetFilterNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTargetFilterNameException => __isa(o, "InvalidTargetFilterNameException");
 }
 
 /**
@@ -4726,7 +4442,6 @@ export namespace InvalidTargetGroupPairException {
   export const filterSensitiveLog = (obj: InvalidTargetGroupPairException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTargetGroupPairException => __isa(o, "InvalidTargetGroupPairException");
 }
 
 /**
@@ -4760,7 +4475,6 @@ export namespace InvalidTargetInstancesException {
   export const filterSensitiveLog = (obj: InvalidTargetInstancesException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTargetInstancesException => __isa(o, "InvalidTargetInstancesException");
 }
 
 /**
@@ -4779,7 +4493,6 @@ export namespace InvalidTimeRangeException {
   export const filterSensitiveLog = (obj: InvalidTimeRangeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTimeRangeException => __isa(o, "InvalidTimeRangeException");
 }
 
 /**
@@ -4799,8 +4512,6 @@ export namespace InvalidTrafficRoutingConfigurationException {
   export const filterSensitiveLog = (obj: InvalidTrafficRoutingConfigurationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTrafficRoutingConfigurationException =>
-    __isa(o, "InvalidTrafficRoutingConfigurationException");
 }
 
 /**
@@ -4819,7 +4530,6 @@ export namespace InvalidTriggerConfigException {
   export const filterSensitiveLog = (obj: InvalidTriggerConfigException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTriggerConfigException => __isa(o, "InvalidTriggerConfigException");
 }
 
 /**
@@ -4840,8 +4550,6 @@ export namespace InvalidUpdateOutdatedInstancesOnlyValueException {
   export const filterSensitiveLog = (obj: InvalidUpdateOutdatedInstancesOnlyValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidUpdateOutdatedInstancesOnlyValueException =>
-    __isa(o, "InvalidUpdateOutdatedInstancesOnlyValueException");
 }
 
 /**
@@ -4850,7 +4558,6 @@ export namespace InvalidUpdateOutdatedInstancesOnlyValueException {
  *         </p>
  */
 export interface LambdaFunctionInfo {
-  __type?: "LambdaFunctionInfo";
   /**
    * <p>
    *             The version of a Lambda function that production traffic points to.
@@ -4890,7 +4597,6 @@ export namespace LambdaFunctionInfo {
   export const filterSensitiveLog = (obj: LambdaFunctionInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaFunctionInfo => __isa(o, "LambdaFunctionInfo");
 }
 
 /**
@@ -4898,7 +4604,6 @@ export namespace LambdaFunctionInfo {
  *         </p>
  */
 export interface LambdaTarget {
-  __type?: "LambdaTarget";
   /**
    * <p> The status an AWS Lambda deployment's target Lambda function. </p>
    */
@@ -4943,7 +4648,6 @@ export namespace LambdaTarget {
   export const filterSensitiveLog = (obj: LambdaTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaTarget => __isa(o, "LambdaTarget");
 }
 
 /**
@@ -4951,7 +4655,6 @@ export namespace LambdaTarget {
  *             group.</p>
  */
 export interface LastDeploymentInfo {
-  __type?: "LastDeploymentInfo";
   /**
    * <p>A timestamp that indicates when the most recent deployment to the deployment group
    *             started.</p>
@@ -4979,7 +4682,6 @@ export namespace LastDeploymentInfo {
   export const filterSensitiveLog = (obj: LastDeploymentInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LastDeploymentInfo => __isa(o, "LastDeploymentInfo");
 }
 
 export enum LifecycleErrorCode {
@@ -4995,7 +4697,6 @@ export enum LifecycleErrorCode {
  * <p>Information about a deployment lifecycle event.</p>
  */
 export interface LifecycleEvent {
-  __type?: "LifecycleEvent";
   /**
    * <p>A timestamp that indicates when the deployment lifecycle event started.</p>
    */
@@ -5048,7 +4749,6 @@ export namespace LifecycleEvent {
   export const filterSensitiveLog = (obj: LifecycleEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecycleEvent => __isa(o, "LifecycleEvent");
 }
 
 /**
@@ -5068,8 +4768,6 @@ export namespace LifecycleEventAlreadyCompletedException {
   export const filterSensitiveLog = (obj: LifecycleEventAlreadyCompletedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecycleEventAlreadyCompletedException =>
-    __isa(o, "LifecycleEventAlreadyCompletedException");
 }
 
 export enum LifecycleEventStatus {
@@ -5097,15 +4795,12 @@ export namespace LifecycleHookLimitExceededException {
   export const filterSensitiveLog = (obj: LifecycleHookLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LifecycleHookLimitExceededException =>
-    __isa(o, "LifecycleHookLimitExceededException");
 }
 
 /**
  * <p> Represents the input of a <code>ListApplicationRevisions</code> operation. </p>
  */
 export interface ListApplicationRevisionsInput {
-  __type?: "ListApplicationRevisionsInput";
   /**
    * <p> An Amazon S3 bucket name to limit the search for revisions. </p>
    *         <p> If set to null, all of the user's buckets are searched. </p>
@@ -5197,14 +4892,12 @@ export namespace ListApplicationRevisionsInput {
   export const filterSensitiveLog = (obj: ListApplicationRevisionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationRevisionsInput => __isa(o, "ListApplicationRevisionsInput");
 }
 
 /**
  * <p>Represents the output of a <code>ListApplicationRevisions</code> operation.</p>
  */
 export interface ListApplicationRevisionsOutput {
-  __type?: "ListApplicationRevisionsOutput";
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
    *             be used in a subsequent list application revisions call to return the next set of
@@ -5222,14 +4915,12 @@ export namespace ListApplicationRevisionsOutput {
   export const filterSensitiveLog = (obj: ListApplicationRevisionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationRevisionsOutput => __isa(o, "ListApplicationRevisionsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>ListApplications</code> operation.</p>
  */
 export interface ListApplicationsInput {
-  __type?: "ListApplicationsInput";
   /**
    * <p>An identifier returned from the previous list applications call. It can be used to
    *             return the next set of applications in the list.</p>
@@ -5241,14 +4932,12 @@ export namespace ListApplicationsInput {
   export const filterSensitiveLog = (obj: ListApplicationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationsInput => __isa(o, "ListApplicationsInput");
 }
 
 /**
  * <p>Represents the output of a ListApplications operation.</p>
  */
 export interface ListApplicationsOutput {
-  __type?: "ListApplicationsOutput";
   /**
    * <p>A list of application names.</p>
    */
@@ -5266,14 +4955,12 @@ export namespace ListApplicationsOutput {
   export const filterSensitiveLog = (obj: ListApplicationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListApplicationsOutput => __isa(o, "ListApplicationsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>ListDeploymentConfigs</code> operation.</p>
  */
 export interface ListDeploymentConfigsInput {
-  __type?: "ListDeploymentConfigsInput";
   /**
    * <p>An identifier returned from the previous <code>ListDeploymentConfigs</code> call. It
    *             can be used to return the next set of deployment configurations in the list. </p>
@@ -5285,14 +4972,12 @@ export namespace ListDeploymentConfigsInput {
   export const filterSensitiveLog = (obj: ListDeploymentConfigsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentConfigsInput => __isa(o, "ListDeploymentConfigsInput");
 }
 
 /**
  * <p>Represents the output of a <code>ListDeploymentConfigs</code> operation.</p>
  */
 export interface ListDeploymentConfigsOutput {
-  __type?: "ListDeploymentConfigsOutput";
   /**
    * <p>A list of deployment configurations, including built-in configurations such as
    *                 <code>CodeDeployDefault.OneAtATime</code>.</p>
@@ -5311,14 +4996,12 @@ export namespace ListDeploymentConfigsOutput {
   export const filterSensitiveLog = (obj: ListDeploymentConfigsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentConfigsOutput => __isa(o, "ListDeploymentConfigsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>ListDeploymentGroups</code> operation.</p>
  */
 export interface ListDeploymentGroupsInput {
-  __type?: "ListDeploymentGroupsInput";
   /**
    * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
    *             account.</p>
@@ -5336,14 +5019,12 @@ export namespace ListDeploymentGroupsInput {
   export const filterSensitiveLog = (obj: ListDeploymentGroupsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentGroupsInput => __isa(o, "ListDeploymentGroupsInput");
 }
 
 /**
  * <p>Represents the output of a <code>ListDeploymentGroups</code> operation.</p>
  */
 export interface ListDeploymentGroupsOutput {
-  __type?: "ListDeploymentGroupsOutput";
   /**
    * <p>The application name.</p>
    */
@@ -5366,14 +5047,12 @@ export namespace ListDeploymentGroupsOutput {
   export const filterSensitiveLog = (obj: ListDeploymentGroupsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentGroupsOutput => __isa(o, "ListDeploymentGroupsOutput");
 }
 
 /**
  * <p> Represents the input of a <code>ListDeploymentInstances</code> operation. </p>
  */
 export interface ListDeploymentInstancesInput {
-  __type?: "ListDeploymentInstancesInput";
   /**
    * <p> The unique ID of a deployment. </p>
    */
@@ -5431,14 +5110,12 @@ export namespace ListDeploymentInstancesInput {
   export const filterSensitiveLog = (obj: ListDeploymentInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentInstancesInput => __isa(o, "ListDeploymentInstancesInput");
 }
 
 /**
  * <p>Represents the output of a <code>ListDeploymentInstances</code> operation.</p>
  */
 export interface ListDeploymentInstancesOutput {
-  __type?: "ListDeploymentInstancesOutput";
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
    *             be used in a subsequent list deployment instances call to return the next set of
@@ -5456,14 +5133,12 @@ export namespace ListDeploymentInstancesOutput {
   export const filterSensitiveLog = (obj: ListDeploymentInstancesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentInstancesOutput => __isa(o, "ListDeploymentInstancesOutput");
 }
 
 /**
  * <p>Represents the input of a <code>ListDeployments</code> operation.</p>
  */
 export interface ListDeploymentsInput {
-  __type?: "ListDeploymentsInput";
   /**
    * <p>A time range (start and end) for returning a subset of the list of deployments.</p>
    */
@@ -5543,14 +5218,12 @@ export namespace ListDeploymentsInput {
   export const filterSensitiveLog = (obj: ListDeploymentsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentsInput => __isa(o, "ListDeploymentsInput");
 }
 
 /**
  * <p>Represents the output of a <code>ListDeployments</code> operation.</p>
  */
 export interface ListDeploymentsOutput {
-  __type?: "ListDeploymentsOutput";
   /**
    * <p>A list of deployment IDs.</p>
    */
@@ -5568,11 +5241,9 @@ export namespace ListDeploymentsOutput {
   export const filterSensitiveLog = (obj: ListDeploymentsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentsOutput => __isa(o, "ListDeploymentsOutput");
 }
 
 export interface ListDeploymentTargetsInput {
-  __type?: "ListDeploymentTargetsInput";
   /**
    * <p> A key used to filter the returned targets. The two valid values are:</p>
    *         <ul>
@@ -5607,11 +5278,9 @@ export namespace ListDeploymentTargetsInput {
   export const filterSensitiveLog = (obj: ListDeploymentTargetsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentTargetsInput => __isa(o, "ListDeploymentTargetsInput");
 }
 
 export interface ListDeploymentTargetsOutput {
-  __type?: "ListDeploymentTargetsOutput";
   /**
    * <p> If a large amount of information is returned, a token identifier is also  returned.
    *             It can be used in a subsequent <code>ListDeploymentTargets</code> call to return the
@@ -5629,14 +5298,12 @@ export namespace ListDeploymentTargetsOutput {
   export const filterSensitiveLog = (obj: ListDeploymentTargetsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDeploymentTargetsOutput => __isa(o, "ListDeploymentTargetsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>ListGitHubAccountTokenNames</code> operation.</p>
  */
 export interface ListGitHubAccountTokenNamesInput {
-  __type?: "ListGitHubAccountTokenNamesInput";
   /**
    * <p>An identifier returned from the previous <code>ListGitHubAccountTokenNames</code>
    *             call. It can be used to return the next set of names in the list. </p>
@@ -5648,14 +5315,12 @@ export namespace ListGitHubAccountTokenNamesInput {
   export const filterSensitiveLog = (obj: ListGitHubAccountTokenNamesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGitHubAccountTokenNamesInput => __isa(o, "ListGitHubAccountTokenNamesInput");
 }
 
 /**
  * <p>Represents the output of a <code>ListGitHubAccountTokenNames</code> operation.</p>
  */
 export interface ListGitHubAccountTokenNamesOutput {
-  __type?: "ListGitHubAccountTokenNamesOutput";
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
    *             be used in a subsequent <code>ListGitHubAccountTokenNames</code> call to return the next
@@ -5673,14 +5338,12 @@ export namespace ListGitHubAccountTokenNamesOutput {
   export const filterSensitiveLog = (obj: ListGitHubAccountTokenNamesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGitHubAccountTokenNamesOutput => __isa(o, "ListGitHubAccountTokenNamesOutput");
 }
 
 /**
  * <p>Represents the input of a <code>ListOnPremisesInstances</code> operation.</p>
  */
 export interface ListOnPremisesInstancesInput {
-  __type?: "ListOnPremisesInstancesInput";
   /**
    * <p>The on-premises instance tags that are used to restrict the  on-premises instance
    *             names returned.</p>
@@ -5715,14 +5378,12 @@ export namespace ListOnPremisesInstancesInput {
   export const filterSensitiveLog = (obj: ListOnPremisesInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOnPremisesInstancesInput => __isa(o, "ListOnPremisesInstancesInput");
 }
 
 /**
  * <p>Represents the output of the list on-premises instances operation.</p>
  */
 export interface ListOnPremisesInstancesOutput {
-  __type?: "ListOnPremisesInstancesOutput";
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
    *             be used in a subsequent list on-premises instances call to return the next set of
@@ -5740,7 +5401,6 @@ export namespace ListOnPremisesInstancesOutput {
   export const filterSensitiveLog = (obj: ListOnPremisesInstancesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOnPremisesInstancesOutput => __isa(o, "ListOnPremisesInstancesOutput");
 }
 
 export enum ListStateFilterAction {
@@ -5750,7 +5410,6 @@ export enum ListStateFilterAction {
 }
 
 export interface ListTagsForResourceInput {
-  __type?: "ListTagsForResourceInput";
   /**
    * <p>An identifier returned from the previous <code>ListTagsForResource</code> call.
    *                 It can be used to return the next set of applications in the list.</p>
@@ -5770,11 +5429,9 @@ export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
-  __type?: "ListTagsForResourceOutput";
   /**
    * <p>
    *             A list of tags returned by <code>ListTagsForResource</code>. The tags are associated with the resource
@@ -5795,7 +5452,6 @@ export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
@@ -5803,7 +5459,6 @@ export namespace ListTagsForResourceOutput {
  *             deployment.</p>
  */
 export interface LoadBalancerInfo {
-  __type?: "LoadBalancerInfo";
   /**
    * <p> The target group pair information. This is an array of
    *             <code>TargeGroupPairInfo</code> objects with a maximum size of one. </p>
@@ -5835,14 +5490,12 @@ export namespace LoadBalancerInfo {
   export const filterSensitiveLog = (obj: LoadBalancerInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoadBalancerInfo => __isa(o, "LoadBalancerInfo");
 }
 
 /**
  * <p>Information about minimum healthy instance.</p>
  */
 export interface MinimumHealthyHosts {
-  __type?: "MinimumHealthyHosts";
   /**
    * <p>The minimum healthy instance value.</p>
    */
@@ -5889,7 +5542,6 @@ export namespace MinimumHealthyHosts {
   export const filterSensitiveLog = (obj: MinimumHealthyHosts): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MinimumHealthyHosts => __isa(o, "MinimumHealthyHosts");
 }
 
 export type MinimumHealthyHostsType = "FLEET_PERCENT" | "HOST_COUNT";
@@ -5911,14 +5563,12 @@ export namespace MultipleIamArnsProvidedException {
   export const filterSensitiveLog = (obj: MultipleIamArnsProvidedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MultipleIamArnsProvidedException => __isa(o, "MultipleIamArnsProvidedException");
 }
 
 /**
  * <p>Information about groups of on-premises instance tags.</p>
  */
 export interface OnPremisesTagSet {
-  __type?: "OnPremisesTagSet";
   /**
    * <p>A list that contains other lists of on-premises instance tag groups. For an instance
    *             to be included in the deployment group, it must be identified by all of the tag groups
@@ -5931,7 +5581,6 @@ export namespace OnPremisesTagSet {
   export const filterSensitiveLog = (obj: OnPremisesTagSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OnPremisesTagSet => __isa(o, "OnPremisesTagSet");
 }
 
 /**
@@ -5950,11 +5599,9 @@ export namespace OperationNotSupportedException {
   export const filterSensitiveLog = (obj: OperationNotSupportedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationNotSupportedException => __isa(o, "OperationNotSupportedException");
 }
 
 export interface PutLifecycleEventHookExecutionStatusInput {
-  __type?: "PutLifecycleEventHookExecutionStatusInput";
   /**
    * <p> The unique ID of a deployment. Pass this ID to a Lambda function that validates a
    *             deployment lifecycle event. </p>
@@ -5978,12 +5625,9 @@ export namespace PutLifecycleEventHookExecutionStatusInput {
   export const filterSensitiveLog = (obj: PutLifecycleEventHookExecutionStatusInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLifecycleEventHookExecutionStatusInput =>
-    __isa(o, "PutLifecycleEventHookExecutionStatusInput");
 }
 
 export interface PutLifecycleEventHookExecutionStatusOutput {
-  __type?: "PutLifecycleEventHookExecutionStatusOutput";
   /**
    * <p>The execution ID of the lifecycle event hook. A hook is specified in the
    *                 <code>hooks</code> section of the deployment's AppSpec file.</p>
@@ -5995,8 +5639,6 @@ export namespace PutLifecycleEventHookExecutionStatusOutput {
   export const filterSensitiveLog = (obj: PutLifecycleEventHookExecutionStatusOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLifecycleEventHookExecutionStatusOutput =>
-    __isa(o, "PutLifecycleEventHookExecutionStatusOutput");
 }
 
 /**
@@ -6004,7 +5646,6 @@ export namespace PutLifecycleEventHookExecutionStatusOutput {
  *             string. For AWS Lambda deployments, the revision is the same as the AppSpec file.</p>
  */
 export interface RawString {
-  __type?: "RawString";
   /**
    * <p>The SHA256 hash value of the revision content.</p>
    */
@@ -6022,14 +5663,12 @@ export namespace RawString {
   export const filterSensitiveLog = (obj: RawString): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RawString => __isa(o, "RawString");
 }
 
 /**
  * <p>Represents the input of a RegisterApplicationRevision operation.</p>
  */
 export interface RegisterApplicationRevisionInput {
-  __type?: "RegisterApplicationRevisionInput";
   /**
    * <p>Information about the application revision to register, including type and
    *             location.</p>
@@ -6052,14 +5691,12 @@ export namespace RegisterApplicationRevisionInput {
   export const filterSensitiveLog = (obj: RegisterApplicationRevisionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterApplicationRevisionInput => __isa(o, "RegisterApplicationRevisionInput");
 }
 
 /**
  * <p>Represents the input of the register on-premises instance operation.</p>
  */
 export interface RegisterOnPremisesInstanceInput {
-  __type?: "RegisterOnPremisesInstanceInput";
   /**
    * <p>The ARN of the IAM session to associate with the on-premises instance.</p>
    */
@@ -6080,7 +5717,6 @@ export namespace RegisterOnPremisesInstanceInput {
   export const filterSensitiveLog = (obj: RegisterOnPremisesInstanceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterOnPremisesInstanceInput => __isa(o, "RegisterOnPremisesInstanceInput");
 }
 
 export enum RegistrationStatus {
@@ -6093,7 +5729,6 @@ export enum RegistrationStatus {
  *             operation.</p>
  */
 export interface RemoveTagsFromOnPremisesInstancesInput {
-  __type?: "RemoveTagsFromOnPremisesInstancesInput";
   /**
    * <p>The tag key-value pairs to remove from the on-premises instances.</p>
    */
@@ -6109,8 +5744,6 @@ export namespace RemoveTagsFromOnPremisesInstancesInput {
   export const filterSensitiveLog = (obj: RemoveTagsFromOnPremisesInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RemoveTagsFromOnPremisesInstancesInput =>
-    __isa(o, "RemoveTagsFromOnPremisesInstancesInput");
 }
 
 /**
@@ -6131,7 +5764,6 @@ export namespace ResourceArnRequiredException {
   export const filterSensitiveLog = (obj: ResourceArnRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceArnRequiredException => __isa(o, "ResourceArnRequiredException");
 }
 
 /**
@@ -6150,7 +5782,6 @@ export namespace ResourceValidationException {
   export const filterSensitiveLog = (obj: ResourceValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceValidationException => __isa(o, "ResourceValidationException");
 }
 
 /**
@@ -6169,14 +5800,12 @@ export namespace RevisionDoesNotExistException {
   export const filterSensitiveLog = (obj: RevisionDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevisionDoesNotExistException => __isa(o, "RevisionDoesNotExistException");
 }
 
 /**
  * <p>Information about an application revision.</p>
  */
 export interface RevisionInfo {
-  __type?: "RevisionInfo";
   /**
    * <p>Information about the location and type of an application revision.</p>
    */
@@ -6193,14 +5822,12 @@ export namespace RevisionInfo {
   export const filterSensitiveLog = (obj: RevisionInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevisionInfo => __isa(o, "RevisionInfo");
 }
 
 /**
  * <p>Information about the location of an application revision.</p>
  */
 export interface RevisionLocation {
-  __type?: "RevisionLocation";
   /**
    * <p>Information about the location of application artifacts stored in GitHub.</p>
    */
@@ -6251,7 +5878,6 @@ export namespace RevisionLocation {
   export const filterSensitiveLog = (obj: RevisionLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevisionLocation => __isa(o, "RevisionLocation");
 }
 
 export enum RevisionLocationType {
@@ -6277,7 +5903,6 @@ export namespace RevisionRequiredException {
   export const filterSensitiveLog = (obj: RevisionRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevisionRequiredException => __isa(o, "RevisionRequiredException");
 }
 
 /**
@@ -6296,14 +5921,12 @@ export namespace RoleRequiredException {
   export const filterSensitiveLog = (obj: RoleRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RoleRequiredException => __isa(o, "RoleRequiredException");
 }
 
 /**
  * <p>Information about a deployment rollback.</p>
  */
 export interface RollbackInfo {
-  __type?: "RollbackInfo";
   /**
    * <p>The deployment ID of the deployment that was underway and triggered a rollback
    *             deployment because it failed or was stopped.</p>
@@ -6326,14 +5949,12 @@ export namespace RollbackInfo {
   export const filterSensitiveLog = (obj: RollbackInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RollbackInfo => __isa(o, "RollbackInfo");
 }
 
 /**
  * <p>Information about the location of application artifacts stored in Amazon S3.</p>
  */
 export interface S3Location {
-  __type?: "S3Location";
   /**
    * <p>The name of the Amazon S3 bucket where the application revision is stored.</p>
    */
@@ -6385,11 +6006,9 @@ export namespace S3Location {
   export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Location => __isa(o, "S3Location");
 }
 
 export interface SkipWaitTimeForInstanceTerminationInput {
-  __type?: "SkipWaitTimeForInstanceTerminationInput";
   /**
    * <p> The unique ID of a blue/green deployment for which you want to skip the instance
    *             termination wait time. </p>
@@ -6401,8 +6020,6 @@ export namespace SkipWaitTimeForInstanceTerminationInput {
   export const filterSensitiveLog = (obj: SkipWaitTimeForInstanceTerminationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SkipWaitTimeForInstanceTerminationInput =>
-    __isa(o, "SkipWaitTimeForInstanceTerminationInput");
 }
 
 export enum SortOrder {
@@ -6414,7 +6031,6 @@ export enum SortOrder {
  * <p> Represents the input of a <code>StopDeployment</code> operation. </p>
  */
 export interface StopDeploymentInput {
-  __type?: "StopDeploymentInput";
   /**
    * <p> The unique ID of a deployment. </p>
    */
@@ -6431,14 +6047,12 @@ export namespace StopDeploymentInput {
   export const filterSensitiveLog = (obj: StopDeploymentInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopDeploymentInput => __isa(o, "StopDeploymentInput");
 }
 
 /**
  * <p> Represents the output of a <code>StopDeployment</code> operation. </p>
  */
 export interface StopDeploymentOutput {
-  __type?: "StopDeploymentOutput";
   /**
    * <p>The status of the stop deployment operation:</p>
    *         <ul>
@@ -6462,7 +6076,6 @@ export namespace StopDeploymentOutput {
   export const filterSensitiveLog = (obj: StopDeploymentOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopDeploymentOutput => __isa(o, "StopDeploymentOutput");
 }
 
 export enum StopStatus {
@@ -6474,7 +6087,6 @@ export enum StopStatus {
  * <p>Information about a tag.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The tag's key.</p>
    */
@@ -6490,14 +6102,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p>Information about an on-premises instance tag filter.</p>
  */
 export interface TagFilter {
-  __type?: "TagFilter";
   /**
    * <p>The on-premises instance tag filter type:</p>
    *         <ul>
@@ -6529,7 +6139,6 @@ export namespace TagFilter {
   export const filterSensitiveLog = (obj: TagFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
 export enum TagFilterType {
@@ -6554,7 +6163,6 @@ export namespace TagLimitExceededException {
   export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagLimitExceededException => __isa(o, "TagLimitExceededException");
 }
 
 /**
@@ -6573,11 +6181,9 @@ export namespace TagRequiredException {
   export const filterSensitiveLog = (obj: TagRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagRequiredException => __isa(o, "TagRequiredException");
 }
 
 export interface TagResourceInput {
-  __type?: "TagResourceInput";
   /**
    * <p>
    *             A list of tags that <code>TagResource</code> associates with a resource. The resource is identified by the <code>ResourceArn</code> input parameter.
@@ -6597,18 +6203,14 @@ export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
-export interface TagResourceOutput {
-  __type?: "TagResourceOutput";
-}
+export interface TagResourceOutput {}
 
 export namespace TagResourceOutput {
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceOutput => __isa(o, "TagResourceOutput");
 }
 
 /**
@@ -6628,7 +6230,6 @@ export namespace TagSetListLimitExceededException {
   export const filterSensitiveLog = (obj: TagSetListLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagSetListLimitExceededException => __isa(o, "TagSetListLimitExceededException");
 }
 
 export enum TargetFilterName {
@@ -6642,7 +6243,6 @@ export enum TargetFilterName {
  *             target group.</p>
  */
 export interface TargetGroupInfo {
-  __type?: "TargetGroupInfo";
   /**
    * <p>For blue/green deployments, the name of the target group that instances in the
    *             original environment are deregistered from, and instances in the replacement environment
@@ -6657,7 +6257,6 @@ export namespace TargetGroupInfo {
   export const filterSensitiveLog = (obj: TargetGroupInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetGroupInfo => __isa(o, "TargetGroupInfo");
 }
 
 /**
@@ -6665,7 +6264,6 @@ export namespace TargetGroupInfo {
  *             deployment. An optional test traffic route can be specified. </p>
  */
 export interface TargetGroupPairInfo {
-  __type?: "TargetGroupPairInfo";
   /**
    * <p> An optional path used by a load balancer to route test traffic after an Amazon ECS
    *             deployment. Validation can occur while test traffic is served during a deployment. </p>
@@ -6689,7 +6287,6 @@ export namespace TargetGroupPairInfo {
   export const filterSensitiveLog = (obj: TargetGroupPairInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetGroupPairInfo => __isa(o, "TargetGroupPairInfo");
 }
 
 /**
@@ -6697,7 +6294,6 @@ export namespace TargetGroupPairInfo {
  *             blue/green deployment.</p>
  */
 export interface TargetInstances {
-  __type?: "TargetInstances";
   /**
    * <p>The names of one or more Auto Scaling groups to identify a replacement environment for
    *             a blue/green deployment.</p>
@@ -6723,7 +6319,6 @@ export namespace TargetInstances {
   export const filterSensitiveLog = (obj: TargetInstances): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TargetInstances => __isa(o, "TargetInstances");
 }
 
 export enum TargetLabel {
@@ -6757,7 +6352,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -6766,7 +6360,6 @@ export namespace ThrottlingException {
  *             deployment's AppSpec file.</p>
  */
 export interface TimeBasedCanary {
-  __type?: "TimeBasedCanary";
   /**
    * <p>The percentage of traffic to shift in the first increment of a
    *                 <code>TimeBasedCanary</code> deployment.</p>
@@ -6784,7 +6377,6 @@ export namespace TimeBasedCanary {
   export const filterSensitiveLog = (obj: TimeBasedCanary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeBasedCanary => __isa(o, "TimeBasedCanary");
 }
 
 /**
@@ -6794,7 +6386,6 @@ export namespace TimeBasedCanary {
  *             file.</p>
  */
 export interface TimeBasedLinear {
-  __type?: "TimeBasedLinear";
   /**
    * <p>The percentage of traffic that is shifted at the start of each increment of a
    *                 <code>TimeBasedLinear</code> deployment.</p>
@@ -6812,14 +6403,12 @@ export namespace TimeBasedLinear {
   export const filterSensitiveLog = (obj: TimeBasedLinear): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeBasedLinear => __isa(o, "TimeBasedLinear");
 }
 
 /**
  * <p>Information about a time range.</p>
  */
 export interface TimeRange {
-  __type?: "TimeRange";
   /**
    * <p>The start time of the time range.</p>
    *         <note>
@@ -6841,7 +6430,6 @@ export namespace TimeRange {
   export const filterSensitiveLog = (obj: TimeRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeRange => __isa(o, "TimeRange");
 }
 
 /**
@@ -6849,7 +6437,6 @@ export namespace TimeRange {
  *             that is received from the load balancer to a target group. </p>
  */
 export interface TrafficRoute {
-  __type?: "TrafficRoute";
   /**
    * <p> The Amazon Resource Name (ARN) of one listener. The listener identifies the route
    *             between a target group and a load balancer. This is an array of strings with a maximum
@@ -6862,7 +6449,6 @@ export namespace TrafficRoute {
   export const filterSensitiveLog = (obj: TrafficRoute): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficRoute => __isa(o, "TrafficRoute");
 }
 
 /**
@@ -6871,7 +6457,6 @@ export namespace TrafficRoute {
  *             set to another during an Amazon ECS deployment.</p>
  */
 export interface TrafficRoutingConfig {
-  __type?: "TrafficRoutingConfig";
   /**
    * <p>The type of traffic shifting (<code>TimeBasedCanary</code> or
    *                 <code>TimeBasedLinear</code>) used by a deployment configuration.</p>
@@ -6898,7 +6483,6 @@ export namespace TrafficRoutingConfig {
   export const filterSensitiveLog = (obj: TrafficRoutingConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficRoutingConfig => __isa(o, "TrafficRoutingConfig");
 }
 
 export enum TrafficRoutingType {
@@ -6911,7 +6495,6 @@ export enum TrafficRoutingType {
  * <p>Information about notification triggers for the deployment group.</p>
  */
 export interface TriggerConfig {
-  __type?: "TriggerConfig";
   /**
    * <p>The name of the notification trigger.</p>
    */
@@ -6933,7 +6516,6 @@ export namespace TriggerConfig {
   export const filterSensitiveLog = (obj: TriggerConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TriggerConfig => __isa(o, "TriggerConfig");
 }
 
 export enum TriggerEventType {
@@ -6965,8 +6547,6 @@ export namespace TriggerTargetsLimitExceededException {
   export const filterSensitiveLog = (obj: TriggerTargetsLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TriggerTargetsLimitExceededException =>
-    __isa(o, "TriggerTargetsLimitExceededException");
 }
 
 /**
@@ -6985,12 +6565,9 @@ export namespace UnsupportedActionForDeploymentTypeException {
   export const filterSensitiveLog = (obj: UnsupportedActionForDeploymentTypeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedActionForDeploymentTypeException =>
-    __isa(o, "UnsupportedActionForDeploymentTypeException");
 }
 
 export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
   /**
    * <p> The Amazon Resource Name (ARN) that specifies from which resource to disassociate the
    *             tags with the keys in the <code>TagKeys</code> input parameter. </p>
@@ -7010,25 +6587,20 @@ export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
-export interface UntagResourceOutput {
-  __type?: "UntagResourceOutput";
-}
+export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceOutput => __isa(o, "UntagResourceOutput");
 }
 
 /**
  * <p>Represents the input of an <code>UpdateApplication</code> operation.</p>
  */
 export interface UpdateApplicationInput {
-  __type?: "UpdateApplicationInput";
   /**
    * <p>The current name of the application you want to change.</p>
    */
@@ -7044,14 +6616,12 @@ export namespace UpdateApplicationInput {
   export const filterSensitiveLog = (obj: UpdateApplicationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateApplicationInput => __isa(o, "UpdateApplicationInput");
 }
 
 /**
  * <p>Represents the input of an <code>UpdateDeploymentGroup</code> operation.</p>
  */
 export interface UpdateDeploymentGroupInput {
-  __type?: "UpdateDeploymentGroupInput";
   /**
    * <p>Information about the type of deployment, either in-place or blue/green, you want to
    *             run and whether to route deployment traffic behind a load balancer.</p>
@@ -7159,14 +6729,12 @@ export namespace UpdateDeploymentGroupInput {
   export const filterSensitiveLog = (obj: UpdateDeploymentGroupInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeploymentGroupInput => __isa(o, "UpdateDeploymentGroupInput");
 }
 
 /**
  * <p>Represents the output of an <code>UpdateDeploymentGroup</code> operation.</p>
  */
 export interface UpdateDeploymentGroupOutput {
-  __type?: "UpdateDeploymentGroupOutput";
   /**
    * <p>If the output contains no data, and the corresponding deployment group contained at
    *             least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto
@@ -7181,5 +6749,4 @@ export namespace UpdateDeploymentGroupOutput {
   export const filterSensitiveLog = (obj: UpdateDeploymentGroupOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateDeploymentGroupOutput => __isa(o, "UpdateDeploymentGroupOutput");
 }

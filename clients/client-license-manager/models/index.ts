@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,7 +14,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -31,14 +30,12 @@ export namespace AuthorizationException {
   export const filterSensitiveLog = (obj: AuthorizationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AuthorizationException => __isa(o, "AuthorizationException");
 }
 
 /**
  * <p>Describes automated discovery.</p>
  */
 export interface AutomatedDiscoveryInformation {
-  __type?: "AutomatedDiscoveryInformation";
   /**
    * <p>Time that automated discovery last ran.</p>
    */
@@ -49,14 +46,12 @@ export namespace AutomatedDiscoveryInformation {
   export const filterSensitiveLog = (obj: AutomatedDiscoveryInformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutomatedDiscoveryInformation => __isa(o, "AutomatedDiscoveryInformation");
 }
 
 /**
  * <p>Details about license consumption.</p>
  */
 export interface ConsumedLicenseSummary {
-  __type?: "ConsumedLicenseSummary";
   /**
    * <p>Resource type of the resource consuming a license.</p>
    */
@@ -72,11 +67,9 @@ export namespace ConsumedLicenseSummary {
   export const filterSensitiveLog = (obj: ConsumedLicenseSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConsumedLicenseSummary => __isa(o, "ConsumedLicenseSummary");
 }
 
 export interface CreateLicenseConfigurationRequest {
-  __type?: "CreateLicenseConfigurationRequest";
   /**
    * <p>Indicates whether hard or soft license enforcement is used. Exceeding a hard limit
    *          blocks the launch of new instances.</p>
@@ -148,11 +141,9 @@ export namespace CreateLicenseConfigurationRequest {
   export const filterSensitiveLog = (obj: CreateLicenseConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLicenseConfigurationRequest => __isa(o, "CreateLicenseConfigurationRequest");
 }
 
 export interface CreateLicenseConfigurationResponse {
-  __type?: "CreateLicenseConfigurationResponse";
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
    */
@@ -163,12 +154,9 @@ export namespace CreateLicenseConfigurationResponse {
   export const filterSensitiveLog = (obj: CreateLicenseConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateLicenseConfigurationResponse =>
-    __isa(o, "CreateLicenseConfigurationResponse");
 }
 
 export interface DeleteLicenseConfigurationRequest {
-  __type?: "DeleteLicenseConfigurationRequest";
   /**
    * <p>ID of the license configuration.</p>
    */
@@ -179,19 +167,14 @@ export namespace DeleteLicenseConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteLicenseConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLicenseConfigurationRequest => __isa(o, "DeleteLicenseConfigurationRequest");
 }
 
-export interface DeleteLicenseConfigurationResponse {
-  __type?: "DeleteLicenseConfigurationResponse";
-}
+export interface DeleteLicenseConfigurationResponse {}
 
 export namespace DeleteLicenseConfigurationResponse {
   export const filterSensitiveLog = (obj: DeleteLicenseConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLicenseConfigurationResponse =>
-    __isa(o, "DeleteLicenseConfigurationResponse");
 }
 
 /**
@@ -207,7 +190,6 @@ export namespace FailedDependencyException {
   export const filterSensitiveLog = (obj: FailedDependencyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailedDependencyException => __isa(o, "FailedDependencyException");
 }
 
 /**
@@ -216,7 +198,6 @@ export namespace FailedDependencyException {
  *          such as tags, attributes, or IDs.</p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>Name of the filter. Filter names are case-sensitive.</p>
    */
@@ -232,7 +213,6 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 /**
@@ -248,11 +228,9 @@ export namespace FilterLimitExceededException {
   export const filterSensitiveLog = (obj: FilterLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FilterLimitExceededException => __isa(o, "FilterLimitExceededException");
 }
 
 export interface GetLicenseConfigurationRequest {
-  __type?: "GetLicenseConfigurationRequest";
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
    */
@@ -263,11 +241,9 @@ export namespace GetLicenseConfigurationRequest {
   export const filterSensitiveLog = (obj: GetLicenseConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLicenseConfigurationRequest => __isa(o, "GetLicenseConfigurationRequest");
 }
 
 export interface GetLicenseConfigurationResponse {
-  __type?: "GetLicenseConfigurationResponse";
   /**
    * <p>Summaries of the managed resources.</p>
    */
@@ -353,22 +329,17 @@ export namespace GetLicenseConfigurationResponse {
   export const filterSensitiveLog = (obj: GetLicenseConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLicenseConfigurationResponse => __isa(o, "GetLicenseConfigurationResponse");
 }
 
-export interface GetServiceSettingsRequest {
-  __type?: "GetServiceSettingsRequest";
-}
+export interface GetServiceSettingsRequest {}
 
 export namespace GetServiceSettingsRequest {
   export const filterSensitiveLog = (obj: GetServiceSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceSettingsRequest => __isa(o, "GetServiceSettingsRequest");
 }
 
 export interface GetServiceSettingsResponse {
-  __type?: "GetServiceSettingsResponse";
   /**
    * <p>Indicates whether AWS Organizations has been integrated with License Manager for
    *          cross-account discovery.</p>
@@ -402,7 +373,6 @@ export namespace GetServiceSettingsResponse {
   export const filterSensitiveLog = (obj: GetServiceSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetServiceSettingsResponse => __isa(o, "GetServiceSettingsResponse");
 }
 
 /**
@@ -418,7 +388,6 @@ export namespace InvalidParameterValueException {
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
@@ -436,14 +405,12 @@ export namespace InvalidResourceStateException {
   export const filterSensitiveLog = (obj: InvalidResourceStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidResourceStateException => __isa(o, "InvalidResourceStateException");
 }
 
 /**
  * <p>An inventory filter.</p>
  */
 export interface InventoryFilter {
-  __type?: "InventoryFilter";
   /**
    * <p>Value of the filter.</p>
    */
@@ -464,7 +431,6 @@ export namespace InventoryFilter {
   export const filterSensitiveLog = (obj: InventoryFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InventoryFilter => __isa(o, "InventoryFilter");
 }
 
 export enum InventoryFilterCondition {
@@ -482,7 +448,6 @@ export enum InventoryFilterCondition {
  *          must be associated with a host), and the number of licenses purchased and used.</p>
  */
 export interface LicenseConfiguration {
-  __type?: "LicenseConfiguration";
   /**
    * <p>Number of available licenses as a hard limit.</p>
    */
@@ -563,14 +528,12 @@ export namespace LicenseConfiguration {
   export const filterSensitiveLog = (obj: LicenseConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LicenseConfiguration => __isa(o, "LicenseConfiguration");
 }
 
 /**
  * <p>Describes an association with a license configuration.</p>
  */
 export interface LicenseConfigurationAssociation {
-  __type?: "LicenseConfigurationAssociation";
   /**
    * <p>ID of the AWS account that owns the resource consuming licenses.</p>
    */
@@ -596,7 +559,6 @@ export namespace LicenseConfigurationAssociation {
   export const filterSensitiveLog = (obj: LicenseConfigurationAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LicenseConfigurationAssociation => __isa(o, "LicenseConfigurationAssociation");
 }
 
 export enum LicenseConfigurationStatus {
@@ -608,7 +570,6 @@ export enum LicenseConfigurationStatus {
  * <p>Details about the usage of a resource associated with a license configuration.</p>
  */
 export interface LicenseConfigurationUsage {
-  __type?: "LicenseConfigurationUsage";
   /**
    * <p>Time when the license configuration was initially associated with the resource.</p>
    */
@@ -644,7 +605,6 @@ export namespace LicenseConfigurationUsage {
   export const filterSensitiveLog = (obj: LicenseConfigurationUsage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LicenseConfigurationUsage => __isa(o, "LicenseConfigurationUsage");
 }
 
 export enum LicenseCountingType {
@@ -658,7 +618,6 @@ export enum LicenseCountingType {
  * <p>Describes the failure of a license operation.</p>
  */
 export interface LicenseOperationFailure {
-  __type?: "LicenseOperationFailure";
   /**
    * <p>Name of the operation.</p>
    */
@@ -704,14 +663,12 @@ export namespace LicenseOperationFailure {
   export const filterSensitiveLog = (obj: LicenseOperationFailure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LicenseOperationFailure => __isa(o, "LicenseOperationFailure");
 }
 
 /**
  * <p>Details for associating a license configuration with a resource.</p>
  */
 export interface LicenseSpecification {
-  __type?: "LicenseSpecification";
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
    */
@@ -722,7 +679,6 @@ export namespace LicenseSpecification {
   export const filterSensitiveLog = (obj: LicenseSpecification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LicenseSpecification => __isa(o, "LicenseSpecification");
 }
 
 /**
@@ -738,11 +694,9 @@ export namespace LicenseUsageException {
   export const filterSensitiveLog = (obj: LicenseUsageException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LicenseUsageException => __isa(o, "LicenseUsageException");
 }
 
 export interface ListAssociationsForLicenseConfigurationRequest {
-  __type?: "ListAssociationsForLicenseConfigurationRequest";
   /**
    * <p>Amazon Resource Name (ARN) of a license configuration.</p>
    */
@@ -763,12 +717,9 @@ export namespace ListAssociationsForLicenseConfigurationRequest {
   export const filterSensitiveLog = (obj: ListAssociationsForLicenseConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssociationsForLicenseConfigurationRequest =>
-    __isa(o, "ListAssociationsForLicenseConfigurationRequest");
 }
 
 export interface ListAssociationsForLicenseConfigurationResponse {
-  __type?: "ListAssociationsForLicenseConfigurationResponse";
   /**
    * <p>Token for the next set of results.</p>
    */
@@ -784,12 +735,9 @@ export namespace ListAssociationsForLicenseConfigurationResponse {
   export const filterSensitiveLog = (obj: ListAssociationsForLicenseConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAssociationsForLicenseConfigurationResponse =>
-    __isa(o, "ListAssociationsForLicenseConfigurationResponse");
 }
 
 export interface ListFailuresForLicenseConfigurationOperationsRequest {
-  __type?: "ListFailuresForLicenseConfigurationOperationsRequest";
   /**
    * <p>Token for the next set of results.</p>
    */
@@ -810,12 +758,9 @@ export namespace ListFailuresForLicenseConfigurationOperationsRequest {
   export const filterSensitiveLog = (obj: ListFailuresForLicenseConfigurationOperationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFailuresForLicenseConfigurationOperationsRequest =>
-    __isa(o, "ListFailuresForLicenseConfigurationOperationsRequest");
 }
 
 export interface ListFailuresForLicenseConfigurationOperationsResponse {
-  __type?: "ListFailuresForLicenseConfigurationOperationsResponse";
   /**
    * <p>License configuration operations that failed.</p>
    */
@@ -831,12 +776,9 @@ export namespace ListFailuresForLicenseConfigurationOperationsResponse {
   export const filterSensitiveLog = (obj: ListFailuresForLicenseConfigurationOperationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListFailuresForLicenseConfigurationOperationsResponse =>
-    __isa(o, "ListFailuresForLicenseConfigurationOperationsResponse");
 }
 
 export interface ListLicenseConfigurationsRequest {
-  __type?: "ListLicenseConfigurationsRequest";
   /**
    * <p>Maximum number of results to return in a single call.</p>
    */
@@ -880,11 +822,9 @@ export namespace ListLicenseConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListLicenseConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLicenseConfigurationsRequest => __isa(o, "ListLicenseConfigurationsRequest");
 }
 
 export interface ListLicenseConfigurationsResponse {
-  __type?: "ListLicenseConfigurationsResponse";
   /**
    * <p>Token for the next set of results.</p>
    */
@@ -900,11 +840,9 @@ export namespace ListLicenseConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListLicenseConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLicenseConfigurationsResponse => __isa(o, "ListLicenseConfigurationsResponse");
 }
 
 export interface ListLicenseSpecificationsForResourceRequest {
-  __type?: "ListLicenseSpecificationsForResourceRequest";
   /**
    * <p>Amazon Resource Name (ARN) of a resource that has an associated license configuration.</p>
    */
@@ -925,12 +863,9 @@ export namespace ListLicenseSpecificationsForResourceRequest {
   export const filterSensitiveLog = (obj: ListLicenseSpecificationsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLicenseSpecificationsForResourceRequest =>
-    __isa(o, "ListLicenseSpecificationsForResourceRequest");
 }
 
 export interface ListLicenseSpecificationsForResourceResponse {
-  __type?: "ListLicenseSpecificationsForResourceResponse";
   /**
    * <p>Token for the next set of results.</p>
    */
@@ -946,12 +881,9 @@ export namespace ListLicenseSpecificationsForResourceResponse {
   export const filterSensitiveLog = (obj: ListLicenseSpecificationsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLicenseSpecificationsForResourceResponse =>
-    __isa(o, "ListLicenseSpecificationsForResourceResponse");
 }
 
 export interface ListResourceInventoryRequest {
-  __type?: "ListResourceInventoryRequest";
   /**
    * <p>Maximum number of results to return in a single call.</p>
    */
@@ -1004,11 +936,9 @@ export namespace ListResourceInventoryRequest {
   export const filterSensitiveLog = (obj: ListResourceInventoryRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceInventoryRequest => __isa(o, "ListResourceInventoryRequest");
 }
 
 export interface ListResourceInventoryResponse {
-  __type?: "ListResourceInventoryResponse";
   /**
    * <p>Information about the resources.</p>
    */
@@ -1024,11 +954,9 @@ export namespace ListResourceInventoryResponse {
   export const filterSensitiveLog = (obj: ListResourceInventoryResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceInventoryResponse => __isa(o, "ListResourceInventoryResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
    */
@@ -1039,11 +967,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>Information about the tags.</p>
    */
@@ -1054,11 +980,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListUsageForLicenseConfigurationRequest {
-  __type?: "ListUsageForLicenseConfigurationRequest";
   /**
    * <p>Maximum number of results to return in a single call.</p>
    */
@@ -1102,12 +1026,9 @@ export namespace ListUsageForLicenseConfigurationRequest {
   export const filterSensitiveLog = (obj: ListUsageForLicenseConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsageForLicenseConfigurationRequest =>
-    __isa(o, "ListUsageForLicenseConfigurationRequest");
 }
 
 export interface ListUsageForLicenseConfigurationResponse {
-  __type?: "ListUsageForLicenseConfigurationResponse";
   /**
    * <p>Token for the next set of results.</p>
    */
@@ -1123,15 +1044,12 @@ export namespace ListUsageForLicenseConfigurationResponse {
   export const filterSensitiveLog = (obj: ListUsageForLicenseConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListUsageForLicenseConfigurationResponse =>
-    __isa(o, "ListUsageForLicenseConfigurationResponse");
 }
 
 /**
  * <p>Summary information about a managed resource.</p>
  */
 export interface ManagedResourceSummary {
-  __type?: "ManagedResourceSummary";
   /**
    * <p>Number of resources associated with licenses.</p>
    */
@@ -1147,14 +1065,12 @@ export namespace ManagedResourceSummary {
   export const filterSensitiveLog = (obj: ManagedResourceSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManagedResourceSummary => __isa(o, "ManagedResourceSummary");
 }
 
 /**
  * <p>Reserved.</p>
  */
 export interface Metadata {
-  __type?: "Metadata";
   /**
    * <p>Reserved.</p>
    */
@@ -1170,14 +1086,12 @@ export namespace Metadata {
   export const filterSensitiveLog = (obj: Metadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Metadata => __isa(o, "Metadata");
 }
 
 /**
  * <p>Configuration information for AWS Organizations.</p>
  */
 export interface OrganizationConfiguration {
-  __type?: "OrganizationConfiguration";
   /**
    * <p>Enables AWS Organization integration.</p>
    */
@@ -1188,14 +1102,12 @@ export namespace OrganizationConfiguration {
   export const filterSensitiveLog = (obj: OrganizationConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrganizationConfiguration => __isa(o, "OrganizationConfiguration");
 }
 
 /**
  * <p>Describes product information for a license configuration.</p>
  */
 export interface ProductInformation {
-  __type?: "ProductInformation";
   /**
    * <p>Product information filters. The following filters and logical operators
    *         are supported:</p>
@@ -1248,14 +1160,12 @@ export namespace ProductInformation {
   export const filterSensitiveLog = (obj: ProductInformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProductInformation => __isa(o, "ProductInformation");
 }
 
 /**
  * <p>Describes product information filters.</p>
  */
 export interface ProductInformationFilter {
-  __type?: "ProductInformationFilter";
   /**
    * <p>Logical operator.</p>
    */
@@ -1276,7 +1186,6 @@ export namespace ProductInformationFilter {
   export const filterSensitiveLog = (obj: ProductInformationFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProductInformationFilter => __isa(o, "ProductInformationFilter");
 }
 
 /**
@@ -1292,14 +1201,12 @@ export namespace RateLimitExceededException {
   export const filterSensitiveLog = (obj: RateLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RateLimitExceededException => __isa(o, "RateLimitExceededException");
 }
 
 /**
  * <p>Details about a resource.</p>
  */
 export interface ResourceInventory {
-  __type?: "ResourceInventory";
   /**
    * <p>ID of the account that owns the resource.</p>
    */
@@ -1335,7 +1242,6 @@ export namespace ResourceInventory {
   export const filterSensitiveLog = (obj: ResourceInventory): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInventory => __isa(o, "ResourceInventory");
 }
 
 /**
@@ -1351,7 +1257,6 @@ export namespace ResourceLimitExceededException {
   export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceLimitExceededException => __isa(o, "ResourceLimitExceededException");
 }
 
 export enum ResourceType {
@@ -1375,14 +1280,12 @@ export namespace ServerInternalException {
   export const filterSensitiveLog = (obj: ServerInternalException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServerInternalException => __isa(o, "ServerInternalException");
 }
 
 /**
  * <p>Details about a tag for a license configuration.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>Tag key.</p>
    */
@@ -1398,11 +1301,9 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>One or more tags.</p>
    */
@@ -1418,22 +1319,17 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>Keys identifying the tags to remove.</p>
    */
@@ -1449,22 +1345,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateLicenseConfigurationRequest {
-  __type?: "UpdateLicenseConfigurationRequest";
   /**
    * <p>New hard limit of the number of available licenses.</p>
    */
@@ -1510,23 +1401,17 @@ export namespace UpdateLicenseConfigurationRequest {
   export const filterSensitiveLog = (obj: UpdateLicenseConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLicenseConfigurationRequest => __isa(o, "UpdateLicenseConfigurationRequest");
 }
 
-export interface UpdateLicenseConfigurationResponse {
-  __type?: "UpdateLicenseConfigurationResponse";
-}
+export interface UpdateLicenseConfigurationResponse {}
 
 export namespace UpdateLicenseConfigurationResponse {
   export const filterSensitiveLog = (obj: UpdateLicenseConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLicenseConfigurationResponse =>
-    __isa(o, "UpdateLicenseConfigurationResponse");
 }
 
 export interface UpdateLicenseSpecificationsForResourceRequest {
-  __type?: "UpdateLicenseSpecificationsForResourceRequest";
   /**
    * <p>ARNs of the license configurations to add.</p>
    */
@@ -1547,24 +1432,17 @@ export namespace UpdateLicenseSpecificationsForResourceRequest {
   export const filterSensitiveLog = (obj: UpdateLicenseSpecificationsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLicenseSpecificationsForResourceRequest =>
-    __isa(o, "UpdateLicenseSpecificationsForResourceRequest");
 }
 
-export interface UpdateLicenseSpecificationsForResourceResponse {
-  __type?: "UpdateLicenseSpecificationsForResourceResponse";
-}
+export interface UpdateLicenseSpecificationsForResourceResponse {}
 
 export namespace UpdateLicenseSpecificationsForResourceResponse {
   export const filterSensitiveLog = (obj: UpdateLicenseSpecificationsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateLicenseSpecificationsForResourceResponse =>
-    __isa(o, "UpdateLicenseSpecificationsForResourceResponse");
 }
 
 export interface UpdateServiceSettingsRequest {
-  __type?: "UpdateServiceSettingsRequest";
   /**
    * <p>Amazon Resource Name (ARN) of the Amazon SNS topic used for License Manager alerts.</p>
    */
@@ -1590,16 +1468,12 @@ export namespace UpdateServiceSettingsRequest {
   export const filterSensitiveLog = (obj: UpdateServiceSettingsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServiceSettingsRequest => __isa(o, "UpdateServiceSettingsRequest");
 }
 
-export interface UpdateServiceSettingsResponse {
-  __type?: "UpdateServiceSettingsResponse";
-}
+export interface UpdateServiceSettingsResponse {}
 
 export namespace UpdateServiceSettingsResponse {
   export const filterSensitiveLog = (obj: UpdateServiceSettingsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateServiceSettingsResponse => __isa(o, "UpdateServiceSettingsResponse");
 }

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +6,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       object.</p>
  */
 export interface DataPoint {
-  __type?: "DataPoint";
   /**
    * <p>The forecast value.</p>
    */
@@ -22,14 +21,12 @@ export namespace DataPoint {
   export const filterSensitiveLog = (obj: DataPoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataPoint => __isa(o, "DataPoint");
 }
 
 /**
  * <p>Provides information about a forecast. Returned as part of the <a>QueryForecast</a> response.</p>
  */
 export interface Forecast {
-  __type?: "Forecast";
   /**
    * <p>The forecast.</p>
    *          <p>The <i>string</i> of the string-to-array map is one of the following
@@ -55,7 +52,6 @@ export namespace Forecast {
   export const filterSensitiveLog = (obj: Forecast): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Forecast => __isa(o, "Forecast");
 }
 
 /**
@@ -71,7 +67,6 @@ export namespace InvalidInputException {
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
@@ -87,7 +82,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -103,11 +97,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface QueryForecastRequest {
-  __type?: "QueryForecastRequest";
   /**
    * <p>The filtering criteria to apply when retrieving the forecast. For example, to get the
    *       forecast for <code>client_21</code> in the electricity usage dataset, specify the
@@ -150,11 +142,9 @@ export namespace QueryForecastRequest {
   export const filterSensitiveLog = (obj: QueryForecastRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryForecastRequest => __isa(o, "QueryForecastRequest");
 }
 
 export interface QueryForecastResponse {
-  __type?: "QueryForecastResponse";
   /**
    * <p>The forecast.</p>
    */
@@ -165,7 +155,6 @@ export namespace QueryForecastResponse {
   export const filterSensitiveLog = (obj: QueryForecastResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryForecastResponse => __isa(o, "QueryForecastResponse");
 }
 
 /**
@@ -181,7 +170,6 @@ export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
@@ -198,5 +186,4 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }

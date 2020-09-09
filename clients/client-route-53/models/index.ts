@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>A complex type that contains the type of limit that you specified in the request and the current value for that limit.</p>
  */
 export interface AccountLimit {
-  __type?: "AccountLimit";
   /**
    * <p>The current value for the limit that is specified by
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AccountLimit.html#Route53-Type-AccountLimit-Type">Type</a>.</p>
@@ -50,7 +49,6 @@ export namespace AccountLimit {
   export const filterSensitiveLog = (obj: AccountLimit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountLimit => __isa(o, "AccountLimit");
 }
 
 export type AccountLimitType =
@@ -65,7 +63,6 @@ export type AccountLimitType =
  * 			the specified health check is healthy.</p>
  */
 export interface AlarmIdentifier {
-  __type?: "AlarmIdentifier";
   /**
    * <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy,
    * 			the region that the alarm was created in.</p>
@@ -97,7 +94,6 @@ export namespace AlarmIdentifier {
   export const filterSensitiveLog = (obj: AlarmIdentifier): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlarmIdentifier => __isa(o, "AlarmIdentifier");
 }
 
 /**
@@ -117,7 +113,6 @@ export namespace AlarmIdentifier {
  *          </ul>
  */
 export interface AliasTarget {
-  __type?: "AliasTarget";
   /**
    * <p>
    *             <i>Applies only to alias, failover alias, geolocation alias, latency alias, and weighted alias resource record sets:</i>
@@ -479,14 +474,12 @@ export namespace AliasTarget {
   export const filterSensitiveLog = (obj: AliasTarget): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AliasTarget => __isa(o, "AliasTarget");
 }
 
 /**
  * <p>A complex type that contains information about the request to associate a VPC with a private hosted zone.</p>
  */
 export interface AssociateVPCWithHostedZoneRequest {
-  __type?: "AssociateVPCWithHostedZoneRequest";
   /**
    * <p>The ID of the private hosted zone that you want to associate an Amazon VPC with.</p>
    * 		       <p>Note that you can't associate a VPC with a hosted zone that doesn't have an existing VPC association.</p>
@@ -509,14 +502,12 @@ export namespace AssociateVPCWithHostedZoneRequest {
   export const filterSensitiveLog = (obj: AssociateVPCWithHostedZoneRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateVPCWithHostedZoneRequest => __isa(o, "AssociateVPCWithHostedZoneRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the <code>AssociateVPCWithHostedZone</code> request.</p>
  */
 export interface AssociateVPCWithHostedZoneResponse {
-  __type?: "AssociateVPCWithHostedZoneResponse";
   /**
    * <p>A complex type that describes the changes made to your hosted zone.</p>
    */
@@ -527,15 +518,12 @@ export namespace AssociateVPCWithHostedZoneResponse {
   export const filterSensitiveLog = (obj: AssociateVPCWithHostedZoneResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateVPCWithHostedZoneResponse =>
-    __isa(o, "AssociateVPCWithHostedZoneResponse");
 }
 
 /**
  * <p>The information for each resource record set that you want to change.</p>
  */
 export interface Change {
-  __type?: "Change";
   /**
    * <p>The action to perform:</p>
    * 		       <ul>
@@ -573,7 +561,6 @@ export namespace Change {
   export const filterSensitiveLog = (obj: Change): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Change => __isa(o, "Change");
 }
 
 export type ChangeAction = "CREATE" | "DELETE" | "UPSERT";
@@ -582,7 +569,6 @@ export type ChangeAction = "CREATE" | "DELETE" | "UPSERT";
  * <p>The information for a change request.</p>
  */
 export interface ChangeBatch {
-  __type?: "ChangeBatch";
   /**
    * <p>Information about the changes to make to the record sets.</p>
    */
@@ -600,7 +586,6 @@ export namespace ChangeBatch {
   export const filterSensitiveLog = (obj: ChangeBatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeBatch => __isa(o, "ChangeBatch");
 }
 
 /**
@@ -608,7 +593,6 @@ export namespace ChangeBatch {
  * 			zone.</p>
  */
 export interface ChangeInfo {
-  __type?: "ChangeInfo";
   /**
    * <p>The ID of the request.</p>
    */
@@ -641,14 +625,12 @@ export namespace ChangeInfo {
   export const filterSensitiveLog = (obj: ChangeInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeInfo => __isa(o, "ChangeInfo");
 }
 
 /**
  * <p>A complex type that contains change information for the resource record set.</p>
  */
 export interface ChangeResourceRecordSetsRequest {
-  __type?: "ChangeResourceRecordSetsRequest";
   /**
    * <p>A complex type that contains an optional comment and the <code>Changes</code> element.</p>
    */
@@ -664,14 +646,12 @@ export namespace ChangeResourceRecordSetsRequest {
   export const filterSensitiveLog = (obj: ChangeResourceRecordSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeResourceRecordSetsRequest => __isa(o, "ChangeResourceRecordSetsRequest");
 }
 
 /**
  * <p>A complex type containing the response for the request.</p>
  */
 export interface ChangeResourceRecordSetsResponse {
-  __type?: "ChangeResourceRecordSetsResponse";
   /**
    * <p>A complex type that contains information about changes made to your hosted zone.</p>
    * 		       <p>This element contains an ID that you use when performing a
@@ -685,7 +665,6 @@ export namespace ChangeResourceRecordSetsResponse {
   export const filterSensitiveLog = (obj: ChangeResourceRecordSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeResourceRecordSetsResponse => __isa(o, "ChangeResourceRecordSetsResponse");
 }
 
 export type ChangeStatus = "INSYNC" | "PENDING";
@@ -694,7 +673,6 @@ export type ChangeStatus = "INSYNC" | "PENDING";
  * <p>A complex type that contains information about the tags that you want to add, edit, or delete.</p>
  */
 export interface ChangeTagsForResourceRequest {
-  __type?: "ChangeTagsForResourceRequest";
   /**
    * <p>The ID of the resource for which you want to add, change, or delete tags.</p>
    */
@@ -731,28 +709,23 @@ export namespace ChangeTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ChangeTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeTagsForResourceRequest => __isa(o, "ChangeTagsForResourceRequest");
 }
 
 /**
  * <p>Empty response for the request.</p>
  */
-export interface ChangeTagsForResourceResponse {
-  __type?: "ChangeTagsForResourceResponse";
-}
+export interface ChangeTagsForResourceResponse {}
 
 export namespace ChangeTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ChangeTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeTagsForResourceResponse => __isa(o, "ChangeTagsForResourceResponse");
 }
 
 /**
  * <p>A complex type that contains information about the CloudWatch alarm that Amazon Route 53 is monitoring for this health check.</p>
  */
 export interface CloudWatchAlarmConfiguration {
-  __type?: "CloudWatchAlarmConfiguration";
   /**
    * <p>For the metric that the CloudWatch alarm is associated with, the value the metric is compared with.</p>
    */
@@ -803,7 +776,6 @@ export namespace CloudWatchAlarmConfiguration {
   export const filterSensitiveLog = (obj: CloudWatchAlarmConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchAlarmConfiguration => __isa(o, "CloudWatchAlarmConfiguration");
 }
 
 export type CloudWatchRegion =
@@ -857,7 +829,6 @@ export namespace ConcurrentModification {
   export const filterSensitiveLog = (obj: ConcurrentModification): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConcurrentModification => __isa(o, "ConcurrentModification");
 }
 
 /**
@@ -893,7 +864,6 @@ export namespace ConflictingDomainExists {
   export const filterSensitiveLog = (obj: ConflictingDomainExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictingDomainExists => __isa(o, "ConflictingDomainExists");
 }
 
 /**
@@ -914,14 +884,12 @@ export namespace ConflictingTypes {
   export const filterSensitiveLog = (obj: ConflictingTypes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictingTypes => __isa(o, "ConflictingTypes");
 }
 
 /**
  * <p>A complex type that contains the health check request information.</p>
  */
 export interface CreateHealthCheckRequest {
-  __type?: "CreateHealthCheckRequest";
   /**
    * <p>A complex type that contains settings for a new health check.</p>
    */
@@ -957,14 +925,12 @@ export namespace CreateHealthCheckRequest {
   export const filterSensitiveLog = (obj: CreateHealthCheckRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHealthCheckRequest => __isa(o, "CreateHealthCheckRequest");
 }
 
 /**
  * <p>A complex type containing the response information for the new health check.</p>
  */
 export interface CreateHealthCheckResponse {
-  __type?: "CreateHealthCheckResponse";
   /**
    * <p>The unique URL representing the new health check.</p>
    */
@@ -980,14 +946,12 @@ export namespace CreateHealthCheckResponse {
   export const filterSensitiveLog = (obj: CreateHealthCheckResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHealthCheckResponse => __isa(o, "CreateHealthCheckResponse");
 }
 
 /**
  * <p>A complex type that contains information about the request to create a public or private hosted zone.</p>
  */
 export interface CreateHostedZoneRequest {
-  __type?: "CreateHostedZoneRequest";
   /**
    * <p>A unique string that identifies the request and that allows failed <code>CreateHostedZone</code> requests to be retried without
    * 			the risk of executing the operation twice. You must use a unique <code>CallerReference</code> string every time you submit a
@@ -1040,14 +1004,12 @@ export namespace CreateHostedZoneRequest {
   export const filterSensitiveLog = (obj: CreateHostedZoneRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHostedZoneRequest => __isa(o, "CreateHostedZoneRequest");
 }
 
 /**
  * <p>A complex type containing the response information for the hosted zone.</p>
  */
 export interface CreateHostedZoneResponse {
-  __type?: "CreateHostedZoneResponse";
   /**
    * <p>A complex type that contains general information about the hosted zone.</p>
    */
@@ -1078,11 +1040,9 @@ export namespace CreateHostedZoneResponse {
   export const filterSensitiveLog = (obj: CreateHostedZoneResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateHostedZoneResponse => __isa(o, "CreateHostedZoneResponse");
 }
 
 export interface CreateQueryLoggingConfigRequest {
-  __type?: "CreateQueryLoggingConfigRequest";
   /**
    * <p>The Amazon Resource Name (ARN) for the log group that you want to Amazon Route 53 to send query logs to. This is the format
    * 			of the ARN:</p>
@@ -1107,11 +1067,9 @@ export namespace CreateQueryLoggingConfigRequest {
   export const filterSensitiveLog = (obj: CreateQueryLoggingConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateQueryLoggingConfigRequest => __isa(o, "CreateQueryLoggingConfigRequest");
 }
 
 export interface CreateQueryLoggingConfigResponse {
-  __type?: "CreateQueryLoggingConfigResponse";
   /**
    * <p>A complex type that contains the ID for a query logging configuration, the ID of the hosted zone that you want to
    * 			log queries for, and the ARN for the log group that you want Amazon Route 53 to send query logs to.</p>
@@ -1128,11 +1086,9 @@ export namespace CreateQueryLoggingConfigResponse {
   export const filterSensitiveLog = (obj: CreateQueryLoggingConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateQueryLoggingConfigResponse => __isa(o, "CreateQueryLoggingConfigResponse");
 }
 
 export interface CreateReusableDelegationSetRequest {
-  __type?: "CreateReusableDelegationSetRequest";
   /**
    * <p>If you want to mark the delegation set for an existing hosted zone as reusable, the ID
    * 			for that hosted zone.</p>
@@ -1153,12 +1109,9 @@ export namespace CreateReusableDelegationSetRequest {
   export const filterSensitiveLog = (obj: CreateReusableDelegationSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReusableDelegationSetRequest =>
-    __isa(o, "CreateReusableDelegationSetRequest");
 }
 
 export interface CreateReusableDelegationSetResponse {
-  __type?: "CreateReusableDelegationSetResponse";
   /**
    * <p>The unique URL representing the new reusable delegation set.</p>
    */
@@ -1174,15 +1127,12 @@ export namespace CreateReusableDelegationSetResponse {
   export const filterSensitiveLog = (obj: CreateReusableDelegationSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReusableDelegationSetResponse =>
-    __isa(o, "CreateReusableDelegationSetResponse");
 }
 
 /**
  * <p>A complex type that contains information about the resource record sets that you want to create based on a specified traffic policy.</p>
  */
 export interface CreateTrafficPolicyInstanceRequest {
-  __type?: "CreateTrafficPolicyInstanceRequest";
   /**
    * <p>The domain name (such as example.com) or subdomain name (such as www.example.com) for which Amazon Route 53 responds to DNS queries by using
    * 			the resource record sets that Route 53 creates for this traffic policy instance.</p>
@@ -1214,15 +1164,12 @@ export namespace CreateTrafficPolicyInstanceRequest {
   export const filterSensitiveLog = (obj: CreateTrafficPolicyInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficPolicyInstanceRequest =>
-    __isa(o, "CreateTrafficPolicyInstanceRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the <code>CreateTrafficPolicyInstance</code> request.</p>
  */
 export interface CreateTrafficPolicyInstanceResponse {
-  __type?: "CreateTrafficPolicyInstanceResponse";
   /**
    * <p>A complex type that contains settings for the new traffic policy instance.</p>
    */
@@ -1238,15 +1185,12 @@ export namespace CreateTrafficPolicyInstanceResponse {
   export const filterSensitiveLog = (obj: CreateTrafficPolicyInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficPolicyInstanceResponse =>
-    __isa(o, "CreateTrafficPolicyInstanceResponse");
 }
 
 /**
  * <p>A complex type that contains information about the traffic policy that you want to create.</p>
  */
 export interface CreateTrafficPolicyRequest {
-  __type?: "CreateTrafficPolicyRequest";
   /**
    * <p>The name of the traffic policy.</p>
    */
@@ -1268,14 +1212,12 @@ export namespace CreateTrafficPolicyRequest {
   export const filterSensitiveLog = (obj: CreateTrafficPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficPolicyRequest => __isa(o, "CreateTrafficPolicyRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the <code>CreateTrafficPolicy</code> request.</p>
  */
 export interface CreateTrafficPolicyResponse {
-  __type?: "CreateTrafficPolicyResponse";
   /**
    * <p>A unique URL that represents a new traffic policy.</p>
    */
@@ -1291,14 +1233,12 @@ export namespace CreateTrafficPolicyResponse {
   export const filterSensitiveLog = (obj: CreateTrafficPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficPolicyResponse => __isa(o, "CreateTrafficPolicyResponse");
 }
 
 /**
  * <p>A complex type that contains information about the traffic policy that you want to create a new version for.</p>
  */
 export interface CreateTrafficPolicyVersionRequest {
-  __type?: "CreateTrafficPolicyVersionRequest";
   /**
    * <p>The definition of this version of the traffic policy, in JSON format. You specified the JSON in the <code>CreateTrafficPolicyVersion</code>
    * 			request. For more information about the JSON format, see
@@ -1321,14 +1261,12 @@ export namespace CreateTrafficPolicyVersionRequest {
   export const filterSensitiveLog = (obj: CreateTrafficPolicyVersionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficPolicyVersionRequest => __isa(o, "CreateTrafficPolicyVersionRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the <code>CreateTrafficPolicyVersion</code> request.</p>
  */
 export interface CreateTrafficPolicyVersionResponse {
-  __type?: "CreateTrafficPolicyVersionResponse";
   /**
    * <p>A unique URL that represents a new traffic policy version.</p>
    */
@@ -1344,8 +1282,6 @@ export namespace CreateTrafficPolicyVersionResponse {
   export const filterSensitiveLog = (obj: CreateTrafficPolicyVersionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTrafficPolicyVersionResponse =>
-    __isa(o, "CreateTrafficPolicyVersionResponse");
 }
 
 /**
@@ -1353,7 +1289,6 @@ export namespace CreateTrafficPolicyVersionResponse {
  * 			Authorization is only required when a private hosted zone and a VPC were created by using different accounts.</p>
  */
 export interface CreateVPCAssociationAuthorizationRequest {
-  __type?: "CreateVPCAssociationAuthorizationRequest";
   /**
    * <p>A complex type that contains the VPC ID and region for the VPC that you want to authorize associating
    * 			with your hosted zone.</p>
@@ -1370,15 +1305,12 @@ export namespace CreateVPCAssociationAuthorizationRequest {
   export const filterSensitiveLog = (obj: CreateVPCAssociationAuthorizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVPCAssociationAuthorizationRequest =>
-    __isa(o, "CreateVPCAssociationAuthorizationRequest");
 }
 
 /**
  * <p>A complex type that contains the response information from a <code>CreateVPCAssociationAuthorization</code> request.</p>
  */
 export interface CreateVPCAssociationAuthorizationResponse {
-  __type?: "CreateVPCAssociationAuthorizationResponse";
   /**
    * <p>The VPC that you authorized associating with a hosted zone.</p>
    */
@@ -1394,8 +1326,6 @@ export namespace CreateVPCAssociationAuthorizationResponse {
   export const filterSensitiveLog = (obj: CreateVPCAssociationAuthorizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateVPCAssociationAuthorizationResponse =>
-    __isa(o, "CreateVPCAssociationAuthorizationResponse");
 }
 
 /**
@@ -1403,7 +1333,6 @@ export namespace CreateVPCAssociationAuthorizationResponse {
  * 			for the delegation set.</p>
  */
 export interface DelegationSet {
-  __type?: "DelegationSet";
   /**
    * <p>A complex type that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.</p>
    */
@@ -1424,7 +1353,6 @@ export namespace DelegationSet {
   export const filterSensitiveLog = (obj: DelegationSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DelegationSet => __isa(o, "DelegationSet");
 }
 
 /**
@@ -1443,7 +1371,6 @@ export namespace DelegationSetAlreadyCreated {
   export const filterSensitiveLog = (obj: DelegationSetAlreadyCreated): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DelegationSetAlreadyCreated => __isa(o, "DelegationSetAlreadyCreated");
 }
 
 /**
@@ -1462,7 +1389,6 @@ export namespace DelegationSetAlreadyReusable {
   export const filterSensitiveLog = (obj: DelegationSetAlreadyReusable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DelegationSetAlreadyReusable => __isa(o, "DelegationSetAlreadyReusable");
 }
 
 /**
@@ -1482,7 +1408,6 @@ export namespace DelegationSetInUse {
   export const filterSensitiveLog = (obj: DelegationSetInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DelegationSetInUse => __isa(o, "DelegationSetInUse");
 }
 
 /**
@@ -1503,7 +1428,6 @@ export namespace DelegationSetNotAvailable {
   export const filterSensitiveLog = (obj: DelegationSetNotAvailable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DelegationSetNotAvailable => __isa(o, "DelegationSetNotAvailable");
 }
 
 /**
@@ -1522,14 +1446,12 @@ export namespace DelegationSetNotReusable {
   export const filterSensitiveLog = (obj: DelegationSetNotReusable): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DelegationSetNotReusable => __isa(o, "DelegationSetNotReusable");
 }
 
 /**
  * <p>This action deletes a health check.</p>
  */
 export interface DeleteHealthCheckRequest {
-  __type?: "DeleteHealthCheckRequest";
   /**
    * <p>The ID of the health check that you want to delete.</p>
    */
@@ -1540,28 +1462,23 @@ export namespace DeleteHealthCheckRequest {
   export const filterSensitiveLog = (obj: DeleteHealthCheckRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHealthCheckRequest => __isa(o, "DeleteHealthCheckRequest");
 }
 
 /**
  * <p>An empty element.</p>
  */
-export interface DeleteHealthCheckResponse {
-  __type?: "DeleteHealthCheckResponse";
-}
+export interface DeleteHealthCheckResponse {}
 
 export namespace DeleteHealthCheckResponse {
   export const filterSensitiveLog = (obj: DeleteHealthCheckResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHealthCheckResponse => __isa(o, "DeleteHealthCheckResponse");
 }
 
 /**
  * <p>A request to delete a hosted zone.</p>
  */
 export interface DeleteHostedZoneRequest {
-  __type?: "DeleteHostedZoneRequest";
   /**
    * <p>The ID of the hosted zone you want to delete.</p>
    */
@@ -1572,14 +1489,12 @@ export namespace DeleteHostedZoneRequest {
   export const filterSensitiveLog = (obj: DeleteHostedZoneRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHostedZoneRequest => __isa(o, "DeleteHostedZoneRequest");
 }
 
 /**
  * <p>A complex type that contains the response to a <code>DeleteHostedZone</code> request.</p>
  */
 export interface DeleteHostedZoneResponse {
-  __type?: "DeleteHostedZoneResponse";
   /**
    * <p>A complex type that contains the ID, the status, and the date and time of a request to delete a hosted zone.</p>
    */
@@ -1590,11 +1505,9 @@ export namespace DeleteHostedZoneResponse {
   export const filterSensitiveLog = (obj: DeleteHostedZoneResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteHostedZoneResponse => __isa(o, "DeleteHostedZoneResponse");
 }
 
 export interface DeleteQueryLoggingConfigRequest {
-  __type?: "DeleteQueryLoggingConfigRequest";
   /**
    * <p>The ID of the configuration that you want to delete. </p>
    */
@@ -1605,25 +1518,20 @@ export namespace DeleteQueryLoggingConfigRequest {
   export const filterSensitiveLog = (obj: DeleteQueryLoggingConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteQueryLoggingConfigRequest => __isa(o, "DeleteQueryLoggingConfigRequest");
 }
 
-export interface DeleteQueryLoggingConfigResponse {
-  __type?: "DeleteQueryLoggingConfigResponse";
-}
+export interface DeleteQueryLoggingConfigResponse {}
 
 export namespace DeleteQueryLoggingConfigResponse {
   export const filterSensitiveLog = (obj: DeleteQueryLoggingConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteQueryLoggingConfigResponse => __isa(o, "DeleteQueryLoggingConfigResponse");
 }
 
 /**
  * <p>A request to delete a reusable delegation set.</p>
  */
 export interface DeleteReusableDelegationSetRequest {
-  __type?: "DeleteReusableDelegationSetRequest";
   /**
    * <p>The ID of the reusable delegation set that you want to delete.</p>
    */
@@ -1634,30 +1542,23 @@ export namespace DeleteReusableDelegationSetRequest {
   export const filterSensitiveLog = (obj: DeleteReusableDelegationSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReusableDelegationSetRequest =>
-    __isa(o, "DeleteReusableDelegationSetRequest");
 }
 
 /**
  * <p>An empty element.</p>
  */
-export interface DeleteReusableDelegationSetResponse {
-  __type?: "DeleteReusableDelegationSetResponse";
-}
+export interface DeleteReusableDelegationSetResponse {}
 
 export namespace DeleteReusableDelegationSetResponse {
   export const filterSensitiveLog = (obj: DeleteReusableDelegationSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReusableDelegationSetResponse =>
-    __isa(o, "DeleteReusableDelegationSetResponse");
 }
 
 /**
  * <p>A request to delete a specified traffic policy instance.</p>
  */
 export interface DeleteTrafficPolicyInstanceRequest {
-  __type?: "DeleteTrafficPolicyInstanceRequest";
   /**
    * <p>The ID of the traffic policy instance that you want to delete. </p>
    * 		       <important>
@@ -1672,30 +1573,23 @@ export namespace DeleteTrafficPolicyInstanceRequest {
   export const filterSensitiveLog = (obj: DeleteTrafficPolicyInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficPolicyInstanceRequest =>
-    __isa(o, "DeleteTrafficPolicyInstanceRequest");
 }
 
 /**
  * <p>An empty element.</p>
  */
-export interface DeleteTrafficPolicyInstanceResponse {
-  __type?: "DeleteTrafficPolicyInstanceResponse";
-}
+export interface DeleteTrafficPolicyInstanceResponse {}
 
 export namespace DeleteTrafficPolicyInstanceResponse {
   export const filterSensitiveLog = (obj: DeleteTrafficPolicyInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficPolicyInstanceResponse =>
-    __isa(o, "DeleteTrafficPolicyInstanceResponse");
 }
 
 /**
  * <p>A request to delete a specified traffic policy version.</p>
  */
 export interface DeleteTrafficPolicyRequest {
-  __type?: "DeleteTrafficPolicyRequest";
   /**
    * <p>The ID of the traffic policy that you want to delete.</p>
    */
@@ -1711,21 +1605,17 @@ export namespace DeleteTrafficPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteTrafficPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficPolicyRequest => __isa(o, "DeleteTrafficPolicyRequest");
 }
 
 /**
  * <p>An empty element.</p>
  */
-export interface DeleteTrafficPolicyResponse {
-  __type?: "DeleteTrafficPolicyResponse";
-}
+export interface DeleteTrafficPolicyResponse {}
 
 export namespace DeleteTrafficPolicyResponse {
   export const filterSensitiveLog = (obj: DeleteTrafficPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTrafficPolicyResponse => __isa(o, "DeleteTrafficPolicyResponse");
 }
 
 /**
@@ -1733,7 +1623,6 @@ export namespace DeleteTrafficPolicyResponse {
  * 			that was created by one AWS account with a hosted zone that was created with a different AWS account. </p>
  */
 export interface DeleteVPCAssociationAuthorizationRequest {
-  __type?: "DeleteVPCAssociationAuthorizationRequest";
   /**
    * <p>When removing authorization to associate a VPC that was created by one AWS account with a hosted zone
    * 			that was created with a different AWS account, a complex type that includes the ID and region of the VPC.</p>
@@ -1751,30 +1640,23 @@ export namespace DeleteVPCAssociationAuthorizationRequest {
   export const filterSensitiveLog = (obj: DeleteVPCAssociationAuthorizationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVPCAssociationAuthorizationRequest =>
-    __isa(o, "DeleteVPCAssociationAuthorizationRequest");
 }
 
 /**
  * <p>Empty response for the request.</p>
  */
-export interface DeleteVPCAssociationAuthorizationResponse {
-  __type?: "DeleteVPCAssociationAuthorizationResponse";
-}
+export interface DeleteVPCAssociationAuthorizationResponse {}
 
 export namespace DeleteVPCAssociationAuthorizationResponse {
   export const filterSensitiveLog = (obj: DeleteVPCAssociationAuthorizationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVPCAssociationAuthorizationResponse =>
-    __isa(o, "DeleteVPCAssociationAuthorizationResponse");
 }
 
 /**
  * <p>For the metric that the CloudWatch alarm is associated with, a complex type that contains information about one dimension.</p>
  */
 export interface Dimension {
-  __type?: "Dimension";
   /**
    * <p>For the metric that the CloudWatch alarm is associated with, the name of one dimension.</p>
    */
@@ -1790,7 +1672,6 @@ export namespace Dimension {
   export const filterSensitiveLog = (obj: Dimension): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Dimension => __isa(o, "Dimension");
 }
 
 /**
@@ -1798,7 +1679,6 @@ export namespace Dimension {
  * 			specified private hosted zone.</p>
  */
 export interface DisassociateVPCFromHostedZoneRequest {
-  __type?: "DisassociateVPCFromHostedZoneRequest";
   /**
    * <p>
    *             <i>Optional:</i> A comment about the disassociation request.</p>
@@ -1821,15 +1701,12 @@ export namespace DisassociateVPCFromHostedZoneRequest {
   export const filterSensitiveLog = (obj: DisassociateVPCFromHostedZoneRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateVPCFromHostedZoneRequest =>
-    __isa(o, "DisassociateVPCFromHostedZoneRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the disassociate request.</p>
  */
 export interface DisassociateVPCFromHostedZoneResponse {
-  __type?: "DisassociateVPCFromHostedZoneResponse";
   /**
    * <p>A complex type that describes the changes made to the specified private hosted zone.</p>
    */
@@ -1840,15 +1717,12 @@ export namespace DisassociateVPCFromHostedZoneResponse {
   export const filterSensitiveLog = (obj: DisassociateVPCFromHostedZoneResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateVPCFromHostedZoneResponse =>
-    __isa(o, "DisassociateVPCFromHostedZoneResponse");
 }
 
 /**
  * <p>A complex type that contains information about a geographic location.</p>
  */
 export interface GeoLocation {
-  __type?: "GeoLocation";
   /**
    * <p>For geolocation resource record sets, the two-letter code for a country.</p>
    * 		       <p>Amazon Route 53 uses the two-letter country codes that are specified in
@@ -1908,14 +1782,12 @@ export namespace GeoLocation {
   export const filterSensitiveLog = (obj: GeoLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GeoLocation => __isa(o, "GeoLocation");
 }
 
 /**
  * <p>A complex type that contains the codes and full continent, country, and subdivision names for the specified <code>geolocation</code> code.</p>
  */
 export interface GeoLocationDetails {
-  __type?: "GeoLocationDetails";
   /**
    * <p>The name of the country.</p>
    */
@@ -1951,14 +1823,12 @@ export namespace GeoLocationDetails {
   export const filterSensitiveLog = (obj: GeoLocationDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GeoLocationDetails => __isa(o, "GeoLocationDetails");
 }
 
 /**
  * <p>A complex type that contains information about the request to create a hosted zone.</p>
  */
 export interface GetAccountLimitRequest {
-  __type?: "GetAccountLimitRequest";
   /**
    * <p>The limit that you want to get. Valid values include the following:</p>
    * 		       <ul>
@@ -1997,14 +1867,12 @@ export namespace GetAccountLimitRequest {
   export const filterSensitiveLog = (obj: GetAccountLimitRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountLimitRequest => __isa(o, "GetAccountLimitRequest");
 }
 
 /**
  * <p>A complex type that contains the requested limit. </p>
  */
 export interface GetAccountLimitResponse {
-  __type?: "GetAccountLimitResponse";
   /**
    * <p>The current number of entities that you have created of the specified type. For example, if you specified
    * 			<code>MAX_HEALTH_CHECKS_BY_OWNER</code> for the value of <code>Type</code> in the request, the value of <code>Count</code>
@@ -2024,14 +1892,12 @@ export namespace GetAccountLimitResponse {
   export const filterSensitiveLog = (obj: GetAccountLimitResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountLimitResponse => __isa(o, "GetAccountLimitResponse");
 }
 
 /**
  * <p>The input for a GetChange request.</p>
  */
 export interface GetChangeRequest {
-  __type?: "GetChangeRequest";
   /**
    * <p>The ID of the change batch request. The value that you specify here is the value that <code>ChangeResourceRecordSets</code>
    * 			returned in the <code>Id</code> element when you submitted the request.</p>
@@ -2043,14 +1909,12 @@ export namespace GetChangeRequest {
   export const filterSensitiveLog = (obj: GetChangeRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetChangeRequest => __isa(o, "GetChangeRequest");
 }
 
 /**
  * <p>A complex type that contains the <code>ChangeInfo</code> element.</p>
  */
 export interface GetChangeResponse {
-  __type?: "GetChangeResponse";
   /**
    * <p>A complex type that contains information about the specified change batch.</p>
    */
@@ -2061,28 +1925,23 @@ export namespace GetChangeResponse {
   export const filterSensitiveLog = (obj: GetChangeResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetChangeResponse => __isa(o, "GetChangeResponse");
 }
 
 /**
  * <p>Empty request.</p>
  */
-export interface GetCheckerIpRangesRequest {
-  __type?: "GetCheckerIpRangesRequest";
-}
+export interface GetCheckerIpRangesRequest {}
 
 export namespace GetCheckerIpRangesRequest {
   export const filterSensitiveLog = (obj: GetCheckerIpRangesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCheckerIpRangesRequest => __isa(o, "GetCheckerIpRangesRequest");
 }
 
 /**
  * <p>A complex type that contains the <code>CheckerIpRanges</code> element.</p>
  */
 export interface GetCheckerIpRangesResponse {
-  __type?: "GetCheckerIpRangesResponse";
   /**
    * <p>A complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health
    * 			checkers.</p>
@@ -2094,14 +1953,12 @@ export namespace GetCheckerIpRangesResponse {
   export const filterSensitiveLog = (obj: GetCheckerIpRangesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCheckerIpRangesResponse => __isa(o, "GetCheckerIpRangesResponse");
 }
 
 /**
  * <p>A request for information about whether a specified geographic location is supported for Amazon Route 53 geolocation resource record sets.</p>
  */
 export interface GetGeoLocationRequest {
-  __type?: "GetGeoLocationRequest";
   /**
    * <p>For geolocation resource record sets, a two-letter abbreviation that identifies a continent. Amazon Route 53 supports the following continent codes:</p>
    * 		       <ul>
@@ -2156,14 +2013,12 @@ export namespace GetGeoLocationRequest {
   export const filterSensitiveLog = (obj: GetGeoLocationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGeoLocationRequest => __isa(o, "GetGeoLocationRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the specified geolocation code.</p>
  */
 export interface GetGeoLocationResponse {
-  __type?: "GetGeoLocationResponse";
   /**
    * <p>A complex type that contains the codes and full continent, country, and subdivision names for the specified geolocation code.</p>
    */
@@ -2174,28 +2029,23 @@ export namespace GetGeoLocationResponse {
   export const filterSensitiveLog = (obj: GetGeoLocationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetGeoLocationResponse => __isa(o, "GetGeoLocationResponse");
 }
 
 /**
  * <p>A request for the number of health checks that are associated with the current AWS account.</p>
  */
-export interface GetHealthCheckCountRequest {
-  __type?: "GetHealthCheckCountRequest";
-}
+export interface GetHealthCheckCountRequest {}
 
 export namespace GetHealthCheckCountRequest {
   export const filterSensitiveLog = (obj: GetHealthCheckCountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHealthCheckCountRequest => __isa(o, "GetHealthCheckCountRequest");
 }
 
 /**
  * <p>A complex type that contains the response to a <code>GetHealthCheckCount</code> request.</p>
  */
 export interface GetHealthCheckCountResponse {
-  __type?: "GetHealthCheckCountResponse";
   /**
    * <p>The number of health checks associated with the current AWS account.</p>
    */
@@ -2206,14 +2056,12 @@ export namespace GetHealthCheckCountResponse {
   export const filterSensitiveLog = (obj: GetHealthCheckCountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHealthCheckCountResponse => __isa(o, "GetHealthCheckCountResponse");
 }
 
 /**
  * <p>A request for the reason that a health check failed most recently.</p>
  */
 export interface GetHealthCheckLastFailureReasonRequest {
-  __type?: "GetHealthCheckLastFailureReasonRequest";
   /**
    * <p>The ID for the health check for which you want the last failure reason. When you created the health check,
    * 			<code>CreateHealthCheck</code> returned the ID in the response, in the <code>HealthCheckId</code> element.</p>
@@ -2229,15 +2077,12 @@ export namespace GetHealthCheckLastFailureReasonRequest {
   export const filterSensitiveLog = (obj: GetHealthCheckLastFailureReasonRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHealthCheckLastFailureReasonRequest =>
-    __isa(o, "GetHealthCheckLastFailureReasonRequest");
 }
 
 /**
  * <p>A complex type that contains the response to a <code>GetHealthCheckLastFailureReason</code> request.</p>
  */
 export interface GetHealthCheckLastFailureReasonResponse {
-  __type?: "GetHealthCheckLastFailureReasonResponse";
   /**
    * <p>A list that contains one <code>Observation</code> element for each Amazon Route 53 health checker that is reporting a last failure reason. </p>
    */
@@ -2248,15 +2093,12 @@ export namespace GetHealthCheckLastFailureReasonResponse {
   export const filterSensitiveLog = (obj: GetHealthCheckLastFailureReasonResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHealthCheckLastFailureReasonResponse =>
-    __isa(o, "GetHealthCheckLastFailureReasonResponse");
 }
 
 /**
  * <p>A request to get information about a specified health check. </p>
  */
 export interface GetHealthCheckRequest {
-  __type?: "GetHealthCheckRequest";
   /**
    * <p>The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set,
    * 			you use this value to specify which health check to use. The value can be up to 64 characters long.</p>
@@ -2268,14 +2110,12 @@ export namespace GetHealthCheckRequest {
   export const filterSensitiveLog = (obj: GetHealthCheckRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHealthCheckRequest => __isa(o, "GetHealthCheckRequest");
 }
 
 /**
  * <p>A complex type that contains the response to a <code>GetHealthCheck</code> request.</p>
  */
 export interface GetHealthCheckResponse {
-  __type?: "GetHealthCheckResponse";
   /**
    * <p>A complex type that contains information about one health check that is associated with
    * 			the current AWS account.</p>
@@ -2287,14 +2127,12 @@ export namespace GetHealthCheckResponse {
   export const filterSensitiveLog = (obj: GetHealthCheckResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHealthCheckResponse => __isa(o, "GetHealthCheckResponse");
 }
 
 /**
  * <p>A request to get the status for a health check.</p>
  */
 export interface GetHealthCheckStatusRequest {
-  __type?: "GetHealthCheckStatusRequest";
   /**
    * <p>The ID for the health check that you want the current status for. When you created the health check,
    * 			<code>CreateHealthCheck</code> returned the ID in the response, in the <code>HealthCheckId</code> element.</p>
@@ -2310,7 +2148,6 @@ export namespace GetHealthCheckStatusRequest {
   export const filterSensitiveLog = (obj: GetHealthCheckStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHealthCheckStatusRequest => __isa(o, "GetHealthCheckStatusRequest");
 }
 
 /**
@@ -2318,7 +2155,6 @@ export namespace GetHealthCheckStatusRequest {
  * 			request.</p>
  */
 export interface GetHealthCheckStatusResponse {
-  __type?: "GetHealthCheckStatusResponse";
   /**
    * <p>A list that contains one <code>HealthCheckObservation</code> element for each Amazon Route 53 health checker that is reporting a status
    * 			about the health check endpoint.</p>
@@ -2330,28 +2166,23 @@ export namespace GetHealthCheckStatusResponse {
   export const filterSensitiveLog = (obj: GetHealthCheckStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHealthCheckStatusResponse => __isa(o, "GetHealthCheckStatusResponse");
 }
 
 /**
  * <p>A request to retrieve a count of all the hosted zones that are associated with the current AWS account.</p>
  */
-export interface GetHostedZoneCountRequest {
-  __type?: "GetHostedZoneCountRequest";
-}
+export interface GetHostedZoneCountRequest {}
 
 export namespace GetHostedZoneCountRequest {
   export const filterSensitiveLog = (obj: GetHostedZoneCountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostedZoneCountRequest => __isa(o, "GetHostedZoneCountRequest");
 }
 
 /**
  * <p>A complex type that contains the response to a <code>GetHostedZoneCount</code> request.</p>
  */
 export interface GetHostedZoneCountResponse {
-  __type?: "GetHostedZoneCountResponse";
   /**
    * <p>The total number of public and private hosted zones that are associated with the current AWS account.</p>
    */
@@ -2362,14 +2193,12 @@ export namespace GetHostedZoneCountResponse {
   export const filterSensitiveLog = (obj: GetHostedZoneCountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostedZoneCountResponse => __isa(o, "GetHostedZoneCountResponse");
 }
 
 /**
  * <p>A complex type that contains information about the request to create a hosted zone.</p>
  */
 export interface GetHostedZoneLimitRequest {
-  __type?: "GetHostedZoneLimitRequest";
   /**
    * <p>The ID of the hosted zone that you want to get a limit for.</p>
    */
@@ -2397,14 +2226,12 @@ export namespace GetHostedZoneLimitRequest {
   export const filterSensitiveLog = (obj: GetHostedZoneLimitRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostedZoneLimitRequest => __isa(o, "GetHostedZoneLimitRequest");
 }
 
 /**
  * <p>A complex type that contains the requested limit. </p>
  */
 export interface GetHostedZoneLimitResponse {
-  __type?: "GetHostedZoneLimitResponse";
   /**
    * <p>The current setting for the specified limit. For example, if you specified <code>MAX_RRSETS_BY_ZONE</code> for the value of
    * 			<code>Type</code> in the request, the value of <code>Limit</code> is the maximum number of records that you can create
@@ -2424,14 +2251,12 @@ export namespace GetHostedZoneLimitResponse {
   export const filterSensitiveLog = (obj: GetHostedZoneLimitResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostedZoneLimitResponse => __isa(o, "GetHostedZoneLimitResponse");
 }
 
 /**
  * <p>A request to get information about a specified hosted zone. </p>
  */
 export interface GetHostedZoneRequest {
-  __type?: "GetHostedZoneRequest";
   /**
    * <p>The ID of the hosted zone that you want to get information about.</p>
    */
@@ -2442,14 +2267,12 @@ export namespace GetHostedZoneRequest {
   export const filterSensitiveLog = (obj: GetHostedZoneRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostedZoneRequest => __isa(o, "GetHostedZoneRequest");
 }
 
 /**
  * <p>A complex type that contain the response to a <code>GetHostedZone</code> request.</p>
  */
 export interface GetHostedZoneResponse {
-  __type?: "GetHostedZoneResponse";
   /**
    * <p>A complex type that lists the Amazon Route 53 name servers for the specified hosted zone.</p>
    */
@@ -2470,11 +2293,9 @@ export namespace GetHostedZoneResponse {
   export const filterSensitiveLog = (obj: GetHostedZoneResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetHostedZoneResponse => __isa(o, "GetHostedZoneResponse");
 }
 
 export interface GetQueryLoggingConfigRequest {
-  __type?: "GetQueryLoggingConfigRequest";
   /**
    * <p>The ID of the configuration for DNS query logging that you want to get information about.</p>
    */
@@ -2485,11 +2306,9 @@ export namespace GetQueryLoggingConfigRequest {
   export const filterSensitiveLog = (obj: GetQueryLoggingConfigRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQueryLoggingConfigRequest => __isa(o, "GetQueryLoggingConfigRequest");
 }
 
 export interface GetQueryLoggingConfigResponse {
-  __type?: "GetQueryLoggingConfigResponse";
   /**
    * <p>A complex type that contains information about the query logging configuration that you specified in a
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetQueryLoggingConfig.html">GetQueryLoggingConfig</a> request.</p>
@@ -2501,14 +2320,12 @@ export namespace GetQueryLoggingConfigResponse {
   export const filterSensitiveLog = (obj: GetQueryLoggingConfigResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQueryLoggingConfigResponse => __isa(o, "GetQueryLoggingConfigResponse");
 }
 
 /**
  * <p>A complex type that contains information about the request to create a hosted zone.</p>
  */
 export interface GetReusableDelegationSetLimitRequest {
-  __type?: "GetReusableDelegationSetLimitRequest";
   /**
    * <p>The ID of the delegation set that you want to get the limit for.</p>
    */
@@ -2525,15 +2342,12 @@ export namespace GetReusableDelegationSetLimitRequest {
   export const filterSensitiveLog = (obj: GetReusableDelegationSetLimitRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetReusableDelegationSetLimitRequest =>
-    __isa(o, "GetReusableDelegationSetLimitRequest");
 }
 
 /**
  * <p>A complex type that contains the requested limit. </p>
  */
 export interface GetReusableDelegationSetLimitResponse {
-  __type?: "GetReusableDelegationSetLimitResponse";
   /**
    * <p>The current setting for the limit on hosted zones that you can associate with the specified reusable delegation set.</p>
    */
@@ -2549,15 +2363,12 @@ export namespace GetReusableDelegationSetLimitResponse {
   export const filterSensitiveLog = (obj: GetReusableDelegationSetLimitResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetReusableDelegationSetLimitResponse =>
-    __isa(o, "GetReusableDelegationSetLimitResponse");
 }
 
 /**
  * <p>A request to get information about a specified reusable delegation set.</p>
  */
 export interface GetReusableDelegationSetRequest {
-  __type?: "GetReusableDelegationSetRequest";
   /**
    * <p>The ID of the reusable delegation set that you want to get a list of name servers for.</p>
    */
@@ -2568,14 +2379,12 @@ export namespace GetReusableDelegationSetRequest {
   export const filterSensitiveLog = (obj: GetReusableDelegationSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetReusableDelegationSetRequest => __isa(o, "GetReusableDelegationSetRequest");
 }
 
 /**
  * <p>A complex type that contains the response to the <code>GetReusableDelegationSet</code> request.</p>
  */
 export interface GetReusableDelegationSetResponse {
-  __type?: "GetReusableDelegationSetResponse";
   /**
    * <p>A complex type that contains information about the reusable delegation set.</p>
    */
@@ -2586,29 +2395,23 @@ export namespace GetReusableDelegationSetResponse {
   export const filterSensitiveLog = (obj: GetReusableDelegationSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetReusableDelegationSetResponse => __isa(o, "GetReusableDelegationSetResponse");
 }
 
 /**
  * <p>Request to get the number of traffic policy instances that are associated with the current AWS account.</p>
  */
-export interface GetTrafficPolicyInstanceCountRequest {
-  __type?: "GetTrafficPolicyInstanceCountRequest";
-}
+export interface GetTrafficPolicyInstanceCountRequest {}
 
 export namespace GetTrafficPolicyInstanceCountRequest {
   export const filterSensitiveLog = (obj: GetTrafficPolicyInstanceCountRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTrafficPolicyInstanceCountRequest =>
-    __isa(o, "GetTrafficPolicyInstanceCountRequest");
 }
 
 /**
  * <p>A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.</p>
  */
 export interface GetTrafficPolicyInstanceCountResponse {
-  __type?: "GetTrafficPolicyInstanceCountResponse";
   /**
    * <p>The number of traffic policy instances that are associated with the current AWS account.</p>
    */
@@ -2619,15 +2422,12 @@ export namespace GetTrafficPolicyInstanceCountResponse {
   export const filterSensitiveLog = (obj: GetTrafficPolicyInstanceCountResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTrafficPolicyInstanceCountResponse =>
-    __isa(o, "GetTrafficPolicyInstanceCountResponse");
 }
 
 /**
  * <p>Gets information about a specified traffic policy instance.</p>
  */
 export interface GetTrafficPolicyInstanceRequest {
-  __type?: "GetTrafficPolicyInstanceRequest";
   /**
    * <p>The ID of the traffic policy instance that you want to get information about.</p>
    */
@@ -2638,14 +2438,12 @@ export namespace GetTrafficPolicyInstanceRequest {
   export const filterSensitiveLog = (obj: GetTrafficPolicyInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTrafficPolicyInstanceRequest => __isa(o, "GetTrafficPolicyInstanceRequest");
 }
 
 /**
  * <p>A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.</p>
  */
 export interface GetTrafficPolicyInstanceResponse {
-  __type?: "GetTrafficPolicyInstanceResponse";
   /**
    * <p>A complex type that contains settings for the traffic policy instance.</p>
    */
@@ -2656,14 +2454,12 @@ export namespace GetTrafficPolicyInstanceResponse {
   export const filterSensitiveLog = (obj: GetTrafficPolicyInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTrafficPolicyInstanceResponse => __isa(o, "GetTrafficPolicyInstanceResponse");
 }
 
 /**
  * <p>Gets information about a specific traffic policy version.</p>
  */
 export interface GetTrafficPolicyRequest {
-  __type?: "GetTrafficPolicyRequest";
   /**
    * <p>The version number of the traffic policy that you want to get information about.</p>
    */
@@ -2679,14 +2475,12 @@ export namespace GetTrafficPolicyRequest {
   export const filterSensitiveLog = (obj: GetTrafficPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTrafficPolicyRequest => __isa(o, "GetTrafficPolicyRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface GetTrafficPolicyResponse {
-  __type?: "GetTrafficPolicyResponse";
   /**
    * <p>A complex type that contains settings for the specified traffic policy.</p>
    */
@@ -2697,14 +2491,12 @@ export namespace GetTrafficPolicyResponse {
   export const filterSensitiveLog = (obj: GetTrafficPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTrafficPolicyResponse => __isa(o, "GetTrafficPolicyResponse");
 }
 
 /**
  * <p>A complex type that contains information about one health check that is associated with the current AWS account.</p>
  */
 export interface HealthCheck {
-  __type?: "HealthCheck";
   /**
    * <p>The identifier that Amazon Route 53assigned to the health check when you created it. When you add or update a resource record set, you use
    * 			this value to specify which health check to use. The value can be up to 64 characters long. </p>
@@ -2743,7 +2535,6 @@ export namespace HealthCheck {
   export const filterSensitiveLog = (obj: HealthCheck): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HealthCheck => __isa(o, "HealthCheck");
 }
 
 /**
@@ -2773,14 +2564,12 @@ export namespace HealthCheckAlreadyExists {
   export const filterSensitiveLog = (obj: HealthCheckAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HealthCheckAlreadyExists => __isa(o, "HealthCheckAlreadyExists");
 }
 
 /**
  * <p>A complex type that contains information about the health check.</p>
  */
 export interface HealthCheckConfig {
-  __type?: "HealthCheckConfig";
   /**
    * <p>The number of child health checks that are associated with a <code>CALCULATED</code> health check that Amazon Route 53 must consider healthy for the
    * 			<code>CALCULATED</code> health check to be considered healthy. To specify the child health checks that you want to associate with a
@@ -3107,7 +2896,6 @@ export namespace HealthCheckConfig {
   export const filterSensitiveLog = (obj: HealthCheckConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HealthCheckConfig => __isa(o, "HealthCheckConfig");
 }
 
 /**
@@ -3126,14 +2914,12 @@ export namespace HealthCheckInUse {
   export const filterSensitiveLog = (obj: HealthCheckInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HealthCheckInUse => __isa(o, "HealthCheckInUse");
 }
 
 /**
  * <p>A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker.</p>
  */
 export interface HealthCheckObservation {
-  __type?: "HealthCheckObservation";
   /**
    * <p>The region of the Amazon Route 53 health checker that provided the status in <code>StatusReport</code>.</p>
    */
@@ -3154,7 +2940,6 @@ export namespace HealthCheckObservation {
   export const filterSensitiveLog = (obj: HealthCheckObservation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HealthCheckObservation => __isa(o, "HealthCheckObservation");
 }
 
 export type HealthCheckRegion =
@@ -3191,14 +2976,12 @@ export namespace HealthCheckVersionMismatch {
   export const filterSensitiveLog = (obj: HealthCheckVersionMismatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HealthCheckVersionMismatch => __isa(o, "HealthCheckVersionMismatch");
 }
 
 /**
  * <p>A complex type that contains general information about the hosted zone.</p>
  */
 export interface HostedZone {
-  __type?: "HostedZone";
   /**
    * <p>The number of resource record sets in the hosted zone.</p>
    */
@@ -3243,7 +3026,6 @@ export namespace HostedZone {
   export const filterSensitiveLog = (obj: HostedZone): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostedZone => __isa(o, "HostedZone");
 }
 
 /**
@@ -3263,7 +3045,6 @@ export namespace HostedZoneAlreadyExists {
   export const filterSensitiveLog = (obj: HostedZoneAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostedZoneAlreadyExists => __isa(o, "HostedZoneAlreadyExists");
 }
 
 /**
@@ -3272,7 +3053,6 @@ export namespace HostedZoneAlreadyExists {
  * 			<code>Comment</code> elements.</p>
  */
 export interface HostedZoneConfig {
-  __type?: "HostedZoneConfig";
   /**
    * <p>Any comments that you want to include about the hosted zone.</p>
    */
@@ -3288,14 +3068,12 @@ export namespace HostedZoneConfig {
   export const filterSensitiveLog = (obj: HostedZoneConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostedZoneConfig => __isa(o, "HostedZoneConfig");
 }
 
 /**
  * <p>A complex type that contains the type of limit that you specified in the request and the current value for that limit.</p>
  */
 export interface HostedZoneLimit {
-  __type?: "HostedZoneLimit";
   /**
    * <p>The current value for the limit that is specified by <code>Type</code>.</p>
    */
@@ -3323,7 +3101,6 @@ export namespace HostedZoneLimit {
   export const filterSensitiveLog = (obj: HostedZoneLimit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostedZoneLimit => __isa(o, "HostedZoneLimit");
 }
 
 export type HostedZoneLimitType = "MAX_RRSETS_BY_ZONE" | "MAX_VPCS_ASSOCIATED_BY_ZONE";
@@ -3344,7 +3121,6 @@ export namespace HostedZoneNotEmpty {
   export const filterSensitiveLog = (obj: HostedZoneNotEmpty): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostedZoneNotEmpty => __isa(o, "HostedZoneNotEmpty");
 }
 
 /**
@@ -3363,7 +3139,6 @@ export namespace HostedZoneNotFound {
   export const filterSensitiveLog = (obj: HostedZoneNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostedZoneNotFound => __isa(o, "HostedZoneNotFound");
 }
 
 /**
@@ -3382,7 +3157,6 @@ export namespace HostedZoneNotPrivate {
   export const filterSensitiveLog = (obj: HostedZoneNotPrivate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostedZoneNotPrivate => __isa(o, "HostedZoneNotPrivate");
 }
 
 /**
@@ -3390,7 +3164,6 @@ export namespace HostedZoneNotPrivate {
  * 			If there is a value for <code>OwningAccount</code>, there is no value for <code>OwningService</code>, and vice versa. </p>
  */
 export interface HostedZoneOwner {
-  __type?: "HostedZoneOwner";
   /**
    * <p>If the hosted zone was created by an AWS account, or was created by an AWS service that creates hosted zones using the current account,
    * 			<code>OwningAccount</code> contains the account ID of that account. For example, when you use AWS Cloud Map to create a hosted zone, Cloud Map
@@ -3410,7 +3183,6 @@ export namespace HostedZoneOwner {
   export const filterSensitiveLog = (obj: HostedZoneOwner): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostedZoneOwner => __isa(o, "HostedZoneOwner");
 }
 
 /**
@@ -3419,7 +3191,6 @@ export namespace HostedZoneOwner {
  * 			Each <code>HostedZoneSummary</code> element contains the hosted zone name and ID, and information about who owns the hosted zone.</p>
  */
 export interface HostedZoneSummary {
-  __type?: "HostedZoneSummary";
   /**
    * <p>The owner of a private hosted zone that the specified VPC is associated with. The owner can be either an AWS account or
    * 			an AWS service.</p>
@@ -3441,7 +3212,6 @@ export namespace HostedZoneSummary {
   export const filterSensitiveLog = (obj: HostedZoneSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HostedZoneSummary => __isa(o, "HostedZoneSummary");
 }
 
 /**
@@ -3457,7 +3227,6 @@ export namespace IncompatibleVersion {
   export const filterSensitiveLog = (obj: IncompatibleVersion): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncompatibleVersion => __isa(o, "IncompatibleVersion");
 }
 
 /**
@@ -3486,8 +3255,6 @@ export namespace InsufficientCloudWatchLogsResourcePolicy {
   export const filterSensitiveLog = (obj: InsufficientCloudWatchLogsResourcePolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientCloudWatchLogsResourcePolicy =>
-    __isa(o, "InsufficientCloudWatchLogsResourcePolicy");
 }
 
 export type InsufficientDataHealthStatus = "Healthy" | "LastKnownStatus" | "Unhealthy";
@@ -3508,7 +3275,6 @@ export namespace InvalidArgument {
   export const filterSensitiveLog = (obj: InvalidArgument): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArgument => __isa(o, "InvalidArgument");
 }
 
 /**
@@ -3530,7 +3296,6 @@ export namespace InvalidChangeBatch {
   export const filterSensitiveLog = (obj: InvalidChangeBatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidChangeBatch => __isa(o, "InvalidChangeBatch");
 }
 
 /**
@@ -3549,7 +3314,6 @@ export namespace InvalidDomainName {
   export const filterSensitiveLog = (obj: InvalidDomainName): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDomainName => __isa(o, "InvalidDomainName");
 }
 
 /**
@@ -3568,7 +3332,6 @@ export namespace InvalidInput {
   export const filterSensitiveLog = (obj: InvalidInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidInput => __isa(o, "InvalidInput");
 }
 
 /**
@@ -3584,7 +3347,6 @@ export namespace InvalidPaginationToken {
   export const filterSensitiveLog = (obj: InvalidPaginationToken): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPaginationToken => __isa(o, "InvalidPaginationToken");
 }
 
 /**
@@ -3603,7 +3365,6 @@ export namespace InvalidTrafficPolicyDocument {
   export const filterSensitiveLog = (obj: InvalidTrafficPolicyDocument): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTrafficPolicyDocument => __isa(o, "InvalidTrafficPolicyDocument");
 }
 
 /**
@@ -3622,7 +3383,6 @@ export namespace InvalidVPCId {
   export const filterSensitiveLog = (obj: InvalidVPCId): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidVPCId => __isa(o, "InvalidVPCId");
 }
 
 /**
@@ -3642,7 +3402,6 @@ export namespace LastVPCAssociation {
   export const filterSensitiveLog = (obj: LastVPCAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LastVPCAssociation => __isa(o, "LastVPCAssociation");
 }
 
 /**
@@ -3667,7 +3426,6 @@ export namespace LimitsExceeded {
   export const filterSensitiveLog = (obj: LimitsExceeded): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitsExceeded => __isa(o, "LimitsExceeded");
 }
 
 /**
@@ -3675,7 +3433,6 @@ export namespace LimitsExceeded {
  * 			describes the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53. </p>
  */
 export interface LinkedService {
-  __type?: "LinkedService";
   /**
    * <p>If the health check or hosted zone was created by another service, an optional description that can be provided by the other service.
    * 			When a resource is created by another service, you can't edit or delete it using Amazon Route 53. </p>
@@ -3693,14 +3450,12 @@ export namespace LinkedService {
   export const filterSensitiveLog = (obj: LinkedService): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LinkedService => __isa(o, "LinkedService");
 }
 
 /**
  * <p>A request to get a list of geographic locations that Amazon Route 53 supports for geolocation resource record sets. </p>
  */
 export interface ListGeoLocationsRequest {
-  __type?: "ListGeoLocationsRequest";
   /**
    * <p>The code for the continent with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already
    * 			returned a page or more of results, if <code>IsTruncated</code> is true, and if <code>NextContinentCode</code> from the previous
@@ -3737,14 +3492,12 @@ export namespace ListGeoLocationsRequest {
   export const filterSensitiveLog = (obj: ListGeoLocationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGeoLocationsRequest => __isa(o, "ListGeoLocationsRequest");
 }
 
 /**
  * <p>A complex type containing the response information for the request.</p>
  */
 export interface ListGeoLocationsResponse {
-  __type?: "ListGeoLocationsResponse";
   /**
    * <p>A complex type that contains one <code>GeoLocationDetails</code> element for each location that Amazon Route 53 supports for geolocation.</p>
    */
@@ -3786,14 +3539,12 @@ export namespace ListGeoLocationsResponse {
   export const filterSensitiveLog = (obj: ListGeoLocationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGeoLocationsResponse => __isa(o, "ListGeoLocationsResponse");
 }
 
 /**
  * <p>A request to retrieve a list of the health checks that are associated with the current AWS account.</p>
  */
 export interface ListHealthChecksRequest {
-  __type?: "ListHealthChecksRequest";
   /**
    * <p>The maximum number of health checks that you want <code>ListHealthChecks</code> to return in response to the current request.
    * 			Amazon Route 53 returns a maximum of 100 items. If you set <code>MaxItems</code> to a value greater than 100, Route 53 returns only the first 100 health checks. </p>
@@ -3814,14 +3565,12 @@ export namespace ListHealthChecksRequest {
   export const filterSensitiveLog = (obj: ListHealthChecksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHealthChecksRequest => __isa(o, "ListHealthChecksRequest");
 }
 
 /**
  * <p>A complex type that contains the response to a <code>ListHealthChecks</code> request.</p>
  */
 export interface ListHealthChecksResponse {
-  __type?: "ListHealthChecksResponse";
   /**
    * <p>A complex type that contains one <code>HealthCheck</code> element for each health check that is associated with the current
    * 			AWS account.</p>
@@ -3859,7 +3608,6 @@ export namespace ListHealthChecksResponse {
   export const filterSensitiveLog = (obj: ListHealthChecksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHealthChecksResponse => __isa(o, "ListHealthChecksResponse");
 }
 
 /**
@@ -3867,7 +3615,6 @@ export namespace ListHealthChecksResponse {
  * 			name. </p>
  */
 export interface ListHostedZonesByNameRequest {
-  __type?: "ListHostedZonesByNameRequest";
   /**
    * <p>(Optional) For your first request to <code>ListHostedZonesByName</code>, include the <code>dnsname</code> parameter only if you want to
    * 			specify the name of the first hosted zone in the response. If you don't include the <code>dnsname</code> parameter, Amazon Route 53 returns all of
@@ -3897,14 +3644,12 @@ export namespace ListHostedZonesByNameRequest {
   export const filterSensitiveLog = (obj: ListHostedZonesByNameRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHostedZonesByNameRequest => __isa(o, "ListHostedZonesByNameRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListHostedZonesByNameResponse {
-  __type?: "ListHostedZonesByNameResponse";
   /**
    * <p>If <code>IsTruncated</code> is <code>true</code>, the value of <code>NextHostedZoneId</code> identifies the first hosted zone in the
    * 			next group of <code>maxitems</code> hosted zones. Call <code>ListHostedZonesByName</code> again and specify the value of <code>NextDNSName</code>
@@ -3955,14 +3700,12 @@ export namespace ListHostedZonesByNameResponse {
   export const filterSensitiveLog = (obj: ListHostedZonesByNameResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHostedZonesByNameResponse => __isa(o, "ListHostedZonesByNameResponse");
 }
 
 /**
  * <p>Lists all the private hosted zones that a specified VPC is associated with, regardless of which AWS account created the hosted zones.</p>
  */
 export interface ListHostedZonesByVPCRequest {
-  __type?: "ListHostedZonesByVPCRequest";
   /**
    * <p>For the Amazon VPC that you specified for <code>VPCId</code>, the AWS Region that you created the VPC in. </p>
    */
@@ -3993,11 +3736,9 @@ export namespace ListHostedZonesByVPCRequest {
   export const filterSensitiveLog = (obj: ListHostedZonesByVPCRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHostedZonesByVPCRequest => __isa(o, "ListHostedZonesByVPCRequest");
 }
 
 export interface ListHostedZonesByVPCResponse {
-  __type?: "ListHostedZonesByVPCResponse";
   /**
    * <p>The value that you specified for <code>MaxItems</code> in the most recent <code>ListHostedZonesByVPC</code> request.</p>
    */
@@ -4019,14 +3760,12 @@ export namespace ListHostedZonesByVPCResponse {
   export const filterSensitiveLog = (obj: ListHostedZonesByVPCResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHostedZonesByVPCResponse => __isa(o, "ListHostedZonesByVPCResponse");
 }
 
 /**
  * <p>A request to retrieve a list of the public and private hosted zones that are associated with the current AWS account.</p>
  */
 export interface ListHostedZonesRequest {
-  __type?: "ListHostedZonesRequest";
   /**
    * <p>If you're using reusable delegation sets and you want to list all of the hosted zones that are associated
    * 			with a reusable delegation set, specify the ID of that reusable delegation set. </p>
@@ -4054,11 +3793,9 @@ export namespace ListHostedZonesRequest {
   export const filterSensitiveLog = (obj: ListHostedZonesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHostedZonesRequest => __isa(o, "ListHostedZonesRequest");
 }
 
 export interface ListHostedZonesResponse {
-  __type?: "ListHostedZonesResponse";
   /**
    * <p>If <code>IsTruncated</code> is <code>true</code>, the value of <code>NextMarker</code> identifies the first hosted zone in the next group
    * 			of hosted zones. Submit another <code>ListHostedZones</code> request, and specify the value of <code>NextMarker</code> from the response in the
@@ -4096,11 +3833,9 @@ export namespace ListHostedZonesResponse {
   export const filterSensitiveLog = (obj: ListHostedZonesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListHostedZonesResponse => __isa(o, "ListHostedZonesResponse");
 }
 
 export interface ListQueryLoggingConfigsRequest {
-  __type?: "ListQueryLoggingConfigsRequest";
   /**
    * <p>(Optional) If you want to list the query logging configuration that is associated with a hosted zone, specify the ID in
    * 			<code>HostedZoneId</code>. </p>
@@ -4132,11 +3867,9 @@ export namespace ListQueryLoggingConfigsRequest {
   export const filterSensitiveLog = (obj: ListQueryLoggingConfigsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQueryLoggingConfigsRequest => __isa(o, "ListQueryLoggingConfigsRequest");
 }
 
 export interface ListQueryLoggingConfigsResponse {
-  __type?: "ListQueryLoggingConfigsResponse";
   /**
    * <p>An array that contains one
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html">QueryLoggingConfig</a> element
@@ -4159,14 +3892,12 @@ export namespace ListQueryLoggingConfigsResponse {
   export const filterSensitiveLog = (obj: ListQueryLoggingConfigsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListQueryLoggingConfigsResponse => __isa(o, "ListQueryLoggingConfigsResponse");
 }
 
 /**
  * <p>A request for the resource record sets that are associated with a specified hosted zone.</p>
  */
 export interface ListResourceRecordSetsRequest {
-  __type?: "ListResourceRecordSetsRequest";
   /**
    * <p>The ID of the hosted zone that contains the resource record sets that you want to list.</p>
    */
@@ -4244,14 +3975,12 @@ export namespace ListResourceRecordSetsRequest {
   export const filterSensitiveLog = (obj: ListResourceRecordSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceRecordSetsRequest => __isa(o, "ListResourceRecordSetsRequest");
 }
 
 /**
  * <p>A complex type that contains list information for the resource record set.</p>
  */
 export interface ListResourceRecordSetsResponse {
-  __type?: "ListResourceRecordSetsResponse";
   /**
    * <p>A flag that indicates whether more resource record sets remain to be listed. If your results were truncated, you can make a
    * 			follow-up pagination request by using the <code>NextRecordName</code> element.</p>
@@ -4295,14 +4024,12 @@ export namespace ListResourceRecordSetsResponse {
   export const filterSensitiveLog = (obj: ListResourceRecordSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceRecordSetsResponse => __isa(o, "ListResourceRecordSetsResponse");
 }
 
 /**
  * <p>A request to get a list of the reusable delegation sets that are associated with the current AWS account.</p>
  */
 export interface ListReusableDelegationSetsRequest {
-  __type?: "ListReusableDelegationSetsRequest";
   /**
    * <p>If the value of <code>IsTruncated</code> in the previous response was <code>true</code>, you have more reusable delegation sets.
    * 			To get another group, submit another <code>ListReusableDelegationSets</code> request. </p>
@@ -4323,14 +4050,12 @@ export namespace ListReusableDelegationSetsRequest {
   export const filterSensitiveLog = (obj: ListReusableDelegationSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReusableDelegationSetsRequest => __isa(o, "ListReusableDelegationSetsRequest");
 }
 
 /**
  * <p>A complex type that contains information about the reusable delegation sets that are associated with the current AWS account.</p>
  */
 export interface ListReusableDelegationSetsResponse {
-  __type?: "ListReusableDelegationSetsResponse";
   /**
    * <p>A complex type that contains one <code>DelegationSet</code> element for each reusable delegation set that was created
    * 			by the current AWS account.</p>
@@ -4366,15 +4091,12 @@ export namespace ListReusableDelegationSetsResponse {
   export const filterSensitiveLog = (obj: ListReusableDelegationSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReusableDelegationSetsResponse =>
-    __isa(o, "ListReusableDelegationSetsResponse");
 }
 
 /**
  * <p>A complex type containing information about a request for a list of the tags that are associated with an individual resource.</p>
  */
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The ID of the resource for which you want to retrieve tags.</p>
    */
@@ -4398,14 +4120,12 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 /**
  * <p>A complex type that contains information about the health checks or hosted zones for which you want to list tags.</p>
  */
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>A <code>ResourceTagSet</code> containing tags associated with the specified resource.</p>
    */
@@ -4416,14 +4136,12 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>A complex type that contains information about the health checks or hosted zones for which you want to list tags.</p>
  */
 export interface ListTagsForResourcesRequest {
-  __type?: "ListTagsForResourcesRequest";
   /**
    * <p>The type of the resources.</p>
    * 		       <ul>
@@ -4447,14 +4165,12 @@ export namespace ListTagsForResourcesRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourcesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourcesRequest => __isa(o, "ListTagsForResourcesRequest");
 }
 
 /**
  * <p>A complex type containing tags for the specified resources.</p>
  */
 export interface ListTagsForResourcesResponse {
-  __type?: "ListTagsForResourcesResponse";
   /**
    * <p>A list of <code>ResourceTagSet</code>s containing tags associated with the specified resources.</p>
    */
@@ -4465,7 +4181,6 @@ export namespace ListTagsForResourcesResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourcesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourcesResponse => __isa(o, "ListTagsForResourcesResponse");
 }
 
 /**
@@ -4473,7 +4188,6 @@ export namespace ListTagsForResourcesResponse {
  * 			with the current AWS account.</p>
  */
 export interface ListTrafficPoliciesRequest {
-  __type?: "ListTrafficPoliciesRequest";
   /**
    * <p>(Conditional) For your first request to <code>ListTrafficPolicies</code>, don't include the <code>TrafficPolicyIdMarker</code> parameter.</p>
    * 		       <p>If you have more traffic policies than the value of <code>MaxItems</code>, <code>ListTrafficPolicies</code> returns only the first
@@ -4496,14 +4210,12 @@ export namespace ListTrafficPoliciesRequest {
   export const filterSensitiveLog = (obj: ListTrafficPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrafficPoliciesRequest => __isa(o, "ListTrafficPoliciesRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListTrafficPoliciesResponse {
-  __type?: "ListTrafficPoliciesResponse";
   /**
    * <p>If the value of <code>IsTruncated</code> is <code>true</code>, <code>TrafficPolicyIdMarker</code> is the ID of the first traffic policy
    * 			in the next group of <code>MaxItems</code> traffic policies.</p>
@@ -4533,14 +4245,12 @@ export namespace ListTrafficPoliciesResponse {
   export const filterSensitiveLog = (obj: ListTrafficPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrafficPoliciesResponse => __isa(o, "ListTrafficPoliciesResponse");
 }
 
 /**
  * <p>A request for the traffic policy instances that you created in a specified hosted zone.</p>
  */
 export interface ListTrafficPolicyInstancesByHostedZoneRequest {
-  __type?: "ListTrafficPolicyInstancesByHostedZoneRequest";
   /**
    * <p>If the value of <code>IsTruncated</code> in the previous response is true, you have more traffic policy instances.
    * 			To get more traffic policy instances, submit another <code>ListTrafficPolicyInstances</code> request. For the value of <code>trafficpolicyinstancetype</code>,
@@ -4577,15 +4287,12 @@ export namespace ListTrafficPolicyInstancesByHostedZoneRequest {
   export const filterSensitiveLog = (obj: ListTrafficPolicyInstancesByHostedZoneRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrafficPolicyInstancesByHostedZoneRequest =>
-    __isa(o, "ListTrafficPolicyInstancesByHostedZoneRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListTrafficPolicyInstancesByHostedZoneResponse {
-  __type?: "ListTrafficPolicyInstancesByHostedZoneResponse";
   /**
    * <p>A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the
    * 			next group of traffic policy instances by submitting another <code>ListTrafficPolicyInstancesByHostedZone</code> request and specifying
@@ -4622,15 +4329,12 @@ export namespace ListTrafficPolicyInstancesByHostedZoneResponse {
   export const filterSensitiveLog = (obj: ListTrafficPolicyInstancesByHostedZoneResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrafficPolicyInstancesByHostedZoneResponse =>
-    __isa(o, "ListTrafficPolicyInstancesByHostedZoneResponse");
 }
 
 /**
  * <p>A complex type that contains the information about the request to list your traffic policy instances.</p>
  */
 export interface ListTrafficPolicyInstancesByPolicyRequest {
-  __type?: "ListTrafficPolicyInstancesByPolicyRequest";
   /**
    * <p>If the value of <code>IsTruncated</code> in the previous response was <code>true</code>, you have more traffic policy instances.
    * 			To get more traffic policy instances, submit another <code>ListTrafficPolicyInstancesByPolicy</code> request.</p>
@@ -4682,15 +4386,12 @@ export namespace ListTrafficPolicyInstancesByPolicyRequest {
   export const filterSensitiveLog = (obj: ListTrafficPolicyInstancesByPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrafficPolicyInstancesByPolicyRequest =>
-    __isa(o, "ListTrafficPolicyInstancesByPolicyRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListTrafficPolicyInstancesByPolicyResponse {
-  __type?: "ListTrafficPolicyInstancesByPolicyResponse";
   /**
    * <p>A list that contains one <code>TrafficPolicyInstance</code> element for each traffic policy instance that matches the elements in the request.</p>
    */
@@ -4732,15 +4433,12 @@ export namespace ListTrafficPolicyInstancesByPolicyResponse {
   export const filterSensitiveLog = (obj: ListTrafficPolicyInstancesByPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrafficPolicyInstancesByPolicyResponse =>
-    __isa(o, "ListTrafficPolicyInstancesByPolicyResponse");
 }
 
 /**
  * <p>A request to get information about the traffic policy instances that you created by using the current AWS account.</p>
  */
 export interface ListTrafficPolicyInstancesRequest {
-  __type?: "ListTrafficPolicyInstancesRequest";
   /**
    * <p>The maximum number of traffic policy instances that you want Amazon Route 53 to return in response to a <code>ListTrafficPolicyInstances</code> request.
    * 			If you have more than <code>MaxItems</code> traffic policy instances, the value of the <code>IsTruncated</code> element in the response is
@@ -4782,14 +4480,12 @@ export namespace ListTrafficPolicyInstancesRequest {
   export const filterSensitiveLog = (obj: ListTrafficPolicyInstancesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrafficPolicyInstancesRequest => __isa(o, "ListTrafficPolicyInstancesRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListTrafficPolicyInstancesResponse {
-  __type?: "ListTrafficPolicyInstancesResponse";
   /**
    * <p>If <code>IsTruncated</code> is <code>true</code>, <code>TrafficPolicyInstanceNameMarker</code> is the name of the first traffic policy
    * 			instance that Route 53 will return if you submit another <code>ListTrafficPolicyInstances</code> request. </p>
@@ -4833,8 +4529,6 @@ export namespace ListTrafficPolicyInstancesResponse {
   export const filterSensitiveLog = (obj: ListTrafficPolicyInstancesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrafficPolicyInstancesResponse =>
-    __isa(o, "ListTrafficPolicyInstancesResponse");
 }
 
 /**
@@ -4842,7 +4536,6 @@ export namespace ListTrafficPolicyInstancesResponse {
  * 			policies.</p>
  */
 export interface ListTrafficPolicyVersionsRequest {
-  __type?: "ListTrafficPolicyVersionsRequest";
   /**
    * <p>The maximum number of traffic policy versions that you want Amazon Route 53 to include in the response body for this request. If the specified
    * 			traffic policy has more than <code>MaxItems</code> versions, the value of <code>IsTruncated</code> in the response is <code>true</code>,
@@ -4870,14 +4563,12 @@ export namespace ListTrafficPolicyVersionsRequest {
   export const filterSensitiveLog = (obj: ListTrafficPolicyVersionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrafficPolicyVersionsRequest => __isa(o, "ListTrafficPolicyVersionsRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListTrafficPolicyVersionsResponse {
-  __type?: "ListTrafficPolicyVersionsResponse";
   /**
    * <p>The value that you specified for the <code>maxitems</code> parameter in the <code>ListTrafficPolicyVersions</code> request that produced
    * 			the current response.</p>
@@ -4910,14 +4601,12 @@ export namespace ListTrafficPolicyVersionsResponse {
   export const filterSensitiveLog = (obj: ListTrafficPolicyVersionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTrafficPolicyVersionsResponse => __isa(o, "ListTrafficPolicyVersionsResponse");
 }
 
 /**
  * <p>A complex type that contains information about that can be associated with your hosted zone.</p>
  */
 export interface ListVPCAssociationAuthorizationsRequest {
-  __type?: "ListVPCAssociationAuthorizationsRequest";
   /**
    * <p>
    *             <i>Optional</i>: An integer that specifies the maximum number of VPCs that you want Amazon Route 53 to return.
@@ -4944,15 +4633,12 @@ export namespace ListVPCAssociationAuthorizationsRequest {
   export const filterSensitiveLog = (obj: ListVPCAssociationAuthorizationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVPCAssociationAuthorizationsRequest =>
-    __isa(o, "ListVPCAssociationAuthorizationsRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
 export interface ListVPCAssociationAuthorizationsResponse {
-  __type?: "ListVPCAssociationAuthorizationsResponse";
   /**
    * <p>The ID of the hosted zone that you can associate the listed VPCs with.</p>
    */
@@ -4975,8 +4661,6 @@ export namespace ListVPCAssociationAuthorizationsResponse {
   export const filterSensitiveLog = (obj: ListVPCAssociationAuthorizationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVPCAssociationAuthorizationsResponse =>
-    __isa(o, "ListVPCAssociationAuthorizationsResponse");
 }
 
 /**
@@ -4992,7 +4676,6 @@ export namespace NoSuchChange {
   export const filterSensitiveLog = (obj: NoSuchChange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchChange => __isa(o, "NoSuchChange");
 }
 
 /**
@@ -5008,7 +4691,6 @@ export namespace NoSuchCloudWatchLogsLogGroup {
   export const filterSensitiveLog = (obj: NoSuchCloudWatchLogsLogGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchCloudWatchLogsLogGroup => __isa(o, "NoSuchCloudWatchLogsLogGroup");
 }
 
 /**
@@ -5027,7 +4709,6 @@ export namespace NoSuchDelegationSet {
   export const filterSensitiveLog = (obj: NoSuchDelegationSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchDelegationSet => __isa(o, "NoSuchDelegationSet");
 }
 
 /**
@@ -5047,7 +4728,6 @@ export namespace NoSuchGeoLocation {
   export const filterSensitiveLog = (obj: NoSuchGeoLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchGeoLocation => __isa(o, "NoSuchGeoLocation");
 }
 
 /**
@@ -5066,7 +4746,6 @@ export namespace NoSuchHealthCheck {
   export const filterSensitiveLog = (obj: NoSuchHealthCheck): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchHealthCheck => __isa(o, "NoSuchHealthCheck");
 }
 
 /**
@@ -5085,7 +4764,6 @@ export namespace NoSuchHostedZone {
   export const filterSensitiveLog = (obj: NoSuchHostedZone): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchHostedZone => __isa(o, "NoSuchHostedZone");
 }
 
 /**
@@ -5101,7 +4779,6 @@ export namespace NoSuchQueryLoggingConfig {
   export const filterSensitiveLog = (obj: NoSuchQueryLoggingConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchQueryLoggingConfig => __isa(o, "NoSuchQueryLoggingConfig");
 }
 
 /**
@@ -5120,7 +4797,6 @@ export namespace NoSuchTrafficPolicy {
   export const filterSensitiveLog = (obj: NoSuchTrafficPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchTrafficPolicy => __isa(o, "NoSuchTrafficPolicy");
 }
 
 /**
@@ -5139,7 +4815,6 @@ export namespace NoSuchTrafficPolicyInstance {
   export const filterSensitiveLog = (obj: NoSuchTrafficPolicyInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchTrafficPolicyInstance => __isa(o, "NoSuchTrafficPolicyInstance");
 }
 
 /**
@@ -5158,7 +4833,6 @@ export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -5178,7 +4852,6 @@ export namespace PriorRequestNotComplete {
   export const filterSensitiveLog = (obj: PriorRequestNotComplete): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PriorRequestNotComplete => __isa(o, "PriorRequestNotComplete");
 }
 
 /**
@@ -5198,14 +4871,12 @@ export namespace PublicZoneVPCAssociation {
   export const filterSensitiveLog = (obj: PublicZoneVPCAssociation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicZoneVPCAssociation => __isa(o, "PublicZoneVPCAssociation");
 }
 
 /**
  * <p>A complex type that contains information about a configuration for DNS query logging.</p>
  */
 export interface QueryLoggingConfig {
-  __type?: "QueryLoggingConfig";
   /**
    * <p>The ID for a configuration for DNS query logging.</p>
    */
@@ -5226,7 +4897,6 @@ export namespace QueryLoggingConfig {
   export const filterSensitiveLog = (obj: QueryLoggingConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryLoggingConfig => __isa(o, "QueryLoggingConfig");
 }
 
 /**
@@ -5243,7 +4913,6 @@ export namespace QueryLoggingConfigAlreadyExists {
   export const filterSensitiveLog = (obj: QueryLoggingConfigAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryLoggingConfigAlreadyExists => __isa(o, "QueryLoggingConfigAlreadyExists");
 }
 
 export type ResettableElementName = "ChildHealthChecks" | "FullyQualifiedDomainName" | "Regions" | "ResourcePath";
@@ -5255,7 +4924,6 @@ export type ResettableElementName = "ChildHealthChecks" | "FullyQualifiedDomainN
  *          </note>
  */
 export interface ResourceRecord {
-  __type?: "ResourceRecord";
   /**
    * <p>The current or new DNS record value, not to exceed 4,000 characters. In the case of a <code>DELETE</code> action,
    * 			if the current value does not match the actual value, an error is returned. For descriptions about how to format
@@ -5274,14 +4942,12 @@ export namespace ResourceRecord {
   export const filterSensitiveLog = (obj: ResourceRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceRecord => __isa(o, "ResourceRecord");
 }
 
 /**
  * <p>Information about the resource record set to create or delete.</p>
  */
 export interface ResourceRecordSet {
-  __type?: "ResourceRecordSet";
   /**
    * <p>
    *             <i>Resource record sets that have a routing policy other than simple:</i> An identifier that differentiates among
@@ -5781,7 +5447,6 @@ export namespace ResourceRecordSet {
   export const filterSensitiveLog = (obj: ResourceRecordSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceRecordSet => __isa(o, "ResourceRecordSet");
 }
 
 export type ResourceRecordSetFailover = "PRIMARY" | "SECONDARY";
@@ -5815,7 +5480,6 @@ export type ResourceRecordSetRegion =
  * <p>A complex type containing a resource and its associated tags.</p>
  */
 export interface ResourceTagSet {
-  __type?: "ResourceTagSet";
   /**
    * <p>The tags associated with the specified resource.</p>
    */
@@ -5844,14 +5508,12 @@ export namespace ResourceTagSet {
   export const filterSensitiveLog = (obj: ResourceTagSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceTagSet => __isa(o, "ResourceTagSet");
 }
 
 /**
  * <p>A complex type that contains the type of limit that you specified in the request and the current value for that limit.</p>
  */
 export interface ReusableDelegationSetLimit {
-  __type?: "ReusableDelegationSetLimit";
   /**
    * <p>The limit that you requested: <code>MAX_ZONES_BY_REUSABLE_DELEGATION_SET</code>, the maximum number of hosted zones that you can associate
    * 			with the specified reusable delegation set.</p>
@@ -5868,7 +5530,6 @@ export namespace ReusableDelegationSetLimit {
   export const filterSensitiveLog = (obj: ReusableDelegationSetLimit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReusableDelegationSetLimit => __isa(o, "ReusableDelegationSetLimit");
 }
 
 export type ReusableDelegationSetLimitType = "MAX_ZONES_BY_REUSABLE_DELEGATION_SET";
@@ -5881,7 +5542,6 @@ export type Statistic = "Average" | "Maximum" | "Minimum" | "SampleCount" | "Sum
  * <p>A complex type that contains the status that one Amazon Route 53 health checker reports and the time of the health check.</p>
  */
 export interface StatusReport {
-  __type?: "StatusReport";
   /**
    * <p>The date and time that the health checker performed the health check in
    * 			<a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 format</a> and Coordinated Universal Time (UTC).
@@ -5899,14 +5559,12 @@ export namespace StatusReport {
   export const filterSensitiveLog = (obj: StatusReport): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StatusReport => __isa(o, "StatusReport");
 }
 
 /**
  * <p>A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The value of <code>Key</code> depends on the operation that you want to perform:</p>
    * 		       <ul>
@@ -5953,7 +5611,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 export type TagResourceType = "healthcheck" | "hostedzone";
@@ -5963,7 +5620,6 @@ export type TagResourceType = "healthcheck" | "hostedzone";
  * 			the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
  */
 export interface TestDNSAnswerRequest {
-  __type?: "TestDNSAnswerRequest";
   /**
    * <p>If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver.
    * 			If you omit this value, <code>TestDnsAnswer</code> uses the IP address of a DNS resolver in the AWS US East (N. Virginia) Region
@@ -6016,14 +5672,12 @@ export namespace TestDNSAnswerRequest {
   export const filterSensitiveLog = (obj: TestDNSAnswerRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestDNSAnswerRequest => __isa(o, "TestDNSAnswerRequest");
 }
 
 /**
  * <p>A complex type that contains the response to a <code>TestDNSAnswer</code> request. </p>
  */
 export interface TestDNSAnswerResponse {
-  __type?: "TestDNSAnswerResponse";
   /**
    * <p>The Amazon Route 53 name server used to respond to the request.</p>
    */
@@ -6062,7 +5716,6 @@ export namespace TestDNSAnswerResponse {
   export const filterSensitiveLog = (obj: TestDNSAnswerResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestDNSAnswerResponse => __isa(o, "TestDNSAnswerResponse");
 }
 
 /**
@@ -6078,7 +5731,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -6102,7 +5754,6 @@ export namespace TooManyHealthChecks {
   export const filterSensitiveLog = (obj: TooManyHealthChecks): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyHealthChecks => __isa(o, "TooManyHealthChecks");
 }
 
 /**
@@ -6129,7 +5780,6 @@ export namespace TooManyHostedZones {
   export const filterSensitiveLog = (obj: TooManyHostedZones): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyHostedZones => __isa(o, "TooManyHostedZones");
 }
 
 /**
@@ -6154,7 +5804,6 @@ export namespace TooManyTrafficPolicies {
   export const filterSensitiveLog = (obj: TooManyTrafficPolicies): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTrafficPolicies => __isa(o, "TooManyTrafficPolicies");
 }
 
 /**
@@ -6180,7 +5829,6 @@ export namespace TooManyTrafficPolicyInstances {
   export const filterSensitiveLog = (obj: TooManyTrafficPolicyInstances): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTrafficPolicyInstances => __isa(o, "TooManyTrafficPolicyInstances");
 }
 
 /**
@@ -6205,8 +5853,6 @@ export namespace TooManyTrafficPolicyVersionsForCurrentPolicy {
   export const filterSensitiveLog = (obj: TooManyTrafficPolicyVersionsForCurrentPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTrafficPolicyVersionsForCurrentPolicy =>
-    __isa(o, "TooManyTrafficPolicyVersionsForCurrentPolicy");
 }
 
 /**
@@ -6228,15 +5874,12 @@ export namespace TooManyVPCAssociationAuthorizations {
   export const filterSensitiveLog = (obj: TooManyVPCAssociationAuthorizations): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyVPCAssociationAuthorizations =>
-    __isa(o, "TooManyVPCAssociationAuthorizations");
 }
 
 /**
  * <p>A complex type that contains settings for a traffic policy.</p>
  */
 export interface TrafficPolicy {
-  __type?: "TrafficPolicy";
   /**
    * <p>The DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy
    * 			to create a traffic policy instance.</p>
@@ -6276,7 +5919,6 @@ export namespace TrafficPolicy {
   export const filterSensitiveLog = (obj: TrafficPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficPolicy => __isa(o, "TrafficPolicy");
 }
 
 /**
@@ -6295,14 +5937,12 @@ export namespace TrafficPolicyAlreadyExists {
   export const filterSensitiveLog = (obj: TrafficPolicyAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficPolicyAlreadyExists => __isa(o, "TrafficPolicyAlreadyExists");
 }
 
 /**
  * <p>A complex type that contains settings for the new traffic policy instance.</p>
  */
 export interface TrafficPolicyInstance {
-  __type?: "TrafficPolicyInstance";
   /**
    * <p>The TTL that Amazon Route 53 assigned to all of the resource record sets that it created in the specified hosted zone.</p>
    */
@@ -6371,7 +6011,6 @@ export namespace TrafficPolicyInstance {
   export const filterSensitiveLog = (obj: TrafficPolicyInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficPolicyInstance => __isa(o, "TrafficPolicyInstance");
 }
 
 /**
@@ -6390,8 +6029,6 @@ export namespace TrafficPolicyInstanceAlreadyExists {
   export const filterSensitiveLog = (obj: TrafficPolicyInstanceAlreadyExists): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficPolicyInstanceAlreadyExists =>
-    __isa(o, "TrafficPolicyInstanceAlreadyExists");
 }
 
 /**
@@ -6410,7 +6047,6 @@ export namespace TrafficPolicyInUse {
   export const filterSensitiveLog = (obj: TrafficPolicyInUse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficPolicyInUse => __isa(o, "TrafficPolicyInUse");
 }
 
 /**
@@ -6418,7 +6054,6 @@ export namespace TrafficPolicyInUse {
  * 			that is associated with the current AWS account.</p>
  */
 export interface TrafficPolicySummary {
-  __type?: "TrafficPolicySummary";
   /**
    * <p>The name that you specified for the traffic policy when you created it.</p>
    */
@@ -6450,14 +6085,12 @@ export namespace TrafficPolicySummary {
   export const filterSensitiveLog = (obj: TrafficPolicySummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrafficPolicySummary => __isa(o, "TrafficPolicySummary");
 }
 
 /**
  * <p>A complex type that contains information about a request to update a health check.</p>
  */
 export interface UpdateHealthCheckRequest {
-  __type?: "UpdateHealthCheckRequest";
   /**
    * <p>Stops Route 53 from performing health checks. When you disable a health check, here's what happens:</p>
    * 		       <ul>
@@ -6783,14 +6416,12 @@ export namespace UpdateHealthCheckRequest {
   export const filterSensitiveLog = (obj: UpdateHealthCheckRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateHealthCheckRequest => __isa(o, "UpdateHealthCheckRequest");
 }
 
 /**
  * <p>A complex type that contains the response to the <code>UpdateHealthCheck</code> request.</p>
  */
 export interface UpdateHealthCheckResponse {
-  __type?: "UpdateHealthCheckResponse";
   /**
    * <p>A complex type that contains the response to an <code>UpdateHealthCheck</code> request.</p>
    */
@@ -6801,14 +6432,12 @@ export namespace UpdateHealthCheckResponse {
   export const filterSensitiveLog = (obj: UpdateHealthCheckResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateHealthCheckResponse => __isa(o, "UpdateHealthCheckResponse");
 }
 
 /**
  * <p>A request to update the comment for a hosted zone.</p>
  */
 export interface UpdateHostedZoneCommentRequest {
-  __type?: "UpdateHostedZoneCommentRequest";
   /**
    * <p>The ID for the hosted zone that you want to update the comment for.</p>
    */
@@ -6825,14 +6454,12 @@ export namespace UpdateHostedZoneCommentRequest {
   export const filterSensitiveLog = (obj: UpdateHostedZoneCommentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateHostedZoneCommentRequest => __isa(o, "UpdateHostedZoneCommentRequest");
 }
 
 /**
  * <p>A complex type that contains the response to the <code>UpdateHostedZoneComment</code> request.</p>
  */
 export interface UpdateHostedZoneCommentResponse {
-  __type?: "UpdateHostedZoneCommentResponse";
   /**
    * <p>A complex type that contains the response to the <code>UpdateHostedZoneComment</code> request.</p>
    */
@@ -6843,14 +6470,12 @@ export namespace UpdateHostedZoneCommentResponse {
   export const filterSensitiveLog = (obj: UpdateHostedZoneCommentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateHostedZoneCommentResponse => __isa(o, "UpdateHostedZoneCommentResponse");
 }
 
 /**
  * <p>A complex type that contains information about the traffic policy that you want to update the comment for.</p>
  */
 export interface UpdateTrafficPolicyCommentRequest {
-  __type?: "UpdateTrafficPolicyCommentRequest";
   /**
    * <p>The value of <code>Version</code> for the traffic policy that you want to update the comment for.</p>
    */
@@ -6871,14 +6496,12 @@ export namespace UpdateTrafficPolicyCommentRequest {
   export const filterSensitiveLog = (obj: UpdateTrafficPolicyCommentRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTrafficPolicyCommentRequest => __isa(o, "UpdateTrafficPolicyCommentRequest");
 }
 
 /**
  * <p>A complex type that contains the response information for the traffic policy.</p>
  */
 export interface UpdateTrafficPolicyCommentResponse {
-  __type?: "UpdateTrafficPolicyCommentResponse";
   /**
    * <p>A complex type that contains settings for the specified traffic policy.</p>
    */
@@ -6889,15 +6512,12 @@ export namespace UpdateTrafficPolicyCommentResponse {
   export const filterSensitiveLog = (obj: UpdateTrafficPolicyCommentResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTrafficPolicyCommentResponse =>
-    __isa(o, "UpdateTrafficPolicyCommentResponse");
 }
 
 /**
  * <p>A complex type that contains information about the resource record sets that you want to update based on a specified traffic policy instance.</p>
  */
 export interface UpdateTrafficPolicyInstanceRequest {
-  __type?: "UpdateTrafficPolicyInstanceRequest";
   /**
    * <p>The TTL that you want Amazon Route 53 to assign to all of the updated resource record sets.</p>
    */
@@ -6923,8 +6543,6 @@ export namespace UpdateTrafficPolicyInstanceRequest {
   export const filterSensitiveLog = (obj: UpdateTrafficPolicyInstanceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTrafficPolicyInstanceRequest =>
-    __isa(o, "UpdateTrafficPolicyInstanceRequest");
 }
 
 /**
@@ -6932,7 +6550,6 @@ export namespace UpdateTrafficPolicyInstanceRequest {
  * 			created based on a specified traffic policy.</p>
  */
 export interface UpdateTrafficPolicyInstanceResponse {
-  __type?: "UpdateTrafficPolicyInstanceResponse";
   /**
    * <p>A complex type that contains settings for the updated traffic policy instance.</p>
    */
@@ -6943,15 +6560,12 @@ export namespace UpdateTrafficPolicyInstanceResponse {
   export const filterSensitiveLog = (obj: UpdateTrafficPolicyInstanceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTrafficPolicyInstanceResponse =>
-    __isa(o, "UpdateTrafficPolicyInstanceResponse");
 }
 
 /**
  * <p>(Private hosted zones only) A complex type that contains information about an Amazon VPC.</p>
  */
 export interface VPC {
-  __type?: "VPC";
   /**
    * <p>(Private hosted zones only) The region that an Amazon VPC was created in.</p>
    */
@@ -6967,7 +6581,6 @@ export namespace VPC {
   export const filterSensitiveLog = (obj: VPC): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VPC => __isa(o, "VPC");
 }
 
 /**
@@ -6986,8 +6599,6 @@ export namespace VPCAssociationAuthorizationNotFound {
   export const filterSensitiveLog = (obj: VPCAssociationAuthorizationNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VPCAssociationAuthorizationNotFound =>
-    __isa(o, "VPCAssociationAuthorizationNotFound");
 }
 
 /**
@@ -7006,7 +6617,6 @@ export namespace VPCAssociationNotFound {
   export const filterSensitiveLog = (obj: VPCAssociationNotFound): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VPCAssociationNotFound => __isa(o, "VPCAssociationNotFound");
 }
 
 export type VPCRegion =

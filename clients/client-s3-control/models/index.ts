@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>An access point used to access a bucket.</p>
  */
 export interface AccessPoint {
-  __type?: "AccessPoint";
   /**
    * <p>The virtual private cloud (VPC) configuration for this access point, if one exists.</p>
    */
@@ -36,7 +35,6 @@ export namespace AccessPoint {
   export const filterSensitiveLog = (obj: AccessPoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessPoint => __isa(o, "AccessPoint");
 }
 
 /**
@@ -52,11 +50,9 @@ export namespace BadRequestException {
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export interface CreateAccessPointRequest {
-  __type?: "CreateAccessPointRequest";
   /**
    * <p>The name of the bucket that you want to associate this access point with.</p>
    */
@@ -90,11 +86,9 @@ export namespace CreateAccessPointRequest {
   export const filterSensitiveLog = (obj: CreateAccessPointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAccessPointRequest => __isa(o, "CreateAccessPointRequest");
 }
 
 export interface CreateJobRequest {
-  __type?: "CreateJobRequest";
   /**
    * <p>A description for this job. You can use any string within the permitted length. Descriptions don't need to be unique and can be used for multiple jobs.</p>
    */
@@ -153,11 +147,9 @@ export namespace CreateJobRequest {
   export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobRequest => __isa(o, "CreateJobRequest");
 }
 
 export interface CreateJobResult {
-  __type?: "CreateJobResult";
   /**
    * <p>The ID for this job. Amazon S3 generates this ID automatically and returns it after a
    *          successful <code>Create Job</code> request.</p>
@@ -169,11 +161,9 @@ export namespace CreateJobResult {
   export const filterSensitiveLog = (obj: CreateJobResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateJobResult => __isa(o, "CreateJobResult");
 }
 
 export interface DeleteAccessPointPolicyRequest {
-  __type?: "DeleteAccessPointPolicyRequest";
   /**
    * <p>The account ID for the account that owns the specified access point.</p>
    */
@@ -189,11 +179,9 @@ export namespace DeleteAccessPointPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteAccessPointPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccessPointPolicyRequest => __isa(o, "DeleteAccessPointPolicyRequest");
 }
 
 export interface DeleteAccessPointRequest {
-  __type?: "DeleteAccessPointRequest";
   /**
    * <p>The account ID for the account that owns the specified access point.</p>
    */
@@ -209,11 +197,9 @@ export namespace DeleteAccessPointRequest {
   export const filterSensitiveLog = (obj: DeleteAccessPointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAccessPointRequest => __isa(o, "DeleteAccessPointRequest");
 }
 
 export interface DeleteJobTaggingRequest {
-  __type?: "DeleteJobTaggingRequest";
   /**
    * <p>The ID for the Amazon S3 Batch Operations job whose tags you want to delete.</p>
    */
@@ -229,22 +215,17 @@ export namespace DeleteJobTaggingRequest {
   export const filterSensitiveLog = (obj: DeleteJobTaggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJobTaggingRequest => __isa(o, "DeleteJobTaggingRequest");
 }
 
-export interface DeleteJobTaggingResult {
-  __type?: "DeleteJobTaggingResult";
-}
+export interface DeleteJobTaggingResult {}
 
 export namespace DeleteJobTaggingResult {
   export const filterSensitiveLog = (obj: DeleteJobTaggingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteJobTaggingResult => __isa(o, "DeleteJobTaggingResult");
 }
 
 export interface DeletePublicAccessBlockRequest {
-  __type?: "DeletePublicAccessBlockRequest";
   /**
    * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code>
    *       configuration you want to remove.</p>
@@ -256,11 +237,9 @@ export namespace DeletePublicAccessBlockRequest {
   export const filterSensitiveLog = (obj: DeletePublicAccessBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePublicAccessBlockRequest => __isa(o, "DeletePublicAccessBlockRequest");
 }
 
 export interface DescribeJobRequest {
-  __type?: "DescribeJobRequest";
   /**
    * <p>The ID for the job whose information you want to retrieve.</p>
    */
@@ -276,11 +255,9 @@ export namespace DescribeJobRequest {
   export const filterSensitiveLog = (obj: DescribeJobRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobRequest => __isa(o, "DescribeJobRequest");
 }
 
 export interface DescribeJobResult {
-  __type?: "DescribeJobResult";
   /**
    * <p>Contains the configuration parameters and status for the job specified in the <code>Describe Job</code> request.</p>
    */
@@ -291,11 +268,9 @@ export namespace DescribeJobResult {
   export const filterSensitiveLog = (obj: DescribeJobResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeJobResult => __isa(o, "DescribeJobResult");
 }
 
 export interface GetAccessPointPolicyRequest {
-  __type?: "GetAccessPointPolicyRequest";
   /**
    * <p>The name of the access point whose policy you want to retrieve.</p>
    */
@@ -311,11 +286,9 @@ export namespace GetAccessPointPolicyRequest {
   export const filterSensitiveLog = (obj: GetAccessPointPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccessPointPolicyRequest => __isa(o, "GetAccessPointPolicyRequest");
 }
 
 export interface GetAccessPointPolicyResult {
-  __type?: "GetAccessPointPolicyResult";
   /**
    * <p>The access point policy associated with the specified access point.</p>
    */
@@ -326,11 +299,9 @@ export namespace GetAccessPointPolicyResult {
   export const filterSensitiveLog = (obj: GetAccessPointPolicyResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccessPointPolicyResult => __isa(o, "GetAccessPointPolicyResult");
 }
 
 export interface GetAccessPointPolicyStatusRequest {
-  __type?: "GetAccessPointPolicyStatusRequest";
   /**
    * <p>The name of the access point whose policy status you want to retrieve.</p>
    */
@@ -346,11 +317,9 @@ export namespace GetAccessPointPolicyStatusRequest {
   export const filterSensitiveLog = (obj: GetAccessPointPolicyStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccessPointPolicyStatusRequest => __isa(o, "GetAccessPointPolicyStatusRequest");
 }
 
 export interface GetAccessPointPolicyStatusResult {
-  __type?: "GetAccessPointPolicyStatusResult";
   /**
    * <p>Indicates the current policy status of the specified access point.</p>
    */
@@ -361,11 +330,9 @@ export namespace GetAccessPointPolicyStatusResult {
   export const filterSensitiveLog = (obj: GetAccessPointPolicyStatusResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccessPointPolicyStatusResult => __isa(o, "GetAccessPointPolicyStatusResult");
 }
 
 export interface GetAccessPointRequest {
-  __type?: "GetAccessPointRequest";
   /**
    * <p>The name of the access point whose configuration information you want to retrieve.</p>
    */
@@ -381,11 +348,9 @@ export namespace GetAccessPointRequest {
   export const filterSensitiveLog = (obj: GetAccessPointRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccessPointRequest => __isa(o, "GetAccessPointRequest");
 }
 
 export interface GetAccessPointResult {
-  __type?: "GetAccessPointResult";
   /**
    * <p>The name of the specified access point.</p>
    */
@@ -428,11 +393,9 @@ export namespace GetAccessPointResult {
   export const filterSensitiveLog = (obj: GetAccessPointResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccessPointResult => __isa(o, "GetAccessPointResult");
 }
 
 export interface GetJobTaggingRequest {
-  __type?: "GetJobTaggingRequest";
   /**
    * <p>The ID for the Amazon S3 Batch Operations job whose tags you want to retrieve.</p>
    */
@@ -448,11 +411,9 @@ export namespace GetJobTaggingRequest {
   export const filterSensitiveLog = (obj: GetJobTaggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobTaggingRequest => __isa(o, "GetJobTaggingRequest");
 }
 
 export interface GetJobTaggingResult {
-  __type?: "GetJobTaggingResult";
   /**
    * <p>The set of tags associated with the Amazon S3 Batch Operations job.</p>
    */
@@ -463,11 +424,9 @@ export namespace GetJobTaggingResult {
   export const filterSensitiveLog = (obj: GetJobTaggingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetJobTaggingResult => __isa(o, "GetJobTaggingResult");
 }
 
 export interface GetPublicAccessBlockOutput {
-  __type?: "GetPublicAccessBlockOutput";
   /**
    * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this Amazon Web Services
    *       account.</p>
@@ -479,11 +438,9 @@ export namespace GetPublicAccessBlockOutput {
   export const filterSensitiveLog = (obj: GetPublicAccessBlockOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPublicAccessBlockOutput => __isa(o, "GetPublicAccessBlockOutput");
 }
 
 export interface GetPublicAccessBlockRequest {
-  __type?: "GetPublicAccessBlockRequest";
   /**
    * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code>
    *       configuration you want to retrieve.</p>
@@ -495,7 +452,6 @@ export namespace GetPublicAccessBlockRequest {
   export const filterSensitiveLog = (obj: GetPublicAccessBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPublicAccessBlockRequest => __isa(o, "GetPublicAccessBlockRequest");
 }
 
 /**
@@ -511,7 +467,6 @@ export namespace IdempotencyException {
   export const filterSensitiveLog = (obj: IdempotencyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdempotencyException => __isa(o, "IdempotencyException");
 }
 
 /**
@@ -527,7 +482,6 @@ export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
@@ -543,7 +497,6 @@ export namespace InvalidNextTokenException {
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
@@ -559,14 +512,12 @@ export namespace InvalidRequestException {
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
  * <p>A container element for the job configuration and status information returned by a <code>Describe Job</code> request.</p>
  */
 export interface JobDescriptor {
-  __type?: "JobDescriptor";
   /**
    * <p>The configuration information for the specified job's manifest object.</p>
    */
@@ -659,14 +610,12 @@ export namespace JobDescriptor {
   export const filterSensitiveLog = (obj: JobDescriptor): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobDescriptor => __isa(o, "JobDescriptor");
 }
 
 /**
  * <p>If this job failed, this element indicates why the job failed.</p>
  */
 export interface JobFailure {
-  __type?: "JobFailure";
   /**
    * <p>The failure reason, if any, for the specified job.</p>
    */
@@ -682,14 +631,12 @@ export namespace JobFailure {
   export const filterSensitiveLog = (obj: JobFailure): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobFailure => __isa(o, "JobFailure");
 }
 
 /**
  * <p>Contains the configuration and status information for a single job retrieved as part of a job list.</p>
  */
 export interface JobListDescriptor {
-  __type?: "JobListDescriptor";
   /**
    * <p>Describes the total number of tasks that the specified job has executed, the number of tasks that succeeded, and the number of tasks that failed.</p>
    */
@@ -735,14 +682,12 @@ export namespace JobListDescriptor {
   export const filterSensitiveLog = (obj: JobListDescriptor): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobListDescriptor => __isa(o, "JobListDescriptor");
 }
 
 /**
  * <p>Contains the configuration information for a job's manifest.</p>
  */
 export interface JobManifest {
-  __type?: "JobManifest";
   /**
    * <p>Contains the information required to locate the specified job's manifest.</p>
    */
@@ -758,7 +703,6 @@ export namespace JobManifest {
   export const filterSensitiveLog = (obj: JobManifest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobManifest => __isa(o, "JobManifest");
 }
 
 export enum JobManifestFieldName {
@@ -777,7 +721,6 @@ export enum JobManifestFormat {
  * <p>Contains the information required to locate a manifest object.</p>
  */
 export interface JobManifestLocation {
-  __type?: "JobManifestLocation";
   /**
    * <p>The Amazon Resource Name (ARN) for a manifest object.</p>
    */
@@ -798,14 +741,12 @@ export namespace JobManifestLocation {
   export const filterSensitiveLog = (obj: JobManifestLocation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobManifestLocation => __isa(o, "JobManifestLocation");
 }
 
 /**
  * <p>Describes the format of a manifest. If the manifest is in CSV format, also describes the columns contained within the manifest.</p>
  */
 export interface JobManifestSpec {
-  __type?: "JobManifestSpec";
   /**
    * <p>Indicates which of the available formats the specified manifest uses.</p>
    */
@@ -821,7 +762,6 @@ export namespace JobManifestSpec {
   export const filterSensitiveLog = (obj: JobManifestSpec): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobManifestSpec => __isa(o, "JobManifestSpec");
 }
 
 /**
@@ -829,7 +769,6 @@ export namespace JobManifestSpec {
  *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html">Available Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
  */
 export interface JobOperation {
-  __type?: "JobOperation";
   /**
    * <p>Contains the configuration parameters for a Set Object Legal Hold operation. Amazon S3 Batch Operations passes each value through to the underlying PUT Object Legal Hold API.
    *      For more information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.htmll#object-lock-legal-holds">PUT Object Legal Hold</a>.</p>
@@ -872,14 +811,12 @@ export namespace JobOperation {
   export const filterSensitiveLog = (obj: JobOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobOperation => __isa(o, "JobOperation");
 }
 
 /**
  * <p>Describes the total number of tasks that the specified job has executed, the number of tasks that succeeded, and the number of tasks that failed.</p>
  */
 export interface JobProgressSummary {
-  __type?: "JobProgressSummary";
   /**
    * <p></p>
    */
@@ -900,14 +837,12 @@ export namespace JobProgressSummary {
   export const filterSensitiveLog = (obj: JobProgressSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobProgressSummary => __isa(o, "JobProgressSummary");
 }
 
 /**
  * <p>Contains the configuration parameters for a job-completion report.</p>
  */
 export interface JobReport {
-  __type?: "JobReport";
   /**
    * <p>An optional prefix to describe where in the specified bucket the job-completion report will be stored. Amazon S3 will store the job-completion report at <prefix>/job-<job-id>/report.json.</p>
    */
@@ -938,7 +873,6 @@ export namespace JobReport {
   export const filterSensitiveLog = (obj: JobReport): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobReport => __isa(o, "JobReport");
 }
 
 export enum JobReportFormat {
@@ -979,14 +913,12 @@ export namespace JobStatusException {
   export const filterSensitiveLog = (obj: JobStatusException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobStatusException => __isa(o, "JobStatusException");
 }
 
 /**
  * <p>Contains the configuration parameters for a <code>Lambda Invoke</code> operation.</p>
  */
 export interface LambdaInvokeOperation {
-  __type?: "LambdaInvokeOperation";
   /**
    * <p>The Amazon Resource Name (ARN) for the AWS Lambda function that the specified job will invoke for each object in the manifest.</p>
    */
@@ -997,11 +929,9 @@ export namespace LambdaInvokeOperation {
   export const filterSensitiveLog = (obj: LambdaInvokeOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaInvokeOperation => __isa(o, "LambdaInvokeOperation");
 }
 
 export interface ListAccessPointsRequest {
-  __type?: "ListAccessPointsRequest";
   /**
    * <p>The name of the bucket whose associated access points you want to list.</p>
    */
@@ -1030,11 +960,9 @@ export namespace ListAccessPointsRequest {
   export const filterSensitiveLog = (obj: ListAccessPointsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccessPointsRequest => __isa(o, "ListAccessPointsRequest");
 }
 
 export interface ListAccessPointsResult {
-  __type?: "ListAccessPointsResult";
   /**
    * <p>If the specified bucket has more access points than can be returned in one call to this
    *          API, then this field contains a continuation token that you can provide in subsequent calls
@@ -1053,11 +981,9 @@ export namespace ListAccessPointsResult {
   export const filterSensitiveLog = (obj: ListAccessPointsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAccessPointsResult => __isa(o, "ListAccessPointsResult");
 }
 
 export interface ListJobsRequest {
-  __type?: "ListJobsRequest";
   /**
    * <p>The <code>List Jobs</code> request returns jobs that match the statuses listed in this element.</p>
    */
@@ -1083,11 +1009,9 @@ export namespace ListJobsRequest {
   export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsRequest => __isa(o, "ListJobsRequest");
 }
 
 export interface ListJobsResult {
-  __type?: "ListJobsResult";
   /**
    * <p>The list of current jobs and jobs that have ended within the last 30 days.</p>
    */
@@ -1104,7 +1028,6 @@ export namespace ListJobsResult {
   export const filterSensitiveLog = (obj: ListJobsResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListJobsResult => __isa(o, "ListJobsResult");
 }
 
 export enum NetworkOrigin {
@@ -1126,8 +1049,6 @@ export namespace NoSuchPublicAccessBlockConfiguration {
   export const filterSensitiveLog = (obj: NoSuchPublicAccessBlockConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoSuchPublicAccessBlockConfiguration =>
-    __isa(o, "NoSuchPublicAccessBlockConfiguration");
 }
 
 /**
@@ -1143,7 +1064,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum OperationName {
@@ -1163,7 +1083,6 @@ export enum OperationName {
  *       </p>
  */
 export interface PolicyStatus {
-  __type?: "PolicyStatus";
   /**
    * <p></p>
    */
@@ -1174,7 +1093,6 @@ export namespace PolicyStatus {
   export const filterSensitiveLog = (obj: PolicyStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PolicyStatus => __isa(o, "PolicyStatus");
 }
 
 /**
@@ -1183,7 +1101,6 @@ export namespace PolicyStatus {
  *       about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the Amazon Simple Storage Service Developer Guide.</p>
  */
 export interface PublicAccessBlockConfiguration {
-  __type?: "PublicAccessBlockConfiguration";
   /**
    * <p>Specifies whether Amazon S3 should ignore public ACLs for buckets in this account.
    *       Setting this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain.
@@ -1234,11 +1151,9 @@ export namespace PublicAccessBlockConfiguration {
   export const filterSensitiveLog = (obj: PublicAccessBlockConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PublicAccessBlockConfiguration => __isa(o, "PublicAccessBlockConfiguration");
 }
 
 export interface PutAccessPointPolicyRequest {
-  __type?: "PutAccessPointPolicyRequest";
   /**
    * <p>The policy that you want to apply to the specified access point. For more information about access point policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html">Managing Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
@@ -1259,11 +1174,9 @@ export namespace PutAccessPointPolicyRequest {
   export const filterSensitiveLog = (obj: PutAccessPointPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutAccessPointPolicyRequest => __isa(o, "PutAccessPointPolicyRequest");
 }
 
 export interface PutJobTaggingRequest {
-  __type?: "PutJobTaggingRequest";
   /**
    * <p>The ID for the Amazon S3 Batch Operations job whose tags you want to replace.</p>
    */
@@ -1284,22 +1197,17 @@ export namespace PutJobTaggingRequest {
   export const filterSensitiveLog = (obj: PutJobTaggingRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutJobTaggingRequest => __isa(o, "PutJobTaggingRequest");
 }
 
-export interface PutJobTaggingResult {
-  __type?: "PutJobTaggingResult";
-}
+export interface PutJobTaggingResult {}
 
 export namespace PutJobTaggingResult {
   export const filterSensitiveLog = (obj: PutJobTaggingResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutJobTaggingResult => __isa(o, "PutJobTaggingResult");
 }
 
 export interface PutPublicAccessBlockRequest {
-  __type?: "PutPublicAccessBlockRequest";
   /**
    * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified
    *       Amazon Web Services account.</p>
@@ -1317,7 +1225,6 @@ export namespace PutPublicAccessBlockRequest {
   export const filterSensitiveLog = (obj: PutPublicAccessBlockRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPublicAccessBlockRequest => __isa(o, "PutPublicAccessBlockRequest");
 }
 
 export enum RequestedJobStatus {
@@ -1329,7 +1236,6 @@ export enum RequestedJobStatus {
  * <p></p>
  */
 export interface S3AccessControlList {
-  __type?: "S3AccessControlList";
   /**
    * <p></p>
    */
@@ -1345,14 +1251,12 @@ export namespace S3AccessControlList {
   export const filterSensitiveLog = (obj: S3AccessControlList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3AccessControlList => __isa(o, "S3AccessControlList");
 }
 
 /**
  * <p></p>
  */
 export interface S3AccessControlPolicy {
-  __type?: "S3AccessControlPolicy";
   /**
    * <p></p>
    */
@@ -1368,7 +1272,6 @@ export namespace S3AccessControlPolicy {
   export const filterSensitiveLog = (obj: S3AccessControlPolicy): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3AccessControlPolicy => __isa(o, "S3AccessControlPolicy");
 }
 
 export enum S3CannedAccessControlList {
@@ -1386,7 +1289,6 @@ export enum S3CannedAccessControlList {
  *          API. For more information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectCOPY.html">PUT Object - Copy</a>.</p>
  */
 export interface S3CopyObjectOperation {
-  __type?: "S3CopyObjectOperation";
   /**
    * <p></p>
    */
@@ -1472,7 +1374,6 @@ export namespace S3CopyObjectOperation {
   export const filterSensitiveLog = (obj: S3CopyObjectOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3CopyObjectOperation => __isa(o, "S3CopyObjectOperation");
 }
 
 export enum S3GlacierJobTier {
@@ -1484,7 +1385,6 @@ export enum S3GlacierJobTier {
  * <p></p>
  */
 export interface S3Grant {
-  __type?: "S3Grant";
   /**
    * <p></p>
    */
@@ -1500,14 +1400,12 @@ export namespace S3Grant {
   export const filterSensitiveLog = (obj: S3Grant): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Grant => __isa(o, "S3Grant");
 }
 
 /**
  * <p></p>
  */
 export interface S3Grantee {
-  __type?: "S3Grantee";
   /**
    * <p></p>
    */
@@ -1528,7 +1426,6 @@ export namespace S3Grantee {
   export const filterSensitiveLog = (obj: S3Grantee): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Grantee => __isa(o, "S3Grantee");
 }
 
 export enum S3GranteeTypeIdentifier {
@@ -1542,7 +1439,6 @@ export enum S3GranteeTypeIdentifier {
  *          For more information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOSTrestore.html#RESTObjectPOSTrestore-restore-request">Restoring Archives</a>.</p>
  */
 export interface S3InitiateRestoreObjectOperation {
-  __type?: "S3InitiateRestoreObjectOperation";
   /**
    * <p></p>
    */
@@ -1558,7 +1454,6 @@ export namespace S3InitiateRestoreObjectOperation {
   export const filterSensitiveLog = (obj: S3InitiateRestoreObjectOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3InitiateRestoreObjectOperation => __isa(o, "S3InitiateRestoreObjectOperation");
 }
 
 export enum S3MetadataDirective {
@@ -1570,7 +1465,6 @@ export enum S3MetadataDirective {
  * <p></p>
  */
 export interface S3ObjectLockLegalHold {
-  __type?: "S3ObjectLockLegalHold";
   /**
    * <p>The Legal Hold status to be applied to all objects in the Batch Operations job.</p>
    */
@@ -1581,7 +1475,6 @@ export namespace S3ObjectLockLegalHold {
   export const filterSensitiveLog = (obj: S3ObjectLockLegalHold): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3ObjectLockLegalHold => __isa(o, "S3ObjectLockLegalHold");
 }
 
 export enum S3ObjectLockLegalHoldStatus {
@@ -1603,7 +1496,6 @@ export enum S3ObjectLockRetentionMode {
  * <p></p>
  */
 export interface S3ObjectMetadata {
-  __type?: "S3ObjectMetadata";
   /**
    * <p></p>
    */
@@ -1664,14 +1556,12 @@ export namespace S3ObjectMetadata {
   export const filterSensitiveLog = (obj: S3ObjectMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3ObjectMetadata => __isa(o, "S3ObjectMetadata");
 }
 
 /**
  * <p></p>
  */
 export interface S3ObjectOwner {
-  __type?: "S3ObjectOwner";
   /**
    * <p></p>
    */
@@ -1687,7 +1577,6 @@ export namespace S3ObjectOwner {
   export const filterSensitiveLog = (obj: S3ObjectOwner): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3ObjectOwner => __isa(o, "S3ObjectOwner");
 }
 
 export enum S3Permission {
@@ -1702,7 +1591,6 @@ export enum S3Permission {
  * <p></p>
  */
 export interface S3Retention {
-  __type?: "S3Retention";
   /**
    * <p>The date when the applied Object Retention will expire on all objects in the Batch Operations job.</p>
    */
@@ -1718,7 +1606,6 @@ export namespace S3Retention {
   export const filterSensitiveLog = (obj: S3Retention): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Retention => __isa(o, "S3Retention");
 }
 
 /**
@@ -1726,7 +1613,6 @@ export namespace S3Retention {
  *          For more information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html">PUT Object acl</a>.</p>
  */
 export interface S3SetObjectAclOperation {
-  __type?: "S3SetObjectAclOperation";
   /**
    * <p></p>
    */
@@ -1737,7 +1623,6 @@ export namespace S3SetObjectAclOperation {
   export const filterSensitiveLog = (obj: S3SetObjectAclOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3SetObjectAclOperation => __isa(o, "S3SetObjectAclOperation");
 }
 
 /**
@@ -1745,7 +1630,6 @@ export namespace S3SetObjectAclOperation {
  *      For more information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.htmll#object-lock-legal-holds">PUT Object Legal Hold</a>.</p>
  */
 export interface S3SetObjectLegalHoldOperation {
-  __type?: "S3SetObjectLegalHoldOperation";
   /**
    * <p>The Legal Hold contains the status to be applied to all objects in the Batch Operations job.</p>
    */
@@ -1756,7 +1640,6 @@ export namespace S3SetObjectLegalHoldOperation {
   export const filterSensitiveLog = (obj: S3SetObjectLegalHoldOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3SetObjectLegalHoldOperation => __isa(o, "S3SetObjectLegalHoldOperation");
 }
 
 /**
@@ -1764,7 +1647,6 @@ export namespace S3SetObjectLegalHoldOperation {
  *      For more information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes">PUT Object Retention</a>.</p>
  */
 export interface S3SetObjectRetentionOperation {
-  __type?: "S3SetObjectRetentionOperation";
   /**
    * <p>Amazon S3 object lock Retention contains the retention mode to be applied to all objects in the Batch Operations job.</p>
    */
@@ -1780,7 +1662,6 @@ export namespace S3SetObjectRetentionOperation {
   export const filterSensitiveLog = (obj: S3SetObjectRetentionOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3SetObjectRetentionOperation => __isa(o, "S3SetObjectRetentionOperation");
 }
 
 /**
@@ -1788,7 +1669,6 @@ export namespace S3SetObjectRetentionOperation {
  *          For more information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTtagging.html">PUT Object tagging</a>.</p>
  */
 export interface S3SetObjectTaggingOperation {
-  __type?: "S3SetObjectTaggingOperation";
   /**
    * <p></p>
    */
@@ -1799,7 +1679,6 @@ export namespace S3SetObjectTaggingOperation {
   export const filterSensitiveLog = (obj: S3SetObjectTaggingOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3SetObjectTaggingOperation => __isa(o, "S3SetObjectTaggingOperation");
 }
 
 export enum S3SSEAlgorithm {
@@ -1820,7 +1699,6 @@ export enum S3StorageClass {
  * <p></p>
  */
 export interface S3Tag {
-  __type?: "S3Tag";
   /**
    * <p></p>
    */
@@ -1836,7 +1714,6 @@ export namespace S3Tag {
   export const filterSensitiveLog = (obj: S3Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Tag => __isa(o, "S3Tag");
 }
 
 /**
@@ -1852,7 +1729,6 @@ export namespace TooManyRequestsException {
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -1868,11 +1744,9 @@ export namespace TooManyTagsException {
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 export interface UpdateJobPriorityRequest {
-  __type?: "UpdateJobPriorityRequest";
   /**
    * <p>The ID for the job whose priority you want to update.</p>
    */
@@ -1893,11 +1767,9 @@ export namespace UpdateJobPriorityRequest {
   export const filterSensitiveLog = (obj: UpdateJobPriorityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobPriorityRequest => __isa(o, "UpdateJobPriorityRequest");
 }
 
 export interface UpdateJobPriorityResult {
-  __type?: "UpdateJobPriorityResult";
   /**
    * <p>The ID for the job whose priority Amazon S3 updated.</p>
    */
@@ -1913,11 +1785,9 @@ export namespace UpdateJobPriorityResult {
   export const filterSensitiveLog = (obj: UpdateJobPriorityResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobPriorityResult => __isa(o, "UpdateJobPriorityResult");
 }
 
 export interface UpdateJobStatusRequest {
-  __type?: "UpdateJobStatusRequest";
   /**
    * <p>The ID of the job whose status you want to update.</p>
    */
@@ -1943,11 +1813,9 @@ export namespace UpdateJobStatusRequest {
   export const filterSensitiveLog = (obj: UpdateJobStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobStatusRequest => __isa(o, "UpdateJobStatusRequest");
 }
 
 export interface UpdateJobStatusResult {
-  __type?: "UpdateJobStatusResult";
   /**
    * <p>The reason that the specified job's status was updated.</p>
    */
@@ -1968,14 +1836,12 @@ export namespace UpdateJobStatusResult {
   export const filterSensitiveLog = (obj: UpdateJobStatusResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateJobStatusResult => __isa(o, "UpdateJobStatusResult");
 }
 
 /**
  * <p>The virtual private cloud (VPC) configuration for an access point.</p>
  */
 export interface VpcConfiguration {
-  __type?: "VpcConfiguration";
   /**
    * <p>If this field is specified, this access point will only allow connections from the specified VPC ID.</p>
    */
@@ -1986,5 +1852,4 @@ export namespace VpcConfiguration {
   export const filterSensitiveLog = (obj: VpcConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VpcConfiguration => __isa(o, "VpcConfiguration");
 }

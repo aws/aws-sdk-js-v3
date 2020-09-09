@@ -345,7 +345,6 @@ export const deserializeAws_json1_1AssociateTeamMemberCommand = async (
   contents = deserializeAws_json1_1AssociateTeamMemberResult(data, context);
   const response: AssociateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateTeamMemberResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -449,7 +448,6 @@ export const deserializeAws_json1_1CreateProjectCommand = async (
   contents = deserializeAws_json1_1CreateProjectResult(data, context);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProjectResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -553,7 +551,6 @@ export const deserializeAws_json1_1CreateUserProfileCommand = async (
   contents = deserializeAws_json1_1CreateUserProfileResult(data, context);
   const response: CreateUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserProfileResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -617,7 +614,6 @@ export const deserializeAws_json1_1DeleteProjectCommand = async (
   contents = deserializeAws_json1_1DeleteProjectResult(data, context);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProjectResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -689,7 +685,6 @@ export const deserializeAws_json1_1DeleteUserProfileCommand = async (
   contents = deserializeAws_json1_1DeleteUserProfileResult(data, context);
   const response: DeleteUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteUserProfileResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -745,7 +740,6 @@ export const deserializeAws_json1_1DescribeProjectCommand = async (
   contents = deserializeAws_json1_1DescribeProjectResult(data, context);
   const response: DescribeProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProjectResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -833,7 +827,6 @@ export const deserializeAws_json1_1DescribeUserProfileCommand = async (
   contents = deserializeAws_json1_1DescribeUserProfileResult(data, context);
   const response: DescribeUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserProfileResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -897,7 +890,6 @@ export const deserializeAws_json1_1DisassociateTeamMemberCommand = async (
   contents = deserializeAws_json1_1DisassociateTeamMemberResult(data, context);
   const response: DisassociateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateTeamMemberResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -977,7 +969,6 @@ export const deserializeAws_json1_1ListProjectsCommand = async (
   contents = deserializeAws_json1_1ListProjectsResult(data, context);
   const response: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProjectsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1041,7 +1032,6 @@ export const deserializeAws_json1_1ListResourcesCommand = async (
   contents = deserializeAws_json1_1ListResourcesResult(data, context);
   const response: ListResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourcesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1113,7 +1103,6 @@ export const deserializeAws_json1_1ListTagsForProjectCommand = async (
   contents = deserializeAws_json1_1ListTagsForProjectResult(data, context);
   const response: ListTagsForProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForProjectResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1185,7 +1174,6 @@ export const deserializeAws_json1_1ListTeamMembersCommand = async (
   contents = deserializeAws_json1_1ListTeamMembersResult(data, context);
   const response: ListTeamMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTeamMembersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1257,7 +1245,6 @@ export const deserializeAws_json1_1ListUserProfilesCommand = async (
   contents = deserializeAws_json1_1ListUserProfilesResult(data, context);
   const response: ListUserProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUserProfilesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1321,7 +1308,6 @@ export const deserializeAws_json1_1TagProjectCommand = async (
   contents = deserializeAws_json1_1TagProjectResult(data, context);
   const response: TagProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagProjectResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1401,7 +1387,6 @@ export const deserializeAws_json1_1UntagProjectCommand = async (
   contents = deserializeAws_json1_1UntagProjectResult(data, context);
   const response: UntagProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagProjectResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1481,7 +1466,6 @@ export const deserializeAws_json1_1UpdateProjectCommand = async (
   contents = deserializeAws_json1_1UpdateProjectResult(data, context);
   const response: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProjectResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1545,7 +1529,6 @@ export const deserializeAws_json1_1UpdateTeamMemberCommand = async (
   contents = deserializeAws_json1_1UpdateTeamMemberResult(data, context);
   const response: UpdateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTeamMemberResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1649,7 +1632,6 @@ export const deserializeAws_json1_1UpdateUserProfileCommand = async (
   contents = deserializeAws_json1_1UpdateUserProfileResult(data, context);
   const response: UpdateUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateUserProfileResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2160,7 +2142,6 @@ const deserializeAws_json1_1AssociateTeamMemberResult = (
   context: __SerdeContext
 ): AssociateTeamMemberResult => {
   return {
-    __type: "AssociateTeamMemberResult",
     clientRequestToken:
       output.clientRequestToken !== undefined && output.clientRequestToken !== null
         ? output.clientRequestToken
@@ -2173,14 +2154,12 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    __type: "ConcurrentModificationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateProjectResult = (output: any, context: __SerdeContext): CreateProjectResult => {
   return {
-    __type: "CreateProjectResult",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     clientRequestToken:
       output.clientRequestToken !== undefined && output.clientRequestToken !== null
@@ -2199,7 +2178,6 @@ const deserializeAws_json1_1CreateUserProfileResult = (
   context: __SerdeContext
 ): CreateUserProfileResult => {
   return {
-    __type: "CreateUserProfileResult",
     createdTimestamp:
       output.createdTimestamp !== undefined && output.createdTimestamp !== null
         ? new Date(Math.round(output.createdTimestamp * 1000))
@@ -2217,7 +2195,6 @@ const deserializeAws_json1_1CreateUserProfileResult = (
 
 const deserializeAws_json1_1DeleteProjectResult = (output: any, context: __SerdeContext): DeleteProjectResult => {
   return {
-    __type: "DeleteProjectResult",
     projectArn: output.projectArn !== undefined && output.projectArn !== null ? output.projectArn : undefined,
     stackId: output.stackId !== undefined && output.stackId !== null ? output.stackId : undefined,
   } as any;
@@ -2228,14 +2205,12 @@ const deserializeAws_json1_1DeleteUserProfileResult = (
   context: __SerdeContext
 ): DeleteUserProfileResult => {
   return {
-    __type: "DeleteUserProfileResult",
     userArn: output.userArn !== undefined && output.userArn !== null ? output.userArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribeProjectResult = (output: any, context: __SerdeContext): DescribeProjectResult => {
   return {
-    __type: "DescribeProjectResult",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     clientRequestToken:
       output.clientRequestToken !== undefined && output.clientRequestToken !== null
@@ -2265,7 +2240,6 @@ const deserializeAws_json1_1DescribeUserProfileResult = (
   context: __SerdeContext
 ): DescribeUserProfileResult => {
   return {
-    __type: "DescribeUserProfileResult",
     createdTimestamp:
       output.createdTimestamp !== undefined && output.createdTimestamp !== null
         ? new Date(Math.round(output.createdTimestamp * 1000))
@@ -2285,9 +2259,7 @@ const deserializeAws_json1_1DisassociateTeamMemberResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateTeamMemberResult => {
-  return {
-    __type: "DisassociateTeamMemberResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1InvalidNextTokenException = (
@@ -2295,7 +2267,6 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2305,21 +2276,18 @@ const deserializeAws_json1_1InvalidServiceRoleException = (
   context: __SerdeContext
 ): InvalidServiceRoleException => {
   return {
-    __type: "InvalidServiceRoleException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListProjectsResult = (output: any, context: __SerdeContext): ListProjectsResult => {
   return {
-    __type: "ListProjectsResult",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     projects:
       output.projects !== undefined && output.projects !== null
@@ -2330,7 +2298,6 @@ const deserializeAws_json1_1ListProjectsResult = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ListResourcesResult = (output: any, context: __SerdeContext): ListResourcesResult => {
   return {
-    __type: "ListResourcesResult",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     resources:
       output.resources !== undefined && output.resources !== null
@@ -2344,7 +2311,6 @@ const deserializeAws_json1_1ListTagsForProjectResult = (
   context: __SerdeContext
 ): ListTagsForProjectResult => {
   return {
-    __type: "ListTagsForProjectResult",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     tags:
       output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
@@ -2353,7 +2319,6 @@ const deserializeAws_json1_1ListTagsForProjectResult = (
 
 const deserializeAws_json1_1ListTeamMembersResult = (output: any, context: __SerdeContext): ListTeamMembersResult => {
   return {
-    __type: "ListTeamMembersResult",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     teamMembers:
       output.teamMembers !== undefined && output.teamMembers !== null
@@ -2364,7 +2329,6 @@ const deserializeAws_json1_1ListTeamMembersResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1ListUserProfilesResult = (output: any, context: __SerdeContext): ListUserProfilesResult => {
   return {
-    __type: "ListUserProfilesResult",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     userProfiles:
       output.userProfiles !== undefined && output.userProfiles !== null
@@ -2378,7 +2342,6 @@ const deserializeAws_json1_1ProjectAlreadyExistsException = (
   context: __SerdeContext
 ): ProjectAlreadyExistsException => {
   return {
-    __type: "ProjectAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2388,7 +2351,6 @@ const deserializeAws_json1_1ProjectConfigurationException = (
   context: __SerdeContext
 ): ProjectConfigurationException => {
   return {
-    __type: "ProjectConfigurationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2398,7 +2360,6 @@ const deserializeAws_json1_1ProjectCreationFailedException = (
   context: __SerdeContext
 ): ProjectCreationFailedException => {
   return {
-    __type: "ProjectCreationFailedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2408,7 +2369,6 @@ const deserializeAws_json1_1ProjectNotFoundException = (
   context: __SerdeContext
 ): ProjectNotFoundException => {
   return {
-    __type: "ProjectNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2419,7 +2379,6 @@ const deserializeAws_json1_1ProjectsList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ProjectStatus = (output: any, context: __SerdeContext): ProjectStatus => {
   return {
-    __type: "ProjectStatus",
     reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
     state: output.state !== undefined && output.state !== null ? output.state : undefined,
   } as any;
@@ -2427,7 +2386,6 @@ const deserializeAws_json1_1ProjectStatus = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
   return {
-    __type: "ProjectSummary",
     projectArn: output.projectArn !== undefined && output.projectArn !== null ? output.projectArn : undefined,
     projectId: output.projectId !== undefined && output.projectId !== null ? output.projectId : undefined,
   } as any;
@@ -2435,7 +2393,6 @@ const deserializeAws_json1_1ProjectSummary = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    __type: "Resource",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
   } as any;
 };
@@ -2446,7 +2403,6 @@ const deserializeAws_json1_1ResourcesResult = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1TagProjectResult = (output: any, context: __SerdeContext): TagProjectResult => {
   return {
-    __type: "TagProjectResult",
     tags:
       output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
   } as any;
@@ -2464,7 +2420,6 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): { [ke
 
 const deserializeAws_json1_1TeamMember = (output: any, context: __SerdeContext): TeamMember => {
   return {
-    __type: "TeamMember",
     projectRole: output.projectRole !== undefined && output.projectRole !== null ? output.projectRole : undefined,
     remoteAccessAllowed:
       output.remoteAccessAllowed !== undefined && output.remoteAccessAllowed !== null
@@ -2479,7 +2434,6 @@ const deserializeAws_json1_1TeamMemberAlreadyAssociatedException = (
   context: __SerdeContext
 ): TeamMemberAlreadyAssociatedException => {
   return {
-    __type: "TeamMemberAlreadyAssociatedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2489,7 +2443,6 @@ const deserializeAws_json1_1TeamMemberNotFoundException = (
   context: __SerdeContext
 ): TeamMemberNotFoundException => {
   return {
-    __type: "TeamMemberNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2499,20 +2452,15 @@ const deserializeAws_json1_1TeamMemberResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1UntagProjectResult = (output: any, context: __SerdeContext): UntagProjectResult => {
-  return {
-    __type: "UntagProjectResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateProjectResult = (output: any, context: __SerdeContext): UpdateProjectResult => {
-  return {
-    __type: "UpdateProjectResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateTeamMemberResult = (output: any, context: __SerdeContext): UpdateTeamMemberResult => {
   return {
-    __type: "UpdateTeamMemberResult",
     projectRole: output.projectRole !== undefined && output.projectRole !== null ? output.projectRole : undefined,
     remoteAccessAllowed:
       output.remoteAccessAllowed !== undefined && output.remoteAccessAllowed !== null
@@ -2527,7 +2475,6 @@ const deserializeAws_json1_1UpdateUserProfileResult = (
   context: __SerdeContext
 ): UpdateUserProfileResult => {
   return {
-    __type: "UpdateUserProfileResult",
     createdTimestamp:
       output.createdTimestamp !== undefined && output.createdTimestamp !== null
         ? new Date(Math.round(output.createdTimestamp * 1000))
@@ -2548,7 +2495,6 @@ const deserializeAws_json1_1UserProfileAlreadyExistsException = (
   context: __SerdeContext
 ): UserProfileAlreadyExistsException => {
   return {
-    __type: "UserProfileAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2558,7 +2504,6 @@ const deserializeAws_json1_1UserProfileNotFoundException = (
   context: __SerdeContext
 ): UserProfileNotFoundException => {
   return {
-    __type: "UserProfileNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2569,7 +2514,6 @@ const deserializeAws_json1_1UserProfilesList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1UserProfileSummary = (output: any, context: __SerdeContext): UserProfileSummary => {
   return {
-    __type: "UserProfileSummary",
     displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
     emailAddress: output.emailAddress !== undefined && output.emailAddress !== null ? output.emailAddress : undefined,
     sshPublicKey: output.sshPublicKey !== undefined && output.sshPublicKey !== null ? output.sshPublicKey : undefined,
@@ -2579,7 +2523,6 @@ const deserializeAws_json1_1UserProfileSummary = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    __type: "ValidationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };

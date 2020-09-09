@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -16,7 +16,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *             target account gate</a>.</p>
  */
 export interface AccountGateResult {
-  __type?: "AccountGateResult";
   /**
    * <p>The reason for the account gate status assigned to this account and Region for the
    *          stack set operation.</p>
@@ -73,7 +72,6 @@ export namespace AccountGateResult {
   export const filterSensitiveLog = (obj: AccountGateResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountGateResult => __isa(o, "AccountGateResult");
 }
 
 export type AccountGateStatus = "FAILED" | "SKIPPED" | "SUCCEEDED";
@@ -97,7 +95,6 @@ export type AccountGateStatus = "FAILED" | "SKIPPED" | "SUCCEEDED";
  *             Limits</a> in the <i>AWS CloudFormation User Guide</i>.</p>
  */
 export interface AccountLimit {
-  __type?: "AccountLimit";
   /**
    * <p>The name of the account limit.</p>
    *          <p>Values: <code>ConcurrentResourcesLimit</code> | <code>StackLimit</code> |
@@ -116,7 +113,6 @@ export namespace AccountLimit {
   export const filterSensitiveLog = (obj: AccountLimit): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountLimit => __isa(o, "AccountLimit");
 }
 
 /**
@@ -132,14 +128,12 @@ export namespace AlreadyExistsException {
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 /**
  * <p>[<code>Service-managed</code> permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).</p>
  */
 export interface AutoDeployment {
-  __type?: "AutoDeployment";
   /**
    * <p>If set to <code>true</code>, stack resources are retained when an account is removed from a target organization or OU. If set to <code>false</code>, stack resources are deleted. Specify only if <code>Enabled</code> is set to <code>True</code>.</p>
    */
@@ -155,14 +149,12 @@ export namespace AutoDeployment {
   export const filterSensitiveLog = (obj: AutoDeployment): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoDeployment => __isa(o, "AutoDeployment");
 }
 
 /**
  * <p>The input for the <a>CancelUpdateStack</a> action.</p>
  */
 export interface CancelUpdateStackInput {
-  __type?: "CancelUpdateStackInput";
   /**
    * <p>A unique identifier for this <code>CancelUpdateStack</code> request. Specify this
    *          token if you plan to retry requests so that AWS CloudFormation knows that you're not
@@ -182,7 +174,6 @@ export namespace CancelUpdateStackInput {
   export const filterSensitiveLog = (obj: CancelUpdateStackInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelUpdateStackInput => __isa(o, "CancelUpdateStackInput");
 }
 
 export enum Capability {
@@ -204,7 +195,6 @@ export namespace CFNRegistryException {
   export const filterSensitiveLog = (obj: CFNRegistryException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CFNRegistryException => __isa(o, "CFNRegistryException");
 }
 
 /**
@@ -212,7 +202,6 @@ export namespace CFNRegistryException {
  *          perform if you execute the change set.</p>
  */
 export interface Change {
-  __type?: "Change";
   /**
    * <p>A <code>ResourceChange</code> structure that describes the resource and action that
    *          AWS CloudFormation will perform.</p>
@@ -230,7 +219,6 @@ export namespace Change {
   export const filterSensitiveLog = (obj: Change): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Change => __isa(o, "Change");
 }
 
 export enum ChangeAction {
@@ -254,7 +242,6 @@ export namespace ChangeSetNotFoundException {
   export const filterSensitiveLog = (obj: ChangeSetNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeSetNotFoundException => __isa(o, "ChangeSetNotFoundException");
 }
 
 export enum ChangeSetStatus {
@@ -270,7 +257,6 @@ export enum ChangeSetStatus {
  *          the stack with which it's associated.</p>
  */
 export interface ChangeSetSummary {
-  __type?: "ChangeSetSummary";
   /**
    * <p>The state of the change set, such as <code>CREATE_IN_PROGRESS</code>,
    *             <code>CREATE_COMPLETE</code>, or <code>FAILED</code>.</p>
@@ -327,7 +313,6 @@ export namespace ChangeSetSummary {
   export const filterSensitiveLog = (obj: ChangeSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChangeSetSummary => __isa(o, "ChangeSetSummary");
 }
 
 export enum ChangeSetType {
@@ -352,7 +337,6 @@ export enum ChangeType {
  * <p>The input for the <a>ContinueUpdateRollback</a> action.</p>
  */
 export interface ContinueUpdateRollbackInput {
-  __type?: "ContinueUpdateRollbackInput";
   /**
    * <p>The name or the unique ID of the stack that you want to continue rolling
    *          back.</p>
@@ -425,28 +409,23 @@ export namespace ContinueUpdateRollbackInput {
   export const filterSensitiveLog = (obj: ContinueUpdateRollbackInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContinueUpdateRollbackInput => __isa(o, "ContinueUpdateRollbackInput");
 }
 
 /**
  * <p>The output for a <a>ContinueUpdateRollback</a> action.</p>
  */
-export interface ContinueUpdateRollbackOutput {
-  __type?: "ContinueUpdateRollbackOutput";
-}
+export interface ContinueUpdateRollbackOutput {}
 
 export namespace ContinueUpdateRollbackOutput {
   export const filterSensitiveLog = (obj: ContinueUpdateRollbackOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContinueUpdateRollbackOutput => __isa(o, "ContinueUpdateRollbackOutput");
 }
 
 /**
  * <p>The input for the <a>CreateChangeSet</a> action.</p>
  */
 export interface CreateChangeSetInput {
-  __type?: "CreateChangeSetInput";
   /**
    * <p>The resources to import into your stack.</p>
    */
@@ -684,14 +663,12 @@ export namespace CreateChangeSetInput {
   export const filterSensitiveLog = (obj: CreateChangeSetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateChangeSetInput => __isa(o, "CreateChangeSetInput");
 }
 
 /**
  * <p>The output for the <a>CreateChangeSet</a> action.</p>
  */
 export interface CreateChangeSetOutput {
-  __type?: "CreateChangeSetOutput";
   /**
    * <p>The unique ID of the stack.</p>
    */
@@ -707,7 +684,6 @@ export namespace CreateChangeSetOutput {
   export const filterSensitiveLog = (obj: CreateChangeSetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateChangeSetOutput => __isa(o, "CreateChangeSetOutput");
 }
 
 /**
@@ -723,14 +699,12 @@ export namespace CreatedButModifiedException {
   export const filterSensitiveLog = (obj: CreatedButModifiedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreatedButModifiedException => __isa(o, "CreatedButModifiedException");
 }
 
 /**
  * <p>The input for <a>CreateStack</a> action.</p>
  */
 export interface CreateStackInput {
-  __type?: "CreateStackInput";
   /**
    * <p>Structure containing the stack policy body. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html"> Prevent Updates
    *             to Stack Resources</a> in the <i>AWS CloudFormation User Guide</i>.
@@ -1002,11 +976,9 @@ export namespace CreateStackInput {
   export const filterSensitiveLog = (obj: CreateStackInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStackInput => __isa(o, "CreateStackInput");
 }
 
 export interface CreateStackInstancesInput {
-  __type?: "CreateStackInstancesInput";
   /**
    * <p>The names of one or more Regions where you want to create stack instances using the
    *          specified AWS account(s). </p>
@@ -1095,11 +1067,9 @@ export namespace CreateStackInstancesInput {
   export const filterSensitiveLog = (obj: CreateStackInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStackInstancesInput => __isa(o, "CreateStackInstancesInput");
 }
 
 export interface CreateStackInstancesOutput {
-  __type?: "CreateStackInstancesOutput";
   /**
    * <p>The unique identifier for this stack set operation.</p>
    */
@@ -1110,14 +1080,12 @@ export namespace CreateStackInstancesOutput {
   export const filterSensitiveLog = (obj: CreateStackInstancesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStackInstancesOutput => __isa(o, "CreateStackInstancesOutput");
 }
 
 /**
  * <p>The output for a <a>CreateStack</a> action.</p>
  */
 export interface CreateStackOutput {
-  __type?: "CreateStackOutput";
   /**
    * <p>Unique identifier of the stack.</p>
    */
@@ -1128,11 +1096,9 @@ export namespace CreateStackOutput {
   export const filterSensitiveLog = (obj: CreateStackOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStackOutput => __isa(o, "CreateStackOutput");
 }
 
 export interface CreateStackSetInput {
-  __type?: "CreateStackSetInput";
   /**
    * <p>The structure that contains the template body, with a minimum length of 1 byte and a
    *          maximum length of 51,200 bytes. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
@@ -1337,11 +1303,9 @@ export namespace CreateStackSetInput {
   export const filterSensitiveLog = (obj: CreateStackSetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStackSetInput => __isa(o, "CreateStackSetInput");
 }
 
 export interface CreateStackSetOutput {
-  __type?: "CreateStackSetOutput";
   /**
    * <p>The ID of the stack set that you're creating.</p>
    */
@@ -1352,14 +1316,12 @@ export namespace CreateStackSetOutput {
   export const filterSensitiveLog = (obj: CreateStackSetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateStackSetOutput => __isa(o, "CreateStackSetOutput");
 }
 
 /**
  * <p>The input for the <a>DeleteChangeSet</a> action.</p>
  */
 export interface DeleteChangeSetInput {
-  __type?: "DeleteChangeSetInput";
   /**
    * <p>The name or Amazon Resource Name (ARN) of the change set that you want to
    *          delete.</p>
@@ -1377,28 +1339,23 @@ export namespace DeleteChangeSetInput {
   export const filterSensitiveLog = (obj: DeleteChangeSetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteChangeSetInput => __isa(o, "DeleteChangeSetInput");
 }
 
 /**
  * <p>The output for the <a>DeleteChangeSet</a> action.</p>
  */
-export interface DeleteChangeSetOutput {
-  __type?: "DeleteChangeSetOutput";
-}
+export interface DeleteChangeSetOutput {}
 
 export namespace DeleteChangeSetOutput {
   export const filterSensitiveLog = (obj: DeleteChangeSetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteChangeSetOutput => __isa(o, "DeleteChangeSetOutput");
 }
 
 /**
  * <p>The input for <a>DeleteStack</a> action.</p>
  */
 export interface DeleteStackInput {
-  __type?: "DeleteStackInput";
   /**
    * <p>A unique identifier for this <code>DeleteStack</code> request. Specify this token if
    *          you plan to retry requests so that AWS CloudFormation knows that you're not attempting to
@@ -1447,11 +1404,9 @@ export namespace DeleteStackInput {
   export const filterSensitiveLog = (obj: DeleteStackInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStackInput => __isa(o, "DeleteStackInput");
 }
 
 export interface DeleteStackInstancesInput {
-  __type?: "DeleteStackInstancesInput";
   /**
    * <p>The name or unique ID of the stack set that you want to delete stack instances
    *          for.</p>
@@ -1505,11 +1460,9 @@ export namespace DeleteStackInstancesInput {
   export const filterSensitiveLog = (obj: DeleteStackInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStackInstancesInput => __isa(o, "DeleteStackInstancesInput");
 }
 
 export interface DeleteStackInstancesOutput {
-  __type?: "DeleteStackInstancesOutput";
   /**
    * <p>The unique identifier for this stack set operation.</p>
    */
@@ -1520,11 +1473,9 @@ export namespace DeleteStackInstancesOutput {
   export const filterSensitiveLog = (obj: DeleteStackInstancesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStackInstancesOutput => __isa(o, "DeleteStackInstancesOutput");
 }
 
 export interface DeleteStackSetInput {
-  __type?: "DeleteStackSetInput";
   /**
    * <p>The name or unique ID of the stack set that you're deleting. You can obtain this
    *          value by running <a>ListStackSets</a>.</p>
@@ -1536,18 +1487,14 @@ export namespace DeleteStackSetInput {
   export const filterSensitiveLog = (obj: DeleteStackSetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStackSetInput => __isa(o, "DeleteStackSetInput");
 }
 
-export interface DeleteStackSetOutput {
-  __type?: "DeleteStackSetOutput";
-}
+export interface DeleteStackSetOutput {}
 
 export namespace DeleteStackSetOutput {
   export const filterSensitiveLog = (obj: DeleteStackSetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteStackSetOutput => __isa(o, "DeleteStackSetOutput");
 }
 
 /**
@@ -1555,7 +1502,6 @@ export namespace DeleteStackSetOutput {
  *          <p>For update operations, you can specify either <code>Accounts</code> or <code>OrganizationalUnitIds</code>. For create and delete operations, specify <code>OrganizationalUnitIds</code>.</p>
  */
 export interface DeploymentTargets {
-  __type?: "DeploymentTargets";
   /**
    * <p>The names of one or more AWS accounts for which you want to deploy stack set updates.</p>
    */
@@ -1571,13 +1517,11 @@ export namespace DeploymentTargets {
   export const filterSensitiveLog = (obj: DeploymentTargets): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeploymentTargets => __isa(o, "DeploymentTargets");
 }
 
 export type DeprecatedStatus = "DEPRECATED" | "LIVE";
 
 export interface DeregisterTypeInput {
-  __type?: "DeregisterTypeInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the type.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
@@ -1607,25 +1551,20 @@ export namespace DeregisterTypeInput {
   export const filterSensitiveLog = (obj: DeregisterTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterTypeInput => __isa(o, "DeregisterTypeInput");
 }
 
-export interface DeregisterTypeOutput {
-  __type?: "DeregisterTypeOutput";
-}
+export interface DeregisterTypeOutput {}
 
 export namespace DeregisterTypeOutput {
   export const filterSensitiveLog = (obj: DeregisterTypeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeregisterTypeOutput => __isa(o, "DeregisterTypeOutput");
 }
 
 /**
  * <p>The input for the <a>DescribeAccountLimits</a> action.</p>
  */
 export interface DescribeAccountLimitsInput {
-  __type?: "DescribeAccountLimitsInput";
   /**
    * <p>A string that identifies the next page of limits that you want to retrieve.</p>
    */
@@ -1636,14 +1575,12 @@ export namespace DescribeAccountLimitsInput {
   export const filterSensitiveLog = (obj: DescribeAccountLimitsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountLimitsInput => __isa(o, "DescribeAccountLimitsInput");
 }
 
 /**
  * <p>The output for the <a>DescribeAccountLimits</a> action.</p>
  */
 export interface DescribeAccountLimitsOutput {
-  __type?: "DescribeAccountLimitsOutput";
   /**
    * <p>If the output exceeds 1 MB in size, a string that identifies the next page of limits.
    *          If no additional page exists, this value is null.</p>
@@ -1661,14 +1598,12 @@ export namespace DescribeAccountLimitsOutput {
   export const filterSensitiveLog = (obj: DescribeAccountLimitsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeAccountLimitsOutput => __isa(o, "DescribeAccountLimitsOutput");
 }
 
 /**
  * <p>The input for the <a>DescribeChangeSet</a> action.</p>
  */
 export interface DescribeChangeSetInput {
-  __type?: "DescribeChangeSetInput";
   /**
    * <p>The name or Amazon Resource Name (ARN) of the change set that you want to
    *          describe.</p>
@@ -1692,14 +1627,12 @@ export namespace DescribeChangeSetInput {
   export const filterSensitiveLog = (obj: DescribeChangeSetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeChangeSetInput => __isa(o, "DescribeChangeSetInput");
 }
 
 /**
  * <p>The output for the <a>DescribeChangeSet</a> action.</p>
  */
 export interface DescribeChangeSetOutput {
-  __type?: "DescribeChangeSetOutput";
   /**
    * <p>A list of <code>Parameter</code> structures that describes the input parameters and
    *          their values used to create the change set. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a> data type.</p>
@@ -1798,11 +1731,9 @@ export namespace DescribeChangeSetOutput {
   export const filterSensitiveLog = (obj: DescribeChangeSetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeChangeSetOutput => __isa(o, "DescribeChangeSetOutput");
 }
 
 export interface DescribeStackDriftDetectionStatusInput {
-  __type?: "DescribeStackDriftDetectionStatusInput";
   /**
    * <p>The ID of the drift detection results of this operation. </p>
    *          <p>AWS CloudFormation generates new results, with a new drift detection ID, each time this operation
@@ -1816,12 +1747,9 @@ export namespace DescribeStackDriftDetectionStatusInput {
   export const filterSensitiveLog = (obj: DescribeStackDriftDetectionStatusInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackDriftDetectionStatusInput =>
-    __isa(o, "DescribeStackDriftDetectionStatusInput");
 }
 
 export interface DescribeStackDriftDetectionStatusOutput {
-  __type?: "DescribeStackDriftDetectionStatusOutput";
   /**
    * <p>Time at which the stack drift detection operation was initiated.</p>
    */
@@ -1911,15 +1839,12 @@ export namespace DescribeStackDriftDetectionStatusOutput {
   export const filterSensitiveLog = (obj: DescribeStackDriftDetectionStatusOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackDriftDetectionStatusOutput =>
-    __isa(o, "DescribeStackDriftDetectionStatusOutput");
 }
 
 /**
  * <p>The input for <a>DescribeStackEvents</a> action.</p>
  */
 export interface DescribeStackEventsInput {
-  __type?: "DescribeStackEventsInput";
   /**
    * <p>A string that identifies the next page of events that you want to retrieve.</p>
    */
@@ -1946,14 +1871,12 @@ export namespace DescribeStackEventsInput {
   export const filterSensitiveLog = (obj: DescribeStackEventsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackEventsInput => __isa(o, "DescribeStackEventsInput");
 }
 
 /**
  * <p>The output for a <a>DescribeStackEvents</a> action.</p>
  */
 export interface DescribeStackEventsOutput {
-  __type?: "DescribeStackEventsOutput";
   /**
    * <p>If the output exceeds 1 MB in size, a string that identifies the next page of events.
    *          If no additional page exists, this value is null.</p>
@@ -1970,11 +1893,9 @@ export namespace DescribeStackEventsOutput {
   export const filterSensitiveLog = (obj: DescribeStackEventsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackEventsOutput => __isa(o, "DescribeStackEventsOutput");
 }
 
 export interface DescribeStackInstanceInput {
-  __type?: "DescribeStackInstanceInput";
   /**
    * <p>The name or the unique stack ID of the stack set that you want to get stack instance
    *          information for.</p>
@@ -1996,11 +1917,9 @@ export namespace DescribeStackInstanceInput {
   export const filterSensitiveLog = (obj: DescribeStackInstanceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackInstanceInput => __isa(o, "DescribeStackInstanceInput");
 }
 
 export interface DescribeStackInstanceOutput {
-  __type?: "DescribeStackInstanceOutput";
   /**
    * <p>The stack instance that matches the specified request parameters.</p>
    */
@@ -2011,11 +1930,9 @@ export namespace DescribeStackInstanceOutput {
   export const filterSensitiveLog = (obj: DescribeStackInstanceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackInstanceOutput => __isa(o, "DescribeStackInstanceOutput");
 }
 
 export interface DescribeStackResourceDriftsInput {
-  __type?: "DescribeStackResourceDriftsInput";
   /**
    * <p>The resource drift status values to use as filters for the resource drift results
    *          returned.</p>
@@ -2066,11 +1983,9 @@ export namespace DescribeStackResourceDriftsInput {
   export const filterSensitiveLog = (obj: DescribeStackResourceDriftsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackResourceDriftsInput => __isa(o, "DescribeStackResourceDriftsInput");
 }
 
 export interface DescribeStackResourceDriftsOutput {
-  __type?: "DescribeStackResourceDriftsOutput";
   /**
    * <p>Drift information for the resources that have been checked for drift in the specified
    *          stack. This includes actual and expected configuration values for resources where AWS CloudFormation
@@ -2097,14 +2012,12 @@ export namespace DescribeStackResourceDriftsOutput {
   export const filterSensitiveLog = (obj: DescribeStackResourceDriftsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackResourceDriftsOutput => __isa(o, "DescribeStackResourceDriftsOutput");
 }
 
 /**
  * <p>The input for <a>DescribeStackResource</a> action.</p>
  */
 export interface DescribeStackResourceInput {
-  __type?: "DescribeStackResourceInput";
   /**
    * <p>The logical name of the resource as specified in the template.</p>
    *          <p>Default: There is no default value.</p>
@@ -2132,14 +2045,12 @@ export namespace DescribeStackResourceInput {
   export const filterSensitiveLog = (obj: DescribeStackResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackResourceInput => __isa(o, "DescribeStackResourceInput");
 }
 
 /**
  * <p>The output for a <a>DescribeStackResource</a> action.</p>
  */
 export interface DescribeStackResourceOutput {
-  __type?: "DescribeStackResourceOutput";
   /**
    * <p>A <code>StackResourceDetail</code> structure containing the description of the
    *          specified resource in the specified stack.</p>
@@ -2151,14 +2062,12 @@ export namespace DescribeStackResourceOutput {
   export const filterSensitiveLog = (obj: DescribeStackResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackResourceOutput => __isa(o, "DescribeStackResourceOutput");
 }
 
 /**
  * <p>The input for <a>DescribeStackResources</a> action.</p>
  */
 export interface DescribeStackResourcesInput {
-  __type?: "DescribeStackResourcesInput";
   /**
    * <p>The name or unique identifier that corresponds to a physical instance ID of a
    *          resource supported by AWS CloudFormation.</p>
@@ -2201,14 +2110,12 @@ export namespace DescribeStackResourcesInput {
   export const filterSensitiveLog = (obj: DescribeStackResourcesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackResourcesInput => __isa(o, "DescribeStackResourcesInput");
 }
 
 /**
  * <p>The output for a <a>DescribeStackResources</a> action.</p>
  */
 export interface DescribeStackResourcesOutput {
-  __type?: "DescribeStackResourcesOutput";
   /**
    * <p>A list of <code>StackResource</code> structures.</p>
    */
@@ -2219,11 +2126,9 @@ export namespace DescribeStackResourcesOutput {
   export const filterSensitiveLog = (obj: DescribeStackResourcesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackResourcesOutput => __isa(o, "DescribeStackResourcesOutput");
 }
 
 export interface DescribeStackSetInput {
-  __type?: "DescribeStackSetInput";
   /**
    * <p>The name or unique ID of the stack set whose description you want.</p>
    */
@@ -2234,11 +2139,9 @@ export namespace DescribeStackSetInput {
   export const filterSensitiveLog = (obj: DescribeStackSetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackSetInput => __isa(o, "DescribeStackSetInput");
 }
 
 export interface DescribeStackSetOperationInput {
-  __type?: "DescribeStackSetOperationInput";
   /**
    * <p>The unique ID of the stack set operation. </p>
    */
@@ -2254,11 +2157,9 @@ export namespace DescribeStackSetOperationInput {
   export const filterSensitiveLog = (obj: DescribeStackSetOperationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackSetOperationInput => __isa(o, "DescribeStackSetOperationInput");
 }
 
 export interface DescribeStackSetOperationOutput {
-  __type?: "DescribeStackSetOperationOutput";
   /**
    * <p>The specified stack set operation.</p>
    */
@@ -2269,11 +2170,9 @@ export namespace DescribeStackSetOperationOutput {
   export const filterSensitiveLog = (obj: DescribeStackSetOperationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackSetOperationOutput => __isa(o, "DescribeStackSetOperationOutput");
 }
 
 export interface DescribeStackSetOutput {
-  __type?: "DescribeStackSetOutput";
   /**
    * <p>The specified stack set.</p>
    */
@@ -2284,14 +2183,12 @@ export namespace DescribeStackSetOutput {
   export const filterSensitiveLog = (obj: DescribeStackSetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStackSetOutput => __isa(o, "DescribeStackSetOutput");
 }
 
 /**
  * <p>The input for <a>DescribeStacks</a> action.</p>
  */
 export interface DescribeStacksInput {
-  __type?: "DescribeStacksInput";
   /**
    * <p>The name or the unique stack ID that is associated with the stack, which are not
    *          always interchangeable:</p>
@@ -2318,14 +2215,12 @@ export namespace DescribeStacksInput {
   export const filterSensitiveLog = (obj: DescribeStacksInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStacksInput => __isa(o, "DescribeStacksInput");
 }
 
 /**
  * <p>The output for a <a>DescribeStacks</a> action.</p>
  */
 export interface DescribeStacksOutput {
-  __type?: "DescribeStacksOutput";
   /**
    * <p>If the output exceeds 1 MB in size, a string that identifies the next page of stacks.
    *          If no additional page exists, this value is null.</p>
@@ -2342,11 +2237,9 @@ export namespace DescribeStacksOutput {
   export const filterSensitiveLog = (obj: DescribeStacksOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStacksOutput => __isa(o, "DescribeStacksOutput");
 }
 
 export interface DescribeTypeInput {
-  __type?: "DescribeTypeInput";
   /**
    * <p>The name of the type.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
@@ -2377,11 +2270,9 @@ export namespace DescribeTypeInput {
   export const filterSensitiveLog = (obj: DescribeTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTypeInput => __isa(o, "DescribeTypeInput");
 }
 
 export interface DescribeTypeOutput {
-  __type?: "DescribeTypeOutput";
   /**
    * <p>The deprecation status of the type.</p>
    *          <p>Valid values include:</p>
@@ -2527,11 +2418,9 @@ export namespace DescribeTypeOutput {
   export const filterSensitiveLog = (obj: DescribeTypeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTypeOutput => __isa(o, "DescribeTypeOutput");
 }
 
 export interface DescribeTypeRegistrationInput {
-  __type?: "DescribeTypeRegistrationInput";
   /**
    * <p>The identifier for this registration request.</p>
    *          <p>This registration token is generated by CloudFormation when you initiate a registration request using <code>
@@ -2545,11 +2434,9 @@ export namespace DescribeTypeRegistrationInput {
   export const filterSensitiveLog = (obj: DescribeTypeRegistrationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTypeRegistrationInput => __isa(o, "DescribeTypeRegistrationInput");
 }
 
 export interface DescribeTypeRegistrationOutput {
-  __type?: "DescribeTypeRegistrationOutput";
   /**
    * <p>The description of the type registration request.</p>
    */
@@ -2577,11 +2464,9 @@ export namespace DescribeTypeRegistrationOutput {
   export const filterSensitiveLog = (obj: DescribeTypeRegistrationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeTypeRegistrationOutput => __isa(o, "DescribeTypeRegistrationOutput");
 }
 
 export interface DetectStackDriftInput {
-  __type?: "DetectStackDriftInput";
   /**
    * <p>The logical names of any resources you want to use as filters.</p>
    */
@@ -2597,11 +2482,9 @@ export namespace DetectStackDriftInput {
   export const filterSensitiveLog = (obj: DetectStackDriftInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectStackDriftInput => __isa(o, "DetectStackDriftInput");
 }
 
 export interface DetectStackDriftOutput {
-  __type?: "DetectStackDriftOutput";
   /**
    * <p>The ID of the drift detection results of this operation. </p>
    *          <p>AWS CloudFormation generates new results, with a new drift detection ID, each time this operation
@@ -2615,11 +2498,9 @@ export namespace DetectStackDriftOutput {
   export const filterSensitiveLog = (obj: DetectStackDriftOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectStackDriftOutput => __isa(o, "DetectStackDriftOutput");
 }
 
 export interface DetectStackResourceDriftInput {
-  __type?: "DetectStackResourceDriftInput";
   /**
    * <p>The name of the stack to which the resource belongs.</p>
    */
@@ -2635,11 +2516,9 @@ export namespace DetectStackResourceDriftInput {
   export const filterSensitiveLog = (obj: DetectStackResourceDriftInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectStackResourceDriftInput => __isa(o, "DetectStackResourceDriftInput");
 }
 
 export interface DetectStackResourceDriftOutput {
-  __type?: "DetectStackResourceDriftOutput";
   /**
    * <p>Information about whether the resource's actual configuration has drifted from its
    *          expected template configuration, including actual and expected property values and any
@@ -2652,11 +2531,9 @@ export namespace DetectStackResourceDriftOutput {
   export const filterSensitiveLog = (obj: DetectStackResourceDriftOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectStackResourceDriftOutput => __isa(o, "DetectStackResourceDriftOutput");
 }
 
 export interface DetectStackSetDriftInput {
-  __type?: "DetectStackSetDriftInput";
   /**
    * <p>The name of the stack set on which to perform the drift detection operation.</p>
    */
@@ -2681,11 +2558,9 @@ export namespace DetectStackSetDriftInput {
   export const filterSensitiveLog = (obj: DetectStackSetDriftInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectStackSetDriftInput => __isa(o, "DetectStackSetDriftInput");
 }
 
 export interface DetectStackSetDriftOutput {
-  __type?: "DetectStackSetDriftOutput";
   /**
    * <p>The ID of the drift detection stack set operation. </p>
    *          <p>you can use this operation id with <code>
@@ -2699,7 +2574,6 @@ export namespace DetectStackSetDriftOutput {
   export const filterSensitiveLog = (obj: DetectStackSetDriftOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DetectStackSetDriftOutput => __isa(o, "DetectStackSetDriftOutput");
 }
 
 export enum DifferenceType {
@@ -2712,7 +2586,6 @@ export enum DifferenceType {
  * <p>The input for an <a>EstimateTemplateCost</a> action.</p>
  */
 export interface EstimateTemplateCostInput {
-  __type?: "EstimateTemplateCostInput";
   /**
    * <p>A list of <code>Parameter</code> structures that specify input parameters.</p>
    */
@@ -2741,14 +2614,12 @@ export namespace EstimateTemplateCostInput {
   export const filterSensitiveLog = (obj: EstimateTemplateCostInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EstimateTemplateCostInput => __isa(o, "EstimateTemplateCostInput");
 }
 
 /**
  * <p>The output for a <a>EstimateTemplateCost</a> action.</p>
  */
 export interface EstimateTemplateCostOutput {
-  __type?: "EstimateTemplateCostOutput";
   /**
    * <p>An AWS Simple Monthly Calculator URL with a query string that describes the resources
    *          required to run the template.</p>
@@ -2760,7 +2631,6 @@ export namespace EstimateTemplateCostOutput {
   export const filterSensitiveLog = (obj: EstimateTemplateCostOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EstimateTemplateCostOutput => __isa(o, "EstimateTemplateCostOutput");
 }
 
 export enum EvaluationType {
@@ -2772,7 +2642,6 @@ export enum EvaluationType {
  * <p>The input for the <a>ExecuteChangeSet</a> action.</p>
  */
 export interface ExecuteChangeSetInput {
-  __type?: "ExecuteChangeSetInput";
   /**
    * <p>A unique identifier for this <code>ExecuteChangeSet</code> request. Specify this
    *          token if you plan to retry requests so that AWS CloudFormation knows that you're not
@@ -2799,21 +2668,17 @@ export namespace ExecuteChangeSetInput {
   export const filterSensitiveLog = (obj: ExecuteChangeSetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecuteChangeSetInput => __isa(o, "ExecuteChangeSetInput");
 }
 
 /**
  * <p>The output for the <a>ExecuteChangeSet</a> action.</p>
  */
-export interface ExecuteChangeSetOutput {
-  __type?: "ExecuteChangeSetOutput";
-}
+export interface ExecuteChangeSetOutput {}
 
 export namespace ExecuteChangeSetOutput {
   export const filterSensitiveLog = (obj: ExecuteChangeSetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecuteChangeSetOutput => __isa(o, "ExecuteChangeSetOutput");
 }
 
 export enum ExecutionStatus {
@@ -2830,7 +2695,6 @@ export enum ExecutionStatus {
  *          stack.</p>
  */
 export interface Export {
-  __type?: "Export";
   /**
    * <p>The name of exported output value. Use this name and the <code>Fn::ImportValue</code>
    *          function to import the associated value into other stacks. The name is defined in the
@@ -2856,14 +2720,12 @@ export namespace Export {
   export const filterSensitiveLog = (obj: Export): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Export => __isa(o, "Export");
 }
 
 /**
  * <p>The input for the <a>GetStackPolicy</a> action.</p>
  */
 export interface GetStackPolicyInput {
-  __type?: "GetStackPolicyInput";
   /**
    * <p>The name or unique stack ID that is associated with the stack whose policy you want
    *          to get.</p>
@@ -2875,14 +2737,12 @@ export namespace GetStackPolicyInput {
   export const filterSensitiveLog = (obj: GetStackPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStackPolicyInput => __isa(o, "GetStackPolicyInput");
 }
 
 /**
  * <p>The output for the <a>GetStackPolicy</a> action.</p>
  */
 export interface GetStackPolicyOutput {
-  __type?: "GetStackPolicyOutput";
   /**
    * <p>Structure containing the stack policy body. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html"> Prevent Updates
    *             to Stack Resources</a> in the AWS CloudFormation User Guide.)</p>
@@ -2894,14 +2754,12 @@ export namespace GetStackPolicyOutput {
   export const filterSensitiveLog = (obj: GetStackPolicyOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetStackPolicyOutput => __isa(o, "GetStackPolicyOutput");
 }
 
 /**
  * <p>The input for a <a>GetTemplate</a> action.</p>
  */
 export interface GetTemplateInput {
-  __type?: "GetTemplateInput";
   /**
    * <p>The name or the unique stack ID that is associated with the stack, which are not
    *          always interchangeable:</p>
@@ -2941,14 +2799,12 @@ export namespace GetTemplateInput {
   export const filterSensitiveLog = (obj: GetTemplateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTemplateInput => __isa(o, "GetTemplateInput");
 }
 
 /**
  * <p>The output for <a>GetTemplate</a> action.</p>
  */
 export interface GetTemplateOutput {
-  __type?: "GetTemplateOutput";
   /**
    * <p>Structure containing the template body. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the AWS CloudFormation User Guide.)</p>
    *          <p>AWS CloudFormation returns the same template that was used when the stack was
@@ -2970,14 +2826,12 @@ export namespace GetTemplateOutput {
   export const filterSensitiveLog = (obj: GetTemplateOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTemplateOutput => __isa(o, "GetTemplateOutput");
 }
 
 /**
  * <p>The input for the <a>GetTemplateSummary</a> action.</p>
  */
 export interface GetTemplateSummaryInput {
-  __type?: "GetTemplateSummaryInput";
   /**
    * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
    *          length of 51,200 bytes. For more information about templates, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the AWS CloudFormation User Guide.</p>
@@ -3021,14 +2875,12 @@ export namespace GetTemplateSummaryInput {
   export const filterSensitiveLog = (obj: GetTemplateSummaryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTemplateSummaryInput => __isa(o, "GetTemplateSummaryInput");
 }
 
 /**
  * <p>The output for the <a>GetTemplateSummary</a> action.</p>
  */
 export interface GetTemplateSummaryOutput {
-  __type?: "GetTemplateSummaryOutput";
   /**
    * <p>A list of resource identifier summaries that describe the target resources of an import
    *          operation and the properties you can provide during the import to identify the target
@@ -3093,7 +2945,6 @@ export namespace GetTemplateSummaryOutput {
   export const filterSensitiveLog = (obj: GetTemplateSummaryOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTemplateSummaryOutput => __isa(o, "GetTemplateSummaryOutput");
 }
 
 export enum HandlerErrorCode {
@@ -3127,7 +2978,6 @@ export namespace InsufficientCapabilitiesException {
   export const filterSensitiveLog = (obj: InsufficientCapabilitiesException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InsufficientCapabilitiesException => __isa(o, "InsufficientCapabilitiesException");
 }
 
 /**
@@ -3145,7 +2995,6 @@ export namespace InvalidChangeSetStatusException {
   export const filterSensitiveLog = (obj: InvalidChangeSetStatusException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidChangeSetStatusException => __isa(o, "InvalidChangeSetStatusException");
 }
 
 /**
@@ -3161,7 +3010,6 @@ export namespace InvalidOperationException {
   export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidOperationException => __isa(o, "InvalidOperationException");
 }
 
 /**
@@ -3177,7 +3025,6 @@ export namespace InvalidStateTransitionException {
   export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidStateTransitionException => __isa(o, "InvalidStateTransitionException");
 }
 
 /**
@@ -3195,14 +3042,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>The input for the <a>ListChangeSets</a> action.</p>
  */
 export interface ListChangeSetsInput {
-  __type?: "ListChangeSetsInput";
   /**
    * <p>A string (provided by the <a>ListChangeSets</a> response output) that
    *          identifies the next page of change sets that you want to retrieve.</p>
@@ -3220,14 +3065,12 @@ export namespace ListChangeSetsInput {
   export const filterSensitiveLog = (obj: ListChangeSetsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChangeSetsInput => __isa(o, "ListChangeSetsInput");
 }
 
 /**
  * <p>The output for the <a>ListChangeSets</a> action.</p>
  */
 export interface ListChangeSetsOutput {
-  __type?: "ListChangeSetsOutput";
   /**
    * <p>If the output exceeds 1 MB, a string that identifies the next page of change sets. If
    *          there is no additional page, this value is null.</p>
@@ -3245,11 +3088,9 @@ export namespace ListChangeSetsOutput {
   export const filterSensitiveLog = (obj: ListChangeSetsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListChangeSetsOutput => __isa(o, "ListChangeSetsOutput");
 }
 
 export interface ListExportsInput {
-  __type?: "ListExportsInput";
   /**
    * <p>A string (provided by the <a>ListExports</a> response output) that
    *          identifies the next page of exported output values that you asked to retrieve.</p>
@@ -3261,11 +3102,9 @@ export namespace ListExportsInput {
   export const filterSensitiveLog = (obj: ListExportsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListExportsInput => __isa(o, "ListExportsInput");
 }
 
 export interface ListExportsOutput {
-  __type?: "ListExportsOutput";
   /**
    * <p>The output for the <a>ListExports</a> action.</p>
    */
@@ -3282,11 +3121,9 @@ export namespace ListExportsOutput {
   export const filterSensitiveLog = (obj: ListExportsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListExportsOutput => __isa(o, "ListExportsOutput");
 }
 
 export interface ListImportsInput {
-  __type?: "ListImportsInput";
   /**
    * <p>The name of the exported output value. AWS CloudFormation returns the stack names
    *          that are importing this value. </p>
@@ -3305,11 +3142,9 @@ export namespace ListImportsInput {
   export const filterSensitiveLog = (obj: ListImportsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImportsInput => __isa(o, "ListImportsInput");
 }
 
 export interface ListImportsOutput {
-  __type?: "ListImportsOutput";
   /**
    * <p>A string that identifies the next page of exports. If there is no additional page,
    *          this value is null.</p>
@@ -3327,11 +3162,9 @@ export namespace ListImportsOutput {
   export const filterSensitiveLog = (obj: ListImportsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListImportsOutput => __isa(o, "ListImportsOutput");
 }
 
 export interface ListStackInstancesInput {
-  __type?: "ListStackInstancesInput";
   /**
    * <p>The name of the AWS account that you want to list stack instances for.</p>
    */
@@ -3375,11 +3208,9 @@ export namespace ListStackInstancesInput {
   export const filterSensitiveLog = (obj: ListStackInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStackInstancesInput => __isa(o, "ListStackInstancesInput");
 }
 
 export interface ListStackInstancesOutput {
-  __type?: "ListStackInstancesOutput";
   /**
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is
    *          set to a token. To retrieve the next set of results, call <code>ListStackInstances</code>
@@ -3400,14 +3231,12 @@ export namespace ListStackInstancesOutput {
   export const filterSensitiveLog = (obj: ListStackInstancesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStackInstancesOutput => __isa(o, "ListStackInstancesOutput");
 }
 
 /**
  * <p>The input for the <a>ListStackResource</a> action.</p>
  */
 export interface ListStackResourcesInput {
-  __type?: "ListStackResourcesInput";
   /**
    * <p>A string that identifies the next page of stack resources that you want to
    *          retrieve.</p>
@@ -3435,14 +3264,12 @@ export namespace ListStackResourcesInput {
   export const filterSensitiveLog = (obj: ListStackResourcesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStackResourcesInput => __isa(o, "ListStackResourcesInput");
 }
 
 /**
  * <p>The output for a <a>ListStackResources</a> action.</p>
  */
 export interface ListStackResourcesOutput {
-  __type?: "ListStackResourcesOutput";
   /**
    * <p>If the output exceeds 1 MB, a string that identifies the next page of stack
    *          resources. If no additional page exists, this value is null.</p>
@@ -3459,11 +3286,9 @@ export namespace ListStackResourcesOutput {
   export const filterSensitiveLog = (obj: ListStackResourcesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStackResourcesOutput => __isa(o, "ListStackResourcesOutput");
 }
 
 export interface ListStackSetOperationResultsInput {
-  __type?: "ListStackSetOperationResultsInput";
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
    *          available results exceeds this maximum, the response includes a <code>NextToken</code>
@@ -3498,11 +3323,9 @@ export namespace ListStackSetOperationResultsInput {
   export const filterSensitiveLog = (obj: ListStackSetOperationResultsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStackSetOperationResultsInput => __isa(o, "ListStackSetOperationResultsInput");
 }
 
 export interface ListStackSetOperationResultsOutput {
-  __type?: "ListStackSetOperationResultsOutput";
   /**
    * <p>A list of <code>StackSetOperationResultSummary</code> structures that contain
    *          information about the specified operation results, for accounts and Regions that are
@@ -3523,12 +3346,9 @@ export namespace ListStackSetOperationResultsOutput {
   export const filterSensitiveLog = (obj: ListStackSetOperationResultsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStackSetOperationResultsOutput =>
-    __isa(o, "ListStackSetOperationResultsOutput");
 }
 
 export interface ListStackSetOperationsInput {
-  __type?: "ListStackSetOperationsInput";
   /**
    * <p>If the previous paginated request didn't return all of the remaining results, the
    *          response object's <code>NextToken</code> parameter value is set to a token. To retrieve the
@@ -3558,11 +3378,9 @@ export namespace ListStackSetOperationsInput {
   export const filterSensitiveLog = (obj: ListStackSetOperationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStackSetOperationsInput => __isa(o, "ListStackSetOperationsInput");
 }
 
 export interface ListStackSetOperationsOutput {
-  __type?: "ListStackSetOperationsOutput";
   /**
    * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token.
    *          To retrieve the next set of results, call <code>ListOperationResults</code> again and
@@ -3582,11 +3400,9 @@ export namespace ListStackSetOperationsOutput {
   export const filterSensitiveLog = (obj: ListStackSetOperationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStackSetOperationsOutput => __isa(o, "ListStackSetOperationsOutput");
 }
 
 export interface ListStackSetsInput {
-  __type?: "ListStackSetsInput";
   /**
    * <p>If the previous paginated request didn't return all of the remaining results, the
    *          response object's <code>NextToken</code> parameter value is set to a token. To retrieve the
@@ -3616,11 +3432,9 @@ export namespace ListStackSetsInput {
   export const filterSensitiveLog = (obj: ListStackSetsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStackSetsInput => __isa(o, "ListStackSetsInput");
 }
 
 export interface ListStackSetsOutput {
-  __type?: "ListStackSetsOutput";
   /**
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is
    *          set to a token. To retrieve the next set of results, call <code>ListStackInstances</code>
@@ -3641,14 +3455,12 @@ export namespace ListStackSetsOutput {
   export const filterSensitiveLog = (obj: ListStackSetsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStackSetsOutput => __isa(o, "ListStackSetsOutput");
 }
 
 /**
  * <p>The input for <a>ListStacks</a> action.</p>
  */
 export interface ListStacksInput {
-  __type?: "ListStacksInput";
   /**
    * <p>A string that identifies the next page of stacks that you want to retrieve.</p>
    */
@@ -3666,14 +3478,12 @@ export namespace ListStacksInput {
   export const filterSensitiveLog = (obj: ListStacksInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStacksInput => __isa(o, "ListStacksInput");
 }
 
 /**
  * <p>The output for <a>ListStacks</a> action.</p>
  */
 export interface ListStacksOutput {
-  __type?: "ListStacksOutput";
   /**
    * <p>A list of <code>StackSummary</code> structures containing information about the
    *          specified stacks.</p>
@@ -3691,11 +3501,9 @@ export namespace ListStacksOutput {
   export const filterSensitiveLog = (obj: ListStacksOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStacksOutput => __isa(o, "ListStacksOutput");
 }
 
 export interface ListTypeRegistrationsInput {
-  __type?: "ListTypeRegistrationsInput";
   /**
    * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    */
@@ -3736,11 +3544,9 @@ export namespace ListTypeRegistrationsInput {
   export const filterSensitiveLog = (obj: ListTypeRegistrationsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTypeRegistrationsInput => __isa(o, "ListTypeRegistrationsInput");
 }
 
 export interface ListTypeRegistrationsOutput {
-  __type?: "ListTypeRegistrationsOutput";
   /**
    * <p> A list of type registration tokens.</p>
    *          <p>Use <code>
@@ -3759,11 +3565,9 @@ export namespace ListTypeRegistrationsOutput {
   export const filterSensitiveLog = (obj: ListTypeRegistrationsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTypeRegistrationsOutput => __isa(o, "ListTypeRegistrationsOutput");
 }
 
 export interface ListTypesInput {
-  __type?: "ListTypesInput";
   /**
    * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    */
@@ -3832,11 +3636,9 @@ export namespace ListTypesInput {
   export const filterSensitiveLog = (obj: ListTypesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTypesInput => __isa(o, "ListTypesInput");
 }
 
 export interface ListTypesOutput {
-  __type?: "ListTypesOutput";
   /**
    * <p>A list of <code>TypeSummary</code> structures that contain information about the specified types.</p>
    */
@@ -3852,11 +3654,9 @@ export namespace ListTypesOutput {
   export const filterSensitiveLog = (obj: ListTypesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTypesOutput => __isa(o, "ListTypesOutput");
 }
 
 export interface ListTypeVersionsInput {
-  __type?: "ListTypeVersionsInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the type for which you want version summary information.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
@@ -3908,11 +3708,9 @@ export namespace ListTypeVersionsInput {
   export const filterSensitiveLog = (obj: ListTypeVersionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTypeVersionsInput => __isa(o, "ListTypeVersionsInput");
 }
 
 export interface ListTypeVersionsOutput {
-  __type?: "ListTypeVersionsOutput";
   /**
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
    */
@@ -3928,14 +3726,12 @@ export namespace ListTypeVersionsOutput {
   export const filterSensitiveLog = (obj: ListTypeVersionsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTypeVersionsOutput => __isa(o, "ListTypeVersionsOutput");
 }
 
 /**
  * <p>Contains logging configuration information for a type.</p>
  */
 export interface LoggingConfig {
-  __type?: "LoggingConfig";
   /**
    * <p>The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.</p>
    */
@@ -3951,7 +3747,6 @@ export namespace LoggingConfig {
   export const filterSensitiveLog = (obj: LoggingConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggingConfig => __isa(o, "LoggingConfig");
 }
 
 /**
@@ -3967,7 +3762,6 @@ export namespace NameAlreadyExistsException {
   export const filterSensitiveLog = (obj: NameAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NameAlreadyExistsException => __isa(o, "NameAlreadyExistsException");
 }
 
 export enum OnFailure {
@@ -3989,7 +3783,6 @@ export namespace OperationIdAlreadyExistsException {
   export const filterSensitiveLog = (obj: OperationIdAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationIdAlreadyExistsException => __isa(o, "OperationIdAlreadyExistsException");
 }
 
 /**
@@ -4006,7 +3799,6 @@ export namespace OperationInProgressException {
   export const filterSensitiveLog = (obj: OperationInProgressException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationInProgressException => __isa(o, "OperationInProgressException");
 }
 
 /**
@@ -4022,7 +3814,6 @@ export namespace OperationNotFoundException {
   export const filterSensitiveLog = (obj: OperationNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationNotFoundException => __isa(o, "OperationNotFoundException");
 }
 
 export enum OperationStatus {
@@ -4045,15 +3836,12 @@ export namespace OperationStatusCheckFailedException {
   export const filterSensitiveLog = (obj: OperationStatusCheckFailedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationStatusCheckFailedException =>
-    __isa(o, "OperationStatusCheckFailedException");
 }
 
 /**
  * <p>The Output data type.</p>
  */
 export interface Output {
-  __type?: "Output";
   /**
    * <p>The value associated with the output.</p>
    */
@@ -4079,14 +3867,12 @@ export namespace Output {
   export const filterSensitiveLog = (obj: Output): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Output => __isa(o, "Output");
 }
 
 /**
  * <p>The Parameter data type.</p>
  */
 export interface Parameter {
-  __type?: "Parameter";
   /**
    * <p>The key associated with the parameter. If you don't specify a key and value for a
    *          particular parameter, AWS CloudFormation uses the default value that is specified in your
@@ -4118,7 +3904,6 @@ export namespace Parameter {
   export const filterSensitiveLog = (obj: Parameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Parameter => __isa(o, "Parameter");
 }
 
 /**
@@ -4127,7 +3912,6 @@ export namespace Parameter {
  *          the <code>AllowedValues</code> property.</p>
  */
 export interface ParameterConstraints {
-  __type?: "ParameterConstraints";
   /**
    * <p>A list of values that are permitted for a parameter.</p>
    */
@@ -4138,14 +3922,12 @@ export namespace ParameterConstraints {
   export const filterSensitiveLog = (obj: ParameterConstraints): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParameterConstraints => __isa(o, "ParameterConstraints");
 }
 
 /**
  * <p>The ParameterDeclaration data type.</p>
  */
 export interface ParameterDeclaration {
-  __type?: "ParameterDeclaration";
   /**
    * <p>The criteria that AWS CloudFormation uses to validate parameter values.</p>
    */
@@ -4182,7 +3964,6 @@ export namespace ParameterDeclaration {
   export const filterSensitiveLog = (obj: ParameterDeclaration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ParameterDeclaration => __isa(o, "ParameterDeclaration");
 }
 
 export type PermissionModels = "SELF_MANAGED" | "SERVICE_MANAGED";
@@ -4194,7 +3975,6 @@ export type PermissionModels = "SELF_MANAGED" | "SERVICE_MANAGED";
  *          contains the targeted resource.</p>
  */
 export interface PhysicalResourceIdContextKeyValuePair {
-  __type?: "PhysicalResourceIdContextKeyValuePair";
   /**
    * <p>The resource context value.</p>
    */
@@ -4210,8 +3990,6 @@ export namespace PhysicalResourceIdContextKeyValuePair {
   export const filterSensitiveLog = (obj: PhysicalResourceIdContextKeyValuePair): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PhysicalResourceIdContextKeyValuePair =>
-    __isa(o, "PhysicalResourceIdContextKeyValuePair");
 }
 
 /**
@@ -4222,7 +4000,6 @@ export namespace PhysicalResourceIdContextKeyValuePair {
  *             Unregulated Configuration Changes to Stacks and Resources</a>.</p>
  */
 export interface PropertyDifference {
-  __type?: "PropertyDifference";
   /**
    * <p>The fully-qualified path to the resource property.</p>
    */
@@ -4267,13 +4044,11 @@ export namespace PropertyDifference {
   export const filterSensitiveLog = (obj: PropertyDifference): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PropertyDifference => __isa(o, "PropertyDifference");
 }
 
 export type ProvisioningType = "FULLY_MUTABLE" | "IMMUTABLE" | "NON_PROVISIONABLE";
 
 export interface RecordHandlerProgressInput {
-  __type?: "RecordHandlerProgressInput";
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
    */
@@ -4314,22 +4089,17 @@ export namespace RecordHandlerProgressInput {
   export const filterSensitiveLog = (obj: RecordHandlerProgressInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecordHandlerProgressInput => __isa(o, "RecordHandlerProgressInput");
 }
 
-export interface RecordHandlerProgressOutput {
-  __type?: "RecordHandlerProgressOutput";
-}
+export interface RecordHandlerProgressOutput {}
 
 export namespace RecordHandlerProgressOutput {
   export const filterSensitiveLog = (obj: RecordHandlerProgressOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecordHandlerProgressOutput => __isa(o, "RecordHandlerProgressOutput");
 }
 
 export interface RegisterTypeInput {
-  __type?: "RegisterTypeInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the resource provider. If your resource type calls AWS APIs in any of its handlers, you must create an
    *          <i>
@@ -4414,11 +4184,9 @@ export namespace RegisterTypeInput {
   export const filterSensitiveLog = (obj: RegisterTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterTypeInput => __isa(o, "RegisterTypeInput");
 }
 
 export interface RegisterTypeOutput {
-  __type?: "RegisterTypeOutput";
   /**
    * <p>The identifier for this registration request.</p>
    *          <p>Use this registration token when calling <code>
@@ -4432,7 +4200,6 @@ export namespace RegisterTypeOutput {
   export const filterSensitiveLog = (obj: RegisterTypeOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterTypeOutput => __isa(o, "RegisterTypeOutput");
 }
 
 export type RegistrationStatus = "COMPLETE" | "FAILED" | "IN_PROGRESS";
@@ -4465,7 +4232,6 @@ export enum ResourceAttribute {
  *          AWS CloudFormation will perform on it if you execute this change set.</p>
  */
 export interface ResourceChange {
-  __type?: "ResourceChange";
   /**
    * <p>The resource's physical ID (resource name). Resources that you are adding don't have
    *          physical IDs because they haven't been created.</p>
@@ -4526,7 +4292,6 @@ export namespace ResourceChange {
   export const filterSensitiveLog = (obj: ResourceChange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceChange => __isa(o, "ResourceChange");
 }
 
 /**
@@ -4535,7 +4300,6 @@ export namespace ResourceChange {
  *          to that resource.</p>
  */
 export interface ResourceChangeDetail {
-  __type?: "ResourceChangeDetail";
   /**
    * <p>The group to which the <code>CausingEntity</code> value belongs. There are five
    *          entity groups:</p>
@@ -4616,7 +4380,6 @@ export namespace ResourceChangeDetail {
   export const filterSensitiveLog = (obj: ResourceChangeDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceChangeDetail => __isa(o, "ResourceChangeDetail");
 }
 
 /**
@@ -4625,7 +4388,6 @@ export namespace ResourceChangeDetail {
  *          import to identify resources of that type.</p>
  */
 export interface ResourceIdentifierSummary {
-  __type?: "ResourceIdentifierSummary";
   /**
    * <p>The logical IDs of the target resources of the specified <code>ResourceType</code>, as
    *          defined in the import template.</p>
@@ -4650,7 +4412,6 @@ export namespace ResourceIdentifierSummary {
   export const filterSensitiveLog = (obj: ResourceIdentifierSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceIdentifierSummary => __isa(o, "ResourceIdentifierSummary");
 }
 
 export enum ResourceSignalStatus {
@@ -4682,7 +4443,6 @@ export enum ResourceStatus {
  *          property, and whether the resource will be recreated.</p>
  */
 export interface ResourceTargetDefinition {
-  __type?: "ResourceTargetDefinition";
   /**
    * <p>If the <code>Attribute</code> value is <code>Properties</code>, the name of the
    *          property. For all other attributes, the value is null.</p>
@@ -4710,14 +4470,12 @@ export namespace ResourceTargetDefinition {
   export const filterSensitiveLog = (obj: ResourceTargetDefinition): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceTargetDefinition => __isa(o, "ResourceTargetDefinition");
 }
 
 /**
  * <p>Describes the target resource of an import operation.</p>
  */
 export interface ResourceToImport {
-  __type?: "ResourceToImport";
   /**
    * <p>The logical ID of the target resource as specified in the template.</p>
    */
@@ -4740,7 +4498,6 @@ export namespace ResourceToImport {
   export const filterSensitiveLog = (obj: ResourceToImport): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceToImport => __isa(o, "ResourceToImport");
 }
 
 /**
@@ -4753,7 +4510,6 @@ export namespace ResourceToImport {
  *             Operations</a>.</p>
  */
 export interface RollbackConfiguration {
-  __type?: "RollbackConfiguration";
   /**
    * <p>The triggers to monitor during stack creation or update actions. </p>
    *          <p>By default, AWS CloudFormation saves the rollback triggers specified for a stack and applies them
@@ -4802,7 +4558,6 @@ export namespace RollbackConfiguration {
   export const filterSensitiveLog = (obj: RollbackConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RollbackConfiguration => __isa(o, "RollbackConfiguration");
 }
 
 /**
@@ -4812,7 +4567,6 @@ export namespace RollbackConfiguration {
  *          operation. </p>
  */
 export interface RollbackTrigger {
-  __type?: "RollbackTrigger";
   /**
    * <p>The resource type of the rollback trigger. Currently, <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html">AWS::CloudWatch::Alarm</a> is the only supported resource type.</p>
    */
@@ -4830,14 +4584,12 @@ export namespace RollbackTrigger {
   export const filterSensitiveLog = (obj: RollbackTrigger): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RollbackTrigger => __isa(o, "RollbackTrigger");
 }
 
 /**
  * <p>The input for the <a>SetStackPolicy</a> action.</p>
  */
 export interface SetStackPolicyInput {
-  __type?: "SetStackPolicyInput";
   /**
    * <p>Structure containing the stack policy body. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html"> Prevent Updates
    *             to Stack Resources</a> in the AWS CloudFormation User Guide. You can specify either
@@ -4864,11 +4616,9 @@ export namespace SetStackPolicyInput {
   export const filterSensitiveLog = (obj: SetStackPolicyInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetStackPolicyInput => __isa(o, "SetStackPolicyInput");
 }
 
 export interface SetTypeDefaultVersionInput {
-  __type?: "SetTypeDefaultVersionInput";
   /**
    * <p>The Amazon Resource Name (ARN) of the type for which you want version summary information.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
@@ -4897,25 +4647,20 @@ export namespace SetTypeDefaultVersionInput {
   export const filterSensitiveLog = (obj: SetTypeDefaultVersionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetTypeDefaultVersionInput => __isa(o, "SetTypeDefaultVersionInput");
 }
 
-export interface SetTypeDefaultVersionOutput {
-  __type?: "SetTypeDefaultVersionOutput";
-}
+export interface SetTypeDefaultVersionOutput {}
 
 export namespace SetTypeDefaultVersionOutput {
   export const filterSensitiveLog = (obj: SetTypeDefaultVersionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetTypeDefaultVersionOutput => __isa(o, "SetTypeDefaultVersionOutput");
 }
 
 /**
  * <p>The input for the <a>SignalResource</a> action.</p>
  */
 export interface SignalResourceInput {
-  __type?: "SignalResourceInput";
   /**
    * <p>The stack name or unique stack ID that includes the resource that you want to
    *          signal.</p>
@@ -4947,14 +4692,12 @@ export namespace SignalResourceInput {
   export const filterSensitiveLog = (obj: SignalResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SignalResourceInput => __isa(o, "SignalResourceInput");
 }
 
 /**
  * <p>The Stack data type.</p>
  */
 export interface Stack {
-  __type?: "Stack";
   /**
    * <p>A list of output structures.</p>
    */
@@ -5098,7 +4841,6 @@ export namespace Stack {
   export const filterSensitiveLog = (obj: Stack): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Stack => __isa(o, "Stack");
 }
 
 export enum StackDriftDetectionStatus {
@@ -5114,7 +4856,6 @@ export enum StackDriftDetectionStatus {
  *          drifted if one or more of its resources have drifted.</p>
  */
 export interface StackDriftInformation {
-  __type?: "StackDriftInformation";
   /**
    * <p>Most recent time when a drift detection operation was initiated on the stack, or any
    *          of its individual resources that support drift detection.</p>
@@ -5154,7 +4895,6 @@ export namespace StackDriftInformation {
   export const filterSensitiveLog = (obj: StackDriftInformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackDriftInformation => __isa(o, "StackDriftInformation");
 }
 
 /**
@@ -5164,7 +4904,6 @@ export namespace StackDriftInformation {
  *          drifted if one or more of its resources have drifted.</p>
  */
 export interface StackDriftInformationSummary {
-  __type?: "StackDriftInformationSummary";
   /**
    * <p>Status of the stack's actual configuration compared to its expected template
    *          configuration. </p>
@@ -5204,7 +4943,6 @@ export namespace StackDriftInformationSummary {
   export const filterSensitiveLog = (obj: StackDriftInformationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackDriftInformationSummary => __isa(o, "StackDriftInformationSummary");
 }
 
 export enum StackDriftStatus {
@@ -5218,7 +4956,6 @@ export enum StackDriftStatus {
  * <p>The StackEvent data type.</p>
  */
 export interface StackEvent {
-  __type?: "StackEvent";
   /**
    * <p>The token passed to the operation that generated this event.</p>
    *          <p>All events triggered by a given stack operation are assigned the same client request
@@ -5292,7 +5029,6 @@ export namespace StackEvent {
   export const filterSensitiveLog = (obj: StackEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackEvent => __isa(o, "StackEvent");
 }
 
 /**
@@ -5304,7 +5040,6 @@ export namespace StackEvent {
  *          ID of the actual stack and the stack status.</p>
  */
 export interface StackInstance {
-  __type?: "StackInstance";
   /**
    * <p>The name of the AWS Region that the stack instance is associated with.</p>
    */
@@ -5427,14 +5162,12 @@ export namespace StackInstance {
   export const filterSensitiveLog = (obj: StackInstance): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackInstance => __isa(o, "StackInstance");
 }
 
 /**
  * <p>The detailed status of the stack instance.</p>
  */
 export interface StackInstanceComprehensiveStatus {
-  __type?: "StackInstanceComprehensiveStatus";
   /**
    * <ul>
    *             <li>
@@ -5472,7 +5205,6 @@ export namespace StackInstanceComprehensiveStatus {
   export const filterSensitiveLog = (obj: StackInstanceComprehensiveStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackInstanceComprehensiveStatus => __isa(o, "StackInstanceComprehensiveStatus");
 }
 
 export type StackInstanceDetailedStatus = "CANCELLED" | "FAILED" | "INOPERABLE" | "PENDING" | "RUNNING" | "SUCCEEDED";
@@ -5481,7 +5213,6 @@ export type StackInstanceDetailedStatus = "CANCELLED" | "FAILED" | "INOPERABLE" 
  * <p>The status that stack instances are filtered by.</p>
  */
 export interface StackInstanceFilter {
-  __type?: "StackInstanceFilter";
   /**
    * <p>The type of filter to apply.</p>
    */
@@ -5497,7 +5228,6 @@ export namespace StackInstanceFilter {
   export const filterSensitiveLog = (obj: StackInstanceFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackInstanceFilter => __isa(o, "StackInstanceFilter");
 }
 
 export type StackInstanceFilterName = "DETAILED_STATUS";
@@ -5515,7 +5245,6 @@ export namespace StackInstanceNotFoundException {
   export const filterSensitiveLog = (obj: StackInstanceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackInstanceNotFoundException => __isa(o, "StackInstanceNotFoundException");
 }
 
 export type StackInstanceStatus = "CURRENT" | "INOPERABLE" | "OUTDATED";
@@ -5524,7 +5253,6 @@ export type StackInstanceStatus = "CURRENT" | "INOPERABLE" | "OUTDATED";
  * <p>The structure that contains summary information about a stack instance.</p>
  */
 export interface StackInstanceSummary {
-  __type?: "StackInstanceSummary";
   /**
    * <p>The status of the stack instance, in terms of its synchronization with its associated
    *          stack set.</p>
@@ -5641,14 +5369,12 @@ export namespace StackInstanceSummary {
   export const filterSensitiveLog = (obj: StackInstanceSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackInstanceSummary => __isa(o, "StackInstanceSummary");
 }
 
 /**
  * <p>The StackResource data type.</p>
  */
 export interface StackResource {
-  __type?: "StackResource";
   /**
    * <p>The logical name of the resource specified in the template.</p>
    */
@@ -5709,14 +5435,12 @@ export namespace StackResource {
   export const filterSensitiveLog = (obj: StackResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackResource => __isa(o, "StackResource");
 }
 
 /**
  * <p>Contains detailed information about the specified stack resource.</p>
  */
 export interface StackResourceDetail {
-  __type?: "StackResourceDetail";
   /**
    * <p>Information about whether the resource's actual configuration differs, or has
    *             <i>drifted</i>, from its expected configuration, as defined in the stack
@@ -5784,7 +5508,6 @@ export namespace StackResourceDetail {
   export const filterSensitiveLog = (obj: StackResourceDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackResourceDetail => __isa(o, "StackResourceDetail");
 }
 
 /**
@@ -5801,7 +5524,6 @@ export namespace StackResourceDetail {
  *          given stack that support drift detection.</p>
  */
 export interface StackResourceDrift {
-  __type?: "StackResourceDrift";
   /**
    * <p>The logical name of the resource specified in the template.</p>
    */
@@ -5893,7 +5615,6 @@ export namespace StackResourceDrift {
   export const filterSensitiveLog = (obj: StackResourceDrift): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackResourceDrift => __isa(o, "StackResourceDrift");
 }
 
 /**
@@ -5901,7 +5622,6 @@ export namespace StackResourceDrift {
  *          has <i>drifted</i>, from its expected configuration.</p>
  */
 export interface StackResourceDriftInformation {
-  __type?: "StackResourceDriftInformation";
   /**
    * <p>Status of the resource's actual configuration compared to its expected
    *          configuration</p>
@@ -5943,7 +5663,6 @@ export namespace StackResourceDriftInformation {
   export const filterSensitiveLog = (obj: StackResourceDriftInformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackResourceDriftInformation => __isa(o, "StackResourceDriftInformation");
 }
 
 /**
@@ -5951,7 +5670,6 @@ export namespace StackResourceDriftInformation {
  *          has <i>drifted</i>, from its expected configuration.</p>
  */
 export interface StackResourceDriftInformationSummary {
-  __type?: "StackResourceDriftInformationSummary";
   /**
    * <p>When AWS CloudFormation last checked if the resource had drifted from its expected
    *          configuration.</p>
@@ -5995,8 +5713,6 @@ export namespace StackResourceDriftInformationSummary {
   export const filterSensitiveLog = (obj: StackResourceDriftInformationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackResourceDriftInformationSummary =>
-    __isa(o, "StackResourceDriftInformationSummary");
 }
 
 export enum StackResourceDriftStatus {
@@ -6010,7 +5726,6 @@ export enum StackResourceDriftStatus {
  * <p>Contains high-level information about the specified stack resource.</p>
  */
 export interface StackResourceSummary {
-  __type?: "StackResourceSummary";
   /**
    * <p>Success/failure message associated with the resource.</p>
    */
@@ -6056,7 +5771,6 @@ export namespace StackResourceSummary {
   export const filterSensitiveLog = (obj: StackResourceSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackResourceSummary => __isa(o, "StackResourceSummary");
 }
 
 /**
@@ -6066,7 +5780,6 @@ export namespace StackResourceSummary {
  *          capabilities that the template requires. </p>
  */
 export interface StackSet {
-  __type?: "StackSet";
   /**
    * <p>The status of the stack set.</p>
    */
@@ -6171,7 +5884,6 @@ export namespace StackSet {
   export const filterSensitiveLog = (obj: StackSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackSet => __isa(o, "StackSet");
 }
 
 /**
@@ -6185,7 +5897,6 @@ export namespace StackSet {
  *          Changes in Stack Sets</a> in the <i>AWS CloudFormation User Guide</i>.</p>
  */
 export interface StackSetDriftDetectionDetails {
-  __type?: "StackSetDriftDetectionDetails";
   /**
    * <p>The total number of stack instances belonging to this stack set. </p>
    *          <p>The total number of stack instances is equal to the total of:</p>
@@ -6299,7 +6010,6 @@ export namespace StackSetDriftDetectionDetails {
   export const filterSensitiveLog = (obj: StackSetDriftDetectionDetails): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackSetDriftDetectionDetails => __isa(o, "StackSetDriftDetectionDetails");
 }
 
 export enum StackSetDriftDetectionStatus {
@@ -6331,7 +6041,6 @@ export namespace StackSetNotEmptyException {
   export const filterSensitiveLog = (obj: StackSetNotEmptyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackSetNotEmptyException => __isa(o, "StackSetNotEmptyException");
 }
 
 /**
@@ -6347,14 +6056,12 @@ export namespace StackSetNotFoundException {
   export const filterSensitiveLog = (obj: StackSetNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackSetNotFoundException => __isa(o, "StackSetNotFoundException");
 }
 
 /**
  * <p>The structure that contains information about a stack set operation. </p>
  */
 export interface StackSetOperation {
-  __type?: "StackSetOperation";
   /**
    * <p>The ID of the stack set.</p>
    */
@@ -6481,7 +6188,6 @@ export namespace StackSetOperation {
   export const filterSensitiveLog = (obj: StackSetOperation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackSetOperation => __isa(o, "StackSetOperation");
 }
 
 export type StackSetOperationAction = "CREATE" | "DELETE" | "DETECT_DRIFT" | "UPDATE";
@@ -6492,7 +6198,6 @@ export type StackSetOperationAction = "CREATE" | "DELETE" | "DETECT_DRIFT" | "UP
  *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
  */
 export interface StackSetOperationPreferences {
-  __type?: "StackSetOperationPreferences";
   /**
    * <p>The maximum number of accounts in which to perform this operation at one time. This
    *          is dependent on the value of
@@ -6552,7 +6257,6 @@ export namespace StackSetOperationPreferences {
   export const filterSensitiveLog = (obj: StackSetOperationPreferences): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackSetOperationPreferences => __isa(o, "StackSetOperationPreferences");
 }
 
 export type StackSetOperationResultStatus = "CANCELLED" | "FAILED" | "PENDING" | "RUNNING" | "SUCCEEDED";
@@ -6562,7 +6266,6 @@ export type StackSetOperationResultStatus = "CANCELLED" | "FAILED" | "PENDING" |
  *          given account in a given Region.</p>
  */
 export interface StackSetOperationResultSummary {
-  __type?: "StackSetOperationResultSummary";
   /**
    * <p>The results of the account gate function AWS CloudFormation invokes, if present,
    *          before proceeding with stack set operations in an account</p>
@@ -6630,7 +6333,6 @@ export namespace StackSetOperationResultSummary {
   export const filterSensitiveLog = (obj: StackSetOperationResultSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackSetOperationResultSummary => __isa(o, "StackSetOperationResultSummary");
 }
 
 export type StackSetOperationStatus = "FAILED" | "QUEUED" | "RUNNING" | "STOPPED" | "STOPPING" | "SUCCEEDED";
@@ -6640,7 +6342,6 @@ export type StackSetOperationStatus = "FAILED" | "QUEUED" | "RUNNING" | "STOPPED
  *          operation.</p>
  */
 export interface StackSetOperationSummary {
-  __type?: "StackSetOperationSummary";
   /**
    * <p>The type of operation: <code>CREATE</code>, <code>UPDATE</code>, or
    *             <code>DELETE</code>. Create and delete operations affect only the specified stack
@@ -6716,7 +6417,6 @@ export namespace StackSetOperationSummary {
   export const filterSensitiveLog = (obj: StackSetOperationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackSetOperationSummary => __isa(o, "StackSetOperationSummary");
 }
 
 export type StackSetStatus = "ACTIVE" | "DELETED";
@@ -6726,7 +6426,6 @@ export type StackSetStatus = "ACTIVE" | "DELETED";
  *          set.</p>
  */
 export interface StackSetSummary {
-  __type?: "StackSetSummary";
   /**
    * <p>The status of the stack set.</p>
    */
@@ -6808,7 +6507,6 @@ export namespace StackSetSummary {
   export const filterSensitiveLog = (obj: StackSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackSetSummary => __isa(o, "StackSetSummary");
 }
 
 export enum StackStatus {
@@ -6840,7 +6538,6 @@ export enum StackStatus {
  * <p>The StackSummary Data Type</p>
  */
 export interface StackSummary {
-  __type?: "StackSummary";
   /**
    * <p>Success/Failure message associated with the stack status.</p>
    */
@@ -6912,7 +6609,6 @@ export namespace StackSummary {
   export const filterSensitiveLog = (obj: StackSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StackSummary => __isa(o, "StackSummary");
 }
 
 /**
@@ -6929,11 +6625,9 @@ export namespace StaleRequestException {
   export const filterSensitiveLog = (obj: StaleRequestException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StaleRequestException => __isa(o, "StaleRequestException");
 }
 
 export interface StopStackSetOperationInput {
-  __type?: "StopStackSetOperationInput";
   /**
    * <p>The ID of the stack operation. </p>
    */
@@ -6950,18 +6644,14 @@ export namespace StopStackSetOperationInput {
   export const filterSensitiveLog = (obj: StopStackSetOperationInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopStackSetOperationInput => __isa(o, "StopStackSetOperationInput");
 }
 
-export interface StopStackSetOperationOutput {
-  __type?: "StopStackSetOperationOutput";
-}
+export interface StopStackSetOperationOutput {}
 
 export namespace StopStackSetOperationOutput {
   export const filterSensitiveLog = (obj: StopStackSetOperationOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopStackSetOperationOutput => __isa(o, "StopStackSetOperationOutput");
 }
 
 /**
@@ -6969,7 +6659,6 @@ export namespace StopStackSetOperationOutput {
  *          information about an AWS CloudFormation stack.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>
    *             <i>Required</i>. A string containing the value for this tag. You can specify
@@ -6990,14 +6679,12 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
  * <p>The TemplateParameter data type.</p>
  */
 export interface TemplateParameter {
-  __type?: "TemplateParameter";
   /**
    * <p>User defined description associated with the parameter.</p>
    */
@@ -7024,7 +6711,6 @@ export namespace TemplateParameter {
   export const filterSensitiveLog = (obj: TemplateParameter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateParameter => __isa(o, "TemplateParameter");
 }
 
 export enum TemplateStage {
@@ -7045,7 +6731,6 @@ export namespace TokenAlreadyExistsException {
   export const filterSensitiveLog = (obj: TokenAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TokenAlreadyExistsException => __isa(o, "TokenAlreadyExistsException");
 }
 
 /**
@@ -7061,14 +6746,12 @@ export namespace TypeNotFoundException {
   export const filterSensitiveLog = (obj: TypeNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TypeNotFoundException => __isa(o, "TypeNotFoundException");
 }
 
 /**
  * <p>Contains summary information about the specified CloudFormation type.</p>
  */
 export interface TypeSummary {
-  __type?: "TypeSummary";
   /**
    * <p>The kind of type.</p>
    */
@@ -7107,14 +6790,12 @@ export namespace TypeSummary {
   export const filterSensitiveLog = (obj: TypeSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TypeSummary => __isa(o, "TypeSummary");
 }
 
 /**
  * <p>Contains summary information about a specific version of a CloudFormation type.</p>
  */
 export interface TypeVersionSummary {
-  __type?: "TypeVersionSummary";
   /**
    * <p>The Amazon Resource Name (ARN) of the type version.</p>
    */
@@ -7155,14 +6836,12 @@ export namespace TypeVersionSummary {
   export const filterSensitiveLog = (obj: TypeVersionSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TypeVersionSummary => __isa(o, "TypeVersionSummary");
 }
 
 /**
  * <p>The input for an <a>UpdateStack</a> action.</p>
  */
 export interface UpdateStackInput {
-  __type?: "UpdateStackInput";
   /**
    * <p>The name or unique stack ID of the stack to update.</p>
    */
@@ -7423,11 +7102,9 @@ export namespace UpdateStackInput {
   export const filterSensitiveLog = (obj: UpdateStackInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStackInput => __isa(o, "UpdateStackInput");
 }
 
 export interface UpdateStackInstancesInput {
-  __type?: "UpdateStackInstancesInput";
   /**
    * <p> A list of input parameters whose values you want to update for the specified stack
    *          instances. </p>
@@ -7522,11 +7199,9 @@ export namespace UpdateStackInstancesInput {
   export const filterSensitiveLog = (obj: UpdateStackInstancesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStackInstancesInput => __isa(o, "UpdateStackInstancesInput");
 }
 
 export interface UpdateStackInstancesOutput {
-  __type?: "UpdateStackInstancesOutput";
   /**
    * <p>The unique identifier for this stack set operation. </p>
    */
@@ -7537,14 +7212,12 @@ export namespace UpdateStackInstancesOutput {
   export const filterSensitiveLog = (obj: UpdateStackInstancesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStackInstancesOutput => __isa(o, "UpdateStackInstancesOutput");
 }
 
 /**
  * <p>The output for an <a>UpdateStack</a> action.</p>
  */
 export interface UpdateStackOutput {
-  __type?: "UpdateStackOutput";
   /**
    * <p>Unique identifier of the stack.</p>
    */
@@ -7555,11 +7228,9 @@ export namespace UpdateStackOutput {
   export const filterSensitiveLog = (obj: UpdateStackOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStackOutput => __isa(o, "UpdateStackOutput");
 }
 
 export interface UpdateStackSetInput {
-  __type?: "UpdateStackSetInput";
   /**
    * <p>The structure that contains the template body, with a minimum length of 1 byte and a
    *          maximum length of 51,200 bytes. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
@@ -7843,11 +7514,9 @@ export namespace UpdateStackSetInput {
   export const filterSensitiveLog = (obj: UpdateStackSetInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStackSetInput => __isa(o, "UpdateStackSetInput");
 }
 
 export interface UpdateStackSetOutput {
-  __type?: "UpdateStackSetOutput";
   /**
    * <p>The unique ID for this stack set operation.</p>
    */
@@ -7858,11 +7527,9 @@ export namespace UpdateStackSetOutput {
   export const filterSensitiveLog = (obj: UpdateStackSetOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateStackSetOutput => __isa(o, "UpdateStackSetOutput");
 }
 
 export interface UpdateTerminationProtectionInput {
-  __type?: "UpdateTerminationProtectionInput";
   /**
    * <p>Whether to enable termination protection on the specified stack.</p>
    */
@@ -7879,11 +7546,9 @@ export namespace UpdateTerminationProtectionInput {
   export const filterSensitiveLog = (obj: UpdateTerminationProtectionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTerminationProtectionInput => __isa(o, "UpdateTerminationProtectionInput");
 }
 
 export interface UpdateTerminationProtectionOutput {
-  __type?: "UpdateTerminationProtectionOutput";
   /**
    * <p>The unique ID of the stack.</p>
    */
@@ -7894,14 +7559,12 @@ export namespace UpdateTerminationProtectionOutput {
   export const filterSensitiveLog = (obj: UpdateTerminationProtectionOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTerminationProtectionOutput => __isa(o, "UpdateTerminationProtectionOutput");
 }
 
 /**
  * <p>The input for <a>ValidateTemplate</a> action.</p>
  */
 export interface ValidateTemplateInput {
-  __type?: "ValidateTemplateInput";
   /**
    * <p>Location of file containing the template body. The URL must point to a template (max
    *          size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to
@@ -7926,14 +7589,12 @@ export namespace ValidateTemplateInput {
   export const filterSensitiveLog = (obj: ValidateTemplateInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidateTemplateInput => __isa(o, "ValidateTemplateInput");
 }
 
 /**
  * <p>The output for <a>ValidateTemplate</a> action.</p>
  */
 export interface ValidateTemplateOutput {
-  __type?: "ValidateTemplateOutput";
   /**
    * <p>A list of <code>TemplateParameter</code> structures.</p>
    */
@@ -7969,7 +7630,6 @@ export namespace ValidateTemplateOutput {
   export const filterSensitiveLog = (obj: ValidateTemplateOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidateTemplateOutput => __isa(o, "ValidateTemplateOutput");
 }
 
 export type Visibility = "PRIVATE" | "PUBLIC";

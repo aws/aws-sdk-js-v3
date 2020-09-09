@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -8,15 +8,12 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>Specifies that AWS WAF should allow requests.</p>
  *            <p>This is used only in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
  */
-export interface AllowAction {
-  __type?: "AllowAction";
-}
+export interface AllowAction {}
 
 export namespace AllowAction {
   export const filterSensitiveLog = (obj: AllowAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AllowAction => __isa(o, "AllowAction");
 }
 
 /**
@@ -26,15 +23,12 @@ export namespace AllowAction {
  *          <p>All query arguments of a web request. </p>
  *            <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
-export interface AllQueryArguments {
-  __type?: "AllQueryArguments";
-}
+export interface AllQueryArguments {}
 
 export namespace AllQueryArguments {
   export const filterSensitiveLog = (obj: AllQueryArguments): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AllQueryArguments => __isa(o, "AllQueryArguments");
 }
 
 /**
@@ -44,7 +38,6 @@ export namespace AllQueryArguments {
  *          <p>A logical rule statement used to combine other rule statements with AND logic. You provide more than one <a>Statement</a> within the <code>AndStatement</code>. </p>
  */
 export interface AndStatement {
-  __type?: "AndStatement";
   /**
    * <p>The statements to combine with AND logic. You can use any statements that can be nested. </p>
    */
@@ -55,11 +48,9 @@ export namespace AndStatement {
   export const filterSensitiveLog = (obj: AndStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AndStatement => __isa(o, "AndStatement");
 }
 
 export interface AssociateWebACLRequest {
-  __type?: "AssociateWebACLRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.</p>
    */
@@ -89,18 +80,14 @@ export namespace AssociateWebACLRequest {
   export const filterSensitiveLog = (obj: AssociateWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateWebACLRequest => __isa(o, "AssociateWebACLRequest");
 }
 
-export interface AssociateWebACLResponse {
-  __type?: "AssociateWebACLResponse";
-}
+export interface AssociateWebACLResponse {}
 
 export namespace AssociateWebACLResponse {
   export const filterSensitiveLog = (obj: AssociateWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AssociateWebACLResponse => __isa(o, "AssociateWebACLResponse");
 }
 
 /**
@@ -110,15 +97,12 @@ export namespace AssociateWebACLResponse {
  *          <p>Specifies that AWS WAF should block requests.</p>
  *            <p>This is used only in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
  */
-export interface BlockAction {
-  __type?: "BlockAction";
-}
+export interface BlockAction {}
 
 export namespace BlockAction {
   export const filterSensitiveLog = (obj: BlockAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BlockAction => __isa(o, "BlockAction");
 }
 
 /**
@@ -128,15 +112,12 @@ export namespace BlockAction {
  *          <p>The body of a web request. This immediately follows the request headers.</p>
  *            <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
-export interface Body {
-  __type?: "Body";
-}
+export interface Body {}
 
 export namespace Body {
   export const filterSensitiveLog = (obj: Body): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Body => __isa(o, "Body");
 }
 
 /**
@@ -146,7 +127,6 @@ export namespace Body {
  *          <p>A rule statement that defines a string match search for AWS WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want AWS WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the AWS WAF console and the developer guide, this is refered to as a string match statement.</p>
  */
 export interface ByteMatchStatement {
-  __type?: "ByteMatchStatement";
   /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
    *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
@@ -239,11 +219,9 @@ export namespace ByteMatchStatement {
   export const filterSensitiveLog = (obj: ByteMatchStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ByteMatchStatement => __isa(o, "ByteMatchStatement");
 }
 
 export interface CheckCapacityRequest {
-  __type?: "CheckCapacityRequest";
   /**
    * <p>An array of <a>Rule</a> that you're configuring to use in a rule group or web ACL. </p>
    */
@@ -268,11 +246,9 @@ export namespace CheckCapacityRequest {
   export const filterSensitiveLog = (obj: CheckCapacityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CheckCapacityRequest => __isa(o, "CheckCapacityRequest");
 }
 
 export interface CheckCapacityResponse {
-  __type?: "CheckCapacityResponse";
   /**
    * <p>The capacity required by the rules and scope.</p>
    */
@@ -283,7 +259,6 @@ export namespace CheckCapacityResponse {
   export const filterSensitiveLog = (obj: CheckCapacityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CheckCapacityResponse => __isa(o, "CheckCapacityResponse");
 }
 
 export enum ComparisonOperator {
@@ -302,15 +277,12 @@ export enum ComparisonOperator {
  *          <p>Specifies that AWS WAF should count requests.</p>
  *            <p>This is used only in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
  */
-export interface CountAction {
-  __type?: "CountAction";
-}
+export interface CountAction {}
 
 export namespace CountAction {
   export const filterSensitiveLog = (obj: CountAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CountAction => __isa(o, "CountAction");
 }
 
 export enum CountryCode {
@@ -566,7 +538,6 @@ export enum CountryCode {
 }
 
 export interface CreateIPSetRequest {
-  __type?: "CreateIPSetRequest";
   /**
    * <p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
    */
@@ -629,11 +600,9 @@ export namespace CreateIPSetRequest {
   export const filterSensitiveLog = (obj: CreateIPSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIPSetRequest => __isa(o, "CreateIPSetRequest");
 }
 
 export interface CreateIPSetResponse {
-  __type?: "CreateIPSetResponse";
   /**
    * <p>High-level information about an <a>IPSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage an <code>IPSet</code>, and the ARN, that you provide to the <a>IPSetReferenceStatement</a> to use the address set in a <a>Rule</a>.</p>
    */
@@ -644,11 +613,9 @@ export namespace CreateIPSetResponse {
   export const filterSensitiveLog = (obj: CreateIPSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateIPSetResponse => __isa(o, "CreateIPSetResponse");
 }
 
 export interface CreateRegexPatternSetRequest {
-  __type?: "CreateRegexPatternSetRequest";
   /**
    * <p>The name of the set. You cannot change the name after you create the set.</p>
    */
@@ -688,11 +655,9 @@ export namespace CreateRegexPatternSetRequest {
   export const filterSensitiveLog = (obj: CreateRegexPatternSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRegexPatternSetRequest => __isa(o, "CreateRegexPatternSetRequest");
 }
 
 export interface CreateRegexPatternSetResponse {
-  __type?: "CreateRegexPatternSetResponse";
   /**
    * <p>High-level information about a <a>RegexPatternSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RegexPatternSet</code>, and the ARN, that you provide to the <a>RegexPatternSetReferenceStatement</a> to use the pattern set in a <a>Rule</a>.</p>
    */
@@ -703,11 +668,9 @@ export namespace CreateRegexPatternSetResponse {
   export const filterSensitiveLog = (obj: CreateRegexPatternSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRegexPatternSetResponse => __isa(o, "CreateRegexPatternSetResponse");
 }
 
 export interface CreateRuleGroupRequest {
-  __type?: "CreateRuleGroupRequest";
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
@@ -771,11 +734,9 @@ export namespace CreateRuleGroupRequest {
   export const filterSensitiveLog = (obj: CreateRuleGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRuleGroupRequest => __isa(o, "CreateRuleGroupRequest");
 }
 
 export interface CreateRuleGroupResponse {
-  __type?: "CreateRuleGroupResponse";
   /**
    * <p>High-level information about a <a>RuleGroup</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RuleGroup</code>, and the ARN, that you provide to the <a>RuleGroupReferenceStatement</a> to use the rule group in a <a>Rule</a>.</p>
    */
@@ -786,11 +747,9 @@ export namespace CreateRuleGroupResponse {
   export const filterSensitiveLog = (obj: CreateRuleGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateRuleGroupResponse => __isa(o, "CreateRuleGroupResponse");
 }
 
 export interface CreateWebACLRequest {
-  __type?: "CreateWebACLRequest";
   /**
    * <p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
    */
@@ -843,11 +802,9 @@ export namespace CreateWebACLRequest {
   export const filterSensitiveLog = (obj: CreateWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWebACLRequest => __isa(o, "CreateWebACLRequest");
 }
 
 export interface CreateWebACLResponse {
-  __type?: "CreateWebACLResponse";
   /**
    * <p>High-level information about a <a>WebACL</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>WebACL</code>, and the ARN, that you provide to operations like <a>AssociateWebACL</a>.</p>
    */
@@ -858,7 +815,6 @@ export namespace CreateWebACLResponse {
   export const filterSensitiveLog = (obj: CreateWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateWebACLResponse => __isa(o, "CreateWebACLResponse");
 }
 
 /**
@@ -869,7 +825,6 @@ export namespace CreateWebACLResponse {
  *          to perform when a web request doesn't match any of the rules in the <code>WebACL</code>. The default action must be a terminating action, so count is not allowed.</p>
  */
 export interface DefaultAction {
-  __type?: "DefaultAction";
   /**
    * <p>Specifies that AWS WAF should allow requests by default.</p>
    */
@@ -885,11 +840,9 @@ export namespace DefaultAction {
   export const filterSensitiveLog = (obj: DefaultAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DefaultAction => __isa(o, "DefaultAction");
 }
 
 export interface DeleteFirewallManagerRuleGroupsRequest {
-  __type?: "DeleteFirewallManagerRuleGroupsRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the web ACL.</p>
    */
@@ -905,12 +858,9 @@ export namespace DeleteFirewallManagerRuleGroupsRequest {
   export const filterSensitiveLog = (obj: DeleteFirewallManagerRuleGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFirewallManagerRuleGroupsRequest =>
-    __isa(o, "DeleteFirewallManagerRuleGroupsRequest");
 }
 
 export interface DeleteFirewallManagerRuleGroupsResponse {
-  __type?: "DeleteFirewallManagerRuleGroupsResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
    */
@@ -921,12 +871,9 @@ export namespace DeleteFirewallManagerRuleGroupsResponse {
   export const filterSensitiveLog = (obj: DeleteFirewallManagerRuleGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteFirewallManagerRuleGroupsResponse =>
-    __isa(o, "DeleteFirewallManagerRuleGroupsResponse");
 }
 
 export interface DeleteIPSetRequest {
-  __type?: "DeleteIPSetRequest";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
    */
@@ -961,22 +908,17 @@ export namespace DeleteIPSetRequest {
   export const filterSensitiveLog = (obj: DeleteIPSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIPSetRequest => __isa(o, "DeleteIPSetRequest");
 }
 
-export interface DeleteIPSetResponse {
-  __type?: "DeleteIPSetResponse";
-}
+export interface DeleteIPSetResponse {}
 
 export namespace DeleteIPSetResponse {
   export const filterSensitiveLog = (obj: DeleteIPSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIPSetResponse => __isa(o, "DeleteIPSetResponse");
 }
 
 export interface DeleteLoggingConfigurationRequest {
-  __type?: "DeleteLoggingConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the web ACL from which you want to delete the <a>LoggingConfiguration</a>.</p>
    */
@@ -987,23 +929,17 @@ export namespace DeleteLoggingConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteLoggingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoggingConfigurationRequest => __isa(o, "DeleteLoggingConfigurationRequest");
 }
 
-export interface DeleteLoggingConfigurationResponse {
-  __type?: "DeleteLoggingConfigurationResponse";
-}
+export interface DeleteLoggingConfigurationResponse {}
 
 export namespace DeleteLoggingConfigurationResponse {
   export const filterSensitiveLog = (obj: DeleteLoggingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteLoggingConfigurationResponse =>
-    __isa(o, "DeleteLoggingConfigurationResponse");
 }
 
 export interface DeletePermissionPolicyRequest {
-  __type?: "DeletePermissionPolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the rule group from which you want to delete the policy.</p>
    *         <p>You must be the owner of the rule group to perform this operation.</p>
@@ -1015,22 +951,17 @@ export namespace DeletePermissionPolicyRequest {
   export const filterSensitiveLog = (obj: DeletePermissionPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePermissionPolicyRequest => __isa(o, "DeletePermissionPolicyRequest");
 }
 
-export interface DeletePermissionPolicyResponse {
-  __type?: "DeletePermissionPolicyResponse";
-}
+export interface DeletePermissionPolicyResponse {}
 
 export namespace DeletePermissionPolicyResponse {
   export const filterSensitiveLog = (obj: DeletePermissionPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeletePermissionPolicyResponse => __isa(o, "DeletePermissionPolicyResponse");
 }
 
 export interface DeleteRegexPatternSetRequest {
-  __type?: "DeleteRegexPatternSetRequest";
   /**
    * <p>The name of the set. You cannot change the name after you create the set.</p>
    */
@@ -1065,22 +996,17 @@ export namespace DeleteRegexPatternSetRequest {
   export const filterSensitiveLog = (obj: DeleteRegexPatternSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRegexPatternSetRequest => __isa(o, "DeleteRegexPatternSetRequest");
 }
 
-export interface DeleteRegexPatternSetResponse {
-  __type?: "DeleteRegexPatternSetResponse";
-}
+export interface DeleteRegexPatternSetResponse {}
 
 export namespace DeleteRegexPatternSetResponse {
   export const filterSensitiveLog = (obj: DeleteRegexPatternSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRegexPatternSetResponse => __isa(o, "DeleteRegexPatternSetResponse");
 }
 
 export interface DeleteRuleGroupRequest {
-  __type?: "DeleteRuleGroupRequest";
   /**
    * <p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>
    */
@@ -1115,22 +1041,17 @@ export namespace DeleteRuleGroupRequest {
   export const filterSensitiveLog = (obj: DeleteRuleGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRuleGroupRequest => __isa(o, "DeleteRuleGroupRequest");
 }
 
-export interface DeleteRuleGroupResponse {
-  __type?: "DeleteRuleGroupResponse";
-}
+export interface DeleteRuleGroupResponse {}
 
 export namespace DeleteRuleGroupResponse {
   export const filterSensitiveLog = (obj: DeleteRuleGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteRuleGroupResponse => __isa(o, "DeleteRuleGroupResponse");
 }
 
 export interface DeleteWebACLRequest {
-  __type?: "DeleteWebACLRequest";
   /**
    * <p>The unique identifier for the Web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    */
@@ -1165,22 +1086,17 @@ export namespace DeleteWebACLRequest {
   export const filterSensitiveLog = (obj: DeleteWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWebACLRequest => __isa(o, "DeleteWebACLRequest");
 }
 
-export interface DeleteWebACLResponse {
-  __type?: "DeleteWebACLResponse";
-}
+export interface DeleteWebACLResponse {}
 
 export namespace DeleteWebACLResponse {
   export const filterSensitiveLog = (obj: DeleteWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteWebACLResponse => __isa(o, "DeleteWebACLResponse");
 }
 
 export interface DescribeManagedRuleGroupRequest {
-  __type?: "DescribeManagedRuleGroupRequest";
   /**
    * <p>The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.</p>
    */
@@ -1210,11 +1126,9 @@ export namespace DescribeManagedRuleGroupRequest {
   export const filterSensitiveLog = (obj: DescribeManagedRuleGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeManagedRuleGroupRequest => __isa(o, "DescribeManagedRuleGroupRequest");
 }
 
 export interface DescribeManagedRuleGroupResponse {
-  __type?: "DescribeManagedRuleGroupResponse";
   /**
    * <p>The web ACL capacity units (WCUs) required for this rule group.
    *          AWS WAF uses web ACL capacity units (WCU) to calculate and control the operating
@@ -1236,11 +1150,9 @@ export namespace DescribeManagedRuleGroupResponse {
   export const filterSensitiveLog = (obj: DescribeManagedRuleGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeManagedRuleGroupResponse => __isa(o, "DescribeManagedRuleGroupResponse");
 }
 
 export interface DisassociateWebACLRequest {
-  __type?: "DisassociateWebACLRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to disassociate from the web ACL. </p>
    *
@@ -1265,18 +1177,14 @@ export namespace DisassociateWebACLRequest {
   export const filterSensitiveLog = (obj: DisassociateWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateWebACLRequest => __isa(o, "DisassociateWebACLRequest");
 }
 
-export interface DisassociateWebACLResponse {
-  __type?: "DisassociateWebACLResponse";
-}
+export interface DisassociateWebACLResponse {}
 
 export namespace DisassociateWebACLResponse {
   export const filterSensitiveLog = (obj: DisassociateWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisassociateWebACLResponse => __isa(o, "DisassociateWebACLResponse");
 }
 
 /**
@@ -1288,7 +1196,6 @@ export namespace DisassociateWebACLResponse {
  *          This effectively excludes the rule from acting on web requests.  </p>
  */
 export interface ExcludedRule {
-  __type?: "ExcludedRule";
   /**
    * <p>The name of the rule to exclude.</p>
    */
@@ -1299,7 +1206,6 @@ export namespace ExcludedRule {
   export const filterSensitiveLog = (obj: ExcludedRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExcludedRule => __isa(o, "ExcludedRule");
 }
 
 export enum FallbackBehavior {
@@ -1314,7 +1220,6 @@ export enum FallbackBehavior {
  *          <p>The part of a web request that you want AWS WAF to inspect. Include the single <code>FieldToMatch</code> type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in <code>FieldToMatch</code> for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.</p>
  */
 export interface FieldToMatch {
-  __type?: "FieldToMatch";
   /**
    * <p>Inspect the request body, which immediately follows the request headers. This is the part of a request that contains any
    *          additional data that you want to send to your web server as the HTTP request body, such as data from a form. </p>
@@ -1358,14 +1263,12 @@ export namespace FieldToMatch {
   export const filterSensitiveLog = (obj: FieldToMatch): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FieldToMatch => __isa(o, "FieldToMatch");
 }
 
 /**
  * <p>A rule group that's defined for an AWS Firewall Manager WAF policy.</p>
  */
 export interface FirewallManagerRuleGroup {
-  __type?: "FirewallManagerRuleGroup";
   /**
    * <p>If you define more than one rule group in the first or last Firewall Manager rule groups,
    *           AWS WAF evaluates each request against the rule groups in order, starting from the lowest priority setting.
@@ -1412,14 +1315,12 @@ export namespace FirewallManagerRuleGroup {
   export const filterSensitiveLog = (obj: FirewallManagerRuleGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FirewallManagerRuleGroup => __isa(o, "FirewallManagerRuleGroup");
 }
 
 /**
  * <p>The processing guidance for an AWS Firewall Manager rule. This is like a regular rule <a>Statement</a>, but it can only contain a rule group reference.</p>
  */
 export interface FirewallManagerStatement {
-  __type?: "FirewallManagerStatement";
   /**
    * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
@@ -1443,7 +1344,6 @@ export namespace FirewallManagerStatement {
   export const filterSensitiveLog = (obj: FirewallManagerStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FirewallManagerStatement => __isa(o, "FirewallManagerStatement");
 }
 
 /**
@@ -1459,7 +1359,6 @@ export namespace FirewallManagerStatement {
  *          <p>AWS WAF only evaluates the first IP address found in the specified HTTP header. </p>
  */
 export interface ForwardedIPConfig {
-  __type?: "ForwardedIPConfig";
   /**
    * <p>The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to <code>X-Forwarded-For</code>.</p>
    *
@@ -1493,7 +1392,6 @@ export namespace ForwardedIPConfig {
   export const filterSensitiveLog = (obj: ForwardedIPConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ForwardedIPConfig => __isa(o, "ForwardedIPConfig");
 }
 
 export enum ForwardedIPPosition {
@@ -1509,7 +1407,6 @@ export enum ForwardedIPPosition {
  *          <p>A rule statement used to identify web requests based on country of origin.  </p>
  */
 export interface GeoMatchStatement {
-  __type?: "GeoMatchStatement";
   /**
    * <p>An array of two-character country codes, for example, <code>[ "US", "CN" ]</code>, from the alpha-2 country ISO codes of the ISO 3166 international standard. </p>
    */
@@ -1529,11 +1426,9 @@ export namespace GeoMatchStatement {
   export const filterSensitiveLog = (obj: GeoMatchStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GeoMatchStatement => __isa(o, "GeoMatchStatement");
 }
 
 export interface GetIPSetRequest {
-  __type?: "GetIPSetRequest";
   /**
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    */
@@ -1563,11 +1458,9 @@ export namespace GetIPSetRequest {
   export const filterSensitiveLog = (obj: GetIPSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIPSetRequest => __isa(o, "GetIPSetRequest");
 }
 
 export interface GetIPSetResponse {
-  __type?: "GetIPSetResponse";
   /**
    * <p></p>
    */
@@ -1583,11 +1476,9 @@ export namespace GetIPSetResponse {
   export const filterSensitiveLog = (obj: GetIPSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIPSetResponse => __isa(o, "GetIPSetResponse");
 }
 
 export interface GetLoggingConfigurationRequest {
-  __type?: "GetLoggingConfigurationRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the web ACL for which you want to get the <a>LoggingConfiguration</a>.</p>
    */
@@ -1598,11 +1489,9 @@ export namespace GetLoggingConfigurationRequest {
   export const filterSensitiveLog = (obj: GetLoggingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoggingConfigurationRequest => __isa(o, "GetLoggingConfigurationRequest");
 }
 
 export interface GetLoggingConfigurationResponse {
-  __type?: "GetLoggingConfigurationResponse";
   /**
    * <p>The <a>LoggingConfiguration</a> for the specified web ACL.</p>
    */
@@ -1613,11 +1502,9 @@ export namespace GetLoggingConfigurationResponse {
   export const filterSensitiveLog = (obj: GetLoggingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetLoggingConfigurationResponse => __isa(o, "GetLoggingConfigurationResponse");
 }
 
 export interface GetPermissionPolicyRequest {
-  __type?: "GetPermissionPolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the rule group for which you want to get the policy.</p>
    */
@@ -1628,11 +1515,9 @@ export namespace GetPermissionPolicyRequest {
   export const filterSensitiveLog = (obj: GetPermissionPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPermissionPolicyRequest => __isa(o, "GetPermissionPolicyRequest");
 }
 
 export interface GetPermissionPolicyResponse {
-  __type?: "GetPermissionPolicyResponse";
   /**
    * <p>The IAM policy that is attached to the specified rule group.</p>
    */
@@ -1643,11 +1528,9 @@ export namespace GetPermissionPolicyResponse {
   export const filterSensitiveLog = (obj: GetPermissionPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPermissionPolicyResponse => __isa(o, "GetPermissionPolicyResponse");
 }
 
 export interface GetRateBasedStatementManagedKeysRequest {
-  __type?: "GetRateBasedStatementManagedKeysRequest";
   /**
    * <p>The name of the rate-based rule to get the keys for.</p>
    */
@@ -1682,12 +1565,9 @@ export namespace GetRateBasedStatementManagedKeysRequest {
   export const filterSensitiveLog = (obj: GetRateBasedStatementManagedKeysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRateBasedStatementManagedKeysRequest =>
-    __isa(o, "GetRateBasedStatementManagedKeysRequest");
 }
 
 export interface GetRateBasedStatementManagedKeysResponse {
-  __type?: "GetRateBasedStatementManagedKeysResponse";
   /**
    * <p>The keys that are of Internet Protocol version 6 (IPv6). </p>
    */
@@ -1703,12 +1583,9 @@ export namespace GetRateBasedStatementManagedKeysResponse {
   export const filterSensitiveLog = (obj: GetRateBasedStatementManagedKeysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRateBasedStatementManagedKeysResponse =>
-    __isa(o, "GetRateBasedStatementManagedKeysResponse");
 }
 
 export interface GetRegexPatternSetRequest {
-  __type?: "GetRegexPatternSetRequest";
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
@@ -1738,11 +1615,9 @@ export namespace GetRegexPatternSetRequest {
   export const filterSensitiveLog = (obj: GetRegexPatternSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRegexPatternSetRequest => __isa(o, "GetRegexPatternSetRequest");
 }
 
 export interface GetRegexPatternSetResponse {
-  __type?: "GetRegexPatternSetResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
    */
@@ -1758,11 +1633,9 @@ export namespace GetRegexPatternSetResponse {
   export const filterSensitiveLog = (obj: GetRegexPatternSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRegexPatternSetResponse => __isa(o, "GetRegexPatternSetResponse");
 }
 
 export interface GetRuleGroupRequest {
-  __type?: "GetRuleGroupRequest";
   /**
    * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    */
@@ -1792,11 +1665,9 @@ export namespace GetRuleGroupRequest {
   export const filterSensitiveLog = (obj: GetRuleGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRuleGroupRequest => __isa(o, "GetRuleGroupRequest");
 }
 
 export interface GetRuleGroupResponse {
-  __type?: "GetRuleGroupResponse";
   /**
    * <p></p>
    */
@@ -1812,11 +1683,9 @@ export namespace GetRuleGroupResponse {
   export const filterSensitiveLog = (obj: GetRuleGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRuleGroupResponse => __isa(o, "GetRuleGroupResponse");
 }
 
 export interface GetSampledRequestsRequest {
-  __type?: "GetSampledRequestsRequest";
   /**
    * <p>The Amazon resource name (ARN) of the <code>WebACL</code> for which you want a sample of requests.</p>
    */
@@ -1859,11 +1728,9 @@ export namespace GetSampledRequestsRequest {
   export const filterSensitiveLog = (obj: GetSampledRequestsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSampledRequestsRequest => __isa(o, "GetSampledRequestsRequest");
 }
 
 export interface GetSampledRequestsResponse {
-  __type?: "GetSampledRequestsResponse";
   /**
    * <p>Usually, <code>TimeWindow</code> is the time range that you specified in the <code>GetSampledRequests</code> request.
    *             However, if your AWS resource received more than 5,000 requests during the time range that you specified in the request,
@@ -1888,11 +1755,9 @@ export namespace GetSampledRequestsResponse {
   export const filterSensitiveLog = (obj: GetSampledRequestsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSampledRequestsResponse => __isa(o, "GetSampledRequestsResponse");
 }
 
 export interface GetWebACLForResourceRequest {
-  __type?: "GetWebACLForResourceRequest";
   /**
    * <p>The ARN (Amazon Resource Name) of the resource.</p>
    */
@@ -1903,11 +1768,9 @@ export namespace GetWebACLForResourceRequest {
   export const filterSensitiveLog = (obj: GetWebACLForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWebACLForResourceRequest => __isa(o, "GetWebACLForResourceRequest");
 }
 
 export interface GetWebACLForResourceResponse {
-  __type?: "GetWebACLForResourceResponse";
   /**
    * <p>The Web ACL that is associated with the resource. If there is no associated resource, AWS WAF returns a null Web ACL.</p>
    */
@@ -1918,11 +1781,9 @@ export namespace GetWebACLForResourceResponse {
   export const filterSensitiveLog = (obj: GetWebACLForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWebACLForResourceResponse => __isa(o, "GetWebACLForResourceResponse");
 }
 
 export interface GetWebACLRequest {
-  __type?: "GetWebACLRequest";
   /**
    * <p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
    */
@@ -1952,11 +1813,9 @@ export namespace GetWebACLRequest {
   export const filterSensitiveLog = (obj: GetWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWebACLRequest => __isa(o, "GetWebACLRequest");
 }
 
 export interface GetWebACLResponse {
-  __type?: "GetWebACLResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
    */
@@ -1972,7 +1831,6 @@ export namespace GetWebACLResponse {
   export const filterSensitiveLog = (obj: GetWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWebACLResponse => __isa(o, "GetWebACLResponse");
 }
 
 /**
@@ -1984,7 +1842,6 @@ export namespace GetWebACLResponse {
  *          all of the headers that appear in one of the web requests. </p>
  */
 export interface HTTPHeader {
-  __type?: "HTTPHeader";
   /**
    * <p>The value of the HTTP header.</p>
    */
@@ -2000,7 +1857,6 @@ export namespace HTTPHeader {
   export const filterSensitiveLog = (obj: HTTPHeader): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HTTPHeader => __isa(o, "HTTPHeader");
 }
 
 /**
@@ -2012,7 +1868,6 @@ export namespace HTTPHeader {
  *          one of the web requests. </p>
  */
 export interface HTTPRequest {
-  __type?: "HTTPRequest";
   /**
    * <p>The HTTP method specified in the sampled web request. </p>
    */
@@ -2060,7 +1915,6 @@ export namespace HTTPRequest {
   export const filterSensitiveLog = (obj: HTTPRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HTTPRequest => __isa(o, "HTTPRequest");
 }
 
 export enum IPAddressVersion {
@@ -2077,7 +1931,6 @@ export enum IPAddressVersion {
  *          <p>AWS WAF assigns an ARN to each <code>IPSet</code> that you create. To use an IP set in a rule, you provide the ARN to the <a>Rule</a> statement <a>IPSetReferenceStatement</a>. </p>
  */
 export interface IPSet {
-  __type?: "IPSet";
   /**
    * <p>Specify IPV4 or IPV6. </p>
    */
@@ -2131,7 +1984,6 @@ export namespace IPSet {
   export const filterSensitiveLog = (obj: IPSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IPSet => __isa(o, "IPSet");
 }
 
 /**
@@ -2145,7 +1997,6 @@ export namespace IPSet {
  *          <p>This configuration is used only for <a>IPSetReferenceStatement</a>. For <a>GeoMatchStatement</a> and <a>RateBasedStatement</a>, use <a>ForwardedIPConfig</a> instead.  </p>
  */
 export interface IPSetForwardedIPConfig {
-  __type?: "IPSetForwardedIPConfig";
   /**
    * <p>The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to <code>X-Forwarded-For</code>.</p>
    *
@@ -2196,7 +2047,6 @@ export namespace IPSetForwardedIPConfig {
   export const filterSensitiveLog = (obj: IPSetForwardedIPConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IPSetForwardedIPConfig => __isa(o, "IPSetForwardedIPConfig");
 }
 
 /**
@@ -2207,7 +2057,6 @@ export namespace IPSetForwardedIPConfig {
  *          <p>Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.</p>
  */
 export interface IPSetReferenceStatement {
-  __type?: "IPSetReferenceStatement";
   /**
    * <p>The Amazon Resource Name (ARN) of the <a>IPSet</a> that this statement references.</p>
    */
@@ -2227,7 +2076,6 @@ export namespace IPSetReferenceStatement {
   export const filterSensitiveLog = (obj: IPSetReferenceStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IPSetReferenceStatement => __isa(o, "IPSetReferenceStatement");
 }
 
 /**
@@ -2237,7 +2085,6 @@ export namespace IPSetReferenceStatement {
  *          <p>High-level information about an <a>IPSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage an <code>IPSet</code>, and the ARN, that you provide to the <a>IPSetReferenceStatement</a> to use the address set in a <a>Rule</a>.</p>
  */
 export interface IPSetSummary {
-  __type?: "IPSetSummary";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
    */
@@ -2268,11 +2115,9 @@ export namespace IPSetSummary {
   export const filterSensitiveLog = (obj: IPSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IPSetSummary => __isa(o, "IPSetSummary");
 }
 
 export interface ListAvailableManagedRuleGroupsRequest {
-  __type?: "ListAvailableManagedRuleGroupsRequest";
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
@@ -2306,12 +2151,9 @@ export namespace ListAvailableManagedRuleGroupsRequest {
   export const filterSensitiveLog = (obj: ListAvailableManagedRuleGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAvailableManagedRuleGroupsRequest =>
-    __isa(o, "ListAvailableManagedRuleGroupsRequest");
 }
 
 export interface ListAvailableManagedRuleGroupsResponse {
-  __type?: "ListAvailableManagedRuleGroupsResponse";
   /**
    * <p></p>
    */
@@ -2329,12 +2171,9 @@ export namespace ListAvailableManagedRuleGroupsResponse {
   export const filterSensitiveLog = (obj: ListAvailableManagedRuleGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAvailableManagedRuleGroupsResponse =>
-    __isa(o, "ListAvailableManagedRuleGroupsResponse");
 }
 
 export interface ListIPSetsRequest {
-  __type?: "ListIPSetsRequest";
   /**
    * <p>The maximum number of objects that you want AWS WAF to return for this request. If more
    *           objects are available, in the response, AWS WAF provides a
@@ -2368,11 +2207,9 @@ export namespace ListIPSetsRequest {
   export const filterSensitiveLog = (obj: ListIPSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIPSetsRequest => __isa(o, "ListIPSetsRequest");
 }
 
 export interface ListIPSetsResponse {
-  __type?: "ListIPSetsResponse";
   /**
    * <p>Array of IPSets. This may not be the full list of IPSets that you have defined. See the <code>Limit</code> specification for this request.</p>
    */
@@ -2390,11 +2227,9 @@ export namespace ListIPSetsResponse {
   export const filterSensitiveLog = (obj: ListIPSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIPSetsResponse => __isa(o, "ListIPSetsResponse");
 }
 
 export interface ListLoggingConfigurationsRequest {
-  __type?: "ListLoggingConfigurationsRequest";
   /**
    * <p>The maximum number of objects that you want AWS WAF to return for this request. If more
    *           objects are available, in the response, AWS WAF provides a
@@ -2428,11 +2263,9 @@ export namespace ListLoggingConfigurationsRequest {
   export const filterSensitiveLog = (obj: ListLoggingConfigurationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLoggingConfigurationsRequest => __isa(o, "ListLoggingConfigurationsRequest");
 }
 
 export interface ListLoggingConfigurationsResponse {
-  __type?: "ListLoggingConfigurationsResponse";
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code>
@@ -2450,11 +2283,9 @@ export namespace ListLoggingConfigurationsResponse {
   export const filterSensitiveLog = (obj: ListLoggingConfigurationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListLoggingConfigurationsResponse => __isa(o, "ListLoggingConfigurationsResponse");
 }
 
 export interface ListRegexPatternSetsRequest {
-  __type?: "ListRegexPatternSetsRequest";
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
@@ -2488,11 +2319,9 @@ export namespace ListRegexPatternSetsRequest {
   export const filterSensitiveLog = (obj: ListRegexPatternSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRegexPatternSetsRequest => __isa(o, "ListRegexPatternSetsRequest");
 }
 
 export interface ListRegexPatternSetsResponse {
-  __type?: "ListRegexPatternSetsResponse";
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code>
@@ -2510,11 +2339,9 @@ export namespace ListRegexPatternSetsResponse {
   export const filterSensitiveLog = (obj: ListRegexPatternSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRegexPatternSetsResponse => __isa(o, "ListRegexPatternSetsResponse");
 }
 
 export interface ListResourcesForWebACLRequest {
-  __type?: "ListResourcesForWebACLRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the Web ACL.</p>
    */
@@ -2530,11 +2357,9 @@ export namespace ListResourcesForWebACLRequest {
   export const filterSensitiveLog = (obj: ListResourcesForWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourcesForWebACLRequest => __isa(o, "ListResourcesForWebACLRequest");
 }
 
 export interface ListResourcesForWebACLResponse {
-  __type?: "ListResourcesForWebACLResponse";
   /**
    * <p>The array of Amazon Resource Names (ARNs) of the associated resources.</p>
    */
@@ -2545,11 +2370,9 @@ export namespace ListResourcesForWebACLResponse {
   export const filterSensitiveLog = (obj: ListResourcesForWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourcesForWebACLResponse => __isa(o, "ListResourcesForWebACLResponse");
 }
 
 export interface ListRuleGroupsRequest {
-  __type?: "ListRuleGroupsRequest";
   /**
    * <p>Specifies whether this is for an AWS CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
@@ -2583,11 +2406,9 @@ export namespace ListRuleGroupsRequest {
   export const filterSensitiveLog = (obj: ListRuleGroupsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRuleGroupsRequest => __isa(o, "ListRuleGroupsRequest");
 }
 
 export interface ListRuleGroupsResponse {
-  __type?: "ListRuleGroupsResponse";
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the limit, AWS WAF returns a <code>NextMarker</code>
@@ -2605,11 +2426,9 @@ export namespace ListRuleGroupsResponse {
   export const filterSensitiveLog = (obj: ListRuleGroupsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRuleGroupsResponse => __isa(o, "ListRuleGroupsResponse");
 }
 
 export interface ListTagsForResourceRequest {
-  __type?: "ListTagsForResourceRequest";
   /**
    * <p>The maximum number of objects that you want AWS WAF to return for this request. If more
    *           objects are available, in the response, AWS WAF provides a
@@ -2634,11 +2453,9 @@ export namespace ListTagsForResourceRequest {
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
-  __type?: "ListTagsForResourceResponse";
   /**
    * <p>The collection of tagging definitions for the resource. </p>
    */
@@ -2656,11 +2473,9 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListWebACLsRequest {
-  __type?: "ListWebACLsRequest";
   /**
    * <p>The maximum number of objects that you want AWS WAF to return for this request. If more
    *           objects are available, in the response, AWS WAF provides a
@@ -2694,11 +2509,9 @@ export namespace ListWebACLsRequest {
   export const filterSensitiveLog = (obj: ListWebACLsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWebACLsRequest => __isa(o, "ListWebACLsRequest");
 }
 
 export interface ListWebACLsResponse {
-  __type?: "ListWebACLsResponse";
   /**
    * <p></p>
    */
@@ -2716,7 +2529,6 @@ export namespace ListWebACLsResponse {
   export const filterSensitiveLog = (obj: ListWebACLsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWebACLsResponse => __isa(o, "ListWebACLsResponse");
 }
 
 /**
@@ -2729,7 +2541,6 @@ export namespace ListWebACLsResponse {
  *          </p>
  */
 export interface LoggingConfiguration {
-  __type?: "LoggingConfiguration";
   /**
    * <p>The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.</p>
    */
@@ -2753,7 +2564,6 @@ export namespace LoggingConfiguration {
   export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LoggingConfiguration => __isa(o, "LoggingConfiguration");
 }
 
 /**
@@ -2764,7 +2574,6 @@ export namespace LoggingConfiguration {
  *          <p>You can't nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
  */
 export interface ManagedRuleGroupStatement {
-  __type?: "ManagedRuleGroupStatement";
   /**
    * <p>The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.</p>
    */
@@ -2785,7 +2594,6 @@ export namespace ManagedRuleGroupStatement {
   export const filterSensitiveLog = (obj: ManagedRuleGroupStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManagedRuleGroupStatement => __isa(o, "ManagedRuleGroupStatement");
 }
 
 /**
@@ -2795,7 +2603,6 @@ export namespace ManagedRuleGroupStatement {
  *          <p>High-level information about a managed rule group, returned by <a>ListAvailableManagedRuleGroups</a>. This provides information like the name and vendor name, that you provide when you add a <a>ManagedRuleGroupStatement</a> to a web ACL. Managed rule groups include AWS Managed Rules rule groups, which are free of charge to AWS WAF customers, and AWS Marketplace managed rule groups, which you can subscribe to through AWS Marketplace. </p>
  */
 export interface ManagedRuleGroupSummary {
-  __type?: "ManagedRuleGroupSummary";
   /**
    * <p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify the rule group.</p>
    */
@@ -2816,7 +2623,6 @@ export namespace ManagedRuleGroupSummary {
   export const filterSensitiveLog = (obj: ManagedRuleGroupSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ManagedRuleGroupSummary => __isa(o, "ManagedRuleGroupSummary");
 }
 
 /**
@@ -2826,15 +2632,12 @@ export namespace ManagedRuleGroupSummary {
  *          <p>The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform. </p>
  *            <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
-export interface Method {
-  __type?: "Method";
-}
+export interface Method {}
 
 export namespace Method {
   export const filterSensitiveLog = (obj: Method): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Method => __isa(o, "Method");
 }
 
 /**
@@ -2844,15 +2647,12 @@ export namespace Method {
  *          <p>Specifies that AWS WAF should do nothing. This is generally used to try out a rule without performing any actions. You set the <code>OverrideAction</code> on the <a>Rule</a>. </p>
  *            <p>This is used only in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
  */
-export interface NoneAction {
-  __type?: "NoneAction";
-}
+export interface NoneAction {}
 
 export namespace NoneAction {
   export const filterSensitiveLog = (obj: NoneAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NoneAction => __isa(o, "NoneAction");
 }
 
 /**
@@ -2862,7 +2662,6 @@ export namespace NoneAction {
  *          <p>A logical rule statement used to negate the results of another rule statement. You provide one <a>Statement</a> within the <code>NotStatement</code>.</p>
  */
 export interface NotStatement {
-  __type?: "NotStatement";
   /**
    * <p>The statement to negate. You can use any statement that can be nested.</p>
    */
@@ -2873,7 +2672,6 @@ export namespace NotStatement {
   export const filterSensitiveLog = (obj: NotStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotStatement => __isa(o, "NotStatement");
 }
 
 /**
@@ -2883,7 +2681,6 @@ export namespace NotStatement {
  *          <p>A logical rule statement used to combine other rule statements with OR logic. You provide more than one <a>Statement</a> within the <code>OrStatement</code>. </p>
  */
 export interface OrStatement {
-  __type?: "OrStatement";
   /**
    * <p>The statements to combine with OR logic. You can use any statements that can be nested.</p>
    */
@@ -2894,7 +2691,6 @@ export namespace OrStatement {
   export const filterSensitiveLog = (obj: OrStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OrStatement => __isa(o, "OrStatement");
 }
 
 /**
@@ -2912,7 +2708,6 @@ export namespace OrStatement {
  *          </ul>
  */
 export interface OverrideAction {
-  __type?: "OverrideAction";
   /**
    * <p>Don't override the rule action setting.</p>
    */
@@ -2928,7 +2723,6 @@ export namespace OverrideAction {
   export const filterSensitiveLog = (obj: OverrideAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OverrideAction => __isa(o, "OverrideAction");
 }
 
 export enum ParameterExceptionField {
@@ -2986,7 +2780,6 @@ export enum PositionalConstraint {
 }
 
 export interface PutLoggingConfigurationRequest {
-  __type?: "PutLoggingConfigurationRequest";
   /**
    * <p></p>
    */
@@ -2997,11 +2790,9 @@ export namespace PutLoggingConfigurationRequest {
   export const filterSensitiveLog = (obj: PutLoggingConfigurationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLoggingConfigurationRequest => __isa(o, "PutLoggingConfigurationRequest");
 }
 
 export interface PutLoggingConfigurationResponse {
-  __type?: "PutLoggingConfigurationResponse";
   /**
    * <p></p>
    */
@@ -3012,11 +2803,9 @@ export namespace PutLoggingConfigurationResponse {
   export const filterSensitiveLog = (obj: PutLoggingConfigurationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutLoggingConfigurationResponse => __isa(o, "PutLoggingConfigurationResponse");
 }
 
 export interface PutPermissionPolicyRequest {
-  __type?: "PutPermissionPolicyRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the <a>RuleGroup</a> to which you want to attach the policy.</p>
    */
@@ -3054,18 +2843,14 @@ export namespace PutPermissionPolicyRequest {
   export const filterSensitiveLog = (obj: PutPermissionPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPermissionPolicyRequest => __isa(o, "PutPermissionPolicyRequest");
 }
 
-export interface PutPermissionPolicyResponse {
-  __type?: "PutPermissionPolicyResponse";
-}
+export interface PutPermissionPolicyResponse {}
 
 export namespace PutPermissionPolicyResponse {
   export const filterSensitiveLog = (obj: PutPermissionPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutPermissionPolicyResponse => __isa(o, "PutPermissionPolicyResponse");
 }
 
 /**
@@ -3075,15 +2860,12 @@ export namespace PutPermissionPolicyResponse {
  *          <p>The query string of a web request. This is the part of a URL that appears after a <code>?</code> character, if any.</p>
  *            <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
-export interface QueryString {
-  __type?: "QueryString";
-}
+export interface QueryString {}
 
 export namespace QueryString {
   export const filterSensitiveLog = (obj: QueryString): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QueryString => __isa(o, "QueryString");
 }
 
 /**
@@ -3105,7 +2887,6 @@ export namespace QueryString {
  *          <p>You cannot nest a <code>RateBasedStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
  */
 export interface RateBasedStatement {
-  __type?: "RateBasedStatement";
   /**
    * <p>The limit on requests per 5-minute period for a single originating IP address. If the statement includes a <code>ScopeDownStatement</code>, this limit is applied only to the requests that match the statement.</p>
    */
@@ -3146,7 +2927,6 @@ export namespace RateBasedStatement {
   export const filterSensitiveLog = (obj: RateBasedStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RateBasedStatement => __isa(o, "RateBasedStatement");
 }
 
 export enum RateBasedStatementAggregateKeyType {
@@ -3161,7 +2941,6 @@ export enum RateBasedStatementAggregateKeyType {
  *          <p>The set of IP addresses that are currently blocked for a rate-based statement.</p>
  */
 export interface RateBasedStatementManagedKeysIPSet {
-  __type?: "RateBasedStatementManagedKeysIPSet";
   IPAddressVersion?: IPAddressVersion | string;
   /**
    * <p>The IP addresses that are currently blocked.</p>
@@ -3173,8 +2952,6 @@ export namespace RateBasedStatementManagedKeysIPSet {
   export const filterSensitiveLog = (obj: RateBasedStatementManagedKeysIPSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RateBasedStatementManagedKeysIPSet =>
-    __isa(o, "RateBasedStatementManagedKeysIPSet");
 }
 
 /**
@@ -3184,7 +2961,6 @@ export namespace RateBasedStatementManagedKeysIPSet {
  *          <p>A single regular expression. This is used in a <a>RegexPatternSet</a>.</p>
  */
 export interface Regex {
-  __type?: "Regex";
   /**
    * <p>The string representing the regular expression.</p>
    */
@@ -3195,7 +2971,6 @@ export namespace Regex {
   export const filterSensitiveLog = (obj: Regex): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Regex => __isa(o, "Regex");
 }
 
 /**
@@ -3206,7 +2981,6 @@ export namespace Regex {
  *          <p>AWS WAF assigns an ARN to each <code>RegexPatternSet</code> that you create. To use a set in a rule, you provide the ARN to the <a>Rule</a> statement <a>RegexPatternSetReferenceStatement</a>. </p>
  */
 export interface RegexPatternSet {
-  __type?: "RegexPatternSet";
   /**
    * <p>The name of the set. You cannot change the name after you create the set.</p>
    */
@@ -3237,7 +3011,6 @@ export namespace RegexPatternSet {
   export const filterSensitiveLog = (obj: RegexPatternSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegexPatternSet => __isa(o, "RegexPatternSet");
 }
 
 /**
@@ -3248,7 +3021,6 @@ export namespace RegexPatternSet {
  *          <p>Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.</p>
  */
 export interface RegexPatternSetReferenceStatement {
-  __type?: "RegexPatternSetReferenceStatement";
   /**
    * <p>The Amazon Resource Name (ARN) of the <a>RegexPatternSet</a> that this statement references.</p>
    */
@@ -3271,7 +3043,6 @@ export namespace RegexPatternSetReferenceStatement {
   export const filterSensitiveLog = (obj: RegexPatternSetReferenceStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegexPatternSetReferenceStatement => __isa(o, "RegexPatternSetReferenceStatement");
 }
 
 /**
@@ -3281,7 +3052,6 @@ export namespace RegexPatternSetReferenceStatement {
  *          <p>High-level information about a <a>RegexPatternSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RegexPatternSet</code>, and the ARN, that you provide to the <a>RegexPatternSetReferenceStatement</a> to use the pattern set in a <a>Rule</a>.</p>
  */
 export interface RegexPatternSetSummary {
-  __type?: "RegexPatternSetSummary";
   /**
    * <p>The name of the data type instance. You cannot change the name after you create the instance.</p>
    */
@@ -3312,7 +3082,6 @@ export namespace RegexPatternSetSummary {
   export const filterSensitiveLog = (obj: RegexPatternSetSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegexPatternSetSummary => __isa(o, "RegexPatternSetSummary");
 }
 
 export enum ResourceType {
@@ -3330,7 +3099,6 @@ export enum ResourceType {
  *          web requests, and parameters that govern how AWS WAF handles them. </p>
  */
 export interface Rule {
-  __type?: "Rule";
   /**
    * <p>If you define more than one <code>Rule</code> in a
    *          <code>WebACL</code>, AWS WAF evaluates each request against the <code>Rules</code>
@@ -3390,7 +3158,6 @@ export namespace Rule {
   export const filterSensitiveLog = (obj: Rule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Rule => __isa(o, "Rule");
 }
 
 /**
@@ -3400,7 +3167,6 @@ export namespace Rule {
  *          <p>The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting. </p>
  */
 export interface RuleAction {
-  __type?: "RuleAction";
   /**
    * <p>Instructs AWS WAF to allow the web request.</p>
    */
@@ -3421,7 +3187,6 @@ export namespace RuleAction {
   export const filterSensitiveLog = (obj: RuleAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleAction => __isa(o, "RuleAction");
 }
 
 /**
@@ -3431,7 +3196,6 @@ export namespace RuleAction {
  *          <p> A rule group defines a collection of rules to inspect and control web requests that you can use in a <a>WebACL</a>. When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements. </p>
  */
 export interface RuleGroup {
-  __type?: "RuleGroup";
   /**
    * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    */
@@ -3486,7 +3250,6 @@ export namespace RuleGroup {
   export const filterSensitiveLog = (obj: RuleGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleGroup => __isa(o, "RuleGroup");
 }
 
 /**
@@ -3497,7 +3260,6 @@ export namespace RuleGroup {
  *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
  */
 export interface RuleGroupReferenceStatement {
-  __type?: "RuleGroupReferenceStatement";
   /**
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    */
@@ -3513,7 +3275,6 @@ export namespace RuleGroupReferenceStatement {
   export const filterSensitiveLog = (obj: RuleGroupReferenceStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleGroupReferenceStatement => __isa(o, "RuleGroupReferenceStatement");
 }
 
 /**
@@ -3523,7 +3284,6 @@ export namespace RuleGroupReferenceStatement {
  *          <p>High-level information about a <a>RuleGroup</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RuleGroup</code>, and the ARN, that you provide to the <a>RuleGroupReferenceStatement</a> to use the rule group in a <a>Rule</a>.</p>
  */
 export interface RuleGroupSummary {
-  __type?: "RuleGroupSummary";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns a token to your get and list requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like update and delete. AWS WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another get, and use the new token returned by that operation. </p>
    */
@@ -3554,7 +3314,6 @@ export namespace RuleGroupSummary {
   export const filterSensitiveLog = (obj: RuleGroupSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleGroupSummary => __isa(o, "RuleGroupSummary");
 }
 
 /**
@@ -3564,7 +3323,6 @@ export namespace RuleGroupSummary {
  *          <p>High-level information about a <a>Rule</a>, returned by operations like <a>DescribeManagedRuleGroup</a>. This provides information like the ID, that you can use to retrieve and manage a <code>RuleGroup</code>, and the ARN, that you provide to the <a>RuleGroupReferenceStatement</a> to use the rule group in a <a>Rule</a>.</p>
  */
 export interface RuleSummary {
-  __type?: "RuleSummary";
   /**
    * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
@@ -3583,7 +3341,6 @@ export namespace RuleSummary {
   export const filterSensitiveLog = (obj: RuleSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleSummary => __isa(o, "RuleSummary");
 }
 
 /**
@@ -3594,7 +3351,6 @@ export namespace RuleSummary {
  *          appears as <code>SampledRequests</code> in the response syntax. <code>SampledHTTPRequests</code> contains an array of <code>SampledHTTPRequest</code> objects.</p>
  */
 export interface SampledHTTPRequest {
-  __type?: "SampledHTTPRequest";
   /**
    * <p>A complex type that contains detailed information about the request.</p>
    */
@@ -3631,7 +3387,6 @@ export namespace SampledHTTPRequest {
   export const filterSensitiveLog = (obj: SampledHTTPRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SampledHTTPRequest => __isa(o, "SampledHTTPRequest");
 }
 
 export enum Scope {
@@ -3647,7 +3402,6 @@ export enum Scope {
  *            <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
 export interface SingleHeader {
-  __type?: "SingleHeader";
   /**
    * <p>The name of the query header to inspect.</p>
    */
@@ -3658,7 +3412,6 @@ export namespace SingleHeader {
   export const filterSensitiveLog = (obj: SingleHeader): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SingleHeader => __isa(o, "SingleHeader");
 }
 
 /**
@@ -3668,7 +3421,6 @@ export namespace SingleHeader {
  *          <p>One query argument in a web request, identified by name, for example <i>UserName</i> or <i>SalesRegion</i>. The name can be up to 30 characters long and isn't case sensitive. </p>
  */
 export interface SingleQueryArgument {
-  __type?: "SingleQueryArgument";
   /**
    * <p>The name of the query argument to inspect.</p>
    */
@@ -3679,7 +3431,6 @@ export namespace SingleQueryArgument {
   export const filterSensitiveLog = (obj: SingleQueryArgument): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SingleQueryArgument => __isa(o, "SingleQueryArgument");
 }
 
 /**
@@ -3691,7 +3442,6 @@ export namespace SingleQueryArgument {
  *          <p>If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI <code>/logo.jpg</code> is nine characters long.</p>
  */
 export interface SizeConstraintStatement {
-  __type?: "SizeConstraintStatement";
   /**
    * <p>The size, in byte, to compare to the request part, after any transformations.</p>
    */
@@ -3719,7 +3469,6 @@ export namespace SizeConstraintStatement {
   export const filterSensitiveLog = (obj: SizeConstraintStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SizeConstraintStatement => __isa(o, "SizeConstraintStatement");
 }
 
 /**
@@ -3729,7 +3478,6 @@ export namespace SizeConstraintStatement {
  *          <p>Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database. To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.</p>
  */
 export interface SqliMatchStatement {
-  __type?: "SqliMatchStatement";
   /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
    *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
@@ -3747,7 +3495,6 @@ export namespace SqliMatchStatement {
   export const filterSensitiveLog = (obj: SqliMatchStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SqliMatchStatement => __isa(o, "SqliMatchStatement");
 }
 
 /**
@@ -3757,7 +3504,6 @@ export namespace SqliMatchStatement {
  *          <p>The processing guidance for a <a>Rule</a>, used by AWS WAF to determine whether a web request matches the rule. </p>
  */
 export interface Statement {
-  __type?: "Statement";
   /**
    * <p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>
    *          <p>You can't nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
@@ -3850,7 +3596,6 @@ export namespace Statement {
   export const filterSensitiveLog = (obj: Statement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Statement => __isa(o, "Statement");
 }
 
 /**
@@ -3863,7 +3608,6 @@ export namespace Statement {
  *   sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console. </p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.</p>
    */
@@ -3879,7 +3623,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -3892,7 +3635,6 @@ export namespace Tag {
  *   sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console. </p>
  */
 export interface TagInfoForResource {
-  __type?: "TagInfoForResource";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -3908,11 +3650,9 @@ export namespace TagInfoForResource {
   export const filterSensitiveLog = (obj: TagInfoForResource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagInfoForResource => __isa(o, "TagInfoForResource");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>An array of key:value pairs to associate with the resource.</p>
    */
@@ -3928,18 +3668,14 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
-export interface TagResourceResponse {
-  __type?: "TagResourceResponse";
-}
+export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -3950,7 +3686,6 @@ export namespace TagResourceResponse {
  *          </p>
  */
 export interface TextTransformation {
-  __type?: "TextTransformation";
   /**
    * <p>Sets the relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all
    *          transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different. </p>
@@ -4057,7 +3792,6 @@ export namespace TextTransformation {
   export const filterSensitiveLog = (obj: TextTransformation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TextTransformation => __isa(o, "TextTransformation");
 }
 
 export enum TextTransformationType {
@@ -4083,7 +3817,6 @@ export enum TextTransformationType {
  *          is the time that AWS WAF received the 5,000th request.</p>
  */
 export interface TimeWindow {
-  __type?: "TimeWindow";
   /**
    * <p>The beginning of the time range from which you want <code>GetSampledRequests</code> to return a sample of the requests that your
    *          AWS resource received. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>. You can specify any time range in the previous three hours.</p>
@@ -4101,11 +3834,9 @@ export namespace TimeWindow {
   export const filterSensitiveLog = (obj: TimeWindow): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimeWindow => __isa(o, "TimeWindow");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
@@ -4121,22 +3852,17 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
-export interface UntagResourceResponse {
-  __type?: "UntagResourceResponse";
-}
+export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateIPSetRequest {
-  __type?: "UpdateIPSetRequest";
   /**
    * <p>A description of the IP set that helps with identification. You cannot change the description of an IP set after you create it.</p>
    */
@@ -4199,11 +3925,9 @@ export namespace UpdateIPSetRequest {
   export const filterSensitiveLog = (obj: UpdateIPSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIPSetRequest => __isa(o, "UpdateIPSetRequest");
 }
 
 export interface UpdateIPSetResponse {
-  __type?: "UpdateIPSetResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns this token to your update requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
    */
@@ -4214,11 +3938,9 @@ export namespace UpdateIPSetResponse {
   export const filterSensitiveLog = (obj: UpdateIPSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateIPSetResponse => __isa(o, "UpdateIPSetResponse");
 }
 
 export interface UpdateRegexPatternSetRequest {
-  __type?: "UpdateRegexPatternSetRequest";
   /**
    * <p>A description of the set that helps with identification. You cannot change the description of a set after you create it.</p>
    */
@@ -4263,11 +3985,9 @@ export namespace UpdateRegexPatternSetRequest {
   export const filterSensitiveLog = (obj: UpdateRegexPatternSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRegexPatternSetRequest => __isa(o, "UpdateRegexPatternSetRequest");
 }
 
 export interface UpdateRegexPatternSetResponse {
-  __type?: "UpdateRegexPatternSetResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns this token to your update requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
    */
@@ -4278,11 +3998,9 @@ export namespace UpdateRegexPatternSetResponse {
   export const filterSensitiveLog = (obj: UpdateRegexPatternSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRegexPatternSetResponse => __isa(o, "UpdateRegexPatternSetResponse");
 }
 
 export interface UpdateRuleGroupRequest {
-  __type?: "UpdateRuleGroupRequest";
   /**
    * <p>The <a>Rule</a> statements used to identify the web requests that you
    *          want to allow, block, or count. Each rule includes one top-level statement that AWS WAF uses to identify matching
@@ -4335,11 +4053,9 @@ export namespace UpdateRuleGroupRequest {
   export const filterSensitiveLog = (obj: UpdateRuleGroupRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRuleGroupRequest => __isa(o, "UpdateRuleGroupRequest");
 }
 
 export interface UpdateRuleGroupResponse {
-  __type?: "UpdateRuleGroupResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns this token to your update requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
    */
@@ -4350,11 +4066,9 @@ export namespace UpdateRuleGroupResponse {
   export const filterSensitiveLog = (obj: UpdateRuleGroupResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateRuleGroupResponse => __isa(o, "UpdateRuleGroupResponse");
 }
 
 export interface UpdateWebACLRequest {
-  __type?: "UpdateWebACLRequest";
   /**
    * <p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
    */
@@ -4412,11 +4126,9 @@ export namespace UpdateWebACLRequest {
   export const filterSensitiveLog = (obj: UpdateWebACLRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWebACLRequest => __isa(o, "UpdateWebACLRequest");
 }
 
 export interface UpdateWebACLResponse {
-  __type?: "UpdateWebACLResponse";
   /**
    * <p>A token used for optimistic locking. AWS WAF returns this token to your update requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
    */
@@ -4427,7 +4139,6 @@ export namespace UpdateWebACLResponse {
   export const filterSensitiveLog = (obj: UpdateWebACLResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateWebACLResponse => __isa(o, "UpdateWebACLResponse");
 }
 
 /**
@@ -4437,15 +4148,12 @@ export namespace UpdateWebACLResponse {
  *          <p>The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, <code>/images/daily-ad.jpg</code>.</p>
  *          <p>This is used only to indicate the web request component for AWS WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
-export interface UriPath {
-  __type?: "UriPath";
-}
+export interface UriPath {}
 
 export namespace UriPath {
   export const filterSensitiveLog = (obj: UriPath): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UriPath => __isa(o, "UriPath");
 }
 
 /**
@@ -4455,7 +4163,6 @@ export namespace UriPath {
  *          <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
  */
 export interface VisibilityConfig {
-  __type?: "VisibilityConfig";
   /**
    * <p>A boolean indicating whether AWS WAF should store a sampling of the web
    *            requests that match the rules. You can view the sampled requests through the
@@ -4479,7 +4186,6 @@ export namespace VisibilityConfig {
   export const filterSensitiveLog = (obj: VisibilityConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VisibilityConfig => __isa(o, "VisibilityConfig");
 }
 
 /**
@@ -4495,7 +4201,6 @@ export namespace WAFAssociatedItemException {
   export const filterSensitiveLog = (obj: WAFAssociatedItemException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFAssociatedItemException => __isa(o, "WAFAssociatedItemException");
 }
 
 /**
@@ -4511,7 +4216,6 @@ export namespace WAFDuplicateItemException {
   export const filterSensitiveLog = (obj: WAFDuplicateItemException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFDuplicateItemException => __isa(o, "WAFDuplicateItemException");
 }
 
 /**
@@ -4527,7 +4231,6 @@ export namespace WAFInternalErrorException {
   export const filterSensitiveLog = (obj: WAFInternalErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFInternalErrorException => __isa(o, "WAFInternalErrorException");
 }
 
 /**
@@ -4543,7 +4246,6 @@ export namespace WAFInvalidOperationException {
   export const filterSensitiveLog = (obj: WAFInvalidOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFInvalidOperationException => __isa(o, "WAFInvalidOperationException");
 }
 
 /**
@@ -4577,7 +4279,6 @@ export namespace WAFInvalidParameterException {
   export const filterSensitiveLog = (obj: WAFInvalidParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFInvalidParameterException => __isa(o, "WAFInvalidParameterException");
 }
 
 /**
@@ -4615,8 +4316,6 @@ export namespace WAFInvalidPermissionPolicyException {
   export const filterSensitiveLog = (obj: WAFInvalidPermissionPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFInvalidPermissionPolicyException =>
-    __isa(o, "WAFInvalidPermissionPolicyException");
 }
 
 /**
@@ -4632,7 +4331,6 @@ export namespace WAFInvalidResourceException {
   export const filterSensitiveLog = (obj: WAFInvalidResourceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFInvalidResourceException => __isa(o, "WAFInvalidResourceException");
 }
 
 /**
@@ -4650,7 +4348,6 @@ export namespace WAFLimitsExceededException {
   export const filterSensitiveLog = (obj: WAFLimitsExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFLimitsExceededException => __isa(o, "WAFLimitsExceededException");
 }
 
 /**
@@ -4666,7 +4363,6 @@ export namespace WAFNonexistentItemException {
   export const filterSensitiveLog = (obj: WAFNonexistentItemException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFNonexistentItemException => __isa(o, "WAFNonexistentItemException");
 }
 
 /**
@@ -4682,7 +4378,6 @@ export namespace WAFOptimisticLockException {
   export const filterSensitiveLog = (obj: WAFOptimisticLockException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFOptimisticLockException => __isa(o, "WAFOptimisticLockException");
 }
 
 /**
@@ -4698,8 +4393,6 @@ export namespace WAFServiceLinkedRoleErrorException {
   export const filterSensitiveLog = (obj: WAFServiceLinkedRoleErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFServiceLinkedRoleErrorException =>
-    __isa(o, "WAFServiceLinkedRoleErrorException");
 }
 
 /**
@@ -4715,7 +4408,6 @@ export namespace WAFSubscriptionNotFoundException {
   export const filterSensitiveLog = (obj: WAFSubscriptionNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFSubscriptionNotFoundException => __isa(o, "WAFSubscriptionNotFoundException");
 }
 
 /**
@@ -4731,7 +4423,6 @@ export namespace WAFTagOperationException {
   export const filterSensitiveLog = (obj: WAFTagOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFTagOperationException => __isa(o, "WAFTagOperationException");
 }
 
 /**
@@ -4747,8 +4438,6 @@ export namespace WAFTagOperationInternalErrorException {
   export const filterSensitiveLog = (obj: WAFTagOperationInternalErrorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFTagOperationInternalErrorException =>
-    __isa(o, "WAFTagOperationInternalErrorException");
 }
 
 /**
@@ -4764,7 +4453,6 @@ export namespace WAFUnavailableEntityException {
   export const filterSensitiveLog = (obj: WAFUnavailableEntityException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WAFUnavailableEntityException => __isa(o, "WAFUnavailableEntityException");
 }
 
 /**
@@ -4774,7 +4462,6 @@ export namespace WAFUnavailableEntityException {
  *          <p> A Web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the Web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a Web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a Web ACL with one or more AWS resources to protect. The resources can be Amazon CloudFront, an Amazon API Gateway API, or an Application Load Balancer.  </p>
  */
 export interface WebACL {
-  __type?: "WebACL";
   /**
    * <p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
    */
@@ -4856,7 +4543,6 @@ export namespace WebACL {
   export const filterSensitiveLog = (obj: WebACL): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WebACL => __isa(o, "WebACL");
 }
 
 /**
@@ -4866,7 +4552,6 @@ export namespace WebACL {
  *          <p>High-level information about a <a>WebACL</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>WebACL</code>, and the ARN, that you provide to operations like <a>AssociateWebACL</a>.</p>
  */
 export interface WebACLSummary {
-  __type?: "WebACLSummary";
   /**
    * <p>The name of the Web ACL. You cannot change the name of a Web ACL after you create it.</p>
    */
@@ -4897,7 +4582,6 @@ export namespace WebACLSummary {
   export const filterSensitiveLog = (obj: WebACLSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WebACLSummary => __isa(o, "WebACLSummary");
 }
 
 /**
@@ -4911,7 +4595,6 @@ export namespace WebACLSummary {
  *          to use on the search area before AWS WAF searches for character sequences that are likely to be malicious strings. </p>
  */
 export interface XssMatchStatement {
-  __type?: "XssMatchStatement";
   /**
    * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
    *          If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the
@@ -4929,5 +4612,4 @@ export namespace XssMatchStatement {
   export const filterSensitiveLog = (obj: XssMatchStatement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is XssMatchStatement => __isa(o, "XssMatchStatement");
 }

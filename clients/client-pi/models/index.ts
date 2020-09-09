@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>A timestamp, and a single numerical value, which together represent a measurement at a particular point in time.</p>
  */
 export interface DataPoint {
-  __type?: "DataPoint";
   /**
    * <p>The time, in epoch format, associated with a particular <code>Value</code>.</p>
    */
@@ -21,11 +20,9 @@ export namespace DataPoint {
   export const filterSensitiveLog = (obj: DataPoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataPoint => __isa(o, "DataPoint");
 }
 
 export interface DescribeDimensionKeysRequest {
-  __type?: "DescribeDimensionKeysRequest";
   /**
    * <p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from
    *       this data source.</p>
@@ -162,11 +159,9 @@ export namespace DescribeDimensionKeysRequest {
   export const filterSensitiveLog = (obj: DescribeDimensionKeysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDimensionKeysRequest => __isa(o, "DescribeDimensionKeysRequest");
 }
 
 export interface DescribeDimensionKeysResponse {
-  __type?: "DescribeDimensionKeysResponse";
   /**
    * <p>The end time for the returned dimension keys, after alignment to a granular boundary (as
    *       specified by <code>PeriodInSeconds</code>). <code>AlignedEndTime</code> will be greater than
@@ -203,7 +198,6 @@ export namespace DescribeDimensionKeysResponse {
   export const filterSensitiveLog = (obj: DescribeDimensionKeysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDimensionKeysResponse => __isa(o, "DescribeDimensionKeysResponse");
 }
 
 /**
@@ -213,7 +207,6 @@ export namespace DescribeDimensionKeysResponse {
  *         <code>db.sql.tokenized_id</code>.</p>
  */
 export interface DimensionGroup {
-  __type?: "DimensionGroup";
   /**
    * <p>A list of specific dimensions from a dimension group. If this parameter is not present,
    *       then it signifies that all of the dimensions in the group were requested, or are present in
@@ -314,7 +307,6 @@ export namespace DimensionGroup {
   export const filterSensitiveLog = (obj: DimensionGroup): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DimensionGroup => __isa(o, "DimensionGroup");
 }
 
 /**
@@ -322,7 +314,6 @@ export namespace DimensionGroup {
  *       each dimension within a dimension group.</p>
  */
 export interface DimensionKeyDescription {
-  __type?: "DimensionKeyDescription";
   /**
    * <p>If <code>PartitionBy</code> was specified, <code>PartitionKeys</code> contains the dimensions that were.</p>
    */
@@ -343,11 +334,9 @@ export namespace DimensionKeyDescription {
   export const filterSensitiveLog = (obj: DimensionKeyDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DimensionKeyDescription => __isa(o, "DimensionKeyDescription");
 }
 
 export interface GetResourceMetricsRequest {
-  __type?: "GetResourceMetricsRequest";
   /**
    * <p>The granularity, in seconds, of the data points returned from Performance Insights. A period can be as short as
    *       one second, or as long as one day (86400 seconds).  Valid values are:</p>
@@ -440,11 +429,9 @@ export namespace GetResourceMetricsRequest {
   export const filterSensitiveLog = (obj: GetResourceMetricsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourceMetricsRequest => __isa(o, "GetResourceMetricsRequest");
 }
 
 export interface GetResourceMetricsResponse {
-  __type?: "GetResourceMetricsResponse";
   /**
    * <p>An optional pagination token provided by a previous request. If
    *       this parameter is specified, the response includes only records beyond the token, up to the
@@ -486,7 +473,6 @@ export namespace GetResourceMetricsResponse {
   export const filterSensitiveLog = (obj: GetResourceMetricsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetResourceMetricsResponse => __isa(o, "GetResourceMetricsResponse");
 }
 
 /**
@@ -502,7 +488,6 @@ export namespace InternalServiceError {
   export const filterSensitiveLog = (obj: InternalServiceError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceError => __isa(o, "InternalServiceError");
 }
 
 /**
@@ -518,7 +503,6 @@ export namespace InvalidArgumentException {
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
@@ -526,7 +510,6 @@ export namespace InvalidArgumentException {
  *       metric.</p>
  */
 export interface MetricKeyDataPoints {
-  __type?: "MetricKeyDataPoints";
   /**
    * <p>The dimension(s) to which the data points apply.</p>
    */
@@ -542,7 +525,6 @@ export namespace MetricKeyDataPoints {
   export const filterSensitiveLog = (obj: MetricKeyDataPoints): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricKeyDataPoints => __isa(o, "MetricKeyDataPoints");
 }
 
 /**
@@ -552,7 +534,6 @@ export namespace MetricKeyDataPoints {
  *       <code>GroupBy</code>), and return only those data points that match your criteria (<code>Filter</code>).</p>
  */
 export interface MetricQuery {
-  __type?: "MetricQuery";
   /**
    * <p>A specification for how to aggregate the data points from a query result. You must
    *       specify a valid dimension group.  Performance Insights will return all of the dimensions within that group,
@@ -598,7 +579,6 @@ export namespace MetricQuery {
   export const filterSensitiveLog = (obj: MetricQuery): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MetricQuery => __isa(o, "MetricQuery");
 }
 
 /**
@@ -614,7 +594,6 @@ export namespace NotAuthorizedException {
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -623,7 +602,6 @@ export namespace NotAuthorizedException {
  *       dimension. </p>
  */
 export interface ResponsePartitionKey {
-  __type?: "ResponsePartitionKey";
   /**
    * <p>A dimension map that contains the dimension(s) for this partition.</p>
    */
@@ -634,14 +612,12 @@ export namespace ResponsePartitionKey {
   export const filterSensitiveLog = (obj: ResponsePartitionKey): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResponsePartitionKey => __isa(o, "ResponsePartitionKey");
 }
 
 /**
  * <p>An object describing a Performance Insights metric and one or more dimensions for that metric.</p>
  */
 export interface ResponseResourceMetricKey {
-  __type?: "ResponseResourceMetricKey";
   /**
    * <p>The name of a Performance Insights metric to be measured.</p>
    *          <p>Valid values for <code>Metric</code> are:</p>
@@ -671,7 +647,6 @@ export namespace ResponseResourceMetricKey {
   export const filterSensitiveLog = (obj: ResponseResourceMetricKey): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResponseResourceMetricKey => __isa(o, "ResponseResourceMetricKey");
 }
 
 export enum ServiceType {

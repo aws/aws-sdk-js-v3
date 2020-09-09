@@ -1,11 +1,10 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Unit of work sent to an activity worker.</p>
  */
 export interface ActivityTask {
-  __type?: "ActivityTask";
   /**
    * <p>The unique ID of the task.</p>
    */
@@ -41,14 +40,12 @@ export namespace ActivityTask {
   export const filterSensitiveLog = (obj: ActivityTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTask => __isa(o, "ActivityTask");
 }
 
 /**
  * <p>Provides the details of the <code>ActivityTaskCanceled</code> event.</p>
  */
 export interface ActivityTaskCanceledEventAttributes {
-  __type?: "ActivityTaskCanceledEventAttributes";
   /**
    * <p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
    */
@@ -76,15 +73,12 @@ export namespace ActivityTaskCanceledEventAttributes {
   export const filterSensitiveLog = (obj: ActivityTaskCanceledEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTaskCanceledEventAttributes =>
-    __isa(o, "ActivityTaskCanceledEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>ActivityTaskCancelRequested</code> event.</p>
  */
 export interface ActivityTaskCancelRequestedEventAttributes {
-  __type?: "ActivityTaskCancelRequestedEventAttributes";
   /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
    *       <code>RequestCancelActivityTask</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
@@ -101,15 +95,12 @@ export namespace ActivityTaskCancelRequestedEventAttributes {
   export const filterSensitiveLog = (obj: ActivityTaskCancelRequestedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTaskCancelRequestedEventAttributes =>
-    __isa(o, "ActivityTaskCancelRequestedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>ActivityTaskCompleted</code> event.</p>
  */
 export interface ActivityTaskCompletedEventAttributes {
-  __type?: "ActivityTaskCompletedEventAttributes";
   /**
    * <p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
    */
@@ -132,15 +123,12 @@ export namespace ActivityTaskCompletedEventAttributes {
   export const filterSensitiveLog = (obj: ActivityTaskCompletedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTaskCompletedEventAttributes =>
-    __isa(o, "ActivityTaskCompletedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>ActivityTaskFailed</code> event.</p>
  */
 export interface ActivityTaskFailedEventAttributes {
-  __type?: "ActivityTaskFailedEventAttributes";
   /**
    * <p>The ID of the <code>ActivityTaskStarted</code> event recorded when this activity task was started. This
    *       information can be useful for diagnosing problems by tracing back the chain of events leading up to this
@@ -168,14 +156,12 @@ export namespace ActivityTaskFailedEventAttributes {
   export const filterSensitiveLog = (obj: ActivityTaskFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTaskFailedEventAttributes => __isa(o, "ActivityTaskFailedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>ActivityTaskScheduled</code> event.</p>
  */
 export interface ActivityTaskScheduledEventAttributes {
-  __type?: "ActivityTaskScheduledEventAttributes";
   /**
    * <p>
    *          The priority to assign to the scheduled activity task. If set, this overrides any default
@@ -243,15 +229,12 @@ export namespace ActivityTaskScheduledEventAttributes {
   export const filterSensitiveLog = (obj: ActivityTaskScheduledEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTaskScheduledEventAttributes =>
-    __isa(o, "ActivityTaskScheduledEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>ActivityTaskStarted</code> event.</p>
  */
 export interface ActivityTaskStartedEventAttributes {
-  __type?: "ActivityTaskStartedEventAttributes";
   /**
    * <p>Identity of the worker that was assigned this task. This aids diagnostics when problems arise. The form of this identity is user defined.</p>
    */
@@ -267,15 +250,12 @@ export namespace ActivityTaskStartedEventAttributes {
   export const filterSensitiveLog = (obj: ActivityTaskStartedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTaskStartedEventAttributes =>
-    __isa(o, "ActivityTaskStartedEventAttributes");
 }
 
 /**
  * <p>Status information about an activity task.</p>
  */
 export interface ActivityTaskStatus {
-  __type?: "ActivityTaskStatus";
   /**
    * <p>Set to <code>true</code> if cancellation of the task is requested.</p>
    */
@@ -286,14 +266,12 @@ export namespace ActivityTaskStatus {
   export const filterSensitiveLog = (obj: ActivityTaskStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTaskStatus => __isa(o, "ActivityTaskStatus");
 }
 
 /**
  * <p>Provides the details of the <code>ActivityTaskTimedOut</code> event.</p>
  */
 export interface ActivityTaskTimedOutEventAttributes {
-  __type?: "ActivityTaskTimedOutEventAttributes";
   /**
    * <p>The ID of the <code>ActivityTaskStarted</code> event recorded when this activity task was started. This
    *       information can be useful for diagnosing problems by tracing back the chain of events leading up to this
@@ -322,8 +300,6 @@ export namespace ActivityTaskTimedOutEventAttributes {
   export const filterSensitiveLog = (obj: ActivityTaskTimedOutEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTaskTimedOutEventAttributes =>
-    __isa(o, "ActivityTaskTimedOutEventAttributes");
 }
 
 export type ActivityTaskTimeoutType = "HEARTBEAT" | "SCHEDULE_TO_CLOSE" | "SCHEDULE_TO_START" | "START_TO_CLOSE";
@@ -332,7 +308,6 @@ export type ActivityTaskTimeoutType = "HEARTBEAT" | "SCHEDULE_TO_CLOSE" | "SCHED
  * <p>Represents an activity type.</p>
  */
 export interface ActivityType {
-  __type?: "ActivityType";
   /**
    * <p>The name of this activity.</p>
    *          <note>
@@ -354,14 +329,12 @@ export namespace ActivityType {
   export const filterSensitiveLog = (obj: ActivityType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityType => __isa(o, "ActivityType");
 }
 
 /**
  * <p>Configuration settings registered with the activity type.</p>
  */
 export interface ActivityTypeConfiguration {
-  __type?: "ActivityTypeConfiguration";
   /**
    * <p>
    *          The default maximum time, in seconds, before which a worker processing a task must report
@@ -430,14 +403,12 @@ export namespace ActivityTypeConfiguration {
   export const filterSensitiveLog = (obj: ActivityTypeConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTypeConfiguration => __isa(o, "ActivityTypeConfiguration");
 }
 
 /**
  * <p>Detailed information about an activity type.</p>
  */
 export interface ActivityTypeDetail {
-  __type?: "ActivityTypeDetail";
   /**
    * <p>General information about the activity type.</p>
    *          <p>The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.</p>
@@ -469,14 +440,12 @@ export namespace ActivityTypeDetail {
   export const filterSensitiveLog = (obj: ActivityTypeDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTypeDetail => __isa(o, "ActivityTypeDetail");
 }
 
 /**
  * <p>Detailed information about an activity type.</p>
  */
 export interface ActivityTypeInfo {
-  __type?: "ActivityTypeInfo";
   /**
    * <p>The description of the activity type provided in <a>RegisterActivityType</a>.</p>
    */
@@ -507,14 +476,12 @@ export namespace ActivityTypeInfo {
   export const filterSensitiveLog = (obj: ActivityTypeInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTypeInfo => __isa(o, "ActivityTypeInfo");
 }
 
 /**
  * <p>Contains a paginated list of activity type information structures.</p>
  */
 export interface ActivityTypeInfos {
-  __type?: "ActivityTypeInfos";
   /**
    * <p>If a <code>NextPageToken</code> was returned by a previous call, there are more
    *   results available. To retrieve the next page of results, make the call again using the returned token in
@@ -533,7 +500,6 @@ export namespace ActivityTypeInfos {
   export const filterSensitiveLog = (obj: ActivityTypeInfos): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ActivityTypeInfos => __isa(o, "ActivityTypeInfos");
 }
 
 /**
@@ -560,7 +526,6 @@ export namespace ActivityTypeInfos {
  *           <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
  */
 export interface CancelTimerDecisionAttributes {
-  __type?: "CancelTimerDecisionAttributes";
   /**
    * <p>
    *          The unique ID of the timer to cancel.</p>
@@ -572,7 +537,6 @@ export namespace CancelTimerDecisionAttributes {
   export const filterSensitiveLog = (obj: CancelTimerDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelTimerDecisionAttributes => __isa(o, "CancelTimerDecisionAttributes");
 }
 
 export type CancelTimerFailedCause = "OPERATION_NOT_PERMITTED" | "TIMER_ID_UNKNOWN";
@@ -581,7 +545,6 @@ export type CancelTimerFailedCause = "OPERATION_NOT_PERMITTED" | "TIMER_ID_UNKNO
  * <p>Provides the details of the <code>CancelTimerFailed</code> event.</p>
  */
 export interface CancelTimerFailedEventAttributes {
-  __type?: "CancelTimerFailedEventAttributes";
   /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
    *          <note>
@@ -607,7 +570,6 @@ export namespace CancelTimerFailedEventAttributes {
   export const filterSensitiveLog = (obj: CancelTimerFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelTimerFailedEventAttributes => __isa(o, "CancelTimerFailedEventAttributes");
 }
 
 /**
@@ -634,7 +596,6 @@ export namespace CancelTimerFailedEventAttributes {
  *           <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
  */
 export interface CancelWorkflowExecutionDecisionAttributes {
-  __type?: "CancelWorkflowExecutionDecisionAttributes";
   /**
    * <p>
    *          Details of the cancellation.</p>
@@ -646,8 +607,6 @@ export namespace CancelWorkflowExecutionDecisionAttributes {
   export const filterSensitiveLog = (obj: CancelWorkflowExecutionDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelWorkflowExecutionDecisionAttributes =>
-    __isa(o, "CancelWorkflowExecutionDecisionAttributes");
 }
 
 export type CancelWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION";
@@ -656,7 +615,6 @@ export type CancelWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UN
  * <p>Provides the details of the <code>CancelWorkflowExecutionFailed</code> event.</p>
  */
 export interface CancelWorkflowExecutionFailedEventAttributes {
-  __type?: "CancelWorkflowExecutionFailedEventAttributes";
   /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>CancelWorkflowExecution</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
    */
@@ -677,8 +635,6 @@ export namespace CancelWorkflowExecutionFailedEventAttributes {
   export const filterSensitiveLog = (obj: CancelWorkflowExecutionFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelWorkflowExecutionFailedEventAttributes =>
-    __isa(o, "CancelWorkflowExecutionFailedEventAttributes");
 }
 
 export type ChildPolicy = "ABANDON" | "REQUEST_CANCEL" | "TERMINATE";
@@ -687,7 +643,6 @@ export type ChildPolicy = "ABANDON" | "REQUEST_CANCEL" | "TERMINATE";
  * <p>Provide details of the <code>ChildWorkflowExecutionCanceled</code> event.</p>
  */
 export interface ChildWorkflowExecutionCanceledEventAttributes {
-  __type?: "ChildWorkflowExecutionCanceledEventAttributes";
   /**
    * <p>The type of the child workflow execution.</p>
    */
@@ -724,15 +679,12 @@ export namespace ChildWorkflowExecutionCanceledEventAttributes {
   export const filterSensitiveLog = (obj: ChildWorkflowExecutionCanceledEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChildWorkflowExecutionCanceledEventAttributes =>
-    __isa(o, "ChildWorkflowExecutionCanceledEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>ChildWorkflowExecutionCompleted</code> event.</p>
  */
 export interface ChildWorkflowExecutionCompletedEventAttributes {
-  __type?: "ChildWorkflowExecutionCompletedEventAttributes";
   /**
    * <p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was
    *       started. This information can be useful for diagnosing problems by tracing back the chain of
@@ -766,15 +718,12 @@ export namespace ChildWorkflowExecutionCompletedEventAttributes {
   export const filterSensitiveLog = (obj: ChildWorkflowExecutionCompletedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChildWorkflowExecutionCompletedEventAttributes =>
-    __isa(o, "ChildWorkflowExecutionCompletedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>ChildWorkflowExecutionFailed</code> event.</p>
  */
 export interface ChildWorkflowExecutionFailedEventAttributes {
-  __type?: "ChildWorkflowExecutionFailedEventAttributes";
   /**
    * <p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was
    *       started. This information can be useful for diagnosing problems by tracing back the chain of
@@ -816,15 +765,12 @@ export namespace ChildWorkflowExecutionFailedEventAttributes {
   export const filterSensitiveLog = (obj: ChildWorkflowExecutionFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChildWorkflowExecutionFailedEventAttributes =>
-    __isa(o, "ChildWorkflowExecutionFailedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>ChildWorkflowExecutionStarted</code> event.</p>
  */
 export interface ChildWorkflowExecutionStartedEventAttributes {
-  __type?: "ChildWorkflowExecutionStartedEventAttributes";
   /**
    * <p>The type of the child workflow execution.</p>
    */
@@ -849,15 +795,12 @@ export namespace ChildWorkflowExecutionStartedEventAttributes {
   export const filterSensitiveLog = (obj: ChildWorkflowExecutionStartedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChildWorkflowExecutionStartedEventAttributes =>
-    __isa(o, "ChildWorkflowExecutionStartedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>ChildWorkflowExecutionTerminated</code> event.</p>
  */
 export interface ChildWorkflowExecutionTerminatedEventAttributes {
-  __type?: "ChildWorkflowExecutionTerminatedEventAttributes";
   /**
    * <p>The child workflow execution that was terminated.</p>
    */
@@ -889,15 +832,12 @@ export namespace ChildWorkflowExecutionTerminatedEventAttributes {
   export const filterSensitiveLog = (obj: ChildWorkflowExecutionTerminatedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChildWorkflowExecutionTerminatedEventAttributes =>
-    __isa(o, "ChildWorkflowExecutionTerminatedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>ChildWorkflowExecutionTimedOut</code> event.</p>
  */
 export interface ChildWorkflowExecutionTimedOutEventAttributes {
-  __type?: "ChildWorkflowExecutionTimedOutEventAttributes";
   /**
    * <p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the
    *       <code>StartChildWorkflowExecution</code>
@@ -933,8 +873,6 @@ export namespace ChildWorkflowExecutionTimedOutEventAttributes {
   export const filterSensitiveLog = (obj: ChildWorkflowExecutionTimedOutEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ChildWorkflowExecutionTimedOutEventAttributes =>
-    __isa(o, "ChildWorkflowExecutionTimedOutEventAttributes");
 }
 
 export type CloseStatus = "CANCELED" | "COMPLETED" | "CONTINUED_AS_NEW" | "FAILED" | "TERMINATED" | "TIMED_OUT";
@@ -943,7 +881,6 @@ export type CloseStatus = "CANCELED" | "COMPLETED" | "CONTINUED_AS_NEW" | "FAILE
  * <p>Used to filter the closed workflow executions in visibility APIs by their close status.</p>
  */
 export interface CloseStatusFilter {
-  __type?: "CloseStatusFilter";
   /**
    * <p>
    *          The close status that must match the close status of an execution for it to meet the criteria of
@@ -956,7 +893,6 @@ export namespace CloseStatusFilter {
   export const filterSensitiveLog = (obj: CloseStatusFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloseStatusFilter => __isa(o, "CloseStatusFilter");
 }
 
 /**
@@ -983,7 +919,6 @@ export namespace CloseStatusFilter {
  *           <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
  */
 export interface CompleteWorkflowExecutionDecisionAttributes {
-  __type?: "CompleteWorkflowExecutionDecisionAttributes";
   /**
    * <p>The result of the workflow execution. The form of the result is implementation defined.</p>
    */
@@ -994,8 +929,6 @@ export namespace CompleteWorkflowExecutionDecisionAttributes {
   export const filterSensitiveLog = (obj: CompleteWorkflowExecutionDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteWorkflowExecutionDecisionAttributes =>
-    __isa(o, "CompleteWorkflowExecutionDecisionAttributes");
 }
 
 export type CompleteWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION";
@@ -1004,7 +937,6 @@ export type CompleteWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "
  * <p>Provides the details of the <code>CompleteWorkflowExecutionFailed</code> event.</p>
  */
 export interface CompleteWorkflowExecutionFailedEventAttributes {
-  __type?: "CompleteWorkflowExecutionFailedEventAttributes";
   /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
    *          <note>
@@ -1027,8 +959,6 @@ export namespace CompleteWorkflowExecutionFailedEventAttributes {
   export const filterSensitiveLog = (obj: CompleteWorkflowExecutionFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CompleteWorkflowExecutionFailedEventAttributes =>
-    __isa(o, "CompleteWorkflowExecutionFailedEventAttributes");
 }
 
 /**
@@ -1070,7 +1000,6 @@ export namespace CompleteWorkflowExecutionFailedEventAttributes {
  *           <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
  */
 export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
-  __type?: "ContinueAsNewWorkflowExecutionDecisionAttributes";
   /**
    * <p>The list of tags to associate with the new workflow execution. A maximum of 5 tags can be specified. You can
    *       list workflow executions with a specific tag by calling <a>ListOpenWorkflowExecutions</a> or
@@ -1163,8 +1092,6 @@ export namespace ContinueAsNewWorkflowExecutionDecisionAttributes {
   export const filterSensitiveLog = (obj: ContinueAsNewWorkflowExecutionDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContinueAsNewWorkflowExecutionDecisionAttributes =>
-    __isa(o, "ContinueAsNewWorkflowExecutionDecisionAttributes");
 }
 
 export type ContinueAsNewWorkflowExecutionFailedCause =
@@ -1182,7 +1109,6 @@ export type ContinueAsNewWorkflowExecutionFailedCause =
  * <p>Provides the details of the <code>ContinueAsNewWorkflowExecutionFailed</code> event.</p>
  */
 export interface ContinueAsNewWorkflowExecutionFailedEventAttributes {
-  __type?: "ContinueAsNewWorkflowExecutionFailedEventAttributes";
   /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
    *          <note>
@@ -1205,12 +1131,9 @@ export namespace ContinueAsNewWorkflowExecutionFailedEventAttributes {
   export const filterSensitiveLog = (obj: ContinueAsNewWorkflowExecutionFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ContinueAsNewWorkflowExecutionFailedEventAttributes =>
-    __isa(o, "ContinueAsNewWorkflowExecutionFailedEventAttributes");
 }
 
 export interface CountClosedWorkflowExecutionsInput {
-  __type?: "CountClosedWorkflowExecutionsInput";
   /**
    * <p>If specified, only workflow executions that meet the start time criteria of the filter
    *       are counted.</p>
@@ -1291,12 +1214,9 @@ export namespace CountClosedWorkflowExecutionsInput {
   export const filterSensitiveLog = (obj: CountClosedWorkflowExecutionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CountClosedWorkflowExecutionsInput =>
-    __isa(o, "CountClosedWorkflowExecutionsInput");
 }
 
 export interface CountOpenWorkflowExecutionsInput {
-  __type?: "CountOpenWorkflowExecutionsInput";
   /**
    * <p>If specified, only workflow executions matching the <code>WorkflowId</code> in the
    *       filter are counted.</p>
@@ -1345,11 +1265,9 @@ export namespace CountOpenWorkflowExecutionsInput {
   export const filterSensitiveLog = (obj: CountOpenWorkflowExecutionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CountOpenWorkflowExecutionsInput => __isa(o, "CountOpenWorkflowExecutionsInput");
 }
 
 export interface CountPendingActivityTasksInput {
-  __type?: "CountPendingActivityTasksInput";
   /**
    * <p>The name of the task list.</p>
    */
@@ -1365,11 +1283,9 @@ export namespace CountPendingActivityTasksInput {
   export const filterSensitiveLog = (obj: CountPendingActivityTasksInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CountPendingActivityTasksInput => __isa(o, "CountPendingActivityTasksInput");
 }
 
 export interface CountPendingDecisionTasksInput {
-  __type?: "CountPendingDecisionTasksInput";
   /**
    * <p>The name of the domain that contains the task list.</p>
    */
@@ -1385,7 +1301,6 @@ export namespace CountPendingDecisionTasksInput {
   export const filterSensitiveLog = (obj: CountPendingDecisionTasksInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CountPendingDecisionTasksInput => __isa(o, "CountPendingDecisionTasksInput");
 }
 
 /**
@@ -1665,7 +1580,6 @@ export namespace CountPendingDecisionTasksInput {
  *          </ul>
  */
 export interface Decision {
-  __type?: "Decision";
   /**
    * <p>Provides the details of the <code>FailWorkflowExecution</code> decision. It isn't set for other decision types.</p>
    */
@@ -1743,14 +1657,12 @@ export namespace Decision {
   export const filterSensitiveLog = (obj: Decision): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Decision => __isa(o, "Decision");
 }
 
 /**
  * <p>A structure that represents a decision task. Decision tasks are sent to deciders in order for them to make decisions.</p>
  */
 export interface DecisionTask {
-  __type?: "DecisionTask";
   /**
    * <p>The ID of the DecisionTaskStarted event of the previous decision task of this workflow execution that was processed by the decider. This can be used to determine the events in the history new since the last decision task received by the decider.</p>
    */
@@ -1794,14 +1706,12 @@ export namespace DecisionTask {
   export const filterSensitiveLog = (obj: DecisionTask): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecisionTask => __isa(o, "DecisionTask");
 }
 
 /**
  * <p>Provides the details of the <code>DecisionTaskCompleted</code> event.</p>
  */
 export interface DecisionTaskCompletedEventAttributes {
-  __type?: "DecisionTaskCompletedEventAttributes";
   /**
    * <p>The ID of the <code>DecisionTaskStarted</code> event recorded when this decision task was started.
    *       This information can be useful for diagnosing problems by tracing back the chain of
@@ -1826,15 +1736,12 @@ export namespace DecisionTaskCompletedEventAttributes {
   export const filterSensitiveLog = (obj: DecisionTaskCompletedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecisionTaskCompletedEventAttributes =>
-    __isa(o, "DecisionTaskCompletedEventAttributes");
 }
 
 /**
  * <p>Provides details about the <code>DecisionTaskScheduled</code> event.</p>
  */
 export interface DecisionTaskScheduledEventAttributes {
-  __type?: "DecisionTaskScheduledEventAttributes";
   /**
    * <p>
    *          A task priority that, if set, specifies the priority for this decision task.
@@ -1860,15 +1767,12 @@ export namespace DecisionTaskScheduledEventAttributes {
   export const filterSensitiveLog = (obj: DecisionTaskScheduledEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecisionTaskScheduledEventAttributes =>
-    __isa(o, "DecisionTaskScheduledEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>DecisionTaskStarted</code> event.</p>
  */
 export interface DecisionTaskStartedEventAttributes {
-  __type?: "DecisionTaskStartedEventAttributes";
   /**
    * <p>Identity of the decider making the request. This enables diagnostic tracing when problems arise. The form of this identity is user defined.</p>
    */
@@ -1886,15 +1790,12 @@ export namespace DecisionTaskStartedEventAttributes {
   export const filterSensitiveLog = (obj: DecisionTaskStartedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecisionTaskStartedEventAttributes =>
-    __isa(o, "DecisionTaskStartedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>DecisionTaskTimedOut</code> event.</p>
  */
 export interface DecisionTaskTimedOutEventAttributes {
-  __type?: "DecisionTaskTimedOutEventAttributes";
   /**
    * <p>The type of timeout that expired before the decision task could be completed.</p>
    */
@@ -1919,8 +1820,6 @@ export namespace DecisionTaskTimedOutEventAttributes {
   export const filterSensitiveLog = (obj: DecisionTaskTimedOutEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecisionTaskTimedOutEventAttributes =>
-    __isa(o, "DecisionTaskTimedOutEventAttributes");
 }
 
 export type DecisionTaskTimeoutType = "START_TO_CLOSE";
@@ -1963,11 +1862,9 @@ export namespace DefaultUndefinedFault {
   export const filterSensitiveLog = (obj: DefaultUndefinedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DefaultUndefinedFault => __isa(o, "DefaultUndefinedFault");
 }
 
 export interface DeprecateActivityTypeInput {
-  __type?: "DeprecateActivityTypeInput";
   /**
    * <p>The activity type to deprecate.</p>
    */
@@ -1983,11 +1880,9 @@ export namespace DeprecateActivityTypeInput {
   export const filterSensitiveLog = (obj: DeprecateActivityTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeprecateActivityTypeInput => __isa(o, "DeprecateActivityTypeInput");
 }
 
 export interface DeprecateDomainInput {
-  __type?: "DeprecateDomainInput";
   /**
    * <p>The name of the domain to deprecate.</p>
    */
@@ -1998,11 +1893,9 @@ export namespace DeprecateDomainInput {
   export const filterSensitiveLog = (obj: DeprecateDomainInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeprecateDomainInput => __isa(o, "DeprecateDomainInput");
 }
 
 export interface DeprecateWorkflowTypeInput {
-  __type?: "DeprecateWorkflowTypeInput";
   /**
    * <p>The name of the domain in which the workflow type is registered.</p>
    */
@@ -2018,11 +1911,9 @@ export namespace DeprecateWorkflowTypeInput {
   export const filterSensitiveLog = (obj: DeprecateWorkflowTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeprecateWorkflowTypeInput => __isa(o, "DeprecateWorkflowTypeInput");
 }
 
 export interface DescribeActivityTypeInput {
-  __type?: "DescribeActivityTypeInput";
   /**
    * <p>The name of the domain in which the activity type is registered.</p>
    */
@@ -2040,11 +1931,9 @@ export namespace DescribeActivityTypeInput {
   export const filterSensitiveLog = (obj: DescribeActivityTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeActivityTypeInput => __isa(o, "DescribeActivityTypeInput");
 }
 
 export interface DescribeDomainInput {
-  __type?: "DescribeDomainInput";
   /**
    * <p>The name of the domain to describe.</p>
    */
@@ -2055,11 +1944,9 @@ export namespace DescribeDomainInput {
   export const filterSensitiveLog = (obj: DescribeDomainInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeDomainInput => __isa(o, "DescribeDomainInput");
 }
 
 export interface DescribeWorkflowExecutionInput {
-  __type?: "DescribeWorkflowExecutionInput";
   /**
    * <p>The workflow execution to describe.</p>
    */
@@ -2075,11 +1962,9 @@ export namespace DescribeWorkflowExecutionInput {
   export const filterSensitiveLog = (obj: DescribeWorkflowExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkflowExecutionInput => __isa(o, "DescribeWorkflowExecutionInput");
 }
 
 export interface DescribeWorkflowTypeInput {
-  __type?: "DescribeWorkflowTypeInput";
   /**
    * <p>The name of the domain in which this workflow type is registered.</p>
    */
@@ -2095,7 +1980,6 @@ export namespace DescribeWorkflowTypeInput {
   export const filterSensitiveLog = (obj: DescribeWorkflowTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeWorkflowTypeInput => __isa(o, "DescribeWorkflowTypeInput");
 }
 
 /**
@@ -2114,14 +1998,12 @@ export namespace DomainAlreadyExistsFault {
   export const filterSensitiveLog = (obj: DomainAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainAlreadyExistsFault => __isa(o, "DomainAlreadyExistsFault");
 }
 
 /**
  * <p>Contains the configuration settings of a domain.</p>
  */
 export interface DomainConfiguration {
-  __type?: "DomainConfiguration";
   /**
    * <p>The retention period for workflow executions in this domain.</p>
    */
@@ -2132,7 +2014,6 @@ export namespace DomainConfiguration {
   export const filterSensitiveLog = (obj: DomainConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainConfiguration => __isa(o, "DomainConfiguration");
 }
 
 /**
@@ -2151,14 +2032,12 @@ export namespace DomainDeprecatedFault {
   export const filterSensitiveLog = (obj: DomainDeprecatedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainDeprecatedFault => __isa(o, "DomainDeprecatedFault");
 }
 
 /**
  * <p>Contains details of a domain.</p>
  */
 export interface DomainDetail {
-  __type?: "DomainDetail";
   /**
    * <p>The basic information about a domain, such as its name, status, and
    *       description.</p>
@@ -2176,14 +2055,12 @@ export namespace DomainDetail {
   export const filterSensitiveLog = (obj: DomainDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainDetail => __isa(o, "DomainDetail");
 }
 
 /**
  * <p>Contains general information about a domain.</p>
  */
 export interface DomainInfo {
-  __type?: "DomainInfo";
   /**
    * <p>The status of the domain:</p>
    *          <ul>
@@ -2223,14 +2100,12 @@ export namespace DomainInfo {
   export const filterSensitiveLog = (obj: DomainInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainInfo => __isa(o, "DomainInfo");
 }
 
 /**
  * <p>Contains a paginated collection of DomainInfo structures.</p>
  */
 export interface DomainInfos {
-  __type?: "DomainInfos";
   /**
    * <p>A list of DomainInfo structures.</p>
    */
@@ -2249,7 +2124,6 @@ export namespace DomainInfos {
   export const filterSensitiveLog = (obj: DomainInfos): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DomainInfos => __isa(o, "DomainInfos");
 }
 
 export type EventType =
@@ -2317,7 +2191,6 @@ export type ExecutionStatus = "CLOSED" | "OPEN";
  *          </p>
  */
 export interface ExecutionTimeFilter {
-  __type?: "ExecutionTimeFilter";
   /**
    * <p>Specifies the oldest start or close date and time to return.</p>
    */
@@ -2333,14 +2206,12 @@ export namespace ExecutionTimeFilter {
   export const filterSensitiveLog = (obj: ExecutionTimeFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExecutionTimeFilter => __isa(o, "ExecutionTimeFilter");
 }
 
 /**
  * <p>Provides the details of the <code>ExternalWorkflowExecutionCancelRequested</code> event.</p>
  */
 export interface ExternalWorkflowExecutionCancelRequestedEventAttributes {
-  __type?: "ExternalWorkflowExecutionCancelRequestedEventAttributes";
   /**
    * <p>The ID of the <code>RequestCancelExternalWorkflowExecutionInitiated</code> event corresponding to the
    *       <code>RequestCancelExternalWorkflowExecution</code> decision to cancel this external workflow execution. This
@@ -2359,15 +2230,12 @@ export namespace ExternalWorkflowExecutionCancelRequestedEventAttributes {
   export const filterSensitiveLog = (obj: ExternalWorkflowExecutionCancelRequestedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExternalWorkflowExecutionCancelRequestedEventAttributes =>
-    __isa(o, "ExternalWorkflowExecutionCancelRequestedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>ExternalWorkflowExecutionSignaled</code> event.</p>
  */
 export interface ExternalWorkflowExecutionSignaledEventAttributes {
-  __type?: "ExternalWorkflowExecutionSignaledEventAttributes";
   /**
    * <p>The external workflow execution that the signal was delivered to.</p>
    */
@@ -2385,8 +2253,6 @@ export namespace ExternalWorkflowExecutionSignaledEventAttributes {
   export const filterSensitiveLog = (obj: ExternalWorkflowExecutionSignaledEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExternalWorkflowExecutionSignaledEventAttributes =>
-    __isa(o, "ExternalWorkflowExecutionSignaledEventAttributes");
 }
 
 /**
@@ -2414,7 +2280,6 @@ export namespace ExternalWorkflowExecutionSignaledEventAttributes {
  *           in the <i>Amazon SWF Developer Guide</i>.</p>
  */
 export interface FailWorkflowExecutionDecisionAttributes {
-  __type?: "FailWorkflowExecutionDecisionAttributes";
   /**
    * <p>
    *          Details of the failure.</p>
@@ -2431,8 +2296,6 @@ export namespace FailWorkflowExecutionDecisionAttributes {
   export const filterSensitiveLog = (obj: FailWorkflowExecutionDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailWorkflowExecutionDecisionAttributes =>
-    __isa(o, "FailWorkflowExecutionDecisionAttributes");
 }
 
 export type FailWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION";
@@ -2441,7 +2304,6 @@ export type FailWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHA
  * <p>Provides the details of the <code>FailWorkflowExecutionFailed</code> event.</p>
  */
 export interface FailWorkflowExecutionFailedEventAttributes {
-  __type?: "FailWorkflowExecutionFailedEventAttributes";
   /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
    *       <code>FailWorkflowExecution</code> decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of
@@ -2464,12 +2326,9 @@ export namespace FailWorkflowExecutionFailedEventAttributes {
   export const filterSensitiveLog = (obj: FailWorkflowExecutionFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FailWorkflowExecutionFailedEventAttributes =>
-    __isa(o, "FailWorkflowExecutionFailedEventAttributes");
 }
 
 export interface GetWorkflowExecutionHistoryInput {
-  __type?: "GetWorkflowExecutionHistoryInput";
   /**
    * <p>When set to <code>true</code>, returns the events in reverse order. By default the
    *       results are returned in ascending order of the <code>eventTimeStamp</code> of the
@@ -2510,14 +2369,12 @@ export namespace GetWorkflowExecutionHistoryInput {
   export const filterSensitiveLog = (obj: GetWorkflowExecutionHistoryInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetWorkflowExecutionHistoryInput => __isa(o, "GetWorkflowExecutionHistoryInput");
 }
 
 /**
  * <p>Paginated representation of a workflow history for a workflow execution. This is the up to date, complete and authoritative record of the events related to all tasks and events in the life of the workflow execution.</p>
  */
 export interface History {
-  __type?: "History";
   /**
    * <p>The list of history events.</p>
    */
@@ -2536,7 +2393,6 @@ export namespace History {
   export const filterSensitiveLog = (obj: History): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is History => __isa(o, "History");
 }
 
 /**
@@ -2760,7 +2616,6 @@ export namespace History {
  *          </ul>
  */
 export interface HistoryEvent {
-  __type?: "HistoryEvent";
   /**
    * <p>If the event is of type <code>ChildWorkflowExecutionTimedOut</code> then this member is set and provides
    *       detailed information about the event. It isn't set for other event types.</p>
@@ -3105,7 +2960,6 @@ export namespace HistoryEvent {
   export const filterSensitiveLog = (obj: HistoryEvent): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is HistoryEvent => __isa(o, "HistoryEvent");
 }
 
 /**
@@ -3113,7 +2967,6 @@ export namespace HistoryEvent {
  *       for other event types.</p>
  */
 export interface LambdaFunctionCompletedEventAttributes {
-  __type?: "LambdaFunctionCompletedEventAttributes";
   /**
    * <p>The ID of the <code>LambdaFunctionStarted</code> event recorded when this activity task
    *       started. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>
@@ -3136,8 +2989,6 @@ export namespace LambdaFunctionCompletedEventAttributes {
   export const filterSensitiveLog = (obj: LambdaFunctionCompletedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaFunctionCompletedEventAttributes =>
-    __isa(o, "LambdaFunctionCompletedEventAttributes");
 }
 
 /**
@@ -3145,7 +2996,6 @@ export namespace LambdaFunctionCompletedEventAttributes {
  *       other event types.</p>
  */
 export interface LambdaFunctionFailedEventAttributes {
-  __type?: "LambdaFunctionFailedEventAttributes";
   /**
    * <p>The details of the failure.</p>
    */
@@ -3173,8 +3023,6 @@ export namespace LambdaFunctionFailedEventAttributes {
   export const filterSensitiveLog = (obj: LambdaFunctionFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaFunctionFailedEventAttributes =>
-    __isa(o, "LambdaFunctionFailedEventAttributes");
 }
 
 /**
@@ -3182,7 +3030,6 @@ export namespace LambdaFunctionFailedEventAttributes {
  *       for other event types.</p>
  */
 export interface LambdaFunctionScheduledEventAttributes {
-  __type?: "LambdaFunctionScheduledEventAttributes";
   /**
    * <p>The maximum amount of time a worker can take to process the Lambda task.</p>
    */
@@ -3220,8 +3067,6 @@ export namespace LambdaFunctionScheduledEventAttributes {
   export const filterSensitiveLog = (obj: LambdaFunctionScheduledEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaFunctionScheduledEventAttributes =>
-    __isa(o, "LambdaFunctionScheduledEventAttributes");
 }
 
 /**
@@ -3229,7 +3074,6 @@ export namespace LambdaFunctionScheduledEventAttributes {
  *       other event types.</p>
  */
 export interface LambdaFunctionStartedEventAttributes {
-  __type?: "LambdaFunctionStartedEventAttributes";
   /**
    * <p>The ID of the <code>LambdaFunctionScheduled</code> event that was recorded when this
    *       activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>
@@ -3241,15 +3085,12 @@ export namespace LambdaFunctionStartedEventAttributes {
   export const filterSensitiveLog = (obj: LambdaFunctionStartedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaFunctionStartedEventAttributes =>
-    __isa(o, "LambdaFunctionStartedEventAttributes");
 }
 
 /**
  * <p>Provides details of the <code>LambdaFunctionTimedOut</code> event.</p>
  */
 export interface LambdaFunctionTimedOutEventAttributes {
-  __type?: "LambdaFunctionTimedOutEventAttributes";
   /**
    * <p>The ID of the <code>LambdaFunctionScheduled</code> event that was recorded when this
    *       activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>
@@ -3272,8 +3113,6 @@ export namespace LambdaFunctionTimedOutEventAttributes {
   export const filterSensitiveLog = (obj: LambdaFunctionTimedOutEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaFunctionTimedOutEventAttributes =>
-    __isa(o, "LambdaFunctionTimedOutEventAttributes");
 }
 
 export type LambdaFunctionTimeoutType = "START_TO_CLOSE";
@@ -3294,11 +3133,9 @@ export namespace LimitExceededFault {
   export const filterSensitiveLog = (obj: LimitExceededFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededFault => __isa(o, "LimitExceededFault");
 }
 
 export interface ListActivityTypesInput {
-  __type?: "ListActivityTypesInput";
   /**
    * <p>If specified, only lists the activity types that have this name.</p>
    */
@@ -3344,11 +3181,9 @@ export namespace ListActivityTypesInput {
   export const filterSensitiveLog = (obj: ListActivityTypesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListActivityTypesInput => __isa(o, "ListActivityTypesInput");
 }
 
 export interface ListClosedWorkflowExecutionsInput {
-  __type?: "ListClosedWorkflowExecutionsInput";
   /**
    * <p>If specified, only executions of the type specified in the filter are
    *       returned.</p>
@@ -3456,11 +3291,9 @@ export namespace ListClosedWorkflowExecutionsInput {
   export const filterSensitiveLog = (obj: ListClosedWorkflowExecutionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListClosedWorkflowExecutionsInput => __isa(o, "ListClosedWorkflowExecutionsInput");
 }
 
 export interface ListDomainsInput {
-  __type?: "ListDomainsInput";
   /**
    * <p>Specifies the registration status of the domains to list.</p>
    */
@@ -3496,11 +3329,9 @@ export namespace ListDomainsInput {
   export const filterSensitiveLog = (obj: ListDomainsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListDomainsInput => __isa(o, "ListDomainsInput");
 }
 
 export interface ListOpenWorkflowExecutionsInput {
-  __type?: "ListOpenWorkflowExecutionsInput";
   /**
    * <p>The name of the domain that contains the workflow executions to list.</p>
    */
@@ -3573,11 +3404,9 @@ export namespace ListOpenWorkflowExecutionsInput {
   export const filterSensitiveLog = (obj: ListOpenWorkflowExecutionsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOpenWorkflowExecutionsInput => __isa(o, "ListOpenWorkflowExecutionsInput");
 }
 
 export interface ListTagsForResourceInput {
-  __type?: "ListTagsForResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
    */
@@ -3588,11 +3417,9 @@ export namespace ListTagsForResourceInput {
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
-  __type?: "ListTagsForResourceOutput";
   /**
    * <p>An array of tags associated with the domain.</p>
    */
@@ -3603,11 +3430,9 @@ export namespace ListTagsForResourceOutput {
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 export interface ListWorkflowTypesInput {
-  __type?: "ListWorkflowTypesInput";
   /**
    * <p>Specifies the registration status of the workflow types to list.</p>
    */
@@ -3653,14 +3478,12 @@ export namespace ListWorkflowTypesInput {
   export const filterSensitiveLog = (obj: ListWorkflowTypesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListWorkflowTypesInput => __isa(o, "ListWorkflowTypesInput");
 }
 
 /**
  * <p>Provides the details of the <code>MarkerRecorded</code> event.</p>
  */
 export interface MarkerRecordedEventAttributes {
-  __type?: "MarkerRecordedEventAttributes";
   /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
    *       <code>RecordMarker</code> decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of
@@ -3683,7 +3506,6 @@ export namespace MarkerRecordedEventAttributes {
   export const filterSensitiveLog = (obj: MarkerRecordedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MarkerRecordedEventAttributes => __isa(o, "MarkerRecordedEventAttributes");
 }
 
 /**
@@ -3702,14 +3524,12 @@ export namespace OperationNotPermittedFault {
   export const filterSensitiveLog = (obj: OperationNotPermittedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OperationNotPermittedFault => __isa(o, "OperationNotPermittedFault");
 }
 
 /**
  * <p>Contains the count of tasks in a task list.</p>
  */
 export interface PendingTaskCount {
-  __type?: "PendingTaskCount";
   /**
    * <p>If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.</p>
    */
@@ -3725,11 +3545,9 @@ export namespace PendingTaskCount {
   export const filterSensitiveLog = (obj: PendingTaskCount): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PendingTaskCount => __isa(o, "PendingTaskCount");
 }
 
 export interface PollForActivityTaskInput {
-  __type?: "PollForActivityTaskInput";
   /**
    * <p>The name of the domain that contains the task lists being polled.</p>
    */
@@ -3757,11 +3575,9 @@ export namespace PollForActivityTaskInput {
   export const filterSensitiveLog = (obj: PollForActivityTaskInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PollForActivityTaskInput => __isa(o, "PollForActivityTaskInput");
 }
 
 export interface PollForDecisionTaskInput {
-  __type?: "PollForDecisionTaskInput";
   /**
    * <p>When set to <code>true</code>, returns the events in reverse order. By default the
    *       results are returned in ascending order of the <code>eventTimestamp</code> of the
@@ -3822,11 +3638,9 @@ export namespace PollForDecisionTaskInput {
   export const filterSensitiveLog = (obj: PollForDecisionTaskInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PollForDecisionTaskInput => __isa(o, "PollForDecisionTaskInput");
 }
 
 export interface RecordActivityTaskHeartbeatInput {
-  __type?: "RecordActivityTaskHeartbeatInput";
   /**
    * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
    *          <important>
@@ -3848,7 +3662,6 @@ export namespace RecordActivityTaskHeartbeatInput {
   export const filterSensitiveLog = (obj: RecordActivityTaskHeartbeatInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecordActivityTaskHeartbeatInput => __isa(o, "RecordActivityTaskHeartbeatInput");
 }
 
 /**
@@ -3875,7 +3688,6 @@ export namespace RecordActivityTaskHeartbeatInput {
  *           <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
  */
 export interface RecordMarkerDecisionAttributes {
-  __type?: "RecordMarkerDecisionAttributes";
   /**
    * <p>
    *          The name of the marker.</p>
@@ -3893,7 +3705,6 @@ export namespace RecordMarkerDecisionAttributes {
   export const filterSensitiveLog = (obj: RecordMarkerDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecordMarkerDecisionAttributes => __isa(o, "RecordMarkerDecisionAttributes");
 }
 
 export type RecordMarkerFailedCause = "OPERATION_NOT_PERMITTED";
@@ -3902,7 +3713,6 @@ export type RecordMarkerFailedCause = "OPERATION_NOT_PERMITTED";
  * <p>Provides the details of the <code>RecordMarkerFailed</code> event.</p>
  */
 export interface RecordMarkerFailedEventAttributes {
-  __type?: "RecordMarkerFailedEventAttributes";
   /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
    *       <code>RecordMarkerFailed</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of
@@ -3930,11 +3740,9 @@ export namespace RecordMarkerFailedEventAttributes {
   export const filterSensitiveLog = (obj: RecordMarkerFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecordMarkerFailedEventAttributes => __isa(o, "RecordMarkerFailedEventAttributes");
 }
 
 export interface RegisterActivityTypeInput {
-  __type?: "RegisterActivityTypeInput";
   /**
    * <p>The default task priority to assign to the activity type. If not assigned, then
    *         <code>0</code> is used. Valid values are integers that range from Java's
@@ -4037,11 +3845,9 @@ export namespace RegisterActivityTypeInput {
   export const filterSensitiveLog = (obj: RegisterActivityTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterActivityTypeInput => __isa(o, "RegisterActivityTypeInput");
 }
 
 export interface RegisterDomainInput {
-  __type?: "RegisterDomainInput";
   /**
    * <p>The duration (in days) that records and histories of workflow executions on the domain
    *       should be kept by the service. After the retention period, the workflow execution isn't
@@ -4082,11 +3888,9 @@ export namespace RegisterDomainInput {
   export const filterSensitiveLog = (obj: RegisterDomainInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterDomainInput => __isa(o, "RegisterDomainInput");
 }
 
 export interface RegisterWorkflowTypeInput {
-  __type?: "RegisterWorkflowTypeInput";
   /**
    * <p>The default IAM role attached to this workflow type.</p>
    *          <note>
@@ -4206,7 +4010,6 @@ export namespace RegisterWorkflowTypeInput {
   export const filterSensitiveLog = (obj: RegisterWorkflowTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RegisterWorkflowTypeInput => __isa(o, "RegisterWorkflowTypeInput");
 }
 
 export type RegistrationStatus = "DEPRECATED" | "REGISTERED";
@@ -4236,7 +4039,6 @@ export type RegistrationStatus = "DEPRECATED" | "REGISTERED";
  *           in the <i>Amazon SWF Developer Guide</i>.</p>
  */
 export interface RequestCancelActivityTaskDecisionAttributes {
-  __type?: "RequestCancelActivityTaskDecisionAttributes";
   /**
    * <p>The <code>activityId</code> of the activity task to be canceled.</p>
    */
@@ -4247,8 +4049,6 @@ export namespace RequestCancelActivityTaskDecisionAttributes {
   export const filterSensitiveLog = (obj: RequestCancelActivityTaskDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestCancelActivityTaskDecisionAttributes =>
-    __isa(o, "RequestCancelActivityTaskDecisionAttributes");
 }
 
 export type RequestCancelActivityTaskFailedCause = "ACTIVITY_ID_UNKNOWN" | "OPERATION_NOT_PERMITTED";
@@ -4257,7 +4057,6 @@ export type RequestCancelActivityTaskFailedCause = "ACTIVITY_ID_UNKNOWN" | "OPER
  * <p>Provides the details of the <code>RequestCancelActivityTaskFailed</code> event.</p>
  */
 export interface RequestCancelActivityTaskFailedEventAttributes {
-  __type?: "RequestCancelActivityTaskFailedEventAttributes";
   /**
    * <p>The activityId provided in the <code>RequestCancelActivityTask</code> decision that failed.</p>
    */
@@ -4285,8 +4084,6 @@ export namespace RequestCancelActivityTaskFailedEventAttributes {
   export const filterSensitiveLog = (obj: RequestCancelActivityTaskFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestCancelActivityTaskFailedEventAttributes =>
-    __isa(o, "RequestCancelActivityTaskFailedEventAttributes");
 }
 
 /**
@@ -4313,7 +4110,6 @@ export namespace RequestCancelActivityTaskFailedEventAttributes {
  *           <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
  */
 export interface RequestCancelExternalWorkflowExecutionDecisionAttributes {
-  __type?: "RequestCancelExternalWorkflowExecutionDecisionAttributes";
   /**
    * <p>
    *          The <code>workflowId</code> of the external workflow execution to cancel.</p>
@@ -4335,8 +4131,6 @@ export namespace RequestCancelExternalWorkflowExecutionDecisionAttributes {
   export const filterSensitiveLog = (obj: RequestCancelExternalWorkflowExecutionDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestCancelExternalWorkflowExecutionDecisionAttributes =>
-    __isa(o, "RequestCancelExternalWorkflowExecutionDecisionAttributes");
 }
 
 export type RequestCancelExternalWorkflowExecutionFailedCause =
@@ -4348,7 +4142,6 @@ export type RequestCancelExternalWorkflowExecutionFailedCause =
  * <p>Provides the details of the <code>RequestCancelExternalWorkflowExecutionFailed</code> event.</p>
  */
 export interface RequestCancelExternalWorkflowExecutionFailedEventAttributes {
-  __type?: "RequestCancelExternalWorkflowExecutionFailedEventAttributes";
   /**
    * <p>The ID of the <code>RequestCancelExternalWorkflowExecutionInitiated</code> event corresponding to the
    *       <code>RequestCancelExternalWorkflowExecution</code> decision to cancel this external workflow execution. This
@@ -4395,15 +4188,12 @@ export namespace RequestCancelExternalWorkflowExecutionFailedEventAttributes {
   export const filterSensitiveLog = (obj: RequestCancelExternalWorkflowExecutionFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestCancelExternalWorkflowExecutionFailedEventAttributes =>
-    __isa(o, "RequestCancelExternalWorkflowExecutionFailedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>RequestCancelExternalWorkflowExecutionInitiated</code> event.</p>
  */
 export interface RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
-  __type?: "RequestCancelExternalWorkflowExecutionInitiatedEventAttributes";
   /**
    * <p>The <code>runId</code> of the external workflow execution to be canceled.</p>
    */
@@ -4432,12 +4222,9 @@ export namespace RequestCancelExternalWorkflowExecutionInitiatedEventAttributes 
   export const filterSensitiveLog = (obj: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestCancelExternalWorkflowExecutionInitiatedEventAttributes =>
-    __isa(o, "RequestCancelExternalWorkflowExecutionInitiatedEventAttributes");
 }
 
 export interface RequestCancelWorkflowExecutionInput {
-  __type?: "RequestCancelWorkflowExecutionInput";
   /**
    * <p>The name of the domain containing the workflow execution to cancel.</p>
    */
@@ -4458,8 +4245,6 @@ export namespace RequestCancelWorkflowExecutionInput {
   export const filterSensitiveLog = (obj: RequestCancelWorkflowExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestCancelWorkflowExecutionInput =>
-    __isa(o, "RequestCancelWorkflowExecutionInput");
 }
 
 /**
@@ -4468,7 +4253,6 @@ export namespace RequestCancelWorkflowExecutionInput {
  *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
  */
 export interface ResourceTag {
-  __type?: "ResourceTag";
   /**
    * <p>The value of a tag.</p>
    */
@@ -4484,11 +4268,9 @@ export namespace ResourceTag {
   export const filterSensitiveLog = (obj: ResourceTag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceTag => __isa(o, "ResourceTag");
 }
 
 export interface RespondActivityTaskCanceledInput {
-  __type?: "RespondActivityTaskCanceledInput";
   /**
    * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
    *          <important>
@@ -4510,11 +4292,9 @@ export namespace RespondActivityTaskCanceledInput {
   export const filterSensitiveLog = (obj: RespondActivityTaskCanceledInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RespondActivityTaskCanceledInput => __isa(o, "RespondActivityTaskCanceledInput");
 }
 
 export interface RespondActivityTaskCompletedInput {
-  __type?: "RespondActivityTaskCompletedInput";
   /**
    * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
    *          <important>
@@ -4537,11 +4317,9 @@ export namespace RespondActivityTaskCompletedInput {
   export const filterSensitiveLog = (obj: RespondActivityTaskCompletedInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RespondActivityTaskCompletedInput => __isa(o, "RespondActivityTaskCompletedInput");
 }
 
 export interface RespondActivityTaskFailedInput {
-  __type?: "RespondActivityTaskFailedInput";
   /**
    * <p> Detailed information about the failure.</p>
    */
@@ -4569,14 +4347,12 @@ export namespace RespondActivityTaskFailedInput {
   export const filterSensitiveLog = (obj: RespondActivityTaskFailedInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RespondActivityTaskFailedInput => __isa(o, "RespondActivityTaskFailedInput");
 }
 
 /**
  * <p>Input data for a TaskCompleted response to a decision task.</p>
  */
 export interface RespondDecisionTaskCompletedInput {
-  __type?: "RespondDecisionTaskCompletedInput";
   /**
    * <p>The list of decisions (possibly empty) made by the decider while processing this
    *       decision task. See the docs for the <a>Decision</a> structure for
@@ -4605,14 +4381,12 @@ export namespace RespondDecisionTaskCompletedInput {
   export const filterSensitiveLog = (obj: RespondDecisionTaskCompletedInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RespondDecisionTaskCompletedInput => __isa(o, "RespondDecisionTaskCompletedInput");
 }
 
 /**
  * <p>Specifies the <code>runId</code> of a workflow execution.</p>
  */
 export interface Run {
-  __type?: "Run";
   /**
    * <p>The <code>runId</code> of a workflow execution. This ID is generated by the service and
    *       can be used to uniquely identify the workflow execution within a domain.</p>
@@ -4624,7 +4398,6 @@ export namespace Run {
   export const filterSensitiveLog = (obj: Run): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Run => __isa(o, "Run");
 }
 
 /**
@@ -4667,7 +4440,6 @@ export namespace Run {
  *           in the <i>Amazon SWF Developer Guide</i>.</p>
  */
 export interface ScheduleActivityTaskDecisionAttributes {
-  __type?: "ScheduleActivityTaskDecisionAttributes";
   /**
    * <p>
    *          The type of the activity task to schedule.</p>
@@ -4759,8 +4531,6 @@ export namespace ScheduleActivityTaskDecisionAttributes {
   export const filterSensitiveLog = (obj: ScheduleActivityTaskDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduleActivityTaskDecisionAttributes =>
-    __isa(o, "ScheduleActivityTaskDecisionAttributes");
 }
 
 export type ScheduleActivityTaskFailedCause =
@@ -4780,7 +4550,6 @@ export type ScheduleActivityTaskFailedCause =
  * <p>Provides the details of the <code>ScheduleActivityTaskFailed</code> event.</p>
  */
 export interface ScheduleActivityTaskFailedEventAttributes {
-  __type?: "ScheduleActivityTaskFailedEventAttributes";
   /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
    *          <note>
@@ -4813,8 +4582,6 @@ export namespace ScheduleActivityTaskFailedEventAttributes {
   export const filterSensitiveLog = (obj: ScheduleActivityTaskFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduleActivityTaskFailedEventAttributes =>
-    __isa(o, "ScheduleActivityTaskFailedEventAttributes");
 }
 
 /**
@@ -4822,7 +4589,6 @@ export namespace ScheduleActivityTaskFailedEventAttributes {
  *       decisions <code>decisions</code> passed to <a>RespondDecisionTaskCompleted</a>.</p>
  */
 export interface ScheduleLambdaFunctionDecisionAttributes {
-  __type?: "ScheduleLambdaFunctionDecisionAttributes";
   /**
    * <p>The optional input data to be supplied to the Lambda function.</p>
    */
@@ -4854,8 +4620,6 @@ export namespace ScheduleLambdaFunctionDecisionAttributes {
   export const filterSensitiveLog = (obj: ScheduleLambdaFunctionDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduleLambdaFunctionDecisionAttributes =>
-    __isa(o, "ScheduleLambdaFunctionDecisionAttributes");
 }
 
 export type ScheduleLambdaFunctionFailedCause =
@@ -4869,7 +4633,6 @@ export type ScheduleLambdaFunctionFailedCause =
  *       set for other event types.</p>
  */
 export interface ScheduleLambdaFunctionFailedEventAttributes {
-  __type?: "ScheduleLambdaFunctionFailedEventAttributes";
   /**
    * <p>The ID of the <code>LambdaFunctionCompleted</code> event corresponding to the decision
    *       that resulted in scheduling this Lambda task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>
@@ -4904,8 +4667,6 @@ export namespace ScheduleLambdaFunctionFailedEventAttributes {
   export const filterSensitiveLog = (obj: ScheduleLambdaFunctionFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduleLambdaFunctionFailedEventAttributes =>
-    __isa(o, "ScheduleLambdaFunctionFailedEventAttributes");
 }
 
 /**
@@ -4932,7 +4693,6 @@ export namespace ScheduleLambdaFunctionFailedEventAttributes {
  *           <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
  */
 export interface SignalExternalWorkflowExecutionDecisionAttributes {
-  __type?: "SignalExternalWorkflowExecutionDecisionAttributes";
   /**
    * <p>
    *          The <code>workflowId</code> of the workflow execution to be signaled.</p>
@@ -4968,8 +4728,6 @@ export namespace SignalExternalWorkflowExecutionDecisionAttributes {
   export const filterSensitiveLog = (obj: SignalExternalWorkflowExecutionDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SignalExternalWorkflowExecutionDecisionAttributes =>
-    __isa(o, "SignalExternalWorkflowExecutionDecisionAttributes");
 }
 
 export type SignalExternalWorkflowExecutionFailedCause =
@@ -4981,7 +4739,6 @@ export type SignalExternalWorkflowExecutionFailedCause =
  * <p>Provides the details of the <code>SignalExternalWorkflowExecutionFailed</code> event.</p>
  */
 export interface SignalExternalWorkflowExecutionFailedEventAttributes {
-  __type?: "SignalExternalWorkflowExecutionFailedEventAttributes";
   /**
    * <p>The data attached to the event that the decider can use in subsequent workflow tasks.
    *       This data isn't sent to the workflow execution.</p>
@@ -5027,15 +4784,12 @@ export namespace SignalExternalWorkflowExecutionFailedEventAttributes {
   export const filterSensitiveLog = (obj: SignalExternalWorkflowExecutionFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SignalExternalWorkflowExecutionFailedEventAttributes =>
-    __isa(o, "SignalExternalWorkflowExecutionFailedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>SignalExternalWorkflowExecutionInitiated</code> event.</p>
  */
 export interface SignalExternalWorkflowExecutionInitiatedEventAttributes {
-  __type?: "SignalExternalWorkflowExecutionInitiatedEventAttributes";
   /**
    * <p>The <code>runId</code> of the external workflow execution to send the signal to.</p>
    */
@@ -5073,12 +4827,9 @@ export namespace SignalExternalWorkflowExecutionInitiatedEventAttributes {
   export const filterSensitiveLog = (obj: SignalExternalWorkflowExecutionInitiatedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SignalExternalWorkflowExecutionInitiatedEventAttributes =>
-    __isa(o, "SignalExternalWorkflowExecutionInitiatedEventAttributes");
 }
 
 export interface SignalWorkflowExecutionInput {
-  __type?: "SignalWorkflowExecutionInput";
   /**
    * <p>The workflowId of the workflow execution to signal.</p>
    */
@@ -5110,7 +4861,6 @@ export namespace SignalWorkflowExecutionInput {
   export const filterSensitiveLog = (obj: SignalWorkflowExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SignalWorkflowExecutionInput => __isa(o, "SignalWorkflowExecutionInput");
 }
 
 /**
@@ -5157,7 +4907,6 @@ export namespace SignalWorkflowExecutionInput {
  *           <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
  */
 export interface StartChildWorkflowExecutionDecisionAttributes {
-  __type?: "StartChildWorkflowExecutionDecisionAttributes";
   /**
    * <p>Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the
    *       <code>defaultTaskStartToCloseTimout</code> specified when registering the workflow type using
@@ -5268,8 +5017,6 @@ export namespace StartChildWorkflowExecutionDecisionAttributes {
   export const filterSensitiveLog = (obj: StartChildWorkflowExecutionDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartChildWorkflowExecutionDecisionAttributes =>
-    __isa(o, "StartChildWorkflowExecutionDecisionAttributes");
 }
 
 export type StartChildWorkflowExecutionFailedCause =
@@ -5289,7 +5036,6 @@ export type StartChildWorkflowExecutionFailedCause =
  * <p>Provides the details of the <code>StartChildWorkflowExecutionFailed</code> event.</p>
  */
 export interface StartChildWorkflowExecutionFailedEventAttributes {
-  __type?: "StartChildWorkflowExecutionFailedEventAttributes";
   /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>StartChildWorkflowExecution</code>
    *             <a>Decision</a> to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events.</p>
@@ -5338,15 +5084,12 @@ export namespace StartChildWorkflowExecutionFailedEventAttributes {
   export const filterSensitiveLog = (obj: StartChildWorkflowExecutionFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartChildWorkflowExecutionFailedEventAttributes =>
-    __isa(o, "StartChildWorkflowExecutionFailedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>StartChildWorkflowExecutionInitiated</code> event.</p>
  */
 export interface StartChildWorkflowExecutionInitiatedEventAttributes {
-  __type?: "StartChildWorkflowExecutionInitiatedEventAttributes";
   /**
    * <p>The list of tags to associated with the child workflow execution.</p>
    */
@@ -5439,8 +5182,6 @@ export namespace StartChildWorkflowExecutionInitiatedEventAttributes {
   export const filterSensitiveLog = (obj: StartChildWorkflowExecutionInitiatedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartChildWorkflowExecutionInitiatedEventAttributes =>
-    __isa(o, "StartChildWorkflowExecutionInitiatedEventAttributes");
 }
 
 export type StartLambdaFunctionFailedCause = "ASSUME_ROLE_FAILED";
@@ -5450,7 +5191,6 @@ export type StartLambdaFunctionFailedCause = "ASSUME_ROLE_FAILED";
  *       for other event types.</p>
  */
 export interface StartLambdaFunctionFailedEventAttributes {
-  __type?: "StartLambdaFunctionFailedEventAttributes";
   /**
    * <p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this
    *       activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>
@@ -5478,8 +5218,6 @@ export namespace StartLambdaFunctionFailedEventAttributes {
   export const filterSensitiveLog = (obj: StartLambdaFunctionFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartLambdaFunctionFailedEventAttributes =>
-    __isa(o, "StartLambdaFunctionFailedEventAttributes");
 }
 
 /**
@@ -5506,7 +5244,6 @@ export namespace StartLambdaFunctionFailedEventAttributes {
  *           <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
  */
 export interface StartTimerDecisionAttributes {
-  __type?: "StartTimerDecisionAttributes";
   /**
    * <p>
    *          The unique ID of the timer.</p>
@@ -5532,7 +5269,6 @@ export namespace StartTimerDecisionAttributes {
   export const filterSensitiveLog = (obj: StartTimerDecisionAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTimerDecisionAttributes => __isa(o, "StartTimerDecisionAttributes");
 }
 
 export type StartTimerFailedCause =
@@ -5545,7 +5281,6 @@ export type StartTimerFailedCause =
  * <p>Provides the details of the <code>StartTimerFailed</code> event.</p>
  */
 export interface StartTimerFailedEventAttributes {
-  __type?: "StartTimerFailedEventAttributes";
   /**
    * <p>The timerId provided in the <code>StartTimer</code> decision that failed.</p>
    */
@@ -5573,11 +5308,9 @@ export namespace StartTimerFailedEventAttributes {
   export const filterSensitiveLog = (obj: StartTimerFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartTimerFailedEventAttributes => __isa(o, "StartTimerFailedEventAttributes");
 }
 
 export interface StartWorkflowExecutionInput {
-  __type?: "StartWorkflowExecutionInput";
   /**
    * <p>The IAM role to attach to this workflow execution.</p>
    *          <note>
@@ -5725,14 +5458,12 @@ export namespace StartWorkflowExecutionInput {
   export const filterSensitiveLog = (obj: StartWorkflowExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StartWorkflowExecutionInput => __isa(o, "StartWorkflowExecutionInput");
 }
 
 /**
  * <p>Used to filter the workflow executions in visibility APIs based on a tag.</p>
  */
 export interface TagFilter {
-  __type?: "TagFilter";
   /**
    * <p>
    *          Specifies the tag that must be associated with the execution for it to meet the filter
@@ -5746,11 +5477,9 @@ export namespace TagFilter {
   export const filterSensitiveLog = (obj: TagFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagFilter => __isa(o, "TagFilter");
 }
 
 export interface TagResourceInput {
-  __type?: "TagResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
    */
@@ -5767,14 +5496,12 @@ export namespace TagResourceInput {
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 /**
  * <p>Represents a task list.</p>
  */
 export interface TaskList {
-  __type?: "TaskList";
   /**
    * <p>The name of the task list.</p>
    */
@@ -5785,11 +5512,9 @@ export namespace TaskList {
   export const filterSensitiveLog = (obj: TaskList): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TaskList => __isa(o, "TaskList");
 }
 
 export interface TerminateWorkflowExecutionInput {
-  __type?: "TerminateWorkflowExecutionInput";
   /**
    * <p> A descriptive reason for terminating the workflow execution.</p>
    */
@@ -5851,7 +5576,6 @@ export namespace TerminateWorkflowExecutionInput {
   export const filterSensitiveLog = (obj: TerminateWorkflowExecutionInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TerminateWorkflowExecutionInput => __isa(o, "TerminateWorkflowExecutionInput");
 }
 
 /**
@@ -5860,7 +5584,6 @@ export namespace TerminateWorkflowExecutionInput {
  *    </p>
  */
 export interface TimerCanceledEventAttributes {
-  __type?: "TimerCanceledEventAttributes";
   /**
    * <p>The ID of the <code>TimerStarted</code> event that was recorded when this timer was started.
    *       This information can be useful for diagnosing problems by tracing back the chain of
@@ -5885,14 +5608,12 @@ export namespace TimerCanceledEventAttributes {
   export const filterSensitiveLog = (obj: TimerCanceledEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimerCanceledEventAttributes => __isa(o, "TimerCanceledEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>TimerFired</code> event.</p>
  */
 export interface TimerFiredEventAttributes {
-  __type?: "TimerFiredEventAttributes";
   /**
    * <p>The unique ID of the timer that fired.</p>
    */
@@ -5910,14 +5631,12 @@ export namespace TimerFiredEventAttributes {
   export const filterSensitiveLog = (obj: TimerFiredEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimerFiredEventAttributes => __isa(o, "TimerFiredEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>TimerStarted</code> event.</p>
  */
 export interface TimerStartedEventAttributes {
-  __type?: "TimerStartedEventAttributes";
   /**
    * <p>Data attached to the event that can be used by the decider in subsequent workflow tasks.</p>
    */
@@ -5946,7 +5665,6 @@ export namespace TimerStartedEventAttributes {
   export const filterSensitiveLog = (obj: TimerStartedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TimerStartedEventAttributes => __isa(o, "TimerStartedEventAttributes");
 }
 
 /**
@@ -5962,7 +5680,6 @@ export namespace TooManyTagsFault {
   export const filterSensitiveLog = (obj: TooManyTagsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TooManyTagsFault => __isa(o, "TooManyTagsFault");
 }
 
 /**
@@ -5981,7 +5698,6 @@ export namespace TypeAlreadyExistsFault {
   export const filterSensitiveLog = (obj: TypeAlreadyExistsFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TypeAlreadyExistsFault => __isa(o, "TypeAlreadyExistsFault");
 }
 
 /**
@@ -6000,11 +5716,9 @@ export namespace TypeDeprecatedFault {
   export const filterSensitiveLog = (obj: TypeDeprecatedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TypeDeprecatedFault => __isa(o, "TypeDeprecatedFault");
 }
 
 export interface UndeprecateActivityTypeInput {
-  __type?: "UndeprecateActivityTypeInput";
   /**
    * <p>The activity type to undeprecate.</p>
    */
@@ -6020,11 +5734,9 @@ export namespace UndeprecateActivityTypeInput {
   export const filterSensitiveLog = (obj: UndeprecateActivityTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UndeprecateActivityTypeInput => __isa(o, "UndeprecateActivityTypeInput");
 }
 
 export interface UndeprecateDomainInput {
-  __type?: "UndeprecateDomainInput";
   /**
    * <p>The name of the domain of the deprecated workflow type.</p>
    */
@@ -6035,11 +5747,9 @@ export namespace UndeprecateDomainInput {
   export const filterSensitiveLog = (obj: UndeprecateDomainInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UndeprecateDomainInput => __isa(o, "UndeprecateDomainInput");
 }
 
 export interface UndeprecateWorkflowTypeInput {
-  __type?: "UndeprecateWorkflowTypeInput";
   /**
    * <p>The name of the domain of the deprecated workflow type.</p>
    */
@@ -6055,7 +5765,6 @@ export namespace UndeprecateWorkflowTypeInput {
   export const filterSensitiveLog = (obj: UndeprecateWorkflowTypeInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UndeprecateWorkflowTypeInput => __isa(o, "UndeprecateWorkflowTypeInput");
 }
 
 /**
@@ -6074,11 +5783,9 @@ export namespace UnknownResourceFault {
   export const filterSensitiveLog = (obj: UnknownResourceFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnknownResourceFault => __isa(o, "UnknownResourceFault");
 }
 
 export interface UntagResourceInput {
-  __type?: "UntagResourceInput";
   /**
    * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
    */
@@ -6094,14 +5801,12 @@ export namespace UntagResourceInput {
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 /**
  * <p>Represents a workflow execution.</p>
  */
 export interface WorkflowExecution {
-  __type?: "WorkflowExecution";
   /**
    * <p>A system-generated unique identifier for the workflow execution.</p>
    */
@@ -6117,7 +5822,6 @@ export namespace WorkflowExecution {
   export const filterSensitiveLog = (obj: WorkflowExecution): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecution => __isa(o, "WorkflowExecution");
 }
 
 /**
@@ -6137,15 +5841,12 @@ export namespace WorkflowExecutionAlreadyStartedFault {
   export const filterSensitiveLog = (obj: WorkflowExecutionAlreadyStartedFault): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionAlreadyStartedFault =>
-    __isa(o, "WorkflowExecutionAlreadyStartedFault");
 }
 
 /**
  * <p>Provides the details of the <code>WorkflowExecutionCanceled</code> event.</p>
  */
 export interface WorkflowExecutionCanceledEventAttributes {
-  __type?: "WorkflowExecutionCanceledEventAttributes";
   /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
    *       <code>CancelWorkflowExecution</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of
@@ -6163,8 +5864,6 @@ export namespace WorkflowExecutionCanceledEventAttributes {
   export const filterSensitiveLog = (obj: WorkflowExecutionCanceledEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionCanceledEventAttributes =>
-    __isa(o, "WorkflowExecutionCanceledEventAttributes");
 }
 
 export type WorkflowExecutionCancelRequestedCause = "CHILD_POLICY_APPLIED";
@@ -6173,7 +5872,6 @@ export type WorkflowExecutionCancelRequestedCause = "CHILD_POLICY_APPLIED";
  * <p>Provides the details of the <code>WorkflowExecutionCancelRequested</code> event.</p>
  */
 export interface WorkflowExecutionCancelRequestedEventAttributes {
-  __type?: "WorkflowExecutionCancelRequestedEventAttributes";
   /**
    * <p>The ID of the <code>RequestCancelExternalWorkflowExecutionInitiated</code> event corresponding to the
    *       <code>RequestCancelExternalWorkflowExecution</code> decision to cancel this workflow execution.The source event
@@ -6197,15 +5895,12 @@ export namespace WorkflowExecutionCancelRequestedEventAttributes {
   export const filterSensitiveLog = (obj: WorkflowExecutionCancelRequestedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionCancelRequestedEventAttributes =>
-    __isa(o, "WorkflowExecutionCancelRequestedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>WorkflowExecutionCompleted</code> event.</p>
  */
 export interface WorkflowExecutionCompletedEventAttributes {
-  __type?: "WorkflowExecutionCompletedEventAttributes";
   /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
    *       <code>CompleteWorkflowExecution</code> decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of
@@ -6223,15 +5918,12 @@ export namespace WorkflowExecutionCompletedEventAttributes {
   export const filterSensitiveLog = (obj: WorkflowExecutionCompletedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionCompletedEventAttributes =>
-    __isa(o, "WorkflowExecutionCompletedEventAttributes");
 }
 
 /**
  * <p>The configuration settings for a workflow execution including timeout values, tasklist etc. These configuration settings are determined from the defaults specified when registering the workflow type and those specified when starting the workflow execution.</p>
  */
 export interface WorkflowExecutionConfiguration {
-  __type?: "WorkflowExecutionConfiguration";
   /**
    * <p>The policy to use for the child workflow executions if this workflow execution is terminated, by calling the
    *       <a>TerminateWorkflowExecution</a> action explicitly or due to an expired timeout.</p>
@@ -6289,14 +5981,12 @@ export namespace WorkflowExecutionConfiguration {
   export const filterSensitiveLog = (obj: WorkflowExecutionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionConfiguration => __isa(o, "WorkflowExecutionConfiguration");
 }
 
 /**
  * <p>Provides the details of the <code>WorkflowExecutionContinuedAsNew</code> event.</p>
  */
 export interface WorkflowExecutionContinuedAsNewEventAttributes {
-  __type?: "WorkflowExecutionContinuedAsNewEventAttributes";
   /**
    * <p>The policy to use for the child workflow executions of the new execution if it is terminated by calling the
    *       <a>TerminateWorkflowExecution</a> action explicitly or due to an expired timeout.</p>
@@ -6381,8 +6071,6 @@ export namespace WorkflowExecutionContinuedAsNewEventAttributes {
   export const filterSensitiveLog = (obj: WorkflowExecutionContinuedAsNewEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionContinuedAsNewEventAttributes =>
-    __isa(o, "WorkflowExecutionContinuedAsNewEventAttributes");
 }
 
 /**
@@ -6391,7 +6079,6 @@ export namespace WorkflowExecutionContinuedAsNewEventAttributes {
  *          </p>
  */
 export interface WorkflowExecutionCount {
-  __type?: "WorkflowExecutionCount";
   /**
    * <p>If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.</p>
    */
@@ -6407,14 +6094,12 @@ export namespace WorkflowExecutionCount {
   export const filterSensitiveLog = (obj: WorkflowExecutionCount): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionCount => __isa(o, "WorkflowExecutionCount");
 }
 
 /**
  * <p>Contains details about a workflow execution.</p>
  */
 export interface WorkflowExecutionDetail {
-  __type?: "WorkflowExecutionDetail";
   /**
    * <p>The configuration settings for this workflow execution including timeout values, tasklist etc.</p>
    */
@@ -6446,14 +6131,12 @@ export namespace WorkflowExecutionDetail {
   export const filterSensitiveLog = (obj: WorkflowExecutionDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionDetail => __isa(o, "WorkflowExecutionDetail");
 }
 
 /**
  * <p>Provides the details of the <code>WorkflowExecutionFailed</code> event.</p>
  */
 export interface WorkflowExecutionFailedEventAttributes {
-  __type?: "WorkflowExecutionFailedEventAttributes";
   /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
    *       <code>FailWorkflowExecution</code> decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of
@@ -6476,15 +6159,12 @@ export namespace WorkflowExecutionFailedEventAttributes {
   export const filterSensitiveLog = (obj: WorkflowExecutionFailedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionFailedEventAttributes =>
-    __isa(o, "WorkflowExecutionFailedEventAttributes");
 }
 
 /**
  * <p>Used to filter the workflow executions in visibility APIs by their <code>workflowId</code>.</p>
  */
 export interface WorkflowExecutionFilter {
-  __type?: "WorkflowExecutionFilter";
   /**
    * <p>The workflowId to pass of match the criteria of this filter.</p>
    */
@@ -6495,14 +6175,12 @@ export namespace WorkflowExecutionFilter {
   export const filterSensitiveLog = (obj: WorkflowExecutionFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionFilter => __isa(o, "WorkflowExecutionFilter");
 }
 
 /**
  * <p>Contains information about a workflow execution.</p>
  */
 export interface WorkflowExecutionInfo {
-  __type?: "WorkflowExecutionInfo";
   /**
    * <p>If the execution status is closed then this specifies how the execution was closed:</p>
    *          <ul>
@@ -6582,14 +6260,12 @@ export namespace WorkflowExecutionInfo {
   export const filterSensitiveLog = (obj: WorkflowExecutionInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionInfo => __isa(o, "WorkflowExecutionInfo");
 }
 
 /**
  * <p>Contains a paginated list of information about workflow executions.</p>
  */
 export interface WorkflowExecutionInfos {
-  __type?: "WorkflowExecutionInfos";
   /**
    * <p>The list of workflow information structures.</p>
    */
@@ -6608,14 +6284,12 @@ export namespace WorkflowExecutionInfos {
   export const filterSensitiveLog = (obj: WorkflowExecutionInfos): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionInfos => __isa(o, "WorkflowExecutionInfos");
 }
 
 /**
  * <p>Contains the counts of open tasks, child workflow executions and timers for a workflow execution.</p>
  */
 export interface WorkflowExecutionOpenCounts {
-  __type?: "WorkflowExecutionOpenCounts";
   /**
    * <p>The count of timers started by this workflow execution that have not fired yet.</p>
    */
@@ -6646,14 +6320,12 @@ export namespace WorkflowExecutionOpenCounts {
   export const filterSensitiveLog = (obj: WorkflowExecutionOpenCounts): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionOpenCounts => __isa(o, "WorkflowExecutionOpenCounts");
 }
 
 /**
  * <p>Provides the details of the <code>WorkflowExecutionSignaled</code> event.</p>
  */
 export interface WorkflowExecutionSignaledEventAttributes {
-  __type?: "WorkflowExecutionSignaledEventAttributes";
   /**
    * <p>The ID of the <code>SignalExternalWorkflowExecutionInitiated</code> event corresponding to the
    *       <code>SignalExternalWorkflow</code> decision to signal this workflow execution.The source event with this ID can
@@ -6683,15 +6355,12 @@ export namespace WorkflowExecutionSignaledEventAttributes {
   export const filterSensitiveLog = (obj: WorkflowExecutionSignaledEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionSignaledEventAttributes =>
-    __isa(o, "WorkflowExecutionSignaledEventAttributes");
 }
 
 /**
  * <p>Provides details of <code>WorkflowExecutionStarted</code> event.</p>
  */
 export interface WorkflowExecutionStartedEventAttributes {
-  __type?: "WorkflowExecutionStartedEventAttributes";
   /**
    * <p>The IAM role attached to the workflow execution.</p>
    */
@@ -6783,8 +6452,6 @@ export namespace WorkflowExecutionStartedEventAttributes {
   export const filterSensitiveLog = (obj: WorkflowExecutionStartedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionStartedEventAttributes =>
-    __isa(o, "WorkflowExecutionStartedEventAttributes");
 }
 
 export type WorkflowExecutionTerminatedCause = "CHILD_POLICY_APPLIED" | "EVENT_LIMIT_EXCEEDED" | "OPERATOR_INITIATED";
@@ -6793,7 +6460,6 @@ export type WorkflowExecutionTerminatedCause = "CHILD_POLICY_APPLIED" | "EVENT_L
  * <p>Provides the details of the <code>WorkflowExecutionTerminated</code> event.</p>
  */
 export interface WorkflowExecutionTerminatedEventAttributes {
-  __type?: "WorkflowExecutionTerminatedEventAttributes";
   /**
    * <p>The policy used for the child workflow executions of this workflow execution.</p>
    *          <p>The supported child policies are:</p>
@@ -6836,15 +6502,12 @@ export namespace WorkflowExecutionTerminatedEventAttributes {
   export const filterSensitiveLog = (obj: WorkflowExecutionTerminatedEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionTerminatedEventAttributes =>
-    __isa(o, "WorkflowExecutionTerminatedEventAttributes");
 }
 
 /**
  * <p>Provides the details of the <code>WorkflowExecutionTimedOut</code> event.</p>
  */
 export interface WorkflowExecutionTimedOutEventAttributes {
-  __type?: "WorkflowExecutionTimedOutEventAttributes";
   /**
    * <p>The type of timeout that caused this event.</p>
    */
@@ -6877,8 +6540,6 @@ export namespace WorkflowExecutionTimedOutEventAttributes {
   export const filterSensitiveLog = (obj: WorkflowExecutionTimedOutEventAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowExecutionTimedOutEventAttributes =>
-    __isa(o, "WorkflowExecutionTimedOutEventAttributes");
 }
 
 export type WorkflowExecutionTimeoutType = "START_TO_CLOSE";
@@ -6887,7 +6548,6 @@ export type WorkflowExecutionTimeoutType = "START_TO_CLOSE";
  * <p>Represents a workflow type.</p>
  */
 export interface WorkflowType {
-  __type?: "WorkflowType";
   /**
    * <p>
    *          The version of the workflow type.</p>
@@ -6911,14 +6571,12 @@ export namespace WorkflowType {
   export const filterSensitiveLog = (obj: WorkflowType): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowType => __isa(o, "WorkflowType");
 }
 
 /**
  * <p>The configuration settings of a workflow type.</p>
  */
 export interface WorkflowTypeConfiguration {
-  __type?: "WorkflowTypeConfiguration";
   /**
    * <p>
    *          The default maximum duration, specified when registering the workflow type, that a decision task
@@ -7004,14 +6662,12 @@ export namespace WorkflowTypeConfiguration {
   export const filterSensitiveLog = (obj: WorkflowTypeConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowTypeConfiguration => __isa(o, "WorkflowTypeConfiguration");
 }
 
 /**
  * <p>Contains details about a workflow type.</p>
  */
 export interface WorkflowTypeDetail {
-  __type?: "WorkflowTypeDetail";
   /**
    * <p>Configuration settings of the workflow type registered through <a>RegisterWorkflowType</a>
    *          </p>
@@ -7040,14 +6696,12 @@ export namespace WorkflowTypeDetail {
   export const filterSensitiveLog = (obj: WorkflowTypeDetail): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowTypeDetail => __isa(o, "WorkflowTypeDetail");
 }
 
 /**
  * <p>Used to filter workflow execution query results by type. Each parameter, if specified, defines a rule that must be satisfied by each returned result.</p>
  */
 export interface WorkflowTypeFilter {
-  __type?: "WorkflowTypeFilter";
   /**
    * <p>Version of the workflow type.</p>
    */
@@ -7064,14 +6718,12 @@ export namespace WorkflowTypeFilter {
   export const filterSensitiveLog = (obj: WorkflowTypeFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowTypeFilter => __isa(o, "WorkflowTypeFilter");
 }
 
 /**
  * <p>Contains information about a workflow type.</p>
  */
 export interface WorkflowTypeInfo {
-  __type?: "WorkflowTypeInfo";
   /**
    * <p>The workflow type this information is about.</p>
    */
@@ -7102,14 +6754,12 @@ export namespace WorkflowTypeInfo {
   export const filterSensitiveLog = (obj: WorkflowTypeInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowTypeInfo => __isa(o, "WorkflowTypeInfo");
 }
 
 /**
  * <p>Contains a paginated list of information structures about workflow types.</p>
  */
 export interface WorkflowTypeInfos {
-  __type?: "WorkflowTypeInfos";
   /**
    * <p>The list of workflow type information.</p>
    */
@@ -7128,5 +6778,4 @@ export namespace WorkflowTypeInfos {
   export const filterSensitiveLog = (obj: WorkflowTypeInfos): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkflowTypeInfos => __isa(o, "WorkflowTypeInfos");
 }

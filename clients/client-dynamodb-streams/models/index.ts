@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +6,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>Each attribute in an item is a name-value pair. An attribute can be single-valued or multi-valued set. For example, a book item can have title and authors attributes. Each book has one title but can have many authors. The multi-valued attribute is a set; duplicate values are not allowed.</p>
  */
 export interface AttributeValue {
-  __type?: "AttributeValue";
   /**
    * <p>A Boolean data type.</p>
    */
@@ -62,14 +61,12 @@ export namespace AttributeValue {
   export const filterSensitiveLog = (obj: AttributeValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AttributeValue => __isa(o, "AttributeValue");
 }
 
 /**
  * <p>Represents the input of a <code>DescribeStream</code> operation.</p>
  */
 export interface DescribeStreamInput {
-  __type?: "DescribeStreamInput";
   /**
    * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
@@ -91,14 +88,12 @@ export namespace DescribeStreamInput {
   export const filterSensitiveLog = (obj: DescribeStreamInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamInput => __isa(o, "DescribeStreamInput");
 }
 
 /**
  * <p>Represents the output of a <code>DescribeStream</code> operation.</p>
  */
 export interface DescribeStreamOutput {
-  __type?: "DescribeStreamOutput";
   /**
    * <p>A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.</p>
    */
@@ -109,7 +104,6 @@ export namespace DescribeStreamOutput {
   export const filterSensitiveLog = (obj: DescribeStreamOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeStreamOutput => __isa(o, "DescribeStreamOutput");
 }
 
 /**
@@ -130,14 +124,12 @@ export namespace ExpiredIteratorException {
   export const filterSensitiveLog = (obj: ExpiredIteratorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExpiredIteratorException => __isa(o, "ExpiredIteratorException");
 }
 
 /**
  * <p>Represents the input of a <code>GetRecords</code> operation.</p>
  */
 export interface GetRecordsInput {
-  __type?: "GetRecordsInput";
   /**
    * <p>The maximum number of records to return from the shard. The upper limit is 1000.</p>
    */
@@ -153,14 +145,12 @@ export namespace GetRecordsInput {
   export const filterSensitiveLog = (obj: GetRecordsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRecordsInput => __isa(o, "GetRecordsInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetRecords</code> operation.</p>
  */
 export interface GetRecordsOutput {
-  __type?: "GetRecordsOutput";
   /**
    * <p>The next position in the shard from which to start sequentially reading stream records. If
    *       set to <code>null</code>, the shard has been closed and the requested iterator will not return
@@ -178,14 +168,12 @@ export namespace GetRecordsOutput {
   export const filterSensitiveLog = (obj: GetRecordsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRecordsOutput => __isa(o, "GetRecordsOutput");
 }
 
 /**
  * <p>Represents the input of a <code>GetShardIterator</code> operation.</p>
  */
 export interface GetShardIteratorInput {
-  __type?: "GetShardIteratorInput";
   /**
    * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
@@ -235,14 +223,12 @@ export namespace GetShardIteratorInput {
   export const filterSensitiveLog = (obj: GetShardIteratorInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetShardIteratorInput => __isa(o, "GetShardIteratorInput");
 }
 
 /**
  * <p>Represents the output of a <code>GetShardIterator</code> operation.</p>
  */
 export interface GetShardIteratorOutput {
-  __type?: "GetShardIteratorOutput";
   /**
    * <p>The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.</p>
    */
@@ -253,14 +239,12 @@ export namespace GetShardIteratorOutput {
   export const filterSensitiveLog = (obj: GetShardIteratorOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetShardIteratorOutput => __isa(o, "GetShardIteratorOutput");
 }
 
 /**
  * <p>Contains details about the type of identity that made the request.</p>
  */
 export interface Identity {
-  __type?: "Identity";
   /**
    * <p>The type of the identity. For Time To Live, the type is "Service".</p>
    */
@@ -277,7 +261,6 @@ export namespace Identity {
   export const filterSensitiveLog = (obj: Identity): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Identity => __isa(o, "Identity");
 }
 
 /**
@@ -296,7 +279,6 @@ export namespace InternalServerError {
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -315,7 +297,6 @@ export namespace InternalServerError {
  *          </note>
  */
 export interface KeySchemaElement {
-  __type?: "KeySchemaElement";
   /**
    * <p>The attribute data, consisting of the data type and the attribute value itself.</p>
    */
@@ -331,7 +312,6 @@ export namespace KeySchemaElement {
   export const filterSensitiveLog = (obj: KeySchemaElement): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeySchemaElement => __isa(o, "KeySchemaElement");
 }
 
 export type KeyType = "HASH" | "RANGE";
@@ -356,14 +336,12 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>Represents the input of a <code>ListStreams</code> operation.</p>
  */
 export interface ListStreamsInput {
-  __type?: "ListStreamsInput";
   /**
    * <p>The maximum number of streams to return. The upper limit is 100.</p>
    */
@@ -386,14 +364,12 @@ export namespace ListStreamsInput {
   export const filterSensitiveLog = (obj: ListStreamsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamsInput => __isa(o, "ListStreamsInput");
 }
 
 /**
  * <p>Represents the output of a <code>ListStreams</code> operation.</p>
  */
 export interface ListStreamsOutput {
-  __type?: "ListStreamsOutput";
   /**
    * <p>The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
    *          <p>If <code>LastEvaluatedStreamArn</code> is empty, then the "last page" of results has been
@@ -414,7 +390,6 @@ export namespace ListStreamsOutput {
   export const filterSensitiveLog = (obj: ListStreamsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListStreamsOutput => __isa(o, "ListStreamsOutput");
 }
 
 export type OperationType = "INSERT" | "MODIFY" | "REMOVE";
@@ -423,7 +398,6 @@ export type OperationType = "INSERT" | "MODIFY" | "REMOVE";
  * <p>A description of a unique event within a stream.</p>
  */
 export interface _Record {
-  __type?: "Record";
   /**
    * <p>The main body of the stream record, containing all of the DynamoDB-specific fields.</p>
    */
@@ -491,7 +465,6 @@ export namespace _Record {
   export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is _Record => __isa(o, "Record");
 }
 
 /**
@@ -510,14 +483,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The beginning and ending sequence numbers for the stream records contained within a shard.</p>
  */
 export interface SequenceNumberRange {
-  __type?: "SequenceNumberRange";
   /**
    * <p>The last sequence number.</p>
    */
@@ -533,14 +504,12 @@ export namespace SequenceNumberRange {
   export const filterSensitiveLog = (obj: SequenceNumberRange): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SequenceNumberRange => __isa(o, "SequenceNumberRange");
 }
 
 /**
  * <p>A uniquely identified group of stream records within a stream.</p>
  */
 export interface Shard {
-  __type?: "Shard";
   /**
    * <p>The shard ID of the current shard's parent.</p>
    */
@@ -561,7 +530,6 @@ export namespace Shard {
   export const filterSensitiveLog = (obj: Shard): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Shard => __isa(o, "Shard");
 }
 
 export type ShardIteratorType = "AFTER_SEQUENCE_NUMBER" | "AT_SEQUENCE_NUMBER" | "LATEST" | "TRIM_HORIZON";
@@ -570,7 +538,6 @@ export type ShardIteratorType = "AFTER_SEQUENCE_NUMBER" | "AT_SEQUENCE_NUMBER" |
  * <p>Represents all of the data describing a particular stream.</p>
  */
 export interface _Stream {
-  __type?: "Stream";
   /**
    * <p>A timestamp, in ISO 8601 format, for this stream.</p>
    *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
@@ -606,14 +573,12 @@ export namespace _Stream {
   export const filterSensitiveLog = (obj: _Stream): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is _Stream => __isa(o, "Stream");
 }
 
 /**
  * <p>Represents all of the data describing a particular stream.</p>
  */
 export interface StreamDescription {
-  __type?: "StreamDescription";
   /**
    * <p>The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
    *          <p>If <code>LastEvaluatedShardId</code> is empty, then the "last page" of results has been
@@ -720,14 +685,12 @@ export namespace StreamDescription {
   export const filterSensitiveLog = (obj: StreamDescription): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamDescription => __isa(o, "StreamDescription");
 }
 
 /**
  * <p>A description of a single data modification that was performed on an item in a DynamoDB table.</p>
  */
 export interface StreamRecord {
-  __type?: "StreamRecord";
   /**
    * <p>The sequence number of the stream record.</p>
    */
@@ -786,7 +749,6 @@ export namespace StreamRecord {
   export const filterSensitiveLog = (obj: StreamRecord): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StreamRecord => __isa(o, "StreamRecord");
 }
 
 export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
@@ -820,5 +782,4 @@ export namespace TrimmedDataAccessException {
   export const filterSensitiveLog = (obj: TrimmedDataAccessException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrimmedDataAccessException => __isa(o, "TrimmedDataAccessException");
 }

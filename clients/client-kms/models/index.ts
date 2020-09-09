@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AlgorithmSpec {
@@ -11,7 +11,6 @@ export enum AlgorithmSpec {
  * <p>Contains information about an alias.</p>
  */
 export interface AliasListEntry {
-  __type?: "AliasListEntry";
   /**
    * <p>String that contains the alias. This value begins with <code>alias/</code>.</p>
    */
@@ -32,7 +31,6 @@ export namespace AliasListEntry {
   export const filterSensitiveLog = (obj: AliasListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AliasListEntry => __isa(o, "AliasListEntry");
 }
 
 /**
@@ -49,11 +47,9 @@ export namespace AlreadyExistsException {
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 export interface CancelKeyDeletionRequest {
-  __type?: "CancelKeyDeletionRequest";
   /**
    * <p>The unique identifier for the customer master key (CMK) for which to cancel
    *       deletion.</p>
@@ -78,11 +74,9 @@ export namespace CancelKeyDeletionRequest {
   export const filterSensitiveLog = (obj: CancelKeyDeletionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelKeyDeletionRequest => __isa(o, "CancelKeyDeletionRequest");
 }
 
 export interface CancelKeyDeletionResponse {
-  __type?: "CancelKeyDeletionResponse";
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK whose deletion is canceled.</p>
    */
@@ -93,7 +87,6 @@ export namespace CancelKeyDeletionResponse {
   export const filterSensitiveLog = (obj: CancelKeyDeletionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelKeyDeletionResponse => __isa(o, "CancelKeyDeletionResponse");
 }
 
 /**
@@ -113,7 +106,6 @@ export namespace CloudHsmClusterInUseException {
   export const filterSensitiveLog = (obj: CloudHsmClusterInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudHsmClusterInUseException => __isa(o, "CloudHsmClusterInUseException");
 }
 
 /**
@@ -161,8 +153,6 @@ export namespace CloudHsmClusterInvalidConfigurationException {
   export const filterSensitiveLog = (obj: CloudHsmClusterInvalidConfigurationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudHsmClusterInvalidConfigurationException =>
-    __isa(o, "CloudHsmClusterInvalidConfigurationException");
 }
 
 /**
@@ -180,7 +170,6 @@ export namespace CloudHsmClusterNotActiveException {
   export const filterSensitiveLog = (obj: CloudHsmClusterNotActiveException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudHsmClusterNotActiveException => __isa(o, "CloudHsmClusterNotActiveException");
 }
 
 /**
@@ -197,7 +186,6 @@ export namespace CloudHsmClusterNotFoundException {
   export const filterSensitiveLog = (obj: CloudHsmClusterNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudHsmClusterNotFoundException => __isa(o, "CloudHsmClusterNotFoundException");
 }
 
 /**
@@ -220,12 +208,9 @@ export namespace CloudHsmClusterNotRelatedException {
   export const filterSensitiveLog = (obj: CloudHsmClusterNotRelatedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudHsmClusterNotRelatedException =>
-    __isa(o, "CloudHsmClusterNotRelatedException");
 }
 
 export interface ConnectCustomKeyStoreRequest {
-  __type?: "ConnectCustomKeyStoreRequest";
   /**
    * <p>Enter the key store ID of the custom key store that you want to connect.
    *       To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
@@ -237,18 +222,14 @@ export namespace ConnectCustomKeyStoreRequest {
   export const filterSensitiveLog = (obj: ConnectCustomKeyStoreRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectCustomKeyStoreRequest => __isa(o, "ConnectCustomKeyStoreRequest");
 }
 
-export interface ConnectCustomKeyStoreResponse {
-  __type?: "ConnectCustomKeyStoreResponse";
-}
+export interface ConnectCustomKeyStoreResponse {}
 
 export namespace ConnectCustomKeyStoreResponse {
   export const filterSensitiveLog = (obj: ConnectCustomKeyStoreResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConnectCustomKeyStoreResponse => __isa(o, "ConnectCustomKeyStoreResponse");
 }
 
 export enum ConnectionErrorCodeType {
@@ -272,7 +253,6 @@ export enum ConnectionStateType {
 }
 
 export interface CreateAliasRequest {
-  __type?: "CreateAliasRequest";
   /**
    * <p>Specifies the alias name. This value must begin with <code>alias/</code> followed by a
    *       name, such as <code>alias/ExampleAlias</code>. The alias name cannot begin with
@@ -294,11 +274,9 @@ export namespace CreateAliasRequest {
   export const filterSensitiveLog = (obj: CreateAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateAliasRequest => __isa(o, "CreateAliasRequest");
 }
 
 export interface CreateCustomKeyStoreRequest {
-  __type?: "CreateCustomKeyStoreRequest";
   /**
    * <p>Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active
    *       AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID,
@@ -335,11 +313,9 @@ export namespace CreateCustomKeyStoreRequest {
     ...obj,
     ...(obj.KeyStorePassword && { KeyStorePassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is CreateCustomKeyStoreRequest => __isa(o, "CreateCustomKeyStoreRequest");
 }
 
 export interface CreateCustomKeyStoreResponse {
-  __type?: "CreateCustomKeyStoreResponse";
   /**
    * <p>A unique identifier for the new custom key store.</p>
    */
@@ -350,11 +326,9 @@ export namespace CreateCustomKeyStoreResponse {
   export const filterSensitiveLog = (obj: CreateCustomKeyStoreResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCustomKeyStoreResponse => __isa(o, "CreateCustomKeyStoreResponse");
 }
 
 export interface CreateGrantRequest {
-  __type?: "CreateGrantRequest";
   /**
    * <p>A list of grant tokens.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
@@ -437,11 +411,9 @@ export namespace CreateGrantRequest {
   export const filterSensitiveLog = (obj: CreateGrantRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGrantRequest => __isa(o, "CreateGrantRequest");
 }
 
 export interface CreateGrantResponse {
-  __type?: "CreateGrantResponse";
   /**
    * <p>The unique identifier for the grant.</p>
    *          <p>You can use the <code>GrantId</code> in a subsequent <a>RetireGrant</a> or
@@ -461,11 +433,9 @@ export namespace CreateGrantResponse {
   export const filterSensitiveLog = (obj: CreateGrantResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateGrantResponse => __isa(o, "CreateGrantResponse");
 }
 
 export interface CreateKeyRequest {
-  __type?: "CreateKeyRequest";
   /**
    * <p>The source of the key material for the CMK. You cannot change the origin after you create
    *       the CMK. The default is <code>AWS_KMS</code>, which means AWS KMS creates the key
@@ -665,11 +635,9 @@ export namespace CreateKeyRequest {
   export const filterSensitiveLog = (obj: CreateKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateKeyRequest => __isa(o, "CreateKeyRequest");
 }
 
 export interface CreateKeyResponse {
-  __type?: "CreateKeyResponse";
   /**
    * <p>Metadata associated with the CMK.</p>
    */
@@ -680,7 +648,6 @@ export namespace CreateKeyResponse {
   export const filterSensitiveLog = (obj: CreateKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateKeyResponse => __isa(o, "CreateKeyResponse");
 }
 
 export enum CustomerMasterKeySpec {
@@ -709,7 +676,6 @@ export namespace CustomKeyStoreHasCMKsException {
   export const filterSensitiveLog = (obj: CustomKeyStoreHasCMKsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomKeyStoreHasCMKsException => __isa(o, "CustomKeyStoreHasCMKsException");
 }
 
 /**
@@ -745,8 +711,6 @@ export namespace CustomKeyStoreInvalidStateException {
   export const filterSensitiveLog = (obj: CustomKeyStoreInvalidStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomKeyStoreInvalidStateException =>
-    __isa(o, "CustomKeyStoreInvalidStateException");
 }
 
 /**
@@ -764,7 +728,6 @@ export namespace CustomKeyStoreNameInUseException {
   export const filterSensitiveLog = (obj: CustomKeyStoreNameInUseException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomKeyStoreNameInUseException => __isa(o, "CustomKeyStoreNameInUseException");
 }
 
 /**
@@ -781,14 +744,12 @@ export namespace CustomKeyStoreNotFoundException {
   export const filterSensitiveLog = (obj: CustomKeyStoreNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomKeyStoreNotFoundException => __isa(o, "CustomKeyStoreNotFoundException");
 }
 
 /**
  * <p>Contains information about each custom key store in the custom key store list.</p>
  */
 export interface CustomKeyStoresListEntry {
-  __type?: "CustomKeyStoresListEntry";
   /**
    * <p>The date and time when the custom key store was created.</p>
    */
@@ -900,7 +861,6 @@ export namespace CustomKeyStoresListEntry {
   export const filterSensitiveLog = (obj: CustomKeyStoresListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomKeyStoresListEntry => __isa(o, "CustomKeyStoresListEntry");
 }
 
 export enum DataKeyPairSpec {
@@ -919,7 +879,6 @@ export enum DataKeySpec {
 }
 
 export interface DecryptRequest {
-  __type?: "DecryptRequest";
   /**
    * <p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt the ciphertext.
    *       Enter a key ID of the CMK that was used to encrypt the ciphertext.</p>
@@ -990,11 +949,9 @@ export namespace DecryptRequest {
   export const filterSensitiveLog = (obj: DecryptRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DecryptRequest => __isa(o, "DecryptRequest");
 }
 
 export interface DecryptResponse {
-  __type?: "DecryptResponse";
   /**
    * <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
    */
@@ -1016,11 +973,9 @@ export namespace DecryptResponse {
     ...obj,
     ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is DecryptResponse => __isa(o, "DecryptResponse");
 }
 
 export interface DeleteAliasRequest {
-  __type?: "DeleteAliasRequest";
   /**
    * <p>The alias to be deleted. The alias name must begin with <code>alias/</code> followed by
    *       the alias name, such as <code>alias/ExampleAlias</code>.</p>
@@ -1032,11 +987,9 @@ export namespace DeleteAliasRequest {
   export const filterSensitiveLog = (obj: DeleteAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteAliasRequest => __isa(o, "DeleteAliasRequest");
 }
 
 export interface DeleteCustomKeyStoreRequest {
-  __type?: "DeleteCustomKeyStoreRequest";
   /**
    * <p>Enter the ID of the custom key store you want to delete. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
    */
@@ -1047,22 +1000,17 @@ export namespace DeleteCustomKeyStoreRequest {
   export const filterSensitiveLog = (obj: DeleteCustomKeyStoreRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCustomKeyStoreRequest => __isa(o, "DeleteCustomKeyStoreRequest");
 }
 
-export interface DeleteCustomKeyStoreResponse {
-  __type?: "DeleteCustomKeyStoreResponse";
-}
+export interface DeleteCustomKeyStoreResponse {}
 
 export namespace DeleteCustomKeyStoreResponse {
   export const filterSensitiveLog = (obj: DeleteCustomKeyStoreResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCustomKeyStoreResponse => __isa(o, "DeleteCustomKeyStoreResponse");
 }
 
 export interface DeleteImportedKeyMaterialRequest {
-  __type?: "DeleteImportedKeyMaterialRequest";
   /**
    * <p>Identifies the CMK from which you are deleting imported key material. The
    *         <code>Origin</code> of the CMK must be <code>EXTERNAL</code>.</p>
@@ -1087,7 +1035,6 @@ export namespace DeleteImportedKeyMaterialRequest {
   export const filterSensitiveLog = (obj: DeleteImportedKeyMaterialRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteImportedKeyMaterialRequest => __isa(o, "DeleteImportedKeyMaterialRequest");
 }
 
 /**
@@ -1104,11 +1051,9 @@ export namespace DependencyTimeoutException {
   export const filterSensitiveLog = (obj: DependencyTimeoutException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DependencyTimeoutException => __isa(o, "DependencyTimeoutException");
 }
 
 export interface DescribeCustomKeyStoresRequest {
-  __type?: "DescribeCustomKeyStoresRequest";
   /**
    * <p>Gets only information about the specified custom key store. Enter the friendly name of the
    *       custom key store.</p>
@@ -1147,11 +1092,9 @@ export namespace DescribeCustomKeyStoresRequest {
   export const filterSensitiveLog = (obj: DescribeCustomKeyStoresRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCustomKeyStoresRequest => __isa(o, "DescribeCustomKeyStoresRequest");
 }
 
 export interface DescribeCustomKeyStoresResponse {
-  __type?: "DescribeCustomKeyStoresResponse";
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
    *     value is true, the list in this response is truncated. To get more items, pass the value of
@@ -1176,11 +1119,9 @@ export namespace DescribeCustomKeyStoresResponse {
   export const filterSensitiveLog = (obj: DescribeCustomKeyStoresResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeCustomKeyStoresResponse => __isa(o, "DescribeCustomKeyStoresResponse");
 }
 
 export interface DescribeKeyRequest {
-  __type?: "DescribeKeyRequest";
   /**
    * <p>A list of grant tokens.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
@@ -1223,11 +1164,9 @@ export namespace DescribeKeyRequest {
   export const filterSensitiveLog = (obj: DescribeKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeKeyRequest => __isa(o, "DescribeKeyRequest");
 }
 
 export interface DescribeKeyResponse {
-  __type?: "DescribeKeyResponse";
   /**
    * <p>Metadata associated with the key.</p>
    */
@@ -1238,7 +1177,6 @@ export namespace DescribeKeyResponse {
   export const filterSensitiveLog = (obj: DescribeKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeKeyResponse => __isa(o, "DescribeKeyResponse");
 }
 
 /**
@@ -1254,11 +1192,9 @@ export namespace DisabledException {
   export const filterSensitiveLog = (obj: DisabledException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisabledException => __isa(o, "DisabledException");
 }
 
 export interface DisableKeyRequest {
-  __type?: "DisableKeyRequest";
   /**
    * <p>A unique identifier for the customer master key (CMK).</p>
    *          <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
@@ -1282,11 +1218,9 @@ export namespace DisableKeyRequest {
   export const filterSensitiveLog = (obj: DisableKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableKeyRequest => __isa(o, "DisableKeyRequest");
 }
 
 export interface DisableKeyRotationRequest {
-  __type?: "DisableKeyRotationRequest";
   /**
    * <p>Identifies a symmetric customer master key (CMK). You cannot enable automatic rotation of
    *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric CMKs</a>, CMKs with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or CMKs in a
@@ -1312,11 +1246,9 @@ export namespace DisableKeyRotationRequest {
   export const filterSensitiveLog = (obj: DisableKeyRotationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisableKeyRotationRequest => __isa(o, "DisableKeyRotationRequest");
 }
 
 export interface DisconnectCustomKeyStoreRequest {
-  __type?: "DisconnectCustomKeyStoreRequest";
   /**
    * <p>Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
    */
@@ -1327,22 +1259,17 @@ export namespace DisconnectCustomKeyStoreRequest {
   export const filterSensitiveLog = (obj: DisconnectCustomKeyStoreRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisconnectCustomKeyStoreRequest => __isa(o, "DisconnectCustomKeyStoreRequest");
 }
 
-export interface DisconnectCustomKeyStoreResponse {
-  __type?: "DisconnectCustomKeyStoreResponse";
-}
+export interface DisconnectCustomKeyStoreResponse {}
 
 export namespace DisconnectCustomKeyStoreResponse {
   export const filterSensitiveLog = (obj: DisconnectCustomKeyStoreResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DisconnectCustomKeyStoreResponse => __isa(o, "DisconnectCustomKeyStoreResponse");
 }
 
 export interface EnableKeyRequest {
-  __type?: "EnableKeyRequest";
   /**
    * <p>A unique identifier for the customer master key (CMK).</p>
    *          <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
@@ -1366,11 +1293,9 @@ export namespace EnableKeyRequest {
   export const filterSensitiveLog = (obj: EnableKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableKeyRequest => __isa(o, "EnableKeyRequest");
 }
 
 export interface EnableKeyRotationRequest {
-  __type?: "EnableKeyRotationRequest";
   /**
    * <p>Identifies a symmetric customer master key (CMK). You cannot enable automatic rotation of asymmetric CMKs, CMKs with imported key material, or CMKs in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>.</p>
    *
@@ -1395,7 +1320,6 @@ export namespace EnableKeyRotationRequest {
   export const filterSensitiveLog = (obj: EnableKeyRotationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EnableKeyRotationRequest => __isa(o, "EnableKeyRotationRequest");
 }
 
 export enum EncryptionAlgorithmSpec {
@@ -1405,7 +1329,6 @@ export enum EncryptionAlgorithmSpec {
 }
 
 export interface EncryptRequest {
-  __type?: "EncryptRequest";
   /**
    * <p>A list of grant tokens.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
@@ -1469,11 +1392,9 @@ export namespace EncryptRequest {
     ...obj,
     ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is EncryptRequest => __isa(o, "EncryptRequest");
 }
 
 export interface EncryptResponse {
-  __type?: "EncryptResponse";
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK that was used to encrypt the plaintext.</p>
    */
@@ -1494,7 +1415,6 @@ export namespace EncryptResponse {
   export const filterSensitiveLog = (obj: EncryptResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EncryptResponse => __isa(o, "EncryptResponse");
 }
 
 export enum ExpirationModelType {
@@ -1516,11 +1436,9 @@ export namespace ExpiredImportTokenException {
   export const filterSensitiveLog = (obj: ExpiredImportTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExpiredImportTokenException => __isa(o, "ExpiredImportTokenException");
 }
 
 export interface GenerateDataKeyPairRequest {
-  __type?: "GenerateDataKeyPairRequest";
   /**
    * <p>Specifies the encryption context that will be used when encrypting the private key in the
    *       data key pair.</p>
@@ -1577,11 +1495,9 @@ export namespace GenerateDataKeyPairRequest {
   export const filterSensitiveLog = (obj: GenerateDataKeyPairRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateDataKeyPairRequest => __isa(o, "GenerateDataKeyPairRequest");
 }
 
 export interface GenerateDataKeyPairResponse {
-  __type?: "GenerateDataKeyPairResponse";
   /**
    * <p>The encrypted copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    */
@@ -1613,11 +1529,9 @@ export namespace GenerateDataKeyPairResponse {
     ...obj,
     ...(obj.PrivateKeyPlaintext && { PrivateKeyPlaintext: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GenerateDataKeyPairResponse => __isa(o, "GenerateDataKeyPairResponse");
 }
 
 export interface GenerateDataKeyPairWithoutPlaintextRequest {
-  __type?: "GenerateDataKeyPairWithoutPlaintextRequest";
   /**
    * <p>Specifies the CMK that encrypts the private key in the data key pair. You must specify a
    *       symmetric CMK. You cannot use an asymmetric CMK or a CMK in a custom key store. To get the
@@ -1674,12 +1588,9 @@ export namespace GenerateDataKeyPairWithoutPlaintextRequest {
   export const filterSensitiveLog = (obj: GenerateDataKeyPairWithoutPlaintextRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateDataKeyPairWithoutPlaintextRequest =>
-    __isa(o, "GenerateDataKeyPairWithoutPlaintextRequest");
 }
 
 export interface GenerateDataKeyPairWithoutPlaintextResponse {
-  __type?: "GenerateDataKeyPairWithoutPlaintextResponse";
   /**
    * <p>The type of data key pair that was generated.</p>
    */
@@ -1705,12 +1616,9 @@ export namespace GenerateDataKeyPairWithoutPlaintextResponse {
   export const filterSensitiveLog = (obj: GenerateDataKeyPairWithoutPlaintextResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateDataKeyPairWithoutPlaintextResponse =>
-    __isa(o, "GenerateDataKeyPairWithoutPlaintextResponse");
 }
 
 export interface GenerateDataKeyRequest {
-  __type?: "GenerateDataKeyRequest";
   /**
    * <p>Specifies the length of the data key in bytes. For example, use the value 64 to generate a
    *       512-bit data key (64 bytes is 512 bits). For 128-bit (16-byte) and 256-bit (32-byte) data
@@ -1776,11 +1684,9 @@ export namespace GenerateDataKeyRequest {
   export const filterSensitiveLog = (obj: GenerateDataKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateDataKeyRequest => __isa(o, "GenerateDataKeyRequest");
 }
 
 export interface GenerateDataKeyResponse {
-  __type?: "GenerateDataKeyResponse";
   /**
    * <p>The plaintext data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this data key to encrypt your data outside of
    *       KMS. Then, remove it from memory as soon as possible.</p>
@@ -1803,11 +1709,9 @@ export namespace GenerateDataKeyResponse {
     ...obj,
     ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GenerateDataKeyResponse => __isa(o, "GenerateDataKeyResponse");
 }
 
 export interface GenerateDataKeyWithoutPlaintextRequest {
-  __type?: "GenerateDataKeyWithoutPlaintextRequest";
   /**
    * <p>Specifies the encryption context that will be used when encrypting the data key.</p>
    *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
@@ -1869,12 +1773,9 @@ export namespace GenerateDataKeyWithoutPlaintextRequest {
   export const filterSensitiveLog = (obj: GenerateDataKeyWithoutPlaintextRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateDataKeyWithoutPlaintextRequest =>
-    __isa(o, "GenerateDataKeyWithoutPlaintextRequest");
 }
 
 export interface GenerateDataKeyWithoutPlaintextResponse {
-  __type?: "GenerateDataKeyWithoutPlaintextResponse";
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK that encrypted the data key.</p>
    */
@@ -1890,12 +1791,9 @@ export namespace GenerateDataKeyWithoutPlaintextResponse {
   export const filterSensitiveLog = (obj: GenerateDataKeyWithoutPlaintextResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateDataKeyWithoutPlaintextResponse =>
-    __isa(o, "GenerateDataKeyWithoutPlaintextResponse");
 }
 
 export interface GenerateRandomRequest {
-  __type?: "GenerateRandomRequest";
   /**
    * <p>The length of the byte string.</p>
    */
@@ -1912,11 +1810,9 @@ export namespace GenerateRandomRequest {
   export const filterSensitiveLog = (obj: GenerateRandomRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GenerateRandomRequest => __isa(o, "GenerateRandomRequest");
 }
 
 export interface GenerateRandomResponse {
-  __type?: "GenerateRandomResponse";
   /**
    * <p>The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    */
@@ -1928,11 +1824,9 @@ export namespace GenerateRandomResponse {
     ...obj,
     ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GenerateRandomResponse => __isa(o, "GenerateRandomResponse");
 }
 
 export interface GetKeyPolicyRequest {
-  __type?: "GetKeyPolicyRequest";
   /**
    * <p>Specifies the name of the key policy. The only valid name is <code>default</code>. To get
    *       the names of key policies, use <a>ListKeyPolicies</a>.</p>
@@ -1962,11 +1856,9 @@ export namespace GetKeyPolicyRequest {
   export const filterSensitiveLog = (obj: GetKeyPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetKeyPolicyRequest => __isa(o, "GetKeyPolicyRequest");
 }
 
 export interface GetKeyPolicyResponse {
-  __type?: "GetKeyPolicyResponse";
   /**
    * <p>A key policy document in JSON format.</p>
    */
@@ -1977,11 +1869,9 @@ export namespace GetKeyPolicyResponse {
   export const filterSensitiveLog = (obj: GetKeyPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetKeyPolicyResponse => __isa(o, "GetKeyPolicyResponse");
 }
 
 export interface GetKeyRotationStatusRequest {
-  __type?: "GetKeyRotationStatusRequest";
   /**
    * <p>A unique identifier for the customer master key (CMK).</p>
    *          <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a
@@ -2006,11 +1896,9 @@ export namespace GetKeyRotationStatusRequest {
   export const filterSensitiveLog = (obj: GetKeyRotationStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetKeyRotationStatusRequest => __isa(o, "GetKeyRotationStatusRequest");
 }
 
 export interface GetKeyRotationStatusResponse {
-  __type?: "GetKeyRotationStatusResponse";
   /**
    * <p>A Boolean value that specifies whether key rotation is enabled.</p>
    */
@@ -2021,11 +1909,9 @@ export namespace GetKeyRotationStatusResponse {
   export const filterSensitiveLog = (obj: GetKeyRotationStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetKeyRotationStatusResponse => __isa(o, "GetKeyRotationStatusResponse");
 }
 
 export interface GetParametersForImportRequest {
-  __type?: "GetParametersForImportRequest";
   /**
    * <p>The type of wrapping key (public key) to return in the response. Only 2048-bit RSA public
    *       keys are supported.</p>
@@ -2062,11 +1948,9 @@ export namespace GetParametersForImportRequest {
   export const filterSensitiveLog = (obj: GetParametersForImportRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetParametersForImportRequest => __isa(o, "GetParametersForImportRequest");
 }
 
 export interface GetParametersForImportResponse {
-  __type?: "GetParametersForImportResponse";
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK to use in a subsequent <a>ImportKeyMaterial</a>
    *       request. This is the same CMK specified in the <code>GetParametersForImport</code>
@@ -2098,11 +1982,9 @@ export namespace GetParametersForImportResponse {
     ...obj,
     ...(obj.PublicKey && { PublicKey: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetParametersForImportResponse => __isa(o, "GetParametersForImportResponse");
 }
 
 export interface GetPublicKeyRequest {
-  __type?: "GetPublicKeyRequest";
   /**
    * <p>Identifies the asymmetric CMK that includes the public key.</p>
    *
@@ -2142,11 +2024,9 @@ export namespace GetPublicKeyRequest {
   export const filterSensitiveLog = (obj: GetPublicKeyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPublicKeyRequest => __isa(o, "GetPublicKeyRequest");
 }
 
 export interface GetPublicKeyResponse {
-  __type?: "GetPublicKeyResponse";
   /**
    * <p>The permitted use of the public key. Valid values are <code>ENCRYPT_DECRYPT</code> or
    *         <code>SIGN_VERIFY</code>. </p>
@@ -2194,7 +2074,6 @@ export namespace GetPublicKeyResponse {
   export const filterSensitiveLog = (obj: GetPublicKeyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetPublicKeyResponse => __isa(o, "GetPublicKeyResponse");
 }
 
 /**
@@ -2219,7 +2098,6 @@ export namespace GetPublicKeyResponse {
  *          </important>
  */
 export interface GrantConstraints {
-  __type?: "GrantConstraints";
   /**
    * <p>A list of key-value pairs that must match the encryption context in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operation</a> request. The grant allows the operation only when the encryption context in the
    *       request is the same as the encryption context specified in this constraint.</p>
@@ -2239,14 +2117,12 @@ export namespace GrantConstraints {
   export const filterSensitiveLog = (obj: GrantConstraints): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrantConstraints => __isa(o, "GrantConstraints");
 }
 
 /**
  * <p>Contains information about a grant.</p>
  */
 export interface GrantListEntry {
-  __type?: "GrantListEntry";
   /**
    * <p>The AWS account under which the grant was issued.</p>
    */
@@ -2303,7 +2179,6 @@ export namespace GrantListEntry {
   export const filterSensitiveLog = (obj: GrantListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GrantListEntry => __isa(o, "GrantListEntry");
 }
 
 export enum GrantOperation {
@@ -2324,7 +2199,6 @@ export enum GrantOperation {
 }
 
 export interface ImportKeyMaterialRequest {
-  __type?: "ImportKeyMaterialRequest";
   /**
    * <p>The import token that you received in the response to a previous <a>GetParametersForImport</a> request. It must be from the same response that contained
    *       the public key that you used to encrypt the key material.</p>
@@ -2380,18 +2254,14 @@ export namespace ImportKeyMaterialRequest {
   export const filterSensitiveLog = (obj: ImportKeyMaterialRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportKeyMaterialRequest => __isa(o, "ImportKeyMaterialRequest");
 }
 
-export interface ImportKeyMaterialResponse {
-  __type?: "ImportKeyMaterialResponse";
-}
+export interface ImportKeyMaterialResponse {}
 
 export namespace ImportKeyMaterialResponse {
   export const filterSensitiveLog = (obj: ImportKeyMaterialResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ImportKeyMaterialResponse => __isa(o, "ImportKeyMaterialResponse");
 }
 
 /**
@@ -2410,7 +2280,6 @@ export namespace IncorrectKeyException {
   export const filterSensitiveLog = (obj: IncorrectKeyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncorrectKeyException => __isa(o, "IncorrectKeyException");
 }
 
 /**
@@ -2428,7 +2297,6 @@ export namespace IncorrectKeyMaterialException {
   export const filterSensitiveLog = (obj: IncorrectKeyMaterialException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncorrectKeyMaterialException => __isa(o, "IncorrectKeyMaterialException");
 }
 
 /**
@@ -2447,7 +2315,6 @@ export namespace IncorrectTrustAnchorException {
   export const filterSensitiveLog = (obj: IncorrectTrustAnchorException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IncorrectTrustAnchorException => __isa(o, "IncorrectTrustAnchorException");
 }
 
 /**
@@ -2463,7 +2330,6 @@ export namespace InvalidAliasNameException {
   export const filterSensitiveLog = (obj: InvalidAliasNameException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidAliasNameException => __isa(o, "InvalidAliasNameException");
 }
 
 /**
@@ -2480,7 +2346,6 @@ export namespace InvalidArnException {
   export const filterSensitiveLog = (obj: InvalidArnException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidArnException => __isa(o, "InvalidArnException");
 }
 
 /**
@@ -2501,7 +2366,6 @@ export namespace InvalidCiphertextException {
   export const filterSensitiveLog = (obj: InvalidCiphertextException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCiphertextException => __isa(o, "InvalidCiphertextException");
 }
 
 /**
@@ -2517,7 +2381,6 @@ export namespace InvalidGrantIdException {
   export const filterSensitiveLog = (obj: InvalidGrantIdException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidGrantIdException => __isa(o, "InvalidGrantIdException");
 }
 
 /**
@@ -2533,7 +2396,6 @@ export namespace InvalidGrantTokenException {
   export const filterSensitiveLog = (obj: InvalidGrantTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidGrantTokenException => __isa(o, "InvalidGrantTokenException");
 }
 
 /**
@@ -2550,7 +2412,6 @@ export namespace InvalidImportTokenException {
   export const filterSensitiveLog = (obj: InvalidImportTokenException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidImportTokenException => __isa(o, "InvalidImportTokenException");
 }
 
 /**
@@ -2582,7 +2443,6 @@ export namespace InvalidKeyUsageException {
   export const filterSensitiveLog = (obj: InvalidKeyUsageException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidKeyUsageException => __isa(o, "InvalidKeyUsageException");
 }
 
 /**
@@ -2599,14 +2459,12 @@ export namespace InvalidMarkerException {
   export const filterSensitiveLog = (obj: InvalidMarkerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidMarkerException => __isa(o, "InvalidMarkerException");
 }
 
 /**
  * <p>Contains information about each entry in the key list.</p>
  */
 export interface KeyListEntry {
-  __type?: "KeyListEntry";
   /**
    * <p>ARN of the key.</p>
    */
@@ -2622,7 +2480,6 @@ export namespace KeyListEntry {
   export const filterSensitiveLog = (obj: KeyListEntry): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyListEntry => __isa(o, "KeyListEntry");
 }
 
 export enum KeyManagerType {
@@ -2635,7 +2492,6 @@ export enum KeyManagerType {
  *          <p>This data type is used as a response element for the <a>CreateKey</a> and <a>DescribeKey</a> operations.</p>
  */
 export interface KeyMetadata {
-  __type?: "KeyMetadata";
   /**
    * <p>Specifies whether the CMK's key material expires. This value is present only when
    *         <code>Origin</code> is <code>EXTERNAL</code>, otherwise this value is omitted.</p>
@@ -2756,7 +2612,6 @@ export namespace KeyMetadata {
   export const filterSensitiveLog = (obj: KeyMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyMetadata => __isa(o, "KeyMetadata");
 }
 
 export enum KeyState {
@@ -2781,7 +2636,6 @@ export namespace KeyUnavailableException {
   export const filterSensitiveLog = (obj: KeyUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KeyUnavailableException => __isa(o, "KeyUnavailableException");
 }
 
 export enum KeyUsageType {
@@ -2803,7 +2657,6 @@ export namespace KMSInternalException {
   export const filterSensitiveLog = (obj: KMSInternalException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSInternalException => __isa(o, "KMSInternalException");
 }
 
 /**
@@ -2821,7 +2674,6 @@ export namespace KMSInvalidSignatureException {
   export const filterSensitiveLog = (obj: KMSInvalidSignatureException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSInvalidSignatureException => __isa(o, "KMSInvalidSignatureException");
 }
 
 /**
@@ -2842,7 +2694,6 @@ export namespace KMSInvalidStateException {
   export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KMSInvalidStateException => __isa(o, "KMSInvalidStateException");
 }
 
 /**
@@ -2859,11 +2710,9 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListAliasesRequest {
-  __type?: "ListAliasesRequest";
   /**
    * <p>Lists only aliases that refer to the specified CMK. The value of this parameter can be the
    *       ID or Amazon Resource Name (ARN) of a CMK in the caller's account and region. You cannot use
@@ -2894,11 +2743,9 @@ export namespace ListAliasesRequest {
   export const filterSensitiveLog = (obj: ListAliasesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAliasesRequest => __isa(o, "ListAliasesRequest");
 }
 
 export interface ListAliasesResponse {
-  __type?: "ListAliasesResponse";
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
    *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
@@ -2923,11 +2770,9 @@ export namespace ListAliasesResponse {
   export const filterSensitiveLog = (obj: ListAliasesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListAliasesResponse => __isa(o, "ListAliasesResponse");
 }
 
 export interface ListGrantsRequest {
-  __type?: "ListGrantsRequest";
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with
    *     truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
@@ -2968,11 +2813,9 @@ export namespace ListGrantsRequest {
   export const filterSensitiveLog = (obj: ListGrantsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGrantsRequest => __isa(o, "ListGrantsRequest");
 }
 
 export interface ListGrantsResponse {
-  __type?: "ListGrantsResponse";
   /**
    * <p>A list of grants.</p>
    */
@@ -2997,11 +2840,9 @@ export namespace ListGrantsResponse {
   export const filterSensitiveLog = (obj: ListGrantsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListGrantsResponse => __isa(o, "ListGrantsResponse");
 }
 
 export interface ListKeyPoliciesRequest {
-  __type?: "ListKeyPoliciesRequest";
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this
    *     value is present, AWS KMS does not return more than the specified number of items, but it might
@@ -3042,11 +2883,9 @@ export namespace ListKeyPoliciesRequest {
   export const filterSensitiveLog = (obj: ListKeyPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListKeyPoliciesRequest => __isa(o, "ListKeyPoliciesRequest");
 }
 
 export interface ListKeyPoliciesResponse {
-  __type?: "ListKeyPoliciesResponse";
   /**
    * <p>A list of key policy names. The only valid value is <code>default</code>.</p>
    */
@@ -3071,11 +2910,9 @@ export namespace ListKeyPoliciesResponse {
   export const filterSensitiveLog = (obj: ListKeyPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListKeyPoliciesResponse => __isa(o, "ListKeyPoliciesResponse");
 }
 
 export interface ListKeysRequest {
-  __type?: "ListKeysRequest";
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with
    *     truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
@@ -3097,11 +2934,9 @@ export namespace ListKeysRequest {
   export const filterSensitiveLog = (obj: ListKeysRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListKeysRequest => __isa(o, "ListKeysRequest");
 }
 
 export interface ListKeysResponse {
-  __type?: "ListKeysResponse";
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
    *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
@@ -3126,11 +2961,9 @@ export namespace ListKeysResponse {
   export const filterSensitiveLog = (obj: ListKeysResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListKeysResponse => __isa(o, "ListKeysResponse");
 }
 
 export interface ListResourceTagsRequest {
-  __type?: "ListResourceTagsRequest";
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this
    *     value is present, AWS KMS does not return more than the specified number of items, but it might
@@ -3172,11 +3005,9 @@ export namespace ListResourceTagsRequest {
   export const filterSensitiveLog = (obj: ListResourceTagsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceTagsRequest => __isa(o, "ListResourceTagsRequest");
 }
 
 export interface ListResourceTagsResponse {
-  __type?: "ListResourceTagsResponse";
   /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
    *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
@@ -3202,11 +3033,9 @@ export namespace ListResourceTagsResponse {
   export const filterSensitiveLog = (obj: ListResourceTagsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListResourceTagsResponse => __isa(o, "ListResourceTagsResponse");
 }
 
 export interface ListRetirableGrantsRequest {
-  __type?: "ListRetirableGrantsRequest";
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this
    *     value is present, AWS KMS does not return more than the specified number of items, but it might
@@ -3238,7 +3067,6 @@ export namespace ListRetirableGrantsRequest {
   export const filterSensitiveLog = (obj: ListRetirableGrantsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListRetirableGrantsRequest => __isa(o, "ListRetirableGrantsRequest");
 }
 
 /**
@@ -3255,7 +3083,6 @@ export namespace MalformedPolicyDocumentException {
   export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MalformedPolicyDocumentException => __isa(o, "MalformedPolicyDocumentException");
 }
 
 export enum MessageType {
@@ -3277,7 +3104,6 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 export enum OriginType {
@@ -3287,7 +3113,6 @@ export enum OriginType {
 }
 
 export interface PutKeyPolicyRequest {
-  __type?: "PutKeyPolicyRequest";
   /**
    * <p>A unique identifier for the customer master key (CMK).</p>
    *          <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
@@ -3352,11 +3177,9 @@ export namespace PutKeyPolicyRequest {
   export const filterSensitiveLog = (obj: PutKeyPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutKeyPolicyRequest => __isa(o, "PutKeyPolicyRequest");
 }
 
 export interface ReEncryptRequest {
-  __type?: "ReEncryptRequest";
   /**
    * <p>Ciphertext of the data to reencrypt.</p>
    */
@@ -3479,11 +3302,9 @@ export namespace ReEncryptRequest {
   export const filterSensitiveLog = (obj: ReEncryptRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReEncryptRequest => __isa(o, "ReEncryptRequest");
 }
 
 export interface ReEncryptResponse {
-  __type?: "ReEncryptResponse";
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK that was used to reencrypt the data.</p>
    */
@@ -3515,11 +3336,9 @@ export namespace ReEncryptResponse {
   export const filterSensitiveLog = (obj: ReEncryptResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReEncryptResponse => __isa(o, "ReEncryptResponse");
 }
 
 export interface RetireGrantRequest {
-  __type?: "RetireGrantRequest";
   /**
    * <p>Token that identifies the grant to be retired.</p>
    */
@@ -3549,11 +3368,9 @@ export namespace RetireGrantRequest {
   export const filterSensitiveLog = (obj: RetireGrantRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RetireGrantRequest => __isa(o, "RetireGrantRequest");
 }
 
 export interface RevokeGrantRequest {
-  __type?: "RevokeGrantRequest";
   /**
    * <p>Identifier of the grant to be revoked.</p>
    */
@@ -3584,11 +3401,9 @@ export namespace RevokeGrantRequest {
   export const filterSensitiveLog = (obj: RevokeGrantRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RevokeGrantRequest => __isa(o, "RevokeGrantRequest");
 }
 
 export interface ScheduleKeyDeletionRequest {
-  __type?: "ScheduleKeyDeletionRequest";
   /**
    * <p>The unique identifier of the customer master key (CMK) to delete.</p>
    *
@@ -3621,11 +3436,9 @@ export namespace ScheduleKeyDeletionRequest {
   export const filterSensitiveLog = (obj: ScheduleKeyDeletionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduleKeyDeletionRequest => __isa(o, "ScheduleKeyDeletionRequest");
 }
 
 export interface ScheduleKeyDeletionResponse {
-  __type?: "ScheduleKeyDeletionResponse";
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK whose deletion is scheduled.</p>
    */
@@ -3641,7 +3454,6 @@ export namespace ScheduleKeyDeletionResponse {
   export const filterSensitiveLog = (obj: ScheduleKeyDeletionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ScheduleKeyDeletionResponse => __isa(o, "ScheduleKeyDeletionResponse");
 }
 
 export enum SigningAlgorithmSpec {
@@ -3657,7 +3469,6 @@ export enum SigningAlgorithmSpec {
 }
 
 export interface SignRequest {
-  __type?: "SignRequest";
   /**
    * <p>Identifies an asymmetric CMK. AWS KMS uses the private key in the asymmetric CMK to sign the
    *       message. The <code>KeyUsage</code> type of the CMK must be <code>SIGN_VERIFY</code>. To find
@@ -3722,11 +3533,9 @@ export namespace SignRequest {
     ...obj,
     ...(obj.Message && { Message: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is SignRequest => __isa(o, "SignRequest");
 }
 
 export interface SignResponse {
-  __type?: "SignResponse";
   /**
    * <p>The signing algorithm that was used to sign the message.</p>
    */
@@ -3763,7 +3572,6 @@ export namespace SignResponse {
   export const filterSensitiveLog = (obj: SignResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SignResponse => __isa(o, "SignResponse");
 }
 
 /**
@@ -3773,7 +3581,6 @@ export namespace SignResponse {
  *         Guide</i>.</p>
  */
 export interface Tag {
-  __type?: "Tag";
   /**
    * <p>The key of the tag.</p>
    */
@@ -3789,7 +3596,6 @@ export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Tag => __isa(o, "Tag");
 }
 
 /**
@@ -3805,11 +3611,9 @@ export namespace TagException {
   export const filterSensitiveLog = (obj: TagException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagException => __isa(o, "TagException");
 }
 
 export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
   /**
    * <p>A unique identifier for the CMK you are tagging.</p>
    *          <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
@@ -3838,7 +3642,6 @@ export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -3855,11 +3658,9 @@ export namespace UnsupportedOperationException {
   export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UnsupportedOperationException => __isa(o, "UnsupportedOperationException");
 }
 
 export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
   /**
    * <p>A unique identifier for the CMK from which you are removing tags.</p>
    *
@@ -3889,11 +3690,9 @@ export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateAliasRequest {
-  __type?: "UpdateAliasRequest";
   /**
    * <p>Identifies the CMK to associate with the alias. When the update operation completes, the
    *       alias will point to this CMK. </p>
@@ -3930,11 +3729,9 @@ export namespace UpdateAliasRequest {
   export const filterSensitiveLog = (obj: UpdateAliasRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAliasRequest => __isa(o, "UpdateAliasRequest");
 }
 
 export interface UpdateCustomKeyStoreRequest {
-  __type?: "UpdateCustomKeyStoreRequest";
   /**
    * <p>Associates the custom key store with a related AWS CloudHSM cluster. </p>
    *          <p>Enter the cluster ID of the cluster that you used to create the custom key store or a
@@ -3972,22 +3769,17 @@ export namespace UpdateCustomKeyStoreRequest {
     ...obj,
     ...(obj.KeyStorePassword && { KeyStorePassword: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is UpdateCustomKeyStoreRequest => __isa(o, "UpdateCustomKeyStoreRequest");
 }
 
-export interface UpdateCustomKeyStoreResponse {
-  __type?: "UpdateCustomKeyStoreResponse";
-}
+export interface UpdateCustomKeyStoreResponse {}
 
 export namespace UpdateCustomKeyStoreResponse {
   export const filterSensitiveLog = (obj: UpdateCustomKeyStoreResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCustomKeyStoreResponse => __isa(o, "UpdateCustomKeyStoreResponse");
 }
 
 export interface UpdateKeyDescriptionRequest {
-  __type?: "UpdateKeyDescriptionRequest";
   /**
    * <p>New description for the CMK.</p>
    */
@@ -4016,11 +3808,9 @@ export namespace UpdateKeyDescriptionRequest {
   export const filterSensitiveLog = (obj: UpdateKeyDescriptionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateKeyDescriptionRequest => __isa(o, "UpdateKeyDescriptionRequest");
 }
 
 export interface VerifyRequest {
-  __type?: "VerifyRequest";
   /**
    * <p>Tells AWS KMS whether the value of the <code>Message</code> parameter is a message or
    *       message digest. The default value, RAW, indicates a message. To indicate a message digest,
@@ -4096,11 +3886,9 @@ export namespace VerifyRequest {
     ...obj,
     ...(obj.Message && { Message: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is VerifyRequest => __isa(o, "VerifyRequest");
 }
 
 export interface VerifyResponse {
-  __type?: "VerifyResponse";
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric CMK that was used to verify the signature.</p>
    */
@@ -4125,7 +3913,6 @@ export namespace VerifyResponse {
   export const filterSensitiveLog = (obj: VerifyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VerifyResponse => __isa(o, "VerifyResponse");
 }
 
 export enum WrappingKeySpec {

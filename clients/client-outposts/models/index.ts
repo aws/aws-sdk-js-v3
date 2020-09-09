@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,11 +14,9 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface CreateOutpostInput {
-  __type?: "CreateOutpostInput";
   /**
    * <p>The name of the Outpost.</p>
    */
@@ -51,11 +49,9 @@ export namespace CreateOutpostInput {
   export const filterSensitiveLog = (obj: CreateOutpostInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOutpostInput => __isa(o, "CreateOutpostInput");
 }
 
 export interface CreateOutpostOutput {
-  __type?: "CreateOutpostOutput";
   /**
    * <p>Information about an Outpost.</p>
    */
@@ -66,11 +62,9 @@ export namespace CreateOutpostOutput {
   export const filterSensitiveLog = (obj: CreateOutpostOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateOutpostOutput => __isa(o, "CreateOutpostOutput");
 }
 
 export interface DeleteOutpostInput {
-  __type?: "DeleteOutpostInput";
   /**
    * <p>The ID of the Outpost.</p>
    */
@@ -81,22 +75,17 @@ export namespace DeleteOutpostInput {
   export const filterSensitiveLog = (obj: DeleteOutpostInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteOutpostInput => __isa(o, "DeleteOutpostInput");
 }
 
-export interface DeleteOutpostOutput {
-  __type?: "DeleteOutpostOutput";
-}
+export interface DeleteOutpostOutput {}
 
 export namespace DeleteOutpostOutput {
   export const filterSensitiveLog = (obj: DeleteOutpostOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteOutpostOutput => __isa(o, "DeleteOutpostOutput");
 }
 
 export interface DeleteSiteInput {
-  __type?: "DeleteSiteInput";
   /**
    * <p>The ID of the site.</p>
    */
@@ -107,22 +96,17 @@ export namespace DeleteSiteInput {
   export const filterSensitiveLog = (obj: DeleteSiteInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSiteInput => __isa(o, "DeleteSiteInput");
 }
 
-export interface DeleteSiteOutput {
-  __type?: "DeleteSiteOutput";
-}
+export interface DeleteSiteOutput {}
 
 export namespace DeleteSiteOutput {
   export const filterSensitiveLog = (obj: DeleteSiteOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteSiteOutput => __isa(o, "DeleteSiteOutput");
 }
 
 export interface GetOutpostInput {
-  __type?: "GetOutpostInput";
   /**
    * <p>The ID of the Outpost.</p>
    */
@@ -133,11 +117,9 @@ export namespace GetOutpostInput {
   export const filterSensitiveLog = (obj: GetOutpostInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOutpostInput => __isa(o, "GetOutpostInput");
 }
 
 export interface GetOutpostInstanceTypesInput {
-  __type?: "GetOutpostInstanceTypesInput";
   /**
    * <p>The pagination token.</p>
    */
@@ -158,11 +140,9 @@ export namespace GetOutpostInstanceTypesInput {
   export const filterSensitiveLog = (obj: GetOutpostInstanceTypesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOutpostInstanceTypesInput => __isa(o, "GetOutpostInstanceTypesInput");
 }
 
 export interface GetOutpostInstanceTypesOutput {
-  __type?: "GetOutpostInstanceTypesOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
    */
@@ -188,11 +168,9 @@ export namespace GetOutpostInstanceTypesOutput {
   export const filterSensitiveLog = (obj: GetOutpostInstanceTypesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOutpostInstanceTypesOutput => __isa(o, "GetOutpostInstanceTypesOutput");
 }
 
 export interface GetOutpostOutput {
-  __type?: "GetOutpostOutput";
   /**
    * <p>Information about an Outpost.</p>
    */
@@ -203,14 +181,12 @@ export namespace GetOutpostOutput {
   export const filterSensitiveLog = (obj: GetOutpostOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetOutpostOutput => __isa(o, "GetOutpostOutput");
 }
 
 /**
  * <p>Information about an instance type.</p>
  */
 export interface InstanceTypeItem {
-  __type?: "InstanceTypeItem";
   /**
    * <p>The instance type.</p>
    */
@@ -221,7 +197,6 @@ export namespace InstanceTypeItem {
   export const filterSensitiveLog = (obj: InstanceTypeItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceTypeItem => __isa(o, "InstanceTypeItem");
 }
 
 /**
@@ -237,11 +212,9 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListOutpostsInput {
-  __type?: "ListOutpostsInput";
   /**
    * <p>The pagination token.</p>
    */
@@ -257,11 +230,9 @@ export namespace ListOutpostsInput {
   export const filterSensitiveLog = (obj: ListOutpostsInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOutpostsInput => __isa(o, "ListOutpostsInput");
 }
 
 export interface ListOutpostsOutput {
-  __type?: "ListOutpostsOutput";
   /**
    * <p>Information about the Outposts.</p>
    */
@@ -277,11 +248,9 @@ export namespace ListOutpostsOutput {
   export const filterSensitiveLog = (obj: ListOutpostsOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListOutpostsOutput => __isa(o, "ListOutpostsOutput");
 }
 
 export interface ListSitesInput {
-  __type?: "ListSitesInput";
   /**
    * <p>The pagination token.</p>
    */
@@ -297,11 +266,9 @@ export namespace ListSitesInput {
   export const filterSensitiveLog = (obj: ListSitesInput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSitesInput => __isa(o, "ListSitesInput");
 }
 
 export interface ListSitesOutput {
-  __type?: "ListSitesOutput";
   /**
    * <p>Information about the sites.</p>
    */
@@ -317,7 +284,6 @@ export namespace ListSitesOutput {
   export const filterSensitiveLog = (obj: ListSitesOutput): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListSitesOutput => __isa(o, "ListSitesOutput");
 }
 
 /**
@@ -333,14 +299,12 @@ export namespace NotFoundException {
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
  * <p>Information about an Outpost.</p>
  */
 export interface Outpost {
-  __type?: "Outpost";
   /**
    * <p>The ID of the Availability Zone.</p>
    *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
@@ -393,7 +357,6 @@ export namespace Outpost {
   export const filterSensitiveLog = (obj: Outpost): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Outpost => __isa(o, "Outpost");
 }
 
 /**
@@ -409,14 +372,12 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
  * <p>Information about a site.</p>
  */
 export interface Site {
-  __type?: "Site";
   /**
    * <p>The ID of the AWS account.</p>
    */
@@ -442,7 +403,6 @@ export namespace Site {
   export const filterSensitiveLog = (obj: Site): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Site => __isa(o, "Site");
 }
 
 /**
@@ -458,5 +418,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

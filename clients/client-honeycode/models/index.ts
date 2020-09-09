@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -17,7 +17,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -33,7 +32,6 @@ export namespace AutomationExecutionException {
   export const filterSensitiveLog = (obj: AutomationExecutionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutomationExecutionException => __isa(o, "AutomationExecutionException");
 }
 
 /**
@@ -49,15 +47,12 @@ export namespace AutomationExecutionTimeoutException {
   export const filterSensitiveLog = (obj: AutomationExecutionTimeoutException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutomationExecutionTimeoutException =>
-    __isa(o, "AutomationExecutionTimeoutException");
 }
 
 /**
  * <p>Metadata for column in the table.</p>
  */
 export interface ColumnMetadata {
-  __type?: "ColumnMetadata";
   /**
    * <p>The name of the column.</p>
    */
@@ -74,14 +69,12 @@ export namespace ColumnMetadata {
     ...obj,
     ...(obj.name && { name: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ColumnMetadata => __isa(o, "ColumnMetadata");
 }
 
 /**
  * <p>The data in a particular data cell defined on the screen.</p>
  */
 export interface DataItem {
-  __type?: "DataItem";
   /**
    * <p>The formatted value of the data. e.g. John Smith.</p>
    */
@@ -105,7 +98,6 @@ export namespace DataItem {
   export const filterSensitiveLog = (obj: DataItem): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DataItem => __isa(o, "DataItem");
 }
 
 export enum Format {
@@ -123,7 +115,6 @@ export enum Format {
 }
 
 export interface GetScreenDataRequest {
-  __type?: "GetScreenDataRequest";
   /**
    * <p>
    *             Variables are optional and are needed only if the screen requires them to render correctly. Variables are
@@ -177,11 +168,9 @@ export namespace GetScreenDataRequest {
     ...obj,
     ...(obj.variables && { variables: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is GetScreenDataRequest => __isa(o, "GetScreenDataRequest");
 }
 
 export interface GetScreenDataResult {
-  __type?: "GetScreenDataResult";
   /**
    * <p>
    *             Provides the pagination token to load the next page if there are more results matching the request. If a
@@ -217,7 +206,6 @@ export namespace GetScreenDataResult {
       ),
     }),
   });
-  export const isa = (o: any): o is GetScreenDataResult => __isa(o, "GetScreenDataResult");
 }
 
 /**
@@ -233,11 +221,9 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface InvokeScreenAutomationRequest {
-  __type?: "InvokeScreenAutomationRequest";
   /**
    * <p>The ID of the automation action to be performed.</p>
    */
@@ -296,11 +282,9 @@ export namespace InvokeScreenAutomationRequest {
     ...obj,
     ...(obj.variables && { variables: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is InvokeScreenAutomationRequest => __isa(o, "InvokeScreenAutomationRequest");
 }
 
 export interface InvokeScreenAutomationResult {
-  __type?: "InvokeScreenAutomationResult";
   /**
    * <p>The updated workbook cursor after performing the automation action.</p>
    */
@@ -311,7 +295,6 @@ export namespace InvokeScreenAutomationResult {
   export const filterSensitiveLog = (obj: InvokeScreenAutomationResult): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvokeScreenAutomationResult => __isa(o, "InvokeScreenAutomationResult");
 }
 
 /**
@@ -327,7 +310,6 @@ export namespace RequestTimeoutException {
   export const filterSensitiveLog = (obj: RequestTimeoutException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RequestTimeoutException => __isa(o, "RequestTimeoutException");
 }
 
 /**
@@ -343,14 +325,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>A single row in the ResultSet.</p>
  */
 export interface ResultRow {
-  __type?: "ResultRow";
   /**
    * <p>The ID for a particular row.</p>
    */
@@ -367,7 +347,6 @@ export namespace ResultRow {
     ...obj,
     ...(obj.dataItems && { dataItems: SENSITIVE_STRING }),
   });
-  export const isa = (o: any): o is ResultRow => __isa(o, "ResultRow");
 }
 
 /**
@@ -376,7 +355,6 @@ export namespace ResultRow {
  *         </p>
  */
 export interface ResultSet {
-  __type?: "ResultSet";
   /**
    * <p>
    *             List of headers for all the data cells in the block. The header identifies the name and default format of
@@ -408,7 +386,6 @@ export namespace ResultSet {
     ...obj,
     ...(obj.headers && { headers: obj.headers.map((item) => ColumnMetadata.filterSensitiveLog(item)) }),
   });
-  export const isa = (o: any): o is ResultSet => __isa(o, "ResultSet");
 }
 
 /**
@@ -424,7 +401,6 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -440,7 +416,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -458,14 +433,12 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 /**
  * <p>The input variables to the app to be used by the InvokeScreenAutomation action request.</p>
  */
 export interface VariableValue {
-  __type?: "VariableValue";
   /**
    * <p>Raw value of the variable.</p>
    */
@@ -476,5 +449,4 @@ export namespace VariableValue {
   export const filterSensitiveLog = (obj: VariableValue): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VariableValue => __isa(o, "VariableValue");
 }

@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,14 +14,12 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
  * <p>Describes the configuration of an Auto Scaling group.</p>
  */
 export interface AutoScalingGroupConfiguration {
-  __type?: "AutoScalingGroupConfiguration";
   /**
    * <p>The maximum size, or maximum number of instances, for the Auto Scaling group.</p>
    */
@@ -47,14 +45,12 @@ export namespace AutoScalingGroupConfiguration {
   export const filterSensitiveLog = (obj: AutoScalingGroupConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingGroupConfiguration => __isa(o, "AutoScalingGroupConfiguration");
 }
 
 /**
  * <p>Describes an Auto Scaling group recommendation.</p>
  */
 export interface AutoScalingGroupRecommendation {
-  __type?: "AutoScalingGroupRecommendation";
   /**
    * <p>The number of days for which utilization metrics were analyzed for the Auto Scaling
    *             group.</p>
@@ -131,14 +127,12 @@ export namespace AutoScalingGroupRecommendation {
   export const filterSensitiveLog = (obj: AutoScalingGroupRecommendation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingGroupRecommendation => __isa(o, "AutoScalingGroupRecommendation");
 }
 
 /**
  * <p>Describes a recommendation option for an Auto Scaling group.</p>
  */
 export interface AutoScalingGroupRecommendationOption {
-  __type?: "AutoScalingGroupRecommendationOption";
   /**
    * <p>An array of objects that describe the projected utilization metrics of the Auto Scaling group
    *             recommendation option.</p>
@@ -170,12 +164,9 @@ export namespace AutoScalingGroupRecommendationOption {
   export const filterSensitiveLog = (obj: AutoScalingGroupRecommendationOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AutoScalingGroupRecommendationOption =>
-    __isa(o, "AutoScalingGroupRecommendationOption");
 }
 
 export interface DescribeRecommendationExportJobsRequest {
-  __type?: "DescribeRecommendationExportJobsRequest";
   /**
    * <p>The token to advance to the next page of export jobs.</p>
    */
@@ -211,12 +202,9 @@ export namespace DescribeRecommendationExportJobsRequest {
   export const filterSensitiveLog = (obj: DescribeRecommendationExportJobsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRecommendationExportJobsRequest =>
-    __isa(o, "DescribeRecommendationExportJobsRequest");
 }
 
 export interface DescribeRecommendationExportJobsResponse {
-  __type?: "DescribeRecommendationExportJobsResponse";
   /**
    * <p>The token to use to advance to the next page of export jobs.</p>
    *         <p>This value is null when there are no more pages of export jobs to return.</p>
@@ -233,8 +221,6 @@ export namespace DescribeRecommendationExportJobsResponse {
   export const filterSensitiveLog = (obj: DescribeRecommendationExportJobsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeRecommendationExportJobsResponse =>
-    __isa(o, "DescribeRecommendationExportJobsResponse");
 }
 
 export enum ExportableAutoScalingGroupField {
@@ -306,7 +292,6 @@ export enum ExportableInstanceField {
 }
 
 export interface ExportAutoScalingGroupRecommendationsRequest {
-  __type?: "ExportAutoScalingGroupRecommendationsRequest";
   /**
    * <p>Indicates whether to include recommendations for resources in all member accounts of
    *             the organization if your account is the master account of an organization.</p>
@@ -367,12 +352,9 @@ export namespace ExportAutoScalingGroupRecommendationsRequest {
   export const filterSensitiveLog = (obj: ExportAutoScalingGroupRecommendationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportAutoScalingGroupRecommendationsRequest =>
-    __isa(o, "ExportAutoScalingGroupRecommendationsRequest");
 }
 
 export interface ExportAutoScalingGroupRecommendationsResponse {
-  __type?: "ExportAutoScalingGroupRecommendationsResponse";
   /**
    * <p>An object that describes the destination Amazon S3 bucket of a recommendations export
    *             file.</p>
@@ -391,15 +373,12 @@ export namespace ExportAutoScalingGroupRecommendationsResponse {
   export const filterSensitiveLog = (obj: ExportAutoScalingGroupRecommendationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportAutoScalingGroupRecommendationsResponse =>
-    __isa(o, "ExportAutoScalingGroupRecommendationsResponse");
 }
 
 /**
  * <p>Describes the destination of the recommendations export and metadata files.</p>
  */
 export interface ExportDestination {
-  __type?: "ExportDestination";
   /**
    * <p>An object that describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object keys
    *             of a recommendations export file, and its associated metadata file.</p>
@@ -411,11 +390,9 @@ export namespace ExportDestination {
   export const filterSensitiveLog = (obj: ExportDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportDestination => __isa(o, "ExportDestination");
 }
 
 export interface ExportEC2InstanceRecommendationsRequest {
-  __type?: "ExportEC2InstanceRecommendationsRequest";
   /**
    * <p>The IDs of the AWS accounts for which to export instance recommendations.</p>
    *         <p>If your account is the master account of an organization, use this parameter to
@@ -474,12 +451,9 @@ export namespace ExportEC2InstanceRecommendationsRequest {
   export const filterSensitiveLog = (obj: ExportEC2InstanceRecommendationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportEC2InstanceRecommendationsRequest =>
-    __isa(o, "ExportEC2InstanceRecommendationsRequest");
 }
 
 export interface ExportEC2InstanceRecommendationsResponse {
-  __type?: "ExportEC2InstanceRecommendationsResponse";
   /**
    * <p>The identification number of the export job.</p>
    *         <p>Use the <code>DescribeRecommendationExportJobs</code> action, and specify the job ID
@@ -498,8 +472,6 @@ export namespace ExportEC2InstanceRecommendationsResponse {
   export const filterSensitiveLog = (obj: ExportEC2InstanceRecommendationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExportEC2InstanceRecommendationsResponse =>
-    __isa(o, "ExportEC2InstanceRecommendationsResponse");
 }
 
 export enum FileFormat {
@@ -510,7 +482,6 @@ export enum FileFormat {
  * <p>Describes a filter that returns a more specific list of recommendations.</p>
  */
 export interface Filter {
-  __type?: "Filter";
   /**
    * <p>The name of the filter.</p>
    *         <p>Specify <code>Finding</code> to return recommendations with a specific findings
@@ -540,7 +511,6 @@ export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Filter => __isa(o, "Filter");
 }
 
 export enum FilterName {
@@ -556,7 +526,6 @@ export enum Finding {
 }
 
 export interface GetAutoScalingGroupRecommendationsRequest {
-  __type?: "GetAutoScalingGroupRecommendationsRequest";
   /**
    * <p>The maximum number of Auto Scaling group recommendations to return with a single
    *             request.</p>
@@ -596,12 +565,9 @@ export namespace GetAutoScalingGroupRecommendationsRequest {
   export const filterSensitiveLog = (obj: GetAutoScalingGroupRecommendationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAutoScalingGroupRecommendationsRequest =>
-    __isa(o, "GetAutoScalingGroupRecommendationsRequest");
 }
 
 export interface GetAutoScalingGroupRecommendationsResponse {
-  __type?: "GetAutoScalingGroupRecommendationsResponse";
   /**
    * <p>An array of objects that describe errors of the request.</p>
    *         <p>For example, an error is returned if you request recommendations for an unsupported
@@ -626,12 +592,9 @@ export namespace GetAutoScalingGroupRecommendationsResponse {
   export const filterSensitiveLog = (obj: GetAutoScalingGroupRecommendationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAutoScalingGroupRecommendationsResponse =>
-    __isa(o, "GetAutoScalingGroupRecommendationsResponse");
 }
 
 export interface GetEC2InstanceRecommendationsRequest {
-  __type?: "GetEC2InstanceRecommendationsRequest";
   /**
    * <p>The token to advance to the next page of instance recommendations.</p>
    */
@@ -670,12 +633,9 @@ export namespace GetEC2InstanceRecommendationsRequest {
   export const filterSensitiveLog = (obj: GetEC2InstanceRecommendationsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEC2InstanceRecommendationsRequest =>
-    __isa(o, "GetEC2InstanceRecommendationsRequest");
 }
 
 export interface GetEC2InstanceRecommendationsResponse {
-  __type?: "GetEC2InstanceRecommendationsResponse";
   /**
    * <p>An array of objects that describe instance recommendations.</p>
    */
@@ -700,12 +660,9 @@ export namespace GetEC2InstanceRecommendationsResponse {
   export const filterSensitiveLog = (obj: GetEC2InstanceRecommendationsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEC2InstanceRecommendationsResponse =>
-    __isa(o, "GetEC2InstanceRecommendationsResponse");
 }
 
 export interface GetEC2RecommendationProjectedMetricsRequest {
-  __type?: "GetEC2RecommendationProjectedMetricsRequest";
   /**
    * <p>The time stamp of the last projected metrics data point to return.</p>
    */
@@ -737,12 +694,9 @@ export namespace GetEC2RecommendationProjectedMetricsRequest {
   export const filterSensitiveLog = (obj: GetEC2RecommendationProjectedMetricsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEC2RecommendationProjectedMetricsRequest =>
-    __isa(o, "GetEC2RecommendationProjectedMetricsRequest");
 }
 
 export interface GetEC2RecommendationProjectedMetricsResponse {
-  __type?: "GetEC2RecommendationProjectedMetricsResponse";
   /**
    * <p>An array of objects that describe a projected metrics.</p>
    */
@@ -753,23 +707,17 @@ export namespace GetEC2RecommendationProjectedMetricsResponse {
   export const filterSensitiveLog = (obj: GetEC2RecommendationProjectedMetricsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEC2RecommendationProjectedMetricsResponse =>
-    __isa(o, "GetEC2RecommendationProjectedMetricsResponse");
 }
 
-export interface GetEnrollmentStatusRequest {
-  __type?: "GetEnrollmentStatusRequest";
-}
+export interface GetEnrollmentStatusRequest {}
 
 export namespace GetEnrollmentStatusRequest {
   export const filterSensitiveLog = (obj: GetEnrollmentStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEnrollmentStatusRequest => __isa(o, "GetEnrollmentStatusRequest");
 }
 
 export interface GetEnrollmentStatusResponse {
-  __type?: "GetEnrollmentStatusResponse";
   /**
    * <p>The reason for the enrollment status of the account.</p>
    *         <p>For example, an account might show a status of <code>Pending</code> because member
@@ -793,7 +741,6 @@ export namespace GetEnrollmentStatusResponse {
   export const filterSensitiveLog = (obj: GetEnrollmentStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetEnrollmentStatusResponse => __isa(o, "GetEnrollmentStatusResponse");
 }
 
 /**
@@ -803,7 +750,6 @@ export namespace GetEnrollmentStatusResponse {
  *             family.</p>
  */
 export interface GetRecommendationError {
-  __type?: "GetRecommendationError";
   /**
    * <p>The message, or reason, for the error.</p>
    */
@@ -824,11 +770,9 @@ export namespace GetRecommendationError {
   export const filterSensitiveLog = (obj: GetRecommendationError): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRecommendationError => __isa(o, "GetRecommendationError");
 }
 
 export interface GetRecommendationSummariesRequest {
-  __type?: "GetRecommendationSummariesRequest";
   /**
    * <p>The maximum number of recommendation summaries to return with a single request.</p>
    *         <p>To retrieve the remaining results, make another request with the returned
@@ -855,11 +799,9 @@ export namespace GetRecommendationSummariesRequest {
   export const filterSensitiveLog = (obj: GetRecommendationSummariesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRecommendationSummariesRequest => __isa(o, "GetRecommendationSummariesRequest");
 }
 
 export interface GetRecommendationSummariesResponse {
-  __type?: "GetRecommendationSummariesResponse";
   /**
    * <p>An array of objects that summarize a recommendation.</p>
    */
@@ -877,15 +819,12 @@ export namespace GetRecommendationSummariesResponse {
   export const filterSensitiveLog = (obj: GetRecommendationSummariesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetRecommendationSummariesResponse =>
-    __isa(o, "GetRecommendationSummariesResponse");
 }
 
 /**
  * <p>Describes an Amazon EC2 instance recommendation.</p>
  */
 export interface InstanceRecommendation {
-  __type?: "InstanceRecommendation";
   /**
    * <p>The time stamp of when the instance recommendation was last refreshed.</p>
    */
@@ -981,14 +920,12 @@ export namespace InstanceRecommendation {
   export const filterSensitiveLog = (obj: InstanceRecommendation): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceRecommendation => __isa(o, "InstanceRecommendation");
 }
 
 /**
  * <p>Describes a recommendation option for an Amazon EC2 instance.</p>
  */
 export interface InstanceRecommendationOption {
-  __type?: "InstanceRecommendationOption";
   /**
    * <p>The rank of the instance recommendation option.</p>
    *         <p>The top recommendation option is ranked as <code>1</code>.</p>
@@ -1020,7 +957,6 @@ export namespace InstanceRecommendationOption {
   export const filterSensitiveLog = (obj: InstanceRecommendationOption): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InstanceRecommendationOption => __isa(o, "InstanceRecommendationOption");
 }
 
 /**
@@ -1036,7 +972,6 @@ export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
@@ -1052,7 +987,6 @@ export namespace InvalidParameterValueException {
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
@@ -1062,7 +996,6 @@ export namespace InvalidParameterValueException {
  *             action.</p>
  */
 export interface JobFilter {
-  __type?: "JobFilter";
   /**
    * <p>The value of the filter.</p>
    *         <p>If you specify the <code>name</code> parameter as <code>ResourceType</code>, the valid
@@ -1087,7 +1020,6 @@ export namespace JobFilter {
   export const filterSensitiveLog = (obj: JobFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is JobFilter => __isa(o, "JobFilter");
 }
 
 export enum JobFilterName {
@@ -1115,7 +1047,6 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export enum MetricName {
@@ -1142,7 +1073,6 @@ export namespace MissingAuthenticationToken {
   export const filterSensitiveLog = (obj: MissingAuthenticationToken): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MissingAuthenticationToken => __isa(o, "MissingAuthenticationToken");
 }
 
 /**
@@ -1158,7 +1088,6 @@ export namespace OptInRequiredException {
   export const filterSensitiveLog = (obj: OptInRequiredException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is OptInRequiredException => __isa(o, "OptInRequiredException");
 }
 
 /**
@@ -1166,7 +1095,6 @@ export namespace OptInRequiredException {
  *             instance.</p>
  */
 export interface ProjectedMetric {
-  __type?: "ProjectedMetric";
   /**
    * <p>The time stamps of the projected utilization metric.</p>
    */
@@ -1191,7 +1119,6 @@ export namespace ProjectedMetric {
   export const filterSensitiveLog = (obj: ProjectedMetric): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProjectedMetric => __isa(o, "ProjectedMetric");
 }
 
 /**
@@ -1207,7 +1134,6 @@ export namespace ProjectedMetric {
  *             recommendations.</p>
  */
 export interface RecommendationExportJob {
-  __type?: "RecommendationExportJob";
   /**
    * <p>The reason for an export job failure.</p>
    */
@@ -1248,7 +1174,6 @@ export namespace RecommendationExportJob {
   export const filterSensitiveLog = (obj: RecommendationExportJob): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecommendationExportJob => __isa(o, "RecommendationExportJob");
 }
 
 /**
@@ -1256,7 +1181,6 @@ export namespace RecommendationExportJob {
  *             group.</p>
  */
 export interface RecommendationSource {
-  __type?: "RecommendationSource";
   /**
    * <p>The Amazon Resource Name (ARN) of the recommendation source.</p>
    */
@@ -1272,7 +1196,6 @@ export namespace RecommendationSource {
   export const filterSensitiveLog = (obj: RecommendationSource): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecommendationSource => __isa(o, "RecommendationSource");
 }
 
 export enum RecommendationSourceType {
@@ -1284,7 +1207,6 @@ export enum RecommendationSourceType {
  * <p>A summary of a recommendation.</p>
  */
 export interface RecommendationSummary {
-  __type?: "RecommendationSummary";
   /**
    * <p>The AWS account ID of the recommendation summary.</p>
    */
@@ -1305,14 +1227,12 @@ export namespace RecommendationSummary {
   export const filterSensitiveLog = (obj: RecommendationSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecommendationSummary => __isa(o, "RecommendationSummary");
 }
 
 /**
  * <p>Describes a projected utilization metric of a recommendation option.</p>
  */
 export interface RecommendedOptionProjectedMetric {
-  __type?: "RecommendedOptionProjectedMetric";
   /**
    * <p>The recommended instance type.</p>
    */
@@ -1337,7 +1257,6 @@ export namespace RecommendedOptionProjectedMetric {
   export const filterSensitiveLog = (obj: RecommendedOptionProjectedMetric): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecommendedOptionProjectedMetric => __isa(o, "RecommendedOptionProjectedMetric");
 }
 
 /**
@@ -1353,7 +1272,6 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum ResourceType {
@@ -1366,7 +1284,6 @@ export enum ResourceType {
  *             recommendations export file, and its associated metadata file.</p>
  */
 export interface S3Destination {
-  __type?: "S3Destination";
   /**
    * <p>The Amazon S3 bucket key of a metadata file.</p>
    *         <p>The key uniquely identifies the object, or metadata file, in the S3 bucket.</p>
@@ -1389,7 +1306,6 @@ export namespace S3Destination {
   export const filterSensitiveLog = (obj: S3Destination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Destination => __isa(o, "S3Destination");
 }
 
 /**
@@ -1404,7 +1320,6 @@ export namespace S3Destination {
  *             guide</i>.</p>
  */
 export interface S3DestinationConfig {
-  __type?: "S3DestinationConfig";
   /**
    * <p>The Amazon S3 bucket prefix for an export job.</p>
    */
@@ -1420,7 +1335,6 @@ export namespace S3DestinationConfig {
   export const filterSensitiveLog = (obj: S3DestinationConfig): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3DestinationConfig => __isa(o, "S3DestinationConfig");
 }
 
 /**
@@ -1436,7 +1350,6 @@ export namespace ServiceUnavailableException {
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 export enum Status {
@@ -1450,7 +1363,6 @@ export enum Status {
  * <p>The summary of a recommendation.</p>
  */
 export interface Summary {
-  __type?: "Summary";
   /**
    * <p>The value of the recommendation summary.</p>
    */
@@ -1466,7 +1378,6 @@ export namespace Summary {
   export const filterSensitiveLog = (obj: Summary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Summary => __isa(o, "Summary");
 }
 
 /**
@@ -1482,11 +1393,9 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface UpdateEnrollmentStatusRequest {
-  __type?: "UpdateEnrollmentStatusRequest";
   /**
    * <p>The new enrollment status of the account.</p>
    *         <p>Accepted options are <code>Active</code> or <code>Inactive</code>. You will get an
@@ -1505,11 +1414,9 @@ export namespace UpdateEnrollmentStatusRequest {
   export const filterSensitiveLog = (obj: UpdateEnrollmentStatusRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEnrollmentStatusRequest => __isa(o, "UpdateEnrollmentStatusRequest");
 }
 
 export interface UpdateEnrollmentStatusResponse {
-  __type?: "UpdateEnrollmentStatusResponse";
   /**
    * <p>The reason for the enrollment status of the account. For example, an account might
    *             show a status of <code>Pending</code> because member accounts of an organization require
@@ -1527,14 +1434,12 @@ export namespace UpdateEnrollmentStatusResponse {
   export const filterSensitiveLog = (obj: UpdateEnrollmentStatusResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateEnrollmentStatusResponse => __isa(o, "UpdateEnrollmentStatusResponse");
 }
 
 /**
  * <p>Describes a utilization metric of a resource, such as an Amazon EC2 instance.</p>
  */
 export interface UtilizationMetric {
-  __type?: "UtilizationMetric";
   /**
    * <p>The value of the utilization metric.</p>
    */
@@ -1559,5 +1464,4 @@ export namespace UtilizationMetric {
   export const filterSensitiveLog = (obj: UtilizationMetric): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UtilizationMetric => __isa(o, "UtilizationMetric");
 }

@@ -304,7 +304,6 @@ export const deserializeAws_restJson1CreateProjectCommand = async (
   }
   const contents: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProjectResult",
     details: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -408,7 +407,6 @@ export const deserializeAws_restJson1DeleteProjectCommand = async (
   }
   const contents: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProjectResult",
     deletedResources: undefined,
     orphanedResources: undefined,
   };
@@ -500,7 +498,6 @@ export const deserializeAws_restJson1DescribeBundleCommand = async (
   }
   const contents: DescribeBundleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBundleResult",
     details: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -596,7 +593,6 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
   }
   const contents: DescribeProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProjectResult",
     details: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -692,7 +688,6 @@ export const deserializeAws_restJson1ExportBundleCommand = async (
   }
   const contents: ExportBundleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportBundleResult",
     downloadUrl: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -788,7 +783,6 @@ export const deserializeAws_restJson1ExportProjectCommand = async (
   }
   const contents: ExportProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportProjectResult",
     downloadUrl: undefined,
     shareUrl: undefined,
     snapshotId: undefined,
@@ -892,7 +886,6 @@ export const deserializeAws_restJson1ListBundlesCommand = async (
   }
   const contents: ListBundlesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBundlesResult",
     bundleList: undefined,
     nextToken: undefined,
   };
@@ -984,7 +977,6 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
   }
   const contents: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProjectsResult",
     nextToken: undefined,
     projects: undefined,
   };
@@ -1076,7 +1068,6 @@ export const deserializeAws_restJson1UpdateProjectCommand = async (
   }
   const contents: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProjectResult",
     details: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1339,7 +1330,6 @@ const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1BundleDetails = (output: any, context: __SerdeContext): BundleDetails => {
   return {
-    __type: "BundleDetails",
     availablePlatforms:
       output.availablePlatforms !== undefined && output.availablePlatforms !== null
         ? deserializeAws_restJson1Platforms(output.availablePlatforms, context)
@@ -1362,7 +1352,6 @@ const deserializeAws_restJson1Platforms = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1ProjectDetails = (output: any, context: __SerdeContext): ProjectDetails => {
   return {
-    __type: "ProjectDetails",
     consoleUrl: output.consoleUrl !== undefined && output.consoleUrl !== null ? output.consoleUrl : undefined,
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
@@ -1389,7 +1378,6 @@ const deserializeAws_restJson1ProjectSummaries = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
   return {
-    __type: "ProjectSummary",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     projectId: output.projectId !== undefined && output.projectId !== null ? output.projectId : undefined,
   } as any;
@@ -1397,7 +1385,6 @@ const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    __type: "Resource",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     attributes:
       output.attributes !== undefined && output.attributes !== null

@@ -2,7 +2,6 @@ import {
   SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
-  isa as __isa,
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
@@ -19,7 +18,6 @@ export namespace AccessDeniedException {
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export enum CancellationStatus {
@@ -28,7 +26,6 @@ export enum CancellationStatus {
 }
 
 export interface CancelQuantumTaskRequest {
-  __type?: "CancelQuantumTaskRequest";
   /**
    * <p>The ARN of the task to cancel.</p>
    */
@@ -44,11 +41,9 @@ export namespace CancelQuantumTaskRequest {
   export const filterSensitiveLog = (obj: CancelQuantumTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelQuantumTaskRequest => __isa(o, "CancelQuantumTaskRequest");
 }
 
 export interface CancelQuantumTaskResponse {
-  __type?: "CancelQuantumTaskResponse";
   /**
    * <p>The ARN of the task.</p>
    */
@@ -64,7 +59,6 @@ export namespace CancelQuantumTaskResponse {
   export const filterSensitiveLog = (obj: CancelQuantumTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CancelQuantumTaskResponse => __isa(o, "CancelQuantumTaskResponse");
 }
 
 /**
@@ -80,11 +74,9 @@ export namespace ConflictException {
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 export interface CreateQuantumTaskRequest {
-  __type?: "CreateQuantumTaskRequest";
   /**
    * <p>The client token associated with the request.</p>
    */
@@ -125,11 +117,9 @@ export namespace CreateQuantumTaskRequest {
   export const filterSensitiveLog = (obj: CreateQuantumTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateQuantumTaskRequest => __isa(o, "CreateQuantumTaskRequest");
 }
 
 export interface CreateQuantumTaskResponse {
-  __type?: "CreateQuantumTaskResponse";
   /**
    * <p>The ARN of the task created by the request.</p>
    */
@@ -140,7 +130,6 @@ export namespace CreateQuantumTaskResponse {
   export const filterSensitiveLog = (obj: CreateQuantumTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateQuantumTaskResponse => __isa(o, "CreateQuantumTaskResponse");
 }
 
 /**
@@ -156,7 +145,6 @@ export namespace DeviceOfflineException {
   export const filterSensitiveLog = (obj: DeviceOfflineException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceOfflineException => __isa(o, "DeviceOfflineException");
 }
 
 export enum DeviceStatus {
@@ -168,7 +156,6 @@ export enum DeviceStatus {
  * <p>Includes information about the device.</p>
  */
 export interface DeviceSummary {
-  __type?: "DeviceSummary";
   /**
    * <p>The ARN of the device.</p>
    */
@@ -199,7 +186,6 @@ export namespace DeviceSummary {
   export const filterSensitiveLog = (obj: DeviceSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeviceSummary => __isa(o, "DeviceSummary");
 }
 
 export enum DeviceType {
@@ -208,7 +194,6 @@ export enum DeviceType {
 }
 
 export interface GetDeviceRequest {
-  __type?: "GetDeviceRequest";
   /**
    * <p>The ARN of the device to retrieve.</p>
    */
@@ -219,11 +204,9 @@ export namespace GetDeviceRequest {
   export const filterSensitiveLog = (obj: GetDeviceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeviceRequest => __isa(o, "GetDeviceRequest");
 }
 
 export interface GetDeviceResponse {
-  __type?: "GetDeviceResponse";
   /**
    * <p>The ARN of the device.</p>
    */
@@ -259,11 +242,9 @@ export namespace GetDeviceResponse {
   export const filterSensitiveLog = (obj: GetDeviceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetDeviceResponse => __isa(o, "GetDeviceResponse");
 }
 
 export interface GetQuantumTaskRequest {
-  __type?: "GetQuantumTaskRequest";
   /**
    * <p>the ARN of the task to retrieve.</p>
    */
@@ -274,11 +255,9 @@ export namespace GetQuantumTaskRequest {
   export const filterSensitiveLog = (obj: GetQuantumTaskRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQuantumTaskRequest => __isa(o, "GetQuantumTaskRequest");
 }
 
 export interface GetQuantumTaskResponse {
-  __type?: "GetQuantumTaskResponse";
   /**
    * <p>The ARN of the task.</p>
    */
@@ -334,7 +313,6 @@ export namespace GetQuantumTaskResponse {
   export const filterSensitiveLog = (obj: GetQuantumTaskResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetQuantumTaskResponse => __isa(o, "GetQuantumTaskResponse");
 }
 
 /**
@@ -350,7 +328,6 @@ export namespace InternalServiceException {
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 export enum QuantumTaskStatus {
@@ -367,7 +344,6 @@ export enum QuantumTaskStatus {
  * <p>Includes information about a quantum task.</p>
  */
 export interface QuantumTaskSummary {
-  __type?: "QuantumTaskSummary";
   /**
    * <p>The ARN of the task.</p>
    */
@@ -413,7 +389,6 @@ export namespace QuantumTaskSummary {
   export const filterSensitiveLog = (obj: QuantumTaskSummary): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is QuantumTaskSummary => __isa(o, "QuantumTaskSummary");
 }
 
 /**
@@ -429,14 +404,12 @@ export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The filter to use for searching devices.</p>
  */
 export interface SearchDevicesFilter {
-  __type?: "SearchDevicesFilter";
   /**
    * <p>The name to use to filter results.</p>
    */
@@ -452,11 +425,9 @@ export namespace SearchDevicesFilter {
   export const filterSensitiveLog = (obj: SearchDevicesFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchDevicesFilter => __isa(o, "SearchDevicesFilter");
 }
 
 export interface SearchDevicesRequest {
-  __type?: "SearchDevicesRequest";
   /**
    * <p>A token used for pagination of results returned in the response. Use the token returned from the previous request continue results where the previous request ended.</p>
    */
@@ -477,11 +448,9 @@ export namespace SearchDevicesRequest {
   export const filterSensitiveLog = (obj: SearchDevicesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchDevicesRequest => __isa(o, "SearchDevicesRequest");
 }
 
 export interface SearchDevicesResponse {
-  __type?: "SearchDevicesResponse";
   /**
    * <p>An array of <code>DeviceSummary</code> objects for devices that match the specified filter values.</p>
    */
@@ -497,14 +466,12 @@ export namespace SearchDevicesResponse {
   export const filterSensitiveLog = (obj: SearchDevicesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchDevicesResponse => __isa(o, "SearchDevicesResponse");
 }
 
 /**
  * <p>A filter to use to search for tasks.</p>
  */
 export interface SearchQuantumTasksFilter {
-  __type?: "SearchQuantumTasksFilter";
   /**
    * <p>The name of the device used for the task.</p>
    */
@@ -525,7 +492,6 @@ export namespace SearchQuantumTasksFilter {
   export const filterSensitiveLog = (obj: SearchQuantumTasksFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchQuantumTasksFilter => __isa(o, "SearchQuantumTasksFilter");
 }
 
 export enum SearchQuantumTasksFilterOperator {
@@ -538,7 +504,6 @@ export enum SearchQuantumTasksFilterOperator {
 }
 
 export interface SearchQuantumTasksRequest {
-  __type?: "SearchQuantumTasksRequest";
   /**
    * <p>A token used for pagination of results returned in the response. Use the token returned from the previous request continue results where the previous request ended.</p>
    */
@@ -559,11 +524,9 @@ export namespace SearchQuantumTasksRequest {
   export const filterSensitiveLog = (obj: SearchQuantumTasksRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchQuantumTasksRequest => __isa(o, "SearchQuantumTasksRequest");
 }
 
 export interface SearchQuantumTasksResponse {
-  __type?: "SearchQuantumTasksResponse";
   /**
    * <p>An array of <code>QuantumTaskSummary</code> objects for tasks that match the specified filters.</p>
    */
@@ -579,7 +542,6 @@ export namespace SearchQuantumTasksResponse {
   export const filterSensitiveLog = (obj: SearchQuantumTasksResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SearchQuantumTasksResponse => __isa(o, "SearchQuantumTasksResponse");
 }
 
 /**
@@ -595,7 +557,6 @@ export namespace ServiceQuotaExceededException {
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
@@ -611,7 +572,6 @@ export namespace ThrottlingException {
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -627,5 +587,4 @@ export namespace ValidationException {
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

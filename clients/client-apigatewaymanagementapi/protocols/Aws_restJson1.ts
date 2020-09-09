@@ -189,7 +189,6 @@ export const deserializeAws_restJson1GetConnectionCommand = async (
   }
   const contents: GetConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConnectionResponse",
     ConnectedAt: undefined,
     Identity: undefined,
     LastActiveAt: undefined,
@@ -393,7 +392,6 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
 
 const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext): Identity => {
   return {
-    __type: "Identity",
     SourceIp: output.sourceIp !== undefined && output.sourceIp !== null ? output.sourceIp : undefined,
     UserAgent: output.userAgent !== undefined && output.userAgent !== null ? output.userAgent : undefined,
   } as any;

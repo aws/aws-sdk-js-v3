@@ -3290,7 +3290,6 @@ export const deserializeAws_restJson1AssociateRoleToGroupCommand = async (
   }
   const contents: AssociateRoleToGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateRoleToGroupResponse",
     AssociatedAt: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3354,7 +3353,6 @@ export const deserializeAws_restJson1AssociateServiceRoleToAccountCommand = asyn
   }
   const contents: AssociateServiceRoleToAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateServiceRoleToAccountResponse",
     AssociatedAt: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3418,7 +3416,6 @@ export const deserializeAws_restJson1CreateConnectorDefinitionCommand = async (
   }
   const contents: CreateConnectorDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateConnectorDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -3498,7 +3495,6 @@ export const deserializeAws_restJson1CreateConnectorDefinitionVersionCommand = a
   }
   const contents: CreateConnectorDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateConnectorDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -3566,7 +3562,6 @@ export const deserializeAws_restJson1CreateCoreDefinitionCommand = async (
   }
   const contents: CreateCoreDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCoreDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -3646,7 +3641,6 @@ export const deserializeAws_restJson1CreateCoreDefinitionVersionCommand = async 
   }
   const contents: CreateCoreDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCoreDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -3714,7 +3708,6 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
   }
   const contents: CreateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDeploymentResponse",
     DeploymentArn: undefined,
     DeploymentId: undefined,
   };
@@ -3774,7 +3767,6 @@ export const deserializeAws_restJson1CreateDeviceDefinitionCommand = async (
   }
   const contents: CreateDeviceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDeviceDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -3854,7 +3846,6 @@ export const deserializeAws_restJson1CreateDeviceDefinitionVersionCommand = asyn
   }
   const contents: CreateDeviceDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDeviceDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -3922,7 +3913,6 @@ export const deserializeAws_restJson1CreateFunctionDefinitionCommand = async (
   }
   const contents: CreateFunctionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFunctionDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -4002,7 +3992,6 @@ export const deserializeAws_restJson1CreateFunctionDefinitionVersionCommand = as
   }
   const contents: CreateFunctionDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFunctionDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -4070,7 +4059,6 @@ export const deserializeAws_restJson1CreateGroupCommand = async (
   }
   const contents: CreateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGroupResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -4150,7 +4138,6 @@ export const deserializeAws_restJson1CreateGroupCertificateAuthorityCommand = as
   }
   const contents: CreateGroupCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGroupCertificateAuthorityResponse",
     GroupCertificateAuthorityArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4214,7 +4201,6 @@ export const deserializeAws_restJson1CreateGroupVersionCommand = async (
   }
   const contents: CreateGroupVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGroupVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -4282,7 +4268,6 @@ export const deserializeAws_restJson1CreateLoggerDefinitionCommand = async (
   }
   const contents: CreateLoggerDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLoggerDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -4362,7 +4347,6 @@ export const deserializeAws_restJson1CreateLoggerDefinitionVersionCommand = asyn
   }
   const contents: CreateLoggerDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLoggerDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -4430,7 +4414,6 @@ export const deserializeAws_restJson1CreateResourceDefinitionCommand = async (
   }
   const contents: CreateResourceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateResourceDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -4510,7 +4493,6 @@ export const deserializeAws_restJson1CreateResourceDefinitionVersionCommand = as
   }
   const contents: CreateResourceDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateResourceDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -4578,7 +4560,6 @@ export const deserializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
   }
   const contents: CreateSoftwareUpdateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSoftwareUpdateJobResponse",
     IotJobArn: undefined,
     IotJobId: undefined,
     PlatformSoftwareVersion: undefined,
@@ -4650,7 +4631,6 @@ export const deserializeAws_restJson1CreateSubscriptionDefinitionCommand = async
   }
   const contents: CreateSubscriptionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSubscriptionDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -4730,7 +4710,6 @@ export const deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommand 
   }
   const contents: CreateSubscriptionDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSubscriptionDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -4798,7 +4777,6 @@ export const deserializeAws_restJson1DeleteConnectorDefinitionCommand = async (
   }
   const contents: DeleteConnectorDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteConnectorDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4850,7 +4828,6 @@ export const deserializeAws_restJson1DeleteCoreDefinitionCommand = async (
   }
   const contents: DeleteCoreDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCoreDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4902,7 +4879,6 @@ export const deserializeAws_restJson1DeleteDeviceDefinitionCommand = async (
   }
   const contents: DeleteDeviceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDeviceDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4954,7 +4930,6 @@ export const deserializeAws_restJson1DeleteFunctionDefinitionCommand = async (
   }
   const contents: DeleteFunctionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFunctionDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5006,7 +4981,6 @@ export const deserializeAws_restJson1DeleteGroupCommand = async (
   }
   const contents: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5058,7 +5032,6 @@ export const deserializeAws_restJson1DeleteLoggerDefinitionCommand = async (
   }
   const contents: DeleteLoggerDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLoggerDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5110,7 +5083,6 @@ export const deserializeAws_restJson1DeleteResourceDefinitionCommand = async (
   }
   const contents: DeleteResourceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteResourceDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5162,7 +5134,6 @@ export const deserializeAws_restJson1DeleteSubscriptionDefinitionCommand = async
   }
   const contents: DeleteSubscriptionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSubscriptionDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5214,7 +5185,6 @@ export const deserializeAws_restJson1DisassociateRoleFromGroupCommand = async (
   }
   const contents: DisassociateRoleFromGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateRoleFromGroupResponse",
     DisassociatedAt: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5278,7 +5248,6 @@ export const deserializeAws_restJson1DisassociateServiceRoleFromAccountCommand =
   }
   const contents: DisassociateServiceRoleFromAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateServiceRoleFromAccountResponse",
     DisassociatedAt: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5334,7 +5303,6 @@ export const deserializeAws_restJson1GetAssociatedRoleCommand = async (
   }
   const contents: GetAssociatedRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAssociatedRoleResponse",
     AssociatedAt: undefined,
     RoleArn: undefined,
   };
@@ -5402,7 +5370,6 @@ export const deserializeAws_restJson1GetBulkDeploymentStatusCommand = async (
   }
   const contents: GetBulkDeploymentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBulkDeploymentStatusResponse",
     BulkDeploymentMetrics: undefined,
     BulkDeploymentStatus: undefined,
     CreatedAt: undefined,
@@ -5478,7 +5445,6 @@ export const deserializeAws_restJson1GetConnectivityInfoCommand = async (
   }
   const contents: GetConnectivityInfoCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConnectivityInfoResponse",
     ConnectivityInfo: undefined,
     Message: undefined,
   };
@@ -5546,7 +5512,6 @@ export const deserializeAws_restJson1GetConnectorDefinitionCommand = async (
   }
   const contents: GetConnectorDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConnectorDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -5630,7 +5595,6 @@ export const deserializeAws_restJson1GetConnectorDefinitionVersionCommand = asyn
   }
   const contents: GetConnectorDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConnectorDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Definition: undefined,
@@ -5706,7 +5670,6 @@ export const deserializeAws_restJson1GetCoreDefinitionCommand = async (
   }
   const contents: GetCoreDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCoreDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -5790,7 +5753,6 @@ export const deserializeAws_restJson1GetCoreDefinitionVersionCommand = async (
   }
   const contents: GetCoreDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCoreDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Definition: undefined,
@@ -5866,7 +5828,6 @@ export const deserializeAws_restJson1GetDeploymentStatusCommand = async (
   }
   const contents: GetDeploymentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDeploymentStatusResponse",
     DeploymentStatus: undefined,
     DeploymentType: undefined,
     ErrorDetails: undefined,
@@ -5938,7 +5899,6 @@ export const deserializeAws_restJson1GetDeviceDefinitionCommand = async (
   }
   const contents: GetDeviceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDeviceDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -6022,7 +5982,6 @@ export const deserializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
   }
   const contents: GetDeviceDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDeviceDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Definition: undefined,
@@ -6098,7 +6057,6 @@ export const deserializeAws_restJson1GetFunctionDefinitionCommand = async (
   }
   const contents: GetFunctionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFunctionDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -6182,7 +6140,6 @@ export const deserializeAws_restJson1GetFunctionDefinitionVersionCommand = async
   }
   const contents: GetFunctionDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFunctionDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Definition: undefined,
@@ -6258,7 +6215,6 @@ export const deserializeAws_restJson1GetGroupCommand = async (
   }
   const contents: GetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGroupResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -6342,7 +6298,6 @@ export const deserializeAws_restJson1GetGroupCertificateAuthorityCommand = async
   }
   const contents: GetGroupCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGroupCertificateAuthorityResponse",
     GroupCertificateAuthorityArn: undefined,
     GroupCertificateAuthorityId: undefined,
     PemEncodedCertificate: undefined,
@@ -6414,7 +6369,6 @@ export const deserializeAws_restJson1GetGroupCertificateConfigurationCommand = a
   }
   const contents: GetGroupCertificateConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGroupCertificateConfigurationResponse",
     CertificateAuthorityExpiryInMilliseconds: undefined,
     CertificateExpiryInMilliseconds: undefined,
     GroupId: undefined,
@@ -6489,7 +6443,6 @@ export const deserializeAws_restJson1GetGroupVersionCommand = async (
   }
   const contents: GetGroupVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGroupVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Definition: undefined,
@@ -6561,7 +6514,6 @@ export const deserializeAws_restJson1GetLoggerDefinitionCommand = async (
   }
   const contents: GetLoggerDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLoggerDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -6645,7 +6597,6 @@ export const deserializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
   }
   const contents: GetLoggerDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLoggerDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Definition: undefined,
@@ -6717,7 +6668,6 @@ export const deserializeAws_restJson1GetResourceDefinitionCommand = async (
   }
   const contents: GetResourceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourceDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -6801,7 +6751,6 @@ export const deserializeAws_restJson1GetResourceDefinitionVersionCommand = async
   }
   const contents: GetResourceDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourceDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Definition: undefined,
@@ -6873,7 +6822,6 @@ export const deserializeAws_restJson1GetServiceRoleForAccountCommand = async (
   }
   const contents: GetServiceRoleForAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetServiceRoleForAccountResponse",
     AssociatedAt: undefined,
     RoleArn: undefined,
   };
@@ -6933,7 +6881,6 @@ export const deserializeAws_restJson1GetSubscriptionDefinitionCommand = async (
   }
   const contents: GetSubscriptionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSubscriptionDefinitionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Id: undefined,
@@ -7017,7 +6964,6 @@ export const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommand = a
   }
   const contents: GetSubscriptionDefinitionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSubscriptionDefinitionVersionResponse",
     Arn: undefined,
     CreationTimestamp: undefined,
     Definition: undefined,
@@ -7093,7 +7039,6 @@ export const deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = 
   }
   const contents: ListBulkDeploymentDetailedReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBulkDeploymentDetailedReportsResponse",
     Deployments: undefined,
     NextToken: undefined,
   };
@@ -7153,7 +7098,6 @@ export const deserializeAws_restJson1ListBulkDeploymentsCommand = async (
   }
   const contents: ListBulkDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBulkDeploymentsResponse",
     BulkDeployments: undefined,
     NextToken: undefined,
   };
@@ -7213,7 +7157,6 @@ export const deserializeAws_restJson1ListConnectorDefinitionsCommand = async (
   }
   const contents: ListConnectorDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConnectorDefinitionsResponse",
     Definitions: undefined,
     NextToken: undefined,
   };
@@ -7265,7 +7208,6 @@ export const deserializeAws_restJson1ListConnectorDefinitionVersionsCommand = as
   }
   const contents: ListConnectorDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConnectorDefinitionVersionsResponse",
     NextToken: undefined,
     Versions: undefined,
   };
@@ -7325,7 +7267,6 @@ export const deserializeAws_restJson1ListCoreDefinitionsCommand = async (
   }
   const contents: ListCoreDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCoreDefinitionsResponse",
     Definitions: undefined,
     NextToken: undefined,
   };
@@ -7377,7 +7318,6 @@ export const deserializeAws_restJson1ListCoreDefinitionVersionsCommand = async (
   }
   const contents: ListCoreDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCoreDefinitionVersionsResponse",
     NextToken: undefined,
     Versions: undefined,
   };
@@ -7437,7 +7377,6 @@ export const deserializeAws_restJson1ListDeploymentsCommand = async (
   }
   const contents: ListDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDeploymentsResponse",
     Deployments: undefined,
     NextToken: undefined,
   };
@@ -7497,7 +7436,6 @@ export const deserializeAws_restJson1ListDeviceDefinitionsCommand = async (
   }
   const contents: ListDeviceDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDeviceDefinitionsResponse",
     Definitions: undefined,
     NextToken: undefined,
   };
@@ -7549,7 +7487,6 @@ export const deserializeAws_restJson1ListDeviceDefinitionVersionsCommand = async
   }
   const contents: ListDeviceDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDeviceDefinitionVersionsResponse",
     NextToken: undefined,
     Versions: undefined,
   };
@@ -7609,7 +7546,6 @@ export const deserializeAws_restJson1ListFunctionDefinitionsCommand = async (
   }
   const contents: ListFunctionDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFunctionDefinitionsResponse",
     Definitions: undefined,
     NextToken: undefined,
   };
@@ -7661,7 +7597,6 @@ export const deserializeAws_restJson1ListFunctionDefinitionVersionsCommand = asy
   }
   const contents: ListFunctionDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFunctionDefinitionVersionsResponse",
     NextToken: undefined,
     Versions: undefined,
   };
@@ -7721,7 +7656,6 @@ export const deserializeAws_restJson1ListGroupCertificateAuthoritiesCommand = as
   }
   const contents: ListGroupCertificateAuthoritiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGroupCertificateAuthoritiesResponse",
     GroupCertificateAuthorities: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7788,7 +7722,6 @@ export const deserializeAws_restJson1ListGroupsCommand = async (
   }
   const contents: ListGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGroupsResponse",
     Groups: undefined,
     NextToken: undefined,
   };
@@ -7840,7 +7773,6 @@ export const deserializeAws_restJson1ListGroupVersionsCommand = async (
   }
   const contents: ListGroupVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGroupVersionsResponse",
     NextToken: undefined,
     Versions: undefined,
   };
@@ -7900,7 +7832,6 @@ export const deserializeAws_restJson1ListLoggerDefinitionsCommand = async (
   }
   const contents: ListLoggerDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLoggerDefinitionsResponse",
     Definitions: undefined,
     NextToken: undefined,
   };
@@ -7952,7 +7883,6 @@ export const deserializeAws_restJson1ListLoggerDefinitionVersionsCommand = async
   }
   const contents: ListLoggerDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLoggerDefinitionVersionsResponse",
     NextToken: undefined,
     Versions: undefined,
   };
@@ -8012,7 +7942,6 @@ export const deserializeAws_restJson1ListResourceDefinitionsCommand = async (
   }
   const contents: ListResourceDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourceDefinitionsResponse",
     Definitions: undefined,
     NextToken: undefined,
   };
@@ -8064,7 +7993,6 @@ export const deserializeAws_restJson1ListResourceDefinitionVersionsCommand = asy
   }
   const contents: ListResourceDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourceDefinitionVersionsResponse",
     NextToken: undefined,
     Versions: undefined,
   };
@@ -8124,7 +8052,6 @@ export const deserializeAws_restJson1ListSubscriptionDefinitionsCommand = async 
   }
   const contents: ListSubscriptionDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSubscriptionDefinitionsResponse",
     Definitions: undefined,
     NextToken: undefined,
   };
@@ -8176,7 +8103,6 @@ export const deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommand =
   }
   const contents: ListSubscriptionDefinitionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSubscriptionDefinitionVersionsResponse",
     NextToken: undefined,
     Versions: undefined,
   };
@@ -8236,7 +8162,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8292,7 +8217,6 @@ export const deserializeAws_restJson1ResetDeploymentsCommand = async (
   }
   const contents: ResetDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResetDeploymentsResponse",
     DeploymentArn: undefined,
     DeploymentId: undefined,
   };
@@ -8352,7 +8276,6 @@ export const deserializeAws_restJson1StartBulkDeploymentCommand = async (
   }
   const contents: StartBulkDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartBulkDeploymentResponse",
     BulkDeploymentArn: undefined,
     BulkDeploymentId: undefined,
   };
@@ -8412,7 +8335,6 @@ export const deserializeAws_restJson1StopBulkDeploymentCommand = async (
   }
   const contents: StopBulkDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopBulkDeploymentResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8566,7 +8488,6 @@ export const deserializeAws_restJson1UpdateConnectivityInfoCommand = async (
   }
   const contents: UpdateConnectivityInfoCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateConnectivityInfoResponse",
     Message: undefined,
     Version: undefined,
   };
@@ -8634,7 +8555,6 @@ export const deserializeAws_restJson1UpdateConnectorDefinitionCommand = async (
   }
   const contents: UpdateConnectorDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateConnectorDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8686,7 +8606,6 @@ export const deserializeAws_restJson1UpdateCoreDefinitionCommand = async (
   }
   const contents: UpdateCoreDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateCoreDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8738,7 +8657,6 @@ export const deserializeAws_restJson1UpdateDeviceDefinitionCommand = async (
   }
   const contents: UpdateDeviceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDeviceDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8790,7 +8708,6 @@ export const deserializeAws_restJson1UpdateFunctionDefinitionCommand = async (
   }
   const contents: UpdateFunctionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFunctionDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8842,7 +8759,6 @@ export const deserializeAws_restJson1UpdateGroupCommand = async (
   }
   const contents: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8894,7 +8810,6 @@ export const deserializeAws_restJson1UpdateGroupCertificateConfigurationCommand 
   }
   const contents: UpdateGroupCertificateConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGroupCertificateConfigurationResponse",
     CertificateAuthorityExpiryInMilliseconds: undefined,
     CertificateExpiryInMilliseconds: undefined,
     GroupId: undefined,
@@ -8969,7 +8884,6 @@ export const deserializeAws_restJson1UpdateLoggerDefinitionCommand = async (
   }
   const contents: UpdateLoggerDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateLoggerDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9021,7 +8935,6 @@ export const deserializeAws_restJson1UpdateResourceDefinitionCommand = async (
   }
   const contents: UpdateResourceDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateResourceDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9073,7 +8986,6 @@ export const deserializeAws_restJson1UpdateSubscriptionDefinitionCommand = async
   }
   const contents: UpdateSubscriptionDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSubscriptionDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9664,7 +9576,6 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1BulkDeployment = (output: any, context: __SerdeContext): BulkDeployment => {
   return {
-    __type: "BulkDeployment",
     BulkDeploymentArn:
       output.BulkDeploymentArn !== undefined && output.BulkDeploymentArn !== null
         ? output.BulkDeploymentArn
@@ -9677,7 +9588,6 @@ const deserializeAws_restJson1BulkDeployment = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1BulkDeploymentMetrics = (output: any, context: __SerdeContext): BulkDeploymentMetrics => {
   return {
-    __type: "BulkDeploymentMetrics",
     InvalidInputRecords:
       output.InvalidInputRecords !== undefined && output.InvalidInputRecords !== null
         ? output.InvalidInputRecords
@@ -9691,7 +9601,6 @@ const deserializeAws_restJson1BulkDeploymentMetrics = (output: any, context: __S
 
 const deserializeAws_restJson1BulkDeploymentResult = (output: any, context: __SerdeContext): BulkDeploymentResult => {
   return {
-    __type: "BulkDeploymentResult",
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? output.CreatedAt : undefined,
     DeploymentArn:
       output.DeploymentArn !== undefined && output.DeploymentArn !== null ? output.DeploymentArn : undefined,
@@ -9722,7 +9631,6 @@ const deserializeAws_restJson1BulkDeployments = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ConnectivityInfo = (output: any, context: __SerdeContext): ConnectivityInfo => {
   return {
-    __type: "ConnectivityInfo",
     HostAddress: output.HostAddress !== undefined && output.HostAddress !== null ? output.HostAddress : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Metadata: output.Metadata !== undefined && output.Metadata !== null ? output.Metadata : undefined,
@@ -9732,7 +9640,6 @@ const deserializeAws_restJson1ConnectivityInfo = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Connector = (output: any, context: __SerdeContext): Connector => {
   return {
-    __type: "Connector",
     ConnectorArn: output.ConnectorArn !== undefined && output.ConnectorArn !== null ? output.ConnectorArn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Parameters:
@@ -9747,7 +9654,6 @@ const deserializeAws_restJson1ConnectorDefinitionVersion = (
   context: __SerdeContext
 ): ConnectorDefinitionVersion => {
   return {
-    __type: "ConnectorDefinitionVersion",
     Connectors:
       output.Connectors !== undefined && output.Connectors !== null
         ? deserializeAws_restJson1__listOfConnector(output.Connectors, context)
@@ -9757,7 +9663,6 @@ const deserializeAws_restJson1ConnectorDefinitionVersion = (
 
 const deserializeAws_restJson1Core = (output: any, context: __SerdeContext): Core => {
   return {
-    __type: "Core",
     CertificateArn:
       output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -9768,7 +9673,6 @@ const deserializeAws_restJson1Core = (output: any, context: __SerdeContext): Cor
 
 const deserializeAws_restJson1CoreDefinitionVersion = (output: any, context: __SerdeContext): CoreDefinitionVersion => {
   return {
-    __type: "CoreDefinitionVersion",
     Cores:
       output.Cores !== undefined && output.Cores !== null
         ? deserializeAws_restJson1__listOfCore(output.Cores, context)
@@ -9778,7 +9682,6 @@ const deserializeAws_restJson1CoreDefinitionVersion = (output: any, context: __S
 
 const deserializeAws_restJson1DefinitionInformation = (output: any, context: __SerdeContext): DefinitionInformation => {
   return {
-    __type: "DefinitionInformation",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
@@ -9803,7 +9706,6 @@ const deserializeAws_restJson1DefinitionInformation = (output: any, context: __S
 
 const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext): Deployment => {
   return {
-    __type: "Deployment",
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? output.CreatedAt : undefined,
     DeploymentArn:
       output.DeploymentArn !== undefined && output.DeploymentArn !== null ? output.DeploymentArn : undefined,
@@ -9820,7 +9722,6 @@ const deserializeAws_restJson1Deployments = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): Device => {
   return {
-    __type: "Device",
     CertificateArn:
       output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -9834,7 +9735,6 @@ const deserializeAws_restJson1DeviceDefinitionVersion = (
   context: __SerdeContext
 ): DeviceDefinitionVersion => {
   return {
-    __type: "DeviceDefinitionVersion",
     Devices:
       output.Devices !== undefined && output.Devices !== null
         ? deserializeAws_restJson1__listOfDevice(output.Devices, context)
@@ -9844,7 +9744,6 @@ const deserializeAws_restJson1DeviceDefinitionVersion = (
 
 const deserializeAws_restJson1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
   return {
-    __type: "ErrorDetail",
     DetailedErrorCode:
       output.DetailedErrorCode !== undefined && output.DetailedErrorCode !== null
         ? output.DetailedErrorCode
@@ -9862,7 +9761,6 @@ const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Function = (output: any, context: __SerdeContext): Function => {
   return {
-    __type: "Function",
     FunctionArn: output.FunctionArn !== undefined && output.FunctionArn !== null ? output.FunctionArn : undefined,
     FunctionConfiguration:
       output.FunctionConfiguration !== undefined && output.FunctionConfiguration !== null
@@ -9874,7 +9772,6 @@ const deserializeAws_restJson1Function = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __SerdeContext): FunctionConfiguration => {
   return {
-    __type: "FunctionConfiguration",
     EncodingType: output.EncodingType !== undefined && output.EncodingType !== null ? output.EncodingType : undefined,
     Environment:
       output.Environment !== undefined && output.Environment !== null
@@ -9893,7 +9790,6 @@ const deserializeAws_restJson1FunctionConfigurationEnvironment = (
   context: __SerdeContext
 ): FunctionConfigurationEnvironment => {
   return {
-    __type: "FunctionConfigurationEnvironment",
     AccessSysfs: output.AccessSysfs !== undefined && output.AccessSysfs !== null ? output.AccessSysfs : undefined,
     Execution:
       output.Execution !== undefined && output.Execution !== null
@@ -9912,7 +9808,6 @@ const deserializeAws_restJson1FunctionConfigurationEnvironment = (
 
 const deserializeAws_restJson1FunctionDefaultConfig = (output: any, context: __SerdeContext): FunctionDefaultConfig => {
   return {
-    __type: "FunctionDefaultConfig",
     Execution:
       output.Execution !== undefined && output.Execution !== null
         ? deserializeAws_restJson1FunctionDefaultExecutionConfig(output.Execution, context)
@@ -9925,7 +9820,6 @@ const deserializeAws_restJson1FunctionDefaultExecutionConfig = (
   context: __SerdeContext
 ): FunctionDefaultExecutionConfig => {
   return {
-    __type: "FunctionDefaultExecutionConfig",
     IsolationMode:
       output.IsolationMode !== undefined && output.IsolationMode !== null ? output.IsolationMode : undefined,
     RunAs:
@@ -9940,7 +9834,6 @@ const deserializeAws_restJson1FunctionDefinitionVersion = (
   context: __SerdeContext
 ): FunctionDefinitionVersion => {
   return {
-    __type: "FunctionDefinitionVersion",
     DefaultConfig:
       output.DefaultConfig !== undefined && output.DefaultConfig !== null
         ? deserializeAws_restJson1FunctionDefaultConfig(output.DefaultConfig, context)
@@ -9957,7 +9850,6 @@ const deserializeAws_restJson1FunctionExecutionConfig = (
   context: __SerdeContext
 ): FunctionExecutionConfig => {
   return {
-    __type: "FunctionExecutionConfig",
     IsolationMode:
       output.IsolationMode !== undefined && output.IsolationMode !== null ? output.IsolationMode : undefined,
     RunAs:
@@ -9969,7 +9861,6 @@ const deserializeAws_restJson1FunctionExecutionConfig = (
 
 const deserializeAws_restJson1FunctionRunAsConfig = (output: any, context: __SerdeContext): FunctionRunAsConfig => {
   return {
-    __type: "FunctionRunAsConfig",
     Gid: output.Gid !== undefined && output.Gid !== null ? output.Gid : undefined,
     Uid: output.Uid !== undefined && output.Uid !== null ? output.Uid : undefined,
   } as any;
@@ -9980,7 +9871,6 @@ const deserializeAws_restJson1GroupCertificateAuthorityProperties = (
   context: __SerdeContext
 ): GroupCertificateAuthorityProperties => {
   return {
-    __type: "GroupCertificateAuthorityProperties",
     GroupCertificateAuthorityArn:
       output.GroupCertificateAuthorityArn !== undefined && output.GroupCertificateAuthorityArn !== null
         ? output.GroupCertificateAuthorityArn
@@ -9994,7 +9884,6 @@ const deserializeAws_restJson1GroupCertificateAuthorityProperties = (
 
 const deserializeAws_restJson1GroupInformation = (output: any, context: __SerdeContext): GroupInformation => {
   return {
-    __type: "GroupInformation",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null
@@ -10015,7 +9904,6 @@ const deserializeAws_restJson1GroupInformation = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1GroupOwnerSetting = (output: any, context: __SerdeContext): GroupOwnerSetting => {
   return {
-    __type: "GroupOwnerSetting",
     AutoAddGroupOwner:
       output.AutoAddGroupOwner !== undefined && output.AutoAddGroupOwner !== null
         ? output.AutoAddGroupOwner
@@ -10026,7 +9914,6 @@ const deserializeAws_restJson1GroupOwnerSetting = (output: any, context: __Serde
 
 const deserializeAws_restJson1GroupVersion = (output: any, context: __SerdeContext): GroupVersion => {
   return {
-    __type: "GroupVersion",
     ConnectorDefinitionVersionArn:
       output.ConnectorDefinitionVersionArn !== undefined && output.ConnectorDefinitionVersionArn !== null
         ? output.ConnectorDefinitionVersionArn
@@ -10063,7 +9950,6 @@ const deserializeAws_restJson1LocalDeviceResourceData = (
   context: __SerdeContext
 ): LocalDeviceResourceData => {
   return {
-    __type: "LocalDeviceResourceData",
     GroupOwnerSetting:
       output.GroupOwnerSetting !== undefined && output.GroupOwnerSetting !== null
         ? deserializeAws_restJson1GroupOwnerSetting(output.GroupOwnerSetting, context)
@@ -10077,7 +9963,6 @@ const deserializeAws_restJson1LocalVolumeResourceData = (
   context: __SerdeContext
 ): LocalVolumeResourceData => {
   return {
-    __type: "LocalVolumeResourceData",
     DestinationPath:
       output.DestinationPath !== undefined && output.DestinationPath !== null ? output.DestinationPath : undefined,
     GroupOwnerSetting:
@@ -10090,7 +9975,6 @@ const deserializeAws_restJson1LocalVolumeResourceData = (
 
 const deserializeAws_restJson1Logger = (output: any, context: __SerdeContext): Logger => {
   return {
-    __type: "Logger",
     Component: output.Component !== undefined && output.Component !== null ? output.Component : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Level: output.Level !== undefined && output.Level !== null ? output.Level : undefined,
@@ -10104,7 +9988,6 @@ const deserializeAws_restJson1LoggerDefinitionVersion = (
   context: __SerdeContext
 ): LoggerDefinitionVersion => {
   return {
-    __type: "LoggerDefinitionVersion",
     Loggers:
       output.Loggers !== undefined && output.Loggers !== null
         ? deserializeAws_restJson1__listOfLogger(output.Loggers, context)
@@ -10114,7 +9997,6 @@ const deserializeAws_restJson1LoggerDefinitionVersion = (
 
 const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    __type: "Resource",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ResourceDataContainer:
@@ -10126,7 +10008,6 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1ResourceAccessPolicy = (output: any, context: __SerdeContext): ResourceAccessPolicy => {
   return {
-    __type: "ResourceAccessPolicy",
     Permission: output.Permission !== undefined && output.Permission !== null ? output.Permission : undefined,
     ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
   } as any;
@@ -10134,7 +10015,6 @@ const deserializeAws_restJson1ResourceAccessPolicy = (output: any, context: __Se
 
 const deserializeAws_restJson1ResourceDataContainer = (output: any, context: __SerdeContext): ResourceDataContainer => {
   return {
-    __type: "ResourceDataContainer",
     LocalDeviceResourceData:
       output.LocalDeviceResourceData !== undefined && output.LocalDeviceResourceData !== null
         ? deserializeAws_restJson1LocalDeviceResourceData(output.LocalDeviceResourceData, context)
@@ -10167,7 +10047,6 @@ const deserializeAws_restJson1ResourceDefinitionVersion = (
   context: __SerdeContext
 ): ResourceDefinitionVersion => {
   return {
-    __type: "ResourceDefinitionVersion",
     Resources:
       output.Resources !== undefined && output.Resources !== null
         ? deserializeAws_restJson1__listOfResource(output.Resources, context)
@@ -10180,7 +10059,6 @@ const deserializeAws_restJson1ResourceDownloadOwnerSetting = (
   context: __SerdeContext
 ): ResourceDownloadOwnerSetting => {
   return {
-    __type: "ResourceDownloadOwnerSetting",
     GroupOwner: output.GroupOwner !== undefined && output.GroupOwner !== null ? output.GroupOwner : undefined,
     GroupPermission:
       output.GroupPermission !== undefined && output.GroupPermission !== null ? output.GroupPermission : undefined,
@@ -10192,7 +10070,6 @@ const deserializeAws_restJson1S3MachineLearningModelResourceData = (
   context: __SerdeContext
 ): S3MachineLearningModelResourceData => {
   return {
-    __type: "S3MachineLearningModelResourceData",
     DestinationPath:
       output.DestinationPath !== undefined && output.DestinationPath !== null ? output.DestinationPath : undefined,
     OwnerSetting:
@@ -10208,7 +10085,6 @@ const deserializeAws_restJson1SageMakerMachineLearningModelResourceData = (
   context: __SerdeContext
 ): SageMakerMachineLearningModelResourceData => {
   return {
-    __type: "SageMakerMachineLearningModelResourceData",
     DestinationPath:
       output.DestinationPath !== undefined && output.DestinationPath !== null ? output.DestinationPath : undefined,
     OwnerSetting:
@@ -10225,7 +10101,6 @@ const deserializeAws_restJson1SecretsManagerSecretResourceData = (
   context: __SerdeContext
 ): SecretsManagerSecretResourceData => {
   return {
-    __type: "SecretsManagerSecretResourceData",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     AdditionalStagingLabelsToDownload:
       output.AdditionalStagingLabelsToDownload !== undefined && output.AdditionalStagingLabelsToDownload !== null
@@ -10236,7 +10111,6 @@ const deserializeAws_restJson1SecretsManagerSecretResourceData = (
 
 const deserializeAws_restJson1Subscription = (output: any, context: __SerdeContext): Subscription => {
   return {
-    __type: "Subscription",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Source: output.Source !== undefined && output.Source !== null ? output.Source : undefined,
     Subject: output.Subject !== undefined && output.Subject !== null ? output.Subject : undefined,
@@ -10249,7 +10123,6 @@ const deserializeAws_restJson1SubscriptionDefinitionVersion = (
   context: __SerdeContext
 ): SubscriptionDefinitionVersion => {
   return {
-    __type: "SubscriptionDefinitionVersion",
     Subscriptions:
       output.Subscriptions !== undefined && output.Subscriptions !== null
         ? deserializeAws_restJson1__listOfSubscription(output.Subscriptions, context)
@@ -10269,7 +10142,6 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
 
 const deserializeAws_restJson1VersionInformation = (output: any, context: __SerdeContext): VersionInformation => {
   return {
-    __type: "VersionInformation",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationTimestamp:
       output.CreationTimestamp !== undefined && output.CreationTimestamp !== null

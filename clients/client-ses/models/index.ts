@@ -1,4 +1,4 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -15,7 +15,6 @@ export namespace AccountSendingPausedException {
   export const filterSensitiveLog = (obj: AccountSendingPausedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AccountSendingPausedException => __isa(o, "AccountSendingPausedException");
 }
 
 /**
@@ -25,7 +24,6 @@ export namespace AccountSendingPausedException {
  *                 Developer Guide</a>.</p>
  */
 export interface AddHeaderAction {
-  __type?: "AddHeaderAction";
   /**
    * <p>The name of the header to add. Must be between 1 and 50 characters, inclusive, and
    *             consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.</p>
@@ -43,7 +41,6 @@ export namespace AddHeaderAction {
   export const filterSensitiveLog = (obj: AddHeaderAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AddHeaderAction => __isa(o, "AddHeaderAction");
 }
 
 /**
@@ -65,7 +62,6 @@ export namespace AlreadyExistsException {
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 export enum BehaviorOnMXFailure {
@@ -79,7 +75,6 @@ export enum BehaviorOnMXFailure {
  *             clients.</p>
  */
 export interface Body {
-  __type?: "Body";
   /**
    * <p>The content of the message, in text format. Use this for text-based email clients, or
    *             clients on high-latency networks (such as mobile devices).</p>
@@ -98,7 +93,6 @@ export namespace Body {
   export const filterSensitiveLog = (obj: Body): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Body => __isa(o, "Body");
 }
 
 /**
@@ -110,7 +104,6 @@ export namespace Body {
  *                 Guide</a>.</p>
  */
 export interface BounceAction {
-  __type?: "BounceAction";
   /**
    * <p>The SMTP reply code, as defined by <a href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</p>
    */
@@ -145,7 +138,6 @@ export namespace BounceAction {
   export const filterSensitiveLog = (obj: BounceAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BounceAction => __isa(o, "BounceAction");
 }
 
 /**
@@ -155,7 +147,6 @@ export namespace BounceAction {
  *                 Developer Guide</a>.</p>
  */
 export interface BouncedRecipientInfo {
-  __type?: "BouncedRecipientInfo";
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to receive
@@ -188,7 +179,6 @@ export namespace BouncedRecipientInfo {
   export const filterSensitiveLog = (obj: BouncedRecipientInfo): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BouncedRecipientInfo => __isa(o, "BouncedRecipientInfo");
 }
 
 export enum BounceType {
@@ -205,7 +195,6 @@ export enum BounceType {
  *             data associated with each of those Destinations.</p>
  */
 export interface BulkEmailDestination {
-  __type?: "BulkEmailDestination";
   /**
    * <p>A list of replacement values to apply to the template. This parameter is a JSON
    *             object, typically consisting of key-value pairs in which the keys correspond to
@@ -239,7 +228,6 @@ export namespace BulkEmailDestination {
   export const filterSensitiveLog = (obj: BulkEmailDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BulkEmailDestination => __isa(o, "BulkEmailDestination");
 }
 
 /**
@@ -247,7 +235,6 @@ export namespace BulkEmailDestination {
  *             operation.</p>
  */
 export interface BulkEmailDestinationStatus {
-  __type?: "BulkEmailDestinationStatus";
   /**
    * <p>A description of an error that prevented a message being sent using the
    *                 <code>SendBulkTemplatedEmail</code> operation.</p>
@@ -347,7 +334,6 @@ export namespace BulkEmailDestinationStatus {
   export const filterSensitiveLog = (obj: BulkEmailDestinationStatus): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is BulkEmailDestinationStatus => __isa(o, "BulkEmailDestinationStatus");
 }
 
 export enum BulkEmailStatus {
@@ -386,7 +372,6 @@ export namespace CannotDeleteException {
   export const filterSensitiveLog = (obj: CannotDeleteException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CannotDeleteException => __isa(o, "CannotDeleteException");
 }
 
 /**
@@ -394,7 +379,6 @@ export namespace CannotDeleteException {
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface CloneReceiptRuleSetRequest {
-  __type?: "CloneReceiptRuleSetRequest";
   /**
    * <p>The name of the rule set to create. The name must:</p>
    *         <ul>
@@ -422,21 +406,17 @@ export namespace CloneReceiptRuleSetRequest {
   export const filterSensitiveLog = (obj: CloneReceiptRuleSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloneReceiptRuleSetRequest => __isa(o, "CloneReceiptRuleSetRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CloneReceiptRuleSetResponse {
-  __type?: "CloneReceiptRuleSetResponse";
-}
+export interface CloneReceiptRuleSetResponse {}
 
 export namespace CloneReceiptRuleSetResponse {
   export const filterSensitiveLog = (obj: CloneReceiptRuleSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloneReceiptRuleSetResponse => __isa(o, "CloneReceiptRuleSetResponse");
 }
 
 /**
@@ -448,7 +428,6 @@ export namespace CloneReceiptRuleSetResponse {
  *                 Guide</a>.</p>
  */
 export interface CloudWatchDestination {
-  __type?: "CloudWatchDestination";
   /**
    * <p>A list of dimensions upon which to categorize your emails when you publish email
    *             sending events to Amazon CloudWatch.</p>
@@ -460,7 +439,6 @@ export namespace CloudWatchDestination {
   export const filterSensitiveLog = (obj: CloudWatchDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchDestination => __isa(o, "CloudWatchDestination");
 }
 
 /**
@@ -469,7 +447,6 @@ export namespace CloudWatchDestination {
  *         <p>For information about publishing email sending events to Amazon CloudWatch, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface CloudWatchDimensionConfiguration {
-  __type?: "CloudWatchDimensionConfiguration";
   /**
    * <p>The default value of the dimension that is published to Amazon CloudWatch if you do not provide
    *             the value of the dimension when you send an email. The default value must:</p>
@@ -515,7 +492,6 @@ export namespace CloudWatchDimensionConfiguration {
   export const filterSensitiveLog = (obj: CloudWatchDimensionConfiguration): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CloudWatchDimensionConfiguration => __isa(o, "CloudWatchDimensionConfiguration");
 }
 
 /**
@@ -524,7 +500,6 @@ export namespace CloudWatchDimensionConfiguration {
  *             send using Amazon SES. For more information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-configuration-sets.html">Using Amazon SES Configuration Sets</a> in the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/">Amazon SES Developer Guide</a>.</p>
  */
 export interface ConfigurationSet {
-  __type?: "ConfigurationSet";
   /**
    * <p>The name of the configuration set. The name must meet the following
    *             requirements:</p>
@@ -545,7 +520,6 @@ export namespace ConfigurationSet {
   export const filterSensitiveLog = (obj: ConfigurationSet): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationSet => __isa(o, "ConfigurationSet");
 }
 
 /**
@@ -567,8 +541,6 @@ export namespace ConfigurationSetAlreadyExistsException {
   export const filterSensitiveLog = (obj: ConfigurationSetAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationSetAlreadyExistsException =>
-    __isa(o, "ConfigurationSetAlreadyExistsException");
 }
 
 export enum ConfigurationSetAttribute {
@@ -596,8 +568,6 @@ export namespace ConfigurationSetDoesNotExistException {
   export const filterSensitiveLog = (obj: ConfigurationSetDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationSetDoesNotExistException =>
-    __isa(o, "ConfigurationSetDoesNotExistException");
 }
 
 /**
@@ -618,8 +588,6 @@ export namespace ConfigurationSetSendingPausedException {
   export const filterSensitiveLog = (obj: ConfigurationSetSendingPausedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ConfigurationSetSendingPausedException =>
-    __isa(o, "ConfigurationSetSendingPausedException");
 }
 
 /**
@@ -629,7 +597,6 @@ export namespace ConfigurationSetSendingPausedException {
  *             set. Examples include UTF-8, ISO-8859-1, and Shift_JIS.</p>
  */
 export interface Content {
-  __type?: "Content";
   /**
    * <p>The textual data of the content.</p>
    */
@@ -645,7 +612,6 @@ export namespace Content {
   export const filterSensitiveLog = (obj: Content): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Content => __isa(o, "Content");
 }
 
 /**
@@ -656,7 +622,6 @@ export namespace Content {
  *                 Guide</a>.</p>
  */
 export interface CreateConfigurationSetEventDestinationRequest {
-  __type?: "CreateConfigurationSetEventDestinationRequest";
   /**
    * <p>An object that describes the AWS service that email sending event information will
    *             be published to.</p>
@@ -674,23 +639,17 @@ export namespace CreateConfigurationSetEventDestinationRequest {
   export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetEventDestinationRequest =>
-    __isa(o, "CreateConfigurationSetEventDestinationRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CreateConfigurationSetEventDestinationResponse {
-  __type?: "CreateConfigurationSetEventDestinationResponse";
-}
+export interface CreateConfigurationSetEventDestinationResponse {}
 
 export namespace CreateConfigurationSetEventDestinationResponse {
   export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetEventDestinationResponse =>
-    __isa(o, "CreateConfigurationSetEventDestinationResponse");
 }
 
 /**
@@ -700,7 +659,6 @@ export namespace CreateConfigurationSetEventDestinationResponse {
  *                 Guide</a>.</p>
  */
 export interface CreateConfigurationSetRequest {
-  __type?: "CreateConfigurationSetRequest";
   /**
    * <p>A data structure that contains the name of the configuration set.</p>
    */
@@ -711,21 +669,17 @@ export namespace CreateConfigurationSetRequest {
   export const filterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetRequest => __isa(o, "CreateConfigurationSetRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CreateConfigurationSetResponse {
-  __type?: "CreateConfigurationSetResponse";
-}
+export interface CreateConfigurationSetResponse {}
 
 export namespace CreateConfigurationSetResponse {
   export const filterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetResponse => __isa(o, "CreateConfigurationSetResponse");
 }
 
 /**
@@ -733,7 +687,6 @@ export namespace CreateConfigurationSetResponse {
  *             configuration set. </p>
  */
 export interface CreateConfigurationSetTrackingOptionsRequest {
-  __type?: "CreateConfigurationSetTrackingOptionsRequest";
   /**
    * <p>The name of the configuration set that the tracking options should be associated
    *             with.</p>
@@ -754,30 +707,23 @@ export namespace CreateConfigurationSetTrackingOptionsRequest {
   export const filterSensitiveLog = (obj: CreateConfigurationSetTrackingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetTrackingOptionsRequest =>
-    __isa(o, "CreateConfigurationSetTrackingOptionsRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CreateConfigurationSetTrackingOptionsResponse {
-  __type?: "CreateConfigurationSetTrackingOptionsResponse";
-}
+export interface CreateConfigurationSetTrackingOptionsResponse {}
 
 export namespace CreateConfigurationSetTrackingOptionsResponse {
   export const filterSensitiveLog = (obj: CreateConfigurationSetTrackingOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateConfigurationSetTrackingOptionsResponse =>
-    __isa(o, "CreateConfigurationSetTrackingOptionsResponse");
 }
 
 /**
  * <p>Represents a request to create a custom verification email template.</p>
  */
 export interface CreateCustomVerificationEmailTemplateRequest {
-  __type?: "CreateCustomVerificationEmailTemplateRequest";
   /**
    * <p>The content of the custom verification email. The total size of the email must be less
    *             than 10 MB. The message body may contain HTML, with some limitations. For more
@@ -818,8 +764,6 @@ export namespace CreateCustomVerificationEmailTemplateRequest {
   export const filterSensitiveLog = (obj: CreateCustomVerificationEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateCustomVerificationEmailTemplateRequest =>
-    __isa(o, "CreateCustomVerificationEmailTemplateRequest");
 }
 
 /**
@@ -827,7 +771,6 @@ export namespace CreateCustomVerificationEmailTemplateRequest {
  *             when you receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface CreateReceiptFilterRequest {
-  __type?: "CreateReceiptFilterRequest";
   /**
    * <p>A data structure that describes the IP address filter to create, which consists of a
    *             name, an IP address range, and whether to allow or block mail from it.</p>
@@ -839,21 +782,17 @@ export namespace CreateReceiptFilterRequest {
   export const filterSensitiveLog = (obj: CreateReceiptFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReceiptFilterRequest => __isa(o, "CreateReceiptFilterRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CreateReceiptFilterResponse {
-  __type?: "CreateReceiptFilterResponse";
-}
+export interface CreateReceiptFilterResponse {}
 
 export namespace CreateReceiptFilterResponse {
   export const filterSensitiveLog = (obj: CreateReceiptFilterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReceiptFilterResponse => __isa(o, "CreateReceiptFilterResponse");
 }
 
 /**
@@ -862,7 +801,6 @@ export namespace CreateReceiptFilterResponse {
  *                 Guide</a>.</p>
  */
 export interface CreateReceiptRuleRequest {
-  __type?: "CreateReceiptRuleRequest";
   /**
    * <p>The name of an existing rule after which the new rule will be placed. If this
    *             parameter is null, the new rule will be inserted at the beginning of the rule
@@ -886,21 +824,17 @@ export namespace CreateReceiptRuleRequest {
   export const filterSensitiveLog = (obj: CreateReceiptRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReceiptRuleRequest => __isa(o, "CreateReceiptRuleRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CreateReceiptRuleResponse {
-  __type?: "CreateReceiptRuleResponse";
-}
+export interface CreateReceiptRuleResponse {}
 
 export namespace CreateReceiptRuleResponse {
   export const filterSensitiveLog = (obj: CreateReceiptRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReceiptRuleResponse => __isa(o, "CreateReceiptRuleResponse");
 }
 
 /**
@@ -909,7 +843,6 @@ export namespace CreateReceiptRuleResponse {
  *                 Guide</a>.</p>
  */
 export interface CreateReceiptRuleSetRequest {
-  __type?: "CreateReceiptRuleSetRequest";
   /**
    * <p>The name of the rule set to create. The name must:</p>
    *         <ul>
@@ -932,21 +865,17 @@ export namespace CreateReceiptRuleSetRequest {
   export const filterSensitiveLog = (obj: CreateReceiptRuleSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReceiptRuleSetRequest => __isa(o, "CreateReceiptRuleSetRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface CreateReceiptRuleSetResponse {
-  __type?: "CreateReceiptRuleSetResponse";
-}
+export interface CreateReceiptRuleSetResponse {}
 
 export namespace CreateReceiptRuleSetResponse {
   export const filterSensitiveLog = (obj: CreateReceiptRuleSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateReceiptRuleSetResponse => __isa(o, "CreateReceiptRuleSetResponse");
 }
 
 /**
@@ -954,7 +883,6 @@ export namespace CreateReceiptRuleSetResponse {
  *                 Guide</a>.</p>
  */
 export interface CreateTemplateRequest {
-  __type?: "CreateTemplateRequest";
   /**
    * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
    *             part.</p>
@@ -966,18 +894,14 @@ export namespace CreateTemplateRequest {
   export const filterSensitiveLog = (obj: CreateTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTemplateRequest => __isa(o, "CreateTemplateRequest");
 }
 
-export interface CreateTemplateResponse {
-  __type?: "CreateTemplateResponse";
-}
+export interface CreateTemplateResponse {}
 
 export namespace CreateTemplateResponse {
   export const filterSensitiveLog = (obj: CreateTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CreateTemplateResponse => __isa(o, "CreateTemplateResponse");
 }
 
 export enum CustomMailFromStatus {
@@ -1000,15 +924,12 @@ export namespace CustomVerificationEmailInvalidContentException {
   export const filterSensitiveLog = (obj: CustomVerificationEmailInvalidContentException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomVerificationEmailInvalidContentException =>
-    __isa(o, "CustomVerificationEmailInvalidContentException");
 }
 
 /**
  * <p>Contains information about a custom verification email template.</p>
  */
 export interface CustomVerificationEmailTemplate {
-  __type?: "CustomVerificationEmailTemplate";
   /**
    * <p>The email address that the custom verification email is sent from.</p>
    */
@@ -1041,7 +962,6 @@ export namespace CustomVerificationEmailTemplate {
   export const filterSensitiveLog = (obj: CustomVerificationEmailTemplate): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomVerificationEmailTemplate => __isa(o, "CustomVerificationEmailTemplate");
 }
 
 /**
@@ -1063,8 +983,6 @@ export namespace CustomVerificationEmailTemplateAlreadyExistsException {
   export const filterSensitiveLog = (obj: CustomVerificationEmailTemplateAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomVerificationEmailTemplateAlreadyExistsException =>
-    __isa(o, "CustomVerificationEmailTemplateAlreadyExistsException");
 }
 
 /**
@@ -1086,8 +1004,6 @@ export namespace CustomVerificationEmailTemplateDoesNotExistException {
   export const filterSensitiveLog = (obj: CustomVerificationEmailTemplateDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is CustomVerificationEmailTemplateDoesNotExistException =>
-    __isa(o, "CustomVerificationEmailTemplateDoesNotExistException");
 }
 
 /**
@@ -1098,7 +1014,6 @@ export namespace CustomVerificationEmailTemplateDoesNotExistException {
  *                 Guide</a>.</p>
  */
 export interface DeleteConfigurationSetEventDestinationRequest {
-  __type?: "DeleteConfigurationSetEventDestinationRequest";
   /**
    * <p>The name of the configuration set from which to delete the event destination.</p>
    */
@@ -1114,23 +1029,17 @@ export namespace DeleteConfigurationSetEventDestinationRequest {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationRequest =>
-    __isa(o, "DeleteConfigurationSetEventDestinationRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteConfigurationSetEventDestinationResponse {
-  __type?: "DeleteConfigurationSetEventDestinationResponse";
-}
+export interface DeleteConfigurationSetEventDestinationResponse {}
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetEventDestinationResponse =>
-    __isa(o, "DeleteConfigurationSetEventDestinationResponse");
 }
 
 /**
@@ -1140,7 +1049,6 @@ export namespace DeleteConfigurationSetEventDestinationResponse {
  *                 Guide</a>.</p>
  */
 export interface DeleteConfigurationSetRequest {
-  __type?: "DeleteConfigurationSetRequest";
   /**
    * <p>The name of the configuration set to delete.</p>
    */
@@ -1151,21 +1059,17 @@ export namespace DeleteConfigurationSetRequest {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetRequest => __isa(o, "DeleteConfigurationSetRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteConfigurationSetResponse {
-  __type?: "DeleteConfigurationSetResponse";
-}
+export interface DeleteConfigurationSetResponse {}
 
 export namespace DeleteConfigurationSetResponse {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetResponse => __isa(o, "DeleteConfigurationSetResponse");
 }
 
 /**
@@ -1173,7 +1077,6 @@ export namespace DeleteConfigurationSetResponse {
  *         </p>
  */
 export interface DeleteConfigurationSetTrackingOptionsRequest {
-  __type?: "DeleteConfigurationSetTrackingOptionsRequest";
   /**
    * <p>The name of the configuration set from which you want to delete the tracking
    *             options.</p>
@@ -1185,30 +1088,23 @@ export namespace DeleteConfigurationSetTrackingOptionsRequest {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetTrackingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetTrackingOptionsRequest =>
-    __isa(o, "DeleteConfigurationSetTrackingOptionsRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteConfigurationSetTrackingOptionsResponse {
-  __type?: "DeleteConfigurationSetTrackingOptionsResponse";
-}
+export interface DeleteConfigurationSetTrackingOptionsResponse {}
 
 export namespace DeleteConfigurationSetTrackingOptionsResponse {
   export const filterSensitiveLog = (obj: DeleteConfigurationSetTrackingOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteConfigurationSetTrackingOptionsResponse =>
-    __isa(o, "DeleteConfigurationSetTrackingOptionsResponse");
 }
 
 /**
  * <p>Represents a request to delete an existing custom verification email template.</p>
  */
 export interface DeleteCustomVerificationEmailTemplateRequest {
-  __type?: "DeleteCustomVerificationEmailTemplateRequest";
   /**
    * <p>The name of the custom verification email template that you want to delete.</p>
    */
@@ -1219,8 +1115,6 @@ export namespace DeleteCustomVerificationEmailTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteCustomVerificationEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteCustomVerificationEmailTemplateRequest =>
-    __isa(o, "DeleteCustomVerificationEmailTemplateRequest");
 }
 
 /**
@@ -1230,7 +1124,6 @@ export namespace DeleteCustomVerificationEmailTemplateRequest {
  *                 Guide</a>.</p>
  */
 export interface DeleteIdentityPolicyRequest {
-  __type?: "DeleteIdentityPolicyRequest";
   /**
    * <p>The identity that is associated with the policy that you want to delete. You can
    *             specify the identity by using its name or by using its Amazon Resource Name (ARN).
@@ -1250,21 +1143,17 @@ export namespace DeleteIdentityPolicyRequest {
   export const filterSensitiveLog = (obj: DeleteIdentityPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIdentityPolicyRequest => __isa(o, "DeleteIdentityPolicyRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteIdentityPolicyResponse {
-  __type?: "DeleteIdentityPolicyResponse";
-}
+export interface DeleteIdentityPolicyResponse {}
 
 export namespace DeleteIdentityPolicyResponse {
   export const filterSensitiveLog = (obj: DeleteIdentityPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIdentityPolicyResponse => __isa(o, "DeleteIdentityPolicyResponse");
 }
 
 /**
@@ -1272,7 +1161,6 @@ export namespace DeleteIdentityPolicyResponse {
  *             domain).</p>
  */
 export interface DeleteIdentityRequest {
-  __type?: "DeleteIdentityRequest";
   /**
    * <p>The identity to be removed from the list of identities for the AWS Account.</p>
    */
@@ -1283,21 +1171,17 @@ export namespace DeleteIdentityRequest {
   export const filterSensitiveLog = (obj: DeleteIdentityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIdentityRequest => __isa(o, "DeleteIdentityRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteIdentityResponse {
-  __type?: "DeleteIdentityResponse";
-}
+export interface DeleteIdentityResponse {}
 
 export namespace DeleteIdentityResponse {
   export const filterSensitiveLog = (obj: DeleteIdentityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteIdentityResponse => __isa(o, "DeleteIdentityResponse");
 }
 
 /**
@@ -1306,7 +1190,6 @@ export namespace DeleteIdentityResponse {
  *                 Guide</a>.</p>
  */
 export interface DeleteReceiptFilterRequest {
-  __type?: "DeleteReceiptFilterRequest";
   /**
    * <p>The name of the IP address filter to delete.</p>
    */
@@ -1317,21 +1200,17 @@ export namespace DeleteReceiptFilterRequest {
   export const filterSensitiveLog = (obj: DeleteReceiptFilterRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReceiptFilterRequest => __isa(o, "DeleteReceiptFilterRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteReceiptFilterResponse {
-  __type?: "DeleteReceiptFilterResponse";
-}
+export interface DeleteReceiptFilterResponse {}
 
 export namespace DeleteReceiptFilterResponse {
   export const filterSensitiveLog = (obj: DeleteReceiptFilterResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReceiptFilterResponse => __isa(o, "DeleteReceiptFilterResponse");
 }
 
 /**
@@ -1340,7 +1219,6 @@ export namespace DeleteReceiptFilterResponse {
  *                 Guide</a>.</p>
  */
 export interface DeleteReceiptRuleRequest {
-  __type?: "DeleteReceiptRuleRequest";
   /**
    * <p>The name of the receipt rule to delete.</p>
    */
@@ -1356,21 +1234,17 @@ export namespace DeleteReceiptRuleRequest {
   export const filterSensitiveLog = (obj: DeleteReceiptRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReceiptRuleRequest => __isa(o, "DeleteReceiptRuleRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteReceiptRuleResponse {
-  __type?: "DeleteReceiptRuleResponse";
-}
+export interface DeleteReceiptRuleResponse {}
 
 export namespace DeleteReceiptRuleResponse {
   export const filterSensitiveLog = (obj: DeleteReceiptRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReceiptRuleResponse => __isa(o, "DeleteReceiptRuleResponse");
 }
 
 /**
@@ -1380,7 +1254,6 @@ export namespace DeleteReceiptRuleResponse {
  *                 Guide</a>.</p>
  */
 export interface DeleteReceiptRuleSetRequest {
-  __type?: "DeleteReceiptRuleSetRequest";
   /**
    * <p>The name of the receipt rule set to delete.</p>
    */
@@ -1391,21 +1264,17 @@ export namespace DeleteReceiptRuleSetRequest {
   export const filterSensitiveLog = (obj: DeleteReceiptRuleSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReceiptRuleSetRequest => __isa(o, "DeleteReceiptRuleSetRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface DeleteReceiptRuleSetResponse {
-  __type?: "DeleteReceiptRuleSetResponse";
-}
+export interface DeleteReceiptRuleSetResponse {}
 
 export namespace DeleteReceiptRuleSetResponse {
   export const filterSensitiveLog = (obj: DeleteReceiptRuleSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteReceiptRuleSetResponse => __isa(o, "DeleteReceiptRuleSetResponse");
 }
 
 /**
@@ -1413,7 +1282,6 @@ export namespace DeleteReceiptRuleSetResponse {
  *                 Guide</a>.</p>
  */
 export interface DeleteTemplateRequest {
-  __type?: "DeleteTemplateRequest";
   /**
    * <p>The name of the template to be deleted.</p>
    */
@@ -1424,18 +1292,14 @@ export namespace DeleteTemplateRequest {
   export const filterSensitiveLog = (obj: DeleteTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTemplateRequest => __isa(o, "DeleteTemplateRequest");
 }
 
-export interface DeleteTemplateResponse {
-  __type?: "DeleteTemplateResponse";
-}
+export interface DeleteTemplateResponse {}
 
 export namespace DeleteTemplateResponse {
   export const filterSensitiveLog = (obj: DeleteTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteTemplateResponse => __isa(o, "DeleteTemplateResponse");
 }
 
 /**
@@ -1443,7 +1307,6 @@ export namespace DeleteTemplateResponse {
  *             have attempted to verify under your AWS account.</p>
  */
 export interface DeleteVerifiedEmailAddressRequest {
-  __type?: "DeleteVerifiedEmailAddressRequest";
   /**
    * <p>An email address to be removed from the list of verified addresses.</p>
    */
@@ -1454,7 +1317,6 @@ export namespace DeleteVerifiedEmailAddressRequest {
   export const filterSensitiveLog = (obj: DeleteVerifiedEmailAddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeleteVerifiedEmailAddressRequest => __isa(o, "DeleteVerifiedEmailAddressRequest");
 }
 
 /**
@@ -1462,7 +1324,6 @@ export namespace DeleteVerifiedEmailAddressRequest {
  *             Transport Layer Security (TLS).</p>
  */
 export interface DeliveryOptions {
-  __type?: "DeliveryOptions";
   /**
    * <p>Specifies whether messages that use the configuration set are required to use
    *             Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only
@@ -1476,7 +1337,6 @@ export namespace DeliveryOptions {
   export const filterSensitiveLog = (obj: DeliveryOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DeliveryOptions => __isa(o, "DeliveryOptions");
 }
 
 /**
@@ -1485,16 +1345,12 @@ export namespace DeliveryOptions {
  *             more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
-export interface DescribeActiveReceiptRuleSetRequest {
-  __type?: "DescribeActiveReceiptRuleSetRequest";
-}
+export interface DescribeActiveReceiptRuleSetRequest {}
 
 export namespace DescribeActiveReceiptRuleSetRequest {
   export const filterSensitiveLog = (obj: DescribeActiveReceiptRuleSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeActiveReceiptRuleSetRequest =>
-    __isa(o, "DescribeActiveReceiptRuleSetRequest");
 }
 
 /**
@@ -1502,7 +1358,6 @@ export namespace DescribeActiveReceiptRuleSetRequest {
  *             active.</p>
  */
 export interface DescribeActiveReceiptRuleSetResponse {
-  __type?: "DescribeActiveReceiptRuleSetResponse";
   /**
    * <p>The metadata for the currently active receipt rule set. The metadata consists of the
    *             rule set name and a timestamp of when the rule set was created.</p>
@@ -1519,8 +1374,6 @@ export namespace DescribeActiveReceiptRuleSetResponse {
   export const filterSensitiveLog = (obj: DescribeActiveReceiptRuleSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeActiveReceiptRuleSetResponse =>
-    __isa(o, "DescribeActiveReceiptRuleSetResponse");
 }
 
 /**
@@ -1530,7 +1383,6 @@ export namespace DescribeActiveReceiptRuleSetResponse {
  *                 Guide</a>.</p>
  */
 export interface DescribeConfigurationSetRequest {
-  __type?: "DescribeConfigurationSetRequest";
   /**
    * <p>The name of the configuration set to describe.</p>
    */
@@ -1546,7 +1398,6 @@ export namespace DescribeConfigurationSetRequest {
   export const filterSensitiveLog = (obj: DescribeConfigurationSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationSetRequest => __isa(o, "DescribeConfigurationSetRequest");
 }
 
 /**
@@ -1556,7 +1407,6 @@ export namespace DescribeConfigurationSetRequest {
  *                 Guide</a>.</p>
  */
 export interface DescribeConfigurationSetResponse {
-  __type?: "DescribeConfigurationSetResponse";
   /**
    * <p>An object that represents the reputation settings for the configuration set. </p>
    */
@@ -1589,7 +1439,6 @@ export namespace DescribeConfigurationSetResponse {
   export const filterSensitiveLog = (obj: DescribeConfigurationSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeConfigurationSetResponse => __isa(o, "DescribeConfigurationSetResponse");
 }
 
 /**
@@ -1598,7 +1447,6 @@ export namespace DescribeConfigurationSetResponse {
  *                 Guide</a>.</p>
  */
 export interface DescribeReceiptRuleRequest {
-  __type?: "DescribeReceiptRuleRequest";
   /**
    * <p>The name of the receipt rule.</p>
    */
@@ -1614,14 +1462,12 @@ export namespace DescribeReceiptRuleRequest {
   export const filterSensitiveLog = (obj: DescribeReceiptRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReceiptRuleRequest => __isa(o, "DescribeReceiptRuleRequest");
 }
 
 /**
  * <p>Represents the details of a receipt rule.</p>
  */
 export interface DescribeReceiptRuleResponse {
-  __type?: "DescribeReceiptRuleResponse";
   /**
    * <p>A data structure that contains the specified receipt rule's name, actions, recipients,
    *             domains, enabled status, scan status, and Transport Layer Security (TLS) policy.</p>
@@ -1633,7 +1479,6 @@ export namespace DescribeReceiptRuleResponse {
   export const filterSensitiveLog = (obj: DescribeReceiptRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReceiptRuleResponse => __isa(o, "DescribeReceiptRuleResponse");
 }
 
 /**
@@ -1641,7 +1486,6 @@ export namespace DescribeReceiptRuleResponse {
  *             sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface DescribeReceiptRuleSetRequest {
-  __type?: "DescribeReceiptRuleSetRequest";
   /**
    * <p>The name of the receipt rule set to describe.</p>
    */
@@ -1652,14 +1496,12 @@ export namespace DescribeReceiptRuleSetRequest {
   export const filterSensitiveLog = (obj: DescribeReceiptRuleSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReceiptRuleSetRequest => __isa(o, "DescribeReceiptRuleSetRequest");
 }
 
 /**
  * <p>Represents the details of the specified receipt rule set.</p>
  */
 export interface DescribeReceiptRuleSetResponse {
-  __type?: "DescribeReceiptRuleSetResponse";
   /**
    * <p>The metadata for the receipt rule set, which consists of the rule set name and the
    *             timestamp of when the rule set was created.</p>
@@ -1676,7 +1518,6 @@ export namespace DescribeReceiptRuleSetResponse {
   export const filterSensitiveLog = (obj: DescribeReceiptRuleSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is DescribeReceiptRuleSetResponse => __isa(o, "DescribeReceiptRuleSetResponse");
 }
 
 /**
@@ -1692,7 +1533,6 @@ export namespace DescribeReceiptRuleSetResponse {
  *         </note>
  */
 export interface Destination {
-  __type?: "Destination";
   /**
    * <p>The recipients to place on the CC: line of the message.</p>
    */
@@ -1713,7 +1553,6 @@ export namespace Destination {
   export const filterSensitiveLog = (obj: Destination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Destination => __isa(o, "Destination");
 }
 
 export enum DimensionValueSource {
@@ -1743,7 +1582,6 @@ export enum DsnAction {
  *                 Guide</a>.</p>
  */
 export interface EventDestination {
-  __type?: "EventDestination";
   /**
    * <p>An object that contains the names, default values, and sources of the dimensions
    *             associated with an Amazon CloudWatch event destination.</p>
@@ -1794,7 +1632,6 @@ export namespace EventDestination {
   export const filterSensitiveLog = (obj: EventDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventDestination => __isa(o, "EventDestination");
 }
 
 /**
@@ -1820,8 +1657,6 @@ export namespace EventDestinationAlreadyExistsException {
   export const filterSensitiveLog = (obj: EventDestinationAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventDestinationAlreadyExistsException =>
-    __isa(o, "EventDestinationAlreadyExistsException");
 }
 
 /**
@@ -1847,8 +1682,6 @@ export namespace EventDestinationDoesNotExistException {
   export const filterSensitiveLog = (obj: EventDestinationDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is EventDestinationDoesNotExistException =>
-    __isa(o, "EventDestinationDoesNotExistException");
 }
 
 export enum EventType {
@@ -1869,7 +1702,6 @@ export enum EventType {
  *                 Developer Guide</a>.</p>
  */
 export interface ExtensionField {
-  __type?: "ExtensionField";
   /**
    * <p>The value of the header to add. Must be less than 2048 characters, and must not
    *             contain newline characters ("\r" or "\n").</p>
@@ -1887,7 +1719,6 @@ export namespace ExtensionField {
   export const filterSensitiveLog = (obj: ExtensionField): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ExtensionField => __isa(o, "ExtensionField");
 }
 
 /**
@@ -1910,8 +1741,6 @@ export namespace FromEmailAddressNotVerifiedException {
   export const filterSensitiveLog = (obj: FromEmailAddressNotVerifiedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is FromEmailAddressNotVerifiedException =>
-    __isa(o, "FromEmailAddressNotVerifiedException");
 }
 
 /**
@@ -1919,7 +1748,6 @@ export namespace FromEmailAddressNotVerifiedException {
  *             current AWS Region.</p>
  */
 export interface GetAccountSendingEnabledResponse {
-  __type?: "GetAccountSendingEnabledResponse";
   /**
    * <p>Describes whether email sending is enabled or disabled for your Amazon SES account in the
    *             current AWS Region.</p>
@@ -1931,7 +1759,6 @@ export namespace GetAccountSendingEnabledResponse {
   export const filterSensitiveLog = (obj: GetAccountSendingEnabledResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetAccountSendingEnabledResponse => __isa(o, "GetAccountSendingEnabledResponse");
 }
 
 /**
@@ -1939,7 +1766,6 @@ export namespace GetAccountSendingEnabledResponse {
  *             template.</p>
  */
 export interface GetCustomVerificationEmailTemplateRequest {
-  __type?: "GetCustomVerificationEmailTemplateRequest";
   /**
    * <p>The name of the custom verification email template that you want to retrieve.</p>
    */
@@ -1950,15 +1776,12 @@ export namespace GetCustomVerificationEmailTemplateRequest {
   export const filterSensitiveLog = (obj: GetCustomVerificationEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCustomVerificationEmailTemplateRequest =>
-    __isa(o, "GetCustomVerificationEmailTemplateRequest");
 }
 
 /**
  * <p>The content of the custom verification email template.</p>
  */
 export interface GetCustomVerificationEmailTemplateResponse {
-  __type?: "GetCustomVerificationEmailTemplateResponse";
   /**
    * <p>The email address that the custom verification email is sent from.</p>
    */
@@ -1996,8 +1819,6 @@ export namespace GetCustomVerificationEmailTemplateResponse {
   export const filterSensitiveLog = (obj: GetCustomVerificationEmailTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetCustomVerificationEmailTemplateResponse =>
-    __isa(o, "GetCustomVerificationEmailTemplateResponse");
 }
 
 /**
@@ -2007,7 +1828,6 @@ export namespace GetCustomVerificationEmailTemplateResponse {
  *             For more information about Easy DKIM, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface GetIdentityDkimAttributesRequest {
-  __type?: "GetIdentityDkimAttributesRequest";
   /**
    * <p>A list of one or more verified identities - email addresses, domains, or both.</p>
    */
@@ -2018,7 +1838,6 @@ export namespace GetIdentityDkimAttributesRequest {
   export const filterSensitiveLog = (obj: GetIdentityDkimAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityDkimAttributesRequest => __isa(o, "GetIdentityDkimAttributesRequest");
 }
 
 /**
@@ -2028,7 +1847,6 @@ export namespace GetIdentityDkimAttributesRequest {
  *             published.</p>
  */
 export interface GetIdentityDkimAttributesResponse {
-  __type?: "GetIdentityDkimAttributesResponse";
   /**
    * <p>The DKIM attributes for an email address or a domain.</p>
    */
@@ -2039,7 +1857,6 @@ export namespace GetIdentityDkimAttributesResponse {
   export const filterSensitiveLog = (obj: GetIdentityDkimAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityDkimAttributesResponse => __isa(o, "GetIdentityDkimAttributesResponse");
 }
 
 /**
@@ -2048,7 +1865,6 @@ export namespace GetIdentityDkimAttributesResponse {
  *                 Guide</a>.</p>
  */
 export interface GetIdentityMailFromDomainAttributesRequest {
-  __type?: "GetIdentityMailFromDomainAttributesRequest";
   /**
    * <p>A list of one or more identities.</p>
    */
@@ -2059,15 +1875,12 @@ export namespace GetIdentityMailFromDomainAttributesRequest {
   export const filterSensitiveLog = (obj: GetIdentityMailFromDomainAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityMailFromDomainAttributesRequest =>
-    __isa(o, "GetIdentityMailFromDomainAttributesRequest");
 }
 
 /**
  * <p>Represents the custom MAIL FROM attributes for a list of identities.</p>
  */
 export interface GetIdentityMailFromDomainAttributesResponse {
-  __type?: "GetIdentityMailFromDomainAttributesResponse";
   /**
    * <p>A map of identities to custom MAIL FROM attributes.</p>
    */
@@ -2078,8 +1891,6 @@ export namespace GetIdentityMailFromDomainAttributesResponse {
   export const filterSensitiveLog = (obj: GetIdentityMailFromDomainAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityMailFromDomainAttributesResponse =>
-    __isa(o, "GetIdentityMailFromDomainAttributesResponse");
 }
 
 /**
@@ -2088,7 +1899,6 @@ export namespace GetIdentityMailFromDomainAttributesResponse {
  *                 Developer Guide</a>.</p>
  */
 export interface GetIdentityNotificationAttributesRequest {
-  __type?: "GetIdentityNotificationAttributesRequest";
   /**
    * <p>A list of one or more identities. You can specify an identity by using its name or by
    *             using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>,
@@ -2102,15 +1912,12 @@ export namespace GetIdentityNotificationAttributesRequest {
   export const filterSensitiveLog = (obj: GetIdentityNotificationAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityNotificationAttributesRequest =>
-    __isa(o, "GetIdentityNotificationAttributesRequest");
 }
 
 /**
  * <p>Represents the notification attributes for a list of identities.</p>
  */
 export interface GetIdentityNotificationAttributesResponse {
-  __type?: "GetIdentityNotificationAttributesResponse";
   /**
    * <p>A map of Identity to IdentityNotificationAttributes.</p>
    */
@@ -2121,8 +1928,6 @@ export namespace GetIdentityNotificationAttributesResponse {
   export const filterSensitiveLog = (obj: GetIdentityNotificationAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityNotificationAttributesResponse =>
-    __isa(o, "GetIdentityNotificationAttributesResponse");
 }
 
 /**
@@ -2132,7 +1937,6 @@ export namespace GetIdentityNotificationAttributesResponse {
  *                 Guide</a>.</p>
  */
 export interface GetIdentityPoliciesRequest {
-  __type?: "GetIdentityPoliciesRequest";
   /**
    * <p>A list of the names of policies to be retrieved. You can retrieve a maximum of 20
    *             policies at a time. If you do not know the names of the policies that are attached to
@@ -2154,14 +1958,12 @@ export namespace GetIdentityPoliciesRequest {
   export const filterSensitiveLog = (obj: GetIdentityPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityPoliciesRequest => __isa(o, "GetIdentityPoliciesRequest");
 }
 
 /**
  * <p>Represents the requested sending authorization policies.</p>
  */
 export interface GetIdentityPoliciesResponse {
-  __type?: "GetIdentityPoliciesResponse";
   /**
    * <p>A map of policy names to policies.</p>
    */
@@ -2172,7 +1974,6 @@ export namespace GetIdentityPoliciesResponse {
   export const filterSensitiveLog = (obj: GetIdentityPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityPoliciesResponse => __isa(o, "GetIdentityPoliciesResponse");
 }
 
 /**
@@ -2182,7 +1983,6 @@ export namespace GetIdentityPoliciesResponse {
  *                 Guide</a>.</p>
  */
 export interface GetIdentityVerificationAttributesRequest {
-  __type?: "GetIdentityVerificationAttributesRequest";
   /**
    * <p>A list of identities.</p>
    */
@@ -2193,8 +1993,6 @@ export namespace GetIdentityVerificationAttributesRequest {
   export const filterSensitiveLog = (obj: GetIdentityVerificationAttributesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityVerificationAttributesRequest =>
-    __isa(o, "GetIdentityVerificationAttributesRequest");
 }
 
 /**
@@ -2202,7 +2000,6 @@ export namespace GetIdentityVerificationAttributesRequest {
  *             response also contains the verification token.</p>
  */
 export interface GetIdentityVerificationAttributesResponse {
-  __type?: "GetIdentityVerificationAttributesResponse";
   /**
    * <p>A map of Identities to IdentityVerificationAttributes objects.</p>
    */
@@ -2213,8 +2010,6 @@ export namespace GetIdentityVerificationAttributesResponse {
   export const filterSensitiveLog = (obj: GetIdentityVerificationAttributesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetIdentityVerificationAttributesResponse =>
-    __isa(o, "GetIdentityVerificationAttributesResponse");
 }
 
 /**
@@ -2222,7 +2017,6 @@ export namespace GetIdentityVerificationAttributesResponse {
  *             you have sent in the last 24 hours.</p>
  */
 export interface GetSendQuotaResponse {
-  __type?: "GetSendQuotaResponse";
   /**
    * <p>The number of emails sent during the previous 24 hours.</p>
    */
@@ -2249,7 +2043,6 @@ export namespace GetSendQuotaResponse {
   export const filterSensitiveLog = (obj: GetSendQuotaResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSendQuotaResponse => __isa(o, "GetSendQuotaResponse");
 }
 
 /**
@@ -2257,7 +2050,6 @@ export namespace GetSendQuotaResponse {
  *             two weeks of your sending activity with Amazon SES.</p>
  */
 export interface GetSendStatisticsResponse {
-  __type?: "GetSendStatisticsResponse";
   /**
    * <p>A list of data points, each of which represents 15 minutes of activity.</p>
    */
@@ -2268,11 +2060,9 @@ export namespace GetSendStatisticsResponse {
   export const filterSensitiveLog = (obj: GetSendStatisticsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetSendStatisticsResponse => __isa(o, "GetSendStatisticsResponse");
 }
 
 export interface GetTemplateRequest {
-  __type?: "GetTemplateRequest";
   /**
    * <p>The name of the template you want to retrieve.</p>
    */
@@ -2283,11 +2073,9 @@ export namespace GetTemplateRequest {
   export const filterSensitiveLog = (obj: GetTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTemplateRequest => __isa(o, "GetTemplateRequest");
 }
 
 export interface GetTemplateResponse {
-  __type?: "GetTemplateResponse";
   /**
    * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
    *             part.</p>
@@ -2299,14 +2087,12 @@ export namespace GetTemplateResponse {
   export const filterSensitiveLog = (obj: GetTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is GetTemplateResponse => __isa(o, "GetTemplateResponse");
 }
 
 /**
  * <p>Represents the DKIM attributes of a verified email address or a domain.</p>
  */
 export interface IdentityDkimAttributes {
-  __type?: "IdentityDkimAttributes";
   /**
    * <p>A set of character strings that represent the domain's identity. Using these tokens,
    *             you need to create DNS CNAME records that point to DKIM public keys that are hosted by
@@ -2337,7 +2123,6 @@ export namespace IdentityDkimAttributes {
   export const filterSensitiveLog = (obj: IdentityDkimAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityDkimAttributes => __isa(o, "IdentityDkimAttributes");
 }
 
 /**
@@ -2345,7 +2130,6 @@ export namespace IdentityDkimAttributes {
  *             address or domain).</p>
  */
 export interface IdentityMailFromDomainAttributes {
-  __type?: "IdentityMailFromDomainAttributes";
   /**
    * <p>The state that indicates whether Amazon SES has successfully read the MX record required
    *             for custom MAIL FROM domain setup. If the state is <code>Success</code>, Amazon SES uses the
@@ -2377,7 +2161,6 @@ export namespace IdentityMailFromDomainAttributes {
   export const filterSensitiveLog = (obj: IdentityMailFromDomainAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityMailFromDomainAttributes => __isa(o, "IdentityMailFromDomainAttributes");
 }
 
 /**
@@ -2387,7 +2170,6 @@ export namespace IdentityMailFromDomainAttributes {
  *             notifications.</p>
  */
 export interface IdentityNotificationAttributes {
-  __type?: "IdentityNotificationAttributes";
   /**
    * <p>Describes whether Amazon SES will forward bounce and complaint notifications as email.
    *                 <code>true</code> indicates that Amazon SES will forward bounce and complaint
@@ -2444,7 +2226,6 @@ export namespace IdentityNotificationAttributes {
   export const filterSensitiveLog = (obj: IdentityNotificationAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityNotificationAttributes => __isa(o, "IdentityNotificationAttributes");
 }
 
 export type IdentityType = "Domain" | "EmailAddress";
@@ -2453,7 +2234,6 @@ export type IdentityType = "Domain" | "EmailAddress";
  * <p>Represents the verification attributes of a single identity.</p>
  */
 export interface IdentityVerificationAttributes {
-  __type?: "IdentityVerificationAttributes";
   /**
    * <p>The verification status of the identity: "Pending", "Success", "Failed", or
    *             "TemporaryFailure".</p>
@@ -2471,7 +2251,6 @@ export namespace IdentityVerificationAttributes {
   export const filterSensitiveLog = (obj: IdentityVerificationAttributes): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is IdentityVerificationAttributes => __isa(o, "IdentityVerificationAttributes");
 }
 
 /**
@@ -2497,8 +2276,6 @@ export namespace InvalidCloudWatchDestinationException {
   export const filterSensitiveLog = (obj: InvalidCloudWatchDestinationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidCloudWatchDestinationException =>
-    __isa(o, "InvalidCloudWatchDestinationException");
 }
 
 /**
@@ -2515,7 +2292,6 @@ export namespace InvalidConfigurationSetException {
   export const filterSensitiveLog = (obj: InvalidConfigurationSetException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidConfigurationSetException => __isa(o, "InvalidConfigurationSetException");
 }
 
 /**
@@ -2531,7 +2307,6 @@ export namespace InvalidDeliveryOptionsException {
   export const filterSensitiveLog = (obj: InvalidDeliveryOptionsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidDeliveryOptionsException => __isa(o, "InvalidDeliveryOptionsException");
 }
 
 /**
@@ -2557,8 +2332,6 @@ export namespace InvalidFirehoseDestinationException {
   export const filterSensitiveLog = (obj: InvalidFirehoseDestinationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidFirehoseDestinationException =>
-    __isa(o, "InvalidFirehoseDestinationException");
 }
 
 /**
@@ -2581,7 +2354,6 @@ export namespace InvalidLambdaFunctionException {
   export const filterSensitiveLog = (obj: InvalidLambdaFunctionException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidLambdaFunctionException => __isa(o, "InvalidLambdaFunctionException");
 }
 
 /**
@@ -2598,7 +2370,6 @@ export namespace InvalidPolicyException {
   export const filterSensitiveLog = (obj: InvalidPolicyException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidPolicyException => __isa(o, "InvalidPolicyException");
 }
 
 /**
@@ -2616,8 +2387,6 @@ export namespace InvalidRenderingParameterException {
   export const filterSensitiveLog = (obj: InvalidRenderingParameterException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidRenderingParameterException =>
-    __isa(o, "InvalidRenderingParameterException");
 }
 
 /**
@@ -2641,7 +2410,6 @@ export namespace InvalidS3ConfigurationException {
   export const filterSensitiveLog = (obj: InvalidS3ConfigurationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidS3ConfigurationException => __isa(o, "InvalidS3ConfigurationException");
 }
 
 /**
@@ -2667,7 +2435,6 @@ export namespace InvalidSNSDestinationException {
   export const filterSensitiveLog = (obj: InvalidSNSDestinationException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSNSDestinationException => __isa(o, "InvalidSNSDestinationException");
 }
 
 /**
@@ -2690,7 +2457,6 @@ export namespace InvalidSnsTopicException {
   export const filterSensitiveLog = (obj: InvalidSnsTopicException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidSnsTopicException => __isa(o, "InvalidSnsTopicException");
 }
 
 /**
@@ -2708,7 +2474,6 @@ export namespace InvalidTemplateException {
   export const filterSensitiveLog = (obj: InvalidTemplateException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTemplateException => __isa(o, "InvalidTemplateException");
 }
 
 /**
@@ -2734,7 +2499,6 @@ export namespace InvalidTrackingOptionsException {
   export const filterSensitiveLog = (obj: InvalidTrackingOptionsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is InvalidTrackingOptionsException => __isa(o, "InvalidTrackingOptionsException");
 }
 
 export type InvocationType = "Event" | "RequestResponse";
@@ -2748,7 +2512,6 @@ export type InvocationType = "Event" | "RequestResponse";
  *                 Guide</a>.</p>
  */
 export interface KinesisFirehoseDestination {
-  __type?: "KinesisFirehoseDestination";
   /**
    * <p>The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.</p>
    */
@@ -2765,7 +2528,6 @@ export namespace KinesisFirehoseDestination {
   export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is KinesisFirehoseDestination => __isa(o, "KinesisFirehoseDestination");
 }
 
 /**
@@ -2779,7 +2541,6 @@ export namespace KinesisFirehoseDestination {
  *                 Guide</a>.</p>
  */
 export interface LambdaAction {
-  __type?: "LambdaAction";
   /**
    * <p>The invocation type of the AWS Lambda function. An invocation type of
    *                 <code>RequestResponse</code> means that the execution of the function will
@@ -2815,7 +2576,6 @@ export namespace LambdaAction {
   export const filterSensitiveLog = (obj: LambdaAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LambdaAction => __isa(o, "LambdaAction");
 }
 
 /**
@@ -2833,7 +2593,6 @@ export namespace LimitExceededException {
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2843,7 +2602,6 @@ export namespace LimitExceededException {
  *                 Guide</a>.</p>
  */
 export interface ListConfigurationSetsRequest {
-  __type?: "ListConfigurationSetsRequest";
   /**
    * <p>A token returned from a previous call to <code>ListConfigurationSets</code> to
    *             indicate the position of the configuration set in the configuration set list.</p>
@@ -2860,7 +2618,6 @@ export namespace ListConfigurationSetsRequest {
   export const filterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationSetsRequest => __isa(o, "ListConfigurationSetsRequest");
 }
 
 /**
@@ -2870,7 +2627,6 @@ export namespace ListConfigurationSetsRequest {
  *                 Guide</a>.</p>
  */
 export interface ListConfigurationSetsResponse {
-  __type?: "ListConfigurationSetsResponse";
   /**
    * <p>A list of configuration sets.</p>
    */
@@ -2888,7 +2644,6 @@ export namespace ListConfigurationSetsResponse {
   export const filterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListConfigurationSetsResponse => __isa(o, "ListConfigurationSetsResponse");
 }
 
 /**
@@ -2899,7 +2654,6 @@ export namespace ListConfigurationSetsResponse {
  *                 Guide</i>.</p>
  */
 export interface ListCustomVerificationEmailTemplatesRequest {
-  __type?: "ListCustomVerificationEmailTemplatesRequest";
   /**
    * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
    *             account.</p>
@@ -2919,15 +2673,12 @@ export namespace ListCustomVerificationEmailTemplatesRequest {
   export const filterSensitiveLog = (obj: ListCustomVerificationEmailTemplatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCustomVerificationEmailTemplatesRequest =>
-    __isa(o, "ListCustomVerificationEmailTemplatesRequest");
 }
 
 /**
  * <p>A paginated list of custom verification email templates.</p>
  */
 export interface ListCustomVerificationEmailTemplatesResponse {
-  __type?: "ListCustomVerificationEmailTemplatesResponse";
   /**
    * <p>A list of the custom verification email templates that exist in your account.</p>
    */
@@ -2946,8 +2697,6 @@ export namespace ListCustomVerificationEmailTemplatesResponse {
   export const filterSensitiveLog = (obj: ListCustomVerificationEmailTemplatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListCustomVerificationEmailTemplatesResponse =>
-    __isa(o, "ListCustomVerificationEmailTemplatesResponse");
 }
 
 /**
@@ -2956,7 +2705,6 @@ export namespace ListCustomVerificationEmailTemplatesResponse {
  *             status.</p>
  */
 export interface ListIdentitiesRequest {
-  __type?: "ListIdentitiesRequest";
   /**
    * <p>The maximum number of identities per page. Possible values are 1-1000
    *             inclusive.</p>
@@ -2979,7 +2727,6 @@ export namespace ListIdentitiesRequest {
   export const filterSensitiveLog = (obj: ListIdentitiesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIdentitiesRequest => __isa(o, "ListIdentitiesRequest");
 }
 
 /**
@@ -2987,7 +2734,6 @@ export namespace ListIdentitiesRequest {
  *             regardless of verification status.</p>
  */
 export interface ListIdentitiesResponse {
-  __type?: "ListIdentitiesResponse";
   /**
    * <p>The token used for pagination.</p>
    */
@@ -3003,7 +2749,6 @@ export namespace ListIdentitiesResponse {
   export const filterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIdentitiesResponse => __isa(o, "ListIdentitiesResponse");
 }
 
 /**
@@ -3012,7 +2757,6 @@ export namespace ListIdentitiesResponse {
  *             authorize other senders to use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface ListIdentityPoliciesRequest {
-  __type?: "ListIdentityPoliciesRequest";
   /**
    * <p>The identity that is associated with the policy for which the policies will be listed.
    *             You can specify an identity by using its name or by using its Amazon Resource Name
@@ -3027,14 +2771,12 @@ export namespace ListIdentityPoliciesRequest {
   export const filterSensitiveLog = (obj: ListIdentityPoliciesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIdentityPoliciesRequest => __isa(o, "ListIdentityPoliciesRequest");
 }
 
 /**
  * <p>A list of names of sending authorization policies that apply to an identity.</p>
  */
 export interface ListIdentityPoliciesResponse {
-  __type?: "ListIdentityPoliciesResponse";
   /**
    * <p>A list of names of policies that apply to the specified identity.</p>
    */
@@ -3045,7 +2787,6 @@ export namespace ListIdentityPoliciesResponse {
   export const filterSensitiveLog = (obj: ListIdentityPoliciesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListIdentityPoliciesResponse => __isa(o, "ListIdentityPoliciesResponse");
 }
 
 /**
@@ -3054,22 +2795,18 @@ export namespace ListIdentityPoliciesResponse {
  *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
-export interface ListReceiptFiltersRequest {
-  __type?: "ListReceiptFiltersRequest";
-}
+export interface ListReceiptFiltersRequest {}
 
 export namespace ListReceiptFiltersRequest {
   export const filterSensitiveLog = (obj: ListReceiptFiltersRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReceiptFiltersRequest => __isa(o, "ListReceiptFiltersRequest");
 }
 
 /**
  * <p>A list of IP address filters that exist under your AWS account.</p>
  */
 export interface ListReceiptFiltersResponse {
-  __type?: "ListReceiptFiltersResponse";
   /**
    * <p>A list of IP address filter data structures, which each consist of a name, an IP
    *             address range, and whether to allow or block mail from it.</p>
@@ -3081,7 +2818,6 @@ export namespace ListReceiptFiltersResponse {
   export const filterSensitiveLog = (obj: ListReceiptFiltersResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReceiptFiltersResponse => __isa(o, "ListReceiptFiltersResponse");
 }
 
 /**
@@ -3091,7 +2827,6 @@ export namespace ListReceiptFiltersResponse {
  *                 Guide</a>.</p>
  */
 export interface ListReceiptRuleSetsRequest {
-  __type?: "ListReceiptRuleSetsRequest";
   /**
    * <p>A token returned from a previous call to <code>ListReceiptRuleSets</code> to indicate
    *             the position in the receipt rule set list.</p>
@@ -3103,14 +2838,12 @@ export namespace ListReceiptRuleSetsRequest {
   export const filterSensitiveLog = (obj: ListReceiptRuleSetsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReceiptRuleSetsRequest => __isa(o, "ListReceiptRuleSetsRequest");
 }
 
 /**
  * <p>A list of receipt rule sets that exist under your AWS account.</p>
  */
 export interface ListReceiptRuleSetsResponse {
-  __type?: "ListReceiptRuleSetsResponse";
   /**
    * <p>The metadata for the currently active receipt rule set. The metadata consists of the
    *             rule set name and the timestamp of when the rule set was created.</p>
@@ -3129,11 +2862,9 @@ export namespace ListReceiptRuleSetsResponse {
   export const filterSensitiveLog = (obj: ListReceiptRuleSetsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListReceiptRuleSetsResponse => __isa(o, "ListReceiptRuleSetsResponse");
 }
 
 export interface ListTemplatesRequest {
-  __type?: "ListTemplatesRequest";
   /**
    * <p>A token returned from a previous call to <code>ListTemplates</code> to indicate the
    *             position in the list of email templates.</p>
@@ -3152,11 +2883,9 @@ export namespace ListTemplatesRequest {
   export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTemplatesRequest => __isa(o, "ListTemplatesRequest");
 }
 
 export interface ListTemplatesResponse {
-  __type?: "ListTemplatesResponse";
   /**
    * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
    *             account.</p>
@@ -3175,7 +2904,6 @@ export namespace ListTemplatesResponse {
   export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListTemplatesResponse => __isa(o, "ListTemplatesResponse");
 }
 
 /**
@@ -3183,7 +2911,6 @@ export namespace ListTemplatesResponse {
  *             account.</p>
  */
 export interface ListVerifiedEmailAddressesResponse {
-  __type?: "ListVerifiedEmailAddressesResponse";
   /**
    * <p>A list of email addresses that have been verified.</p>
    */
@@ -3194,8 +2921,6 @@ export namespace ListVerifiedEmailAddressesResponse {
   export const filterSensitiveLog = (obj: ListVerifiedEmailAddressesResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ListVerifiedEmailAddressesResponse =>
-    __isa(o, "ListVerifiedEmailAddressesResponse");
 }
 
 /**
@@ -3214,15 +2939,12 @@ export namespace MailFromDomainNotVerifiedException {
   export const filterSensitiveLog = (obj: MailFromDomainNotVerifiedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MailFromDomainNotVerifiedException =>
-    __isa(o, "MailFromDomainNotVerifiedException");
 }
 
 /**
  * <p>Represents the message to be sent, composed of a subject and a body.</p>
  */
 export interface Message {
-  __type?: "Message";
   /**
    * <p>The subject of the message: A short summary of the content, which will appear in the
    *             recipient's inbox.</p>
@@ -3239,7 +2961,6 @@ export namespace Message {
   export const filterSensitiveLog = (obj: Message): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Message => __isa(o, "Message");
 }
 
 /**
@@ -3249,7 +2970,6 @@ export namespace Message {
  *                 Developer Guide</a>.</p>
  */
 export interface MessageDsn {
-  __type?: "MessageDsn";
   /**
    * <p>The reporting MTA that attempted to deliver the message, formatted as specified in
    *                 <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>
@@ -3273,7 +2993,6 @@ export namespace MessageDsn {
   export const filterSensitiveLog = (obj: MessageDsn): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageDsn => __isa(o, "MessageDsn");
 }
 
 /**
@@ -3290,7 +3009,6 @@ export namespace MessageRejected {
   export const filterSensitiveLog = (obj: MessageRejected): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageRejected => __isa(o, "MessageRejected");
 }
 
 /**
@@ -3300,7 +3018,6 @@ export namespace MessageRejected {
  *             sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface MessageTag {
-  __type?: "MessageTag";
   /**
    * <p>The value of the tag. The value must:</p>
    *         <ul>
@@ -3334,7 +3051,6 @@ export namespace MessageTag {
   export const filterSensitiveLog = (obj: MessageTag): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MessageTag => __isa(o, "MessageTag");
 }
 
 /**
@@ -3353,8 +3069,6 @@ export namespace MissingRenderingAttributeException {
   export const filterSensitiveLog = (obj: MissingRenderingAttributeException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is MissingRenderingAttributeException =>
-    __isa(o, "MissingRenderingAttributeException");
 }
 
 export type NotificationType = "Bounce" | "Complaint" | "Delivery";
@@ -3372,15 +3086,12 @@ export namespace ProductionAccessNotGrantedException {
   export const filterSensitiveLog = (obj: ProductionAccessNotGrantedException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ProductionAccessNotGrantedException =>
-    __isa(o, "ProductionAccessNotGrantedException");
 }
 
 /**
  * <p>A request to modify the delivery options for a configuration set.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsRequest {
-  __type?: "PutConfigurationSetDeliveryOptionsRequest";
   /**
    * <p>Specifies whether messages that use the configuration set are required to use
    *             Transport Layer Security (TLS).</p>
@@ -3398,24 +3109,18 @@ export namespace PutConfigurationSetDeliveryOptionsRequest {
   export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationSetDeliveryOptionsRequest =>
-    __isa(o, "PutConfigurationSetDeliveryOptionsRequest");
 }
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutConfigurationSetDeliveryOptionsResponse {
-  __type?: "PutConfigurationSetDeliveryOptionsResponse";
-}
+export interface PutConfigurationSetDeliveryOptionsResponse {}
 
 export namespace PutConfigurationSetDeliveryOptionsResponse {
   export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutConfigurationSetDeliveryOptionsResponse =>
-    __isa(o, "PutConfigurationSetDeliveryOptionsResponse");
 }
 
 /**
@@ -3425,7 +3130,6 @@ export namespace PutConfigurationSetDeliveryOptionsResponse {
  *                 Guide</a>.</p>
  */
 export interface PutIdentityPolicyRequest {
-  __type?: "PutIdentityPolicyRequest";
   /**
    * <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p>
    *         <p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
@@ -3454,28 +3158,23 @@ export namespace PutIdentityPolicyRequest {
   export const filterSensitiveLog = (obj: PutIdentityPolicyRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutIdentityPolicyRequest => __isa(o, "PutIdentityPolicyRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface PutIdentityPolicyResponse {
-  __type?: "PutIdentityPolicyResponse";
-}
+export interface PutIdentityPolicyResponse {}
 
 export namespace PutIdentityPolicyResponse {
   export const filterSensitiveLog = (obj: PutIdentityPolicyResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is PutIdentityPolicyResponse => __isa(o, "PutIdentityPolicyResponse");
 }
 
 /**
  * <p>Represents the raw data of the message.</p>
  */
 export interface RawMessage {
-  __type?: "RawMessage";
   /**
    * <p>The raw data of the message. This data needs to base64-encoded if you are accessing
    *             Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS
@@ -3500,7 +3199,6 @@ export namespace RawMessage {
   export const filterSensitiveLog = (obj: RawMessage): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RawMessage => __isa(o, "RawMessage");
 }
 
 /**
@@ -3511,7 +3209,6 @@ export namespace RawMessage {
  *                 Guide</a>.</p>
  */
 export interface ReceiptAction {
-  __type?: "ReceiptAction";
   /**
    * <p>Calls Amazon WorkMail and, optionally, publishes a notification to Amazon
    *             Amazon SNS.</p>
@@ -3556,7 +3253,6 @@ export namespace ReceiptAction {
   export const filterSensitiveLog = (obj: ReceiptAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReceiptAction => __isa(o, "ReceiptAction");
 }
 
 /**
@@ -3565,7 +3261,6 @@ export namespace ReceiptAction {
  *         <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface ReceiptFilter {
-  __type?: "ReceiptFilter";
   /**
    * <p>A structure that provides the IP addresses to block or allow, and whether to block or
    *             allow incoming mail from them.</p>
@@ -3594,7 +3289,6 @@ export namespace ReceiptFilter {
   export const filterSensitiveLog = (obj: ReceiptFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReceiptFilter => __isa(o, "ReceiptFilter");
 }
 
 export enum ReceiptFilterPolicy {
@@ -3608,7 +3302,6 @@ export enum ReceiptFilterPolicy {
  *         <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface ReceiptIpFilter {
-  __type?: "ReceiptIpFilter";
   /**
    * <p>A single IP address or a range of IP addresses that you want to block or allow,
    *             specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single
@@ -3628,7 +3321,6 @@ export namespace ReceiptIpFilter {
   export const filterSensitiveLog = (obj: ReceiptIpFilter): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReceiptIpFilter => __isa(o, "ReceiptIpFilter");
 }
 
 /**
@@ -3641,7 +3333,6 @@ export namespace ReceiptIpFilter {
  *                 Guide</a>.</p>
  */
 export interface ReceiptRule {
-  __type?: "ReceiptRule";
   /**
    * <p>An ordered list of actions to perform on messages that match at least one of the
    *             recipient email addresses or domains specified in the receipt rule.</p>
@@ -3697,7 +3388,6 @@ export namespace ReceiptRule {
   export const filterSensitiveLog = (obj: ReceiptRule): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReceiptRule => __isa(o, "ReceiptRule");
 }
 
 /**
@@ -3708,7 +3398,6 @@ export namespace ReceiptRule {
  *                 Developer Guide</a>.</p>
  */
 export interface ReceiptRuleSetMetadata {
-  __type?: "ReceiptRuleSetMetadata";
   /**
    * <p>The name of the receipt rule set. The name must:</p>
    *         <ul>
@@ -3736,7 +3425,6 @@ export namespace ReceiptRuleSetMetadata {
   export const filterSensitiveLog = (obj: ReceiptRuleSetMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReceiptRuleSetMetadata => __isa(o, "ReceiptRuleSetMetadata");
 }
 
 /**
@@ -3746,7 +3434,6 @@ export namespace ReceiptRuleSetMetadata {
  *                 Developer Guide</a>.</p>
  */
 export interface RecipientDsnFields {
-  __type?: "RecipientDsnFields";
   /**
    * <p>The time the final delivery attempt was made, in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a> date-time format.</p>
    */
@@ -3802,7 +3489,6 @@ export namespace RecipientDsnFields {
   export const filterSensitiveLog = (obj: RecipientDsnFields): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RecipientDsnFields => __isa(o, "RecipientDsnFields");
 }
 
 /**
@@ -3810,7 +3496,6 @@ export namespace RecipientDsnFields {
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface ReorderReceiptRuleSetRequest {
-  __type?: "ReorderReceiptRuleSetRequest";
   /**
    * <p>The name of the receipt rule set to reorder.</p>
    */
@@ -3827,28 +3512,23 @@ export namespace ReorderReceiptRuleSetRequest {
   export const filterSensitiveLog = (obj: ReorderReceiptRuleSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReorderReceiptRuleSetRequest => __isa(o, "ReorderReceiptRuleSetRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface ReorderReceiptRuleSetResponse {
-  __type?: "ReorderReceiptRuleSetResponse";
-}
+export interface ReorderReceiptRuleSetResponse {}
 
 export namespace ReorderReceiptRuleSetResponse {
   export const filterSensitiveLog = (obj: ReorderReceiptRuleSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReorderReceiptRuleSetResponse => __isa(o, "ReorderReceiptRuleSetResponse");
 }
 
 /**
  * <p>Contains information about the reputation settings for a configuration set.</p>
  */
 export interface ReputationOptions {
-  __type?: "ReputationOptions";
   /**
    * <p>Describes whether email sending is enabled or disabled for the configuration set. If
    *             the value is <code>true</code>, then Amazon SES will send emails that use the configuration
@@ -3883,7 +3563,6 @@ export namespace ReputationOptions {
   export const filterSensitiveLog = (obj: ReputationOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is ReputationOptions => __isa(o, "ReputationOptions");
 }
 
 /**
@@ -3903,7 +3582,6 @@ export namespace RuleDoesNotExistException {
   export const filterSensitiveLog = (obj: RuleDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleDoesNotExistException => __isa(o, "RuleDoesNotExistException");
 }
 
 /**
@@ -3924,7 +3602,6 @@ export namespace RuleSetDoesNotExistException {
   export const filterSensitiveLog = (obj: RuleSetDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is RuleSetDoesNotExistException => __isa(o, "RuleSetDoesNotExistException");
 }
 
 /**
@@ -3941,7 +3618,6 @@ export namespace RuleSetDoesNotExistException {
  *         <p>For information about specifying Amazon S3 actions in receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-s3.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface S3Action {
-  __type?: "S3Action";
   /**
    * <p>The name of the Amazon S3 bucket that incoming email will be saved to.</p>
    */
@@ -4002,7 +3678,6 @@ export namespace S3Action {
   export const filterSensitiveLog = (obj: S3Action): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is S3Action => __isa(o, "S3Action");
 }
 
 /**
@@ -4010,7 +3685,6 @@ export namespace S3Action {
  *             through Amazon SES.</p>
  */
 export interface SendBounceRequest {
-  __type?: "SendBounceRequest";
   /**
    * <p>The message ID of the message to be bounced.</p>
    */
@@ -4054,14 +3728,12 @@ export namespace SendBounceRequest {
   export const filterSensitiveLog = (obj: SendBounceRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendBounceRequest => __isa(o, "SendBounceRequest");
 }
 
 /**
  * <p>Represents a unique message ID.</p>
  */
 export interface SendBounceResponse {
-  __type?: "SendBounceResponse";
   /**
    * <p>The message ID of the bounce message.</p>
    */
@@ -4072,7 +3744,6 @@ export namespace SendBounceResponse {
   export const filterSensitiveLog = (obj: SendBounceResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendBounceResponse => __isa(o, "SendBounceResponse");
 }
 
 /**
@@ -4081,7 +3752,6 @@ export namespace SendBounceResponse {
  *                 Guide</a>.</p>
  */
 export interface SendBulkTemplatedEmailRequest {
-  __type?: "SendBulkTemplatedEmailRequest";
   /**
    * <p>The ARN of the template to use when sending this email.</p>
    */
@@ -4196,11 +3866,9 @@ export namespace SendBulkTemplatedEmailRequest {
   export const filterSensitiveLog = (obj: SendBulkTemplatedEmailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendBulkTemplatedEmailRequest => __isa(o, "SendBulkTemplatedEmailRequest");
 }
 
 export interface SendBulkTemplatedEmailResponse {
-  __type?: "SendBulkTemplatedEmailResponse";
   /**
    * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
    *             action.</p>
@@ -4212,7 +3880,6 @@ export namespace SendBulkTemplatedEmailResponse {
   export const filterSensitiveLog = (obj: SendBulkTemplatedEmailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendBulkTemplatedEmailResponse => __isa(o, "SendBulkTemplatedEmailResponse");
 }
 
 /**
@@ -4220,7 +3887,6 @@ export namespace SendBulkTemplatedEmailResponse {
  *             recipient.</p>
  */
 export interface SendCustomVerificationEmailRequest {
-  __type?: "SendCustomVerificationEmailRequest";
   /**
    * <p>The email address to verify.</p>
    */
@@ -4242,15 +3908,12 @@ export namespace SendCustomVerificationEmailRequest {
   export const filterSensitiveLog = (obj: SendCustomVerificationEmailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendCustomVerificationEmailRequest =>
-    __isa(o, "SendCustomVerificationEmailRequest");
 }
 
 /**
  * <p>The response received when attempting to send the custom verification email.</p>
  */
 export interface SendCustomVerificationEmailResponse {
-  __type?: "SendCustomVerificationEmailResponse";
   /**
    * <p>The unique message identifier returned from the
    *                 <code>SendCustomVerificationEmail</code> operation.</p>
@@ -4262,8 +3925,6 @@ export namespace SendCustomVerificationEmailResponse {
   export const filterSensitiveLog = (obj: SendCustomVerificationEmailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendCustomVerificationEmailResponse =>
-    __isa(o, "SendCustomVerificationEmailResponse");
 }
 
 /**
@@ -4271,7 +3932,6 @@ export namespace SendCustomVerificationEmailResponse {
  *             statistics for a 15-minute period of sending activity. </p>
  */
 export interface SendDataPoint {
-  __type?: "SendDataPoint";
   /**
    * <p>Number of emails rejected by Amazon SES.</p>
    */
@@ -4302,7 +3962,6 @@ export namespace SendDataPoint {
   export const filterSensitiveLog = (obj: SendDataPoint): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendDataPoint => __isa(o, "SendDataPoint");
 }
 
 /**
@@ -4311,7 +3970,6 @@ export namespace SendDataPoint {
  *                 Guide</a>.</p>
  */
 export interface SendEmailRequest {
-  __type?: "SendEmailRequest";
   /**
    * <p>The reply-to email address(es) for the message. If the recipient replies to the
    *             message, each reply-to address will receive the reply.</p>
@@ -4410,14 +4068,12 @@ export namespace SendEmailRequest {
   export const filterSensitiveLog = (obj: SendEmailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendEmailRequest => __isa(o, "SendEmailRequest");
 }
 
 /**
  * <p>Represents a unique message ID.</p>
  */
 export interface SendEmailResponse {
-  __type?: "SendEmailResponse";
   /**
    * <p>The unique message identifier returned from the <code>SendEmail</code> action. </p>
    */
@@ -4428,7 +4084,6 @@ export namespace SendEmailResponse {
   export const filterSensitiveLog = (obj: SendEmailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendEmailResponse => __isa(o, "SendEmailResponse");
 }
 
 /**
@@ -4436,7 +4091,6 @@ export namespace SendEmailResponse {
  *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface SendRawEmailRequest {
-  __type?: "SendRawEmailRequest";
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to send for
@@ -4578,14 +4232,12 @@ export namespace SendRawEmailRequest {
   export const filterSensitiveLog = (obj: SendRawEmailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendRawEmailRequest => __isa(o, "SendRawEmailRequest");
 }
 
 /**
  * <p>Represents a unique message ID.</p>
  */
 export interface SendRawEmailResponse {
-  __type?: "SendRawEmailResponse";
   /**
    * <p>The unique message identifier returned from the <code>SendRawEmail</code> action.
    *         </p>
@@ -4597,7 +4249,6 @@ export namespace SendRawEmailResponse {
   export const filterSensitiveLog = (obj: SendRawEmailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendRawEmailResponse => __isa(o, "SendRawEmailResponse");
 }
 
 /**
@@ -4606,7 +4257,6 @@ export namespace SendRawEmailResponse {
  *                 Guide</a>.</p>
  */
 export interface SendTemplatedEmailRequest {
-  __type?: "SendTemplatedEmailRequest";
   /**
    * <p>The reply-to email address(es) for the message. If the recipient replies to the
    *             message, each reply-to address will receive the reply.</p>
@@ -4718,11 +4368,9 @@ export namespace SendTemplatedEmailRequest {
   export const filterSensitiveLog = (obj: SendTemplatedEmailRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendTemplatedEmailRequest => __isa(o, "SendTemplatedEmailRequest");
 }
 
 export interface SendTemplatedEmailResponse {
-  __type?: "SendTemplatedEmailResponse";
   /**
    * <p>The unique message identifier returned from the <code>SendTemplatedEmail</code>
    *             action. </p>
@@ -4734,7 +4382,6 @@ export namespace SendTemplatedEmailResponse {
   export const filterSensitiveLog = (obj: SendTemplatedEmailResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SendTemplatedEmailResponse => __isa(o, "SendTemplatedEmailResponse");
 }
 
 /**
@@ -4742,7 +4389,6 @@ export namespace SendTemplatedEmailResponse {
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface SetActiveReceiptRuleSetRequest {
-  __type?: "SetActiveReceiptRuleSetRequest";
   /**
    * <p>The name of the receipt rule set to make active. Setting this value to null disables
    *             all email receiving.</p>
@@ -4754,21 +4400,17 @@ export namespace SetActiveReceiptRuleSetRequest {
   export const filterSensitiveLog = (obj: SetActiveReceiptRuleSetRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetActiveReceiptRuleSetRequest => __isa(o, "SetActiveReceiptRuleSetRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetActiveReceiptRuleSetResponse {
-  __type?: "SetActiveReceiptRuleSetResponse";
-}
+export interface SetActiveReceiptRuleSetResponse {}
 
 export namespace SetActiveReceiptRuleSetResponse {
   export const filterSensitiveLog = (obj: SetActiveReceiptRuleSetResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetActiveReceiptRuleSetResponse => __isa(o, "SetActiveReceiptRuleSetResponse");
 }
 
 /**
@@ -4776,7 +4418,6 @@ export namespace SetActiveReceiptRuleSetResponse {
  *             more information about setting up Easy DKIM, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface SetIdentityDkimEnabledRequest {
-  __type?: "SetIdentityDkimEnabledRequest";
   /**
    * <p>The identity for which DKIM signing should be enabled or disabled.</p>
    */
@@ -4793,21 +4434,17 @@ export namespace SetIdentityDkimEnabledRequest {
   export const filterSensitiveLog = (obj: SetIdentityDkimEnabledRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityDkimEnabledRequest => __isa(o, "SetIdentityDkimEnabledRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetIdentityDkimEnabledResponse {
-  __type?: "SetIdentityDkimEnabledResponse";
-}
+export interface SetIdentityDkimEnabledResponse {}
 
 export namespace SetIdentityDkimEnabledResponse {
   export const filterSensitiveLog = (obj: SetIdentityDkimEnabledResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityDkimEnabledResponse => __isa(o, "SetIdentityDkimEnabledResponse");
 }
 
 /**
@@ -4817,7 +4454,6 @@ export namespace SetIdentityDkimEnabledResponse {
  *                 Guide</a>.</p>
  */
 export interface SetIdentityFeedbackForwardingEnabledRequest {
-  __type?: "SetIdentityFeedbackForwardingEnabledRequest";
   /**
    * <p>The identity for which to set bounce and complaint notification forwarding. Examples:
    *                 <code>user@example.com</code>, <code>example.com</code>.</p>
@@ -4840,23 +4476,17 @@ export namespace SetIdentityFeedbackForwardingEnabledRequest {
   export const filterSensitiveLog = (obj: SetIdentityFeedbackForwardingEnabledRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityFeedbackForwardingEnabledRequest =>
-    __isa(o, "SetIdentityFeedbackForwardingEnabledRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetIdentityFeedbackForwardingEnabledResponse {
-  __type?: "SetIdentityFeedbackForwardingEnabledResponse";
-}
+export interface SetIdentityFeedbackForwardingEnabledResponse {}
 
 export namespace SetIdentityFeedbackForwardingEnabledResponse {
   export const filterSensitiveLog = (obj: SetIdentityFeedbackForwardingEnabledResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityFeedbackForwardingEnabledResponse =>
-    __isa(o, "SetIdentityFeedbackForwardingEnabledResponse");
 }
 
 /**
@@ -4866,7 +4496,6 @@ export namespace SetIdentityFeedbackForwardingEnabledResponse {
  *                 Guide</a>.</p>
  */
 export interface SetIdentityHeadersInNotificationsEnabledRequest {
-  __type?: "SetIdentityHeadersInNotificationsEnabledRequest";
   /**
    * <p>Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the
    *             specified notification type. A value of <code>true</code> specifies that Amazon SES will
@@ -4893,23 +4522,17 @@ export namespace SetIdentityHeadersInNotificationsEnabledRequest {
   export const filterSensitiveLog = (obj: SetIdentityHeadersInNotificationsEnabledRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityHeadersInNotificationsEnabledRequest =>
-    __isa(o, "SetIdentityHeadersInNotificationsEnabledRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetIdentityHeadersInNotificationsEnabledResponse {
-  __type?: "SetIdentityHeadersInNotificationsEnabledResponse";
-}
+export interface SetIdentityHeadersInNotificationsEnabledResponse {}
 
 export namespace SetIdentityHeadersInNotificationsEnabledResponse {
   export const filterSensitiveLog = (obj: SetIdentityHeadersInNotificationsEnabledResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityHeadersInNotificationsEnabledResponse =>
-    __isa(o, "SetIdentityHeadersInNotificationsEnabledResponse");
 }
 
 /**
@@ -4919,7 +4542,6 @@ export namespace SetIdentityHeadersInNotificationsEnabledResponse {
  *                 Developer Guide</a>.</p>
  */
 export interface SetIdentityMailFromDomainRequest {
-  __type?: "SetIdentityMailFromDomainRequest";
   /**
    * <p>The verified identity for which you want to enable or disable the specified custom
    *             MAIL FROM domain.</p>
@@ -4953,21 +4575,17 @@ export namespace SetIdentityMailFromDomainRequest {
   export const filterSensitiveLog = (obj: SetIdentityMailFromDomainRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityMailFromDomainRequest => __isa(o, "SetIdentityMailFromDomainRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetIdentityMailFromDomainResponse {
-  __type?: "SetIdentityMailFromDomainResponse";
-}
+export interface SetIdentityMailFromDomainResponse {}
 
 export namespace SetIdentityMailFromDomainResponse {
   export const filterSensitiveLog = (obj: SetIdentityMailFromDomainResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityMailFromDomainResponse => __isa(o, "SetIdentityMailFromDomainResponse");
 }
 
 /**
@@ -4977,7 +4595,6 @@ export namespace SetIdentityMailFromDomainResponse {
  *                 Guide</a>.</p>
  */
 export interface SetIdentityNotificationTopicRequest {
-  __type?: "SetIdentityNotificationTopicRequest";
   /**
    * <p>The type of notifications that will be published to the specified Amazon SNS topic.</p>
    */
@@ -5008,23 +4625,17 @@ export namespace SetIdentityNotificationTopicRequest {
   export const filterSensitiveLog = (obj: SetIdentityNotificationTopicRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityNotificationTopicRequest =>
-    __isa(o, "SetIdentityNotificationTopicRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetIdentityNotificationTopicResponse {
-  __type?: "SetIdentityNotificationTopicResponse";
-}
+export interface SetIdentityNotificationTopicResponse {}
 
 export namespace SetIdentityNotificationTopicResponse {
   export const filterSensitiveLog = (obj: SetIdentityNotificationTopicResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetIdentityNotificationTopicResponse =>
-    __isa(o, "SetIdentityNotificationTopicResponse");
 }
 
 /**
@@ -5032,7 +4643,6 @@ export namespace SetIdentityNotificationTopicResponse {
  *             use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface SetReceiptRulePositionRequest {
-  __type?: "SetReceiptRulePositionRequest";
   /**
    * <p>The name of the receipt rule to reposition.</p>
    */
@@ -5053,21 +4663,17 @@ export namespace SetReceiptRulePositionRequest {
   export const filterSensitiveLog = (obj: SetReceiptRulePositionRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetReceiptRulePositionRequest => __isa(o, "SetReceiptRulePositionRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface SetReceiptRulePositionResponse {
-  __type?: "SetReceiptRulePositionResponse";
-}
+export interface SetReceiptRulePositionResponse {}
 
 export namespace SetReceiptRulePositionResponse {
   export const filterSensitiveLog = (obj: SetReceiptRulePositionResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SetReceiptRulePositionResponse => __isa(o, "SetReceiptRulePositionResponse");
 }
 
 /**
@@ -5090,7 +4696,6 @@ export namespace SetReceiptRulePositionResponse {
  *                 Guide</a>.</p>
  */
 export interface SNSAction {
-  __type?: "SNSAction";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS
    *             topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more
@@ -5111,7 +4716,6 @@ export namespace SNSAction {
   export const filterSensitiveLog = (obj: SNSAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SNSAction => __isa(o, "SNSAction");
 }
 
 export enum SNSActionEncoding {
@@ -5127,7 +4731,6 @@ export enum SNSActionEncoding {
  *                 Guide</a>.</p>
  */
 export interface SNSDestination {
-  __type?: "SNSDestination";
   /**
    * <p>The ARN of the Amazon SNS topic that email sending events will be published to. An example
    *             of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For
@@ -5140,7 +4743,6 @@ export namespace SNSDestination {
   export const filterSensitiveLog = (obj: SNSDestination): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is SNSDestination => __isa(o, "SNSDestination");
 }
 
 /**
@@ -5150,7 +4752,6 @@ export namespace SNSDestination {
  *                 Guide</a>.</p>
  */
 export interface StopAction {
-  __type?: "StopAction";
   /**
    * <p>The scope of the StopAction. The only acceptable value is <code>RuleSet</code>.</p>
    */
@@ -5169,7 +4770,6 @@ export namespace StopAction {
   export const filterSensitiveLog = (obj: StopAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is StopAction => __isa(o, "StopAction");
 }
 
 export enum StopScope {
@@ -5181,7 +4781,6 @@ export enum StopScope {
  *             part.</p>
  */
 export interface Template {
-  __type?: "Template";
   /**
    * <p>The HTML body of the email.</p>
    */
@@ -5210,7 +4809,6 @@ export namespace Template {
   export const filterSensitiveLog = (obj: Template): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is Template => __isa(o, "Template");
 }
 
 /**
@@ -5228,14 +4826,12 @@ export namespace TemplateDoesNotExistException {
   export const filterSensitiveLog = (obj: TemplateDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateDoesNotExistException => __isa(o, "TemplateDoesNotExistException");
 }
 
 /**
  * <p>Contains information about an email template.</p>
  */
 export interface TemplateMetadata {
-  __type?: "TemplateMetadata";
   /**
    * <p>The time and date the template was created.</p>
    */
@@ -5251,11 +4847,9 @@ export namespace TemplateMetadata {
   export const filterSensitiveLog = (obj: TemplateMetadata): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TemplateMetadata => __isa(o, "TemplateMetadata");
 }
 
 export interface TestRenderTemplateRequest {
-  __type?: "TestRenderTemplateRequest";
   /**
    * <p>The name of the template that you want to render.</p>
    */
@@ -5273,11 +4867,9 @@ export namespace TestRenderTemplateRequest {
   export const filterSensitiveLog = (obj: TestRenderTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestRenderTemplateRequest => __isa(o, "TestRenderTemplateRequest");
 }
 
 export interface TestRenderTemplateResponse {
-  __type?: "TestRenderTemplateResponse";
   /**
    * <p>The complete MIME message rendered by applying the data in the TemplateData parameter
    *             to the template specified in the TemplateName parameter.</p>
@@ -5289,7 +4881,6 @@ export namespace TestRenderTemplateResponse {
   export const filterSensitiveLog = (obj: TestRenderTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TestRenderTemplateResponse => __isa(o, "TestRenderTemplateResponse");
 }
 
 export enum TlsPolicy {
@@ -5305,7 +4896,6 @@ export enum TlsPolicy {
  *                 Developer Guide</i>.</p>
  */
 export interface TrackingOptions {
-  __type?: "TrackingOptions";
   /**
    * <p>The custom subdomain that will be used to redirect email recipients to the Amazon SES
    *             event tracking domain.</p>
@@ -5317,7 +4907,6 @@ export namespace TrackingOptions {
   export const filterSensitiveLog = (obj: TrackingOptions): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrackingOptions => __isa(o, "TrackingOptions");
 }
 
 /**
@@ -5340,8 +4929,6 @@ export namespace TrackingOptionsAlreadyExistsException {
   export const filterSensitiveLog = (obj: TrackingOptionsAlreadyExistsException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrackingOptionsAlreadyExistsException =>
-    __isa(o, "TrackingOptionsAlreadyExistsException");
 }
 
 /**
@@ -5363,8 +4950,6 @@ export namespace TrackingOptionsDoesNotExistException {
   export const filterSensitiveLog = (obj: TrackingOptionsDoesNotExistException): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is TrackingOptionsDoesNotExistException =>
-    __isa(o, "TrackingOptionsDoesNotExistException");
 }
 
 /**
@@ -5372,7 +4957,6 @@ export namespace TrackingOptionsDoesNotExistException {
  *             entire Amazon SES account.</p>
  */
 export interface UpdateAccountSendingEnabledRequest {
-  __type?: "UpdateAccountSendingEnabledRequest";
   /**
    * <p>Describes whether email sending is enabled or disabled for your Amazon SES account in the
    *             current AWS Region.</p>
@@ -5384,8 +4968,6 @@ export namespace UpdateAccountSendingEnabledRequest {
   export const filterSensitiveLog = (obj: UpdateAccountSendingEnabledRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateAccountSendingEnabledRequest =>
-    __isa(o, "UpdateAccountSendingEnabledRequest");
 }
 
 /**
@@ -5395,7 +4977,6 @@ export namespace UpdateAccountSendingEnabledRequest {
  *                 Guide</a>.</p>
  */
 export interface UpdateConfigurationSetEventDestinationRequest {
-  __type?: "UpdateConfigurationSetEventDestinationRequest";
   /**
    * <p>The event destination object that you want to apply to the specified configuration
    *             set.</p>
@@ -5413,23 +4994,17 @@ export namespace UpdateConfigurationSetEventDestinationRequest {
   export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationRequest =>
-    __isa(o, "UpdateConfigurationSetEventDestinationRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface UpdateConfigurationSetEventDestinationResponse {
-  __type?: "UpdateConfigurationSetEventDestinationResponse";
-}
+export interface UpdateConfigurationSetEventDestinationResponse {}
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
   export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationSetEventDestinationResponse =>
-    __isa(o, "UpdateConfigurationSetEventDestinationResponse");
 }
 
 /**
@@ -5437,7 +5012,6 @@ export namespace UpdateConfigurationSetEventDestinationResponse {
  *             configuration set.</p>
  */
 export interface UpdateConfigurationSetReputationMetricsEnabledRequest {
-  __type?: "UpdateConfigurationSetReputationMetricsEnabledRequest";
   /**
    * <p>The name of the configuration set that you want to update.</p>
    */
@@ -5454,8 +5028,6 @@ export namespace UpdateConfigurationSetReputationMetricsEnabledRequest {
   export const filterSensitiveLog = (obj: UpdateConfigurationSetReputationMetricsEnabledRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationSetReputationMetricsEnabledRequest =>
-    __isa(o, "UpdateConfigurationSetReputationMetricsEnabledRequest");
 }
 
 /**
@@ -5463,7 +5035,6 @@ export namespace UpdateConfigurationSetReputationMetricsEnabledRequest {
  *             specific configuration set.</p>
  */
 export interface UpdateConfigurationSetSendingEnabledRequest {
-  __type?: "UpdateConfigurationSetSendingEnabledRequest";
   /**
    * <p>Describes whether email sending is enabled or disabled for the configuration set.
    *         </p>
@@ -5480,15 +5051,12 @@ export namespace UpdateConfigurationSetSendingEnabledRequest {
   export const filterSensitiveLog = (obj: UpdateConfigurationSetSendingEnabledRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationSetSendingEnabledRequest =>
-    __isa(o, "UpdateConfigurationSetSendingEnabledRequest");
 }
 
 /**
  * <p>Represents a request to update the tracking options for a configuration set. </p>
  */
 export interface UpdateConfigurationSetTrackingOptionsRequest {
-  __type?: "UpdateConfigurationSetTrackingOptionsRequest";
   /**
    * <p>A domain that is used to redirect email recipients to an Amazon SES-operated domain. This
    *             domain captures open and click events generated by Amazon SES emails.</p>
@@ -5509,30 +5077,23 @@ export namespace UpdateConfigurationSetTrackingOptionsRequest {
   export const filterSensitiveLog = (obj: UpdateConfigurationSetTrackingOptionsRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationSetTrackingOptionsRequest =>
-    __isa(o, "UpdateConfigurationSetTrackingOptionsRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface UpdateConfigurationSetTrackingOptionsResponse {
-  __type?: "UpdateConfigurationSetTrackingOptionsResponse";
-}
+export interface UpdateConfigurationSetTrackingOptionsResponse {}
 
 export namespace UpdateConfigurationSetTrackingOptionsResponse {
   export const filterSensitiveLog = (obj: UpdateConfigurationSetTrackingOptionsResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateConfigurationSetTrackingOptionsResponse =>
-    __isa(o, "UpdateConfigurationSetTrackingOptionsResponse");
 }
 
 /**
  * <p>Represents a request to update an existing custom verification email template.</p>
  */
 export interface UpdateCustomVerificationEmailTemplateRequest {
-  __type?: "UpdateCustomVerificationEmailTemplateRequest";
   /**
    * <p>The content of the custom verification email. The total size of the email must be less
    *             than 10 MB. The message body may contain HTML, with some limitations. For more
@@ -5573,8 +5134,6 @@ export namespace UpdateCustomVerificationEmailTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateCustomVerificationEmailTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateCustomVerificationEmailTemplateRequest =>
-    __isa(o, "UpdateCustomVerificationEmailTemplateRequest");
 }
 
 /**
@@ -5583,7 +5142,6 @@ export namespace UpdateCustomVerificationEmailTemplateRequest {
  *                 Guide</a>.</p>
  */
 export interface UpdateReceiptRuleRequest {
-  __type?: "UpdateReceiptRuleRequest";
   /**
    * <p>The name of the receipt rule set that the receipt rule belongs to.</p>
    */
@@ -5599,25 +5157,20 @@ export namespace UpdateReceiptRuleRequest {
   export const filterSensitiveLog = (obj: UpdateReceiptRuleRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateReceiptRuleRequest => __isa(o, "UpdateReceiptRuleRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface UpdateReceiptRuleResponse {
-  __type?: "UpdateReceiptRuleResponse";
-}
+export interface UpdateReceiptRuleResponse {}
 
 export namespace UpdateReceiptRuleResponse {
   export const filterSensitiveLog = (obj: UpdateReceiptRuleResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateReceiptRuleResponse => __isa(o, "UpdateReceiptRuleResponse");
 }
 
 export interface UpdateTemplateRequest {
-  __type?: "UpdateTemplateRequest";
   /**
    * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
    *             part.</p>
@@ -5629,18 +5182,14 @@ export namespace UpdateTemplateRequest {
   export const filterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTemplateRequest => __isa(o, "UpdateTemplateRequest");
 }
 
-export interface UpdateTemplateResponse {
-  __type?: "UpdateTemplateResponse";
-}
+export interface UpdateTemplateResponse {}
 
 export namespace UpdateTemplateResponse {
   export const filterSensitiveLog = (obj: UpdateTemplateResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is UpdateTemplateResponse => __isa(o, "UpdateTemplateResponse");
 }
 
 export type VerificationStatus = "Failed" | "NotStarted" | "Pending" | "Success" | "TemporaryFailure";
@@ -5651,7 +5200,6 @@ export type VerificationStatus = "Failed" | "NotStarted" | "Pending" | "Success"
  *                 Guide</a>.</p>
  */
 export interface VerifyDomainDkimRequest {
-  __type?: "VerifyDomainDkimRequest";
   /**
    * <p>The name of the domain to be verified for Easy DKIM signing.</p>
    */
@@ -5662,7 +5210,6 @@ export namespace VerifyDomainDkimRequest {
   export const filterSensitiveLog = (obj: VerifyDomainDkimRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VerifyDomainDkimRequest => __isa(o, "VerifyDomainDkimRequest");
 }
 
 /**
@@ -5670,7 +5217,6 @@ export namespace VerifyDomainDkimRequest {
  *             Easy DKIM with Amazon SES.</p>
  */
 export interface VerifyDomainDkimResponse {
-  __type?: "VerifyDomainDkimResponse";
   /**
    * <p>A set of character strings that represent the domain's identity. If the identity is an
    *             email address, the tokens represent the domain of that address.</p>
@@ -5689,7 +5235,6 @@ export namespace VerifyDomainDkimResponse {
   export const filterSensitiveLog = (obj: VerifyDomainDkimResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VerifyDomainDkimResponse => __isa(o, "VerifyDomainDkimResponse");
 }
 
 /**
@@ -5699,7 +5244,6 @@ export namespace VerifyDomainDkimResponse {
  *                 Developer Guide</a>.</p>
  */
 export interface VerifyDomainIdentityRequest {
-  __type?: "VerifyDomainIdentityRequest";
   /**
    * <p>The domain to be verified.</p>
    */
@@ -5710,7 +5254,6 @@ export namespace VerifyDomainIdentityRequest {
   export const filterSensitiveLog = (obj: VerifyDomainIdentityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VerifyDomainIdentityRequest => __isa(o, "VerifyDomainIdentityRequest");
 }
 
 /**
@@ -5718,7 +5261,6 @@ export namespace VerifyDomainIdentityRequest {
  *             complete domain verification with Amazon SES.</p>
  */
 export interface VerifyDomainIdentityResponse {
-  __type?: "VerifyDomainIdentityResponse";
   /**
    * <p>A TXT record that you must place in the DNS settings of the domain to complete domain
    *             verification with Amazon SES.</p>
@@ -5735,7 +5277,6 @@ export namespace VerifyDomainIdentityResponse {
   export const filterSensitiveLog = (obj: VerifyDomainIdentityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VerifyDomainIdentityResponse => __isa(o, "VerifyDomainIdentityResponse");
 }
 
 /**
@@ -5744,7 +5285,6 @@ export namespace VerifyDomainIdentityResponse {
  *                 Guide</a>.</p>
  */
 export interface VerifyEmailAddressRequest {
-  __type?: "VerifyEmailAddressRequest";
   /**
    * <p>The email address to be verified.</p>
    */
@@ -5755,7 +5295,6 @@ export namespace VerifyEmailAddressRequest {
   export const filterSensitiveLog = (obj: VerifyEmailAddressRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VerifyEmailAddressRequest => __isa(o, "VerifyEmailAddressRequest");
 }
 
 /**
@@ -5764,7 +5303,6 @@ export namespace VerifyEmailAddressRequest {
  *                 Guide</a>.</p>
  */
 export interface VerifyEmailIdentityRequest {
-  __type?: "VerifyEmailIdentityRequest";
   /**
    * <p>The email address to be verified.</p>
    */
@@ -5775,21 +5313,17 @@ export namespace VerifyEmailIdentityRequest {
   export const filterSensitiveLog = (obj: VerifyEmailIdentityRequest): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VerifyEmailIdentityRequest => __isa(o, "VerifyEmailIdentityRequest");
 }
 
 /**
  * <p>An empty element returned on a successful request.</p>
  */
-export interface VerifyEmailIdentityResponse {
-  __type?: "VerifyEmailIdentityResponse";
-}
+export interface VerifyEmailIdentityResponse {}
 
 export namespace VerifyEmailIdentityResponse {
   export const filterSensitiveLog = (obj: VerifyEmailIdentityResponse): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is VerifyEmailIdentityResponse => __isa(o, "VerifyEmailIdentityResponse");
 }
 
 /**
@@ -5801,7 +5335,6 @@ export namespace VerifyEmailIdentityResponse {
  *                 Guide</a>.</p>
  */
 export interface WorkmailAction {
-  __type?: "WorkmailAction";
   /**
    * <p>The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail
    *             organization ARN is
@@ -5824,5 +5357,4 @@ export namespace WorkmailAction {
   export const filterSensitiveLog = (obj: WorkmailAction): any => ({
     ...obj,
   });
-  export const isa = (o: any): o is WorkmailAction => __isa(o, "WorkmailAction");
 }

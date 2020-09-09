@@ -1674,7 +1674,6 @@ export const deserializeAws_restXmlEmptyInputAndEmptyOutputCommand = async (
   }
   const contents: EmptyInputAndEmptyOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EmptyInputAndEmptyOutputOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1718,7 +1717,6 @@ export const deserializeAws_restXmlFlattenedXmlMapCommand = async (
   }
   const contents: FlattenedXmlMapCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FlattenedXmlMapInputOutput",
     myMap: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1769,7 +1767,6 @@ export const deserializeAws_restXmlFlattenedXmlMapWithXmlNameCommand = async (
   }
   const contents: FlattenedXmlMapWithXmlNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FlattenedXmlMapWithXmlNameInputOutput",
     myMap: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1823,7 +1820,6 @@ export const deserializeAws_restXmlGreetingWithErrorsCommand = async (
   }
   const contents: GreetingWithErrorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GreetingWithErrorsOutput",
     greeting: undefined,
   };
   if (output.headers["x-greeting"] !== undefined) {
@@ -1887,7 +1883,6 @@ export const deserializeAws_restXmlHttpPayloadTraitsCommand = async (
   }
   const contents: HttpPayloadTraitsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HttpPayloadTraitsInputOutput",
     blob: undefined,
     foo: undefined,
   };
@@ -1937,7 +1932,6 @@ export const deserializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand = async
   }
   const contents: HttpPayloadTraitsWithMediaTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HttpPayloadTraitsWithMediaTypeInputOutput",
     blob: undefined,
     foo: undefined,
   };
@@ -1987,7 +1981,6 @@ export const deserializeAws_restXmlHttpPayloadWithStructureCommand = async (
   }
   const contents: HttpPayloadWithStructureCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HttpPayloadWithStructureInputOutput",
     nested: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2033,7 +2026,6 @@ export const deserializeAws_restXmlHttpPayloadWithXmlNameCommand = async (
   }
   const contents: HttpPayloadWithXmlNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HttpPayloadWithXmlNameInputOutput",
     nested: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2079,7 +2071,6 @@ export const deserializeAws_restXmlHttpPayloadWithXmlNamespaceCommand = async (
   }
   const contents: HttpPayloadWithXmlNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HttpPayloadWithXmlNamespaceInputOutput",
     nested: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2125,7 +2116,6 @@ export const deserializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand =
   }
   const contents: HttpPayloadWithXmlNamespaceAndPrefixCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HttpPayloadWithXmlNamespaceAndPrefixInputOutput",
     nested: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2171,7 +2161,6 @@ export const deserializeAws_restXmlHttpPrefixHeadersCommand = async (
   }
   const contents: HttpPrefixHeadersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HttpPrefixHeadersInputOutput",
     foo: undefined,
     fooMap: undefined,
   };
@@ -2357,7 +2346,6 @@ export const deserializeAws_restXmlIgnoreQueryParamsInResponseCommand = async (
   }
   const contents: IgnoreQueryParamsInResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IgnoreQueryParamsInResponseOutput",
     baz: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2405,7 +2393,6 @@ export const deserializeAws_restXmlInputAndOutputWithHeadersCommand = async (
   }
   const contents: InputAndOutputWithHeadersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InputAndOutputWithHeadersIO",
     headerBooleanList: undefined,
     headerByte: undefined,
     headerDouble: undefined,
@@ -2562,7 +2549,6 @@ export const deserializeAws_restXmlNoInputAndOutputCommand = async (
   }
   const contents: NoInputAndOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NoInputAndOutputOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2606,7 +2592,6 @@ export const deserializeAws_restXmlNullAndEmptyHeadersClientCommand = async (
   }
   const contents: NullAndEmptyHeadersClientCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NullAndEmptyHeadersIO",
     a: undefined,
     b: undefined,
     c: undefined,
@@ -2662,7 +2647,6 @@ export const deserializeAws_restXmlNullAndEmptyHeadersServerCommand = async (
   }
   const contents: NullAndEmptyHeadersServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NullAndEmptyHeadersIO",
     a: undefined,
     b: undefined,
     c: undefined,
@@ -2804,7 +2788,6 @@ export const deserializeAws_restXmlRecursiveShapesCommand = async (
   }
   const contents: RecursiveShapesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RecursiveShapesInputOutput",
     nested: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2852,7 +2835,6 @@ export const deserializeAws_restXmlSimpleScalarPropertiesCommand = async (
   }
   const contents: SimpleScalarPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SimpleScalarPropertiesInputOutput",
     byteValue: undefined,
     doubleValue: undefined,
     falseBooleanValue: undefined,
@@ -2936,7 +2918,6 @@ export const deserializeAws_restXmlTimestampFormatHeadersCommand = async (
   }
   const contents: TimestampFormatHeadersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TimestampFormatHeadersIO",
     defaultFormat: undefined,
     memberDateTime: undefined,
     memberEpochSeconds: undefined,
@@ -3008,7 +2989,6 @@ export const deserializeAws_restXmlXmlAttributesCommand = async (
   }
   const contents: XmlAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlAttributesInputOutput",
     attr: undefined,
     foo: undefined,
   };
@@ -3060,7 +3040,6 @@ export const deserializeAws_restXmlXmlAttributesOnPayloadCommand = async (
   }
   const contents: XmlAttributesOnPayloadCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlAttributesOnPayloadInputOutput",
     payload: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3106,7 +3085,6 @@ export const deserializeAws_restXmlXmlBlobsCommand = async (
   }
   const contents: XmlBlobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlBlobsInputOutput",
     data: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3154,7 +3132,6 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
   }
   const contents: XmlEnumsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlEnumsInputOutput",
     fooEnum1: undefined,
     fooEnum2: undefined,
     fooEnum3: undefined,
@@ -3240,7 +3217,6 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   }
   const contents: XmlListsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlListsInputOutput",
     booleanList: undefined,
     enumList: undefined,
     flattenedList: undefined,
@@ -3388,7 +3364,6 @@ export const deserializeAws_restXmlXmlMapsCommand = async (
   }
   const contents: XmlMapsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlMapsInputOutput",
     myMap: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3442,7 +3417,6 @@ export const deserializeAws_restXmlXmlMapsXmlNameCommand = async (
   }
   const contents: XmlMapsXmlNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlMapsXmlNameInputOutput",
     myMap: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3496,7 +3470,6 @@ export const deserializeAws_restXmlXmlNamespacesCommand = async (
   }
   const contents: XmlNamespacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlNamespacesInputOutput",
     nested: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3544,7 +3517,6 @@ export const deserializeAws_restXmlXmlTimestampsCommand = async (
   }
   const contents: XmlTimestampsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "XmlTimestampsInputOutput",
     dateTime: undefined,
     epochSeconds: undefined,
     httpDate: undefined,
@@ -3905,7 +3877,6 @@ const serializeAws_restXmlTimestampList = (input: Date[], context: __SerdeContex
 
 const deserializeAws_restXmlComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
   let contents: any = {
-    __type: "ComplexNestedErrorData",
     Foo: undefined,
   };
   if (output["Foo"] !== undefined) {
@@ -3929,7 +3900,6 @@ const deserializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap = (
 
 const deserializeAws_restXmlNestedPayload = (output: any, context: __SerdeContext): NestedPayload => {
   let contents: any = {
-    __type: "NestedPayload",
     greeting: undefined,
     name: undefined,
   };
@@ -3944,7 +3914,6 @@ const deserializeAws_restXmlNestedPayload = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlPayloadWithXmlName = (output: any, context: __SerdeContext): PayloadWithXmlName => {
   let contents: any = {
-    __type: "PayloadWithXmlName",
     name: undefined,
   };
   if (output["name"] !== undefined) {
@@ -3958,7 +3927,6 @@ const deserializeAws_restXmlPayloadWithXmlNamespace = (
   context: __SerdeContext
 ): PayloadWithXmlNamespace => {
   let contents: any = {
-    __type: "PayloadWithXmlNamespace",
     name: undefined,
   };
   if (output["name"] !== undefined) {
@@ -3972,7 +3940,6 @@ const deserializeAws_restXmlPayloadWithXmlNamespaceAndPrefix = (
   context: __SerdeContext
 ): PayloadWithXmlNamespaceAndPrefix => {
   let contents: any = {
-    __type: "PayloadWithXmlNamespaceAndPrefix",
     name: undefined,
   };
   if (output["name"] !== undefined) {
@@ -3986,7 +3953,6 @@ const deserializeAws_restXmlRecursiveShapesInputOutputNested1 = (
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested1 => {
   let contents: any = {
-    __type: "RecursiveShapesInputOutputNested1",
     foo: undefined,
     nested: undefined,
   };
@@ -4004,7 +3970,6 @@ const deserializeAws_restXmlRecursiveShapesInputOutputNested2 = (
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested2 => {
   let contents: any = {
-    __type: "RecursiveShapesInputOutputNested2",
     bar: undefined,
     recursiveMember: undefined,
   };
@@ -4030,7 +3995,6 @@ const deserializeAws_restXmlStructureList = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlStructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
   let contents: any = {
-    __type: "StructureListMember",
     a: undefined,
     b: undefined,
   };
@@ -4048,7 +4012,6 @@ const deserializeAws_restXmlXmlAttributesInputOutput = (
   context: __SerdeContext
 ): XmlAttributesInputOutput => {
   let contents: any = {
-    __type: "XmlAttributesInputOutput",
     foo: undefined,
     attr: undefined,
   };
@@ -4093,7 +4056,6 @@ const deserializeAws_restXmlXmlNamespacedList = (output: any, context: __SerdeCo
 
 const deserializeAws_restXmlXmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespaceNested => {
   let contents: any = {
-    __type: "XmlNamespaceNested",
     foo: undefined,
     values: undefined,
   };
@@ -4139,7 +4101,6 @@ const deserializeAws_restXmlFooEnumSet = (output: any, context: __SerdeContext):
 
 const deserializeAws_restXmlGreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
   let contents: any = {
-    __type: "GreetingStruct",
     hi: undefined,
   };
   if (output["hi"] !== undefined) {

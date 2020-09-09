@@ -608,7 +608,6 @@ export const deserializeAws_json1_1AssociateDelegateToResourceCommand = async (
   contents = deserializeAws_json1_1AssociateDelegateToResourceResponse(data, context);
   const response: AssociateDelegateToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateDelegateToResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -696,7 +695,6 @@ export const deserializeAws_json1_1AssociateMemberToGroupCommand = async (
   contents = deserializeAws_json1_1AssociateMemberToGroupResponse(data, context);
   const response: AssociateMemberToGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateMemberToGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -808,7 +806,6 @@ export const deserializeAws_json1_1CreateAliasCommand = async (
   contents = deserializeAws_json1_1CreateAliasResponse(data, context);
   const response: CreateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAliasResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -920,7 +917,6 @@ export const deserializeAws_json1_1CreateGroupCommand = async (
   contents = deserializeAws_json1_1CreateGroupResponse(data, context);
   const response: CreateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1032,7 +1028,6 @@ export const deserializeAws_json1_1CreateResourceCommand = async (
   contents = deserializeAws_json1_1CreateResourceResponse(data, context);
   const response: CreateResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1136,7 +1131,6 @@ export const deserializeAws_json1_1CreateUserCommand = async (
   contents = deserializeAws_json1_1CreateUserResponse(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1256,7 +1250,6 @@ export const deserializeAws_json1_1DeleteAliasCommand = async (
   contents = deserializeAws_json1_1DeleteAliasResponse(data, context);
   const response: DeleteAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAliasResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1344,7 +1337,6 @@ export const deserializeAws_json1_1DeleteGroupCommand = async (
   contents = deserializeAws_json1_1DeleteGroupResponse(data, context);
   const response: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1448,7 +1440,6 @@ export const deserializeAws_json1_1DeleteMailboxPermissionsCommand = async (
   contents = deserializeAws_json1_1DeleteMailboxPermissionsResponse(data, context);
   const response: DeleteMailboxPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMailboxPermissionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1536,7 +1527,6 @@ export const deserializeAws_json1_1DeleteResourceCommand = async (
   contents = deserializeAws_json1_1DeleteResourceResponse(data, context);
   const response: DeleteResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1616,7 +1606,6 @@ export const deserializeAws_json1_1DeleteUserCommand = async (
   contents = deserializeAws_json1_1DeleteUserResponse(data, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1720,7 +1709,6 @@ export const deserializeAws_json1_1DeregisterFromWorkMailCommand = async (
   contents = deserializeAws_json1_1DeregisterFromWorkMailResponse(data, context);
   const response: DeregisterFromWorkMailCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterFromWorkMailResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1808,7 +1796,6 @@ export const deserializeAws_json1_1DescribeGroupCommand = async (
   contents = deserializeAws_json1_1DescribeGroupResponse(data, context);
   const response: DescribeGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1888,7 +1875,6 @@ export const deserializeAws_json1_1DescribeOrganizationCommand = async (
   contents = deserializeAws_json1_1DescribeOrganizationResponse(data, context);
   const response: DescribeOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOrganizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1952,7 +1938,6 @@ export const deserializeAws_json1_1DescribeResourceCommand = async (
   contents = deserializeAws_json1_1DescribeResourceResponse(data, context);
   const response: DescribeResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2032,7 +2017,6 @@ export const deserializeAws_json1_1DescribeUserCommand = async (
   contents = deserializeAws_json1_1DescribeUserResponse(data, context);
   const response: DescribeUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2112,7 +2096,6 @@ export const deserializeAws_json1_1DisassociateDelegateFromResourceCommand = asy
   contents = deserializeAws_json1_1DisassociateDelegateFromResourceResponse(data, context);
   const response: DisassociateDelegateFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateDelegateFromResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2200,7 +2183,6 @@ export const deserializeAws_json1_1DisassociateMemberFromGroupCommand = async (
   contents = deserializeAws_json1_1DisassociateMemberFromGroupResponse(data, context);
   const response: DisassociateMemberFromGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateMemberFromGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2312,7 +2294,6 @@ export const deserializeAws_json1_1GetMailboxDetailsCommand = async (
   contents = deserializeAws_json1_1GetMailboxDetailsResponse(data, context);
   const response: GetMailboxDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMailboxDetailsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2384,7 +2365,6 @@ export const deserializeAws_json1_1ListAliasesCommand = async (
   contents = deserializeAws_json1_1ListAliasesResponse(data, context);
   const response: ListAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAliasesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2472,7 +2452,6 @@ export const deserializeAws_json1_1ListGroupMembersCommand = async (
   contents = deserializeAws_json1_1ListGroupMembersResponse(data, context);
   const response: ListGroupMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGroupMembersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2560,7 +2539,6 @@ export const deserializeAws_json1_1ListGroupsCommand = async (
   contents = deserializeAws_json1_1ListGroupsResponse(data, context);
   const response: ListGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2640,7 +2618,6 @@ export const deserializeAws_json1_1ListMailboxPermissionsCommand = async (
   contents = deserializeAws_json1_1ListMailboxPermissionsResponse(data, context);
   const response: ListMailboxPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMailboxPermissionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2720,7 +2697,6 @@ export const deserializeAws_json1_1ListOrganizationsCommand = async (
   contents = deserializeAws_json1_1ListOrganizationsResponse(data, context);
   const response: ListOrganizationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOrganizationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2776,7 +2752,6 @@ export const deserializeAws_json1_1ListResourceDelegatesCommand = async (
   contents = deserializeAws_json1_1ListResourceDelegatesResponse(data, context);
   const response: ListResourceDelegatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourceDelegatesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2864,7 +2839,6 @@ export const deserializeAws_json1_1ListResourcesCommand = async (
   contents = deserializeAws_json1_1ListResourcesResponse(data, context);
   const response: ListResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourcesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2936,7 +2910,6 @@ export const deserializeAws_json1_1ListUsersCommand = async (
   contents = deserializeAws_json1_1ListUsersResponse(data, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUsersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3008,7 +2981,6 @@ export const deserializeAws_json1_1PutMailboxPermissionsCommand = async (
   contents = deserializeAws_json1_1PutMailboxPermissionsResponse(data, context);
   const response: PutMailboxPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutMailboxPermissionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3096,7 +3068,6 @@ export const deserializeAws_json1_1RegisterToWorkMailCommand = async (
   contents = deserializeAws_json1_1RegisterToWorkMailResponse(data, context);
   const response: RegisterToWorkMailCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterToWorkMailResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3232,7 +3203,6 @@ export const deserializeAws_json1_1ResetPasswordCommand = async (
   contents = deserializeAws_json1_1ResetPasswordResponse(data, context);
   const response: ResetPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResetPasswordResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3352,7 +3322,6 @@ export const deserializeAws_json1_1UpdateMailboxQuotaCommand = async (
   contents = deserializeAws_json1_1UpdateMailboxQuotaResponse(data, context);
   const response: UpdateMailboxQuotaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateMailboxQuotaResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3440,7 +3409,6 @@ export const deserializeAws_json1_1UpdatePrimaryEmailAddressCommand = async (
   contents = deserializeAws_json1_1UpdatePrimaryEmailAddressResponse(data, context);
   const response: UpdatePrimaryEmailAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePrimaryEmailAddressResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3576,7 +3544,6 @@ export const deserializeAws_json1_1UpdateResourceCommand = async (
   contents = deserializeAws_json1_1UpdateResourceResponse(data, context);
   const response: UpdateResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4264,23 +4231,18 @@ const deserializeAws_json1_1AssociateDelegateToResourceResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateDelegateToResourceResponse => {
-  return {
-    __type: "AssociateDelegateToResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateMemberToGroupResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateMemberToGroupResponse => {
-  return {
-    __type: "AssociateMemberToGroupResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1BookingOptions = (output: any, context: __SerdeContext): BookingOptions => {
   return {
-    __type: "BookingOptions",
     AutoAcceptRequests:
       output.AutoAcceptRequests !== undefined && output.AutoAcceptRequests !== null
         ? output.AutoAcceptRequests
@@ -4297,85 +4259,66 @@ const deserializeAws_json1_1BookingOptions = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1CreateAliasResponse = (output: any, context: __SerdeContext): CreateAliasResponse => {
-  return {
-    __type: "CreateAliasResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
   return {
-    __type: "CreateGroupResponse",
     GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateResourceResponse = (output: any, context: __SerdeContext): CreateResourceResponse => {
   return {
-    __type: "CreateResourceResponse",
     ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
   return {
-    __type: "CreateUserResponse",
     UserId: output.UserId !== undefined && output.UserId !== null ? output.UserId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Delegate = (output: any, context: __SerdeContext): Delegate => {
   return {
-    __type: "Delegate",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteAliasResponse = (output: any, context: __SerdeContext): DeleteAliasResponse => {
-  return {
-    __type: "DeleteAliasResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteGroupResponse = (output: any, context: __SerdeContext): DeleteGroupResponse => {
-  return {
-    __type: "DeleteGroupResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteMailboxPermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteMailboxPermissionsResponse => {
-  return {
-    __type: "DeleteMailboxPermissionsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteResourceResponse = (output: any, context: __SerdeContext): DeleteResourceResponse => {
-  return {
-    __type: "DeleteResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteUserResponse = (output: any, context: __SerdeContext): DeleteUserResponse => {
-  return {
-    __type: "DeleteUserResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeregisterFromWorkMailResponse = (
   output: any,
   context: __SerdeContext
 ): DeregisterFromWorkMailResponse => {
-  return {
-    __type: "DeregisterFromWorkMailResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeGroupResponse = (output: any, context: __SerdeContext): DescribeGroupResponse => {
   return {
-    __type: "DescribeGroupResponse",
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
         ? new Date(Math.round(output.DisabledDate * 1000))
@@ -4396,7 +4339,6 @@ const deserializeAws_json1_1DescribeOrganizationResponse = (
   context: __SerdeContext
 ): DescribeOrganizationResponse => {
   return {
-    __type: "DescribeOrganizationResponse",
     Alias: output.Alias !== undefined && output.Alias !== null ? output.Alias : undefined,
     CompletedDate:
       output.CompletedDate !== undefined && output.CompletedDate !== null
@@ -4421,7 +4363,6 @@ const deserializeAws_json1_1DescribeResourceResponse = (
   context: __SerdeContext
 ): DescribeResourceResponse => {
   return {
-    __type: "DescribeResourceResponse",
     BookingOptions:
       output.BookingOptions !== undefined && output.BookingOptions !== null
         ? deserializeAws_json1_1BookingOptions(output.BookingOptions, context)
@@ -4444,7 +4385,6 @@ const deserializeAws_json1_1DescribeResourceResponse = (
 
 const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
   return {
-    __type: "DescribeUserResponse",
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
         ? new Date(Math.round(output.DisabledDate * 1000))
@@ -4467,7 +4407,6 @@ const deserializeAws_json1_1DirectoryServiceAuthenticationFailedException = (
   context: __SerdeContext
 ): DirectoryServiceAuthenticationFailedException => {
   return {
-    __type: "DirectoryServiceAuthenticationFailedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4477,7 +4416,6 @@ const deserializeAws_json1_1DirectoryUnavailableException = (
   context: __SerdeContext
 ): DirectoryUnavailableException => {
   return {
-    __type: "DirectoryUnavailableException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4486,18 +4424,14 @@ const deserializeAws_json1_1DisassociateDelegateFromResourceResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateDelegateFromResourceResponse => {
-  return {
-    __type: "DisassociateDelegateFromResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateMemberFromGroupResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateMemberFromGroupResponse => {
-  return {
-    __type: "DisassociateMemberFromGroupResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1EmailAddressInUseException = (
@@ -4505,7 +4439,6 @@ const deserializeAws_json1_1EmailAddressInUseException = (
   context: __SerdeContext
 ): EmailAddressInUseException => {
   return {
-    __type: "EmailAddressInUseException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4515,7 +4448,6 @@ const deserializeAws_json1_1EntityAlreadyRegisteredException = (
   context: __SerdeContext
 ): EntityAlreadyRegisteredException => {
   return {
-    __type: "EntityAlreadyRegisteredException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4525,14 +4457,12 @@ const deserializeAws_json1_1EntityNotFoundException = (
   context: __SerdeContext
 ): EntityNotFoundException => {
   return {
-    __type: "EntityNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1EntityStateException = (output: any, context: __SerdeContext): EntityStateException => {
   return {
-    __type: "EntityStateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4542,7 +4472,6 @@ const deserializeAws_json1_1GetMailboxDetailsResponse = (
   context: __SerdeContext
 ): GetMailboxDetailsResponse => {
   return {
-    __type: "GetMailboxDetailsResponse",
     MailboxQuota: output.MailboxQuota !== undefined && output.MailboxQuota !== null ? output.MailboxQuota : undefined,
     MailboxSize: output.MailboxSize !== undefined && output.MailboxSize !== null ? output.MailboxSize : undefined,
   } as any;
@@ -4550,7 +4479,6 @@ const deserializeAws_json1_1GetMailboxDetailsResponse = (
 
 const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Group => {
   return {
-    __type: "Group",
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
         ? new Date(Math.round(output.DisabledDate * 1000))
@@ -4575,7 +4503,6 @@ const deserializeAws_json1_1InvalidConfigurationException = (
   context: __SerdeContext
 ): InvalidConfigurationException => {
   return {
-    __type: "InvalidConfigurationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4585,7 +4512,6 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4595,14 +4521,12 @@ const deserializeAws_json1_1InvalidPasswordException = (
   context: __SerdeContext
 ): InvalidPasswordException => {
   return {
-    __type: "InvalidPasswordException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListAliasesResponse = (output: any, context: __SerdeContext): ListAliasesResponse => {
   return {
-    __type: "ListAliasesResponse",
     Aliases:
       output.Aliases !== undefined && output.Aliases !== null
         ? deserializeAws_json1_1Aliases(output.Aliases, context)
@@ -4616,7 +4540,6 @@ const deserializeAws_json1_1ListGroupMembersResponse = (
   context: __SerdeContext
 ): ListGroupMembersResponse => {
   return {
-    __type: "ListGroupMembersResponse",
     Members:
       output.Members !== undefined && output.Members !== null
         ? deserializeAws_json1_1Members(output.Members, context)
@@ -4627,7 +4550,6 @@ const deserializeAws_json1_1ListGroupMembersResponse = (
 
 const deserializeAws_json1_1ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
   return {
-    __type: "ListGroupsResponse",
     Groups:
       output.Groups !== undefined && output.Groups !== null
         ? deserializeAws_json1_1Groups(output.Groups, context)
@@ -4641,7 +4563,6 @@ const deserializeAws_json1_1ListMailboxPermissionsResponse = (
   context: __SerdeContext
 ): ListMailboxPermissionsResponse => {
   return {
-    __type: "ListMailboxPermissionsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
@@ -4655,7 +4576,6 @@ const deserializeAws_json1_1ListOrganizationsResponse = (
   context: __SerdeContext
 ): ListOrganizationsResponse => {
   return {
-    __type: "ListOrganizationsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     OrganizationSummaries:
       output.OrganizationSummaries !== undefined && output.OrganizationSummaries !== null
@@ -4669,7 +4589,6 @@ const deserializeAws_json1_1ListResourceDelegatesResponse = (
   context: __SerdeContext
 ): ListResourceDelegatesResponse => {
   return {
-    __type: "ListResourceDelegatesResponse",
     Delegates:
       output.Delegates !== undefined && output.Delegates !== null
         ? deserializeAws_json1_1ResourceDelegates(output.Delegates, context)
@@ -4680,7 +4599,6 @@ const deserializeAws_json1_1ListResourceDelegatesResponse = (
 
 const deserializeAws_json1_1ListResourcesResponse = (output: any, context: __SerdeContext): ListResourcesResponse => {
   return {
-    __type: "ListResourcesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Resources:
       output.Resources !== undefined && output.Resources !== null
@@ -4691,7 +4609,6 @@ const deserializeAws_json1_1ListResourcesResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   return {
-    __type: "ListUsersResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Users:
       output.Users !== undefined && output.Users !== null
@@ -4705,7 +4622,6 @@ const deserializeAws_json1_1MailDomainNotFoundException = (
   context: __SerdeContext
 ): MailDomainNotFoundException => {
   return {
-    __type: "MailDomainNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4715,14 +4631,12 @@ const deserializeAws_json1_1MailDomainStateException = (
   context: __SerdeContext
 ): MailDomainStateException => {
   return {
-    __type: "MailDomainStateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Member = (output: any, context: __SerdeContext): Member => {
   return {
-    __type: "Member",
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
         ? new Date(Math.round(output.DisabledDate * 1000))
@@ -4747,7 +4661,6 @@ const deserializeAws_json1_1NameAvailabilityException = (
   context: __SerdeContext
 ): NameAvailabilityException => {
   return {
-    __type: "NameAvailabilityException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4757,7 +4670,6 @@ const deserializeAws_json1_1OrganizationNotFoundException = (
   context: __SerdeContext
 ): OrganizationNotFoundException => {
   return {
-    __type: "OrganizationNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4767,7 +4679,6 @@ const deserializeAws_json1_1OrganizationStateException = (
   context: __SerdeContext
 ): OrganizationStateException => {
   return {
-    __type: "OrganizationStateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4778,7 +4689,6 @@ const deserializeAws_json1_1OrganizationSummaries = (output: any, context: __Ser
 
 const deserializeAws_json1_1OrganizationSummary = (output: any, context: __SerdeContext): OrganizationSummary => {
   return {
-    __type: "OrganizationSummary",
     Alias: output.Alias !== undefined && output.Alias !== null ? output.Alias : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     OrganizationId:
@@ -4789,7 +4699,6 @@ const deserializeAws_json1_1OrganizationSummary = (output: any, context: __Serde
 
 const deserializeAws_json1_1Permission = (output: any, context: __SerdeContext): Permission => {
   return {
-    __type: "Permission",
     GranteeId: output.GranteeId !== undefined && output.GranteeId !== null ? output.GranteeId : undefined,
     GranteeType: output.GranteeType !== undefined && output.GranteeType !== null ? output.GranteeType : undefined,
     PermissionValues:
@@ -4811,36 +4720,28 @@ const deserializeAws_json1_1PutMailboxPermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): PutMailboxPermissionsResponse => {
-  return {
-    __type: "PutMailboxPermissionsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RegisterToWorkMailResponse = (
   output: any,
   context: __SerdeContext
 ): RegisterToWorkMailResponse => {
-  return {
-    __type: "RegisterToWorkMailResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ReservedNameException = (output: any, context: __SerdeContext): ReservedNameException => {
   return {
-    __type: "ReservedNameException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResetPasswordResponse = (output: any, context: __SerdeContext): ResetPasswordResponse => {
-  return {
-    __type: "ResetPasswordResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    __type: "Resource",
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
         ? new Date(Math.round(output.DisabledDate * 1000))
@@ -4870,7 +4771,6 @@ const deserializeAws_json1_1UnsupportedOperationException = (
   context: __SerdeContext
 ): UnsupportedOperationException => {
   return {
-    __type: "UnsupportedOperationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4879,29 +4779,22 @@ const deserializeAws_json1_1UpdateMailboxQuotaResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateMailboxQuotaResponse => {
-  return {
-    __type: "UpdateMailboxQuotaResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdatePrimaryEmailAddressResponse = (
   output: any,
   context: __SerdeContext
 ): UpdatePrimaryEmailAddressResponse => {
-  return {
-    __type: "UpdatePrimaryEmailAddressResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateResourceResponse = (output: any, context: __SerdeContext): UpdateResourceResponse => {
-  return {
-    __type: "UpdateResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User => {
   return {
-    __type: "User",
     DisabledDate:
       output.DisabledDate !== undefined && output.DisabledDate !== null
         ? new Date(Math.round(output.DisabledDate * 1000))

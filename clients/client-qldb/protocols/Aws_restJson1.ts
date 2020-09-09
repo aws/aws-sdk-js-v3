@@ -726,7 +726,6 @@ export const deserializeAws_restJson1CancelJournalKinesisStreamCommand = async (
   }
   const contents: CancelJournalKinesisStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelJournalKinesisStreamResponse",
     StreamId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -798,7 +797,6 @@ export const deserializeAws_restJson1CreateLedgerCommand = async (
   }
   const contents: CreateLedgerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLedgerResponse",
     Arn: undefined,
     CreationDateTime: undefined,
     DeletionProtection: undefined,
@@ -969,7 +967,6 @@ export const deserializeAws_restJson1DescribeJournalKinesisStreamCommand = async
   }
   const contents: DescribeJournalKinesisStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeJournalKinesisStreamResponse",
     Stream: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1041,7 +1038,6 @@ export const deserializeAws_restJson1DescribeJournalS3ExportCommand = async (
   }
   const contents: DescribeJournalS3ExportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeJournalS3ExportResponse",
     ExportDescription: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1097,7 +1093,6 @@ export const deserializeAws_restJson1DescribeLedgerCommand = async (
   }
   const contents: DescribeLedgerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLedgerResponse",
     Arn: undefined,
     CreationDateTime: undefined,
     DeletionProtection: undefined,
@@ -1177,7 +1172,6 @@ export const deserializeAws_restJson1ExportJournalToS3Command = async (
   }
   const contents: ExportJournalToS3CommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportJournalToS3Response",
     ExportId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1241,7 +1235,6 @@ export const deserializeAws_restJson1GetBlockCommand = async (
   }
   const contents: GetBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBlockResponse",
     Block: undefined,
     Proof: undefined,
   };
@@ -1317,7 +1310,6 @@ export const deserializeAws_restJson1GetDigestCommand = async (
   }
   const contents: GetDigestCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDigestResponse",
     Digest: undefined,
     DigestTipAddress: undefined,
   };
@@ -1393,7 +1385,6 @@ export const deserializeAws_restJson1GetRevisionCommand = async (
   }
   const contents: GetRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRevisionResponse",
     Proof: undefined,
     Revision: undefined,
   };
@@ -1469,7 +1460,6 @@ export const deserializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand =
   }
   const contents: ListJournalKinesisStreamsForLedgerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJournalKinesisStreamsForLedgerResponse",
     NextToken: undefined,
     Streams: undefined,
   };
@@ -1545,7 +1535,6 @@ export const deserializeAws_restJson1ListJournalS3ExportsCommand = async (
   }
   const contents: ListJournalS3ExportsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJournalS3ExportsResponse",
     JournalS3Exports: undefined,
     NextToken: undefined,
   };
@@ -1597,7 +1586,6 @@ export const deserializeAws_restJson1ListJournalS3ExportsForLedgerCommand = asyn
   }
   const contents: ListJournalS3ExportsForLedgerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJournalS3ExportsForLedgerResponse",
     JournalS3Exports: undefined,
     NextToken: undefined,
   };
@@ -1649,7 +1637,6 @@ export const deserializeAws_restJson1ListLedgersCommand = async (
   }
   const contents: ListLedgersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLedgersResponse",
     Ledgers: undefined,
     NextToken: undefined,
   };
@@ -1701,7 +1688,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1765,7 +1751,6 @@ export const deserializeAws_restJson1StreamJournalToKinesisCommand = async (
   }
   const contents: StreamJournalToKinesisCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StreamJournalToKinesisResponse",
     StreamId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1837,7 +1822,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1897,7 +1881,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1957,7 +1940,6 @@ export const deserializeAws_restJson1UpdateLedgerCommand = async (
   }
   const contents: UpdateLedgerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateLedgerResponse",
     Arn: undefined,
     CreationDateTime: undefined,
     DeletionProtection: undefined,
@@ -2218,7 +2200,6 @@ const deserializeAws_restJson1JournalKinesisStreamDescription = (
   context: __SerdeContext
 ): JournalKinesisStreamDescription => {
   return {
-    __type: "JournalKinesisStreamDescription",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
@@ -2257,7 +2238,6 @@ const deserializeAws_restJson1JournalS3ExportDescription = (
   context: __SerdeContext
 ): JournalS3ExportDescription => {
   return {
-    __type: "JournalS3ExportDescription",
     ExclusiveEndTime:
       output.ExclusiveEndTime !== undefined && output.ExclusiveEndTime !== null
         ? new Date(Math.round(output.ExclusiveEndTime * 1000))
@@ -2290,7 +2270,6 @@ const deserializeAws_restJson1JournalS3ExportList = (
 
 const deserializeAws_restJson1KinesisConfiguration = (output: any, context: __SerdeContext): KinesisConfiguration => {
   return {
-    __type: "KinesisConfiguration",
     AggregationEnabled:
       output.AggregationEnabled !== undefined && output.AggregationEnabled !== null
         ? output.AggregationEnabled
@@ -2305,7 +2284,6 @@ const deserializeAws_restJson1LedgerList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1LedgerSummary = (output: any, context: __SerdeContext): LedgerSummary => {
   return {
-    __type: "LedgerSummary",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -2320,7 +2298,6 @@ const deserializeAws_restJson1S3EncryptionConfiguration = (
   context: __SerdeContext
 ): S3EncryptionConfiguration => {
   return {
-    __type: "S3EncryptionConfiguration",
     KmsKeyArn: output.KmsKeyArn !== undefined && output.KmsKeyArn !== null ? output.KmsKeyArn : undefined,
     ObjectEncryptionType:
       output.ObjectEncryptionType !== undefined && output.ObjectEncryptionType !== null
@@ -2331,7 +2308,6 @@ const deserializeAws_restJson1S3EncryptionConfiguration = (
 
 const deserializeAws_restJson1S3ExportConfiguration = (output: any, context: __SerdeContext): S3ExportConfiguration => {
   return {
-    __type: "S3ExportConfiguration",
     Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
     EncryptionConfiguration:
       output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
@@ -2353,7 +2329,6 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
 
 const deserializeAws_restJson1ValueHolder = (output: any, context: __SerdeContext): ValueHolder => {
   return {
-    __type: "ValueHolder",
     IonText: output.IonText !== undefined && output.IonText !== null ? output.IonText : undefined,
   } as any;
 };
