@@ -1,6 +1,6 @@
 import { ProviderError } from "@aws-sdk/property-provider";
 import { createServer } from "http";
-import * as nock from "nock";
+import nock from "nock";
 
 import { httpRequest } from "./httpRequest";
 

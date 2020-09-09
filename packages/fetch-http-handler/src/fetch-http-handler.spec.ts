@@ -2,7 +2,7 @@ import { AbortController } from "@aws-sdk/abort-controller";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
 import { FetchHttpHandler } from "./fetch-http-handler";
-import * as timeouts from "./request-timeout";
+import timeouts from "./request-timeout";
 
 const mockRequest = jest.fn();
 let mockResponse: any;

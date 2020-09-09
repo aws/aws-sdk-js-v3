@@ -1,4 +1,4 @@
-import * as index from "./index";
+import index from "./index";
 
 describe("index", () => {
   it("exports FetchHttpHandler", () => {

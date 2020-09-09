@@ -1,8 +1,8 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { HttpHandlerOptions } from "@aws-sdk/types";
-import * as http from "http";
-import * as https from "https";
+import http from "http";
+import https from "https";
 
 import { getTransformedHeaders } from "./get-transformed-headers";
 import { setConnectionTimeout } from "./set-connection-timeout";

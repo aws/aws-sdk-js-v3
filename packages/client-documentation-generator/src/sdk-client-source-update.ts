@@ -3,7 +3,7 @@ import { Converter } from "typedoc/dist/lib/converter";
 import { Component, ConverterComponent } from "typedoc/dist/lib/converter/components";
 import { Context } from "typedoc/dist/lib/converter/context";
 import { SourceFile } from "typedoc/dist/lib/models";
-import * as ts from "typescript";
+import ts from "typescript";
 
 const basePathsToIgnore = ["model"];
 

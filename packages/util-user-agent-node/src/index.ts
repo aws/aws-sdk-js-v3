@@ -1,4 +1,4 @@
-import * as process from "process";
+import process from "process";
 
 export function defaultUserAgent(packageName: string, packageVersion: string): string {
   let engine = `${process.platform}/${process.version}`;
