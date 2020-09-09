@@ -12,6 +12,7 @@
     "sourceMap": true,
     "preserveConstEnums": true,
     "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
