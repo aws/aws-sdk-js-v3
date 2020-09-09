@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { CreateStorageLocationResultMessage } from "../models/index";
+import { CreateStorageLocationResultMessage } from "../models/models_0";
 import {
   deserializeAws_queryCreateStorageLocationCommand,
   serializeAws_queryCreateStorageLocationCommand,

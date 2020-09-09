@@ -1,5 +1,5 @@
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DescribeAnalysisSchemesRequest, DescribeAnalysisSchemesResponse } from "../models/index";
+import { DescribeAnalysisSchemesRequest, DescribeAnalysisSchemesResponse } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAnalysisSchemesCommand,
   serializeAws_queryDescribeAnalysisSchemesCommand,

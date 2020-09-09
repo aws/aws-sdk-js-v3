@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { VerifyTrustRequest, VerifyTrustResult } from "../models/index";
+import { VerifyTrustRequest, VerifyTrustResult } from "../models/models_0";
 import {
   deserializeAws_json1_1VerifyTrustCommand,
   serializeAws_json1_1VerifyTrustCommand,

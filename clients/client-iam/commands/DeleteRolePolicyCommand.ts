@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteRolePolicyRequest } from "../models/index";
+import { DeleteRolePolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryDeleteRolePolicyCommand,
   serializeAws_queryDeleteRolePolicyCommand,

@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StartDocumentClassificationJobRequest, StartDocumentClassificationJobResponse } from "../models/index";
+import { StartDocumentClassificationJobRequest, StartDocumentClassificationJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartDocumentClassificationJobCommand,
   serializeAws_json1_1StartDocumentClassificationJobCommand,

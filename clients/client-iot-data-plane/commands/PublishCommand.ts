@@ -1,5 +1,5 @@
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import { PublishRequest } from "../models/index";
+import { PublishRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PublishCommand,
   serializeAws_restJson1PublishCommand,

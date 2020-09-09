@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { GetWorkflowExecutionHistoryInput, History } from "../models/index";
+import { GetWorkflowExecutionHistoryInput, History } from "../models/models_0";
 import {
   deserializeAws_json1_0GetWorkflowExecutionHistoryCommand,
   serializeAws_json1_0GetWorkflowExecutionHistoryCommand,

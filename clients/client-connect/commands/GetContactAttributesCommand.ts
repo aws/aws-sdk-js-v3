@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { GetContactAttributesRequest, GetContactAttributesResponse } from "../models/index";
+import { GetContactAttributesRequest, GetContactAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetContactAttributesCommand,
   serializeAws_restJson1GetContactAttributesCommand,

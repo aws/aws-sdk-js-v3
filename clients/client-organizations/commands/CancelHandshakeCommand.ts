@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { CancelHandshakeRequest, CancelHandshakeResponse } from "../models/index";
+import { CancelHandshakeRequest, CancelHandshakeResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelHandshakeCommand,
   serializeAws_json1_1CancelHandshakeCommand,

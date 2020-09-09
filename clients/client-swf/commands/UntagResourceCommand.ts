@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { UntagResourceInput } from "../models/index";
+import { UntagResourceInput } from "../models/models_0";
 import {
   deserializeAws_json1_0UntagResourceCommand,
   serializeAws_json1_0UntagResourceCommand,

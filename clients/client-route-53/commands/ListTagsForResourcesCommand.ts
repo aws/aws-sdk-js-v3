@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListTagsForResourcesRequest, ListTagsForResourcesResponse } from "../models/index";
+import { ListTagsForResourcesRequest, ListTagsForResourcesResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlListTagsForResourcesCommand,
   serializeAws_restXmlListTagsForResourcesCommand,

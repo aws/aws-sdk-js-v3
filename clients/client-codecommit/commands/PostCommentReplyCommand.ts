@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { PostCommentReplyInput, PostCommentReplyOutput } from "../models/index";
+import { PostCommentReplyInput, PostCommentReplyOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1PostCommentReplyCommand,
   serializeAws_json1_1PostCommentReplyCommand,

@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DetachCertificateFromDistributionRequest, DetachCertificateFromDistributionResult } from "../models/index";
+import { DetachCertificateFromDistributionRequest, DetachCertificateFromDistributionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DetachCertificateFromDistributionCommand,
   serializeAws_json1_1DetachCertificateFromDistributionCommand,

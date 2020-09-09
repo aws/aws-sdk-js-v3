@@ -1,5 +1,5 @@
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
-import { ChangeMessageVisibilityBatchRequest, ChangeMessageVisibilityBatchResult } from "../models/index";
+import { ChangeMessageVisibilityBatchRequest, ChangeMessageVisibilityBatchResult } from "../models/models_0";
 import {
   deserializeAws_queryChangeMessageVisibilityBatchCommand,
   serializeAws_queryChangeMessageVisibilityBatchCommand,

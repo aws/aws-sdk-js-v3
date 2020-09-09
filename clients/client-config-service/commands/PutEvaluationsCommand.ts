@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutEvaluationsRequest, PutEvaluationsResponse } from "../models/index";
+import { PutEvaluationsRequest, PutEvaluationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutEvaluationsCommand,
   serializeAws_json1_1PutEvaluationsCommand,

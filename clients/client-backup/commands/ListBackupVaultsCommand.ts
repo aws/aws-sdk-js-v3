@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { ListBackupVaultsInput, ListBackupVaultsOutput } from "../models/index";
+import { ListBackupVaultsInput, ListBackupVaultsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListBackupVaultsCommand,
   serializeAws_restJson1ListBackupVaultsCommand,

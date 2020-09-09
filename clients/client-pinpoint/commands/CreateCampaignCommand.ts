@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { CreateCampaignRequest, CreateCampaignResponse } from "../models/index";
+import { CreateCampaignRequest, CreateCampaignResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCampaignCommand,
   serializeAws_restJson1CreateCampaignCommand,

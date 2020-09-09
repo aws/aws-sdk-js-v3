@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteBotVersionRequest } from "../models/index";
+import { DeleteBotVersionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBotVersionCommand,
   serializeAws_restJson1DeleteBotVersionCommand,

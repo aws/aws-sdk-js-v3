@@ -1,5 +1,5 @@
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { AccessPointDescription, CreateAccessPointRequest } from "../models/index";
+import { AccessPointDescription, CreateAccessPointRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAccessPointCommand,
   serializeAws_restJson1CreateAccessPointCommand,

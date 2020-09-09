@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { GetEmailIdentityPoliciesRequest, GetEmailIdentityPoliciesResponse } from "../models/index";
+import { GetEmailIdentityPoliciesRequest, GetEmailIdentityPoliciesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetEmailIdentityPoliciesCommand,
   serializeAws_restJson1GetEmailIdentityPoliciesCommand,

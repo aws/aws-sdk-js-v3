@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { UntagResourceRequest, UntagResourceResult } from "../models/index";
+import { UntagResourceRequest, UntagResourceResult } from "../models/models_1";
 import {
   deserializeAws_json1_1UntagResourceCommand,
   serializeAws_json1_1UntagResourceCommand,

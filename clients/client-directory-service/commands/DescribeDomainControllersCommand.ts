@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DescribeDomainControllersRequest, DescribeDomainControllersResult } from "../models/index";
+import { DescribeDomainControllersRequest, DescribeDomainControllersResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDomainControllersCommand,
   serializeAws_json1_1DescribeDomainControllersCommand,

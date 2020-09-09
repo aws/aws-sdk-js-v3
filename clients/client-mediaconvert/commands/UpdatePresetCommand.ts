@@ -1,5 +1,5 @@
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { UpdatePresetRequest, UpdatePresetResponse } from "../models/index";
+import { UpdatePresetRequest, UpdatePresetResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdatePresetCommand,
   serializeAws_restJson1UpdatePresetCommand,

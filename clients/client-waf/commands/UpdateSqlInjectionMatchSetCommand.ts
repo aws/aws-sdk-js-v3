@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { UpdateSqlInjectionMatchSetRequest, UpdateSqlInjectionMatchSetResponse } from "../models/index";
+import { UpdateSqlInjectionMatchSetRequest, UpdateSqlInjectionMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSqlInjectionMatchSetCommand,
   serializeAws_json1_1UpdateSqlInjectionMatchSetCommand,

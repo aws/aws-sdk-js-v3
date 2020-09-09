@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { DeleteCampaignRequest, DeleteCampaignResponse } from "../models/index";
+import { DeleteCampaignRequest, DeleteCampaignResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCampaignCommand,
   serializeAws_restJson1DeleteCampaignCommand,

@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateDevEndpointRequest, CreateDevEndpointResponse } from "../models/index";
+import { CreateDevEndpointRequest, CreateDevEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDevEndpointCommand,
   serializeAws_json1_1CreateDevEndpointCommand,

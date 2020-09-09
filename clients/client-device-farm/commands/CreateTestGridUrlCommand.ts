@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { CreateTestGridUrlRequest, CreateTestGridUrlResult } from "../models/index";
+import { CreateTestGridUrlRequest, CreateTestGridUrlResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateTestGridUrlCommand,
   serializeAws_json1_1CreateTestGridUrlCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { ReloadTablesMessage, ReloadTablesResponse } from "../models/index";
+import { ReloadTablesMessage, ReloadTablesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ReloadTablesCommand,
   serializeAws_json1_1ReloadTablesCommand,

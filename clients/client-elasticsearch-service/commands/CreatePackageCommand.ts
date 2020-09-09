@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { CreatePackageRequest, CreatePackageResponse } from "../models/index";
+import { CreatePackageRequest, CreatePackageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreatePackageCommand,
   serializeAws_restJson1CreatePackageCommand,

@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdatePhoneNumberRequest, UpdatePhoneNumberResponse } from "../models/index";
+import { UpdatePhoneNumberRequest, UpdatePhoneNumberResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePhoneNumberCommand,
   serializeAws_restJson1UpdatePhoneNumberCommand,

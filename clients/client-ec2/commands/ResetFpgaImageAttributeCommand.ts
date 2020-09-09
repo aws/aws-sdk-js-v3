@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetFpgaImageAttributeRequest, ResetFpgaImageAttributeResult } from "../models/index";
+import { ResetFpgaImageAttributeRequest, ResetFpgaImageAttributeResult } from "../models/models_4";
 import {
   deserializeAws_ec2ResetFpgaImageAttributeCommand,
   serializeAws_ec2ResetFpgaImageAttributeCommand,

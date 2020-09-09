@@ -1,5 +1,5 @@
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { GetCodeBindingSourceRequest, GetCodeBindingSourceResponse } from "../models/index";
+import { GetCodeBindingSourceRequest, GetCodeBindingSourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCodeBindingSourceCommand,
   serializeAws_restJson1GetCodeBindingSourceCommand,

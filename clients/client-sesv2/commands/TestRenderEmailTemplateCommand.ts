@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { TestRenderEmailTemplateRequest, TestRenderEmailTemplateResponse } from "../models/index";
+import { TestRenderEmailTemplateRequest, TestRenderEmailTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1TestRenderEmailTemplateCommand,
   serializeAws_restJson1TestRenderEmailTemplateCommand,

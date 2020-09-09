@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { DeleteEndpointRequest, DeleteEndpointResponse } from "../models/index";
+import { DeleteEndpointRequest, DeleteEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteEndpointCommand,
   serializeAws_restJson1DeleteEndpointCommand,

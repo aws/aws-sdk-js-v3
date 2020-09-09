@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { UnassignVolumeRequest } from "../models/index";
+import { UnassignVolumeRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1UnassignVolumeCommand,
   serializeAws_json1_1UnassignVolumeCommand,

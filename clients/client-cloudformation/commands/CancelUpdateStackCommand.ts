@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { CancelUpdateStackInput } from "../models/index";
+import { CancelUpdateStackInput } from "../models/models_0";
 import {
   deserializeAws_queryCancelUpdateStackCommand,
   serializeAws_queryCancelUpdateStackCommand,

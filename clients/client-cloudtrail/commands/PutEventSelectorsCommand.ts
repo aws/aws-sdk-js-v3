@@ -1,5 +1,5 @@
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { PutEventSelectorsRequest, PutEventSelectorsResponse } from "../models/index";
+import { PutEventSelectorsRequest, PutEventSelectorsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutEventSelectorsCommand,
   serializeAws_json1_1PutEventSelectorsCommand,

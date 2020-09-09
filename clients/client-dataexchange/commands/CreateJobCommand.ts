@@ -1,5 +1,5 @@
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { CreateJobRequest, CreateJobResponse } from "../models/index";
+import { CreateJobRequest, CreateJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateJobCommand,
   serializeAws_restJson1CreateJobCommand,

@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/index";
+import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/models_0";
 import {
   deserializeAws_queryRebootDBInstanceCommand,
   serializeAws_queryRebootDBInstanceCommand,

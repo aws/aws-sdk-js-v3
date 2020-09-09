@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DescribeCollectionRequest, DescribeCollectionResponse } from "../models/index";
+import { DescribeCollectionRequest, DescribeCollectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCollectionCommand,
   serializeAws_json1_1DescribeCollectionCommand,

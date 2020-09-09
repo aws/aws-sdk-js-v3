@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { CreateCachediSCSIVolumeInput, CreateCachediSCSIVolumeOutput } from "../models/index";
+import { CreateCachediSCSIVolumeInput, CreateCachediSCSIVolumeOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCachediSCSIVolumeCommand,
   serializeAws_json1_1CreateCachediSCSIVolumeCommand,

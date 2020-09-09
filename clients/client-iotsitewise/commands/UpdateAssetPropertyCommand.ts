@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { UpdateAssetPropertyRequest } from "../models/index";
+import { UpdateAssetPropertyRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAssetPropertyCommand,
   serializeAws_restJson1UpdateAssetPropertyCommand,

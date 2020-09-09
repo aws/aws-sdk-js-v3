@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { AcceptHandshakeRequest, AcceptHandshakeResponse } from "../models/index";
+import { AcceptHandshakeRequest, AcceptHandshakeResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AcceptHandshakeCommand,
   serializeAws_json1_1AcceptHandshakeCommand,

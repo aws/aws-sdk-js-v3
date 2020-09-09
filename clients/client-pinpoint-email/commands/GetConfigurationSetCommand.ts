@@ -1,5 +1,5 @@
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { GetConfigurationSetRequest, GetConfigurationSetResponse } from "../models/index";
+import { GetConfigurationSetRequest, GetConfigurationSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetConfigurationSetCommand,
   serializeAws_restJson1GetConfigurationSetCommand,

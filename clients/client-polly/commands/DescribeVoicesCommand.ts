@@ -1,5 +1,5 @@
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/index";
+import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeVoicesCommand,
   serializeAws_restJson1DescribeVoicesCommand,

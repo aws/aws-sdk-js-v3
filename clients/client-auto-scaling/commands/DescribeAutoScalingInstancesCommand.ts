@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { AutoScalingInstancesType, DescribeAutoScalingInstancesType } from "../models/index";
+import { AutoScalingInstancesType, DescribeAutoScalingInstancesType } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAutoScalingInstancesCommand,
   serializeAws_queryDescribeAutoScalingInstancesCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { DescribeAccessPointsInput, DescribeAccessPointsOutput } from "../models/index";
+import { DescribeAccessPointsInput, DescribeAccessPointsOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeLoadBalancersCommand,
   serializeAws_queryDescribeLoadBalancersCommand,

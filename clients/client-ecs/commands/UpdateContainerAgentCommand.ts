@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { UpdateContainerAgentRequest, UpdateContainerAgentResponse } from "../models/index";
+import { UpdateContainerAgentRequest, UpdateContainerAgentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateContainerAgentCommand,
   serializeAws_json1_1UpdateContainerAgentCommand,

@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribePublicIpv4PoolsRequest, DescribePublicIpv4PoolsResult } from "../models/index";
+import { DescribePublicIpv4PoolsRequest, DescribePublicIpv4PoolsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribePublicIpv4PoolsCommand,
   serializeAws_ec2DescribePublicIpv4PoolsCommand,

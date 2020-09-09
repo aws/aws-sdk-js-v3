@@ -1,5 +1,5 @@
 import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
-import { AssumeRoleWithWebIdentityRequest, AssumeRoleWithWebIdentityResponse } from "../models/index";
+import { AssumeRoleWithWebIdentityRequest, AssumeRoleWithWebIdentityResponse } from "../models/models_0";
 import {
   deserializeAws_queryAssumeRoleWithWebIdentityCommand,
   serializeAws_queryAssumeRoleWithWebIdentityCommand,

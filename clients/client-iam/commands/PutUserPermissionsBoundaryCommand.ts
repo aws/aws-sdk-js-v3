@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { PutUserPermissionsBoundaryRequest } from "../models/index";
+import { PutUserPermissionsBoundaryRequest } from "../models/models_0";
 import {
   deserializeAws_queryPutUserPermissionsBoundaryCommand,
   serializeAws_queryPutUserPermissionsBoundaryCommand,

@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { SimpleScalarPropertiesInputOutput } from "../models/index";
+import { SimpleScalarPropertiesInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1SimpleScalarPropertiesCommand,
   serializeAws_restJson1SimpleScalarPropertiesCommand,

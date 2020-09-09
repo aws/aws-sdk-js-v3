@@ -1,5 +1,5 @@
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { ModifyHapgRequest, ModifyHapgResponse } from "../models/index";
+import { ModifyHapgRequest, ModifyHapgResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyHapgCommand,
   serializeAws_json1_1ModifyHapgCommand,

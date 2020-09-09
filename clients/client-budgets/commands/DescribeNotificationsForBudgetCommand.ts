@@ -1,5 +1,5 @@
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { DescribeNotificationsForBudgetRequest, DescribeNotificationsForBudgetResponse } from "../models/index";
+import { DescribeNotificationsForBudgetRequest, DescribeNotificationsForBudgetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeNotificationsForBudgetCommand,
   serializeAws_json1_1DescribeNotificationsForBudgetCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { GetByteMatchSetRequest, GetByteMatchSetResponse } from "../models/index";
+import { GetByteMatchSetRequest, GetByteMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetByteMatchSetCommand,
   serializeAws_json1_1GetByteMatchSetCommand,

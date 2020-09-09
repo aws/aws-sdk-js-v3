@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { DeleteCapacityProviderRequest, DeleteCapacityProviderResponse } from "../models/index";
+import { DeleteCapacityProviderRequest, DeleteCapacityProviderResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCapacityProviderCommand,
   serializeAws_json1_1DeleteCapacityProviderCommand,

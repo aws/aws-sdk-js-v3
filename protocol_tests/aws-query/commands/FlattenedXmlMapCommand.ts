@@ -1,5 +1,5 @@
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { FlattenedXmlMapOutput } from "../models/index";
+import { FlattenedXmlMapOutput } from "../models/models_0";
 import {
   deserializeAws_queryFlattenedXmlMapCommand,
   serializeAws_queryFlattenedXmlMapCommand,

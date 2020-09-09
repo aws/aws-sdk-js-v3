@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { GetRegistrationCodeRequest, GetRegistrationCodeResponse } from "../models/index";
+import { GetRegistrationCodeRequest, GetRegistrationCodeResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetRegistrationCodeCommand,
   serializeAws_restJson1GetRegistrationCodeCommand,

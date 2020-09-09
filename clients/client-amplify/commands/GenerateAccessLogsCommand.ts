@@ -1,5 +1,5 @@
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { GenerateAccessLogsRequest, GenerateAccessLogsResult } from "../models/index";
+import { GenerateAccessLogsRequest, GenerateAccessLogsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GenerateAccessLogsCommand,
   serializeAws_restJson1GenerateAccessLogsCommand,

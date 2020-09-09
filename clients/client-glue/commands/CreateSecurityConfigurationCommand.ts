@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateSecurityConfigurationRequest, CreateSecurityConfigurationResponse } from "../models/index";
+import { CreateSecurityConfigurationRequest, CreateSecurityConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSecurityConfigurationCommand,
   serializeAws_json1_1CreateSecurityConfigurationCommand,

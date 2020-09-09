@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutDeliveryChannelRequest } from "../models/index";
+import { PutDeliveryChannelRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1PutDeliveryChannelCommand,
   serializeAws_json1_1PutDeliveryChannelCommand,

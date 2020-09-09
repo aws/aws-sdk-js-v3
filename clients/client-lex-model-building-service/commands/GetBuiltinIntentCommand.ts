@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { GetBuiltinIntentRequest, GetBuiltinIntentResponse } from "../models/index";
+import { GetBuiltinIntentRequest, GetBuiltinIntentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBuiltinIntentCommand,
   serializeAws_restJson1GetBuiltinIntentCommand,

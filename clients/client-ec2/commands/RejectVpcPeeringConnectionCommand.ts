@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RejectVpcPeeringConnectionRequest, RejectVpcPeeringConnectionResult } from "../models/index";
+import { RejectVpcPeeringConnectionRequest, RejectVpcPeeringConnectionResult } from "../models/models_4";
 import {
   deserializeAws_ec2RejectVpcPeeringConnectionCommand,
   serializeAws_ec2RejectVpcPeeringConnectionCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { GetSlotTypesRequest, GetSlotTypesResponse } from "../models/index";
+import { GetSlotTypesRequest, GetSlotTypesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSlotTypesCommand,
   serializeAws_restJson1GetSlotTypesCommand,

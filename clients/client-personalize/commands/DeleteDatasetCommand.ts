@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DeleteDatasetRequest } from "../models/index";
+import { DeleteDatasetRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDatasetCommand,
   serializeAws_json1_1DeleteDatasetCommand,

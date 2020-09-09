@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVolumeAttributeRequest } from "../models/index";
+import { ModifyVolumeAttributeRequest } from "../models/models_4";
 import {
   deserializeAws_ec2ModifyVolumeAttributeCommand,
   serializeAws_ec2ModifyVolumeAttributeCommand,

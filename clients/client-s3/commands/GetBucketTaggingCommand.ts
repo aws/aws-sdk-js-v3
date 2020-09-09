@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketTaggingOutput, GetBucketTaggingRequest } from "../models/index";
+import { GetBucketTaggingOutput, GetBucketTaggingRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketTaggingCommand,
   serializeAws_restXmlGetBucketTaggingCommand,

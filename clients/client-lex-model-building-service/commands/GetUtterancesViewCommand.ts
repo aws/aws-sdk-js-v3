@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { GetUtterancesViewRequest, GetUtterancesViewResponse } from "../models/index";
+import { GetUtterancesViewRequest, GetUtterancesViewResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetUtterancesViewCommand,
   serializeAws_restJson1GetUtterancesViewCommand,

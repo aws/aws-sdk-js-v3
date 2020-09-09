@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { AccountAttributesMessage, DescribeAccountAttributesMessage } from "../models/index";
+import { AccountAttributesMessage, DescribeAccountAttributesMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAccountAttributesCommand,
   serializeAws_queryDescribeAccountAttributesCommand,

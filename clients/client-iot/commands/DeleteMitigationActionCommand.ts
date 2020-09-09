@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteMitigationActionRequest, DeleteMitigationActionResponse } from "../models/index";
+import { DeleteMitigationActionRequest, DeleteMitigationActionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMitigationActionCommand,
   serializeAws_restJson1DeleteMitigationActionCommand,

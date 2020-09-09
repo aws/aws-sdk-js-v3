@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { CreateLogSubscriptionRequest, CreateLogSubscriptionResult } from "../models/index";
+import { CreateLogSubscriptionRequest, CreateLogSubscriptionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLogSubscriptionCommand,
   serializeAws_json1_1CreateLogSubscriptionCommand,

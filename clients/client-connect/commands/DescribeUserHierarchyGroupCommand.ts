@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeUserHierarchyGroupRequest, DescribeUserHierarchyGroupResponse } from "../models/index";
+import { DescribeUserHierarchyGroupRequest, DescribeUserHierarchyGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeUserHierarchyGroupCommand,
   serializeAws_restJson1DescribeUserHierarchyGroupCommand,

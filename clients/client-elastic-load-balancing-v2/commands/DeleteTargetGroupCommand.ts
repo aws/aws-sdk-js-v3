@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { DeleteTargetGroupInput, DeleteTargetGroupOutput } from "../models/index";
+import { DeleteTargetGroupInput, DeleteTargetGroupOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeleteTargetGroupCommand,
   serializeAws_queryDeleteTargetGroupCommand,

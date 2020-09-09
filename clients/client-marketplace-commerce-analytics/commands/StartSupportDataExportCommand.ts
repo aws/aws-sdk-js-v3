@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCommerceAnalyticsClient";
-import { StartSupportDataExportRequest, StartSupportDataExportResult } from "../models/index";
+import { StartSupportDataExportRequest, StartSupportDataExportResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StartSupportDataExportCommand,
   serializeAws_json1_1StartSupportDataExportCommand,

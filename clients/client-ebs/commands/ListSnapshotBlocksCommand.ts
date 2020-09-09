@@ -1,5 +1,5 @@
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
-import { ListSnapshotBlocksRequest, ListSnapshotBlocksResponse } from "../models/index";
+import { ListSnapshotBlocksRequest, ListSnapshotBlocksResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSnapshotBlocksCommand,
   serializeAws_restJson1ListSnapshotBlocksCommand,

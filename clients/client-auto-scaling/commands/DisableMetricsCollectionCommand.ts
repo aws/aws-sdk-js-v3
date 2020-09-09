@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DisableMetricsCollectionQuery } from "../models/index";
+import { DisableMetricsCollectionQuery } from "../models/models_0";
 import {
   deserializeAws_queryDisableMetricsCollectionCommand,
   serializeAws_queryDisableMetricsCollectionCommand,

@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DeregisterTypeInput, DeregisterTypeOutput } from "../models/index";
+import { DeregisterTypeInput, DeregisterTypeOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeregisterTypeCommand,
   serializeAws_queryDeregisterTypeCommand,

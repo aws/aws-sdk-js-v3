@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { StartApplicationRequest, StartApplicationResponse } from "../models/index";
+import { StartApplicationRequest, StartApplicationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartApplicationCommand,
   serializeAws_json1_1StartApplicationCommand,

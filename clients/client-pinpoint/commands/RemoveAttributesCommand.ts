@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { RemoveAttributesRequest, RemoveAttributesResponse } from "../models/index";
+import { RemoveAttributesRequest, RemoveAttributesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1RemoveAttributesCommand,
   serializeAws_restJson1RemoveAttributesCommand,

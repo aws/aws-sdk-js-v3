@@ -1,5 +1,5 @@
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { DeleteEventBusRequest } from "../models/index";
+import { DeleteEventBusRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEventBusCommand,
   serializeAws_json1_1DeleteEventBusCommand,

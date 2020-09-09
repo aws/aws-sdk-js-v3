@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { StopDBClusterMessage, StopDBClusterResult } from "../models/index";
+import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_1";
 import {
   deserializeAws_queryStopDBClusterCommand,
   serializeAws_queryStopDBClusterCommand,

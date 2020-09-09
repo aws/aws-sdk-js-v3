@@ -1,5 +1,5 @@
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { ListResourcesRequest, ListResourcesResponse } from "../models/index";
+import { ListResourcesRequest, ListResourcesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListResourcesCommand,
   serializeAws_restJson1ListResourcesCommand,

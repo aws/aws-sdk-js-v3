@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { UpdateSnapshotScheduleInput, UpdateSnapshotScheduleOutput } from "../models/index";
+import { UpdateSnapshotScheduleInput, UpdateSnapshotScheduleOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSnapshotScheduleCommand,
   serializeAws_json1_1UpdateSnapshotScheduleCommand,

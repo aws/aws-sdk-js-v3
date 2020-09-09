@@ -2,7 +2,7 @@ import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 import {
   DisassociateServiceActionFromProvisioningArtifactInput,
   DisassociateServiceActionFromProvisioningArtifactOutput,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand,
   serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand,

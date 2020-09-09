@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { RemoveUserFromGroupRequest } from "../models/index";
+import { RemoveUserFromGroupRequest } from "../models/models_0";
 import {
   deserializeAws_queryRemoveUserFromGroupCommand,
   serializeAws_queryRemoveUserFromGroupCommand,

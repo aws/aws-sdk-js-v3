@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateDashboardPublishedVersionRequest, UpdateDashboardPublishedVersionResponse } from "../models/index";
+import { UpdateDashboardPublishedVersionRequest, UpdateDashboardPublishedVersionResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateDashboardPublishedVersionCommand,
   serializeAws_restJson1UpdateDashboardPublishedVersionCommand,

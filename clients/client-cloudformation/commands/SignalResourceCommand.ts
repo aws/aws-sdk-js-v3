@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { SignalResourceInput } from "../models/index";
+import { SignalResourceInput } from "../models/models_0";
 import {
   deserializeAws_querySignalResourceCommand,
   serializeAws_querySignalResourceCommand,

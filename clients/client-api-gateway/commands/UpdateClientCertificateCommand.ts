@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { ClientCertificate, UpdateClientCertificateRequest } from "../models/index";
+import { ClientCertificate, UpdateClientCertificateRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateClientCertificateCommand,
   serializeAws_restJson1UpdateClientCertificateCommand,

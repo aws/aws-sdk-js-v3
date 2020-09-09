@@ -1,5 +1,5 @@
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import { CreateDetectorModelRequest, CreateDetectorModelResponse } from "../models/index";
+import { CreateDetectorModelRequest, CreateDetectorModelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDetectorModelCommand,
   serializeAws_restJson1CreateDetectorModelCommand,

@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { DeletePortfolioShareInput, DeletePortfolioShareOutput } from "../models/index";
+import { DeletePortfolioShareInput, DeletePortfolioShareOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePortfolioShareCommand,
   serializeAws_json1_1DeletePortfolioShareCommand,

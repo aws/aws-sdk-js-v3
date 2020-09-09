@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { CreateSnapshotCopyGrantMessage, CreateSnapshotCopyGrantResult } from "../models/index";
+import { CreateSnapshotCopyGrantMessage, CreateSnapshotCopyGrantResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateSnapshotCopyGrantCommand,
   serializeAws_queryCreateSnapshotCopyGrantCommand,

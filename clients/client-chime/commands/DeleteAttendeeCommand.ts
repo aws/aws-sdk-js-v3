@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteAttendeeRequest } from "../models/index";
+import { DeleteAttendeeRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAttendeeCommand,
   serializeAws_restJson1DeleteAttendeeCommand,

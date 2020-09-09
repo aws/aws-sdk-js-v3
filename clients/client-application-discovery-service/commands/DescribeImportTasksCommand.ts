@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { DescribeImportTasksRequest, DescribeImportTasksResponse } from "../models/index";
+import { DescribeImportTasksRequest, DescribeImportTasksResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeImportTasksCommand,
   serializeAws_json1_1DescribeImportTasksCommand,

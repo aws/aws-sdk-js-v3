@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AdvertiseByoipCidrRequest, AdvertiseByoipCidrResult } from "../models/index";
+import { AdvertiseByoipCidrRequest, AdvertiseByoipCidrResult } from "../models/models_0";
 import {
   deserializeAws_ec2AdvertiseByoipCidrCommand,
   serializeAws_ec2AdvertiseByoipCidrCommand,

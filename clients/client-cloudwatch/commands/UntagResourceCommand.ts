@@ -1,5 +1,5 @@
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { UntagResourceInput, UntagResourceOutput } from "../models/index";
+import { UntagResourceInput, UntagResourceOutput } from "../models/models_0";
 import {
   deserializeAws_queryUntagResourceCommand,
   serializeAws_queryUntagResourceCommand,

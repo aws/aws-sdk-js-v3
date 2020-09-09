@@ -1,5 +1,5 @@
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
-import { GetQueueAttributesRequest, GetQueueAttributesResult } from "../models/index";
+import { GetQueueAttributesRequest, GetQueueAttributesResult } from "../models/models_0";
 import {
   deserializeAws_queryGetQueueAttributesCommand,
   serializeAws_queryGetQueueAttributesCommand,

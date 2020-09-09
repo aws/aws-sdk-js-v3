@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { GetPullRequestOverrideStateInput, GetPullRequestOverrideStateOutput } from "../models/index";
+import { GetPullRequestOverrideStateInput, GetPullRequestOverrideStateOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetPullRequestOverrideStateCommand,
   serializeAws_json1_1GetPullRequestOverrideStateCommand,

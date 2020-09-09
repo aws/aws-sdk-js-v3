@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { StartDBClusterMessage, StartDBClusterResult } from "../models/index";
+import { StartDBClusterMessage, StartDBClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryStartDBClusterCommand,
   serializeAws_queryStartDBClusterCommand,

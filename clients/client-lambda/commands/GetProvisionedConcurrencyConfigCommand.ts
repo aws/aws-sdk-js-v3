@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { GetProvisionedConcurrencyConfigRequest, GetProvisionedConcurrencyConfigResponse } from "../models/index";
+import { GetProvisionedConcurrencyConfigRequest, GetProvisionedConcurrencyConfigResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand,
   serializeAws_restJson1GetProvisionedConcurrencyConfigCommand,

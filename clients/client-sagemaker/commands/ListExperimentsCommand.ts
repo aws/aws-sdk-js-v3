@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListExperimentsRequest, ListExperimentsResponse } from "../models/index";
+import { ListExperimentsRequest, ListExperimentsResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1ListExperimentsCommand,
   serializeAws_json1_1ListExperimentsCommand,

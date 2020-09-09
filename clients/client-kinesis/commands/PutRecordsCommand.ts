@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { PutRecordsInput, PutRecordsOutput } from "../models/index";
+import { PutRecordsInput, PutRecordsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutRecordsCommand,
   serializeAws_json1_1PutRecordsCommand,

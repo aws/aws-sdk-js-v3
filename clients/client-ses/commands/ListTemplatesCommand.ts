@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { ListTemplatesRequest, ListTemplatesResponse } from "../models/index";
+import { ListTemplatesRequest, ListTemplatesResponse } from "../models/models_0";
 import {
   deserializeAws_queryListTemplatesCommand,
   serializeAws_queryListTemplatesCommand,

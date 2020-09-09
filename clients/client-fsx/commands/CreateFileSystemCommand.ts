@@ -1,5 +1,5 @@
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateFileSystemRequest, CreateFileSystemResponse } from "../models/index";
+import { CreateFileSystemRequest, CreateFileSystemResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateFileSystemCommand,
   serializeAws_json1_1CreateFileSystemCommand,

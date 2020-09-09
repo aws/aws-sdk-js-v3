@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DeleteChangeSetInput, DeleteChangeSetOutput } from "../models/index";
+import { DeleteChangeSetInput, DeleteChangeSetOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeleteChangeSetCommand,
   serializeAws_queryDeleteChangeSetCommand,

@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetObjectRetentionOutput, GetObjectRetentionRequest } from "../models/index";
+import { GetObjectRetentionOutput, GetObjectRetentionRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetObjectRetentionCommand,
   serializeAws_restXmlGetObjectRetentionCommand,

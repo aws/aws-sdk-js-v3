@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { TestConnectionMessage, TestConnectionResponse } from "../models/index";
+import { TestConnectionMessage, TestConnectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1TestConnectionCommand,
   serializeAws_json1_1TestConnectionCommand,

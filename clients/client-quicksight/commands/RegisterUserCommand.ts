@@ -1,5 +1,6 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { RegisterUserRequest, RegisterUserResponse } from "../models/index";
+import { RegisterUserRequest } from "../models/models_0";
+import { RegisterUserResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1RegisterUserCommand,
   serializeAws_restJson1RegisterUserCommand,

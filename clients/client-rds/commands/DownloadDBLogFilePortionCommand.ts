@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DownloadDBLogFilePortionDetails, DownloadDBLogFilePortionMessage } from "../models/index";
+import { DownloadDBLogFilePortionDetails, DownloadDBLogFilePortionMessage } from "../models/models_1";
 import {
   deserializeAws_queryDownloadDBLogFilePortionCommand,
   serializeAws_queryDownloadDBLogFilePortionCommand,

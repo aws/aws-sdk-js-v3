@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeLoadBalancersRequest, DescribeLoadBalancersResponse } from "../models/index";
+import { DescribeLoadBalancersRequest, DescribeLoadBalancersResponse } from "../models/models_0";
 import {
   deserializeAws_queryDescribeLoadBalancersCommand,
   serializeAws_queryDescribeLoadBalancersCommand,

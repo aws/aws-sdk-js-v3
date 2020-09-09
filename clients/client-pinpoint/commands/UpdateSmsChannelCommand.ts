@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { UpdateSmsChannelRequest, UpdateSmsChannelResponse } from "../models/index";
+import { UpdateSmsChannelRequest, UpdateSmsChannelResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateSmsChannelCommand,
   serializeAws_restJson1UpdateSmsChannelCommand,

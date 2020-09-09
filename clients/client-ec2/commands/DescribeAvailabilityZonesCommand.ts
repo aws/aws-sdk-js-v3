@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeAvailabilityZonesRequest, DescribeAvailabilityZonesResult } from "../models/index";
+import { DescribeAvailabilityZonesRequest, DescribeAvailabilityZonesResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeAvailabilityZonesCommand,
   serializeAws_ec2DescribeAvailabilityZonesCommand,

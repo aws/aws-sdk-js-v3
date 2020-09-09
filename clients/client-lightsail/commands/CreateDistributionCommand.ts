@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateDistributionRequest, CreateDistributionResult } from "../models/index";
+import { CreateDistributionRequest, CreateDistributionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDistributionCommand,
   serializeAws_json1_1CreateDistributionCommand,

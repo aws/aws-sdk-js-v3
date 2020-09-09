@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { PutPartnerEventsRequest, PutPartnerEventsResponse } from "../models/index";
+import { PutPartnerEventsRequest, PutPartnerEventsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutPartnerEventsCommand,
   serializeAws_json1_1PutPartnerEventsCommand,

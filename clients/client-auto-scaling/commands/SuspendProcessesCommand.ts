@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { ScalingProcessQuery } from "../models/index";
+import { ScalingProcessQuery } from "../models/models_0";
 import {
   deserializeAws_querySuspendProcessesCommand,
   serializeAws_querySuspendProcessesCommand,

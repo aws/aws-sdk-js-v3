@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { ConstantQueryStringInput } from "../models/index";
+import { ConstantQueryStringInput } from "../models/models_0";
 import {
   deserializeAws_restXmlConstantQueryStringCommand,
   serializeAws_restXmlConstantQueryStringCommand,

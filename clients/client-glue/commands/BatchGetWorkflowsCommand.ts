@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchGetWorkflowsRequest, BatchGetWorkflowsResponse } from "../models/index";
+import { BatchGetWorkflowsRequest, BatchGetWorkflowsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetWorkflowsCommand,
   serializeAws_json1_1BatchGetWorkflowsCommand,

@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { HttpRequestWithLabelsInput } from "../models/index";
+import { HttpRequestWithLabelsInput } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpRequestWithLabelsCommand,
   serializeAws_restJson1HttpRequestWithLabelsCommand,

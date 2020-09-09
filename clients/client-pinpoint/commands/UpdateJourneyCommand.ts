@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { UpdateJourneyRequest, UpdateJourneyResponse } from "../models/index";
+import { UpdateJourneyRequest, UpdateJourneyResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateJourneyCommand,
   serializeAws_restJson1UpdateJourneyCommand,

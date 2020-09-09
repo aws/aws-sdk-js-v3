@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { UpdateAutomaticTapeCreationPolicyInput, UpdateAutomaticTapeCreationPolicyOutput } from "../models/index";
+import { UpdateAutomaticTapeCreationPolicyInput, UpdateAutomaticTapeCreationPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand,
   serializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand,

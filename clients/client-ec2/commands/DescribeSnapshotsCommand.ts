@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeSnapshotsRequest, DescribeSnapshotsResult } from "../models/index";
+import { DescribeSnapshotsRequest, DescribeSnapshotsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeSnapshotsCommand,
   serializeAws_ec2DescribeSnapshotsCommand,

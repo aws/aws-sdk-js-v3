@@ -1,5 +1,5 @@
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { StopFlowRequest, StopFlowResponse } from "../models/index";
+import { StopFlowRequest, StopFlowResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StopFlowCommand,
   serializeAws_restJson1StopFlowCommand,

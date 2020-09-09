@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { ListTagsInput, ListTagsOutput } from "../models/index";
+import { ListTagsInput, ListTagsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListTagsCommand,
   serializeAws_restJson1ListTagsCommand,

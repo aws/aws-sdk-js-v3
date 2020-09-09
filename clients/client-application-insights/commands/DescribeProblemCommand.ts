@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { DescribeProblemRequest, DescribeProblemResponse } from "../models/index";
+import { DescribeProblemRequest, DescribeProblemResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeProblemCommand,
   serializeAws_json1_1DescribeProblemCommand,

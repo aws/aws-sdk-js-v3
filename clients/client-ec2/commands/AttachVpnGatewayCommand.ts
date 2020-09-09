@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AttachVpnGatewayRequest, AttachVpnGatewayResult } from "../models/index";
+import { AttachVpnGatewayRequest, AttachVpnGatewayResult } from "../models/models_0";
 import {
   deserializeAws_ec2AttachVpnGatewayCommand,
   serializeAws_ec2AttachVpnGatewayCommand,

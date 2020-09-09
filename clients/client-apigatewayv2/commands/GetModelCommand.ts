@@ -1,5 +1,5 @@
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { GetModelRequest, GetModelResponse } from "../models/index";
+import { GetModelRequest, GetModelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetModelCommand,
   serializeAws_restJson1GetModelCommand,

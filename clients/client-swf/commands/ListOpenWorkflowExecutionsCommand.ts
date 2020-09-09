@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { ListOpenWorkflowExecutionsInput, WorkflowExecutionInfos } from "../models/index";
+import { ListOpenWorkflowExecutionsInput, WorkflowExecutionInfos } from "../models/models_0";
 import {
   deserializeAws_json1_0ListOpenWorkflowExecutionsCommand,
   serializeAws_json1_0ListOpenWorkflowExecutionsCommand,

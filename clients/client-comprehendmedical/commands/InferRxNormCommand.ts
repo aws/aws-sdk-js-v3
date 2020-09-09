@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { InferRxNormRequest, InferRxNormResponse } from "../models/index";
+import { InferRxNormRequest, InferRxNormResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1InferRxNormCommand,
   serializeAws_json1_1InferRxNormCommand,

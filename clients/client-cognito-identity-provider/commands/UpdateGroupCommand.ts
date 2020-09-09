@@ -3,7 +3,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { UpdateGroupRequest, UpdateGroupResponse } from "../models/index";
+import { UpdateGroupRequest } from "../models/models_0";
+import { UpdateGroupResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateGroupCommand,
   serializeAws_json1_1UpdateGroupCommand,

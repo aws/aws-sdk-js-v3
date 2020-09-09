@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import { DeleteHostInput, DeleteHostOutput } from "../models/index";
+import { DeleteHostInput, DeleteHostOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteHostCommand,
   serializeAws_json1_0DeleteHostCommand,

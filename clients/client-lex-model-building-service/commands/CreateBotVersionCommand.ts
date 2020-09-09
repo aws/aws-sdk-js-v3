@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { CreateBotVersionRequest, CreateBotVersionResponse } from "../models/index";
+import { CreateBotVersionRequest, CreateBotVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateBotVersionCommand,
   serializeAws_restJson1CreateBotVersionCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
-import { UpdateDomainMetadataRequest, UpdateDomainMetadataResponse } from "../models/index";
+import { UpdateDomainMetadataRequest, UpdateDomainMetadataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDomainMetadataCommand,
   serializeAws_restJson1UpdateDomainMetadataCommand,

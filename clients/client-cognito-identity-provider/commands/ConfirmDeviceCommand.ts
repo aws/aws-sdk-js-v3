@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ConfirmDeviceRequest, ConfirmDeviceResponse } from "../models/index";
+import { ConfirmDeviceRequest, ConfirmDeviceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmDeviceCommand,
   serializeAws_json1_1ConfirmDeviceCommand,

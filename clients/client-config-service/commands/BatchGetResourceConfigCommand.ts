@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { BatchGetResourceConfigRequest, BatchGetResourceConfigResponse } from "../models/index";
+import { BatchGetResourceConfigRequest, BatchGetResourceConfigResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetResourceConfigCommand,
   serializeAws_json1_1BatchGetResourceConfigCommand,

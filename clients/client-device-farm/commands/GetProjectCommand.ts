@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { GetProjectRequest, GetProjectResult } from "../models/index";
+import { GetProjectRequest, GetProjectResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetProjectCommand,
   serializeAws_json1_1GetProjectCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { ListOrganizationsRequest, ListOrganizationsResponse } from "../models/index";
+import { ListOrganizationsRequest, ListOrganizationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListOrganizationsCommand,
   serializeAws_json1_1ListOrganizationsCommand,

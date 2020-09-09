@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { GetHostnameSuggestionRequest, GetHostnameSuggestionResult } from "../models/index";
+import { GetHostnameSuggestionRequest, GetHostnameSuggestionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetHostnameSuggestionCommand,
   serializeAws_json1_1GetHostnameSuggestionCommand,

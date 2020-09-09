@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DeleteDBProxyRequest, DeleteDBProxyResponse } from "../models/index";
+import { DeleteDBProxyRequest, DeleteDBProxyResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBProxyCommand,
   serializeAws_queryDeleteDBProxyCommand,

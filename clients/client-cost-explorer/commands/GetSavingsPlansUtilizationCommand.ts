@@ -1,5 +1,5 @@
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { GetSavingsPlansUtilizationRequest, GetSavingsPlansUtilizationResponse } from "../models/index";
+import { GetSavingsPlansUtilizationRequest, GetSavingsPlansUtilizationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSavingsPlansUtilizationCommand,
   serializeAws_json1_1GetSavingsPlansUtilizationCommand,

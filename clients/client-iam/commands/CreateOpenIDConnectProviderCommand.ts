@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { CreateOpenIDConnectProviderRequest, CreateOpenIDConnectProviderResponse } from "../models/index";
+import { CreateOpenIDConnectProviderRequest, CreateOpenIDConnectProviderResponse } from "../models/models_0";
 import {
   deserializeAws_queryCreateOpenIDConnectProviderCommand,
   serializeAws_queryCreateOpenIDConnectProviderCommand,

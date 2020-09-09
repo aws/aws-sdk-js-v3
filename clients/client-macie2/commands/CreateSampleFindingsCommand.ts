@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { CreateSampleFindingsRequest, CreateSampleFindingsResponse } from "../models/index";
+import { CreateSampleFindingsRequest, CreateSampleFindingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSampleFindingsCommand,
   serializeAws_restJson1CreateSampleFindingsCommand,

@@ -1,5 +1,5 @@
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { DeleteOriginEndpointRequest, DeleteOriginEndpointResponse } from "../models/index";
+import { DeleteOriginEndpointRequest, DeleteOriginEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteOriginEndpointCommand,
   serializeAws_restJson1DeleteOriginEndpointCommand,

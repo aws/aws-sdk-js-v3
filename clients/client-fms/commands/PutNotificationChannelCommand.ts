@@ -1,5 +1,5 @@
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { PutNotificationChannelRequest } from "../models/index";
+import { PutNotificationChannelRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1PutNotificationChannelCommand,
   serializeAws_json1_1PutNotificationChannelCommand,

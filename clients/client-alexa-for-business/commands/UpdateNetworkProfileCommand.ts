@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { UpdateNetworkProfileRequest, UpdateNetworkProfileResponse } from "../models/index";
+import { UpdateNetworkProfileRequest, UpdateNetworkProfileResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateNetworkProfileCommand,
   serializeAws_json1_1UpdateNetworkProfileCommand,

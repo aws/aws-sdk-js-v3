@@ -1,5 +1,5 @@
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { UpdateDeploymentRequest, UpdateDeploymentResponse } from "../models/index";
+import { UpdateDeploymentRequest, UpdateDeploymentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDeploymentCommand,
   serializeAws_restJson1UpdateDeploymentCommand,

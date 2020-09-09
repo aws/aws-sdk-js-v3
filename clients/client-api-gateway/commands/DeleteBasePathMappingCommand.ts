@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteBasePathMappingRequest } from "../models/index";
+import { DeleteBasePathMappingRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBasePathMappingCommand,
   serializeAws_restJson1DeleteBasePathMappingCommand,

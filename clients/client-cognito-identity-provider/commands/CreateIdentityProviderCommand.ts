@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { CreateIdentityProviderRequest, CreateIdentityProviderResponse } from "../models/index";
+import { CreateIdentityProviderRequest, CreateIdentityProviderResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateIdentityProviderCommand,
   serializeAws_json1_1CreateIdentityProviderCommand,

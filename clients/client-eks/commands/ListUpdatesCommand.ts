@@ -1,5 +1,5 @@
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { ListUpdatesRequest, ListUpdatesResponse } from "../models/index";
+import { ListUpdatesRequest, ListUpdatesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListUpdatesCommand,
   serializeAws_restJson1ListUpdatesCommand,

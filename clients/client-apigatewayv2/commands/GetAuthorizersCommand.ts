@@ -1,5 +1,5 @@
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { GetAuthorizersRequest, GetAuthorizersResponse } from "../models/index";
+import { GetAuthorizersRequest, GetAuthorizersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAuthorizersCommand,
   serializeAws_restJson1GetAuthorizersCommand,

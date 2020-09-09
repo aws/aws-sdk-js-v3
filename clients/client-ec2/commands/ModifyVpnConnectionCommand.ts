@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVpnConnectionRequest, ModifyVpnConnectionResult } from "../models/index";
+import { ModifyVpnConnectionRequest, ModifyVpnConnectionResult } from "../models/models_4";
 import {
   deserializeAws_ec2ModifyVpnConnectionCommand,
   serializeAws_ec2ModifyVpnConnectionCommand,

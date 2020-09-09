@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { DetachVolumeInput, DetachVolumeOutput } from "../models/index";
+import { DetachVolumeInput, DetachVolumeOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DetachVolumeCommand,
   serializeAws_json1_1DetachVolumeCommand,

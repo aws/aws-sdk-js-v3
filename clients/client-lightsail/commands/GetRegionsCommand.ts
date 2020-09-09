@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetRegionsRequest, GetRegionsResult } from "../models/index";
+import { GetRegionsRequest, GetRegionsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRegionsCommand,
   serializeAws_json1_1GetRegionsCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
-import { SignOutUserRequest, SignOutUserResponse } from "../models/index";
+import { SignOutUserRequest, SignOutUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SignOutUserCommand,
   serializeAws_restJson1SignOutUserCommand,

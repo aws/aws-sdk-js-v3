@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { AttachTypedLinkRequest, AttachTypedLinkResponse } from "../models/index";
+import { AttachTypedLinkRequest, AttachTypedLinkResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AttachTypedLinkCommand,
   serializeAws_restJson1AttachTypedLinkCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
-import { UpdateSubscriptionRequest, UpdateSubscriptionResponse } from "../models/index";
+import { UpdateSubscriptionRequest, UpdateSubscriptionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSubscriptionCommand,
   serializeAws_json1_1UpdateSubscriptionCommand,

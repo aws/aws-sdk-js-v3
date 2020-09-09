@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { BatchGetImageRequest, BatchGetImageResponse } from "../models/index";
+import { BatchGetImageRequest, BatchGetImageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetImageCommand,
   serializeAws_json1_1BatchGetImageCommand,

@@ -1,5 +1,5 @@
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import { DisassociateTeamMemberRequest, DisassociateTeamMemberResult } from "../models/index";
+import { DisassociateTeamMemberRequest, DisassociateTeamMemberResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateTeamMemberCommand,
   serializeAws_json1_1DisassociateTeamMemberCommand,

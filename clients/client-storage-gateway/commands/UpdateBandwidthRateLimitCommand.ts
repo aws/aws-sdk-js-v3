@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { UpdateBandwidthRateLimitInput, UpdateBandwidthRateLimitOutput } from "../models/index";
+import { UpdateBandwidthRateLimitInput, UpdateBandwidthRateLimitOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateBandwidthRateLimitCommand,
   serializeAws_json1_1UpdateBandwidthRateLimitCommand,

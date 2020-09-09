@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DisassociateAssetsRequest } from "../models/index";
+import { DisassociateAssetsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateAssetsCommand,
   serializeAws_restJson1DisassociateAssetsCommand,

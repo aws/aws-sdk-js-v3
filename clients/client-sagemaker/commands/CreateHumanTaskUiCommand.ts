@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateHumanTaskUiRequest, CreateHumanTaskUiResponse } from "../models/index";
+import { CreateHumanTaskUiRequest, CreateHumanTaskUiResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateHumanTaskUiCommand,
   serializeAws_json1_1CreateHumanTaskUiCommand,

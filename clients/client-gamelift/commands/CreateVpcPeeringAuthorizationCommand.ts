@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { CreateVpcPeeringAuthorizationInput, CreateVpcPeeringAuthorizationOutput } from "../models/index";
+import { CreateVpcPeeringAuthorizationInput, CreateVpcPeeringAuthorizationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateVpcPeeringAuthorizationCommand,
   serializeAws_json1_1CreateVpcPeeringAuthorizationCommand,

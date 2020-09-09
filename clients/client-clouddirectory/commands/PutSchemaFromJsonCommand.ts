@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { PutSchemaFromJsonRequest, PutSchemaFromJsonResponse } from "../models/index";
+import { PutSchemaFromJsonRequest, PutSchemaFromJsonResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutSchemaFromJsonCommand,
   serializeAws_restJson1PutSchemaFromJsonCommand,

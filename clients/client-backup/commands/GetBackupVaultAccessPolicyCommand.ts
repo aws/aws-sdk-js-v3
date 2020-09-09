@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { GetBackupVaultAccessPolicyInput, GetBackupVaultAccessPolicyOutput } from "../models/index";
+import { GetBackupVaultAccessPolicyInput, GetBackupVaultAccessPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBackupVaultAccessPolicyCommand,
   serializeAws_restJson1GetBackupVaultAccessPolicyCommand,

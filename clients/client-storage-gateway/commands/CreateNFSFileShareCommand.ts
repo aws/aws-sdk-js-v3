@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { CreateNFSFileShareInput, CreateNFSFileShareOutput } from "../models/index";
+import { CreateNFSFileShareInput, CreateNFSFileShareOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateNFSFileShareCommand,
   serializeAws_json1_1CreateNFSFileShareCommand,

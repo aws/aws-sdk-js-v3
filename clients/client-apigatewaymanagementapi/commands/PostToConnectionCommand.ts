@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient";
-import { PostToConnectionRequest } from "../models/index";
+import { PostToConnectionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PostToConnectionCommand,
   serializeAws_restJson1PostToConnectionCommand,

@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeMetricCollectionTypesAnswer } from "../models/index";
+import { DescribeMetricCollectionTypesAnswer } from "../models/models_0";
 import {
   deserializeAws_queryDescribeMetricCollectionTypesCommand,
   serializeAws_queryDescribeMetricCollectionTypesCommand,

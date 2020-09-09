@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { StartDBClusterMessage, StartDBClusterResult } from "../models/index";
+import { StartDBClusterMessage, StartDBClusterResult } from "../models/models_1";
 import {
   deserializeAws_queryStartDBClusterCommand,
   serializeAws_queryStartDBClusterCommand,

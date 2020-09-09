@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { CreateCachePolicyRequest, CreateCachePolicyResult } from "../models/index";
+import { CreateCachePolicyRequest, CreateCachePolicyResult } from "../models/models_0";
 import {
   deserializeAws_restXmlCreateCachePolicyCommand,
   serializeAws_restXmlCreateCachePolicyCommand,

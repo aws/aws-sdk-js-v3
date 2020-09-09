@@ -1,5 +1,8 @@
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { GetDeliverabilityDashboardOptionsRequest, GetDeliverabilityDashboardOptionsResponse } from "../models/index";
+import {
+  GetDeliverabilityDashboardOptionsRequest,
+  GetDeliverabilityDashboardOptionsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommand,
   serializeAws_restJson1GetDeliverabilityDashboardOptionsCommand,

@@ -1,5 +1,5 @@
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import { ListDeliveryStreamsInput, ListDeliveryStreamsOutput } from "../models/index";
+import { ListDeliveryStreamsInput, ListDeliveryStreamsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDeliveryStreamsCommand,
   serializeAws_json1_1ListDeliveryStreamsCommand,

@@ -1,5 +1,8 @@
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { DescribeOrganizationConfigurationRequest, DescribeOrganizationConfigurationResponse } from "../models/index";
+import {
+  DescribeOrganizationConfigurationRequest,
+  DescribeOrganizationConfigurationResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeOrganizationConfigurationCommand,
   serializeAws_restJson1DescribeOrganizationConfigurationCommand,

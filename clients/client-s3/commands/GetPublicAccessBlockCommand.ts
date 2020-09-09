@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetPublicAccessBlockOutput, GetPublicAccessBlockRequest } from "../models/index";
+import { GetPublicAccessBlockOutput, GetPublicAccessBlockRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetPublicAccessBlockCommand,
   serializeAws_restXmlGetPublicAccessBlockCommand,

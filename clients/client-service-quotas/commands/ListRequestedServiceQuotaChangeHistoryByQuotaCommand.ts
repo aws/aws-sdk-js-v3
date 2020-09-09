@@ -2,7 +2,7 @@ import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfi
 import {
   ListRequestedServiceQuotaChangeHistoryByQuotaRequest,
   ListRequestedServiceQuotaChangeHistoryByQuotaResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
   serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand,

@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { CreateLaunchConfigurationType } from "../models/index";
+import { CreateLaunchConfigurationType } from "../models/models_0";
 import {
   deserializeAws_queryCreateLaunchConfigurationCommand,
   serializeAws_queryCreateLaunchConfigurationCommand,

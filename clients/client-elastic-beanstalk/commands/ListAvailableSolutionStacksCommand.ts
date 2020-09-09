@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { ListAvailableSolutionStacksResultMessage } from "../models/index";
+import { ListAvailableSolutionStacksResultMessage } from "../models/models_0";
 import {
   deserializeAws_queryListAvailableSolutionStacksCommand,
   serializeAws_queryListAvailableSolutionStacksCommand,

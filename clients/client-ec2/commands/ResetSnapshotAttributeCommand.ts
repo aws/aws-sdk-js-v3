@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetSnapshotAttributeRequest } from "../models/index";
+import { ResetSnapshotAttributeRequest } from "../models/models_4";
 import {
   deserializeAws_ec2ResetSnapshotAttributeCommand,
   serializeAws_ec2ResetSnapshotAttributeCommand,

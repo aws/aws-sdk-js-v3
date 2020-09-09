@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
-import { DescribeCanariesRequest, DescribeCanariesResponse } from "../models/index";
+import { DescribeCanariesRequest, DescribeCanariesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeCanariesCommand,
   serializeAws_restJson1DescribeCanariesCommand,

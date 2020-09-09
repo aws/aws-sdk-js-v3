@@ -1,5 +1,5 @@
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { GetEffectivePermissionsForPathRequest, GetEffectivePermissionsForPathResponse } from "../models/index";
+import { GetEffectivePermissionsForPathRequest, GetEffectivePermissionsForPathResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetEffectivePermissionsForPathCommand,
   serializeAws_json1_1GetEffectivePermissionsForPathCommand,

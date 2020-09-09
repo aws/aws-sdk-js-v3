@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { CreateAutoScalingGroupType } from "../models/index";
+import { CreateAutoScalingGroupType } from "../models/models_0";
 import {
   deserializeAws_queryCreateAutoScalingGroupCommand,
   serializeAws_queryCreateAutoScalingGroupCommand,

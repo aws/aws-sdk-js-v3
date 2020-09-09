@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
-import { GetServiceGraphRequest, GetServiceGraphResult } from "../models/index";
+import { GetServiceGraphRequest, GetServiceGraphResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetServiceGraphCommand,
   serializeAws_restJson1GetServiceGraphCommand,

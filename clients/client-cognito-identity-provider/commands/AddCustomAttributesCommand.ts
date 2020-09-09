@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AddCustomAttributesRequest, AddCustomAttributesResponse } from "../models/index";
+import { AddCustomAttributesRequest, AddCustomAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AddCustomAttributesCommand,
   serializeAws_json1_1AddCustomAttributesCommand,

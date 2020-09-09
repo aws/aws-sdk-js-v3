@@ -1,5 +1,5 @@
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { BatchPutMessageRequest, BatchPutMessageResponse } from "../models/index";
+import { BatchPutMessageRequest, BatchPutMessageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchPutMessageCommand,
   serializeAws_restJson1BatchPutMessageCommand,

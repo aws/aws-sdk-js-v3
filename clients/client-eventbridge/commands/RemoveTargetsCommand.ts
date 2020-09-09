@@ -1,5 +1,5 @@
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { RemoveTargetsRequest, RemoveTargetsResponse } from "../models/index";
+import { RemoveTargetsRequest, RemoveTargetsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTargetsCommand,
   serializeAws_json1_1RemoveTargetsCommand,

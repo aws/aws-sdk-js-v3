@@ -1,5 +1,5 @@
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
-import { SendMessageBatchRequest, SendMessageBatchResult } from "../models/index";
+import { SendMessageBatchRequest, SendMessageBatchResult } from "../models/models_0";
 import {
   deserializeAws_querySendMessageBatchCommand,
   serializeAws_querySendMessageBatchCommand,

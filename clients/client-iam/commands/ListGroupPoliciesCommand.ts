@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListGroupPoliciesRequest, ListGroupPoliciesResponse } from "../models/index";
+import { ListGroupPoliciesRequest, ListGroupPoliciesResponse } from "../models/models_0";
 import {
   deserializeAws_queryListGroupPoliciesCommand,
   serializeAws_queryListGroupPoliciesCommand,

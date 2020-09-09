@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ConfirmForgotPasswordRequest, ConfirmForgotPasswordResponse } from "../models/index";
+import { ConfirmForgotPasswordRequest, ConfirmForgotPasswordResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmForgotPasswordCommand,
   serializeAws_json1_1ConfirmForgotPasswordCommand,

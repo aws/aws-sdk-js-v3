@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { GetGameSessionLogUrlInput, GetGameSessionLogUrlOutput } from "../models/index";
+import { GetGameSessionLogUrlInput, GetGameSessionLogUrlOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetGameSessionLogUrlCommand,
   serializeAws_json1_1GetGameSessionLogUrlCommand,

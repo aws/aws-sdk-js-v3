@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { StopDataCollectionByAgentIdsRequest, StopDataCollectionByAgentIdsResponse } from "../models/index";
+import { StopDataCollectionByAgentIdsRequest, StopDataCollectionByAgentIdsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopDataCollectionByAgentIdsCommand,
   serializeAws_json1_1StopDataCollectionByAgentIdsCommand,

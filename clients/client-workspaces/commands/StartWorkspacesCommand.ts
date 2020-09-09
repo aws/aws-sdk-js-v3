@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { StartWorkspacesRequest, StartWorkspacesResult } from "../models/index";
+import { StartWorkspacesRequest, StartWorkspacesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StartWorkspacesCommand,
   serializeAws_json1_1StartWorkspacesCommand,

@@ -1,5 +1,5 @@
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { ListActionTypesInput, ListActionTypesOutput } from "../models/index";
+import { ListActionTypesInput, ListActionTypesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListActionTypesCommand,
   serializeAws_json1_1ListActionTypesCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { ListResourcesRequest, ListResourcesResponse } from "../models/index";
+import { ListResourcesRequest, ListResourcesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListResourcesCommand,
   serializeAws_json1_1ListResourcesCommand,

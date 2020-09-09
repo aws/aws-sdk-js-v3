@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import { DescribeProjectRequest, DescribeProjectResponse } from "../models/index";
+import { DescribeProjectRequest, DescribeProjectResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeProjectCommand,
   serializeAws_restJson1DescribeProjectCommand,

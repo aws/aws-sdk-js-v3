@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { GenerateRandomRequest, GenerateRandomResponse } from "../models/index";
+import { GenerateRandomRequest, GenerateRandomResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GenerateRandomCommand,
   serializeAws_json1_1GenerateRandomCommand,

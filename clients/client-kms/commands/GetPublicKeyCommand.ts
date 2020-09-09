@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { GetPublicKeyRequest, GetPublicKeyResponse } from "../models/index";
+import { GetPublicKeyRequest, GetPublicKeyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetPublicKeyCommand,
   serializeAws_json1_1GetPublicKeyCommand,

@@ -1,5 +1,5 @@
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
-import { GetRevisionRequest, GetRevisionResponse } from "../models/index";
+import { GetRevisionRequest, GetRevisionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetRevisionCommand,
   serializeAws_restJson1GetRevisionCommand,

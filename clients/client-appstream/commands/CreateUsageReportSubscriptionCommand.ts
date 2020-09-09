@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { CreateUsageReportSubscriptionRequest, CreateUsageReportSubscriptionResult } from "../models/index";
+import { CreateUsageReportSubscriptionRequest, CreateUsageReportSubscriptionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateUsageReportSubscriptionCommand,
   serializeAws_json1_1CreateUsageReportSubscriptionCommand,

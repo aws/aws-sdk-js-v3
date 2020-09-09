@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeKeyPairsRequest, DescribeKeyPairsResult } from "../models/index";
+import { DescribeKeyPairsRequest, DescribeKeyPairsResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeKeyPairsCommand,
   serializeAws_ec2DescribeKeyPairsCommand,

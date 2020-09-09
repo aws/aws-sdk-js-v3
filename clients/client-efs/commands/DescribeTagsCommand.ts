@@ -1,5 +1,5 @@
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DescribeTagsRequest, DescribeTagsResponse } from "../models/index";
+import { DescribeTagsRequest, DescribeTagsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeTagsCommand,
   serializeAws_restJson1DescribeTagsCommand,

@@ -1,5 +1,5 @@
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { DeregisterResourceRequest, DeregisterResourceResponse } from "../models/index";
+import { DeregisterResourceRequest, DeregisterResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterResourceCommand,
   serializeAws_json1_1DeregisterResourceCommand,

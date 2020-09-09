@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { ListIdentitiesRequest, ListIdentitiesResponse } from "../models/index";
+import { ListIdentitiesRequest, ListIdentitiesResponse } from "../models/models_0";
 import {
   deserializeAws_queryListIdentitiesCommand,
   serializeAws_queryListIdentitiesCommand,

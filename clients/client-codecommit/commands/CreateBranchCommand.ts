@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { CreateBranchInput } from "../models/index";
+import { CreateBranchInput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateBranchCommand,
   serializeAws_json1_1CreateBranchCommand,

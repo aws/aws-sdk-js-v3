@@ -1,5 +1,5 @@
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
-import { UpdateReplicationJobRequest, UpdateReplicationJobResponse } from "../models/index";
+import { UpdateReplicationJobRequest, UpdateReplicationJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateReplicationJobCommand,
   serializeAws_json1_1UpdateReplicationJobCommand,

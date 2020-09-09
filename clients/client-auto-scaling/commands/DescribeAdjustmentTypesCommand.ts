@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeAdjustmentTypesAnswer } from "../models/index";
+import { DescribeAdjustmentTypesAnswer } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAdjustmentTypesCommand,
   serializeAws_queryDescribeAdjustmentTypesCommand,

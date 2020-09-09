@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteClientCertificateRequest } from "../models/index";
+import { DeleteClientCertificateRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteClientCertificateCommand,
   serializeAws_restJson1DeleteClientCertificateCommand,

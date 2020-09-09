@@ -6,7 +6,7 @@ import {
 import {
   DeleteApplicationInputProcessingConfigurationRequest,
   DeleteApplicationInputProcessingConfigurationResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand,
   serializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand,

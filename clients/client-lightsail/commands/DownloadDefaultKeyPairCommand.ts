@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DownloadDefaultKeyPairRequest, DownloadDefaultKeyPairResult } from "../models/index";
+import { DownloadDefaultKeyPairRequest, DownloadDefaultKeyPairResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DownloadDefaultKeyPairCommand,
   serializeAws_json1_1DownloadDefaultKeyPairCommand,

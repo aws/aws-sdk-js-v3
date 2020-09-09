@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateDefaultSubnetRequest, CreateDefaultSubnetResult } from "../models/index";
+import { CreateDefaultSubnetRequest, CreateDefaultSubnetResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreateDefaultSubnetCommand,
   serializeAws_ec2CreateDefaultSubnetCommand,

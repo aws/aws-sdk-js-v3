@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { ListPortfolioAccessInput, ListPortfolioAccessOutput } from "../models/index";
+import { ListPortfolioAccessInput, ListPortfolioAccessOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListPortfolioAccessCommand,
   serializeAws_json1_1ListPortfolioAccessCommand,

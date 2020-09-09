@@ -1,5 +1,5 @@
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { GetPackageVersionAssetRequest, GetPackageVersionAssetResult } from "../models/index";
+import { GetPackageVersionAssetRequest, GetPackageVersionAssetResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPackageVersionAssetCommand,
   serializeAws_restJson1GetPackageVersionAssetCommand,

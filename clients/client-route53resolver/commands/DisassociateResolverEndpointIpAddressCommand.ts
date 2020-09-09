@@ -2,7 +2,7 @@ import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 import {
   DisassociateResolverEndpointIpAddressRequest,
   DisassociateResolverEndpointIpAddressResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand,
   serializeAws_json1_1DisassociateResolverEndpointIpAddressCommand,

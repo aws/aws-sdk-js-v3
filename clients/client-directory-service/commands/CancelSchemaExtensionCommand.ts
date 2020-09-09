@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { CancelSchemaExtensionRequest, CancelSchemaExtensionResult } from "../models/index";
+import { CancelSchemaExtensionRequest, CancelSchemaExtensionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelSchemaExtensionCommand,
   serializeAws_json1_1CancelSchemaExtensionCommand,

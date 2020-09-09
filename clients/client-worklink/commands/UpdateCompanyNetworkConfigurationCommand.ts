@@ -1,5 +1,8 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
-import { UpdateCompanyNetworkConfigurationRequest, UpdateCompanyNetworkConfigurationResponse } from "../models/index";
+import {
+  UpdateCompanyNetworkConfigurationRequest,
+  UpdateCompanyNetworkConfigurationResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateCompanyNetworkConfigurationCommand,
   serializeAws_restJson1UpdateCompanyNetworkConfigurationCommand,

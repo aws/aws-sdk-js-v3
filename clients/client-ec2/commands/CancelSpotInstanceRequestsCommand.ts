@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CancelSpotInstanceRequestsRequest, CancelSpotInstanceRequestsResult } from "../models/index";
+import { CancelSpotInstanceRequestsRequest, CancelSpotInstanceRequestsResult } from "../models/models_0";
 import {
   deserializeAws_ec2CancelSpotInstanceRequestsCommand,
   serializeAws_ec2CancelSpotInstanceRequestsCommand,

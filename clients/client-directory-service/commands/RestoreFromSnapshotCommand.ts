@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { RestoreFromSnapshotRequest, RestoreFromSnapshotResult } from "../models/index";
+import { RestoreFromSnapshotRequest, RestoreFromSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_json1_1RestoreFromSnapshotCommand,
   serializeAws_json1_1RestoreFromSnapshotCommand,

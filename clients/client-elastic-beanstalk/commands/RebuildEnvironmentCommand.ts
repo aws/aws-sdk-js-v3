@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { RebuildEnvironmentMessage } from "../models/index";
+import { RebuildEnvironmentMessage } from "../models/models_0";
 import {
   deserializeAws_queryRebuildEnvironmentCommand,
   serializeAws_queryRebuildEnvironmentCommand,

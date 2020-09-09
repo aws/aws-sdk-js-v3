@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { GetDomainStatisticsReportRequest, GetDomainStatisticsReportResponse } from "../models/index";
+import { GetDomainStatisticsReportRequest, GetDomainStatisticsReportResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDomainStatisticsReportCommand,
   serializeAws_restJson1GetDomainStatisticsReportCommand,

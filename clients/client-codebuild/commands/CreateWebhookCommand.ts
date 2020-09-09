@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { CreateWebhookInput, CreateWebhookOutput } from "../models/index";
+import { CreateWebhookInput, CreateWebhookOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateWebhookCommand,
   serializeAws_json1_1CreateWebhookCommand,

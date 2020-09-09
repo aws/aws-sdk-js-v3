@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteGroupPolicyRequest } from "../models/index";
+import { DeleteGroupPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryDeleteGroupPolicyCommand,
   serializeAws_queryDeleteGroupPolicyCommand,

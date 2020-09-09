@@ -1,5 +1,8 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { GetIdentityVerificationAttributesRequest, GetIdentityVerificationAttributesResponse } from "../models/index";
+import {
+  GetIdentityVerificationAttributesRequest,
+  GetIdentityVerificationAttributesResponse,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetIdentityVerificationAttributesCommand,
   serializeAws_queryGetIdentityVerificationAttributesCommand,

@@ -1,5 +1,5 @@
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { DeleteLocationRequest, DeleteLocationResponse } from "../models/index";
+import { DeleteLocationRequest, DeleteLocationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLocationCommand,
   serializeAws_json1_1DeleteLocationCommand,

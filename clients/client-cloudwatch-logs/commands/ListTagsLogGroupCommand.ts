@@ -1,5 +1,5 @@
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { ListTagsLogGroupRequest, ListTagsLogGroupResponse } from "../models/index";
+import { ListTagsLogGroupRequest, ListTagsLogGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTagsLogGroupCommand,
   serializeAws_json1_1ListTagsLogGroupCommand,

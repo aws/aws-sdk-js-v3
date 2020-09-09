@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DocumentationParts, GetDocumentationPartsRequest } from "../models/index";
+import { DocumentationParts, GetDocumentationPartsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDocumentationPartsCommand,
   serializeAws_restJson1GetDocumentationPartsCommand,

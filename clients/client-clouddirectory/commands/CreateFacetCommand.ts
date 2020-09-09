@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { CreateFacetRequest, CreateFacetResponse } from "../models/index";
+import { CreateFacetRequest, CreateFacetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFacetCommand,
   serializeAws_restJson1CreateFacetCommand,

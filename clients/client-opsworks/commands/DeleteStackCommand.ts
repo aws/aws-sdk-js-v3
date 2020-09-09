@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DeleteStackRequest } from "../models/index";
+import { DeleteStackRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteStackCommand,
   serializeAws_json1_1DeleteStackCommand,

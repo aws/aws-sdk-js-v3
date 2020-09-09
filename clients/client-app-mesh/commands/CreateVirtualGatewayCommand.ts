@@ -1,5 +1,5 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { CreateVirtualGatewayInput, CreateVirtualGatewayOutput } from "../models/index";
+import { CreateVirtualGatewayInput, CreateVirtualGatewayOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateVirtualGatewayCommand,
   serializeAws_restJson1CreateVirtualGatewayCommand,

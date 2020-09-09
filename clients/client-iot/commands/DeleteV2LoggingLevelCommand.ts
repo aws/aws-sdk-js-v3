@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteV2LoggingLevelRequest } from "../models/index";
+import { DeleteV2LoggingLevelRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteV2LoggingLevelCommand,
   serializeAws_restJson1DeleteV2LoggingLevelCommand,

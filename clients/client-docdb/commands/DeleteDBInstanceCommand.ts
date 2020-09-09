@@ -1,5 +1,5 @@
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/index";
+import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBInstanceCommand,
   serializeAws_queryDeleteDBInstanceCommand,

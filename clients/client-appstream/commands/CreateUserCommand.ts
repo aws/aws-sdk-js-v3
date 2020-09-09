@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { CreateUserRequest, CreateUserResult } from "../models/index";
+import { CreateUserRequest, CreateUserResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateUserCommand,
   serializeAws_json1_1CreateUserCommand,

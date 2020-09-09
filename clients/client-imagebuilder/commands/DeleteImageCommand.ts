@@ -1,5 +1,5 @@
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { DeleteImageRequest, DeleteImageResponse } from "../models/index";
+import { DeleteImageRequest, DeleteImageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteImageCommand,
   serializeAws_restJson1DeleteImageCommand,

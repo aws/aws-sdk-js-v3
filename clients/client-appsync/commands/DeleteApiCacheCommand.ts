@@ -1,5 +1,5 @@
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { DeleteApiCacheRequest, DeleteApiCacheResponse } from "../models/index";
+import { DeleteApiCacheRequest, DeleteApiCacheResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteApiCacheCommand,
   serializeAws_restJson1DeleteApiCacheCommand,

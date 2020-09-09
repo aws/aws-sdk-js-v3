@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { CreateUserProfileRequest, CreateUserProfileResult } from "../models/index";
+import { CreateUserProfileRequest, CreateUserProfileResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateUserProfileCommand,
   serializeAws_json1_1CreateUserProfileCommand,

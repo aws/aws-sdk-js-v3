@@ -1,5 +1,5 @@
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DescribeInputDeviceRequest, DescribeInputDeviceResponse } from "../models/index";
+import { DescribeInputDeviceRequest, DescribeInputDeviceResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeInputDeviceCommand,
   serializeAws_restJson1DescribeInputDeviceCommand,

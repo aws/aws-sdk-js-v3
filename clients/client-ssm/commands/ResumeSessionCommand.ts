@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { ResumeSessionRequest, ResumeSessionResponse } from "../models/index";
+import { ResumeSessionRequest, ResumeSessionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1ResumeSessionCommand,
   serializeAws_json1_1ResumeSessionCommand,

@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { IgnoreQueryParamsInResponseOutput } from "../models/index";
+import { IgnoreQueryParamsInResponseOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlIgnoreQueryParamsInResponseCommand,
   serializeAws_restXmlIgnoreQueryParamsInResponseCommand,

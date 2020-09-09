@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DeletePatchBaselineRequest, DeletePatchBaselineResult } from "../models/index";
+import { DeletePatchBaselineRequest, DeletePatchBaselineResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePatchBaselineCommand,
   serializeAws_json1_1DeletePatchBaselineCommand,

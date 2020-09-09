@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { UpdateSubscriptionDefinitionRequest, UpdateSubscriptionDefinitionResponse } from "../models/index";
+import { UpdateSubscriptionDefinitionRequest, UpdateSubscriptionDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSubscriptionDefinitionCommand,
   serializeAws_restJson1UpdateSubscriptionDefinitionCommand,

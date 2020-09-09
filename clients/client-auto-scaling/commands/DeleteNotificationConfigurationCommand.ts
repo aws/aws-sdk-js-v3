@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DeleteNotificationConfigurationType } from "../models/index";
+import { DeleteNotificationConfigurationType } from "../models/models_0";
 import {
   deserializeAws_queryDeleteNotificationConfigurationCommand,
   serializeAws_queryDeleteNotificationConfigurationCommand,

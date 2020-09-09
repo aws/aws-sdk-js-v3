@@ -1,5 +1,5 @@
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import { ConfigureAgentRequest, ConfigureAgentResponse } from "../models/index";
+import { ConfigureAgentRequest, ConfigureAgentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ConfigureAgentCommand,
   serializeAws_restJson1ConfigureAgentCommand,

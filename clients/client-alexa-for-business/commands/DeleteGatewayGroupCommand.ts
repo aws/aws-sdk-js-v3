@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { DeleteGatewayGroupRequest, DeleteGatewayGroupResponse } from "../models/index";
+import { DeleteGatewayGroupRequest, DeleteGatewayGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGatewayGroupCommand,
   serializeAws_json1_1DeleteGatewayGroupCommand,

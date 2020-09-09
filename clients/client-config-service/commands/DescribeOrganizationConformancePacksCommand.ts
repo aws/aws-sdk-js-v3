@@ -2,7 +2,7 @@ import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   DescribeOrganizationConformancePacksRequest,
   DescribeOrganizationConformancePacksResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeOrganizationConformancePacksCommand,
   serializeAws_json1_1DescribeOrganizationConformancePacksCommand,

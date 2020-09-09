@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { CacheParameterGroupNameMessage, ModifyCacheParameterGroupMessage } from "../models/index";
+import { CacheParameterGroupNameMessage, ModifyCacheParameterGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryModifyCacheParameterGroupCommand,
   serializeAws_queryModifyCacheParameterGroupCommand,

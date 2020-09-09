@@ -2,7 +2,7 @@ import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 import {
   AddApplicationInputProcessingConfigurationRequest,
   AddApplicationInputProcessingConfigurationResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand,
   serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand,

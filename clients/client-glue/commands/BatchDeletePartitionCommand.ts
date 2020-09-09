@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchDeletePartitionRequest, BatchDeletePartitionResponse } from "../models/index";
+import { BatchDeletePartitionRequest, BatchDeletePartitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDeletePartitionCommand,
   serializeAws_json1_1BatchDeletePartitionCommand,

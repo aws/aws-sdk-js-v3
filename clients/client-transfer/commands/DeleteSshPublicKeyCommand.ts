@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
-import { DeleteSshPublicKeyRequest } from "../models/index";
+import { DeleteSshPublicKeyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSshPublicKeyCommand,
   serializeAws_json1_1DeleteSshPublicKeyCommand,

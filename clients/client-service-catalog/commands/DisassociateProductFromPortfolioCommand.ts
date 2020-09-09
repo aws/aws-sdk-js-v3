@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { DisassociateProductFromPortfolioInput, DisassociateProductFromPortfolioOutput } from "../models/index";
+import { DisassociateProductFromPortfolioInput, DisassociateProductFromPortfolioOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateProductFromPortfolioCommand,
   serializeAws_json1_1DisassociateProductFromPortfolioCommand,

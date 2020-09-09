@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { BatchAssociateProjectAssetsRequest, BatchAssociateProjectAssetsResponse } from "../models/index";
+import { BatchAssociateProjectAssetsRequest, BatchAssociateProjectAssetsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchAssociateProjectAssetsCommand,
   serializeAws_restJson1BatchAssociateProjectAssetsCommand,

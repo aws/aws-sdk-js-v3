@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { FunctionEventInvokeConfig, PutFunctionEventInvokeConfigRequest } from "../models/index";
+import { FunctionEventInvokeConfig, PutFunctionEventInvokeConfigRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PutFunctionEventInvokeConfigCommand,
   serializeAws_restJson1PutFunctionEventInvokeConfigCommand,

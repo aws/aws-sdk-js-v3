@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { MergeShardsInput } from "../models/index";
+import { MergeShardsInput } from "../models/models_0";
 import {
   deserializeAws_json1_1MergeShardsCommand,
   serializeAws_json1_1MergeShardsCommand,

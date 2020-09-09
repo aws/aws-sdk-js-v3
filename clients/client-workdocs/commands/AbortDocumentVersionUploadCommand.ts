@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { AbortDocumentVersionUploadRequest } from "../models/index";
+import { AbortDocumentVersionUploadRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1AbortDocumentVersionUploadCommand,
   serializeAws_restJson1AbortDocumentVersionUploadCommand,

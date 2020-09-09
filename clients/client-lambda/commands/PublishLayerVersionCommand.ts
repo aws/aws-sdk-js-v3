@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { PublishLayerVersionRequest, PublishLayerVersionResponse } from "../models/index";
+import { PublishLayerVersionRequest, PublishLayerVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PublishLayerVersionCommand,
   serializeAws_restJson1PublishLayerVersionCommand,

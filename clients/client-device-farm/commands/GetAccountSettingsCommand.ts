@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { GetAccountSettingsRequest, GetAccountSettingsResult } from "../models/index";
+import { GetAccountSettingsRequest, GetAccountSettingsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAccountSettingsCommand,
   serializeAws_json1_1GetAccountSettingsCommand,

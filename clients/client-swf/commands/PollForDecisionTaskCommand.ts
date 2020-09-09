@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { DecisionTask, PollForDecisionTaskInput } from "../models/index";
+import { DecisionTask, PollForDecisionTaskInput } from "../models/models_0";
 import {
   deserializeAws_json1_0PollForDecisionTaskCommand,
   serializeAws_json1_0PollForDecisionTaskCommand,

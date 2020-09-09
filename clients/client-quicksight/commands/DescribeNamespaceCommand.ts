@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/index";
+import { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeNamespaceCommand,
   serializeAws_restJson1DescribeNamespaceCommand,

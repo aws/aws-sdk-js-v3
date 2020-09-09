@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { DescribeClustersRequest, DescribeClustersResponse } from "../models/index";
+import { DescribeClustersRequest, DescribeClustersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeClustersCommand,
   serializeAws_json1_1DescribeClustersCommand,

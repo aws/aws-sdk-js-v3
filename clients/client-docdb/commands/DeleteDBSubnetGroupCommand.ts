@@ -1,5 +1,5 @@
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { DeleteDBSubnetGroupMessage } from "../models/index";
+import { DeleteDBSubnetGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBSubnetGroupCommand,
   serializeAws_queryDeleteDBSubnetGroupCommand,

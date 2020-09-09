@@ -1,5 +1,5 @@
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { ListProvisionedCapacityInput, ListProvisionedCapacityOutput } from "../models/index";
+import { ListProvisionedCapacityInput, ListProvisionedCapacityOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListProvisionedCapacityCommand,
   serializeAws_restJson1ListProvisionedCapacityCommand,

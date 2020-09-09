@@ -1,5 +1,5 @@
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
-import { DeleteMessageBatchRequest, DeleteMessageBatchResult } from "../models/index";
+import { DeleteMessageBatchRequest, DeleteMessageBatchResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteMessageBatchCommand,
   serializeAws_queryDeleteMessageBatchCommand,

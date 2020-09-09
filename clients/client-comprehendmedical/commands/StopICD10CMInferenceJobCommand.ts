@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { StopICD10CMInferenceJobRequest, StopICD10CMInferenceJobResponse } from "../models/index";
+import { StopICD10CMInferenceJobRequest, StopICD10CMInferenceJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopICD10CMInferenceJobCommand,
   serializeAws_json1_1StopICD10CMInferenceJobCommand,

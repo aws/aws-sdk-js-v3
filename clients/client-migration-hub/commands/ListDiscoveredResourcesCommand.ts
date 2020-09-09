@@ -1,5 +1,5 @@
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResult } from "../models/index";
+import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDiscoveredResourcesCommand,
   serializeAws_json1_1ListDiscoveredResourcesCommand,

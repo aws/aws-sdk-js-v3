@@ -1,5 +1,5 @@
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { DeleteInsightRulesInput, DeleteInsightRulesOutput } from "../models/index";
+import { DeleteInsightRulesInput, DeleteInsightRulesOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeleteInsightRulesCommand,
   serializeAws_queryDeleteInsightRulesCommand,

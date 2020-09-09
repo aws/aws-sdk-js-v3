@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { CreateAccountRequest, CreateAccountResponse } from "../models/index";
+import { CreateAccountRequest, CreateAccountResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAccountCommand,
   serializeAws_json1_1CreateAccountCommand,

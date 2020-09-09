@@ -1,5 +1,5 @@
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { ConfigIdResponse, UpdateConfigRequest } from "../models/index";
+import { ConfigIdResponse, UpdateConfigRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateConfigCommand,
   serializeAws_restJson1UpdateConfigCommand,

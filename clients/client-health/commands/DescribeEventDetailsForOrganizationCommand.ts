@@ -2,7 +2,7 @@ import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 import {
   DescribeEventDetailsForOrganizationRequest,
   DescribeEventDetailsForOrganizationResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand,
   serializeAws_json1_1DescribeEventDetailsForOrganizationCommand,

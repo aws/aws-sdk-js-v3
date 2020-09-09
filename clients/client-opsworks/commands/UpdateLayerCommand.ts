@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { UpdateLayerRequest } from "../models/index";
+import { UpdateLayerRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateLayerCommand,
   serializeAws_json1_1UpdateLayerCommand,

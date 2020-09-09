@@ -1,5 +1,5 @@
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
-import { RotateSecretRequest, RotateSecretResponse } from "../models/index";
+import { RotateSecretRequest, RotateSecretResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RotateSecretCommand,
   serializeAws_json1_1RotateSecretCommand,

@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/index";
+import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMasterAccountCommand,
   serializeAws_restJson1GetMasterAccountCommand,

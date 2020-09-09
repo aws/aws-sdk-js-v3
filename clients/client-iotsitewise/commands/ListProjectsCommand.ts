@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListProjectsRequest, ListProjectsResponse } from "../models/index";
+import { ListProjectsRequest, ListProjectsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListProjectsCommand,
   serializeAws_restJson1ListProjectsCommand,

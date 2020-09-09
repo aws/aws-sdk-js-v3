@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult } from "../models/index";
+import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteEventSubscriptionCommand,
   serializeAws_queryDeleteEventSubscriptionCommand,

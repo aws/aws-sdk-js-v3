@@ -1,5 +1,5 @@
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { RejectResourceShareInvitationRequest, RejectResourceShareInvitationResponse } from "../models/index";
+import { RejectResourceShareInvitationRequest, RejectResourceShareInvitationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RejectResourceShareInvitationCommand,
   serializeAws_restJson1RejectResourceShareInvitationCommand,

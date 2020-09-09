@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DBEngineVersionMessage, DescribeDBEngineVersionsMessage } from "../models/index";
+import { DBEngineVersionMessage, DescribeDBEngineVersionsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBEngineVersionsCommand,
   serializeAws_queryDescribeDBEngineVersionsCommand,

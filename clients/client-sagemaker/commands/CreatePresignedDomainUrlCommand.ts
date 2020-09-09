@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreatePresignedDomainUrlRequest, CreatePresignedDomainUrlResponse } from "../models/index";
+import { CreatePresignedDomainUrlRequest, CreatePresignedDomainUrlResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePresignedDomainUrlCommand,
   serializeAws_json1_1CreatePresignedDomainUrlCommand,

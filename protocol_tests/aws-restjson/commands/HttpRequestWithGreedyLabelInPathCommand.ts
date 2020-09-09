@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { HttpRequestWithGreedyLabelInPathInput } from "../models/index";
+import { HttpRequestWithGreedyLabelInPathInput } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand,
   serializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand,

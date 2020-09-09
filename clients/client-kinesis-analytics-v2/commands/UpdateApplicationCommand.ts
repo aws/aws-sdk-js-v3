@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/index";
+import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateApplicationCommand,
   serializeAws_json1_1UpdateApplicationCommand,

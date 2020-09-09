@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { ListGroupVersionsRequest, ListGroupVersionsResponse } from "../models/index";
+import { ListGroupVersionsRequest, ListGroupVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListGroupVersionsCommand,
   serializeAws_restJson1ListGroupVersionsCommand,

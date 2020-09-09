@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetContextKeysForPolicyResponse, GetContextKeysForPrincipalPolicyRequest } from "../models/index";
+import { GetContextKeysForPolicyResponse, GetContextKeysForPrincipalPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryGetContextKeysForPrincipalPolicyCommand,
   serializeAws_queryGetContextKeysForPrincipalPolicyCommand,

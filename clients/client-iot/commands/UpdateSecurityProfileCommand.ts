@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateSecurityProfileRequest, UpdateSecurityProfileResponse } from "../models/index";
+import { UpdateSecurityProfileRequest, UpdateSecurityProfileResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateSecurityProfileCommand,
   serializeAws_restJson1UpdateSecurityProfileCommand,

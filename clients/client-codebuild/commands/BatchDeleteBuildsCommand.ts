@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { BatchDeleteBuildsInput, BatchDeleteBuildsOutput } from "../models/index";
+import { BatchDeleteBuildsInput, BatchDeleteBuildsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDeleteBuildsCommand,
   serializeAws_json1_1BatchDeleteBuildsCommand,

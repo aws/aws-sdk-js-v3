@@ -1,5 +1,5 @@
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { DeletePartnerEventSourceRequest } from "../models/index";
+import { DeletePartnerEventSourceRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePartnerEventSourceCommand,
   serializeAws_json1_1DeletePartnerEventSourceCommand,

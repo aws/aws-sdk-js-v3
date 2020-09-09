@@ -1,5 +1,5 @@
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { DeleteNodegroupRequest, DeleteNodegroupResponse } from "../models/index";
+import { DeleteNodegroupRequest, DeleteNodegroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteNodegroupCommand,
   serializeAws_restJson1DeleteNodegroupCommand,

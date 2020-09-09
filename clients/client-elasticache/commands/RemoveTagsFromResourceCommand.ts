@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { RemoveTagsFromResourceMessage, TagListMessage } from "../models/index";
+import { RemoveTagsFromResourceMessage, TagListMessage } from "../models/models_0";
 import {
   deserializeAws_queryRemoveTagsFromResourceCommand,
   serializeAws_queryRemoveTagsFromResourceCommand,

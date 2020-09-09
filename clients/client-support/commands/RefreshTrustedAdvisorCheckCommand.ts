@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
-import { RefreshTrustedAdvisorCheckRequest, RefreshTrustedAdvisorCheckResponse } from "../models/index";
+import { RefreshTrustedAdvisorCheckRequest, RefreshTrustedAdvisorCheckResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand,
   serializeAws_json1_1RefreshTrustedAdvisorCheckCommand,

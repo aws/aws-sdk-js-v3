@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { ValidateTemplateInput, ValidateTemplateOutput } from "../models/index";
+import { ValidateTemplateInput, ValidateTemplateOutput } from "../models/models_0";
 import {
   deserializeAws_queryValidateTemplateCommand,
   serializeAws_queryValidateTemplateCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { RemoveAllResourcePermissionsRequest } from "../models/index";
+import { RemoveAllResourcePermissionsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveAllResourcePermissionsCommand,
   serializeAws_restJson1RemoveAllResourcePermissionsCommand,

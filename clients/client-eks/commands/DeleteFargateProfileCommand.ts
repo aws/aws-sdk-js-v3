@@ -1,5 +1,5 @@
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { DeleteFargateProfileRequest, DeleteFargateProfileResponse } from "../models/index";
+import { DeleteFargateProfileRequest, DeleteFargateProfileResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFargateProfileCommand,
   serializeAws_restJson1DeleteFargateProfileCommand,

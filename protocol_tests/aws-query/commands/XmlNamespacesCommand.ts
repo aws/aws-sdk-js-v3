@@ -1,5 +1,5 @@
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { XmlNamespacesOutput } from "../models/index";
+import { XmlNamespacesOutput } from "../models/models_0";
 import {
   deserializeAws_queryXmlNamespacesCommand,
   serializeAws_queryXmlNamespacesCommand,

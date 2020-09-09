@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { UpdateHostedZoneCommentRequest, UpdateHostedZoneCommentResponse } from "../models/index";
+import { UpdateHostedZoneCommentRequest, UpdateHostedZoneCommentResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlUpdateHostedZoneCommentCommand,
   serializeAws_restXmlUpdateHostedZoneCommentCommand,

@@ -1,5 +1,5 @@
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { Locations } from "../models/index";
+import { Locations } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLocationsCommand,
   serializeAws_json1_1DescribeLocationsCommand,

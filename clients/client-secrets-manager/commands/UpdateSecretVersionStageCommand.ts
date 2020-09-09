@@ -1,5 +1,5 @@
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
-import { UpdateSecretVersionStageRequest, UpdateSecretVersionStageResponse } from "../models/index";
+import { UpdateSecretVersionStageRequest, UpdateSecretVersionStageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSecretVersionStageCommand,
   serializeAws_json1_1UpdateSecretVersionStageCommand,

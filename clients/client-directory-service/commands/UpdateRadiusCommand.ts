@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { UpdateRadiusRequest, UpdateRadiusResult } from "../models/index";
+import { UpdateRadiusRequest, UpdateRadiusResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRadiusCommand,
   serializeAws_json1_1UpdateRadiusCommand,

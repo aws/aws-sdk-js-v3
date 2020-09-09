@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { DescribeVTLDevicesInput, DescribeVTLDevicesOutput } from "../models/index";
+import { DescribeVTLDevicesInput, DescribeVTLDevicesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeVTLDevicesCommand,
   serializeAws_json1_1DescribeVTLDevicesCommand,

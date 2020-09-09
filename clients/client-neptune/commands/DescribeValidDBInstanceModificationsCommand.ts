@@ -2,7 +2,7 @@ import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import {
   DescribeValidDBInstanceModificationsMessage,
   DescribeValidDBInstanceModificationsResult,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeValidDBInstanceModificationsCommand,
   serializeAws_queryDescribeValidDBInstanceModificationsCommand,

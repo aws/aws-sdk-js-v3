@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { ListBudgetsForResourceInput, ListBudgetsForResourceOutput } from "../models/index";
+import { ListBudgetsForResourceInput, ListBudgetsForResourceOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListBudgetsForResourceCommand,
   serializeAws_json1_1ListBudgetsForResourceCommand,

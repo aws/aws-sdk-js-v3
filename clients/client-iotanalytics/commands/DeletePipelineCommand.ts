@@ -1,5 +1,5 @@
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { DeletePipelineRequest } from "../models/index";
+import { DeletePipelineRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePipelineCommand,
   serializeAws_restJson1DeletePipelineCommand,

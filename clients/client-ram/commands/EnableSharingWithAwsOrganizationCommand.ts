@@ -1,5 +1,5 @@
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { EnableSharingWithAwsOrganizationRequest, EnableSharingWithAwsOrganizationResponse } from "../models/index";
+import { EnableSharingWithAwsOrganizationRequest, EnableSharingWithAwsOrganizationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand,
   serializeAws_restJson1EnableSharingWithAwsOrganizationCommand,

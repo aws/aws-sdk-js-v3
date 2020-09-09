@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { ExpireSessionRequest, ExpireSessionResult } from "../models/index";
+import { ExpireSessionRequest, ExpireSessionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ExpireSessionCommand,
   serializeAws_json1_1ExpireSessionCommand,

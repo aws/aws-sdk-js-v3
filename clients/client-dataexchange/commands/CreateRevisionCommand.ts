@@ -1,5 +1,5 @@
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { CreateRevisionRequest, CreateRevisionResponse } from "../models/index";
+import { CreateRevisionRequest, CreateRevisionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRevisionCommand,
   serializeAws_restJson1CreateRevisionCommand,

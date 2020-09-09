@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeNodeConfigurationOptionsMessage, NodeConfigurationOptionsMessage } from "../models/index";
+import { DescribeNodeConfigurationOptionsMessage, NodeConfigurationOptionsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeNodeConfigurationOptionsCommand,
   serializeAws_queryDescribeNodeConfigurationOptionsCommand,

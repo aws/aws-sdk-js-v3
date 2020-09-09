@@ -1,5 +1,5 @@
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { AddFlowSourcesRequest, AddFlowSourcesResponse } from "../models/index";
+import { AddFlowSourcesRequest, AddFlowSourcesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AddFlowSourcesCommand,
   serializeAws_restJson1AddFlowSourcesCommand,

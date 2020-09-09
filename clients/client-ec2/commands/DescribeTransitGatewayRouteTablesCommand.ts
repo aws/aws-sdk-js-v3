@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeTransitGatewayRouteTablesRequest, DescribeTransitGatewayRouteTablesResult } from "../models/index";
+import { DescribeTransitGatewayRouteTablesRequest, DescribeTransitGatewayRouteTablesResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeTransitGatewayRouteTablesCommand,
   serializeAws_ec2DescribeTransitGatewayRouteTablesCommand,

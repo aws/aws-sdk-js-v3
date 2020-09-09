@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DeleteGlobalClusterMessage, DeleteGlobalClusterResult } from "../models/index";
+import { DeleteGlobalClusterMessage, DeleteGlobalClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteGlobalClusterCommand,
   serializeAws_queryDeleteGlobalClusterCommand,

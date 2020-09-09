@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/index";
+import { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAccountSettingsCommand,
   serializeAws_restJson1UpdateAccountSettingsCommand,

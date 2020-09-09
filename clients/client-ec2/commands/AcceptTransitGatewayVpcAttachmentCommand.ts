@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AcceptTransitGatewayVpcAttachmentRequest, AcceptTransitGatewayVpcAttachmentResult } from "../models/index";
+import { AcceptTransitGatewayVpcAttachmentRequest, AcceptTransitGatewayVpcAttachmentResult } from "../models/models_0";
 import {
   deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommand,
   serializeAws_ec2AcceptTransitGatewayVpcAttachmentCommand,

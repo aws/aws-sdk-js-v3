@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { ListPackagesForDomainRequest, ListPackagesForDomainResponse } from "../models/index";
+import { ListPackagesForDomainRequest, ListPackagesForDomainResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPackagesForDomainCommand,
   serializeAws_restJson1ListPackagesForDomainCommand,

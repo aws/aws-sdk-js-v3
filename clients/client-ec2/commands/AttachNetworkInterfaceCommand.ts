@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AttachNetworkInterfaceRequest, AttachNetworkInterfaceResult } from "../models/index";
+import { AttachNetworkInterfaceRequest, AttachNetworkInterfaceResult } from "../models/models_0";
 import {
   deserializeAws_ec2AttachNetworkInterfaceCommand,
   serializeAws_ec2AttachNetworkInterfaceCommand,

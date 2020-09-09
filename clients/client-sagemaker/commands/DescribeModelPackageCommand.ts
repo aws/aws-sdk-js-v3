@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeModelPackageInput, DescribeModelPackageOutput } from "../models/index";
+import { DescribeModelPackageInput, DescribeModelPackageOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1DescribeModelPackageCommand,
   serializeAws_json1_1DescribeModelPackageCommand,

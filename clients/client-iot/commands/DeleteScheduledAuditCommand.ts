@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteScheduledAuditRequest, DeleteScheduledAuditResponse } from "../models/index";
+import { DeleteScheduledAuditRequest, DeleteScheduledAuditResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteScheduledAuditCommand,
   serializeAws_restJson1DeleteScheduledAuditCommand,

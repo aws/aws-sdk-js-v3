@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { SearchContactsRequest, SearchContactsResponse } from "../models/index";
+import { SearchContactsRequest, SearchContactsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1SearchContactsCommand,
   serializeAws_json1_1SearchContactsCommand,

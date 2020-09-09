@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DeleteCustomKeyStoreRequest, DeleteCustomKeyStoreResponse } from "../models/index";
+import { DeleteCustomKeyStoreRequest, DeleteCustomKeyStoreResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCustomKeyStoreCommand,
   serializeAws_json1_1DeleteCustomKeyStoreCommand,

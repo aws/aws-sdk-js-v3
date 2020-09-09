@@ -1,5 +1,5 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { CreateVirtualServiceInput, CreateVirtualServiceOutput } from "../models/index";
+import { CreateVirtualServiceInput, CreateVirtualServiceOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateVirtualServiceCommand,
   serializeAws_restJson1CreateVirtualServiceCommand,

@@ -1,5 +1,5 @@
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { CreateBackupInput, CreateBackupOutput } from "../models/index";
+import { CreateBackupInput, CreateBackupOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0CreateBackupCommand,
   serializeAws_json1_0CreateBackupCommand,

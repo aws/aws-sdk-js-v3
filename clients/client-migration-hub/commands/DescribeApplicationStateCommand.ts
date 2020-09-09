@@ -1,5 +1,5 @@
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { DescribeApplicationStateRequest, DescribeApplicationStateResult } from "../models/index";
+import { DescribeApplicationStateRequest, DescribeApplicationStateResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeApplicationStateCommand,
   serializeAws_json1_1DescribeApplicationStateCommand,

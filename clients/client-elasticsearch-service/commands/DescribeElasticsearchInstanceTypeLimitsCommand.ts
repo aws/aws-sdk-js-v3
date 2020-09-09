@@ -6,7 +6,7 @@ import {
 import {
   DescribeElasticsearchInstanceTypeLimitsRequest,
   DescribeElasticsearchInstanceTypeLimitsResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand,
   serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand,

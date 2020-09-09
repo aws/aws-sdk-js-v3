@@ -1,5 +1,5 @@
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { CreateClusterRequest, CreateClusterResponse } from "../models/index";
+import { CreateClusterRequest, CreateClusterResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateClusterCommand,
   serializeAws_json1_1CreateClusterCommand,

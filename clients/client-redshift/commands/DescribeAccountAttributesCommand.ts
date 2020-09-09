@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { AccountAttributeList, DescribeAccountAttributesMessage } from "../models/index";
+import { AccountAttributeList, DescribeAccountAttributesMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAccountAttributesCommand,
   serializeAws_queryDescribeAccountAttributesCommand,

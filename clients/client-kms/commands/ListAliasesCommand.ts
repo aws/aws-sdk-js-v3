@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ListAliasesRequest, ListAliasesResponse } from "../models/index";
+import { ListAliasesRequest, ListAliasesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAliasesCommand,
   serializeAws_json1_1ListAliasesCommand,

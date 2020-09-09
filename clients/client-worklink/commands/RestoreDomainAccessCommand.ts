@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
-import { RestoreDomainAccessRequest, RestoreDomainAccessResponse } from "../models/index";
+import { RestoreDomainAccessRequest, RestoreDomainAccessResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RestoreDomainAccessCommand,
   serializeAws_restJson1RestoreDomainAccessCommand,

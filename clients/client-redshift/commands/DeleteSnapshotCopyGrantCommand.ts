@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteSnapshotCopyGrantMessage } from "../models/index";
+import { DeleteSnapshotCopyGrantMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteSnapshotCopyGrantCommand,
   serializeAws_queryDeleteSnapshotCopyGrantCommand,

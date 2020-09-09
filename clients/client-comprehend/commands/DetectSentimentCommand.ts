@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DetectSentimentRequest, DetectSentimentResponse } from "../models/index";
+import { DetectSentimentRequest, DetectSentimentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DetectSentimentCommand,
   serializeAws_json1_1DetectSentimentCommand,

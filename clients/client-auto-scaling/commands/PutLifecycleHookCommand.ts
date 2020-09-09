@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { PutLifecycleHookAnswer, PutLifecycleHookType } from "../models/index";
+import { PutLifecycleHookAnswer, PutLifecycleHookType } from "../models/models_0";
 import {
   deserializeAws_queryPutLifecycleHookCommand,
   serializeAws_queryPutLifecycleHookCommand,

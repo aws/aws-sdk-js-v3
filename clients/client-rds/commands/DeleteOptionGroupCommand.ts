@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DeleteOptionGroupMessage } from "../models/index";
+import { DeleteOptionGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteOptionGroupCommand,
   serializeAws_queryDeleteOptionGroupCommand,

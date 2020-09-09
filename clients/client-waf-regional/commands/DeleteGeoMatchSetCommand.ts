@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse } from "../models/index";
+import { DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGeoMatchSetCommand,
   serializeAws_json1_1DeleteGeoMatchSetCommand,

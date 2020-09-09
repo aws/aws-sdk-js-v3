@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
-import { DeleteMedicalVocabularyRequest } from "../models/index";
+import { DeleteMedicalVocabularyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMedicalVocabularyCommand,
   serializeAws_json1_1DeleteMedicalVocabularyCommand,

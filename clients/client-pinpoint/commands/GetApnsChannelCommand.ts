@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetApnsChannelRequest, GetApnsChannelResponse } from "../models/index";
+import { GetApnsChannelRequest, GetApnsChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetApnsChannelCommand,
   serializeAws_restJson1GetApnsChannelCommand,

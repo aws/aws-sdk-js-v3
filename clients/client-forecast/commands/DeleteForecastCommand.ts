@@ -1,5 +1,5 @@
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteForecastRequest } from "../models/index";
+import { DeleteForecastRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteForecastCommand,
   serializeAws_json1_1DeleteForecastCommand,

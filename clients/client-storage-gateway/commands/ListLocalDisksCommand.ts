@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { ListLocalDisksInput, ListLocalDisksOutput } from "../models/index";
+import { ListLocalDisksInput, ListLocalDisksOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListLocalDisksCommand,
   serializeAws_json1_1ListLocalDisksCommand,

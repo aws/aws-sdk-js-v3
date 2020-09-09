@@ -1,5 +1,5 @@
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { GetMetricStatisticsInput, GetMetricStatisticsOutput } from "../models/index";
+import { GetMetricStatisticsInput, GetMetricStatisticsOutput } from "../models/models_0";
 import {
   deserializeAws_queryGetMetricStatisticsCommand,
   serializeAws_queryGetMetricStatisticsCommand,

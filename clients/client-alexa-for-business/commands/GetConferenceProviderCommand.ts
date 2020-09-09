@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { GetConferenceProviderRequest, GetConferenceProviderResponse } from "../models/index";
+import { GetConferenceProviderRequest, GetConferenceProviderResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetConferenceProviderCommand,
   serializeAws_json1_1GetConferenceProviderCommand,

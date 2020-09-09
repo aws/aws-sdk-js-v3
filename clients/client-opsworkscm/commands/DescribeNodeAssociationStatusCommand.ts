@@ -1,5 +1,5 @@
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import { DescribeNodeAssociationStatusRequest, DescribeNodeAssociationStatusResponse } from "../models/index";
+import { DescribeNodeAssociationStatusRequest, DescribeNodeAssociationStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeNodeAssociationStatusCommand,
   serializeAws_json1_1DescribeNodeAssociationStatusCommand,

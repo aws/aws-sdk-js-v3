@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeleteReusableDelegationSetRequest, DeleteReusableDelegationSetResponse } from "../models/index";
+import { DeleteReusableDelegationSetRequest, DeleteReusableDelegationSetResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteReusableDelegationSetCommand,
   serializeAws_restXmlDeleteReusableDelegationSetCommand,

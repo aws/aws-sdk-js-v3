@@ -1,5 +1,5 @@
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { GetDetectorVersionRequest, GetDetectorVersionResult } from "../models/index";
+import { GetDetectorVersionRequest, GetDetectorVersionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDetectorVersionCommand,
   serializeAws_json1_1GetDetectorVersionCommand,

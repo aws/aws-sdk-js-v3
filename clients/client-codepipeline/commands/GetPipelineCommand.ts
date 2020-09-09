@@ -1,5 +1,5 @@
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { GetPipelineInput, GetPipelineOutput } from "../models/index";
+import { GetPipelineInput, GetPipelineOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetPipelineCommand,
   serializeAws_json1_1GetPipelineCommand,

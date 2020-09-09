@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import { ListJobsByPipelineRequest, ListJobsByPipelineResponse } from "../models/index";
+import { ListJobsByPipelineRequest, ListJobsByPipelineResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListJobsByPipelineCommand,
   serializeAws_restJson1ListJobsByPipelineCommand,

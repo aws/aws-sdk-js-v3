@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteConfigurationRecorderRequest } from "../models/index";
+import { DeleteConfigurationRecorderRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteConfigurationRecorderCommand,
   serializeAws_json1_1DeleteConfigurationRecorderCommand,

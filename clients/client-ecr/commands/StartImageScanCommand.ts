@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { StartImageScanRequest, StartImageScanResponse } from "../models/index";
+import { StartImageScanRequest, StartImageScanResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartImageScanCommand,
   serializeAws_json1_1StartImageScanCommand,

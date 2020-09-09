@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
-import { PutTelemetryRecordsRequest, PutTelemetryRecordsResult } from "../models/index";
+import { PutTelemetryRecordsRequest, PutTelemetryRecordsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1PutTelemetryRecordsCommand,
   serializeAws_restJson1PutTelemetryRecordsCommand,

@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { RemoveClientIDFromOpenIDConnectProviderRequest } from "../models/index";
+import { RemoveClientIDFromOpenIDConnectProviderRequest } from "../models/models_0";
 import {
   deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand,
   serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand,

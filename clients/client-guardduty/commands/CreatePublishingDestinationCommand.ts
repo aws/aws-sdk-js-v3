@@ -1,5 +1,5 @@
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { CreatePublishingDestinationRequest, CreatePublishingDestinationResponse } from "../models/index";
+import { CreatePublishingDestinationRequest, CreatePublishingDestinationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreatePublishingDestinationCommand,
   serializeAws_restJson1CreatePublishingDestinationCommand,

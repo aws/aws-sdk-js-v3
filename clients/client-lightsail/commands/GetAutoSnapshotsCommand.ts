@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetAutoSnapshotsRequest, GetAutoSnapshotsResult } from "../models/index";
+import { GetAutoSnapshotsRequest, GetAutoSnapshotsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAutoSnapshotsCommand,
   serializeAws_json1_1GetAutoSnapshotsCommand,

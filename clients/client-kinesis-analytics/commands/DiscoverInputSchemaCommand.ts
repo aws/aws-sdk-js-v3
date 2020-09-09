@@ -1,5 +1,5 @@
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
-import { DiscoverInputSchemaRequest, DiscoverInputSchemaResponse } from "../models/index";
+import { DiscoverInputSchemaRequest, DiscoverInputSchemaResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DiscoverInputSchemaCommand,
   serializeAws_json1_1DiscoverInputSchemaCommand,

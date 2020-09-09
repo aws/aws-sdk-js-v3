@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { StopContinuousExportRequest, StopContinuousExportResponse } from "../models/index";
+import { StopContinuousExportRequest, StopContinuousExportResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopContinuousExportCommand,
   serializeAws_json1_1StopContinuousExportCommand,

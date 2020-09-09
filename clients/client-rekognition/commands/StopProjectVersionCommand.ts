@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { StopProjectVersionRequest, StopProjectVersionResponse } from "../models/index";
+import { StopProjectVersionRequest, StopProjectVersionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopProjectVersionCommand,
   serializeAws_json1_1StopProjectVersionCommand,

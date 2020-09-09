@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { GetAutomationExecutionRequest, GetAutomationExecutionResult } from "../models/index";
+import { GetAutomationExecutionRequest, GetAutomationExecutionResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetAutomationExecutionCommand,
   serializeAws_json1_1GetAutomationExecutionCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { DescribeUsersRequest, DescribeUsersResponse } from "../models/index";
+import { DescribeUsersRequest, DescribeUsersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeUsersCommand,
   serializeAws_restJson1DescribeUsersCommand,

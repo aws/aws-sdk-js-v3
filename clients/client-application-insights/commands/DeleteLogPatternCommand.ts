@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { DeleteLogPatternRequest, DeleteLogPatternResponse } from "../models/index";
+import { DeleteLogPatternRequest, DeleteLogPatternResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLogPatternCommand,
   serializeAws_json1_1DeleteLogPatternCommand,

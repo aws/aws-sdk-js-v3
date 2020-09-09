@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DescribeStackSummaryRequest, DescribeStackSummaryResult } from "../models/index";
+import { DescribeStackSummaryRequest, DescribeStackSummaryResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeStackSummaryCommand,
   serializeAws_json1_1DescribeStackSummaryCommand,

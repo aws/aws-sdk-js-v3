@@ -2,7 +2,7 @@ import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   SetIdentityHeadersInNotificationsEnabledRequest,
   SetIdentityHeadersInNotificationsEnabledResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand,
   serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand,

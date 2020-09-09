@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { AttachToIndexRequest, AttachToIndexResponse } from "../models/index";
+import { AttachToIndexRequest, AttachToIndexResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AttachToIndexCommand,
   serializeAws_restJson1AttachToIndexCommand,

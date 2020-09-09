@@ -1,5 +1,5 @@
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { DeleteVirtualInterfaceRequest, DeleteVirtualInterfaceResponse } from "../models/index";
+import { DeleteVirtualInterfaceRequest, DeleteVirtualInterfaceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteVirtualInterfaceCommand,
   serializeAws_json1_1DeleteVirtualInterfaceCommand,

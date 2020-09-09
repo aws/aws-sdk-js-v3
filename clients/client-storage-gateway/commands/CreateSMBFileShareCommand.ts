@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { CreateSMBFileShareInput, CreateSMBFileShareOutput } from "../models/index";
+import { CreateSMBFileShareInput, CreateSMBFileShareOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSMBFileShareCommand,
   serializeAws_json1_1CreateSMBFileShareCommand,

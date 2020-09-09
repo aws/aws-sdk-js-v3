@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DeleteDashboardRequest, DeleteDashboardResponse } from "../models/index";
+import { DeleteDashboardRequest, DeleteDashboardResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDashboardCommand,
   serializeAws_restJson1DeleteDashboardCommand,

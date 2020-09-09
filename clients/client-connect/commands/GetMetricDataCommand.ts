@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { GetMetricDataRequest, GetMetricDataResponse } from "../models/index";
+import { GetMetricDataRequest, GetMetricDataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMetricDataCommand,
   serializeAws_restJson1GetMetricDataCommand,

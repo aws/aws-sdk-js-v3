@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ExportTransitGatewayRoutesRequest, ExportTransitGatewayRoutesResult } from "../models/index";
+import { ExportTransitGatewayRoutesRequest, ExportTransitGatewayRoutesResult } from "../models/models_3";
 import {
   deserializeAws_ec2ExportTransitGatewayRoutesCommand,
   serializeAws_ec2ExportTransitGatewayRoutesCommand,

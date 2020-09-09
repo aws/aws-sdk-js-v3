@@ -1,5 +1,5 @@
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { GreetingWithErrorsOutput } from "../models/index";
+import { GreetingWithErrorsOutput } from "../models/models_0";
 import {
   deserializeAws_queryGreetingWithErrorsCommand,
   serializeAws_queryGreetingWithErrorsCommand,

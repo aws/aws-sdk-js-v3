@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/index";
+import { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutAccountSendingAttributesCommand,
   serializeAws_restJson1PutAccountSendingAttributesCommand,

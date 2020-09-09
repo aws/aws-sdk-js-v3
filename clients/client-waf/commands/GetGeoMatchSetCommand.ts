@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { GetGeoMatchSetRequest, GetGeoMatchSetResponse } from "../models/index";
+import { GetGeoMatchSetRequest, GetGeoMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetGeoMatchSetCommand,
   serializeAws_json1_1GetGeoMatchSetCommand,

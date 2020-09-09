@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutConfigurationRecorderRequest } from "../models/index";
+import { PutConfigurationRecorderRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1PutConfigurationRecorderCommand,
   serializeAws_json1_1PutConfigurationRecorderCommand,

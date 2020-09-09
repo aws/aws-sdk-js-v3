@@ -1,5 +1,5 @@
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
-import { DeleteLedgerRequest } from "../models/index";
+import { DeleteLedgerRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteLedgerCommand,
   serializeAws_restJson1DeleteLedgerCommand,

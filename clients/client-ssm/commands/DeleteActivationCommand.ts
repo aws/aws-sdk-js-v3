@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DeleteActivationRequest, DeleteActivationResult } from "../models/index";
+import { DeleteActivationRequest, DeleteActivationResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteActivationCommand,
   serializeAws_json1_1DeleteActivationCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { DescribeSSLPoliciesInput, DescribeSSLPoliciesOutput } from "../models/index";
+import { DescribeSSLPoliciesInput, DescribeSSLPoliciesOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeSSLPoliciesCommand,
   serializeAws_queryDescribeSSLPoliciesCommand,

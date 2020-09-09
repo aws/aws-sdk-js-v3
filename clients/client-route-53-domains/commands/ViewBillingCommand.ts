@@ -1,5 +1,5 @@
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
-import { ViewBillingRequest, ViewBillingResponse } from "../models/index";
+import { ViewBillingRequest, ViewBillingResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ViewBillingCommand,
   serializeAws_json1_1ViewBillingCommand,

@@ -1,5 +1,5 @@
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { SimpleInputParamsInput } from "../models/index";
+import { SimpleInputParamsInput } from "../models/models_0";
 import {
   deserializeAws_ec2SimpleInputParamsCommand,
   serializeAws_ec2SimpleInputParamsCommand,

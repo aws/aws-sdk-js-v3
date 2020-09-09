@@ -1,5 +1,5 @@
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { StartSchemaCreationRequest, StartSchemaCreationResponse } from "../models/index";
+import { StartSchemaCreationRequest, StartSchemaCreationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartSchemaCreationCommand,
   serializeAws_restJson1StartSchemaCreationCommand,

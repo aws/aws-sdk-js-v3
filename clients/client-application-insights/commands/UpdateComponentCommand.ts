@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { UpdateComponentRequest, UpdateComponentResponse } from "../models/index";
+import { UpdateComponentRequest, UpdateComponentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateComponentCommand,
   serializeAws_json1_1UpdateComponentCommand,

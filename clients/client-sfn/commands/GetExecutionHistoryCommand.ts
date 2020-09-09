@@ -1,5 +1,5 @@
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
-import { GetExecutionHistoryInput, GetExecutionHistoryOutput } from "../models/index";
+import { GetExecutionHistoryInput, GetExecutionHistoryOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0GetExecutionHistoryCommand,
   serializeAws_json1_0GetExecutionHistoryCommand,

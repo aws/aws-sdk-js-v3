@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { StartImageBuilderRequest, StartImageBuilderResult } from "../models/index";
+import { StartImageBuilderRequest, StartImageBuilderResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StartImageBuilderCommand,
   serializeAws_json1_1StartImageBuilderCommand,

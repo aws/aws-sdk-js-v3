@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DescribeScriptInput, DescribeScriptOutput } from "../models/index";
+import { DescribeScriptInput, DescribeScriptOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeScriptCommand,
   serializeAws_json1_1DescribeScriptCommand,

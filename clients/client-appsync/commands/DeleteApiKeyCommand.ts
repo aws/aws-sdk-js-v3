@@ -1,5 +1,5 @@
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { DeleteApiKeyRequest, DeleteApiKeyResponse } from "../models/index";
+import { DeleteApiKeyRequest, DeleteApiKeyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteApiKeyCommand,
   serializeAws_restJson1DeleteApiKeyCommand,

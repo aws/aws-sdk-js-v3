@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
-import { ListServicesRequest, ListServicesResponse } from "../models/index";
+import { ListServicesRequest, ListServicesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListServicesCommand,
   serializeAws_json1_1ListServicesCommand,

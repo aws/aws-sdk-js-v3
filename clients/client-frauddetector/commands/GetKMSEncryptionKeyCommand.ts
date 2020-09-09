@@ -1,5 +1,5 @@
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { GetKMSEncryptionKeyResult } from "../models/index";
+import { GetKMSEncryptionKeyResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetKMSEncryptionKeyCommand,
   serializeAws_json1_1GetKMSEncryptionKeyCommand,

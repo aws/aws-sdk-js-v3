@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { RespondActivityTaskCanceledInput } from "../models/index";
+import { RespondActivityTaskCanceledInput } from "../models/models_0";
 import {
   deserializeAws_json1_0RespondActivityTaskCanceledCommand,
   serializeAws_json1_0RespondActivityTaskCanceledCommand,

@@ -2,7 +2,7 @@ import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeEffectivePatchesForPatchBaselineRequest,
   DescribeEffectivePatchesForPatchBaselineResult,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand,
   serializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand,

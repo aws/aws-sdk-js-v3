@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListSuitesRequest, ListSuitesResult } from "../models/index";
+import { ListSuitesRequest, ListSuitesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListSuitesCommand,
   serializeAws_json1_1ListSuitesCommand,

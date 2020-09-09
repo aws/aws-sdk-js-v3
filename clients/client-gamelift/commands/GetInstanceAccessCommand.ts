@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { GetInstanceAccessInput, GetInstanceAccessOutput } from "../models/index";
+import { GetInstanceAccessInput, GetInstanceAccessOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetInstanceAccessCommand,
   serializeAws_json1_1GetInstanceAccessCommand,

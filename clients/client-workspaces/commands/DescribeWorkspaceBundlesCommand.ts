@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { DescribeWorkspaceBundlesRequest, DescribeWorkspaceBundlesResult } from "../models/index";
+import { DescribeWorkspaceBundlesRequest, DescribeWorkspaceBundlesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeWorkspaceBundlesCommand,
   serializeAws_json1_1DescribeWorkspaceBundlesCommand,

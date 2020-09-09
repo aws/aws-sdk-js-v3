@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { DeactivateUserRequest } from "../models/index";
+import { DeactivateUserRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeactivateUserCommand,
   serializeAws_restJson1DeactivateUserCommand,

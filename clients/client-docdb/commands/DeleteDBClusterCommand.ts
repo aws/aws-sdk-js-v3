@@ -1,5 +1,5 @@
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/index";
+import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBClusterCommand,
   serializeAws_queryDeleteDBClusterCommand,

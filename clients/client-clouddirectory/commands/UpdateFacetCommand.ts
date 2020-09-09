@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { UpdateFacetRequest, UpdateFacetResponse } from "../models/index";
+import { UpdateFacetRequest, UpdateFacetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFacetCommand,
   serializeAws_restJson1UpdateFacetCommand,

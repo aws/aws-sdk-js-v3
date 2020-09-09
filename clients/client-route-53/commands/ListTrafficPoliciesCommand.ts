@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListTrafficPoliciesRequest, ListTrafficPoliciesResponse } from "../models/index";
+import { ListTrafficPoliciesRequest, ListTrafficPoliciesResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlListTrafficPoliciesCommand,
   serializeAws_restXmlListTrafficPoliciesCommand,

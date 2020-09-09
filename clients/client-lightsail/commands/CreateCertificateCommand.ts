@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateCertificateRequest, CreateCertificateResult } from "../models/index";
+import { CreateCertificateRequest, CreateCertificateResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCertificateCommand,
   serializeAws_json1_1CreateCertificateCommand,

@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { SendAutomationSignalRequest, SendAutomationSignalResult } from "../models/index";
+import { SendAutomationSignalRequest, SendAutomationSignalResult } from "../models/models_1";
 import {
   deserializeAws_json1_1SendAutomationSignalCommand,
   serializeAws_json1_1SendAutomationSignalCommand,

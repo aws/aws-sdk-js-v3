@@ -1,5 +1,5 @@
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { GetApiCacheRequest, GetApiCacheResponse } from "../models/index";
+import { GetApiCacheRequest, GetApiCacheResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetApiCacheCommand,
   serializeAws_restJson1GetApiCacheCommand,

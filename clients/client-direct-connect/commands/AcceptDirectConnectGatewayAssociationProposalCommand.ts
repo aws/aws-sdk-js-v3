@@ -2,7 +2,7 @@ import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   AcceptDirectConnectGatewayAssociationProposalRequest,
   AcceptDirectConnectGatewayAssociationProposalResult,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand,
   serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand,

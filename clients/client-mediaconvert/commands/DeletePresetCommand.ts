@@ -1,5 +1,5 @@
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeletePresetRequest, DeletePresetResponse } from "../models/index";
+import { DeletePresetRequest, DeletePresetResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeletePresetCommand,
   serializeAws_restJson1DeletePresetCommand,

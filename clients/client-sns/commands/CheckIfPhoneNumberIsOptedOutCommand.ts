@@ -1,5 +1,5 @@
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
-import { CheckIfPhoneNumberIsOptedOutInput, CheckIfPhoneNumberIsOptedOutResponse } from "../models/index";
+import { CheckIfPhoneNumberIsOptedOutInput, CheckIfPhoneNumberIsOptedOutResponse } from "../models/models_0";
 import {
   deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand,
   serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand,

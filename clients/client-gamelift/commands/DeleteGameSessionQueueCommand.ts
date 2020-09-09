@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteGameSessionQueueInput, DeleteGameSessionQueueOutput } from "../models/index";
+import { DeleteGameSessionQueueInput, DeleteGameSessionQueueOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGameSessionQueueCommand,
   serializeAws_json1_1DeleteGameSessionQueueCommand,

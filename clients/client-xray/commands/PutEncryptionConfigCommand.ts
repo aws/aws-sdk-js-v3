@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
-import { PutEncryptionConfigRequest, PutEncryptionConfigResult } from "../models/index";
+import { PutEncryptionConfigRequest, PutEncryptionConfigResult } from "../models/models_0";
 import {
   deserializeAws_restJson1PutEncryptionConfigCommand,
   serializeAws_restJson1PutEncryptionConfigCommand,

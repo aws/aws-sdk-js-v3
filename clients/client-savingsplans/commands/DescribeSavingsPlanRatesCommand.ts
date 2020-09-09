@@ -1,5 +1,5 @@
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
-import { DescribeSavingsPlanRatesRequest, DescribeSavingsPlanRatesResponse } from "../models/index";
+import { DescribeSavingsPlanRatesRequest, DescribeSavingsPlanRatesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeSavingsPlanRatesCommand,
   serializeAws_restJson1DescribeSavingsPlanRatesCommand,

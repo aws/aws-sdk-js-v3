@@ -1,5 +1,5 @@
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { RemoveFlowSourceRequest, RemoveFlowSourceResponse } from "../models/index";
+import { RemoveFlowSourceRequest, RemoveFlowSourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveFlowSourceCommand,
   serializeAws_restJson1RemoveFlowSourceCommand,

@@ -1,5 +1,5 @@
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { ListEventSourcesRequest, ListEventSourcesResponse } from "../models/index";
+import { ListEventSourcesRequest, ListEventSourcesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListEventSourcesCommand,
   serializeAws_json1_1ListEventSourcesCommand,

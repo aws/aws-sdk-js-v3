@@ -1,5 +1,5 @@
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
-import { GetObjectRequest, GetObjectResponse } from "../models/index";
+import { GetObjectRequest, GetObjectResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetObjectCommand,
   serializeAws_restJson1GetObjectCommand,

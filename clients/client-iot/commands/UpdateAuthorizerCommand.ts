@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateAuthorizerRequest, UpdateAuthorizerResponse } from "../models/index";
+import { UpdateAuthorizerRequest, UpdateAuthorizerResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateAuthorizerCommand,
   serializeAws_restJson1UpdateAuthorizerCommand,

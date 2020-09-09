@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
-import { ListMedicalVocabulariesRequest, ListMedicalVocabulariesResponse } from "../models/index";
+import { ListMedicalVocabulariesRequest, ListMedicalVocabulariesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListMedicalVocabulariesCommand,
   serializeAws_json1_1ListMedicalVocabulariesCommand,

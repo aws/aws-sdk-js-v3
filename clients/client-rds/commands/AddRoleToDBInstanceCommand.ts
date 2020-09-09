@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { AddRoleToDBInstanceMessage } from "../models/index";
+import { AddRoleToDBInstanceMessage } from "../models/models_0";
 import {
   deserializeAws_queryAddRoleToDBInstanceCommand,
   serializeAws_queryAddRoleToDBInstanceCommand,

@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { StopAssessmentRunRequest } from "../models/index";
+import { StopAssessmentRunRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1StopAssessmentRunCommand,
   serializeAws_json1_1StopAssessmentRunCommand,

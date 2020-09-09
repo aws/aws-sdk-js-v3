@@ -1,5 +1,5 @@
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { RegisterWebhookWithThirdPartyInput, RegisterWebhookWithThirdPartyOutput } from "../models/index";
+import { RegisterWebhookWithThirdPartyInput, RegisterWebhookWithThirdPartyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand,
   serializeAws_json1_1RegisterWebhookWithThirdPartyCommand,

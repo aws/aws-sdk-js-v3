@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteUtterancesRequest } from "../models/index";
+import { DeleteUtterancesRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteUtterancesCommand,
   serializeAws_restJson1DeleteUtterancesCommand,

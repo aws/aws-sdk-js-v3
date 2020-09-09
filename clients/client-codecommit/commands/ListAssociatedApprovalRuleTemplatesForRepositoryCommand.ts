@@ -2,7 +2,7 @@ import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   ListAssociatedApprovalRuleTemplatesForRepositoryInput,
   ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand,
   serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommand,

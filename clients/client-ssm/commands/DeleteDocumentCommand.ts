@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DeleteDocumentRequest, DeleteDocumentResult } from "../models/index";
+import { DeleteDocumentRequest, DeleteDocumentResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDocumentCommand,
   serializeAws_json1_1DeleteDocumentCommand,

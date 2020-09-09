@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DBClusterEndpointMessage, DescribeDBClusterEndpointsMessage } from "../models/index";
+import { DBClusterEndpointMessage, DescribeDBClusterEndpointsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBClusterEndpointsCommand,
   serializeAws_queryDescribeDBClusterEndpointsCommand,

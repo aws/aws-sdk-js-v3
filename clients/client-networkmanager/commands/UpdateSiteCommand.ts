@@ -1,5 +1,5 @@
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { UpdateSiteRequest, UpdateSiteResponse } from "../models/index";
+import { UpdateSiteRequest, UpdateSiteResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSiteCommand,
   serializeAws_restJson1UpdateSiteCommand,

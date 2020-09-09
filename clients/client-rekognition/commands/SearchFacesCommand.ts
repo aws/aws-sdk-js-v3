@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { SearchFacesRequest, SearchFacesResponse } from "../models/index";
+import { SearchFacesRequest, SearchFacesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1SearchFacesCommand,
   serializeAws_json1_1SearchFacesCommand,

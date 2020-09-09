@@ -1,5 +1,5 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { ListGatewayRoutesInput, ListGatewayRoutesOutput } from "../models/index";
+import { ListGatewayRoutesInput, ListGatewayRoutesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListGatewayRoutesCommand,
   serializeAws_restJson1ListGatewayRoutesCommand,

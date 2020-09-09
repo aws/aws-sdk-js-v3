@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DeleteTrustRequest, DeleteTrustResult } from "../models/index";
+import { DeleteTrustRequest, DeleteTrustResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTrustCommand,
   serializeAws_json1_1DeleteTrustCommand,

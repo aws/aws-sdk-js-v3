@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DetectKeyPhrasesRequest, DetectKeyPhrasesResponse } from "../models/index";
+import { DetectKeyPhrasesRequest, DetectKeyPhrasesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DetectKeyPhrasesCommand,
   serializeAws_json1_1DetectKeyPhrasesCommand,

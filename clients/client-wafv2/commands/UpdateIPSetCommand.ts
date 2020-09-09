@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
-import { UpdateIPSetRequest, UpdateIPSetResponse } from "../models/index";
+import { UpdateIPSetRequest, UpdateIPSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateIPSetCommand,
   serializeAws_json1_1UpdateIPSetCommand,

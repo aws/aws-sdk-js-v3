@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
-import { CreateSamplingRuleRequest, CreateSamplingRuleResult } from "../models/index";
+import { CreateSamplingRuleRequest, CreateSamplingRuleResult } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSamplingRuleCommand,
   serializeAws_restJson1CreateSamplingRuleCommand,

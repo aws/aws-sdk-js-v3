@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { GetAuthorizationTokenRequest, GetAuthorizationTokenResponse } from "../models/index";
+import { GetAuthorizationTokenRequest, GetAuthorizationTokenResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAuthorizationTokenCommand,
   serializeAws_json1_1GetAuthorizationTokenCommand,

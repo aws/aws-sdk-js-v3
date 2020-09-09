@@ -1,5 +1,5 @@
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/index";
+import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutResourcePolicyCommand,
   serializeAws_restJson1PutResourcePolicyCommand,

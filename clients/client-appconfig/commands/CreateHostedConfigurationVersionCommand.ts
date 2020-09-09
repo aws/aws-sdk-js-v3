@@ -1,5 +1,5 @@
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { CreateHostedConfigurationVersionRequest, HostedConfigurationVersion } from "../models/index";
+import { CreateHostedConfigurationVersionRequest, HostedConfigurationVersion } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateHostedConfigurationVersionCommand,
   serializeAws_restJson1CreateHostedConfigurationVersionCommand,

@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { CreateMeetingRequest, CreateMeetingResponse } from "../models/index";
+import { CreateMeetingRequest, CreateMeetingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMeetingCommand,
   serializeAws_restJson1CreateMeetingCommand,

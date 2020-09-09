@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { DeleteEndpointGroupRequest } from "../models/index";
+import { DeleteEndpointGroupRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEndpointGroupCommand,
   serializeAws_json1_1DeleteEndpointGroupCommand,

@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { ListDistributionsByCachePolicyIdRequest, ListDistributionsByCachePolicyIdResult } from "../models/index";
+import { ListDistributionsByCachePolicyIdRequest, ListDistributionsByCachePolicyIdResult } from "../models/models_0";
 import {
   deserializeAws_restXmlListDistributionsByCachePolicyIdCommand,
   serializeAws_restXmlListDistributionsByCachePolicyIdCommand,

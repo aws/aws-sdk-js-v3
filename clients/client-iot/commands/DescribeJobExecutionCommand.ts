@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/index";
+import { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeJobExecutionCommand,
   serializeAws_restJson1DescribeJobExecutionCommand,

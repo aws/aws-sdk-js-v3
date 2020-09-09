@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DescribeEffectivePolicyRequest, DescribeEffectivePolicyResponse } from "../models/index";
+import { DescribeEffectivePolicyRequest, DescribeEffectivePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEffectivePolicyCommand,
   serializeAws_json1_1DescribeEffectivePolicyCommand,

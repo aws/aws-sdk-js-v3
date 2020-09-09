@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { CreateMicrosoftADRequest, CreateMicrosoftADResult } from "../models/index";
+import { CreateMicrosoftADRequest, CreateMicrosoftADResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateMicrosoftADCommand,
   serializeAws_json1_1CreateMicrosoftADCommand,

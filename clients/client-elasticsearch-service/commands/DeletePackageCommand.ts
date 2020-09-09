@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { DeletePackageRequest, DeletePackageResponse } from "../models/index";
+import { DeletePackageRequest, DeletePackageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePackageCommand,
   serializeAws_restJson1DeletePackageCommand,

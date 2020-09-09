@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DeletePolicyRequest } from "../models/index";
+import { DeletePolicyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePolicyCommand,
   serializeAws_json1_1DeletePolicyCommand,

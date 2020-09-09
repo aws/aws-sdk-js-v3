@@ -1,5 +1,5 @@
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { ResendValidationEmailRequest } from "../models/index";
+import { ResendValidationEmailRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1ResendValidationEmailCommand,
   serializeAws_json1_1ResendValidationEmailCommand,

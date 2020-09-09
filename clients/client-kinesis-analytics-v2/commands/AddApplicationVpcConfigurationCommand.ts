@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { AddApplicationVpcConfigurationRequest, AddApplicationVpcConfigurationResponse } from "../models/index";
+import { AddApplicationVpcConfigurationRequest, AddApplicationVpcConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AddApplicationVpcConfigurationCommand,
   serializeAws_json1_1AddApplicationVpcConfigurationCommand,

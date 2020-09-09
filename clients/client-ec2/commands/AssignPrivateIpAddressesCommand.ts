@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssignPrivateIpAddressesRequest, AssignPrivateIpAddressesResult } from "../models/index";
+import { AssignPrivateIpAddressesRequest, AssignPrivateIpAddressesResult } from "../models/models_0";
 import {
   deserializeAws_ec2AssignPrivateIpAddressesCommand,
   serializeAws_ec2AssignPrivateIpAddressesCommand,

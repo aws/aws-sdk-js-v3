@@ -1,5 +1,5 @@
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { PutPipelineDefinitionInput, PutPipelineDefinitionOutput } from "../models/index";
+import { PutPipelineDefinitionInput, PutPipelineDefinitionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutPipelineDefinitionCommand,
   serializeAws_json1_1PutPipelineDefinitionCommand,

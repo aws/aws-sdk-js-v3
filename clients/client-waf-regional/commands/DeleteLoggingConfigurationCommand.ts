@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { DeleteLoggingConfigurationRequest, DeleteLoggingConfigurationResponse } from "../models/index";
+import { DeleteLoggingConfigurationRequest, DeleteLoggingConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLoggingConfigurationCommand,
   serializeAws_json1_1DeleteLoggingConfigurationCommand,

@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { ListPolicyAttachmentsRequest, ListPolicyAttachmentsResponse } from "../models/index";
+import { ListPolicyAttachmentsRequest, ListPolicyAttachmentsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPolicyAttachmentsCommand,
   serializeAws_restJson1ListPolicyAttachmentsCommand,

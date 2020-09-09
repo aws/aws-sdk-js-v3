@@ -1,5 +1,5 @@
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { CreateMLModelInput, CreateMLModelOutput } from "../models/index";
+import { CreateMLModelInput, CreateMLModelOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateMLModelCommand,
   serializeAws_json1_1CreateMLModelCommand,

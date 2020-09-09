@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ResendConfirmationCodeRequest, ResendConfirmationCodeResponse } from "../models/index";
+import { ResendConfirmationCodeRequest, ResendConfirmationCodeResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ResendConfirmationCodeCommand,
   serializeAws_json1_1ResendConfirmationCodeCommand,

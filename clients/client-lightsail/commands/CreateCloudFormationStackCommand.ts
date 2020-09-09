@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateCloudFormationStackRequest, CreateCloudFormationStackResult } from "../models/index";
+import { CreateCloudFormationStackRequest, CreateCloudFormationStackResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCloudFormationStackCommand,
   serializeAws_json1_1CreateCloudFormationStackCommand,

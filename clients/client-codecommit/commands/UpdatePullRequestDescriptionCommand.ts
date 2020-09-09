@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UpdatePullRequestDescriptionInput, UpdatePullRequestDescriptionOutput } from "../models/index";
+import { UpdatePullRequestDescriptionInput, UpdatePullRequestDescriptionOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdatePullRequestDescriptionCommand,
   serializeAws_json1_1UpdatePullRequestDescriptionCommand,

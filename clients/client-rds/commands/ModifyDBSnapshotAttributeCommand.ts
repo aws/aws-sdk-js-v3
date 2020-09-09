@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ModifyDBSnapshotAttributeMessage, ModifyDBSnapshotAttributeResult } from "../models/index";
+import { ModifyDBSnapshotAttributeMessage, ModifyDBSnapshotAttributeResult } from "../models/models_1";
 import {
   deserializeAws_queryModifyDBSnapshotAttributeCommand,
   serializeAws_queryModifyDBSnapshotAttributeCommand,

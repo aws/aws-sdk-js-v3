@@ -1,5 +1,5 @@
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
-import { DiscoverInstancesRequest, DiscoverInstancesResponse } from "../models/index";
+import { DiscoverInstancesRequest, DiscoverInstancesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DiscoverInstancesCommand,
   serializeAws_json1_1DiscoverInstancesCommand,

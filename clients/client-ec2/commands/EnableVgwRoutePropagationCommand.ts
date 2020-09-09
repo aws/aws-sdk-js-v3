@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { EnableVgwRoutePropagationRequest } from "../models/index";
+import { EnableVgwRoutePropagationRequest } from "../models/models_3";
 import {
   deserializeAws_ec2EnableVgwRoutePropagationCommand,
   serializeAws_ec2EnableVgwRoutePropagationCommand,

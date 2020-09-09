@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { GetSigningCertificateRequest, GetSigningCertificateResponse } from "../models/index";
+import { GetSigningCertificateRequest, GetSigningCertificateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSigningCertificateCommand,
   serializeAws_json1_1GetSigningCertificateCommand,

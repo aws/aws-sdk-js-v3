@@ -1,5 +1,5 @@
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteVpcLinkRequest, DeleteVpcLinkResponse } from "../models/index";
+import { DeleteVpcLinkRequest, DeleteVpcLinkResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVpcLinkCommand,
   serializeAws_restJson1DeleteVpcLinkCommand,

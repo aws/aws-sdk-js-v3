@@ -1,5 +1,5 @@
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { DBClusterParameterGroupDetails, DescribeDBClusterParametersMessage } from "../models/index";
+import { DBClusterParameterGroupDetails, DescribeDBClusterParametersMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBClusterParametersCommand,
   serializeAws_queryDescribeDBClusterParametersCommand,

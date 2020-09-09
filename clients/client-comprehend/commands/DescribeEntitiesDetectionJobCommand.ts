@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DescribeEntitiesDetectionJobRequest, DescribeEntitiesDetectionJobResponse } from "../models/index";
+import { DescribeEntitiesDetectionJobRequest, DescribeEntitiesDetectionJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEntitiesDetectionJobCommand,
   serializeAws_json1_1DescribeEntitiesDetectionJobCommand,

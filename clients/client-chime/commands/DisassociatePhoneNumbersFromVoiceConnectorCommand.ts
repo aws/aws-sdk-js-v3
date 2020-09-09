@@ -2,7 +2,7 @@ import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   DisassociatePhoneNumbersFromVoiceConnectorRequest,
   DisassociatePhoneNumbersFromVoiceConnectorResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand,
   serializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand,

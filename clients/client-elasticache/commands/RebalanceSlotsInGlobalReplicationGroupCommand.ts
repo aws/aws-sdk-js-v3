@@ -2,7 +2,7 @@ import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   RebalanceSlotsInGlobalReplicationGroupMessage,
   RebalanceSlotsInGlobalReplicationGroupResult,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand,
   serializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand,

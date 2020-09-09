@@ -1,5 +1,5 @@
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { XmlBlobsOutput } from "../models/index";
+import { XmlBlobsOutput } from "../models/models_0";
 import { deserializeAws_ec2XmlBlobsCommand, serializeAws_ec2XmlBlobsCommand } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

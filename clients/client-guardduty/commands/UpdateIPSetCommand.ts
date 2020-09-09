@@ -1,5 +1,5 @@
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { UpdateIPSetRequest, UpdateIPSetResponse } from "../models/index";
+import { UpdateIPSetRequest, UpdateIPSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateIPSetCommand,
   serializeAws_restJson1UpdateIPSetCommand,

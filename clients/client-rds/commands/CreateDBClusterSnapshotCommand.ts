@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { CreateDBClusterSnapshotMessage, CreateDBClusterSnapshotResult } from "../models/index";
+import { CreateDBClusterSnapshotMessage, CreateDBClusterSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateDBClusterSnapshotCommand,
   serializeAws_queryCreateDBClusterSnapshotCommand,

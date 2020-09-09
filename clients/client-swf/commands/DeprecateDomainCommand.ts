@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { DeprecateDomainInput } from "../models/index";
+import { DeprecateDomainInput } from "../models/models_0";
 import {
   deserializeAws_json1_0DeprecateDomainCommand,
   serializeAws_json1_0DeprecateDomainCommand,

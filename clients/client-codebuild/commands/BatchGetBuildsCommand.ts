@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { BatchGetBuildsInput, BatchGetBuildsOutput } from "../models/index";
+import { BatchGetBuildsInput, BatchGetBuildsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetBuildsCommand,
   serializeAws_json1_1BatchGetBuildsCommand,

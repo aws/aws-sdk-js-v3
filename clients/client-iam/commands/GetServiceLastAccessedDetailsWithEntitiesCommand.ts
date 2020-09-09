@@ -2,7 +2,7 @@ import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetServiceLastAccessedDetailsWithEntitiesRequest,
   GetServiceLastAccessedDetailsWithEntitiesResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand,
   serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand,

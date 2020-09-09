@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { GetShardIteratorInput, GetShardIteratorOutput } from "../models/index";
+import { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetShardIteratorCommand,
   serializeAws_json1_1GetShardIteratorCommand,

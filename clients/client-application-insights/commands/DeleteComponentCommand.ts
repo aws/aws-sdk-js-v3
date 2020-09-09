@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { DeleteComponentRequest, DeleteComponentResponse } from "../models/index";
+import { DeleteComponentRequest, DeleteComponentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteComponentCommand,
   serializeAws_json1_1DeleteComponentCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
-import { GetTraceSummariesRequest, GetTraceSummariesResult } from "../models/index";
+import { GetTraceSummariesRequest, GetTraceSummariesResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTraceSummariesCommand,
   serializeAws_restJson1GetTraceSummariesCommand,

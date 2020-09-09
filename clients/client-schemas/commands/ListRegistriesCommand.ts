@@ -1,5 +1,5 @@
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { ListRegistriesRequest, ListRegistriesResponse } from "../models/index";
+import { ListRegistriesRequest, ListRegistriesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListRegistriesCommand,
   serializeAws_restJson1ListRegistriesCommand,

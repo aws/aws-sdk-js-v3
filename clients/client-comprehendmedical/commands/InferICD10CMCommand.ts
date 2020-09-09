@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { InferICD10CMRequest, InferICD10CMResponse } from "../models/index";
+import { InferICD10CMRequest, InferICD10CMResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1InferICD10CMCommand,
   serializeAws_json1_1InferICD10CMCommand,

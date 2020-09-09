@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { AttachDiskRequest, AttachDiskResult } from "../models/index";
+import { AttachDiskRequest, AttachDiskResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AttachDiskCommand,
   serializeAws_json1_1AttachDiskCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { CreateAliasRequest, CreateAliasResponse } from "../models/index";
+import { CreateAliasRequest, CreateAliasResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAliasCommand,
   serializeAws_json1_1CreateAliasCommand,

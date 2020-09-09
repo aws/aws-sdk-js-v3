@@ -1,5 +1,5 @@
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { DeleteTagsRequest } from "../models/index";
+import { DeleteTagsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTagsCommand,
   serializeAws_restJson1DeleteTagsCommand,

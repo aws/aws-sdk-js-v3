@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
-import { GetPermissionPolicyRequest, GetPermissionPolicyResponse } from "../models/index";
+import { GetPermissionPolicyRequest, GetPermissionPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetPermissionPolicyCommand,
   serializeAws_json1_1GetPermissionPolicyCommand,

@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteProvisioningTemplateRequest, DeleteProvisioningTemplateResponse } from "../models/index";
+import { DeleteProvisioningTemplateRequest, DeleteProvisioningTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteProvisioningTemplateCommand,
   serializeAws_restJson1DeleteProvisioningTemplateCommand,

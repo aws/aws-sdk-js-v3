@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { RedactRoomMessageRequest, RedactRoomMessageResponse } from "../models/index";
+import { RedactRoomMessageRequest, RedactRoomMessageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RedactRoomMessageCommand,
   serializeAws_restJson1RedactRoomMessageCommand,

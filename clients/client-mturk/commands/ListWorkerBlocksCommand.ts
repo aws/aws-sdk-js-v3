@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { ListWorkerBlocksRequest, ListWorkerBlocksResponse } from "../models/index";
+import { ListWorkerBlocksRequest, ListWorkerBlocksResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListWorkerBlocksCommand,
   serializeAws_json1_1ListWorkerBlocksCommand,

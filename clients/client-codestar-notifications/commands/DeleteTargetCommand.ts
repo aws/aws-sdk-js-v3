@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import { DeleteTargetRequest, DeleteTargetResult } from "../models/index";
+import { DeleteTargetRequest, DeleteTargetResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTargetCommand,
   serializeAws_restJson1DeleteTargetCommand,

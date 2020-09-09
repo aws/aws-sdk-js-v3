@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DescribeAliasInput, DescribeAliasOutput } from "../models/index";
+import { DescribeAliasInput, DescribeAliasOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAliasCommand,
   serializeAws_json1_1DescribeAliasCommand,

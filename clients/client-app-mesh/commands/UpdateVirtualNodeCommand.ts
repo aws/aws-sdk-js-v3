@@ -1,5 +1,5 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { UpdateVirtualNodeInput, UpdateVirtualNodeOutput } from "../models/index";
+import { UpdateVirtualNodeInput, UpdateVirtualNodeOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateVirtualNodeCommand,
   serializeAws_restJson1UpdateVirtualNodeCommand,

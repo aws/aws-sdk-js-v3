@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { StartPHIDetectionJobRequest, StartPHIDetectionJobResponse } from "../models/index";
+import { StartPHIDetectionJobRequest, StartPHIDetectionJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartPHIDetectionJobCommand,
   serializeAws_json1_1StartPHIDetectionJobCommand,

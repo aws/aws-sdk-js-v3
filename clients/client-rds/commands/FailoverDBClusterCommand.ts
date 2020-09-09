@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/index";
+import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/models_1";
 import {
   deserializeAws_queryFailoverDBClusterCommand,
   serializeAws_queryFailoverDBClusterCommand,

@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { CreateInstanceProfileRequest, CreateInstanceProfileResponse } from "../models/index";
+import { CreateInstanceProfileRequest, CreateInstanceProfileResponse } from "../models/models_0";
 import {
   deserializeAws_queryCreateInstanceProfileCommand,
   serializeAws_queryCreateInstanceProfileCommand,

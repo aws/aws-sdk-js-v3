@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { GetDeliverabilityTestReportRequest, GetDeliverabilityTestReportResponse } from "../models/index";
+import { GetDeliverabilityTestReportRequest, GetDeliverabilityTestReportResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDeliverabilityTestReportCommand,
   serializeAws_restJson1GetDeliverabilityTestReportCommand,

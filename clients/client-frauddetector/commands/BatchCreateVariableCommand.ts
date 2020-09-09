@@ -1,5 +1,5 @@
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { BatchCreateVariableRequest, BatchCreateVariableResult } from "../models/index";
+import { BatchCreateVariableRequest, BatchCreateVariableResult } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchCreateVariableCommand,
   serializeAws_json1_1BatchCreateVariableCommand,

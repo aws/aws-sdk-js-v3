@@ -1,5 +1,5 @@
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { ActivatePipelineInput, ActivatePipelineOutput } from "../models/index";
+import { ActivatePipelineInput, ActivatePipelineOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ActivatePipelineCommand,
   serializeAws_json1_1ActivatePipelineCommand,

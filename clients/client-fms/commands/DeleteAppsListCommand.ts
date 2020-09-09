@@ -1,5 +1,5 @@
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { DeleteAppsListRequest } from "../models/index";
+import { DeleteAppsListRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAppsListCommand,
   serializeAws_json1_1DeleteAppsListCommand,

@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DeleteFacesRequest, DeleteFacesResponse } from "../models/index";
+import { DeleteFacesRequest, DeleteFacesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFacesCommand,
   serializeAws_json1_1DeleteFacesCommand,

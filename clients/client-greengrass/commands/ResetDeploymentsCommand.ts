@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { ResetDeploymentsRequest, ResetDeploymentsResponse } from "../models/index";
+import { ResetDeploymentsRequest, ResetDeploymentsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ResetDeploymentsCommand,
   serializeAws_restJson1ResetDeploymentsCommand,

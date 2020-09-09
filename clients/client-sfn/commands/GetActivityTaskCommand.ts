@@ -1,5 +1,5 @@
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
-import { GetActivityTaskInput, GetActivityTaskOutput } from "../models/index";
+import { GetActivityTaskInput, GetActivityTaskOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0GetActivityTaskCommand,
   serializeAws_json1_0GetActivityTaskCommand,

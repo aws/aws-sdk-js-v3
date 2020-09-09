@@ -1,5 +1,5 @@
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse } from "../models/index";
+import { CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDeliverabilityTestReportCommand,
   serializeAws_restJson1CreateDeliverabilityTestReportCommand,

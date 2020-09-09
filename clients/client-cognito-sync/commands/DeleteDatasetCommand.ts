@@ -1,5 +1,5 @@
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { DeleteDatasetRequest, DeleteDatasetResponse } from "../models/index";
+import { DeleteDatasetRequest, DeleteDatasetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDatasetCommand,
   serializeAws_restJson1DeleteDatasetCommand,

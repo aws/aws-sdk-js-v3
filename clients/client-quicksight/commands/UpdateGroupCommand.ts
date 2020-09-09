@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateGroupRequest, UpdateGroupResponse } from "../models/index";
+import { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateGroupCommand,
   serializeAws_restJson1UpdateGroupCommand,

@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteDistributionRequest, DeleteDistributionResult } from "../models/index";
+import { DeleteDistributionRequest, DeleteDistributionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDistributionCommand,
   serializeAws_json1_1DeleteDistributionCommand,

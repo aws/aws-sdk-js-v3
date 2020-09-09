@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeWorkforceRequest, DescribeWorkforceResponse } from "../models/index";
+import { DescribeWorkforceRequest, DescribeWorkforceResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DescribeWorkforceCommand,
   serializeAws_json1_1DescribeWorkforceCommand,

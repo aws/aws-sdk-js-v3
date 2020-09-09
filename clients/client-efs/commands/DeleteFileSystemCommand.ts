@@ -1,5 +1,5 @@
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DeleteFileSystemRequest } from "../models/index";
+import { DeleteFileSystemRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFileSystemCommand,
   serializeAws_restJson1DeleteFileSystemCommand,

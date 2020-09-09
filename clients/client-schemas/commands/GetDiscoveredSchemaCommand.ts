@@ -1,5 +1,5 @@
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { GetDiscoveredSchemaRequest, GetDiscoveredSchemaResponse } from "../models/index";
+import { GetDiscoveredSchemaRequest, GetDiscoveredSchemaResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDiscoveredSchemaCommand,
   serializeAws_restJson1GetDiscoveredSchemaCommand,

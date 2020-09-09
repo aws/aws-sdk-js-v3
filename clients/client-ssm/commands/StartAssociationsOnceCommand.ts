@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { StartAssociationsOnceRequest, StartAssociationsOnceResult } from "../models/index";
+import { StartAssociationsOnceRequest, StartAssociationsOnceResult } from "../models/models_1";
 import {
   deserializeAws_json1_1StartAssociationsOnceCommand,
   serializeAws_json1_1StartAssociationsOnceCommand,

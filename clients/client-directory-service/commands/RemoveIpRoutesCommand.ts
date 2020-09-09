@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { RemoveIpRoutesRequest, RemoveIpRoutesResult } from "../models/index";
+import { RemoveIpRoutesRequest, RemoveIpRoutesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveIpRoutesCommand,
   serializeAws_json1_1RemoveIpRoutesCommand,

@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DeleteEndpointRequest, DeleteEndpointResponse } from "../models/index";
+import { DeleteEndpointRequest, DeleteEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEndpointCommand,
   serializeAws_json1_1DeleteEndpointCommand,

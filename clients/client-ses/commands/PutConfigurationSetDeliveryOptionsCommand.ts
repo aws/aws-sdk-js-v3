@@ -1,5 +1,8 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { PutConfigurationSetDeliveryOptionsRequest, PutConfigurationSetDeliveryOptionsResponse } from "../models/index";
+import {
+  PutConfigurationSetDeliveryOptionsRequest,
+  PutConfigurationSetDeliveryOptionsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_queryPutConfigurationSetDeliveryOptionsCommand,
   serializeAws_queryPutConfigurationSetDeliveryOptionsCommand,

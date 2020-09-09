@@ -1,5 +1,5 @@
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { CreateRepositoryRequest, CreateRepositoryResult } from "../models/index";
+import { CreateRepositoryRequest, CreateRepositoryResult } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRepositoryCommand,
   serializeAws_restJson1CreateRepositoryCommand,

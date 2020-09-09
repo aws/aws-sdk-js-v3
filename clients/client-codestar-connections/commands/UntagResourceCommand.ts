@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import { UntagResourceInput, UntagResourceOutput } from "../models/index";
+import { UntagResourceInput, UntagResourceOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0UntagResourceCommand,
   serializeAws_json1_0UntagResourceCommand,

@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { ListContainerInstancesRequest, ListContainerInstancesResponse } from "../models/index";
+import { ListContainerInstancesRequest, ListContainerInstancesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListContainerInstancesCommand,
   serializeAws_json1_1ListContainerInstancesCommand,

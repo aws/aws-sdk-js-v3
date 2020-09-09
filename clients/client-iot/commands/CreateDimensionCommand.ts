@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateDimensionRequest, CreateDimensionResponse } from "../models/index";
+import { CreateDimensionRequest, CreateDimensionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDimensionCommand,
   serializeAws_restJson1CreateDimensionCommand,

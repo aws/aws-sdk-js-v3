@@ -1,5 +1,5 @@
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { CreateDistributionConfigurationRequest, CreateDistributionConfigurationResponse } from "../models/index";
+import { CreateDistributionConfigurationRequest, CreateDistributionConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDistributionConfigurationCommand,
   serializeAws_restJson1CreateDistributionConfigurationCommand,

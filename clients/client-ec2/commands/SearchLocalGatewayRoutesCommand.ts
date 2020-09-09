@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { SearchLocalGatewayRoutesRequest, SearchLocalGatewayRoutesResult } from "../models/index";
+import { SearchLocalGatewayRoutesRequest, SearchLocalGatewayRoutesResult } from "../models/models_4";
 import {
   deserializeAws_ec2SearchLocalGatewayRoutesCommand,
   serializeAws_ec2SearchLocalGatewayRoutesCommand,

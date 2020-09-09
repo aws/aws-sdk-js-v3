@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { JsonEnumsInputOutput } from "../models/index";
+import { JsonEnumsInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1JsonEnumsCommand,
   serializeAws_restJson1JsonEnumsCommand,

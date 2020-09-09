@@ -1,5 +1,5 @@
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { ContinueDeploymentInput } from "../models/index";
+import { ContinueDeploymentInput } from "../models/models_0";
 import {
   deserializeAws_json1_1ContinueDeploymentCommand,
   serializeAws_json1_1ContinueDeploymentCommand,

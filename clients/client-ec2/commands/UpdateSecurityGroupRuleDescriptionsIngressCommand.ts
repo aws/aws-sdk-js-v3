@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
   UpdateSecurityGroupRuleDescriptionsIngressResult,
-} from "../models/index";
+} from "../models/models_4";
 import {
   deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand,
   serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand,

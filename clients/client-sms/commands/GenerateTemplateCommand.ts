@@ -1,5 +1,5 @@
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
-import { GenerateTemplateRequest, GenerateTemplateResponse } from "../models/index";
+import { GenerateTemplateRequest, GenerateTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GenerateTemplateCommand,
   serializeAws_json1_1GenerateTemplateCommand,

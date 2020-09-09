@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { LogoutUserRequest, LogoutUserResponse } from "../models/index";
+import { LogoutUserRequest, LogoutUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1LogoutUserCommand,
   serializeAws_restJson1LogoutUserCommand,

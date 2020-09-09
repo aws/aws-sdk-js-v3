@@ -1,5 +1,8 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { ListDominantLanguageDetectionJobsRequest, ListDominantLanguageDetectionJobsResponse } from "../models/index";
+import {
+  ListDominantLanguageDetectionJobsRequest,
+  ListDominantLanguageDetectionJobsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListDominantLanguageDetectionJobsCommand,
   serializeAws_json1_1ListDominantLanguageDetectionJobsCommand,

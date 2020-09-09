@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeleteHealthCheckRequest, DeleteHealthCheckResponse } from "../models/index";
+import { DeleteHealthCheckRequest, DeleteHealthCheckResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteHealthCheckCommand,
   serializeAws_restXmlDeleteHealthCheckCommand,

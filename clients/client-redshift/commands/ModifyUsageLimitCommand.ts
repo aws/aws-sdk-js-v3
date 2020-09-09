@@ -1,5 +1,6 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ModifyUsageLimitMessage, UsageLimit } from "../models/index";
+import { UsageLimit } from "../models/models_0";
+import { ModifyUsageLimitMessage } from "../models/models_1";
 import {
   deserializeAws_queryModifyUsageLimitCommand,
   serializeAws_queryModifyUsageLimitCommand,

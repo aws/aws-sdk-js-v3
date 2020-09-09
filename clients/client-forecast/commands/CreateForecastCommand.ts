@@ -1,5 +1,5 @@
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { CreateForecastRequest, CreateForecastResponse } from "../models/index";
+import { CreateForecastRequest, CreateForecastResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateForecastCommand,
   serializeAws_json1_1CreateForecastCommand,

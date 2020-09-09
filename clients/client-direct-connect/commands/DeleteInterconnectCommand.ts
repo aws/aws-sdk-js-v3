@@ -1,5 +1,5 @@
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { DeleteInterconnectRequest, DeleteInterconnectResponse } from "../models/index";
+import { DeleteInterconnectRequest, DeleteInterconnectResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteInterconnectCommand,
   serializeAws_json1_1DeleteInterconnectCommand,

@@ -1,5 +1,5 @@
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { DeleteHapgRequest, DeleteHapgResponse } from "../models/index";
+import { DeleteHapgRequest, DeleteHapgResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteHapgCommand,
   serializeAws_json1_1DeleteHapgCommand,

@@ -1,5 +1,5 @@
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import { UntagStreamInput, UntagStreamOutput } from "../models/index";
+import { UntagStreamInput, UntagStreamOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UntagStreamCommand,
   serializeAws_restJson1UntagStreamCommand,

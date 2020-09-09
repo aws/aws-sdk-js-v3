@@ -1,5 +1,5 @@
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { PollForTaskInput, PollForTaskOutput } from "../models/index";
+import { PollForTaskInput, PollForTaskOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PollForTaskCommand,
   serializeAws_json1_1PollForTaskCommand,

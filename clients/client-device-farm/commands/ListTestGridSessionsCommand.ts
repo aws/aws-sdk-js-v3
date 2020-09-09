@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListTestGridSessionsRequest, ListTestGridSessionsResult } from "../models/index";
+import { ListTestGridSessionsRequest, ListTestGridSessionsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTestGridSessionsCommand,
   serializeAws_json1_1ListTestGridSessionsCommand,

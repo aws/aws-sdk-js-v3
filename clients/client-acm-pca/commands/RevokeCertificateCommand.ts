@@ -1,5 +1,5 @@
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { RevokeCertificateRequest } from "../models/index";
+import { RevokeCertificateRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1RevokeCertificateCommand,
   serializeAws_json1_1RevokeCertificateCommand,

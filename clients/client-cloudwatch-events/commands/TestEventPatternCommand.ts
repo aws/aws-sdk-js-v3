@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { TestEventPatternRequest, TestEventPatternResponse } from "../models/index";
+import { TestEventPatternRequest, TestEventPatternResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1TestEventPatternCommand,
   serializeAws_json1_1TestEventPatternCommand,

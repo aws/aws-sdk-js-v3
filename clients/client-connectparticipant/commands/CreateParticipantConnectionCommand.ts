@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import { CreateParticipantConnectionRequest, CreateParticipantConnectionResponse } from "../models/index";
+import { CreateParticipantConnectionRequest, CreateParticipantConnectionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateParticipantConnectionCommand,
   serializeAws_restJson1CreateParticipantConnectionCommand,

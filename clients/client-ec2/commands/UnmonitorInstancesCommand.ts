@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { UnmonitorInstancesRequest, UnmonitorInstancesResult } from "../models/index";
+import { UnmonitorInstancesRequest, UnmonitorInstancesResult } from "../models/models_4";
 import {
   deserializeAws_ec2UnmonitorInstancesCommand,
   serializeAws_ec2UnmonitorInstancesCommand,

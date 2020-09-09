@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { ConfigureHealthCheckInput, ConfigureHealthCheckOutput } from "../models/index";
+import { ConfigureHealthCheckInput, ConfigureHealthCheckOutput } from "../models/models_0";
 import {
   deserializeAws_queryConfigureHealthCheckCommand,
   serializeAws_queryConfigureHealthCheckCommand,

@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateDomainRequest, CreateDomainResult } from "../models/index";
+import { CreateDomainRequest, CreateDomainResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDomainCommand,
   serializeAws_json1_1CreateDomainCommand,

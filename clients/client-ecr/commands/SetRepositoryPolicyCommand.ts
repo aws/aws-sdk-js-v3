@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { SetRepositoryPolicyRequest, SetRepositoryPolicyResponse } from "../models/index";
+import { SetRepositoryPolicyRequest, SetRepositoryPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1SetRepositoryPolicyCommand,
   serializeAws_json1_1SetRepositoryPolicyCommand,

@@ -1,5 +1,5 @@
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { DeletePackageVersionsRequest, DeletePackageVersionsResult } from "../models/index";
+import { DeletePackageVersionsRequest, DeletePackageVersionsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePackageVersionsCommand,
   serializeAws_restJson1DeletePackageVersionsCommand,

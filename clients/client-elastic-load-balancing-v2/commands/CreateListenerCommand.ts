@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { CreateListenerInput, CreateListenerOutput } from "../models/index";
+import { CreateListenerInput, CreateListenerOutput } from "../models/models_0";
 import {
   deserializeAws_queryCreateListenerCommand,
   serializeAws_queryCreateListenerCommand,

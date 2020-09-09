@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
-import { DisableProactiveEngagementRequest, DisableProactiveEngagementResponse } from "../models/index";
+import { DisableProactiveEngagementRequest, DisableProactiveEngagementResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableProactiveEngagementCommand,
   serializeAws_json1_1DisableProactiveEngagementCommand,

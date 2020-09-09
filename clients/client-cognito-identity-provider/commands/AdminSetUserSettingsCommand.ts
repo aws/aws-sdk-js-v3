@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminSetUserSettingsRequest, AdminSetUserSettingsResponse } from "../models/index";
+import { AdminSetUserSettingsRequest, AdminSetUserSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminSetUserSettingsCommand,
   serializeAws_json1_1AdminSetUserSettingsCommand,

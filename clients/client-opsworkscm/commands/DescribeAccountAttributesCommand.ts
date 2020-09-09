@@ -1,5 +1,5 @@
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import { DescribeAccountAttributesRequest, DescribeAccountAttributesResponse } from "../models/index";
+import { DescribeAccountAttributesRequest, DescribeAccountAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAccountAttributesCommand,
   serializeAws_json1_1DescribeAccountAttributesCommand,

@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DisableAWSServiceAccessRequest } from "../models/index";
+import { DisableAWSServiceAccessRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableAWSServiceAccessCommand,
   serializeAws_json1_1DisableAWSServiceAccessCommand,

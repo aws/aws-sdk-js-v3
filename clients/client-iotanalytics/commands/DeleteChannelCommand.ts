@@ -1,5 +1,5 @@
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { DeleteChannelRequest } from "../models/index";
+import { DeleteChannelRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteChannelCommand,
   serializeAws_restJson1DeleteChannelCommand,

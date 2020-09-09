@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListServerCertificatesRequest, ListServerCertificatesResponse } from "../models/index";
+import { ListServerCertificatesRequest, ListServerCertificatesResponse } from "../models/models_0";
 import {
   deserializeAws_queryListServerCertificatesCommand,
   serializeAws_queryListServerCertificatesCommand,

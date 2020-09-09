@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DescribeRaidArraysRequest, DescribeRaidArraysResult } from "../models/index";
+import { DescribeRaidArraysRequest, DescribeRaidArraysResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeRaidArraysCommand,
   serializeAws_json1_1DescribeRaidArraysCommand,

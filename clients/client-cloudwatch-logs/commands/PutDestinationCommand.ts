@@ -1,5 +1,5 @@
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { PutDestinationRequest, PutDestinationResponse } from "../models/index";
+import { PutDestinationRequest, PutDestinationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutDestinationCommand,
   serializeAws_json1_1PutDestinationCommand,

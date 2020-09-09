@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { DeleteChapCredentialsInput, DeleteChapCredentialsOutput } from "../models/index";
+import { DeleteChapCredentialsInput, DeleteChapCredentialsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteChapCredentialsCommand,
   serializeAws_json1_1DeleteChapCredentialsCommand,

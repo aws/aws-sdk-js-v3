@@ -1,5 +1,5 @@
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
-import { DescribeExecutionInput, DescribeExecutionOutput } from "../models/index";
+import { DescribeExecutionInput, DescribeExecutionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeExecutionCommand,
   serializeAws_json1_0DescribeExecutionCommand,

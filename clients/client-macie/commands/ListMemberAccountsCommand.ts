@@ -1,5 +1,5 @@
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import { ListMemberAccountsRequest, ListMemberAccountsResult } from "../models/index";
+import { ListMemberAccountsRequest, ListMemberAccountsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListMemberAccountsCommand,
   serializeAws_json1_1ListMemberAccountsCommand,

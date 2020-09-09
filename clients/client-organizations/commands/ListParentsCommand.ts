@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListParentsRequest, ListParentsResponse } from "../models/index";
+import { ListParentsRequest, ListParentsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListParentsCommand,
   serializeAws_json1_1ListParentsCommand,

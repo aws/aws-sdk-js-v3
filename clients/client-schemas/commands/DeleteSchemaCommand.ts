@@ -1,5 +1,5 @@
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { DeleteSchemaRequest } from "../models/index";
+import { DeleteSchemaRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSchemaCommand,
   serializeAws_restJson1DeleteSchemaCommand,

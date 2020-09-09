@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { DescribeTargetHealthInput, DescribeTargetHealthOutput } from "../models/index";
+import { DescribeTargetHealthInput, DescribeTargetHealthOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeTargetHealthCommand,
   serializeAws_queryDescribeTargetHealthCommand,

@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetVoiceTemplateRequest, GetVoiceTemplateResponse } from "../models/index";
+import { GetVoiceTemplateRequest, GetVoiceTemplateResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetVoiceTemplateCommand,
   serializeAws_restJson1GetVoiceTemplateCommand,

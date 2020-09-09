@@ -1,5 +1,5 @@
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { GetArtifactUrlRequest, GetArtifactUrlResult } from "../models/index";
+import { GetArtifactUrlRequest, GetArtifactUrlResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetArtifactUrlCommand,
   serializeAws_restJson1GetArtifactUrlCommand,

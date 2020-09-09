@@ -1,5 +1,5 @@
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { GetAuthorizationTokenRequest, GetAuthorizationTokenResult } from "../models/index";
+import { GetAuthorizationTokenRequest, GetAuthorizationTokenResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAuthorizationTokenCommand,
   serializeAws_restJson1GetAuthorizationTokenCommand,

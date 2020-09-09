@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { GetUsageTotalsRequest, GetUsageTotalsResponse } from "../models/index";
+import { GetUsageTotalsRequest, GetUsageTotalsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetUsageTotalsCommand,
   serializeAws_restJson1GetUsageTotalsCommand,

@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { UpdateTerminationProtectionInput, UpdateTerminationProtectionOutput } from "../models/index";
+import { UpdateTerminationProtectionInput, UpdateTerminationProtectionOutput } from "../models/models_0";
 import {
   deserializeAws_queryUpdateTerminationProtectionCommand,
   serializeAws_queryUpdateTerminationProtectionCommand,

@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetRelationalDatabaseParametersRequest, GetRelationalDatabaseParametersResult } from "../models/index";
+import { GetRelationalDatabaseParametersRequest, GetRelationalDatabaseParametersResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetRelationalDatabaseParametersCommand,
   serializeAws_json1_1GetRelationalDatabaseParametersCommand,

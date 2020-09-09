@@ -1,5 +1,5 @@
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { GetOpenIdTokenInput, GetOpenIdTokenResponse } from "../models/index";
+import { GetOpenIdTokenInput, GetOpenIdTokenResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetOpenIdTokenCommand,
   serializeAws_json1_1GetOpenIdTokenCommand,

@@ -1,5 +1,5 @@
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import { CreateEnvironmentEC2Request, CreateEnvironmentEC2Result } from "../models/index";
+import { CreateEnvironmentEC2Request, CreateEnvironmentEC2Result } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEnvironmentEC2Command,
   serializeAws_json1_1CreateEnvironmentEC2Command,

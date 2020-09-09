@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { DeleteBaiduChannelRequest, DeleteBaiduChannelResponse } from "../models/index";
+import { DeleteBaiduChannelRequest, DeleteBaiduChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBaiduChannelCommand,
   serializeAws_restJson1DeleteBaiduChannelCommand,

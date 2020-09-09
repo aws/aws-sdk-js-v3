@@ -1,5 +1,5 @@
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { DescribeAlarmsInput, DescribeAlarmsOutput } from "../models/index";
+import { DescribeAlarmsInput, DescribeAlarmsOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAlarmsCommand,
   serializeAws_queryDescribeAlarmsCommand,

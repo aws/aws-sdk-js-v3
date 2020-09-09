@@ -1,5 +1,5 @@
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import { UpdateTeamMemberRequest, UpdateTeamMemberResult } from "../models/index";
+import { UpdateTeamMemberRequest, UpdateTeamMemberResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateTeamMemberCommand,
   serializeAws_json1_1UpdateTeamMemberCommand,

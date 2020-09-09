@@ -1,5 +1,8 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetServiceLinkedRoleDeletionStatusRequest, GetServiceLinkedRoleDeletionStatusResponse } from "../models/index";
+import {
+  GetServiceLinkedRoleDeletionStatusRequest,
+  GetServiceLinkedRoleDeletionStatusResponse,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand,
   serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand,

@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListDomainsRequest, ListDomainsResponse } from "../models/index";
+import { ListDomainsRequest, ListDomainsResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1ListDomainsCommand,
   serializeAws_json1_1ListDomainsCommand,

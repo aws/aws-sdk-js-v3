@@ -1,5 +1,5 @@
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
-import { DeleteServerCatalogRequest, DeleteServerCatalogResponse } from "../models/index";
+import { DeleteServerCatalogRequest, DeleteServerCatalogResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteServerCatalogCommand,
   serializeAws_json1_1DeleteServerCatalogCommand,

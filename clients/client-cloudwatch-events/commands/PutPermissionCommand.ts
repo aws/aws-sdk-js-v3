@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { PutPermissionRequest } from "../models/index";
+import { PutPermissionRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1PutPermissionCommand,
   serializeAws_json1_1PutPermissionCommand,

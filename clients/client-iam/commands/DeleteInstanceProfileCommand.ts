@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteInstanceProfileRequest } from "../models/index";
+import { DeleteInstanceProfileRequest } from "../models/models_0";
 import {
   deserializeAws_queryDeleteInstanceProfileCommand,
   serializeAws_queryDeleteInstanceProfileCommand,

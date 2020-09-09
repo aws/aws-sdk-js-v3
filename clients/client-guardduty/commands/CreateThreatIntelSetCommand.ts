@@ -1,5 +1,5 @@
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { CreateThreatIntelSetRequest, CreateThreatIntelSetResponse } from "../models/index";
+import { CreateThreatIntelSetRequest, CreateThreatIntelSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateThreatIntelSetCommand,
   serializeAws_restJson1CreateThreatIntelSetCommand,

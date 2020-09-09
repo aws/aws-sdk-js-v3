@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { CreateCommentRequest, CreateCommentResponse } from "../models/index";
+import { CreateCommentRequest, CreateCommentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCommentCommand,
   serializeAws_restJson1CreateCommentCommand,

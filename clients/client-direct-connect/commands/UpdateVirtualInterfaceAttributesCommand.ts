@@ -1,5 +1,5 @@
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { UpdateVirtualInterfaceAttributesRequest, VirtualInterface } from "../models/index";
+import { UpdateVirtualInterfaceAttributesRequest, VirtualInterface } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand,
   serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand,

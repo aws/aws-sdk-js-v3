@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { ListAssessmentTemplatesRequest, ListAssessmentTemplatesResponse } from "../models/index";
+import { ListAssessmentTemplatesRequest, ListAssessmentTemplatesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAssessmentTemplatesCommand,
   serializeAws_json1_1ListAssessmentTemplatesCommand,

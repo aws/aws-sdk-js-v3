@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { StopDBClusterMessage, StopDBClusterResult } from "../models/index";
+import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryStopDBClusterCommand,
   serializeAws_queryStopDBClusterCommand,

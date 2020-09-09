@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DeleteFilterRequest } from "../models/index";
+import { DeleteFilterRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFilterCommand,
   serializeAws_json1_1DeleteFilterCommand,

@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetCatalogImportStatusRequest, GetCatalogImportStatusResponse } from "../models/index";
+import { GetCatalogImportStatusRequest, GetCatalogImportStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetCatalogImportStatusCommand,
   serializeAws_json1_1GetCatalogImportStatusCommand,

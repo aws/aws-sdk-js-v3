@@ -1,5 +1,5 @@
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
-import { CreatePublicDnsNamespaceRequest, CreatePublicDnsNamespaceResponse } from "../models/index";
+import { CreatePublicDnsNamespaceRequest, CreatePublicDnsNamespaceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePublicDnsNamespaceCommand,
   serializeAws_json1_1CreatePublicDnsNamespaceCommand,

@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { DescribeReservedCacheNodesMessage, ReservedCacheNodeMessage } from "../models/index";
+import { DescribeReservedCacheNodesMessage, ReservedCacheNodeMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeReservedCacheNodesCommand,
   serializeAws_queryDescribeReservedCacheNodesCommand,

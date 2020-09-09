@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import { BatchMeterUsageRequest, BatchMeterUsageResult } from "../models/index";
+import { BatchMeterUsageRequest, BatchMeterUsageResult } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchMeterUsageCommand,
   serializeAws_json1_1BatchMeterUsageCommand,

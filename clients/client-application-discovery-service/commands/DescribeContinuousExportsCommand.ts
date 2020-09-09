@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { DescribeContinuousExportsRequest, DescribeContinuousExportsResponse } from "../models/index";
+import { DescribeContinuousExportsRequest, DescribeContinuousExportsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeContinuousExportsCommand,
   serializeAws_json1_1DescribeContinuousExportsCommand,

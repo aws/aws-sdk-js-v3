@@ -1,5 +1,5 @@
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
-import { RestartSimulationJobRequest, RestartSimulationJobResponse } from "../models/index";
+import { RestartSimulationJobRequest, RestartSimulationJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RestartSimulationJobCommand,
   serializeAws_restJson1RestartSimulationJobCommand,

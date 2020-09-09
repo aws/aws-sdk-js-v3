@@ -1,5 +1,5 @@
 import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
-import { UpdateLifecyclePolicyRequest, UpdateLifecyclePolicyResponse } from "../models/index";
+import { UpdateLifecyclePolicyRequest, UpdateLifecyclePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateLifecyclePolicyCommand,
   serializeAws_restJson1UpdateLifecyclePolicyCommand,

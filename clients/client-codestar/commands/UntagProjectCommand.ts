@@ -1,5 +1,5 @@
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import { UntagProjectRequest, UntagProjectResult } from "../models/index";
+import { UntagProjectRequest, UntagProjectResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UntagProjectCommand,
   serializeAws_json1_1UntagProjectCommand,

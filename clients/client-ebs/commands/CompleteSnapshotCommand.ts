@@ -1,5 +1,5 @@
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
-import { CompleteSnapshotRequest, CompleteSnapshotResponse } from "../models/index";
+import { CompleteSnapshotRequest, CompleteSnapshotResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CompleteSnapshotCommand,
   serializeAws_restJson1CompleteSnapshotCommand,

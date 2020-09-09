@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { GetCustomDataIdentifierRequest, GetCustomDataIdentifierResponse } from "../models/index";
+import { GetCustomDataIdentifierRequest, GetCustomDataIdentifierResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCustomDataIdentifierCommand,
   serializeAws_restJson1GetCustomDataIdentifierCommand,

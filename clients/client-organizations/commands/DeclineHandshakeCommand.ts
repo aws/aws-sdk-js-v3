@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DeclineHandshakeRequest, DeclineHandshakeResponse } from "../models/index";
+import { DeclineHandshakeRequest, DeclineHandshakeResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeclineHandshakeCommand,
   serializeAws_json1_1DeclineHandshakeCommand,

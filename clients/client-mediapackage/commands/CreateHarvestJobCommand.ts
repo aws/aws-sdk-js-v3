@@ -1,5 +1,5 @@
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { CreateHarvestJobRequest, CreateHarvestJobResponse } from "../models/index";
+import { CreateHarvestJobRequest, CreateHarvestJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateHarvestJobCommand,
   serializeAws_restJson1CreateHarvestJobCommand,

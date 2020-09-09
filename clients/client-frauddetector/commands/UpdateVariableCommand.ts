@@ -1,5 +1,5 @@
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { UpdateVariableRequest, UpdateVariableResult } from "../models/index";
+import { UpdateVariableRequest, UpdateVariableResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateVariableCommand,
   serializeAws_json1_1UpdateVariableCommand,

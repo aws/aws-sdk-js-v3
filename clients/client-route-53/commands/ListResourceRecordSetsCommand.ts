@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListResourceRecordSetsRequest, ListResourceRecordSetsResponse } from "../models/index";
+import { ListResourceRecordSetsRequest, ListResourceRecordSetsResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlListResourceRecordSetsCommand,
   serializeAws_restXmlListResourceRecordSetsCommand,

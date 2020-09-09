@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { GetLoggingConfigurationRequest, GetLoggingConfigurationResponse } from "../models/index";
+import { GetLoggingConfigurationRequest, GetLoggingConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetLoggingConfigurationCommand,
   serializeAws_json1_1GetLoggingConfigurationCommand,

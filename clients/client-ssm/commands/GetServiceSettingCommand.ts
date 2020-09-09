@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { GetServiceSettingRequest, GetServiceSettingResult } from "../models/index";
+import { GetServiceSettingRequest, GetServiceSettingResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetServiceSettingCommand,
   serializeAws_json1_1GetServiceSettingCommand,

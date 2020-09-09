@@ -1,5 +1,5 @@
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { PutEventTypeRequest, PutEventTypeResult } from "../models/index";
+import { PutEventTypeRequest, PutEventTypeResult } from "../models/models_0";
 import {
   deserializeAws_json1_1PutEventTypeCommand,
   serializeAws_json1_1PutEventTypeCommand,

@@ -1,5 +1,5 @@
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { EnableAlarmActionsInput } from "../models/index";
+import { EnableAlarmActionsInput } from "../models/models_0";
 import {
   deserializeAws_queryEnableAlarmActionsCommand,
   serializeAws_queryEnableAlarmActionsCommand,

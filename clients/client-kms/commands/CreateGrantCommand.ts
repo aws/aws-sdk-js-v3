@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { CreateGrantRequest, CreateGrantResponse } from "../models/index";
+import { CreateGrantRequest, CreateGrantResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateGrantCommand,
   serializeAws_json1_1CreateGrantCommand,

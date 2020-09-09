@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { CreateExclusionsPreviewRequest, CreateExclusionsPreviewResponse } from "../models/index";
+import { CreateExclusionsPreviewRequest, CreateExclusionsPreviewResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateExclusionsPreviewCommand,
   serializeAws_json1_1CreateExclusionsPreviewCommand,

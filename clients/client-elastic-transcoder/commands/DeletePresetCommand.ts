@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import { DeletePresetRequest, DeletePresetResponse } from "../models/index";
+import { DeletePresetRequest, DeletePresetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePresetCommand,
   serializeAws_restJson1DeletePresetCommand,

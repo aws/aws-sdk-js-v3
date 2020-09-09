@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
-import { ListCompatibleImagesRequest, ListCompatibleImagesResult } from "../models/index";
+import { ListCompatibleImagesRequest, ListCompatibleImagesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListCompatibleImagesCommand,
   serializeAws_json1_1ListCompatibleImagesCommand,

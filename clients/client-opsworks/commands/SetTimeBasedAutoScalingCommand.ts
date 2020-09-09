@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { SetTimeBasedAutoScalingRequest } from "../models/index";
+import { SetTimeBasedAutoScalingRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1SetTimeBasedAutoScalingCommand,
   serializeAws_json1_1SetTimeBasedAutoScalingCommand,

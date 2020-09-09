@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { DecreaseStreamRetentionPeriodInput } from "../models/index";
+import { DecreaseStreamRetentionPeriodInput } from "../models/models_0";
 import {
   deserializeAws_json1_1DecreaseStreamRetentionPeriodCommand,
   serializeAws_json1_1DecreaseStreamRetentionPeriodCommand,

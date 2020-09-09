@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactAttributesRequest, UpdateContactAttributesResponse } from "../models/index";
+import { UpdateContactAttributesRequest, UpdateContactAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateContactAttributesCommand,
   serializeAws_restJson1UpdateContactAttributesCommand,

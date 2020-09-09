@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { StartContactRecordingRequest, StartContactRecordingResponse } from "../models/index";
+import { StartContactRecordingRequest, StartContactRecordingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartContactRecordingCommand,
   serializeAws_restJson1StartContactRecordingCommand,

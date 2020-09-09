@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { ConfigurationSettingsDescription, UpdateConfigurationTemplateMessage } from "../models/index";
+import { ConfigurationSettingsDescription, UpdateConfigurationTemplateMessage } from "../models/models_0";
 import {
   deserializeAws_queryUpdateConfigurationTemplateCommand,
   serializeAws_queryUpdateConfigurationTemplateCommand,

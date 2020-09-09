@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DisablePolicyTypeRequest, DisablePolicyTypeResponse } from "../models/index";
+import { DisablePolicyTypeRequest, DisablePolicyTypeResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisablePolicyTypeCommand,
   serializeAws_json1_1DisablePolicyTypeCommand,

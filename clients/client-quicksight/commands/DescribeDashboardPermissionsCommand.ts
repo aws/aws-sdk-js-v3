@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeDashboardPermissionsRequest, DescribeDashboardPermissionsResponse } from "../models/index";
+import { DescribeDashboardPermissionsRequest, DescribeDashboardPermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeDashboardPermissionsCommand,
   serializeAws_restJson1DescribeDashboardPermissionsCommand,

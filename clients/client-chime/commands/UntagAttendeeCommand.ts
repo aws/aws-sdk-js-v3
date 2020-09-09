@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UntagAttendeeRequest } from "../models/index";
+import { UntagAttendeeRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UntagAttendeeCommand,
   serializeAws_restJson1UntagAttendeeCommand,

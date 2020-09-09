@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetUserDefinedFunctionRequest, GetUserDefinedFunctionResponse } from "../models/index";
+import { GetUserDefinedFunctionRequest, GetUserDefinedFunctionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetUserDefinedFunctionCommand,
   serializeAws_json1_1GetUserDefinedFunctionCommand,

@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetHostedZoneRequest, GetHostedZoneResponse } from "../models/index";
+import { GetHostedZoneRequest, GetHostedZoneResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlGetHostedZoneCommand,
   serializeAws_restXmlGetHostedZoneCommand,

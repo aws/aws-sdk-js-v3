@@ -1,5 +1,5 @@
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { GetReservationCoverageRequest, GetReservationCoverageResponse } from "../models/index";
+import { GetReservationCoverageRequest, GetReservationCoverageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetReservationCoverageCommand,
   serializeAws_json1_1GetReservationCoverageCommand,

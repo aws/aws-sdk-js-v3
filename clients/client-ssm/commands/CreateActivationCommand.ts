@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { CreateActivationRequest, CreateActivationResult } from "../models/index";
+import { CreateActivationRequest, CreateActivationResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateActivationCommand,
   serializeAws_json1_1CreateActivationCommand,

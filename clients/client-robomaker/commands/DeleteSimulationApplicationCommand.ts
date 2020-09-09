@@ -1,5 +1,5 @@
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
-import { DeleteSimulationApplicationRequest, DeleteSimulationApplicationResponse } from "../models/index";
+import { DeleteSimulationApplicationRequest, DeleteSimulationApplicationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSimulationApplicationCommand,
   serializeAws_restJson1DeleteSimulationApplicationCommand,

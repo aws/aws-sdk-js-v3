@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { DescribeLoadBalancerAttributesInput, DescribeLoadBalancerAttributesOutput } from "../models/index";
+import { DescribeLoadBalancerAttributesInput, DescribeLoadBalancerAttributesOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeLoadBalancerAttributesCommand,
   serializeAws_queryDescribeLoadBalancerAttributesCommand,

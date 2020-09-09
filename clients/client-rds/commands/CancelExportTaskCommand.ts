@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { CancelExportTaskMessage, ExportTask } from "../models/index";
+import { CancelExportTaskMessage, ExportTask } from "../models/models_0";
 import {
   deserializeAws_queryCancelExportTaskCommand,
   serializeAws_queryCancelExportTaskCommand,

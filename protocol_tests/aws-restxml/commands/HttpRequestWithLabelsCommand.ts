@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { HttpRequestWithLabelsInput } from "../models/index";
+import { HttpRequestWithLabelsInput } from "../models/models_0";
 import {
   deserializeAws_restXmlHttpRequestWithLabelsCommand,
   serializeAws_restXmlHttpRequestWithLabelsCommand,

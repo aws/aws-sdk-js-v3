@@ -1,5 +1,5 @@
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { CreateSubscriberRequest, CreateSubscriberResponse } from "../models/index";
+import { CreateSubscriberRequest, CreateSubscriberResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSubscriberCommand,
   serializeAws_json1_1CreateSubscriberCommand,

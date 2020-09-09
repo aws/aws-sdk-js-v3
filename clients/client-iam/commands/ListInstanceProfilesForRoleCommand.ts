@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListInstanceProfilesForRoleRequest, ListInstanceProfilesForRoleResponse } from "../models/index";
+import { ListInstanceProfilesForRoleRequest, ListInstanceProfilesForRoleResponse } from "../models/models_0";
 import {
   deserializeAws_queryListInstanceProfilesForRoleCommand,
   serializeAws_queryListInstanceProfilesForRoleCommand,

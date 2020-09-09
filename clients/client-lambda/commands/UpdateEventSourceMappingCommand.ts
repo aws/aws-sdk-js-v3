@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { EventSourceMappingConfiguration, UpdateEventSourceMappingRequest } from "../models/index";
+import { EventSourceMappingConfiguration, UpdateEventSourceMappingRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateEventSourceMappingCommand,
   serializeAws_restJson1UpdateEventSourceMappingCommand,

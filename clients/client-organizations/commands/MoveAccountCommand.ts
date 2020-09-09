@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { MoveAccountRequest } from "../models/index";
+import { MoveAccountRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1MoveAccountCommand,
   serializeAws_json1_1MoveAccountCommand,

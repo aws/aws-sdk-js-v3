@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteQueuedReservedInstancesRequest, DeleteQueuedReservedInstancesResult } from "../models/index";
+import { DeleteQueuedReservedInstancesRequest, DeleteQueuedReservedInstancesResult } from "../models/models_1";
 import {
   deserializeAws_ec2DeleteQueuedReservedInstancesCommand,
   serializeAws_ec2DeleteQueuedReservedInstancesCommand,

@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DescribeAccessPolicyRequest, DescribeAccessPolicyResponse } from "../models/index";
+import { DescribeAccessPolicyRequest, DescribeAccessPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAccessPolicyCommand,
   serializeAws_restJson1DescribeAccessPolicyCommand,

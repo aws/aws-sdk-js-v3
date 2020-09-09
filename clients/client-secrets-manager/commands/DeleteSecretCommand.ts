@@ -1,5 +1,5 @@
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
-import { DeleteSecretRequest, DeleteSecretResponse } from "../models/index";
+import { DeleteSecretRequest, DeleteSecretResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSecretCommand,
   serializeAws_json1_1DeleteSecretCommand,

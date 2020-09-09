@@ -1,5 +1,5 @@
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { CreateFileSystemRequest, FileSystemDescription } from "../models/index";
+import { CreateFileSystemRequest, FileSystemDescription } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFileSystemCommand,
   serializeAws_restJson1CreateFileSystemCommand,

@@ -1,5 +1,5 @@
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DescribeDestinationsRequest, DescribeDestinationsResponse } from "../models/index";
+import { DescribeDestinationsRequest, DescribeDestinationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDestinationsCommand,
   serializeAws_json1_1DescribeDestinationsCommand,

@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { XmlTimestampsInputOutput } from "../models/index";
+import { XmlTimestampsInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlXmlTimestampsCommand,
   serializeAws_restXmlXmlTimestampsCommand,

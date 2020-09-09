@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { PutImageTagMutabilityRequest, PutImageTagMutabilityResponse } from "../models/index";
+import { PutImageTagMutabilityRequest, PutImageTagMutabilityResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutImageTagMutabilityCommand,
   serializeAws_json1_1PutImageTagMutabilityCommand,

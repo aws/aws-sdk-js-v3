@@ -1,5 +1,5 @@
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { StopJobRequest, StopJobResult } from "../models/index";
+import { StopJobRequest, StopJobResult } from "../models/models_0";
 import {
   deserializeAws_restJson1StopJobCommand,
   serializeAws_restJson1StopJobCommand,

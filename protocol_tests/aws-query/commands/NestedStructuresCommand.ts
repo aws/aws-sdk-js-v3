@@ -1,5 +1,5 @@
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { NestedStructuresInput } from "../models/index";
+import { NestedStructuresInput } from "../models/models_0";
 import {
   deserializeAws_queryNestedStructuresCommand,
   serializeAws_queryNestedStructuresCommand,

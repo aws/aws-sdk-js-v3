@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { NotifyWorkersRequest, NotifyWorkersResponse } from "../models/index";
+import { NotifyWorkersRequest, NotifyWorkersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1NotifyWorkersCommand,
   serializeAws_json1_1NotifyWorkersCommand,

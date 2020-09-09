@@ -2,7 +2,7 @@ import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import {
   GetSavingsPlansPurchaseRecommendationRequest,
   GetSavingsPlansPurchaseRecommendationResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand,
   serializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand,

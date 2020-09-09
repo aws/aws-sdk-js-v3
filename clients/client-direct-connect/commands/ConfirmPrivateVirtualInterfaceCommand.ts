@@ -1,5 +1,5 @@
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { ConfirmPrivateVirtualInterfaceRequest, ConfirmPrivateVirtualInterfaceResponse } from "../models/index";
+import { ConfirmPrivateVirtualInterfaceRequest, ConfirmPrivateVirtualInterfaceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand,
   serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand,

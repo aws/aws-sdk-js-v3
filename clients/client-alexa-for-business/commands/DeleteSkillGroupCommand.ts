@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { DeleteSkillGroupRequest, DeleteSkillGroupResponse } from "../models/index";
+import { DeleteSkillGroupRequest, DeleteSkillGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSkillGroupCommand,
   serializeAws_json1_1DeleteSkillGroupCommand,

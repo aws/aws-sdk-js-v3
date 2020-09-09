@@ -1,5 +1,5 @@
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
-import { ChangeMessageVisibilityRequest } from "../models/index";
+import { ChangeMessageVisibilityRequest } from "../models/models_0";
 import {
   deserializeAws_queryChangeMessageVisibilityCommand,
   serializeAws_queryChangeMessageVisibilityCommand,

@@ -1,5 +1,5 @@
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
-import { BeginTransactionRequest, BeginTransactionResponse } from "../models/index";
+import { BeginTransactionRequest, BeginTransactionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BeginTransactionCommand,
   serializeAws_restJson1BeginTransactionCommand,

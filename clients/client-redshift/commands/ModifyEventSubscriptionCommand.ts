@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult } from "../models/index";
+import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult } from "../models/models_1";
 import {
   deserializeAws_queryModifyEventSubscriptionCommand,
   serializeAws_queryModifyEventSubscriptionCommand,

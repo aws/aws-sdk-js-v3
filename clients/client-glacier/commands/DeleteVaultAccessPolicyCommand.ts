@@ -1,5 +1,5 @@
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { DeleteVaultAccessPolicyInput } from "../models/index";
+import { DeleteVaultAccessPolicyInput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVaultAccessPolicyCommand,
   serializeAws_restJson1DeleteVaultAccessPolicyCommand,

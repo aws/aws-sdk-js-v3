@@ -1,5 +1,5 @@
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { BatchGetItemInput, BatchGetItemOutput } from "../models/index";
+import { BatchGetItemInput, BatchGetItemOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0BatchGetItemCommand,
   serializeAws_json1_0BatchGetItemCommand,

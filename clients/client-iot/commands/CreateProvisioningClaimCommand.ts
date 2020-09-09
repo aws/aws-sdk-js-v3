@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateProvisioningClaimRequest, CreateProvisioningClaimResponse } from "../models/index";
+import { CreateProvisioningClaimRequest, CreateProvisioningClaimResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateProvisioningClaimCommand,
   serializeAws_restJson1CreateProvisioningClaimCommand,

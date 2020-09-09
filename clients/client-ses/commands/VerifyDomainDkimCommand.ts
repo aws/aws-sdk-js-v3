@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { VerifyDomainDkimRequest, VerifyDomainDkimResponse } from "../models/index";
+import { VerifyDomainDkimRequest, VerifyDomainDkimResponse } from "../models/models_0";
 import {
   deserializeAws_queryVerifyDomainDkimCommand,
   serializeAws_queryVerifyDomainDkimCommand,

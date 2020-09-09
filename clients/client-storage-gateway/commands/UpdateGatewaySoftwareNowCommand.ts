@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/index";
+import { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateGatewaySoftwareNowCommand,
   serializeAws_json1_1UpdateGatewaySoftwareNowCommand,

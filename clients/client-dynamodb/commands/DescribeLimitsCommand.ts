@@ -1,5 +1,5 @@
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { DescribeLimitsInput, DescribeLimitsOutput } from "../models/index";
+import { DescribeLimitsInput, DescribeLimitsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeLimitsCommand,
   serializeAws_json1_0DescribeLimitsCommand,

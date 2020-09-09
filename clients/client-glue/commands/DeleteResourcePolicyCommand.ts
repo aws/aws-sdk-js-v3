@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/index";
+import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourcePolicyCommand,
   serializeAws_json1_1DeleteResourcePolicyCommand,

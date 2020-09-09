@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { SetRiskConfigurationRequest, SetRiskConfigurationResponse } from "../models/index";
+import { SetRiskConfigurationRequest, SetRiskConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1SetRiskConfigurationCommand,
   serializeAws_json1_1SetRiskConfigurationCommand,

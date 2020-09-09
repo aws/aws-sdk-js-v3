@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeThingGroupRequest, DescribeThingGroupResponse } from "../models/index";
+import { DescribeThingGroupRequest, DescribeThingGroupResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeThingGroupCommand,
   serializeAws_restJson1DescribeThingGroupCommand,

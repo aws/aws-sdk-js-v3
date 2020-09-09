@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateAccountPasswordPolicyRequest } from "../models/index";
+import { UpdateAccountPasswordPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryUpdateAccountPasswordPolicyCommand,
   serializeAws_queryUpdateAccountPasswordPolicyCommand,

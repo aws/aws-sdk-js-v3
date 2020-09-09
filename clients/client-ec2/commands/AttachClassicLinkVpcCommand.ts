@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AttachClassicLinkVpcRequest, AttachClassicLinkVpcResult } from "../models/index";
+import { AttachClassicLinkVpcRequest, AttachClassicLinkVpcResult } from "../models/models_0";
 import {
   deserializeAws_ec2AttachClassicLinkVpcCommand,
   serializeAws_ec2AttachClassicLinkVpcCommand,

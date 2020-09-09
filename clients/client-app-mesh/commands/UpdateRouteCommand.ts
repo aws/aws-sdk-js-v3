@@ -1,5 +1,5 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { UpdateRouteInput, UpdateRouteOutput } from "../models/index";
+import { UpdateRouteInput, UpdateRouteOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateRouteCommand,
   serializeAws_restJson1UpdateRouteCommand,

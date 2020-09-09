@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreatePlacementGroupRequest, CreatePlacementGroupResult } from "../models/index";
+import { CreatePlacementGroupRequest, CreatePlacementGroupResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreatePlacementGroupCommand,
   serializeAws_ec2CreatePlacementGroupCommand,

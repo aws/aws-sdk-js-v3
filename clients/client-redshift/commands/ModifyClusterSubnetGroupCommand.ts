@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ModifyClusterSubnetGroupMessage, ModifyClusterSubnetGroupResult } from "../models/index";
+import { ModifyClusterSubnetGroupMessage, ModifyClusterSubnetGroupResult } from "../models/models_1";
 import {
   deserializeAws_queryModifyClusterSubnetGroupCommand,
   serializeAws_queryModifyClusterSubnetGroupCommand,

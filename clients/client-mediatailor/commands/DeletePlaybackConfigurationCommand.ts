@@ -1,5 +1,5 @@
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import { DeletePlaybackConfigurationRequest, DeletePlaybackConfigurationResponse } from "../models/index";
+import { DeletePlaybackConfigurationRequest, DeletePlaybackConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePlaybackConfigurationCommand,
   serializeAws_restJson1DeletePlaybackConfigurationCommand,

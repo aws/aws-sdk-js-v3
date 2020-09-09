@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { DeleteSnapshotScheduleInput, DeleteSnapshotScheduleOutput } from "../models/index";
+import { DeleteSnapshotScheduleInput, DeleteSnapshotScheduleOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSnapshotScheduleCommand,
   serializeAws_json1_1DeleteSnapshotScheduleCommand,

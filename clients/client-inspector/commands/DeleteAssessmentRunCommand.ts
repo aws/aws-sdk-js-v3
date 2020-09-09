@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { DeleteAssessmentRunRequest } from "../models/index";
+import { DeleteAssessmentRunRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAssessmentRunCommand,
   serializeAws_json1_1DeleteAssessmentRunCommand,

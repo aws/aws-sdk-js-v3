@@ -1,5 +1,5 @@
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { StartPipelineReprocessingRequest, StartPipelineReprocessingResponse } from "../models/index";
+import { StartPipelineReprocessingRequest, StartPipelineReprocessingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartPipelineReprocessingCommand,
   serializeAws_restJson1StartPipelineReprocessingCommand,

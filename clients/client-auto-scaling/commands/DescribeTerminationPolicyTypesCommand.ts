@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeTerminationPolicyTypesAnswer } from "../models/index";
+import { DescribeTerminationPolicyTypesAnswer } from "../models/models_0";
 import {
   deserializeAws_queryDescribeTerminationPolicyTypesCommand,
   serializeAws_queryDescribeTerminationPolicyTypesCommand,

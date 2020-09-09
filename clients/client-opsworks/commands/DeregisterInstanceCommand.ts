@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DeregisterInstanceRequest } from "../models/index";
+import { DeregisterInstanceRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterInstanceCommand,
   serializeAws_json1_1DeregisterInstanceCommand,

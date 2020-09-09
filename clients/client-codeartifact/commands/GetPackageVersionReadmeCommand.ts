@@ -1,5 +1,5 @@
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { GetPackageVersionReadmeRequest, GetPackageVersionReadmeResult } from "../models/index";
+import { GetPackageVersionReadmeRequest, GetPackageVersionReadmeResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPackageVersionReadmeCommand,
   serializeAws_restJson1GetPackageVersionReadmeCommand,

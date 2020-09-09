@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
-import { CreateGroupRequest, CreateGroupResult } from "../models/index";
+import { CreateGroupRequest, CreateGroupResult } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateGroupCommand,
   serializeAws_restJson1CreateGroupCommand,

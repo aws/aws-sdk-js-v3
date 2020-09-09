@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { DeleteProfileRequest, DeleteProfileResponse } from "../models/index";
+import { DeleteProfileRequest, DeleteProfileResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProfileCommand,
   serializeAws_json1_1DeleteProfileCommand,

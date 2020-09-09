@@ -1,5 +1,5 @@
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { DeleteResourcePolicyRequest } from "../models/index";
+import { DeleteResourcePolicyRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteResourcePolicyCommand,
   serializeAws_restJson1DeleteResourcePolicyCommand,

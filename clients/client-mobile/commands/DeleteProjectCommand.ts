@@ -1,5 +1,5 @@
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import { DeleteProjectRequest, DeleteProjectResult } from "../models/index";
+import { DeleteProjectRequest, DeleteProjectResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteProjectCommand,
   serializeAws_restJson1DeleteProjectCommand,

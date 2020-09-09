@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteMLTransformRequest, DeleteMLTransformResponse } from "../models/index";
+import { DeleteMLTransformRequest, DeleteMLTransformResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMLTransformCommand,
   serializeAws_json1_1DeleteMLTransformCommand,

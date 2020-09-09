@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { UpdateInsightRequest, UpdateInsightResponse } from "../models/index";
+import { UpdateInsightRequest, UpdateInsightResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateInsightCommand,
   serializeAws_restJson1UpdateInsightCommand,

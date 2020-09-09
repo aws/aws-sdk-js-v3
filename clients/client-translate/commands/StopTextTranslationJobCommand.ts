@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
-import { StopTextTranslationJobRequest, StopTextTranslationJobResponse } from "../models/index";
+import { StopTextTranslationJobRequest, StopTextTranslationJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopTextTranslationJobCommand,
   serializeAws_json1_1StopTextTranslationJobCommand,

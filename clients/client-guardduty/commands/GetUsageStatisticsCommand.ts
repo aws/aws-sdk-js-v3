@@ -1,5 +1,5 @@
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetUsageStatisticsRequest, GetUsageStatisticsResponse } from "../models/index";
+import { GetUsageStatisticsRequest, GetUsageStatisticsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetUsageStatisticsCommand,
   serializeAws_restJson1GetUsageStatisticsCommand,

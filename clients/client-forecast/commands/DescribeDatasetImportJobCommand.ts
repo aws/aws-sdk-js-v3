@@ -1,5 +1,5 @@
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DescribeDatasetImportJobRequest, DescribeDatasetImportJobResponse } from "../models/index";
+import { DescribeDatasetImportJobRequest, DescribeDatasetImportJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDatasetImportJobCommand,
   serializeAws_json1_1DescribeDatasetImportJobCommand,

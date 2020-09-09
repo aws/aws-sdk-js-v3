@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchGetCrawlersRequest, BatchGetCrawlersResponse } from "../models/index";
+import { BatchGetCrawlersRequest, BatchGetCrawlersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetCrawlersCommand,
   serializeAws_json1_1BatchGetCrawlersCommand,

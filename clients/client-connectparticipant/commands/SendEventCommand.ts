@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import { SendEventRequest, SendEventResponse } from "../models/index";
+import { SendEventRequest, SendEventResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SendEventCommand,
   serializeAws_restJson1SendEventCommand,

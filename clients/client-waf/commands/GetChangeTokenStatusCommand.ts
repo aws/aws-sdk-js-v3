@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { GetChangeTokenStatusRequest, GetChangeTokenStatusResponse } from "../models/index";
+import { GetChangeTokenStatusRequest, GetChangeTokenStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetChangeTokenStatusCommand,
   serializeAws_json1_1GetChangeTokenStatusCommand,

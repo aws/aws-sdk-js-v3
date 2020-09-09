@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/index";
+import { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateAccountSettingsCommand,
   serializeAws_restJson1UpdateAccountSettingsCommand,

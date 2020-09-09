@@ -1,5 +1,5 @@
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { GetGraphqlApiRequest, GetGraphqlApiResponse } from "../models/index";
+import { GetGraphqlApiRequest, GetGraphqlApiResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetGraphqlApiCommand,
   serializeAws_restJson1GetGraphqlApiCommand,

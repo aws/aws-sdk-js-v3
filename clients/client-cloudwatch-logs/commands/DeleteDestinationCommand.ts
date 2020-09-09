@@ -1,5 +1,5 @@
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DeleteDestinationRequest } from "../models/index";
+import { DeleteDestinationRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDestinationCommand,
   serializeAws_json1_1DeleteDestinationCommand,

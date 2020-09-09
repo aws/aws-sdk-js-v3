@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { ListSourceCredentialsInput, ListSourceCredentialsOutput } from "../models/index";
+import { ListSourceCredentialsInput, ListSourceCredentialsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListSourceCredentialsCommand,
   serializeAws_json1_1ListSourceCredentialsCommand,

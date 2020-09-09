@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { StopBuildBatchInput, StopBuildBatchOutput } from "../models/index";
+import { StopBuildBatchInput, StopBuildBatchOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StopBuildBatchCommand,
   serializeAws_json1_1StopBuildBatchCommand,

@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { ListCertificatesRequest, ListCertificatesResult } from "../models/index";
+import { ListCertificatesRequest, ListCertificatesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListCertificatesCommand,
   serializeAws_json1_1ListCertificatesCommand,

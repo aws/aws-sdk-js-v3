@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { GetXssMatchSetRequest, GetXssMatchSetResponse } from "../models/index";
+import { GetXssMatchSetRequest, GetXssMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetXssMatchSetCommand,
   serializeAws_json1_1GetXssMatchSetCommand,

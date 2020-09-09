@@ -1,5 +1,5 @@
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { ListComponentBuildVersionsRequest, ListComponentBuildVersionsResponse } from "../models/index";
+import { ListComponentBuildVersionsRequest, ListComponentBuildVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListComponentBuildVersionsCommand,
   serializeAws_restJson1ListComponentBuildVersionsCommand,

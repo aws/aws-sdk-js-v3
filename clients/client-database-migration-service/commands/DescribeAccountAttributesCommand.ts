@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DescribeAccountAttributesMessage, DescribeAccountAttributesResponse } from "../models/index";
+import { DescribeAccountAttributesMessage, DescribeAccountAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAccountAttributesCommand,
   serializeAws_json1_1DescribeAccountAttributesCommand,

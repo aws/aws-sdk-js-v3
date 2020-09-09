@@ -1,5 +1,5 @@
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { StopStreamRequest, StopStreamResponse } from "../models/index";
+import { StopStreamRequest, StopStreamResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StopStreamCommand,
   serializeAws_restJson1StopStreamCommand,

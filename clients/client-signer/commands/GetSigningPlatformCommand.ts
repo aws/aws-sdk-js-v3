@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
-import { GetSigningPlatformRequest, GetSigningPlatformResponse } from "../models/index";
+import { GetSigningPlatformRequest, GetSigningPlatformResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSigningPlatformCommand,
   serializeAws_restJson1GetSigningPlatformCommand,

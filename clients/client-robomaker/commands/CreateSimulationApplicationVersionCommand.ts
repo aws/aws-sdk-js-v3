@@ -1,5 +1,8 @@
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
-import { CreateSimulationApplicationVersionRequest, CreateSimulationApplicationVersionResponse } from "../models/index";
+import {
+  CreateSimulationApplicationVersionRequest,
+  CreateSimulationApplicationVersionResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSimulationApplicationVersionCommand,
   serializeAws_restJson1CreateSimulationApplicationVersionCommand,

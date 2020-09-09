@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetEmailChannelRequest, GetEmailChannelResponse } from "../models/index";
+import { GetEmailChannelRequest, GetEmailChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetEmailChannelCommand,
   serializeAws_restJson1GetEmailChannelCommand,

@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { UpdateVoiceChannelRequest, UpdateVoiceChannelResponse } from "../models/index";
+import { UpdateVoiceChannelRequest, UpdateVoiceChannelResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateVoiceChannelCommand,
   serializeAws_restJson1UpdateVoiceChannelCommand,

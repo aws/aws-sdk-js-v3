@@ -1,5 +1,5 @@
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { ListInstancesInput, ListInstancesOutput } from "../models/index";
+import { ListInstancesInput, ListInstancesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListInstancesCommand,
   serializeAws_json1_1ListInstancesCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { DeleteLoadBalancerPolicyInput, DeleteLoadBalancerPolicyOutput } from "../models/index";
+import { DeleteLoadBalancerPolicyInput, DeleteLoadBalancerPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeleteLoadBalancerPolicyCommand,
   serializeAws_queryDeleteLoadBalancerPolicyCommand,

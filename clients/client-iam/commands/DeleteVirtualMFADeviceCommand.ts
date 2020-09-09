@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteVirtualMFADeviceRequest } from "../models/index";
+import { DeleteVirtualMFADeviceRequest } from "../models/models_0";
 import {
   deserializeAws_queryDeleteVirtualMFADeviceCommand,
   serializeAws_queryDeleteVirtualMFADeviceCommand,

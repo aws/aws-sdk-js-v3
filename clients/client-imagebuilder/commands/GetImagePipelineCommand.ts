@@ -1,5 +1,5 @@
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { GetImagePipelineRequest, GetImagePipelineResponse } from "../models/index";
+import { GetImagePipelineRequest, GetImagePipelineResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetImagePipelineCommand,
   serializeAws_restJson1GetImagePipelineCommand,

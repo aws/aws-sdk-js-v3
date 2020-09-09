@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult,
-} from "../models/index";
+} from "../models/models_4";
 import {
   deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand,
   serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand,

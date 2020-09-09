@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeSourceRegionsMessage, SourceRegionMessage } from "../models/index";
+import { DescribeSourceRegionsMessage, SourceRegionMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeSourceRegionsCommand,
   serializeAws_queryDescribeSourceRegionsCommand,

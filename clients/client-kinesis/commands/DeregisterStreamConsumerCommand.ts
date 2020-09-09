@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { DeregisterStreamConsumerInput } from "../models/index";
+import { DeregisterStreamConsumerInput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterStreamConsumerCommand,
   serializeAws_json1_1DeregisterStreamConsumerCommand,

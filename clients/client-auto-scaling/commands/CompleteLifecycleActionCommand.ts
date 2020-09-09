@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { CompleteLifecycleActionAnswer, CompleteLifecycleActionType } from "../models/index";
+import { CompleteLifecycleActionAnswer, CompleteLifecycleActionType } from "../models/models_0";
 import {
   deserializeAws_queryCompleteLifecycleActionCommand,
   serializeAws_queryCompleteLifecycleActionCommand,

@@ -2,7 +2,7 @@ import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeregisterTargetFromMaintenanceWindowRequest,
   DeregisterTargetFromMaintenanceWindowResult,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand,
   serializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand,

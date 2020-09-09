@@ -2,7 +2,7 @@ import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   UpdateGroupCertificateConfigurationRequest,
   UpdateGroupCertificateConfigurationResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateGroupCertificateConfigurationCommand,
   serializeAws_restJson1UpdateGroupCertificateConfigurationCommand,

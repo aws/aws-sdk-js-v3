@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { RestoreObjectOutput, RestoreObjectRequest } from "../models/index";
+import { RestoreObjectOutput, RestoreObjectRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlRestoreObjectCommand,
   serializeAws_restXmlRestoreObjectCommand,

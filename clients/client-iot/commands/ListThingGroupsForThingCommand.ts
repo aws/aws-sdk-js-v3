@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListThingGroupsForThingRequest, ListThingGroupsForThingResponse } from "../models/index";
+import { ListThingGroupsForThingRequest, ListThingGroupsForThingResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListThingGroupsForThingCommand,
   serializeAws_restJson1ListThingGroupsForThingCommand,

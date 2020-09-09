@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { PutIntentRequest, PutIntentResponse } from "../models/index";
+import { PutIntentRequest, PutIntentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutIntentCommand,
   serializeAws_restJson1PutIntentCommand,

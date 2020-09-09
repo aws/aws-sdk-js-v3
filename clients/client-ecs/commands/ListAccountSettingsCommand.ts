@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { ListAccountSettingsRequest, ListAccountSettingsResponse } from "../models/index";
+import { ListAccountSettingsRequest, ListAccountSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAccountSettingsCommand,
   serializeAws_json1_1ListAccountSettingsCommand,

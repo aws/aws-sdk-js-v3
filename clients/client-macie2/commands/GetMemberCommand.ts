@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { GetMemberRequest, GetMemberResponse } from "../models/index";
+import { GetMemberRequest, GetMemberResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMemberCommand,
   serializeAws_restJson1GetMemberCommand,

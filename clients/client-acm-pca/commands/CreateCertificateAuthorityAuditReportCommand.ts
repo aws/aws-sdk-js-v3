@@ -2,7 +2,7 @@ import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 import {
   CreateCertificateAuthorityAuditReportRequest,
   CreateCertificateAuthorityAuditReportResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCertificateAuthorityAuditReportCommand,
   serializeAws_json1_1CreateCertificateAuthorityAuditReportCommand,

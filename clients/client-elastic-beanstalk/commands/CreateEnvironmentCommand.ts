@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { CreateEnvironmentMessage, EnvironmentDescription } from "../models/index";
+import { CreateEnvironmentMessage, EnvironmentDescription } from "../models/models_0";
 import {
   deserializeAws_queryCreateEnvironmentCommand,
   serializeAws_queryCreateEnvironmentCommand,

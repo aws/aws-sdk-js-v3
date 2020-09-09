@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifySpotFleetRequestRequest, ModifySpotFleetRequestResponse } from "../models/index";
+import { ModifySpotFleetRequestRequest, ModifySpotFleetRequestResponse } from "../models/models_4";
 import {
   deserializeAws_ec2ModifySpotFleetRequestCommand,
   serializeAws_ec2ModifySpotFleetRequestCommand,

@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { CreateObjectRequest, CreateObjectResponse } from "../models/index";
+import { CreateObjectRequest, CreateObjectResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateObjectCommand,
   serializeAws_restJson1CreateObjectCommand,

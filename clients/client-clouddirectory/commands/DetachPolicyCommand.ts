@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { DetachPolicyRequest, DetachPolicyResponse } from "../models/index";
+import { DetachPolicyRequest, DetachPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DetachPolicyCommand,
   serializeAws_restJson1DetachPolicyCommand,

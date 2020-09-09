@@ -1,5 +1,5 @@
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import { GetProductsRequest, GetProductsResponse } from "../models/index";
+import { GetProductsRequest, GetProductsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetProductsCommand,
   serializeAws_json1_1GetProductsCommand,

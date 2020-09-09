@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetCampaignVersionsRequest, GetCampaignVersionsResponse } from "../models/index";
+import { GetCampaignVersionsRequest, GetCampaignVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCampaignVersionsCommand,
   serializeAws_restJson1GetCampaignVersionsCommand,

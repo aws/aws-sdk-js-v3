@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DescribeUserStackAssociationsRequest, DescribeUserStackAssociationsResult } from "../models/index";
+import { DescribeUserStackAssociationsRequest, DescribeUserStackAssociationsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeUserStackAssociationsCommand,
   serializeAws_json1_1DescribeUserStackAssociationsCommand,

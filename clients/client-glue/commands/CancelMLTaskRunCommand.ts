@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CancelMLTaskRunRequest, CancelMLTaskRunResponse } from "../models/index";
+import { CancelMLTaskRunRequest, CancelMLTaskRunResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelMLTaskRunCommand,
   serializeAws_json1_1CancelMLTaskRunCommand,

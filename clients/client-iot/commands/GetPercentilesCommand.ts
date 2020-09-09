@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { GetPercentilesRequest, GetPercentilesResponse } from "../models/index";
+import { GetPercentilesRequest, GetPercentilesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetPercentilesCommand,
   serializeAws_restJson1GetPercentilesCommand,

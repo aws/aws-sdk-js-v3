@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { StopLabelingJobRequest } from "../models/index";
+import { StopLabelingJobRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1StopLabelingJobCommand,
   serializeAws_json1_1StopLabelingJobCommand,

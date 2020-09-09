@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { RegisterActivityTypeInput } from "../models/index";
+import { RegisterActivityTypeInput } from "../models/models_0";
 import {
   deserializeAws_json1_0RegisterActivityTypeCommand,
   serializeAws_json1_0RegisterActivityTypeCommand,

@@ -1,5 +1,5 @@
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { DeleteBGPPeerRequest, DeleteBGPPeerResponse } from "../models/index";
+import { DeleteBGPPeerRequest, DeleteBGPPeerResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBGPPeerCommand,
   serializeAws_json1_1DeleteBGPPeerCommand,

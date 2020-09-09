@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { DescribeRulesInput, DescribeRulesOutput } from "../models/index";
+import { DescribeRulesInput, DescribeRulesOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeRulesCommand,
   serializeAws_queryDescribeRulesCommand,

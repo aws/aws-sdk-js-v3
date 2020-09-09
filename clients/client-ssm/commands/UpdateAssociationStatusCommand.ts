@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { UpdateAssociationStatusRequest, UpdateAssociationStatusResult } from "../models/index";
+import { UpdateAssociationStatusRequest, UpdateAssociationStatusResult } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateAssociationStatusCommand,
   serializeAws_json1_1UpdateAssociationStatusCommand,

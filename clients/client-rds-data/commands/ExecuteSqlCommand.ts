@@ -1,5 +1,5 @@
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
-import { ExecuteSqlRequest, ExecuteSqlResponse } from "../models/index";
+import { ExecuteSqlRequest, ExecuteSqlResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ExecuteSqlCommand,
   serializeAws_restJson1ExecuteSqlCommand,

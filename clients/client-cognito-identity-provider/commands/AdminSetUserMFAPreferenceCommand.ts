@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminSetUserMFAPreferenceRequest, AdminSetUserMFAPreferenceResponse } from "../models/index";
+import { AdminSetUserMFAPreferenceRequest, AdminSetUserMFAPreferenceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminSetUserMFAPreferenceCommand,
   serializeAws_json1_1AdminSetUserMFAPreferenceCommand,

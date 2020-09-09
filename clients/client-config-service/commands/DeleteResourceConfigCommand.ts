@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteResourceConfigRequest } from "../models/index";
+import { DeleteResourceConfigRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourceConfigCommand,
   serializeAws_json1_1DeleteResourceConfigCommand,

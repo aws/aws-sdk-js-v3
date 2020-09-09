@@ -1,5 +1,8 @@
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { DeleteInfrastructureConfigurationRequest, DeleteInfrastructureConfigurationResponse } from "../models/index";
+import {
+  DeleteInfrastructureConfigurationRequest,
+  DeleteInfrastructureConfigurationResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteInfrastructureConfigurationCommand,
   serializeAws_restJson1DeleteInfrastructureConfigurationCommand,

@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { CompareFacesRequest, CompareFacesResponse } from "../models/index";
+import { CompareFacesRequest, CompareFacesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CompareFacesCommand,
   serializeAws_json1_1CompareFacesCommand,

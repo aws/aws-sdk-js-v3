@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateDataSourcePermissionsRequest, UpdateDataSourcePermissionsResponse } from "../models/index";
+import { UpdateDataSourcePermissionsRequest, UpdateDataSourcePermissionsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateDataSourcePermissionsCommand,
   serializeAws_restJson1UpdateDataSourcePermissionsCommand,

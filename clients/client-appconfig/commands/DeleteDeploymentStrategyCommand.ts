@@ -1,5 +1,5 @@
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { DeleteDeploymentStrategyRequest } from "../models/index";
+import { DeleteDeploymentStrategyRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDeploymentStrategyCommand,
   serializeAws_restJson1DeleteDeploymentStrategyCommand,

@@ -1,5 +1,5 @@
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { GetAccuracyMetricsRequest, GetAccuracyMetricsResponse } from "../models/index";
+import { GetAccuracyMetricsRequest, GetAccuracyMetricsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAccuracyMetricsCommand,
   serializeAws_json1_1GetAccuracyMetricsCommand,

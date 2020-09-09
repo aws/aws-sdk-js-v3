@@ -1,5 +1,5 @@
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DisassociateKmsKeyRequest } from "../models/index";
+import { DisassociateKmsKeyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateKmsKeyCommand,
   serializeAws_json1_1DisassociateKmsKeyCommand,

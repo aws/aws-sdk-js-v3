@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import { InitiateDeviceClaimRequest, InitiateDeviceClaimResponse } from "../models/index";
+import { InitiateDeviceClaimRequest, InitiateDeviceClaimResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1InitiateDeviceClaimCommand,
   serializeAws_restJson1InitiateDeviceClaimCommand,

@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { FlattenedXmlMapInputOutput } from "../models/index";
+import { FlattenedXmlMapInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlFlattenedXmlMapCommand,
   serializeAws_restXmlFlattenedXmlMapCommand,

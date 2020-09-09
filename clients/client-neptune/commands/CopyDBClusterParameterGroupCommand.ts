@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { CopyDBClusterParameterGroupMessage, CopyDBClusterParameterGroupResult } from "../models/index";
+import { CopyDBClusterParameterGroupMessage, CopyDBClusterParameterGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryCopyDBClusterParameterGroupCommand,
   serializeAws_queryCopyDBClusterParameterGroupCommand,

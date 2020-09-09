@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DeleteDirectoryRequest, DeleteDirectoryResult } from "../models/index";
+import { DeleteDirectoryRequest, DeleteDirectoryResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDirectoryCommand,
   serializeAws_json1_1DeleteDirectoryCommand,

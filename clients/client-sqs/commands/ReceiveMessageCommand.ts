@@ -1,5 +1,5 @@
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
-import { ReceiveMessageRequest, ReceiveMessageResult } from "../models/index";
+import { ReceiveMessageRequest, ReceiveMessageResult } from "../models/models_0";
 import {
   deserializeAws_queryReceiveMessageCommand,
   serializeAws_queryReceiveMessageCommand,

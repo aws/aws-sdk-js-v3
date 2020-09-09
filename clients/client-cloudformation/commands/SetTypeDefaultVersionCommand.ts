@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { SetTypeDefaultVersionInput, SetTypeDefaultVersionOutput } from "../models/index";
+import { SetTypeDefaultVersionInput, SetTypeDefaultVersionOutput } from "../models/models_0";
 import {
   deserializeAws_querySetTypeDefaultVersionCommand,
   serializeAws_querySetTypeDefaultVersionCommand,

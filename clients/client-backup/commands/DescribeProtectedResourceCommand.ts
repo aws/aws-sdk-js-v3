@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DescribeProtectedResourceInput, DescribeProtectedResourceOutput } from "../models/index";
+import { DescribeProtectedResourceInput, DescribeProtectedResourceOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeProtectedResourceCommand,
   serializeAws_restJson1DescribeProtectedResourceCommand,

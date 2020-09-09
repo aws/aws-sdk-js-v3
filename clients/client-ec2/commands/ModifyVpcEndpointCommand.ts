@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVpcEndpointRequest, ModifyVpcEndpointResult } from "../models/index";
+import { ModifyVpcEndpointRequest, ModifyVpcEndpointResult } from "../models/models_4";
 import {
   deserializeAws_ec2ModifyVpcEndpointCommand,
   serializeAws_ec2ModifyVpcEndpointCommand,

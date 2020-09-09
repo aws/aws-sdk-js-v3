@@ -1,5 +1,5 @@
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteInputSecurityGroupRequest, DeleteInputSecurityGroupResponse } from "../models/index";
+import { DeleteInputSecurityGroupRequest, DeleteInputSecurityGroupResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteInputSecurityGroupCommand,
   serializeAws_restJson1DeleteInputSecurityGroupCommand,

@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DeleteStreamProcessorRequest, DeleteStreamProcessorResponse } from "../models/index";
+import { DeleteStreamProcessorRequest, DeleteStreamProcessorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteStreamProcessorCommand,
   serializeAws_json1_1DeleteStreamProcessorCommand,

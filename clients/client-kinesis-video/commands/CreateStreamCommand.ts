@@ -1,5 +1,5 @@
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import { CreateStreamInput, CreateStreamOutput } from "../models/index";
+import { CreateStreamInput, CreateStreamOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateStreamCommand,
   serializeAws_restJson1CreateStreamCommand,

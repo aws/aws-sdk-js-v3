@@ -1,5 +1,5 @@
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { XmlMapsXmlNameOutput } from "../models/index";
+import { XmlMapsXmlNameOutput } from "../models/models_0";
 import {
   deserializeAws_queryXmlMapsXmlNameCommand,
   serializeAws_queryXmlMapsXmlNameCommand,

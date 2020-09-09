@@ -1,5 +1,5 @@
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { RetryStageExecutionInput, RetryStageExecutionOutput } from "../models/index";
+import { RetryStageExecutionInput, RetryStageExecutionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1RetryStageExecutionCommand,
   serializeAws_json1_1RetryStageExecutionCommand,

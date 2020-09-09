@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { DescribeUpdateActionsMessage, UpdateActionsMessage } from "../models/index";
+import { DescribeUpdateActionsMessage, UpdateActionsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeUpdateActionsCommand,
   serializeAws_queryDescribeUpdateActionsCommand,

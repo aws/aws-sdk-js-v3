@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { AssociateDelegateToResourceRequest, AssociateDelegateToResourceResponse } from "../models/index";
+import { AssociateDelegateToResourceRequest, AssociateDelegateToResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateDelegateToResourceCommand,
   serializeAws_json1_1AssociateDelegateToResourceCommand,

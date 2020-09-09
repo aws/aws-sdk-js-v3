@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetConsoleOutputRequest, GetConsoleOutputResult } from "../models/index";
+import { GetConsoleOutputRequest, GetConsoleOutputResult } from "../models/models_3";
 import {
   deserializeAws_ec2GetConsoleOutputCommand,
   serializeAws_ec2GetConsoleOutputCommand,

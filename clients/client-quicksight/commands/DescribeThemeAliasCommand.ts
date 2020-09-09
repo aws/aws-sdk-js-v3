@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeThemeAliasRequest, DescribeThemeAliasResponse } from "../models/index";
+import { DescribeThemeAliasRequest, DescribeThemeAliasResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeThemeAliasCommand,
   serializeAws_restJson1DescribeThemeAliasCommand,

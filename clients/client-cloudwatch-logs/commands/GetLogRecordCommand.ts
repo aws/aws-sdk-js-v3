@@ -1,5 +1,5 @@
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { GetLogRecordRequest, GetLogRecordResponse } from "../models/index";
+import { GetLogRecordRequest, GetLogRecordResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetLogRecordCommand,
   serializeAws_json1_1GetLogRecordCommand,

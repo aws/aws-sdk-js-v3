@@ -1,5 +1,5 @@
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { UpdateBrokerCountRequest, UpdateBrokerCountResponse } from "../models/index";
+import { UpdateBrokerCountRequest, UpdateBrokerCountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateBrokerCountCommand,
   serializeAws_restJson1UpdateBrokerCountCommand,

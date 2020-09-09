@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { PutLoggingConfigurationRequest, PutLoggingConfigurationResponse } from "../models/index";
+import { PutLoggingConfigurationRequest, PutLoggingConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutLoggingConfigurationCommand,
   serializeAws_json1_1PutLoggingConfigurationCommand,

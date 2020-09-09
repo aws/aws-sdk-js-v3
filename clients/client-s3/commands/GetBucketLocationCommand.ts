@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketLocationOutput, GetBucketLocationRequest } from "../models/index";
+import { GetBucketLocationOutput, GetBucketLocationRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketLocationCommand,
   serializeAws_restXmlGetBucketLocationCommand,

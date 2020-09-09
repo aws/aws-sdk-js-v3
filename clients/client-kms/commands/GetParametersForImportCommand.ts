@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { GetParametersForImportRequest, GetParametersForImportResponse } from "../models/index";
+import { GetParametersForImportRequest, GetParametersForImportResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetParametersForImportCommand,
   serializeAws_json1_1GetParametersForImportCommand,

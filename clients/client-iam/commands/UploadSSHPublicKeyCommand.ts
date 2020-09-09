@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse } from "../models/index";
+import { UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse } from "../models/models_1";
 import {
   deserializeAws_queryUploadSSHPublicKeyCommand,
   serializeAws_queryUploadSSHPublicKeyCommand,

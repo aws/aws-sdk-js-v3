@@ -1,5 +1,5 @@
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { Deployment, StopDeploymentRequest } from "../models/index";
+import { Deployment, StopDeploymentRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1StopDeploymentCommand,
   serializeAws_restJson1StopDeploymentCommand,

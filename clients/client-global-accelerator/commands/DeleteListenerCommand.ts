@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { DeleteListenerRequest } from "../models/index";
+import { DeleteListenerRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteListenerCommand,
   serializeAws_json1_1DeleteListenerCommand,

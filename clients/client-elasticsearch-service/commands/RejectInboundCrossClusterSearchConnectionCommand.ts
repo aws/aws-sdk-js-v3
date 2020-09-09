@@ -6,7 +6,7 @@ import {
 import {
   RejectInboundCrossClusterSearchConnectionRequest,
   RejectInboundCrossClusterSearchConnectionResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RejectInboundCrossClusterSearchConnectionCommand,
   serializeAws_restJson1RejectInboundCrossClusterSearchConnectionCommand,

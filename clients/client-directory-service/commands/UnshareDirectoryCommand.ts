@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { UnshareDirectoryRequest, UnshareDirectoryResult } from "../models/index";
+import { UnshareDirectoryRequest, UnshareDirectoryResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UnshareDirectoryCommand,
   serializeAws_json1_1UnshareDirectoryCommand,

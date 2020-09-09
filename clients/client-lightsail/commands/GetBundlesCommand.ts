@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetBundlesRequest, GetBundlesResult } from "../models/index";
+import { GetBundlesRequest, GetBundlesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetBundlesCommand,
   serializeAws_json1_1GetBundlesCommand,

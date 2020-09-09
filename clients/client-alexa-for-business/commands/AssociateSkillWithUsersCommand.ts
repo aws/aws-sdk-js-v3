@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { AssociateSkillWithUsersRequest, AssociateSkillWithUsersResponse } from "../models/index";
+import { AssociateSkillWithUsersRequest, AssociateSkillWithUsersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateSkillWithUsersCommand,
   serializeAws_json1_1AssociateSkillWithUsersCommand,

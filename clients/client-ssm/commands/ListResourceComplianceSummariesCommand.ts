@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { ListResourceComplianceSummariesRequest, ListResourceComplianceSummariesResult } from "../models/index";
+import { ListResourceComplianceSummariesRequest, ListResourceComplianceSummariesResult } from "../models/models_1";
 import {
   deserializeAws_json1_1ListResourceComplianceSummariesCommand,
   serializeAws_json1_1ListResourceComplianceSummariesCommand,

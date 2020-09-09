@@ -1,5 +1,8 @@
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import { GetAutoScalingGroupRecommendationsRequest, GetAutoScalingGroupRecommendationsResponse } from "../models/index";
+import {
+  GetAutoScalingGroupRecommendationsRequest,
+  GetAutoScalingGroupRecommendationsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommand,
   serializeAws_json1_0GetAutoScalingGroupRecommendationsCommand,

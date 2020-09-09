@@ -1,5 +1,5 @@
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { PutResourceAttributesRequest, PutResourceAttributesResult } from "../models/index";
+import { PutResourceAttributesRequest, PutResourceAttributesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1PutResourceAttributesCommand,
   serializeAws_json1_1PutResourceAttributesCommand,

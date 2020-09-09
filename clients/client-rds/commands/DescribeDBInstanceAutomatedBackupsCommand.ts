@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DBInstanceAutomatedBackupMessage, DescribeDBInstanceAutomatedBackupsMessage } from "../models/index";
+import { DBInstanceAutomatedBackupMessage, DescribeDBInstanceAutomatedBackupsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand,
   serializeAws_queryDescribeDBInstanceAutomatedBackupsCommand,

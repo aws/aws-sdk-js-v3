@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { UpdateActionTargetRequest, UpdateActionTargetResponse } from "../models/index";
+import { UpdateActionTargetRequest, UpdateActionTargetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateActionTargetCommand,
   serializeAws_restJson1UpdateActionTargetCommand,

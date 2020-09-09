@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { NoInputAndOutputOutput } from "../models/index";
+import { NoInputAndOutputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlNoInputAndOutputCommand,
   serializeAws_restXmlNoInputAndOutputCommand,

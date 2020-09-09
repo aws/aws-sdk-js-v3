@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/index";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UntagResourceCommand,
   serializeAws_restJson1UntagResourceCommand,

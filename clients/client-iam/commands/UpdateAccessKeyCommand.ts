@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateAccessKeyRequest } from "../models/index";
+import { UpdateAccessKeyRequest } from "../models/models_0";
 import {
   deserializeAws_queryUpdateAccessKeyCommand,
   serializeAws_queryUpdateAccessKeyCommand,

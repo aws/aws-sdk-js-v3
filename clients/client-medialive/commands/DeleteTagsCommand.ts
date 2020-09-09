@@ -1,5 +1,5 @@
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DeleteTagsRequest } from "../models/index";
+import { DeleteTagsRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteTagsCommand,
   serializeAws_restJson1DeleteTagsCommand,

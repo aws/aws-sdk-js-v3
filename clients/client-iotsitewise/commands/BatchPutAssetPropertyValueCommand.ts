@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { BatchPutAssetPropertyValueRequest, BatchPutAssetPropertyValueResponse } from "../models/index";
+import { BatchPutAssetPropertyValueRequest, BatchPutAssetPropertyValueResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchPutAssetPropertyValueCommand,
   serializeAws_restJson1BatchPutAssetPropertyValueCommand,

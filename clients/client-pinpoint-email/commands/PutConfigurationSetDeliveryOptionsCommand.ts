@@ -1,5 +1,8 @@
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { PutConfigurationSetDeliveryOptionsRequest, PutConfigurationSetDeliveryOptionsResponse } from "../models/index";
+import {
+  PutConfigurationSetDeliveryOptionsRequest,
+  PutConfigurationSetDeliveryOptionsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand,
   serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand,

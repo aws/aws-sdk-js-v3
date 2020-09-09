@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { GetSupportedResourceTypesOutput } from "../models/index";
+import { GetSupportedResourceTypesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSupportedResourceTypesCommand,
   serializeAws_restJson1GetSupportedResourceTypesCommand,

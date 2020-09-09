@@ -1,5 +1,5 @@
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
-import { GetDigestRequest, GetDigestResponse } from "../models/index";
+import { GetDigestRequest, GetDigestResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDigestCommand,
   serializeAws_restJson1GetDigestCommand,

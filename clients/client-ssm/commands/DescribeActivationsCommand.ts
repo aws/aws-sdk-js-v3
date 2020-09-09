@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DescribeActivationsRequest, DescribeActivationsResult } from "../models/index";
+import { DescribeActivationsRequest, DescribeActivationsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeActivationsCommand,
   serializeAws_json1_1DescribeActivationsCommand,

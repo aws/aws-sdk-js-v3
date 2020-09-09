@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { RedactConversationMessageRequest, RedactConversationMessageResponse } from "../models/index";
+import { RedactConversationMessageRequest, RedactConversationMessageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RedactConversationMessageCommand,
   serializeAws_restJson1RedactConversationMessageCommand,

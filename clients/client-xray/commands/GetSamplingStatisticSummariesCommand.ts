@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
-import { GetSamplingStatisticSummariesRequest, GetSamplingStatisticSummariesResult } from "../models/index";
+import { GetSamplingStatisticSummariesRequest, GetSamplingStatisticSummariesResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSamplingStatisticSummariesCommand,
   serializeAws_restJson1GetSamplingStatisticSummariesCommand,

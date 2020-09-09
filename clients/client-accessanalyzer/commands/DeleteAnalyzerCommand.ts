@@ -1,5 +1,5 @@
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { DeleteAnalyzerRequest } from "../models/index";
+import { DeleteAnalyzerRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAnalyzerCommand,
   serializeAws_restJson1DeleteAnalyzerCommand,

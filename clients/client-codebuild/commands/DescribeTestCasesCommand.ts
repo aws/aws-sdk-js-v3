@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { DescribeTestCasesInput, DescribeTestCasesOutput } from "../models/index";
+import { DescribeTestCasesInput, DescribeTestCasesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTestCasesCommand,
   serializeAws_json1_1DescribeTestCasesCommand,

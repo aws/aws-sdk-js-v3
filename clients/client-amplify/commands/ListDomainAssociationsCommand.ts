@@ -1,5 +1,5 @@
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { ListDomainAssociationsRequest, ListDomainAssociationsResult } from "../models/index";
+import { ListDomainAssociationsRequest, ListDomainAssociationsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDomainAssociationsCommand,
   serializeAws_restJson1ListDomainAssociationsCommand,

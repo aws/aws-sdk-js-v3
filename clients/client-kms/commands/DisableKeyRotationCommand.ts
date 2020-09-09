@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DisableKeyRotationRequest } from "../models/index";
+import { DisableKeyRotationRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableKeyRotationCommand,
   serializeAws_json1_1DisableKeyRotationCommand,

@@ -1,5 +1,5 @@
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
-import { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/index";
+import { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteNamespaceCommand,
   serializeAws_json1_1DeleteNamespaceCommand,

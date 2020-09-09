@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DetachGroupPolicyRequest } from "../models/index";
+import { DetachGroupPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryDetachGroupPolicyCommand,
   serializeAws_queryDetachGroupPolicyCommand,

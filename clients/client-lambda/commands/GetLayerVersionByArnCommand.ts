@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { GetLayerVersionByArnRequest, GetLayerVersionResponse } from "../models/index";
+import { GetLayerVersionByArnRequest, GetLayerVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetLayerVersionByArnCommand,
   serializeAws_restJson1GetLayerVersionByArnCommand,

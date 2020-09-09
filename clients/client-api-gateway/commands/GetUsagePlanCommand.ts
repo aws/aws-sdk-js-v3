@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { GetUsagePlanRequest, UsagePlan } from "../models/index";
+import { GetUsagePlanRequest, UsagePlan } from "../models/models_0";
 import {
   deserializeAws_restJson1GetUsagePlanCommand,
   serializeAws_restJson1GetUsagePlanCommand,

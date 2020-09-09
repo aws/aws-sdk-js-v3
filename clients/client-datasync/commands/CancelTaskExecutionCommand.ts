@@ -1,5 +1,5 @@
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { CancelTaskExecutionRequest, CancelTaskExecutionResponse } from "../models/index";
+import { CancelTaskExecutionRequest, CancelTaskExecutionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelTaskExecutionCommand,
   serializeAws_json1_1CancelTaskExecutionCommand,

@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyInstanceMetadataOptionsRequest, ModifyInstanceMetadataOptionsResult } from "../models/index";
+import { ModifyInstanceMetadataOptionsRequest, ModifyInstanceMetadataOptionsResult } from "../models/models_4";
 import {
   deserializeAws_ec2ModifyInstanceMetadataOptionsCommand,
   serializeAws_ec2ModifyInstanceMetadataOptionsCommand,

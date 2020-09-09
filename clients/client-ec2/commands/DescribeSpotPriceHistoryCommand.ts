@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeSpotPriceHistoryRequest, DescribeSpotPriceHistoryResult } from "../models/index";
+import { DescribeSpotPriceHistoryRequest, DescribeSpotPriceHistoryResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeSpotPriceHistoryCommand,
   serializeAws_ec2DescribeSpotPriceHistoryCommand,

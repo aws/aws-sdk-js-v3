@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { AssociateEnvironmentOperationsRoleMessage } from "../models/index";
+import { AssociateEnvironmentOperationsRoleMessage } from "../models/models_0";
 import {
   deserializeAws_queryAssociateEnvironmentOperationsRoleCommand,
   serializeAws_queryAssociateEnvironmentOperationsRoleCommand,

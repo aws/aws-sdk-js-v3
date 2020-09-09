@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeScheduledActionsType, ScheduledActionsType } from "../models/index";
+import { DescribeScheduledActionsType, ScheduledActionsType } from "../models/models_0";
 import {
   deserializeAws_queryDescribeScheduledActionsCommand,
   serializeAws_queryDescribeScheduledActionsCommand,

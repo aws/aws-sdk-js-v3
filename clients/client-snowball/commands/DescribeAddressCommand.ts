@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
-import { DescribeAddressRequest, DescribeAddressResult } from "../models/index";
+import { DescribeAddressRequest, DescribeAddressResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAddressCommand,
   serializeAws_json1_1DescribeAddressCommand,

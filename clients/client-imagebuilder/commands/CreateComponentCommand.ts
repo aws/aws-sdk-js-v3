@@ -1,5 +1,5 @@
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { CreateComponentRequest, CreateComponentResponse } from "../models/index";
+import { CreateComponentRequest, CreateComponentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateComponentCommand,
   serializeAws_restJson1CreateComponentCommand,

@@ -1,5 +1,5 @@
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { StopPipelineExecutionInput, StopPipelineExecutionOutput } from "../models/index";
+import { StopPipelineExecutionInput, StopPipelineExecutionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StopPipelineExecutionCommand,
   serializeAws_json1_1StopPipelineExecutionCommand,

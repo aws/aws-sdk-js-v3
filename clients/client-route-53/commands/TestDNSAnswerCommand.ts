@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { TestDNSAnswerRequest, TestDNSAnswerResponse } from "../models/index";
+import { TestDNSAnswerRequest, TestDNSAnswerResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlTestDNSAnswerCommand,
   serializeAws_restXmlTestDNSAnswerCommand,

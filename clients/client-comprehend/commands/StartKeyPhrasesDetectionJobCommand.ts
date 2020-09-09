@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StartKeyPhrasesDetectionJobRequest, StartKeyPhrasesDetectionJobResponse } from "../models/index";
+import { StartKeyPhrasesDetectionJobRequest, StartKeyPhrasesDetectionJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand,
   serializeAws_json1_1StartKeyPhrasesDetectionJobCommand,

@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { EnableMacieRequest, EnableMacieResponse } from "../models/index";
+import { EnableMacieRequest, EnableMacieResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1EnableMacieCommand,
   serializeAws_restJson1EnableMacieCommand,

@@ -2,7 +2,7 @@ import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   ListDistributionsByOriginRequestPolicyIdRequest,
   ListDistributionsByOriginRequestPolicyIdResult,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand,
   serializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand,

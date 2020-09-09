@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { StartSessionRequest, StartSessionResponse } from "../models/index";
+import { StartSessionRequest, StartSessionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1StartSessionCommand,
   serializeAws_json1_1StartSessionCommand,

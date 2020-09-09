@@ -1,5 +1,5 @@
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { ListClustersRequest, ListClustersResponse } from "../models/index";
+import { ListClustersRequest, ListClustersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListClustersCommand,
   serializeAws_restJson1ListClustersCommand,

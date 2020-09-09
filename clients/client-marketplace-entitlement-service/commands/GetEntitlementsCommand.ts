@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceEntitlementServiceClient";
-import { GetEntitlementsRequest, GetEntitlementsResult } from "../models/index";
+import { GetEntitlementsRequest, GetEntitlementsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetEntitlementsCommand,
   serializeAws_json1_1GetEntitlementsCommand,

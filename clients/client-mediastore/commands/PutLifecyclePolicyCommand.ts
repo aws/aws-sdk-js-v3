@@ -1,5 +1,5 @@
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import { PutLifecyclePolicyInput, PutLifecyclePolicyOutput } from "../models/index";
+import { PutLifecyclePolicyInput, PutLifecyclePolicyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutLifecyclePolicyCommand,
   serializeAws_json1_1PutLifecyclePolicyCommand,

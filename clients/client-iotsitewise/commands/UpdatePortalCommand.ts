@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { UpdatePortalRequest, UpdatePortalResponse } from "../models/index";
+import { UpdatePortalRequest, UpdatePortalResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePortalCommand,
   serializeAws_restJson1UpdatePortalCommand,

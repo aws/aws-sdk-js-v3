@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
-import { CheckCapacityRequest, CheckCapacityResponse } from "../models/index";
+import { CheckCapacityRequest, CheckCapacityResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CheckCapacityCommand,
   serializeAws_json1_1CheckCapacityCommand,

@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RequestSpotInstancesRequest, RequestSpotInstancesResult } from "../models/index";
+import { RequestSpotInstancesRequest, RequestSpotInstancesResult } from "../models/models_4";
 import {
   deserializeAws_ec2RequestSpotInstancesCommand,
   serializeAws_ec2RequestSpotInstancesCommand,

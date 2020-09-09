@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { RequestUploadCredentialsInput, RequestUploadCredentialsOutput } from "../models/index";
+import { RequestUploadCredentialsInput, RequestUploadCredentialsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1RequestUploadCredentialsCommand,
   serializeAws_json1_1RequestUploadCredentialsCommand,

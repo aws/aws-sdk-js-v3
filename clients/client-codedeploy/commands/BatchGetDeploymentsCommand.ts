@@ -1,5 +1,5 @@
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { BatchGetDeploymentsInput, BatchGetDeploymentsOutput } from "../models/index";
+import { BatchGetDeploymentsInput, BatchGetDeploymentsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetDeploymentsCommand,
   serializeAws_json1_1BatchGetDeploymentsCommand,

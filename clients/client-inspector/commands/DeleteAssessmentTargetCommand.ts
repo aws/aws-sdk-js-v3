@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { DeleteAssessmentTargetRequest } from "../models/index";
+import { DeleteAssessmentTargetRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAssessmentTargetCommand,
   serializeAws_json1_1DeleteAssessmentTargetCommand,

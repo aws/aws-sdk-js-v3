@@ -1,5 +1,5 @@
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { PutCodeBindingRequest, PutCodeBindingResponse } from "../models/index";
+import { PutCodeBindingRequest, PutCodeBindingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutCodeBindingCommand,
   serializeAws_restJson1PutCodeBindingCommand,

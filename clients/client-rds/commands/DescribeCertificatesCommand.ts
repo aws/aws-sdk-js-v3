@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { CertificateMessage, DescribeCertificatesMessage } from "../models/index";
+import { CertificateMessage, DescribeCertificatesMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeCertificatesCommand,
   serializeAws_queryDescribeCertificatesCommand,

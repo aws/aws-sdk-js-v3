@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { AssociatePhoneNumberWithUserRequest, AssociatePhoneNumberWithUserResponse } from "../models/index";
+import { AssociatePhoneNumberWithUserRequest, AssociatePhoneNumberWithUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociatePhoneNumberWithUserCommand,
   serializeAws_restJson1AssociatePhoneNumberWithUserCommand,

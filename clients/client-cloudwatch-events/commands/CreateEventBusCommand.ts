@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { CreateEventBusRequest, CreateEventBusResponse } from "../models/index";
+import { CreateEventBusRequest, CreateEventBusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEventBusCommand,
   serializeAws_json1_1CreateEventBusCommand,

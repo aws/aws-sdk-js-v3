@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { DeleteProjectInput, DeleteProjectOutput } from "../models/index";
+import { DeleteProjectInput, DeleteProjectOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProjectCommand,
   serializeAws_json1_1DeleteProjectCommand,

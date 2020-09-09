@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteFlowDefinitionRequest, DeleteFlowDefinitionResponse } from "../models/index";
+import { DeleteFlowDefinitionRequest, DeleteFlowDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFlowDefinitionCommand,
   serializeAws_json1_1DeleteFlowDefinitionCommand,

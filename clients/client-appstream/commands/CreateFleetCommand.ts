@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { CreateFleetRequest, CreateFleetResult } from "../models/index";
+import { CreateFleetRequest, CreateFleetResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateFleetCommand,
   serializeAws_json1_1CreateFleetCommand,

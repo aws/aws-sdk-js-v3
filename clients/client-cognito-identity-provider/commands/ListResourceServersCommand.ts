@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ListResourceServersRequest, ListResourceServersResponse } from "../models/index";
+import { ListResourceServersRequest, ListResourceServersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListResourceServersCommand,
   serializeAws_json1_1ListResourceServersCommand,

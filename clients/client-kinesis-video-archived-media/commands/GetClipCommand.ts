@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import { GetClipInput, GetClipOutput } from "../models/index";
+import { GetClipInput, GetClipOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetClipCommand,
   serializeAws_restJson1GetClipCommand,

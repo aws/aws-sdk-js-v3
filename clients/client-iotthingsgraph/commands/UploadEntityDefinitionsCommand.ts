@@ -1,5 +1,5 @@
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { UploadEntityDefinitionsRequest, UploadEntityDefinitionsResponse } from "../models/index";
+import { UploadEntityDefinitionsRequest, UploadEntityDefinitionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UploadEntityDefinitionsCommand,
   serializeAws_json1_1UploadEntityDefinitionsCommand,

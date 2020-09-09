@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ChangePasswordRequest, ChangePasswordResponse } from "../models/index";
+import { ChangePasswordRequest, ChangePasswordResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ChangePasswordCommand,
   serializeAws_json1_1ChangePasswordCommand,

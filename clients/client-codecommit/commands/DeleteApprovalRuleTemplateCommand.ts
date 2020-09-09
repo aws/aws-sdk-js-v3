@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { DeleteApprovalRuleTemplateInput, DeleteApprovalRuleTemplateOutput } from "../models/index";
+import { DeleteApprovalRuleTemplateInput, DeleteApprovalRuleTemplateOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApprovalRuleTemplateCommand,
   serializeAws_json1_1DeleteApprovalRuleTemplateCommand,

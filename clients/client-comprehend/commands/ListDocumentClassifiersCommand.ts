@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { ListDocumentClassifiersRequest, ListDocumentClassifiersResponse } from "../models/index";
+import { ListDocumentClassifiersRequest, ListDocumentClassifiersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDocumentClassifiersCommand,
   serializeAws_json1_1ListDocumentClassifiersCommand,

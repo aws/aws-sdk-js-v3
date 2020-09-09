@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { UpdateRuleRequest, UpdateRuleResponse } from "../models/index";
+import { UpdateRuleRequest, UpdateRuleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRuleCommand,
   serializeAws_json1_1UpdateRuleCommand,

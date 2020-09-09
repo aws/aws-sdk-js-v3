@@ -1,5 +1,5 @@
 import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
-import { AssumeRoleRequest, AssumeRoleResponse } from "../models/index";
+import { AssumeRoleRequest, AssumeRoleResponse } from "../models/models_0";
 import { deserializeAws_queryAssumeRoleCommand, serializeAws_queryAssumeRoleCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

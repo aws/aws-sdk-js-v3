@@ -1,5 +1,5 @@
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { ListGitHubAccountTokenNamesInput, ListGitHubAccountTokenNamesOutput } from "../models/index";
+import { ListGitHubAccountTokenNamesInput, ListGitHubAccountTokenNamesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListGitHubAccountTokenNamesCommand,
   serializeAws_json1_1ListGitHubAccountTokenNamesCommand,

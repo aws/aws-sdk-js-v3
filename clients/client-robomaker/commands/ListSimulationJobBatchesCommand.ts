@@ -1,5 +1,5 @@
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
-import { ListSimulationJobBatchesRequest, ListSimulationJobBatchesResponse } from "../models/index";
+import { ListSimulationJobBatchesRequest, ListSimulationJobBatchesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSimulationJobBatchesCommand,
   serializeAws_restJson1ListSimulationJobBatchesCommand,

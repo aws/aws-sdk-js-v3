@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { CreateAddressBookRequest, CreateAddressBookResponse } from "../models/index";
+import { CreateAddressBookRequest, CreateAddressBookResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAddressBookCommand,
   serializeAws_json1_1CreateAddressBookCommand,

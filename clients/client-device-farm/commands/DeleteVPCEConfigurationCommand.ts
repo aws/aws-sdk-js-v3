@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { DeleteVPCEConfigurationRequest, DeleteVPCEConfigurationResult } from "../models/index";
+import { DeleteVPCEConfigurationRequest, DeleteVPCEConfigurationResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteVPCEConfigurationCommand,
   serializeAws_json1_1DeleteVPCEConfigurationCommand,

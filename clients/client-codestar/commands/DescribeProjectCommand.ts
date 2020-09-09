@@ -1,5 +1,5 @@
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import { DescribeProjectRequest, DescribeProjectResult } from "../models/index";
+import { DescribeProjectRequest, DescribeProjectResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeProjectCommand,
   serializeAws_json1_1DescribeProjectCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { RetrieveTapeRecoveryPointInput, RetrieveTapeRecoveryPointOutput } from "../models/index";
+import { RetrieveTapeRecoveryPointInput, RetrieveTapeRecoveryPointOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1RetrieveTapeRecoveryPointCommand,
   serializeAws_json1_1RetrieveTapeRecoveryPointCommand,

@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { InviteUsersRequest, InviteUsersResponse } from "../models/index";
+import { InviteUsersRequest, InviteUsersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1InviteUsersCommand,
   serializeAws_restJson1InviteUsersCommand,

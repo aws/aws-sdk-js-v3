@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteClusterSnapshotMessage, DeleteClusterSnapshotResult } from "../models/index";
+import { DeleteClusterSnapshotMessage, DeleteClusterSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteClusterSnapshotCommand,
   serializeAws_queryDeleteClusterSnapshotCommand,

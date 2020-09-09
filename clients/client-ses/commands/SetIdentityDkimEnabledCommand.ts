@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { SetIdentityDkimEnabledRequest, SetIdentityDkimEnabledResponse } from "../models/index";
+import { SetIdentityDkimEnabledRequest, SetIdentityDkimEnabledResponse } from "../models/models_0";
 import {
   deserializeAws_querySetIdentityDkimEnabledCommand,
   serializeAws_querySetIdentityDkimEnabledCommand,

@@ -1,5 +1,5 @@
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { IndexDocumentsRequest, IndexDocumentsResponse } from "../models/index";
+import { IndexDocumentsRequest, IndexDocumentsResponse } from "../models/models_0";
 import {
   deserializeAws_queryIndexDocumentsCommand,
   serializeAws_queryIndexDocumentsCommand,

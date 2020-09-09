@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { RecursiveShapesInputOutput } from "../models/index";
+import { RecursiveShapesInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1RecursiveShapesCommand,
   serializeAws_restJson1RecursiveShapesCommand,

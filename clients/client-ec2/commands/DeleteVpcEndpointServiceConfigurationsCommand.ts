@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeleteVpcEndpointServiceConfigurationsRequest,
   DeleteVpcEndpointServiceConfigurationsResult,
-} from "../models/index";
+} from "../models/models_1";
 import {
   deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand,
   serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand,

@@ -2,7 +2,7 @@ import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 import {
   CancelDomainTransferToAnotherAwsAccountRequest,
   CancelDomainTransferToAnotherAwsAccountResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand,
   serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand,

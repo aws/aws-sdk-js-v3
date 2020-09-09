@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateCustomerGatewayRequest, CreateCustomerGatewayResult } from "../models/index";
+import { CreateCustomerGatewayRequest, CreateCustomerGatewayResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreateCustomerGatewayCommand,
   serializeAws_ec2CreateCustomerGatewayCommand,

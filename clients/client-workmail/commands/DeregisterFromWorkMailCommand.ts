@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { DeregisterFromWorkMailRequest, DeregisterFromWorkMailResponse } from "../models/index";
+import { DeregisterFromWorkMailRequest, DeregisterFromWorkMailResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterFromWorkMailCommand,
   serializeAws_json1_1DeregisterFromWorkMailCommand,

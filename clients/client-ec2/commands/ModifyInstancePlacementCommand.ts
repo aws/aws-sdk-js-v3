@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyInstancePlacementRequest, ModifyInstancePlacementResult } from "../models/index";
+import { ModifyInstancePlacementRequest, ModifyInstancePlacementResult } from "../models/models_4";
 import {
   deserializeAws_ec2ModifyInstancePlacementCommand,
   serializeAws_ec2ModifyInstancePlacementCommand,

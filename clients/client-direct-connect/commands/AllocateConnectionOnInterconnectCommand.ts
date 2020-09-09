@@ -1,5 +1,5 @@
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { AllocateConnectionOnInterconnectRequest, Connection } from "../models/index";
+import { AllocateConnectionOnInterconnectRequest, Connection } from "../models/models_0";
 import {
   deserializeAws_json1_1AllocateConnectionOnInterconnectCommand,
   serializeAws_json1_1AllocateConnectionOnInterconnectCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { MigrateWorkspaceRequest, MigrateWorkspaceResult } from "../models/index";
+import { MigrateWorkspaceRequest, MigrateWorkspaceResult } from "../models/models_0";
 import {
   deserializeAws_json1_1MigrateWorkspaceCommand,
   serializeAws_json1_1MigrateWorkspaceCommand,

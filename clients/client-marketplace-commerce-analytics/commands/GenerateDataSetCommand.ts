@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCommerceAnalyticsClient";
-import { GenerateDataSetRequest, GenerateDataSetResult } from "../models/index";
+import { GenerateDataSetRequest, GenerateDataSetResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GenerateDataSetCommand,
   serializeAws_json1_1GenerateDataSetCommand,

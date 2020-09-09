@@ -1,5 +1,5 @@
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { DescribeContactRequest, DescribeContactResponse } from "../models/index";
+import { DescribeContactRequest, DescribeContactResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeContactCommand,
   serializeAws_restJson1DescribeContactCommand,

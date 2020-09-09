@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
-import { CreateRuleGroupRequest, CreateRuleGroupResponse } from "../models/index";
+import { CreateRuleGroupRequest, CreateRuleGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRuleGroupCommand,
   serializeAws_json1_1CreateRuleGroupCommand,

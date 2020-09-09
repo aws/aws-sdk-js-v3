@@ -1,5 +1,5 @@
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { BatchDeleteDocumentRequest, BatchDeleteDocumentResponse } from "../models/index";
+import { BatchDeleteDocumentRequest, BatchDeleteDocumentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDeleteDocumentCommand,
   serializeAws_json1_1BatchDeleteDocumentCommand,

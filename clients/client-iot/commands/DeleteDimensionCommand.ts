@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteDimensionRequest, DeleteDimensionResponse } from "../models/index";
+import { DeleteDimensionRequest, DeleteDimensionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDimensionCommand,
   serializeAws_restJson1DeleteDimensionCommand,

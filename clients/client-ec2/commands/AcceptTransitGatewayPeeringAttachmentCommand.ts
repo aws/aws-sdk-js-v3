@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   AcceptTransitGatewayPeeringAttachmentRequest,
   AcceptTransitGatewayPeeringAttachmentResult,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand,
   serializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand,

@@ -1,5 +1,5 @@
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import { DeleteCorsPolicyInput, DeleteCorsPolicyOutput } from "../models/index";
+import { DeleteCorsPolicyInput, DeleteCorsPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCorsPolicyCommand,
   serializeAws_json1_1DeleteCorsPolicyCommand,

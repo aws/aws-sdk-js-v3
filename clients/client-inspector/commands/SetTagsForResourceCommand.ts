@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { SetTagsForResourceRequest } from "../models/index";
+import { SetTagsForResourceRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1SetTagsForResourceCommand,
   serializeAws_json1_1SetTagsForResourceCommand,

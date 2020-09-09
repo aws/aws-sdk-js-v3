@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { StopStreamEncryptionInput } from "../models/index";
+import { StopStreamEncryptionInput } from "../models/models_0";
 import {
   deserializeAws_json1_1StopStreamEncryptionCommand,
   serializeAws_json1_1StopStreamEncryptionCommand,

@@ -1,5 +1,5 @@
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { CreateUserRequest, CreateUserResponse } from "../models/index";
+import { CreateUserRequest, CreateUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateUserCommand,
   serializeAws_restJson1CreateUserCommand,

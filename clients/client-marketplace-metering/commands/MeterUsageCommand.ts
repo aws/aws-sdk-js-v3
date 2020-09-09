@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import { MeterUsageRequest, MeterUsageResult } from "../models/index";
+import { MeterUsageRequest, MeterUsageResult } from "../models/models_0";
 import {
   deserializeAws_json1_1MeterUsageCommand,
   serializeAws_json1_1MeterUsageCommand,

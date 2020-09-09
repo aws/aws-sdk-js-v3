@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { BatchDisassociateUserStackRequest, BatchDisassociateUserStackResult } from "../models/index";
+import { BatchDisassociateUserStackRequest, BatchDisassociateUserStackResult } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDisassociateUserStackCommand,
   serializeAws_json1_1BatchDisassociateUserStackCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { UpdateRulesOfIpGroupRequest, UpdateRulesOfIpGroupResult } from "../models/index";
+import { UpdateRulesOfIpGroupRequest, UpdateRulesOfIpGroupResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRulesOfIpGroupCommand,
   serializeAws_json1_1UpdateRulesOfIpGroupCommand,

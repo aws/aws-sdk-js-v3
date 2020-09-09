@@ -1,5 +1,5 @@
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { GetProtocolsListRequest, GetProtocolsListResponse } from "../models/index";
+import { GetProtocolsListRequest, GetProtocolsListResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetProtocolsListCommand,
   serializeAws_json1_1GetProtocolsListCommand,

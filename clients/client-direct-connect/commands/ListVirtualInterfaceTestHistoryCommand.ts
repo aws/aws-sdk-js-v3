@@ -1,5 +1,5 @@
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { ListVirtualInterfaceTestHistoryRequest, ListVirtualInterfaceTestHistoryResponse } from "../models/index";
+import { ListVirtualInterfaceTestHistoryRequest, ListVirtualInterfaceTestHistoryResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommand,
   serializeAws_json1_1ListVirtualInterfaceTestHistoryCommand,

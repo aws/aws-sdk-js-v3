@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateDiskSnapshotRequest, CreateDiskSnapshotResult } from "../models/index";
+import { CreateDiskSnapshotRequest, CreateDiskSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDiskSnapshotCommand,
   serializeAws_json1_1CreateDiskSnapshotCommand,

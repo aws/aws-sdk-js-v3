@@ -1,5 +1,8 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
-import { ListWebsiteAuthorizationProvidersRequest, ListWebsiteAuthorizationProvidersResponse } from "../models/index";
+import {
+  ListWebsiteAuthorizationProvidersRequest,
+  ListWebsiteAuthorizationProvidersResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListWebsiteAuthorizationProvidersCommand,
   serializeAws_restJson1ListWebsiteAuthorizationProvidersCommand,

@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UpdateRepositoryNameInput } from "../models/index";
+import { UpdateRepositoryNameInput } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateRepositoryNameCommand,
   serializeAws_json1_1UpdateRepositoryNameCommand,

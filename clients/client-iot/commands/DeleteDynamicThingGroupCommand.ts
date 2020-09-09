@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteDynamicThingGroupRequest, DeleteDynamicThingGroupResponse } from "../models/index";
+import { DeleteDynamicThingGroupRequest, DeleteDynamicThingGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDynamicThingGroupCommand,
   serializeAws_restJson1DeleteDynamicThingGroupCommand,

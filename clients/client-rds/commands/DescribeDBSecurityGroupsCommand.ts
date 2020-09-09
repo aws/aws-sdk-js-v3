@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DBSecurityGroupMessage, DescribeDBSecurityGroupsMessage } from "../models/index";
+import { DBSecurityGroupMessage, DescribeDBSecurityGroupsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBSecurityGroupsCommand,
   serializeAws_queryDescribeDBSecurityGroupsCommand,

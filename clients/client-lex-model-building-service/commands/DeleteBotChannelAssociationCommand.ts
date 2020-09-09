@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteBotChannelAssociationRequest } from "../models/index";
+import { DeleteBotChannelAssociationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBotChannelAssociationCommand,
   serializeAws_restJson1DeleteBotChannelAssociationCommand,

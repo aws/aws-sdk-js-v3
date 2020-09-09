@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { RegisterEndPointsInput, RegisterEndPointsOutput } from "../models/index";
+import { RegisterEndPointsInput, RegisterEndPointsOutput } from "../models/models_0";
 import {
   deserializeAws_queryRegisterInstancesWithLoadBalancerCommand,
   serializeAws_queryRegisterInstancesWithLoadBalancerCommand,

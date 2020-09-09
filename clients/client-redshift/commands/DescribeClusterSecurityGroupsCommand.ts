@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ClusterSecurityGroupMessage, DescribeClusterSecurityGroupsMessage } from "../models/index";
+import { ClusterSecurityGroupMessage, DescribeClusterSecurityGroupsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeClusterSecurityGroupsCommand,
   serializeAws_queryDescribeClusterSecurityGroupsCommand,

@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeletePhoneNumberRequest } from "../models/index";
+import { DeletePhoneNumberRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePhoneNumberCommand,
   serializeAws_restJson1DeletePhoneNumberCommand,

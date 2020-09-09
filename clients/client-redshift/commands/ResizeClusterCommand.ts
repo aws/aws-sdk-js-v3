@@ -1,5 +1,6 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ResizeClusterMessage, ResizeClusterResult } from "../models/index";
+import { ResizeClusterMessage } from "../models/models_0";
+import { ResizeClusterResult } from "../models/models_1";
 import {
   deserializeAws_queryResizeClusterCommand,
   serializeAws_queryResizeClusterCommand,

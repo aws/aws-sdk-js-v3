@@ -1,5 +1,5 @@
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { ListContactsRequest, ListContactsResponse } from "../models/index";
+import { ListContactsRequest, ListContactsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListContactsCommand,
   serializeAws_restJson1ListContactsCommand,

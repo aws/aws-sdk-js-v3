@@ -1,5 +1,5 @@
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { DescribeRuleRequest, DescribeRuleResponse } from "../models/index";
+import { DescribeRuleRequest, DescribeRuleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeRuleCommand,
   serializeAws_json1_1DescribeRuleCommand,

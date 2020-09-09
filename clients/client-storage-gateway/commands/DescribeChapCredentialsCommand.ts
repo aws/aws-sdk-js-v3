@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { DescribeChapCredentialsInput, DescribeChapCredentialsOutput } from "../models/index";
+import { DescribeChapCredentialsInput, DescribeChapCredentialsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeChapCredentialsCommand,
   serializeAws_json1_1DescribeChapCredentialsCommand,

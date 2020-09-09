@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DescribeOpsItemsRequest, DescribeOpsItemsResponse } from "../models/index";
+import { DescribeOpsItemsRequest, DescribeOpsItemsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeOpsItemsCommand,
   serializeAws_json1_1DescribeOpsItemsCommand,

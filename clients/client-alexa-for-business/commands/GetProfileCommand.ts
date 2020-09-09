@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { GetProfileRequest, GetProfileResponse } from "../models/index";
+import { GetProfileRequest, GetProfileResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetProfileCommand,
   serializeAws_json1_1GetProfileCommand,

@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteBackupVaultAccessPolicyInput } from "../models/index";
+import { DeleteBackupVaultAccessPolicyInput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommand,
   serializeAws_restJson1DeleteBackupVaultAccessPolicyCommand,

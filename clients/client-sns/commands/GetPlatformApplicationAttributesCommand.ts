@@ -1,5 +1,5 @@
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
-import { GetPlatformApplicationAttributesInput, GetPlatformApplicationAttributesResponse } from "../models/index";
+import { GetPlatformApplicationAttributesInput, GetPlatformApplicationAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetPlatformApplicationAttributesCommand,
   serializeAws_queryGetPlatformApplicationAttributesCommand,

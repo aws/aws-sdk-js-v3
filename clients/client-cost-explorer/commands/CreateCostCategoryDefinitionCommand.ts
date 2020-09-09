@@ -1,5 +1,5 @@
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { CreateCostCategoryDefinitionRequest, CreateCostCategoryDefinitionResponse } from "../models/index";
+import { CreateCostCategoryDefinitionRequest, CreateCostCategoryDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCostCategoryDefinitionCommand,
   serializeAws_json1_1CreateCostCategoryDefinitionCommand,

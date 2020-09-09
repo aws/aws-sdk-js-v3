@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { CreateLoggerDefinitionRequest, CreateLoggerDefinitionResponse } from "../models/index";
+import { CreateLoggerDefinitionRequest, CreateLoggerDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateLoggerDefinitionCommand,
   serializeAws_restJson1CreateLoggerDefinitionCommand,

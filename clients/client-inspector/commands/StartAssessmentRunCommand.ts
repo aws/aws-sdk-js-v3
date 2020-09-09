@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { StartAssessmentRunRequest, StartAssessmentRunResponse } from "../models/index";
+import { StartAssessmentRunRequest, StartAssessmentRunResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartAssessmentRunCommand,
   serializeAws_json1_1StartAssessmentRunCommand,

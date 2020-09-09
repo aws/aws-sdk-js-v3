@@ -2,7 +2,7 @@ import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import {
   DescribeEngineDefaultClusterParametersMessage,
   DescribeEngineDefaultClusterParametersResult,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeEngineDefaultClusterParametersCommand,
   serializeAws_queryDescribeEngineDefaultClusterParametersCommand,

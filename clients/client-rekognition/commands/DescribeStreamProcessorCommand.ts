@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DescribeStreamProcessorRequest, DescribeStreamProcessorResponse } from "../models/index";
+import { DescribeStreamProcessorRequest, DescribeStreamProcessorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeStreamProcessorCommand,
   serializeAws_json1_1DescribeStreamProcessorCommand,

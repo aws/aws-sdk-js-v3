@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { DeleteObjectTaggingOutput, DeleteObjectTaggingRequest } from "../models/index";
+import { DeleteObjectTaggingOutput, DeleteObjectTaggingRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteObjectTaggingCommand,
   serializeAws_restXmlDeleteObjectTaggingCommand,

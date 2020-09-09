@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DetachInstancesAnswer, DetachInstancesQuery } from "../models/index";
+import { DetachInstancesAnswer, DetachInstancesQuery } from "../models/models_0";
 import {
   deserializeAws_queryDetachInstancesCommand,
   serializeAws_queryDetachInstancesCommand,

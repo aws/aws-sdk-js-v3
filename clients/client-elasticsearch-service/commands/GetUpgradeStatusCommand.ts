@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { GetUpgradeStatusRequest, GetUpgradeStatusResponse } from "../models/index";
+import { GetUpgradeStatusRequest, GetUpgradeStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetUpgradeStatusCommand,
   serializeAws_restJson1GetUpgradeStatusCommand,

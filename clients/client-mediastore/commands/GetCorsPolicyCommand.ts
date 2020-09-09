@@ -1,5 +1,5 @@
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import { GetCorsPolicyInput, GetCorsPolicyOutput } from "../models/index";
+import { GetCorsPolicyInput, GetCorsPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetCorsPolicyCommand,
   serializeAws_json1_1GetCorsPolicyCommand,

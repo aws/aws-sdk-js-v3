@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { OmitsNullSerializesEmptyStringInput } from "../models/index";
+import { OmitsNullSerializesEmptyStringInput } from "../models/models_0";
 import {
   deserializeAws_restXmlOmitsNullSerializesEmptyStringCommand,
   serializeAws_restXmlOmitsNullSerializesEmptyStringCommand,

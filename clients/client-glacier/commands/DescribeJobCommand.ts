@@ -1,5 +1,5 @@
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { DescribeJobInput, GlacierJobDescription } from "../models/index";
+import { DescribeJobInput, GlacierJobDescription } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeJobCommand,
   serializeAws_restJson1DescribeJobCommand,

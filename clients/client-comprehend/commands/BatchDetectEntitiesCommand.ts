@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { BatchDetectEntitiesRequest, BatchDetectEntitiesResponse } from "../models/index";
+import { BatchDetectEntitiesRequest, BatchDetectEntitiesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDetectEntitiesCommand,
   serializeAws_json1_1BatchDetectEntitiesCommand,

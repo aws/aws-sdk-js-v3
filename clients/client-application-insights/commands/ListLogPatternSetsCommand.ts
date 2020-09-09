@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { ListLogPatternSetsRequest, ListLogPatternSetsResponse } from "../models/index";
+import { ListLogPatternSetsRequest, ListLogPatternSetsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListLogPatternSetsCommand,
   serializeAws_json1_1ListLogPatternSetsCommand,

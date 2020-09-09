@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetSAMLProviderRequest, GetSAMLProviderResponse } from "../models/index";
+import { GetSAMLProviderRequest, GetSAMLProviderResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetSAMLProviderCommand,
   serializeAws_queryGetSAMLProviderCommand,

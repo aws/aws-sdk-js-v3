@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { CreateSoftwareUpdateJobRequest, CreateSoftwareUpdateJobResponse } from "../models/index";
+import { CreateSoftwareUpdateJobRequest, CreateSoftwareUpdateJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSoftwareUpdateJobCommand,
   serializeAws_restJson1CreateSoftwareUpdateJobCommand,

@@ -1,5 +1,5 @@
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { GrantFlowEntitlementsRequest, GrantFlowEntitlementsResponse } from "../models/index";
+import { GrantFlowEntitlementsRequest, GrantFlowEntitlementsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GrantFlowEntitlementsCommand,
   serializeAws_restJson1GrantFlowEntitlementsCommand,

@@ -1,5 +1,5 @@
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { ListReservationsRequest, ListReservationsResponse } from "../models/index";
+import { ListReservationsRequest, ListReservationsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListReservationsCommand,
   serializeAws_restJson1ListReservationsCommand,

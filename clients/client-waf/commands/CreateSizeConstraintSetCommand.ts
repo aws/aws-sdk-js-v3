@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { CreateSizeConstraintSetRequest, CreateSizeConstraintSetResponse } from "../models/index";
+import { CreateSizeConstraintSetRequest, CreateSizeConstraintSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSizeConstraintSetCommand,
   serializeAws_json1_1CreateSizeConstraintSetCommand,

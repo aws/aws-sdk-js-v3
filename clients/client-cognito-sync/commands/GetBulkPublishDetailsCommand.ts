@@ -1,5 +1,5 @@
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { GetBulkPublishDetailsRequest, GetBulkPublishDetailsResponse } from "../models/index";
+import { GetBulkPublishDetailsRequest, GetBulkPublishDetailsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBulkPublishDetailsCommand,
   serializeAws_restJson1GetBulkPublishDetailsCommand,

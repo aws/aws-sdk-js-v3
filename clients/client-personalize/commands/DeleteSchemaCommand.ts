@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DeleteSchemaRequest } from "../models/index";
+import { DeleteSchemaRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSchemaCommand,
   serializeAws_json1_1DeleteSchemaCommand,

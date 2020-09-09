@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminForgetDeviceRequest } from "../models/index";
+import { AdminForgetDeviceRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminForgetDeviceCommand,
   serializeAws_json1_1AdminForgetDeviceCommand,

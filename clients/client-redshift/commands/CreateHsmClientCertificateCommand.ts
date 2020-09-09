@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { CreateHsmClientCertificateMessage, CreateHsmClientCertificateResult } from "../models/index";
+import { CreateHsmClientCertificateMessage, CreateHsmClientCertificateResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateHsmClientCertificateCommand,
   serializeAws_queryCreateHsmClientCertificateCommand,

@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { PutImageScanningConfigurationRequest, PutImageScanningConfigurationResponse } from "../models/index";
+import { PutImageScanningConfigurationRequest, PutImageScanningConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutImageScanningConfigurationCommand,
   serializeAws_json1_1PutImageScanningConfigurationCommand,

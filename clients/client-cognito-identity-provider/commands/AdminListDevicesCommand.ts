@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminListDevicesRequest, AdminListDevicesResponse } from "../models/index";
+import { AdminListDevicesRequest, AdminListDevicesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminListDevicesCommand,
   serializeAws_json1_1AdminListDevicesCommand,

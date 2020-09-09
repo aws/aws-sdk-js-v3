@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeletePendingAggregationRequestRequest } from "../models/index";
+import { DeletePendingAggregationRequestRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePendingAggregationRequestCommand,
   serializeAws_json1_1DeletePendingAggregationRequestCommand,

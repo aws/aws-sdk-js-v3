@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { DeleteEnvironmentConfigurationMessage } from "../models/index";
+import { DeleteEnvironmentConfigurationMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteEnvironmentConfigurationCommand,
   serializeAws_queryDeleteEnvironmentConfigurationCommand,

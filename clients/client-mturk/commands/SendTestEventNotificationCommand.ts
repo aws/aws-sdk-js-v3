@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { SendTestEventNotificationRequest, SendTestEventNotificationResponse } from "../models/index";
+import { SendTestEventNotificationRequest, SendTestEventNotificationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1SendTestEventNotificationCommand,
   serializeAws_json1_1SendTestEventNotificationCommand,

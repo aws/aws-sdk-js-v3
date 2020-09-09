@@ -1,5 +1,5 @@
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { AssociateEntityToThingRequest, AssociateEntityToThingResponse } from "../models/index";
+import { AssociateEntityToThingRequest, AssociateEntityToThingResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateEntityToThingCommand,
   serializeAws_json1_1AssociateEntityToThingCommand,

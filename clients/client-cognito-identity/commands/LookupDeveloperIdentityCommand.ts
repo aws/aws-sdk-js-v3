@@ -1,5 +1,5 @@
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { LookupDeveloperIdentityInput, LookupDeveloperIdentityResponse } from "../models/index";
+import { LookupDeveloperIdentityInput, LookupDeveloperIdentityResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1LookupDeveloperIdentityCommand,
   serializeAws_json1_1LookupDeveloperIdentityCommand,

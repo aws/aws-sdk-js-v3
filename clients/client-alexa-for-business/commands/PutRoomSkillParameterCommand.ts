@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { PutRoomSkillParameterRequest, PutRoomSkillParameterResponse } from "../models/index";
+import { PutRoomSkillParameterRequest, PutRoomSkillParameterResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutRoomSkillParameterCommand,
   serializeAws_json1_1PutRoomSkillParameterCommand,

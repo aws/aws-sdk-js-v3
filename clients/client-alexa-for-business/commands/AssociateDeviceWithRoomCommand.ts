@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { AssociateDeviceWithRoomRequest, AssociateDeviceWithRoomResponse } from "../models/index";
+import { AssociateDeviceWithRoomRequest, AssociateDeviceWithRoomResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateDeviceWithRoomCommand,
   serializeAws_json1_1AssociateDeviceWithRoomCommand,

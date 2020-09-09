@@ -1,5 +1,5 @@
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { DescribeTagsInput, DescribeTagsOutput } from "../models/index";
+import { DescribeTagsInput, DescribeTagsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTagsCommand,
   serializeAws_json1_1DescribeTagsCommand,

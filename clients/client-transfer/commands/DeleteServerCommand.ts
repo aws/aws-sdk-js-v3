@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
-import { DeleteServerRequest } from "../models/index";
+import { DeleteServerRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteServerCommand,
   serializeAws_json1_1DeleteServerCommand,

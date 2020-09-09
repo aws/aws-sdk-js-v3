@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { DeleteCustomDataIdentifierRequest, DeleteCustomDataIdentifierResponse } from "../models/index";
+import { DeleteCustomDataIdentifierRequest, DeleteCustomDataIdentifierResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCustomDataIdentifierCommand,
   serializeAws_restJson1DeleteCustomDataIdentifierCommand,

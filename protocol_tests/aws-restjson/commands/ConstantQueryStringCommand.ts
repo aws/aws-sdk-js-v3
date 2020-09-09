@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { ConstantQueryStringInput } from "../models/index";
+import { ConstantQueryStringInput } from "../models/models_0";
 import {
   deserializeAws_restJson1ConstantQueryStringCommand,
   serializeAws_restJson1ConstantQueryStringCommand,

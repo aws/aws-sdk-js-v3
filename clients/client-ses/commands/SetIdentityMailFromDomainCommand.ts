@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { SetIdentityMailFromDomainRequest, SetIdentityMailFromDomainResponse } from "../models/index";
+import { SetIdentityMailFromDomainRequest, SetIdentityMailFromDomainResponse } from "../models/models_0";
 import {
   deserializeAws_querySetIdentityMailFromDomainCommand,
   serializeAws_querySetIdentityMailFromDomainCommand,

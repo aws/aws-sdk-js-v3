@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { CreateBotRequest, CreateBotResponse } from "../models/index";
+import { CreateBotRequest, CreateBotResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateBotCommand,
   serializeAws_restJson1CreateBotCommand,

@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { CreatePushTemplateRequest, CreatePushTemplateResponse } from "../models/index";
+import { CreatePushTemplateRequest, CreatePushTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreatePushTemplateCommand,
   serializeAws_restJson1CreatePushTemplateCommand,

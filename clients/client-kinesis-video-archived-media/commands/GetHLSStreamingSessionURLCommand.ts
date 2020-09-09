@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import { GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput } from "../models/index";
+import { GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetHLSStreamingSessionURLCommand,
   serializeAws_restJson1GetHLSStreamingSessionURLCommand,

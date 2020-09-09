@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { AssociateProductWithPortfolioInput, AssociateProductWithPortfolioOutput } from "../models/index";
+import { AssociateProductWithPortfolioInput, AssociateProductWithPortfolioOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateProductWithPortfolioCommand,
   serializeAws_json1_1AssociateProductWithPortfolioCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { CreateNetworkInput, CreateNetworkOutput } from "../models/index";
+import { CreateNetworkInput, CreateNetworkOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateNetworkCommand,
   serializeAws_restJson1CreateNetworkCommand,

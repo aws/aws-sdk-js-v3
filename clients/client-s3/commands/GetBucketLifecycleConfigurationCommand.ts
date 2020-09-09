@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketLifecycleConfigurationOutput, GetBucketLifecycleConfigurationRequest } from "../models/index";
+import { GetBucketLifecycleConfigurationOutput, GetBucketLifecycleConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketLifecycleConfigurationCommand,
   serializeAws_restXmlGetBucketLifecycleConfigurationCommand,

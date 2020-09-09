@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { UpdateStackRequest, UpdateStackResult } from "../models/index";
+import { UpdateStackRequest, UpdateStackResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateStackCommand,
   serializeAws_json1_1UpdateStackCommand,

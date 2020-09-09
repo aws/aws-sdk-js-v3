@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { DeleteTaskSetRequest, DeleteTaskSetResponse } from "../models/index";
+import { DeleteTaskSetRequest, DeleteTaskSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTaskSetCommand,
   serializeAws_json1_1DeleteTaskSetCommand,

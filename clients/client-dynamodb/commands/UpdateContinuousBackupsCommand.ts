@@ -1,5 +1,5 @@
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { UpdateContinuousBackupsInput, UpdateContinuousBackupsOutput } from "../models/index";
+import { UpdateContinuousBackupsInput, UpdateContinuousBackupsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateContinuousBackupsCommand,
   serializeAws_json1_0UpdateContinuousBackupsCommand,

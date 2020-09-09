@@ -1,5 +1,8 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { PutConfigurationSetTrackingOptionsRequest, PutConfigurationSetTrackingOptionsResponse } from "../models/index";
+import {
+  PutConfigurationSetTrackingOptionsRequest,
+  PutConfigurationSetTrackingOptionsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommand,
   serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand,

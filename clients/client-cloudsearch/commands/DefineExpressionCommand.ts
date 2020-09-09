@@ -1,5 +1,5 @@
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DefineExpressionRequest, DefineExpressionResponse } from "../models/index";
+import { DefineExpressionRequest, DefineExpressionResponse } from "../models/models_0";
 import {
   deserializeAws_queryDefineExpressionCommand,
   serializeAws_queryDefineExpressionCommand,

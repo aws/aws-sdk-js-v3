@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { DeleteRateBasedRuleRequest, DeleteRateBasedRuleResponse } from "../models/index";
+import { DeleteRateBasedRuleRequest, DeleteRateBasedRuleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRateBasedRuleCommand,
   serializeAws_json1_1DeleteRateBasedRuleCommand,

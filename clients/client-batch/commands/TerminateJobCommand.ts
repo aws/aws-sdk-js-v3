@@ -1,5 +1,5 @@
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { TerminateJobRequest, TerminateJobResponse } from "../models/index";
+import { TerminateJobRequest, TerminateJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1TerminateJobCommand,
   serializeAws_restJson1TerminateJobCommand,

@@ -1,5 +1,5 @@
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { DeleteCertificateAuthorityRequest } from "../models/index";
+import { DeleteCertificateAuthorityRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCertificateAuthorityCommand,
   serializeAws_json1_1DeleteCertificateAuthorityCommand,

@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeClassicLinkInstancesRequest, DescribeClassicLinkInstancesResult } from "../models/index";
+import { DescribeClassicLinkInstancesRequest, DescribeClassicLinkInstancesResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeClassicLinkInstancesCommand,
   serializeAws_ec2DescribeClassicLinkInstancesCommand,

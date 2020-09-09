@@ -1,5 +1,5 @@
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { UpdateFlowEntitlementRequest, UpdateFlowEntitlementResponse } from "../models/index";
+import { UpdateFlowEntitlementRequest, UpdateFlowEntitlementResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFlowEntitlementCommand,
   serializeAws_restJson1UpdateFlowEntitlementCommand,

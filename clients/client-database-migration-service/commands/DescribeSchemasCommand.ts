@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DescribeSchemasMessage, DescribeSchemasResponse } from "../models/index";
+import { DescribeSchemasMessage, DescribeSchemasResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeSchemasCommand,
   serializeAws_json1_1DescribeSchemasCommand,

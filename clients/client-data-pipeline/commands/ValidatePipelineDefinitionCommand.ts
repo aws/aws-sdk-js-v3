@@ -1,5 +1,5 @@
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { ValidatePipelineDefinitionInput, ValidatePipelineDefinitionOutput } from "../models/index";
+import { ValidatePipelineDefinitionInput, ValidatePipelineDefinitionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ValidatePipelineDefinitionCommand,
   serializeAws_json1_1ValidatePipelineDefinitionCommand,

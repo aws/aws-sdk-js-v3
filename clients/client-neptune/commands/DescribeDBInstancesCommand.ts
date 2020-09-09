@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { DBInstanceMessage, DescribeDBInstancesMessage } from "../models/index";
+import { DBInstanceMessage, DescribeDBInstancesMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBInstancesCommand,
   serializeAws_queryDescribeDBInstancesCommand,

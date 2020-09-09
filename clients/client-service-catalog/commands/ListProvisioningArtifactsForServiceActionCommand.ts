@@ -2,7 +2,7 @@ import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 import {
   ListProvisioningArtifactsForServiceActionInput,
   ListProvisioningArtifactsForServiceActionOutput,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand,
   serializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand,

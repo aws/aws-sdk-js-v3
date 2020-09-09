@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { CreateStackInstancesInput, CreateStackInstancesOutput } from "../models/index";
+import { CreateStackInstancesInput, CreateStackInstancesOutput } from "../models/models_0";
 import {
   deserializeAws_queryCreateStackInstancesCommand,
   serializeAws_queryCreateStackInstancesCommand,

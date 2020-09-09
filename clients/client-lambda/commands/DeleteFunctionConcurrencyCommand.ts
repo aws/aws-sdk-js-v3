@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteFunctionConcurrencyRequest } from "../models/index";
+import { DeleteFunctionConcurrencyRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFunctionConcurrencyCommand,
   serializeAws_restJson1DeleteFunctionConcurrencyCommand,

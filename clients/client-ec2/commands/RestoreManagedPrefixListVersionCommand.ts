@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RestoreManagedPrefixListVersionRequest, RestoreManagedPrefixListVersionResult } from "../models/index";
+import { RestoreManagedPrefixListVersionRequest, RestoreManagedPrefixListVersionResult } from "../models/models_4";
 import {
   deserializeAws_ec2RestoreManagedPrefixListVersionCommand,
   serializeAws_ec2RestoreManagedPrefixListVersionCommand,

@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { DeleteRepositoryRequest, DeleteRepositoryResponse } from "../models/index";
+import { DeleteRepositoryRequest, DeleteRepositoryResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRepositoryCommand,
   serializeAws_json1_1DeleteRepositoryCommand,

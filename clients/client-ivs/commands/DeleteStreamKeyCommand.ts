@@ -1,5 +1,5 @@
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { DeleteStreamKeyRequest } from "../models/index";
+import { DeleteStreamKeyRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteStreamKeyCommand,
   serializeAws_restJson1DeleteStreamKeyCommand,

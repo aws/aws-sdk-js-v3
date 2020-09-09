@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { DescribeClassificationJobRequest, DescribeClassificationJobResponse } from "../models/index";
+import { DescribeClassificationJobRequest, DescribeClassificationJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeClassificationJobCommand,
   serializeAws_restJson1DescribeClassificationJobCommand,

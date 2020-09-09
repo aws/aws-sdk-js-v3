@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { JsonMapsInputOutput } from "../models/index";
+import { JsonMapsInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1JsonMapsCommand,
   serializeAws_restJson1JsonMapsCommand,

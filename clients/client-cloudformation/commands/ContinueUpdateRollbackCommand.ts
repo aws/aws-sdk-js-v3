@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { ContinueUpdateRollbackInput, ContinueUpdateRollbackOutput } from "../models/index";
+import { ContinueUpdateRollbackInput, ContinueUpdateRollbackOutput } from "../models/models_0";
 import {
   deserializeAws_queryContinueUpdateRollbackCommand,
   serializeAws_queryContinueUpdateRollbackCommand,

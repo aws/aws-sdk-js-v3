@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteRoomRequest } from "../models/index";
+import { DeleteRoomRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRoomCommand,
   serializeAws_restJson1DeleteRoomCommand,

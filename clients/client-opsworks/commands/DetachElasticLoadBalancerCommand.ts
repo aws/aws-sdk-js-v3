@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DetachElasticLoadBalancerRequest } from "../models/index";
+import { DetachElasticLoadBalancerRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DetachElasticLoadBalancerCommand,
   serializeAws_json1_1DetachElasticLoadBalancerCommand,

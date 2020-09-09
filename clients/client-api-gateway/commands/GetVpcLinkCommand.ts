@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { GetVpcLinkRequest, VpcLink } from "../models/index";
+import { GetVpcLinkRequest, VpcLink } from "../models/models_0";
 import {
   deserializeAws_restJson1GetVpcLinkCommand,
   serializeAws_restJson1GetVpcLinkCommand,

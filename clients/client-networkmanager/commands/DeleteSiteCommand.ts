@@ -1,5 +1,5 @@
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { DeleteSiteRequest, DeleteSiteResponse } from "../models/index";
+import { DeleteSiteRequest, DeleteSiteResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSiteCommand,
   serializeAws_restJson1DeleteSiteCommand,

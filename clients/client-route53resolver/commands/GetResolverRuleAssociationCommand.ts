@@ -1,5 +1,5 @@
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
-import { GetResolverRuleAssociationRequest, GetResolverRuleAssociationResponse } from "../models/index";
+import { GetResolverRuleAssociationRequest, GetResolverRuleAssociationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetResolverRuleAssociationCommand,
   serializeAws_json1_1GetResolverRuleAssociationCommand,

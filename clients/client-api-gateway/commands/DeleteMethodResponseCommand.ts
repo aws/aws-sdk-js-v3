@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteMethodResponseRequest } from "../models/index";
+import { DeleteMethodResponseRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMethodResponseCommand,
   serializeAws_restJson1DeleteMethodResponseCommand,

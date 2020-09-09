@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
-import { DescribeCanariesLastRunRequest, DescribeCanariesLastRunResponse } from "../models/index";
+import { DescribeCanariesLastRunRequest, DescribeCanariesLastRunResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeCanariesLastRunCommand,
   serializeAws_restJson1DescribeCanariesLastRunCommand,

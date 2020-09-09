@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { CreateFunctionDefinitionRequest, CreateFunctionDefinitionResponse } from "../models/index";
+import { CreateFunctionDefinitionRequest, CreateFunctionDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFunctionDefinitionCommand,
   serializeAws_restJson1CreateFunctionDefinitionCommand,

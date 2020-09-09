@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteEvaluationResultsRequest, DeleteEvaluationResultsResponse } from "../models/index";
+import { DeleteEvaluationResultsRequest, DeleteEvaluationResultsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEvaluationResultsCommand,
   serializeAws_json1_1DeleteEvaluationResultsCommand,

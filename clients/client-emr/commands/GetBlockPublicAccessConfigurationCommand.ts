@@ -1,5 +1,5 @@
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { GetBlockPublicAccessConfigurationInput, GetBlockPublicAccessConfigurationOutput } from "../models/index";
+import { GetBlockPublicAccessConfigurationInput, GetBlockPublicAccessConfigurationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand,
   serializeAws_json1_1GetBlockPublicAccessConfigurationCommand,

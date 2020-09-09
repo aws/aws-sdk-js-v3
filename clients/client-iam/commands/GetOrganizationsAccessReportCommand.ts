@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetOrganizationsAccessReportRequest, GetOrganizationsAccessReportResponse } from "../models/index";
+import { GetOrganizationsAccessReportRequest, GetOrganizationsAccessReportResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetOrganizationsAccessReportCommand,
   serializeAws_queryGetOrganizationsAccessReportCommand,

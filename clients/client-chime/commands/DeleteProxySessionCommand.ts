@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteProxySessionRequest } from "../models/index";
+import { DeleteProxySessionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteProxySessionCommand,
   serializeAws_restJson1DeleteProxySessionCommand,

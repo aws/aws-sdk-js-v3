@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListReusableDelegationSetsRequest, ListReusableDelegationSetsResponse } from "../models/index";
+import { ListReusableDelegationSetsRequest, ListReusableDelegationSetsResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlListReusableDelegationSetsCommand,
   serializeAws_restXmlListReusableDelegationSetsCommand,

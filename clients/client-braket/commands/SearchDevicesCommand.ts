@@ -1,5 +1,5 @@
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import { SearchDevicesRequest, SearchDevicesResponse } from "../models/index";
+import { SearchDevicesRequest, SearchDevicesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SearchDevicesCommand,
   serializeAws_restJson1SearchDevicesCommand,

@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult } from "../models/index";
+import { DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBClusterSnapshotCommand,
   serializeAws_queryDeleteDBClusterSnapshotCommand,

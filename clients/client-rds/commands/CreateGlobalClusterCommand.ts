@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { CreateGlobalClusterMessage, CreateGlobalClusterResult } from "../models/index";
+import { CreateGlobalClusterMessage, CreateGlobalClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateGlobalClusterCommand,
   serializeAws_queryCreateGlobalClusterCommand,

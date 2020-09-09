@@ -1,5 +1,5 @@
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { CreateApiKeyRequest, CreateApiKeyResponse } from "../models/index";
+import { CreateApiKeyRequest, CreateApiKeyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateApiKeyCommand,
   serializeAws_restJson1CreateApiKeyCommand,

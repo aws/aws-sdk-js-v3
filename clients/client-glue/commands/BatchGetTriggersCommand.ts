@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchGetTriggersRequest, BatchGetTriggersResponse } from "../models/index";
+import { BatchGetTriggersRequest, BatchGetTriggersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetTriggersCommand,
   serializeAws_json1_1BatchGetTriggersCommand,

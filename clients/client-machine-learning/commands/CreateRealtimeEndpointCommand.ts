@@ -1,5 +1,5 @@
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { CreateRealtimeEndpointInput, CreateRealtimeEndpointOutput } from "../models/index";
+import { CreateRealtimeEndpointInput, CreateRealtimeEndpointOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRealtimeEndpointCommand,
   serializeAws_json1_1CreateRealtimeEndpointCommand,

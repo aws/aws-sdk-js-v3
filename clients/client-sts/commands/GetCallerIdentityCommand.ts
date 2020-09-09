@@ -1,5 +1,5 @@
 import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
-import { GetCallerIdentityRequest, GetCallerIdentityResponse } from "../models/index";
+import { GetCallerIdentityRequest, GetCallerIdentityResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetCallerIdentityCommand,
   serializeAws_queryGetCallerIdentityCommand,

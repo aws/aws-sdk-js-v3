@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DeleteEntityRecognizerRequest, DeleteEntityRecognizerResponse } from "../models/index";
+import { DeleteEntityRecognizerRequest, DeleteEntityRecognizerResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEntityRecognizerCommand,
   serializeAws_json1_1DeleteEntityRecognizerCommand,

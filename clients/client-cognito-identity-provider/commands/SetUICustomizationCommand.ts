@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { SetUICustomizationRequest, SetUICustomizationResponse } from "../models/index";
+import { SetUICustomizationRequest, SetUICustomizationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1SetUICustomizationCommand,
   serializeAws_json1_1SetUICustomizationCommand,

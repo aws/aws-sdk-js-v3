@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyReservedInstancesRequest, ModifyReservedInstancesResult } from "../models/index";
+import { ModifyReservedInstancesRequest, ModifyReservedInstancesResult } from "../models/models_4";
 import {
   deserializeAws_ec2ModifyReservedInstancesCommand,
   serializeAws_ec2ModifyReservedInstancesCommand,

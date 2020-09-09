@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DeleteAssociationRequest, DeleteAssociationResult } from "../models/index";
+import { DeleteAssociationRequest, DeleteAssociationResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAssociationCommand,
   serializeAws_json1_1DeleteAssociationCommand,

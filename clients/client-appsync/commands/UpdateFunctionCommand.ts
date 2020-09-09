@@ -1,5 +1,5 @@
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { UpdateFunctionRequest, UpdateFunctionResponse } from "../models/index";
+import { UpdateFunctionRequest, UpdateFunctionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFunctionCommand,
   serializeAws_restJson1UpdateFunctionCommand,

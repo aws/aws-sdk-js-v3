@@ -1,5 +1,5 @@
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { StartQueryExecutionInput, StartQueryExecutionOutput } from "../models/index";
+import { StartQueryExecutionInput, StartQueryExecutionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StartQueryExecutionCommand,
   serializeAws_json1_1StartQueryExecutionCommand,

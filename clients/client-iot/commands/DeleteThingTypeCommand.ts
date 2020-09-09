@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteThingTypeRequest, DeleteThingTypeResponse } from "../models/index";
+import { DeleteThingTypeRequest, DeleteThingTypeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteThingTypeCommand,
   serializeAws_restJson1DeleteThingTypeCommand,

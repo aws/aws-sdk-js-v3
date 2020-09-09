@@ -1,5 +1,5 @@
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { RemoveTagsInput, RemoveTagsOutput } from "../models/index";
+import { RemoveTagsInput, RemoveTagsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTagsCommand,
   serializeAws_json1_1RemoveTagsCommand,

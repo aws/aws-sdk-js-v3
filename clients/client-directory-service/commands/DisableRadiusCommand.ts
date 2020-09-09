@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DisableRadiusRequest, DisableRadiusResult } from "../models/index";
+import { DisableRadiusRequest, DisableRadiusResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableRadiusCommand,
   serializeAws_json1_1DisableRadiusCommand,

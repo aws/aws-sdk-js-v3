@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { AddTagsRequest } from "../models/index";
+import { AddTagsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1AddTagsCommand,
   serializeAws_restJson1AddTagsCommand,

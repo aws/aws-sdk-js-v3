@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DeleteStackRequest, DeleteStackResult } from "../models/index";
+import { DeleteStackRequest, DeleteStackResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteStackCommand,
   serializeAws_json1_1DeleteStackCommand,

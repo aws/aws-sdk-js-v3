@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { GetSdkTypeRequest, SdkType } from "../models/index";
+import { GetSdkTypeRequest, SdkType } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSdkTypeCommand,
   serializeAws_restJson1GetSdkTypeCommand,

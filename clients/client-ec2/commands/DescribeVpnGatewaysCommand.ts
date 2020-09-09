@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVpnGatewaysRequest, DescribeVpnGatewaysResult } from "../models/index";
+import { DescribeVpnGatewaysRequest, DescribeVpnGatewaysResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeVpnGatewaysCommand,
   serializeAws_ec2DescribeVpnGatewaysCommand,

@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { GetStatisticsRequest, GetStatisticsResponse } from "../models/index";
+import { GetStatisticsRequest, GetStatisticsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetStatisticsCommand,
   serializeAws_restJson1GetStatisticsCommand,

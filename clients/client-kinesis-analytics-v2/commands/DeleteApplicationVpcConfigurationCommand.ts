@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { DeleteApplicationVpcConfigurationRequest, DeleteApplicationVpcConfigurationResponse } from "../models/index";
+import {
+  DeleteApplicationVpcConfigurationRequest,
+  DeleteApplicationVpcConfigurationResponse,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApplicationVpcConfigurationCommand,
   serializeAws_json1_1DeleteApplicationVpcConfigurationCommand,

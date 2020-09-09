@@ -1,5 +1,5 @@
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { DeleteDistributionConfigurationRequest, DeleteDistributionConfigurationResponse } from "../models/index";
+import { DeleteDistributionConfigurationRequest, DeleteDistributionConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDistributionConfigurationCommand,
   serializeAws_restJson1DeleteDistributionConfigurationCommand,

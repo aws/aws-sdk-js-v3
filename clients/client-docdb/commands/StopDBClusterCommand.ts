@@ -1,5 +1,5 @@
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { StopDBClusterMessage, StopDBClusterResult } from "../models/index";
+import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryStopDBClusterCommand,
   serializeAws_queryStopDBClusterCommand,

@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { RegisterVolumeRequest, RegisterVolumeResult } from "../models/index";
+import { RegisterVolumeRequest, RegisterVolumeResult } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterVolumeCommand,
   serializeAws_json1_1RegisterVolumeCommand,

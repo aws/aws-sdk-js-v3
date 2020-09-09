@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { DescribeTasksRequest, DescribeTasksResponse } from "../models/index";
+import { DescribeTasksRequest, DescribeTasksResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTasksCommand,
   serializeAws_json1_1DescribeTasksCommand,

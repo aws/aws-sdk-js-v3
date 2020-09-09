@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { StopNotebookInstanceInput } from "../models/index";
+import { StopNotebookInstanceInput } from "../models/models_1";
 import {
   deserializeAws_json1_1StopNotebookInstanceCommand,
   serializeAws_json1_1StopNotebookInstanceCommand,

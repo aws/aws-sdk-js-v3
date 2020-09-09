@@ -1,5 +1,5 @@
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { ListLocationsRequest, ListLocationsResponse } from "../models/index";
+import { ListLocationsRequest, ListLocationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListLocationsCommand,
   serializeAws_json1_1ListLocationsCommand,

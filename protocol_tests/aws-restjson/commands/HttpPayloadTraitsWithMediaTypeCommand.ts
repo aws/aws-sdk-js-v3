@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { HttpPayloadTraitsWithMediaTypeInputOutput } from "../models/index";
+import { HttpPayloadTraitsWithMediaTypeInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand,
   serializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand,

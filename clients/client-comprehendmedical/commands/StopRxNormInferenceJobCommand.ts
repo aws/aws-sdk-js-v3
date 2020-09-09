@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { StopRxNormInferenceJobRequest, StopRxNormInferenceJobResponse } from "../models/index";
+import { StopRxNormInferenceJobRequest, StopRxNormInferenceJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopRxNormInferenceJobCommand,
   serializeAws_json1_1StopRxNormInferenceJobCommand,

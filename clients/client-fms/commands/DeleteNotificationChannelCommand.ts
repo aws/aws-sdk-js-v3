@@ -1,5 +1,5 @@
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { DeleteNotificationChannelRequest } from "../models/index";
+import { DeleteNotificationChannelRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteNotificationChannelCommand,
   serializeAws_json1_1DeleteNotificationChannelCommand,

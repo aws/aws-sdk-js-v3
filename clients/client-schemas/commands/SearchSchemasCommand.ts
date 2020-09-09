@@ -1,5 +1,5 @@
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { SearchSchemasRequest, SearchSchemasResponse } from "../models/index";
+import { SearchSchemasRequest, SearchSchemasResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SearchSchemasCommand,
   serializeAws_restJson1SearchSchemasCommand,

@@ -1,5 +1,5 @@
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { UpdateDataCatalogInput, UpdateDataCatalogOutput } from "../models/index";
+import { UpdateDataCatalogInput, UpdateDataCatalogOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDataCatalogCommand,
   serializeAws_json1_1UpdateDataCatalogCommand,

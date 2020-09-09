@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { UpdateGatewayRequest, UpdateGatewayResponse } from "../models/index";
+import { UpdateGatewayRequest, UpdateGatewayResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateGatewayCommand,
   serializeAws_json1_1UpdateGatewayCommand,

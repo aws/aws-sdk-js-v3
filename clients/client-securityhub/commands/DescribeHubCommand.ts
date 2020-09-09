@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { DescribeHubRequest, DescribeHubResponse } from "../models/index";
+import { DescribeHubRequest, DescribeHubResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeHubCommand,
   serializeAws_restJson1DescribeHubCommand,

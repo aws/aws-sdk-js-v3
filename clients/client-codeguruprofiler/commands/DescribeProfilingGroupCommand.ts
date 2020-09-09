@@ -1,5 +1,5 @@
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import { DescribeProfilingGroupRequest, DescribeProfilingGroupResponse } from "../models/index";
+import { DescribeProfilingGroupRequest, DescribeProfilingGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeProfilingGroupCommand,
   serializeAws_restJson1DescribeProfilingGroupCommand,

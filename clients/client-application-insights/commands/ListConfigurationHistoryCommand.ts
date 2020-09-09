@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { ListConfigurationHistoryRequest, ListConfigurationHistoryResponse } from "../models/index";
+import { ListConfigurationHistoryRequest, ListConfigurationHistoryResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListConfigurationHistoryCommand,
   serializeAws_json1_1ListConfigurationHistoryCommand,

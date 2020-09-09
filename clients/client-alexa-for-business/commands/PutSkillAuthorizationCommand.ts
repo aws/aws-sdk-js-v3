@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { PutSkillAuthorizationRequest, PutSkillAuthorizationResponse } from "../models/index";
+import { PutSkillAuthorizationRequest, PutSkillAuthorizationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutSkillAuthorizationCommand,
   serializeAws_json1_1PutSkillAuthorizationCommand,

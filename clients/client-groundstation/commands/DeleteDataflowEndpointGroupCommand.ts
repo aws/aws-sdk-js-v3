@@ -1,5 +1,5 @@
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { DataflowEndpointGroupIdResponse, DeleteDataflowEndpointGroupRequest } from "../models/index";
+import { DataflowEndpointGroupIdResponse, DeleteDataflowEndpointGroupRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDataflowEndpointGroupCommand,
   serializeAws_restJson1DeleteDataflowEndpointGroupCommand,

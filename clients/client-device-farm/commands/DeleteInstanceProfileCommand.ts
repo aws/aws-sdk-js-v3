@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { DeleteInstanceProfileRequest, DeleteInstanceProfileResult } from "../models/index";
+import { DeleteInstanceProfileRequest, DeleteInstanceProfileResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteInstanceProfileCommand,
   serializeAws_json1_1DeleteInstanceProfileCommand,

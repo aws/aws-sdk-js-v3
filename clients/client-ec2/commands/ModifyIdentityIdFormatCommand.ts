@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyIdentityIdFormatRequest } from "../models/index";
+import { ModifyIdentityIdFormatRequest } from "../models/models_4";
 import {
   deserializeAws_ec2ModifyIdentityIdFormatCommand,
   serializeAws_ec2ModifyIdentityIdFormatCommand,

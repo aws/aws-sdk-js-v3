@@ -1,5 +1,5 @@
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { QueryIdempotencyTokenAutoFillInput } from "../models/index";
+import { QueryIdempotencyTokenAutoFillInput } from "../models/models_0";
 import {
   deserializeAws_queryQueryIdempotencyTokenAutoFillCommand,
   serializeAws_queryQueryIdempotencyTokenAutoFillCommand,

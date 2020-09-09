@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DescribeLDAPSSettingsRequest, DescribeLDAPSSettingsResult } from "../models/index";
+import { DescribeLDAPSSettingsRequest, DescribeLDAPSSettingsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLDAPSSettingsCommand,
   serializeAws_json1_1DescribeLDAPSSettingsCommand,

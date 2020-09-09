@@ -1,5 +1,5 @@
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { DeleteBackupRequest, DeleteBackupResponse } from "../models/index";
+import { DeleteBackupRequest, DeleteBackupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBackupCommand,
   serializeAws_json1_1DeleteBackupCommand,

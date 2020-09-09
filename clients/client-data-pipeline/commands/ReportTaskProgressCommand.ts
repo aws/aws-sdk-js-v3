@@ -1,5 +1,5 @@
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { ReportTaskProgressInput, ReportTaskProgressOutput } from "../models/index";
+import { ReportTaskProgressInput, ReportTaskProgressOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ReportTaskProgressCommand,
   serializeAws_json1_1ReportTaskProgressCommand,

@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StopTrainingDocumentClassifierRequest, StopTrainingDocumentClassifierResponse } from "../models/index";
+import { StopTrainingDocumentClassifierRequest, StopTrainingDocumentClassifierResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopTrainingDocumentClassifierCommand,
   serializeAws_json1_1StopTrainingDocumentClassifierCommand,

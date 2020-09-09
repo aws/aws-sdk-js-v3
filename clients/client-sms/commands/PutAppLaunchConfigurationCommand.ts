@@ -1,5 +1,5 @@
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
-import { PutAppLaunchConfigurationRequest, PutAppLaunchConfigurationResponse } from "../models/index";
+import { PutAppLaunchConfigurationRequest, PutAppLaunchConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutAppLaunchConfigurationCommand,
   serializeAws_json1_1PutAppLaunchConfigurationCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
-import { GetMedicalTranscriptionJobRequest, GetMedicalTranscriptionJobResponse } from "../models/index";
+import { GetMedicalTranscriptionJobRequest, GetMedicalTranscriptionJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetMedicalTranscriptionJobCommand,
   serializeAws_json1_1GetMedicalTranscriptionJobCommand,

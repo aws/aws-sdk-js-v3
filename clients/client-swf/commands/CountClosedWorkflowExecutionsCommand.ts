@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { CountClosedWorkflowExecutionsInput, WorkflowExecutionCount } from "../models/index";
+import { CountClosedWorkflowExecutionsInput, WorkflowExecutionCount } from "../models/models_0";
 import {
   deserializeAws_json1_0CountClosedWorkflowExecutionsCommand,
   serializeAws_json1_0CountClosedWorkflowExecutionsCommand,

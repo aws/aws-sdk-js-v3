@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { RebootRelationalDatabaseRequest, RebootRelationalDatabaseResult } from "../models/index";
+import { RebootRelationalDatabaseRequest, RebootRelationalDatabaseResult } from "../models/models_1";
 import {
   deserializeAws_json1_1RebootRelationalDatabaseCommand,
   serializeAws_json1_1RebootRelationalDatabaseCommand,

@@ -1,5 +1,5 @@
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { ListDashboardsInput, ListDashboardsOutput } from "../models/index";
+import { ListDashboardsInput, ListDashboardsOutput } from "../models/models_0";
 import {
   deserializeAws_queryListDashboardsCommand,
   serializeAws_queryListDashboardsCommand,

@@ -1,5 +1,5 @@
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { SimpleScalarXmlPropertiesOutput } from "../models/index";
+import { SimpleScalarXmlPropertiesOutput } from "../models/models_0";
 import {
   deserializeAws_ec2SimpleScalarXmlPropertiesCommand,
   serializeAws_ec2SimpleScalarXmlPropertiesCommand,

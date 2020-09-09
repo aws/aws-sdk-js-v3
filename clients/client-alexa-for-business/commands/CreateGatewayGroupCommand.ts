@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { CreateGatewayGroupRequest, CreateGatewayGroupResponse } from "../models/index";
+import { CreateGatewayGroupRequest, CreateGatewayGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateGatewayGroupCommand,
   serializeAws_json1_1CreateGatewayGroupCommand,

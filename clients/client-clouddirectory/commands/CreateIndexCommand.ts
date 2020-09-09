@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { CreateIndexRequest, CreateIndexResponse } from "../models/index";
+import { CreateIndexRequest, CreateIndexResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateIndexCommand,
   serializeAws_restJson1CreateIndexCommand,

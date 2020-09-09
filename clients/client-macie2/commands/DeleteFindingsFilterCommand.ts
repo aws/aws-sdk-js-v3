@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { DeleteFindingsFilterRequest, DeleteFindingsFilterResponse } from "../models/index";
+import { DeleteFindingsFilterRequest, DeleteFindingsFilterResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFindingsFilterCommand,
   serializeAws_restJson1DeleteFindingsFilterCommand,

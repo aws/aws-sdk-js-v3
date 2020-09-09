@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/index";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_1";
 import {
   deserializeAws_queryModifyDBInstanceCommand,
   serializeAws_queryModifyDBInstanceCommand,

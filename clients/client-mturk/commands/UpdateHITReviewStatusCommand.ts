@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { UpdateHITReviewStatusRequest, UpdateHITReviewStatusResponse } from "../models/index";
+import { UpdateHITReviewStatusRequest, UpdateHITReviewStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateHITReviewStatusCommand,
   serializeAws_json1_1UpdateHITReviewStatusCommand,

@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ProvisionByoipCidrRequest, ProvisionByoipCidrResult } from "../models/index";
+import { ProvisionByoipCidrRequest, ProvisionByoipCidrResult } from "../models/models_4";
 import {
   deserializeAws_ec2ProvisionByoipCidrCommand,
   serializeAws_ec2ProvisionByoipCidrCommand,

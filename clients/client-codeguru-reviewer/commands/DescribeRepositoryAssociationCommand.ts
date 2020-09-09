@@ -1,5 +1,5 @@
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import { DescribeRepositoryAssociationRequest, DescribeRepositoryAssociationResponse } from "../models/index";
+import { DescribeRepositoryAssociationRequest, DescribeRepositoryAssociationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRepositoryAssociationCommand,
   serializeAws_restJson1DescribeRepositoryAssociationCommand,

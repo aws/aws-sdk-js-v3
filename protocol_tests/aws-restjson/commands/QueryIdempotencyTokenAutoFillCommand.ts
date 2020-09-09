@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { QueryIdempotencyTokenAutoFillInput } from "../models/index";
+import { QueryIdempotencyTokenAutoFillInput } from "../models/models_0";
 import {
   deserializeAws_restJson1QueryIdempotencyTokenAutoFillCommand,
   serializeAws_restJson1QueryIdempotencyTokenAutoFillCommand,

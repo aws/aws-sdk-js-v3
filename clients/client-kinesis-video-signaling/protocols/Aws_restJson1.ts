@@ -11,7 +11,7 @@ import {
   NotAuthorizedException,
   ResourceNotFoundException,
   SessionExpiredException,
-} from "../models/index";
+} from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {

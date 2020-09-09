@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import { ListJobsByStatusRequest, ListJobsByStatusResponse } from "../models/index";
+import { ListJobsByStatusRequest, ListJobsByStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListJobsByStatusCommand,
   serializeAws_restJson1ListJobsByStatusCommand,

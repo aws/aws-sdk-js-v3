@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { EnableRuleRequest } from "../models/index";
+import { EnableRuleRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1EnableRuleCommand,
   serializeAws_json1_1EnableRuleCommand,

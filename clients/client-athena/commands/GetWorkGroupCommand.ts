@@ -1,5 +1,5 @@
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { GetWorkGroupInput, GetWorkGroupOutput } from "../models/index";
+import { GetWorkGroupInput, GetWorkGroupOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetWorkGroupCommand,
   serializeAws_json1_1GetWorkGroupCommand,

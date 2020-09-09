@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import { CreatePlacementRequest, CreatePlacementResponse } from "../models/index";
+import { CreatePlacementRequest, CreatePlacementResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreatePlacementCommand,
   serializeAws_restJson1CreatePlacementCommand,

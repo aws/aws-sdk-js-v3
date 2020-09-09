@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { DeleteTestGridProjectRequest, DeleteTestGridProjectResult } from "../models/index";
+import { DeleteTestGridProjectRequest, DeleteTestGridProjectResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTestGridProjectCommand,
   serializeAws_json1_1DeleteTestGridProjectCommand,

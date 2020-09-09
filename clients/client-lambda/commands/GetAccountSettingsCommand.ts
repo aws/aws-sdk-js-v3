@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { GetAccountSettingsRequest, GetAccountSettingsResponse } from "../models/index";
+import { GetAccountSettingsRequest, GetAccountSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAccountSettingsCommand,
   serializeAws_restJson1GetAccountSettingsCommand,

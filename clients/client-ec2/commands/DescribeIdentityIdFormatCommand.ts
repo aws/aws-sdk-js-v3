@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeIdentityIdFormatRequest, DescribeIdentityIdFormatResult } from "../models/index";
+import { DescribeIdentityIdFormatRequest, DescribeIdentityIdFormatResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeIdentityIdFormatCommand,
   serializeAws_ec2DescribeIdentityIdFormatCommand,

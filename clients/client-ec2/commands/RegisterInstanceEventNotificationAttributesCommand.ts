@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   RegisterInstanceEventNotificationAttributesRequest,
   RegisterInstanceEventNotificationAttributesResult,
-} from "../models/index";
+} from "../models/models_4";
 import {
   deserializeAws_ec2RegisterInstanceEventNotificationAttributesCommand,
   serializeAws_ec2RegisterInstanceEventNotificationAttributesCommand,

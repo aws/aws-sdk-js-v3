@@ -1,5 +1,5 @@
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { DescribeBrokerRequest, DescribeBrokerResponse } from "../models/index";
+import { DescribeBrokerRequest, DescribeBrokerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeBrokerCommand,
   serializeAws_restJson1DescribeBrokerCommand,

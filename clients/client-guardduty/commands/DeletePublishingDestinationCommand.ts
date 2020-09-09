@@ -1,5 +1,5 @@
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { DeletePublishingDestinationRequest, DeletePublishingDestinationResponse } from "../models/index";
+import { DeletePublishingDestinationRequest, DeletePublishingDestinationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePublishingDestinationCommand,
   serializeAws_restJson1DeletePublishingDestinationCommand,

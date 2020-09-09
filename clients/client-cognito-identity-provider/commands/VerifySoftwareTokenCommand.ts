@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { VerifySoftwareTokenRequest, VerifySoftwareTokenResponse } from "../models/index";
+import { VerifySoftwareTokenRequest, VerifySoftwareTokenResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1VerifySoftwareTokenCommand,
   serializeAws_json1_1VerifySoftwareTokenCommand,

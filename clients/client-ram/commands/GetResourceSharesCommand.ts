@@ -1,5 +1,5 @@
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { GetResourceSharesRequest, GetResourceSharesResponse } from "../models/index";
+import { GetResourceSharesRequest, GetResourceSharesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetResourceSharesCommand,
   serializeAws_restJson1GetResourceSharesCommand,

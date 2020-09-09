@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { AddAttributesToFindingsRequest, AddAttributesToFindingsResponse } from "../models/index";
+import { AddAttributesToFindingsRequest, AddAttributesToFindingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AddAttributesToFindingsCommand,
   serializeAws_json1_1AddAttributesToFindingsCommand,

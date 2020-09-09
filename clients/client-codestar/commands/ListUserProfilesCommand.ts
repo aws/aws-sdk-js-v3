@@ -1,5 +1,5 @@
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import { ListUserProfilesRequest, ListUserProfilesResult } from "../models/index";
+import { ListUserProfilesRequest, ListUserProfilesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListUserProfilesCommand,
   serializeAws_json1_1ListUserProfilesCommand,

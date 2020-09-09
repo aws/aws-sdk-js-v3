@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteUsageLimitMessage } from "../models/index";
+import { DeleteUsageLimitMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteUsageLimitCommand,
   serializeAws_queryDeleteUsageLimitCommand,

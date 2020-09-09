@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { CreateSchemaRequest, CreateSchemaResponse } from "../models/index";
+import { CreateSchemaRequest, CreateSchemaResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSchemaCommand,
   serializeAws_json1_1CreateSchemaCommand,

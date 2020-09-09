@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { AssociatePackageRequest, AssociatePackageResponse } from "../models/index";
+import { AssociatePackageRequest, AssociatePackageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociatePackageCommand,
   serializeAws_restJson1AssociatePackageCommand,

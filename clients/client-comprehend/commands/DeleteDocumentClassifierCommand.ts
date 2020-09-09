@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DeleteDocumentClassifierRequest, DeleteDocumentClassifierResponse } from "../models/index";
+import { DeleteDocumentClassifierRequest, DeleteDocumentClassifierResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDocumentClassifierCommand,
   serializeAws_json1_1DeleteDocumentClassifierCommand,

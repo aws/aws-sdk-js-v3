@@ -1,5 +1,5 @@
 import { SageMakerRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerRuntimeClient";
-import { InvokeEndpointInput, InvokeEndpointOutput } from "../models/index";
+import { InvokeEndpointInput, InvokeEndpointOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1InvokeEndpointCommand,
   serializeAws_restJson1InvokeEndpointCommand,

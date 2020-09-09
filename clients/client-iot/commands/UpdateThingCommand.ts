@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateThingRequest, UpdateThingResponse } from "../models/index";
+import { UpdateThingRequest, UpdateThingResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateThingCommand,
   serializeAws_restJson1UpdateThingCommand,

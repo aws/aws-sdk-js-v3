@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVolumesModificationsRequest, DescribeVolumesModificationsResult } from "../models/index";
+import { DescribeVolumesModificationsRequest, DescribeVolumesModificationsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeVolumesModificationsCommand,
   serializeAws_ec2DescribeVolumesModificationsCommand,

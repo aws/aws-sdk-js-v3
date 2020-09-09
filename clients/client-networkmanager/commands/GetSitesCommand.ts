@@ -1,5 +1,5 @@
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { GetSitesRequest, GetSitesResponse } from "../models/index";
+import { GetSitesRequest, GetSitesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSitesCommand,
   serializeAws_restJson1GetSitesCommand,

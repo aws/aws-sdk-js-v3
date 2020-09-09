@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { CreateBucketOutput, CreateBucketRequest } from "../models/index";
+import { CreateBucketOutput, CreateBucketRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlCreateBucketCommand,
   serializeAws_restXmlCreateBucketCommand,

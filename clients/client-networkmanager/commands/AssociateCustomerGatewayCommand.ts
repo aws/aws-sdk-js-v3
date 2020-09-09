@@ -1,5 +1,5 @@
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { AssociateCustomerGatewayRequest, AssociateCustomerGatewayResponse } from "../models/index";
+import { AssociateCustomerGatewayRequest, AssociateCustomerGatewayResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateCustomerGatewayCommand,
   serializeAws_restJson1AssociateCustomerGatewayCommand,

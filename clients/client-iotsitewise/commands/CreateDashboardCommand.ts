@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { CreateDashboardRequest, CreateDashboardResponse } from "../models/index";
+import { CreateDashboardRequest, CreateDashboardResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDashboardCommand,
   serializeAws_restJson1CreateDashboardCommand,

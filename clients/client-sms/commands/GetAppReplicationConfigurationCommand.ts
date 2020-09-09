@@ -1,5 +1,5 @@
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
-import { GetAppReplicationConfigurationRequest, GetAppReplicationConfigurationResponse } from "../models/index";
+import { GetAppReplicationConfigurationRequest, GetAppReplicationConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAppReplicationConfigurationCommand,
   serializeAws_json1_1GetAppReplicationConfigurationCommand,

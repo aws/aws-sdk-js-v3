@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { ListRecipesRequest, ListRecipesResponse } from "../models/index";
+import { ListRecipesRequest, ListRecipesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListRecipesCommand,
   serializeAws_json1_1ListRecipesCommand,

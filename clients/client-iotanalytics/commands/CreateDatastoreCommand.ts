@@ -1,5 +1,5 @@
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { CreateDatastoreRequest, CreateDatastoreResponse } from "../models/index";
+import { CreateDatastoreRequest, CreateDatastoreResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDatastoreCommand,
   serializeAws_restJson1CreateDatastoreCommand,

@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { CreateBackupPlanInput, CreateBackupPlanOutput } from "../models/index";
+import { CreateBackupPlanInput, CreateBackupPlanOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateBackupPlanCommand,
   serializeAws_restJson1CreateBackupPlanCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
-import { CreateCloudFormationChangeSetRequest, CreateCloudFormationChangeSetResponse } from "../models/index";
+import { CreateCloudFormationChangeSetRequest, CreateCloudFormationChangeSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCloudFormationChangeSetCommand,
   serializeAws_restJson1CreateCloudFormationChangeSetCommand,

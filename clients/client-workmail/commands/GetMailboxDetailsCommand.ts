@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { GetMailboxDetailsRequest, GetMailboxDetailsResponse } from "../models/index";
+import { GetMailboxDetailsRequest, GetMailboxDetailsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetMailboxDetailsCommand,
   serializeAws_json1_1GetMailboxDetailsCommand,

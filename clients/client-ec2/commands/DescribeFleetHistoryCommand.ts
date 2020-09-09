@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeFleetHistoryRequest, DescribeFleetHistoryResult } from "../models/index";
+import { DescribeFleetHistoryRequest, DescribeFleetHistoryResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeFleetHistoryCommand,
   serializeAws_ec2DescribeFleetHistoryCommand,

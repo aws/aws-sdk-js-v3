@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { GetDiscoveredResourceCountsRequest, GetDiscoveredResourceCountsResponse } from "../models/index";
+import { GetDiscoveredResourceCountsRequest, GetDiscoveredResourceCountsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDiscoveredResourceCountsCommand,
   serializeAws_json1_1GetDiscoveredResourceCountsCommand,

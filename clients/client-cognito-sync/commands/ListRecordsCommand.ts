@@ -1,5 +1,5 @@
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { ListRecordsRequest, ListRecordsResponse } from "../models/index";
+import { ListRecordsRequest, ListRecordsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListRecordsCommand,
   serializeAws_restJson1ListRecordsCommand,

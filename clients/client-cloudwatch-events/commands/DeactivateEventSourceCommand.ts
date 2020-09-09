@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { DeactivateEventSourceRequest } from "../models/index";
+import { DeactivateEventSourceRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeactivateEventSourceCommand,
   serializeAws_json1_1DeactivateEventSourceCommand,

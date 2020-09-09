@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateFleetPortSettingsInput, UpdateFleetPortSettingsOutput } from "../models/index";
+import { UpdateFleetPortSettingsInput, UpdateFleetPortSettingsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateFleetPortSettingsCommand,
   serializeAws_json1_1UpdateFleetPortSettingsCommand,

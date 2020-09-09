@@ -1,5 +1,5 @@
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { DeleteChannelRequest, DeleteChannelResponse } from "../models/index";
+import { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteChannelCommand,
   serializeAws_restJson1DeleteChannelCommand,

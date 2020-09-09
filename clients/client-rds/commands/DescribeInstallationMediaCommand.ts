@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeInstallationMediaMessage, InstallationMediaMessage } from "../models/index";
+import { DescribeInstallationMediaMessage, InstallationMediaMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeInstallationMediaCommand,
   serializeAws_queryDescribeInstallationMediaCommand,

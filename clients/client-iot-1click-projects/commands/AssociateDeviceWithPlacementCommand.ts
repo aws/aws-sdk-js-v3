@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import { AssociateDeviceWithPlacementRequest, AssociateDeviceWithPlacementResponse } from "../models/index";
+import { AssociateDeviceWithPlacementRequest, AssociateDeviceWithPlacementResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateDeviceWithPlacementCommand,
   serializeAws_restJson1AssociateDeviceWithPlacementCommand,

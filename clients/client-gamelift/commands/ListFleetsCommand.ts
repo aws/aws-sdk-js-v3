@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ListFleetsInput, ListFleetsOutput } from "../models/index";
+import { ListFleetsInput, ListFleetsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListFleetsCommand,
   serializeAws_json1_1ListFleetsCommand,

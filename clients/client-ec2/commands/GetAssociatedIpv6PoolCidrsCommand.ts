@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/index";
+import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/models_3";
 import {
   deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
   serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,

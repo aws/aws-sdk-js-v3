@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { DeleteMailboxPermissionsRequest, DeleteMailboxPermissionsResponse } from "../models/index";
+import { DeleteMailboxPermissionsRequest, DeleteMailboxPermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMailboxPermissionsCommand,
   serializeAws_json1_1DeleteMailboxPermissionsCommand,

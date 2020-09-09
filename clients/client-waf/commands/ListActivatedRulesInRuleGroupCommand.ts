@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { ListActivatedRulesInRuleGroupRequest, ListActivatedRulesInRuleGroupResponse } from "../models/index";
+import { ListActivatedRulesInRuleGroupRequest, ListActivatedRulesInRuleGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand,
   serializeAws_json1_1ListActivatedRulesInRuleGroupCommand,

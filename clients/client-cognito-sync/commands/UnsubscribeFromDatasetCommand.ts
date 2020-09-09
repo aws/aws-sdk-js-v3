@@ -1,5 +1,5 @@
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { UnsubscribeFromDatasetRequest, UnsubscribeFromDatasetResponse } from "../models/index";
+import { UnsubscribeFromDatasetRequest, UnsubscribeFromDatasetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UnsubscribeFromDatasetCommand,
   serializeAws_restJson1UnsubscribeFromDatasetCommand,

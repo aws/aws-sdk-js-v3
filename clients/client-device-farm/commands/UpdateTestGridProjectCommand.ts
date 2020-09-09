@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { UpdateTestGridProjectRequest, UpdateTestGridProjectResult } from "../models/index";
+import { UpdateTestGridProjectRequest, UpdateTestGridProjectResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateTestGridProjectCommand,
   serializeAws_json1_1UpdateTestGridProjectCommand,

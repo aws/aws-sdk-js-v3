@@ -1,5 +1,5 @@
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { DeleteJobQueueRequest, DeleteJobQueueResponse } from "../models/index";
+import { DeleteJobQueueRequest, DeleteJobQueueResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteJobQueueCommand,
   serializeAws_restJson1DeleteJobQueueCommand,

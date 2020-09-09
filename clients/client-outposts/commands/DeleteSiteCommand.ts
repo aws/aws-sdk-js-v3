@@ -1,5 +1,5 @@
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { DeleteSiteInput, DeleteSiteOutput } from "../models/index";
+import { DeleteSiteInput, DeleteSiteOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSiteCommand,
   serializeAws_restJson1DeleteSiteCommand,

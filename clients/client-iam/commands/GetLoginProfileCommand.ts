@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetLoginProfileRequest, GetLoginProfileResponse } from "../models/index";
+import { GetLoginProfileRequest, GetLoginProfileResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetLoginProfileCommand,
   serializeAws_queryGetLoginProfileCommand,

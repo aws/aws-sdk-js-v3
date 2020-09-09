@@ -1,5 +1,5 @@
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { ListAvailableZonesRequest, ListAvailableZonesResponse } from "../models/index";
+import { ListAvailableZonesRequest, ListAvailableZonesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAvailableZonesCommand,
   serializeAws_json1_1ListAvailableZonesCommand,

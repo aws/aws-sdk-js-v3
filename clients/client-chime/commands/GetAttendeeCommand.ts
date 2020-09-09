@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetAttendeeRequest, GetAttendeeResponse } from "../models/index";
+import { GetAttendeeRequest, GetAttendeeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAttendeeCommand,
   serializeAws_restJson1GetAttendeeCommand,

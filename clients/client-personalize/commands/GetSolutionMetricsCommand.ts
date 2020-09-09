@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { GetSolutionMetricsRequest, GetSolutionMetricsResponse } from "../models/index";
+import { GetSolutionMetricsRequest, GetSolutionMetricsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSolutionMetricsCommand,
   serializeAws_json1_1GetSolutionMetricsCommand,

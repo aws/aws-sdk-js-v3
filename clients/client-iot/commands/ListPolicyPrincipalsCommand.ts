@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListPolicyPrincipalsRequest, ListPolicyPrincipalsResponse } from "../models/index";
+import { ListPolicyPrincipalsRequest, ListPolicyPrincipalsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListPolicyPrincipalsCommand,
   serializeAws_restJson1ListPolicyPrincipalsCommand,

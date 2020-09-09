@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { DeleteConfigurationSetRequest, DeleteConfigurationSetResponse } from "../models/index";
+import { DeleteConfigurationSetRequest, DeleteConfigurationSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteConfigurationSetCommand,
   serializeAws_restJson1DeleteConfigurationSetCommand,

@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeHostReservationOfferingsRequest, DescribeHostReservationOfferingsResult } from "../models/index";
+import { DescribeHostReservationOfferingsRequest, DescribeHostReservationOfferingsResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeHostReservationOfferingsCommand,
   serializeAws_ec2DescribeHostReservationOfferingsCommand,

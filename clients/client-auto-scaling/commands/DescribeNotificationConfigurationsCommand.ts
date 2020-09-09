@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeNotificationConfigurationsAnswer, DescribeNotificationConfigurationsType } from "../models/index";
+import { DescribeNotificationConfigurationsAnswer, DescribeNotificationConfigurationsType } from "../models/models_0";
 import {
   deserializeAws_queryDescribeNotificationConfigurationsCommand,
   serializeAws_queryDescribeNotificationConfigurationsCommand,

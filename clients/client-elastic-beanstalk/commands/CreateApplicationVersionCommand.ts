@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { ApplicationVersionDescriptionMessage, CreateApplicationVersionMessage } from "../models/index";
+import { ApplicationVersionDescriptionMessage, CreateApplicationVersionMessage } from "../models/models_0";
 import {
   deserializeAws_queryCreateApplicationVersionCommand,
   serializeAws_queryCreateApplicationVersionCommand,

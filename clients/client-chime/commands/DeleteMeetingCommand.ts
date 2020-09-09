@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteMeetingRequest } from "../models/index";
+import { DeleteMeetingRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMeetingCommand,
   serializeAws_restJson1DeleteMeetingCommand,

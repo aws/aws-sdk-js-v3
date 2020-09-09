@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { DeleteGroupRequest } from "../models/index";
+import { DeleteGroupRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGroupCommand,
   serializeAws_json1_1DeleteGroupCommand,

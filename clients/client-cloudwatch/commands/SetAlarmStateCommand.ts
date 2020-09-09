@@ -1,5 +1,5 @@
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { SetAlarmStateInput } from "../models/index";
+import { SetAlarmStateInput } from "../models/models_0";
 import {
   deserializeAws_querySetAlarmStateCommand,
   serializeAws_querySetAlarmStateCommand,

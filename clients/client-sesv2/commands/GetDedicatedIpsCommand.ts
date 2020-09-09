@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { GetDedicatedIpsRequest, GetDedicatedIpsResponse } from "../models/index";
+import { GetDedicatedIpsRequest, GetDedicatedIpsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDedicatedIpsCommand,
   serializeAws_restJson1GetDedicatedIpsCommand,

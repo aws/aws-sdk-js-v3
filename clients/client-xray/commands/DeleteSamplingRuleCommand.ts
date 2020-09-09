@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
-import { DeleteSamplingRuleRequest, DeleteSamplingRuleResult } from "../models/index";
+import { DeleteSamplingRuleRequest, DeleteSamplingRuleResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSamplingRuleCommand,
   serializeAws_restJson1DeleteSamplingRuleCommand,

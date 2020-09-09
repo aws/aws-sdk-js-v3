@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { UpgradePublishedSchemaRequest, UpgradePublishedSchemaResponse } from "../models/index";
+import { UpgradePublishedSchemaRequest, UpgradePublishedSchemaResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpgradePublishedSchemaCommand,
   serializeAws_restJson1UpgradePublishedSchemaCommand,

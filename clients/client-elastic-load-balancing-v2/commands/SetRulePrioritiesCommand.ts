@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { SetRulePrioritiesInput, SetRulePrioritiesOutput } from "../models/index";
+import { SetRulePrioritiesInput, SetRulePrioritiesOutput } from "../models/models_0";
 import {
   deserializeAws_querySetRulePrioritiesCommand,
   serializeAws_querySetRulePrioritiesCommand,

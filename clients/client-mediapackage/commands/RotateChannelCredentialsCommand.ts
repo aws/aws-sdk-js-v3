@@ -1,5 +1,5 @@
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { RotateChannelCredentialsRequest, RotateChannelCredentialsResponse } from "../models/index";
+import { RotateChannelCredentialsRequest, RotateChannelCredentialsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RotateChannelCredentialsCommand,
   serializeAws_restJson1RotateChannelCredentialsCommand,

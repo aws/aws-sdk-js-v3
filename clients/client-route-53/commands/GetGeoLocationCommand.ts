@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetGeoLocationRequest, GetGeoLocationResponse } from "../models/index";
+import { GetGeoLocationRequest, GetGeoLocationResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlGetGeoLocationCommand,
   serializeAws_restXmlGetGeoLocationCommand,

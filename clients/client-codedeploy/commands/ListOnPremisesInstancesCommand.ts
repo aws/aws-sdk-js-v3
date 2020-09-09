@@ -1,5 +1,5 @@
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { ListOnPremisesInstancesInput, ListOnPremisesInstancesOutput } from "../models/index";
+import { ListOnPremisesInstancesInput, ListOnPremisesInstancesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListOnPremisesInstancesCommand,
   serializeAws_json1_1ListOnPremisesInstancesCommand,

@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { DeleteBusinessReportScheduleRequest, DeleteBusinessReportScheduleResponse } from "../models/index";
+import { DeleteBusinessReportScheduleRequest, DeleteBusinessReportScheduleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBusinessReportScheduleCommand,
   serializeAws_json1_1DeleteBusinessReportScheduleCommand,

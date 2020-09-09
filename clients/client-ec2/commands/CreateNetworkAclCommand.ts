@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateNetworkAclRequest, CreateNetworkAclResult } from "../models/index";
+import { CreateNetworkAclRequest, CreateNetworkAclResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreateNetworkAclCommand,
   serializeAws_ec2CreateNetworkAclCommand,

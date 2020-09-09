@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { GetAccountBalanceRequest, GetAccountBalanceResponse } from "../models/index";
+import { GetAccountBalanceRequest, GetAccountBalanceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAccountBalanceCommand,
   serializeAws_json1_1GetAccountBalanceCommand,

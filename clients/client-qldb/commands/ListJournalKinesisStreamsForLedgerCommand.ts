@@ -1,5 +1,8 @@
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
-import { ListJournalKinesisStreamsForLedgerRequest, ListJournalKinesisStreamsForLedgerResponse } from "../models/index";
+import {
+  ListJournalKinesisStreamsForLedgerRequest,
+  ListJournalKinesisStreamsForLedgerResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand,
   serializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand,

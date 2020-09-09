@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListGroupsForUserRequest, ListGroupsForUserResponse } from "../models/index";
+import { ListGroupsForUserRequest, ListGroupsForUserResponse } from "../models/models_0";
 import {
   deserializeAws_queryListGroupsForUserCommand,
   serializeAws_queryListGroupsForUserCommand,

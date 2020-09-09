@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DeleteAutoScalingGroupType } from "../models/index";
+import { DeleteAutoScalingGroupType } from "../models/models_0";
 import {
   deserializeAws_queryDeleteAutoScalingGroupCommand,
   serializeAws_queryDeleteAutoScalingGroupCommand,

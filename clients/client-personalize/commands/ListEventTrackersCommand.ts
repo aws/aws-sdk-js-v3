@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { ListEventTrackersRequest, ListEventTrackersResponse } from "../models/index";
+import { ListEventTrackersRequest, ListEventTrackersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListEventTrackersCommand,
   serializeAws_json1_1ListEventTrackersCommand,

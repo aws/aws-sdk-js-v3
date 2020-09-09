@@ -1,5 +1,5 @@
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { GetReservationUtilizationRequest, GetReservationUtilizationResponse } from "../models/index";
+import { GetReservationUtilizationRequest, GetReservationUtilizationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetReservationUtilizationCommand,
   serializeAws_json1_1GetReservationUtilizationCommand,

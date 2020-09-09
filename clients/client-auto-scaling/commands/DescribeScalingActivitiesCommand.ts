@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { ActivitiesType, DescribeScalingActivitiesType } from "../models/index";
+import { ActivitiesType, DescribeScalingActivitiesType } from "../models/models_0";
 import {
   deserializeAws_queryDescribeScalingActivitiesCommand,
   serializeAws_queryDescribeScalingActivitiesCommand,

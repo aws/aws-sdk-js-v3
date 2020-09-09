@@ -1,5 +1,5 @@
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { UpdateChannelClassRequest, UpdateChannelClassResponse } from "../models/index";
+import { UpdateChannelClassRequest, UpdateChannelClassResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateChannelClassCommand,
   serializeAws_restJson1UpdateChannelClassCommand,

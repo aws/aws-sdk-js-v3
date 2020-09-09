@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { DescribeGroupsRequest, DescribeGroupsResponse } from "../models/index";
+import { DescribeGroupsRequest, DescribeGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeGroupsCommand,
   serializeAws_restJson1DescribeGroupsCommand,

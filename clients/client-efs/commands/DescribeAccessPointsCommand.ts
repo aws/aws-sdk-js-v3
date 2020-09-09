@@ -1,5 +1,5 @@
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DescribeAccessPointsRequest, DescribeAccessPointsResponse } from "../models/index";
+import { DescribeAccessPointsRequest, DescribeAccessPointsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAccessPointsCommand,
   serializeAws_restJson1DescribeAccessPointsCommand,

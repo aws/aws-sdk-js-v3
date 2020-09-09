@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { GetWebACLForResourceRequest, GetWebACLForResourceResponse } from "../models/index";
+import { GetWebACLForResourceRequest, GetWebACLForResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetWebACLForResourceCommand,
   serializeAws_json1_1GetWebACLForResourceCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { DescribeObservationRequest, DescribeObservationResponse } from "../models/index";
+import { DescribeObservationRequest, DescribeObservationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeObservationCommand,
   serializeAws_json1_1DescribeObservationCommand,

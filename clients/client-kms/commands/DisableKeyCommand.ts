@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DisableKeyRequest } from "../models/index";
+import { DisableKeyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableKeyCommand,
   serializeAws_json1_1DisableKeyCommand,

@@ -1,5 +1,5 @@
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import { InvokeScreenAutomationRequest, InvokeScreenAutomationResult } from "../models/index";
+import { InvokeScreenAutomationRequest, InvokeScreenAutomationResult } from "../models/models_0";
 import {
   deserializeAws_restJson1InvokeScreenAutomationCommand,
   serializeAws_restJson1InvokeScreenAutomationCommand,

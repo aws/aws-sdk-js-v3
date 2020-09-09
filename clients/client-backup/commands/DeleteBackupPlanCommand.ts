@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteBackupPlanInput, DeleteBackupPlanOutput } from "../models/index";
+import { DeleteBackupPlanInput, DeleteBackupPlanOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBackupPlanCommand,
   serializeAws_restJson1DeleteBackupPlanCommand,

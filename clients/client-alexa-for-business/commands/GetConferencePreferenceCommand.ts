@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { GetConferencePreferenceRequest, GetConferencePreferenceResponse } from "../models/index";
+import { GetConferencePreferenceRequest, GetConferencePreferenceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetConferencePreferenceCommand,
   serializeAws_json1_1GetConferencePreferenceCommand,

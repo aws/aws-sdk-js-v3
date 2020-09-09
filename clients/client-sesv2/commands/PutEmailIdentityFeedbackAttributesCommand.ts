@@ -1,5 +1,8 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { PutEmailIdentityFeedbackAttributesRequest, PutEmailIdentityFeedbackAttributesResponse } from "../models/index";
+import {
+  PutEmailIdentityFeedbackAttributesRequest,
+  PutEmailIdentityFeedbackAttributesResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand,
   serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand,

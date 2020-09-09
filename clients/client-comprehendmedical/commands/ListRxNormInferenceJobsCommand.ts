@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { ListRxNormInferenceJobsRequest, ListRxNormInferenceJobsResponse } from "../models/index";
+import { ListRxNormInferenceJobsRequest, ListRxNormInferenceJobsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListRxNormInferenceJobsCommand,
   serializeAws_json1_1ListRxNormInferenceJobsCommand,

@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { RequestValidator, UpdateRequestValidatorRequest } from "../models/index";
+import { RequestValidator, UpdateRequestValidatorRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateRequestValidatorCommand,
   serializeAws_restJson1UpdateRequestValidatorCommand,

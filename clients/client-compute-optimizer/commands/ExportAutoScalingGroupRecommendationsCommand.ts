@@ -2,7 +2,7 @@ import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 import {
   ExportAutoScalingGroupRecommendationsRequest,
   ExportAutoScalingGroupRecommendationsResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand,
   serializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand,

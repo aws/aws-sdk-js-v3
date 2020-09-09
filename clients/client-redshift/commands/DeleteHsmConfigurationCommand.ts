@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteHsmConfigurationMessage } from "../models/index";
+import { DeleteHsmConfigurationMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteHsmConfigurationCommand,
   serializeAws_queryDeleteHsmConfigurationCommand,

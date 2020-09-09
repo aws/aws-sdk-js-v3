@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { RemovePermissionRequest } from "../models/index";
+import { RemovePermissionRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1RemovePermissionCommand,
   serializeAws_json1_1RemovePermissionCommand,

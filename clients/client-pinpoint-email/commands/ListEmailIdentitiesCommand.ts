@@ -1,5 +1,5 @@
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { ListEmailIdentitiesRequest, ListEmailIdentitiesResponse } from "../models/index";
+import { ListEmailIdentitiesRequest, ListEmailIdentitiesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListEmailIdentitiesCommand,
   serializeAws_restJson1ListEmailIdentitiesCommand,

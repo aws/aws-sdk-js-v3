@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetHealthCheckRequest, GetHealthCheckResponse } from "../models/index";
+import { GetHealthCheckRequest, GetHealthCheckResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlGetHealthCheckCommand,
   serializeAws_restXmlGetHealthCheckCommand,

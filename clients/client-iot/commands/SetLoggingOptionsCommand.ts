@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { SetLoggingOptionsRequest } from "../models/index";
+import { SetLoggingOptionsRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1SetLoggingOptionsCommand,
   serializeAws_restJson1SetLoggingOptionsCommand,

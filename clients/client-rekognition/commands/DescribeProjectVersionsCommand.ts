@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DescribeProjectVersionsRequest, DescribeProjectVersionsResponse } from "../models/index";
+import { DescribeProjectVersionsRequest, DescribeProjectVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeProjectVersionsCommand,
   serializeAws_json1_1DescribeProjectVersionsCommand,

@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateCompilationJobRequest, CreateCompilationJobResponse } from "../models/index";
+import { CreateCompilationJobRequest, CreateCompilationJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCompilationJobCommand,
   serializeAws_json1_1CreateCompilationJobCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
-import { GetTraceGraphRequest, GetTraceGraphResult } from "../models/index";
+import { GetTraceGraphRequest, GetTraceGraphResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTraceGraphCommand,
   serializeAws_restJson1GetTraceGraphCommand,

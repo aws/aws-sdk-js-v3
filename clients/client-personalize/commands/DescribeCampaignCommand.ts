@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/index";
+import { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCampaignCommand,
   serializeAws_json1_1DescribeCampaignCommand,

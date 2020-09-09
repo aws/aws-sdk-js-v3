@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminListUserAuthEventsRequest, AdminListUserAuthEventsResponse } from "../models/index";
+import { AdminListUserAuthEventsRequest, AdminListUserAuthEventsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminListUserAuthEventsCommand,
   serializeAws_json1_1AdminListUserAuthEventsCommand,

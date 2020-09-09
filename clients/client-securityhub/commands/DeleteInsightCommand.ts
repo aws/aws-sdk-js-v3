@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { DeleteInsightRequest, DeleteInsightResponse } from "../models/index";
+import { DeleteInsightRequest, DeleteInsightResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteInsightCommand,
   serializeAws_restJson1DeleteInsightCommand,

@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { RestoreDBInstanceFromDBSnapshotMessage, RestoreDBInstanceFromDBSnapshotResult } from "../models/index";
+import { RestoreDBInstanceFromDBSnapshotMessage, RestoreDBInstanceFromDBSnapshotResult } from "../models/models_1";
 import {
   deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand,
   serializeAws_queryRestoreDBInstanceFromDBSnapshotCommand,

@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { CreateOptionGroupMessage, CreateOptionGroupResult } from "../models/index";
+import { CreateOptionGroupMessage, CreateOptionGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateOptionGroupCommand,
   serializeAws_queryCreateOptionGroupCommand,

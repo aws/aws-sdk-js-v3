@@ -1,5 +1,5 @@
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { GetDimensionValuesRequest, GetDimensionValuesResponse } from "../models/index";
+import { GetDimensionValuesRequest, GetDimensionValuesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDimensionValuesCommand,
   serializeAws_json1_1GetDimensionValuesCommand,

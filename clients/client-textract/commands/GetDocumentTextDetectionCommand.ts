@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
-import { GetDocumentTextDetectionRequest, GetDocumentTextDetectionResponse } from "../models/index";
+import { GetDocumentTextDetectionRequest, GetDocumentTextDetectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDocumentTextDetectionCommand,
   serializeAws_json1_1GetDocumentTextDetectionCommand,

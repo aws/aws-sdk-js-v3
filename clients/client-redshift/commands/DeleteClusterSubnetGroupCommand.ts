@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteClusterSubnetGroupMessage } from "../models/index";
+import { DeleteClusterSubnetGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteClusterSubnetGroupCommand,
   serializeAws_queryDeleteClusterSubnetGroupCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { ListEndpointGroupsRequest, ListEndpointGroupsResponse } from "../models/index";
+import { ListEndpointGroupsRequest, ListEndpointGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListEndpointGroupsCommand,
   serializeAws_json1_1ListEndpointGroupsCommand,

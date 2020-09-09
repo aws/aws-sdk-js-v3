@@ -1,5 +1,5 @@
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { GetLinkAssociationsRequest, GetLinkAssociationsResponse } from "../models/index";
+import { GetLinkAssociationsRequest, GetLinkAssociationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetLinkAssociationsCommand,
   serializeAws_restJson1GetLinkAssociationsCommand,

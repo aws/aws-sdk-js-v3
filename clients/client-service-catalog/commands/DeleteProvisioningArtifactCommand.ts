@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { DeleteProvisioningArtifactInput, DeleteProvisioningArtifactOutput } from "../models/index";
+import { DeleteProvisioningArtifactInput, DeleteProvisioningArtifactOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProvisioningArtifactCommand,
   serializeAws_json1_1DeleteProvisioningArtifactCommand,

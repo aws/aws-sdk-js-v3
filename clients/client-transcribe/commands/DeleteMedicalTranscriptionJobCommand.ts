@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
-import { DeleteMedicalTranscriptionJobRequest } from "../models/index";
+import { DeleteMedicalTranscriptionJobRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMedicalTranscriptionJobCommand,
   serializeAws_json1_1DeleteMedicalTranscriptionJobCommand,

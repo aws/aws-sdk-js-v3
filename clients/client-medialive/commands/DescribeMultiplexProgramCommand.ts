@@ -1,5 +1,5 @@
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DescribeMultiplexProgramRequest, DescribeMultiplexProgramResponse } from "../models/index";
+import { DescribeMultiplexProgramRequest, DescribeMultiplexProgramResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeMultiplexProgramCommand,
   serializeAws_restJson1DescribeMultiplexProgramCommand,

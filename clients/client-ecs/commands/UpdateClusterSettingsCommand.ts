@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { UpdateClusterSettingsRequest, UpdateClusterSettingsResponse } from "../models/index";
+import { UpdateClusterSettingsRequest, UpdateClusterSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateClusterSettingsCommand,
   serializeAws_json1_1UpdateClusterSettingsCommand,

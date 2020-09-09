@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteUserByPrincipalIdRequest, DeleteUserByPrincipalIdResponse } from "../models/index";
+import { DeleteUserByPrincipalIdRequest, DeleteUserByPrincipalIdResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteUserByPrincipalIdCommand,
   serializeAws_restJson1DeleteUserByPrincipalIdCommand,

@@ -1,5 +1,5 @@
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { CreateLocationS3Request, CreateLocationS3Response } from "../models/index";
+import { CreateLocationS3Request, CreateLocationS3Response } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLocationS3Command,
   serializeAws_json1_1CreateLocationS3Command,

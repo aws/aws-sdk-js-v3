@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteInternetGatewayRequest } from "../models/index";
+import { DeleteInternetGatewayRequest } from "../models/models_1";
 import {
   deserializeAws_ec2DeleteInternetGatewayCommand,
   serializeAws_ec2DeleteInternetGatewayCommand,

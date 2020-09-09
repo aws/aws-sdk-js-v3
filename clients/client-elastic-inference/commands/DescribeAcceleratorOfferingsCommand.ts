@@ -1,5 +1,5 @@
 import { ElasticInferenceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticInferenceClient";
-import { DescribeAcceleratorOfferingsRequest, DescribeAcceleratorOfferingsResponse } from "../models/index";
+import { DescribeAcceleratorOfferingsRequest, DescribeAcceleratorOfferingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAcceleratorOfferingsCommand,
   serializeAws_restJson1DescribeAcceleratorOfferingsCommand,

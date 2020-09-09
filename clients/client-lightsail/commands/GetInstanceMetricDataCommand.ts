@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetInstanceMetricDataRequest, GetInstanceMetricDataResult } from "../models/index";
+import { GetInstanceMetricDataRequest, GetInstanceMetricDataResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetInstanceMetricDataCommand,
   serializeAws_json1_1GetInstanceMetricDataCommand,

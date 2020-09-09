@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { CreateRecommenderConfigurationRequest, CreateRecommenderConfigurationResponse } from "../models/index";
+import { CreateRecommenderConfigurationRequest, CreateRecommenderConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRecommenderConfigurationCommand,
   serializeAws_restJson1CreateRecommenderConfigurationCommand,

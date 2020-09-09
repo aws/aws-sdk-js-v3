@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { CreateTagsRequest, CreateTagsResponse } from "../models/index";
+import { CreateTagsRequest, CreateTagsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateTagsCommand,
   serializeAws_json1_1CreateTagsCommand,

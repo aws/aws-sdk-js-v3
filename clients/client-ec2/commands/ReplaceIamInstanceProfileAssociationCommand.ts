@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ReplaceIamInstanceProfileAssociationRequest,
   ReplaceIamInstanceProfileAssociationResult,
-} from "../models/index";
+} from "../models/models_4";
 import {
   deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommand,
   serializeAws_ec2ReplaceIamInstanceProfileAssociationCommand,

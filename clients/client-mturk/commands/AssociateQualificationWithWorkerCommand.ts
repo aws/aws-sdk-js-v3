@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { AssociateQualificationWithWorkerRequest, AssociateQualificationWithWorkerResponse } from "../models/index";
+import { AssociateQualificationWithWorkerRequest, AssociateQualificationWithWorkerResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateQualificationWithWorkerCommand,
   serializeAws_json1_1AssociateQualificationWithWorkerCommand,

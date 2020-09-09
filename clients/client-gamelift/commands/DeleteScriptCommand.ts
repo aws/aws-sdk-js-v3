@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteScriptInput } from "../models/index";
+import { DeleteScriptInput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteScriptCommand,
   serializeAws_json1_1DeleteScriptCommand,

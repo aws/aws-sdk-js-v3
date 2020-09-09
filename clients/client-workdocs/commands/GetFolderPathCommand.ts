@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { GetFolderPathRequest, GetFolderPathResponse } from "../models/index";
+import { GetFolderPathRequest, GetFolderPathResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetFolderPathCommand,
   serializeAws_restJson1GetFolderPathCommand,

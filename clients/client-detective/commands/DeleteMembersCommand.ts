@@ -1,5 +1,5 @@
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { DeleteMembersRequest, DeleteMembersResponse } from "../models/index";
+import { DeleteMembersRequest, DeleteMembersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMembersCommand,
   serializeAws_restJson1DeleteMembersCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import { ListPresetsRequest, ListPresetsResponse } from "../models/index";
+import { ListPresetsRequest, ListPresetsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPresetsCommand,
   serializeAws_restJson1ListPresetsCommand,

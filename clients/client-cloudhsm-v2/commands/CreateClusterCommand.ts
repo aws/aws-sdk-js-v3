@@ -1,5 +1,5 @@
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import { CreateClusterRequest, CreateClusterResponse } from "../models/index";
+import { CreateClusterRequest, CreateClusterResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateClusterCommand,
   serializeAws_json1_1CreateClusterCommand,

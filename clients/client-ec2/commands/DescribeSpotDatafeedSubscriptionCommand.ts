@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeSpotDatafeedSubscriptionRequest, DescribeSpotDatafeedSubscriptionResult } from "../models/index";
+import { DescribeSpotDatafeedSubscriptionRequest, DescribeSpotDatafeedSubscriptionResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommand,
   serializeAws_ec2DescribeSpotDatafeedSubscriptionCommand,

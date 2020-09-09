@@ -1,5 +1,5 @@
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { DisassociateLinkRequest, DisassociateLinkResponse } from "../models/index";
+import { DisassociateLinkRequest, DisassociateLinkResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateLinkCommand,
   serializeAws_restJson1DisassociateLinkCommand,

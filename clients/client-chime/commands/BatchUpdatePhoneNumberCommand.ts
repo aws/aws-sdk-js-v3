@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { BatchUpdatePhoneNumberRequest, BatchUpdatePhoneNumberResponse } from "../models/index";
+import { BatchUpdatePhoneNumberRequest, BatchUpdatePhoneNumberResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchUpdatePhoneNumberCommand,
   serializeAws_restJson1BatchUpdatePhoneNumberCommand,

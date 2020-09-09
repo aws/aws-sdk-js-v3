@@ -1,5 +1,5 @@
 import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
-import { AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse } from "../models/index";
+import { AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse } from "../models/models_0";
 import {
   deserializeAws_queryAssumeRoleWithSAMLCommand,
   serializeAws_queryAssumeRoleWithSAMLCommand,

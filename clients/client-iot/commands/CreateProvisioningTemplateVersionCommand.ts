@@ -1,5 +1,8 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateProvisioningTemplateVersionRequest, CreateProvisioningTemplateVersionResponse } from "../models/index";
+import {
+  CreateProvisioningTemplateVersionRequest,
+  CreateProvisioningTemplateVersionResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateProvisioningTemplateVersionCommand,
   serializeAws_restJson1CreateProvisioningTemplateVersionCommand,

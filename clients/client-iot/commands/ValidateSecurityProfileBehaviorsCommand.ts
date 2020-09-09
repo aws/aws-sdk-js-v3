@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ValidateSecurityProfileBehaviorsRequest, ValidateSecurityProfileBehaviorsResponse } from "../models/index";
+import { ValidateSecurityProfileBehaviorsRequest, ValidateSecurityProfileBehaviorsResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1ValidateSecurityProfileBehaviorsCommand,
   serializeAws_restJson1ValidateSecurityProfileBehaviorsCommand,

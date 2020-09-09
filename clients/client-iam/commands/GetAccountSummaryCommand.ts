@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetAccountSummaryResponse } from "../models/index";
+import { GetAccountSummaryResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetAccountSummaryCommand,
   serializeAws_queryGetAccountSummaryCommand,

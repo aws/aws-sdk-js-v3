@@ -1,5 +1,5 @@
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import { ListEnvironmentsRequest, ListEnvironmentsResult } from "../models/index";
+import { ListEnvironmentsRequest, ListEnvironmentsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListEnvironmentsCommand,
   serializeAws_json1_1ListEnvironmentsCommand,

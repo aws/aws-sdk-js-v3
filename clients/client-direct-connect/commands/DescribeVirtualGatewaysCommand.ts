@@ -1,5 +1,5 @@
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { VirtualGateways } from "../models/index";
+import { VirtualGateways } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeVirtualGatewaysCommand,
   serializeAws_json1_1DescribeVirtualGatewaysCommand,

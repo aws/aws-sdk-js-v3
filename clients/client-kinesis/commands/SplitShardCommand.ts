@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { SplitShardInput } from "../models/index";
+import { SplitShardInput } from "../models/models_0";
 import {
   deserializeAws_json1_1SplitShardCommand,
   serializeAws_json1_1SplitShardCommand,

@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { CreateCacheClusterMessage, CreateCacheClusterResult } from "../models/index";
+import { CreateCacheClusterMessage, CreateCacheClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateCacheClusterCommand,
   serializeAws_queryCreateCacheClusterCommand,

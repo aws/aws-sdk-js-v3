@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateRuntimeConfigurationInput, UpdateRuntimeConfigurationOutput } from "../models/index";
+import { UpdateRuntimeConfigurationInput, UpdateRuntimeConfigurationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRuntimeConfigurationCommand,
   serializeAws_json1_1UpdateRuntimeConfigurationCommand,

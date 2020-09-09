@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { GetProposalInput, GetProposalOutput } from "../models/index";
+import { GetProposalInput, GetProposalOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetProposalCommand,
   serializeAws_restJson1GetProposalCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse } from "../models/index";
+import { UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRegexPatternSetCommand,
   serializeAws_json1_1UpdateRegexPatternSetCommand,

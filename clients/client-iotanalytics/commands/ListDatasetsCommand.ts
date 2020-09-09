@@ -1,5 +1,5 @@
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { ListDatasetsRequest, ListDatasetsResponse } from "../models/index";
+import { ListDatasetsRequest, ListDatasetsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDatasetsCommand,
   serializeAws_restJson1ListDatasetsCommand,

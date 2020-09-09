@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DescribeCustomKeyStoresRequest, DescribeCustomKeyStoresResponse } from "../models/index";
+import { DescribeCustomKeyStoresRequest, DescribeCustomKeyStoresResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCustomKeyStoresCommand,
   serializeAws_json1_1DescribeCustomKeyStoresCommand,

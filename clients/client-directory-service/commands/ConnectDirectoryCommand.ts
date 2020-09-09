@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { ConnectDirectoryRequest, ConnectDirectoryResult } from "../models/index";
+import { ConnectDirectoryRequest, ConnectDirectoryResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ConnectDirectoryCommand,
   serializeAws_json1_1ConnectDirectoryCommand,

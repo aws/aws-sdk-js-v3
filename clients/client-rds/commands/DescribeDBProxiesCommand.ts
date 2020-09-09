@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeDBProxiesRequest, DescribeDBProxiesResponse } from "../models/index";
+import { DescribeDBProxiesRequest, DescribeDBProxiesResponse } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBProxiesCommand,
   serializeAws_queryDescribeDBProxiesCommand,

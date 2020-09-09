@@ -1,5 +1,5 @@
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { UpdateItemInput, UpdateItemOutput } from "../models/index";
+import { UpdateItemInput, UpdateItemOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateItemCommand,
   serializeAws_json1_0UpdateItemCommand,

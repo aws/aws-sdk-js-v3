@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/index";
+import { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutObjectRetentionCommand,
   serializeAws_restXmlPutObjectRetentionCommand,

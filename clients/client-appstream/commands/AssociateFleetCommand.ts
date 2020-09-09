@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { AssociateFleetRequest, AssociateFleetResult } from "../models/index";
+import { AssociateFleetRequest, AssociateFleetResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateFleetCommand,
   serializeAws_json1_1AssociateFleetCommand,

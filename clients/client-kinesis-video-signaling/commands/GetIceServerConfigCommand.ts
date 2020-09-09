@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient";
-import { GetIceServerConfigRequest, GetIceServerConfigResponse } from "../models/index";
+import { GetIceServerConfigRequest, GetIceServerConfigResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetIceServerConfigCommand,
   serializeAws_restJson1GetIceServerConfigCommand,

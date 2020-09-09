@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { StartMigrationMessage, StartMigrationResponse } from "../models/index";
+import { StartMigrationMessage, StartMigrationResponse } from "../models/models_0";
 import {
   deserializeAws_queryStartMigrationCommand,
   serializeAws_queryStartMigrationCommand,

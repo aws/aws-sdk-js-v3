@@ -1,5 +1,5 @@
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { DescribeCertificateRequest, DescribeCertificateResponse } from "../models/index";
+import { DescribeCertificateRequest, DescribeCertificateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCertificateCommand,
   serializeAws_json1_1DescribeCertificateCommand,

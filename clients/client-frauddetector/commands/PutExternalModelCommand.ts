@@ -1,5 +1,5 @@
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { PutExternalModelRequest, PutExternalModelResult } from "../models/index";
+import { PutExternalModelRequest, PutExternalModelResult } from "../models/models_0";
 import {
   deserializeAws_json1_1PutExternalModelCommand,
   serializeAws_json1_1PutExternalModelCommand,

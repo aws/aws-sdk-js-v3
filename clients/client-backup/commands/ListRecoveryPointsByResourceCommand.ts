@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { ListRecoveryPointsByResourceInput, ListRecoveryPointsByResourceOutput } from "../models/index";
+import { ListRecoveryPointsByResourceInput, ListRecoveryPointsByResourceOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListRecoveryPointsByResourceCommand,
   serializeAws_restJson1ListRecoveryPointsByResourceCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
-import { ListApplicationVersionsRequest, ListApplicationVersionsResponse } from "../models/index";
+import { ListApplicationVersionsRequest, ListApplicationVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListApplicationVersionsCommand,
   serializeAws_restJson1ListApplicationVersionsCommand,

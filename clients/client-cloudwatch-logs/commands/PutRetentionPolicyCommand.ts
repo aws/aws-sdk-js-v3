@@ -1,5 +1,5 @@
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { PutRetentionPolicyRequest } from "../models/index";
+import { PutRetentionPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1PutRetentionPolicyCommand,
   serializeAws_json1_1PutRetentionPolicyCommand,

@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { RegisterDBProxyTargetsRequest, RegisterDBProxyTargetsResponse } from "../models/index";
+import { RegisterDBProxyTargetsRequest, RegisterDBProxyTargetsResponse } from "../models/models_1";
 import {
   deserializeAws_queryRegisterDBProxyTargetsCommand,
   serializeAws_queryRegisterDBProxyTargetsCommand,

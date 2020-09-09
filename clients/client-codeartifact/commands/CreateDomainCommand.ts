@@ -1,5 +1,5 @@
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { CreateDomainRequest, CreateDomainResult } from "../models/index";
+import { CreateDomainRequest, CreateDomainResult } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDomainCommand,
   serializeAws_restJson1CreateDomainCommand,

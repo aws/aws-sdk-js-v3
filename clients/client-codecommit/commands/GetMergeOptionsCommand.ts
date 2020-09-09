@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { GetMergeOptionsInput, GetMergeOptionsOutput } from "../models/index";
+import { GetMergeOptionsInput, GetMergeOptionsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetMergeOptionsCommand,
   serializeAws_json1_1GetMergeOptionsCommand,

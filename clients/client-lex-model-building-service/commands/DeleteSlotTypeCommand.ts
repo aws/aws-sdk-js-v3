@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteSlotTypeRequest } from "../models/index";
+import { DeleteSlotTypeRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSlotTypeCommand,
   serializeAws_restJson1DeleteSlotTypeCommand,

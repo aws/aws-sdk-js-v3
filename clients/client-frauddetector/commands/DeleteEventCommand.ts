@@ -1,5 +1,5 @@
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { DeleteEventRequest, DeleteEventResult } from "../models/index";
+import { DeleteEventRequest, DeleteEventResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEventCommand,
   serializeAws_json1_1DeleteEventCommand,

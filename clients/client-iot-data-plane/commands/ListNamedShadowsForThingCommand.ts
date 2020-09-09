@@ -1,5 +1,5 @@
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import { ListNamedShadowsForThingRequest, ListNamedShadowsForThingResponse } from "../models/index";
+import { ListNamedShadowsForThingRequest, ListNamedShadowsForThingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListNamedShadowsForThingCommand,
   serializeAws_restJson1ListNamedShadowsForThingCommand,

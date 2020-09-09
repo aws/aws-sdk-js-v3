@@ -1,5 +1,5 @@
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { ArchiveCreationOutput, CompleteMultipartUploadInput } from "../models/index";
+import { ArchiveCreationOutput, CompleteMultipartUploadInput } from "../models/models_0";
 import {
   deserializeAws_restJson1CompleteMultipartUploadCommand,
   serializeAws_restJson1CompleteMultipartUploadCommand,

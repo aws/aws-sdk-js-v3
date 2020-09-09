@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetContactMethodsRequest, GetContactMethodsResult } from "../models/index";
+import { GetContactMethodsRequest, GetContactMethodsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetContactMethodsCommand,
   serializeAws_json1_1GetContactMethodsCommand,

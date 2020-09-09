@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { DeleteRepositoryPolicyRequest, DeleteRepositoryPolicyResponse } from "../models/index";
+import { DeleteRepositoryPolicyRequest, DeleteRepositoryPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRepositoryPolicyCommand,
   serializeAws_json1_1DeleteRepositoryPolicyCommand,

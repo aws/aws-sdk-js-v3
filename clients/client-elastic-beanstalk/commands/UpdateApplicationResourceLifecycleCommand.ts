@@ -2,7 +2,7 @@ import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 import {
   ApplicationResourceLifecycleDescriptionMessage,
   UpdateApplicationResourceLifecycleMessage,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_queryUpdateApplicationResourceLifecycleCommand,
   serializeAws_queryUpdateApplicationResourceLifecycleCommand,

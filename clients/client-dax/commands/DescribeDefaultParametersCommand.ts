@@ -1,5 +1,5 @@
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { DescribeDefaultParametersRequest, DescribeDefaultParametersResponse } from "../models/index";
+import { DescribeDefaultParametersRequest, DescribeDefaultParametersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDefaultParametersCommand,
   serializeAws_json1_1DescribeDefaultParametersCommand,

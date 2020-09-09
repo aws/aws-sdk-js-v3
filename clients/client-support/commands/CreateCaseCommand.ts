@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
-import { CreateCaseRequest, CreateCaseResponse } from "../models/index";
+import { CreateCaseRequest, CreateCaseResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCaseCommand,
   serializeAws_json1_1CreateCaseCommand,

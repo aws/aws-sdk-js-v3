@@ -1,5 +1,5 @@
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { Environment, GetEnvironmentRequest } from "../models/index";
+import { Environment, GetEnvironmentRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1GetEnvironmentCommand,
   serializeAws_restJson1GetEnvironmentCommand,

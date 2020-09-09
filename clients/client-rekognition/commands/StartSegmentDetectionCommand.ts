@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { StartSegmentDetectionRequest, StartSegmentDetectionResponse } from "../models/index";
+import { StartSegmentDetectionRequest, StartSegmentDetectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartSegmentDetectionCommand,
   serializeAws_json1_1StartSegmentDetectionCommand,

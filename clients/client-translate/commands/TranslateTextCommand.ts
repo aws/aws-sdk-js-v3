@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
-import { TranslateTextRequest, TranslateTextResponse } from "../models/index";
+import { TranslateTextRequest, TranslateTextResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1TranslateTextCommand,
   serializeAws_json1_1TranslateTextCommand,

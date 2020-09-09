@@ -2,7 +2,7 @@ import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetMaintenanceWindowExecutionTaskInvocationRequest,
   GetMaintenanceWindowExecutionTaskInvocationResult,
-} from "../models/index";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand,
   serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand,

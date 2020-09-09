@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeIngestionRequest, DescribeIngestionResponse } from "../models/index";
+import { DescribeIngestionRequest, DescribeIngestionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeIngestionCommand,
   serializeAws_restJson1DescribeIngestionCommand,

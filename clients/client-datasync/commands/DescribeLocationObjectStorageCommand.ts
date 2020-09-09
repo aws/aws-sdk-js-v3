@@ -1,5 +1,5 @@
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { DescribeLocationObjectStorageRequest, DescribeLocationObjectStorageResponse } from "../models/index";
+import { DescribeLocationObjectStorageRequest, DescribeLocationObjectStorageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLocationObjectStorageCommand,
   serializeAws_json1_1DescribeLocationObjectStorageCommand,

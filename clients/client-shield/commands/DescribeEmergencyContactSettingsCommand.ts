@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
-import { DescribeEmergencyContactSettingsRequest, DescribeEmergencyContactSettingsResponse } from "../models/index";
+import { DescribeEmergencyContactSettingsRequest, DescribeEmergencyContactSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEmergencyContactSettingsCommand,
   serializeAws_json1_1DescribeEmergencyContactSettingsCommand,

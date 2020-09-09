@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { UpdateSMBSecurityStrategyInput, UpdateSMBSecurityStrategyOutput } from "../models/index";
+import { UpdateSMBSecurityStrategyInput, UpdateSMBSecurityStrategyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSMBSecurityStrategyCommand,
   serializeAws_json1_1UpdateSMBSecurityStrategyCommand,

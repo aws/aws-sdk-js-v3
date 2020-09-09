@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { DeleteCacheParameterGroupMessage } from "../models/index";
+import { DeleteCacheParameterGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteCacheParameterGroupCommand,
   serializeAws_queryDeleteCacheParameterGroupCommand,

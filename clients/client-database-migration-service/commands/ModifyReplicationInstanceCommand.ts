@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { ModifyReplicationInstanceMessage, ModifyReplicationInstanceResponse } from "../models/index";
+import { ModifyReplicationInstanceMessage, ModifyReplicationInstanceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyReplicationInstanceCommand,
   serializeAws_json1_1ModifyReplicationInstanceCommand,

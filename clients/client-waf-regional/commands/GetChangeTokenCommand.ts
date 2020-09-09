@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { GetChangeTokenRequest, GetChangeTokenResponse } from "../models/index";
+import { GetChangeTokenRequest, GetChangeTokenResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetChangeTokenCommand,
   serializeAws_json1_1GetChangeTokenCommand,

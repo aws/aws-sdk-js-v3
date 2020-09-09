@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { StopBulkDeploymentRequest, StopBulkDeploymentResponse } from "../models/index";
+import { StopBulkDeploymentRequest, StopBulkDeploymentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StopBulkDeploymentCommand,
   serializeAws_restJson1StopBulkDeploymentCommand,

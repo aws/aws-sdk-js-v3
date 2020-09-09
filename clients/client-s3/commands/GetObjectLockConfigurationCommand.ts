@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetObjectLockConfigurationOutput, GetObjectLockConfigurationRequest } from "../models/index";
+import { GetObjectLockConfigurationOutput, GetObjectLockConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetObjectLockConfigurationCommand,
   serializeAws_restXmlGetObjectLockConfigurationCommand,

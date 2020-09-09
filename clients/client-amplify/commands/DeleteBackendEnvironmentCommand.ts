@@ -1,5 +1,5 @@
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { DeleteBackendEnvironmentRequest, DeleteBackendEnvironmentResult } from "../models/index";
+import { DeleteBackendEnvironmentRequest, DeleteBackendEnvironmentResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBackendEnvironmentCommand,
   serializeAws_restJson1DeleteBackendEnvironmentCommand,

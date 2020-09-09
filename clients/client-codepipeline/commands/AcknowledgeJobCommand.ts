@@ -1,5 +1,5 @@
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { AcknowledgeJobInput, AcknowledgeJobOutput } from "../models/index";
+import { AcknowledgeJobInput, AcknowledgeJobOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1AcknowledgeJobCommand,
   serializeAws_json1_1AcknowledgeJobCommand,

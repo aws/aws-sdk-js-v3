@@ -1,5 +1,5 @@
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { RemoveTagsFromVaultInput } from "../models/index";
+import { RemoveTagsFromVaultInput } from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveTagsFromVaultCommand,
   serializeAws_restJson1RemoveTagsFromVaultCommand,

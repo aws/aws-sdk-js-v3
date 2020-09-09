@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { DeleteCoreDefinitionRequest, DeleteCoreDefinitionResponse } from "../models/index";
+import { DeleteCoreDefinitionRequest, DeleteCoreDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCoreDefinitionCommand,
   serializeAws_restJson1DeleteCoreDefinitionCommand,

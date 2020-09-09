@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ClusterParameterGroupsMessage, DescribeClusterParameterGroupsMessage } from "../models/index";
+import { ClusterParameterGroupsMessage, DescribeClusterParameterGroupsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeClusterParameterGroupsCommand,
   serializeAws_queryDescribeClusterParameterGroupsCommand,

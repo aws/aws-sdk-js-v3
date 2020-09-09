@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { DeleteAppRequest, DeleteAppResponse } from "../models/index";
+import { DeleteAppRequest, DeleteAppResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAppCommand,
   serializeAws_restJson1DeleteAppCommand,

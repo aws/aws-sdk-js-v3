@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { UpdateEndpointRequest, UpdateEndpointResponse } from "../models/index";
+import { UpdateEndpointRequest, UpdateEndpointResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateEndpointCommand,
   serializeAws_restJson1UpdateEndpointCommand,

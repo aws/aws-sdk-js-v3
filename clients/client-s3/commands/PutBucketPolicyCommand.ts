@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutBucketPolicyRequest } from "../models/index";
+import { PutBucketPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketPolicyCommand,
   serializeAws_restXmlPutBucketPolicyCommand,

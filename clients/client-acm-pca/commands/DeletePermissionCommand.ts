@@ -1,5 +1,5 @@
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { DeletePermissionRequest } from "../models/index";
+import { DeletePermissionRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePermissionCommand,
   serializeAws_json1_1DeletePermissionCommand,

@@ -1,5 +1,5 @@
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { ReportTaskRunnerHeartbeatInput, ReportTaskRunnerHeartbeatOutput } from "../models/index";
+import { ReportTaskRunnerHeartbeatInput, ReportTaskRunnerHeartbeatOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand,
   serializeAws_json1_1ReportTaskRunnerHeartbeatCommand,

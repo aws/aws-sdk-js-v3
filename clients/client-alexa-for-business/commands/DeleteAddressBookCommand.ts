@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { DeleteAddressBookRequest, DeleteAddressBookResponse } from "../models/index";
+import { DeleteAddressBookRequest, DeleteAddressBookResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAddressBookCommand,
   serializeAws_json1_1DeleteAddressBookCommand,

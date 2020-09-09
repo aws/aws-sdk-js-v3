@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { AttachInstancesQuery } from "../models/index";
+import { AttachInstancesQuery } from "../models/models_0";
 import {
   deserializeAws_queryAttachInstancesCommand,
   serializeAws_queryAttachInstancesCommand,

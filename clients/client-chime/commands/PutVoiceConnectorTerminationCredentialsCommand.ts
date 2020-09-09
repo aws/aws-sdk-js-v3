@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { PutVoiceConnectorTerminationCredentialsRequest } from "../models/index";
+import { PutVoiceConnectorTerminationCredentialsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,
   serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,

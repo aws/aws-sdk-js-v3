@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { GetStackPolicyInput, GetStackPolicyOutput } from "../models/index";
+import { GetStackPolicyInput, GetStackPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_queryGetStackPolicyCommand,
   serializeAws_queryGetStackPolicyCommand,

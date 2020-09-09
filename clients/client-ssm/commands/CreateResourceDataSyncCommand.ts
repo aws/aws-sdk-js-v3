@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { CreateResourceDataSyncRequest, CreateResourceDataSyncResult } from "../models/index";
+import { CreateResourceDataSyncRequest, CreateResourceDataSyncResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateResourceDataSyncCommand,
   serializeAws_json1_1CreateResourceDataSyncCommand,

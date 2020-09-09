@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeleteHostedZoneRequest, DeleteHostedZoneResponse } from "../models/index";
+import { DeleteHostedZoneRequest, DeleteHostedZoneResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteHostedZoneCommand,
   serializeAws_restXmlDeleteHostedZoneCommand,

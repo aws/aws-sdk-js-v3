@@ -1,5 +1,5 @@
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import { GetResourceMetricsRequest, GetResourceMetricsResponse } from "../models/index";
+import { GetResourceMetricsRequest, GetResourceMetricsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetResourceMetricsCommand,
   serializeAws_json1_1GetResourceMetricsCommand,

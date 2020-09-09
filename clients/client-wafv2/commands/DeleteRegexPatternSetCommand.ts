@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
-import { DeleteRegexPatternSetRequest, DeleteRegexPatternSetResponse } from "../models/index";
+import { DeleteRegexPatternSetRequest, DeleteRegexPatternSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRegexPatternSetCommand,
   serializeAws_json1_1DeleteRegexPatternSetCommand,

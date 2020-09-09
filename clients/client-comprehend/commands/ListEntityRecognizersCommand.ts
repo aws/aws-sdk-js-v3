@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { ListEntityRecognizersRequest, ListEntityRecognizersResponse } from "../models/index";
+import { ListEntityRecognizersRequest, ListEntityRecognizersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListEntityRecognizersCommand,
   serializeAws_json1_1ListEntityRecognizersCommand,

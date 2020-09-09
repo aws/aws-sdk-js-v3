@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { HttpRequestWithLabelsAndTimestampFormatInput } from "../models/index";
+import { HttpRequestWithLabelsAndTimestampFormatInput } from "../models/models_0";
 import {
   deserializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand,
   serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand,

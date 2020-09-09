@@ -1,5 +1,5 @@
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
-import { ListOperationsRequest, ListOperationsResponse } from "../models/index";
+import { ListOperationsRequest, ListOperationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListOperationsCommand,
   serializeAws_json1_1ListOperationsCommand,

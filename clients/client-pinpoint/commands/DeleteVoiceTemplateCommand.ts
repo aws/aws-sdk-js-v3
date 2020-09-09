@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { DeleteVoiceTemplateRequest, DeleteVoiceTemplateResponse } from "../models/index";
+import { DeleteVoiceTemplateRequest, DeleteVoiceTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVoiceTemplateCommand,
   serializeAws_restJson1DeleteVoiceTemplateCommand,

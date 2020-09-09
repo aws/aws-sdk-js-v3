@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteRelationalDatabaseSnapshotRequest, DeleteRelationalDatabaseSnapshotResult } from "../models/index";
+import { DeleteRelationalDatabaseSnapshotRequest, DeleteRelationalDatabaseSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRelationalDatabaseSnapshotCommand,
   serializeAws_json1_1DeleteRelationalDatabaseSnapshotCommand,

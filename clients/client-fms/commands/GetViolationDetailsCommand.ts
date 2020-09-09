@@ -1,5 +1,5 @@
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { GetViolationDetailsRequest, GetViolationDetailsResponse } from "../models/index";
+import { GetViolationDetailsRequest, GetViolationDetailsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetViolationDetailsCommand,
   serializeAws_json1_1GetViolationDetailsCommand,

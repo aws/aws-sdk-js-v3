@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetAccountLimitRequest, GetAccountLimitResponse } from "../models/index";
+import { GetAccountLimitRequest, GetAccountLimitResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlGetAccountLimitCommand,
   serializeAws_restXmlGetAccountLimitCommand,

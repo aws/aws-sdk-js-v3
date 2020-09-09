@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DeleteScheduledActionType } from "../models/index";
+import { DeleteScheduledActionType } from "../models/models_0";
 import {
   deserializeAws_queryDeleteScheduledActionCommand,
   serializeAws_queryDeleteScheduledActionCommand,

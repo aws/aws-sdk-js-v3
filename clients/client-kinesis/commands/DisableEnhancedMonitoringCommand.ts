@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { DisableEnhancedMonitoringInput, EnhancedMonitoringOutput } from "../models/index";
+import { DisableEnhancedMonitoringInput, EnhancedMonitoringOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableEnhancedMonitoringCommand,
   serializeAws_json1_1DisableEnhancedMonitoringCommand,

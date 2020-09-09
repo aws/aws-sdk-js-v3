@@ -1,5 +1,8 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { DescribeNotificationSubscriptionsRequest, DescribeNotificationSubscriptionsResponse } from "../models/index";
+import {
+  DescribeNotificationSubscriptionsRequest,
+  DescribeNotificationSubscriptionsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeNotificationSubscriptionsCommand,
   serializeAws_restJson1DescribeNotificationSubscriptionsCommand,

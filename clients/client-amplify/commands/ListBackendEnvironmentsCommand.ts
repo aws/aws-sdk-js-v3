@@ -1,5 +1,5 @@
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { ListBackendEnvironmentsRequest, ListBackendEnvironmentsResult } from "../models/index";
+import { ListBackendEnvironmentsRequest, ListBackendEnvironmentsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ListBackendEnvironmentsCommand,
   serializeAws_restJson1ListBackendEnvironmentsCommand,

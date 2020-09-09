@@ -1,5 +1,5 @@
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { DescribeSubnetGroupsRequest, DescribeSubnetGroupsResponse } from "../models/index";
+import { DescribeSubnetGroupsRequest, DescribeSubnetGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeSubnetGroupsCommand,
   serializeAws_json1_1DescribeSubnetGroupsCommand,

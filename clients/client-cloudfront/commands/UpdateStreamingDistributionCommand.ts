@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { UpdateStreamingDistributionRequest, UpdateStreamingDistributionResult } from "../models/index";
+import { UpdateStreamingDistributionRequest, UpdateStreamingDistributionResult } from "../models/models_1";
 import {
   deserializeAws_restXmlUpdateStreamingDistributionCommand,
   serializeAws_restXmlUpdateStreamingDistributionCommand,

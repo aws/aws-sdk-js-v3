@@ -1,5 +1,5 @@
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { DescribeDomainRequest, DescribeDomainResult } from "../models/index";
+import { DescribeDomainRequest, DescribeDomainResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeDomainCommand,
   serializeAws_restJson1DescribeDomainCommand,

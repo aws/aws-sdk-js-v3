@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteVpnConnectionRequest } from "../models/index";
+import { DeleteVpnConnectionRequest } from "../models/models_1";
 import {
   deserializeAws_ec2DeleteVpnConnectionCommand,
   serializeAws_ec2DeleteVpnConnectionCommand,

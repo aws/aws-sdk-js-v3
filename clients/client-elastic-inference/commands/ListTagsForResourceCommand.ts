@@ -1,5 +1,5 @@
 import { ElasticInferenceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticInferenceClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResult } from "../models/index";
+import { ListTagsForResourceRequest, ListTagsForResourceResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ListTagsForResourceCommand,
   serializeAws_restJson1ListTagsForResourceCommand,

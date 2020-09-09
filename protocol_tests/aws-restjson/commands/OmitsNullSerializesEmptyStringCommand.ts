@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { OmitsNullSerializesEmptyStringInput } from "../models/index";
+import { OmitsNullSerializesEmptyStringInput } from "../models/models_0";
 import {
   deserializeAws_restJson1OmitsNullSerializesEmptyStringCommand,
   serializeAws_restJson1OmitsNullSerializesEmptyStringCommand,

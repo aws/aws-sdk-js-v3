@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { DeleteRecommenderConfigurationRequest, DeleteRecommenderConfigurationResponse } from "../models/index";
+import { DeleteRecommenderConfigurationRequest, DeleteRecommenderConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRecommenderConfigurationCommand,
   serializeAws_restJson1DeleteRecommenderConfigurationCommand,

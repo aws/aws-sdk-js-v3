@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { AddPermissionRequest, AddPermissionResponse } from "../models/index";
+import { AddPermissionRequest, AddPermissionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AddPermissionCommand,
   serializeAws_restJson1AddPermissionCommand,

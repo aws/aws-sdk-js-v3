@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetStaticIpRequest, GetStaticIpResult } from "../models/index";
+import { GetStaticIpRequest, GetStaticIpResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetStaticIpCommand,
   serializeAws_json1_1GetStaticIpCommand,

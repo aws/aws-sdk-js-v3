@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { MergeBranchesBySquashInput, MergeBranchesBySquashOutput } from "../models/index";
+import { MergeBranchesBySquashInput, MergeBranchesBySquashOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1MergeBranchesBySquashCommand,
   serializeAws_json1_1MergeBranchesBySquashCommand,

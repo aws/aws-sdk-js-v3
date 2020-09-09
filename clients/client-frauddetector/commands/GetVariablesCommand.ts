@@ -1,5 +1,5 @@
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { GetVariablesRequest, GetVariablesResult } from "../models/index";
+import { GetVariablesRequest, GetVariablesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetVariablesCommand,
   serializeAws_json1_1GetVariablesCommand,

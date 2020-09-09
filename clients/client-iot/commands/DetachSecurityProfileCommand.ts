@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DetachSecurityProfileRequest, DetachSecurityProfileResponse } from "../models/index";
+import { DetachSecurityProfileRequest, DetachSecurityProfileResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DetachSecurityProfileCommand,
   serializeAws_restJson1DetachSecurityProfileCommand,

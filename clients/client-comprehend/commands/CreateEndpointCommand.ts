@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { CreateEndpointRequest, CreateEndpointResponse } from "../models/index";
+import { CreateEndpointRequest, CreateEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEndpointCommand,
   serializeAws_json1_1CreateEndpointCommand,

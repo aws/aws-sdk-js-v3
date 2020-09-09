@@ -1,5 +1,5 @@
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { UpdateSubnetGroupRequest, UpdateSubnetGroupResponse } from "../models/index";
+import { UpdateSubnetGroupRequest, UpdateSubnetGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSubnetGroupCommand,
   serializeAws_json1_1UpdateSubnetGroupCommand,

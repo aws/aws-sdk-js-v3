@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { BatchDetectDominantLanguageRequest, BatchDetectDominantLanguageResponse } from "../models/index";
+import { BatchDetectDominantLanguageRequest, BatchDetectDominantLanguageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDetectDominantLanguageCommand,
   serializeAws_json1_1BatchDetectDominantLanguageCommand,
