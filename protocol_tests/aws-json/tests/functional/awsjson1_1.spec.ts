@@ -126,11 +126,17 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   return true;
 };
 
+const clientParams = {
+  region: "us-west-2",
+  credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+};
+
 /**
  * Sends requests to /
  */
 it("sends_requests_to_slash:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -155,6 +161,7 @@ it("sends_requests_to_slash:Request", async () => {
  */
 it("includes_x_amz_target_and_content_type:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -184,6 +191,7 @@ it("includes_x_amz_target_and_content_type:Request", async () => {
  */
 it("handles_empty_output_shape:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -212,6 +220,7 @@ it("handles_empty_output_shape:Response", async () => {
  */
 it("serializes_string_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -243,6 +252,7 @@ it("serializes_string_shapes:Request", async () => {
  */
 it("serializes_string_shapes_with_jsonvalue_trait:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -275,6 +285,7 @@ it("serializes_string_shapes_with_jsonvalue_trait:Request", async () => {
  */
 it("serializes_integer_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -306,6 +317,7 @@ it("serializes_integer_shapes:Request", async () => {
  */
 it("serializes_long_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -337,6 +349,7 @@ it("serializes_long_shapes:Request", async () => {
  */
 it("serializes_float_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -368,6 +381,7 @@ it("serializes_float_shapes:Request", async () => {
  */
 it("serializes_double_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -399,6 +413,7 @@ it("serializes_double_shapes:Request", async () => {
  */
 it("serializes_blob_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -430,6 +445,7 @@ it("serializes_blob_shapes:Request", async () => {
  */
 it("serializes_boolean_shapes_true:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -461,6 +477,7 @@ it("serializes_boolean_shapes_true:Request", async () => {
  */
 it("serializes_boolean_shapes_false:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -492,6 +509,7 @@ it("serializes_boolean_shapes_false:Request", async () => {
  */
 it("serializes_timestamp_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -523,6 +541,7 @@ it("serializes_timestamp_shapes:Request", async () => {
  */
 it("serializes_timestamp_shapes_with_iso8601_timestampformat:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -554,6 +573,7 @@ it("serializes_timestamp_shapes_with_iso8601_timestampformat:Request", async () 
  */
 it("serializes_timestamp_shapes_with_httpdate_timestampformat:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -585,6 +605,7 @@ it("serializes_timestamp_shapes_with_httpdate_timestampformat:Request", async ()
  */
 it("serializes_timestamp_shapes_with_unixtimestamp_timestampformat:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -616,6 +637,7 @@ it("serializes_timestamp_shapes_with_unixtimestamp_timestampformat:Request", asy
  */
 it("serializes_list_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -647,6 +669,7 @@ it("serializes_list_shapes:Request", async () => {
  */
 it("serializes_empty_list_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -678,6 +701,7 @@ it("serializes_empty_list_shapes:Request", async () => {
  */
 it("serializes_list_of_map_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -721,6 +745,7 @@ it("serializes_list_of_map_shapes:Request", async () => {
  */
 it("serializes_list_of_structure_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -764,6 +789,7 @@ it("serializes_list_of_structure_shapes:Request", async () => {
  */
 it("serializes_list_of_recursive_structure_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -807,6 +833,7 @@ it("serializes_list_of_recursive_structure_shapes:Request", async () => {
  */
 it("serializes_map_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -842,6 +869,7 @@ it("serializes_map_shapes:Request", async () => {
  */
 it("serializes_empty_map_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -873,6 +901,7 @@ it("serializes_empty_map_shapes:Request", async () => {
  */
 it("serializes_map_of_list_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -908,6 +937,7 @@ it("serializes_map_of_list_shapes:Request", async () => {
  */
 it("serializes_map_of_structure_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -947,6 +977,7 @@ it("serializes_map_of_structure_shapes:Request", async () => {
  */
 it("serializes_map_of_recursive_structure_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -990,6 +1021,7 @@ it("serializes_map_of_recursive_structure_shapes:Request", async () => {
  */
 it("serializes_structure_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1023,6 +1055,7 @@ it("serializes_structure_shapes:Request", async () => {
  */
 it("serializes_structure_members_with_locationname_traits:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1056,6 +1089,7 @@ it("serializes_structure_members_with_locationname_traits:Request", async () => 
  */
 it("serializes_empty_structure_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1087,6 +1121,7 @@ it("serializes_empty_structure_shapes:Request", async () => {
  */
 it("serializes_structure_which_have_no_members:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1118,6 +1153,7 @@ it("serializes_structure_which_have_no_members:Request", async () => {
  */
 it("serializes_recursive_structure_shapes:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1173,6 +1209,7 @@ it("serializes_recursive_structure_shapes:Request", async () => {
  */
 it("parses_operations_with_empty_json_bodies:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{}`),
   });
 
@@ -1194,6 +1231,7 @@ it("parses_operations_with_empty_json_bodies:Response", async () => {
  */
 it("parses_string_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"String":"string-value"}`),
   });
 
@@ -1224,6 +1262,7 @@ it("parses_string_shapes:Response", async () => {
  */
 it("parses_integer_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Integer":1234}`),
   });
 
@@ -1254,6 +1293,7 @@ it("parses_integer_shapes:Response", async () => {
  */
 it("parses_long_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Long":1234567890123456789}`),
   });
 
@@ -1284,6 +1324,7 @@ it("parses_long_shapes:Response", async () => {
  */
 it("parses_float_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Float":1234.5}`),
   });
 
@@ -1314,6 +1355,7 @@ it("parses_float_shapes:Response", async () => {
  */
 it("parses_double_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Double":123456789.12345679}`),
   });
 
@@ -1344,6 +1386,7 @@ it("parses_double_shapes:Response", async () => {
  */
 it("parses_boolean_shapes_true:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Boolean":true}`),
   });
 
@@ -1374,6 +1417,7 @@ it("parses_boolean_shapes_true:Response", async () => {
  */
 it("parses_boolean_false:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Boolean":false}`),
   });
 
@@ -1404,6 +1448,7 @@ it("parses_boolean_false:Response", async () => {
  */
 it("parses_blob_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Blob":"YmluYXJ5LXZhbHVl"}`),
   });
 
@@ -1434,6 +1479,7 @@ it("parses_blob_shapes:Response", async () => {
  */
 it("parses_timestamp_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{"Timestamp":946845296}`),
   });
 
@@ -1464,6 +1510,7 @@ it("parses_timestamp_shapes:Response", async () => {
  */
 it("parses_iso8601_timestamps:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1499,6 +1546,7 @@ it("parses_iso8601_timestamps:Response", async () => {
  */
 it("parses_httpdate_timestamps:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1534,6 +1582,7 @@ it("parses_httpdate_timestamps:Response", async () => {
  */
 it("parses_list_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1569,6 +1618,7 @@ it("parses_list_shapes:Response", async () => {
  */
 it("parses_list_of_map_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1612,6 +1662,7 @@ it("parses_list_of_map_shapes:Response", async () => {
  */
 it("parses_list_of_list_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1651,6 +1702,7 @@ it("parses_list_of_list_shapes:Response", async () => {
  */
 it("parses_list_of_structure_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1694,6 +1746,7 @@ it("parses_list_of_structure_shapes:Response", async () => {
  */
 it("parses_list_of_recursive_structure_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1741,6 +1794,7 @@ it("parses_list_of_recursive_structure_shapes:Response", async () => {
  */
 it("parses_map_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1780,6 +1834,7 @@ it("parses_map_shapes:Response", async () => {
  */
 it("parses_map_of_list_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1819,6 +1874,7 @@ it("parses_map_of_list_shapes:Response", async () => {
  */
 it("parses_map_of_map_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1866,6 +1922,7 @@ it("parses_map_of_map_shapes:Response", async () => {
  */
 it("parses_map_of_structure_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1909,6 +1966,7 @@ it("parses_map_of_structure_shapes:Response", async () => {
  */
 it("parses_map_of_recursive_structure_shapes:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1956,6 +2014,7 @@ it("parses_map_of_recursive_structure_shapes:Response", async () => {
  */
 it("parses_the_request_id_from_the_response:Response", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1984,6 +2043,7 @@ it("parses_the_request_id_from_the_response:Response", async () => {
  */
 it("can_call_operation_with_no_input_or_output:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2018,6 +2078,7 @@ it("can_call_operation_with_no_input_or_output:Request", async () => {
  */
 it("can_call_operation_with_optional_input:Request", async () => {
   const client = new JsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 

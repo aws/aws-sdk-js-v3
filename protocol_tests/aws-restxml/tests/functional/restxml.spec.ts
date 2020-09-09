@@ -162,11 +162,17 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   return true;
 };
 
+const clientParams = {
+  region: "us-west-2",
+  credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+};
+
 /**
  * Serializes query string parameters with all supported types
  */
 it("AllQueryStringTypes:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -265,6 +271,7 @@ it("AllQueryStringTypes:Request", async () => {
  */
 it("ConstantAndVariableQueryStringMissingOneValue:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -299,6 +306,7 @@ it("ConstantAndVariableQueryStringMissingOneValue:Request", async () => {
  */
 it("ConstantAndVariableQueryStringAllValues:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -334,6 +342,7 @@ it("ConstantAndVariableQueryStringAllValues:Request", async () => {
  */
 it("ConstantQueryString:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -366,6 +375,7 @@ it("ConstantQueryString:Request", async () => {
  */
 it("EmptyInputAndEmptyOutput:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -392,6 +402,7 @@ it("EmptyInputAndEmptyOutput:Request", async () => {
  */
 it("EmptyInputAndEmptyOutput:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
   });
 
@@ -413,6 +424,7 @@ it("EmptyInputAndEmptyOutput:Response", async () => {
  */
 it("FlattenedXmlMap:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -460,6 +472,7 @@ it("FlattenedXmlMap:Request", async () => {
  */
 it("FlattenedXmlMap:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -510,6 +523,7 @@ it("FlattenedXmlMap:Response", async () => {
  */
 it("FlattenedXmlMapWithXmlName:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -557,6 +571,7 @@ it("FlattenedXmlMapWithXmlName:Request", async () => {
  */
 it("FlattenedXmlMapWithXmlName:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -607,6 +622,7 @@ it("FlattenedXmlMapWithXmlName:Response", async () => {
  */
 it("GreetingWithErrors:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -644,6 +660,7 @@ it("GreetingWithErrors:Response", async () => {
  */
 it("InvalidGreetingError:Error:GreetingWithErrors", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       400,
@@ -692,6 +709,7 @@ it("InvalidGreetingError:Error:GreetingWithErrors", async () => {
 
 it("ComplexError:Error:GreetingWithErrors", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       400,
@@ -753,6 +771,7 @@ it("ComplexError:Error:GreetingWithErrors", async () => {
  */
 it("HttpPayloadTraitsWithBlob:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -787,6 +806,7 @@ it("HttpPayloadTraitsWithBlob:Request", async () => {
  */
 it("HttpPayloadTraitsWithNoBlobBody:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -818,6 +838,7 @@ it("HttpPayloadTraitsWithNoBlobBody:Request", async () => {
  */
 it("HttpPayloadTraitsWithBlob:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -857,6 +878,7 @@ it("HttpPayloadTraitsWithBlob:Response", async () => {
  */
 it("HttpPayloadTraitsWithNoBlobBody:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -894,6 +916,7 @@ it("HttpPayloadTraitsWithNoBlobBody:Response", async () => {
  */
 it("HttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -930,6 +953,7 @@ it("HttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
  */
 it("HttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -970,6 +994,7 @@ it("HttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
  */
 it("HttpPayloadWithStructure:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1012,6 +1037,7 @@ it("HttpPayloadWithStructure:Request", async () => {
  */
 it("HttpPayloadWithStructure:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1057,6 +1083,7 @@ it("HttpPayloadWithStructure:Response", async () => {
  */
 it("HttpPayloadWithXmlName:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1093,6 +1120,7 @@ it("HttpPayloadWithXmlName:Request", async () => {
  */
 it("HttpPayloadWithXmlName:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1132,6 +1160,7 @@ it("HttpPayloadWithXmlName:Response", async () => {
  */
 it("HttpPayloadWithXmlNamespace:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1170,6 +1199,7 @@ it("HttpPayloadWithXmlNamespace:Request", async () => {
  */
 it("HttpPayloadWithXmlNamespace:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1211,6 +1241,7 @@ it("HttpPayloadWithXmlNamespace:Response", async () => {
  */
 it("HttpPayloadWithXmlNamespaceAndPrefix:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1249,6 +1280,7 @@ it("HttpPayloadWithXmlNamespaceAndPrefix:Request", async () => {
  */
 it("HttpPayloadWithXmlNamespaceAndPrefix:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1290,6 +1322,7 @@ it("HttpPayloadWithXmlNamespaceAndPrefix:Response", async () => {
  */
 it("HttpPrefixHeadersArePresent:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1331,6 +1364,7 @@ it("HttpPrefixHeadersArePresent:Request", async () => {
  */
 it("HttpPrefixHeadersAreNotPresent:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1364,6 +1398,7 @@ it("HttpPrefixHeadersAreNotPresent:Request", async () => {
  */
 it("HttpPrefixHeadersArePresent:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1409,6 +1444,7 @@ it("HttpPrefixHeadersArePresent:Response", async () => {
  */
 it("HttpPrefixHeadersAreNotPresent:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1448,6 +1484,7 @@ it("HttpPrefixHeadersAreNotPresent:Response", async () => {
  */
 it("HttpRequestWithGreedyLabelInPath:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1478,6 +1515,7 @@ it("HttpRequestWithGreedyLabelInPath:Request", async () => {
  */
 it("InputWithHeadersAndAllParams:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1520,6 +1558,7 @@ it("InputWithHeadersAndAllParams:Request", async () => {
  */
 it("HttpRequestWithLabelsAndTimestampFormat:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1562,6 +1601,7 @@ it("HttpRequestWithLabelsAndTimestampFormat:Request", async () => {
  */
 it("IgnoreQueryParamsInResponse:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1599,6 +1639,7 @@ it("IgnoreQueryParamsInResponse:Response", async () => {
  */
 it("InputAndOutputWithStringHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1638,6 +1679,7 @@ it("InputAndOutputWithStringHeaders:Request", async () => {
  */
 it("InputAndOutputWithNumericHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1693,6 +1735,7 @@ it("InputAndOutputWithNumericHeaders:Request", async () => {
  */
 it("InputAndOutputWithBooleanHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1732,6 +1775,7 @@ it("InputAndOutputWithBooleanHeaders:Request", async () => {
  */
 it("InputAndOutputWithTimestampHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1763,6 +1807,7 @@ it("InputAndOutputWithTimestampHeaders:Request", async () => {
  */
 it("InputAndOutputWithEnumHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1798,6 +1843,7 @@ it("InputAndOutputWithEnumHeaders:Request", async () => {
  */
 it("InputAndOutputWithStringHeaders:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1841,6 +1887,7 @@ it("InputAndOutputWithStringHeaders:Response", async () => {
  */
 it("InputAndOutputWithNumericHeaders:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1896,6 +1943,7 @@ it("InputAndOutputWithNumericHeaders:Response", async () => {
  */
 it("InputAndOutputWithBooleanHeaders:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1939,6 +1987,7 @@ it("InputAndOutputWithBooleanHeaders:Response", async () => {
  */
 it("InputAndOutputWithTimestampHeaders:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1976,6 +2025,7 @@ it("InputAndOutputWithTimestampHeaders:Response", async () => {
  */
 it("InputAndOutputWithEnumHeaders:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2016,6 +2066,7 @@ it("InputAndOutputWithEnumHeaders:Response", async () => {
  */
 it("NoInputAndNoOutput:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2042,6 +2093,7 @@ it("NoInputAndNoOutput:Request", async () => {
  */
 it("NoInputAndNoOutput:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
   });
 
@@ -2063,6 +2115,7 @@ it("NoInputAndNoOutput:Response", async () => {
  */
 it("NoInputAndOutput:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2089,6 +2142,7 @@ it("NoInputAndOutput:Request", async () => {
  */
 it("NoInputAndOutput:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
   });
 
@@ -2110,6 +2164,7 @@ it("NoInputAndOutput:Response", async () => {
  */
 it("NullAndEmptyHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2146,6 +2201,7 @@ it("NullAndEmptyHeaders:Request", async () => {
  */
 it("OmitsNullSerializesEmptyString:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2179,6 +2235,7 @@ it("OmitsNullSerializesEmptyString:Request", async () => {
  */
 it("QueryIdempotencyTokenAutoFill:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2210,6 +2267,7 @@ it("QueryIdempotencyTokenAutoFill:Request", async () => {
  */
 it("QueryIdempotencyTokenAutoFillIsSet:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2241,6 +2299,7 @@ it("QueryIdempotencyTokenAutoFillIsSet:Request", async () => {
  */
 it("RecursiveShapes:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2303,6 +2362,7 @@ it("RecursiveShapes:Request", async () => {
  */
 it("RecursiveShapes:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2368,6 +2428,7 @@ it("RecursiveShapes:Response", async () => {
  */
 it("SimpleScalarProperties:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2433,6 +2494,7 @@ it("SimpleScalarProperties:Request", async () => {
  */
 it("SimpleScalarProperties:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2500,6 +2562,7 @@ it("SimpleScalarProperties:Response", async () => {
  */
 it("TimestampFormatHeaders:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2555,6 +2618,7 @@ it("TimestampFormatHeaders:Request", async () => {
  */
 it("TimestampFormatHeaders:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2610,6 +2674,7 @@ it("TimestampFormatHeaders:Response", async () => {
  */
 it("XmlAttributes:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2649,6 +2714,7 @@ it("XmlAttributes:Request", async () => {
  */
 it("XmlAttributes:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2691,6 +2757,7 @@ it("XmlAttributes:Response", async () => {
  */
 it("XmlAttributesOnPayload:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2732,6 +2799,7 @@ it("XmlAttributesOnPayload:Request", async () => {
  */
 it("XmlAttributesOnPayload:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2776,6 +2844,7 @@ it("XmlAttributesOnPayload:Response", async () => {
  */
 it("XmlBlobs:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2813,6 +2882,7 @@ it("XmlBlobs:Request", async () => {
  */
 it("XmlBlobs:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2853,6 +2923,7 @@ it("XmlBlobs:Response", async () => {
  */
 it("XmlEnums:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2924,6 +2995,7 @@ it("XmlEnums:Request", async () => {
  */
 it("XmlEnums:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2998,6 +3070,7 @@ it("XmlEnums:Response", async () => {
  */
 it("XmlLists:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3122,6 +3195,7 @@ it("XmlLists:Request", async () => {
  */
 it("XmlLists:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -3249,6 +3323,7 @@ it("XmlLists:Response", async () => {
  */
 it("XmlMaps:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3307,6 +3382,7 @@ it("XmlMaps:Request", async () => {
  */
 it("XmlMaps:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -3368,6 +3444,7 @@ it("XmlMaps:Response", async () => {
  */
 it("XmlMapsXmlName:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3426,6 +3503,7 @@ it("XmlMapsXmlName:Request", async () => {
  */
 it("XmlMapsXmlName:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -3487,6 +3565,7 @@ it("XmlMapsXmlName:Response", async () => {
  */
 it("XmlNamespaces:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3534,6 +3613,7 @@ it("XmlNamespaces:Request", async () => {
  */
 it("XmlNamespaces:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -3584,6 +3664,7 @@ it("XmlNamespaces:Response", async () => {
  */
 it("XmlTimestamps:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3621,6 +3702,7 @@ it("XmlTimestamps:Request", async () => {
  */
 it("XmlTimestampsWithDateTimeFormat:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3658,6 +3740,7 @@ it("XmlTimestampsWithDateTimeFormat:Request", async () => {
  */
 it("XmlTimestampsWithEpochSecondsFormat:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3695,6 +3778,7 @@ it("XmlTimestampsWithEpochSecondsFormat:Request", async () => {
  */
 it("XmlTimestampsWithHttpDateFormat:Request", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3732,6 +3816,7 @@ it("XmlTimestampsWithHttpDateFormat:Request", async () => {
  */
 it("XmlTimestamps:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -3772,6 +3857,7 @@ it("XmlTimestamps:Response", async () => {
  */
 it("XmlTimestampsWithDateTimeFormat:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -3812,6 +3898,7 @@ it("XmlTimestampsWithDateTimeFormat:Response", async () => {
  */
 it("XmlTimestampsWithEpochSecondsFormat:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -3852,6 +3939,7 @@ it("XmlTimestampsWithEpochSecondsFormat:Response", async () => {
  */
 it("XmlTimestampsWithHttpDateFormat:Response", async () => {
   const client = new RestXmlProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,

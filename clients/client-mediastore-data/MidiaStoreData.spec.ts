@@ -13,7 +13,9 @@ describe("@aws-sdk/client-mediastore-data", () => {
         expect(request.headers).to.have.property("x-amz-content-sha256", "UNSIGNED-PAYLOAD");
         return Promise.resolve({ output: {} as any, response: {} as any });
       };
-      const client = new MediaStoreData({});
+      const client = new MediaStoreData({
+        region: "us-west-2",
+      });
       client.middlewareStack.add(validator, {
         step: "serialize",
         name: "endpointValidator",

@@ -47,8 +47,8 @@ describe("Accesspoint ARN", async () => {
   };
 
   it("should succeed with access point ARN", async () => {
-    const client = new S3({});
-    client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
+    const client = new S3({ region: "us-west-2" });
+    client.middlewareStack.add(endpointValidator, { step: "build", priority: "low" });
     const result: any = await client.putObject({
       Bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
       Key: "key",
@@ -58,7 +58,11 @@ describe("Accesspoint ARN", async () => {
   });
 
   it("should sign request with region from ARN is useArnRegion is set", async () => {
-    const client = new S3({ region: "us-east-1", useArnRegion: true });
+    const client = new S3({
+      region: "us-east-1",
+      useArnRegion: true,
+      credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+    });
     client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
     const result: any = await client.putObject({
       Bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",

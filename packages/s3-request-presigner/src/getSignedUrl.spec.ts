@@ -26,6 +26,8 @@ import { RequestPresigningArguments } from "@aws-sdk/types/src";
 import { getSignedUrl } from "./getSignedUrl";
 
 describe("getSignedUrl", () => {
+  const clientParams = { region: "us-foo-1" };
+
   beforeEach(() => {
     mockPresign.mockReset();
   });
@@ -33,7 +35,7 @@ describe("getSignedUrl", () => {
   it("should call S3Presigner.sign", async () => {
     const mockPresigned = "a presigned url";
     mockPresign.mockReturnValue(mockPresigned);
-    const client = new S3Client({});
+    const client = new S3Client(clientParams);
     const command = new GetObjectCommand({
       Bucket: "Bucket",
       Key: "Key",
@@ -53,7 +55,7 @@ describe("getSignedUrl", () => {
     mockPresign.mockReturnValue(mockPresigned);
     const signingRegion = "aws-foo-1";
     const signingService = "bar";
-    const client = new S3Client({});
+    const client = new S3Client(clientParams);
     client.middlewareStack.addRelativeTo(
       (next: any, context: any) => (args: any) => {
         context["signing_region"] = signingRegion;
@@ -88,7 +90,7 @@ describe("getSignedUrl", () => {
       signableHeaders: new Set(["head-1", "head-2"]),
       unsignableHeaders: new Set(["head-3", "head-4"]),
     };
-    const client = new S3Client({});
+    const client = new S3Client(clientParams);
     const command = new GetObjectCommand({
       Bucket: "Bucket",
       Key: "Key",
