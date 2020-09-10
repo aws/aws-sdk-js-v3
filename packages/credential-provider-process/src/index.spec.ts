@@ -32,7 +32,7 @@ jest.mock("fs", () => {
 
   return fs;
 });
-import * as fs from "fs";
+import fs from "fs";
 const { __addFsMatcher, __clearFsMatchers } = fs as any;
 
 jest.mock("os", () => {
@@ -79,7 +79,7 @@ jest.mock("child_process", () => {
 
   return child_process;
 });
-import * as child_process from "child_process";
+import child_process from "child_process";
 const { __addChildProcessMatcher, __clearChildProcessMatchers } = child_process as any;
 
 const DEFAULT_CREDS = {

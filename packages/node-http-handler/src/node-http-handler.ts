@@ -1,8 +1,8 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { HttpHandlerOptions } from "@aws-sdk/types";
-import * as http from "http";
-import * as https from "https";
+import { Agent as hAgent, request as hRequest } from "http";
+import { Agent as hsAgent, request as hsRequest, RequestOptions } from "https";
 
 import { getTransformedHeaders } from "./get-transformed-headers";
 import { setConnectionTimeout } from "./set-connection-timeout";
@@ -25,13 +25,13 @@ export interface NodeHttpOptions {
    */
   socketTimeout?: number;
 
-  httpAgent?: http.Agent;
-  httpsAgent?: https.Agent;
+  httpAgent?: hAgent;
+  httpsAgent?: hsAgent;
 }
 
 export class NodeHttpHandler implements HttpHandler {
-  private readonly httpAgent: http.Agent;
-  private readonly httpsAgent: https.Agent;
+  private readonly httpAgent: hAgent;
+  private readonly httpsAgent: hsAgent;
   private readonly connectionTimeout?: number;
   private readonly socketTimeout?: number;
   // Node http handler is hard-coded to http/1.1: https://github.com/nodejs/node/blob/ff5664b83b89c55e4ab5d5f60068fb457f1f5872/lib/_http_server.js#L286
@@ -41,8 +41,8 @@ export class NodeHttpHandler implements HttpHandler {
     this.connectionTimeout = connectionTimeout;
     this.socketTimeout = socketTimeout;
     const keepAlive = true;
-    this.httpAgent = httpAgent || new http.Agent({ keepAlive });
-    this.httpsAgent = httpsAgent || new https.Agent({ keepAlive });
+    this.httpAgent = httpAgent || new hAgent({ keepAlive });
+    this.httpsAgent = httpsAgent || new hsAgent({ keepAlive });
   }
 
   destroy(): void {
@@ -63,7 +63,7 @@ export class NodeHttpHandler implements HttpHandler {
       // determine which http(s) client to use
       const isSSL = request.protocol === "https:";
       const queryString = buildQueryString(request.query || {});
-      const nodeHttpsOptions: https.RequestOptions = {
+      const nodeHttpsOptions: RequestOptions = {
         headers: request.headers,
         host: request.hostname,
         method: request.method,
@@ -73,7 +73,8 @@ export class NodeHttpHandler implements HttpHandler {
       };
 
       // create the http request
-      const req = (isSSL ? https : http).request(nodeHttpsOptions, (res) => {
+      const requestFunc = isSSL ? hsRequest : hRequest;
+      const req = requestFunc(nodeHttpsOptions, (res) => {
         const httpResponse = new HttpResponse({
           statusCode: res.statusCode || -1,
           headers: getTransformedHeaders(res.headers),

@@ -1,11 +1,11 @@
-import * as pkg from "./";
+import { XmlNode, XmlText } from "./";
 
 describe("package index", () => {
   it("should define XmlNode", () => {
-    expect(pkg.XmlNode).toBeDefined();
+    expect(XmlNode).toBeDefined();
   });
 
   it("should define XmlText", () => {
-    expect(pkg.XmlText).toBeDefined();
+    expect(XmlText).toBeDefined();
   });
 });

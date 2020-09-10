@@ -2,7 +2,7 @@ import { AbortController } from "@aws-sdk/abort-controller";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
 import { FetchHttpHandler } from "./fetch-http-handler";
-import * as timeouts from "./request-timeout";
+import { requestTimeout } from "./request-timeout";
 
 const mockRequest = jest.fn();
 let mockResponse: any;
@@ -150,7 +150,7 @@ describe.skip(FetchHttpHandler.name, () => {
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
     (global as any).fetch = mockFetch;
 
-    timeoutSpy = jest.spyOn(timeouts, "requestTimeout");
+    timeoutSpy = jest.spyOn({ requestTimeout }, "requestTimeout");
     const fetchHttpHandler = new FetchHttpHandler({
       requestTimeout: 500,
     });

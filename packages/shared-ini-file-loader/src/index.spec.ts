@@ -31,7 +31,7 @@ jest.mock("fs", () => {
 
   return fs;
 });
-import * as fs from "fs";
+import fs from "fs";
 const { __addMatcher, __clearMatchers } = fs as any;
 
 jest.mock("os", () => {

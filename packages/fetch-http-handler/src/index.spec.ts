@@ -1,7 +1,7 @@
-import * as index from "./index";
+import { FetchHttpHandler } from "./index";
 
 describe("index", () => {
   it("exports FetchHttpHandler", () => {
-    expect(typeof index.FetchHttpHandler).toBe("function");
+    expect(typeof FetchHttpHandler).toBe("function");
   });
 });
