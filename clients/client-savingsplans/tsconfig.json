@@ -11,6 +11,7 @@
     "noEmitHelpers": true,
     "incremental": true,
     "resolveJsonModule": true,
+    "esModuleInterop": true,
     "declarationDir": "./types",
     "outDir": "dist/cjs"
   },
