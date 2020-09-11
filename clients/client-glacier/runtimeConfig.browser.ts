@@ -1,4 +1,5 @@
-import * as packageInfo from "./package.json";
+import packageInfo from "./package.json";
+
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { bodyChecksumGenerator } from "@aws-sdk/body-checksum-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
