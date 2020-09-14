@@ -35,7 +35,7 @@ import { XmlMapsCommand } from "../../commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommand } from "../../commands/XmlMapsXmlNameCommand";
 import { XmlNamespacesCommand } from "../../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../commands/XmlTimestampsCommand";
-import { ComplexError, InvalidGreeting } from "../../models/index";
+import { ComplexError, InvalidGreeting } from "../../models/models_0";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { parse as xmlParse } from "fast-xml-parser";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";

@@ -21,7 +21,7 @@ import { XmlMapsCommand } from "../../commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommand } from "../../commands/XmlMapsXmlNameCommand";
 import { XmlNamespacesCommand } from "../../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../commands/XmlTimestampsCommand";
-import { ComplexError, InvalidGreeting } from "../../models/index";
+import { ComplexError, InvalidGreeting } from "../../models/models_0";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { Readable } from "stream";
