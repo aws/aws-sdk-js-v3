@@ -25,7 +25,8 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
     output: { $metadata },
   } = response;
 
-  // Suggested custom metadata in https://github.com/aws/aws-sdk-js-v3/issues/1491#issuecomment-692174256
+  // TODO: Populate custom metadata in https://github.com/aws/aws-sdk-js-v3/issues/1491#issuecomment-692174256
+  // $metadata will be removed in https://github.com/aws/aws-sdk-js-v3/issues/1490
   if (typeof logger.info === "function") {
     logger.info({
       $metadata,

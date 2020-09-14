@@ -21,21 +21,8 @@ describe("getLoggerPlugin", () => {
 describe("loggerMiddleware", () => {
   const next = jest.fn();
 
-  const args = {
-    input: {
-      inputKey: "inputValue",
-    },
-    request: {
-      method: "GET",
-      headers: {},
-    },
-  };
-
+  const args = {};
   const mockResponse = {
-    response: {
-      statusCode: 200,
-      headers: {},
-    },
     output: {
       $metadata: {
         statusCode: 200,
@@ -59,54 +46,31 @@ describe("loggerMiddleware", () => {
     expect(response).toStrictEqual(mockResponse);
   });
 
-  it("returns without logging if context.logger doesn't have debug/info functions", async () => {
+  it("returns without logging if context.logger doesn't have info function", async () => {
     const logger = {} as Logger;
     const response = await loggerMiddleware()(next, { logger })(args as BuildHandlerArguments<any>);
     expect(next).toHaveBeenCalledTimes(1);
     expect(response).toStrictEqual(mockResponse);
   });
 
-  it("logs $metadata, input, output if context.logger has info function", async () => {
+  it("logs $metadata if context.logger has info function", async () => {
     const logger = ({ info: jest.fn() } as unknown) as Logger;
 
-    const inputFilterSensitiveLog = jest.fn().mockImplementationOnce((input) => input);
-    const outputFilterSensitiveLog = jest.fn().mockImplementationOnce((output) => output);
     const context = {
       logger,
-      inputFilterSensitiveLog,
-      outputFilterSensitiveLog,
     };
 
     const response = await loggerMiddleware()(next, context)(args as BuildHandlerArguments<any>);
     expect(next).toHaveBeenCalledTimes(1);
     expect(response).toStrictEqual(mockResponse);
 
-    expect(inputFilterSensitiveLog).toHaveBeenCalledTimes(1);
-    expect(outputFilterSensitiveLog).toHaveBeenCalledTimes(1);
     expect(logger.info).toHaveBeenCalledTimes(1);
 
     const {
-      output: { $metadata, ...outputWithoutMetadata },
+      output: { $metadata },
     } = mockResponse;
     expect(logger.info).toHaveBeenCalledWith({
       $metadata,
-      input: args.input,
-      output: outputWithoutMetadata,
-    });
-  });
-
-  it("logs httpRequest, httpResponse if context.logger has debug function", async () => {
-    const logger = ({ debug: jest.fn() } as unknown) as Logger;
-    const response = await loggerMiddleware()(next, { logger })(args as BuildHandlerArguments<any>);
-    expect(next).toHaveBeenCalledTimes(1);
-    expect(response).toStrictEqual(mockResponse);
-
-    expect(logger.debug).toHaveBeenCalledTimes(2);
-    expect(logger.debug).toHaveBeenNthCalledWith(1, {
-      httpRequest: args.request,
-    });
-    expect(logger.debug).toHaveBeenNthCalledWith(2, {
-      httpResponse: mockResponse.response,
     });
   });
 });
