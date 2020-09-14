@@ -27,9 +27,6 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
 
   if (typeof logger.debug === "function") {
     logger.debug({
-      httpRequest: args.request,
-    });
-    logger.debug({
       httpResponse: response.response,
     });
   }
@@ -37,7 +34,6 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
   if (typeof logger.info === "function") {
     logger.info({
       $metadata,
-      input: inputFilterSensitiveLog(args.input),
       output: outputFilterSensitiveLog(outputWithoutMetadata),
     });
   }
