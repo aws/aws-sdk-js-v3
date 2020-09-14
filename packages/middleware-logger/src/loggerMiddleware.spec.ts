@@ -1,4 +1,4 @@
-import { BuildHandlerArguments, Logger, MiddlewareStack } from "@aws-sdk/types";
+import { Logger, MiddlewareStack } from "@aws-sdk/types";
 
 import { getLoggerPlugin, loggerMiddleware, loggerMiddlewareOptions } from "./loggerMiddleware";
 
@@ -19,9 +19,18 @@ describe("getLoggerPlugin", () => {
 });
 
 describe("loggerMiddleware", () => {
-  const next = jest.fn();
+  const mockNext = jest.fn();
 
-  const args = {};
+  const mockArgs = {
+    input: {
+      inputKey: "inputValue",
+    },
+    request: {
+      method: "GET",
+      headers: {},
+    },
+  };
+
   const mockResponse = {
     output: {
       $metadata: {
@@ -33,7 +42,7 @@ describe("loggerMiddleware", () => {
   };
 
   beforeEach(() => {
-    next.mockResolvedValueOnce(mockResponse);
+    mockNext.mockResolvedValueOnce(mockResponse);
   });
 
   afterEach(() => {
@@ -41,15 +50,15 @@ describe("loggerMiddleware", () => {
   });
 
   it("returns without logging if context.logger is not defined", async () => {
-    const response = await loggerMiddleware()(next, {})(args as BuildHandlerArguments<any>);
-    expect(next).toHaveBeenCalledTimes(1);
+    const response = await loggerMiddleware()(mockNext, {})(mockArgs);
+    expect(mockNext).toHaveBeenCalledTimes(1);
     expect(response).toStrictEqual(mockResponse);
   });
 
   it("returns without logging if context.logger doesn't have info function", async () => {
     const logger = {} as Logger;
-    const response = await loggerMiddleware()(next, { logger })(args as BuildHandlerArguments<any>);
-    expect(next).toHaveBeenCalledTimes(1);
+    const response = await loggerMiddleware()(mockNext, { logger })(mockArgs);
+    expect(mockNext).toHaveBeenCalledTimes(1);
     expect(response).toStrictEqual(mockResponse);
   });
 
@@ -60,8 +69,8 @@ describe("loggerMiddleware", () => {
       logger,
     };
 
-    const response = await loggerMiddleware()(next, context)(args as BuildHandlerArguments<any>);
-    expect(next).toHaveBeenCalledTimes(1);
+    const response = await loggerMiddleware()(mockNext, context)(mockArgs);
+    expect(mockNext).toHaveBeenCalledTimes(1);
     expect(response).toStrictEqual(mockResponse);
 
     expect(logger.info).toHaveBeenCalledTimes(1);

@@ -25,11 +25,6 @@ describe("deserializerMiddleware", () => {
     },
   };
 
-  // const mockRequest = {
-  //   method: "GET",
-  //   headers: {},
-  // };
-
   const mockOutput = {
     $metadata: {
       statusCode: 200,
