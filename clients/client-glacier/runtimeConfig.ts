@@ -1,4 +1,5 @@
-import { name, version } from "./package.json";
+import packageInfo from "./package.json";
+
 import { bodyChecksumGenerator } from "@aws-sdk/body-checksum-node";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@aws-sdk/config-resolver";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
@@ -22,7 +23,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   bodyChecksumGenerator,
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider,
-  defaultUserAgent: defaultUserAgent(name, version),
+  defaultUserAgent: defaultUserAgent(packageInfo.name, packageInfo.version),
   maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
   region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
   requestHandler: new NodeHttpHandler(),

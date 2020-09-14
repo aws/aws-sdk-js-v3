@@ -1,4 +1,5 @@
-import { name, version } from "./package.json";
+import packageInfo from "./package.json";
+
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { bodyChecksumGenerator } from "@aws-sdk/body-checksum-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
@@ -20,7 +21,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   bodyChecksumGenerator,
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
-  defaultUserAgent: defaultUserAgent(name, version),
+  defaultUserAgent: defaultUserAgent(packageInfo.name, packageInfo.version),
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
   region: invalidFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),

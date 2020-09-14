@@ -1,4 +1,5 @@
-import { name, version } from "./package.json";
+import packageInfo from "./package.json";
+
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
@@ -21,7 +22,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
-  defaultUserAgent: defaultUserAgent(name, version),
+  defaultUserAgent: defaultUserAgent(packageInfo.name, packageInfo.version),
   eventStreamSerdeProvider,
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
   md5: Md5,
