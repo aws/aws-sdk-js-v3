@@ -1,4 +1,4 @@
-import { FinalizeHandlerArguments, Logger, MiddlewareStack } from "@aws-sdk/types";
+import { BuildHandlerArguments, Logger, MiddlewareStack } from "@aws-sdk/types";
 
 import { getLoggerPlugin, loggerMiddleware, loggerMiddlewareOptions } from "./loggerMiddleware";
 
@@ -54,14 +54,14 @@ describe("loggerMiddleware", () => {
   });
 
   it("returns without logging if context.logger is not defined", async () => {
-    const response = await loggerMiddleware()(next, {})(args as FinalizeHandlerArguments<any>);
+    const response = await loggerMiddleware()(next, {})(args as BuildHandlerArguments<any>);
     expect(next).toHaveBeenCalledTimes(1);
     expect(response).toStrictEqual(mockResponse);
   });
 
   it("returns without logging if context.logger doesn't have debug/info functions", async () => {
     const logger = {} as Logger;
-    const response = await loggerMiddleware()(next, { logger })(args as FinalizeHandlerArguments<any>);
+    const response = await loggerMiddleware()(next, { logger })(args as BuildHandlerArguments<any>);
     expect(next).toHaveBeenCalledTimes(1);
     expect(response).toStrictEqual(mockResponse);
   });
@@ -77,7 +77,7 @@ describe("loggerMiddleware", () => {
       outputFilterSensitiveLog,
     };
 
-    const response = await loggerMiddleware()(next, context)(args as FinalizeHandlerArguments<any>);
+    const response = await loggerMiddleware()(next, context)(args as BuildHandlerArguments<any>);
     expect(next).toHaveBeenCalledTimes(1);
     expect(response).toStrictEqual(mockResponse);
 
@@ -97,7 +97,7 @@ describe("loggerMiddleware", () => {
 
   it("logs httpRequest, httpResponse if context.logger has debug function", async () => {
     const logger = ({ debug: jest.fn() } as unknown) as Logger;
-    const response = await loggerMiddleware()(next, { logger })(args as FinalizeHandlerArguments<any>);
+    const response = await loggerMiddleware()(next, { logger })(args as BuildHandlerArguments<any>);
     expect(next).toHaveBeenCalledTimes(1);
     expect(response).toStrictEqual(mockResponse);
 
