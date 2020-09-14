@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { SearchGameSessionsInput, SearchGameSessionsOutput } from "../models/index";
+import { SearchGameSessionsInput, SearchGameSessionsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1SearchGameSessionsCommand,
   serializeAws_json1_1SearchGameSessionsCommand,

@@ -1,5 +1,5 @@
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { LifecycleConfigurationDescription, PutLifecycleConfigurationRequest } from "../models/index";
+import { LifecycleConfigurationDescription, PutLifecycleConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PutLifecycleConfigurationCommand,
   serializeAws_restJson1PutLifecycleConfigurationCommand,

@@ -1,5 +1,5 @@
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { AddInstanceFleetInput, AddInstanceFleetOutput } from "../models/index";
+import { AddInstanceFleetInput, AddInstanceFleetOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1AddInstanceFleetCommand,
   serializeAws_json1_1AddInstanceFleetCommand,

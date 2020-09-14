@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateFleetCapacityInput, UpdateFleetCapacityOutput } from "../models/index";
+import { UpdateFleetCapacityInput, UpdateFleetCapacityOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateFleetCapacityCommand,
   serializeAws_json1_1UpdateFleetCapacityCommand,

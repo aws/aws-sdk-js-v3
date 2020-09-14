@@ -1,5 +1,5 @@
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/index";
+import { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteIPSetCommand,
   serializeAws_restJson1DeleteIPSetCommand,

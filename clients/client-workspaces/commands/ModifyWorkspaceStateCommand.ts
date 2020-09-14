@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { ModifyWorkspaceStateRequest, ModifyWorkspaceStateResult } from "../models/index";
+import { ModifyWorkspaceStateRequest, ModifyWorkspaceStateResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyWorkspaceStateCommand,
   serializeAws_json1_1ModifyWorkspaceStateCommand,

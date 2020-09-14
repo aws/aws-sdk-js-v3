@@ -1,5 +1,8 @@
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
-import { AddApplicationReferenceDataSourceRequest, AddApplicationReferenceDataSourceResponse } from "../models/index";
+import {
+  AddApplicationReferenceDataSourceRequest,
+  AddApplicationReferenceDataSourceResponse,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AddApplicationReferenceDataSourceCommand,
   serializeAws_json1_1AddApplicationReferenceDataSourceCommand,

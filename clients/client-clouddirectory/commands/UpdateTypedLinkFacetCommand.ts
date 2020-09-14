@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { UpdateTypedLinkFacetRequest, UpdateTypedLinkFacetResponse } from "../models/index";
+import { UpdateTypedLinkFacetRequest, UpdateTypedLinkFacetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateTypedLinkFacetCommand,
   serializeAws_restJson1UpdateTypedLinkFacetCommand,

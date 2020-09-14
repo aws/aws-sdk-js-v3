@@ -1,5 +1,5 @@
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { XmlTimestampsOutput } from "../models/index";
+import { XmlTimestampsOutput } from "../models/models_0";
 import { deserializeAws_ec2XmlTimestampsCommand, serializeAws_ec2XmlTimestampsCommand } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

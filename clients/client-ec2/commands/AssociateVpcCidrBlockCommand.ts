@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssociateVpcCidrBlockRequest, AssociateVpcCidrBlockResult } from "../models/index";
+import { AssociateVpcCidrBlockRequest, AssociateVpcCidrBlockResult } from "../models/models_0";
 import {
   deserializeAws_ec2AssociateVpcCidrBlockCommand,
   serializeAws_ec2AssociateVpcCidrBlockCommand,

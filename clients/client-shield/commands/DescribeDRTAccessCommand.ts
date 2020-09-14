@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
-import { DescribeDRTAccessRequest, DescribeDRTAccessResponse } from "../models/index";
+import { DescribeDRTAccessRequest, DescribeDRTAccessResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDRTAccessCommand,
   serializeAws_json1_1DescribeDRTAccessCommand,

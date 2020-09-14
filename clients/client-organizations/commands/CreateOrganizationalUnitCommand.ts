@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { CreateOrganizationalUnitRequest, CreateOrganizationalUnitResponse } from "../models/index";
+import { CreateOrganizationalUnitRequest, CreateOrganizationalUnitResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateOrganizationalUnitCommand,
   serializeAws_json1_1CreateOrganizationalUnitCommand,

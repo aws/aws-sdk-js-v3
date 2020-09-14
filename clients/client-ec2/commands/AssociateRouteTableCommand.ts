@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssociateRouteTableRequest, AssociateRouteTableResult } from "../models/index";
+import { AssociateRouteTableRequest, AssociateRouteTableResult } from "../models/models_0";
 import {
   deserializeAws_ec2AssociateRouteTableCommand,
   serializeAws_ec2AssociateRouteTableCommand,

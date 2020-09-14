@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { CloneReceiptRuleSetRequest, CloneReceiptRuleSetResponse } from "../models/index";
+import { CloneReceiptRuleSetRequest, CloneReceiptRuleSetResponse } from "../models/models_0";
 import {
   deserializeAws_queryCloneReceiptRuleSetCommand,
   serializeAws_queryCloneReceiptRuleSetCommand,

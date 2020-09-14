@@ -1,5 +1,5 @@
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { StartTaskExecutionRequest, StartTaskExecutionResponse } from "../models/index";
+import { StartTaskExecutionRequest, StartTaskExecutionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartTaskExecutionCommand,
   serializeAws_json1_1StartTaskExecutionCommand,

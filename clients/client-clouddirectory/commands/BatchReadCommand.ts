@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { BatchReadRequest, BatchReadResponse } from "../models/index";
+import { BatchReadRequest, BatchReadResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchReadCommand,
   serializeAws_restJson1BatchReadCommand,

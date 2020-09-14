@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ClusterCredentials, GetClusterCredentialsMessage } from "../models/index";
+import { ClusterCredentials, GetClusterCredentialsMessage } from "../models/models_0";
 import {
   deserializeAws_queryGetClusterCredentialsCommand,
   serializeAws_queryGetClusterCredentialsCommand,

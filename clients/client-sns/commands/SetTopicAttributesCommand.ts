@@ -1,5 +1,5 @@
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
-import { SetTopicAttributesInput } from "../models/index";
+import { SetTopicAttributesInput } from "../models/models_0";
 import {
   deserializeAws_querySetTopicAttributesCommand,
   serializeAws_querySetTopicAttributesCommand,

@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DescribeEC2InstanceLimitsInput, DescribeEC2InstanceLimitsOutput } from "../models/index";
+import { DescribeEC2InstanceLimitsInput, DescribeEC2InstanceLimitsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEC2InstanceLimitsCommand,
   serializeAws_json1_1DescribeEC2InstanceLimitsCommand,

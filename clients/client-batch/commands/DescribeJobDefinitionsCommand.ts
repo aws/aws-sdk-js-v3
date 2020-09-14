@@ -1,5 +1,5 @@
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { DescribeJobDefinitionsRequest, DescribeJobDefinitionsResponse } from "../models/index";
+import { DescribeJobDefinitionsRequest, DescribeJobDefinitionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeJobDefinitionsCommand,
   serializeAws_restJson1DescribeJobDefinitionsCommand,

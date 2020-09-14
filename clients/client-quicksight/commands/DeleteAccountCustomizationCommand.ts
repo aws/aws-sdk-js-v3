@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteAccountCustomizationRequest, DeleteAccountCustomizationResponse } from "../models/index";
+import { DeleteAccountCustomizationRequest, DeleteAccountCustomizationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAccountCustomizationCommand,
   serializeAws_restJson1DeleteAccountCustomizationCommand,

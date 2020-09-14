@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { ListBucketAnalyticsConfigurationsOutput, ListBucketAnalyticsConfigurationsRequest } from "../models/index";
+import { ListBucketAnalyticsConfigurationsOutput, ListBucketAnalyticsConfigurationsRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand,
   serializeAws_restXmlListBucketAnalyticsConfigurationsCommand,

@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateCACertificateRequest } from "../models/index";
+import { UpdateCACertificateRequest } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateCACertificateCommand,
   serializeAws_restJson1UpdateCACertificateCommand,

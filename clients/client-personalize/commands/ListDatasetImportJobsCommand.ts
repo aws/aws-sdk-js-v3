@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { ListDatasetImportJobsRequest, ListDatasetImportJobsResponse } from "../models/index";
+import { ListDatasetImportJobsRequest, ListDatasetImportJobsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDatasetImportJobsCommand,
   serializeAws_json1_1ListDatasetImportJobsCommand,

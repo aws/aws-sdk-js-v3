@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { PutResourcePolicyInput, PutResourcePolicyOutput } from "../models/index";
+import { PutResourcePolicyInput, PutResourcePolicyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutResourcePolicyCommand,
   serializeAws_json1_1PutResourcePolicyCommand,

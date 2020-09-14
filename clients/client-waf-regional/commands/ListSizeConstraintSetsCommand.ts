@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { ListSizeConstraintSetsRequest, ListSizeConstraintSetsResponse } from "../models/index";
+import { ListSizeConstraintSetsRequest, ListSizeConstraintSetsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListSizeConstraintSetsCommand,
   serializeAws_json1_1ListSizeConstraintSetsCommand,

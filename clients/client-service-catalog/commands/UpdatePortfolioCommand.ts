@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { UpdatePortfolioInput, UpdatePortfolioOutput } from "../models/index";
+import { UpdatePortfolioInput, UpdatePortfolioOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdatePortfolioCommand,
   serializeAws_json1_1UpdatePortfolioCommand,

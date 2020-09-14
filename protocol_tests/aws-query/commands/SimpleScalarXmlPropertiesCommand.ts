@@ -1,5 +1,5 @@
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { SimpleScalarXmlPropertiesOutput } from "../models/index";
+import { SimpleScalarXmlPropertiesOutput } from "../models/models_0";
 import {
   deserializeAws_querySimpleScalarXmlPropertiesCommand,
   serializeAws_querySimpleScalarXmlPropertiesCommand,

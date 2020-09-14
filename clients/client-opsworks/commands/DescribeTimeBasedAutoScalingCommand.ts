@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DescribeTimeBasedAutoScalingRequest, DescribeTimeBasedAutoScalingResult } from "../models/index";
+import { DescribeTimeBasedAutoScalingRequest, DescribeTimeBasedAutoScalingResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTimeBasedAutoScalingCommand,
   serializeAws_json1_1DescribeTimeBasedAutoScalingCommand,

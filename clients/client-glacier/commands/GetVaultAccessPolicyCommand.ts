@@ -1,5 +1,5 @@
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { GetVaultAccessPolicyInput, GetVaultAccessPolicyOutput } from "../models/index";
+import { GetVaultAccessPolicyInput, GetVaultAccessPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetVaultAccessPolicyCommand,
   serializeAws_restJson1GetVaultAccessPolicyCommand,

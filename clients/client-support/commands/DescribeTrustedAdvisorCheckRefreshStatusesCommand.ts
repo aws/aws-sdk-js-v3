@@ -2,7 +2,7 @@ import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } fr
 import {
   DescribeTrustedAdvisorCheckRefreshStatusesRequest,
   DescribeTrustedAdvisorCheckRefreshStatusesResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand,
   serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand,

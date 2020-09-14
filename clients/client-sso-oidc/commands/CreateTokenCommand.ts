@@ -1,5 +1,5 @@
 import { SSOOIDCClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOOIDCClient";
-import { CreateTokenRequest, CreateTokenResponse } from "../models/index";
+import { CreateTokenRequest, CreateTokenResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTokenCommand,
   serializeAws_restJson1CreateTokenCommand,

@@ -1,5 +1,5 @@
 import { SSOOIDCClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOOIDCClient";
-import { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/index";
+import { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartDeviceAuthorizationCommand,
   serializeAws_restJson1StartDeviceAuthorizationCommand,

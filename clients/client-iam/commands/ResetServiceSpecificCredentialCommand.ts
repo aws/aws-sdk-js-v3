@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ResetServiceSpecificCredentialRequest, ResetServiceSpecificCredentialResponse } from "../models/index";
+import { ResetServiceSpecificCredentialRequest, ResetServiceSpecificCredentialResponse } from "../models/models_0";
 import {
   deserializeAws_queryResetServiceSpecificCredentialCommand,
   serializeAws_queryResetServiceSpecificCredentialCommand,

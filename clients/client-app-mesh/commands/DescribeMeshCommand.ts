@@ -1,5 +1,5 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { DescribeMeshInput, DescribeMeshOutput } from "../models/index";
+import { DescribeMeshInput, DescribeMeshOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeMeshCommand,
   serializeAws_restJson1DescribeMeshCommand,

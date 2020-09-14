@@ -1,5 +1,5 @@
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { ModifyClusterInput, ModifyClusterOutput } from "../models/index";
+import { ModifyClusterInput, ModifyClusterOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyClusterCommand,
   serializeAws_json1_1ModifyClusterCommand,

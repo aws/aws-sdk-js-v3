@@ -3,7 +3,7 @@ import {
   ServiceOutputTypes,
   TranscribeStreamingClientResolvedConfig,
 } from "../TranscribeStreamingClient";
-import { StartStreamTranscriptionRequest, StartStreamTranscriptionResponse } from "../models/index";
+import { StartStreamTranscriptionRequest, StartStreamTranscriptionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartStreamTranscriptionCommand,
   serializeAws_restJson1StartStreamTranscriptionCommand,

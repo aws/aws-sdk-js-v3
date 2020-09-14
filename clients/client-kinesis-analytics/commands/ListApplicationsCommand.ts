@@ -1,5 +1,5 @@
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
-import { ListApplicationsRequest, ListApplicationsResponse } from "../models/index";
+import { ListApplicationsRequest, ListApplicationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListApplicationsCommand,
   serializeAws_json1_1ListApplicationsCommand,

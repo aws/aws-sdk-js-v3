@@ -1,5 +1,5 @@
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { BackupPolicyDescription, PutBackupPolicyRequest } from "../models/index";
+import { BackupPolicyDescription, PutBackupPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PutBackupPolicyCommand,
   serializeAws_restJson1PutBackupPolicyCommand,

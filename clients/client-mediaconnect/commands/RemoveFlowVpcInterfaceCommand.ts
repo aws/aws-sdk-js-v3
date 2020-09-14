@@ -1,5 +1,5 @@
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { RemoveFlowVpcInterfaceRequest, RemoveFlowVpcInterfaceResponse } from "../models/index";
+import { RemoveFlowVpcInterfaceRequest, RemoveFlowVpcInterfaceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveFlowVpcInterfaceCommand,
   serializeAws_restJson1RemoveFlowVpcInterfaceCommand,

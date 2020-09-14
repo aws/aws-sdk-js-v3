@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { UpdateConfigurationSetReputationMetricsEnabledRequest } from "../models/index";
+import { UpdateConfigurationSetReputationMetricsEnabledRequest } from "../models/models_0";
 import {
   deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand,
   serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand,

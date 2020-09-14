@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { UpdateDocumentRequest } from "../models/index";
+import { UpdateDocumentRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDocumentCommand,
   serializeAws_restJson1UpdateDocumentCommand,

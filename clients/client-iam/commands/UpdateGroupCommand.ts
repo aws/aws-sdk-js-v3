@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateGroupRequest } from "../models/index";
+import { UpdateGroupRequest } from "../models/models_0";
 import { deserializeAws_queryUpdateGroupCommand, serializeAws_queryUpdateGroupCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

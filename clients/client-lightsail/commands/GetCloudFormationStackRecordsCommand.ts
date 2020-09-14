@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetCloudFormationStackRecordsRequest, GetCloudFormationStackRecordsResult } from "../models/index";
+import { GetCloudFormationStackRecordsRequest, GetCloudFormationStackRecordsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetCloudFormationStackRecordsCommand,
   serializeAws_json1_1GetCloudFormationStackRecordsCommand,

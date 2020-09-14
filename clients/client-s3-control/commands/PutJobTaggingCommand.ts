@@ -1,5 +1,5 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { PutJobTaggingRequest, PutJobTaggingResult } from "../models/index";
+import { PutJobTaggingRequest, PutJobTaggingResult } from "../models/models_0";
 import {
   deserializeAws_restXmlPutJobTaggingCommand,
   serializeAws_restXmlPutJobTaggingCommand,

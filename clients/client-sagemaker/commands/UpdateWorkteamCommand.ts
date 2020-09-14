@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateWorkteamRequest, UpdateWorkteamResponse } from "../models/index";
+import { UpdateWorkteamRequest, UpdateWorkteamResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateWorkteamCommand,
   serializeAws_json1_1UpdateWorkteamCommand,

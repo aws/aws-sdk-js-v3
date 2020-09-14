@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { ListObjectsOutput, ListObjectsRequest } from "../models/index";
+import { ListObjectsOutput, ListObjectsRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlListObjectsCommand,
   serializeAws_restXmlListObjectsCommand,

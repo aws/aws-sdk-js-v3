@@ -1,5 +1,5 @@
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { StartMonitoringMemberRequest } from "../models/index";
+import { StartMonitoringMemberRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1StartMonitoringMemberCommand,
   serializeAws_restJson1StartMonitoringMemberCommand,

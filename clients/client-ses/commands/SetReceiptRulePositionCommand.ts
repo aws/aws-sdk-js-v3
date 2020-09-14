@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { SetReceiptRulePositionRequest, SetReceiptRulePositionResponse } from "../models/index";
+import { SetReceiptRulePositionRequest, SetReceiptRulePositionResponse } from "../models/models_0";
 import {
   deserializeAws_querySetReceiptRulePositionCommand,
   serializeAws_querySetReceiptRulePositionCommand,

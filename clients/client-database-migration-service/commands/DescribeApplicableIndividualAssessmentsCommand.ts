@@ -6,7 +6,7 @@ import {
 import {
   DescribeApplicableIndividualAssessmentsMessage,
   DescribeApplicableIndividualAssessmentsResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand,
   serializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand,

@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { DeleteResourcePolicyInput, DeleteResourcePolicyOutput } from "../models/index";
+import { DeleteResourcePolicyInput, DeleteResourcePolicyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourcePolicyCommand,
   serializeAws_json1_1DeleteResourcePolicyCommand,

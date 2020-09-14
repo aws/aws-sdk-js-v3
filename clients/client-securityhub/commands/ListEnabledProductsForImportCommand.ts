@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/index";
+import { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListEnabledProductsForImportCommand,
   serializeAws_restJson1ListEnabledProductsForImportCommand,

@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { ActivityType, TerminateInstanceInAutoScalingGroupType } from "../models/index";
+import { ActivityType, TerminateInstanceInAutoScalingGroupType } from "../models/models_0";
 import {
   deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand,
   serializeAws_queryTerminateInstanceInAutoScalingGroupCommand,

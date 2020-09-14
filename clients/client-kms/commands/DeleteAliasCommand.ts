@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DeleteAliasRequest } from "../models/index";
+import { DeleteAliasRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAliasCommand,
   serializeAws_json1_1DeleteAliasCommand,

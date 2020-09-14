@@ -1,5 +1,5 @@
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import { DeleteMetricPolicyInput, DeleteMetricPolicyOutput } from "../models/index";
+import { DeleteMetricPolicyInput, DeleteMetricPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMetricPolicyCommand,
   serializeAws_json1_1DeleteMetricPolicyCommand,

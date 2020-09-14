@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { UpdateLoadBalancerAttributeRequest, UpdateLoadBalancerAttributeResult } from "../models/index";
+import { UpdateLoadBalancerAttributeRequest, UpdateLoadBalancerAttributeResult } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateLoadBalancerAttributeCommand,
   serializeAws_json1_1UpdateLoadBalancerAttributeCommand,

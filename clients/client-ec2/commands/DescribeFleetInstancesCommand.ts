@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeFleetInstancesRequest, DescribeFleetInstancesResult } from "../models/index";
+import { DescribeFleetInstancesRequest, DescribeFleetInstancesResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeFleetInstancesCommand,
   serializeAws_ec2DescribeFleetInstancesCommand,

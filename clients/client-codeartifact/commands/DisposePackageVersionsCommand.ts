@@ -1,5 +1,5 @@
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { DisposePackageVersionsRequest, DisposePackageVersionsResult } from "../models/index";
+import { DisposePackageVersionsRequest, DisposePackageVersionsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DisposePackageVersionsCommand,
   serializeAws_restJson1DisposePackageVersionsCommand,

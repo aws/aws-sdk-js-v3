@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { PromoteReadReplicaMessage, PromoteReadReplicaResult } from "../models/index";
+import { PromoteReadReplicaMessage, PromoteReadReplicaResult } from "../models/models_1";
 import {
   deserializeAws_queryPromoteReadReplicaCommand,
   serializeAws_queryPromoteReadReplicaCommand,

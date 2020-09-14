@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetTableVersionsRequest, GetTableVersionsResponse } from "../models/index";
+import { GetTableVersionsRequest, GetTableVersionsResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetTableVersionsCommand,
   serializeAws_json1_1GetTableVersionsCommand,

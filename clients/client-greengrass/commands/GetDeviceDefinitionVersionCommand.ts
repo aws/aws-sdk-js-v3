@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { GetDeviceDefinitionVersionRequest, GetDeviceDefinitionVersionResponse } from "../models/index";
+import { GetDeviceDefinitionVersionRequest, GetDeviceDefinitionVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDeviceDefinitionVersionCommand,
   serializeAws_restJson1GetDeviceDefinitionVersionCommand,

@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteCACertificateRequest, DeleteCACertificateResponse } from "../models/index";
+import { DeleteCACertificateRequest, DeleteCACertificateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCACertificateCommand,
   serializeAws_restJson1DeleteCACertificateCommand,

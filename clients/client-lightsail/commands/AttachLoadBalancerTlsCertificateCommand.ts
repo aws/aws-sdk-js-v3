@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { AttachLoadBalancerTlsCertificateRequest, AttachLoadBalancerTlsCertificateResult } from "../models/index";
+import { AttachLoadBalancerTlsCertificateRequest, AttachLoadBalancerTlsCertificateResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AttachLoadBalancerTlsCertificateCommand,
   serializeAws_json1_1AttachLoadBalancerTlsCertificateCommand,

@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteRecoveryPointInput } from "../models/index";
+import { DeleteRecoveryPointInput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRecoveryPointCommand,
   serializeAws_restJson1DeleteRecoveryPointCommand,

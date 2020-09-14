@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { CreateSkillGroupRequest, CreateSkillGroupResponse } from "../models/index";
+import { CreateSkillGroupRequest, CreateSkillGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSkillGroupCommand,
   serializeAws_json1_1CreateSkillGroupCommand,

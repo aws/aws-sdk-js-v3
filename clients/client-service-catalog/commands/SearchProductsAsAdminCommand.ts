@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { SearchProductsAsAdminInput, SearchProductsAsAdminOutput } from "../models/index";
+import { SearchProductsAsAdminInput, SearchProductsAsAdminOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1SearchProductsAsAdminCommand,
   serializeAws_json1_1SearchProductsAsAdminCommand,

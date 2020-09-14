@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ResyncMFADeviceRequest } from "../models/index";
+import { ResyncMFADeviceRequest } from "../models/models_0";
 import {
   deserializeAws_queryResyncMFADeviceCommand,
   serializeAws_queryResyncMFADeviceCommand,

@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GenerateCredentialReportResponse } from "../models/index";
+import { GenerateCredentialReportResponse } from "../models/models_0";
 import {
   deserializeAws_queryGenerateCredentialReportCommand,
   serializeAws_queryGenerateCredentialReportCommand,

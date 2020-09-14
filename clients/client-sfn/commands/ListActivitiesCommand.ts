@@ -1,5 +1,5 @@
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
-import { ListActivitiesInput, ListActivitiesOutput } from "../models/index";
+import { ListActivitiesInput, ListActivitiesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0ListActivitiesCommand,
   serializeAws_json1_0ListActivitiesCommand,

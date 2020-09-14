@@ -2,7 +2,7 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } f
 import {
   DescribeWebsiteCertificateAuthorityRequest,
   DescribeWebsiteCertificateAuthorityResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand,
   serializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand,

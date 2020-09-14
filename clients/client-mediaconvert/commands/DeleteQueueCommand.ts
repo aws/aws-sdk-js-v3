@@ -1,5 +1,5 @@
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeleteQueueRequest, DeleteQueueResponse } from "../models/index";
+import { DeleteQueueRequest, DeleteQueueResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteQueueCommand,
   serializeAws_restJson1DeleteQueueCommand,

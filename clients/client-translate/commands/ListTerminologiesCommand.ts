@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
-import { ListTerminologiesRequest, ListTerminologiesResponse } from "../models/index";
+import { ListTerminologiesRequest, ListTerminologiesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTerminologiesCommand,
   serializeAws_json1_1ListTerminologiesCommand,

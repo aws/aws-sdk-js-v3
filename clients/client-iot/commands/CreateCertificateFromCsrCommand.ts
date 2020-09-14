@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateCertificateFromCsrRequest, CreateCertificateFromCsrResponse } from "../models/index";
+import { CreateCertificateFromCsrRequest, CreateCertificateFromCsrResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCertificateFromCsrCommand,
   serializeAws_restJson1CreateCertificateFromCsrCommand,

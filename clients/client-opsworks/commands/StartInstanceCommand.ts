@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { StartInstanceRequest } from "../models/index";
+import { StartInstanceRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1StartInstanceCommand,
   serializeAws_json1_1StartInstanceCommand,

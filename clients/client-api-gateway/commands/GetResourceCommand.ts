@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { GetResourceRequest, Resource } from "../models/index";
+import { GetResourceRequest, Resource } from "../models/models_0";
 import {
   deserializeAws_restJson1GetResourceCommand,
   serializeAws_restJson1GetResourceCommand,

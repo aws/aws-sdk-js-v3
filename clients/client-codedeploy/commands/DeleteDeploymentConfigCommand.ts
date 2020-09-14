@@ -1,5 +1,5 @@
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { DeleteDeploymentConfigInput } from "../models/index";
+import { DeleteDeploymentConfigInput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDeploymentConfigCommand,
   serializeAws_json1_1DeleteDeploymentConfigCommand,

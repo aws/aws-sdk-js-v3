@@ -1,5 +1,5 @@
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import { DescribeHealthServiceStatusForOrganizationResponse } from "../models/index";
+import { DescribeHealthServiceStatusForOrganizationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand,
   serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand,

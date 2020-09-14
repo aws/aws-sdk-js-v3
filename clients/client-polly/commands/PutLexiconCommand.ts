@@ -1,5 +1,5 @@
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import { PutLexiconInput, PutLexiconOutput } from "../models/index";
+import { PutLexiconInput, PutLexiconOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1PutLexiconCommand,
   serializeAws_restJson1PutLexiconCommand,

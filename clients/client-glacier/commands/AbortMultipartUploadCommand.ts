@@ -1,5 +1,5 @@
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { AbortMultipartUploadInput } from "../models/index";
+import { AbortMultipartUploadInput } from "../models/models_0";
 import {
   deserializeAws_restJson1AbortMultipartUploadCommand,
   serializeAws_restJson1AbortMultipartUploadCommand,

@@ -1,5 +1,5 @@
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/index";
+import { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeNamespaceCommand,
   serializeAws_json1_1DescribeNamespaceCommand,

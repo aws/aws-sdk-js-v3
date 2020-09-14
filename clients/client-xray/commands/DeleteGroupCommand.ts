@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
-import { DeleteGroupRequest, DeleteGroupResult } from "../models/index";
+import { DeleteGroupRequest, DeleteGroupResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteGroupCommand,
   serializeAws_restJson1DeleteGroupCommand,

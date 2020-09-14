@@ -1,5 +1,5 @@
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
-import { GetEndpointAttributesInput, GetEndpointAttributesResponse } from "../models/index";
+import { GetEndpointAttributesInput, GetEndpointAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetEndpointAttributesCommand,
   serializeAws_queryGetEndpointAttributesCommand,

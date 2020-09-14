@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CancelConversionRequest } from "../models/index";
+import { CancelConversionRequest } from "../models/models_0";
 import {
   deserializeAws_ec2CancelConversionTaskCommand,
   serializeAws_ec2CancelConversionTaskCommand,

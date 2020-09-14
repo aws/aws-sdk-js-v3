@@ -1,5 +1,5 @@
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { DeleteDataSourceRequest, DeleteDataSourceResponse } from "../models/index";
+import { DeleteDataSourceRequest, DeleteDataSourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDataSourceCommand,
   serializeAws_restJson1DeleteDataSourceCommand,

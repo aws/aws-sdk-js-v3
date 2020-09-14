@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { CreateOrUpdateTagsType } from "../models/index";
+import { CreateOrUpdateTagsType } from "../models/models_0";
 import {
   deserializeAws_queryCreateOrUpdateTagsCommand,
   serializeAws_queryCreateOrUpdateTagsCommand,

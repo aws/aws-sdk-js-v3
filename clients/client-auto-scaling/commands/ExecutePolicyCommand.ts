@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { ExecutePolicyType } from "../models/index";
+import { ExecutePolicyType } from "../models/models_0";
 import {
   deserializeAws_queryExecutePolicyCommand,
   serializeAws_queryExecutePolicyCommand,

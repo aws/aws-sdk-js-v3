@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
-import { GetEncryptionConfigRequest, GetEncryptionConfigResult } from "../models/index";
+import { GetEncryptionConfigRequest, GetEncryptionConfigResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetEncryptionConfigCommand,
   serializeAws_restJson1GetEncryptionConfigCommand,

@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { AddRoleToDBClusterMessage } from "../models/index";
+import { AddRoleToDBClusterMessage } from "../models/models_0";
 import {
   deserializeAws_queryAddRoleToDBClusterCommand,
   serializeAws_queryAddRoleToDBClusterCommand,

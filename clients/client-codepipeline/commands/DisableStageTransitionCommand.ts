@@ -1,5 +1,5 @@
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { DisableStageTransitionInput } from "../models/index";
+import { DisableStageTransitionInput } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableStageTransitionCommand,
   serializeAws_json1_1DisableStageTransitionCommand,

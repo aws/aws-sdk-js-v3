@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
-import { CreateVocabularyRequest, CreateVocabularyResponse } from "../models/index";
+import { CreateVocabularyRequest, CreateVocabularyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateVocabularyCommand,
   serializeAws_json1_1CreateVocabularyCommand,

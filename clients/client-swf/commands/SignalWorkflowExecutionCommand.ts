@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { SignalWorkflowExecutionInput } from "../models/index";
+import { SignalWorkflowExecutionInput } from "../models/models_0";
 import {
   deserializeAws_json1_0SignalWorkflowExecutionCommand,
   serializeAws_json1_0SignalWorkflowExecutionCommand,

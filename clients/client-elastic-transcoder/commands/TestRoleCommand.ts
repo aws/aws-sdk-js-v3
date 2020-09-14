@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import { TestRoleRequest, TestRoleResponse } from "../models/index";
+import { TestRoleRequest, TestRoleResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1TestRoleCommand,
   serializeAws_restJson1TestRoleCommand,

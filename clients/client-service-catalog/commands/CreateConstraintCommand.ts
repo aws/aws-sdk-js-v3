@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { CreateConstraintInput, CreateConstraintOutput } from "../models/index";
+import { CreateConstraintInput, CreateConstraintOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateConstraintCommand,
   serializeAws_json1_1CreateConstraintCommand,

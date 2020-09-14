@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { CreateAccessKeyRequest, CreateAccessKeyResponse } from "../models/index";
+import { CreateAccessKeyRequest, CreateAccessKeyResponse } from "../models/models_0";
 import {
   deserializeAws_queryCreateAccessKeyCommand,
   serializeAws_queryCreateAccessKeyCommand,

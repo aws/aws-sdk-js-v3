@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { DescribeMergeConflictsInput, DescribeMergeConflictsOutput } from "../models/index";
+import { DescribeMergeConflictsInput, DescribeMergeConflictsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeMergeConflictsCommand,
   serializeAws_json1_1DescribeMergeConflictsCommand,

@@ -1,5 +1,5 @@
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { SimpleStruct } from "../models/index";
+import { SimpleStruct } from "../models/models_0";
 import {
   deserializeAws_json1_1OperationWithOptionalInputOutputCommand,
   serializeAws_json1_1OperationWithOptionalInputOutputCommand,

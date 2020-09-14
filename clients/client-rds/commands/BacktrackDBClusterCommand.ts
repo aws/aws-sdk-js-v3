@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { BacktrackDBClusterMessage, DBClusterBacktrack } from "../models/index";
+import { BacktrackDBClusterMessage, DBClusterBacktrack } from "../models/models_0";
 import {
   deserializeAws_queryBacktrackDBClusterCommand,
   serializeAws_queryBacktrackDBClusterCommand,

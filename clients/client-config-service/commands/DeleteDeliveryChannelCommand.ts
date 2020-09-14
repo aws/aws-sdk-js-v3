@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteDeliveryChannelRequest } from "../models/index";
+import { DeleteDeliveryChannelRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDeliveryChannelCommand,
   serializeAws_json1_1DeleteDeliveryChannelCommand,

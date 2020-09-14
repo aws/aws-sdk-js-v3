@@ -1,5 +1,5 @@
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { GetMetricWidgetImageInput, GetMetricWidgetImageOutput } from "../models/index";
+import { GetMetricWidgetImageInput, GetMetricWidgetImageOutput } from "../models/models_0";
 import {
   deserializeAws_queryGetMetricWidgetImageCommand,
   serializeAws_queryGetMetricWidgetImageCommand,

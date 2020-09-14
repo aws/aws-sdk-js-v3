@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DisconnectCustomKeyStoreRequest, DisconnectCustomKeyStoreResponse } from "../models/index";
+import { DisconnectCustomKeyStoreRequest, DisconnectCustomKeyStoreResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisconnectCustomKeyStoreCommand,
   serializeAws_json1_1DisconnectCustomKeyStoreCommand,

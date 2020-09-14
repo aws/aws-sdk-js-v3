@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/index";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UntagResourceCommand,
   serializeAws_json1_1UntagResourceCommand,

@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { TransferCertificateRequest, TransferCertificateResponse } from "../models/index";
+import { TransferCertificateRequest, TransferCertificateResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1TransferCertificateCommand,
   serializeAws_restJson1TransferCertificateCommand,

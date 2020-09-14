@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteColumnStatisticsForTableRequest, DeleteColumnStatisticsForTableResponse } from "../models/index";
+import { DeleteColumnStatisticsForTableRequest, DeleteColumnStatisticsForTableResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteColumnStatisticsForTableCommand,
   serializeAws_json1_1DeleteColumnStatisticsForTableCommand,

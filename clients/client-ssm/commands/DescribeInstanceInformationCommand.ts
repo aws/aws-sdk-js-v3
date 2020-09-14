@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DescribeInstanceInformationRequest, DescribeInstanceInformationResult } from "../models/index";
+import { DescribeInstanceInformationRequest, DescribeInstanceInformationResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeInstanceInformationCommand,
   serializeAws_json1_1DescribeInstanceInformationCommand,

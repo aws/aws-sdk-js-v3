@@ -1,5 +1,5 @@
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { DeleteBrokerRequest, DeleteBrokerResponse } from "../models/index";
+import { DeleteBrokerRequest, DeleteBrokerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBrokerCommand,
   serializeAws_restJson1DeleteBrokerCommand,

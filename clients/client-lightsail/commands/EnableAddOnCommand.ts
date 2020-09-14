@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { EnableAddOnRequest, EnableAddOnResult } from "../models/index";
+import { EnableAddOnRequest, EnableAddOnResult } from "../models/models_0";
 import {
   deserializeAws_json1_1EnableAddOnCommand,
   serializeAws_json1_1EnableAddOnCommand,

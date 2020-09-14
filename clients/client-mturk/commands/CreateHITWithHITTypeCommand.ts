@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { CreateHITWithHITTypeRequest, CreateHITWithHITTypeResponse } from "../models/index";
+import { CreateHITWithHITTypeRequest, CreateHITWithHITTypeResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateHITWithHITTypeCommand,
   serializeAws_json1_1CreateHITWithHITTypeCommand,

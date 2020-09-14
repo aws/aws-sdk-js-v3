@@ -1,5 +1,5 @@
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import { DeleteClusterRequest, DeleteClusterResponse } from "../models/index";
+import { DeleteClusterRequest, DeleteClusterResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteClusterCommand,
   serializeAws_json1_1DeleteClusterCommand,

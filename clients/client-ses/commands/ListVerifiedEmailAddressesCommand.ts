@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { ListVerifiedEmailAddressesResponse } from "../models/index";
+import { ListVerifiedEmailAddressesResponse } from "../models/models_0";
 import {
   deserializeAws_queryListVerifiedEmailAddressesCommand,
   serializeAws_queryListVerifiedEmailAddressesCommand,

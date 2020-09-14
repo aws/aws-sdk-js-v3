@@ -1,5 +1,5 @@
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DeleteIndexFieldRequest, DeleteIndexFieldResponse } from "../models/index";
+import { DeleteIndexFieldRequest, DeleteIndexFieldResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteIndexFieldCommand,
   serializeAws_queryDeleteIndexFieldCommand,

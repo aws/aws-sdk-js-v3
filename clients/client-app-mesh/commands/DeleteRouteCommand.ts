@@ -1,5 +1,5 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { DeleteRouteInput, DeleteRouteOutput } from "../models/index";
+import { DeleteRouteInput, DeleteRouteOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRouteCommand,
   serializeAws_restJson1DeleteRouteCommand,

@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { ApplyEnvironmentManagedActionRequest, ApplyEnvironmentManagedActionResult } from "../models/index";
+import { ApplyEnvironmentManagedActionRequest, ApplyEnvironmentManagedActionResult } from "../models/models_0";
 import {
   deserializeAws_queryApplyEnvironmentManagedActionCommand,
   serializeAws_queryApplyEnvironmentManagedActionCommand,

@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { GetCalendarStateRequest, GetCalendarStateResponse } from "../models/index";
+import { GetCalendarStateRequest, GetCalendarStateResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetCalendarStateCommand,
   serializeAws_json1_1GetCalendarStateCommand,

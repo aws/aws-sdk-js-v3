@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListHostedZonesByVPCRequest, ListHostedZonesByVPCResponse } from "../models/index";
+import { ListHostedZonesByVPCRequest, ListHostedZonesByVPCResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlListHostedZonesByVPCCommand,
   serializeAws_restXmlListHostedZonesByVPCCommand,

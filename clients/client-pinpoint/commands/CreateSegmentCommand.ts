@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { CreateSegmentRequest, CreateSegmentResponse } from "../models/index";
+import { CreateSegmentRequest, CreateSegmentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSegmentCommand,
   serializeAws_restJson1CreateSegmentCommand,

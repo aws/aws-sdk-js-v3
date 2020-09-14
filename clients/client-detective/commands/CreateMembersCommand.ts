@@ -1,5 +1,5 @@
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { CreateMembersRequest, CreateMembersResponse } from "../models/index";
+import { CreateMembersRequest, CreateMembersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMembersCommand,
   serializeAws_restJson1CreateMembersCommand,

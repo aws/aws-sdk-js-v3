@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { StartReplicationTaskMessage, StartReplicationTaskResponse } from "../models/index";
+import { StartReplicationTaskMessage, StartReplicationTaskResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartReplicationTaskCommand,
   serializeAws_json1_1StartReplicationTaskCommand,

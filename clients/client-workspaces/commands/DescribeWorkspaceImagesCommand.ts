@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { DescribeWorkspaceImagesRequest, DescribeWorkspaceImagesResult } from "../models/index";
+import { DescribeWorkspaceImagesRequest, DescribeWorkspaceImagesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeWorkspaceImagesCommand,
   serializeAws_json1_1DescribeWorkspaceImagesCommand,

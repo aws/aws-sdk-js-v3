@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { EnableAllFeaturesRequest, EnableAllFeaturesResponse } from "../models/index";
+import { EnableAllFeaturesRequest, EnableAllFeaturesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1EnableAllFeaturesCommand,
   serializeAws_json1_1EnableAllFeaturesCommand,

@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/index";
+import { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDeviceCommand,
   serializeAws_json1_1DeleteDeviceCommand,

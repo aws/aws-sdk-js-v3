@@ -1,5 +1,5 @@
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { DBSubnetGroupMessage, DescribeDBSubnetGroupsMessage } from "../models/index";
+import { DBSubnetGroupMessage, DescribeDBSubnetGroupsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBSubnetGroupsCommand,
   serializeAws_queryDescribeDBSubnetGroupsCommand,

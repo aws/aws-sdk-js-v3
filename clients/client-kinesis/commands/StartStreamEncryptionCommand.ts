@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { StartStreamEncryptionInput } from "../models/index";
+import { StartStreamEncryptionInput } from "../models/models_0";
 import {
   deserializeAws_json1_1StartStreamEncryptionCommand,
   serializeAws_json1_1StartStreamEncryptionCommand,

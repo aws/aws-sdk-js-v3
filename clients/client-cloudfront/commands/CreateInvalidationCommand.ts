@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { CreateInvalidationRequest, CreateInvalidationResult } from "../models/index";
+import { CreateInvalidationRequest, CreateInvalidationResult } from "../models/models_0";
 import {
   deserializeAws_restXmlCreateInvalidationCommand,
   serializeAws_restXmlCreateInvalidationCommand,

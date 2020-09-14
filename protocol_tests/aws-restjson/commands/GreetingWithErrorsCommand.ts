@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { GreetingWithErrorsOutput } from "../models/index";
+import { GreetingWithErrorsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GreetingWithErrorsCommand,
   serializeAws_restJson1GreetingWithErrorsCommand,

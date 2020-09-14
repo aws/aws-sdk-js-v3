@@ -1,5 +1,5 @@
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
-import { ListTagsForDomainRequest, ListTagsForDomainResponse } from "../models/index";
+import { ListTagsForDomainRequest, ListTagsForDomainResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTagsForDomainCommand,
   serializeAws_json1_1ListTagsForDomainCommand,

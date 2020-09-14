@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeStaleSecurityGroupsRequest, DescribeStaleSecurityGroupsResult } from "../models/index";
+import { DescribeStaleSecurityGroupsRequest, DescribeStaleSecurityGroupsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeStaleSecurityGroupsCommand,
   serializeAws_ec2DescribeStaleSecurityGroupsCommand,

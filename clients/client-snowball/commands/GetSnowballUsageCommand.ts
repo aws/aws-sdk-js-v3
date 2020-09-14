@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
-import { GetSnowballUsageRequest, GetSnowballUsageResult } from "../models/index";
+import { GetSnowballUsageRequest, GetSnowballUsageResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSnowballUsageCommand,
   serializeAws_json1_1GetSnowballUsageCommand,

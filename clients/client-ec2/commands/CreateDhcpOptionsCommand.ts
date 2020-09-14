@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateDhcpOptionsRequest, CreateDhcpOptionsResult } from "../models/index";
+import { CreateDhcpOptionsRequest, CreateDhcpOptionsResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreateDhcpOptionsCommand,
   serializeAws_ec2CreateDhcpOptionsCommand,

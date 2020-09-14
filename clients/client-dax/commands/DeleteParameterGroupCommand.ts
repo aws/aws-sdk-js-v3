@@ -1,5 +1,5 @@
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { DeleteParameterGroupRequest, DeleteParameterGroupResponse } from "../models/index";
+import { DeleteParameterGroupRequest, DeleteParameterGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteParameterGroupCommand,
   serializeAws_json1_1DeleteParameterGroupCommand,

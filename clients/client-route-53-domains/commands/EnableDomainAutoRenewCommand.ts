@@ -1,5 +1,5 @@
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
-import { EnableDomainAutoRenewRequest, EnableDomainAutoRenewResponse } from "../models/index";
+import { EnableDomainAutoRenewRequest, EnableDomainAutoRenewResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1EnableDomainAutoRenewCommand,
   serializeAws_json1_1EnableDomainAutoRenewCommand,

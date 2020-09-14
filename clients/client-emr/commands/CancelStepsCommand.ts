@@ -1,5 +1,5 @@
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { CancelStepsInput, CancelStepsOutput } from "../models/index";
+import { CancelStepsInput, CancelStepsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelStepsCommand,
   serializeAws_json1_1CancelStepsCommand,

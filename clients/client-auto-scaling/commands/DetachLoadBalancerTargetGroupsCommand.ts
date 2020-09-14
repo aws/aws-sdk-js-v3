@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DetachLoadBalancerTargetGroupsResultType, DetachLoadBalancerTargetGroupsType } from "../models/index";
+import { DetachLoadBalancerTargetGroupsResultType, DetachLoadBalancerTargetGroupsType } from "../models/models_0";
 import {
   deserializeAws_queryDetachLoadBalancerTargetGroupsCommand,
   serializeAws_queryDetachLoadBalancerTargetGroupsCommand,

@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { DescribeImageScanFindingsRequest, DescribeImageScanFindingsResponse } from "../models/index";
+import { DescribeImageScanFindingsRequest, DescribeImageScanFindingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeImageScanFindingsCommand,
   serializeAws_json1_1DescribeImageScanFindingsCommand,

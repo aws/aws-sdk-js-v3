@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { DeleteSqlInjectionMatchSetRequest, DeleteSqlInjectionMatchSetResponse } from "../models/index";
+import { DeleteSqlInjectionMatchSetRequest, DeleteSqlInjectionMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSqlInjectionMatchSetCommand,
   serializeAws_json1_1DeleteSqlInjectionMatchSetCommand,

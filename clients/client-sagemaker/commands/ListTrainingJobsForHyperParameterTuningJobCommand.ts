@@ -2,7 +2,7 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   ListTrainingJobsForHyperParameterTuningJobRequest,
   ListTrainingJobsForHyperParameterTuningJobResponse,
-} from "../models/index";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand,
   serializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand,

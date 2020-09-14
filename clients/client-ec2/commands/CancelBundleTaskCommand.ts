@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CancelBundleTaskRequest, CancelBundleTaskResult } from "../models/index";
+import { CancelBundleTaskRequest, CancelBundleTaskResult } from "../models/models_0";
 import {
   deserializeAws_ec2CancelBundleTaskCommand,
   serializeAws_ec2CancelBundleTaskCommand,

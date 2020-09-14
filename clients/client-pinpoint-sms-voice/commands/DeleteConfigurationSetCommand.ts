@@ -1,5 +1,5 @@
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
-import { DeleteConfigurationSetRequest, DeleteConfigurationSetResponse } from "../models/index";
+import { DeleteConfigurationSetRequest, DeleteConfigurationSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteConfigurationSetCommand,
   serializeAws_restJson1DeleteConfigurationSetCommand,

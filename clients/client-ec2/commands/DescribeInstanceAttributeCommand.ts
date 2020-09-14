@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeInstanceAttributeRequest, InstanceAttribute } from "../models/index";
+import { DescribeInstanceAttributeRequest, InstanceAttribute } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeInstanceAttributeCommand,
   serializeAws_ec2DescribeInstanceAttributeCommand,

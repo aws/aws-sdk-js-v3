@@ -1,5 +1,5 @@
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
-import { CancelSimulationJobRequest, CancelSimulationJobResponse } from "../models/index";
+import { CancelSimulationJobRequest, CancelSimulationJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelSimulationJobCommand,
   serializeAws_restJson1CancelSimulationJobCommand,

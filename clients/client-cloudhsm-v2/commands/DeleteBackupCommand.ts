@@ -1,5 +1,5 @@
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import { DeleteBackupRequest, DeleteBackupResponse } from "../models/index";
+import { DeleteBackupRequest, DeleteBackupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBackupCommand,
   serializeAws_json1_1DeleteBackupCommand,

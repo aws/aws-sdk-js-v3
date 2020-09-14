@@ -1,5 +1,5 @@
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { CreateTypeRequest, CreateTypeResponse } from "../models/index";
+import { CreateTypeRequest, CreateTypeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTypeCommand,
   serializeAws_restJson1CreateTypeCommand,

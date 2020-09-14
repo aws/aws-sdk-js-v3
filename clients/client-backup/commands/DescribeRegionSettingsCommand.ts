@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DescribeRegionSettingsInput, DescribeRegionSettingsOutput } from "../models/index";
+import { DescribeRegionSettingsInput, DescribeRegionSettingsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRegionSettingsCommand,
   serializeAws_restJson1DescribeRegionSettingsCommand,

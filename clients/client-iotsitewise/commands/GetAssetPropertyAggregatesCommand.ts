@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { GetAssetPropertyAggregatesRequest, GetAssetPropertyAggregatesResponse } from "../models/index";
+import { GetAssetPropertyAggregatesRequest, GetAssetPropertyAggregatesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAssetPropertyAggregatesCommand,
   serializeAws_restJson1GetAssetPropertyAggregatesCommand,

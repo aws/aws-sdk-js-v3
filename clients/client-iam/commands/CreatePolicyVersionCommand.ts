@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { CreatePolicyVersionRequest, CreatePolicyVersionResponse } from "../models/index";
+import { CreatePolicyVersionRequest, CreatePolicyVersionResponse } from "../models/models_0";
 import {
   deserializeAws_queryCreatePolicyVersionCommand,
   serializeAws_queryCreatePolicyVersionCommand,

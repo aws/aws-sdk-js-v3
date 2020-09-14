@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetHealthCheckLastFailureReasonRequest, GetHealthCheckLastFailureReasonResponse } from "../models/index";
+import { GetHealthCheckLastFailureReasonRequest, GetHealthCheckLastFailureReasonResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand,
   serializeAws_restXmlGetHealthCheckLastFailureReasonCommand,

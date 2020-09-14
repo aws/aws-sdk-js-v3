@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import { TagResourceInput, TagResourceOutput } from "../models/index";
+import { TagResourceInput, TagResourceOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0TagResourceCommand,
   serializeAws_json1_0TagResourceCommand,

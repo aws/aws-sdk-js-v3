@@ -1,5 +1,5 @@
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { DescribeMigrationTaskRequest, DescribeMigrationTaskResult } from "../models/index";
+import { DescribeMigrationTaskRequest, DescribeMigrationTaskResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeMigrationTaskCommand,
   serializeAws_json1_1DescribeMigrationTaskCommand,

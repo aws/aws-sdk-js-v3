@@ -1,5 +1,5 @@
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { DeleteDashboardsInput, DeleteDashboardsOutput } from "../models/index";
+import { DeleteDashboardsInput, DeleteDashboardsOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDashboardsCommand,
   serializeAws_queryDeleteDashboardsCommand,

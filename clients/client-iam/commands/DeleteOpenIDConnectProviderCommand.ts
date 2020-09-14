@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteOpenIDConnectProviderRequest } from "../models/index";
+import { DeleteOpenIDConnectProviderRequest } from "../models/models_0";
 import {
   deserializeAws_queryDeleteOpenIDConnectProviderCommand,
   serializeAws_queryDeleteOpenIDConnectProviderCommand,

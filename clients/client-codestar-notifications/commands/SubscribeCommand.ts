@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import { SubscribeRequest, SubscribeResult } from "../models/index";
+import { SubscribeRequest, SubscribeResult } from "../models/models_0";
 import {
   deserializeAws_restJson1SubscribeCommand,
   serializeAws_restJson1SubscribeCommand,

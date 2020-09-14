@@ -1,5 +1,5 @@
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { Deployment, StartDeploymentRequest } from "../models/index";
+import { Deployment, StartDeploymentRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1StartDeploymentCommand,
   serializeAws_restJson1StartDeploymentCommand,

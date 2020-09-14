@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { UpdateShardCountInput, UpdateShardCountOutput } from "../models/index";
+import { UpdateShardCountInput, UpdateShardCountOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateShardCountCommand,
   serializeAws_json1_1UpdateShardCountCommand,

@@ -1,5 +1,5 @@
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { ListBackupsInput, ListBackupsOutput } from "../models/index";
+import { ListBackupsInput, ListBackupsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0ListBackupsCommand,
   serializeAws_json1_0ListBackupsCommand,

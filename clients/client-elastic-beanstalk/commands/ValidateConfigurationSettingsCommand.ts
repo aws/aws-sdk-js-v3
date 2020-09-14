@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { ConfigurationSettingsValidationMessages, ValidateConfigurationSettingsMessage } from "../models/index";
+import { ConfigurationSettingsValidationMessages, ValidateConfigurationSettingsMessage } from "../models/models_0";
 import {
   deserializeAws_queryValidateConfigurationSettingsCommand,
   serializeAws_queryValidateConfigurationSettingsCommand,

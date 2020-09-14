@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeliverConfigSnapshotRequest, DeliverConfigSnapshotResponse } from "../models/index";
+import { DeliverConfigSnapshotRequest, DeliverConfigSnapshotResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeliverConfigSnapshotCommand,
   serializeAws_json1_1DeliverConfigSnapshotCommand,

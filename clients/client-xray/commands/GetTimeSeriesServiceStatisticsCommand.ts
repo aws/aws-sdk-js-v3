@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
-import { GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult } from "../models/index";
+import { GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand,
   serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand,

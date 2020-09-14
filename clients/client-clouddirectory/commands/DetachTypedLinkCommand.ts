@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { DetachTypedLinkRequest } from "../models/index";
+import { DetachTypedLinkRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DetachTypedLinkCommand,
   serializeAws_restJson1DetachTypedLinkCommand,

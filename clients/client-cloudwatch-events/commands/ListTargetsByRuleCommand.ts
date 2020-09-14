@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { ListTargetsByRuleRequest, ListTargetsByRuleResponse } from "../models/index";
+import { ListTargetsByRuleRequest, ListTargetsByRuleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTargetsByRuleCommand,
   serializeAws_json1_1ListTargetsByRuleCommand,

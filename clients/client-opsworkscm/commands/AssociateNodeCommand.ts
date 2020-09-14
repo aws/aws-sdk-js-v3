@@ -1,5 +1,5 @@
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import { AssociateNodeRequest, AssociateNodeResponse } from "../models/index";
+import { AssociateNodeRequest, AssociateNodeResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateNodeCommand,
   serializeAws_json1_1AssociateNodeCommand,

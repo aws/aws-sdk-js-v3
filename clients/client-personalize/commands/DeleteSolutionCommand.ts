@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DeleteSolutionRequest } from "../models/index";
+import { DeleteSolutionRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSolutionCommand,
   serializeAws_json1_1DeleteSolutionCommand,

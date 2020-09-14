@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { UpdateMailboxQuotaRequest, UpdateMailboxQuotaResponse } from "../models/index";
+import { UpdateMailboxQuotaRequest, UpdateMailboxQuotaResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateMailboxQuotaCommand,
   serializeAws_json1_1UpdateMailboxQuotaCommand,

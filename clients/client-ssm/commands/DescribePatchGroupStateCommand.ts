@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DescribePatchGroupStateRequest, DescribePatchGroupStateResult } from "../models/index";
+import { DescribePatchGroupStateRequest, DescribePatchGroupStateResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePatchGroupStateCommand,
   serializeAws_json1_1DescribePatchGroupStateCommand,

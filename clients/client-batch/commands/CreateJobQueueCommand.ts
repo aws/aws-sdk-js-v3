@@ -1,5 +1,5 @@
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { CreateJobQueueRequest, CreateJobQueueResponse } from "../models/index";
+import { CreateJobQueueRequest, CreateJobQueueResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateJobQueueCommand,
   serializeAws_restJson1CreateJobQueueCommand,

@@ -1,5 +1,5 @@
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import { RetrieveTimeSeriesRequest, RetrieveTimeSeriesResponse } from "../models/index";
+import { RetrieveTimeSeriesRequest, RetrieveTimeSeriesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RetrieveTimeSeriesCommand,
   serializeAws_restJson1RetrieveTimeSeriesCommand,

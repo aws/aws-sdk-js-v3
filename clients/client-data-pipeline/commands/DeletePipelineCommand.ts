@@ -1,5 +1,5 @@
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { DeletePipelineInput } from "../models/index";
+import { DeletePipelineInput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePipelineCommand,
   serializeAws_json1_1DeletePipelineCommand,

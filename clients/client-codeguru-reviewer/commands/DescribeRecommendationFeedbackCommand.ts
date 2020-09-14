@@ -1,5 +1,5 @@
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import { DescribeRecommendationFeedbackRequest, DescribeRecommendationFeedbackResponse } from "../models/index";
+import { DescribeRecommendationFeedbackRequest, DescribeRecommendationFeedbackResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRecommendationFeedbackCommand,
   serializeAws_restJson1DescribeRecommendationFeedbackCommand,

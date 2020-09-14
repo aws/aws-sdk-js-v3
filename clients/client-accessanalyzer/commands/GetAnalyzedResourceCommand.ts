@@ -1,5 +1,5 @@
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { GetAnalyzedResourceRequest, GetAnalyzedResourceResponse } from "../models/index";
+import { GetAnalyzedResourceRequest, GetAnalyzedResourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAnalyzedResourceCommand,
   serializeAws_restJson1GetAnalyzedResourceCommand,

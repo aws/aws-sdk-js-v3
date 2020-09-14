@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { RegisterEventTopicRequest, RegisterEventTopicResult } from "../models/index";
+import { RegisterEventTopicRequest, RegisterEventTopicResult } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterEventTopicCommand,
   serializeAws_json1_1RegisterEventTopicCommand,

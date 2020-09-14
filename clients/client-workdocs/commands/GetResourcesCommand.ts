@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { GetResourcesRequest, GetResourcesResponse } from "../models/index";
+import { GetResourcesRequest, GetResourcesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetResourcesCommand,
   serializeAws_restJson1GetResourcesCommand,

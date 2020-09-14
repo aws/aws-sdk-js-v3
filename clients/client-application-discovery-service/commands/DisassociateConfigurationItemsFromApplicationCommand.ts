@@ -6,7 +6,7 @@ import {
 import {
   DisassociateConfigurationItemsFromApplicationRequest,
   DisassociateConfigurationItemsFromApplicationResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand,
   serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand,

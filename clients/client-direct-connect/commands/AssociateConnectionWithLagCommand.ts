@@ -1,5 +1,5 @@
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { AssociateConnectionWithLagRequest, Connection } from "../models/index";
+import { AssociateConnectionWithLagRequest, Connection } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateConnectionWithLagCommand,
   serializeAws_json1_1AssociateConnectionWithLagCommand,

@@ -1,5 +1,5 @@
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { RecursiveXmlShapesOutput } from "../models/index";
+import { RecursiveXmlShapesOutput } from "../models/models_0";
 import {
   deserializeAws_ec2RecursiveXmlShapesCommand,
   serializeAws_ec2RecursiveXmlShapesCommand,

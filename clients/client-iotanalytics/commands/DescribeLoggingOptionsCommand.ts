@@ -1,5 +1,5 @@
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { DescribeLoggingOptionsRequest, DescribeLoggingOptionsResponse } from "../models/index";
+import { DescribeLoggingOptionsRequest, DescribeLoggingOptionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeLoggingOptionsCommand,
   serializeAws_restJson1DescribeLoggingOptionsCommand,

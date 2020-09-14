@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateDomainRequest, CreateDomainResponse } from "../models/index";
+import { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDomainCommand,
   serializeAws_json1_1CreateDomainCommand,

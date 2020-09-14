@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { GetRegexMatchSetRequest, GetRegexMatchSetResponse } from "../models/index";
+import { GetRegexMatchSetRequest, GetRegexMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRegexMatchSetCommand,
   serializeAws_json1_1GetRegexMatchSetCommand,

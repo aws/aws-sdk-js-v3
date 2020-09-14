@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { ListConstraintsForPortfolioInput, ListConstraintsForPortfolioOutput } from "../models/index";
+import { ListConstraintsForPortfolioInput, ListConstraintsForPortfolioOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListConstraintsForPortfolioCommand,
   serializeAws_json1_1ListConstraintsForPortfolioCommand,

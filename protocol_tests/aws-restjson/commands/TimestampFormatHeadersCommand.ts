@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { TimestampFormatHeadersIO } from "../models/index";
+import { TimestampFormatHeadersIO } from "../models/models_0";
 import {
   deserializeAws_restJson1TimestampFormatHeadersCommand,
   serializeAws_restJson1TimestampFormatHeadersCommand,

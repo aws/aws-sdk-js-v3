@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { DeleteDBSubnetGroupMessage } from "../models/index";
+import { DeleteDBSubnetGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBSubnetGroupCommand,
   serializeAws_queryDeleteDBSubnetGroupCommand,

@@ -1,5 +1,5 @@
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import { UpdatePackagingGroupRequest, UpdatePackagingGroupResponse } from "../models/index";
+import { UpdatePackagingGroupRequest, UpdatePackagingGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePackagingGroupCommand,
   serializeAws_restJson1UpdatePackagingGroupCommand,

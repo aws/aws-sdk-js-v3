@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeImageAttributeRequest, ImageAttribute } from "../models/index";
+import { DescribeImageAttributeRequest, ImageAttribute } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeImageAttributeCommand,
   serializeAws_ec2DescribeImageAttributeCommand,

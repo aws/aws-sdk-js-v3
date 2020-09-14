@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketInventoryConfigurationOutput, GetBucketInventoryConfigurationRequest } from "../models/index";
+import { GetBucketInventoryConfigurationOutput, GetBucketInventoryConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketInventoryConfigurationCommand,
   serializeAws_restXmlGetBucketInventoryConfigurationCommand,

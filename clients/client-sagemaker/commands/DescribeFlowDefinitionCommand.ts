@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeFlowDefinitionRequest, DescribeFlowDefinitionResponse } from "../models/index";
+import { DescribeFlowDefinitionRequest, DescribeFlowDefinitionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DescribeFlowDefinitionCommand,
   serializeAws_json1_1DescribeFlowDefinitionCommand,

@@ -1,5 +1,5 @@
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
-import { ListQueueTagsRequest, ListQueueTagsResult } from "../models/index";
+import { ListQueueTagsRequest, ListQueueTagsResult } from "../models/models_0";
 import {
   deserializeAws_queryListQueueTagsCommand,
   serializeAws_queryListQueueTagsCommand,

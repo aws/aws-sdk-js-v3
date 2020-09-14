@@ -1,5 +1,5 @@
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { GetDomainNamesRequest, GetDomainNamesResponse } from "../models/index";
+import { GetDomainNamesRequest, GetDomainNamesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDomainNamesCommand,
   serializeAws_restJson1GetDomainNamesCommand,

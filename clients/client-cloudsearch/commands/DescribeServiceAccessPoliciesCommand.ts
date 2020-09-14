@@ -1,5 +1,5 @@
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DescribeServiceAccessPoliciesRequest, DescribeServiceAccessPoliciesResponse } from "../models/index";
+import { DescribeServiceAccessPoliciesRequest, DescribeServiceAccessPoliciesResponse } from "../models/models_0";
 import {
   deserializeAws_queryDescribeServiceAccessPoliciesCommand,
   serializeAws_queryDescribeServiceAccessPoliciesCommand,

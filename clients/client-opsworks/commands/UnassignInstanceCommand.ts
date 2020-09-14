@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { UnassignInstanceRequest } from "../models/index";
+import { UnassignInstanceRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1UnassignInstanceCommand,
   serializeAws_json1_1UnassignInstanceCommand,

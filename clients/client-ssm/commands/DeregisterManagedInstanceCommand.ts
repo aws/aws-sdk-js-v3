@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DeregisterManagedInstanceRequest, DeregisterManagedInstanceResult } from "../models/index";
+import { DeregisterManagedInstanceRequest, DeregisterManagedInstanceResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterManagedInstanceCommand,
   serializeAws_json1_1DeregisterManagedInstanceCommand,

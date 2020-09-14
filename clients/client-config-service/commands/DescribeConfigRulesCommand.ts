@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DescribeConfigRulesRequest, DescribeConfigRulesResponse } from "../models/index";
+import { DescribeConfigRulesRequest, DescribeConfigRulesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeConfigRulesCommand,
   serializeAws_json1_1DescribeConfigRulesCommand,

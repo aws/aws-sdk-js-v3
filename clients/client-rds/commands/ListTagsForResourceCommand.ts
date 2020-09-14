@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ListTagsForResourceMessage, TagListMessage } from "../models/index";
+import { ListTagsForResourceMessage, TagListMessage } from "../models/models_1";
 import {
   deserializeAws_queryListTagsForResourceCommand,
   serializeAws_queryListTagsForResourceCommand,

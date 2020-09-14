@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/index";
+import { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutClusterCapacityProvidersCommand,
   serializeAws_json1_1PutClusterCapacityProvidersCommand,

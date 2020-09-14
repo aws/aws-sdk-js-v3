@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { DescribeAgentsRequest, DescribeAgentsResponse } from "../models/index";
+import { DescribeAgentsRequest, DescribeAgentsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAgentsCommand,
   serializeAws_json1_1DescribeAgentsCommand,

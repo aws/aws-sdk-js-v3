@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { DiscoverInputSchemaRequest, DiscoverInputSchemaResponse } from "../models/index";
+import { DiscoverInputSchemaRequest, DiscoverInputSchemaResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DiscoverInputSchemaCommand,
   serializeAws_json1_1DiscoverInputSchemaCommand,

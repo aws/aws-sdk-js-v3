@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeNatGatewaysRequest, DescribeNatGatewaysResult } from "../models/index";
+import { DescribeNatGatewaysRequest, DescribeNatGatewaysResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeNatGatewaysCommand,
   serializeAws_ec2DescribeNatGatewaysCommand,

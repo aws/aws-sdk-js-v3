@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AuthorizeSecurityGroupEgressRequest } from "../models/index";
+import { AuthorizeSecurityGroupEgressRequest } from "../models/models_0";
 import {
   deserializeAws_ec2AuthorizeSecurityGroupEgressCommand,
   serializeAws_ec2AuthorizeSecurityGroupEgressCommand,

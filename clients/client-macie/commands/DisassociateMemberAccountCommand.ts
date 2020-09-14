@@ -1,5 +1,5 @@
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import { DisassociateMemberAccountRequest } from "../models/index";
+import { DisassociateMemberAccountRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateMemberAccountCommand,
   serializeAws_json1_1DisassociateMemberAccountCommand,

@@ -1,5 +1,5 @@
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { ListRuleNamesByTargetRequest, ListRuleNamesByTargetResponse } from "../models/index";
+import { ListRuleNamesByTargetRequest, ListRuleNamesByTargetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListRuleNamesByTargetCommand,
   serializeAws_json1_1ListRuleNamesByTargetCommand,

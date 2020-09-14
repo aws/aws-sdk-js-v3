@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteWorkflowRequest, DeleteWorkflowResponse } from "../models/index";
+import { DeleteWorkflowRequest, DeleteWorkflowResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWorkflowCommand,
   serializeAws_json1_1DeleteWorkflowCommand,

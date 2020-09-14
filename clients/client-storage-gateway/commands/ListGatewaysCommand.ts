@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { ListGatewaysInput, ListGatewaysOutput } from "../models/index";
+import { ListGatewaysInput, ListGatewaysOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListGatewaysCommand,
   serializeAws_json1_1ListGatewaysCommand,

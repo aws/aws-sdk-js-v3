@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
-import { UntagResourcesInput, UntagResourcesOutput } from "../models/index";
+import { UntagResourcesInput, UntagResourcesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UntagResourcesCommand,
   serializeAws_json1_1UntagResourcesCommand,

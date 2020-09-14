@@ -1,5 +1,5 @@
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
-import { UpdateSecretRequest, UpdateSecretResponse } from "../models/index";
+import { UpdateSecretRequest, UpdateSecretResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSecretCommand,
   serializeAws_json1_1UpdateSecretCommand,

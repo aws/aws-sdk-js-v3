@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteVoiceConnectorEmergencyCallingConfigurationRequest } from "../models/index";
+import { DeleteVoiceConnectorEmergencyCallingConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
   serializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand,

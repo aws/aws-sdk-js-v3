@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { ResetUserPasswordRequest, ResetUserPasswordResult } from "../models/index";
+import { ResetUserPasswordRequest, ResetUserPasswordResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ResetUserPasswordCommand,
   serializeAws_json1_1ResetUserPasswordCommand,

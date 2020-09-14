@@ -1,5 +1,5 @@
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { CancelContactRequest, ContactIdResponse } from "../models/index";
+import { CancelContactRequest, ContactIdResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelContactCommand,
   serializeAws_restJson1CancelContactCommand,

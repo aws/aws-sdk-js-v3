@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { SwapEnvironmentCNAMEsMessage } from "../models/index";
+import { SwapEnvironmentCNAMEsMessage } from "../models/models_0";
 import {
   deserializeAws_querySwapEnvironmentCNAMEsCommand,
   serializeAws_querySwapEnvironmentCNAMEsCommand,

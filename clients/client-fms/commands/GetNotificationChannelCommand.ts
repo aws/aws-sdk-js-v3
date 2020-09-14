@@ -1,5 +1,5 @@
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { GetNotificationChannelRequest, GetNotificationChannelResponse } from "../models/index";
+import { GetNotificationChannelRequest, GetNotificationChannelResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetNotificationChannelCommand,
   serializeAws_json1_1GetNotificationChannelCommand,

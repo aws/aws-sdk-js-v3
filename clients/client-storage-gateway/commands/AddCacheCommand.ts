@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { AddCacheInput, AddCacheOutput } from "../models/index";
+import { AddCacheInput, AddCacheOutput } from "../models/models_0";
 import { deserializeAws_json1_1AddCacheCommand, serializeAws_json1_1AddCacheCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteLayerVersionRequest } from "../models/index";
+import { DeleteLayerVersionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteLayerVersionCommand,
   serializeAws_restJson1DeleteLayerVersionCommand,

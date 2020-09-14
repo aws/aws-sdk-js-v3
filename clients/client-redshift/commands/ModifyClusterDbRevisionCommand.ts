@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ModifyClusterDbRevisionMessage, ModifyClusterDbRevisionResult } from "../models/index";
+import { ModifyClusterDbRevisionMessage, ModifyClusterDbRevisionResult } from "../models/models_1";
 import {
   deserializeAws_queryModifyClusterDbRevisionCommand,
   serializeAws_queryModifyClusterDbRevisionCommand,

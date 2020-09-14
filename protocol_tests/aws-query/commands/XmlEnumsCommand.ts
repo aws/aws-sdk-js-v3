@@ -1,5 +1,5 @@
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { XmlEnumsOutput } from "../models/index";
+import { XmlEnumsOutput } from "../models/models_0";
 import { deserializeAws_queryXmlEnumsCommand, serializeAws_queryXmlEnumsCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

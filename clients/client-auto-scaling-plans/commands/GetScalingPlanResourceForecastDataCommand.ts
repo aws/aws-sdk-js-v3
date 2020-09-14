@@ -1,5 +1,8 @@
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
-import { GetScalingPlanResourceForecastDataRequest, GetScalingPlanResourceForecastDataResponse } from "../models/index";
+import {
+  GetScalingPlanResourceForecastDataRequest,
+  GetScalingPlanResourceForecastDataResponse,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand,
   serializeAws_json1_1GetScalingPlanResourceForecastDataCommand,

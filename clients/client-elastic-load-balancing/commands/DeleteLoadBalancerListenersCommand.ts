@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { DeleteLoadBalancerListenerInput, DeleteLoadBalancerListenerOutput } from "../models/index";
+import { DeleteLoadBalancerListenerInput, DeleteLoadBalancerListenerOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeleteLoadBalancerListenersCommand,
   serializeAws_queryDeleteLoadBalancerListenersCommand,

@@ -2,7 +2,7 @@ import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   PutConfigurationSetReputationOptionsRequest,
   PutConfigurationSetReputationOptionsResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutConfigurationSetReputationOptionsCommand,
   serializeAws_restJson1PutConfigurationSetReputationOptionsCommand,

@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { StartBuildInput, StartBuildOutput } from "../models/index";
+import { StartBuildInput, StartBuildOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StartBuildCommand,
   serializeAws_json1_1StartBuildCommand,

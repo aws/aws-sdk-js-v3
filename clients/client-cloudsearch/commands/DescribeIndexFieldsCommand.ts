@@ -1,5 +1,5 @@
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DescribeIndexFieldsRequest, DescribeIndexFieldsResponse } from "../models/index";
+import { DescribeIndexFieldsRequest, DescribeIndexFieldsResponse } from "../models/models_0";
 import {
   deserializeAws_queryDescribeIndexFieldsCommand,
   serializeAws_queryDescribeIndexFieldsCommand,

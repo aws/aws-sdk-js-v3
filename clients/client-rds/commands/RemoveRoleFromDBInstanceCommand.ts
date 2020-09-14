@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { RemoveRoleFromDBInstanceMessage } from "../models/index";
+import { RemoveRoleFromDBInstanceMessage } from "../models/models_1";
 import {
   deserializeAws_queryRemoveRoleFromDBInstanceCommand,
   serializeAws_queryRemoveRoleFromDBInstanceCommand,

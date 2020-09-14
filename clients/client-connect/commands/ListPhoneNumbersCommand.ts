@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListPhoneNumbersRequest, ListPhoneNumbersResponse } from "../models/index";
+import { ListPhoneNumbersRequest, ListPhoneNumbersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPhoneNumbersCommand,
   serializeAws_restJson1ListPhoneNumbersCommand,

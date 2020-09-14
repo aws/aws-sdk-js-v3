@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
-import { ListSigningProfilesRequest, ListSigningProfilesResponse } from "../models/index";
+import { ListSigningProfilesRequest, ListSigningProfilesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSigningProfilesCommand,
   serializeAws_restJson1ListSigningProfilesCommand,

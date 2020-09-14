@@ -1,5 +1,8 @@
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { CreateInfrastructureConfigurationRequest, CreateInfrastructureConfigurationResponse } from "../models/index";
+import {
+  CreateInfrastructureConfigurationRequest,
+  CreateInfrastructureConfigurationResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateInfrastructureConfigurationCommand,
   serializeAws_restJson1CreateInfrastructureConfigurationCommand,

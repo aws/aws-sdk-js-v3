@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CancelAuditTaskRequest, CancelAuditTaskResponse } from "../models/index";
+import { CancelAuditTaskRequest, CancelAuditTaskResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelAuditTaskCommand,
   serializeAws_restJson1CancelAuditTaskCommand,

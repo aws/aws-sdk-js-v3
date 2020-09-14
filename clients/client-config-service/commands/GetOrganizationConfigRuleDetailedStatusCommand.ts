@@ -2,7 +2,7 @@ import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   GetOrganizationConfigRuleDetailedStatusRequest,
   GetOrganizationConfigRuleDetailedStatusResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand,
   serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand,

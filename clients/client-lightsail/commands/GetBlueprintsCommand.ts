@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetBlueprintsRequest, GetBlueprintsResult } from "../models/index";
+import { GetBlueprintsRequest, GetBlueprintsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetBlueprintsCommand,
   serializeAws_json1_1GetBlueprintsCommand,

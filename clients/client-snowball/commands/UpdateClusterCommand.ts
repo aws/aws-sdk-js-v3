@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
-import { UpdateClusterRequest, UpdateClusterResult } from "../models/index";
+import { UpdateClusterRequest, UpdateClusterResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateClusterCommand,
   serializeAws_json1_1UpdateClusterCommand,

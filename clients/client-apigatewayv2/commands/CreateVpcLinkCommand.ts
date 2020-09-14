@@ -1,5 +1,5 @@
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { CreateVpcLinkRequest, CreateVpcLinkResponse } from "../models/index";
+import { CreateVpcLinkRequest, CreateVpcLinkResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateVpcLinkCommand,
   serializeAws_restJson1CreateVpcLinkCommand,

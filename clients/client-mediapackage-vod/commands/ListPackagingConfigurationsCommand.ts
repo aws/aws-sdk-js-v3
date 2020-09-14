@@ -1,5 +1,5 @@
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import { ListPackagingConfigurationsRequest, ListPackagingConfigurationsResponse } from "../models/index";
+import { ListPackagingConfigurationsRequest, ListPackagingConfigurationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPackagingConfigurationsCommand,
   serializeAws_restJson1ListPackagingConfigurationsCommand,

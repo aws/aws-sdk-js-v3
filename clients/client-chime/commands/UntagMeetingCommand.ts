@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UntagMeetingRequest } from "../models/index";
+import { UntagMeetingRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UntagMeetingCommand,
   serializeAws_restJson1UntagMeetingCommand,

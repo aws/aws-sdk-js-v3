@@ -1,5 +1,5 @@
 import { ForecastqueryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastqueryClient";
-import { QueryForecastRequest, QueryForecastResponse } from "../models/index";
+import { QueryForecastRequest, QueryForecastResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1QueryForecastCommand,
   serializeAws_json1_1QueryForecastCommand,

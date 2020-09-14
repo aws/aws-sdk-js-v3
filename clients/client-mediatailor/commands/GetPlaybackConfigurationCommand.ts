@@ -1,5 +1,5 @@
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import { GetPlaybackConfigurationRequest, GetPlaybackConfigurationResponse } from "../models/index";
+import { GetPlaybackConfigurationRequest, GetPlaybackConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPlaybackConfigurationCommand,
   serializeAws_restJson1GetPlaybackConfigurationCommand,

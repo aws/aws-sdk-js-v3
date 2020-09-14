@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { SendUsersMessagesRequest, SendUsersMessagesResponse } from "../models/index";
+import { SendUsersMessagesRequest, SendUsersMessagesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1SendUsersMessagesCommand,
   serializeAws_restJson1SendUsersMessagesCommand,

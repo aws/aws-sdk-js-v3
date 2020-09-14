@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { CreateStorediSCSIVolumeInput, CreateStorediSCSIVolumeOutput } from "../models/index";
+import { CreateStorediSCSIVolumeInput, CreateStorediSCSIVolumeOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateStorediSCSIVolumeCommand,
   serializeAws_json1_1CreateStorediSCSIVolumeCommand,

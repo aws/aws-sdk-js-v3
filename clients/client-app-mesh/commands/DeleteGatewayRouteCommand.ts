@@ -1,5 +1,5 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { DeleteGatewayRouteInput, DeleteGatewayRouteOutput } from "../models/index";
+import { DeleteGatewayRouteInput, DeleteGatewayRouteOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteGatewayRouteCommand,
   serializeAws_restJson1DeleteGatewayRouteCommand,

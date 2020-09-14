@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteDocumentationVersionRequest } from "../models/index";
+import { DeleteDocumentationVersionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDocumentationVersionCommand,
   serializeAws_restJson1DeleteDocumentationVersionCommand,

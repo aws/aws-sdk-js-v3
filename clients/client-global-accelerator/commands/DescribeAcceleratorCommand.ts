@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { DescribeAcceleratorRequest, DescribeAcceleratorResponse } from "../models/index";
+import { DescribeAcceleratorRequest, DescribeAcceleratorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAcceleratorCommand,
   serializeAws_json1_1DescribeAcceleratorCommand,

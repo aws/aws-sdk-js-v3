@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { AddLayerVersionPermissionRequest, AddLayerVersionPermissionResponse } from "../models/index";
+import { AddLayerVersionPermissionRequest, AddLayerVersionPermissionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AddLayerVersionPermissionCommand,
   serializeAws_restJson1AddLayerVersionPermissionCommand,

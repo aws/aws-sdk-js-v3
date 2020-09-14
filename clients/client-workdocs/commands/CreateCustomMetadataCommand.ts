@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { CreateCustomMetadataRequest, CreateCustomMetadataResponse } from "../models/index";
+import { CreateCustomMetadataRequest, CreateCustomMetadataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCustomMetadataCommand,
   serializeAws_restJson1CreateCustomMetadataCommand,

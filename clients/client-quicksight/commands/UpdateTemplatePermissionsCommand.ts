@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateTemplatePermissionsRequest, UpdateTemplatePermissionsResponse } from "../models/index";
+import { UpdateTemplatePermissionsRequest, UpdateTemplatePermissionsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateTemplatePermissionsCommand,
   serializeAws_restJson1UpdateTemplatePermissionsCommand,

@@ -1,5 +1,5 @@
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
-import { GetQueueUrlRequest, GetQueueUrlResult } from "../models/index";
+import { GetQueueUrlRequest, GetQueueUrlResult } from "../models/models_0";
 import { deserializeAws_queryGetQueueUrlCommand, serializeAws_queryGetQueueUrlCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

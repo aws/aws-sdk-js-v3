@@ -1,5 +1,5 @@
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { NoInputAndOutputOutput } from "../models/index";
+import { NoInputAndOutputOutput } from "../models/models_0";
 import {
   deserializeAws_ec2NoInputAndOutputCommand,
   serializeAws_ec2NoInputAndOutputCommand,

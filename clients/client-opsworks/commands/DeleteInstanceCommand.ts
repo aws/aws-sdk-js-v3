@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DeleteInstanceRequest } from "../models/index";
+import { DeleteInstanceRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteInstanceCommand,
   serializeAws_json1_1DeleteInstanceCommand,

@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { ResetPersonalPINRequest, ResetPersonalPINResponse } from "../models/index";
+import { ResetPersonalPINRequest, ResetPersonalPINResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ResetPersonalPINCommand,
   serializeAws_restJson1ResetPersonalPINCommand,

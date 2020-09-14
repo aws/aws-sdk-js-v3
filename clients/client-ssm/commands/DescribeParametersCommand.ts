@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DescribeParametersRequest, DescribeParametersResult } from "../models/index";
+import { DescribeParametersRequest, DescribeParametersResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeParametersCommand,
   serializeAws_json1_1DescribeParametersCommand,

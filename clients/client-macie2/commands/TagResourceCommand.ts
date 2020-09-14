@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { TagResourceRequest, TagResourceResponse } from "../models/index";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1TagResourceCommand,
   serializeAws_restJson1TagResourceCommand,

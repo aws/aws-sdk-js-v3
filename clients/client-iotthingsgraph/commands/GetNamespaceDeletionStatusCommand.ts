@@ -1,5 +1,5 @@
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { GetNamespaceDeletionStatusRequest, GetNamespaceDeletionStatusResponse } from "../models/index";
+import { GetNamespaceDeletionStatusRequest, GetNamespaceDeletionStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetNamespaceDeletionStatusCommand,
   serializeAws_json1_1GetNamespaceDeletionStatusCommand,

@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { XmlAttributesOnPayloadInputOutput } from "../models/index";
+import { XmlAttributesOnPayloadInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlXmlAttributesOnPayloadCommand,
   serializeAws_restXmlXmlAttributesOnPayloadCommand,

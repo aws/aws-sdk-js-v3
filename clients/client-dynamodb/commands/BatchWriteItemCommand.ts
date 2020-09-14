@@ -1,5 +1,5 @@
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { BatchWriteItemInput, BatchWriteItemOutput } from "../models/index";
+import { BatchWriteItemInput, BatchWriteItemOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0BatchWriteItemCommand,
   serializeAws_json1_0BatchWriteItemCommand,

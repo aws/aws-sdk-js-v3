@@ -6,7 +6,7 @@ import {
 import {
   DescribeComponentConfigurationRecommendationRequest,
   DescribeComponentConfigurationRecommendationResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommand,
   serializeAws_json1_1DescribeComponentConfigurationRecommendationCommand,

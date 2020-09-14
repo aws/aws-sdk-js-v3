@@ -2,7 +2,7 @@ import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 import {
   DescribeEnvironmentManagedActionHistoryRequest,
   DescribeEnvironmentManagedActionHistoryResult,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommand,
   serializeAws_queryDescribeEnvironmentManagedActionHistoryCommand,

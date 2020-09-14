@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { RemoveTagsFromResourceMessage, RemoveTagsFromResourceResponse } from "../models/index";
+import { RemoveTagsFromResourceMessage, RemoveTagsFromResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTagsFromResourceCommand,
   serializeAws_json1_1RemoveTagsFromResourceCommand,

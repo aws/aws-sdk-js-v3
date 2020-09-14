@@ -1,5 +1,5 @@
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { DeleteDedicatedIpPoolRequest, DeleteDedicatedIpPoolResponse } from "../models/index";
+import { DeleteDedicatedIpPoolRequest, DeleteDedicatedIpPoolResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDedicatedIpPoolCommand,
   serializeAws_restJson1DeleteDedicatedIpPoolCommand,

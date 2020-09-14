@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteAliasRequest } from "../models/index";
+import { DeleteAliasRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAliasCommand,
   serializeAws_restJson1DeleteAliasCommand,

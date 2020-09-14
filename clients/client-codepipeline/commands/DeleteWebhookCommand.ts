@@ -1,5 +1,5 @@
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { DeleteWebhookInput, DeleteWebhookOutput } from "../models/index";
+import { DeleteWebhookInput, DeleteWebhookOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWebhookCommand,
   serializeAws_json1_1DeleteWebhookCommand,

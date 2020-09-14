@@ -1,5 +1,8 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { PurchaseReservedDBInstancesOfferingMessage, PurchaseReservedDBInstancesOfferingResult } from "../models/index";
+import {
+  PurchaseReservedDBInstancesOfferingMessage,
+  PurchaseReservedDBInstancesOfferingResult,
+} from "../models/models_1";
 import {
   deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand,
   serializeAws_queryPurchaseReservedDBInstancesOfferingCommand,

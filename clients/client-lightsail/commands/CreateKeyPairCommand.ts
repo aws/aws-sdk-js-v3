@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateKeyPairRequest, CreateKeyPairResult } from "../models/index";
+import { CreateKeyPairRequest, CreateKeyPairResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateKeyPairCommand,
   serializeAws_json1_1CreateKeyPairCommand,

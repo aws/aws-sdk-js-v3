@@ -1,5 +1,5 @@
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { DeleteDetectorRequest, DeleteDetectorResponse } from "../models/index";
+import { DeleteDetectorRequest, DeleteDetectorResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDetectorCommand,
   serializeAws_restJson1DeleteDetectorCommand,

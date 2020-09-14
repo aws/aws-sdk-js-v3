@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { GetOfferingStatusRequest, GetOfferingStatusResult } from "../models/index";
+import { GetOfferingStatusRequest, GetOfferingStatusResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetOfferingStatusCommand,
   serializeAws_json1_1GetOfferingStatusCommand,

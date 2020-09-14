@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { SetDefaultPolicyVersionRequest } from "../models/index";
+import { SetDefaultPolicyVersionRequest } from "../models/models_0";
 import {
   deserializeAws_querySetDefaultPolicyVersionCommand,
   serializeAws_querySetDefaultPolicyVersionCommand,

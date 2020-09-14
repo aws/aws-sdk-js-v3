@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/index";
+import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateDBInstanceCommand,
   serializeAws_queryCreateDBInstanceCommand,

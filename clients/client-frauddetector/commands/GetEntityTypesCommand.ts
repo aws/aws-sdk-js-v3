@@ -1,5 +1,5 @@
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { GetEntityTypesRequest, GetEntityTypesResult } from "../models/index";
+import { GetEntityTypesRequest, GetEntityTypesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetEntityTypesCommand,
   serializeAws_json1_1GetEntityTypesCommand,

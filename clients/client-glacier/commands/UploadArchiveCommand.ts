@@ -1,5 +1,5 @@
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { ArchiveCreationOutput, UploadArchiveInput } from "../models/index";
+import { ArchiveCreationOutput, UploadArchiveInput } from "../models/models_0";
 import {
   deserializeAws_restJson1UploadArchiveCommand,
   serializeAws_restJson1UploadArchiveCommand,

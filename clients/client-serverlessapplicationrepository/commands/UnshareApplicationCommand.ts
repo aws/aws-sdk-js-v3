@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
-import { UnshareApplicationRequest } from "../models/index";
+import { UnshareApplicationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UnshareApplicationCommand,
   serializeAws_restJson1UnshareApplicationCommand,

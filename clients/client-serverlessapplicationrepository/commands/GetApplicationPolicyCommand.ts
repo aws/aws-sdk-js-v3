@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
-import { GetApplicationPolicyRequest, GetApplicationPolicyResponse } from "../models/index";
+import { GetApplicationPolicyRequest, GetApplicationPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetApplicationPolicyCommand,
   serializeAws_restJson1GetApplicationPolicyCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
-import { ResolveCaseRequest, ResolveCaseResponse } from "../models/index";
+import { ResolveCaseRequest, ResolveCaseResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ResolveCaseCommand,
   serializeAws_json1_1ResolveCaseCommand,

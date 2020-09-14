@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import { DeleteScheduledActionRequest, DeleteScheduledActionResponse } from "../models/index";
+import { DeleteScheduledActionRequest, DeleteScheduledActionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteScheduledActionCommand,
   serializeAws_json1_1DeleteScheduledActionCommand,

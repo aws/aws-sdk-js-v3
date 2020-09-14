@@ -1,5 +1,5 @@
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { GetRightsizingRecommendationRequest, GetRightsizingRecommendationResponse } from "../models/index";
+import { GetRightsizingRecommendationRequest, GetRightsizingRecommendationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRightsizingRecommendationCommand,
   serializeAws_json1_1GetRightsizingRecommendationCommand,

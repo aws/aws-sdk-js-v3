@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { StopDBInstanceMessage, StopDBInstanceResult } from "../models/index";
+import { StopDBInstanceMessage, StopDBInstanceResult } from "../models/models_1";
 import {
   deserializeAws_queryStopDBInstanceCommand,
   serializeAws_queryStopDBInstanceCommand,

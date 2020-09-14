@@ -1,5 +1,5 @@
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { PutWebhookInput, PutWebhookOutput } from "../models/index";
+import { PutWebhookInput, PutWebhookOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutWebhookCommand,
   serializeAws_json1_1PutWebhookCommand,

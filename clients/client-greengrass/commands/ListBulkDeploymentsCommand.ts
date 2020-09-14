@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { ListBulkDeploymentsRequest, ListBulkDeploymentsResponse } from "../models/index";
+import { ListBulkDeploymentsRequest, ListBulkDeploymentsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListBulkDeploymentsCommand,
   serializeAws_restJson1ListBulkDeploymentsCommand,

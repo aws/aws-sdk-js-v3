@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DescribeSolutionRequest, DescribeSolutionResponse } from "../models/index";
+import { DescribeSolutionRequest, DescribeSolutionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeSolutionCommand,
   serializeAws_json1_1DescribeSolutionCommand,

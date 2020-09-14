@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { UpdateUsageRequest, Usage } from "../models/index";
+import { UpdateUsageRequest, Usage } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateUsageCommand,
   serializeAws_restJson1UpdateUsageCommand,

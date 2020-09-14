@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { DeleteIpGroupRequest, DeleteIpGroupResult } from "../models/index";
+import { DeleteIpGroupRequest, DeleteIpGroupResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteIpGroupCommand,
   serializeAws_json1_1DeleteIpGroupCommand,

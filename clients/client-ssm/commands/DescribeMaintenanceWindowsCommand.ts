@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DescribeMaintenanceWindowsRequest, DescribeMaintenanceWindowsResult } from "../models/index";
+import { DescribeMaintenanceWindowsRequest, DescribeMaintenanceWindowsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeMaintenanceWindowsCommand,
   serializeAws_json1_1DescribeMaintenanceWindowsCommand,

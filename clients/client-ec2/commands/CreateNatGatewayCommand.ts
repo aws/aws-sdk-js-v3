@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateNatGatewayRequest, CreateNatGatewayResult } from "../models/index";
+import { CreateNatGatewayRequest, CreateNatGatewayResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreateNatGatewayCommand,
   serializeAws_ec2CreateNatGatewayCommand,

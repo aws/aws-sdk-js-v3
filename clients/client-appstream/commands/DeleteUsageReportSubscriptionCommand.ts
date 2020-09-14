@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DeleteUsageReportSubscriptionRequest, DeleteUsageReportSubscriptionResult } from "../models/index";
+import { DeleteUsageReportSubscriptionRequest, DeleteUsageReportSubscriptionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteUsageReportSubscriptionCommand,
   serializeAws_json1_1DeleteUsageReportSubscriptionCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { GetDiscoverySummaryRequest, GetDiscoverySummaryResponse } from "../models/index";
+import { GetDiscoverySummaryRequest, GetDiscoverySummaryResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDiscoverySummaryCommand,
   serializeAws_json1_1GetDiscoverySummaryCommand,

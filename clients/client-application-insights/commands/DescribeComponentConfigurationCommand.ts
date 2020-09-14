@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { DescribeComponentConfigurationRequest, DescribeComponentConfigurationResponse } from "../models/index";
+import { DescribeComponentConfigurationRequest, DescribeComponentConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeComponentConfigurationCommand,
   serializeAws_json1_1DescribeComponentConfigurationCommand,

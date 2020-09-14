@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import { DescribeChangeSetRequest, DescribeChangeSetResponse } from "../models/index";
+import { DescribeChangeSetRequest, DescribeChangeSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeChangeSetCommand,
   serializeAws_restJson1DescribeChangeSetCommand,

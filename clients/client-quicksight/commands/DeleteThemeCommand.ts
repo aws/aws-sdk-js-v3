@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteThemeRequest, DeleteThemeResponse } from "../models/index";
+import { DeleteThemeRequest, DeleteThemeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteThemeCommand,
   serializeAws_restJson1DeleteThemeCommand,

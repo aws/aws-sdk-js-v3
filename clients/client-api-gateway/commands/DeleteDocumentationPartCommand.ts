@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteDocumentationPartRequest } from "../models/index";
+import { DeleteDocumentationPartRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDocumentationPartCommand,
   serializeAws_restJson1DeleteDocumentationPartCommand,

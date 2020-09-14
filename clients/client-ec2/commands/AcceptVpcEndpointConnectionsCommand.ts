@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AcceptVpcEndpointConnectionsRequest, AcceptVpcEndpointConnectionsResult } from "../models/index";
+import { AcceptVpcEndpointConnectionsRequest, AcceptVpcEndpointConnectionsResult } from "../models/models_0";
 import {
   deserializeAws_ec2AcceptVpcEndpointConnectionsCommand,
   serializeAws_ec2AcceptVpcEndpointConnectionsCommand,

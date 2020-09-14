@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetRolePolicyRequest, GetRolePolicyResponse } from "../models/index";
+import { GetRolePolicyRequest, GetRolePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetRolePolicyCommand,
   serializeAws_queryGetRolePolicyCommand,

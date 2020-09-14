@@ -1,5 +1,5 @@
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { GetBranchRequest, GetBranchResult } from "../models/index";
+import { GetBranchRequest, GetBranchResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBranchCommand,
   serializeAws_restJson1GetBranchCommand,

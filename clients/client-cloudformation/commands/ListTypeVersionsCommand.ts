@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { ListTypeVersionsInput, ListTypeVersionsOutput } from "../models/index";
+import { ListTypeVersionsInput, ListTypeVersionsOutput } from "../models/models_0";
 import {
   deserializeAws_queryListTypeVersionsCommand,
   serializeAws_queryListTypeVersionsCommand,

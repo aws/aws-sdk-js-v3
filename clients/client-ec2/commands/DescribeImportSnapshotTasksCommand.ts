@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeImportSnapshotTasksRequest, DescribeImportSnapshotTasksResult } from "../models/index";
+import { DescribeImportSnapshotTasksRequest, DescribeImportSnapshotTasksResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeImportSnapshotTasksCommand,
   serializeAws_ec2DescribeImportSnapshotTasksCommand,

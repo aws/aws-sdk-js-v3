@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { PutLoggingOptionsRequest, PutLoggingOptionsResponse } from "../models/index";
+import { PutLoggingOptionsRequest, PutLoggingOptionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutLoggingOptionsCommand,
   serializeAws_restJson1PutLoggingOptionsCommand,

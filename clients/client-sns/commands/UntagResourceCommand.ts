@@ -1,5 +1,5 @@
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/index";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
 import {
   deserializeAws_queryUntagResourceCommand,
   serializeAws_queryUntagResourceCommand,

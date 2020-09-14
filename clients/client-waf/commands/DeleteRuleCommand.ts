@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { DeleteRuleRequest, DeleteRuleResponse } from "../models/index";
+import { DeleteRuleRequest, DeleteRuleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRuleCommand,
   serializeAws_json1_1DeleteRuleCommand,

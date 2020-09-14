@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { ModifyTargetGroupAttributesInput, ModifyTargetGroupAttributesOutput } from "../models/index";
+import { ModifyTargetGroupAttributesInput, ModifyTargetGroupAttributesOutput } from "../models/models_0";
 import {
   deserializeAws_queryModifyTargetGroupAttributesCommand,
   serializeAws_queryModifyTargetGroupAttributesCommand,

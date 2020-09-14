@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { GetBotAliasesRequest, GetBotAliasesResponse } from "../models/index";
+import { GetBotAliasesRequest, GetBotAliasesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBotAliasesCommand,
   serializeAws_restJson1GetBotAliasesCommand,

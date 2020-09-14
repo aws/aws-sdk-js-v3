@@ -1,5 +1,5 @@
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import { DescribeDetectorModelRequest, DescribeDetectorModelResponse } from "../models/index";
+import { DescribeDetectorModelRequest, DescribeDetectorModelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeDetectorModelCommand,
   serializeAws_restJson1DescribeDetectorModelCommand,

@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { CacheSecurityGroupMessage, DescribeCacheSecurityGroupsMessage } from "../models/index";
+import { CacheSecurityGroupMessage, DescribeCacheSecurityGroupsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeCacheSecurityGroupsCommand,
   serializeAws_queryDescribeCacheSecurityGroupsCommand,

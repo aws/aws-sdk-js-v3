@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeAccountCustomizationRequest, DescribeAccountCustomizationResponse } from "../models/index";
+import { DescribeAccountCustomizationRequest, DescribeAccountCustomizationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAccountCustomizationCommand,
   serializeAws_restJson1DescribeAccountCustomizationCommand,

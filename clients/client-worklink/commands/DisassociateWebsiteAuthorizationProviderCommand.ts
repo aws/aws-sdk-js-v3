@@ -2,7 +2,7 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } f
 import {
   DisassociateWebsiteAuthorizationProviderRequest,
   DisassociateWebsiteAuthorizationProviderResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateWebsiteAuthorizationProviderCommand,
   serializeAws_restJson1DisassociateWebsiteAuthorizationProviderCommand,

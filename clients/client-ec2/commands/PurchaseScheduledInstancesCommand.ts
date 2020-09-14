@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { PurchaseScheduledInstancesRequest, PurchaseScheduledInstancesResult } from "../models/index";
+import { PurchaseScheduledInstancesRequest, PurchaseScheduledInstancesResult } from "../models/models_4";
 import {
   deserializeAws_ec2PurchaseScheduledInstancesCommand,
   serializeAws_ec2PurchaseScheduledInstancesCommand,

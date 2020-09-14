@@ -1,5 +1,8 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { GetCustomVerificationEmailTemplateRequest, GetCustomVerificationEmailTemplateResponse } from "../models/index";
+import {
+  GetCustomVerificationEmailTemplateRequest,
+  GetCustomVerificationEmailTemplateResponse,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetCustomVerificationEmailTemplateCommand,
   serializeAws_queryGetCustomVerificationEmailTemplateCommand,

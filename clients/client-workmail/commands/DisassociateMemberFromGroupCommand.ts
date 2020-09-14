@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { DisassociateMemberFromGroupRequest, DisassociateMemberFromGroupResponse } from "../models/index";
+import { DisassociateMemberFromGroupRequest, DisassociateMemberFromGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateMemberFromGroupCommand,
   serializeAws_json1_1DisassociateMemberFromGroupCommand,

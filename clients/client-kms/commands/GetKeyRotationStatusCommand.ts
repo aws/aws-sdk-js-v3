@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { GetKeyRotationStatusRequest, GetKeyRotationStatusResponse } from "../models/index";
+import { GetKeyRotationStatusRequest, GetKeyRotationStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetKeyRotationStatusCommand,
   serializeAws_json1_1GetKeyRotationStatusCommand,

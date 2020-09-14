@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { SuspendGameServerGroupInput, SuspendGameServerGroupOutput } from "../models/index";
+import { SuspendGameServerGroupInput, SuspendGameServerGroupOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1SuspendGameServerGroupCommand,
   serializeAws_json1_1SuspendGameServerGroupCommand,

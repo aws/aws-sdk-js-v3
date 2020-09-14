@@ -1,5 +1,5 @@
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DescribeDomainsRequest, DescribeDomainsResponse } from "../models/index";
+import { DescribeDomainsRequest, DescribeDomainsResponse } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDomainsCommand,
   serializeAws_queryDescribeDomainsCommand,

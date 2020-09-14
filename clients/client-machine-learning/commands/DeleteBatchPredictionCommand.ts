@@ -1,5 +1,5 @@
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { DeleteBatchPredictionInput, DeleteBatchPredictionOutput } from "../models/index";
+import { DeleteBatchPredictionInput, DeleteBatchPredictionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBatchPredictionCommand,
   serializeAws_json1_1DeleteBatchPredictionCommand,

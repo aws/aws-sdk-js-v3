@@ -1,5 +1,5 @@
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetFindingsRequest, GetFindingsResponse } from "../models/index";
+import { GetFindingsRequest, GetFindingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetFindingsCommand,
   serializeAws_restJson1GetFindingsCommand,

@@ -1,5 +1,5 @@
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import { DeleteThingShadowRequest, DeleteThingShadowResponse } from "../models/index";
+import { DeleteThingShadowRequest, DeleteThingShadowResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteThingShadowCommand,
   serializeAws_restJson1DeleteThingShadowCommand,

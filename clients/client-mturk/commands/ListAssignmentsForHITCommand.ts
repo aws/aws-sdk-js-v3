@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { ListAssignmentsForHITRequest, ListAssignmentsForHITResponse } from "../models/index";
+import { ListAssignmentsForHITRequest, ListAssignmentsForHITResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAssignmentsForHITCommand,
   serializeAws_json1_1ListAssignmentsForHITCommand,

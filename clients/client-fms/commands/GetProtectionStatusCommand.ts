@@ -1,5 +1,5 @@
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { GetProtectionStatusRequest, GetProtectionStatusResponse } from "../models/index";
+import { GetProtectionStatusRequest, GetProtectionStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetProtectionStatusCommand,
   serializeAws_json1_1GetProtectionStatusCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { ListWebACLsRequest, ListWebACLsResponse } from "../models/index";
+import { ListWebACLsRequest, ListWebACLsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListWebACLsCommand,
   serializeAws_json1_1ListWebACLsCommand,

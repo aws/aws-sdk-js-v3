@@ -1,5 +1,5 @@
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import { CreateServerRequest, CreateServerResponse } from "../models/index";
+import { CreateServerRequest, CreateServerResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateServerCommand,
   serializeAws_json1_1CreateServerCommand,

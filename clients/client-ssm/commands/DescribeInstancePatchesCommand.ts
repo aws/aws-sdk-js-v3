@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DescribeInstancePatchesRequest, DescribeInstancePatchesResult } from "../models/index";
+import { DescribeInstancePatchesRequest, DescribeInstancePatchesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeInstancePatchesCommand,
   serializeAws_json1_1DescribeInstancePatchesCommand,

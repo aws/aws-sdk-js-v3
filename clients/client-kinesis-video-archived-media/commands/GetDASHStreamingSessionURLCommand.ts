@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import { GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput } from "../models/index";
+import { GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDASHStreamingSessionURLCommand,
   serializeAws_restJson1GetDASHStreamingSessionURLCommand,

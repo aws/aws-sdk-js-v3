@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { DeleteCacheSecurityGroupMessage } from "../models/index";
+import { DeleteCacheSecurityGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteCacheSecurityGroupCommand,
   serializeAws_queryDeleteCacheSecurityGroupCommand,

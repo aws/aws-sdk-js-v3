@@ -1,5 +1,5 @@
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { RegisterDeviceRequest, RegisterDeviceResponse } from "../models/index";
+import { RegisterDeviceRequest, RegisterDeviceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RegisterDeviceCommand,
   serializeAws_restJson1RegisterDeviceCommand,

@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutConfigurationAggregatorRequest, PutConfigurationAggregatorResponse } from "../models/index";
+import { PutConfigurationAggregatorRequest, PutConfigurationAggregatorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutConfigurationAggregatorCommand,
   serializeAws_json1_1PutConfigurationAggregatorCommand,

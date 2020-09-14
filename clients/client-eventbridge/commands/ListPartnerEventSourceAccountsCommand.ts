@@ -1,5 +1,5 @@
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { ListPartnerEventSourceAccountsRequest, ListPartnerEventSourceAccountsResponse } from "../models/index";
+import { ListPartnerEventSourceAccountsRequest, ListPartnerEventSourceAccountsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListPartnerEventSourceAccountsCommand,
   serializeAws_json1_1ListPartnerEventSourceAccountsCommand,

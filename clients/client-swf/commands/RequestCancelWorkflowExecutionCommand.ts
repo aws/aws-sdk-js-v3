@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { RequestCancelWorkflowExecutionInput } from "../models/index";
+import { RequestCancelWorkflowExecutionInput } from "../models/models_0";
 import {
   deserializeAws_json1_0RequestCancelWorkflowExecutionCommand,
   serializeAws_json1_0RequestCancelWorkflowExecutionCommand,

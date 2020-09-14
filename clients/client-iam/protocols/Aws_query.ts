@@ -411,8 +411,6 @@ import {
   DetachGroupPolicyRequest,
   DetachRolePolicyRequest,
   DetachUserPolicyRequest,
-  DuplicateCertificateException,
-  DuplicateSSHPublicKeyException,
   EnableMFADeviceRequest,
   EntityAlreadyExistsException,
   EntityDetails,
@@ -476,9 +474,7 @@ import {
   GroupDetail,
   InstanceProfile,
   InvalidAuthenticationCodeException,
-  InvalidCertificateException,
   InvalidInputException,
-  InvalidPublicKeyException,
   InvalidUserTypeException,
   KeyPairMismatchException,
   LimitExceededException,
@@ -620,16 +616,22 @@ import {
   UpdateServiceSpecificCredentialRequest,
   UpdateSigningCertificateRequest,
   UpdateUserRequest,
+  User,
+  UserDetail,
+  VirtualMFADevice,
+} from "../models/models_0";
+import {
+  DuplicateCertificateException,
+  DuplicateSSHPublicKeyException,
+  InvalidCertificateException,
+  InvalidPublicKeyException,
   UploadSSHPublicKeyRequest,
   UploadSSHPublicKeyResponse,
   UploadServerCertificateRequest,
   UploadServerCertificateResponse,
   UploadSigningCertificateRequest,
   UploadSigningCertificateResponse,
-  User,
-  UserDetail,
-  VirtualMFADevice,
-} from "../models/index";
+} from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,

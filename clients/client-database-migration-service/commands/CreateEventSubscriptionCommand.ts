@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { CreateEventSubscriptionMessage, CreateEventSubscriptionResponse } from "../models/index";
+import { CreateEventSubscriptionMessage, CreateEventSubscriptionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEventSubscriptionCommand,
   serializeAws_json1_1CreateEventSubscriptionCommand,

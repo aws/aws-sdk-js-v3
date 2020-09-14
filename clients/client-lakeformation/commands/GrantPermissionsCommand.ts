@@ -1,5 +1,5 @@
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { GrantPermissionsRequest, GrantPermissionsResponse } from "../models/index";
+import { GrantPermissionsRequest, GrantPermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GrantPermissionsCommand,
   serializeAws_json1_1GrantPermissionsCommand,

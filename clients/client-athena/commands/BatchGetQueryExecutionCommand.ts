@@ -1,5 +1,5 @@
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { BatchGetQueryExecutionInput, BatchGetQueryExecutionOutput } from "../models/index";
+import { BatchGetQueryExecutionInput, BatchGetQueryExecutionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetQueryExecutionCommand,
   serializeAws_json1_1BatchGetQueryExecutionCommand,

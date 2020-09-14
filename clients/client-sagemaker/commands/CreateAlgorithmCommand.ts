@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateAlgorithmInput, CreateAlgorithmOutput } from "../models/index";
+import { CreateAlgorithmInput, CreateAlgorithmOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAlgorithmCommand,
   serializeAws_json1_1CreateAlgorithmCommand,

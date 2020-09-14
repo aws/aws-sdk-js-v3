@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ChangePasswordRequest } from "../models/index";
+import { ChangePasswordRequest } from "../models/models_0";
 import {
   deserializeAws_queryChangePasswordCommand,
   serializeAws_queryChangePasswordCommand,

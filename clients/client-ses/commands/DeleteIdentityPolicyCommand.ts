@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { DeleteIdentityPolicyRequest, DeleteIdentityPolicyResponse } from "../models/index";
+import { DeleteIdentityPolicyRequest, DeleteIdentityPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteIdentityPolicyCommand,
   serializeAws_queryDeleteIdentityPolicyCommand,

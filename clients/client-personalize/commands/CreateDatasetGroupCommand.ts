@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { CreateDatasetGroupRequest, CreateDatasetGroupResponse } from "../models/index";
+import { CreateDatasetGroupRequest, CreateDatasetGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDatasetGroupCommand,
   serializeAws_json1_1CreateDatasetGroupCommand,

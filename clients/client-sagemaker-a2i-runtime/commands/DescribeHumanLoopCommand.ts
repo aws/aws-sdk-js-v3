@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerA2IRuntimeClient";
-import { DescribeHumanLoopRequest, DescribeHumanLoopResponse } from "../models/index";
+import { DescribeHumanLoopRequest, DescribeHumanLoopResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeHumanLoopCommand,
   serializeAws_restJson1DescribeHumanLoopCommand,

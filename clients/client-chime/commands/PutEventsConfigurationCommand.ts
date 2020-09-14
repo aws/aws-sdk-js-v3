@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { PutEventsConfigurationRequest, PutEventsConfigurationResponse } from "../models/index";
+import { PutEventsConfigurationRequest, PutEventsConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutEventsConfigurationCommand,
   serializeAws_restJson1PutEventsConfigurationCommand,

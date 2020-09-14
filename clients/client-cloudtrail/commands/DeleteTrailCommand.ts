@@ -1,5 +1,5 @@
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { DeleteTrailRequest, DeleteTrailResponse } from "../models/index";
+import { DeleteTrailRequest, DeleteTrailResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTrailCommand,
   serializeAws_json1_1DeleteTrailCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { DeleteNotificationSubscriptionRequest } from "../models/index";
+import { DeleteNotificationSubscriptionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteNotificationSubscriptionCommand,
   serializeAws_restJson1DeleteNotificationSubscriptionCommand,

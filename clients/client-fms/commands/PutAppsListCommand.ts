@@ -1,5 +1,5 @@
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { PutAppsListRequest, PutAppsListResponse } from "../models/index";
+import { PutAppsListRequest, PutAppsListResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutAppsListCommand,
   serializeAws_json1_1PutAppsListCommand,

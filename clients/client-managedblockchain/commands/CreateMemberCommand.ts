@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { CreateMemberInput, CreateMemberOutput } from "../models/index";
+import { CreateMemberInput, CreateMemberOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMemberCommand,
   serializeAws_restJson1CreateMemberCommand,

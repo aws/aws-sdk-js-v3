@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { DeleteWebhookInput, DeleteWebhookOutput } from "../models/index";
+import { DeleteWebhookInput, DeleteWebhookOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWebhookCommand,
   serializeAws_json1_1DeleteWebhookCommand,

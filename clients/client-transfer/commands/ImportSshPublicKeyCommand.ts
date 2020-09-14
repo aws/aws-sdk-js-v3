@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
-import { ImportSshPublicKeyRequest, ImportSshPublicKeyResponse } from "../models/index";
+import { ImportSshPublicKeyRequest, ImportSshPublicKeyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ImportSshPublicKeyCommand,
   serializeAws_json1_1ImportSshPublicKeyCommand,

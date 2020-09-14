@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { DescribeExportConfigurationsRequest, DescribeExportConfigurationsResponse } from "../models/index";
+import { DescribeExportConfigurationsRequest, DescribeExportConfigurationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeExportConfigurationsCommand,
   serializeAws_json1_1DescribeExportConfigurationsCommand,

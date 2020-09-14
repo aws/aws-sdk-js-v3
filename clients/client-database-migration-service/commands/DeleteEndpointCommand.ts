@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DeleteEndpointMessage, DeleteEndpointResponse } from "../models/index";
+import { DeleteEndpointMessage, DeleteEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEndpointCommand,
   serializeAws_json1_1DeleteEndpointCommand,

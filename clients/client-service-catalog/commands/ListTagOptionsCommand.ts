@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { ListTagOptionsInput, ListTagOptionsOutput } from "../models/index";
+import { ListTagOptionsInput, ListTagOptionsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTagOptionsCommand,
   serializeAws_json1_1ListTagOptionsCommand,

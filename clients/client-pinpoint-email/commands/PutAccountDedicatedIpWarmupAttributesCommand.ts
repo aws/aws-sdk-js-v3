@@ -2,7 +2,7 @@ import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   PutAccountDedicatedIpWarmupAttributesRequest,
   PutAccountDedicatedIpWarmupAttributesResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand,
   serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand,

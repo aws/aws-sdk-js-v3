@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetChannelsRequest, GetChannelsResponse } from "../models/index";
+import { GetChannelsRequest, GetChannelsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetChannelsCommand,
   serializeAws_restJson1GetChannelsCommand,

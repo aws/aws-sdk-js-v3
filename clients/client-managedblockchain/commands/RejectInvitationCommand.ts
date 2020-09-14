@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { RejectInvitationInput, RejectInvitationOutput } from "../models/index";
+import { RejectInvitationInput, RejectInvitationOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1RejectInvitationCommand,
   serializeAws_restJson1RejectInvitationCommand,

@@ -1,5 +1,5 @@
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
-import { SendTaskSuccessInput, SendTaskSuccessOutput } from "../models/index";
+import { SendTaskSuccessInput, SendTaskSuccessOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0SendTaskSuccessCommand,
   serializeAws_json1_0SendTaskSuccessCommand,

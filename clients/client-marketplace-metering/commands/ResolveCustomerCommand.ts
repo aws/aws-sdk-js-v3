@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import { ResolveCustomerRequest, ResolveCustomerResult } from "../models/index";
+import { ResolveCustomerRequest, ResolveCustomerResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ResolveCustomerCommand,
   serializeAws_json1_1ResolveCustomerCommand,

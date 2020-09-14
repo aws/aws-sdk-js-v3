@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DescribeUsersRequest, DescribeUsersResult } from "../models/index";
+import { DescribeUsersRequest, DescribeUsersResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeUsersCommand,
   serializeAws_json1_1DescribeUsersCommand,

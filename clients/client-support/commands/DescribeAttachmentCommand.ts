@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
-import { DescribeAttachmentRequest, DescribeAttachmentResponse } from "../models/index";
+import { DescribeAttachmentRequest, DescribeAttachmentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAttachmentCommand,
   serializeAws_json1_1DescribeAttachmentCommand,

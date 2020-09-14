@@ -2,7 +2,7 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   RemoveSourceIdentifierFromSubscriptionMessage,
   RemoveSourceIdentifierFromSubscriptionResult,
-} from "../models/index";
+} from "../models/models_1";
 import {
   deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
   serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,

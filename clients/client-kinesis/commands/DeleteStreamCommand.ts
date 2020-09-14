@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { DeleteStreamInput } from "../models/index";
+import { DeleteStreamInput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteStreamCommand,
   serializeAws_json1_1DeleteStreamCommand,

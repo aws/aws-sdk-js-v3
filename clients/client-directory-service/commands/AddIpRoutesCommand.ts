@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { AddIpRoutesRequest, AddIpRoutesResult } from "../models/index";
+import { AddIpRoutesRequest, AddIpRoutesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AddIpRoutesCommand,
   serializeAws_json1_1AddIpRoutesCommand,

@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeExportTasksMessage, ExportTasksMessage } from "../models/index";
+import { DescribeExportTasksMessage, ExportTasksMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeExportTasksCommand,
   serializeAws_queryDescribeExportTasksCommand,

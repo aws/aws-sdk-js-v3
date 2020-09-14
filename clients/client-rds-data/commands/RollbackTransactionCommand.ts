@@ -1,5 +1,5 @@
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
-import { RollbackTransactionRequest, RollbackTransactionResponse } from "../models/index";
+import { RollbackTransactionRequest, RollbackTransactionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RollbackTransactionCommand,
   serializeAws_restJson1RollbackTransactionCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
-import { DisassociateDRTRoleRequest, DisassociateDRTRoleResponse } from "../models/index";
+import { DisassociateDRTRoleRequest, DisassociateDRTRoleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateDRTRoleCommand,
   serializeAws_json1_1DisassociateDRTRoleCommand,

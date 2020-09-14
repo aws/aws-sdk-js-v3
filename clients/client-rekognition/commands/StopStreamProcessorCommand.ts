@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { StopStreamProcessorRequest, StopStreamProcessorResponse } from "../models/index";
+import { StopStreamProcessorRequest, StopStreamProcessorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopStreamProcessorCommand,
   serializeAws_json1_1StopStreamProcessorCommand,

@@ -1,5 +1,5 @@
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { DeleteResourceShareRequest, DeleteResourceShareResponse } from "../models/index";
+import { DeleteResourceShareRequest, DeleteResourceShareResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteResourceShareCommand,
   serializeAws_restJson1DeleteResourceShareCommand,

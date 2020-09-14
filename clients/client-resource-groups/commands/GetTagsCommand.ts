@@ -1,5 +1,5 @@
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
-import { GetTagsInput, GetTagsOutput } from "../models/index";
+import { GetTagsInput, GetTagsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTagsCommand,
   serializeAws_restJson1GetTagsCommand,

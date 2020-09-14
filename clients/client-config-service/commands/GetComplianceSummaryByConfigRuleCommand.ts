@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { GetComplianceSummaryByConfigRuleResponse } from "../models/index";
+import { GetComplianceSummaryByConfigRuleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommand,
   serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand,

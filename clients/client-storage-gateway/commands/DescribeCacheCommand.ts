@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { DescribeCacheInput, DescribeCacheOutput } from "../models/index";
+import { DescribeCacheInput, DescribeCacheOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCacheCommand,
   serializeAws_json1_1DescribeCacheCommand,

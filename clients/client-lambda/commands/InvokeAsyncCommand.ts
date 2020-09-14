@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { InvokeAsyncRequest, InvokeAsyncResponse } from "../models/index";
+import { InvokeAsyncRequest, InvokeAsyncResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1InvokeAsyncCommand,
   serializeAws_restJson1InvokeAsyncCommand,

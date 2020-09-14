@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { PurchaseOfferingRequest, PurchaseOfferingResult } from "../models/index";
+import { PurchaseOfferingRequest, PurchaseOfferingResult } from "../models/models_0";
 import {
   deserializeAws_json1_1PurchaseOfferingCommand,
   serializeAws_json1_1PurchaseOfferingCommand,

@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteTableVersionRequest, DeleteTableVersionResponse } from "../models/index";
+import { DeleteTableVersionRequest, DeleteTableVersionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTableVersionCommand,
   serializeAws_json1_1DeleteTableVersionCommand,

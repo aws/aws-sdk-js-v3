@@ -1,5 +1,5 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { DescribeJobRequest, DescribeJobResult } from "../models/index";
+import { DescribeJobRequest, DescribeJobResult } from "../models/models_0";
 import {
   deserializeAws_restXmlDescribeJobCommand,
   serializeAws_restXmlDescribeJobCommand,

@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateDefaultVpcRequest, CreateDefaultVpcResult } from "../models/index";
+import { CreateDefaultVpcRequest, CreateDefaultVpcResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreateDefaultVpcCommand,
   serializeAws_ec2CreateDefaultVpcCommand,

@@ -1,5 +1,5 @@
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { DescribeTaskRequest, DescribeTaskResponse } from "../models/index";
+import { DescribeTaskRequest, DescribeTaskResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTaskCommand,
   serializeAws_json1_1DescribeTaskCommand,

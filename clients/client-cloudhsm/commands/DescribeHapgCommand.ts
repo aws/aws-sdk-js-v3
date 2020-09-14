@@ -1,5 +1,5 @@
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { DescribeHapgRequest, DescribeHapgResponse } from "../models/index";
+import { DescribeHapgRequest, DescribeHapgResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeHapgCommand,
   serializeAws_json1_1DescribeHapgCommand,

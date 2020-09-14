@@ -1,5 +1,5 @@
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { DescribeLunaClientRequest, DescribeLunaClientResponse } from "../models/index";
+import { DescribeLunaClientRequest, DescribeLunaClientResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLunaClientCommand,
   serializeAws_json1_1DescribeLunaClientCommand,

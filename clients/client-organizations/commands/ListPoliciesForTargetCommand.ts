@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListPoliciesForTargetRequest, ListPoliciesForTargetResponse } from "../models/index";
+import { ListPoliciesForTargetRequest, ListPoliciesForTargetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListPoliciesForTargetCommand,
   serializeAws_json1_1ListPoliciesForTargetCommand,

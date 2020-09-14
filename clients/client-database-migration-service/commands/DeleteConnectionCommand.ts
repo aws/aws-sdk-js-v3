@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DeleteConnectionMessage, DeleteConnectionResponse } from "../models/index";
+import { DeleteConnectionMessage, DeleteConnectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteConnectionCommand,
   serializeAws_json1_1DeleteConnectionCommand,

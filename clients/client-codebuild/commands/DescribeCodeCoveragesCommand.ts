@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { DescribeCodeCoveragesInput, DescribeCodeCoveragesOutput } from "../models/index";
+import { DescribeCodeCoveragesInput, DescribeCodeCoveragesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCodeCoveragesCommand,
   serializeAws_json1_1DescribeCodeCoveragesCommand,

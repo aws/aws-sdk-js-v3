@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserRoutingProfileRequest } from "../models/index";
+import { UpdateUserRoutingProfileRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateUserRoutingProfileCommand,
   serializeAws_restJson1UpdateUserRoutingProfileCommand,

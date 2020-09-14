@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteRegistrationCodeRequest, DeleteRegistrationCodeResponse } from "../models/index";
+import { DeleteRegistrationCodeRequest, DeleteRegistrationCodeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRegistrationCodeCommand,
   serializeAws_restJson1DeleteRegistrationCodeCommand,

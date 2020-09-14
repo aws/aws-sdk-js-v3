@@ -1,5 +1,5 @@
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { CreateQueueRequest, CreateQueueResponse } from "../models/index";
+import { CreateQueueRequest, CreateQueueResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1CreateQueueCommand,
   serializeAws_restJson1CreateQueueCommand,

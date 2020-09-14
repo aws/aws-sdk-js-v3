@@ -1,5 +1,5 @@
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
-import { AddPermissionRequest } from "../models/index";
+import { AddPermissionRequest } from "../models/models_0";
 import {
   deserializeAws_queryAddPermissionCommand,
   serializeAws_queryAddPermissionCommand,

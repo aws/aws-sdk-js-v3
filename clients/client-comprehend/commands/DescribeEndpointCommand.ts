@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DescribeEndpointRequest, DescribeEndpointResponse } from "../models/index";
+import { DescribeEndpointRequest, DescribeEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEndpointCommand,
   serializeAws_json1_1DescribeEndpointCommand,

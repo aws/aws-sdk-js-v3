@@ -1,5 +1,5 @@
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { CancelJobRequest, CancelJobResponse } from "../models/index";
+import { CancelJobRequest, CancelJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelJobCommand,
   serializeAws_restJson1CancelJobCommand,

@@ -1,5 +1,5 @@
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { DeleteFlowTemplateRequest, DeleteFlowTemplateResponse } from "../models/index";
+import { DeleteFlowTemplateRequest, DeleteFlowTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFlowTemplateCommand,
   serializeAws_json1_1DeleteFlowTemplateCommand,

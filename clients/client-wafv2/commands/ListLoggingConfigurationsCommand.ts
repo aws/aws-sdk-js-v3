@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
-import { ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse } from "../models/index";
+import { ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListLoggingConfigurationsCommand,
   serializeAws_json1_1ListLoggingConfigurationsCommand,

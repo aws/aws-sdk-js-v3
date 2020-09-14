@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { GetPatchBaselineForPatchGroupRequest, GetPatchBaselineForPatchGroupResult } from "../models/index";
+import { GetPatchBaselineForPatchGroupRequest, GetPatchBaselineForPatchGroupResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetPatchBaselineForPatchGroupCommand,
   serializeAws_json1_1GetPatchBaselineForPatchGroupCommand,

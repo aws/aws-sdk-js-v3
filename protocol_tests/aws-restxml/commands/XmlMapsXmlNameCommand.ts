@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { XmlMapsXmlNameInputOutput } from "../models/index";
+import { XmlMapsXmlNameInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlXmlMapsXmlNameCommand,
   serializeAws_restXmlXmlMapsXmlNameCommand,

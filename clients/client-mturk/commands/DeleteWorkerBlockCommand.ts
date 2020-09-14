@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { DeleteWorkerBlockRequest, DeleteWorkerBlockResponse } from "../models/index";
+import { DeleteWorkerBlockRequest, DeleteWorkerBlockResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWorkerBlockCommand,
   serializeAws_json1_1DeleteWorkerBlockCommand,

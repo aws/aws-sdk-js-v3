@@ -2,7 +2,7 @@ import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   GetAggregateDiscoveredResourceCountsRequest,
   GetAggregateDiscoveredResourceCountsResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand,
   serializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand,

@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { Concurrency, PutFunctionConcurrencyRequest } from "../models/index";
+import { Concurrency, PutFunctionConcurrencyRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PutFunctionConcurrencyCommand,
   serializeAws_restJson1PutFunctionConcurrencyCommand,

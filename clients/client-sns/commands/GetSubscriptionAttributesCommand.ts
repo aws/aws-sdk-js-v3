@@ -1,5 +1,5 @@
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
-import { GetSubscriptionAttributesInput, GetSubscriptionAttributesResponse } from "../models/index";
+import { GetSubscriptionAttributesInput, GetSubscriptionAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetSubscriptionAttributesCommand,
   serializeAws_queryGetSubscriptionAttributesCommand,

@@ -1,5 +1,5 @@
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
-import { CreatePlatformApplicationInput, CreatePlatformApplicationResponse } from "../models/index";
+import { CreatePlatformApplicationInput, CreatePlatformApplicationResponse } from "../models/models_0";
 import {
   deserializeAws_queryCreatePlatformApplicationCommand,
   serializeAws_queryCreatePlatformApplicationCommand,

@@ -1,5 +1,5 @@
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { PutEmailIdentityDkimAttributesRequest, PutEmailIdentityDkimAttributesResponse } from "../models/index";
+import { PutEmailIdentityDkimAttributesRequest, PutEmailIdentityDkimAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand,
   serializeAws_restJson1PutEmailIdentityDkimAttributesCommand,

@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DescribeAssociationExecutionsRequest, DescribeAssociationExecutionsResult } from "../models/index";
+import { DescribeAssociationExecutionsRequest, DescribeAssociationExecutionsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAssociationExecutionsCommand,
   serializeAws_json1_1DescribeAssociationExecutionsCommand,

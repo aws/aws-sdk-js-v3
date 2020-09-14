@@ -2,7 +2,7 @@ import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   GetConformancePackComplianceDetailsRequest,
   GetConformancePackComplianceDetailsResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetConformancePackComplianceDetailsCommand,
   serializeAws_json1_1GetConformancePackComplianceDetailsCommand,

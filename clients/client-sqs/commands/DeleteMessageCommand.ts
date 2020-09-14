@@ -1,5 +1,5 @@
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
-import { DeleteMessageRequest } from "../models/index";
+import { DeleteMessageRequest } from "../models/models_0";
 import {
   deserializeAws_queryDeleteMessageCommand,
   serializeAws_queryDeleteMessageCommand,

@@ -1,5 +1,5 @@
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { ListForecastExportJobsRequest, ListForecastExportJobsResponse } from "../models/index";
+import { ListForecastExportJobsRequest, ListForecastExportJobsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListForecastExportJobsCommand,
   serializeAws_json1_1ListForecastExportJobsCommand,

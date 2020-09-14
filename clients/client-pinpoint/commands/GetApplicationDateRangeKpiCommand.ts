@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetApplicationDateRangeKpiRequest, GetApplicationDateRangeKpiResponse } from "../models/index";
+import { GetApplicationDateRangeKpiRequest, GetApplicationDateRangeKpiResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetApplicationDateRangeKpiCommand,
   serializeAws_restJson1GetApplicationDateRangeKpiCommand,

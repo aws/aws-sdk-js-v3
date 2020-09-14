@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/index";
+import { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutObjectTaggingCommand,
   serializeAws_restXmlPutObjectTaggingCommand,

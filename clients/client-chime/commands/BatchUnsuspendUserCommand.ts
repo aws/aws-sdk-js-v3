@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { BatchUnsuspendUserRequest, BatchUnsuspendUserResponse } from "../models/index";
+import { BatchUnsuspendUserRequest, BatchUnsuspendUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchUnsuspendUserCommand,
   serializeAws_restJson1BatchUnsuspendUserCommand,

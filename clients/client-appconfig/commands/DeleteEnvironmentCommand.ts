@@ -1,5 +1,5 @@
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { DeleteEnvironmentRequest } from "../models/index";
+import { DeleteEnvironmentRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteEnvironmentCommand,
   serializeAws_restJson1DeleteEnvironmentCommand,

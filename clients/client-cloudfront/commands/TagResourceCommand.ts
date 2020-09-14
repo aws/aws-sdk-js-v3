@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { TagResourceRequest } from "../models/index";
+import { TagResourceRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlTagResourceCommand,
   serializeAws_restXmlTagResourceCommand,

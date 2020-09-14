@@ -1,5 +1,5 @@
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { FlushApiCacheRequest, FlushApiCacheResponse } from "../models/index";
+import { FlushApiCacheRequest, FlushApiCacheResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1FlushApiCacheCommand,
   serializeAws_restJson1FlushApiCacheCommand,

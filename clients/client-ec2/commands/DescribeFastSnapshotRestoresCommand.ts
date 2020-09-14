@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeFastSnapshotRestoresRequest, DescribeFastSnapshotRestoresResult } from "../models/index";
+import { DescribeFastSnapshotRestoresRequest, DescribeFastSnapshotRestoresResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeFastSnapshotRestoresCommand,
   serializeAws_ec2DescribeFastSnapshotRestoresCommand,

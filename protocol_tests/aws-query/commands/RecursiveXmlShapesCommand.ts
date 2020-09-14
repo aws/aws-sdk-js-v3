@@ -1,5 +1,5 @@
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { RecursiveXmlShapesOutput } from "../models/index";
+import { RecursiveXmlShapesOutput } from "../models/models_0";
 import {
   deserializeAws_queryRecursiveXmlShapesCommand,
   serializeAws_queryRecursiveXmlShapesCommand,

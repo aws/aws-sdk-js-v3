@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateDomainConfigurationRequest, UpdateDomainConfigurationResponse } from "../models/index";
+import { UpdateDomainConfigurationRequest, UpdateDomainConfigurationResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateDomainConfigurationCommand,
   serializeAws_restJson1UpdateDomainConfigurationCommand,

@@ -1,5 +1,5 @@
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
-import { CheckDomainTransferabilityRequest, CheckDomainTransferabilityResponse } from "../models/index";
+import { CheckDomainTransferabilityRequest, CheckDomainTransferabilityResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CheckDomainTransferabilityCommand,
   serializeAws_json1_1CheckDomainTransferabilityCommand,

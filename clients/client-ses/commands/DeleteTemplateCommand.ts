@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/index";
+import { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteTemplateCommand,
   serializeAws_queryDeleteTemplateCommand,

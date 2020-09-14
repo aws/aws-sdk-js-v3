@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { CreatePortfolioShareInput, CreatePortfolioShareOutput } from "../models/index";
+import { CreatePortfolioShareInput, CreatePortfolioShareOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePortfolioShareCommand,
   serializeAws_json1_1CreatePortfolioShareCommand,

@@ -1,5 +1,5 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { DeleteAccessPointRequest } from "../models/index";
+import { DeleteAccessPointRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteAccessPointCommand,
   serializeAws_restXmlDeleteAccessPointCommand,

@@ -2,7 +2,7 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   CreateNotebookInstanceLifecycleConfigInput,
   CreateNotebookInstanceLifecycleConfigOutput,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand,
   serializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand,

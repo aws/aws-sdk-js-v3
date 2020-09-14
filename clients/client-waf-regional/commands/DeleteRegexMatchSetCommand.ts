@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { DeleteRegexMatchSetRequest, DeleteRegexMatchSetResponse } from "../models/index";
+import { DeleteRegexMatchSetRequest, DeleteRegexMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRegexMatchSetCommand,
   serializeAws_json1_1DeleteRegexMatchSetCommand,

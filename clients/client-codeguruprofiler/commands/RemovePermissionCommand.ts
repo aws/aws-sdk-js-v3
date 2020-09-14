@@ -1,5 +1,5 @@
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import { RemovePermissionRequest, RemovePermissionResponse } from "../models/index";
+import { RemovePermissionRequest, RemovePermissionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RemovePermissionCommand,
   serializeAws_restJson1RemovePermissionCommand,

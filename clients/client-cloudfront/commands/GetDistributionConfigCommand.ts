@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { GetDistributionConfigRequest, GetDistributionConfigResult } from "../models/index";
+import { GetDistributionConfigRequest, GetDistributionConfigResult } from "../models/models_0";
 import {
   deserializeAws_restXmlGetDistributionConfigCommand,
   serializeAws_restXmlGetDistributionConfigCommand,

@@ -1,5 +1,8 @@
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { PutLifecycleEventHookExecutionStatusInput, PutLifecycleEventHookExecutionStatusOutput } from "../models/index";
+import {
+  PutLifecycleEventHookExecutionStatusInput,
+  PutLifecycleEventHookExecutionStatusOutput,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand,
   serializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand,

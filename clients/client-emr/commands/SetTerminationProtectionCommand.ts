@@ -1,5 +1,5 @@
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { SetTerminationProtectionInput } from "../models/index";
+import { SetTerminationProtectionInput } from "../models/models_0";
 import {
   deserializeAws_json1_1SetTerminationProtectionCommand,
   serializeAws_json1_1SetTerminationProtectionCommand,

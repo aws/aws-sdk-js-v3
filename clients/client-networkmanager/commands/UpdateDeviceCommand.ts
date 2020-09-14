@@ -1,5 +1,5 @@
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { UpdateDeviceRequest, UpdateDeviceResponse } from "../models/index";
+import { UpdateDeviceRequest, UpdateDeviceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDeviceCommand,
   serializeAws_restJson1UpdateDeviceCommand,

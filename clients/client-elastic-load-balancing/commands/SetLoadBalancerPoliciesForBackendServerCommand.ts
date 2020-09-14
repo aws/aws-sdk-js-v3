@@ -6,7 +6,7 @@ import {
 import {
   SetLoadBalancerPoliciesForBackendServerInput,
   SetLoadBalancerPoliciesForBackendServerOutput,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand,
   serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand,

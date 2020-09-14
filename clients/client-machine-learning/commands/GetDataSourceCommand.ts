@@ -1,5 +1,5 @@
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { GetDataSourceInput, GetDataSourceOutput } from "../models/index";
+import { GetDataSourceInput, GetDataSourceOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDataSourceCommand,
   serializeAws_json1_1GetDataSourceCommand,

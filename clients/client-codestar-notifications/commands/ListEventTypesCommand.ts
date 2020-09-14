@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import { ListEventTypesRequest, ListEventTypesResult } from "../models/index";
+import { ListEventTypesRequest, ListEventTypesResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ListEventTypesCommand,
   serializeAws_restJson1ListEventTypesCommand,

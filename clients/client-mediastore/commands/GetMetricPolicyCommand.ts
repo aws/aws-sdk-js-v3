@@ -1,5 +1,5 @@
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import { GetMetricPolicyInput, GetMetricPolicyOutput } from "../models/index";
+import { GetMetricPolicyInput, GetMetricPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetMetricPolicyCommand,
   serializeAws_json1_1GetMetricPolicyCommand,

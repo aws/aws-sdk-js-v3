@@ -1,5 +1,5 @@
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
-import { CreateRobotApplicationRequest, CreateRobotApplicationResponse } from "../models/index";
+import { CreateRobotApplicationRequest, CreateRobotApplicationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRobotApplicationCommand,
   serializeAws_restJson1CreateRobotApplicationCommand,

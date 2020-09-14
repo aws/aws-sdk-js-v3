@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { GetDeploymentStatusRequest, GetDeploymentStatusResponse } from "../models/index";
+import { GetDeploymentStatusRequest, GetDeploymentStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDeploymentStatusCommand,
   serializeAws_restJson1GetDeploymentStatusCommand,

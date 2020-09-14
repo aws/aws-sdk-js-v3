@@ -1,5 +1,8 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListPoliciesGrantingServiceAccessRequest, ListPoliciesGrantingServiceAccessResponse } from "../models/index";
+import {
+  ListPoliciesGrantingServiceAccessRequest,
+  ListPoliciesGrantingServiceAccessResponse,
+} from "../models/models_0";
 import {
   deserializeAws_queryListPoliciesGrantingServiceAccessCommand,
   serializeAws_queryListPoliciesGrantingServiceAccessCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { DeleteFileShareInput, DeleteFileShareOutput } from "../models/index";
+import { DeleteFileShareInput, DeleteFileShareOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFileShareCommand,
   serializeAws_json1_1DeleteFileShareCommand,

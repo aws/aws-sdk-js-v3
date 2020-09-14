@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { GetSqlInjectionMatchSetRequest, GetSqlInjectionMatchSetResponse } from "../models/index";
+import { GetSqlInjectionMatchSetRequest, GetSqlInjectionMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSqlInjectionMatchSetCommand,
   serializeAws_json1_1GetSqlInjectionMatchSetCommand,

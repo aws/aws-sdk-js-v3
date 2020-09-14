@@ -1,5 +1,5 @@
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { AddJobFlowStepsInput, AddJobFlowStepsOutput } from "../models/index";
+import { AddJobFlowStepsInput, AddJobFlowStepsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1AddJobFlowStepsCommand,
   serializeAws_json1_1AddJobFlowStepsCommand,

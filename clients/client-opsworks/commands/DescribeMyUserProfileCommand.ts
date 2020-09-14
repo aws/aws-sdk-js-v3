@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DescribeMyUserProfileResult } from "../models/index";
+import { DescribeMyUserProfileResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeMyUserProfileCommand,
   serializeAws_json1_1DescribeMyUserProfileCommand,

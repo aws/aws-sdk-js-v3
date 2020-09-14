@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
-import { ListTextTranslationJobsRequest, ListTextTranslationJobsResponse } from "../models/index";
+import { ListTextTranslationJobsRequest, ListTextTranslationJobsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTextTranslationJobsCommand,
   serializeAws_json1_1ListTextTranslationJobsCommand,

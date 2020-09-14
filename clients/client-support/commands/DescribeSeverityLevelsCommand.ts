@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
-import { DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse } from "../models/index";
+import { DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeSeverityLevelsCommand,
   serializeAws_json1_1DescribeSeverityLevelsCommand,

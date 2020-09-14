@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { GetDashboardEmbedUrlRequest, GetDashboardEmbedUrlResponse } from "../models/index";
+import { GetDashboardEmbedUrlRequest, GetDashboardEmbedUrlResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDashboardEmbedUrlCommand,
   serializeAws_restJson1GetDashboardEmbedUrlCommand,

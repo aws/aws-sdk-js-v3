@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { HttpPayloadWithStructureInputOutput } from "../models/index";
+import { HttpPayloadWithStructureInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpPayloadWithStructureCommand,
   serializeAws_restJson1HttpPayloadWithStructureCommand,

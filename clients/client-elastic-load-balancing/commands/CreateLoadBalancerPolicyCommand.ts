@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { CreateLoadBalancerPolicyInput, CreateLoadBalancerPolicyOutput } from "../models/index";
+import { CreateLoadBalancerPolicyInput, CreateLoadBalancerPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_queryCreateLoadBalancerPolicyCommand,
   serializeAws_queryCreateLoadBalancerPolicyCommand,

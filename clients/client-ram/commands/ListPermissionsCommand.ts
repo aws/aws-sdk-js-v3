@@ -1,5 +1,5 @@
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { ListPermissionsRequest, ListPermissionsResponse } from "../models/index";
+import { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPermissionsCommand,
   serializeAws_restJson1ListPermissionsCommand,

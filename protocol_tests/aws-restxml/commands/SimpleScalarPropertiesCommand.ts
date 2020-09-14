@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { SimpleScalarPropertiesInputOutput } from "../models/index";
+import { SimpleScalarPropertiesInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlSimpleScalarPropertiesCommand,
   serializeAws_restXmlSimpleScalarPropertiesCommand,

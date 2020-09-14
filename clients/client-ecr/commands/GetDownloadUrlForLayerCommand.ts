@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { GetDownloadUrlForLayerRequest, GetDownloadUrlForLayerResponse } from "../models/index";
+import { GetDownloadUrlForLayerRequest, GetDownloadUrlForLayerResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDownloadUrlForLayerCommand,
   serializeAws_json1_1GetDownloadUrlForLayerCommand,

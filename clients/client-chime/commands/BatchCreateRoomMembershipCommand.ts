@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { BatchCreateRoomMembershipRequest, BatchCreateRoomMembershipResponse } from "../models/index";
+import { BatchCreateRoomMembershipRequest, BatchCreateRoomMembershipResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchCreateRoomMembershipCommand,
   serializeAws_restJson1BatchCreateRoomMembershipCommand,

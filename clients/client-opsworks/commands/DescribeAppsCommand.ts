@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DescribeAppsRequest, DescribeAppsResult } from "../models/index";
+import { DescribeAppsRequest, DescribeAppsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAppsCommand,
   serializeAws_json1_1DescribeAppsCommand,

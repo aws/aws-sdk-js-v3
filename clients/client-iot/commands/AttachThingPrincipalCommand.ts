@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { AttachThingPrincipalRequest, AttachThingPrincipalResponse } from "../models/index";
+import { AttachThingPrincipalRequest, AttachThingPrincipalResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AttachThingPrincipalCommand,
   serializeAws_restJson1AttachThingPrincipalCommand,

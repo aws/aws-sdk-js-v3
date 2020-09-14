@@ -1,5 +1,5 @@
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { SetVisibleToAllUsersInput } from "../models/index";
+import { SetVisibleToAllUsersInput } from "../models/models_0";
 import {
   deserializeAws_json1_1SetVisibleToAllUsersCommand,
   serializeAws_json1_1SetVisibleToAllUsersCommand,

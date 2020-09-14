@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { ListImagesRequest, ListImagesResponse } from "../models/index";
+import { ListImagesRequest, ListImagesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListImagesCommand,
   serializeAws_json1_1ListImagesCommand,

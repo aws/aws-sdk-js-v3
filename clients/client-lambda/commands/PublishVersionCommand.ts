@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { FunctionConfiguration, PublishVersionRequest } from "../models/index";
+import { FunctionConfiguration, PublishVersionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PublishVersionCommand,
   serializeAws_restJson1PublishVersionCommand,

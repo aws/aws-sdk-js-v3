@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { RebootReplicationInstanceMessage, RebootReplicationInstanceResponse } from "../models/index";
+import { RebootReplicationInstanceMessage, RebootReplicationInstanceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RebootReplicationInstanceCommand,
   serializeAws_json1_1RebootReplicationInstanceCommand,

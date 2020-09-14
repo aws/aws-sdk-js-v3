@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListIndicesRequest, ListIndicesResponse } from "../models/index";
+import { ListIndicesRequest, ListIndicesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListIndicesCommand,
   serializeAws_restJson1ListIndicesCommand,

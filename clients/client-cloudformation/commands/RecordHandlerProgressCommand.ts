@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { RecordHandlerProgressInput, RecordHandlerProgressOutput } from "../models/index";
+import { RecordHandlerProgressInput, RecordHandlerProgressOutput } from "../models/models_0";
 import {
   deserializeAws_queryRecordHandlerProgressCommand,
   serializeAws_queryRecordHandlerProgressCommand,

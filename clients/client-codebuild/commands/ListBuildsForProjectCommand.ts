@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { ListBuildsForProjectInput, ListBuildsForProjectOutput } from "../models/index";
+import { ListBuildsForProjectInput, ListBuildsForProjectOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListBuildsForProjectCommand,
   serializeAws_json1_1ListBuildsForProjectCommand,

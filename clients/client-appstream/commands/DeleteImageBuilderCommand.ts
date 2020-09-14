@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DeleteImageBuilderRequest, DeleteImageBuilderResult } from "../models/index";
+import { DeleteImageBuilderRequest, DeleteImageBuilderResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteImageBuilderCommand,
   serializeAws_json1_1DeleteImageBuilderCommand,

@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { RenewOfferingRequest, RenewOfferingResult } from "../models/index";
+import { RenewOfferingRequest, RenewOfferingResult } from "../models/models_0";
 import {
   deserializeAws_json1_1RenewOfferingCommand,
   serializeAws_json1_1RenewOfferingCommand,

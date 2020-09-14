@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { XmlNamespacesInputOutput } from "../models/index";
+import { XmlNamespacesInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlXmlNamespacesCommand,
   serializeAws_restXmlXmlNamespacesCommand,

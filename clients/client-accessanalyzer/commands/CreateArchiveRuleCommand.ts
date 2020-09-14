@@ -1,5 +1,5 @@
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { CreateArchiveRuleRequest } from "../models/index";
+import { CreateArchiveRuleRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateArchiveRuleCommand,
   serializeAws_restJson1CreateArchiveRuleCommand,

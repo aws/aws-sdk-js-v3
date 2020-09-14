@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ModifyDBClusterMessage, ModifyDBClusterResult } from "../models/index";
+import { ModifyDBClusterMessage, ModifyDBClusterResult } from "../models/models_1";
 import {
   deserializeAws_queryModifyDBClusterCommand,
   serializeAws_queryModifyDBClusterCommand,

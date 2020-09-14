@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { ModifyListenerInput, ModifyListenerOutput } from "../models/index";
+import { ModifyListenerInput, ModifyListenerOutput } from "../models/models_0";
 import {
   deserializeAws_queryModifyListenerCommand,
   serializeAws_queryModifyListenerCommand,

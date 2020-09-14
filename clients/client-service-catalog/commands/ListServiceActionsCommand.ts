@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { ListServiceActionsInput, ListServiceActionsOutput } from "../models/index";
+import { ListServiceActionsInput, ListServiceActionsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListServiceActionsCommand,
   serializeAws_json1_1ListServiceActionsCommand,

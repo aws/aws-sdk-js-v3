@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { CreateTapeWithBarcodeInput, CreateTapeWithBarcodeOutput } from "../models/index";
+import { CreateTapeWithBarcodeInput, CreateTapeWithBarcodeOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateTapeWithBarcodeCommand,
   serializeAws_json1_1CreateTapeWithBarcodeCommand,

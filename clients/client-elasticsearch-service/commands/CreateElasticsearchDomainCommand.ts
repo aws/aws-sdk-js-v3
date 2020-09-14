@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { CreateElasticsearchDomainRequest, CreateElasticsearchDomainResponse } from "../models/index";
+import { CreateElasticsearchDomainRequest, CreateElasticsearchDomainResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateElasticsearchDomainCommand,
   serializeAws_restJson1CreateElasticsearchDomainCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import { UpdatePipelineRequest, UpdatePipelineResponse } from "../models/index";
+import { UpdatePipelineRequest, UpdatePipelineResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePipelineCommand,
   serializeAws_restJson1UpdatePipelineCommand,

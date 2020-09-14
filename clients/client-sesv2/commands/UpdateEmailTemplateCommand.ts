@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { UpdateEmailTemplateRequest, UpdateEmailTemplateResponse } from "../models/index";
+import { UpdateEmailTemplateRequest, UpdateEmailTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateEmailTemplateCommand,
   serializeAws_restJson1UpdateEmailTemplateCommand,

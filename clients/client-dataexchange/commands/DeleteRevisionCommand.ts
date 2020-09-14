@@ -1,5 +1,5 @@
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { DeleteRevisionRequest } from "../models/index";
+import { DeleteRevisionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRevisionCommand,
   serializeAws_restJson1DeleteRevisionCommand,

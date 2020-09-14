@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { AllQueryStringTypesInput } from "../models/index";
+import { AllQueryStringTypesInput } from "../models/models_0";
 import {
   deserializeAws_restXmlAllQueryStringTypesCommand,
   serializeAws_restXmlAllQueryStringTypesCommand,

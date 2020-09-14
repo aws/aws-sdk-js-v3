@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { UnassignPrivateIpAddressesRequest } from "../models/index";
+import { UnassignPrivateIpAddressesRequest } from "../models/models_4";
 import {
   deserializeAws_ec2UnassignPrivateIpAddressesCommand,
   serializeAws_ec2UnassignPrivateIpAddressesCommand,

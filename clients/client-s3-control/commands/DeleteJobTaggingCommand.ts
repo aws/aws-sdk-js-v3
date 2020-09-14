@@ -1,5 +1,5 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { DeleteJobTaggingRequest, DeleteJobTaggingResult } from "../models/index";
+import { DeleteJobTaggingRequest, DeleteJobTaggingResult } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteJobTaggingCommand,
   serializeAws_restXmlDeleteJobTaggingCommand,

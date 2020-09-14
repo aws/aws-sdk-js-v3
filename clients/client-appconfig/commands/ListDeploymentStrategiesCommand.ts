@@ -1,5 +1,5 @@
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { DeploymentStrategies, ListDeploymentStrategiesRequest } from "../models/index";
+import { DeploymentStrategies, ListDeploymentStrategiesRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDeploymentStrategiesCommand,
   serializeAws_restJson1ListDeploymentStrategiesCommand,

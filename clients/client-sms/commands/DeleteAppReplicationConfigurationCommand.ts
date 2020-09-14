@@ -1,5 +1,8 @@
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
-import { DeleteAppReplicationConfigurationRequest, DeleteAppReplicationConfigurationResponse } from "../models/index";
+import {
+  DeleteAppReplicationConfigurationRequest,
+  DeleteAppReplicationConfigurationResponse,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAppReplicationConfigurationCommand,
   serializeAws_json1_1DeleteAppReplicationConfigurationCommand,

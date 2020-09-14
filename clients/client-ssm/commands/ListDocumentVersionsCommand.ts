@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { ListDocumentVersionsRequest, ListDocumentVersionsResult } from "../models/index";
+import { ListDocumentVersionsRequest, ListDocumentVersionsResult } from "../models/models_1";
 import {
   deserializeAws_json1_1ListDocumentVersionsCommand,
   serializeAws_json1_1ListDocumentVersionsCommand,

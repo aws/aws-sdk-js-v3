@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { ListIncomingTypedLinksRequest, ListIncomingTypedLinksResponse } from "../models/index";
+import { ListIncomingTypedLinksRequest, ListIncomingTypedLinksResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListIncomingTypedLinksCommand,
   serializeAws_restJson1ListIncomingTypedLinksCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
-import { CreateApplicationVersionRequest, CreateApplicationVersionResponse } from "../models/index";
+import { CreateApplicationVersionRequest, CreateApplicationVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateApplicationVersionCommand,
   serializeAws_restJson1CreateApplicationVersionCommand,

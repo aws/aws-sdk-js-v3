@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { UpdateServicePrimaryTaskSetRequest, UpdateServicePrimaryTaskSetResponse } from "../models/index";
+import { UpdateServicePrimaryTaskSetRequest, UpdateServicePrimaryTaskSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateServicePrimaryTaskSetCommand,
   serializeAws_json1_1UpdateServicePrimaryTaskSetCommand,

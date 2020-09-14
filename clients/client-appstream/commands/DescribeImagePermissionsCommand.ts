@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DescribeImagePermissionsRequest, DescribeImagePermissionsResult } from "../models/index";
+import { DescribeImagePermissionsRequest, DescribeImagePermissionsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeImagePermissionsCommand,
   serializeAws_json1_1DescribeImagePermissionsCommand,

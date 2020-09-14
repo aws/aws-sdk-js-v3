@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { GetQualificationScoreRequest, GetQualificationScoreResponse } from "../models/index";
+import { GetQualificationScoreRequest, GetQualificationScoreResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetQualificationScoreCommand,
   serializeAws_json1_1GetQualificationScoreCommand,

@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { DeleteSuppressedDestinationRequest, DeleteSuppressedDestinationResponse } from "../models/index";
+import { DeleteSuppressedDestinationRequest, DeleteSuppressedDestinationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSuppressedDestinationCommand,
   serializeAws_restJson1DeleteSuppressedDestinationCommand,

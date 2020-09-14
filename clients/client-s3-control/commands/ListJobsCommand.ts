@@ -1,5 +1,5 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { ListJobsRequest, ListJobsResult } from "../models/index";
+import { ListJobsRequest, ListJobsResult } from "../models/models_0";
 import { deserializeAws_restXmlListJobsCommand, serializeAws_restXmlListJobsCommand } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { AssociateServiceRoleToAccountRequest, AssociateServiceRoleToAccountResponse } from "../models/index";
+import { AssociateServiceRoleToAccountRequest, AssociateServiceRoleToAccountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateServiceRoleToAccountCommand,
   serializeAws_restJson1AssociateServiceRoleToAccountCommand,

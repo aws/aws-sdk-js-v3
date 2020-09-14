@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { GetFaceDetectionRequest, GetFaceDetectionResponse } from "../models/index";
+import { GetFaceDetectionRequest, GetFaceDetectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetFaceDetectionCommand,
   serializeAws_json1_1GetFaceDetectionCommand,

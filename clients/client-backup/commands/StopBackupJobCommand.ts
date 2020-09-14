@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { StopBackupJobInput } from "../models/index";
+import { StopBackupJobInput } from "../models/models_0";
 import {
   deserializeAws_restJson1StopBackupJobCommand,
   serializeAws_restJson1StopBackupJobCommand,

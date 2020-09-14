@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { ListBackupPlanVersionsInput, ListBackupPlanVersionsOutput } from "../models/index";
+import { ListBackupPlanVersionsInput, ListBackupPlanVersionsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListBackupPlanVersionsCommand,
   serializeAws_restJson1ListBackupPlanVersionsCommand,

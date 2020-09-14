@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { RetireGrantRequest } from "../models/index";
+import { RetireGrantRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1RetireGrantCommand,
   serializeAws_json1_1RetireGrantCommand,

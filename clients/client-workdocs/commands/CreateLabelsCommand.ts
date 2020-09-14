@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { CreateLabelsRequest, CreateLabelsResponse } from "../models/index";
+import { CreateLabelsRequest, CreateLabelsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateLabelsCommand,
   serializeAws_restJson1CreateLabelsCommand,

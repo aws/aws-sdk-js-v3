@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateModelInput, CreateModelOutput } from "../models/index";
+import { CreateModelInput, CreateModelOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateModelCommand,
   serializeAws_json1_1CreateModelCommand,

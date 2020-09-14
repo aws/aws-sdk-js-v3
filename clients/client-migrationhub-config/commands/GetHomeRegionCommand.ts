@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubConfigClient";
-import { GetHomeRegionRequest, GetHomeRegionResult } from "../models/index";
+import { GetHomeRegionRequest, GetHomeRegionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetHomeRegionCommand,
   serializeAws_json1_1GetHomeRegionCommand,

@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateTableRequest, CreateTableResponse } from "../models/index";
+import { CreateTableRequest, CreateTableResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateTableCommand,
   serializeAws_json1_1CreateTableCommand,

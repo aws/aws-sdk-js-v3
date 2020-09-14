@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import { CancelChangeSetRequest, CancelChangeSetResponse } from "../models/index";
+import { CancelChangeSetRequest, CancelChangeSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelChangeSetCommand,
   serializeAws_restJson1CancelChangeSetCommand,

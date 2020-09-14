@@ -1,5 +1,5 @@
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { DescribeLocationSmbRequest, DescribeLocationSmbResponse } from "../models/index";
+import { DescribeLocationSmbRequest, DescribeLocationSmbResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLocationSmbCommand,
   serializeAws_json1_1DescribeLocationSmbCommand,

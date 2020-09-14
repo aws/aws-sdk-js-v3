@@ -1,5 +1,5 @@
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DescribeFaqRequest, DescribeFaqResponse } from "../models/index";
+import { DescribeFaqRequest, DescribeFaqResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFaqCommand,
   serializeAws_json1_1DescribeFaqCommand,

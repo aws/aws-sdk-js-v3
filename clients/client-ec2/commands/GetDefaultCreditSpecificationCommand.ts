@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetDefaultCreditSpecificationRequest, GetDefaultCreditSpecificationResult } from "../models/index";
+import { GetDefaultCreditSpecificationRequest, GetDefaultCreditSpecificationResult } from "../models/models_3";
 import {
   deserializeAws_ec2GetDefaultCreditSpecificationCommand,
   serializeAws_ec2GetDefaultCreditSpecificationCommand,

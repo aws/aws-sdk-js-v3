@@ -1,5 +1,8 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { CreateVPCAssociationAuthorizationRequest, CreateVPCAssociationAuthorizationResponse } from "../models/index";
+import {
+  CreateVPCAssociationAuthorizationRequest,
+  CreateVPCAssociationAuthorizationResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand,
   serializeAws_restXmlCreateVPCAssociationAuthorizationCommand,

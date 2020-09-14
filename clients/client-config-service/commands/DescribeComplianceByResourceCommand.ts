@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DescribeComplianceByResourceRequest, DescribeComplianceByResourceResponse } from "../models/index";
+import { DescribeComplianceByResourceRequest, DescribeComplianceByResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeComplianceByResourceCommand,
   serializeAws_json1_1DescribeComplianceByResourceCommand,

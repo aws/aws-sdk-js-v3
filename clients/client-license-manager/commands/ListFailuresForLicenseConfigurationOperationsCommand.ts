@@ -2,7 +2,7 @@ import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 import {
   ListFailuresForLicenseConfigurationOperationsRequest,
   ListFailuresForLicenseConfigurationOperationsResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand,
   serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand,

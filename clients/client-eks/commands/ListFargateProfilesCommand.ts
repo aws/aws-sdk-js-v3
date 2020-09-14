@@ -1,5 +1,5 @@
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { ListFargateProfilesRequest, ListFargateProfilesResponse } from "../models/index";
+import { ListFargateProfilesRequest, ListFargateProfilesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListFargateProfilesCommand,
   serializeAws_restJson1ListFargateProfilesCommand,

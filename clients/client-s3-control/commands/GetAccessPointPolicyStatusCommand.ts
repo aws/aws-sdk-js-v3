@@ -1,5 +1,5 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetAccessPointPolicyStatusRequest, GetAccessPointPolicyStatusResult } from "../models/index";
+import { GetAccessPointPolicyStatusRequest, GetAccessPointPolicyStatusResult } from "../models/models_0";
 import {
   deserializeAws_restXmlGetAccessPointPolicyStatusCommand,
   serializeAws_restXmlGetAccessPointPolicyStatusCommand,

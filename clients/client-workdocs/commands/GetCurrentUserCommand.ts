@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { GetCurrentUserRequest, GetCurrentUserResponse } from "../models/index";
+import { GetCurrentUserRequest, GetCurrentUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCurrentUserCommand,
   serializeAws_restJson1GetCurrentUserCommand,

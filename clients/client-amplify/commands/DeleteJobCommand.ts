@@ -1,5 +1,5 @@
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { DeleteJobRequest, DeleteJobResult } from "../models/index";
+import { DeleteJobRequest, DeleteJobResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteJobCommand,
   serializeAws_restJson1DeleteJobCommand,

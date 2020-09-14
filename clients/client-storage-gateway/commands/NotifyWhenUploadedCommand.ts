@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { NotifyWhenUploadedInput, NotifyWhenUploadedOutput } from "../models/index";
+import { NotifyWhenUploadedInput, NotifyWhenUploadedOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1NotifyWhenUploadedCommand,
   serializeAws_json1_1NotifyWhenUploadedCommand,

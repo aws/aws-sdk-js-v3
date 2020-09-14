@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteConfigurationAggregatorRequest } from "../models/index";
+import { DeleteConfigurationAggregatorRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteConfigurationAggregatorCommand,
   serializeAws_json1_1DeleteConfigurationAggregatorCommand,

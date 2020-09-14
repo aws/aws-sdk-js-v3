@@ -1,5 +1,5 @@
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { QueryIdempotencyTokenAutoFillInput } from "../models/index";
+import { QueryIdempotencyTokenAutoFillInput } from "../models/models_0";
 import {
   deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand,
   serializeAws_ec2QueryIdempotencyTokenAutoFillCommand,

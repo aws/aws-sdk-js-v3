@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { AssociateAssetsRequest } from "../models/index";
+import { AssociateAssetsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateAssetsCommand,
   serializeAws_restJson1AssociateAssetsCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
-import { AnalyzeDocumentRequest, AnalyzeDocumentResponse } from "../models/index";
+import { AnalyzeDocumentRequest, AnalyzeDocumentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AnalyzeDocumentCommand,
   serializeAws_json1_1AnalyzeDocumentCommand,

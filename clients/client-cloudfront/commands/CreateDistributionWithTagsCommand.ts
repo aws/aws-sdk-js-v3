@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { CreateDistributionWithTagsRequest, CreateDistributionWithTagsResult } from "../models/index";
+import { CreateDistributionWithTagsRequest, CreateDistributionWithTagsResult } from "../models/models_0";
 import {
   deserializeAws_restXmlCreateDistributionWithTagsCommand,
   serializeAws_restXmlCreateDistributionWithTagsCommand,

@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { GreetingWithErrorsOutput } from "../models/index";
+import { GreetingWithErrorsOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlGreetingWithErrorsCommand,
   serializeAws_restXmlGreetingWithErrorsCommand,

@@ -1,5 +1,5 @@
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { ListSitesInput, ListSitesOutput } from "../models/index";
+import { ListSitesInput, ListSitesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSitesCommand,
   serializeAws_restJson1ListSitesCommand,

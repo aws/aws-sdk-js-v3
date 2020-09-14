@@ -1,5 +1,5 @@
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { CreateBatchPredictionInput, CreateBatchPredictionOutput } from "../models/index";
+import { CreateBatchPredictionInput, CreateBatchPredictionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateBatchPredictionCommand,
   serializeAws_json1_1CreateBatchPredictionCommand,

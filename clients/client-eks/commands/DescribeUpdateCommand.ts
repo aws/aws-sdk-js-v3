@@ -1,5 +1,5 @@
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { DescribeUpdateRequest, DescribeUpdateResponse } from "../models/index";
+import { DescribeUpdateRequest, DescribeUpdateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeUpdateCommand,
   serializeAws_restJson1DescribeUpdateCommand,

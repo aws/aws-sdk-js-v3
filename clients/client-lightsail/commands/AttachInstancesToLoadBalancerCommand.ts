@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { AttachInstancesToLoadBalancerRequest, AttachInstancesToLoadBalancerResult } from "../models/index";
+import { AttachInstancesToLoadBalancerRequest, AttachInstancesToLoadBalancerResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AttachInstancesToLoadBalancerCommand,
   serializeAws_json1_1AttachInstancesToLoadBalancerCommand,

@@ -1,5 +1,5 @@
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { CreateOriginEndpointRequest, CreateOriginEndpointResponse } from "../models/index";
+import { CreateOriginEndpointRequest, CreateOriginEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateOriginEndpointCommand,
   serializeAws_restJson1CreateOriginEndpointCommand,

@@ -2,7 +2,7 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import {
   GetReservedNodeExchangeOfferingsInputMessage,
   GetReservedNodeExchangeOfferingsOutputMessage,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_queryGetReservedNodeExchangeOfferingsCommand,
   serializeAws_queryGetReservedNodeExchangeOfferingsCommand,

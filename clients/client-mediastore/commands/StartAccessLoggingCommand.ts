@@ -1,5 +1,5 @@
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import { StartAccessLoggingInput, StartAccessLoggingOutput } from "../models/index";
+import { StartAccessLoggingInput, StartAccessLoggingOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StartAccessLoggingCommand,
   serializeAws_json1_1StartAccessLoggingCommand,

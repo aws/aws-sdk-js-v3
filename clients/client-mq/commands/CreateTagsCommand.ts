@@ -1,5 +1,5 @@
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { CreateTagsRequest } from "../models/index";
+import { CreateTagsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTagsCommand,
   serializeAws_restJson1CreateTagsCommand,

@@ -1,5 +1,5 @@
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { SkipWaitTimeForInstanceTerminationInput } from "../models/index";
+import { SkipWaitTimeForInstanceTerminationInput } from "../models/models_0";
 import {
   deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand,
   serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand,

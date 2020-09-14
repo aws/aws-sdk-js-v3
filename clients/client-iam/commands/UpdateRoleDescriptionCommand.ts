@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateRoleDescriptionRequest, UpdateRoleDescriptionResponse } from "../models/index";
+import { UpdateRoleDescriptionRequest, UpdateRoleDescriptionResponse } from "../models/models_0";
 import {
   deserializeAws_queryUpdateRoleDescriptionCommand,
   serializeAws_queryUpdateRoleDescriptionCommand,

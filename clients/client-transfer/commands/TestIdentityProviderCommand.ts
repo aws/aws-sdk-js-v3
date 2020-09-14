@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
-import { TestIdentityProviderRequest, TestIdentityProviderResponse } from "../models/index";
+import { TestIdentityProviderRequest, TestIdentityProviderResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1TestIdentityProviderCommand,
   serializeAws_json1_1TestIdentityProviderCommand,

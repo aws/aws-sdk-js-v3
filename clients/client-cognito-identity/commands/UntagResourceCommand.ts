@@ -1,5 +1,5 @@
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { UntagResourceInput, UntagResourceResponse } from "../models/index";
+import { UntagResourceInput, UntagResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UntagResourceCommand,
   serializeAws_json1_1UntagResourceCommand,

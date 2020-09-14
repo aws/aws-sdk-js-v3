@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { CreateAssociationBatchRequest, CreateAssociationBatchResult } from "../models/index";
+import { CreateAssociationBatchRequest, CreateAssociationBatchResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAssociationBatchCommand,
   serializeAws_json1_1CreateAssociationBatchCommand,

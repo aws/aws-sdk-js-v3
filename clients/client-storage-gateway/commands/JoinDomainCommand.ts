@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { JoinDomainInput, JoinDomainOutput } from "../models/index";
+import { JoinDomainInput, JoinDomainOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1JoinDomainCommand,
   serializeAws_json1_1JoinDomainCommand,

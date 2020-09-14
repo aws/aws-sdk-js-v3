@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { RemoveTagsRequest } from "../models/index";
+import { RemoveTagsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveTagsCommand,
   serializeAws_restJson1RemoveTagsCommand,

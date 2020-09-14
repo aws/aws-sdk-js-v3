@@ -1,5 +1,5 @@
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { ListFindingsRequest, ListFindingsResponse } from "../models/index";
+import { ListFindingsRequest, ListFindingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListFindingsCommand,
   serializeAws_restJson1ListFindingsCommand,

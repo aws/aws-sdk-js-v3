@@ -1,5 +1,5 @@
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { CreateLocationNfsRequest, CreateLocationNfsResponse } from "../models/index";
+import { CreateLocationNfsRequest, CreateLocationNfsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLocationNfsCommand,
   serializeAws_json1_1CreateLocationNfsCommand,

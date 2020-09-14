@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/index";
+import { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetFederationTokenCommand,
   serializeAws_restJson1GetFederationTokenCommand,

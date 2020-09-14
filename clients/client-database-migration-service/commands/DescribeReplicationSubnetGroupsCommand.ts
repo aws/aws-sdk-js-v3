@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DescribeReplicationSubnetGroupsMessage, DescribeReplicationSubnetGroupsResponse } from "../models/index";
+import { DescribeReplicationSubnetGroupsMessage, DescribeReplicationSubnetGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeReplicationSubnetGroupsCommand,
   serializeAws_json1_1DescribeReplicationSubnetGroupsCommand,

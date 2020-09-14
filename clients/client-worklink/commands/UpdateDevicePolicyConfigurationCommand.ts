@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
-import { UpdateDevicePolicyConfigurationRequest, UpdateDevicePolicyConfigurationResponse } from "../models/index";
+import { UpdateDevicePolicyConfigurationRequest, UpdateDevicePolicyConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDevicePolicyConfigurationCommand,
   serializeAws_restJson1UpdateDevicePolicyConfigurationCommand,

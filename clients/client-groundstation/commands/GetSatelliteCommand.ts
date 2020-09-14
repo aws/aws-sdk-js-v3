@@ -1,5 +1,5 @@
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { GetSatelliteRequest, GetSatelliteResponse } from "../models/index";
+import { GetSatelliteRequest, GetSatelliteResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSatelliteCommand,
   serializeAws_restJson1GetSatelliteCommand,

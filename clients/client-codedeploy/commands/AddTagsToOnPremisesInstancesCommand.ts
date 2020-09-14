@@ -1,5 +1,5 @@
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { AddTagsToOnPremisesInstancesInput } from "../models/index";
+import { AddTagsToOnPremisesInstancesInput } from "../models/models_0";
 import {
   deserializeAws_json1_1AddTagsToOnPremisesInstancesCommand,
   serializeAws_json1_1AddTagsToOnPremisesInstancesCommand,

@@ -1,5 +1,5 @@
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { CreateChannelRequest, CreateChannelResponse } from "../models/index";
+import { CreateChannelRequest, CreateChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateChannelCommand,
   serializeAws_restJson1CreateChannelCommand,

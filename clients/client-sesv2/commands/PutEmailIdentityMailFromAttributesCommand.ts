@@ -1,5 +1,8 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { PutEmailIdentityMailFromAttributesRequest, PutEmailIdentityMailFromAttributesResponse } from "../models/index";
+import {
+  PutEmailIdentityMailFromAttributesRequest,
+  PutEmailIdentityMailFromAttributesResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommand,
   serializeAws_restJson1PutEmailIdentityMailFromAttributesCommand,

@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { SearchTablesRequest, SearchTablesResponse } from "../models/index";
+import { SearchTablesRequest, SearchTablesResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1SearchTablesCommand,
   serializeAws_json1_1SearchTablesCommand,

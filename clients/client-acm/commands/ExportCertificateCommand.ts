@@ -1,5 +1,5 @@
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { ExportCertificateRequest, ExportCertificateResponse } from "../models/index";
+import { ExportCertificateRequest, ExportCertificateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ExportCertificateCommand,
   serializeAws_json1_1ExportCertificateCommand,

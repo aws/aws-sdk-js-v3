@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeExportImageTasksRequest, DescribeExportImageTasksResult } from "../models/index";
+import { DescribeExportImageTasksRequest, DescribeExportImageTasksResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeExportImageTasksCommand,
   serializeAws_ec2DescribeExportImageTasksCommand,

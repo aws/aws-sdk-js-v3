@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { DeleteWorkspaceImageRequest, DeleteWorkspaceImageResult } from "../models/index";
+import { DeleteWorkspaceImageRequest, DeleteWorkspaceImageResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWorkspaceImageCommand,
   serializeAws_json1_1DeleteWorkspaceImageCommand,

@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { ApiKey, CreateApiKeyRequest } from "../models/index";
+import { ApiKey, CreateApiKeyRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateApiKeyCommand,
   serializeAws_restJson1CreateApiKeyCommand,

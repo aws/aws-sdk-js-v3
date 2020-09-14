@@ -1,5 +1,5 @@
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/index";
+import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
 import {
   deserializeAws_queryListTagsForResourceCommand,
   serializeAws_queryListTagsForResourceCommand,

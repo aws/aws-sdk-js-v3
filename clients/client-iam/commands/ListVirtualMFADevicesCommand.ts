@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListVirtualMFADevicesRequest, ListVirtualMFADevicesResponse } from "../models/index";
+import { ListVirtualMFADevicesRequest, ListVirtualMFADevicesResponse } from "../models/models_0";
 import {
   deserializeAws_queryListVirtualMFADevicesCommand,
   serializeAws_queryListVirtualMFADevicesCommand,

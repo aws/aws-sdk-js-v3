@@ -1,5 +1,5 @@
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { DescribeComputeEnvironmentsRequest, DescribeComputeEnvironmentsResponse } from "../models/index";
+import { DescribeComputeEnvironmentsRequest, DescribeComputeEnvironmentsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeComputeEnvironmentsCommand,
   serializeAws_restJson1DescribeComputeEnvironmentsCommand,

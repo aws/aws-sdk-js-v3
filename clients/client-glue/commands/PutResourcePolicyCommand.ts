@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/index";
+import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1PutResourcePolicyCommand,
   serializeAws_json1_1PutResourcePolicyCommand,

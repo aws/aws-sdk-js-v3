@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
-import { DescribeReportCreationInput, DescribeReportCreationOutput } from "../models/index";
+import { DescribeReportCreationInput, DescribeReportCreationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeReportCreationCommand,
   serializeAws_json1_1DescribeReportCreationCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
-import { CreateFleetRequest, CreateFleetResponse } from "../models/index";
+import { CreateFleetRequest, CreateFleetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFleetCommand,
   serializeAws_restJson1CreateFleetCommand,

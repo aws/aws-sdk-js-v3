@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { PutBackupVaultNotificationsInput } from "../models/index";
+import { PutBackupVaultNotificationsInput } from "../models/models_0";
 import {
   deserializeAws_restJson1PutBackupVaultNotificationsCommand,
   serializeAws_restJson1PutBackupVaultNotificationsCommand,

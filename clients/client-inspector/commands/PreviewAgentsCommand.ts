@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { PreviewAgentsRequest, PreviewAgentsResponse } from "../models/index";
+import { PreviewAgentsRequest, PreviewAgentsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PreviewAgentsCommand,
   serializeAws_json1_1PreviewAgentsCommand,

@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeInstanceCreditSpecificationsRequest,
   DescribeInstanceCreditSpecificationsResult,
-} from "../models/index";
+} from "../models/models_2";
 import {
   deserializeAws_ec2DescribeInstanceCreditSpecificationsCommand,
   serializeAws_ec2DescribeInstanceCreditSpecificationsCommand,

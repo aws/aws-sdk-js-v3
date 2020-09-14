@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { RegisterAVSDeviceRequest, RegisterAVSDeviceResponse } from "../models/index";
+import { RegisterAVSDeviceRequest, RegisterAVSDeviceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterAVSDeviceCommand,
   serializeAws_json1_1RegisterAVSDeviceCommand,

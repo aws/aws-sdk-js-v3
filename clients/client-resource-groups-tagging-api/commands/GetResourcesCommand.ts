@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
-import { GetResourcesInput, GetResourcesOutput } from "../models/index";
+import { GetResourcesInput, GetResourcesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetResourcesCommand,
   serializeAws_json1_1GetResourcesCommand,

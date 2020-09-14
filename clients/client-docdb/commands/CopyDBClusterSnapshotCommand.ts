@@ -1,5 +1,5 @@
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult } from "../models/index";
+import { CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_queryCopyDBClusterSnapshotCommand,
   serializeAws_queryCopyDBClusterSnapshotCommand,

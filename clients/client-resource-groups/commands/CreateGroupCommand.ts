@@ -1,5 +1,5 @@
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
-import { CreateGroupInput, CreateGroupOutput } from "../models/index";
+import { CreateGroupInput, CreateGroupOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateGroupCommand,
   serializeAws_restJson1CreateGroupCommand,

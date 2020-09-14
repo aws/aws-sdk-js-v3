@@ -1,5 +1,5 @@
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { ListPendingInvitationResourcesRequest, ListPendingInvitationResourcesResponse } from "../models/index";
+import { ListPendingInvitationResourcesRequest, ListPendingInvitationResourcesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPendingInvitationResourcesCommand,
   serializeAws_restJson1ListPendingInvitationResourcesCommand,

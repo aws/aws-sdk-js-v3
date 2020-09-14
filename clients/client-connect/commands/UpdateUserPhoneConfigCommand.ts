@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserPhoneConfigRequest } from "../models/index";
+import { UpdateUserPhoneConfigRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateUserPhoneConfigCommand,
   serializeAws_restJson1UpdateUserPhoneConfigCommand,

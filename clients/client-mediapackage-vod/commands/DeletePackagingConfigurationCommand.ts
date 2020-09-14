@@ -1,5 +1,5 @@
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import { DeletePackagingConfigurationRequest, DeletePackagingConfigurationResponse } from "../models/index";
+import { DeletePackagingConfigurationRequest, DeletePackagingConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePackagingConfigurationCommand,
   serializeAws_restJson1DeletePackagingConfigurationCommand,

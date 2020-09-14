@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { PutRepositoryTriggersInput, PutRepositoryTriggersOutput } from "../models/index";
+import { PutRepositoryTriggersInput, PutRepositoryTriggersOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1PutRepositoryTriggersCommand,
   serializeAws_json1_1PutRepositoryTriggersCommand,

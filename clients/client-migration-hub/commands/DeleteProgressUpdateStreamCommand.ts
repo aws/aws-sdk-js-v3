@@ -1,5 +1,5 @@
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { DeleteProgressUpdateStreamRequest, DeleteProgressUpdateStreamResult } from "../models/index";
+import { DeleteProgressUpdateStreamRequest, DeleteProgressUpdateStreamResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProgressUpdateStreamCommand,
   serializeAws_json1_1DeleteProgressUpdateStreamCommand,

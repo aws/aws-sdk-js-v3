@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { StartInstanceRefreshAnswer, StartInstanceRefreshType } from "../models/index";
+import { StartInstanceRefreshAnswer, StartInstanceRefreshType } from "../models/models_0";
 import {
   deserializeAws_queryStartInstanceRefreshCommand,
   serializeAws_queryStartInstanceRefreshCommand,

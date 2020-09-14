@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DeleteDBInstanceAutomatedBackupMessage, DeleteDBInstanceAutomatedBackupResult } from "../models/index";
+import { DeleteDBInstanceAutomatedBackupMessage, DeleteDBInstanceAutomatedBackupResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBInstanceAutomatedBackupCommand,
   serializeAws_queryDeleteDBInstanceAutomatedBackupCommand,

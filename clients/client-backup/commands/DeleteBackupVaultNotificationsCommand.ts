@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteBackupVaultNotificationsInput } from "../models/index";
+import { DeleteBackupVaultNotificationsInput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBackupVaultNotificationsCommand,
   serializeAws_restJson1DeleteBackupVaultNotificationsCommand,

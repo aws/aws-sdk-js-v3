@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteHsmClientCertificateMessage } from "../models/index";
+import { DeleteHsmClientCertificateMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteHsmClientCertificateCommand,
   serializeAws_queryDeleteHsmClientCertificateCommand,

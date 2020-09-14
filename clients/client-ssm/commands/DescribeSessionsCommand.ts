@@ -1,5 +1,6 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DescribeSessionsRequest, DescribeSessionsResponse } from "../models/index";
+import { DescribeSessionsRequest } from "../models/models_0";
+import { DescribeSessionsResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DescribeSessionsCommand,
   serializeAws_json1_1DescribeSessionsCommand,

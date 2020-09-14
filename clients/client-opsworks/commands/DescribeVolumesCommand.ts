@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DescribeVolumesRequest, DescribeVolumesResult } from "../models/index";
+import { DescribeVolumesRequest, DescribeVolumesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeVolumesCommand,
   serializeAws_json1_1DescribeVolumesCommand,

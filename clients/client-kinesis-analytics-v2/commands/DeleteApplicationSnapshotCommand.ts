@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { DeleteApplicationSnapshotRequest, DeleteApplicationSnapshotResponse } from "../models/index";
+import { DeleteApplicationSnapshotRequest, DeleteApplicationSnapshotResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApplicationSnapshotCommand,
   serializeAws_json1_1DeleteApplicationSnapshotCommand,

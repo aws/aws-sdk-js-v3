@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { CancelKeyDeletionRequest, CancelKeyDeletionResponse } from "../models/index";
+import { CancelKeyDeletionRequest, CancelKeyDeletionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelKeyDeletionCommand,
   serializeAws_json1_1CancelKeyDeletionCommand,

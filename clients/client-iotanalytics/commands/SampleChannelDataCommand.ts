@@ -1,5 +1,5 @@
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { SampleChannelDataRequest, SampleChannelDataResponse } from "../models/index";
+import { SampleChannelDataRequest, SampleChannelDataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SampleChannelDataCommand,
   serializeAws_restJson1SampleChannelDataCommand,

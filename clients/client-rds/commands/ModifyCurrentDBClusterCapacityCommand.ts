@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DBClusterCapacityInfo, ModifyCurrentDBClusterCapacityMessage } from "../models/index";
+import { DBClusterCapacityInfo, ModifyCurrentDBClusterCapacityMessage } from "../models/models_1";
 import {
   deserializeAws_queryModifyCurrentDBClusterCapacityCommand,
   serializeAws_queryModifyCurrentDBClusterCapacityCommand,

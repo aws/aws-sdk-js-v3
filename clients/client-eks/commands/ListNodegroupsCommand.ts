@@ -1,5 +1,5 @@
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { ListNodegroupsRequest, ListNodegroupsResponse } from "../models/index";
+import { ListNodegroupsRequest, ListNodegroupsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListNodegroupsCommand,
   serializeAws_restJson1ListNodegroupsCommand,

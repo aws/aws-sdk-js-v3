@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { ActivateEventSourceRequest } from "../models/index";
+import { ActivateEventSourceRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1ActivateEventSourceCommand,
   serializeAws_json1_1ActivateEventSourceCommand,

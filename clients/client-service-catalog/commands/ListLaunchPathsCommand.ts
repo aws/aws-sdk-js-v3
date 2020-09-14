@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { ListLaunchPathsInput, ListLaunchPathsOutput } from "../models/index";
+import { ListLaunchPathsInput, ListLaunchPathsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListLaunchPathsCommand,
   serializeAws_json1_1ListLaunchPathsCommand,

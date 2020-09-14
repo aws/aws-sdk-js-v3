@@ -1,5 +1,5 @@
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
-import { DeleteGroupInput, DeleteGroupOutput } from "../models/index";
+import { DeleteGroupInput, DeleteGroupOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteGroupCommand,
   serializeAws_restJson1DeleteGroupCommand,

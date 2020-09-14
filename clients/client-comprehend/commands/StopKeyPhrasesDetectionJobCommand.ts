@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StopKeyPhrasesDetectionJobRequest, StopKeyPhrasesDetectionJobResponse } from "../models/index";
+import { StopKeyPhrasesDetectionJobRequest, StopKeyPhrasesDetectionJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand,
   serializeAws_json1_1StopKeyPhrasesDetectionJobCommand,

@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { DeleteConfigurationTemplateMessage } from "../models/index";
+import { DeleteConfigurationTemplateMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteConfigurationTemplateCommand,
   serializeAws_queryDeleteConfigurationTemplateCommand,

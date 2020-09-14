@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteDomainConfigurationRequest, DeleteDomainConfigurationResponse } from "../models/index";
+import { DeleteDomainConfigurationRequest, DeleteDomainConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDomainConfigurationCommand,
   serializeAws_restJson1DeleteDomainConfigurationCommand,

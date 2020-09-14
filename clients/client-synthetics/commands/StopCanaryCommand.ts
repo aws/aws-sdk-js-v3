@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
-import { StopCanaryRequest, StopCanaryResponse } from "../models/index";
+import { StopCanaryRequest, StopCanaryResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StopCanaryCommand,
   serializeAws_restJson1StopCanaryCommand,

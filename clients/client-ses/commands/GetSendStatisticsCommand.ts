@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { GetSendStatisticsResponse } from "../models/index";
+import { GetSendStatisticsResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetSendStatisticsCommand,
   serializeAws_queryGetSendStatisticsCommand,

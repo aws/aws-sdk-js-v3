@@ -1,5 +1,5 @@
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { UpdateFindingsFeedbackRequest, UpdateFindingsFeedbackResponse } from "../models/index";
+import { UpdateFindingsFeedbackRequest, UpdateFindingsFeedbackResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFindingsFeedbackCommand,
   serializeAws_restJson1UpdateFindingsFeedbackCommand,

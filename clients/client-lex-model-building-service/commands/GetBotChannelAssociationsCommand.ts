@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { GetBotChannelAssociationsRequest, GetBotChannelAssociationsResponse } from "../models/index";
+import { GetBotChannelAssociationsRequest, GetBotChannelAssociationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBotChannelAssociationsCommand,
   serializeAws_restJson1GetBotChannelAssociationsCommand,

@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteMatchmakingRuleSetInput, DeleteMatchmakingRuleSetOutput } from "../models/index";
+import { DeleteMatchmakingRuleSetInput, DeleteMatchmakingRuleSetOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMatchmakingRuleSetCommand,
   serializeAws_json1_1DeleteMatchmakingRuleSetCommand,

@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { GetCompatibleElasticsearchVersionsRequest, GetCompatibleElasticsearchVersionsResponse } from "../models/index";
+import {
+  GetCompatibleElasticsearchVersionsRequest,
+  GetCompatibleElasticsearchVersionsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand,
   serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand,

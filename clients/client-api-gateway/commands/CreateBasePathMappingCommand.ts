@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { BasePathMapping, CreateBasePathMappingRequest } from "../models/index";
+import { BasePathMapping, CreateBasePathMappingRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateBasePathMappingCommand,
   serializeAws_restJson1CreateBasePathMappingCommand,

@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { CreateCoreDefinitionRequest, CreateCoreDefinitionResponse } from "../models/index";
+import { CreateCoreDefinitionRequest, CreateCoreDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCoreDefinitionCommand,
   serializeAws_restJson1CreateCoreDefinitionCommand,

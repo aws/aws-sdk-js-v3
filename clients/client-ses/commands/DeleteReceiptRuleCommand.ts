@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { DeleteReceiptRuleRequest, DeleteReceiptRuleResponse } from "../models/index";
+import { DeleteReceiptRuleRequest, DeleteReceiptRuleResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteReceiptRuleCommand,
   serializeAws_queryDeleteReceiptRuleCommand,

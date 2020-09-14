@@ -1,5 +1,5 @@
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import { UpdateDestinationInput, UpdateDestinationOutput } from "../models/index";
+import { UpdateDestinationInput, UpdateDestinationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDestinationCommand,
   serializeAws_json1_1UpdateDestinationCommand,

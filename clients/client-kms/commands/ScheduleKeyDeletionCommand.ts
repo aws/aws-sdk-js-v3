@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ScheduleKeyDeletionRequest, ScheduleKeyDeletionResponse } from "../models/index";
+import { ScheduleKeyDeletionRequest, ScheduleKeyDeletionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ScheduleKeyDeletionCommand,
   serializeAws_json1_1ScheduleKeyDeletionCommand,

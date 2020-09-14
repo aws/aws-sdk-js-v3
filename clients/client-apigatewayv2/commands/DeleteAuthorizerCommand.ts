@@ -1,5 +1,5 @@
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteAuthorizerRequest } from "../models/index";
+import { DeleteAuthorizerRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAuthorizerCommand,
   serializeAws_restJson1DeleteAuthorizerCommand,

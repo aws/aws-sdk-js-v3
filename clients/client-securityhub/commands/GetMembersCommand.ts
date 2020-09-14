@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { GetMembersRequest, GetMembersResponse } from "../models/index";
+import { GetMembersRequest, GetMembersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMembersCommand,
   serializeAws_restJson1GetMembersCommand,

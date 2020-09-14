@@ -1,5 +1,5 @@
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StopTrainingEntityRecognizerRequest, StopTrainingEntityRecognizerResponse } from "../models/index";
+import { StopTrainingEntityRecognizerRequest, StopTrainingEntityRecognizerResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopTrainingEntityRecognizerCommand,
   serializeAws_json1_1StopTrainingEntityRecognizerCommand,

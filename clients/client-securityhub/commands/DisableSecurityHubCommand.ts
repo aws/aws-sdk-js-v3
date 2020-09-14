@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { DisableSecurityHubRequest, DisableSecurityHubResponse } from "../models/index";
+import { DisableSecurityHubRequest, DisableSecurityHubResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisableSecurityHubCommand,
   serializeAws_restJson1DisableSecurityHubCommand,

@@ -1,5 +1,5 @@
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { ListWebhooksRequest, ListWebhooksResult } from "../models/index";
+import { ListWebhooksRequest, ListWebhooksResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ListWebhooksCommand,
   serializeAws_restJson1ListWebhooksCommand,

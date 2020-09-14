@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListQueuesRequest, ListQueuesResponse } from "../models/index";
+import { ListQueuesRequest, ListQueuesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListQueuesCommand,
   serializeAws_restJson1ListQueuesCommand,

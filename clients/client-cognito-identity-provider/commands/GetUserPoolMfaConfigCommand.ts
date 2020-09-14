@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse } from "../models/index";
+import { GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetUserPoolMfaConfigCommand,
   serializeAws_json1_1GetUserPoolMfaConfigCommand,

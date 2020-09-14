@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { RemoveAvailabilityZonesInput, RemoveAvailabilityZonesOutput } from "../models/index";
+import { RemoveAvailabilityZonesInput, RemoveAvailabilityZonesOutput } from "../models/models_0";
 import {
   deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand,
   serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand,

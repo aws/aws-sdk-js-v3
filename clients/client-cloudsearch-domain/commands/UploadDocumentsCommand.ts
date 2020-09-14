@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
-import { UploadDocumentsRequest, UploadDocumentsResponse } from "../models/index";
+import { UploadDocumentsRequest, UploadDocumentsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UploadDocumentsCommand,
   serializeAws_restJson1UploadDocumentsCommand,

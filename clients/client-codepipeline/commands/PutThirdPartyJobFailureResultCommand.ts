@@ -1,5 +1,5 @@
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { PutThirdPartyJobFailureResultInput } from "../models/index";
+import { PutThirdPartyJobFailureResultInput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutThirdPartyJobFailureResultCommand,
   serializeAws_json1_1PutThirdPartyJobFailureResultCommand,

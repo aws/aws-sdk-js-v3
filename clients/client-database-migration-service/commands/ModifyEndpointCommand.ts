@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { ModifyEndpointMessage, ModifyEndpointResponse } from "../models/index";
+import { ModifyEndpointMessage, ModifyEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyEndpointCommand,
   serializeAws_json1_1ModifyEndpointCommand,

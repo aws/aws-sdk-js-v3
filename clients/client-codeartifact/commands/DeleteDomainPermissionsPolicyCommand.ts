@@ -1,5 +1,5 @@
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { DeleteDomainPermissionsPolicyRequest, DeleteDomainPermissionsPolicyResult } from "../models/index";
+import { DeleteDomainPermissionsPolicyRequest, DeleteDomainPermissionsPolicyResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDomainPermissionsPolicyCommand,
   serializeAws_restJson1DeleteDomainPermissionsPolicyCommand,

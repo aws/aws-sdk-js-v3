@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DescribeElasticLoadBalancersRequest, DescribeElasticLoadBalancersResult } from "../models/index";
+import { DescribeElasticLoadBalancersRequest, DescribeElasticLoadBalancersResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeElasticLoadBalancersCommand,
   serializeAws_json1_1DescribeElasticLoadBalancersCommand,

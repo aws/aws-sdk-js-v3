@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { CreateTagsRequest, CreateTagsResult } from "../models/index";
+import { CreateTagsRequest, CreateTagsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateTagsCommand,
   serializeAws_json1_1CreateTagsCommand,

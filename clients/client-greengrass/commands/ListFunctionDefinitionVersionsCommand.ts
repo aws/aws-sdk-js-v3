@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { ListFunctionDefinitionVersionsRequest, ListFunctionDefinitionVersionsResponse } from "../models/index";
+import { ListFunctionDefinitionVersionsRequest, ListFunctionDefinitionVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListFunctionDefinitionVersionsCommand,
   serializeAws_restJson1ListFunctionDefinitionVersionsCommand,

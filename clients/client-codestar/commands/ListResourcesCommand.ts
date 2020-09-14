@@ -1,5 +1,5 @@
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import { ListResourcesRequest, ListResourcesResult } from "../models/index";
+import { ListResourcesRequest, ListResourcesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListResourcesCommand,
   serializeAws_json1_1ListResourcesCommand,

@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateRouteTableRequest, CreateRouteTableResult } from "../models/index";
+import { CreateRouteTableRequest, CreateRouteTableResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreateRouteTableCommand,
   serializeAws_ec2CreateRouteTableCommand,

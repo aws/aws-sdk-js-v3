@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeClusterSnapshotsMessage, SnapshotMessage } from "../models/index";
+import { DescribeClusterSnapshotsMessage, SnapshotMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeClusterSnapshotsCommand,
   serializeAws_queryDescribeClusterSnapshotsCommand,

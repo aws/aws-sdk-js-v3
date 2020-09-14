@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { Stage, UpdateStageRequest } from "../models/index";
+import { Stage, UpdateStageRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateStageCommand,
   serializeAws_restJson1UpdateStageCommand,

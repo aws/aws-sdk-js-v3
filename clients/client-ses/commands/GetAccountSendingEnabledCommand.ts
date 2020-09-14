@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { GetAccountSendingEnabledResponse } from "../models/index";
+import { GetAccountSendingEnabledResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetAccountSendingEnabledCommand,
   serializeAws_queryGetAccountSendingEnabledCommand,

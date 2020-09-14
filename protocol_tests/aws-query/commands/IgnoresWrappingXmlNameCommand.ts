@@ -1,5 +1,5 @@
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { IgnoresWrappingXmlNameOutput } from "../models/index";
+import { IgnoresWrappingXmlNameOutput } from "../models/models_0";
 import {
   deserializeAws_queryIgnoresWrappingXmlNameCommand,
   serializeAws_queryIgnoresWrappingXmlNameCommand,

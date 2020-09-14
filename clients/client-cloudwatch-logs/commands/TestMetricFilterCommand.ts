@@ -1,5 +1,5 @@
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { TestMetricFilterRequest, TestMetricFilterResponse } from "../models/index";
+import { TestMetricFilterRequest, TestMetricFilterResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1TestMetricFilterCommand,
   serializeAws_json1_1TestMetricFilterCommand,

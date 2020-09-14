@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { CreateThemeRequest, CreateThemeResponse } from "../models/index";
+import { CreateThemeRequest, CreateThemeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateThemeCommand,
   serializeAws_restJson1CreateThemeCommand,

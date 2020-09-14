@@ -1,5 +1,5 @@
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
-import { UpdateJobExecutionRequest, UpdateJobExecutionResponse } from "../models/index";
+import { UpdateJobExecutionRequest, UpdateJobExecutionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateJobExecutionCommand,
   serializeAws_restJson1UpdateJobExecutionCommand,

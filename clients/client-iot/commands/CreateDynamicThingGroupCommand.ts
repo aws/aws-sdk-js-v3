@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateDynamicThingGroupRequest, CreateDynamicThingGroupResponse } from "../models/index";
+import { CreateDynamicThingGroupRequest, CreateDynamicThingGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDynamicThingGroupCommand,
   serializeAws_restJson1CreateDynamicThingGroupCommand,

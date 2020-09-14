@@ -1,5 +1,5 @@
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { DeleteDBClusterParameterGroupMessage } from "../models/index";
+import { DeleteDBClusterParameterGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBClusterParameterGroupCommand,
   serializeAws_queryDeleteDBClusterParameterGroupCommand,

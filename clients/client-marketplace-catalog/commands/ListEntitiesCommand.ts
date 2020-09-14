@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import { ListEntitiesRequest, ListEntitiesResponse } from "../models/index";
+import { ListEntitiesRequest, ListEntitiesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListEntitiesCommand,
   serializeAws_restJson1ListEntitiesCommand,

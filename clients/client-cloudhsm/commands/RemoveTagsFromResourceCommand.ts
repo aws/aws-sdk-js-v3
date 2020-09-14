@@ -1,5 +1,5 @@
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { RemoveTagsFromResourceRequest, RemoveTagsFromResourceResponse } from "../models/index";
+import { RemoveTagsFromResourceRequest, RemoveTagsFromResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTagsFromResourceCommand,
   serializeAws_json1_1RemoveTagsFromResourceCommand,

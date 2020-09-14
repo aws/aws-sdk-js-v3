@@ -2,7 +2,7 @@ import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   DescribeConfigurationRecorderStatusRequest,
   DescribeConfigurationRecorderStatusResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeConfigurationRecorderStatusCommand,
   serializeAws_json1_1DescribeConfigurationRecorderStatusCommand,

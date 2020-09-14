@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { ListFunctionsRequest, ListFunctionsResponse } from "../models/index";
+import { ListFunctionsRequest, ListFunctionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListFunctionsCommand,
   serializeAws_restJson1ListFunctionsCommand,

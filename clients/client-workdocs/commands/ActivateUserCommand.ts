@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { ActivateUserRequest, ActivateUserResponse } from "../models/index";
+import { ActivateUserRequest, ActivateUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ActivateUserCommand,
   serializeAws_restJson1ActivateUserCommand,

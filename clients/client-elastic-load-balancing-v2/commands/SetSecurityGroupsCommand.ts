@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { SetSecurityGroupsInput, SetSecurityGroupsOutput } from "../models/index";
+import { SetSecurityGroupsInput, SetSecurityGroupsOutput } from "../models/models_0";
 import {
   deserializeAws_querySetSecurityGroupsCommand,
   serializeAws_querySetSecurityGroupsCommand,

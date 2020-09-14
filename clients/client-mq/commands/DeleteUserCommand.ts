@@ -1,5 +1,5 @@
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { DeleteUserRequest, DeleteUserResponse } from "../models/index";
+import { DeleteUserRequest, DeleteUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteUserCommand,
   serializeAws_restJson1DeleteUserCommand,

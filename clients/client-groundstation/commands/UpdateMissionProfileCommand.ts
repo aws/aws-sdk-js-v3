@@ -1,5 +1,5 @@
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { MissionProfileIdResponse, UpdateMissionProfileRequest } from "../models/index";
+import { MissionProfileIdResponse, UpdateMissionProfileRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateMissionProfileCommand,
   serializeAws_restJson1UpdateMissionProfileCommand,

@@ -1,5 +1,5 @@
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { ValidateConfigurationRequest } from "../models/index";
+import { ValidateConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1ValidateConfigurationCommand,
   serializeAws_restJson1ValidateConfigurationCommand,

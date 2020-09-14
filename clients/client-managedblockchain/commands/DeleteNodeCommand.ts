@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { DeleteNodeInput, DeleteNodeOutput } from "../models/index";
+import { DeleteNodeInput, DeleteNodeOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteNodeCommand,
   serializeAws_restJson1DeleteNodeCommand,

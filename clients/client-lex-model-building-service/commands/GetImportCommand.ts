@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { GetImportRequest, GetImportResponse } from "../models/index";
+import { GetImportRequest, GetImportResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetImportCommand,
   serializeAws_restJson1GetImportCommand,

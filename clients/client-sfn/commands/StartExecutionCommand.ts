@@ -1,5 +1,5 @@
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
-import { StartExecutionInput, StartExecutionOutput } from "../models/index";
+import { StartExecutionInput, StartExecutionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0StartExecutionCommand,
   serializeAws_json1_0StartExecutionCommand,

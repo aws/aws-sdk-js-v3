@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { AddTagsToStreamInput } from "../models/index";
+import { AddTagsToStreamInput } from "../models/models_0";
 import {
   deserializeAws_json1_1AddTagsToStreamCommand,
   serializeAws_json1_1AddTagsToStreamCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { UpdateGeoMatchSetRequest, UpdateGeoMatchSetResponse } from "../models/index";
+import { UpdateGeoMatchSetRequest, UpdateGeoMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateGeoMatchSetCommand,
   serializeAws_json1_1UpdateGeoMatchSetCommand,

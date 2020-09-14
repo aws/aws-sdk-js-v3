@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { GetInvitationConfigurationRequest, GetInvitationConfigurationResponse } from "../models/index";
+import { GetInvitationConfigurationRequest, GetInvitationConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetInvitationConfigurationCommand,
   serializeAws_json1_1GetInvitationConfigurationCommand,

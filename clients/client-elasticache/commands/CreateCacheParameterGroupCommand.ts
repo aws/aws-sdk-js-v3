@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { CreateCacheParameterGroupMessage, CreateCacheParameterGroupResult } from "../models/index";
+import { CreateCacheParameterGroupMessage, CreateCacheParameterGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateCacheParameterGroupCommand,
   serializeAws_queryCreateCacheParameterGroupCommand,

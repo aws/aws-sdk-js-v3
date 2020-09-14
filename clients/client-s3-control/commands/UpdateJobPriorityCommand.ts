@@ -1,5 +1,5 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { UpdateJobPriorityRequest, UpdateJobPriorityResult } from "../models/index";
+import { UpdateJobPriorityRequest, UpdateJobPriorityResult } from "../models/models_0";
 import {
   deserializeAws_restXmlUpdateJobPriorityCommand,
   serializeAws_restXmlUpdateJobPriorityCommand,

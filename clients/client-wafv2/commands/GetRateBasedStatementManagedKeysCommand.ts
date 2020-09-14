@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
-import { GetRateBasedStatementManagedKeysRequest, GetRateBasedStatementManagedKeysResponse } from "../models/index";
+import { GetRateBasedStatementManagedKeysRequest, GetRateBasedStatementManagedKeysResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRateBasedStatementManagedKeysCommand,
   serializeAws_json1_1GetRateBasedStatementManagedKeysCommand,

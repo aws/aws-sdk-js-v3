@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { DeleteAttributesRequest, DeleteAttributesResponse } from "../models/index";
+import { DeleteAttributesRequest, DeleteAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAttributesCommand,
   serializeAws_json1_1DeleteAttributesCommand,

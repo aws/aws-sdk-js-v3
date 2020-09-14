@@ -1,5 +1,5 @@
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
-import { UpdateDomainContactPrivacyRequest, UpdateDomainContactPrivacyResponse } from "../models/index";
+import { UpdateDomainContactPrivacyRequest, UpdateDomainContactPrivacyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDomainContactPrivacyCommand,
   serializeAws_json1_1UpdateDomainContactPrivacyCommand,

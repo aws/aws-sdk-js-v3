@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { BatchDisableStandardsRequest, BatchDisableStandardsResponse } from "../models/index";
+import { BatchDisableStandardsRequest, BatchDisableStandardsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDisableStandardsCommand,
   serializeAws_restJson1BatchDisableStandardsCommand,

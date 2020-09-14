@@ -1,5 +1,5 @@
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { GetUploadStatusRequest, GetUploadStatusResponse } from "../models/index";
+import { GetUploadStatusRequest, GetUploadStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetUploadStatusCommand,
   serializeAws_json1_1GetUploadStatusCommand,

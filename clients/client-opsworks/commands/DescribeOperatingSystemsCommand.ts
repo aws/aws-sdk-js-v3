@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DescribeOperatingSystemsResponse } from "../models/index";
+import { DescribeOperatingSystemsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeOperatingSystemsCommand,
   serializeAws_json1_1DescribeOperatingSystemsCommand,

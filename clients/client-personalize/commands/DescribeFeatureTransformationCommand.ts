@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DescribeFeatureTransformationRequest, DescribeFeatureTransformationResponse } from "../models/index";
+import { DescribeFeatureTransformationRequest, DescribeFeatureTransformationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFeatureTransformationCommand,
   serializeAws_json1_1DescribeFeatureTransformationCommand,

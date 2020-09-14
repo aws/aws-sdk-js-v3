@@ -1,5 +1,8 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { SearchTransitGatewayMulticastGroupsRequest, SearchTransitGatewayMulticastGroupsResult } from "../models/index";
+import {
+  SearchTransitGatewayMulticastGroupsRequest,
+  SearchTransitGatewayMulticastGroupsResult,
+} from "../models/models_4";
 import {
   deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommand,
   serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand,

@@ -1,5 +1,5 @@
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import { SynthesizeSpeechInput, SynthesizeSpeechOutput } from "../models/index";
+import { SynthesizeSpeechInput, SynthesizeSpeechOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1SynthesizeSpeechCommand,
   serializeAws_restJson1SynthesizeSpeechCommand,

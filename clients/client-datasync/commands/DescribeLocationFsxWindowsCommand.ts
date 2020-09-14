@@ -1,5 +1,5 @@
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { DescribeLocationFsxWindowsRequest, DescribeLocationFsxWindowsResponse } from "../models/index";
+import { DescribeLocationFsxWindowsRequest, DescribeLocationFsxWindowsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLocationFsxWindowsCommand,
   serializeAws_json1_1DescribeLocationFsxWindowsCommand,

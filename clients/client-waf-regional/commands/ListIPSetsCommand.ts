@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { ListIPSetsRequest, ListIPSetsResponse } from "../models/index";
+import { ListIPSetsRequest, ListIPSetsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListIPSetsCommand,
   serializeAws_json1_1ListIPSetsCommand,

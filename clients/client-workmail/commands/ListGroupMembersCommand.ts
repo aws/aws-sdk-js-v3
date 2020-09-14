@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { ListGroupMembersRequest, ListGroupMembersResponse } from "../models/index";
+import { ListGroupMembersRequest, ListGroupMembersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListGroupMembersCommand,
   serializeAws_json1_1ListGroupMembersCommand,

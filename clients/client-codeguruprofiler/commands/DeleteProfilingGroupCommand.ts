@@ -1,5 +1,5 @@
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import { DeleteProfilingGroupRequest, DeleteProfilingGroupResponse } from "../models/index";
+import { DeleteProfilingGroupRequest, DeleteProfilingGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteProfilingGroupCommand,
   serializeAws_restJson1DeleteProfilingGroupCommand,

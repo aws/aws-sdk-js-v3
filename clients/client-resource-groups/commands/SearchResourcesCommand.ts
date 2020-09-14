@@ -1,5 +1,5 @@
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
-import { SearchResourcesInput, SearchResourcesOutput } from "../models/index";
+import { SearchResourcesInput, SearchResourcesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1SearchResourcesCommand,
   serializeAws_restJson1SearchResourcesCommand,

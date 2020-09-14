@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { CreateGlobalReplicationGroupMessage, CreateGlobalReplicationGroupResult } from "../models/index";
+import { CreateGlobalReplicationGroupMessage, CreateGlobalReplicationGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateGlobalReplicationGroupCommand,
   serializeAws_queryCreateGlobalReplicationGroupCommand,

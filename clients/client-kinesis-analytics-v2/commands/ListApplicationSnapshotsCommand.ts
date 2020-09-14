@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { ListApplicationSnapshotsRequest, ListApplicationSnapshotsResponse } from "../models/index";
+import { ListApplicationSnapshotsRequest, ListApplicationSnapshotsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListApplicationSnapshotsCommand,
   serializeAws_json1_1ListApplicationSnapshotsCommand,

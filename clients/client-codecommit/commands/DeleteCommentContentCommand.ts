@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { DeleteCommentContentInput, DeleteCommentContentOutput } from "../models/index";
+import { DeleteCommentContentInput, DeleteCommentContentOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCommentContentCommand,
   serializeAws_json1_1DeleteCommentContentCommand,

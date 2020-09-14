@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { TagResourceRequest, TagResourceResult } from "../models/index";
+import { TagResourceRequest, TagResourceResult } from "../models/models_1";
 import {
   deserializeAws_json1_1TagResourceCommand,
   serializeAws_json1_1TagResourceCommand,

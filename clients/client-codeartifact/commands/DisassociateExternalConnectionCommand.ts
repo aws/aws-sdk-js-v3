@@ -1,5 +1,5 @@
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { DisassociateExternalConnectionRequest, DisassociateExternalConnectionResult } from "../models/index";
+import { DisassociateExternalConnectionRequest, DisassociateExternalConnectionResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateExternalConnectionCommand,
   serializeAws_restJson1DisassociateExternalConnectionCommand,

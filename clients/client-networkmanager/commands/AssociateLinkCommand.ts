@@ -1,5 +1,5 @@
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { AssociateLinkRequest, AssociateLinkResponse } from "../models/index";
+import { AssociateLinkRequest, AssociateLinkResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateLinkCommand,
   serializeAws_restJson1AssociateLinkCommand,

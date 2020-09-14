@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DescribeDeliveryChannelsRequest, DescribeDeliveryChannelsResponse } from "../models/index";
+import { DescribeDeliveryChannelsRequest, DescribeDeliveryChannelsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDeliveryChannelsCommand,
   serializeAws_json1_1DescribeDeliveryChannelsCommand,

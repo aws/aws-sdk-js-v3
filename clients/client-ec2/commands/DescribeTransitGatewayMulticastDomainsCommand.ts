@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeTransitGatewayMulticastDomainsRequest,
   DescribeTransitGatewayMulticastDomainsResult,
-} from "../models/index";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand,
   serializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand,

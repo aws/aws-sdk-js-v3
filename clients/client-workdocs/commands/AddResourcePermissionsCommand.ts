@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { AddResourcePermissionsRequest, AddResourcePermissionsResponse } from "../models/index";
+import { AddResourcePermissionsRequest, AddResourcePermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AddResourcePermissionsCommand,
   serializeAws_restJson1AddResourcePermissionsCommand,

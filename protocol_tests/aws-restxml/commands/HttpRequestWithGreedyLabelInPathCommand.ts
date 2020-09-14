@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { HttpRequestWithGreedyLabelInPathInput } from "../models/index";
+import { HttpRequestWithGreedyLabelInPathInput } from "../models/models_0";
 import {
   deserializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand,
   serializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand,

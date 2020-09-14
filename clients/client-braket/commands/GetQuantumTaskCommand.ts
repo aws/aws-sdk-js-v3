@@ -1,5 +1,5 @@
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import { GetQuantumTaskRequest, GetQuantumTaskResponse } from "../models/index";
+import { GetQuantumTaskRequest, GetQuantumTaskResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetQuantumTaskCommand,
   serializeAws_restJson1GetQuantumTaskCommand,

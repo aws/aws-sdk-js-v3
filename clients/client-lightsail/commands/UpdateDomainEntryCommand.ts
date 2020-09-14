@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { UpdateDomainEntryRequest, UpdateDomainEntryResult } from "../models/index";
+import { UpdateDomainEntryRequest, UpdateDomainEntryResult } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateDomainEntryCommand,
   serializeAws_json1_1UpdateDomainEntryCommand,

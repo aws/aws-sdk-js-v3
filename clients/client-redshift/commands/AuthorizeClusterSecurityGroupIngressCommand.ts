@@ -2,7 +2,7 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import {
   AuthorizeClusterSecurityGroupIngressMessage,
   AuthorizeClusterSecurityGroupIngressResult,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommand,
   serializeAws_queryAuthorizeClusterSecurityGroupIngressCommand,

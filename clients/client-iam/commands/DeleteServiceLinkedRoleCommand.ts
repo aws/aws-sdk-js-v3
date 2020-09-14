@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteServiceLinkedRoleRequest, DeleteServiceLinkedRoleResponse } from "../models/index";
+import { DeleteServiceLinkedRoleRequest, DeleteServiceLinkedRoleResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteServiceLinkedRoleCommand,
   serializeAws_queryDeleteServiceLinkedRoleCommand,

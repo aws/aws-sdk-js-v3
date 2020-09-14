@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { ModifyDBClusterMessage, ModifyDBClusterResult } from "../models/index";
+import { ModifyDBClusterMessage, ModifyDBClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryModifyDBClusterCommand,
   serializeAws_queryModifyDBClusterCommand,

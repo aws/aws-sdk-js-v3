@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { DescribeProvisionedProductInput, DescribeProvisionedProductOutput } from "../models/index";
+import { DescribeProvisionedProductInput, DescribeProvisionedProductOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeProvisionedProductCommand,
   serializeAws_json1_1DescribeProvisionedProductCommand,

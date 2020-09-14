@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { StartOutboundVoiceContactRequest, StartOutboundVoiceContactResponse } from "../models/index";
+import { StartOutboundVoiceContactRequest, StartOutboundVoiceContactResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartOutboundVoiceContactCommand,
   serializeAws_restJson1StartOutboundVoiceContactCommand,

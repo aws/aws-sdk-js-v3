@@ -1,5 +1,8 @@
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DescribeMountTargetSecurityGroupsRequest, DescribeMountTargetSecurityGroupsResponse } from "../models/index";
+import {
+  DescribeMountTargetSecurityGroupsRequest,
+  DescribeMountTargetSecurityGroupsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand,
   serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand,

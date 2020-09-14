@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateInstancesRequest, CreateInstancesResult } from "../models/index";
+import { CreateInstancesRequest, CreateInstancesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateInstancesCommand,
   serializeAws_json1_1CreateInstancesCommand,

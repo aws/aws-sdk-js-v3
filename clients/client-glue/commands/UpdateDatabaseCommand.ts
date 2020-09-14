@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateDatabaseRequest, UpdateDatabaseResponse } from "../models/index";
+import { UpdateDatabaseRequest, UpdateDatabaseResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateDatabaseCommand,
   serializeAws_json1_1UpdateDatabaseCommand,

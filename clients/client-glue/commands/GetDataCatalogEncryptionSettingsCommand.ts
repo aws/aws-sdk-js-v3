@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetDataCatalogEncryptionSettingsRequest, GetDataCatalogEncryptionSettingsResponse } from "../models/index";
+import { GetDataCatalogEncryptionSettingsRequest, GetDataCatalogEncryptionSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommand,
   serializeAws_json1_1GetDataCatalogEncryptionSettingsCommand,

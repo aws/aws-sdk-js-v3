@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { ListReviewableHITsRequest, ListReviewableHITsResponse } from "../models/index";
+import { ListReviewableHITsRequest, ListReviewableHITsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListReviewableHITsCommand,
   serializeAws_json1_1ListReviewableHITsCommand,

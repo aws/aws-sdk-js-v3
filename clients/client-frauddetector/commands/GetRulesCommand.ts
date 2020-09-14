@@ -1,5 +1,5 @@
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { GetRulesRequest, GetRulesResult } from "../models/index";
+import { GetRulesRequest, GetRulesResult } from "../models/models_0";
 import { deserializeAws_json1_1GetRulesCommand, serializeAws_json1_1GetRulesCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

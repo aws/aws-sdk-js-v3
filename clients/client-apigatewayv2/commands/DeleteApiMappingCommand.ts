@@ -1,5 +1,5 @@
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteApiMappingRequest } from "../models/index";
+import { DeleteApiMappingRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteApiMappingCommand,
   serializeAws_restJson1DeleteApiMappingCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
-import { GetTagValuesInput, GetTagValuesOutput } from "../models/index";
+import { GetTagValuesInput, GetTagValuesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetTagValuesCommand,
   serializeAws_json1_1GetTagValuesCommand,

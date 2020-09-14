@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { RemoveRoleFromDBClusterMessage } from "../models/index";
+import { RemoveRoleFromDBClusterMessage } from "../models/models_0";
 import {
   deserializeAws_queryRemoveRoleFromDBClusterCommand,
   serializeAws_queryRemoveRoleFromDBClusterCommand,

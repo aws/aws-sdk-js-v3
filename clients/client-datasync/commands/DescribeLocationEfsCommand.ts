@@ -1,5 +1,5 @@
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { DescribeLocationEfsRequest, DescribeLocationEfsResponse } from "../models/index";
+import { DescribeLocationEfsRequest, DescribeLocationEfsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLocationEfsCommand,
   serializeAws_json1_1DescribeLocationEfsCommand,

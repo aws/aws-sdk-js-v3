@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetCapacityReservationUsageRequest, GetCapacityReservationUsageResult } from "../models/index";
+import { GetCapacityReservationUsageRequest, GetCapacityReservationUsageResult } from "../models/models_3";
 import {
   deserializeAws_ec2GetCapacityReservationUsageCommand,
   serializeAws_ec2GetCapacityReservationUsageCommand,

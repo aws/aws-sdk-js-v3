@@ -1,5 +1,5 @@
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
-import { AddPermissionInput } from "../models/index";
+import { AddPermissionInput } from "../models/models_0";
 import {
   deserializeAws_queryAddPermissionCommand,
   serializeAws_queryAddPermissionCommand,

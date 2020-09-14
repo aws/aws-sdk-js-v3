@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { CreateListenerRequest, CreateListenerResponse } from "../models/index";
+import { CreateListenerRequest, CreateListenerResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateListenerCommand,
   serializeAws_json1_1CreateListenerCommand,

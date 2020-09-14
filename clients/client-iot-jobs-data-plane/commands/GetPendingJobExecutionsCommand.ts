@@ -1,5 +1,5 @@
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
-import { GetPendingJobExecutionsRequest, GetPendingJobExecutionsResponse } from "../models/index";
+import { GetPendingJobExecutionsRequest, GetPendingJobExecutionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPendingJobExecutionsCommand,
   serializeAws_restJson1GetPendingJobExecutionsCommand,

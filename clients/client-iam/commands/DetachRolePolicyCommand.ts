@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DetachRolePolicyRequest } from "../models/index";
+import { DetachRolePolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryDetachRolePolicyCommand,
   serializeAws_queryDetachRolePolicyCommand,

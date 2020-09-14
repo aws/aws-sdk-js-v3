@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ConfirmSignUpRequest, ConfirmSignUpResponse } from "../models/index";
+import { ConfirmSignUpRequest, ConfirmSignUpResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmSignUpCommand,
   serializeAws_json1_1ConfirmSignUpCommand,

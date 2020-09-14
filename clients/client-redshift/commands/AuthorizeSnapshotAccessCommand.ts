@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { AuthorizeSnapshotAccessMessage, AuthorizeSnapshotAccessResult } from "../models/index";
+import { AuthorizeSnapshotAccessMessage, AuthorizeSnapshotAccessResult } from "../models/models_0";
 import {
   deserializeAws_queryAuthorizeSnapshotAccessCommand,
   serializeAws_queryAuthorizeSnapshotAccessCommand,

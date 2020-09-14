@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
-import { GetSubscriptionStateRequest, GetSubscriptionStateResponse } from "../models/index";
+import { GetSubscriptionStateRequest, GetSubscriptionStateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSubscriptionStateCommand,
   serializeAws_json1_1GetSubscriptionStateCommand,

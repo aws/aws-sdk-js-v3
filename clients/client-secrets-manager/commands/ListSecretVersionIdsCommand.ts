@@ -1,5 +1,5 @@
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
-import { ListSecretVersionIdsRequest, ListSecretVersionIdsResponse } from "../models/index";
+import { ListSecretVersionIdsRequest, ListSecretVersionIdsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListSecretVersionIdsCommand,
   serializeAws_json1_1ListSecretVersionIdsCommand,

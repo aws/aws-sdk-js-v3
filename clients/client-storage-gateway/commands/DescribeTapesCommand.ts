@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { DescribeTapesInput, DescribeTapesOutput } from "../models/index";
+import { DescribeTapesInput, DescribeTapesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTapesCommand,
   serializeAws_json1_1DescribeTapesCommand,

@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { CreateRoomRequest, CreateRoomResponse } from "../models/index";
+import { CreateRoomRequest, CreateRoomResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRoomCommand,
   serializeAws_json1_1CreateRoomCommand,

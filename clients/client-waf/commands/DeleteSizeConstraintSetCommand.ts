@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { DeleteSizeConstraintSetRequest, DeleteSizeConstraintSetResponse } from "../models/index";
+import { DeleteSizeConstraintSetRequest, DeleteSizeConstraintSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSizeConstraintSetCommand,
   serializeAws_json1_1DeleteSizeConstraintSetCommand,

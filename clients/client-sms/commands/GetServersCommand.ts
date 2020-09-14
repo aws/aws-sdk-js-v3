@@ -1,5 +1,5 @@
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
-import { GetServersRequest, GetServersResponse } from "../models/index";
+import { GetServersRequest, GetServersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetServersCommand,
   serializeAws_json1_1GetServersCommand,

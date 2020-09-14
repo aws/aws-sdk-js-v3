@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutBucketLoggingRequest } from "../models/index";
+import { PutBucketLoggingRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketLoggingCommand,
   serializeAws_restXmlPutBucketLoggingCommand,

@@ -1,5 +1,5 @@
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { CertificateMessage, DescribeCertificatesMessage } from "../models/index";
+import { CertificateMessage, DescribeCertificatesMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeCertificatesCommand,
   serializeAws_queryDescribeCertificatesCommand,

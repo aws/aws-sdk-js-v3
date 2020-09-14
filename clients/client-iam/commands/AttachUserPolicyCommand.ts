@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { AttachUserPolicyRequest } from "../models/index";
+import { AttachUserPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryAttachUserPolicyCommand,
   serializeAws_queryAttachUserPolicyCommand,

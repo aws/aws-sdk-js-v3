@@ -1,5 +1,5 @@
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DescribeDataSourceRequest, DescribeDataSourceResponse } from "../models/index";
+import { DescribeDataSourceRequest, DescribeDataSourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDataSourceCommand,
   serializeAws_json1_1DescribeDataSourceCommand,

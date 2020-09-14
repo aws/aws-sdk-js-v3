@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { DeleteBucketEncryptionRequest } from "../models/index";
+import { DeleteBucketEncryptionRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteBucketEncryptionCommand,
   serializeAws_restXmlDeleteBucketEncryptionCommand,

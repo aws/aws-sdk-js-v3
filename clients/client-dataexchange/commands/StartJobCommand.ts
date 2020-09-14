@@ -1,5 +1,5 @@
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { StartJobRequest, StartJobResponse } from "../models/index";
+import { StartJobRequest, StartJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartJobCommand,
   serializeAws_restJson1StartJobCommand,

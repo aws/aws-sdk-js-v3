@@ -1,5 +1,5 @@
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { DeleteNamedQueryInput, DeleteNamedQueryOutput } from "../models/index";
+import { DeleteNamedQueryInput, DeleteNamedQueryOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteNamedQueryCommand,
   serializeAws_json1_1DeleteNamedQueryCommand,

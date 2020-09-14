@@ -1,5 +1,5 @@
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { CreateRuleRequest, CreateRuleResult } from "../models/index";
+import { CreateRuleRequest, CreateRuleResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRuleCommand,
   serializeAws_json1_1CreateRuleCommand,

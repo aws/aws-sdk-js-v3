@@ -1,5 +1,5 @@
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { CreateDeploymentRequest, CreateDeploymentResult } from "../models/index";
+import { CreateDeploymentRequest, CreateDeploymentResult } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDeploymentCommand,
   serializeAws_restJson1CreateDeploymentCommand,

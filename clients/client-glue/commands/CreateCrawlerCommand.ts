@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateCrawlerRequest, CreateCrawlerResponse } from "../models/index";
+import { CreateCrawlerRequest, CreateCrawlerResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCrawlerCommand,
   serializeAws_json1_1CreateCrawlerCommand,

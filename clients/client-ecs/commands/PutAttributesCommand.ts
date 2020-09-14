@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { PutAttributesRequest, PutAttributesResponse } from "../models/index";
+import { PutAttributesRequest, PutAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutAttributesCommand,
   serializeAws_json1_1PutAttributesCommand,

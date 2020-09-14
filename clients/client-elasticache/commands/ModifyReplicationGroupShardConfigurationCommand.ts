@@ -2,7 +2,7 @@ import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   ModifyReplicationGroupShardConfigurationMessage,
   ModifyReplicationGroupShardConfigurationResult,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_queryModifyReplicationGroupShardConfigurationCommand,
   serializeAws_queryModifyReplicationGroupShardConfigurationCommand,

@@ -1,5 +1,5 @@
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { DeleteClusterRequest, DeleteClusterResponse } from "../models/index";
+import { DeleteClusterRequest, DeleteClusterResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteClusterCommand,
   serializeAws_restJson1DeleteClusterCommand,

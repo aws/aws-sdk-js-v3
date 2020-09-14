@@ -1,5 +1,5 @@
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateDataRepositoryTaskRequest, CreateDataRepositoryTaskResponse } from "../models/index";
+import { CreateDataRepositoryTaskRequest, CreateDataRepositoryTaskResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDataRepositoryTaskCommand,
   serializeAws_json1_1CreateDataRepositoryTaskCommand,

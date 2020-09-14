@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DeleteEventTrackerRequest } from "../models/index";
+import { DeleteEventTrackerRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEventTrackerCommand,
   serializeAws_json1_1DeleteEventTrackerCommand,

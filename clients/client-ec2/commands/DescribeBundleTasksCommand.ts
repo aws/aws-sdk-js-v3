@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeBundleTasksRequest, DescribeBundleTasksResult } from "../models/index";
+import { DescribeBundleTasksRequest, DescribeBundleTasksResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeBundleTasksCommand,
   serializeAws_ec2DescribeBundleTasksCommand,

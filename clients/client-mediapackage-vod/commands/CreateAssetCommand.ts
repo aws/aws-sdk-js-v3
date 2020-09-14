@@ -1,5 +1,5 @@
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import { CreateAssetRequest, CreateAssetResponse } from "../models/index";
+import { CreateAssetRequest, CreateAssetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAssetCommand,
   serializeAws_restJson1CreateAssetCommand,

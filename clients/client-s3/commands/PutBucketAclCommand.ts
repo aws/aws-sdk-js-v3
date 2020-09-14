@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutBucketAclRequest } from "../models/index";
+import { PutBucketAclRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketAclCommand,
   serializeAws_restXmlPutBucketAclCommand,

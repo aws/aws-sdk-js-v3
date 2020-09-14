@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import { DisassociateDeviceFromPlacementRequest, DisassociateDeviceFromPlacementResponse } from "../models/index";
+import { DisassociateDeviceFromPlacementRequest, DisassociateDeviceFromPlacementResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateDeviceFromPlacementCommand,
   serializeAws_restJson1DisassociateDeviceFromPlacementCommand,

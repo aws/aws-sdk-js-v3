@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DeleteDBSubnetGroupMessage } from "../models/index";
+import { DeleteDBSubnetGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBSubnetGroupCommand,
   serializeAws_queryDeleteDBSubnetGroupCommand,

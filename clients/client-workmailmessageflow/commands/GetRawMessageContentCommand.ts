@@ -3,7 +3,7 @@ import {
   ServiceOutputTypes,
   WorkMailMessageFlowClientResolvedConfig,
 } from "../WorkMailMessageFlowClient";
-import { GetRawMessageContentRequest, GetRawMessageContentResponse } from "../models/index";
+import { GetRawMessageContentRequest, GetRawMessageContentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetRawMessageContentCommand,
   serializeAws_restJson1GetRawMessageContentCommand,

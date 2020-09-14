@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteLoadBalancerRequest, DeleteLoadBalancerResult } from "../models/index";
+import { DeleteLoadBalancerRequest, DeleteLoadBalancerResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLoadBalancerCommand,
   serializeAws_json1_1DeleteLoadBalancerCommand,

@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { CompleteMigrationMessage, CompleteMigrationResponse } from "../models/index";
+import { CompleteMigrationMessage, CompleteMigrationResponse } from "../models/models_0";
 import {
   deserializeAws_queryCompleteMigrationCommand,
   serializeAws_queryCompleteMigrationCommand,

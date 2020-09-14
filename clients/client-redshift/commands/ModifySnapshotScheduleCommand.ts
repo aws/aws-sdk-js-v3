@@ -1,5 +1,6 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ModifySnapshotScheduleMessage, SnapshotSchedule } from "../models/index";
+import { SnapshotSchedule } from "../models/models_0";
+import { ModifySnapshotScheduleMessage } from "../models/models_1";
 import {
   deserializeAws_queryModifySnapshotScheduleCommand,
   serializeAws_queryModifySnapshotScheduleCommand,

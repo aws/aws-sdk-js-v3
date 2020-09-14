@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateTrafficMirrorTargetRequest, CreateTrafficMirrorTargetResult } from "../models/index";
+import { CreateTrafficMirrorTargetRequest, CreateTrafficMirrorTargetResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreateTrafficMirrorTargetCommand,
   serializeAws_ec2CreateTrafficMirrorTargetCommand,

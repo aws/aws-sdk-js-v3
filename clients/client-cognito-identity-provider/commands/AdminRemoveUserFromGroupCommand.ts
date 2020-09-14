@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminRemoveUserFromGroupRequest } from "../models/index";
+import { AdminRemoveUserFromGroupRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminRemoveUserFromGroupCommand,
   serializeAws_json1_1AdminRemoveUserFromGroupCommand,

@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DeleteDirectoryConfigRequest, DeleteDirectoryConfigResult } from "../models/index";
+import { DeleteDirectoryConfigRequest, DeleteDirectoryConfigResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDirectoryConfigCommand,
   serializeAws_json1_1DeleteDirectoryConfigCommand,

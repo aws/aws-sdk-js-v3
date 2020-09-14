@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { SubscribeToShardInput, SubscribeToShardOutput } from "../models/index";
+import { SubscribeToShardInput, SubscribeToShardOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1SubscribeToShardCommand,
   serializeAws_json1_1SubscribeToShardCommand,

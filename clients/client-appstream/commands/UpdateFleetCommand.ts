@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { UpdateFleetRequest, UpdateFleetResult } from "../models/index";
+import { UpdateFleetRequest, UpdateFleetResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateFleetCommand,
   serializeAws_json1_1UpdateFleetCommand,

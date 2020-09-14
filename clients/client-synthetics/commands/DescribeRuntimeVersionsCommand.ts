@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
-import { DescribeRuntimeVersionsRequest, DescribeRuntimeVersionsResponse } from "../models/index";
+import { DescribeRuntimeVersionsRequest, DescribeRuntimeVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRuntimeVersionsCommand,
   serializeAws_restJson1DescribeRuntimeVersionsCommand,

@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { DeleteGlobalReplicationGroupMessage, DeleteGlobalReplicationGroupResult } from "../models/index";
+import { DeleteGlobalReplicationGroupMessage, DeleteGlobalReplicationGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteGlobalReplicationGroupCommand,
   serializeAws_queryDeleteGlobalReplicationGroupCommand,

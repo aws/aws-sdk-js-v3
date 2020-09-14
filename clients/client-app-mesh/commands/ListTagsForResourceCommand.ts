@@ -1,5 +1,5 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/index";
+import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListTagsForResourceCommand,
   serializeAws_restJson1ListTagsForResourceCommand,

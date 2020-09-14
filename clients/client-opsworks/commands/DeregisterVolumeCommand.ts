@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DeregisterVolumeRequest } from "../models/index";
+import { DeregisterVolumeRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterVolumeCommand,
   serializeAws_json1_1DeregisterVolumeCommand,

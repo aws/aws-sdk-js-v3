@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { GetComplianceDetailsByResourceRequest, GetComplianceDetailsByResourceResponse } from "../models/index";
+import { GetComplianceDetailsByResourceRequest, GetComplianceDetailsByResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetComplianceDetailsByResourceCommand,
   serializeAws_json1_1GetComplianceDetailsByResourceCommand,

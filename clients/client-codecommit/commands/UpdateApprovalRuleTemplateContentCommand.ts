@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UpdateApprovalRuleTemplateContentInput, UpdateApprovalRuleTemplateContentOutput } from "../models/index";
+import { UpdateApprovalRuleTemplateContentInput, UpdateApprovalRuleTemplateContentOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommand,
   serializeAws_json1_1UpdateApprovalRuleTemplateContentCommand,

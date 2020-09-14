@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketWebsiteOutput, GetBucketWebsiteRequest } from "../models/index";
+import { GetBucketWebsiteOutput, GetBucketWebsiteRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketWebsiteCommand,
   serializeAws_restXmlGetBucketWebsiteCommand,

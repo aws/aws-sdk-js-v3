@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { GetResourceDefinitionRequest, GetResourceDefinitionResponse } from "../models/index";
+import { GetResourceDefinitionRequest, GetResourceDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetResourceDefinitionCommand,
   serializeAws_restJson1GetResourceDefinitionCommand,

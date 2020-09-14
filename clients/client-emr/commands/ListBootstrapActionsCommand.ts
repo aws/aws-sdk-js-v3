@@ -1,5 +1,5 @@
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { ListBootstrapActionsInput, ListBootstrapActionsOutput } from "../models/index";
+import { ListBootstrapActionsInput, ListBootstrapActionsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListBootstrapActionsCommand,
   serializeAws_json1_1ListBootstrapActionsCommand,

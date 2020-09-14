@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListRemoteAccessSessionsRequest, ListRemoteAccessSessionsResult } from "../models/index";
+import { ListRemoteAccessSessionsRequest, ListRemoteAccessSessionsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListRemoteAccessSessionsCommand,
   serializeAws_json1_1ListRemoteAccessSessionsCommand,

@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { DeleteInventoryRequest, DeleteInventoryResult } from "../models/index";
+import { DeleteInventoryRequest, DeleteInventoryResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteInventoryCommand,
   serializeAws_json1_1DeleteInventoryCommand,

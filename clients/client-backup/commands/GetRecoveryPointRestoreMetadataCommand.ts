@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { GetRecoveryPointRestoreMetadataInput, GetRecoveryPointRestoreMetadataOutput } from "../models/index";
+import { GetRecoveryPointRestoreMetadataInput, GetRecoveryPointRestoreMetadataOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommand,
   serializeAws_restJson1GetRecoveryPointRestoreMetadataCommand,

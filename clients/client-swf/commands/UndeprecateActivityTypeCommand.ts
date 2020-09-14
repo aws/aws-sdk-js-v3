@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { UndeprecateActivityTypeInput } from "../models/index";
+import { UndeprecateActivityTypeInput } from "../models/models_0";
 import {
   deserializeAws_json1_0UndeprecateActivityTypeCommand,
   serializeAws_json1_0UndeprecateActivityTypeCommand,

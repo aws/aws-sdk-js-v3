@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
-import { GetSampledRequestsRequest, GetSampledRequestsResponse } from "../models/index";
+import { GetSampledRequestsRequest, GetSampledRequestsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSampledRequestsCommand,
   serializeAws_json1_1GetSampledRequestsCommand,

@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { UpdateDistributionBundleRequest, UpdateDistributionBundleResult } from "../models/index";
+import { UpdateDistributionBundleRequest, UpdateDistributionBundleResult } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateDistributionBundleCommand,
   serializeAws_json1_1UpdateDistributionBundleCommand,

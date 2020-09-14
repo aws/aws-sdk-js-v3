@@ -1,5 +1,5 @@
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { DeleteEvaluationInput, DeleteEvaluationOutput } from "../models/index";
+import { DeleteEvaluationInput, DeleteEvaluationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEvaluationCommand,
   serializeAws_json1_1DeleteEvaluationCommand,

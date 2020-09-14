@@ -1,5 +1,5 @@
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { GetCostAndUsageRequest, GetCostAndUsageResponse } from "../models/index";
+import { GetCostAndUsageRequest, GetCostAndUsageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetCostAndUsageCommand,
   serializeAws_json1_1GetCostAndUsageCommand,

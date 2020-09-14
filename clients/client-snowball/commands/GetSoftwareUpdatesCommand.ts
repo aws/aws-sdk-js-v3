@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
-import { GetSoftwareUpdatesRequest, GetSoftwareUpdatesResult } from "../models/index";
+import { GetSoftwareUpdatesRequest, GetSoftwareUpdatesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSoftwareUpdatesCommand,
   serializeAws_json1_1GetSoftwareUpdatesCommand,

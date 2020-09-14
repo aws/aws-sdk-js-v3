@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeAccountLimitsAnswer } from "../models/index";
+import { DescribeAccountLimitsAnswer } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAccountLimitsCommand,
   serializeAws_queryDescribeAccountLimitsCommand,

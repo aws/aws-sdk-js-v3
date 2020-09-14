@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateClassifierRequest, UpdateClassifierResponse } from "../models/index";
+import { UpdateClassifierRequest, UpdateClassifierResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateClassifierCommand,
   serializeAws_json1_1UpdateClassifierCommand,

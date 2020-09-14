@@ -1,5 +1,5 @@
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { DeleteHostedConfigurationVersionRequest } from "../models/index";
+import { DeleteHostedConfigurationVersionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteHostedConfigurationVersionCommand,
   serializeAws_restJson1DeleteHostedConfigurationVersionCommand,

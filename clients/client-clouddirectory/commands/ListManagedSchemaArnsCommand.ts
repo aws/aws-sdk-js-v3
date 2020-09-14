@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { ListManagedSchemaArnsRequest, ListManagedSchemaArnsResponse } from "../models/index";
+import { ListManagedSchemaArnsRequest, ListManagedSchemaArnsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListManagedSchemaArnsCommand,
   serializeAws_restJson1ListManagedSchemaArnsCommand,

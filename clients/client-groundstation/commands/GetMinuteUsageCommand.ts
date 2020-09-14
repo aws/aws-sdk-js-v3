@@ -1,5 +1,5 @@
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { GetMinuteUsageRequest, GetMinuteUsageResponse } from "../models/index";
+import { GetMinuteUsageRequest, GetMinuteUsageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMinuteUsageCommand,
   serializeAws_restJson1GetMinuteUsageCommand,

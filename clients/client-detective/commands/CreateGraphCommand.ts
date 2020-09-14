@@ -1,5 +1,5 @@
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { CreateGraphResponse } from "../models/index";
+import { CreateGraphResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateGraphCommand,
   serializeAws_restJson1CreateGraphCommand,

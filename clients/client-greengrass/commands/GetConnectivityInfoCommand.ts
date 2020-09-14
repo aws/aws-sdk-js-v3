@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { GetConnectivityInfoRequest, GetConnectivityInfoResponse } from "../models/index";
+import { GetConnectivityInfoRequest, GetConnectivityInfoResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetConnectivityInfoCommand,
   serializeAws_restJson1GetConnectivityInfoCommand,

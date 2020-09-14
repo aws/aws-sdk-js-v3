@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteKeyPairRequest } from "../models/index";
+import { DeleteKeyPairRequest } from "../models/models_1";
 import { deserializeAws_ec2DeleteKeyPairCommand, serializeAws_ec2DeleteKeyPairCommand } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

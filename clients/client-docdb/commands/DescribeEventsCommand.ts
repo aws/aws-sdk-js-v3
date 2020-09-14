@@ -1,5 +1,5 @@
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { DescribeEventsMessage, EventsMessage } from "../models/index";
+import { DescribeEventsMessage, EventsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeEventsCommand,
   serializeAws_queryDescribeEventsCommand,

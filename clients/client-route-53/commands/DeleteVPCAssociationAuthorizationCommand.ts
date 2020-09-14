@@ -1,5 +1,8 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeleteVPCAssociationAuthorizationRequest, DeleteVPCAssociationAuthorizationResponse } from "../models/index";
+import {
+  DeleteVPCAssociationAuthorizationRequest,
+  DeleteVPCAssociationAuthorizationResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand,
   serializeAws_restXmlDeleteVPCAssociationAuthorizationCommand,

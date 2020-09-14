@@ -2,7 +2,7 @@ import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   UpdateConfigurationSetEventDestinationRequest,
   UpdateConfigurationSetEventDestinationResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_queryUpdateConfigurationSetEventDestinationCommand,
   serializeAws_queryUpdateConfigurationSetEventDestinationCommand,

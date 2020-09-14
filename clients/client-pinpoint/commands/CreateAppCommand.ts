@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { CreateAppRequest, CreateAppResponse } from "../models/index";
+import { CreateAppRequest, CreateAppResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAppCommand,
   serializeAws_restJson1CreateAppCommand,

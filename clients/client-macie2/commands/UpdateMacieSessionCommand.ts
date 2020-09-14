@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { UpdateMacieSessionRequest, UpdateMacieSessionResponse } from "../models/index";
+import { UpdateMacieSessionRequest, UpdateMacieSessionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateMacieSessionCommand,
   serializeAws_restJson1UpdateMacieSessionCommand,

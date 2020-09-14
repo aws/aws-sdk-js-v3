@@ -1,5 +1,5 @@
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { PutInsightSelectorsRequest, PutInsightSelectorsResponse } from "../models/index";
+import { PutInsightSelectorsRequest, PutInsightSelectorsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutInsightSelectorsCommand,
   serializeAws_json1_1PutInsightSelectorsCommand,

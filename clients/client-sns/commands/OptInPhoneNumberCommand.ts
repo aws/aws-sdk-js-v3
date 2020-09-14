@@ -1,5 +1,5 @@
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
-import { OptInPhoneNumberInput, OptInPhoneNumberResponse } from "../models/index";
+import { OptInPhoneNumberInput, OptInPhoneNumberResponse } from "../models/models_0";
 import {
   deserializeAws_queryOptInPhoneNumberCommand,
   serializeAws_queryOptInPhoneNumberCommand,

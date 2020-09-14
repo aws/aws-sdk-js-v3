@@ -1,5 +1,5 @@
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { AssociateHostedConnectionRequest, Connection } from "../models/index";
+import { AssociateHostedConnectionRequest, Connection } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateHostedConnectionCommand,
   serializeAws_json1_1AssociateHostedConnectionCommand,

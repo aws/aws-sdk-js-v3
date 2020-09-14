@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { DiscoverPollEndpointRequest, DiscoverPollEndpointResponse } from "../models/index";
+import { DiscoverPollEndpointRequest, DiscoverPollEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DiscoverPollEndpointCommand,
   serializeAws_json1_1DiscoverPollEndpointCommand,

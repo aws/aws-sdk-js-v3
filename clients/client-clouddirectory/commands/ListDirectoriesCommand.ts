@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { ListDirectoriesRequest, ListDirectoriesResponse } from "../models/index";
+import { ListDirectoriesRequest, ListDirectoriesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDirectoriesCommand,
   serializeAws_restJson1ListDirectoriesCommand,

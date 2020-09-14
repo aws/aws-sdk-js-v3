@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { StopImageBuilderRequest, StopImageBuilderResult } from "../models/index";
+import { StopImageBuilderRequest, StopImageBuilderResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StopImageBuilderCommand,
   serializeAws_json1_1StopImageBuilderCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { CreateSnapshotInput, CreateSnapshotOutput } from "../models/index";
+import { CreateSnapshotInput, CreateSnapshotOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSnapshotCommand,
   serializeAws_json1_1CreateSnapshotCommand,

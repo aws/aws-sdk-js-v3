@@ -1,5 +1,5 @@
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { UpdateRuleMetadataRequest, UpdateRuleMetadataResult } from "../models/index";
+import { UpdateRuleMetadataRequest, UpdateRuleMetadataResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRuleMetadataCommand,
   serializeAws_json1_1UpdateRuleMetadataCommand,

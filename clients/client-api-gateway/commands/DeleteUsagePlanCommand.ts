@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteUsagePlanRequest } from "../models/index";
+import { DeleteUsagePlanRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteUsagePlanCommand,
   serializeAws_restJson1DeleteUsagePlanCommand,

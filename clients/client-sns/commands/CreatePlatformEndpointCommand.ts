@@ -1,5 +1,5 @@
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
-import { CreateEndpointResponse, CreatePlatformEndpointInput } from "../models/index";
+import { CreateEndpointResponse, CreatePlatformEndpointInput } from "../models/models_0";
 import {
   deserializeAws_queryCreatePlatformEndpointCommand,
   serializeAws_queryCreatePlatformEndpointCommand,

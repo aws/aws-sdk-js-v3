@@ -1,5 +1,5 @@
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { ListStreamKeysRequest, ListStreamKeysResponse } from "../models/index";
+import { ListStreamKeysRequest, ListStreamKeysResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListStreamKeysCommand,
   serializeAws_restJson1ListStreamKeysCommand,

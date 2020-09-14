@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DescribeLayersRequest, DescribeLayersResult } from "../models/index";
+import { DescribeLayersRequest, DescribeLayersResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLayersCommand,
   serializeAws_json1_1DescribeLayersCommand,

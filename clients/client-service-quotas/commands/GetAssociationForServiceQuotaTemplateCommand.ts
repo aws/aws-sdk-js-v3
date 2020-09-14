@@ -2,7 +2,7 @@ import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfi
 import {
   GetAssociationForServiceQuotaTemplateRequest,
   GetAssociationForServiceQuotaTemplateResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand,
   serializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand,

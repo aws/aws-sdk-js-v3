@@ -1,5 +1,5 @@
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import { PutLoggingOptionsRequest } from "../models/index";
+import { PutLoggingOptionsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PutLoggingOptionsCommand,
   serializeAws_restJson1PutLoggingOptionsCommand,

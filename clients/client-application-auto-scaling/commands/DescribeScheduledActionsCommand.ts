@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import { DescribeScheduledActionsRequest, DescribeScheduledActionsResponse } from "../models/index";
+import { DescribeScheduledActionsRequest, DescribeScheduledActionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeScheduledActionsCommand,
   serializeAws_json1_1DescribeScheduledActionsCommand,

@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ListResourceTagsRequest, ListResourceTagsResponse } from "../models/index";
+import { ListResourceTagsRequest, ListResourceTagsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListResourceTagsCommand,
   serializeAws_json1_1ListResourceTagsCommand,

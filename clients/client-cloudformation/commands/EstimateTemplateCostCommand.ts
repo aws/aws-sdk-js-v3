@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { EstimateTemplateCostInput, EstimateTemplateCostOutput } from "../models/index";
+import { EstimateTemplateCostInput, EstimateTemplateCostOutput } from "../models/models_0";
 import {
   deserializeAws_queryEstimateTemplateCostCommand,
   serializeAws_queryEstimateTemplateCostCommand,

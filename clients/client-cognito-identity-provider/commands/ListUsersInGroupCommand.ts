@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ListUsersInGroupRequest, ListUsersInGroupResponse } from "../models/index";
+import { ListUsersInGroupRequest, ListUsersInGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListUsersInGroupCommand,
   serializeAws_json1_1ListUsersInGroupCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
-import { ListClusterJobsRequest, ListClusterJobsResult } from "../models/index";
+import { ListClusterJobsRequest, ListClusterJobsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListClusterJobsCommand,
   serializeAws_json1_1ListClusterJobsCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
-import { SuggestRequest, SuggestResponse } from "../models/index";
+import { SuggestRequest, SuggestResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SuggestCommand,
   serializeAws_restJson1SuggestCommand,

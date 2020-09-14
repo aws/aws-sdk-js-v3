@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateInternetGatewayRequest, CreateInternetGatewayResult } from "../models/index";
+import { CreateInternetGatewayRequest, CreateInternetGatewayResult } from "../models/models_0";
 import {
   deserializeAws_ec2CreateInternetGatewayCommand,
   serializeAws_ec2CreateInternetGatewayCommand,

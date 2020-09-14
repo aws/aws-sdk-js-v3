@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetAdmChannelRequest, GetAdmChannelResponse } from "../models/index";
+import { GetAdmChannelRequest, GetAdmChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAdmChannelCommand,
   serializeAws_restJson1GetAdmChannelCommand,

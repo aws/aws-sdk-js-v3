@@ -1,5 +1,5 @@
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { UpdateMLModelInput, UpdateMLModelOutput } from "../models/index";
+import { UpdateMLModelInput, UpdateMLModelOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateMLModelCommand,
   serializeAws_json1_1UpdateMLModelCommand,

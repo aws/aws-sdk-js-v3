@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient";
-import { SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse } from "../models/index";
+import { SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SendAlexaOfferToMasterCommand,
   serializeAws_restJson1SendAlexaOfferToMasterCommand,

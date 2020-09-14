@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { CheckDNSAvailabilityMessage, CheckDNSAvailabilityResultMessage } from "../models/index";
+import { CheckDNSAvailabilityMessage, CheckDNSAvailabilityResultMessage } from "../models/models_0";
 import {
   deserializeAws_queryCheckDNSAvailabilityCommand,
   serializeAws_queryCheckDNSAvailabilityCommand,

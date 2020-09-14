@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient";
-import { GetPersonalizedRankingRequest, GetPersonalizedRankingResponse } from "../models/index";
+import { GetPersonalizedRankingRequest, GetPersonalizedRankingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPersonalizedRankingCommand,
   serializeAws_restJson1GetPersonalizedRankingCommand,

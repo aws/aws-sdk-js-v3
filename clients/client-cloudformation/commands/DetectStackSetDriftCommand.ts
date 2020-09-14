@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DetectStackSetDriftInput, DetectStackSetDriftOutput } from "../models/index";
+import { DetectStackSetDriftInput, DetectStackSetDriftOutput } from "../models/models_0";
 import {
   deserializeAws_queryDetectStackSetDriftCommand,
   serializeAws_queryDetectStackSetDriftCommand,

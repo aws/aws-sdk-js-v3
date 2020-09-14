@@ -1,5 +1,5 @@
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { DeleteTaskRequest, DeleteTaskResponse } from "../models/index";
+import { DeleteTaskRequest, DeleteTaskResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTaskCommand,
   serializeAws_json1_1DeleteTaskCommand,

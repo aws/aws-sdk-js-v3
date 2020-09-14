@@ -1,5 +1,8 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { ListProvisionedConcurrencyConfigsRequest, ListProvisionedConcurrencyConfigsResponse } from "../models/index";
+import {
+  ListProvisionedConcurrencyConfigsRequest,
+  ListProvisionedConcurrencyConfigsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand,
   serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand,

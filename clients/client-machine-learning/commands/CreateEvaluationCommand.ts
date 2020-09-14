@@ -1,5 +1,5 @@
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { CreateEvaluationInput, CreateEvaluationOutput } from "../models/index";
+import { CreateEvaluationInput, CreateEvaluationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEvaluationCommand,
   serializeAws_json1_1CreateEvaluationCommand,

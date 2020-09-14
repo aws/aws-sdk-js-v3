@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
-import { ListAvailableManagedRuleGroupsRequest, ListAvailableManagedRuleGroupsResponse } from "../models/index";
+import { ListAvailableManagedRuleGroupsRequest, ListAvailableManagedRuleGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAvailableManagedRuleGroupsCommand,
   serializeAws_json1_1ListAvailableManagedRuleGroupsCommand,

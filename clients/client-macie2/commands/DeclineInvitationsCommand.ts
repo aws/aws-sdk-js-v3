@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/index";
+import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeclineInvitationsCommand,
   serializeAws_restJson1DeclineInvitationsCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
-import { DescribeDomainRequest, DescribeDomainResponse } from "../models/index";
+import { DescribeDomainRequest, DescribeDomainResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeDomainCommand,
   serializeAws_restJson1DescribeDomainCommand,

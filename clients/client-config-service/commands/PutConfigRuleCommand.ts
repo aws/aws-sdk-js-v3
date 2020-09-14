@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutConfigRuleRequest } from "../models/index";
+import { PutConfigRuleRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1PutConfigRuleCommand,
   serializeAws_json1_1PutConfigRuleCommand,

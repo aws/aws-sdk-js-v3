@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { ActivityTaskStatus, RecordActivityTaskHeartbeatInput } from "../models/index";
+import { ActivityTaskStatus, RecordActivityTaskHeartbeatInput } from "../models/models_0";
 import {
   deserializeAws_json1_0RecordActivityTaskHeartbeatCommand,
   serializeAws_json1_0RecordActivityTaskHeartbeatCommand,

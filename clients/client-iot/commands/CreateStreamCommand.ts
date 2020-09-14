@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateStreamRequest, CreateStreamResponse } from "../models/index";
+import { CreateStreamRequest, CreateStreamResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateStreamCommand,
   serializeAws_restJson1CreateStreamCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import { UpdateDeviceStateRequest, UpdateDeviceStateResponse } from "../models/index";
+import { UpdateDeviceStateRequest, UpdateDeviceStateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDeviceStateCommand,
   serializeAws_restJson1UpdateDeviceStateCommand,

@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { CreateReceiptRuleRequest, CreateReceiptRuleResponse } from "../models/index";
+import { CreateReceiptRuleRequest, CreateReceiptRuleResponse } from "../models/models_0";
 import {
   deserializeAws_queryCreateReceiptRuleCommand,
   serializeAws_queryCreateReceiptRuleCommand,

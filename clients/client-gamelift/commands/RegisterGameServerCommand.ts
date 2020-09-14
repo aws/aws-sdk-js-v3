@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { RegisterGameServerInput, RegisterGameServerOutput } from "../models/index";
+import { RegisterGameServerInput, RegisterGameServerOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterGameServerCommand,
   serializeAws_json1_1RegisterGameServerCommand,

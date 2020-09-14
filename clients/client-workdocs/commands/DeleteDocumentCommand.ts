@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { DeleteDocumentRequest } from "../models/index";
+import { DeleteDocumentRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDocumentCommand,
   serializeAws_restJson1DeleteDocumentCommand,

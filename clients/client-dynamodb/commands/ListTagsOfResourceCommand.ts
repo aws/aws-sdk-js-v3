@@ -1,5 +1,5 @@
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { ListTagsOfResourceInput, ListTagsOfResourceOutput } from "../models/index";
+import { ListTagsOfResourceInput, ListTagsOfResourceOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0ListTagsOfResourceCommand,
   serializeAws_json1_0ListTagsOfResourceCommand,

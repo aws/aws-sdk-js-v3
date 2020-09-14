@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { SubscribeToEventRequest } from "../models/index";
+import { SubscribeToEventRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1SubscribeToEventCommand,
   serializeAws_json1_1SubscribeToEventCommand,

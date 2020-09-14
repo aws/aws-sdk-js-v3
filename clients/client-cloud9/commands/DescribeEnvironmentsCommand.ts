@@ -1,5 +1,5 @@
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import { DescribeEnvironmentsRequest, DescribeEnvironmentsResult } from "../models/index";
+import { DescribeEnvironmentsRequest, DescribeEnvironmentsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEnvironmentsCommand,
   serializeAws_json1_1DescribeEnvironmentsCommand,

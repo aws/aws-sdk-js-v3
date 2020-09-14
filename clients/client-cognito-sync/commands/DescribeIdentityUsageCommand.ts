@@ -1,5 +1,5 @@
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { DescribeIdentityUsageRequest, DescribeIdentityUsageResponse } from "../models/index";
+import { DescribeIdentityUsageRequest, DescribeIdentityUsageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeIdentityUsageCommand,
   serializeAws_restJson1DescribeIdentityUsageCommand,

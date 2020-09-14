@@ -1,5 +1,5 @@
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
-import { DeleteScalingPlanRequest, DeleteScalingPlanResponse } from "../models/index";
+import { DeleteScalingPlanRequest, DeleteScalingPlanResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteScalingPlanCommand,
   serializeAws_json1_1DeleteScalingPlanCommand,

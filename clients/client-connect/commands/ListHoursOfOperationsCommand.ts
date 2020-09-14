@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListHoursOfOperationsRequest, ListHoursOfOperationsResponse } from "../models/index";
+import { ListHoursOfOperationsRequest, ListHoursOfOperationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListHoursOfOperationsCommand,
   serializeAws_restJson1ListHoursOfOperationsCommand,

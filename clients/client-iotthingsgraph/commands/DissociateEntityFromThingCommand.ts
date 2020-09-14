@@ -1,5 +1,5 @@
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { DissociateEntityFromThingRequest, DissociateEntityFromThingResponse } from "../models/index";
+import { DissociateEntityFromThingRequest, DissociateEntityFromThingResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DissociateEntityFromThingCommand,
   serializeAws_json1_1DissociateEntityFromThingCommand,

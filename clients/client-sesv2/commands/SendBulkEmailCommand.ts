@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { SendBulkEmailRequest, SendBulkEmailResponse } from "../models/index";
+import { SendBulkEmailRequest, SendBulkEmailResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SendBulkEmailCommand,
   serializeAws_restJson1SendBulkEmailCommand,

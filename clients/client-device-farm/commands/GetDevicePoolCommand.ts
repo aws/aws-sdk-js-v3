@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { GetDevicePoolRequest, GetDevicePoolResult } from "../models/index";
+import { GetDevicePoolRequest, GetDevicePoolResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDevicePoolCommand,
   serializeAws_json1_1GetDevicePoolCommand,

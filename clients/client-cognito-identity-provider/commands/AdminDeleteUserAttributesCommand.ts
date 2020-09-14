@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminDeleteUserAttributesRequest, AdminDeleteUserAttributesResponse } from "../models/index";
+import { AdminDeleteUserAttributesRequest, AdminDeleteUserAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminDeleteUserAttributesCommand,
   serializeAws_json1_1AdminDeleteUserAttributesCommand,

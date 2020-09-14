@@ -1,5 +1,5 @@
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { StopDataSourceSyncJobRequest } from "../models/index";
+import { StopDataSourceSyncJobRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1StopDataSourceSyncJobCommand,
   serializeAws_json1_1StopDataSourceSyncJobCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { ListByoipCidrsRequest, ListByoipCidrsResponse } from "../models/index";
+import { ListByoipCidrsRequest, ListByoipCidrsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListByoipCidrsCommand,
   serializeAws_json1_1ListByoipCidrsCommand,

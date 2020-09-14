@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import { DescribeNotificationRuleRequest, DescribeNotificationRuleResult } from "../models/index";
+import { DescribeNotificationRuleRequest, DescribeNotificationRuleResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeNotificationRuleCommand,
   serializeAws_restJson1DescribeNotificationRuleCommand,

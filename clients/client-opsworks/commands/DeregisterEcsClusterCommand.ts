@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DeregisterEcsClusterRequest } from "../models/index";
+import { DeregisterEcsClusterRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterEcsClusterCommand,
   serializeAws_json1_1DeregisterEcsClusterCommand,

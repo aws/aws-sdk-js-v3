@@ -1,5 +1,5 @@
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
-import { GetServiceRequest, GetServiceResponse } from "../models/index";
+import { GetServiceRequest, GetServiceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetServiceCommand,
   serializeAws_json1_1GetServiceCommand,

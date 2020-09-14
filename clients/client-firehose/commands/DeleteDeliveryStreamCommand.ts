@@ -1,5 +1,5 @@
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import { DeleteDeliveryStreamInput, DeleteDeliveryStreamOutput } from "../models/index";
+import { DeleteDeliveryStreamInput, DeleteDeliveryStreamOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDeliveryStreamCommand,
   serializeAws_json1_1DeleteDeliveryStreamCommand,

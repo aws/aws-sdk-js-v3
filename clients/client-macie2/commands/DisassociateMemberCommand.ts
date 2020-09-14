@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { DisassociateMemberRequest, DisassociateMemberResponse } from "../models/index";
+import { DisassociateMemberRequest, DisassociateMemberResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateMemberCommand,
   serializeAws_restJson1DisassociateMemberCommand,

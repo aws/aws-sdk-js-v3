@@ -2,7 +2,7 @@ import {
   GetRawMessageContentCommandInput,
   GetRawMessageContentCommandOutput,
 } from "../commands/GetRawMessageContentCommand";
-import { ResourceNotFoundException } from "../models/index";
+import { ResourceNotFoundException } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { DeleteUserPoolDomainRequest, DeleteUserPoolDomainResponse } from "../models/index";
+import { DeleteUserPoolDomainRequest, DeleteUserPoolDomainResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteUserPoolDomainCommand,
   serializeAws_json1_1DeleteUserPoolDomainCommand,

@@ -1,5 +1,8 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { GetComplianceSummaryByResourceTypeRequest, GetComplianceSummaryByResourceTypeResponse } from "../models/index";
+import {
+  GetComplianceSummaryByResourceTypeRequest,
+  GetComplianceSummaryByResourceTypeResponse,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommand,
   serializeAws_json1_1GetComplianceSummaryByResourceTypeCommand,

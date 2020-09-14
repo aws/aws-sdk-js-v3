@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeConversionTasksRequest, DescribeConversionTasksResult } from "../models/index";
+import { DescribeConversionTasksRequest, DescribeConversionTasksResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeConversionTasksCommand,
   serializeAws_ec2DescribeConversionTasksCommand,

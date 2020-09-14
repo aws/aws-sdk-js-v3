@@ -1,5 +1,5 @@
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/index";
+import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateDBInstanceCommand,
   serializeAws_queryCreateDBInstanceCommand,

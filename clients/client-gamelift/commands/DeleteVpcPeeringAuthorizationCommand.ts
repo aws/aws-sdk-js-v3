@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteVpcPeeringAuthorizationInput, DeleteVpcPeeringAuthorizationOutput } from "../models/index";
+import { DeleteVpcPeeringAuthorizationInput, DeleteVpcPeeringAuthorizationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommand,
   serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand,

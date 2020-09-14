@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DescribeMatchmakingConfigurationsInput, DescribeMatchmakingConfigurationsOutput } from "../models/index";
+import { DescribeMatchmakingConfigurationsInput, DescribeMatchmakingConfigurationsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeMatchmakingConfigurationsCommand,
   serializeAws_json1_1DescribeMatchmakingConfigurationsCommand,

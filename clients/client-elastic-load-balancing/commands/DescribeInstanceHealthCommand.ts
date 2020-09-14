@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { DescribeEndPointStateInput, DescribeEndPointStateOutput } from "../models/index";
+import { DescribeEndPointStateInput, DescribeEndPointStateOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeInstanceHealthCommand,
   serializeAws_queryDescribeInstanceHealthCommand,

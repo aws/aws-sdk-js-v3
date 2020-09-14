@@ -1,5 +1,5 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { DeleteVirtualNodeInput, DeleteVirtualNodeOutput } from "../models/index";
+import { DeleteVirtualNodeInput, DeleteVirtualNodeOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVirtualNodeCommand,
   serializeAws_restJson1DeleteVirtualNodeCommand,

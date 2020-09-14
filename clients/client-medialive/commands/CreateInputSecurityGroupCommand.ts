@@ -1,5 +1,5 @@
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CreateInputSecurityGroupRequest, CreateInputSecurityGroupResponse } from "../models/index";
+import { CreateInputSecurityGroupRequest, CreateInputSecurityGroupResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1CreateInputSecurityGroupCommand,
   serializeAws_restJson1CreateInputSecurityGroupCommand,

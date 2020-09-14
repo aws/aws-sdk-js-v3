@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { AuthorizeIpRulesRequest, AuthorizeIpRulesResult } from "../models/index";
+import { AuthorizeIpRulesRequest, AuthorizeIpRulesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AuthorizeIpRulesCommand,
   serializeAws_json1_1AuthorizeIpRulesCommand,

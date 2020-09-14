@@ -1,5 +1,5 @@
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { StopDiscovererRequest, StopDiscovererResponse } from "../models/index";
+import { StopDiscovererRequest, StopDiscovererResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StopDiscovererCommand,
   serializeAws_restJson1StopDiscovererCommand,

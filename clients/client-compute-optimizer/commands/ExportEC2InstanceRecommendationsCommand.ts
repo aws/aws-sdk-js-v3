@@ -1,5 +1,5 @@
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import { ExportEC2InstanceRecommendationsRequest, ExportEC2InstanceRecommendationsResponse } from "../models/index";
+import { ExportEC2InstanceRecommendationsRequest, ExportEC2InstanceRecommendationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0ExportEC2InstanceRecommendationsCommand,
   serializeAws_json1_0ExportEC2InstanceRecommendationsCommand,

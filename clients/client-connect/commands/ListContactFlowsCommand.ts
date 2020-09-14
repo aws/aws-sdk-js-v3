@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListContactFlowsRequest, ListContactFlowsResponse } from "../models/index";
+import { ListContactFlowsRequest, ListContactFlowsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListContactFlowsCommand,
   serializeAws_restJson1ListContactFlowsCommand,

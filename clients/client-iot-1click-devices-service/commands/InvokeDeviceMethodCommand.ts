@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import { InvokeDeviceMethodRequest, InvokeDeviceMethodResponse } from "../models/index";
+import { InvokeDeviceMethodRequest, InvokeDeviceMethodResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1InvokeDeviceMethodCommand,
   serializeAws_restJson1InvokeDeviceMethodCommand,

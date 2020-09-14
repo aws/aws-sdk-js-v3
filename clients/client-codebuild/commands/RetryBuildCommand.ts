@@ -1,5 +1,5 @@
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { RetryBuildInput, RetryBuildOutput } from "../models/index";
+import { RetryBuildInput, RetryBuildOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1RetryBuildCommand,
   serializeAws_json1_1RetryBuildCommand,

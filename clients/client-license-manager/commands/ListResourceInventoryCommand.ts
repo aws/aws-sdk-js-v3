@@ -1,5 +1,5 @@
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { ListResourceInventoryRequest, ListResourceInventoryResponse } from "../models/index";
+import { ListResourceInventoryRequest, ListResourceInventoryResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListResourceInventoryCommand,
   serializeAws_json1_1ListResourceInventoryCommand,

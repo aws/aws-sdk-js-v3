@@ -1,5 +1,5 @@
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { AssociateRoleToGroupRequest, AssociateRoleToGroupResponse } from "../models/index";
+import { AssociateRoleToGroupRequest, AssociateRoleToGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateRoleToGroupCommand,
   serializeAws_restJson1AssociateRoleToGroupCommand,

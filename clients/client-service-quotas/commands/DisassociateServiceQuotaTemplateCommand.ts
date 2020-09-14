@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
-import { DisassociateServiceQuotaTemplateRequest, DisassociateServiceQuotaTemplateResponse } from "../models/index";
+import { DisassociateServiceQuotaTemplateRequest, DisassociateServiceQuotaTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand,
   serializeAws_json1_1DisassociateServiceQuotaTemplateCommand,

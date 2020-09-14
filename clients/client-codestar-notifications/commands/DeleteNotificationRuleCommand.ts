@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import { DeleteNotificationRuleRequest, DeleteNotificationRuleResult } from "../models/index";
+import { DeleteNotificationRuleRequest, DeleteNotificationRuleResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteNotificationRuleCommand,
   serializeAws_restJson1DeleteNotificationRuleCommand,

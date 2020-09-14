@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DBParameterGroupDetails, DescribeDBParametersMessage } from "../models/index";
+import { DBParameterGroupDetails, DescribeDBParametersMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBParametersCommand,
   serializeAws_queryDescribeDBParametersCommand,

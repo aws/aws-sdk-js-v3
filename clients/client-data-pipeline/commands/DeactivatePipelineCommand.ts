@@ -1,5 +1,5 @@
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { DeactivatePipelineInput, DeactivatePipelineOutput } from "../models/index";
+import { DeactivatePipelineInput, DeactivatePipelineOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeactivatePipelineCommand,
   serializeAws_json1_1DeactivatePipelineCommand,

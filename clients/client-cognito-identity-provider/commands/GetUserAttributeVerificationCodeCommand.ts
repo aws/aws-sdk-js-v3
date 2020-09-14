@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { GetUserAttributeVerificationCodeRequest, GetUserAttributeVerificationCodeResponse } from "../models/index";
+import { GetUserAttributeVerificationCodeRequest, GetUserAttributeVerificationCodeResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetUserAttributeVerificationCodeCommand,
   serializeAws_json1_1GetUserAttributeVerificationCodeCommand,

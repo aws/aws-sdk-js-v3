@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { UpdateAcceleratorAttributesRequest, UpdateAcceleratorAttributesResponse } from "../models/index";
+import { UpdateAcceleratorAttributesRequest, UpdateAcceleratorAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAcceleratorAttributesCommand,
   serializeAws_json1_1UpdateAcceleratorAttributesCommand,

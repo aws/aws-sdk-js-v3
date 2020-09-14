@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { DisassociateTagOptionFromResourceInput, DisassociateTagOptionFromResourceOutput } from "../models/index";
+import { DisassociateTagOptionFromResourceInput, DisassociateTagOptionFromResourceOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateTagOptionFromResourceCommand,
   serializeAws_json1_1DisassociateTagOptionFromResourceCommand,

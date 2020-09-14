@@ -1,5 +1,5 @@
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { GetBucketStatisticsRequest, GetBucketStatisticsResponse } from "../models/index";
+import { GetBucketStatisticsRequest, GetBucketStatisticsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBucketStatisticsCommand,
   serializeAws_restJson1GetBucketStatisticsCommand,

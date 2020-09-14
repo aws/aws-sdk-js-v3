@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssignIpv6AddressesRequest, AssignIpv6AddressesResult } from "../models/index";
+import { AssignIpv6AddressesRequest, AssignIpv6AddressesResult } from "../models/models_0";
 import {
   deserializeAws_ec2AssignIpv6AddressesCommand,
   serializeAws_ec2AssignIpv6AddressesCommand,

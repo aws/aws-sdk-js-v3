@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeEventConfigurationsRequest, DescribeEventConfigurationsResponse } from "../models/index";
+import { DescribeEventConfigurationsRequest, DescribeEventConfigurationsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeEventConfigurationsCommand,
   serializeAws_restJson1DescribeEventConfigurationsCommand,

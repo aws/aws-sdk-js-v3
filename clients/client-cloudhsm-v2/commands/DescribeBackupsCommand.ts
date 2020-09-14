@@ -1,5 +1,5 @@
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/index";
+import { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeBackupsCommand,
   serializeAws_json1_1DescribeBackupsCommand,

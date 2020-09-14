@@ -2,7 +2,7 @@ import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   PutVoiceConnectorLoggingConfigurationRequest,
   PutVoiceConnectorLoggingConfigurationResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand,
   serializeAws_restJson1PutVoiceConnectorLoggingConfigurationCommand,

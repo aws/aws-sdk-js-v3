@@ -1,5 +1,5 @@
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/index";
+import { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateFromMasterAccountCommand,
   serializeAws_restJson1DisassociateFromMasterAccountCommand,

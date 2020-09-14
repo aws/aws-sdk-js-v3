@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { InitiateLayerUploadRequest, InitiateLayerUploadResponse } from "../models/index";
+import { InitiateLayerUploadRequest, InitiateLayerUploadResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1InitiateLayerUploadCommand,
   serializeAws_json1_1InitiateLayerUploadCommand,

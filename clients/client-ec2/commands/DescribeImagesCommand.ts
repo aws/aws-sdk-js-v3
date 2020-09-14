@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeImagesRequest, DescribeImagesResult } from "../models/index";
+import { DescribeImagesRequest, DescribeImagesResult } from "../models/models_2";
 import { deserializeAws_ec2DescribeImagesCommand, serializeAws_ec2DescribeImagesCommand } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

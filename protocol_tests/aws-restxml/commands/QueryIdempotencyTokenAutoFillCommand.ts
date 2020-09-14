@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { QueryIdempotencyTokenAutoFillInput } from "../models/index";
+import { QueryIdempotencyTokenAutoFillInput } from "../models/models_0";
 import {
   deserializeAws_restXmlQueryIdempotencyTokenAutoFillCommand,
   serializeAws_restXmlQueryIdempotencyTokenAutoFillCommand,

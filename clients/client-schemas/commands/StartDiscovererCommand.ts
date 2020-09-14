@@ -1,5 +1,5 @@
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { StartDiscovererRequest, StartDiscovererResponse } from "../models/index";
+import { StartDiscovererRequest, StartDiscovererResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartDiscovererCommand,
   serializeAws_restJson1StartDiscovererCommand,

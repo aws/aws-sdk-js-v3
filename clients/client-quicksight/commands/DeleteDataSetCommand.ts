@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteDataSetRequest, DeleteDataSetResponse } from "../models/index";
+import { DeleteDataSetRequest, DeleteDataSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDataSetCommand,
   serializeAws_restJson1DeleteDataSetCommand,

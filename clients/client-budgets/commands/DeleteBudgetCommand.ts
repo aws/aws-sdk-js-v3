@@ -1,5 +1,5 @@
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { DeleteBudgetRequest, DeleteBudgetResponse } from "../models/index";
+import { DeleteBudgetRequest, DeleteBudgetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBudgetCommand,
   serializeAws_json1_1DeleteBudgetCommand,

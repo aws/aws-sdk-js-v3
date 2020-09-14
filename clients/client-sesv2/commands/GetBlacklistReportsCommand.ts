@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { GetBlacklistReportsRequest, GetBlacklistReportsResponse } from "../models/index";
+import { GetBlacklistReportsRequest, GetBlacklistReportsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBlacklistReportsCommand,
   serializeAws_restJson1GetBlacklistReportsCommand,

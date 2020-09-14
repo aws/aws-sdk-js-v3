@@ -1,5 +1,5 @@
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { RegisterTransitGatewayRequest, RegisterTransitGatewayResponse } from "../models/index";
+import { RegisterTransitGatewayRequest, RegisterTransitGatewayResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RegisterTransitGatewayCommand,
   serializeAws_restJson1RegisterTransitGatewayCommand,

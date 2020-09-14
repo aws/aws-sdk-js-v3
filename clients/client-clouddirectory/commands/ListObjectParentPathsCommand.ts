@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { ListObjectParentPathsRequest, ListObjectParentPathsResponse } from "../models/index";
+import { ListObjectParentPathsRequest, ListObjectParentPathsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListObjectParentPathsCommand,
   serializeAws_restJson1ListObjectParentPathsCommand,

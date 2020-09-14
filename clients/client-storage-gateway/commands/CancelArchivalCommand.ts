@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { CancelArchivalInput, CancelArchivalOutput } from "../models/index";
+import { CancelArchivalInput, CancelArchivalOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelArchivalCommand,
   serializeAws_json1_1CancelArchivalCommand,

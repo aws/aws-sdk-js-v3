@@ -1,5 +1,5 @@
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { GetDataSetRequest, GetDataSetResponse } from "../models/index";
+import { GetDataSetRequest, GetDataSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDataSetCommand,
   serializeAws_restJson1GetDataSetCommand,

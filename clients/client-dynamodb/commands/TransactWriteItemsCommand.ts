@@ -1,5 +1,5 @@
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { TransactWriteItemsInput, TransactWriteItemsOutput } from "../models/index";
+import { TransactWriteItemsInput, TransactWriteItemsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0TransactWriteItemsCommand,
   serializeAws_json1_0TransactWriteItemsCommand,

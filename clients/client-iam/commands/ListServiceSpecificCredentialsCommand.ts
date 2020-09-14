@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListServiceSpecificCredentialsRequest, ListServiceSpecificCredentialsResponse } from "../models/index";
+import { ListServiceSpecificCredentialsRequest, ListServiceSpecificCredentialsResponse } from "../models/models_0";
 import {
   deserializeAws_queryListServiceSpecificCredentialsCommand,
   serializeAws_queryListServiceSpecificCredentialsCommand,

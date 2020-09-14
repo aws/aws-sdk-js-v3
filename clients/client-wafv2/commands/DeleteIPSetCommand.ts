@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
-import { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/index";
+import { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteIPSetCommand,
   serializeAws_json1_1DeleteIPSetCommand,

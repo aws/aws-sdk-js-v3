@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { PutNotificationConfigurationType } from "../models/index";
+import { PutNotificationConfigurationType } from "../models/models_0";
 import {
   deserializeAws_queryPutNotificationConfigurationCommand,
   serializeAws_queryPutNotificationConfigurationCommand,

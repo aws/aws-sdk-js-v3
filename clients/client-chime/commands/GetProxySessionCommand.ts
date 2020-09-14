@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetProxySessionRequest, GetProxySessionResponse } from "../models/index";
+import { GetProxySessionRequest, GetProxySessionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetProxySessionCommand,
   serializeAws_restJson1GetProxySessionCommand,

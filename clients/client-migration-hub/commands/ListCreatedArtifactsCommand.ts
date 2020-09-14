@@ -1,5 +1,5 @@
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { ListCreatedArtifactsRequest, ListCreatedArtifactsResult } from "../models/index";
+import { ListCreatedArtifactsRequest, ListCreatedArtifactsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListCreatedArtifactsCommand,
   serializeAws_json1_1ListCreatedArtifactsCommand,

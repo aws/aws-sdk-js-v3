@@ -1,5 +1,5 @@
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import { GetEnrollmentStatusRequest, GetEnrollmentStatusResponse } from "../models/index";
+import { GetEnrollmentStatusRequest, GetEnrollmentStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0GetEnrollmentStatusCommand,
   serializeAws_json1_0GetEnrollmentStatusCommand,

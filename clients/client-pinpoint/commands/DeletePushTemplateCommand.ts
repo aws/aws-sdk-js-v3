@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { DeletePushTemplateRequest, DeletePushTemplateResponse } from "../models/index";
+import { DeletePushTemplateRequest, DeletePushTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePushTemplateCommand,
   serializeAws_restJson1DeletePushTemplateCommand,

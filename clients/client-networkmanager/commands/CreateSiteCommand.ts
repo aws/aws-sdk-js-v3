@@ -1,5 +1,5 @@
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { CreateSiteRequest, CreateSiteResponse } from "../models/index";
+import { CreateSiteRequest, CreateSiteResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSiteCommand,
   serializeAws_restJson1CreateSiteCommand,

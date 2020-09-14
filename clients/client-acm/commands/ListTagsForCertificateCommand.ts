@@ -1,5 +1,5 @@
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { ListTagsForCertificateRequest, ListTagsForCertificateResponse } from "../models/index";
+import { ListTagsForCertificateRequest, ListTagsForCertificateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTagsForCertificateCommand,
   serializeAws_json1_1ListTagsForCertificateCommand,

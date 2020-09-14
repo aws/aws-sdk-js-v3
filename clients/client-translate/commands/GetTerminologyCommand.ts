@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
-import { GetTerminologyRequest, GetTerminologyResponse } from "../models/index";
+import { GetTerminologyRequest, GetTerminologyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetTerminologyCommand,
   serializeAws_json1_1GetTerminologyCommand,

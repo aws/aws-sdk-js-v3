@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeletePlacementGroupRequest } from "../models/index";
+import { DeletePlacementGroupRequest } from "../models/models_1";
 import {
   deserializeAws_ec2DeletePlacementGroupCommand,
   serializeAws_ec2DeletePlacementGroupCommand,

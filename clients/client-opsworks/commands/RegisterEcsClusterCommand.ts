@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { RegisterEcsClusterRequest, RegisterEcsClusterResult } from "../models/index";
+import { RegisterEcsClusterRequest, RegisterEcsClusterResult } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterEcsClusterCommand,
   serializeAws_json1_1RegisterEcsClusterCommand,

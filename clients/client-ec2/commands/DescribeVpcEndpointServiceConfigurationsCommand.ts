@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeVpcEndpointServiceConfigurationsRequest,
   DescribeVpcEndpointServiceConfigurationsResult,
-} from "../models/index";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand,
   serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand,

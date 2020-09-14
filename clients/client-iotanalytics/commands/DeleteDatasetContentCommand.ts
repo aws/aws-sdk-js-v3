@@ -1,5 +1,5 @@
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { DeleteDatasetContentRequest } from "../models/index";
+import { DeleteDatasetContentRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDatasetContentCommand,
   serializeAws_restJson1DeleteDatasetContentCommand,

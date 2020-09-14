@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { CreateRateBasedRuleRequest, CreateRateBasedRuleResponse } from "../models/index";
+import { CreateRateBasedRuleRequest, CreateRateBasedRuleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRateBasedRuleCommand,
   serializeAws_json1_1CreateRateBasedRuleCommand,

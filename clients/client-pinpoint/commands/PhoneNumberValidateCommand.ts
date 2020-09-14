@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { PhoneNumberValidateRequest, PhoneNumberValidateResponse } from "../models/index";
+import { PhoneNumberValidateRequest, PhoneNumberValidateResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1PhoneNumberValidateCommand,
   serializeAws_restJson1PhoneNumberValidateCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { DeregisterEndPointsInput, DeregisterEndPointsOutput } from "../models/index";
+import { DeregisterEndPointsInput, DeregisterEndPointsOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand,
   serializeAws_queryDeregisterInstancesFromLoadBalancerCommand,

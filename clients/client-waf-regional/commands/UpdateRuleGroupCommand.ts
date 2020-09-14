@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { UpdateRuleGroupRequest, UpdateRuleGroupResponse } from "../models/index";
+import { UpdateRuleGroupRequest, UpdateRuleGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRuleGroupCommand,
   serializeAws_json1_1UpdateRuleGroupCommand,

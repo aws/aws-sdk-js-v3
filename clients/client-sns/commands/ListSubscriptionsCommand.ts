@@ -1,5 +1,5 @@
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
-import { ListSubscriptionsInput, ListSubscriptionsResponse } from "../models/index";
+import { ListSubscriptionsInput, ListSubscriptionsResponse } from "../models/models_0";
 import {
   deserializeAws_queryListSubscriptionsCommand,
   serializeAws_queryListSubscriptionsCommand,

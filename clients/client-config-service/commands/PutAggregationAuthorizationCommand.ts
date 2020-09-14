@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutAggregationAuthorizationRequest, PutAggregationAuthorizationResponse } from "../models/index";
+import { PutAggregationAuthorizationRequest, PutAggregationAuthorizationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutAggregationAuthorizationCommand,
   serializeAws_json1_1PutAggregationAuthorizationCommand,

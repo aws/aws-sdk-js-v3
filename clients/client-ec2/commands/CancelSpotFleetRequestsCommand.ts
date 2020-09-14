@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CancelSpotFleetRequestsRequest, CancelSpotFleetRequestsResponse } from "../models/index";
+import { CancelSpotFleetRequestsRequest, CancelSpotFleetRequestsResponse } from "../models/models_0";
 import {
   deserializeAws_ec2CancelSpotFleetRequestsCommand,
   serializeAws_ec2CancelSpotFleetRequestsCommand,

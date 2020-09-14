@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient";
-import { DeleteConnectionRequest } from "../models/index";
+import { DeleteConnectionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteConnectionCommand,
   serializeAws_restJson1DeleteConnectionCommand,

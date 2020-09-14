@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { DeleteGatewayInput, DeleteGatewayOutput } from "../models/index";
+import { DeleteGatewayInput, DeleteGatewayOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGatewayCommand,
   serializeAws_json1_1DeleteGatewayCommand,

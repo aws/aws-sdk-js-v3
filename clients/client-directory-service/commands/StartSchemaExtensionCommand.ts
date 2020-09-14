@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { StartSchemaExtensionRequest, StartSchemaExtensionResult } from "../models/index";
+import { StartSchemaExtensionRequest, StartSchemaExtensionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StartSchemaExtensionCommand,
   serializeAws_json1_1StartSchemaExtensionCommand,

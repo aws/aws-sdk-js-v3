@@ -1,5 +1,5 @@
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { GetDataSourceRequest, GetDataSourceResponse } from "../models/index";
+import { GetDataSourceRequest, GetDataSourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDataSourceCommand,
   serializeAws_restJson1GetDataSourceCommand,

@@ -6,7 +6,7 @@ import {
 import {
   DescribeOrderableReplicationInstancesMessage,
   DescribeOrderableReplicationInstancesResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeOrderableReplicationInstancesCommand,
   serializeAws_json1_1DescribeOrderableReplicationInstancesCommand,

@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { LaunchConfigurationNamesType, LaunchConfigurationsType } from "../models/index";
+import { LaunchConfigurationNamesType, LaunchConfigurationsType } from "../models/models_0";
 import {
   deserializeAws_queryDescribeLaunchConfigurationsCommand,
   serializeAws_queryDescribeLaunchConfigurationsCommand,

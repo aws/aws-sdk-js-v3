@@ -1,5 +1,5 @@
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { ListProgressUpdateStreamsRequest, ListProgressUpdateStreamsResult } from "../models/index";
+import { ListProgressUpdateStreamsRequest, ListProgressUpdateStreamsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListProgressUpdateStreamsCommand,
   serializeAws_json1_1ListProgressUpdateStreamsCommand,

@@ -1,5 +1,5 @@
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import { DescribeEventDetailsRequest, DescribeEventDetailsResponse } from "../models/index";
+import { DescribeEventDetailsRequest, DescribeEventDetailsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEventDetailsCommand,
   serializeAws_json1_1DescribeEventDetailsCommand,

@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { DescribeStreamSummaryInput, DescribeStreamSummaryOutput } from "../models/index";
+import { DescribeStreamSummaryInput, DescribeStreamSummaryOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeStreamSummaryCommand,
   serializeAws_json1_1DescribeStreamSummaryCommand,

@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/index";
+import { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTemplateCommand,
   serializeAws_restJson1DeleteTemplateCommand,

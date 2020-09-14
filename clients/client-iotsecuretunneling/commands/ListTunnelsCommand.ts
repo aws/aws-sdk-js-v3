@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
-import { ListTunnelsRequest, ListTunnelsResponse } from "../models/index";
+import { ListTunnelsRequest, ListTunnelsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTunnelsCommand,
   serializeAws_json1_1ListTunnelsCommand,

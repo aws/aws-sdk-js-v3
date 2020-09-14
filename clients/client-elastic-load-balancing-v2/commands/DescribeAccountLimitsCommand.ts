@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { DescribeAccountLimitsInput, DescribeAccountLimitsOutput } from "../models/index";
+import { DescribeAccountLimitsInput, DescribeAccountLimitsOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAccountLimitsCommand,
   serializeAws_queryDescribeAccountLimitsCommand,

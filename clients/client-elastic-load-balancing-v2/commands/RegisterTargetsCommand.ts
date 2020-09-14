@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { RegisterTargetsInput, RegisterTargetsOutput } from "../models/index";
+import { RegisterTargetsInput, RegisterTargetsOutput } from "../models/models_0";
 import {
   deserializeAws_queryRegisterTargetsCommand,
   serializeAws_queryRegisterTargetsCommand,

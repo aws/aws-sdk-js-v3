@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { MergePullRequestByFastForwardInput, MergePullRequestByFastForwardOutput } from "../models/index";
+import { MergePullRequestByFastForwardInput, MergePullRequestByFastForwardOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1MergePullRequestByFastForwardCommand,
   serializeAws_json1_1MergePullRequestByFastForwardCommand,

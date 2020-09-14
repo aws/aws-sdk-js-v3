@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DescribeScalingPoliciesInput, DescribeScalingPoliciesOutput } from "../models/index";
+import { DescribeScalingPoliciesInput, DescribeScalingPoliciesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeScalingPoliciesCommand,
   serializeAws_json1_1DescribeScalingPoliciesCommand,

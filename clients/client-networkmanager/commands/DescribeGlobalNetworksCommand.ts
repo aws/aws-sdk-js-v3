@@ -1,5 +1,5 @@
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { DescribeGlobalNetworksRequest, DescribeGlobalNetworksResponse } from "../models/index";
+import { DescribeGlobalNetworksRequest, DescribeGlobalNetworksResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeGlobalNetworksCommand,
   serializeAws_restJson1DescribeGlobalNetworksCommand,

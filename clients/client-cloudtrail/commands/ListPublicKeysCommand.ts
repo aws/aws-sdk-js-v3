@@ -1,5 +1,5 @@
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { ListPublicKeysRequest, ListPublicKeysResponse } from "../models/index";
+import { ListPublicKeysRequest, ListPublicKeysResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListPublicKeysCommand,
   serializeAws_json1_1ListPublicKeysCommand,

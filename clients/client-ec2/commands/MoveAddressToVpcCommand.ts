@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { MoveAddressToVpcRequest, MoveAddressToVpcResult } from "../models/index";
+import { MoveAddressToVpcRequest, MoveAddressToVpcResult } from "../models/models_4";
 import {
   deserializeAws_ec2MoveAddressToVpcCommand,
   serializeAws_ec2MoveAddressToVpcCommand,

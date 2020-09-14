@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateScriptInput, UpdateScriptOutput } from "../models/index";
+import { UpdateScriptInput, UpdateScriptOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateScriptCommand,
   serializeAws_json1_1UpdateScriptCommand,

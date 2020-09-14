@@ -1,5 +1,5 @@
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { DescribeInsightRulesInput, DescribeInsightRulesOutput } from "../models/index";
+import { DescribeInsightRulesInput, DescribeInsightRulesOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeInsightRulesCommand,
   serializeAws_queryDescribeInsightRulesCommand,

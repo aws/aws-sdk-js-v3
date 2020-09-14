@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/index";
+import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribePlacementGroupsCommand,
   serializeAws_ec2DescribePlacementGroupsCommand,

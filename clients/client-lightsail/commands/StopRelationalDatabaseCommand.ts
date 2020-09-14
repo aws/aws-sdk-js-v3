@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { StopRelationalDatabaseRequest, StopRelationalDatabaseResult } from "../models/index";
+import { StopRelationalDatabaseRequest, StopRelationalDatabaseResult } from "../models/models_1";
 import {
   deserializeAws_json1_1StopRelationalDatabaseCommand,
   serializeAws_json1_1StopRelationalDatabaseCommand,

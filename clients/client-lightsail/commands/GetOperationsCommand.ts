@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetOperationsRequest, GetOperationsResult } from "../models/index";
+import { GetOperationsRequest, GetOperationsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetOperationsCommand,
   serializeAws_json1_1GetOperationsCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse } from "../models/index";
+import { AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateSoftwareTokenCommand,
   serializeAws_json1_1AssociateSoftwareTokenCommand,

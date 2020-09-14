@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { UpdateDocumentDefaultVersionRequest, UpdateDocumentDefaultVersionResult } from "../models/index";
+import { UpdateDocumentDefaultVersionRequest, UpdateDocumentDefaultVersionResult } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateDocumentDefaultVersionCommand,
   serializeAws_json1_1UpdateDocumentDefaultVersionCommand,

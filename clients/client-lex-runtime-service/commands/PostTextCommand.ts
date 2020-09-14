@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
-import { PostTextRequest, PostTextResponse } from "../models/index";
+import { PostTextRequest, PostTextResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PostTextCommand,
   serializeAws_restJson1PostTextCommand,

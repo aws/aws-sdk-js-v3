@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssociateClientVpnTargetNetworkRequest, AssociateClientVpnTargetNetworkResult } from "../models/index";
+import { AssociateClientVpnTargetNetworkRequest, AssociateClientVpnTargetNetworkResult } from "../models/models_0";
 import {
   deserializeAws_ec2AssociateClientVpnTargetNetworkCommand,
   serializeAws_ec2AssociateClientVpnTargetNetworkCommand,

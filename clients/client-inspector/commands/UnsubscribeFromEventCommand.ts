@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { UnsubscribeFromEventRequest } from "../models/index";
+import { UnsubscribeFromEventRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1UnsubscribeFromEventCommand,
   serializeAws_json1_1UnsubscribeFromEventCommand,

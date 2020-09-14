@@ -1,5 +1,5 @@
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { ListCopyJobsInput, ListCopyJobsOutput } from "../models/index";
+import { ListCopyJobsInput, ListCopyJobsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListCopyJobsCommand,
   serializeAws_restJson1ListCopyJobsCommand,

@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { RemoveLayerVersionPermissionRequest } from "../models/index";
+import { RemoveLayerVersionPermissionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveLayerVersionPermissionCommand,
   serializeAws_restJson1RemoveLayerVersionPermissionCommand,

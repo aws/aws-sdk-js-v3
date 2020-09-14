@@ -1,5 +1,5 @@
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { CreateCertificateAuthorityRequest, CreateCertificateAuthorityResponse } from "../models/index";
+import { CreateCertificateAuthorityRequest, CreateCertificateAuthorityResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCertificateAuthorityCommand,
   serializeAws_json1_1CreateCertificateAuthorityCommand,

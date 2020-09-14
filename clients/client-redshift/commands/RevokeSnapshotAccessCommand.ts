@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { RevokeSnapshotAccessMessage, RevokeSnapshotAccessResult } from "../models/index";
+import { RevokeSnapshotAccessMessage, RevokeSnapshotAccessResult } from "../models/models_1";
 import {
   deserializeAws_queryRevokeSnapshotAccessCommand,
   serializeAws_queryRevokeSnapshotAccessCommand,

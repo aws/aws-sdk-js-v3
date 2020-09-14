@@ -1,5 +1,8 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DescribeRemediationConfigurationsRequest, DescribeRemediationConfigurationsResponse } from "../models/index";
+import {
+  DescribeRemediationConfigurationsRequest,
+  DescribeRemediationConfigurationsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeRemediationConfigurationsCommand,
   serializeAws_json1_1DescribeRemediationConfigurationsCommand,

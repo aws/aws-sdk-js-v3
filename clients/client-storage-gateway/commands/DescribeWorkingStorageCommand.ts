@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { DescribeWorkingStorageInput, DescribeWorkingStorageOutput } from "../models/index";
+import { DescribeWorkingStorageInput, DescribeWorkingStorageOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeWorkingStorageCommand,
   serializeAws_json1_1DescribeWorkingStorageCommand,

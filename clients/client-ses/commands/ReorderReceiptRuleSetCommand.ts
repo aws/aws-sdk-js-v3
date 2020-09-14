@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { ReorderReceiptRuleSetRequest, ReorderReceiptRuleSetResponse } from "../models/index";
+import { ReorderReceiptRuleSetRequest, ReorderReceiptRuleSetResponse } from "../models/models_0";
 import {
   deserializeAws_queryReorderReceiptRuleSetCommand,
   serializeAws_queryReorderReceiptRuleSetCommand,

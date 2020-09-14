@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { ListRuleGroupsRequest, ListRuleGroupsResponse } from "../models/index";
+import { ListRuleGroupsRequest, ListRuleGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListRuleGroupsCommand,
   serializeAws_json1_1ListRuleGroupsCommand,

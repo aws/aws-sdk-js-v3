@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminLinkProviderForUserRequest, AdminLinkProviderForUserResponse } from "../models/index";
+import { AdminLinkProviderForUserRequest, AdminLinkProviderForUserResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminLinkProviderForUserCommand,
   serializeAws_json1_1AdminLinkProviderForUserCommand,

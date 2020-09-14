@@ -1,5 +1,5 @@
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { UpdateClusterConfigRequest, UpdateClusterConfigResponse } from "../models/index";
+import { UpdateClusterConfigRequest, UpdateClusterConfigResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateClusterConfigCommand,
   serializeAws_restJson1UpdateClusterConfigCommand,

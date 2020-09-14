@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { DescribeUserRequest, DescribeUserResponse } from "../models/index";
+import { DescribeUserRequest, DescribeUserResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeUserCommand,
   serializeAws_json1_1DescribeUserCommand,

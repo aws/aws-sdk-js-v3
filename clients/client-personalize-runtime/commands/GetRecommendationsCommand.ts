@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient";
-import { GetRecommendationsRequest, GetRecommendationsResponse } from "../models/index";
+import { GetRecommendationsRequest, GetRecommendationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetRecommendationsCommand,
   serializeAws_restJson1GetRecommendationsCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { DeleteResourceRequest, DeleteResourceResponse } from "../models/index";
+import { DeleteResourceRequest, DeleteResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourceCommand,
   serializeAws_json1_1DeleteResourceCommand,

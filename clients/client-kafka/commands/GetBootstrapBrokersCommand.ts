@@ -1,5 +1,5 @@
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { GetBootstrapBrokersRequest, GetBootstrapBrokersResponse } from "../models/index";
+import { GetBootstrapBrokersRequest, GetBootstrapBrokersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBootstrapBrokersCommand,
   serializeAws_restJson1GetBootstrapBrokersCommand,

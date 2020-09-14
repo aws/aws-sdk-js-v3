@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeLabelingJobRequest, DescribeLabelingJobResponse } from "../models/index";
+import { DescribeLabelingJobRequest, DescribeLabelingJobResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DescribeLabelingJobCommand,
   serializeAws_json1_1DescribeLabelingJobCommand,

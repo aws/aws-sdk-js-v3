@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeCoipPoolsRequest, DescribeCoipPoolsResult } from "../models/index";
+import { DescribeCoipPoolsRequest, DescribeCoipPoolsResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeCoipPoolsCommand,
   serializeAws_ec2DescribeCoipPoolsCommand,

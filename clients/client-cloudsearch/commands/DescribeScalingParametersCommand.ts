@@ -1,5 +1,5 @@
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DescribeScalingParametersRequest, DescribeScalingParametersResponse } from "../models/index";
+import { DescribeScalingParametersRequest, DescribeScalingParametersResponse } from "../models/models_0";
 import {
   deserializeAws_queryDescribeScalingParametersCommand,
   serializeAws_queryDescribeScalingParametersCommand,

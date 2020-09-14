@@ -1,5 +1,5 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { CreateGatewayRouteInput, CreateGatewayRouteOutput } from "../models/index";
+import { CreateGatewayRouteInput, CreateGatewayRouteOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateGatewayRouteCommand,
   serializeAws_restJson1CreateGatewayRouteCommand,

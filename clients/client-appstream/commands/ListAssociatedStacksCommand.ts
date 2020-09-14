@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { ListAssociatedStacksRequest, ListAssociatedStacksResult } from "../models/index";
+import { ListAssociatedStacksRequest, ListAssociatedStacksResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAssociatedStacksCommand,
   serializeAws_json1_1ListAssociatedStacksCommand,

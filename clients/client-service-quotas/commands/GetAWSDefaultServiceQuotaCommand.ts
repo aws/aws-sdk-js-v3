@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
-import { GetAWSDefaultServiceQuotaRequest, GetAWSDefaultServiceQuotaResponse } from "../models/index";
+import { GetAWSDefaultServiceQuotaRequest, GetAWSDefaultServiceQuotaResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand,
   serializeAws_json1_1GetAWSDefaultServiceQuotaCommand,

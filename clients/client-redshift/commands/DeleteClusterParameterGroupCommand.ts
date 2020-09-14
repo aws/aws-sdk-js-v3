@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteClusterParameterGroupMessage } from "../models/index";
+import { DeleteClusterParameterGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteClusterParameterGroupCommand,
   serializeAws_queryDeleteClusterParameterGroupCommand,

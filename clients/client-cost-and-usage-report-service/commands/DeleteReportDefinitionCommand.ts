@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient";
-import { DeleteReportDefinitionRequest, DeleteReportDefinitionResponse } from "../models/index";
+import { DeleteReportDefinitionRequest, DeleteReportDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteReportDefinitionCommand,
   serializeAws_json1_1DeleteReportDefinitionCommand,

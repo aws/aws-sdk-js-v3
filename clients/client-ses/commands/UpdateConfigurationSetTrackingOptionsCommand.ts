@@ -2,7 +2,7 @@ import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   UpdateConfigurationSetTrackingOptionsRequest,
   UpdateConfigurationSetTrackingOptionsResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommand,
   serializeAws_queryUpdateConfigurationSetTrackingOptionsCommand,

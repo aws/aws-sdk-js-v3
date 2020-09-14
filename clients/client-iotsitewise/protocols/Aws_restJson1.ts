@@ -156,7 +156,7 @@ import {
   UserIdentity,
   VariableValue,
   Variant,
-} from "../models/index";
+} from "../models/models_0";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,

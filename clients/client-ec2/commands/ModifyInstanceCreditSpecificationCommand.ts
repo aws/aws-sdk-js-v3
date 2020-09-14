@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyInstanceCreditSpecificationRequest, ModifyInstanceCreditSpecificationResult } from "../models/index";
+import { ModifyInstanceCreditSpecificationRequest, ModifyInstanceCreditSpecificationResult } from "../models/models_4";
 import {
   deserializeAws_ec2ModifyInstanceCreditSpecificationCommand,
   serializeAws_ec2ModifyInstanceCreditSpecificationCommand,

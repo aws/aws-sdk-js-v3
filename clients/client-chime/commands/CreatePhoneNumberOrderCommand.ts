@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { CreatePhoneNumberOrderRequest, CreatePhoneNumberOrderResponse } from "../models/index";
+import { CreatePhoneNumberOrderRequest, CreatePhoneNumberOrderResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreatePhoneNumberOrderCommand,
   serializeAws_restJson1CreatePhoneNumberOrderCommand,

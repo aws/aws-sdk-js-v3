@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse } from "../models/index";
+import { SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse } from "../models/models_0";
 import {
   deserializeAws_querySetIdentityNotificationTopicCommand,
   serializeAws_querySetIdentityNotificationTopicCommand,

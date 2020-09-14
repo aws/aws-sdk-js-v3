@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DomainName, UpdateDomainNameRequest } from "../models/index";
+import { DomainName, UpdateDomainNameRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDomainNameCommand,
   serializeAws_restJson1UpdateDomainNameCommand,

@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DescribeFilterRequest, DescribeFilterResponse } from "../models/index";
+import { DescribeFilterRequest, DescribeFilterResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFilterCommand,
   serializeAws_json1_1DescribeFilterCommand,

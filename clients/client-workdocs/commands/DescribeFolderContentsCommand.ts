@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { DescribeFolderContentsRequest, DescribeFolderContentsResponse } from "../models/index";
+import { DescribeFolderContentsRequest, DescribeFolderContentsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeFolderContentsCommand,
   serializeAws_restJson1DescribeFolderContentsCommand,

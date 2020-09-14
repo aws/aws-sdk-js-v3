@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { UpdateWebACLRequest, UpdateWebACLResponse } from "../models/index";
+import { UpdateWebACLRequest, UpdateWebACLResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateWebACLCommand,
   serializeAws_json1_1UpdateWebACLCommand,

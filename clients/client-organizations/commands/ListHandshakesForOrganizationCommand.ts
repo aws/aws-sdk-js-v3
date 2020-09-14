@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListHandshakesForOrganizationRequest, ListHandshakesForOrganizationResponse } from "../models/index";
+import { ListHandshakesForOrganizationRequest, ListHandshakesForOrganizationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListHandshakesForOrganizationCommand,
   serializeAws_json1_1ListHandshakesForOrganizationCommand,

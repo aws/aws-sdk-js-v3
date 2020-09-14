@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { GatewayResponse, GetGatewayResponseRequest } from "../models/index";
+import { GatewayResponse, GetGatewayResponseRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1GetGatewayResponseCommand,
   serializeAws_restJson1GetGatewayResponseCommand,

@@ -1,5 +1,5 @@
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CancelDataRepositoryTaskRequest, CancelDataRepositoryTaskResponse } from "../models/index";
+import { CancelDataRepositoryTaskRequest, CancelDataRepositoryTaskResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelDataRepositoryTaskCommand,
   serializeAws_json1_1CancelDataRepositoryTaskCommand,

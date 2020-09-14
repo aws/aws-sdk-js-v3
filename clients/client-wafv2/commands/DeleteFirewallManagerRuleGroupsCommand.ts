@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
-import { DeleteFirewallManagerRuleGroupsRequest, DeleteFirewallManagerRuleGroupsResponse } from "../models/index";
+import { DeleteFirewallManagerRuleGroupsRequest, DeleteFirewallManagerRuleGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand,
   serializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand,

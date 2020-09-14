@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { CreateDirectoryConfigRequest, CreateDirectoryConfigResult } from "../models/index";
+import { CreateDirectoryConfigRequest, CreateDirectoryConfigResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDirectoryConfigCommand,
   serializeAws_json1_1CreateDirectoryConfigCommand,

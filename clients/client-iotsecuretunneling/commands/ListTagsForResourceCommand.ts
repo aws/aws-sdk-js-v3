@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/index";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTagsForResourceCommand,
   serializeAws_json1_1ListTagsForResourceCommand,

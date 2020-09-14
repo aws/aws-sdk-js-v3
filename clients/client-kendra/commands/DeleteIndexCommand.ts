@@ -1,5 +1,5 @@
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DeleteIndexRequest } from "../models/index";
+import { DeleteIndexRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteIndexCommand,
   serializeAws_json1_1DeleteIndexCommand,

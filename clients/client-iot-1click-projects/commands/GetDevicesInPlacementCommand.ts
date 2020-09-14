@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import { GetDevicesInPlacementRequest, GetDevicesInPlacementResponse } from "../models/index";
+import { GetDevicesInPlacementRequest, GetDevicesInPlacementResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDevicesInPlacementCommand,
   serializeAws_restJson1GetDevicesInPlacementCommand,

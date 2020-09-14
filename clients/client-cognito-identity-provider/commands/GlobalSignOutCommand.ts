@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { GlobalSignOutRequest, GlobalSignOutResponse } from "../models/index";
+import { GlobalSignOutRequest, GlobalSignOutResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GlobalSignOutCommand,
   serializeAws_json1_1GlobalSignOutCommand,

@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateRelationalDatabaseSnapshotRequest, CreateRelationalDatabaseSnapshotResult } from "../models/index";
+import { CreateRelationalDatabaseSnapshotRequest, CreateRelationalDatabaseSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommand,
   serializeAws_json1_1CreateRelationalDatabaseSnapshotCommand,

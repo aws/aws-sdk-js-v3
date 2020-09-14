@@ -1,5 +1,5 @@
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { GetComponentPolicyRequest, GetComponentPolicyResponse } from "../models/index";
+import { GetComponentPolicyRequest, GetComponentPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetComponentPolicyCommand,
   serializeAws_restJson1GetComponentPolicyCommand,

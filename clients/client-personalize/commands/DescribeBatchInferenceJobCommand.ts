@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DescribeBatchInferenceJobRequest, DescribeBatchInferenceJobResponse } from "../models/index";
+import { DescribeBatchInferenceJobRequest, DescribeBatchInferenceJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeBatchInferenceJobCommand,
   serializeAws_json1_1DescribeBatchInferenceJobCommand,

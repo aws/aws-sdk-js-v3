@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminDisableUserRequest, AdminDisableUserResponse } from "../models/index";
+import { AdminDisableUserRequest, AdminDisableUserResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminDisableUserCommand,
   serializeAws_json1_1AdminDisableUserCommand,

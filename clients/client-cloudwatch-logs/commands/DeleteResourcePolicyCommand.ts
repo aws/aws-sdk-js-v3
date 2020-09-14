@@ -1,5 +1,5 @@
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DeleteResourcePolicyRequest } from "../models/index";
+import { DeleteResourcePolicyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourcePolicyCommand,
   serializeAws_json1_1DeleteResourcePolicyCommand,

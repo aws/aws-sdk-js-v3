@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import { DeletePipelineRequest, DeletePipelineResponse } from "../models/index";
+import { DeletePipelineRequest, DeletePipelineResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePipelineCommand,
   serializeAws_restJson1DeletePipelineCommand,

@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { ListPlatformVersionsRequest, ListPlatformVersionsResult } from "../models/index";
+import { ListPlatformVersionsRequest, ListPlatformVersionsResult } from "../models/models_0";
 import {
   deserializeAws_queryListPlatformVersionsCommand,
   serializeAws_queryListPlatformVersionsCommand,

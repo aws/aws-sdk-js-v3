@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { ImportCertificateMessage, ImportCertificateResponse } from "../models/index";
+import { ImportCertificateMessage, ImportCertificateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ImportCertificateCommand,
   serializeAws_json1_1ImportCertificateCommand,

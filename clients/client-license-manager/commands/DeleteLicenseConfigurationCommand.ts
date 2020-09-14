@@ -1,5 +1,5 @@
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { DeleteLicenseConfigurationRequest, DeleteLicenseConfigurationResponse } from "../models/index";
+import { DeleteLicenseConfigurationRequest, DeleteLicenseConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLicenseConfigurationCommand,
   serializeAws_json1_1DeleteLicenseConfigurationCommand,

@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { CreateServiceLinkedRoleRequest, CreateServiceLinkedRoleResponse } from "../models/index";
+import { CreateServiceLinkedRoleRequest, CreateServiceLinkedRoleResponse } from "../models/models_0";
 import {
   deserializeAws_queryCreateServiceLinkedRoleCommand,
   serializeAws_queryCreateServiceLinkedRoleCommand,

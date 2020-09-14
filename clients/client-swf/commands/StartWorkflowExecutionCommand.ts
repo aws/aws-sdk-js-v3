@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { Run, StartWorkflowExecutionInput } from "../models/index";
+import { Run, StartWorkflowExecutionInput } from "../models/models_0";
 import {
   deserializeAws_json1_0StartWorkflowExecutionCommand,
   serializeAws_json1_0StartWorkflowExecutionCommand,

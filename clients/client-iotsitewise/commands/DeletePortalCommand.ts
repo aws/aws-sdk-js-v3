@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DeletePortalRequest, DeletePortalResponse } from "../models/index";
+import { DeletePortalRequest, DeletePortalResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePortalCommand,
   serializeAws_restJson1DeletePortalCommand,

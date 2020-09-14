@@ -2,7 +2,7 @@ import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 import {
   DescribeServiceActionExecutionParametersInput,
   DescribeServiceActionExecutionParametersOutput,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeServiceActionExecutionParametersCommand,
   serializeAws_json1_1DescribeServiceActionExecutionParametersCommand,

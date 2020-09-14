@@ -1,5 +1,5 @@
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { InitiateVaultLockInput, InitiateVaultLockOutput } from "../models/index";
+import { InitiateVaultLockInput, InitiateVaultLockOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1InitiateVaultLockCommand,
   serializeAws_restJson1InitiateVaultLockCommand,

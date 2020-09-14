@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DetectTextRequest, DetectTextResponse } from "../models/index";
+import { DetectTextRequest, DetectTextResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DetectTextCommand,
   serializeAws_json1_1DetectTextCommand,

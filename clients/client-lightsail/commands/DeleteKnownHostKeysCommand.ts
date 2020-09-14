@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteKnownHostKeysRequest, DeleteKnownHostKeysResult } from "../models/index";
+import { DeleteKnownHostKeysRequest, DeleteKnownHostKeysResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteKnownHostKeysCommand,
   serializeAws_json1_1DeleteKnownHostKeysCommand,

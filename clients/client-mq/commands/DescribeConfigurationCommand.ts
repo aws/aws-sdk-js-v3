@@ -1,5 +1,5 @@
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { DescribeConfigurationRequest, DescribeConfigurationResponse } from "../models/index";
+import { DescribeConfigurationRequest, DescribeConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeConfigurationCommand,
   serializeAws_restJson1DescribeConfigurationCommand,

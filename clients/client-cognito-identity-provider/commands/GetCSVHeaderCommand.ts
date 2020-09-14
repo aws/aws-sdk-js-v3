@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { GetCSVHeaderRequest, GetCSVHeaderResponse } from "../models/index";
+import { GetCSVHeaderRequest, GetCSVHeaderResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetCSVHeaderCommand,
   serializeAws_json1_1GetCSVHeaderCommand,

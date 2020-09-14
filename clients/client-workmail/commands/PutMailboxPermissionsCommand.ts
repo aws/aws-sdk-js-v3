@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
-import { PutMailboxPermissionsRequest, PutMailboxPermissionsResponse } from "../models/index";
+import { PutMailboxPermissionsRequest, PutMailboxPermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutMailboxPermissionsCommand,
   serializeAws_json1_1PutMailboxPermissionsCommand,

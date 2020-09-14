@@ -1,5 +1,5 @@
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { PutManagedScalingPolicyInput, PutManagedScalingPolicyOutput } from "../models/index";
+import { PutManagedScalingPolicyInput, PutManagedScalingPolicyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutManagedScalingPolicyCommand,
   serializeAws_json1_1PutManagedScalingPolicyCommand,

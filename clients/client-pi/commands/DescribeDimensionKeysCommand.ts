@@ -1,5 +1,5 @@
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import { DescribeDimensionKeysRequest, DescribeDimensionKeysResponse } from "../models/index";
+import { DescribeDimensionKeysRequest, DescribeDimensionKeysResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDimensionKeysCommand,
   serializeAws_json1_1DescribeDimensionKeysCommand,

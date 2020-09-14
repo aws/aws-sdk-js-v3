@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketLoggingOutput, GetBucketLoggingRequest } from "../models/index";
+import { GetBucketLoggingOutput, GetBucketLoggingRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketLoggingCommand,
   serializeAws_restXmlGetBucketLoggingCommand,

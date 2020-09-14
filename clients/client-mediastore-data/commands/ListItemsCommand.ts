@@ -1,5 +1,5 @@
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
-import { ListItemsRequest, ListItemsResponse } from "../models/index";
+import { ListItemsRequest, ListItemsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListItemsCommand,
   serializeAws_restJson1ListItemsCommand,

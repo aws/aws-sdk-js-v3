@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { ListPlatformBranchesRequest, ListPlatformBranchesResult } from "../models/index";
+import { ListPlatformBranchesRequest, ListPlatformBranchesResult } from "../models/models_0";
 import {
   deserializeAws_queryListPlatformBranchesCommand,
   serializeAws_queryListPlatformBranchesCommand,

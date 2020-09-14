@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
-import { CreateSubscriptionRequest, CreateSubscriptionResponse } from "../models/index";
+import { CreateSubscriptionRequest, CreateSubscriptionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSubscriptionCommand,
   serializeAws_json1_1CreateSubscriptionCommand,

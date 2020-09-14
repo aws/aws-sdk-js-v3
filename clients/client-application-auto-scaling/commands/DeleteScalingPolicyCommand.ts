@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import { DeleteScalingPolicyRequest, DeleteScalingPolicyResponse } from "../models/index";
+import { DeleteScalingPolicyRequest, DeleteScalingPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteScalingPolicyCommand,
   serializeAws_json1_1DeleteScalingPolicyCommand,

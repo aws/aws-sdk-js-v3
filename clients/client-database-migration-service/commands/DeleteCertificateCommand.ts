@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DeleteCertificateMessage, DeleteCertificateResponse } from "../models/index";
+import { DeleteCertificateMessage, DeleteCertificateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCertificateCommand,
   serializeAws_json1_1DeleteCertificateCommand,

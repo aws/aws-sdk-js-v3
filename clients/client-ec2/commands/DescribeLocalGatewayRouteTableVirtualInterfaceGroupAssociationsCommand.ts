@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
-} from "../models/index";
+} from "../models/models_2";
 import {
   deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
   serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,

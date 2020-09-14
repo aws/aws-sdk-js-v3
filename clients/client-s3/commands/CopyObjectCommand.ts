@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { CopyObjectOutput, CopyObjectRequest } from "../models/index";
+import { CopyObjectOutput, CopyObjectRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlCopyObjectCommand,
   serializeAws_restXmlCopyObjectCommand,

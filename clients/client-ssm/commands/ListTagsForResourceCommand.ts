@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResult } from "../models/index";
+import { ListTagsForResourceRequest, ListTagsForResourceResult } from "../models/models_1";
 import {
   deserializeAws_json1_1ListTagsForResourceCommand,
   serializeAws_json1_1ListTagsForResourceCommand,

@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { SendBulkTemplatedEmailRequest, SendBulkTemplatedEmailResponse } from "../models/index";
+import { SendBulkTemplatedEmailRequest, SendBulkTemplatedEmailResponse } from "../models/models_0";
 import {
   deserializeAws_querySendBulkTemplatedEmailCommand,
   serializeAws_querySendBulkTemplatedEmailCommand,

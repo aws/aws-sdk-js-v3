@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateHyperParameterTuningJobRequest, CreateHyperParameterTuningJobResponse } from "../models/index";
+import { CreateHyperParameterTuningJobRequest, CreateHyperParameterTuningJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateHyperParameterTuningJobCommand,
   serializeAws_json1_1CreateHyperParameterTuningJobCommand,

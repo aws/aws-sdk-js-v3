@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
-import { DescribeAttackRequest, DescribeAttackResponse } from "../models/index";
+import { DescribeAttackRequest, DescribeAttackResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAttackCommand,
   serializeAws_json1_1DescribeAttackCommand,

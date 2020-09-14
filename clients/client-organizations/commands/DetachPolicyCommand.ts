@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DetachPolicyRequest } from "../models/index";
+import { DetachPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DetachPolicyCommand,
   serializeAws_json1_1DetachPolicyCommand,

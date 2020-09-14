@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
-import { DescribeServerRequest, DescribeServerResponse } from "../models/index";
+import { DescribeServerRequest, DescribeServerResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeServerCommand,
   serializeAws_json1_1DescribeServerCommand,

@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DescribeGatewayRequest, DescribeGatewayResponse } from "../models/index";
+import { DescribeGatewayRequest, DescribeGatewayResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeGatewayCommand,
   serializeAws_restJson1DescribeGatewayCommand,

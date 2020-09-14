@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListQueryLoggingConfigsRequest, ListQueryLoggingConfigsResponse } from "../models/index";
+import { ListQueryLoggingConfigsRequest, ListQueryLoggingConfigsResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlListQueryLoggingConfigsCommand,
   serializeAws_restXmlListQueryLoggingConfigsCommand,

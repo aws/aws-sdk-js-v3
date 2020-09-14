@@ -1,5 +1,5 @@
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { LookupEventsRequest, LookupEventsResponse } from "../models/index";
+import { LookupEventsRequest, LookupEventsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1LookupEventsCommand,
   serializeAws_json1_1LookupEventsCommand,

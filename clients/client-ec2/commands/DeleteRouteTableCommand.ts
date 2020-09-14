@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteRouteTableRequest } from "../models/index";
+import { DeleteRouteTableRequest } from "../models/models_1";
 import {
   deserializeAws_ec2DeleteRouteTableCommand,
   serializeAws_ec2DeleteRouteTableCommand,

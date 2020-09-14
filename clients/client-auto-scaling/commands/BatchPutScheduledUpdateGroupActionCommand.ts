@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { BatchPutScheduledUpdateGroupActionAnswer, BatchPutScheduledUpdateGroupActionType } from "../models/index";
+import { BatchPutScheduledUpdateGroupActionAnswer, BatchPutScheduledUpdateGroupActionType } from "../models/models_0";
 import {
   deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand,
   serializeAws_queryBatchPutScheduledUpdateGroupActionCommand,

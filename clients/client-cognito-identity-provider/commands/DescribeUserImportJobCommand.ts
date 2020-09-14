@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { DescribeUserImportJobRequest, DescribeUserImportJobResponse } from "../models/index";
+import { DescribeUserImportJobRequest, DescribeUserImportJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeUserImportJobCommand,
   serializeAws_json1_1DescribeUserImportJobCommand,

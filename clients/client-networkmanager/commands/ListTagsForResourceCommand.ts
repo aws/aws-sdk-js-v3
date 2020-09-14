@@ -1,5 +1,5 @@
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/index";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListTagsForResourceCommand,
   serializeAws_restJson1ListTagsForResourceCommand,

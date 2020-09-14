@@ -1,5 +1,5 @@
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { GetQueryResultsInput, GetQueryResultsOutput } from "../models/index";
+import { GetQueryResultsInput, GetQueryResultsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetQueryResultsCommand,
   serializeAws_json1_1GetQueryResultsCommand,

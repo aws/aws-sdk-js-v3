@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { CreateTrafficPolicyVersionRequest, CreateTrafficPolicyVersionResponse } from "../models/index";
+import { CreateTrafficPolicyVersionRequest, CreateTrafficPolicyVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlCreateTrafficPolicyVersionCommand,
   serializeAws_restXmlCreateTrafficPolicyVersionCommand,

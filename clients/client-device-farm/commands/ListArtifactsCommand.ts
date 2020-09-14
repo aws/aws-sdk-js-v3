@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListArtifactsRequest, ListArtifactsResult } from "../models/index";
+import { ListArtifactsRequest, ListArtifactsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListArtifactsCommand,
   serializeAws_json1_1ListArtifactsCommand,

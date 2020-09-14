@@ -1,5 +1,5 @@
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { CreateDataflowEndpointGroupRequest, DataflowEndpointGroupIdResponse } from "../models/index";
+import { CreateDataflowEndpointGroupRequest, DataflowEndpointGroupIdResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDataflowEndpointGroupCommand,
   serializeAws_restJson1CreateDataflowEndpointGroupCommand,

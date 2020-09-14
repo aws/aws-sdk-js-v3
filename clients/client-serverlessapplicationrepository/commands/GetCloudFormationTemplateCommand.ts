@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
-import { GetCloudFormationTemplateRequest, GetCloudFormationTemplateResponse } from "../models/index";
+import { GetCloudFormationTemplateRequest, GetCloudFormationTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCloudFormationTemplateCommand,
   serializeAws_restJson1GetCloudFormationTemplateCommand,

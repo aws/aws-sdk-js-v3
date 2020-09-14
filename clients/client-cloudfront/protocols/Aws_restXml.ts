@@ -237,7 +237,6 @@ import {
   Headers,
   IllegalDelete,
   IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
-  IllegalUpdate,
   InconsistentQuantities,
   InvalidArgument,
   InvalidDefaultRootObject,
@@ -281,7 +280,6 @@ import {
   NoSuchOrigin,
   NoSuchOriginRequestPolicy,
   NoSuchPublicKey,
-  NoSuchResource,
   NoSuchStreamingDistribution,
   Origin,
   OriginCustomHeader,
@@ -326,12 +324,9 @@ import {
   StreamingDistributionAlreadyExists,
   StreamingDistributionConfig,
   StreamingDistributionConfigWithTags,
-  StreamingDistributionList,
   StreamingDistributionNotDisabled,
-  StreamingDistributionSummary,
   StreamingLoggingConfig,
   Tag,
-  TagKeys,
   Tags,
   TooManyCacheBehaviors,
   TooManyCachePolicies,
@@ -372,7 +367,14 @@ import {
   TrustedSignerDoesNotExist,
   TrustedSigners,
   ViewerCertificate,
-} from "../models/index";
+} from "../models/models_0";
+import {
+  IllegalUpdate,
+  NoSuchResource,
+  StreamingDistributionList,
+  StreamingDistributionSummary,
+  TagKeys,
+} from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,

@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { CountPendingActivityTasksInput, PendingTaskCount } from "../models/index";
+import { CountPendingActivityTasksInput, PendingTaskCount } from "../models/models_0";
 import {
   deserializeAws_json1_0CountPendingActivityTasksCommand,
   serializeAws_json1_0CountPendingActivityTasksCommand,

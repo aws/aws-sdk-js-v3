@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeFlowLogsRequest, DescribeFlowLogsResult } from "../models/index";
+import { DescribeFlowLogsRequest, DescribeFlowLogsResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeFlowLogsCommand,
   serializeAws_ec2DescribeFlowLogsCommand,

@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { RegisterDomainInput } from "../models/index";
+import { RegisterDomainInput } from "../models/models_0";
 import {
   deserializeAws_json1_0RegisterDomainCommand,
   serializeAws_json1_0RegisterDomainCommand,

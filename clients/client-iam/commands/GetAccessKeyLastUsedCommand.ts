@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetAccessKeyLastUsedRequest, GetAccessKeyLastUsedResponse } from "../models/index";
+import { GetAccessKeyLastUsedRequest, GetAccessKeyLastUsedResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetAccessKeyLastUsedCommand,
   serializeAws_queryGetAccessKeyLastUsedCommand,

@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DeleteAccessPolicyRequest, DeleteAccessPolicyResponse } from "../models/index";
+import { DeleteAccessPolicyRequest, DeleteAccessPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAccessPolicyCommand,
   serializeAws_restJson1DeleteAccessPolicyCommand,

@@ -1,5 +1,5 @@
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { AcceptInvitationRequest } from "../models/index";
+import { AcceptInvitationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1AcceptInvitationCommand,
   serializeAws_restJson1AcceptInvitationCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import { DeletePlacementRequest, DeletePlacementResponse } from "../models/index";
+import { DeletePlacementRequest, DeletePlacementResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePlacementCommand,
   serializeAws_restJson1DeletePlacementCommand,

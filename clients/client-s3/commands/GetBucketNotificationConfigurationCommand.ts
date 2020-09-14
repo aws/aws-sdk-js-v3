@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketNotificationConfigurationRequest, NotificationConfiguration } from "../models/index";
+import { GetBucketNotificationConfigurationRequest, NotificationConfiguration } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketNotificationConfigurationCommand,
   serializeAws_restXmlGetBucketNotificationConfigurationCommand,

@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DetectLabelsRequest, DetectLabelsResponse } from "../models/index";
+import { DetectLabelsRequest, DetectLabelsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DetectLabelsCommand,
   serializeAws_json1_1DetectLabelsCommand,

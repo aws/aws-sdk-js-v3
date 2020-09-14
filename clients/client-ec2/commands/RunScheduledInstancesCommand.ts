@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RunScheduledInstancesRequest, RunScheduledInstancesResult } from "../models/index";
+import { RunScheduledInstancesRequest, RunScheduledInstancesResult } from "../models/models_4";
 import {
   deserializeAws_ec2RunScheduledInstancesCommand,
   serializeAws_ec2RunScheduledInstancesCommand,

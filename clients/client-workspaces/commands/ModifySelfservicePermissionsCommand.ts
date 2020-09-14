@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { ModifySelfservicePermissionsRequest, ModifySelfservicePermissionsResult } from "../models/index";
+import { ModifySelfservicePermissionsRequest, ModifySelfservicePermissionsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ModifySelfservicePermissionsCommand,
   serializeAws_json1_1ModifySelfservicePermissionsCommand,

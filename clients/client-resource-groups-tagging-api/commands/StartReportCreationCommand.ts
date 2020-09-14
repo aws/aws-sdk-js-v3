@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
-import { StartReportCreationInput, StartReportCreationOutput } from "../models/index";
+import { StartReportCreationInput, StartReportCreationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StartReportCreationCommand,
   serializeAws_json1_1StartReportCreationCommand,

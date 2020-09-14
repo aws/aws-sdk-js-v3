@@ -1,5 +1,5 @@
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
-import { DeleteProductInput, DeleteProductOutput } from "../models/index";
+import { DeleteProductInput, DeleteProductOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProductCommand,
   serializeAws_json1_1DeleteProductCommand,

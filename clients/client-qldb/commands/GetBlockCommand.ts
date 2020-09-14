@@ -1,5 +1,5 @@
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
-import { GetBlockRequest, GetBlockResponse } from "../models/index";
+import { GetBlockRequest, GetBlockResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBlockCommand,
   serializeAws_restJson1GetBlockCommand,

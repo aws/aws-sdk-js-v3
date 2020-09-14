@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse } from "../models/index";
+import { SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1SubmitTaskStateChangeCommand,
   serializeAws_json1_1SubmitTaskStateChangeCommand,

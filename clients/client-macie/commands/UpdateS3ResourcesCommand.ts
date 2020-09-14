@@ -1,5 +1,5 @@
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import { UpdateS3ResourcesRequest, UpdateS3ResourcesResult } from "../models/index";
+import { UpdateS3ResourcesRequest, UpdateS3ResourcesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateS3ResourcesCommand,
   serializeAws_json1_1UpdateS3ResourcesCommand,

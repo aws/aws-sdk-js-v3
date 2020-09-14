@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { ListThemeVersionsRequest, ListThemeVersionsResponse } from "../models/index";
+import { ListThemeVersionsRequest, ListThemeVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListThemeVersionsCommand,
   serializeAws_restJson1ListThemeVersionsCommand,

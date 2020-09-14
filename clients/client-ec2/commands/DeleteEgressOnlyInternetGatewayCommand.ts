@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteEgressOnlyInternetGatewayRequest, DeleteEgressOnlyInternetGatewayResult } from "../models/index";
+import { DeleteEgressOnlyInternetGatewayRequest, DeleteEgressOnlyInternetGatewayResult } from "../models/models_1";
 import {
   deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommand,
   serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand,

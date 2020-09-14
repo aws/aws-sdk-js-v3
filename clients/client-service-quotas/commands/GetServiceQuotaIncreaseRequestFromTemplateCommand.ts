@@ -2,7 +2,7 @@ import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfi
 import {
   GetServiceQuotaIncreaseRequestFromTemplateRequest,
   GetServiceQuotaIncreaseRequestFromTemplateResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand,
   serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand,

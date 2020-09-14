@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { PutComplianceItemsRequest, PutComplianceItemsResult } from "../models/index";
+import { PutComplianceItemsRequest, PutComplianceItemsResult } from "../models/models_1";
 import {
   deserializeAws_json1_1PutComplianceItemsCommand,
   serializeAws_json1_1PutComplianceItemsCommand,

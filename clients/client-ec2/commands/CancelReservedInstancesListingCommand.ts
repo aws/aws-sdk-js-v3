@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CancelReservedInstancesListingRequest, CancelReservedInstancesListingResult } from "../models/index";
+import { CancelReservedInstancesListingRequest, CancelReservedInstancesListingResult } from "../models/models_0";
 import {
   deserializeAws_ec2CancelReservedInstancesListingCommand,
   serializeAws_ec2CancelReservedInstancesListingCommand,

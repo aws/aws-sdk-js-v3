@@ -1,5 +1,5 @@
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
-import { CreateHttpNamespaceRequest, CreateHttpNamespaceResponse } from "../models/index";
+import { CreateHttpNamespaceRequest, CreateHttpNamespaceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateHttpNamespaceCommand,
   serializeAws_json1_1CreateHttpNamespaceCommand,

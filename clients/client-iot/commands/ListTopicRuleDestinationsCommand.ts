@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListTopicRuleDestinationsRequest, ListTopicRuleDestinationsResponse } from "../models/index";
+import { ListTopicRuleDestinationsRequest, ListTopicRuleDestinationsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListTopicRuleDestinationsCommand,
   serializeAws_restJson1ListTopicRuleDestinationsCommand,

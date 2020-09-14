@@ -1,5 +1,5 @@
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResult } from "../models/index";
+import { ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResult } from "../models/models_0";
 import {
   deserializeAws_queryApplyPendingMaintenanceActionCommand,
   serializeAws_queryApplyPendingMaintenanceActionCommand,

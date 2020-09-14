@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { IgnoreQueryParamsInResponseOutput } from "../models/index";
+import { IgnoreQueryParamsInResponseOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1IgnoreQueryParamsInResponseCommand,
   serializeAws_restJson1IgnoreQueryParamsInResponseCommand,

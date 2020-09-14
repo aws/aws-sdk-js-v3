@@ -1,5 +1,5 @@
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { AcceptInvitationRequest, AcceptInvitationResponse } from "../models/index";
+import { AcceptInvitationRequest, AcceptInvitationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AcceptInvitationCommand,
   serializeAws_restJson1AcceptInvitationCommand,

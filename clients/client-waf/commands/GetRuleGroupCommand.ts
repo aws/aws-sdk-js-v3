@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { GetRuleGroupRequest, GetRuleGroupResponse } from "../models/index";
+import { GetRuleGroupRequest, GetRuleGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRuleGroupCommand,
   serializeAws_json1_1GetRuleGroupCommand,

@@ -6,7 +6,7 @@ import {
 import {
   AssociateConfigurationItemsToApplicationRequest,
   AssociateConfigurationItemsToApplicationResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommand,
   serializeAws_json1_1AssociateConfigurationItemsToApplicationCommand,

@@ -1,5 +1,5 @@
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { SearchSystemInstancesRequest, SearchSystemInstancesResponse } from "../models/index";
+import { SearchSystemInstancesRequest, SearchSystemInstancesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1SearchSystemInstancesCommand,
   serializeAws_json1_1SearchSystemInstancesCommand,

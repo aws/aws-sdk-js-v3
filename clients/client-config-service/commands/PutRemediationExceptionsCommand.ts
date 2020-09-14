@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutRemediationExceptionsRequest, PutRemediationExceptionsResponse } from "../models/index";
+import { PutRemediationExceptionsRequest, PutRemediationExceptionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutRemediationExceptionsCommand,
   serializeAws_json1_1PutRemediationExceptionsCommand,

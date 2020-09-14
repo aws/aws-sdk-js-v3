@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { TagResourceRequest, TagResourceResponse } from "../models/index";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1TagResourceCommand,
   serializeAws_restJson1TagResourceCommand,

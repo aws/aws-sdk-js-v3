@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { StartFleetActionsInput, StartFleetActionsOutput } from "../models/index";
+import { StartFleetActionsInput, StartFleetActionsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StartFleetActionsCommand,
   serializeAws_json1_1StartFleetActionsCommand,

@@ -1,5 +1,5 @@
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { DescribeBudgetPerformanceHistoryRequest, DescribeBudgetPerformanceHistoryResponse } from "../models/index";
+import { DescribeBudgetPerformanceHistoryRequest, DescribeBudgetPerformanceHistoryResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,
   serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,

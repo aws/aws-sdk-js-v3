@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
-import { ListServersRequest, ListServersResponse } from "../models/index";
+import { ListServersRequest, ListServersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListServersCommand,
   serializeAws_json1_1ListServersCommand,

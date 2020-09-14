@@ -2,7 +2,7 @@ import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } fro
 import {
   AssociateProactiveEngagementDetailsRequest,
   AssociateProactiveEngagementDetailsResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateProactiveEngagementDetailsCommand,
   serializeAws_json1_1AssociateProactiveEngagementDetailsCommand,

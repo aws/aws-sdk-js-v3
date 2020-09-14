@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { ListBonusPaymentsRequest, ListBonusPaymentsResponse } from "../models/index";
+import { ListBonusPaymentsRequest, ListBonusPaymentsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListBonusPaymentsCommand,
   serializeAws_json1_1ListBonusPaymentsCommand,

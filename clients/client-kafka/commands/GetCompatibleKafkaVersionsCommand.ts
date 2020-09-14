@@ -1,5 +1,5 @@
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { GetCompatibleKafkaVersionsRequest, GetCompatibleKafkaVersionsResponse } from "../models/index";
+import { GetCompatibleKafkaVersionsRequest, GetCompatibleKafkaVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCompatibleKafkaVersionsCommand,
   serializeAws_restJson1GetCompatibleKafkaVersionsCommand,

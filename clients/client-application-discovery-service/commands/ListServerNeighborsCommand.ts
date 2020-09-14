@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { ListServerNeighborsRequest, ListServerNeighborsResponse } from "../models/index";
+import { ListServerNeighborsRequest, ListServerNeighborsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListServerNeighborsCommand,
   serializeAws_json1_1ListServerNeighborsCommand,

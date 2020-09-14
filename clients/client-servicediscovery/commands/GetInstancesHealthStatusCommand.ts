@@ -1,5 +1,5 @@
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
-import { GetInstancesHealthStatusRequest, GetInstancesHealthStatusResponse } from "../models/index";
+import { GetInstancesHealthStatusRequest, GetInstancesHealthStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetInstancesHealthStatusCommand,
   serializeAws_json1_1GetInstancesHealthStatusCommand,

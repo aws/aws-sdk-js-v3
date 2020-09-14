@@ -1,5 +1,5 @@
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { FileSystemPolicyDescription, PutFileSystemPolicyRequest } from "../models/index";
+import { FileSystemPolicyDescription, PutFileSystemPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PutFileSystemPolicyCommand,
   serializeAws_restJson1PutFileSystemPolicyCommand,

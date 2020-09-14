@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { ResetDistributionCacheRequest, ResetDistributionCacheResult } from "../models/index";
+import { ResetDistributionCacheRequest, ResetDistributionCacheResult } from "../models/models_1";
 import {
   deserializeAws_json1_1ResetDistributionCacheCommand,
   serializeAws_json1_1ResetDistributionCacheCommand,

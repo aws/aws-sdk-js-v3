@@ -1,5 +1,5 @@
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DeleteUserRequest, DeleteUserResult } from "../models/index";
+import { DeleteUserRequest, DeleteUserResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteUserCommand,
   serializeAws_json1_1DeleteUserCommand,

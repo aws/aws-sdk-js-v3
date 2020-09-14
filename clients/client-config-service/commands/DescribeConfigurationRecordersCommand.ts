@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DescribeConfigurationRecordersRequest, DescribeConfigurationRecordersResponse } from "../models/index";
+import { DescribeConfigurationRecordersRequest, DescribeConfigurationRecordersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeConfigurationRecordersCommand,
   serializeAws_json1_1DescribeConfigurationRecordersCommand,

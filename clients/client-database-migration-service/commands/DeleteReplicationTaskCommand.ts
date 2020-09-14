@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DeleteReplicationTaskMessage, DeleteReplicationTaskResponse } from "../models/index";
+import { DeleteReplicationTaskMessage, DeleteReplicationTaskResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteReplicationTaskCommand,
   serializeAws_json1_1DeleteReplicationTaskCommand,

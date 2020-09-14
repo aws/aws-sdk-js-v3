@@ -1,5 +1,5 @@
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import { UntagDeliveryStreamInput, UntagDeliveryStreamOutput } from "../models/index";
+import { UntagDeliveryStreamInput, UntagDeliveryStreamOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UntagDeliveryStreamCommand,
   serializeAws_json1_1UntagDeliveryStreamCommand,

@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { StartMonitoringScheduleRequest } from "../models/index";
+import { StartMonitoringScheduleRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1StartMonitoringScheduleCommand,
   serializeAws_json1_1StartMonitoringScheduleCommand,

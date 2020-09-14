@@ -1,5 +1,5 @@
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { DeleteGitHubAccountTokenInput, DeleteGitHubAccountTokenOutput } from "../models/index";
+import { DeleteGitHubAccountTokenInput, DeleteGitHubAccountTokenOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGitHubAccountTokenCommand,
   serializeAws_json1_1DeleteGitHubAccountTokenCommand,

@@ -1,5 +1,5 @@
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { PollForJobsInput, PollForJobsOutput } from "../models/index";
+import { PollForJobsInput, PollForJobsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PollForJobsCommand,
   serializeAws_json1_1PollForJobsCommand,

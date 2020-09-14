@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DescribeStackSetInput, DescribeStackSetOutput } from "../models/index";
+import { DescribeStackSetInput, DescribeStackSetOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeStackSetCommand,
   serializeAws_queryDescribeStackSetCommand,

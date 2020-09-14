@@ -1,5 +1,5 @@
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { DeleteCampaignRequest } from "../models/index";
+import { DeleteCampaignRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCampaignCommand,
   serializeAws_json1_1DeleteCampaignCommand,

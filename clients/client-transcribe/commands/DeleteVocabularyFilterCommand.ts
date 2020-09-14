@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
-import { DeleteVocabularyFilterRequest } from "../models/index";
+import { DeleteVocabularyFilterRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteVocabularyFilterCommand,
   serializeAws_json1_1DeleteVocabularyFilterCommand,

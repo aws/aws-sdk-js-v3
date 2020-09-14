@@ -1,5 +1,5 @@
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { CreatePartnerEventSourceRequest, CreatePartnerEventSourceResponse } from "../models/index";
+import { CreatePartnerEventSourceRequest, CreatePartnerEventSourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePartnerEventSourceCommand,
   serializeAws_json1_1CreatePartnerEventSourceCommand,

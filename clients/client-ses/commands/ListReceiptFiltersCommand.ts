@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { ListReceiptFiltersRequest, ListReceiptFiltersResponse } from "../models/index";
+import { ListReceiptFiltersRequest, ListReceiptFiltersResponse } from "../models/models_0";
 import {
   deserializeAws_queryListReceiptFiltersCommand,
   serializeAws_queryListReceiptFiltersCommand,

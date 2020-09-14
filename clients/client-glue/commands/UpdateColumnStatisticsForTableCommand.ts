@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateColumnStatisticsForTableRequest, UpdateColumnStatisticsForTableResponse } from "../models/index";
+import { UpdateColumnStatisticsForTableRequest, UpdateColumnStatisticsForTableResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateColumnStatisticsForTableCommand,
   serializeAws_json1_1UpdateColumnStatisticsForTableCommand,

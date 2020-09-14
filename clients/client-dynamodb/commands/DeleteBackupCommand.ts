@@ -1,5 +1,5 @@
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { DeleteBackupInput, DeleteBackupOutput } from "../models/index";
+import { DeleteBackupInput, DeleteBackupOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteBackupCommand,
   serializeAws_json1_0DeleteBackupCommand,

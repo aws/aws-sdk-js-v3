@@ -1,5 +1,5 @@
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
-import { HttpPrefixHeadersInputOutput } from "../models/index";
+import { HttpPrefixHeadersInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpPrefixHeadersCommand,
   serializeAws_restJson1HttpPrefixHeadersCommand,

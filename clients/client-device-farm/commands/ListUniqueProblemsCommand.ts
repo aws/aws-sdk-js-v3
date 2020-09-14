@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListUniqueProblemsRequest, ListUniqueProblemsResult } from "../models/index";
+import { ListUniqueProblemsRequest, ListUniqueProblemsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListUniqueProblemsCommand,
   serializeAws_json1_1ListUniqueProblemsCommand,

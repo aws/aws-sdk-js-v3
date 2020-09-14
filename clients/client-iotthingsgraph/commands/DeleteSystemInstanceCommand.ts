@@ -1,5 +1,5 @@
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { DeleteSystemInstanceRequest, DeleteSystemInstanceResponse } from "../models/index";
+import { DeleteSystemInstanceRequest, DeleteSystemInstanceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSystemInstanceCommand,
   serializeAws_json1_1DeleteSystemInstanceCommand,

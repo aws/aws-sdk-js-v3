@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { DeleteTagsRequest, DeleteTagsResult } from "../models/index";
+import { DeleteTagsRequest, DeleteTagsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTagsCommand,
   serializeAws_json1_1DeleteTagsCommand,

@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { CreateTemplateAliasRequest, CreateTemplateAliasResponse } from "../models/index";
+import { CreateTemplateAliasRequest, CreateTemplateAliasResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTemplateAliasCommand,
   serializeAws_restJson1CreateTemplateAliasCommand,

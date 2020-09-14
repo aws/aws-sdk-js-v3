@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { SetInstanceProtectionAnswer, SetInstanceProtectionQuery } from "../models/index";
+import { SetInstanceProtectionAnswer, SetInstanceProtectionQuery } from "../models/models_0";
 import {
   deserializeAws_querySetInstanceProtectionCommand,
   serializeAws_querySetInstanceProtectionCommand,

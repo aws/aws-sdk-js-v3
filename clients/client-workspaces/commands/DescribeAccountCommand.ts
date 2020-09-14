@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { DescribeAccountRequest, DescribeAccountResult } from "../models/index";
+import { DescribeAccountRequest, DescribeAccountResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAccountCommand,
   serializeAws_json1_1DescribeAccountCommand,

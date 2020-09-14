@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteSnapshotScheduleMessage } from "../models/index";
+import { DeleteSnapshotScheduleMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteSnapshotScheduleCommand,
   serializeAws_queryDeleteSnapshotScheduleCommand,

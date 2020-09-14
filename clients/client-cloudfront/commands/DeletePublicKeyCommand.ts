@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeletePublicKeyRequest } from "../models/index";
+import { DeletePublicKeyRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlDeletePublicKeyCommand,
   serializeAws_restXmlDeletePublicKeyCommand,

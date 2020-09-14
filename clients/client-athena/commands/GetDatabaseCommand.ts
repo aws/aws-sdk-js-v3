@@ -1,5 +1,5 @@
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { GetDatabaseInput, GetDatabaseOutput } from "../models/index";
+import { GetDatabaseInput, GetDatabaseOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDatabaseCommand,
   serializeAws_json1_1GetDatabaseCommand,

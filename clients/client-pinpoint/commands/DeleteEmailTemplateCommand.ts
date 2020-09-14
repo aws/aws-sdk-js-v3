@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { DeleteEmailTemplateRequest, DeleteEmailTemplateResponse } from "../models/index";
+import { DeleteEmailTemplateRequest, DeleteEmailTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteEmailTemplateCommand,
   serializeAws_restJson1DeleteEmailTemplateCommand,

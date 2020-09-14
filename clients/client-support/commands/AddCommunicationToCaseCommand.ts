@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
-import { AddCommunicationToCaseRequest, AddCommunicationToCaseResponse } from "../models/index";
+import { AddCommunicationToCaseRequest, AddCommunicationToCaseResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AddCommunicationToCaseCommand,
   serializeAws_json1_1AddCommunicationToCaseCommand,

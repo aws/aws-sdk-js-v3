@@ -1,5 +1,5 @@
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import { DescribeAffectedEntitiesRequest, DescribeAffectedEntitiesResponse } from "../models/index";
+import { DescribeAffectedEntitiesRequest, DescribeAffectedEntitiesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAffectedEntitiesCommand,
   serializeAws_json1_1DescribeAffectedEntitiesCommand,

@@ -1,5 +1,5 @@
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { DeleteGraphRequest } from "../models/index";
+import { DeleteGraphRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteGraphCommand,
   serializeAws_restJson1DeleteGraphCommand,

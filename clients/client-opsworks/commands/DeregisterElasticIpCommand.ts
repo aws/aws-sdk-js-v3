@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DeregisterElasticIpRequest } from "../models/index";
+import { DeregisterElasticIpRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterElasticIpCommand,
   serializeAws_json1_1DeregisterElasticIpCommand,

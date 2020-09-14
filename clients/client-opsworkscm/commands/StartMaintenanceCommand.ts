@@ -1,5 +1,5 @@
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import { StartMaintenanceRequest, StartMaintenanceResponse } from "../models/index";
+import { StartMaintenanceRequest, StartMaintenanceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartMaintenanceCommand,
   serializeAws_json1_1StartMaintenanceCommand,

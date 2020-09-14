@@ -1,5 +1,5 @@
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { UpdateDatasetGroupRequest, UpdateDatasetGroupResponse } from "../models/index";
+import { UpdateDatasetGroupRequest, UpdateDatasetGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDatasetGroupCommand,
   serializeAws_json1_1UpdateDatasetGroupCommand,

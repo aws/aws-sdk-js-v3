@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { Method, PutMethodRequest } from "../models/index";
+import { Method, PutMethodRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PutMethodCommand,
   serializeAws_restJson1PutMethodCommand,

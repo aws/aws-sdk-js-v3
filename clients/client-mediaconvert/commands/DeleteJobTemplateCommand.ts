@@ -1,5 +1,5 @@
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeleteJobTemplateRequest, DeleteJobTemplateResponse } from "../models/index";
+import { DeleteJobTemplateRequest, DeleteJobTemplateResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteJobTemplateCommand,
   serializeAws_restJson1DeleteJobTemplateCommand,

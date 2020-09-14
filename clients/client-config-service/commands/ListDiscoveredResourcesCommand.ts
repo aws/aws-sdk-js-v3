@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResponse } from "../models/index";
+import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDiscoveredResourcesCommand,
   serializeAws_json1_1ListDiscoveredResourcesCommand,

@@ -1,5 +1,5 @@
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
-import { TagResourceInput, TagResourceOutput } from "../models/index";
+import { TagResourceInput, TagResourceOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0TagResourceCommand,
   serializeAws_json1_0TagResourceCommand,

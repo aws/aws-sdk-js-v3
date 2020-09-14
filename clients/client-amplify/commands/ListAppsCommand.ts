@@ -1,5 +1,5 @@
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { ListAppsRequest, ListAppsResult } from "../models/index";
+import { ListAppsRequest, ListAppsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAppsCommand,
   serializeAws_restJson1ListAppsCommand,

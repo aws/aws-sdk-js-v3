@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { BatchStopUpdateActionMessage, UpdateActionResultsMessage } from "../models/index";
+import { BatchStopUpdateActionMessage, UpdateActionResultsMessage } from "../models/models_0";
 import {
   deserializeAws_queryBatchStopUpdateActionCommand,
   serializeAws_queryBatchStopUpdateActionCommand,

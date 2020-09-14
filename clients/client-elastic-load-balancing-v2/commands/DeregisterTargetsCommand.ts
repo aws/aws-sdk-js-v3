@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { DeregisterTargetsInput, DeregisterTargetsOutput } from "../models/index";
+import { DeregisterTargetsInput, DeregisterTargetsOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeregisterTargetsCommand,
   serializeAws_queryDeregisterTargetsCommand,

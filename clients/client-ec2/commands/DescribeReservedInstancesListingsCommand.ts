@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeReservedInstancesListingsRequest, DescribeReservedInstancesListingsResult } from "../models/index";
+import { DescribeReservedInstancesListingsRequest, DescribeReservedInstancesListingsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeReservedInstancesListingsCommand,
   serializeAws_ec2DescribeReservedInstancesListingsCommand,

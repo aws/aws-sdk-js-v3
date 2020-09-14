@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
-import { GetJobUnlockCodeRequest, GetJobUnlockCodeResult } from "../models/index";
+import { GetJobUnlockCodeRequest, GetJobUnlockCodeResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetJobUnlockCodeCommand,
   serializeAws_json1_1GetJobUnlockCodeCommand,

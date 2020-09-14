@@ -1,5 +1,5 @@
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
-import { GetResolverEndpointRequest, GetResolverEndpointResponse } from "../models/index";
+import { GetResolverEndpointRequest, GetResolverEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetResolverEndpointCommand,
   serializeAws_json1_1GetResolverEndpointCommand,

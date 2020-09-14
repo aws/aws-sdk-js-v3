@@ -1,5 +1,5 @@
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DeleteProjectVersionRequest, DeleteProjectVersionResponse } from "../models/index";
+import { DeleteProjectVersionRequest, DeleteProjectVersionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProjectVersionCommand,
   serializeAws_json1_1DeleteProjectVersionCommand,

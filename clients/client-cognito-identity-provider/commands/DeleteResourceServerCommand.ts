@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { DeleteResourceServerRequest } from "../models/index";
+import { DeleteResourceServerRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourceServerCommand,
   serializeAws_json1_1DeleteResourceServerCommand,

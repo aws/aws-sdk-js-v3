@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeregisterTransitGatewayMulticastGroupSourcesRequest,
   DeregisterTransitGatewayMulticastGroupSourcesResult,
-} from "../models/index";
+} from "../models/models_2";
 import {
   deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand,
   serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand,

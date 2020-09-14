@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { ListInventoryEntriesRequest, ListInventoryEntriesResult } from "../models/index";
+import { ListInventoryEntriesRequest, ListInventoryEntriesResult } from "../models/models_1";
 import {
   deserializeAws_json1_1ListInventoryEntriesCommand,
   serializeAws_json1_1ListInventoryEntriesCommand,

@@ -1,5 +1,5 @@
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetHostedZoneLimitRequest, GetHostedZoneLimitResponse } from "../models/index";
+import { GetHostedZoneLimitRequest, GetHostedZoneLimitResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlGetHostedZoneLimitCommand,
   serializeAws_restXmlGetHostedZoneLimitCommand,

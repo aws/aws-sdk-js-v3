@@ -1,5 +1,5 @@
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { GetAssignmentRequest, GetAssignmentResponse } from "../models/index";
+import { GetAssignmentRequest, GetAssignmentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAssignmentCommand,
   serializeAws_json1_1GetAssignmentCommand,

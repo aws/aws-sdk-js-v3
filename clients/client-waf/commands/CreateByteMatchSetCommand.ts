@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { CreateByteMatchSetRequest, CreateByteMatchSetResponse } from "../models/index";
+import { CreateByteMatchSetRequest, CreateByteMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateByteMatchSetCommand,
   serializeAws_json1_1CreateByteMatchSetCommand,

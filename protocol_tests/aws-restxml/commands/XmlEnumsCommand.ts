@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { XmlEnumsInputOutput } from "../models/index";
+import { XmlEnumsInputOutput } from "../models/models_0";
 import { deserializeAws_restXmlXmlEnumsCommand, serializeAws_restXmlXmlEnumsCommand } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

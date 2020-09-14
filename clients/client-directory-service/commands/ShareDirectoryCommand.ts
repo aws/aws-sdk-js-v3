@@ -1,5 +1,5 @@
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { ShareDirectoryRequest, ShareDirectoryResult } from "../models/index";
+import { ShareDirectoryRequest, ShareDirectoryResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ShareDirectoryCommand,
   serializeAws_json1_1ShareDirectoryCommand,

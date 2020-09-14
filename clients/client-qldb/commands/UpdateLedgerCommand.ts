@@ -1,5 +1,5 @@
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
-import { UpdateLedgerRequest, UpdateLedgerResponse } from "../models/index";
+import { UpdateLedgerRequest, UpdateLedgerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateLedgerCommand,
   serializeAws_restJson1UpdateLedgerCommand,

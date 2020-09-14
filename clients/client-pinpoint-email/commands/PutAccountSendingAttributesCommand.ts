@@ -1,5 +1,5 @@
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/index";
+import { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutAccountSendingAttributesCommand,
   serializeAws_restJson1PutAccountSendingAttributesCommand,

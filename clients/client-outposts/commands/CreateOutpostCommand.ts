@@ -1,5 +1,5 @@
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { CreateOutpostInput, CreateOutpostOutput } from "../models/index";
+import { CreateOutpostInput, CreateOutpostOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateOutpostCommand,
   serializeAws_restJson1CreateOutpostCommand,

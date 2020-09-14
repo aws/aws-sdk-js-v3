@@ -1,5 +1,5 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { NullAndEmptyHeadersIO } from "../models/index";
+import { NullAndEmptyHeadersIO } from "../models/models_0";
 import {
   deserializeAws_restXmlNullAndEmptyHeadersServerCommand,
   serializeAws_restXmlNullAndEmptyHeadersServerCommand,

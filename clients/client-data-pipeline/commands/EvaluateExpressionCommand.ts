@@ -1,5 +1,5 @@
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { EvaluateExpressionInput, EvaluateExpressionOutput } from "../models/index";
+import { EvaluateExpressionInput, EvaluateExpressionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1EvaluateExpressionCommand,
   serializeAws_json1_1EvaluateExpressionCommand,

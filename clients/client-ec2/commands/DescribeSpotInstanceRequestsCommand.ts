@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeSpotInstanceRequestsRequest, DescribeSpotInstanceRequestsResult } from "../models/index";
+import { DescribeSpotInstanceRequestsRequest, DescribeSpotInstanceRequestsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeSpotInstanceRequestsCommand,
   serializeAws_ec2DescribeSpotInstanceRequestsCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import { GetMediaForFragmentListInput, GetMediaForFragmentListOutput } from "../models/index";
+import { GetMediaForFragmentListInput, GetMediaForFragmentListOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMediaForFragmentListCommand,
   serializeAws_restJson1GetMediaForFragmentListCommand,

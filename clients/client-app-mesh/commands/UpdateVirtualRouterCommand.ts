@@ -1,5 +1,5 @@
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { UpdateVirtualRouterInput, UpdateVirtualRouterOutput } from "../models/index";
+import { UpdateVirtualRouterInput, UpdateVirtualRouterOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateVirtualRouterCommand,
   serializeAws_restJson1UpdateVirtualRouterCommand,

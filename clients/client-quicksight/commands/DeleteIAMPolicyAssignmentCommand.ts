@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteIAMPolicyAssignmentRequest, DeleteIAMPolicyAssignmentResponse } from "../models/index";
+import { DeleteIAMPolicyAssignmentRequest, DeleteIAMPolicyAssignmentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteIAMPolicyAssignmentCommand,
   serializeAws_restJson1DeleteIAMPolicyAssignmentCommand,

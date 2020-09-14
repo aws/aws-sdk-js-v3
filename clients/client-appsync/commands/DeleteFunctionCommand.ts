@@ -1,5 +1,5 @@
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { DeleteFunctionRequest, DeleteFunctionResponse } from "../models/index";
+import { DeleteFunctionRequest, DeleteFunctionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFunctionCommand,
   serializeAws_restJson1DeleteFunctionCommand,

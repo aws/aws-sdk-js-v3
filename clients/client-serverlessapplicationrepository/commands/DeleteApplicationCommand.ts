@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient";
-import { DeleteApplicationRequest } from "../models/index";
+import { DeleteApplicationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteApplicationCommand,
   serializeAws_restJson1DeleteApplicationCommand,

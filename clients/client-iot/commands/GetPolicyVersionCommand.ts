@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { GetPolicyVersionRequest, GetPolicyVersionResponse } from "../models/index";
+import { GetPolicyVersionRequest, GetPolicyVersionResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetPolicyVersionCommand,
   serializeAws_restJson1GetPolicyVersionCommand,

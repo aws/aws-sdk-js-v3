@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkInterfaceRequest } from "../models/index";
+import { DeleteNetworkInterfaceRequest } from "../models/models_1";
 import {
   deserializeAws_ec2DeleteNetworkInterfaceCommand,
   serializeAws_ec2DeleteNetworkInterfaceCommand,

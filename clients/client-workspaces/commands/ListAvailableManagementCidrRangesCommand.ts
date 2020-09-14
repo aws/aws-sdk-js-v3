@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { ListAvailableManagementCidrRangesRequest, ListAvailableManagementCidrRangesResult } from "../models/index";
+import { ListAvailableManagementCidrRangesRequest, ListAvailableManagementCidrRangesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAvailableManagementCidrRangesCommand,
   serializeAws_json1_1ListAvailableManagementCidrRangesCommand,

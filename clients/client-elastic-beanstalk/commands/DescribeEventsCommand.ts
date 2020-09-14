@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { DescribeEventsMessage, EventDescriptionsMessage } from "../models/index";
+import { DescribeEventsMessage, EventDescriptionsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeEventsCommand,
   serializeAws_queryDescribeEventsCommand,

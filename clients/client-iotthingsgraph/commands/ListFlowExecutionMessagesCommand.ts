@@ -1,5 +1,5 @@
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { ListFlowExecutionMessagesRequest, ListFlowExecutionMessagesResponse } from "../models/index";
+import { ListFlowExecutionMessagesRequest, ListFlowExecutionMessagesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListFlowExecutionMessagesCommand,
   serializeAws_json1_1ListFlowExecutionMessagesCommand,

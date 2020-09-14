@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
-import { DeleteTerminologyRequest } from "../models/index";
+import { DeleteTerminologyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTerminologyCommand,
   serializeAws_json1_1DeleteTerminologyCommand,

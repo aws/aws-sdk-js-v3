@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminRespondToAuthChallengeRequest, AdminRespondToAuthChallengeResponse } from "../models/index";
+import { AdminRespondToAuthChallengeRequest, AdminRespondToAuthChallengeResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminRespondToAuthChallengeCommand,
   serializeAws_json1_1AdminRespondToAuthChallengeCommand,

@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { RegenerateSecurityTokenRequest, RegenerateSecurityTokenResponse } from "../models/index";
+import { RegenerateSecurityTokenRequest, RegenerateSecurityTokenResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RegenerateSecurityTokenCommand,
   serializeAws_restJson1RegenerateSecurityTokenCommand,

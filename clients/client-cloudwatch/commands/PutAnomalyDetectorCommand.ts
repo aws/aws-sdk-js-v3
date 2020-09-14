@@ -1,5 +1,5 @@
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { PutAnomalyDetectorInput, PutAnomalyDetectorOutput } from "../models/index";
+import { PutAnomalyDetectorInput, PutAnomalyDetectorOutput } from "../models/models_0";
 import {
   deserializeAws_queryPutAnomalyDetectorCommand,
   serializeAws_queryPutAnomalyDetectorCommand,

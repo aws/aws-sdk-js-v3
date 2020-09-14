@@ -1,5 +1,5 @@
 import { SSOClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOClient";
-import { ListAccountsRequest, ListAccountsResponse } from "../models/index";
+import { ListAccountsRequest, ListAccountsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAccountsCommand,
   serializeAws_restJson1ListAccountsCommand,

@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse } from "../models/index";
+import { RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterTaskDefinitionCommand,
   serializeAws_json1_1RegisterTaskDefinitionCommand,

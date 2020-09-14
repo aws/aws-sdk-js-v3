@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeScheduledActionsMessage, ScheduledActionsMessage } from "../models/index";
+import { DescribeScheduledActionsMessage, ScheduledActionsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeScheduledActionsCommand,
   serializeAws_queryDescribeScheduledActionsCommand,

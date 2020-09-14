@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListThingsInBillingGroupRequest, ListThingsInBillingGroupResponse } from "../models/index";
+import { ListThingsInBillingGroupRequest, ListThingsInBillingGroupResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListThingsInBillingGroupCommand,
   serializeAws_restJson1ListThingsInBillingGroupCommand,

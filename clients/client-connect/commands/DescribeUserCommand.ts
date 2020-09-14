@@ -1,5 +1,5 @@
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeUserRequest, DescribeUserResponse } from "../models/index";
+import { DescribeUserRequest, DescribeUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeUserCommand,
   serializeAws_restJson1DescribeUserCommand,

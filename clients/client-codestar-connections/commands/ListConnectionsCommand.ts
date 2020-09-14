@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import { ListConnectionsInput, ListConnectionsOutput } from "../models/index";
+import { ListConnectionsInput, ListConnectionsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0ListConnectionsCommand,
   serializeAws_json1_0ListConnectionsCommand,

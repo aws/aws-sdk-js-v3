@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { ListAttendeeTagsRequest, ListAttendeeTagsResponse } from "../models/index";
+import { ListAttendeeTagsRequest, ListAttendeeTagsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAttendeeTagsCommand,
   serializeAws_restJson1ListAttendeeTagsCommand,

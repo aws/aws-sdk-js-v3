@@ -1,5 +1,5 @@
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { PutActionRevisionInput, PutActionRevisionOutput } from "../models/index";
+import { PutActionRevisionInput, PutActionRevisionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutActionRevisionCommand,
   serializeAws_json1_1PutActionRevisionCommand,

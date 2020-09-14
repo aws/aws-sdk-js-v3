@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListNotebookInstancesInput, ListNotebookInstancesOutput } from "../models/index";
+import { ListNotebookInstancesInput, ListNotebookInstancesOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1ListNotebookInstancesCommand,
   serializeAws_json1_1ListNotebookInstancesCommand,

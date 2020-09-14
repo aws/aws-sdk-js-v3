@@ -1,5 +1,5 @@
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
-import { CreateResolverEndpointRequest, CreateResolverEndpointResponse } from "../models/index";
+import { CreateResolverEndpointRequest, CreateResolverEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateResolverEndpointCommand,
   serializeAws_json1_1CreateResolverEndpointCommand,

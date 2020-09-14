@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
-import { AssociateHealthCheckRequest, AssociateHealthCheckResponse } from "../models/index";
+import { AssociateHealthCheckRequest, AssociateHealthCheckResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateHealthCheckCommand,
   serializeAws_json1_1AssociateHealthCheckCommand,

@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { CreateOrganizationRequest, CreateOrganizationResponse } from "../models/index";
+import { CreateOrganizationRequest, CreateOrganizationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateOrganizationCommand,
   serializeAws_json1_1CreateOrganizationCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
-import { CancelClusterRequest, CancelClusterResult } from "../models/index";
+import { CancelClusterRequest, CancelClusterResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelClusterCommand,
   serializeAws_json1_1CancelClusterCommand,

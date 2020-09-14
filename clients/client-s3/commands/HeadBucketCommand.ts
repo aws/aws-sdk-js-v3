@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { HeadBucketRequest } from "../models/index";
+import { HeadBucketRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlHeadBucketCommand,
   serializeAws_restXmlHeadBucketCommand,

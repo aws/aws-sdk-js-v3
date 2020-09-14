@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DeleteStackSetInput, DeleteStackSetOutput } from "../models/index";
+import { DeleteStackSetInput, DeleteStackSetOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeleteStackSetCommand,
   serializeAws_queryDeleteStackSetCommand,

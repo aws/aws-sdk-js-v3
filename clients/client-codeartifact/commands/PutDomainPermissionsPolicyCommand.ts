@@ -1,5 +1,5 @@
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { PutDomainPermissionsPolicyRequest, PutDomainPermissionsPolicyResult } from "../models/index";
+import { PutDomainPermissionsPolicyRequest, PutDomainPermissionsPolicyResult } from "../models/models_0";
 import {
   deserializeAws_restJson1PutDomainPermissionsPolicyCommand,
   serializeAws_restJson1PutDomainPermissionsPolicyCommand,

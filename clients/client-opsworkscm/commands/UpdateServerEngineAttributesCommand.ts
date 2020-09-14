@@ -1,5 +1,5 @@
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import { UpdateServerEngineAttributesRequest, UpdateServerEngineAttributesResponse } from "../models/index";
+import { UpdateServerEngineAttributesRequest, UpdateServerEngineAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateServerEngineAttributesCommand,
   serializeAws_json1_1UpdateServerEngineAttributesCommand,

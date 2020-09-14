@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { PurchaseReservedNodeOfferingMessage, PurchaseReservedNodeOfferingResult } from "../models/index";
+import { PurchaseReservedNodeOfferingMessage, PurchaseReservedNodeOfferingResult } from "../models/models_1";
 import {
   deserializeAws_queryPurchaseReservedNodeOfferingCommand,
   serializeAws_queryPurchaseReservedNodeOfferingCommand,

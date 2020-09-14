@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteIntegrationResponseRequest } from "../models/index";
+import { DeleteIntegrationResponseRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteIntegrationResponseCommand,
   serializeAws_restJson1DeleteIntegrationResponseCommand,

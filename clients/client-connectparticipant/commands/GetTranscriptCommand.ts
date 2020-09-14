@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import { GetTranscriptRequest, GetTranscriptResponse } from "../models/index";
+import { GetTranscriptRequest, GetTranscriptResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTranscriptCommand,
   serializeAws_restJson1GetTranscriptCommand,

@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { RemoveAccountFromOrganizationRequest } from "../models/index";
+import { RemoveAccountFromOrganizationRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveAccountFromOrganizationCommand,
   serializeAws_json1_1RemoveAccountFromOrganizationCommand,

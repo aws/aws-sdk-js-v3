@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { DescribeSMBSettingsInput, DescribeSMBSettingsOutput } from "../models/index";
+import { DescribeSMBSettingsInput, DescribeSMBSettingsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeSMBSettingsCommand,
   serializeAws_json1_1DescribeSMBSettingsCommand,

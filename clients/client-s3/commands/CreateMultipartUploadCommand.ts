@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { CreateMultipartUploadOutput, CreateMultipartUploadRequest } from "../models/index";
+import { CreateMultipartUploadOutput, CreateMultipartUploadRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlCreateMultipartUploadCommand,
   serializeAws_restXmlCreateMultipartUploadCommand,

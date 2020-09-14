@@ -1,5 +1,5 @@
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListInstanceProfilesRequest, ListInstanceProfilesResult } from "../models/index";
+import { ListInstanceProfilesRequest, ListInstanceProfilesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListInstanceProfilesCommand,
   serializeAws_json1_1ListInstanceProfilesCommand,

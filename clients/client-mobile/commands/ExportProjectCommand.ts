@@ -1,5 +1,5 @@
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import { ExportProjectRequest, ExportProjectResult } from "../models/index";
+import { ExportProjectRequest, ExportProjectResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ExportProjectCommand,
   serializeAws_restJson1ExportProjectCommand,

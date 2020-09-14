@@ -1,5 +1,5 @@
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import { ExportServerEngineAttributeRequest, ExportServerEngineAttributeResponse } from "../models/index";
+import { ExportServerEngineAttributeRequest, ExportServerEngineAttributeResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ExportServerEngineAttributeCommand,
   serializeAws_json1_1ExportServerEngineAttributeCommand,

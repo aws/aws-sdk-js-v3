@@ -1,5 +1,5 @@
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { GetCostForecastRequest, GetCostForecastResponse } from "../models/index";
+import { GetCostForecastRequest, GetCostForecastResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetCostForecastCommand,
   serializeAws_json1_1GetCostForecastCommand,

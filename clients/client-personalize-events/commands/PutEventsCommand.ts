@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeEventsClient";
-import { PutEventsRequest } from "../models/index";
+import { PutEventsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PutEventsCommand,
   serializeAws_restJson1PutEventsCommand,

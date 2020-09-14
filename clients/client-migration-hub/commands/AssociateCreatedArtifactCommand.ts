@@ -1,5 +1,5 @@
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { AssociateCreatedArtifactRequest, AssociateCreatedArtifactResult } from "../models/index";
+import { AssociateCreatedArtifactRequest, AssociateCreatedArtifactResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateCreatedArtifactCommand,
   serializeAws_json1_1AssociateCreatedArtifactCommand,

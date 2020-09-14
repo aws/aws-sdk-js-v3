@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { ListRegexPatternSetsRequest, ListRegexPatternSetsResponse } from "../models/index";
+import { ListRegexPatternSetsRequest, ListRegexPatternSetsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListRegexPatternSetsCommand,
   serializeAws_json1_1ListRegexPatternSetsCommand,

@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { VerifyEmailAddressRequest } from "../models/index";
+import { VerifyEmailAddressRequest } from "../models/models_0";
 import {
   deserializeAws_queryVerifyEmailAddressCommand,
   serializeAws_queryVerifyEmailAddressCommand,

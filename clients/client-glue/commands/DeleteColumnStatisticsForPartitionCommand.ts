@@ -1,5 +1,8 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteColumnStatisticsForPartitionRequest, DeleteColumnStatisticsForPartitionResponse } from "../models/index";
+import {
+  DeleteColumnStatisticsForPartitionRequest,
+  DeleteColumnStatisticsForPartitionResponse,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteColumnStatisticsForPartitionCommand,
   serializeAws_json1_1DeleteColumnStatisticsForPartitionCommand,

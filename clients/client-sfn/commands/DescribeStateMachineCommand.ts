@@ -1,5 +1,5 @@
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
-import { DescribeStateMachineInput, DescribeStateMachineOutput } from "../models/index";
+import { DescribeStateMachineInput, DescribeStateMachineOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeStateMachineCommand,
   serializeAws_json1_0DescribeStateMachineCommand,

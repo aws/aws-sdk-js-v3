@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse } from "../models/index";
+import { SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SendCustomVerificationEmailCommand,
   serializeAws_restJson1SendCustomVerificationEmailCommand,

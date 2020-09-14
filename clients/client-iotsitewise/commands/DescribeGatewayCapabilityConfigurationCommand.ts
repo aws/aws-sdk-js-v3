@@ -2,7 +2,7 @@ import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   DescribeGatewayCapabilityConfigurationRequest,
   DescribeGatewayCapabilityConfigurationResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand,
   serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand,

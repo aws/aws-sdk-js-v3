@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ListKeyPoliciesRequest, ListKeyPoliciesResponse } from "../models/index";
+import { ListKeyPoliciesRequest, ListKeyPoliciesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListKeyPoliciesCommand,
   serializeAws_json1_1ListKeyPoliciesCommand,

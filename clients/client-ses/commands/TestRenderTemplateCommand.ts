@@ -1,5 +1,5 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { TestRenderTemplateRequest, TestRenderTemplateResponse } from "../models/index";
+import { TestRenderTemplateRequest, TestRenderTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_queryTestRenderTemplateCommand,
   serializeAws_queryTestRenderTemplateCommand,

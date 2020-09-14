@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { UpdateEmailTemplateRequest, UpdateEmailTemplateResponse } from "../models/index";
+import { UpdateEmailTemplateRequest, UpdateEmailTemplateResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateEmailTemplateCommand,
   serializeAws_restJson1UpdateEmailTemplateCommand,

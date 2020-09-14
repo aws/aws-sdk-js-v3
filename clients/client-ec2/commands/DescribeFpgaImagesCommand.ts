@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeFpgaImagesRequest, DescribeFpgaImagesResult } from "../models/index";
+import { DescribeFpgaImagesRequest, DescribeFpgaImagesResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeFpgaImagesCommand,
   serializeAws_ec2DescribeFpgaImagesCommand,

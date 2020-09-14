@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { PromoteReadReplicaDBClusterMessage, PromoteReadReplicaDBClusterResult } from "../models/index";
+import { PromoteReadReplicaDBClusterMessage, PromoteReadReplicaDBClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryPromoteReadReplicaDBClusterCommand,
   serializeAws_queryPromoteReadReplicaDBClusterCommand,

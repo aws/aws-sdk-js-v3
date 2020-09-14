@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateTopicRuleRequest } from "../models/index";
+import { CreateTopicRuleRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTopicRuleCommand,
   serializeAws_restJson1CreateTopicRuleCommand,

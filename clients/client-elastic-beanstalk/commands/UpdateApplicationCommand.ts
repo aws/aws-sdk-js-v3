@@ -1,5 +1,5 @@
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { ApplicationDescriptionMessage, UpdateApplicationMessage } from "../models/index";
+import { ApplicationDescriptionMessage, UpdateApplicationMessage } from "../models/models_0";
 import {
   deserializeAws_queryUpdateApplicationCommand,
   serializeAws_queryUpdateApplicationCommand,

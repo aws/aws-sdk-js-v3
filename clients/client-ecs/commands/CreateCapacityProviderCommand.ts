@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { CreateCapacityProviderRequest, CreateCapacityProviderResponse } from "../models/index";
+import { CreateCapacityProviderRequest, CreateCapacityProviderResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCapacityProviderCommand,
   serializeAws_json1_1CreateCapacityProviderCommand,

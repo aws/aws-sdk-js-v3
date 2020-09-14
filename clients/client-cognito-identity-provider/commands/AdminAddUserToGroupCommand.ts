@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminAddUserToGroupRequest } from "../models/index";
+import { AdminAddUserToGroupRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminAddUserToGroupCommand,
   serializeAws_json1_1AdminAddUserToGroupCommand,

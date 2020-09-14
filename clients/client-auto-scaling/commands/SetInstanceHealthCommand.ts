@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { SetInstanceHealthQuery } from "../models/index";
+import { SetInstanceHealthQuery } from "../models/models_0";
 import {
   deserializeAws_querySetInstanceHealthCommand,
   serializeAws_querySetInstanceHealthCommand,

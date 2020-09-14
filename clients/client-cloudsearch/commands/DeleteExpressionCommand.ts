@@ -1,5 +1,5 @@
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DeleteExpressionRequest, DeleteExpressionResponse } from "../models/index";
+import { DeleteExpressionRequest, DeleteExpressionResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteExpressionCommand,
   serializeAws_queryDeleteExpressionCommand,

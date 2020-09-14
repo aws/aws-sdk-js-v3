@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { AttachPolicyRequest } from "../models/index";
+import { AttachPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1AttachPolicyCommand,
   serializeAws_json1_1AttachPolicyCommand,

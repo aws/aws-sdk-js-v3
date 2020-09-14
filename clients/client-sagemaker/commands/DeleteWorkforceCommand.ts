@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteWorkforceRequest, DeleteWorkforceResponse } from "../models/index";
+import { DeleteWorkforceRequest, DeleteWorkforceResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteWorkforceCommand,
   serializeAws_json1_1DeleteWorkforceCommand,

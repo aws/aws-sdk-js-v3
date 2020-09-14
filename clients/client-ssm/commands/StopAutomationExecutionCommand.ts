@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { StopAutomationExecutionRequest, StopAutomationExecutionResult } from "../models/index";
+import { StopAutomationExecutionRequest, StopAutomationExecutionResult } from "../models/models_1";
 import {
   deserializeAws_json1_1StopAutomationExecutionCommand,
   serializeAws_json1_1StopAutomationExecutionCommand,

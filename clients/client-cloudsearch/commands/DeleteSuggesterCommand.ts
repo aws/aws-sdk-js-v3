@@ -1,5 +1,5 @@
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DeleteSuggesterRequest, DeleteSuggesterResponse } from "../models/index";
+import { DeleteSuggesterRequest, DeleteSuggesterResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteSuggesterCommand,
   serializeAws_queryDeleteSuggesterCommand,

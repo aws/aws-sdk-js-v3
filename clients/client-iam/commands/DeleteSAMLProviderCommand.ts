@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteSAMLProviderRequest } from "../models/index";
+import { DeleteSAMLProviderRequest } from "../models/models_0";
 import {
   deserializeAws_queryDeleteSAMLProviderCommand,
   serializeAws_queryDeleteSAMLProviderCommand,

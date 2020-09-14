@@ -1,5 +1,5 @@
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutBucketReplicationRequest } from "../models/index";
+import { PutBucketReplicationRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketReplicationCommand,
   serializeAws_restXmlPutBucketReplicationCommand,

@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteLoadBalancerTlsCertificateRequest, DeleteLoadBalancerTlsCertificateResult } from "../models/index";
+import { DeleteLoadBalancerTlsCertificateRequest, DeleteLoadBalancerTlsCertificateResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand,
   serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand,

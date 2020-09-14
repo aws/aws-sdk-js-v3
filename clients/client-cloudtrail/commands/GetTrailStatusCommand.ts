@@ -1,5 +1,5 @@
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { GetTrailStatusRequest, GetTrailStatusResponse } from "../models/index";
+import { GetTrailStatusRequest, GetTrailStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetTrailStatusCommand,
   serializeAws_json1_1GetTrailStatusCommand,

@@ -1,5 +1,5 @@
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { XmlTimestampsOutput } from "../models/index";
+import { XmlTimestampsOutput } from "../models/models_0";
 import {
   deserializeAws_queryXmlTimestampsCommand,
   serializeAws_queryXmlTimestampsCommand,

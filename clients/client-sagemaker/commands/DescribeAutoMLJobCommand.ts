@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeAutoMLJobRequest, DescribeAutoMLJobResponse } from "../models/index";
+import { DescribeAutoMLJobRequest, DescribeAutoMLJobResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DescribeAutoMLJobCommand,
   serializeAws_json1_1DescribeAutoMLJobCommand,

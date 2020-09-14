@@ -1,5 +1,5 @@
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { PutTargetsRequest, PutTargetsResponse } from "../models/index";
+import { PutTargetsRequest, PutTargetsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutTargetsCommand,
   serializeAws_json1_1PutTargetsCommand,

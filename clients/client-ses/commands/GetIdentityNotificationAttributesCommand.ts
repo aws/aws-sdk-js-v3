@@ -1,5 +1,8 @@
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
-import { GetIdentityNotificationAttributesRequest, GetIdentityNotificationAttributesResponse } from "../models/index";
+import {
+  GetIdentityNotificationAttributesRequest,
+  GetIdentityNotificationAttributesResponse,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetIdentityNotificationAttributesCommand,
   serializeAws_queryGetIdentityNotificationAttributesCommand,

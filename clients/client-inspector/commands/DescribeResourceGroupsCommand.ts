@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { DescribeResourceGroupsRequest, DescribeResourceGroupsResponse } from "../models/index";
+import { DescribeResourceGroupsRequest, DescribeResourceGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeResourceGroupsCommand,
   serializeAws_json1_1DescribeResourceGroupsCommand,

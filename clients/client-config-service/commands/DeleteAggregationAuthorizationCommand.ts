@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteAggregationAuthorizationRequest } from "../models/index";
+import { DeleteAggregationAuthorizationRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAggregationAuthorizationCommand,
   serializeAws_json1_1DeleteAggregationAuthorizationCommand,

@@ -1,5 +1,5 @@
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { ExecuteChangeSetInput, ExecuteChangeSetOutput } from "../models/index";
+import { ExecuteChangeSetInput, ExecuteChangeSetOutput } from "../models/models_0";
 import {
   deserializeAws_queryExecuteChangeSetCommand,
   serializeAws_queryExecuteChangeSetCommand,

@@ -1,5 +1,5 @@
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
-import { UpdateScalingPlanRequest, UpdateScalingPlanResponse } from "../models/index";
+import { UpdateScalingPlanRequest, UpdateScalingPlanResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateScalingPlanCommand,
   serializeAws_json1_1UpdateScalingPlanCommand,

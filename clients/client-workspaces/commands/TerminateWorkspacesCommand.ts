@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { TerminateWorkspacesRequest, TerminateWorkspacesResult } from "../models/index";
+import { TerminateWorkspacesRequest, TerminateWorkspacesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1TerminateWorkspacesCommand,
   serializeAws_json1_1TerminateWorkspacesCommand,

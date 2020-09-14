@@ -1,5 +1,5 @@
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { CreateIndexRequest, CreateIndexResponse } from "../models/index";
+import { CreateIndexRequest, CreateIndexResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateIndexCommand,
   serializeAws_json1_1CreateIndexCommand,

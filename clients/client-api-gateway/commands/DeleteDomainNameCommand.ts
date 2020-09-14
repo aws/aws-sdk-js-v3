@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteDomainNameRequest } from "../models/index";
+import { DeleteDomainNameRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDomainNameCommand,
   serializeAws_restJson1DeleteDomainNameCommand,

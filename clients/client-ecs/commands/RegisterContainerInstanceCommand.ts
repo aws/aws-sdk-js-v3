@@ -1,5 +1,5 @@
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { RegisterContainerInstanceRequest, RegisterContainerInstanceResponse } from "../models/index";
+import { RegisterContainerInstanceRequest, RegisterContainerInstanceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterContainerInstanceCommand,
   serializeAws_json1_1RegisterContainerInstanceCommand,

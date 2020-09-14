@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
-import { PutPermissionPolicyRequest, PutPermissionPolicyResponse } from "../models/index";
+import { PutPermissionPolicyRequest, PutPermissionPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutPermissionPolicyCommand,
   serializeAws_json1_1PutPermissionPolicyCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { DescribeEntitiesDetectionV2JobRequest, DescribeEntitiesDetectionV2JobResponse } from "../models/index";
+import { DescribeEntitiesDetectionV2JobRequest, DescribeEntitiesDetectionV2JobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommand,
   serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand,

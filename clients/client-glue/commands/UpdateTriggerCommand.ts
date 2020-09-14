@@ -1,5 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateTriggerRequest, UpdateTriggerResponse } from "../models/index";
+import { UpdateTriggerRequest, UpdateTriggerResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateTriggerCommand,
   serializeAws_json1_1UpdateTriggerCommand,

@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteStreamingDistributionRequest } from "../models/index";
+import { DeleteStreamingDistributionRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteStreamingDistributionCommand,
   serializeAws_restXmlDeleteStreamingDistributionCommand,

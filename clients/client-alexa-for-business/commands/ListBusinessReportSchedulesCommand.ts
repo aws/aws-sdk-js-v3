@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { ListBusinessReportSchedulesRequest, ListBusinessReportSchedulesResponse } from "../models/index";
+import { ListBusinessReportSchedulesRequest, ListBusinessReportSchedulesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListBusinessReportSchedulesCommand,
   serializeAws_json1_1ListBusinessReportSchedulesCommand,

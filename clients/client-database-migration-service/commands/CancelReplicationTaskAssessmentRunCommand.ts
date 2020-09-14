@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { CancelReplicationTaskAssessmentRunMessage, CancelReplicationTaskAssessmentRunResponse } from "../models/index";
+import {
+  CancelReplicationTaskAssessmentRunMessage,
+  CancelReplicationTaskAssessmentRunResponse,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CancelReplicationTaskAssessmentRunCommand,
   serializeAws_json1_1CancelReplicationTaskAssessmentRunCommand,

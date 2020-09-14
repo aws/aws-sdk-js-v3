@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
-import { AssignTapePoolInput, AssignTapePoolOutput } from "../models/index";
+import { AssignTapePoolInput, AssignTapePoolOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1AssignTapePoolCommand,
   serializeAws_json1_1AssignTapePoolCommand,

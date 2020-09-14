@@ -1,5 +1,5 @@
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { PutQueryDefinitionRequest, PutQueryDefinitionResponse } from "../models/index";
+import { PutQueryDefinitionRequest, PutQueryDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutQueryDefinitionCommand,
   serializeAws_json1_1PutQueryDefinitionCommand,

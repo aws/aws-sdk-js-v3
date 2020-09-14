@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
-import { UpdateFleetMetadataRequest, UpdateFleetMetadataResponse } from "../models/index";
+import { UpdateFleetMetadataRequest, UpdateFleetMetadataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFleetMetadataCommand,
   serializeAws_restJson1UpdateFleetMetadataCommand,

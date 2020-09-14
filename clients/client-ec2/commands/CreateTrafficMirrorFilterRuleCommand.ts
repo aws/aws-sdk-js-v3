@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateTrafficMirrorFilterRuleRequest, CreateTrafficMirrorFilterRuleResult } from "../models/index";
+import { CreateTrafficMirrorFilterRuleRequest, CreateTrafficMirrorFilterRuleResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreateTrafficMirrorFilterRuleCommand,
   serializeAws_ec2CreateTrafficMirrorFilterRuleCommand,

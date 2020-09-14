@@ -1,5 +1,5 @@
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DescribeGameSessionPlacementInput, DescribeGameSessionPlacementOutput } from "../models/index";
+import { DescribeGameSessionPlacementInput, DescribeGameSessionPlacementOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeGameSessionPlacementCommand,
   serializeAws_json1_1DescribeGameSessionPlacementCommand,

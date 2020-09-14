@@ -1,5 +1,5 @@
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
-import { CreateStateMachineInput, CreateStateMachineOutput } from "../models/index";
+import { CreateStateMachineInput, CreateStateMachineOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0CreateStateMachineCommand,
   serializeAws_json1_0CreateStateMachineCommand,

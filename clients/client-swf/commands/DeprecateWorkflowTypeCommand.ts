@@ -1,5 +1,5 @@
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
-import { DeprecateWorkflowTypeInput } from "../models/index";
+import { DeprecateWorkflowTypeInput } from "../models/models_0";
 import {
   deserializeAws_json1_0DeprecateWorkflowTypeCommand,
   serializeAws_json1_0DeprecateWorkflowTypeCommand,

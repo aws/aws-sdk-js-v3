@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { CopyOptionGroupMessage, CopyOptionGroupResult } from "../models/index";
+import { CopyOptionGroupMessage, CopyOptionGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryCopyOptionGroupCommand,
   serializeAws_queryCopyOptionGroupCommand,

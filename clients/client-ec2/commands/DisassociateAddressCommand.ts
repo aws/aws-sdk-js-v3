@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateAddressRequest } from "../models/index";
+import { DisassociateAddressRequest } from "../models/models_3";
 import {
   deserializeAws_ec2DisassociateAddressCommand,
   serializeAws_ec2DisassociateAddressCommand,

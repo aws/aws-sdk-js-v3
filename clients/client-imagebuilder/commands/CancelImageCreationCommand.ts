@@ -1,5 +1,5 @@
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { CancelImageCreationRequest, CancelImageCreationResponse } from "../models/index";
+import { CancelImageCreationRequest, CancelImageCreationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelImageCreationCommand,
   serializeAws_restJson1CancelImageCreationCommand,

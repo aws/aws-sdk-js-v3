@@ -6,7 +6,7 @@ import {
 import {
   DescribeReservedElasticsearchInstanceOfferingsRequest,
   DescribeReservedElasticsearchInstanceOfferingsResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsCommand,
   serializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsCommand,

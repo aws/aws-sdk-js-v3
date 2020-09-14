@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteTopicRuleRequest } from "../models/index";
+import { DeleteTopicRuleRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTopicRuleCommand,
   serializeAws_restJson1DeleteTopicRuleCommand,

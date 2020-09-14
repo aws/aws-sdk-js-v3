@@ -1,5 +1,5 @@
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ListGrantsRequest, ListGrantsResponse } from "../models/index";
+import { ListGrantsRequest, ListGrantsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListGrantsCommand,
   serializeAws_json1_1ListGrantsCommand,

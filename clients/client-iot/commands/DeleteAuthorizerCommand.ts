@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteAuthorizerRequest, DeleteAuthorizerResponse } from "../models/index";
+import { DeleteAuthorizerRequest, DeleteAuthorizerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAuthorizerCommand,
   serializeAws_restJson1DeleteAuthorizerCommand,

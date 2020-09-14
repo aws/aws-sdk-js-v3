@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteContactMethodRequest, DeleteContactMethodResult } from "../models/index";
+import { DeleteContactMethodRequest, DeleteContactMethodResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteContactMethodCommand,
   serializeAws_json1_1DeleteContactMethodCommand,

@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { ProvisionByoipCidrRequest, ProvisionByoipCidrResponse } from "../models/index";
+import { ProvisionByoipCidrRequest, ProvisionByoipCidrResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ProvisionByoipCidrCommand,
   serializeAws_json1_1ProvisionByoipCidrCommand,

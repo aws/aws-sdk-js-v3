@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient";
-import { ModifyReportDefinitionRequest, ModifyReportDefinitionResponse } from "../models/index";
+import { ModifyReportDefinitionRequest, ModifyReportDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyReportDefinitionCommand,
   serializeAws_json1_1ModifyReportDefinitionCommand,

@@ -1,5 +1,5 @@
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DeleteAnalysisSchemeRequest, DeleteAnalysisSchemeResponse } from "../models/index";
+import { DeleteAnalysisSchemeRequest, DeleteAnalysisSchemeResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteAnalysisSchemeCommand,
   serializeAws_queryDeleteAnalysisSchemeCommand,

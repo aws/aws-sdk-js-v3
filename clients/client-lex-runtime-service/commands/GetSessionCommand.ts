@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
-import { GetSessionRequest, GetSessionResponse } from "../models/index";
+import { GetSessionRequest, GetSessionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSessionCommand,
   serializeAws_restJson1GetSessionCommand,

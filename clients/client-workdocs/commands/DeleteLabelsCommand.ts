@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
-import { DeleteLabelsRequest, DeleteLabelsResponse } from "../models/index";
+import { DeleteLabelsRequest, DeleteLabelsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteLabelsCommand,
   serializeAws_restJson1DeleteLabelsCommand,

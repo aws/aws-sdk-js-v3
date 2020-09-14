@@ -1,5 +1,5 @@
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
-import { DeregisterInstanceRequest, DeregisterInstanceResponse } from "../models/index";
+import { DeregisterInstanceRequest, DeregisterInstanceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterInstanceCommand,
   serializeAws_json1_1DeregisterInstanceCommand,

@@ -1,5 +1,5 @@
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DeleteAssetRequest, DeleteAssetResponse } from "../models/index";
+import { DeleteAssetRequest, DeleteAssetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAssetCommand,
   serializeAws_restJson1DeleteAssetCommand,

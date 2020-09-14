@@ -1,5 +1,5 @@
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage } from "../models/index";
+import { DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribePendingMaintenanceActionsCommand,
   serializeAws_queryDescribePendingMaintenanceActionsCommand,

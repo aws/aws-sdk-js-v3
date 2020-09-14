@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { BatchDeleteImageRequest, BatchDeleteImageResponse } from "../models/index";
+import { BatchDeleteImageRequest, BatchDeleteImageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDeleteImageCommand,
   serializeAws_json1_1BatchDeleteImageCommand,

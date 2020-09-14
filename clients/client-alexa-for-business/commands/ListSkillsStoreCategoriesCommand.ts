@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { ListSkillsStoreCategoriesRequest, ListSkillsStoreCategoriesResponse } from "../models/index";
+import { ListSkillsStoreCategoriesRequest, ListSkillsStoreCategoriesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListSkillsStoreCategoriesCommand,
   serializeAws_json1_1ListSkillsStoreCategoriesCommand,

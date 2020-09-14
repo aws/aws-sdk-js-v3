@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DeleteDBSecurityGroupMessage } from "../models/index";
+import { DeleteDBSecurityGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBSecurityGroupCommand,
   serializeAws_queryDeleteDBSecurityGroupCommand,

@@ -1,5 +1,5 @@
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DeleteFileSystemPolicyRequest } from "../models/index";
+import { DeleteFileSystemPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFileSystemPolicyCommand,
   serializeAws_restJson1DeleteFileSystemPolicyCommand,

@@ -1,5 +1,5 @@
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { Authorizer, UpdateAuthorizerRequest } from "../models/index";
+import { Authorizer, UpdateAuthorizerRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAuthorizerCommand,
   serializeAws_restJson1UpdateAuthorizerCommand,

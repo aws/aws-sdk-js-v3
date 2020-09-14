@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import { DescribeScalingPoliciesRequest, DescribeScalingPoliciesResponse } from "../models/index";
+import { DescribeScalingPoliciesRequest, DescribeScalingPoliciesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeScalingPoliciesCommand,
   serializeAws_json1_1DescribeScalingPoliciesCommand,

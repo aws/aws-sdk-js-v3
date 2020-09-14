@@ -1,5 +1,5 @@
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
-import { StopAppReplicationRequest, StopAppReplicationResponse } from "../models/index";
+import { StopAppReplicationRequest, StopAppReplicationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StopAppReplicationCommand,
   serializeAws_json1_1StopAppReplicationCommand,

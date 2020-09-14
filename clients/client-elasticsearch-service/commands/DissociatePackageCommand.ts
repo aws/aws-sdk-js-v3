@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { DissociatePackageRequest, DissociatePackageResponse } from "../models/index";
+import { DissociatePackageRequest, DissociatePackageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DissociatePackageCommand,
   serializeAws_restJson1DissociatePackageCommand,

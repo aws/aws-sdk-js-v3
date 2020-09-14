@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
-import { ListAttacksRequest, ListAttacksResponse } from "../models/index";
+import { ListAttacksRequest, ListAttacksResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAttacksCommand,
   serializeAws_json1_1ListAttacksCommand,

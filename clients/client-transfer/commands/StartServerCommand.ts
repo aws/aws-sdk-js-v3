@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
-import { StartServerRequest } from "../models/index";
+import { StartServerRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1StartServerCommand,
   serializeAws_json1_1StartServerCommand,

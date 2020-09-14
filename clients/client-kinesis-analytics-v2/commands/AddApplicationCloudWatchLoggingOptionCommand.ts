@@ -6,7 +6,7 @@ import {
 import {
   AddApplicationCloudWatchLoggingOptionRequest,
   AddApplicationCloudWatchLoggingOptionResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand,
   serializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand,

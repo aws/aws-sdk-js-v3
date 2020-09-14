@@ -6,7 +6,7 @@ import {
 import {
   DeleteApplicationCloudWatchLoggingOptionRequest,
   DeleteApplicationCloudWatchLoggingOptionResponse,
-} from "../models/index";
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand,
   serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand,

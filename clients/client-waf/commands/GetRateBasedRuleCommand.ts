@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { GetRateBasedRuleRequest, GetRateBasedRuleResponse } from "../models/index";
+import { GetRateBasedRuleRequest, GetRateBasedRuleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRateBasedRuleCommand,
   serializeAws_json1_1GetRateBasedRuleCommand,

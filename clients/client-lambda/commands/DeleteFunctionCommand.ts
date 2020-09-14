@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteFunctionRequest } from "../models/index";
+import { DeleteFunctionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFunctionCommand,
   serializeAws_restJson1DeleteFunctionCommand,

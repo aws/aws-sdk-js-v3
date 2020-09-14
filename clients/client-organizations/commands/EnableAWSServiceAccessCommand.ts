@@ -1,5 +1,5 @@
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { EnableAWSServiceAccessRequest } from "../models/index";
+import { EnableAWSServiceAccessRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1EnableAWSServiceAccessCommand,
   serializeAws_json1_1EnableAWSServiceAccessCommand,

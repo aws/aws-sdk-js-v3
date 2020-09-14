@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { ListDeviceEventsRequest, ListDeviceEventsResponse } from "../models/index";
+import { ListDeviceEventsRequest, ListDeviceEventsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDeviceEventsCommand,
   serializeAws_json1_1ListDeviceEventsCommand,

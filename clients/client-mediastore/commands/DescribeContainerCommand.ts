@@ -1,5 +1,5 @@
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import { DescribeContainerInput, DescribeContainerOutput } from "../models/index";
+import { DescribeContainerInput, DescribeContainerOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeContainerCommand,
   serializeAws_json1_1DescribeContainerCommand,

@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateInstanceSnapshotRequest, CreateInstanceSnapshotResult } from "../models/index";
+import { CreateInstanceSnapshotRequest, CreateInstanceSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateInstanceSnapshotCommand,
   serializeAws_json1_1CreateInstanceSnapshotCommand,

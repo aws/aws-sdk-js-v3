@@ -1,5 +1,5 @@
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { CreateUnreferencedMergeCommitInput, CreateUnreferencedMergeCommitOutput } from "../models/index";
+import { CreateUnreferencedMergeCommitInput, CreateUnreferencedMergeCommitOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateUnreferencedMergeCommitCommand,
   serializeAws_json1_1CreateUnreferencedMergeCommitCommand,

@@ -1,5 +1,5 @@
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { UpdateCertificateOptionsRequest } from "../models/index";
+import { UpdateCertificateOptionsRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateCertificateOptionsCommand,
   serializeAws_json1_1UpdateCertificateOptionsCommand,

@@ -1,5 +1,5 @@
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
-import { CreateConfigurationSetRequest, CreateConfigurationSetResponse } from "../models/index";
+import { CreateConfigurationSetRequest, CreateConfigurationSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateConfigurationSetCommand,
   serializeAws_restJson1CreateConfigurationSetCommand,

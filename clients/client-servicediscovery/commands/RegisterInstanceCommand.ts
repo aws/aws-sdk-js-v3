@@ -1,5 +1,5 @@
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
-import { RegisterInstanceRequest, RegisterInstanceResponse } from "../models/index";
+import { RegisterInstanceRequest, RegisterInstanceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterInstanceCommand,
   serializeAws_json1_1RegisterInstanceCommand,

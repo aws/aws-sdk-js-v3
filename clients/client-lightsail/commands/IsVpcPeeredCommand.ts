@@ -1,5 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { IsVpcPeeredRequest, IsVpcPeeredResult } from "../models/index";
+import { IsVpcPeeredRequest, IsVpcPeeredResult } from "../models/models_1";
 import {
   deserializeAws_json1_1IsVpcPeeredCommand,
   serializeAws_json1_1IsVpcPeeredCommand,

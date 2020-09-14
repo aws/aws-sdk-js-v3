@@ -1,5 +1,5 @@
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import { DeleteLayerRequest } from "../models/index";
+import { DeleteLayerRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLayerCommand,
   serializeAws_json1_1DeleteLayerCommand,

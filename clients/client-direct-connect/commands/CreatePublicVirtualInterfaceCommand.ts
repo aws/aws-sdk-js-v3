@@ -1,5 +1,5 @@
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { CreatePublicVirtualInterfaceRequest, VirtualInterface } from "../models/index";
+import { CreatePublicVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePublicVirtualInterfaceCommand,
   serializeAws_json1_1CreatePublicVirtualInterfaceCommand,

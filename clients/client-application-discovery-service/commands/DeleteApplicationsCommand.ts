@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { DeleteApplicationsRequest, DeleteApplicationsResponse } from "../models/index";
+import { DeleteApplicationsRequest, DeleteApplicationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApplicationsCommand,
   serializeAws_json1_1DeleteApplicationsCommand,

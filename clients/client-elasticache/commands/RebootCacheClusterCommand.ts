@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { RebootCacheClusterMessage, RebootCacheClusterResult } from "../models/index";
+import { RebootCacheClusterMessage, RebootCacheClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryRebootCacheClusterCommand,
   serializeAws_queryRebootCacheClusterCommand,

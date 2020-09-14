@@ -1,5 +1,5 @@
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { RejectSkillRequest, RejectSkillResponse } from "../models/index";
+import { RejectSkillRequest, RejectSkillResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RejectSkillCommand,
   serializeAws_json1_1RejectSkillCommand,

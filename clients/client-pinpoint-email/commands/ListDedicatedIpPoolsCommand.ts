@@ -1,5 +1,5 @@
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { ListDedicatedIpPoolsRequest, ListDedicatedIpPoolsResponse } from "../models/index";
+import { ListDedicatedIpPoolsRequest, ListDedicatedIpPoolsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDedicatedIpPoolsCommand,
   serializeAws_restJson1ListDedicatedIpPoolsCommand,

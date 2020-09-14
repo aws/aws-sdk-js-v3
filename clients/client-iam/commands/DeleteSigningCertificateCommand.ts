@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteSigningCertificateRequest } from "../models/index";
+import { DeleteSigningCertificateRequest } from "../models/models_0";
 import {
   deserializeAws_queryDeleteSigningCertificateCommand,
   serializeAws_queryDeleteSigningCertificateCommand,

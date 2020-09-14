@@ -1,5 +1,5 @@
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetBaiduChannelRequest, GetBaiduChannelResponse } from "../models/index";
+import { GetBaiduChannelRequest, GetBaiduChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBaiduChannelCommand,
   serializeAws_restJson1GetBaiduChannelCommand,

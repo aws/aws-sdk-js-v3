@@ -1,5 +1,5 @@
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { ListVersionsByFunctionRequest, ListVersionsByFunctionResponse } from "../models/index";
+import { ListVersionsByFunctionRequest, ListVersionsByFunctionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListVersionsByFunctionCommand,
   serializeAws_restJson1ListVersionsByFunctionCommand,

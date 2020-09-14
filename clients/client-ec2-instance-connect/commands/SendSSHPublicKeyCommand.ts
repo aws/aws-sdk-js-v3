@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../EC2InstanceConnectClient";
-import { SendSSHPublicKeyRequest, SendSSHPublicKeyResponse } from "../models/index";
+import { SendSSHPublicKeyRequest, SendSSHPublicKeyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1SendSSHPublicKeyCommand,
   serializeAws_json1_1SendSSHPublicKeyCommand,

@@ -1,5 +1,5 @@
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { DescribeClusterInput, DescribeClusterOutput } from "../models/index";
+import { DescribeClusterInput, DescribeClusterOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeClusterCommand,
   serializeAws_json1_1DescribeClusterCommand,

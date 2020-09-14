@@ -1,5 +1,5 @@
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { QueryObjectsInput, QueryObjectsOutput } from "../models/index";
+import { QueryObjectsInput, QueryObjectsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1QueryObjectsCommand,
   serializeAws_json1_1QueryObjectsCommand,

@@ -1,5 +1,5 @@
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DetachLoadBalancersResultType, DetachLoadBalancersType } from "../models/index";
+import { DetachLoadBalancersResultType, DetachLoadBalancersType } from "../models/models_0";
 import {
   deserializeAws_queryDetachLoadBalancersCommand,
   serializeAws_queryDetachLoadBalancersCommand,

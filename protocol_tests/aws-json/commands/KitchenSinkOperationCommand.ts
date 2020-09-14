@@ -1,5 +1,5 @@
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { KitchenSink } from "../models/index";
+import { KitchenSink } from "../models/models_0";
 import {
   deserializeAws_json1_1KitchenSinkOperationCommand,
   serializeAws_json1_1KitchenSinkOperationCommand,

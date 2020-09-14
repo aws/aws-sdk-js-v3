@@ -1,5 +1,5 @@
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { SimpleInputParamsInput } from "../models/index";
+import { SimpleInputParamsInput } from "../models/models_0";
 import {
   deserializeAws_querySimpleInputParamsCommand,
   serializeAws_querySimpleInputParamsCommand,

@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteAlgorithmInput } from "../models/index";
+import { DeleteAlgorithmInput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAlgorithmCommand,
   serializeAws_json1_1DeleteAlgorithmCommand,

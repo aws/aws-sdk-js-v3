@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DescribePendingMaintenanceActionsMessage, DescribePendingMaintenanceActionsResponse } from "../models/index";
+import {
+  DescribePendingMaintenanceActionsMessage,
+  DescribePendingMaintenanceActionsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePendingMaintenanceActionsCommand,
   serializeAws_json1_1DescribePendingMaintenanceActionsCommand,

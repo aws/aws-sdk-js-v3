@@ -1,5 +1,8 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DescribePendingAggregationRequestsRequest, DescribePendingAggregationRequestsResponse } from "../models/index";
+import {
+  DescribePendingAggregationRequestsRequest,
+  DescribePendingAggregationRequestsResponse,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePendingAggregationRequestsCommand,
   serializeAws_json1_1DescribePendingAggregationRequestsCommand,

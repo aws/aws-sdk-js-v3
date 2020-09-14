@@ -1,5 +1,5 @@
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { CreateSchemaRequest, CreateSchemaResponse } from "../models/index";
+import { CreateSchemaRequest, CreateSchemaResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSchemaCommand,
   serializeAws_restJson1CreateSchemaCommand,

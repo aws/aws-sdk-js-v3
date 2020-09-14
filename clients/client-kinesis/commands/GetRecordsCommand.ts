@@ -1,5 +1,5 @@
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { GetRecordsInput, GetRecordsOutput } from "../models/index";
+import { GetRecordsInput, GetRecordsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRecordsCommand,
   serializeAws_json1_1GetRecordsCommand,

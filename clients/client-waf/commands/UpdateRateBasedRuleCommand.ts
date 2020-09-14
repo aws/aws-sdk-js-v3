@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { UpdateRateBasedRuleRequest, UpdateRateBasedRuleResponse } from "../models/index";
+import { UpdateRateBasedRuleRequest, UpdateRateBasedRuleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRateBasedRuleCommand,
   serializeAws_json1_1UpdateRateBasedRuleCommand,

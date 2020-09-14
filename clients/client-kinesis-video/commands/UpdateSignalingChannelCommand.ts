@@ -1,5 +1,5 @@
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import { UpdateSignalingChannelInput, UpdateSignalingChannelOutput } from "../models/index";
+import { UpdateSignalingChannelInput, UpdateSignalingChannelOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSignalingChannelCommand,
   serializeAws_restJson1UpdateSignalingChannelCommand,

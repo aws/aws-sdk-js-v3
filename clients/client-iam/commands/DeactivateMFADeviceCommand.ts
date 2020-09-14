@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeactivateMFADeviceRequest } from "../models/index";
+import { DeactivateMFADeviceRequest } from "../models/models_0";
 import {
   deserializeAws_queryDeactivateMFADeviceCommand,
   serializeAws_queryDeactivateMFADeviceCommand,

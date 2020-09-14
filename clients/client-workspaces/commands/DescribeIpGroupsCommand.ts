@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
-import { DescribeIpGroupsRequest, DescribeIpGroupsResult } from "../models/index";
+import { DescribeIpGroupsRequest, DescribeIpGroupsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeIpGroupsCommand,
   serializeAws_json1_1DescribeIpGroupsCommand,

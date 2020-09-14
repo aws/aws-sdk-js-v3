@@ -1,5 +1,5 @@
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { DescribeTrailsRequest, DescribeTrailsResponse } from "../models/index";
+import { DescribeTrailsRequest, DescribeTrailsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTrailsCommand,
   serializeAws_json1_1DescribeTrailsCommand,

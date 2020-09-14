@@ -1,5 +1,5 @@
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { ListDataSetRevisionsRequest, ListDataSetRevisionsResponse } from "../models/index";
+import { ListDataSetRevisionsRequest, ListDataSetRevisionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDataSetRevisionsCommand,
   serializeAws_restJson1ListDataSetRevisionsCommand,

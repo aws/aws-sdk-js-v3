@@ -1,5 +1,5 @@
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { GetDataLakeSettingsRequest, GetDataLakeSettingsResponse } from "../models/index";
+import { GetDataLakeSettingsRequest, GetDataLakeSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDataLakeSettingsCommand,
   serializeAws_json1_1GetDataLakeSettingsCommand,

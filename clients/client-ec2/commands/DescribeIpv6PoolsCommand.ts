@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/index";
+import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeIpv6PoolsCommand,
   serializeAws_ec2DescribeIpv6PoolsCommand,

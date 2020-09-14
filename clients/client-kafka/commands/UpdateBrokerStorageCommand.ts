@@ -1,5 +1,5 @@
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { UpdateBrokerStorageRequest, UpdateBrokerStorageResponse } from "../models/index";
+import { UpdateBrokerStorageRequest, UpdateBrokerStorageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateBrokerStorageCommand,
   serializeAws_restJson1UpdateBrokerStorageCommand,

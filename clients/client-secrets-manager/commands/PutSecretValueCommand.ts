@@ -1,5 +1,5 @@
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
-import { PutSecretValueRequest, PutSecretValueResponse } from "../models/index";
+import { PutSecretValueRequest, PutSecretValueResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutSecretValueCommand,
   serializeAws_json1_1PutSecretValueCommand,

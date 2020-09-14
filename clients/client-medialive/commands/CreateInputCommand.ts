@@ -1,5 +1,5 @@
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CreateInputRequest, CreateInputResponse } from "../models/index";
+import { CreateInputRequest, CreateInputResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1CreateInputCommand,
   serializeAws_restJson1CreateInputCommand,

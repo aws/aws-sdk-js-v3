@@ -1,5 +1,5 @@
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse } from "../models/index";
+import { BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchCheckLayerAvailabilityCommand,
   serializeAws_json1_1BatchCheckLayerAvailabilityCommand,

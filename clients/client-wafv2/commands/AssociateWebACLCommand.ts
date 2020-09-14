@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
-import { AssociateWebACLRequest, AssociateWebACLResponse } from "../models/index";
+import { AssociateWebACLRequest, AssociateWebACLResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateWebACLCommand,
   serializeAws_json1_1AssociateWebACLCommand,

@@ -1,5 +1,5 @@
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
-import { DeleteProtectionRequest, DeleteProtectionResponse } from "../models/index";
+import { DeleteProtectionRequest, DeleteProtectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProtectionCommand,
   serializeAws_json1_1DeleteProtectionCommand,

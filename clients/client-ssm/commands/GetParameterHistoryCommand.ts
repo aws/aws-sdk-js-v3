@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { GetParameterHistoryRequest, GetParameterHistoryResult } from "../models/index";
+import { GetParameterHistoryRequest, GetParameterHistoryResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetParameterHistoryCommand,
   serializeAws_json1_1GetParameterHistoryCommand,

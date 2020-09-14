@@ -1,5 +1,5 @@
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { UpdateAssessmentTargetRequest } from "../models/index";
+import { UpdateAssessmentTargetRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAssessmentTargetCommand,
   serializeAws_json1_1UpdateAssessmentTargetCommand,

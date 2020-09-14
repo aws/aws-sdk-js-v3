@@ -1,5 +1,5 @@
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { BatchApplyUpdateActionMessage, UpdateActionResultsMessage } from "../models/index";
+import { BatchApplyUpdateActionMessage, UpdateActionResultsMessage } from "../models/models_0";
 import {
   deserializeAws_queryBatchApplyUpdateActionCommand,
   serializeAws_queryBatchApplyUpdateActionCommand,
