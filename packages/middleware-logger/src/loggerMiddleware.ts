@@ -1,20 +1,18 @@
 import {
   AbsoluteLocation,
-  FinalizeHandler,
-  FinalizeHandlerArguments,
-  FinalizeHandlerOutput,
-  FinalizeRequestHandlerOptions,
+  BuildHandler,
+  BuildHandlerArguments,
+  BuildHandlerOptions,
+  BuildHandlerOutput,
   HandlerExecutionContext,
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
 
 export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataBearer>(
-  next: FinalizeHandler<any, Output>,
+  next: BuildHandler<any, Output>,
   context: HandlerExecutionContext
-): FinalizeHandler<any, Output> => async (
-  args: FinalizeHandlerArguments<any>
-): Promise<FinalizeHandlerOutput<Output>> => {
+): BuildHandler<any, Output> => async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
   const { logger, inputFilterSensitiveLog, outputFilterSensitiveLog } = context;
 
   const response = await next(args);
@@ -47,10 +45,10 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
   return response;
 };
 
-export const loggerMiddlewareOptions: FinalizeRequestHandlerOptions & AbsoluteLocation = {
+export const loggerMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
   name: "loggerMiddleware",
   tags: ["LOGGER"],
-  step: "finalizeRequest",
+  step: "build",
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
