@@ -146,11 +146,17 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   return true;
 };
 
+const clientParams = {
+  region: "us-west-2",
+  credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+};
+
 /**
  * Empty input serializes no extra query params
  */
 it("QueryEmptyInputAndEmptyOutput:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -184,6 +190,7 @@ it("QueryEmptyInputAndEmptyOutput:Request", async () => {
  */
 it("QueryEmptyInputAndEmptyOutput:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined),
   });
 
@@ -205,6 +212,7 @@ it("QueryEmptyInputAndEmptyOutput:Response", async () => {
  */
 it("QueryQueryFlattenedXmlMap:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -257,6 +265,7 @@ it("QueryQueryFlattenedXmlMap:Response", async () => {
  */
 it("QueryQueryFlattenedXmlMapWithXmlName:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -309,6 +318,7 @@ it("QueryQueryFlattenedXmlMapWithXmlName:Response", async () => {
  */
 it("QueryGreetingWithErrors:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -351,6 +361,7 @@ it("QueryGreetingWithErrors:Response", async () => {
  */
 it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       400,
@@ -398,6 +409,7 @@ it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
 
 it("QueryComplexError:Error:GreetingWithErrors", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       400,
@@ -456,6 +468,7 @@ it("QueryComplexError:Error:GreetingWithErrors", async () => {
  */
 it("QueryIgnoresWrappingXmlName:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -498,6 +511,7 @@ it("QueryIgnoresWrappingXmlName:Response", async () => {
  */
 it("NestedStructures:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -544,6 +558,7 @@ it("NestedStructures:Request", async () => {
  */
 it("QueryNoInputAndNoOutput:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -577,6 +592,7 @@ it("QueryNoInputAndNoOutput:Request", async () => {
  */
 it("QueryNoInputAndNoOutput:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined),
   });
 
@@ -598,6 +614,7 @@ it("QueryNoInputAndNoOutput:Response", async () => {
  */
 it("QueryNoInputAndOutput:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -631,6 +648,7 @@ it("QueryNoInputAndOutput:Request", async () => {
  */
 it("QueryNoInputAndOutput:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined),
   });
 
@@ -652,6 +670,7 @@ it("QueryNoInputAndOutput:Response", async () => {
  */
 it("QueryProtocolIdempotencyTokenAutoFill:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -688,6 +707,7 @@ it("QueryProtocolIdempotencyTokenAutoFill:Request", async () => {
  */
 it("QueryProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -724,6 +744,7 @@ it("QueryProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
  */
 it("QueryLists:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -774,6 +795,7 @@ it("QueryLists:Request", async () => {
  */
 it("EmptyQueryLists:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -809,6 +831,7 @@ it("EmptyQueryLists:Request", async () => {
  */
 it("FlattenedQueryLists:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -846,6 +869,7 @@ it("FlattenedQueryLists:Request", async () => {
  */
 it("QueryListArgWithXmlNameMember:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -883,6 +907,7 @@ it("QueryListArgWithXmlNameMember:Request", async () => {
  */
 it("QueryFlattenedListArgWithXmlName:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -920,6 +945,7 @@ it("QueryFlattenedListArgWithXmlName:Request", async () => {
  */
 it("QuerySimpleQueryMaps:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -963,6 +989,7 @@ it("QuerySimpleQueryMaps:Request", async () => {
  */
 it("QuerySimpleQueryMapsWithXmlName:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1002,6 +1029,7 @@ it("QuerySimpleQueryMapsWithXmlName:Request", async () => {
  */
 it("QueryComplexQueryMaps:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1049,6 +1077,7 @@ it("QueryComplexQueryMaps:Request", async () => {
  */
 it("QueryEmptyQueryMaps:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1084,6 +1113,7 @@ it("QueryEmptyQueryMaps:Request", async () => {
  */
 it("QueryQueryMapWithMemberXmlName:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1127,6 +1157,7 @@ it("QueryQueryMapWithMemberXmlName:Request", async () => {
  */
 it("QueryFlattenedQueryMaps:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1170,6 +1201,7 @@ it("QueryFlattenedQueryMaps:Request", async () => {
  */
 it("QueryFlattenedQueryMapsWithXmlName:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1213,6 +1245,7 @@ it("QueryFlattenedQueryMapsWithXmlName:Request", async () => {
  */
 it("QueryQueryMapOfLists:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1258,6 +1291,7 @@ it("QueryQueryMapOfLists:Request", async () => {
  */
 it("QueryTimestampsInput:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1300,6 +1334,7 @@ it("QueryTimestampsInput:Request", async () => {
  */
 it("QueryRecursiveShapes:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1367,6 +1402,7 @@ it("QueryRecursiveShapes:Response", async () => {
  */
 it("QuerySimpleInputParamsStrings:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1406,6 +1442,7 @@ it("QuerySimpleInputParamsStrings:Request", async () => {
  */
 it("QuerySimpleInputParamsStringAndBooleanTrue:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1445,6 +1482,7 @@ it("QuerySimpleInputParamsStringAndBooleanTrue:Request", async () => {
  */
 it("QuerySimpleInputParamsStringsAndBooleanFalse:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1481,6 +1519,7 @@ it("QuerySimpleInputParamsStringsAndBooleanFalse:Request", async () => {
  */
 it("QuerySimpleInputParamsInteger:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1517,6 +1556,7 @@ it("QuerySimpleInputParamsInteger:Request", async () => {
  */
 it("QuerySimpleInputParamsFloat:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1553,6 +1593,7 @@ it("QuerySimpleInputParamsFloat:Request", async () => {
  */
 it("QuerySimpleInputParamsBlob:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1589,6 +1630,7 @@ it("QuerySimpleInputParamsBlob:Request", async () => {
  */
 it("QueryEnums:Request", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1625,6 +1667,7 @@ it("QueryEnums:Request", async () => {
  */
 it("QuerySimpleScalarProperties:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1694,6 +1737,7 @@ it("QuerySimpleScalarProperties:Response", async () => {
  */
 it("QueryXmlBlobs:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1736,6 +1780,7 @@ it("QueryXmlBlobs:Response", async () => {
  */
 it("QueryXmlEnums:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1812,6 +1857,7 @@ it("QueryXmlEnums:Response", async () => {
  */
 it("QueryXmlLists:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1941,6 +1987,7 @@ it("QueryXmlLists:Response", async () => {
  */
 it("QueryXmlMaps:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2004,6 +2051,7 @@ it("QueryXmlMaps:Response", async () => {
  */
 it("QueryQueryXmlMapsXmlName:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2067,6 +2115,7 @@ it("QueryQueryXmlMapsXmlName:Response", async () => {
  */
 it("QueryXmlNamespaces:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2119,6 +2168,7 @@ it("QueryXmlNamespaces:Response", async () => {
  */
 it("QueryXmlTimestamps:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2161,6 +2211,7 @@ it("QueryXmlTimestamps:Response", async () => {
  */
 it("QueryXmlTimestampsWithDateTimeFormat:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2203,6 +2254,7 @@ it("QueryXmlTimestampsWithDateTimeFormat:Response", async () => {
  */
 it("QueryXmlTimestampsWithEpochSecondsFormat:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2245,6 +2297,7 @@ it("QueryXmlTimestampsWithEpochSecondsFormat:Response", async () => {
  */
 it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
   const client = new QueryProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
