@@ -1,5 +1,6 @@
 import {
   EndpointBearer,
+  HandlerExecutionContext,
   RequestSerializer,
   SerializeHandler,
   SerializeHandlerArguments,
@@ -7,17 +8,33 @@ import {
   SerializeMiddleware,
 } from "@aws-sdk/types";
 
-export function serializerMiddleware<Input extends object, Output extends object, RuntimeUtils extends EndpointBearer>(
+export const serializerMiddleware = <Input extends object, Output extends object, RuntimeUtils extends EndpointBearer>(
   options: RuntimeUtils,
   serializer: RequestSerializer<any, RuntimeUtils>
-): SerializeMiddleware<Input, Output> {
-  return (next: SerializeHandler<Input, Output>): SerializeHandler<Input, Output> => async (
-    args: SerializeHandlerArguments<Input>
-  ): Promise<SerializeHandlerOutput<Output>> => {
-    const request = await serializer(args.input, options);
-    return next({
-      ...args,
-      request,
+): SerializeMiddleware<Input, Output> => (
+  next: SerializeHandler<Input, Output>,
+  context: HandlerExecutionContext
+): SerializeHandler<Input, Output> => async (
+  args: SerializeHandlerArguments<Input>
+): Promise<SerializeHandlerOutput<Output>> => {
+  const { logger, inputFilterSensitiveLog } = context;
+
+  if (typeof logger?.info === "function") {
+    logger.info({
+      input: inputFilterSensitiveLog(args.input),
     });
-  };
-}
+  }
+
+  const request = await serializer(args.input, options);
+
+  if (typeof logger?.debug === "function") {
+    logger.debug({
+      httpRequest: request,
+    });
+  }
+
+  return next({
+    ...args,
+    request,
+  });
+};
