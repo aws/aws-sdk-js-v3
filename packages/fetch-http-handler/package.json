@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/fetch-http-handler",
-  "version": "1.0.0-gamma.8",
+  "version": "1.0.0-gamma.9",
   "description": "Provides a way to make requests",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",

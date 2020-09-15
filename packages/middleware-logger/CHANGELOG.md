@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.2](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-logger@1.0.0-gamma.1...@aws-sdk/middleware-logger@1.0.0-gamma.2) (2020-09-15)
+
+
+### Bug Fixes
+
+* add loggerMiddleware in build step ([#1520](https://github.com/aws/aws-sdk-js-v3/issues/1520)) ([fece417](https://github.com/aws/aws-sdk-js-v3/commit/fece4175a38eade70ae7192f1f1a9d17243b9855))
+* move logging of input/output and req/res to serde ([#1526](https://github.com/aws/aws-sdk-js-v3/issues/1526)) ([b6675b6](https://github.com/aws/aws-sdk-js-v3/commit/b6675b60feca715d3b0379bc1aff1945ee9d74c0))
+
+
+
+
+
 # 1.0.0-gamma.1 (2020-09-01)
 
 

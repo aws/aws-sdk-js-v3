@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/config-resolver",
-  "version": "1.0.0-gamma.7",
+  "version": "1.0.0-gamma.8",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -18,7 +18,7 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@aws-sdk/node-config-provider": "1.0.0-gamma.2",
+    "@aws-sdk/node-config-provider": "1.0.0-gamma.3",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "tslib": "^1.8.0",

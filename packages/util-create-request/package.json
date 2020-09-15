@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-create-request",
-  "version": "1.0.0-gamma.7",
+  "version": "1.0.0-gamma.8",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -19,7 +19,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/middleware-stack": "1.0.0-gamma.7",
-    "@aws-sdk/smithy-client": "1.0.0-gamma.7",
+    "@aws-sdk/smithy-client": "1.0.0-gamma.8",
     "@aws-sdk/types": "1.0.0-gamma.6",
     "tslib": "^1.8.0"
   },

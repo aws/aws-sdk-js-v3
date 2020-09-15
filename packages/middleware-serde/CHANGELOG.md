@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-serde@1.0.0-gamma.6...@aws-sdk/middleware-serde@1.0.0-gamma.7) (2020-09-15)
+
+
+### Bug Fixes
+
+* move logging of input/output and req/res to serde ([#1526](https://github.com/aws/aws-sdk-js-v3/issues/1526)) ([b6675b6](https://github.com/aws/aws-sdk-js-v3/commit/b6675b60feca715d3b0379bc1aff1945ee9d74c0))
+
+
+
+
+
 # [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-serde@1.0.0-gamma.5...@aws-sdk/middleware-serde@1.0.0-gamma.6) (2020-09-01)
 
 **Note:** Version bump only for package @aws-sdk/middleware-serde

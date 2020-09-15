@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-imds",
-  "version": "1.0.0-gamma.7",
+  "version": "1.0.0-gamma.8",
   "description": "AWS credential provider that sources credentials from the EC2 instance metadata service and ECS container metadata service",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",

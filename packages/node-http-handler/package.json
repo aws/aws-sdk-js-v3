@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/node-http-handler",
-  "version": "1.0.0-gamma.7",
+  "version": "1.0.0-gamma.8",
   "description": "Provides a way to make requests",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
