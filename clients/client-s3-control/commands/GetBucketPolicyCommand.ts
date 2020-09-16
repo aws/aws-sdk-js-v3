@@ -1,8 +1,8 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { CreateAccessPointRequest, CreateAccessPointResult } from "../models/models_0";
+import { GetBucketPolicyRequest, GetBucketPolicyResult } from "../models/models_0";
 import {
-  deserializeAws_restXmlCreateAccessPointCommand,
-  serializeAws_restXmlCreateAccessPointCommand,
+  deserializeAws_restXmlGetBucketPolicyCommand,
+  serializeAws_restXmlGetBucketPolicyCommand,
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -17,18 +17,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAccessPointCommandInput = CreateAccessPointRequest;
-export type CreateAccessPointCommandOutput = CreateAccessPointResult & __MetadataBearer;
+export type GetBucketPolicyCommandInput = GetBucketPolicyRequest;
+export type GetBucketPolicyCommandOutput = GetBucketPolicyResult & __MetadataBearer;
 
-export class CreateAccessPointCommand extends $Command<
-  CreateAccessPointCommandInput,
-  CreateAccessPointCommandOutput,
+export class GetBucketPolicyCommand extends $Command<
+  GetBucketPolicyCommandInput,
+  GetBucketPolicyCommandOutput,
   S3ControlClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: CreateAccessPointCommandInput) {
+  constructor(readonly input: GetBucketPolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -38,7 +38,7 @@ export class CreateAccessPointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateAccessPointCommandInput, CreateAccessPointCommandOutput> {
+  ): Handler<GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -46,8 +46,8 @@ export class CreateAccessPointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterSensitiveLog: CreateAccessPointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccessPointResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketPolicyResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -57,12 +57,12 @@ export class CreateAccessPointCommand extends $Command<
     );
   }
 
-  private serialize(input: CreateAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateAccessPointCommand(input, context);
+  private serialize(input: GetBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlGetBucketPolicyCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPointCommandOutput> {
-    return deserializeAws_restXmlCreateAccessPointCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketPolicyCommandOutput> {
+    return deserializeAws_restXmlGetBucketPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

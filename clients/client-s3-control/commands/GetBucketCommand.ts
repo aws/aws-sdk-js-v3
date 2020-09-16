@@ -1,9 +1,6 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { CreateAccessPointRequest, CreateAccessPointResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateAccessPointCommand,
-  serializeAws_restXmlCreateAccessPointCommand,
-} from "../protocols/Aws_restXml";
+import { GetBucketRequest, GetBucketResult } from "../models/models_0";
+import { deserializeAws_restXmlGetBucketCommand, serializeAws_restXmlGetBucketCommand } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -17,18 +14,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAccessPointCommandInput = CreateAccessPointRequest;
-export type CreateAccessPointCommandOutput = CreateAccessPointResult & __MetadataBearer;
+export type GetBucketCommandInput = GetBucketRequest;
+export type GetBucketCommandOutput = GetBucketResult & __MetadataBearer;
 
-export class CreateAccessPointCommand extends $Command<
-  CreateAccessPointCommandInput,
-  CreateAccessPointCommandOutput,
+export class GetBucketCommand extends $Command<
+  GetBucketCommandInput,
+  GetBucketCommandOutput,
   S3ControlClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: CreateAccessPointCommandInput) {
+  constructor(readonly input: GetBucketCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -38,7 +35,7 @@ export class CreateAccessPointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateAccessPointCommandInput, CreateAccessPointCommandOutput> {
+  ): Handler<GetBucketCommandInput, GetBucketCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -46,8 +43,8 @@ export class CreateAccessPointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterSensitiveLog: CreateAccessPointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccessPointResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -57,12 +54,12 @@ export class CreateAccessPointCommand extends $Command<
     );
   }
 
-  private serialize(input: CreateAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateAccessPointCommand(input, context);
+  private serialize(input: GetBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlGetBucketCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPointCommandOutput> {
-    return deserializeAws_restXmlCreateAccessPointCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketCommandOutput> {
+    return deserializeAws_restXmlGetBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

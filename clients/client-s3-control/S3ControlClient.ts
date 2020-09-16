@@ -1,10 +1,21 @@
 import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "./commands/CreateAccessPointCommand";
+import { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand";
 import {
   DeleteAccessPointPolicyCommandInput,
   DeleteAccessPointPolicyCommandOutput,
 } from "./commands/DeleteAccessPointPolicyCommand";
+import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand";
+import {
+  DeleteBucketLifecycleConfigurationCommandInput,
+  DeleteBucketLifecycleConfigurationCommandOutput,
+} from "./commands/DeleteBucketLifecycleConfigurationCommand";
+import { DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput } from "./commands/DeleteBucketPolicyCommand";
+import {
+  DeleteBucketTaggingCommandInput,
+  DeleteBucketTaggingCommandOutput,
+} from "./commands/DeleteBucketTaggingCommand";
 import { DeleteJobTaggingCommandInput, DeleteJobTaggingCommandOutput } from "./commands/DeleteJobTaggingCommand";
 import {
   DeletePublicAccessBlockCommandInput,
@@ -20,6 +31,13 @@ import {
   GetAccessPointPolicyStatusCommandInput,
   GetAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusCommand";
+import { GetBucketCommandInput, GetBucketCommandOutput } from "./commands/GetBucketCommand";
+import {
+  GetBucketLifecycleConfigurationCommandInput,
+  GetBucketLifecycleConfigurationCommandOutput,
+} from "./commands/GetBucketLifecycleConfigurationCommand";
+import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand";
+import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand";
 import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "./commands/GetJobTaggingCommand";
 import {
   GetPublicAccessBlockCommandInput,
@@ -28,9 +46,19 @@ import {
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
+  ListRegionalBucketsCommandInput,
+  ListRegionalBucketsCommandOutput,
+} from "./commands/ListRegionalBucketsCommand";
+import {
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput,
 } from "./commands/PutAccessPointPolicyCommand";
+import {
+  PutBucketLifecycleConfigurationCommandInput,
+  PutBucketLifecycleConfigurationCommandOutput,
+} from "./commands/PutBucketLifecycleConfigurationCommand";
+import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand";
+import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand";
 import { PutJobTaggingCommandInput, PutJobTaggingCommandOutput } from "./commands/PutJobTaggingCommand";
 import {
   PutPublicAccessBlockCommandInput,
@@ -56,7 +84,6 @@ import {
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
-import { getPrependAccountIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -90,20 +117,33 @@ import {
 
 export type ServiceInputTypes =
   | CreateAccessPointCommandInput
+  | CreateBucketCommandInput
   | CreateJobCommandInput
   | DeleteAccessPointCommandInput
   | DeleteAccessPointPolicyCommandInput
+  | DeleteBucketCommandInput
+  | DeleteBucketLifecycleConfigurationCommandInput
+  | DeleteBucketPolicyCommandInput
+  | DeleteBucketTaggingCommandInput
   | DeleteJobTaggingCommandInput
   | DeletePublicAccessBlockCommandInput
   | DescribeJobCommandInput
   | GetAccessPointCommandInput
   | GetAccessPointPolicyCommandInput
   | GetAccessPointPolicyStatusCommandInput
+  | GetBucketCommandInput
+  | GetBucketLifecycleConfigurationCommandInput
+  | GetBucketPolicyCommandInput
+  | GetBucketTaggingCommandInput
   | GetJobTaggingCommandInput
   | GetPublicAccessBlockCommandInput
   | ListAccessPointsCommandInput
   | ListJobsCommandInput
+  | ListRegionalBucketsCommandInput
   | PutAccessPointPolicyCommandInput
+  | PutBucketLifecycleConfigurationCommandInput
+  | PutBucketPolicyCommandInput
+  | PutBucketTaggingCommandInput
   | PutJobTaggingCommandInput
   | PutPublicAccessBlockCommandInput
   | UpdateJobPriorityCommandInput
@@ -111,20 +151,33 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | CreateAccessPointCommandOutput
+  | CreateBucketCommandOutput
   | CreateJobCommandOutput
   | DeleteAccessPointCommandOutput
   | DeleteAccessPointPolicyCommandOutput
+  | DeleteBucketCommandOutput
+  | DeleteBucketLifecycleConfigurationCommandOutput
+  | DeleteBucketPolicyCommandOutput
+  | DeleteBucketTaggingCommandOutput
   | DeleteJobTaggingCommandOutput
   | DeletePublicAccessBlockCommandOutput
   | DescribeJobCommandOutput
   | GetAccessPointCommandOutput
   | GetAccessPointPolicyCommandOutput
   | GetAccessPointPolicyStatusCommandOutput
+  | GetBucketCommandOutput
+  | GetBucketLifecycleConfigurationCommandOutput
+  | GetBucketPolicyCommandOutput
+  | GetBucketTaggingCommandOutput
   | GetJobTaggingCommandOutput
   | GetPublicAccessBlockCommandOutput
   | ListAccessPointsCommandOutput
   | ListJobsCommandOutput
+  | ListRegionalBucketsCommandOutput
   | PutAccessPointPolicyCommandOutput
+  | PutBucketLifecycleConfigurationCommandOutput
+  | PutBucketPolicyCommandOutput
+  | PutBucketTaggingCommandOutput
   | PutJobTaggingCommandOutput
   | PutPublicAccessBlockCommandOutput
   | UpdateJobPriorityCommandOutput
@@ -272,7 +325,6 @@ export class S3ControlClient extends __Client<
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
-    this.middlewareStack.use(getPrependAccountIdPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
   }

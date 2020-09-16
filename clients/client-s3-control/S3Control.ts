@@ -4,6 +4,11 @@ import {
   CreateAccessPointCommandInput,
   CreateAccessPointCommandOutput,
 } from "./commands/CreateAccessPointCommand";
+import {
+  CreateBucketCommand,
+  CreateBucketCommandInput,
+  CreateBucketCommandOutput,
+} from "./commands/CreateBucketCommand";
 import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   DeleteAccessPointCommand,
@@ -15,6 +20,26 @@ import {
   DeleteAccessPointPolicyCommandInput,
   DeleteAccessPointPolicyCommandOutput,
 } from "./commands/DeleteAccessPointPolicyCommand";
+import {
+  DeleteBucketCommand,
+  DeleteBucketCommandInput,
+  DeleteBucketCommandOutput,
+} from "./commands/DeleteBucketCommand";
+import {
+  DeleteBucketLifecycleConfigurationCommand,
+  DeleteBucketLifecycleConfigurationCommandInput,
+  DeleteBucketLifecycleConfigurationCommandOutput,
+} from "./commands/DeleteBucketLifecycleConfigurationCommand";
+import {
+  DeleteBucketPolicyCommand,
+  DeleteBucketPolicyCommandInput,
+  DeleteBucketPolicyCommandOutput,
+} from "./commands/DeleteBucketPolicyCommand";
+import {
+  DeleteBucketTaggingCommand,
+  DeleteBucketTaggingCommandInput,
+  DeleteBucketTaggingCommandOutput,
+} from "./commands/DeleteBucketTaggingCommand";
 import {
   DeleteJobTaggingCommand,
   DeleteJobTaggingCommandInput,
@@ -41,6 +66,22 @@ import {
   GetAccessPointPolicyStatusCommandInput,
   GetAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusCommand";
+import { GetBucketCommand, GetBucketCommandInput, GetBucketCommandOutput } from "./commands/GetBucketCommand";
+import {
+  GetBucketLifecycleConfigurationCommand,
+  GetBucketLifecycleConfigurationCommandInput,
+  GetBucketLifecycleConfigurationCommandOutput,
+} from "./commands/GetBucketLifecycleConfigurationCommand";
+import {
+  GetBucketPolicyCommand,
+  GetBucketPolicyCommandInput,
+  GetBucketPolicyCommandOutput,
+} from "./commands/GetBucketPolicyCommand";
+import {
+  GetBucketTaggingCommand,
+  GetBucketTaggingCommandInput,
+  GetBucketTaggingCommandOutput,
+} from "./commands/GetBucketTaggingCommand";
 import {
   GetJobTaggingCommand,
   GetJobTaggingCommandInput,
@@ -58,10 +99,30 @@ import {
 } from "./commands/ListAccessPointsCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
+  ListRegionalBucketsCommand,
+  ListRegionalBucketsCommandInput,
+  ListRegionalBucketsCommandOutput,
+} from "./commands/ListRegionalBucketsCommand";
+import {
   PutAccessPointPolicyCommand,
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput,
 } from "./commands/PutAccessPointPolicyCommand";
+import {
+  PutBucketLifecycleConfigurationCommand,
+  PutBucketLifecycleConfigurationCommandInput,
+  PutBucketLifecycleConfigurationCommandOutput,
+} from "./commands/PutBucketLifecycleConfigurationCommand";
+import {
+  PutBucketPolicyCommand,
+  PutBucketPolicyCommandInput,
+  PutBucketPolicyCommandOutput,
+} from "./commands/PutBucketPolicyCommand";
+import {
+  PutBucketTaggingCommand,
+  PutBucketTaggingCommandInput,
+  PutBucketTaggingCommandOutput,
+} from "./commands/PutBucketTaggingCommand";
 import {
   PutJobTaggingCommand,
   PutJobTaggingCommandInput,
@@ -91,7 +152,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class S3Control extends S3ControlClient {
   /**
-   * <p>Creates an access point and associates it with the specified bucket.</p>
+   * <p>Creates an access point and associates it with the specified bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html">Managing Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   public createAccessPoint(
     args: CreateAccessPointCommandInput,
@@ -122,10 +183,39 @@ export class S3Control extends S3ControlClient {
     }
   }
 
+  public createBucket(
+    args: CreateBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBucketCommandOutput>;
+  public createBucket(args: CreateBucketCommandInput, cb: (err: any, data?: CreateBucketCommandOutput) => void): void;
+  public createBucket(
+    args: CreateBucketCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBucketCommandOutput) => void
+  ): void;
+  public createBucket(
+    args: CreateBucketCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBucketCommandOutput) => void),
+    cb?: (err: any, data?: CreateBucketCommandOutput) => void
+  ): Promise<CreateBucketCommandOutput> | void {
+    const command = new CreateBucketCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
-   * <p>You can use Amazon S3 Batch Operations to perform large-scale Batch Operations on Amazon S3 objects. Amazon S3 Batch Operations can execute a single operation
-   *          or action on lists of Amazon S3 objects that you specify. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">Amazon S3 Batch Operations</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   * <p>S3 Batch Operations performs large-scale Batch Operations on Amazon S3 objects. Batch Operations can
+   *          execute a single operation or action on lists of Amazon S3 objects that you specify. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in
+   *          the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>This operation creates a S3 Batch Operations job.</p>
+   *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
    *             <li>
@@ -237,10 +327,124 @@ export class S3Control extends S3ControlClient {
     }
   }
 
+  public deleteBucket(
+    args: DeleteBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBucketCommandOutput>;
+  public deleteBucket(args: DeleteBucketCommandInput, cb: (err: any, data?: DeleteBucketCommandOutput) => void): void;
+  public deleteBucket(
+    args: DeleteBucketCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBucketCommandOutput) => void
+  ): void;
+  public deleteBucket(
+    args: DeleteBucketCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketCommandOutput) => void
+  ): Promise<DeleteBucketCommandOutput> | void {
+    const command = new DeleteBucketCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public deleteBucketLifecycleConfiguration(
+    args: DeleteBucketLifecycleConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBucketLifecycleConfigurationCommandOutput>;
+  public deleteBucketLifecycleConfiguration(
+    args: DeleteBucketLifecycleConfigurationCommandInput,
+    cb: (err: any, data?: DeleteBucketLifecycleConfigurationCommandOutput) => void
+  ): void;
+  public deleteBucketLifecycleConfiguration(
+    args: DeleteBucketLifecycleConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBucketLifecycleConfigurationCommandOutput) => void
+  ): void;
+  public deleteBucketLifecycleConfiguration(
+    args: DeleteBucketLifecycleConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketLifecycleConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketLifecycleConfigurationCommandOutput) => void
+  ): Promise<DeleteBucketLifecycleConfigurationCommandOutput> | void {
+    const command = new DeleteBucketLifecycleConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public deleteBucketPolicy(
+    args: DeleteBucketPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBucketPolicyCommandOutput>;
+  public deleteBucketPolicy(
+    args: DeleteBucketPolicyCommandInput,
+    cb: (err: any, data?: DeleteBucketPolicyCommandOutput) => void
+  ): void;
+  public deleteBucketPolicy(
+    args: DeleteBucketPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBucketPolicyCommandOutput) => void
+  ): void;
+  public deleteBucketPolicy(
+    args: DeleteBucketPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketPolicyCommandOutput) => void
+  ): Promise<DeleteBucketPolicyCommandOutput> | void {
+    const command = new DeleteBucketPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public deleteBucketTagging(
+    args: DeleteBucketTaggingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBucketTaggingCommandOutput>;
+  public deleteBucketTagging(
+    args: DeleteBucketTaggingCommandInput,
+    cb: (err: any, data?: DeleteBucketTaggingCommandOutput) => void
+  ): void;
+  public deleteBucketTagging(
+    args: DeleteBucketTaggingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBucketTaggingCommandOutput) => void
+  ): void;
+  public deleteBucketTagging(
+    args: DeleteBucketTaggingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketTaggingCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketTaggingCommandOutput) => void
+  ): Promise<DeleteBucketTaggingCommandOutput> | void {
+    const command = new DeleteBucketTaggingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
-   * <p>Removes the entire tag set from the specified Amazon S3 Batch Operations job. To use this operation, you must have permission to perform the
-   *          <code>s3:DeleteJobTagging</code> action. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Using Job Tags</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   * <p>Removes the entire tag set from the specified S3 Batch Operations job. To use this operation,
+   *          you must have permission to perform the <code>s3:DeleteJobTagging</code> action. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling access and labeling jobs using tags</a> in the
+   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -291,8 +495,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Removes the <code>PublicAccessBlock</code> configuration for an Amazon Web Services
-   *       account.</p>
+   * <p>Removes the <code>PublicAccessBlock</code> configuration for an AWS account.</p>
    */
   public deletePublicAccessBlock(
     args: DeletePublicAccessBlockCommandInput,
@@ -324,8 +527,9 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Retrieves the configuration parameters and status for a Batch Operations job. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">Amazon S3 Batch Operations</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   * <p>Retrieves the configuration parameters and status for a Batch Operations job. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in
+   *          the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -470,11 +674,122 @@ export class S3Control extends S3ControlClient {
     }
   }
 
+  public getBucket(args: GetBucketCommandInput, options?: __HttpHandlerOptions): Promise<GetBucketCommandOutput>;
+  public getBucket(args: GetBucketCommandInput, cb: (err: any, data?: GetBucketCommandOutput) => void): void;
+  public getBucket(
+    args: GetBucketCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBucketCommandOutput) => void
+  ): void;
+  public getBucket(
+    args: GetBucketCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketCommandOutput) => void
+  ): Promise<GetBucketCommandOutput> | void {
+    const command = new GetBucketCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public getBucketLifecycleConfiguration(
+    args: GetBucketLifecycleConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketLifecycleConfigurationCommandOutput>;
+  public getBucketLifecycleConfiguration(
+    args: GetBucketLifecycleConfigurationCommandInput,
+    cb: (err: any, data?: GetBucketLifecycleConfigurationCommandOutput) => void
+  ): void;
+  public getBucketLifecycleConfiguration(
+    args: GetBucketLifecycleConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBucketLifecycleConfigurationCommandOutput) => void
+  ): void;
+  public getBucketLifecycleConfiguration(
+    args: GetBucketLifecycleConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketLifecycleConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketLifecycleConfigurationCommandOutput) => void
+  ): Promise<GetBucketLifecycleConfigurationCommandOutput> | void {
+    const command = new GetBucketLifecycleConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public getBucketPolicy(
+    args: GetBucketPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketPolicyCommandOutput>;
+  public getBucketPolicy(
+    args: GetBucketPolicyCommandInput,
+    cb: (err: any, data?: GetBucketPolicyCommandOutput) => void
+  ): void;
+  public getBucketPolicy(
+    args: GetBucketPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBucketPolicyCommandOutput) => void
+  ): void;
+  public getBucketPolicy(
+    args: GetBucketPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketPolicyCommandOutput) => void
+  ): Promise<GetBucketPolicyCommandOutput> | void {
+    const command = new GetBucketPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public getBucketTagging(
+    args: GetBucketTaggingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketTaggingCommandOutput>;
+  public getBucketTagging(
+    args: GetBucketTaggingCommandInput,
+    cb: (err: any, data?: GetBucketTaggingCommandOutput) => void
+  ): void;
+  public getBucketTagging(
+    args: GetBucketTaggingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBucketTaggingCommandOutput) => void
+  ): void;
+  public getBucketTagging(
+    args: GetBucketTaggingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketTaggingCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketTaggingCommandOutput) => void
+  ): Promise<GetBucketTaggingCommandOutput> | void {
+    const command = new GetBucketTaggingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
-   * <p>Returns the tags on an Amazon S3 Batch Operations job. To use this operation, you must have
+   * <p>Returns the tags on an S3 Batch Operations job. To use this operation, you must have
    *          permission to perform the <code>s3:GetJobTagging</code> action. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Using Job
-   *             Tags</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
+   *             access and labeling jobs using tags</a> in the
+   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -525,7 +840,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon Web Services account.</p>
+   * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an AWS account.</p>
    */
   public getPublicAccessBlock(
     args: GetPublicAccessBlockCommandInput,
@@ -593,8 +908,8 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Lists current Amazon S3 Batch Operations jobs and jobs that have ended within the last 30 days for
-   *          the AWS account making the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">Amazon S3 Batch Operations</a> in the
+   * <p>Lists current S3 Batch Operations jobs and jobs that have ended within the last 30 days for
+   *          the AWS account making the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
    *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p>Related actions include:</p>
    *          <p></p>
@@ -644,6 +959,35 @@ export class S3Control extends S3ControlClient {
     }
   }
 
+  public listRegionalBuckets(
+    args: ListRegionalBucketsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRegionalBucketsCommandOutput>;
+  public listRegionalBuckets(
+    args: ListRegionalBucketsCommandInput,
+    cb: (err: any, data?: ListRegionalBucketsCommandOutput) => void
+  ): void;
+  public listRegionalBuckets(
+    args: ListRegionalBucketsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRegionalBucketsCommandOutput) => void
+  ): void;
+  public listRegionalBuckets(
+    args: ListRegionalBucketsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRegionalBucketsCommandOutput) => void),
+    cb?: (err: any, data?: ListRegionalBucketsCommandOutput) => void
+  ): Promise<ListRegionalBucketsCommandOutput> | void {
+    const command = new ListRegionalBucketsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Associates an access policy with the specified access point. Each access point can have only one policy, so a request made to this API replaces any existing policy associated with the specified access point.</p>
    */
@@ -676,26 +1020,114 @@ export class S3Control extends S3ControlClient {
     }
   }
 
+  public putBucketLifecycleConfiguration(
+    args: PutBucketLifecycleConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutBucketLifecycleConfigurationCommandOutput>;
+  public putBucketLifecycleConfiguration(
+    args: PutBucketLifecycleConfigurationCommandInput,
+    cb: (err: any, data?: PutBucketLifecycleConfigurationCommandOutput) => void
+  ): void;
+  public putBucketLifecycleConfiguration(
+    args: PutBucketLifecycleConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutBucketLifecycleConfigurationCommandOutput) => void
+  ): void;
+  public putBucketLifecycleConfiguration(
+    args: PutBucketLifecycleConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketLifecycleConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutBucketLifecycleConfigurationCommandOutput) => void
+  ): Promise<PutBucketLifecycleConfigurationCommandOutput> | void {
+    const command = new PutBucketLifecycleConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public putBucketPolicy(
+    args: PutBucketPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutBucketPolicyCommandOutput>;
+  public putBucketPolicy(
+    args: PutBucketPolicyCommandInput,
+    cb: (err: any, data?: PutBucketPolicyCommandOutput) => void
+  ): void;
+  public putBucketPolicy(
+    args: PutBucketPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutBucketPolicyCommandOutput) => void
+  ): void;
+  public putBucketPolicy(
+    args: PutBucketPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutBucketPolicyCommandOutput) => void
+  ): Promise<PutBucketPolicyCommandOutput> | void {
+    const command = new PutBucketPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public putBucketTagging(
+    args: PutBucketTaggingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutBucketTaggingCommandOutput>;
+  public putBucketTagging(
+    args: PutBucketTaggingCommandInput,
+    cb: (err: any, data?: PutBucketTaggingCommandOutput) => void
+  ): void;
+  public putBucketTagging(
+    args: PutBucketTaggingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutBucketTaggingCommandOutput) => void
+  ): void;
+  public putBucketTagging(
+    args: PutBucketTaggingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketTaggingCommandOutput) => void),
+    cb?: (err: any, data?: PutBucketTaggingCommandOutput) => void
+  ): Promise<PutBucketTaggingCommandOutput> | void {
+    const command = new PutBucketTaggingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
-   * <p>Set the supplied tag-set on an Amazon S3 Batch Operations job.</p>
-   *          <p>A tag is a key-value pair. You can associate Amazon S3 Batch Operations tags with any job by sending a PUT request against the tagging subresource
-   *          that is associated with the job. To modify the existing tag set, you can either replace the existing tag set entirely, or make changes
-   *          within the existing tag set by retrieving the existing tag set using <a>GetJobTagging</a>, modify that tag set, and use
-   *          this API action to replace the tag set with the one you have modified..
-   *          For more information, see  <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Using Job Tags</a> in the Amazon Simple Storage Service Developer Guide.
-   *       </p>
+   * <p>Sets the supplied tag-set on an S3 Batch Operations job.</p>
+   *          <p>A tag is a key-value pair. You can associate S3 Batch Operations tags with any job by sending
+   *          a PUT request against the tagging subresource that is associated with the job. To modify
+   *          the existing tag set, you can either replace the existing tag set entirely, or make changes
+   *          within the existing tag set by retrieving the existing tag set using <a>GetJobTagging</a>, modify that tag set, and use this API action to replace the
+   *          tag set with the one you modified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling access and
+   *             labeling jobs using tags</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>
    *          <p></p>
    *          <note>
    *             <ul>
    *                <li>
    *                   <p>If you send this request with an empty tag set, Amazon S3 deletes the existing tag set on the
-   *                   Batch Operations job. If you use this method, you will be charged for a Tier 1 Request
+   *                   Batch Operations job. If you use this method, you are charged for a Tier 1 Request
    *                   (PUT). For more information, see <a href="http://aws.amazon.com/s3/pricing/">Amazon S3
    *                      pricing</a>.</p>
    *                </li>
    *                <li>
-   *                   <p>For deleting existing tags for your batch operations job, <a>DeleteJobTagging</a> request is preferred
-   *             because it achieves the same result without incurring charges.</p>
+   *                   <p>For deleting existing tags for your Batch Operations job, a <a>DeleteJobTagging</a>
+   *                   request is preferred because it achieves the same result without incurring
+   *                   charges.</p>
    *                </li>
    *                <li>
    *                   <p>A few things to consider about using tags:</p>
@@ -713,8 +1145,8 @@ export class S3Control extends S3ControlClient {
    *                         <p>The key and values are case sensitive.</p>
    *                      </li>
    *                      <li>
-   *                         <p>For tagging-related restrictions related to characters and encodings,
-   *             see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a>.</p>
+   *                         <p>For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and
+   *                            Cost Management User Guide</i>.</p>
    *                      </li>
    *                   </ul>
    *                </li>
@@ -771,8 +1203,8 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon Web Services
-   *       account.</p>
+   * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an AWS
+   *          account.</p>
    */
   public putPublicAccessBlock(
     args: PutPublicAccessBlockCommandInput,
@@ -804,8 +1236,8 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Updates an existing Amazon S3 Batch Operations job's priority. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">Amazon S3 Batch Operations</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   * <p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
+   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -861,8 +1293,9 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Updates the status for the specified job. Use this operation to confirm that you want to run a job or to cancel an existing job. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">Amazon S3 Batch Operations</a> in the Amazon Simple Storage Service Developer Guide.</p>
+   * <p>Updates the status for the specified job. Use this operation to confirm that you want to
+   *          run a job or to cancel an existing job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
+   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
