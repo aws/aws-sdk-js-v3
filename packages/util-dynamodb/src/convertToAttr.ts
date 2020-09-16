@@ -14,7 +14,7 @@ export const convertToAttr = (inputVal: NativeAttributeValue): AttributeValue =>
 };
 
 const convertToNumberAttr = (num: number): { N: string } => {
-  if ([NaN, Infinity, -Infinity].includes(num)) {
+  if ([Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].includes(num)) {
     throw new Error(`Special numeric value ${num} is not allowed`);
   } else if (num > Number.MAX_SAFE_INTEGER) {
     throw new Error(`Number ${num} is greater than Number.MAX_SAFE_INTEGER. Use BigInt.`);

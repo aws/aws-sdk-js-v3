@@ -19,7 +19,7 @@ describe("convertToAttr", () => {
     });
   });
 
-  [NaN, Infinity, -Infinity].forEach((num) => {
+  [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].forEach((num) => {
     it(`throws for number (special numeric value): ${num}`, () => {
       expect(() => {
         convertToAttr(num);
