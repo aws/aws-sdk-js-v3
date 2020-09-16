@@ -19,6 +19,14 @@ describe("convertToAttr", () => {
     });
   });
 
+  [NaN, Infinity, -Infinity].forEach((num) => {
+    it(`throws for number (special numeric value): ${num}`, () => {
+      expect(() => {
+        convertToAttr(num);
+      }).toThrowError(`Special numeric value ${num} is not allowed`);
+    });
+  });
+
   it("returns for string", () => {
     const str = "str";
     expect(convertToAttr(str)).toEqual({ S: str });
