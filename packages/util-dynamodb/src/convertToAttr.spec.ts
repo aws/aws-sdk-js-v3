@@ -1,6 +1,12 @@
 import { convertToAttr } from "./convertToAttr";
 
 describe("convertToAttr", () => {
+  describe("null", () => {
+    it(`returns for null`, () => {
+      expect(convertToAttr(null)).toEqual({ NULL: true });
+    });
+  });
+
   describe("boolean", () => {
     [true, false].forEach((bool) => {
       it(`returns for boolean: ${bool}`, () => {

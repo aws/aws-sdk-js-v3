@@ -2,14 +2,16 @@ import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { NativeAttributeValue } from "./models";
 
-export const convertToAttr = (inputVal: NativeAttributeValue): AttributeValue => {
-  if (typeof inputVal === "boolean") {
-    return { BOOL: inputVal };
-  } else if (typeof inputVal === "number") {
-    return convertToNumberAttr(inputVal);
+export const convertToAttr = (data: NativeAttributeValue): AttributeValue => {
+  if (data === null && typeof data === "object") {
+    return { NULL: true };
+  } else if (typeof data === "boolean") {
+    return { BOOL: data };
+  } else if (typeof data === "number") {
+    return convertToNumberAttr(data);
   } else {
     // @ts-ignore
-    return { S: inputVal };
+    return { S: data };
   }
 };
 
