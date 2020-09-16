@@ -9,6 +9,8 @@ export const convertToAttr = (data: NativeAttributeValue): AttributeValue => {
     return { BOOL: data };
   } else if (typeof data === "number") {
     return convertToNumberAttr(data);
+  } else if (typeof data === "bigint") {
+    return { N: data.toString() };
   } else {
     // @ts-ignore
     return { S: data };

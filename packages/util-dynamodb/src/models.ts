@@ -2,10 +2,8 @@ export type NativeAttributeValue =
   | null
   | boolean
   | number
-  | number[]
+  | bigint
   | Uint8Array
-  | Uint8Array[]
   | string
-  | string[]
   | { [key: string]: NativeAttributeValue }
   | NativeAttributeValue[];

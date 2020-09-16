@@ -53,6 +53,14 @@ describe("convertToAttr", () => {
     });
   });
 
+  describe("bigint", () => {
+    it("returns for BigInt value", () => {
+      // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
+      const num = BigInt(Number.MAX_SAFE_INTEGER) + 2n;
+      expect(convertToAttr(num)).toEqual({ N: num.toString() });
+    });
+  });
+
   describe("string", () => {
     it("returns for string", () => {
       const str = "str";
