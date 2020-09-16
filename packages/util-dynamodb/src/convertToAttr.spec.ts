@@ -2,14 +2,21 @@ import { convertToAttr } from "./convertToAttr";
 
 describe("convertToAttr", () => {
   [true, false].forEach((bool) => {
-    it(`test boolean "${bool}"`, () => {
+    it(`returns for boolean: ${bool}`, () => {
       expect(convertToAttr(bool)).toEqual({ BOOL: bool });
     });
   });
 
-  it("returns for number", () => {
-    const num = 5;
-    expect(convertToAttr(num)).toEqual({ N: num.toString() });
+  [1].forEach((num) => {
+    it(`returns for number (integer): ${num}`, () => {
+      expect(convertToAttr(num)).toEqual({ N: num.toString() });
+    });
+  });
+
+  [3.14].forEach((num) => {
+    it(`returns for number (floating point): ${num}`, () => {
+      expect(convertToAttr(num)).toEqual({ N: num.toString() });
+    });
   });
 
   it("returns for string", () => {
