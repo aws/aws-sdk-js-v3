@@ -22,7 +22,7 @@ describe("convertToAttr", () => {
       });
     });
 
-    [3.14].forEach((num) => {
+    [3.14, Number.MIN_VALUE].forEach((num) => {
       it(`returns for number (floating point): ${num}`, () => {
         expect(convertToAttr(num)).toEqual({ N: num.toString() });
       });
@@ -36,7 +36,7 @@ describe("convertToAttr", () => {
       });
     });
 
-    [Number.MAX_SAFE_INTEGER + 1].forEach((num) => {
+    [Number.MAX_SAFE_INTEGER + 1, Number.MAX_VALUE].forEach((num) => {
       it(`throws for number greater than Number.MAX_SAFE_INTEGER: ${num}`, () => {
         expect(() => {
           convertToAttr(num);
@@ -54,10 +54,21 @@ describe("convertToAttr", () => {
   });
 
   describe("bigint", () => {
-    it("returns for BigInt value", () => {
+    const maxSafe = BigInt(Number.MAX_SAFE_INTEGER);
+    [
       // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
-      const num = BigInt(Number.MAX_SAFE_INTEGER) + 2n;
-      expect(convertToAttr(num)).toEqual({ N: num.toString() });
+      1n,
+      // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
+      maxSafe * 2n,
+      // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
+      maxSafe * -2n,
+      BigInt(Number.MAX_VALUE),
+      BigInt("0x1fffffffffffff"),
+      BigInt("0b11111111111111111111111111111111111111111111111111111"),
+    ].forEach((num) => {
+      it(`returns for bigint: ${num}`, () => {
+        expect(convertToAttr(num)).toEqual({ N: num.toString() });
+      });
     });
   });
 
