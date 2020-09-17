@@ -72,6 +72,33 @@ describe("convertToAttr", () => {
     });
   });
 
+  describe("binary", () => {
+    const buffer = new ArrayBuffer(64);
+    const arr = [...Array(64).keys()];
+    const addPointOne = (num: number) => num + 0.1;
+    [
+      buffer,
+      new Blob([new Uint8Array(buffer)]),
+      Buffer.from(buffer),
+      new DataView(buffer),
+      new Int8Array(arr),
+      new Uint8Array(arr),
+      new Uint8ClampedArray(arr),
+      new Int16Array(arr),
+      new Uint16Array(arr),
+      new Int32Array(arr),
+      new Uint32Array(arr),
+      new Float32Array(arr.map(addPointOne)),
+      new Float64Array(arr.map(addPointOne)),
+      new BigInt64Array(arr.map(BigInt)),
+      new BigUint64Array(arr.map(BigInt)),
+    ].forEach((data) => {
+      it(`returns for binary: ${data.constructor.name}`, () => {
+        expect(convertToAttr(data)).toEqual({ B: data });
+      });
+    });
+  });
+
   describe("string", () => {
     it("returns for string", () => {
       const str = "str";
