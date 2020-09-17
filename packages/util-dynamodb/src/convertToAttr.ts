@@ -3,20 +3,24 @@ import { AttributeValue } from "@aws-sdk/client-dynamodb";
 import { NativeAttributeValue } from "./models";
 
 export const convertToAttr = (data: NativeAttributeValue): AttributeValue => {
-  if (data === null && typeof data === "object") {
-    return { NULL: true };
-  } else if (typeof data === "boolean") {
-    return { BOOL: data };
-  } else if (typeof data === "number") {
-    return convertToNumberAttr(data);
-  } else if (typeof data === "bigint") {
-    return { N: data.toString() };
-  } else if (isBinary(data)) {
-    // @ts-ignore Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
-    return { B: data };
+  if (Array.isArray(data)) {
+    return { L: data.map(convertToAttr) };
   } else {
-    // @ts-ignore
-    return { S: data };
+    if (data === null && typeof data === "object") {
+      return { NULL: true };
+    } else if (typeof data === "boolean") {
+      return { BOOL: data };
+    } else if (typeof data === "number") {
+      return convertToNumberAttr(data);
+    } else if (typeof data === "bigint") {
+      return { N: data.toString() };
+    } else if (isBinary(data)) {
+      // @ts-ignore Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
+      return { B: data };
+    } else {
+      // @ts-ignore
+      return { S: data };
+    }
   }
 };
 

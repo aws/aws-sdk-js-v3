@@ -99,6 +99,31 @@ describe("convertToAttr", () => {
     });
   });
 
+  describe("list", () => {
+    const arr = [...Array(4).keys()];
+    const uint8Arr = new Uint32Array(arr);
+    const biguintArr = new BigUint64Array(arr.map(BigInt));
+    [
+      [
+        [null, false],
+        [{ NULL: true }, { BOOL: false }],
+      ],
+      [
+        [1.01, BigInt(1), "one"],
+        [{ N: "1.01" }, { N: "1" }, { S: "one" }],
+      ],
+      [
+        [uint8Arr, biguintArr],
+        [{ B: uint8Arr }, { B: biguintArr }],
+      ],
+    ].forEach(([input, output]) => {
+      it(`testing list: ${input}`, () => {
+        // @ts-ignore
+        expect(convertToAttr(input)).toEqual({ L: output });
+      });
+    });
+  });
+
   describe("string", () => {
     it("returns for string", () => {
       const str = "str";
