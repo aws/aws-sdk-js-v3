@@ -22,7 +22,7 @@ describe("convertToAttr", () => {
       });
     });
 
-    [3.14, Number.MIN_VALUE].forEach((num) => {
+    [1.01, Math.PI, Math.E, Number.MIN_VALUE, Number.EPSILON].forEach((num) => {
       it(`returns for number (floating point): ${num}`, () => {
         expect(convertToAttr(num)).toEqual({ N: num.toString() });
       });
