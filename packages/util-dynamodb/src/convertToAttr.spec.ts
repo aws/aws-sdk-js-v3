@@ -192,7 +192,15 @@ describe("convertToAttr", () => {
   });
 
   describe(`unsupported type`, () => {
-    [undefined].forEach((data) => {
+    class FooObj {
+      constructor() {
+        // @ts-ignore
+        this.foo = "foo";
+      }
+    }
+
+    // ToDo: Serialize ES6 class objects as string https://github.com/aws/aws-sdk-js-v3/issues/1535
+    [undefined, new Date(), new FooObj()].forEach((data) => {
       it(`throws for: ${String(data)}`, () => {
         expect(() => {
           // @ts-ignore Argument is not assignable to parameter of type 'NativeAttributeValue'
