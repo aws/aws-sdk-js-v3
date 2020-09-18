@@ -159,6 +159,30 @@ describe("convertToAttr", () => {
     });
   });
 
+  describe("map", () => {
+    const arr = [...Array(4).keys()];
+    const uint8Arr = new Uint32Array(arr);
+    const biguintArr = new BigUint64Array(arr.map(BigInt));
+    [
+      [
+        { a: null, b: false },
+        { a: { NULL: true }, b: { BOOL: false } },
+      ],
+      [
+        { a: 1.01, b: BigInt(1), c: "one" },
+        { a: { N: "1.01" }, b: { N: "1" }, c: { S: "one" } },
+      ],
+      [
+        { a: uint8Arr, b: biguintArr },
+        { a: { B: uint8Arr }, b: { B: biguintArr } },
+      ],
+    ].forEach(([input, output]) => {
+      it(`testing map: ${input}`, () => {
+        expect(convertToAttr(input)).toEqual({ M: output });
+      });
+    });
+  });
+
   describe("string", () => {
     it("returns for string", () => {
       const str = "str";

@@ -7,6 +7,16 @@ export const convertToAttr = (data: NativeAttributeValue): AttributeValue => {
     return { L: data.map(convertToAttr) };
   } else if (data?.constructor?.name === "Set") {
     return convertToSetAttr(data as Set<any>);
+  } else if (data?.constructor?.name === "Object") {
+    return {
+      M: Object.entries(data).reduce(
+        (acc: { [key: string]: AttributeValue }, [key, value]: [string, NativeAttributeValue]) => ({
+          ...acc,
+          [key]: convertToAttr(value),
+        }),
+        {}
+      ),
+    };
   } else {
     if (data === null && typeof data === "object") {
       return { NULL: true };
