@@ -5,6 +5,8 @@ import { NativeAttributeValue } from "./models";
 export const convertToAttr = (data: NativeAttributeValue): AttributeValue => {
   if (Array.isArray(data)) {
     return { L: data.map(convertToAttr) };
+  } else if (data?.constructor?.name === "Set") {
+    return convertToSetAttr(data as Set<any>);
   } else {
     if (data === null && typeof data === "object") {
       return { NULL: true };
@@ -59,4 +61,21 @@ const isBinary = (data: any): boolean => {
     return binaryTypes.includes(data.constructor.name);
   }
   return false;
+};
+
+const convertToSetAttr = (set: Set<any>): { NS?: string[]; BS?: Uint8Array[]; SS?: string[] } => {
+  if (set.size === 0) {
+    throw new Error(`Please pass non-empty set`);
+  }
+  const item = set.values().next().value;
+  if (typeof item === "number" || typeof item === "bigint") {
+    return { NS: Array.from(set).map((num) => num.toString()) };
+  } else if (typeof item === "string") {
+    return { SS: Array.from(set).map((str) => str.toString()) };
+  } else if (isBinary(item)) {
+    // @ts-ignore Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
+    return { BS: Array.from(set) };
+  } else {
+    throw new Error(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed`);
+  }
 };

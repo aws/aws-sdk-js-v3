@@ -6,7 +6,8 @@ export type NativeAttributeValue =
   | NativeAttributeBinary
   | string
   | { [key: string]: NativeAttributeValue }
-  | NativeAttributeValue[];
+  | NativeAttributeValue[]
+  | Set<NativeAttributeValue>;
 
 type NativeAttributeBinary =
   | ArrayBuffer

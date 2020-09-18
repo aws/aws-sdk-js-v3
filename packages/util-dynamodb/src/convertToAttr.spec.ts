@@ -124,6 +124,29 @@ describe("convertToAttr", () => {
     });
   });
 
+  describe("set", () => {
+    it("number set", () => {
+      const set = new Set([1, 2, 3]);
+      expect(convertToAttr(set)).toEqual({ NS: Array.from(set).map((num) => num.toString()) });
+    });
+
+    it("bigint set", () => {
+      // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
+      const set = new Set([1n, 2n, 3n]);
+      expect(convertToAttr(set)).toEqual({ NS: Array.from(set).map((num) => num.toString()) });
+    });
+
+    it("binary set", () => {
+      const set = new Set([new ArrayBuffer(4), new ArrayBuffer(8), new ArrayBuffer(16)]);
+      expect(convertToAttr(set)).toEqual({ BS: Array.from(set) });
+    });
+
+    it("string set", () => {
+      const set = new Set(["one", "two", "three"]);
+      expect(convertToAttr(set)).toEqual({ SS: Array.from(set) });
+    });
+  });
+
   describe("string", () => {
     it("returns for string", () => {
       const str = "str";
