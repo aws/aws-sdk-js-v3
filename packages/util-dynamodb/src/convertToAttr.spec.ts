@@ -189,4 +189,15 @@ describe("convertToAttr", () => {
       expect(convertToAttr(str)).toEqual({ S: str });
     });
   });
+
+  describe(`unsupported type`, () => {
+    [undefined].forEach((data) => {
+      it(`throws for: ${String(data)}`, () => {
+        expect(() => {
+          // @ts-ignore Argument is not assignable to parameter of type 'NativeAttributeValue'
+          convertToAttr(data);
+        }).toThrowError(`Unsupported type passed: ${String(data)}`);
+      });
+    });
+  });
 });
