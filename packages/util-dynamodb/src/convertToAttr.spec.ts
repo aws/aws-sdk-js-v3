@@ -145,6 +145,18 @@ describe("convertToAttr", () => {
       const set = new Set(["one", "two", "three"]);
       expect(convertToAttr(set)).toEqual({ SS: Array.from(set) });
     });
+
+    it("throws error for empty set", () => {
+      expect(() => {
+        convertToAttr(new Set());
+      }).toThrowError(`Please pass a non-empty set`);
+    });
+
+    it("thows error for unallowed set", () => {
+      expect(() => {
+        convertToAttr(new Set([true, false]));
+      }).toThrowError(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed.`);
+    });
   });
 
   describe("string", () => {

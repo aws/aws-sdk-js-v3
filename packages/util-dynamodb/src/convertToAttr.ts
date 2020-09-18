@@ -65,7 +65,7 @@ const isBinary = (data: any): boolean => {
 
 const convertToSetAttr = (set: Set<any>): { NS?: string[]; BS?: Uint8Array[]; SS?: string[] } => {
   if (set.size === 0) {
-    throw new Error(`Please pass non-empty set`);
+    throw new Error(`Please pass a non-empty set`);
   }
   const item = set.values().next().value;
   if (typeof item === "number" || typeof item === "bigint") {
@@ -76,6 +76,6 @@ const convertToSetAttr = (set: Set<any>): { NS?: string[]; BS?: Uint8Array[]; SS
     // @ts-ignore Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
     return { BS: Array.from(set) };
   } else {
-    throw new Error(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed`);
+    throw new Error(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed.`);
   }
 };
