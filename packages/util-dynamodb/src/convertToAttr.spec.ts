@@ -184,9 +184,10 @@ describe("convertToAttr", () => {
   });
 
   describe("string", () => {
-    it("returns for string", () => {
-      const str = "str";
-      expect(convertToAttr(str)).toEqual({ S: str });
+    ["", "string", "'single-quote'", '"double-quote"'].forEach((str) => {
+      it(`returns for string: ${str}`, () => {
+        expect(convertToAttr(str)).toEqual({ S: str });
+      });
     });
   });
 
@@ -198,6 +199,22 @@ describe("convertToAttr", () => {
           convertToAttr(data);
         }).toThrowError(`Unsupported type passed: ${String(data)}`);
       });
+    });
+  });
+
+  describe("convertEmptyValues set to true", () => {
+    const convertEmptyValues = true;
+
+    it(`returns null for Set`, () => {
+      expect(convertToAttr(new Set(), { convertEmptyValues })).toEqual({ NULL: true });
+    });
+
+    it(`returns null for String`, () => {
+      expect(convertToAttr("", { convertEmptyValues })).toEqual({ NULL: true });
+    });
+
+    it(`returns null for Binary`, () => {
+      expect(convertToAttr(new Uint8Array(), { convertEmptyValues })).toEqual({ NULL: true });
     });
   });
 });

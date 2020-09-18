@@ -2,11 +2,24 @@ import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { NativeAttributeValue } from "./models";
 
-export const convertToAttr = (data: NativeAttributeValue): AttributeValue => {
+/**
+ * Convert a JavaScript value to its equivalent DynamoDB AttributeValue type
+ *
+ * @param {NativeAttributeValue} data The data to convert to a DynamoDB AttributeValue
+ * @param {Object} options
+ * @param {boolean} options.convertEmptyValues Whether to automatically
+ *                      convert empty strings, blobs, and sets to `null`
+ */
+export const convertToAttr = (
+  data: NativeAttributeValue,
+  options?: {
+    convertEmptyValues: boolean;
+  }
+): AttributeValue => {
   if (Array.isArray(data)) {
-    return { L: data.map(convertToAttr) };
+    return { L: data.map((item) => convertToAttr(item)) };
   } else if (data?.constructor?.name === "Set") {
-    return convertToSetAttr(data as Set<any>);
+    return convertToSetAttr(data as Set<any>, options?.convertEmptyValues);
   } else if (data?.constructor?.name === "Object") {
     return {
       M: Object.entries(data).reduce(
@@ -27,12 +40,19 @@ export const convertToAttr = (data: NativeAttributeValue): AttributeValue => {
     } else if (typeof data === "bigint") {
       return { N: data.toString() };
     } else if (isBinary(data)) {
+      // @ts-expect-error Property 'length' does not exist on type 'ArrayBuffer'.
+      if (data.length === 0 && options?.convertEmptyValues) {
+        return convertToAttr(null);
+      }
       // @ts-ignore Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
       return { B: data };
-    } else {
-      // @ts-ignore
+    } else if (typeof data === "string") {
+      if (data.length === 0 && options?.convertEmptyValues) {
+        return convertToAttr(null);
+      }
       return { S: data };
     }
+    throw new Error(`Unsupported type passed: ${data}`);
   }
 };
 
@@ -67,14 +87,20 @@ const isBinary = (data: any): boolean => {
     "BigUint64Array",
   ];
 
-  if (data.constructor) {
+  if (data?.constructor) {
     return binaryTypes.includes(data.constructor.name);
   }
   return false;
 };
 
-const convertToSetAttr = (set: Set<any>): { NS?: string[]; BS?: Uint8Array[]; SS?: string[] } => {
+const convertToSetAttr = (
+  set: Set<any>,
+  convertEmptyValues?: boolean
+): { NS?: string[]; BS?: Uint8Array[]; SS?: string[] } => {
   if (set.size === 0) {
+    if (convertEmptyValues) {
+      return convertToAttr(null);
+    }
     throw new Error(`Please pass a non-empty set`);
   }
   const item = set.values().next().value;
