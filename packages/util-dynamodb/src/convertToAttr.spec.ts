@@ -41,6 +41,7 @@ describe("convertToAttr", () => {
 
     [Number.MAX_SAFE_INTEGER + 1, Number.MAX_VALUE].forEach((num) => {
       it(`throws for number greater than Number.MAX_SAFE_INTEGER: ${num}`, () => {
+<<<<<<< HEAD
         const errorPrefix = `Number ${num} is greater than Number.MAX_SAFE_INTEGER.`;
 
         expect(() => {
@@ -53,11 +54,17 @@ describe("convertToAttr", () => {
           convertToAttr(num);
         }).toThrowError(`${errorPrefix} Pass string value instead.`);
         BigInt = BigIntConstructor;
+=======
+        expect(() => {
+          convertToAttr(num);
+        }).toThrowError(`Number ${num} is greater than Number.MAX_SAFE_INTEGER. Use BigInt.`);
+>>>>>>> chore: temporary commit for future util-dynamodb PRs
       });
     });
 
     [Number.MIN_SAFE_INTEGER - 1].forEach((num) => {
       it(`throws for number lesser than Number.MIN_SAFE_INTEGER: ${num}`, () => {
+<<<<<<< HEAD
         const errorPrefix = `Number ${num} is lesser than Number.MIN_SAFE_INTEGER.`;
 
         expect(() => {
@@ -70,6 +77,11 @@ describe("convertToAttr", () => {
           convertToAttr(num);
         }).toThrowError(`${errorPrefix} Pass string value instead.`);
         BigInt = BigIntConstructor;
+=======
+        expect(() => {
+          convertToAttr(num);
+        }).toThrowError(`Number ${num} is lesser than Number.MIN_SAFE_INTEGER. Use BigInt.`);
+>>>>>>> chore: temporary commit for future util-dynamodb PRs
       });
     });
   });
@@ -97,7 +109,10 @@ describe("convertToAttr", () => {
     const buffer = new ArrayBuffer(64);
     const arr = [...Array(64).keys()];
     const addPointOne = (num: number) => num + 0.1;
+<<<<<<< HEAD
 
+=======
+>>>>>>> chore: temporary commit for future util-dynamodb PRs
     [
       buffer,
       new Blob([new Uint8Array(buffer)]),
@@ -119,16 +134,20 @@ describe("convertToAttr", () => {
         expect(convertToAttr(data)).toEqual({ B: data });
       });
     });
+<<<<<<< HEAD
 
     it("returns null for Binary when options.convertEmptyValues=true", () => {
       expect(convertToAttr(new Uint8Array(), { convertEmptyValues: true })).toEqual({ NULL: true });
     });
+=======
+>>>>>>> chore: temporary commit for future util-dynamodb PRs
   });
 
   describe("list", () => {
     const arr = [...Array(4).keys()];
     const uint8Arr = new Uint32Array(arr);
     const biguintArr = new BigUint64Array(arr.map(BigInt));
+<<<<<<< HEAD
 
     ([
       {
@@ -179,6 +198,27 @@ describe("convertToAttr", () => {
         L: [{ NULL: true }, { NULL: true }, { NULL: true }],
       });
     });
+=======
+    [
+      [
+        [null, false],
+        [{ NULL: true }, { BOOL: false }],
+      ],
+      [
+        [1.01, BigInt(1), "one"],
+        [{ N: "1.01" }, { N: "1" }, { S: "one" }],
+      ],
+      [
+        [uint8Arr, biguintArr],
+        [{ B: uint8Arr }, { B: biguintArr }],
+      ],
+    ].forEach(([input, output]) => {
+      it(`testing list: ${input}`, () => {
+        // @ts-ignore
+        expect(convertToAttr(input)).toEqual({ L: output });
+      });
+    });
+>>>>>>> chore: temporary commit for future util-dynamodb PRs
   });
 
   describe("set", () => {
@@ -189,8 +229,12 @@ describe("convertToAttr", () => {
 
     it("bigint set", () => {
       // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
+<<<<<<< HEAD
       const bigNum = BigInt(Number.MAX_SAFE_INTEGER) + 2n;
       const set = new Set([bigNum, -bigNum]);
+=======
+      const set = new Set([1n, 2n, 3n]);
+>>>>>>> chore: temporary commit for future util-dynamodb PRs
       expect(convertToAttr(set)).toEqual({ NS: Array.from(set).map((num) => num.toString()) });
     });
 
@@ -204,6 +248,7 @@ describe("convertToAttr", () => {
       expect(convertToAttr(set)).toEqual({ SS: Array.from(set) });
     });
 
+<<<<<<< HEAD
     it("returns null for empty set for options.convertEmptyValues=true", () => {
       expect(convertToAttr(new Set([]), { convertEmptyValues: true })).toEqual({ NULL: true });
     });
@@ -212,11 +257,20 @@ describe("convertToAttr", () => {
       expect(() => {
         convertToAttr(new Set([]));
       }).toThrowError(`Please pass a non-empty set, or set convertEmptyValues to true.`);
+=======
+    it("throws error for empty set", () => {
+      expect(() => {
+        convertToAttr(new Set());
+      }).toThrowError(`Please pass a non-empty set`);
+>>>>>>> chore: temporary commit for future util-dynamodb PRs
     });
 
     it("thows error for unallowed set", () => {
       expect(() => {
+<<<<<<< HEAD
         // @ts-expect-error Type 'Set<boolean>' is not assignable
+=======
+>>>>>>> chore: temporary commit for future util-dynamodb PRs
         convertToAttr(new Set([true, false]));
       }).toThrowError(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed.`);
     });
@@ -226,6 +280,7 @@ describe("convertToAttr", () => {
     const arr = [...Array(4).keys()];
     const uint8Arr = new Uint32Array(arr);
     const biguintArr = new BigUint64Array(arr.map(BigInt));
+<<<<<<< HEAD
 
     ([
       {
@@ -276,6 +331,24 @@ describe("convertToAttr", () => {
       const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
       expect(convertToAttr(input, { convertEmptyValues: true })).toEqual({
         M: { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } },
+=======
+    [
+      [
+        { a: null, b: false },
+        { a: { NULL: true }, b: { BOOL: false } },
+      ],
+      [
+        { a: 1.01, b: BigInt(1), c: "one" },
+        { a: { N: "1.01" }, b: { N: "1" }, c: { S: "one" } },
+      ],
+      [
+        { a: uint8Arr, b: biguintArr },
+        { a: { B: uint8Arr }, b: { B: biguintArr } },
+      ],
+    ].forEach(([input, output]) => {
+      it(`testing map: ${input}`, () => {
+        expect(convertToAttr(input)).toEqual({ M: output });
+>>>>>>> chore: temporary commit for future util-dynamodb PRs
       });
     });
   });
@@ -286,14 +359,18 @@ describe("convertToAttr", () => {
         expect(convertToAttr(str)).toEqual({ S: str });
       });
     });
+<<<<<<< HEAD
 
     it("returns null for string when options.convertEmptyValues=true", () => {
       expect(convertToAttr("", { convertEmptyValues: true })).toEqual({ NULL: true });
     });
+=======
+>>>>>>> chore: temporary commit for future util-dynamodb PRs
   });
 
   describe(`unsupported type`, () => {
     class FooObj {
+<<<<<<< HEAD
       constructor(private readonly foo: string) {}
     }
 
@@ -302,9 +379,41 @@ describe("convertToAttr", () => {
       it(`throws for: ${String(data)}`, () => {
         expect(() => {
           // @ts-expect-error Argument is not assignable to parameter of type 'NativeAttributeValue'
+=======
+      constructor() {
+        // @ts-ignore
+        this.foo = "foo";
+      }
+    }
+
+    // ToDo: Serialize ES6 class objects as string https://github.com/aws/aws-sdk-js-v3/issues/1535
+    [undefined, new Date(), new FooObj()].forEach((data) => {
+      it(`throws for: ${String(data)}`, () => {
+        expect(() => {
+          // @ts-ignore Argument is not assignable to parameter of type 'NativeAttributeValue'
+>>>>>>> chore: temporary commit for future util-dynamodb PRs
           convertToAttr(data);
         }).toThrowError(`Unsupported type passed: ${String(data)}`);
       });
     });
   });
+<<<<<<< HEAD
+=======
+
+  describe("convertEmptyValues set to true", () => {
+    const convertEmptyValues = true;
+
+    it(`returns null for Set`, () => {
+      expect(convertToAttr(new Set(), { convertEmptyValues })).toEqual({ NULL: true });
+    });
+
+    it(`returns null for String`, () => {
+      expect(convertToAttr("", { convertEmptyValues })).toEqual({ NULL: true });
+    });
+
+    it(`returns null for Binary`, () => {
+      expect(convertToAttr(new Uint8Array(), { convertEmptyValues })).toEqual({ NULL: true });
+    });
+  });
+>>>>>>> chore: temporary commit for future util-dynamodb PRs
 });
