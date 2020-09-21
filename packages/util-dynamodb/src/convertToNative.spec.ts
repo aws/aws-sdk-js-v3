@@ -104,8 +104,31 @@ describe("convertToNative", () => {
     });
   });
 
+  describe("map", () => {
+    const uint8Arr1 = new Uint8Array([...Array(4).keys()]);
+    const uint8Arr2 = new Uint8Array([...Array(2).keys()]);
+    [
+      [
+        { a: { NULL: true }, b: { BOOL: false } },
+        { a: null, b: false },
+      ],
+      [
+        { a: { N: "1.01" }, b: { N: "9007199254740996" }, c: { S: "one" } },
+        { a: 1.01, b: BigInt(9007199254740996), c: "one" },
+      ],
+      [
+        { a: { B: uint8Arr1 }, b: { B: uint8Arr2 } },
+        { a: uint8Arr1, b: uint8Arr2 },
+      ],
+    ].forEach(([input, output]) => {
+      it(`testing map: ${input}`, () => {
+        expect(convertToNative({ ...emptyAttr, M: input as { [key: string]: AttributeValue } })).toEqual(output);
+      });
+    });
+  });
+
   describe(`unsupported type`, () => {
-    ["A", "M", "LS"].forEach((type) => {
+    ["A", "P", "LS"].forEach((type) => {
       it(`throws for unsupported type: ${type}`, () => {
         expect(() => {
           convertToNative({ ...emptyAttr, [type]: "data" });

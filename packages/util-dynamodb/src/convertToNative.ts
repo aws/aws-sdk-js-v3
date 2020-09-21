@@ -22,6 +22,14 @@ export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
         return data[type] as string;
       } else if (type === "L") {
         return (data[type] as AttributeValue[]).map(convertToNative);
+      } else if (type === "M") {
+        return Object.entries(data[type] as { [key: string]: AttributeValue }).reduce(
+          (acc: { [key: string]: NativeAttributeValue }, [key, value]: [string, AttributeValue]) => ({
+            ...acc,
+            [key]: convertToNative(value),
+          }),
+          {}
+        );
       }
       throw new Error(`Unsupported type passed: ${type}`);
     }
