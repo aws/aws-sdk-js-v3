@@ -17,9 +17,9 @@ export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
       } else if (type === "N") {
         return convertNumber(data[type] as string);
       } else if (type === "B") {
-        return data[type] as Uint8Array;
+        return convertBinary(data[type] as Uint8Array);
       } else if (type === "S") {
-        return data[type] as string;
+        return convertString(data[type] as string);
       } else if (type === "L") {
         return (data[type] as AttributeValue[]).map(convertToNative);
       } else if (type === "M") {
@@ -33,9 +33,9 @@ export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
       } else if (type === "NS") {
         return new Set((data[type] as string[]).map(convertNumber));
       } else if (type === "BS") {
-        return new Set(data[type]);
+        return new Set((data[type] as Uint8Array[]).map(convertBinary));
       } else if (type === "SS") {
-        return new Set(data[type]);
+        return new Set((data[type] as string[]).map(convertString));
       }
       throw new Error(`Unsupported type passed: ${type}`);
     }
@@ -56,3 +56,7 @@ const convertNumber = (numString: string): number | bigint => {
   }
   return num;
 };
+
+// For future-proofing: Functions from scalar value as well as set value
+const convertString = (stringValue: string): string => stringValue;
+const convertBinary = (binaryValue: Uint8Array): Uint8Array => binaryValue;
