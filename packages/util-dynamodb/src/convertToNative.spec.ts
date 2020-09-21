@@ -20,6 +20,14 @@ describe("convertToNative", () => {
     });
   });
 
+  describe("boolean", () => {
+    [true, false].forEach((bool) => {
+      it(`returns for boolean: ${bool}`, () => {
+        expect(convertToNative({ ...input, BOOL: bool })).toEqual(bool);
+      });
+    });
+  });
+
   describe("number", () => {
     ["1", Number.MAX_SAFE_INTEGER.toString(), Number.MIN_SAFE_INTEGER.toString()].forEach((num) => {
       it(`returns for number (integer): ${num}`, () => {

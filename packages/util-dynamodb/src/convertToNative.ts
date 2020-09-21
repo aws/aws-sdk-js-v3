@@ -12,6 +12,8 @@ export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
     if (data[type] !== undefined) {
       if (type === "NULL") {
         return null;
+      } else if (type === "BOOL") {
+        return Boolean(data[type]);
       } else if (type === "N") {
         return Number(data[type]);
       } else if (type === "S") {
