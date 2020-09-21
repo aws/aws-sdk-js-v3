@@ -30,6 +30,12 @@ export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
           }),
           {}
         );
+      } else if (type === "NS") {
+        return new Set((data[type] as string[]).map(convertNumber));
+      } else if (type === "BS") {
+        return new Set(data[type]);
+      } else if (type === "SS") {
+        return new Set(data[type]);
       }
       throw new Error(`Unsupported type passed: ${type}`);
     }

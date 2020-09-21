@@ -127,6 +127,25 @@ describe("convertToNative", () => {
     });
   });
 
+  describe("set", () => {
+    it("number set", () => {
+      const input = ["1", "2", "9007199254740996"];
+      expect(convertToNative({ ...emptyAttr, NS: input })).toEqual(new Set([1, 2, BigInt(9007199254740996)]));
+    });
+
+    it("binary set", () => {
+      const uint8Arr1 = new Uint8Array([...Array(4).keys()]);
+      const uint8Arr2 = new Uint8Array([...Array(2).keys()]);
+      const input = [uint8Arr1, uint8Arr2];
+      expect(convertToNative({ ...emptyAttr, BS: input })).toEqual(new Set(input));
+    });
+
+    it("string set", () => {
+      const input = ["one", "two", "three"];
+      expect(convertToNative({ ...emptyAttr, SS: input })).toEqual(new Set(input));
+    });
+  });
+
   describe(`unsupported type`, () => {
     ["A", "P", "LS"].forEach((type) => {
       it(`throws for unsupported type: ${type}`, () => {
