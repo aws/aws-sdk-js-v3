@@ -7,31 +7,30 @@ import { NativeAttributeValue } from "./models";
  *
  */
 export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
-  for (const type in data) {
-    // @ts-expect-error Element implicitly has an 'any' type
-    if (data[type] !== undefined) {
-      if (type === "NULL") {
+  for (const [key, value] of Object.entries(data)) {
+    if (value !== undefined) {
+      if (key === "NULL") {
         return null;
-      } else if (type === "BOOL") {
-        return Boolean(data[type]);
-      } else if (type === "N") {
-        return convertNumber(data[type] as string);
-      } else if (type === "B") {
-        return convertBinary(data[type] as Uint8Array);
-      } else if (type === "S") {
-        return convertString(data[type] as string);
-      } else if (type === "L") {
-        return convertList(data[type] as AttributeValue[]);
-      } else if (type === "M") {
-        return convertMap(data[type] as { [key: string]: AttributeValue });
-      } else if (type === "NS") {
-        return new Set((data[type] as string[]).map(convertNumber));
-      } else if (type === "BS") {
-        return new Set((data[type] as Uint8Array[]).map(convertBinary));
-      } else if (type === "SS") {
-        return new Set((data[type] as string[]).map(convertString));
+      } else if (key === "BOOL") {
+        return Boolean(value);
+      } else if (key === "N") {
+        return convertNumber(value as string);
+      } else if (key === "B") {
+        return convertBinary(value as Uint8Array);
+      } else if (key === "S") {
+        return convertString(value as string);
+      } else if (key === "L") {
+        return convertList(value as AttributeValue[]);
+      } else if (key === "M") {
+        return convertMap(value as { [key: string]: AttributeValue });
+      } else if (key === "NS") {
+        return new Set((value as string[]).map(convertNumber));
+      } else if (key === "BS") {
+        return new Set((value as Uint8Array[]).map(convertBinary));
+      } else if (key === "SS") {
+        return new Set((value as string[]).map(convertString));
       }
-      throw new Error(`Unsupported type passed: ${type}`);
+      throw new Error(`Unsupported type passed: ${key}`);
     }
   }
   throw new Error(`No value defined: ${data}`);
