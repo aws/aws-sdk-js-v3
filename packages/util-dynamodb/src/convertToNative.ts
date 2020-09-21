@@ -20,6 +20,8 @@ export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
         return data[type] as Uint8Array;
       } else if (type === "S") {
         return data[type] as string;
+      } else if (type === "L") {
+        return (data[type] as AttributeValue[]).map(convertToNative);
       }
       throw new Error(`Unsupported type passed: ${type}`);
     }

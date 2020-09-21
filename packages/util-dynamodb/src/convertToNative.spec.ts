@@ -1,7 +1,9 @@
+import { AttributeValue } from "@aws-sdk/client-dynamodb";
+
 import { convertToNative } from "./convertToNative";
 
 describe("convertToNative", () => {
-  const input = {
+  const emptyAttr = {
     B: undefined,
     BOOL: undefined,
     BS: undefined,
@@ -16,14 +18,14 @@ describe("convertToNative", () => {
 
   describe("null", () => {
     it(`returns for null`, () => {
-      expect(convertToNative({ ...input, NULL: true })).toEqual(null);
+      expect(convertToNative({ ...emptyAttr, NULL: true })).toEqual(null);
     });
   });
 
   describe("boolean", () => {
     [true, false].forEach((bool) => {
       it(`returns for boolean: ${bool}`, () => {
-        expect(convertToNative({ ...input, BOOL: bool })).toEqual(bool);
+        expect(convertToNative({ ...emptyAttr, BOOL: bool })).toEqual(bool);
       });
     });
   });
@@ -33,7 +35,7 @@ describe("convertToNative", () => {
       .map((num) => num.toString())
       .forEach((numString) => {
         it(`returns for number (integer): ${numString}`, () => {
-          expect(convertToNative({ ...input, N: numString })).toEqual(Number(numString));
+          expect(convertToNative({ ...emptyAttr, N: numString })).toEqual(Number(numString));
         });
       });
 
@@ -41,7 +43,7 @@ describe("convertToNative", () => {
       .map((num) => num.toString())
       .forEach((numString) => {
         it(`returns for number (floating point): ${numString}`, () => {
-          expect(convertToNative({ ...input, N: numString })).toEqual(Number(numString));
+          expect(convertToNative({ ...emptyAttr, N: numString })).toEqual(Number(numString));
         });
       });
 
@@ -50,7 +52,7 @@ describe("convertToNative", () => {
       .forEach((numString) => {
         it(`throws for number (special numeric value): ${numString}`, () => {
           expect(() => {
-            convertToNative({ ...input, N: numString });
+            convertToNative({ ...emptyAttr, N: numString });
           }).toThrowError(`Special numeric value ${numString} is not allowed`);
         });
       });
@@ -59,7 +61,7 @@ describe("convertToNative", () => {
       .map((num) => num.toString())
       .forEach((numString) => {
         it(`returns bigint for numbers outside MAX_SAFE_INTEGER and MIN_SAFE_INTEGER range: ${numString}`, () => {
-          expect(convertToNative({ ...input, N: numString })).toEqual(BigInt(Number(numString)));
+          expect(convertToNative({ ...emptyAttr, N: numString })).toEqual(BigInt(Number(numString)));
         });
       });
   });
@@ -67,14 +69,37 @@ describe("convertToNative", () => {
   describe("binary", () => {
     it(`returns for Uint8Array`, () => {
       const data = new Uint8Array([...Array(64).keys()]);
-      expect(convertToNative({ ...input, B: data })).toEqual(data);
+      expect(convertToNative({ ...emptyAttr, B: data })).toEqual(data);
     });
   });
 
   describe("string", () => {
     ["", "string", "'single-quote'", '"double-quote"'].forEach((str) => {
       it(`returns for string: ${str}`, () => {
-        expect(convertToNative({ ...input, S: str })).toEqual(str);
+        expect(convertToNative({ ...emptyAttr, S: str })).toEqual(str);
+      });
+    });
+  });
+
+  describe("list", () => {
+    const uint8Arr1 = new Uint8Array([...Array(4).keys()]);
+    const uint8Arr2 = new Uint8Array([...Array(2).keys()]);
+    [
+      [
+        [{ NULL: true }, { BOOL: false }],
+        [null, false],
+      ],
+      [
+        [{ N: "1.01" }, { N: "9007199254740996" }, { S: "one" }],
+        [1.01, BigInt(9007199254740996), "one"],
+      ],
+      [
+        [{ B: uint8Arr1 }, { B: uint8Arr2 }],
+        [uint8Arr1, uint8Arr2],
+      ],
+    ].forEach(([input, output]) => {
+      it(`testing list: ${JSON.stringify(input)}`, () => {
+        expect(convertToNative({ ...emptyAttr, L: input as AttributeValue[] })).toEqual(output);
       });
     });
   });
@@ -83,7 +108,7 @@ describe("convertToNative", () => {
     ["A", "M", "LS"].forEach((type) => {
       it(`throws for unsupported type: ${type}`, () => {
         expect(() => {
-          convertToNative({ ...input, [type]: "data" });
+          convertToNative({ ...emptyAttr, [type]: "data" });
         }).toThrowError(`Unsupported type passed: ${type}`);
       });
     });
@@ -91,7 +116,7 @@ describe("convertToNative", () => {
 
   it(`no value defined`, () => {
     expect(() => {
-      convertToNative(input);
-    }).toThrowError(`No value defined: ${input}`);
+      convertToNative(emptyAttr);
+    }).toThrowError(`No value defined: ${emptyAttr}`);
   });
 });
