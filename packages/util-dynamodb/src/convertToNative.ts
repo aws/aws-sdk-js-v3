@@ -16,6 +16,8 @@ export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
         return Boolean(data[type]);
       } else if (type === "N") {
         return convertNumber(data[type] as string);
+      } else if (type === "B") {
+        return data[type] as Uint8Array;
       } else if (type === "S") {
         return data[type] as string;
       }

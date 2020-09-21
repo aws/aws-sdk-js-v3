@@ -64,6 +64,13 @@ describe("convertToNative", () => {
       });
   });
 
+  describe("binary", () => {
+    it(`returns for Uint8Array`, () => {
+      const data = new Uint8Array([...Array(64).keys()]);
+      expect(convertToNative({ ...input, B: data })).toEqual(data);
+    });
+  });
+
   describe("string", () => {
     ["", "string", "'single-quote'", '"double-quote"'].forEach((str) => {
       it(`returns for string: ${str}`, () => {
