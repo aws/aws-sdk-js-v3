@@ -10,7 +10,9 @@ export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
   for (const type in data) {
     // @ts-expect-error Element implicitly has an 'any' type
     if (data[type] !== undefined) {
-      if (type === "N") {
+      if (type === "NULL") {
+        return null;
+      } else if (type === "N") {
         return Number(data[type]);
       } else if (type === "S") {
         return data[type] as string;

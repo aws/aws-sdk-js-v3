@@ -14,6 +14,12 @@ describe("convertToNative", () => {
     SS: undefined,
   };
 
+  describe("null", () => {
+    it(`returns for null`, () => {
+      expect(convertToNative({ ...input, NULL: true })).toEqual(null);
+    });
+  });
+
   describe("number", () => {
     ["1", Number.MAX_SAFE_INTEGER.toString(), Number.MIN_SAFE_INTEGER.toString()].forEach((num) => {
       it(`returns for number (integer): ${num}`, () => {
