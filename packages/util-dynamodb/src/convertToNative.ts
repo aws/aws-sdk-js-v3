@@ -9,28 +9,30 @@ import { NativeAttributeValue } from "./models";
 export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
   for (const [key, value] of Object.entries(data)) {
     if (value !== undefined) {
-      if (key === "NULL") {
-        return null;
-      } else if (key === "BOOL") {
-        return Boolean(value);
-      } else if (key === "N") {
-        return convertNumber(value as string);
-      } else if (key === "B") {
-        return convertBinary(value as Uint8Array);
-      } else if (key === "S") {
-        return convertString(value as string);
-      } else if (key === "L") {
-        return convertList(value as AttributeValue[]);
-      } else if (key === "M") {
-        return convertMap(value as { [key: string]: AttributeValue });
-      } else if (key === "NS") {
-        return new Set((value as string[]).map(convertNumber));
-      } else if (key === "BS") {
-        return new Set((value as Uint8Array[]).map(convertBinary));
-      } else if (key === "SS") {
-        return new Set((value as string[]).map(convertString));
+      switch (key) {
+        case "NULL":
+          return null;
+        case "BOOL":
+          return Boolean(value);
+        case "N":
+          return convertNumber(value as string);
+        case "B":
+          return convertBinary(value as Uint8Array);
+        case "S":
+          return convertString(value as string);
+        case "L":
+          return convertList(value as AttributeValue[]);
+        case "M":
+          return convertMap(value as { [key: string]: AttributeValue });
+        case "NS":
+          return new Set((value as string[]).map(convertNumber));
+        case "BS":
+          return new Set((value as Uint8Array[]).map(convertBinary));
+        case "SS":
+          return new Set((value as string[]).map(convertString));
+        default:
+          throw new Error(`Unsupported type passed: ${key}`);
       }
-      throw new Error(`Unsupported type passed: ${key}`);
     }
   }
   throw new Error(`No value defined: ${data}`);
