@@ -93,7 +93,7 @@ yarn
 To run all of the tests in the repository, still from the root package, run the following command:
 
 ```
-yarn test-all
+yarn test:all
 ```
 
 The above command will use Lerna to run the `test` script in every package in the `packages` directory.
