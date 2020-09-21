@@ -18,5 +18,5 @@ export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
       throw new Error(`Unsupported type passed: ${type}`);
     }
   }
-  throw new Error(`No value defined in convertToNative: ${data}`);
+  throw new Error(`No value defined: ${data}`);
 };

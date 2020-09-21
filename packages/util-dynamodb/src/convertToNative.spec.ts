@@ -37,4 +37,20 @@ describe("convertToNative", () => {
       });
     });
   });
+
+  describe(`unsupported type`, () => {
+    ["A", "M", "LS"].forEach((type) => {
+      it(`throws for unsupported type: ${type}`, () => {
+        expect(() => {
+          convertToNative({ ...input, [type]: "data" });
+        }).toThrowError(`Unsupported type passed: ${type}`);
+      });
+    });
+  });
+
+  it(`no value defined`, () => {
+    expect(() => {
+      convertToNative(input);
+    }).toThrowError(`No value defined: ${input}`);
+  });
 });
