@@ -15,7 +15,7 @@ export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
       } else if (type === "BOOL") {
         return Boolean(data[type]);
       } else if (type === "N") {
-        return Number(data[type]);
+        return convertNumber(data[type] as string);
       } else if (type === "S") {
         return data[type] as string;
       }
@@ -23,4 +23,18 @@ export const convertToNative = (data: AttributeValue): NativeAttributeValue => {
     }
   }
   throw new Error(`No value defined: ${data}`);
+};
+
+const convertNumber = (numString: string): number | bigint => {
+  if (
+    [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].map((num) => num.toString()).includes(numString)
+  ) {
+    throw new Error(`Special numeric value ${numString} is not allowed`);
+  }
+
+  const num = Number(numString);
+  if (num > Number.MAX_SAFE_INTEGER || num < Number.MIN_SAFE_INTEGER) {
+    return BigInt(num);
+  }
+  return num;
 };
