@@ -134,13 +134,13 @@ describe("convertToAttr", () => {
         [
           new Set([1, 2, 3]),
           new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
-          new Set([new Uint8Array([...Array(8).keys()]), new Uint8Array([...Array(16).keys()])]),
+          new Set([uint8Arr, biguintArr]),
           new Set(["one", "two", "three"]),
         ],
         [
           { NS: ["1", "2", "3"] },
           { NS: ["9007199254740996", "-9007199254740996"] },
-          { BS: [new Uint8Array([...Array(8).keys()]), new Uint8Array([...Array(16).keys()])] },
+          { BS: [uint8Arr, biguintArr] },
           { SS: ["one", "two", "three"] },
         ],
       ],
@@ -228,13 +228,13 @@ describe("convertToAttr", () => {
         {
           numberSet: new Set([1, 2, 3]),
           bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
-          binarySet: new Set([new Uint8Array([...Array(8).keys()]), new Uint8Array([...Array(16).keys()])]),
+          binarySet: new Set([uint8Arr, biguintArr]),
           stringSet: new Set(["one", "two", "three"]),
         },
         {
           numberSet: { NS: ["1", "2", "3"] },
           bigintSet: { NS: ["9007199254740996", "-9007199254740996"] },
-          binarySet: { BS: [new Uint8Array([...Array(8).keys()]), new Uint8Array([...Array(16).keys()])] },
+          binarySet: { BS: [uint8Arr, biguintArr] },
           stringSet: { SS: ["one", "two", "three"] },
         },
       ],
