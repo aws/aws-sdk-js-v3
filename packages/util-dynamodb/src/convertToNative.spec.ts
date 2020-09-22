@@ -118,6 +118,20 @@ describe("convertToNative", () => {
           { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
         ],
       ],
+      [
+        [
+          { NS: ["1", "2", "3"] },
+          { NS: ["9007199254740996", "-9007199254740996"] },
+          { BS: [uint8Arr1, uint8Arr2] },
+          { SS: ["one", "two", "three"] },
+        ],
+        [
+          new Set([1, 2, 3]),
+          new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
+          new Set([uint8Arr1, uint8Arr2]),
+          new Set(["one", "two", "three"]),
+        ],
+      ],
     ].forEach(([input, output]) => {
       it(`testing list: ${JSON.stringify(input)}`, () => {
         expect(convertToNative({ ...emptyAttr, L: input as AttributeValue[] })).toEqual(output);
@@ -154,6 +168,20 @@ describe("convertToNative", () => {
           list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
         },
         { list1: [null, false], list2: ["one", 1.01, BigInt(9007199254740996)] },
+      ],
+      [
+        {
+          numberSet: { NS: ["1", "2", "3"] },
+          bigintSet: { NS: ["9007199254740996", "-9007199254740996"] },
+          binarySet: { BS: [uint8Arr1, uint8Arr2] },
+          stringSet: { SS: ["one", "two", "three"] },
+        },
+        {
+          numberSet: new Set([1, 2, 3]),
+          bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
+          binarySet: new Set([uint8Arr1, uint8Arr2]),
+          stringSet: new Set(["one", "two", "three"]),
+        },
       ],
     ].forEach(([input, output]) => {
       it(`testing map: ${input}`, () => {
