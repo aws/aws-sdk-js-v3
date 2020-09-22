@@ -1,6 +1,6 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
-import { NativeAttributeBinary, NativeAttributeValue } from "./models";
+import { NativeAttributeBinary, NativeAttributeValue, NativeScalarAttributeValue } from "./models";
 
 /**
  * An optional configuration object for `convertToAttr`
@@ -26,29 +26,7 @@ export const convertToAttr = (data: NativeAttributeValue, options?: convertToAtt
   } else if (data?.constructor?.name === "Object") {
     return converToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
   } else {
-    if (data === null && typeof data === "object") {
-      return convertToNullAttr();
-    } else if (typeof data === "boolean") {
-      return { BOOL: data };
-    } else if (typeof data === "number") {
-      return convertToNumberAttr(data);
-    } else if (typeof data === "bigint") {
-      return { N: data.toString() };
-    } else if (isBinary(data)) {
-      // @ts-expect-error Property 'length' does not exist on type 'ArrayBuffer'.
-      if (data.length === 0 && options?.convertEmptyValues) {
-        return convertToNullAttr();
-      }
-      // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
-      // @ts-expect-error Type '{ B: NativeAttributeBinary; }' is not assignable to type 'AttributeValue'
-      return convertToBinaryAttr(data);
-    } else if (typeof data === "string") {
-      if (data.length === 0 && options?.convertEmptyValues) {
-        return convertToNullAttr();
-      }
-      return convertToStringAttr(data);
-    }
-    throw new Error(`Unsupported type passed: ${data}`);
+    return convertToScalarAttr(data as NativeScalarAttributeValue, options);
   }
 };
 
@@ -105,6 +83,32 @@ const converToMapAttr = (
     {}
   ),
 });
+
+const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: convertToAttrOptions): AttributeValue => {
+  if (data === null && typeof data === "object") {
+    return convertToNullAttr();
+  } else if (typeof data === "boolean") {
+    return { BOOL: data };
+  } else if (typeof data === "number") {
+    return convertToNumberAttr(data);
+  } else if (typeof data === "bigint") {
+    return { N: data.toString() };
+  } else if (isBinary(data)) {
+    // @ts-expect-error Property 'length' does not exist on type 'ArrayBuffer'.
+    if (data.length === 0 && options?.convertEmptyValues) {
+      return convertToNullAttr();
+    }
+    // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
+    // @ts-expect-error Type '{ B: NativeAttributeBinary; }' is not assignable to type 'AttributeValue'
+    return convertToBinaryAttr(data);
+  } else if (typeof data === "string") {
+    if (data.length === 0 && options?.convertEmptyValues) {
+      return convertToNullAttr();
+    }
+    return convertToStringAttr(data);
+  }
+  throw new Error(`Unsupported type passed: ${data}`);
+};
 
 // For future-proofing: this functions are called from multiple places
 const convertToNullAttr = (): { NULL: true } => ({ NULL: true });

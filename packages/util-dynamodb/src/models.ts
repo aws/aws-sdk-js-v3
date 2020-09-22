@@ -1,13 +1,10 @@
 export type NativeAttributeValue =
-  | null
-  | boolean
-  | number
-  | bigint
-  | NativeAttributeBinary
-  | string
+  | NativeScalarAttributeValue
   | { [key: string]: NativeAttributeValue }
   | NativeAttributeValue[]
   | Set<NativeAttributeValue>;
+
+export type NativeScalarAttributeValue = null | boolean | number | bigint | NativeAttributeBinary | string;
 
 export type NativeAttributeBinary =
   | ArrayBuffer
