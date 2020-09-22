@@ -9,7 +9,7 @@ export type NativeAttributeValue =
   | NativeAttributeValue[]
   | Set<NativeAttributeValue>;
 
-type NativeAttributeBinary =
+export type NativeAttributeBinary =
   | ArrayBuffer
   | Blob
   | Buffer

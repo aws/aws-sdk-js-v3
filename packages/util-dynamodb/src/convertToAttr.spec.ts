@@ -97,6 +97,10 @@ describe("convertToAttr", () => {
         expect(convertToAttr(data)).toEqual({ B: data });
       });
     });
+
+    it("returns null for Binary when options.convertEmptyValues=true", () => {
+      expect(convertToAttr(new Uint8Array(), { convertEmptyValues: true })).toEqual({ NULL: true });
+    });
   });
 
   describe("list", () => {
@@ -120,6 +124,14 @@ describe("convertToAttr", () => {
       it(`testing list: ${input}`, () => {
         // @ts-ignore
         expect(convertToAttr(input)).toEqual({ L: output });
+      });
+    });
+
+    it(`testing list with options.convertEmptyValues=true`, () => {
+      const input = ["", new Uint8Array(), new Set()];
+      // @ts-ignore
+      expect(convertToAttr(input, { convertEmptyValues: true })).toEqual({
+        L: [{ NULL: true }, { NULL: true }, { NULL: true }],
       });
     });
   });
@@ -146,10 +158,14 @@ describe("convertToAttr", () => {
       expect(convertToAttr(set)).toEqual({ SS: Array.from(set) });
     });
 
+    it("returns null for empty set for options.convertEmptyValues=true", () => {
+      expect(convertToAttr(new Set(), { convertEmptyValues: true })).toEqual({ NULL: true });
+    });
+
     it("throws error for empty set", () => {
       expect(() => {
         convertToAttr(new Set());
-      }).toThrowError(`Please pass a non-empty set`);
+      }).toThrowError(`Please pass a non-empty set, or set convertEmptyValues to true.`);
     });
 
     it("thows error for unallowed set", () => {
@@ -181,6 +197,14 @@ describe("convertToAttr", () => {
         expect(convertToAttr(input)).toEqual({ M: output });
       });
     });
+
+    it(`testing map with options.convertEmptyValues=true`, () => {
+      const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set() };
+      // @ts-ignore
+      expect(convertToAttr(input, { convertEmptyValues: true })).toEqual({
+        M: { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } },
+      });
+    });
   });
 
   describe("string", () => {
@@ -188,6 +212,10 @@ describe("convertToAttr", () => {
       it(`returns for string: ${str}`, () => {
         expect(convertToAttr(str)).toEqual({ S: str });
       });
+    });
+
+    it("returns null for string when options.convertEmptyValues=true", () => {
+      expect(convertToAttr("", { convertEmptyValues: true })).toEqual({ NULL: true });
     });
   });
 
@@ -207,22 +235,6 @@ describe("convertToAttr", () => {
           convertToAttr(data);
         }).toThrowError(`Unsupported type passed: ${String(data)}`);
       });
-    });
-  });
-
-  describe("convertEmptyValues set to true", () => {
-    const convertEmptyValues = true;
-
-    it(`returns null for Set`, () => {
-      expect(convertToAttr(new Set(), { convertEmptyValues })).toEqual({ NULL: true });
-    });
-
-    it(`returns null for String`, () => {
-      expect(convertToAttr("", { convertEmptyValues })).toEqual({ NULL: true });
-    });
-
-    it(`returns null for Binary`, () => {
-      expect(convertToAttr(new Uint8Array(), { convertEmptyValues })).toEqual({ NULL: true });
     });
   });
 });
