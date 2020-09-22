@@ -24,7 +24,7 @@ export const convertToAttr = (data: NativeAttributeValue, options?: convertToAtt
   } else if (data?.constructor?.name === "Set") {
     return convertToSetAttr(data as Set<any>, options);
   } else if (data?.constructor?.name === "Object") {
-    return converToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
+    return convertToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
   } else {
     return convertToScalarAttr(data as NativeScalarAttributeValue, options);
   }
@@ -71,7 +71,7 @@ const convertToSetAttr = (
   }
 };
 
-const converToMapAttr = (
+const convertToMapAttr = (
   data: { [key: string]: NativeAttributeValue },
   options?: convertToAttrOptions
 ): { M: { [key: string]: AttributeValue } } => ({
