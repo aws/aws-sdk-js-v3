@@ -120,6 +120,16 @@ describe("convertToAttr", () => {
         [uint8Arr, biguintArr],
         [{ B: uint8Arr }, { B: biguintArr }],
       ],
+      [
+        [
+          { nullKey: null, boolKey: false },
+          { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
+        ],
+        [
+          { M: { nullKey: { NULL: true }, boolKey: { BOOL: false } } },
+          { M: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } } },
+        ],
+      ],
     ].forEach(([input, output]) => {
       it(`testing list: ${input}`, () => {
         // @ts-ignore
@@ -182,19 +192,27 @@ describe("convertToAttr", () => {
     const biguintArr = new BigUint64Array(arr.map(BigInt));
     [
       [
-        { a: null, b: false },
-        { a: { NULL: true }, b: { BOOL: false } },
+        { nullKey: null, boolKey: false },
+        { nullKey: { NULL: true }, boolKey: { BOOL: false } },
       ],
       [
-        { a: 1.01, b: BigInt(1), c: "one" },
-        { a: { N: "1.01" }, b: { N: "1" }, c: { S: "one" } },
+        { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(1) },
+        { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "1" } },
       ],
       [
-        { a: uint8Arr, b: biguintArr },
-        { a: { B: uint8Arr }, b: { B: biguintArr } },
+        { uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
+        { uint8ArrKey: { B: uint8Arr }, biguintArrKey: { B: biguintArr } },
+      ],
+      [
+        { list1: [null, false], list2: ["one", 1.01, BigInt(9007199254740996)] },
+        {
+          list1: { L: [{ NULL: true }, { BOOL: false }] },
+          list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
+        },
       ],
     ].forEach(([input, output]) => {
       it(`testing map: ${input}`, () => {
+        // @ts-ignore
         expect(convertToAttr(input)).toEqual({ M: output });
       });
     });
