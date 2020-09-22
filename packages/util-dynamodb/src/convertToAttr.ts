@@ -46,10 +46,16 @@ const convertToSetAttr = (
   }
 
   const item = set.values().next().value;
-  if (typeof item === "number" || typeof item === "bigint") {
+  if (typeof item === "number") {
     return {
       NS: Array.from(set)
         .map(convertToNumberAttr)
+        .map((item) => item.N),
+    };
+  } else if (typeof item === "bigint") {
+    return {
+      NS: Array.from(set)
+        .map(convertToBigIntAttr)
         .map((item) => item.N),
     };
   } else if (typeof item === "string") {
@@ -92,7 +98,7 @@ const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: convert
   } else if (typeof data === "number") {
     return convertToNumberAttr(data);
   } else if (typeof data === "bigint") {
-    return { N: data.toString() };
+    return convertToBigIntAttr(data);
   } else if (isBinary(data)) {
     // @ts-expect-error Property 'length' does not exist on type 'ArrayBuffer'.
     if (data.length === 0 && options?.convertEmptyValues) {
@@ -114,6 +120,7 @@ const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: convert
 const convertToNullAttr = (): { NULL: true } => ({ NULL: true });
 const convertToBinaryAttr = (data: NativeAttributeBinary): { B: NativeAttributeBinary } => ({ B: data });
 const convertToStringAttr = (data: string): { S: string } => ({ S: data });
+const convertToBigIntAttr = (data: bigint): { N: string } => ({ N: data.toString() });
 
 const convertToNumberAttr = (num: number): { N: string } => {
   if ([Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].includes(num)) {

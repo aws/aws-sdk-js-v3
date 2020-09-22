@@ -144,7 +144,8 @@ describe("convertToAttr", () => {
 
     it("bigint set", () => {
       // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
-      const set = new Set([1n, 2n, 3n]);
+      const bigNum = BigInt(Number.MAX_SAFE_INTEGER) + 2n;
+      const set = new Set([bigNum, -bigNum]);
       expect(convertToAttr(set)).toEqual({ NS: Array.from(set).map((num) => num.toString()) });
     });
 
