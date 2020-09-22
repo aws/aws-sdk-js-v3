@@ -130,6 +130,20 @@ describe("convertToAttr", () => {
           { M: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } } },
         ],
       ],
+      [
+        [
+          new Set([1, 2, 3]),
+          new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
+          new Set([new Uint8Array([...Array(8).keys()]), new Uint8Array([...Array(16).keys()])]),
+          new Set(["one", "two", "three"]),
+        ],
+        [
+          { NS: ["1", "2", "3"] },
+          { NS: ["9007199254740996", "-9007199254740996"] },
+          { BS: [new Uint8Array([...Array(8).keys()]), new Uint8Array([...Array(16).keys()])] },
+          { SS: ["one", "two", "three"] },
+        ],
+      ],
     ].forEach(([input, output]) => {
       it(`testing list: ${input}`, () => {
         // @ts-ignore
@@ -208,6 +222,20 @@ describe("convertToAttr", () => {
         {
           list1: { L: [{ NULL: true }, { BOOL: false }] },
           list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
+        },
+      ],
+      [
+        {
+          numberSet: new Set([1, 2, 3]),
+          bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
+          binarySet: new Set([new Uint8Array([...Array(8).keys()]), new Uint8Array([...Array(16).keys()])]),
+          stringSet: new Set(["one", "two", "three"]),
+        },
+        {
+          numberSet: { NS: ["1", "2", "3"] },
+          bigintSet: { NS: ["9007199254740996", "-9007199254740996"] },
+          binarySet: { BS: [new Uint8Array([...Array(8).keys()]), new Uint8Array([...Array(16).keys()])] },
+          stringSet: { SS: ["one", "two", "three"] },
         },
       ],
     ].forEach(([input, output]) => {
