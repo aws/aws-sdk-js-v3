@@ -52,9 +52,8 @@ export const convertToNative = (data: AttributeValue, options?: convertToNativeO
 };
 
 const convertNumber = (numString: string, options?: convertToNativeOptions): number | bigint | string => {
-  if (
-    [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].map((num) => num.toString()).includes(numString)
-  ) {
+  const specialNumericValues = [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
+  if (specialNumericValues.map((num) => num.toString()).includes(numString)) {
     throw new Error(`Special numeric value ${numString} is not allowed`);
   }
 
