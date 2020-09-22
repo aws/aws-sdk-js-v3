@@ -110,12 +110,12 @@ describe("convertToNative", () => {
       ],
       [
         [
-          { M: { a: { NULL: true }, b: { BOOL: false } } },
-          { M: { a: { S: "one" }, b: { N: "1.01" }, c: { N: "9007199254740996" } } },
+          { M: { nullKey: { NULL: true }, boolKey: { BOOL: false } } },
+          { M: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } } },
         ],
         [
-          { a: null, b: false },
-          { a: "one", b: 1.01, c: BigInt(9007199254740996) },
+          { nullKey: null, boolKey: false },
+          { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
         ],
       ],
     ].forEach(([input, output]) => {
@@ -137,23 +137,23 @@ describe("convertToNative", () => {
     const uint8Arr2 = new Uint8Array([...Array(2).keys()]);
     [
       [
-        { a: { NULL: true }, b: { BOOL: false } },
-        { a: null, b: false },
+        { nullKey: { NULL: true }, boolKey: { BOOL: false } },
+        { nullKey: null, boolKey: false },
       ],
       [
-        { a: { S: "one" }, b: { N: "1.01" }, c: { N: "9007199254740996" } },
-        { a: "one", b: 1.01, c: BigInt(9007199254740996) },
+        { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } },
+        { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
       ],
       [
-        { a: { B: uint8Arr1 }, b: { B: uint8Arr2 } },
-        { a: uint8Arr1, b: uint8Arr2 },
+        { uint8Arr1Key: { B: uint8Arr1 }, uint8Arr2Key: { B: uint8Arr2 } },
+        { uint8Arr1Key: uint8Arr1, uint8Arr2Key: uint8Arr2 },
       ],
       [
         {
-          a: { L: [{ NULL: true }, { BOOL: false }] },
-          b: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
+          list1: { L: [{ NULL: true }, { BOOL: false }] },
+          list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
         },
-        { a: [null, false], b: ["one", 1.01, BigInt(9007199254740996)] },
+        { list1: [null, false], list2: ["one", 1.01, BigInt(9007199254740996)] },
       ],
     ].forEach(([input, output]) => {
       it(`testing map: ${input}`, () => {
@@ -162,8 +162,8 @@ describe("convertToNative", () => {
     });
 
     it(`testing map with options.wrapNumbers`, () => {
-      const input = { a: { N: "1.01" }, b: { N: "9007199254740996" } };
-      const output = { a: "1.01", b: "9007199254740996" };
+      const input = { numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } };
+      const output = { numberKey: "1.01", bigintKey: "9007199254740996" };
       expect(
         convertToNative({ ...emptyAttr, M: input as { [key: string]: AttributeValue } }, { wrapNumbers: true })
       ).toEqual(output);
