@@ -101,12 +101,22 @@ describe("convertToNative", () => {
         [null, false],
       ],
       [
-        [{ N: "1.01" }, { N: "9007199254740996" }, { S: "one" }],
-        [1.01, BigInt(9007199254740996), "one"],
+        [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }],
+        ["one", 1.01, BigInt(9007199254740996)],
       ],
       [
         [{ B: uint8Arr1 }, { B: uint8Arr2 }],
         [uint8Arr1, uint8Arr2],
+      ],
+      [
+        [
+          { M: { a: { NULL: true }, b: { BOOL: false } } },
+          { M: { a: { S: "one" }, b: { N: "1.01" }, c: { N: "9007199254740996" } } },
+        ],
+        [
+          { a: null, b: false },
+          { a: "one", b: 1.01, c: BigInt(9007199254740996) },
+        ],
       ],
     ].forEach(([input, output]) => {
       it(`testing list: ${JSON.stringify(input)}`, () => {
@@ -131,12 +141,19 @@ describe("convertToNative", () => {
         { a: null, b: false },
       ],
       [
-        { a: { N: "1.01" }, b: { N: "9007199254740996" }, c: { S: "one" } },
-        { a: 1.01, b: BigInt(9007199254740996), c: "one" },
+        { a: { S: "one" }, b: { N: "1.01" }, c: { N: "9007199254740996" } },
+        { a: "one", b: 1.01, c: BigInt(9007199254740996) },
       ],
       [
         { a: { B: uint8Arr1 }, b: { B: uint8Arr2 } },
         { a: uint8Arr1, b: uint8Arr2 },
+      ],
+      [
+        {
+          a: { L: [{ NULL: true }, { BOOL: false }] },
+          b: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
+        },
+        { a: [null, false], b: ["one", 1.01, BigInt(9007199254740996)] },
       ],
     ].forEach(([input, output]) => {
       it(`testing map: ${input}`, () => {
