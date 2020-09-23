@@ -38,17 +38,35 @@ describe("convertToAttr", () => {
 
     [Number.MAX_SAFE_INTEGER + 1, Number.MAX_VALUE].forEach((num) => {
       it(`throws for number greater than Number.MAX_SAFE_INTEGER: ${num}`, () => {
+        const errorPrefix = `Number ${num} is greater than Number.MAX_SAFE_INTEGER.`;
+
         expect(() => {
           convertToAttr(num);
-        }).toThrowError(`Number ${num} is greater than Number.MAX_SAFE_INTEGER. Use BigInt.`);
+        }).toThrowError(`${errorPrefix} Use BigInt.`);
+
+        const BigIntConstructor = BigInt;
+        (BigInt as any) = undefined;
+        expect(() => {
+          convertToAttr(num);
+        }).toThrowError(`${errorPrefix} Pass string value instead.`);
+        BigInt = BigIntConstructor;
       });
     });
 
     [Number.MIN_SAFE_INTEGER - 1].forEach((num) => {
       it(`throws for number lesser than Number.MIN_SAFE_INTEGER: ${num}`, () => {
+        const errorPrefix = `Number ${num} is lesser than Number.MIN_SAFE_INTEGER.`;
+
         expect(() => {
           convertToAttr(num);
-        }).toThrowError(`Number ${num} is lesser than Number.MIN_SAFE_INTEGER. Use BigInt.`);
+        }).toThrowError(`${errorPrefix} Use BigInt.`);
+
+        const BigIntConstructor = BigInt;
+        (BigInt as any) = undefined;
+        expect(() => {
+          convertToAttr(num);
+        }).toThrowError(`${errorPrefix} Pass string value instead.`);
+        BigInt = BigIntConstructor;
       });
     });
   });

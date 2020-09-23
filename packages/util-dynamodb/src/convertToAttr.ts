@@ -122,13 +122,17 @@ const convertToBinaryAttr = (data: NativeAttributeBinary): { B: NativeAttributeB
 const convertToStringAttr = (data: string): { S: string } => ({ S: data });
 const convertToBigIntAttr = (data: bigint): { N: string } => ({ N: data.toString() });
 
+const validateBigIntAndThrow = (errorPrefix: string) => {
+  throw new Error(`${errorPrefix} ${typeof BigInt === "function" ? "Use BigInt." : "Pass string value instead."} `);
+};
+
 const convertToNumberAttr = (num: number): { N: string } => {
   if ([Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].includes(num)) {
     throw new Error(`Special numeric value ${num} is not allowed`);
   } else if (num > Number.MAX_SAFE_INTEGER) {
-    throw new Error(`Number ${num} is greater than Number.MAX_SAFE_INTEGER. Use BigInt.`);
+    validateBigIntAndThrow(`Number ${num} is greater than Number.MAX_SAFE_INTEGER.`);
   } else if (num < Number.MIN_SAFE_INTEGER) {
-    throw new Error(`Number ${num} is lesser than Number.MIN_SAFE_INTEGER. Use BigInt.`);
+    validateBigIntAndThrow(`Number ${num} is lesser than Number.MIN_SAFE_INTEGER.`);
   }
   return { N: num.toString() };
 };
