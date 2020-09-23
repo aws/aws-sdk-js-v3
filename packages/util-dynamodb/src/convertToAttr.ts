@@ -1,24 +1,15 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
+import { marshallOptions } from "./marshall";
 import { NativeAttributeBinary, NativeAttributeValue, NativeScalarAttributeValue } from "./models";
-
-/**
- * An optional configuration object for `convertToAttr`
- */
-export interface convertToAttrOptions {
-  /**
-   * Whether to automatically convert empty strings, blobs, and sets to `null`
-   */
-  convertEmptyValues?: boolean;
-}
 
 /**
  * Convert a JavaScript value to its equivalent DynamoDB AttributeValue type
  *
  * @param {NativeAttributeValue} data - The data to convert to a DynamoDB AttributeValue
- * @param {convertToAttrOptions} options - An optional configuration object for `convertToAttr`
+ * @param {marshallOptions} options - An optional configuration object for `convertToAttr`
  */
-export const convertToAttr = (data: NativeAttributeValue, options?: convertToAttrOptions): AttributeValue => {
+export const convertToAttr = (data: NativeAttributeValue, options?: marshallOptions): AttributeValue => {
   if (Array.isArray(data)) {
     return convertToListAttr(data, options);
   } else if (data?.constructor?.name === "Set") {
@@ -30,13 +21,13 @@ export const convertToAttr = (data: NativeAttributeValue, options?: convertToAtt
   }
 };
 
-const convertToListAttr = (data: NativeAttributeValue[], options?: convertToAttrOptions): { L: AttributeValue[] } => ({
+const convertToListAttr = (data: NativeAttributeValue[], options?: marshallOptions): { L: AttributeValue[] } => ({
   L: data.map((item) => convertToAttr(item, options)),
 });
 
 const convertToSetAttr = (
   set: Set<any>,
-  options?: convertToAttrOptions
+  options?: marshallOptions
 ): { NS: string[] } | { BS: Uint8Array[] } | { SS: string[] } | { NULL: true } => {
   if (set.size === 0) {
     if (options?.convertEmptyValues) {
@@ -79,7 +70,7 @@ const convertToSetAttr = (
 
 const convertToMapAttr = (
   data: { [key: string]: NativeAttributeValue },
-  options?: convertToAttrOptions
+  options?: marshallOptions
 ): { M: { [key: string]: AttributeValue } } => ({
   M: Object.entries(data).reduce(
     (acc: { [key: string]: AttributeValue }, [key, value]: [string, NativeAttributeValue]) => ({
@@ -90,7 +81,7 @@ const convertToMapAttr = (
   ),
 });
 
-const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: convertToAttrOptions): AttributeValue => {
+const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: marshallOptions): AttributeValue => {
   if (data === null && typeof data === "object") {
     return convertToNullAttr();
   } else if (typeof data === "boolean") {
