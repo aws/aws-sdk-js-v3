@@ -63,7 +63,11 @@ const convertNumber = (numString: string, options?: convertToNativeOptions): num
 
   const num = Number(numString);
   if (num > Number.MAX_SAFE_INTEGER || num < Number.MIN_SAFE_INTEGER) {
-    return BigInt(num);
+    if (typeof BigInt === "function") {
+      return BigInt(num);
+    } else {
+      throw new Error(`${num} is outside SAFE_INTEGER bounds. Set options.wrapNumbers to get string value.`);
+    }
   }
   return num;
 };

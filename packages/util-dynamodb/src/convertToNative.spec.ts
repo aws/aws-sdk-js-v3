@@ -68,10 +68,20 @@ describe("convertToNative", () => {
     [Number.MAX_SAFE_INTEGER + 1, Number.MAX_VALUE, Number.MIN_SAFE_INTEGER - 1]
       .map((num) => num.toString())
       .forEach((numString) => {
-        it(`returns bigint for numbers outside MAX_SAFE_INTEGER and MIN_SAFE_INTEGER range: ${numString}`, () => {
+        it(`returns bigint for numbers outside SAFE_INTEGER range: ${numString}`, () => {
           expect(convertToNative({ ...emptyAttr, N: numString })).toEqual(BigInt(Number(numString)));
         });
-        it(`returns string for numbers outside MAX_SAFE_INTEGER and MIN_SAFE_INTEGER range with options.wrapNumbers set: ${numString}`, () => {
+
+        it(`throws error for numbers outside SAFE_INTEGER range when BigInt is not defined: ${numString}`, () => {
+          const BigIntConstructor = BigInt;
+          (BigInt as any) = undefined;
+          expect(() => {
+            convertToNative({ ...emptyAttr, N: numString });
+          }).toThrowError(`${numString} is outside SAFE_INTEGER bounds. Set options.wrapNumbers to get string value.`);
+          BigInt = BigIntConstructor;
+        });
+
+        it(`returns string for numbers outside SAFE_INTEGER range with options.wrapNumbers set: ${numString}`, () => {
           expect(convertToNative({ ...emptyAttr, N: numString }, { wrapNumbers })).toEqual(numString);
         });
       });
