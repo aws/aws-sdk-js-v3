@@ -1,25 +1,15 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { NativeAttributeValue } from "./models";
-
-/**
- * An optional configuration object for `convertToNative`
- */
-export interface convertToNativeOptions {
-  /**
-   * Whether to return numbers as a string instead of converting them to native JavaScript numbers.
-   * This allows for the safe round-trip transport of numbers of arbitrary size.
-   */
-  wrapNumbers?: boolean;
-}
+import { unmarshallOptions } from "./unmarshall";
 
 /**
  * Convert a DynamoDB AttributeValue object to its equivalent JavaScript type.
  *
  * @param {AttributeValue} data - The DynamoDB record to convert to JavaScript type.
- * @param {convertToNativeOptions} options - An optional configuration object for `convertToNative`.
+ * @param {unmarshallOptions} options - An optional configuration object for `convertToNative`.
  */
-export const convertToNative = (data: AttributeValue, options?: convertToNativeOptions): NativeAttributeValue => {
+export const convertToNative = (data: AttributeValue, options?: unmarshallOptions): NativeAttributeValue => {
   for (const [key, value] of Object.entries(data)) {
     if (value !== undefined) {
       switch (key) {
@@ -51,7 +41,7 @@ export const convertToNative = (data: AttributeValue, options?: convertToNativeO
   throw new Error(`No value defined: ${data}`);
 };
 
-const convertNumber = (numString: string, options?: convertToNativeOptions): number | bigint | string => {
+const convertNumber = (numString: string, options?: unmarshallOptions): number | bigint | string => {
   const specialNumericValues = [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
   if (specialNumericValues.map((num) => num.toString()).includes(numString)) {
     throw new Error(`Special numeric value ${numString} is not allowed`);
@@ -80,12 +70,12 @@ const convertNumber = (numString: string, options?: convertToNativeOptions): num
 const convertString = (stringValue: string): string => stringValue;
 const convertBinary = (binaryValue: Uint8Array): Uint8Array => binaryValue;
 
-const convertList = (list: AttributeValue[], options?: convertToNativeOptions): NativeAttributeValue[] =>
+const convertList = (list: AttributeValue[], options?: unmarshallOptions): NativeAttributeValue[] =>
   list.map((item) => convertToNative(item, options));
 
 const convertMap = (
   map: { [key: string]: AttributeValue },
-  options?: convertToNativeOptions
+  options?: unmarshallOptions
 ): { [key: string]: NativeAttributeValue } =>
   Object.entries(map).reduce(
     (acc: { [key: string]: NativeAttributeValue }, [key, value]: [string, AttributeValue]) => ({
