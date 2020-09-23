@@ -85,6 +85,21 @@ describe("convertToNative", () => {
           expect(convertToNative({ ...emptyAttr, N: numString }, { wrapNumbers })).toEqual(numString);
         });
       });
+
+    [
+      `${Number.MAX_SAFE_INTEGER}.1`,
+      `${Number.MIN_SAFE_INTEGER}.1`,
+      `${Number.MIN_VALUE}1`,
+      `-${Number.MIN_VALUE}1`,
+    ].forEach((numString) => {
+      it(`throws if number is outside IEEE 754 Floating-Point Arithmetic: ${numString}`, () => {
+        expect(() => {
+          convertToNative({ ...emptyAttr, N: numString });
+        }).toThrowError(
+          `Value ${numString} is outside IEEE 754 Floating-Point Arithmetic. Set options.wrapNumbers to get string value.`
+        );
+      });
+    });
   });
 
   describe("binary", () => {
