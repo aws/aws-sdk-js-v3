@@ -42,17 +42,13 @@ export const convertToNative = (data: AttributeValue, options?: unmarshallOption
 };
 
 const convertNumber = (numString: string, options?: unmarshallOptions): number | bigint | string => {
-  const specialNumericValues = [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
-  if (specialNumericValues.map((num) => num.toString()).includes(numString)) {
-    throw new Error(`Special numeric value ${numString} is not allowed`);
-  }
-
   if (options?.wrapNumbers) {
     return numString;
   }
 
   const num = Number(numString);
-  if (num > Number.MAX_SAFE_INTEGER || num < Number.MIN_SAFE_INTEGER) {
+  const infinityValues = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
+  if ((num > Number.MAX_SAFE_INTEGER || num < Number.MIN_SAFE_INTEGER) && !infinityValues.includes(num)) {
     if (typeof BigInt === "function") {
       return BigInt(num);
     } else {

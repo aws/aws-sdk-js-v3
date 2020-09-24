@@ -58,10 +58,8 @@ describe("convertToNative", () => {
     [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]
       .map((num) => num.toString())
       .forEach((numString) => {
-        it(`throws for number (special numeric value): ${numString}`, () => {
-          expect(() => {
-            convertToNative({ ...emptyAttr, N: numString });
-          }).toThrowError(`Special numeric value ${numString} is not allowed`);
+        it(`returns for number (special numeric value): ${numString}`, () => {
+          expect(convertToNative({ ...emptyAttr, N: numString })).toEqual(Number(numString));
         });
       });
 
