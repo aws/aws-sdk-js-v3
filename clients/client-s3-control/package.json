@@ -10,7 +10,8 @@
     "remove-definitions": "rimraf ./types",
     "remove-dist": "rimraf ./dist",
     "remove-documentation": "rimraf ./docs",
-    "test": "exit 0",
+    "test:unit": "mocha **/cjs/**/*.spec.js",
+    "test": "yarn test:unit",
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:cjs && yarn build:es"
@@ -64,6 +65,7 @@
   },
   "devDependencies": {
     "@aws-sdk/client-documentation-generator": "1.0.0-gamma.6",
+    "@types/mocha": "^7.0.2",
     "@types/node": "^12.7.5",
     "@types/uuid": "^3.0.0",
     "jest": "^26.1.0",

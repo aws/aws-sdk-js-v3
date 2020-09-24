@@ -13,7 +13,8 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "declarationDir": "./types",
-    "outDir": "dist/cjs"
+    "outDir": "dist/cjs",
+    "types": ["mocha", "node"]
   },
   "typedocOptions": {
     "exclude": "**/node_modules/**",
