@@ -1,10 +1,19 @@
+import { NumberValue } from "./numberValue";
+
 export type NativeAttributeValue =
   | NativeScalarAttributeValue
   | { [key: string]: NativeAttributeValue }
   | NativeAttributeValue[]
   | Set<number | bigint | string | NativeAttributeBinary>;
 
-export type NativeScalarAttributeValue = null | boolean | number | bigint | NativeAttributeBinary | string;
+export type NativeScalarAttributeValue =
+  | null
+  | boolean
+  | number
+  | NumberValue
+  | bigint
+  | NativeAttributeBinary
+  | string;
 
 export type NativeAttributeBinary =
   | ArrayBuffer
