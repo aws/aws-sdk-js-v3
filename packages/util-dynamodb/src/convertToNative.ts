@@ -1,7 +1,6 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
-import { NativeAttributeValue } from "./models";
-import { NumberValue } from "./numberValue";
+import { NativeAttributeValue, NumberValue } from "./models";
 import { unmarshallOptions } from "./unmarshall";
 
 /**
@@ -44,7 +43,7 @@ export const convertToNative = (data: AttributeValue, options?: unmarshallOption
 
 const convertNumber = (numString: string, options?: unmarshallOptions): number | bigint | NumberValue => {
   if (options?.wrapNumbers) {
-    return new NumberValue(numString);
+    return { value: numString };
   }
 
   const num = Number(numString);

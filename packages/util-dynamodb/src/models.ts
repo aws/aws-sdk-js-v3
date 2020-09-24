@@ -1,4 +1,14 @@
-import { NumberValue } from "./numberValue";
+/**
+ * A interface recognizable as a numeric value that stores the underlying number
+ * as a string.
+ *
+ * Intended to be a deserialization target for the DynamoDB Document Client when
+ * the `wrapNumbers` flag is set. This allows for numeric values that lose
+ * precision when converted to JavaScript's `number` type.
+ */
+export interface NumberValue {
+  readonly value: string;
+}
 
 export type NativeAttributeValue =
   | NativeScalarAttributeValue
