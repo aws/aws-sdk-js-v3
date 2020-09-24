@@ -132,7 +132,7 @@ export interface CreateAccessPointRequest {
   /**
    * <p>The AWS account ID for the owner of the bucket for which you want to create an access point.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 
   /**
    * <p>The name you want to assign to this access point.</p>
@@ -1002,7 +1002,7 @@ export interface CreateJobRequest {
   /**
    * <p></p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 
   /**
    * <p>Configuration parameters for the manifest.</p>
@@ -1096,7 +1096,7 @@ export interface DeleteAccessPointRequest {
   /**
    * <p>The account ID for the account that owns the specified access point.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace DeleteAccessPointRequest {
@@ -1109,7 +1109,7 @@ export interface DeleteAccessPointPolicyRequest {
   /**
    * <p>The account ID for the account that owns the specified access point.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 
   /**
    * <p>The name of the access point whose policy you want to delete.</p>
@@ -1125,7 +1125,7 @@ export namespace DeleteAccessPointPolicyRequest {
 
 export interface DeleteBucketRequest {
   Bucket: string | undefined;
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace DeleteBucketRequest {
@@ -1136,7 +1136,7 @@ export namespace DeleteBucketRequest {
 
 export interface DeleteBucketLifecycleConfigurationRequest {
   Bucket: string | undefined;
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace DeleteBucketLifecycleConfigurationRequest {
@@ -1147,7 +1147,7 @@ export namespace DeleteBucketLifecycleConfigurationRequest {
 
 export interface DeleteBucketPolicyRequest {
   Bucket: string | undefined;
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace DeleteBucketPolicyRequest {
@@ -1157,7 +1157,7 @@ export namespace DeleteBucketPolicyRequest {
 }
 
 export interface DeleteBucketTaggingRequest {
-  AccountId: string | undefined;
+  AccountId?: string;
   Bucket: string | undefined;
 }
 
@@ -1176,7 +1176,7 @@ export interface DeleteJobTaggingRequest {
   /**
    * <p>The AWS account ID associated with the S3 Batch Operations job.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace DeleteJobTaggingRequest {
@@ -1213,7 +1213,7 @@ export interface DeletePublicAccessBlockRequest {
    * <p>The account ID for the AWS account whose <code>PublicAccessBlock</code> configuration you want
    *          to remove.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace DeletePublicAccessBlockRequest {
@@ -1226,7 +1226,7 @@ export interface DescribeJobRequest {
   /**
    * <p></p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 
   /**
    * <p>The ID for the job whose information you want to retrieve.</p>
@@ -1423,7 +1423,7 @@ export interface GetAccessPointRequest {
   /**
    * <p>The account ID for the account that owns the specified access point.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace GetAccessPointRequest {
@@ -1487,7 +1487,7 @@ export interface GetAccessPointPolicyRequest {
   /**
    * <p>The account ID for the account that owns the specified access point.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace GetAccessPointPolicyRequest {
@@ -1513,7 +1513,7 @@ export interface GetAccessPointPolicyStatusRequest {
   /**
    * <p>The account ID for the account that owns the specified access point.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 
   /**
    * <p>The name of the access point whose policy status you want to retrieve.</p>
@@ -1560,7 +1560,7 @@ export namespace GetAccessPointPolicyStatusResult {
 }
 
 export interface GetBucketRequest {
-  AccountId: string | undefined;
+  AccountId?: string;
   Bucket: string | undefined;
 }
 
@@ -1583,7 +1583,7 @@ export namespace GetBucketResult {
 }
 
 export interface GetBucketLifecycleConfigurationRequest {
-  AccountId: string | undefined;
+  AccountId?: string;
   Bucket: string | undefined;
 }
 
@@ -1698,7 +1698,7 @@ export namespace GetBucketLifecycleConfigurationResult {
 
 export interface GetBucketPolicyRequest {
   Bucket: string | undefined;
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace GetBucketPolicyRequest {
@@ -1719,7 +1719,7 @@ export namespace GetBucketPolicyResult {
 
 export interface GetBucketTaggingRequest {
   Bucket: string | undefined;
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace GetBucketTaggingRequest {
@@ -1747,7 +1747,7 @@ export interface GetJobTaggingRequest {
   /**
    * <p>The AWS account ID associated with the S3 Batch Operations job.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace GetJobTaggingRequest {
@@ -1788,7 +1788,7 @@ export interface GetPublicAccessBlockRequest {
    * <p>The account ID for the AWS account whose <code>PublicAccessBlock</code> configuration you want
    *          to retrieve.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace GetPublicAccessBlockRequest {
@@ -1817,7 +1817,7 @@ export interface ListAccessPointsRequest {
   /**
    * <p>The AWS account ID for owner of the bucket whose access points you want to list.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 
   /**
    * <p>The name of the bucket whose associated access points you want to list.</p>
@@ -1904,7 +1904,7 @@ export interface ListJobsRequest {
   /**
    * <p></p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 
   /**
    * <p>The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code> response. If there are more jobs than this number, the response will include a pagination token in the <code>NextToken</code> field to enable you to retrieve the next page of results.</p>
@@ -2004,7 +2004,7 @@ export namespace ListJobsResult {
 }
 
 export interface ListRegionalBucketsRequest {
-  AccountId: string | undefined;
+  AccountId?: string;
   OutpostId?: string;
   NextToken?: string;
   MaxResults?: number;
@@ -2045,7 +2045,7 @@ export interface PutAccessPointPolicyRequest {
   /**
    * <p>The AWS account ID for owner of the bucket associated with the specified access point.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 
   /**
    * <p>The name of the access point that you want to associate with the specified policy.</p>
@@ -2076,7 +2076,7 @@ export namespace LifecycleConfiguration {
 
 export interface PutBucketLifecycleConfigurationRequest {
   Bucket: string | undefined;
-  AccountId: string | undefined;
+  AccountId?: string;
   LifecycleConfiguration?: LifecycleConfiguration;
 }
 
@@ -2088,7 +2088,7 @@ export namespace PutBucketLifecycleConfigurationRequest {
 
 export interface PutBucketPolicyRequest {
   Policy: string | undefined;
-  AccountId: string | undefined;
+  AccountId?: string;
   ConfirmRemoveSelfBucketAccess?: boolean;
   Bucket: string | undefined;
 }
@@ -2111,7 +2111,7 @@ export namespace Tagging {
 
 export interface PutBucketTaggingRequest {
   Bucket: string | undefined;
-  AccountId: string | undefined;
+  AccountId?: string;
   Tagging: Tagging | undefined;
 }
 
@@ -2130,7 +2130,7 @@ export interface PutJobTaggingRequest {
   /**
    * <p>The AWS account ID associated with the S3 Batch Operations job.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 
   /**
    * <p>The set of tags to associate with the S3 Batch Operations job.</p>
@@ -2172,7 +2172,7 @@ export interface PutPublicAccessBlockRequest {
    * <p>The account ID for the AWS account whose <code>PublicAccessBlock</code> configuration you want
    *          to set.</p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 
   /**
    * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified AWS
@@ -2191,7 +2191,7 @@ export interface UpdateJobPriorityRequest {
   /**
    * <p></p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 
   /**
    * <p>The ID for the job whose priority you want to update.</p>
@@ -2267,7 +2267,7 @@ export interface UpdateJobStatusRequest {
   /**
    * <p></p>
    */
-  AccountId: string | undefined;
+  AccountId?: string;
 }
 
 export namespace UpdateJobStatusRequest {

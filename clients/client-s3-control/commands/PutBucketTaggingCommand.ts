@@ -4,6 +4,7 @@ import {
   deserializeAws_restXmlPutBucketTaggingCommand,
   serializeAws_restXmlPutBucketTaggingCommand,
 } from "../protocols/Aws_restXml";
+import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -40,6 +41,7 @@ export class PutBucketTaggingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getProcessArnablesPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

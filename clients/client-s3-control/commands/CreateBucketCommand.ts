@@ -4,6 +4,7 @@ import {
   deserializeAws_restXmlCreateBucketCommand,
   serializeAws_restXmlCreateBucketCommand,
 } from "../protocols/Aws_restXml";
+import { getRedirectFromPostIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -40,6 +41,7 @@ export class CreateBucketCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateBucketCommandInput, CreateBucketCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getRedirectFromPostIdPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
