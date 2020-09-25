@@ -1,6 +1,7 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { convertToNative } from "./convertToNative";
+import { NativeAttributeValue } from "./models";
 
 describe("convertToNative", () => {
   const emptyAttr = {
@@ -118,7 +119,7 @@ describe("convertToNative", () => {
   describe("list", () => {
     const uint8Arr1 = new Uint8Array([...Array(4).keys()]);
     const uint8Arr2 = new Uint8Array([...Array(2).keys()]);
-    [
+    ([
       {
         input: [{ NULL: true }, { BOOL: false }],
         output: [null, false],
@@ -155,9 +156,8 @@ describe("convertToNative", () => {
           new Set(["one", "two", "three"]),
         ],
       },
-    ].forEach(({ input, output }) => {
+    ] as { input: AttributeValue[]; output: NativeAttributeValue[] }[]).forEach(({ input, output }) => {
       it(`testing list: ${JSON.stringify(input)}`, () => {
-        // @ts-expect-error Bug with complex types in TS https://github.com/microsoft/TypeScript/issues/40770
         expect(convertToNative({ ...emptyAttr, L: input })).toEqual(output);
       });
     });
@@ -173,7 +173,7 @@ describe("convertToNative", () => {
   describe("map", () => {
     const uint8Arr1 = new Uint8Array([...Array(4).keys()]);
     const uint8Arr2 = new Uint8Array([...Array(2).keys()]);
-    [
+    ([
       {
         input: { nullKey: { NULL: true }, boolKey: { BOOL: false } },
         output: { nullKey: null, boolKey: false },
@@ -207,12 +207,13 @@ describe("convertToNative", () => {
           stringSet: new Set(["one", "two", "three"]),
         },
       },
-    ].forEach(({ input, output }) => {
-      it(`testing map: ${input}`, () => {
-        // @ts-expect-error Bug with complex types in TS https://github.com/microsoft/TypeScript/issues/40770
-        expect(convertToNative({ ...emptyAttr, M: input })).toEqual(output);
-      });
-    });
+    ] as { input: { [key: string]: AttributeValue }; output: { [key: string]: NativeAttributeValue } }[]).forEach(
+      ({ input, output }) => {
+        it(`testing map: ${input}`, () => {
+          expect(convertToNative({ ...emptyAttr, M: input })).toEqual(output);
+        });
+      }
+    );
 
     it(`testing map with options.wrapNumbers`, () => {
       const input = { numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } };
