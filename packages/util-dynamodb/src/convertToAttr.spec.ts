@@ -1,4 +1,5 @@
 import { convertToAttr } from "./convertToAttr";
+import { NativeAttributeValue } from "./models";
 
 describe("convertToAttr", () => {
   describe("null", () => {
@@ -139,7 +140,7 @@ describe("convertToAttr", () => {
         output: [{ B: uint8Arr }, { B: biguintArr }],
       },
       {
-        input: [
+        input: <{ [key: string]: NativeAttributeValue }[]>[
           { nullKey: null, boolKey: false },
           { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
         ],
@@ -164,7 +165,6 @@ describe("convertToAttr", () => {
       },
     ].forEach(({ input, output }) => {
       it(`testing list: ${input}`, () => {
-        // @ts-expect-error Bug with complex types in TS https://github.com/microsoft/TypeScript/issues/40770
         expect(convertToAttr(input)).toEqual({ L: output });
       });
     });
@@ -201,17 +201,18 @@ describe("convertToAttr", () => {
     });
 
     it("returns null for empty set for options.convertEmptyValues=true", () => {
-      expect(convertToAttr(new Set(), { convertEmptyValues: true })).toEqual({ NULL: true });
+      expect(convertToAttr(new Set([]), { convertEmptyValues: true })).toEqual({ NULL: true });
     });
 
     it("throws error for empty set", () => {
       expect(() => {
-        convertToAttr(new Set());
+        convertToAttr(new Set([]));
       }).toThrowError(`Please pass a non-empty set, or set convertEmptyValues to true.`);
     });
 
     it("thows error for unallowed set", () => {
       expect(() => {
+        // @ts-expect-error Type 'Set<boolean>' is not assignable
         convertToAttr(new Set([true, false]));
       }).toThrowError(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed.`);
     });
@@ -223,26 +224,29 @@ describe("convertToAttr", () => {
     const biguintArr = new BigUint64Array(arr.map(BigInt));
     [
       {
-        input: { nullKey: null, boolKey: false },
+        input: <{ [key: string]: NativeAttributeValue }>{ nullKey: null, boolKey: false },
         output: { nullKey: { NULL: true }, boolKey: { BOOL: false } },
       },
       {
-        input: { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(1) },
+        input: <{ [key: string]: NativeAttributeValue }>{ stringKey: "one", numberKey: 1.01, bigintKey: BigInt(1) },
         output: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "1" } },
       },
       {
-        input: { uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
+        input: <{ [key: string]: NativeAttributeValue }>{ uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
         output: { uint8ArrKey: { B: uint8Arr }, biguintArrKey: { B: biguintArr } },
       },
       {
-        input: { list1: [null, false], list2: ["one", 1.01, BigInt(9007199254740996)] },
+        input: <{ [key: string]: NativeAttributeValue }>{
+          list1: [null, false],
+          list2: ["one", 1.01, BigInt(9007199254740996)],
+        },
         output: {
           list1: { L: [{ NULL: true }, { BOOL: false }] },
           list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
         },
       },
       {
-        input: {
+        input: <{ [key: string]: NativeAttributeValue }>{
           numberSet: new Set([1, 2, 3]),
           bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
           binarySet: new Set([uint8Arr, biguintArr]),
@@ -257,7 +261,6 @@ describe("convertToAttr", () => {
       },
     ].forEach(({ input, output }) => {
       it(`testing map: ${input}`, () => {
-        // @ts-expect-error Bug with complex types in TS https://github.com/microsoft/TypeScript/issues/40770
         expect(convertToAttr(input)).toEqual({ M: output });
       });
     });
