@@ -1,3 +1,5 @@
+import { AttributeValue } from "@aws-sdk/client-dynamodb";
+
 import { convertToAttr } from "./convertToAttr";
 import { NativeAttributeValue } from "./models";
 
@@ -95,6 +97,7 @@ describe("convertToAttr", () => {
     const buffer = new ArrayBuffer(64);
     const arr = [...Array(64).keys()];
     const addPointOne = (num: number) => num + 0.1;
+
     [
       buffer,
       new Blob([new Uint8Array(buffer)]),
@@ -126,7 +129,8 @@ describe("convertToAttr", () => {
     const arr = [...Array(4).keys()];
     const uint8Arr = new Uint32Array(arr);
     const biguintArr = new BigUint64Array(arr.map(BigInt));
-    [
+
+    ([
       {
         input: [null, false],
         output: [{ NULL: true }, { BOOL: false }],
@@ -140,7 +144,7 @@ describe("convertToAttr", () => {
         output: [{ B: uint8Arr }, { B: biguintArr }],
       },
       {
-        input: <{ [key: string]: NativeAttributeValue }[]>[
+        input: [
           { nullKey: null, boolKey: false },
           { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
         ],
@@ -163,7 +167,7 @@ describe("convertToAttr", () => {
           { SS: ["one", "two", "three"] },
         ],
       },
-    ].forEach(({ input, output }) => {
+    ] as { input: NativeAttributeValue[]; output: AttributeValue[] }[]).forEach(({ input, output }) => {
       it(`testing list: ${input}`, () => {
         expect(convertToAttr(input)).toEqual({ L: output });
       });
@@ -222,21 +226,22 @@ describe("convertToAttr", () => {
     const arr = [...Array(4).keys()];
     const uint8Arr = new Uint32Array(arr);
     const biguintArr = new BigUint64Array(arr.map(BigInt));
-    [
+
+    ([
       {
-        input: <{ [key: string]: NativeAttributeValue }>{ nullKey: null, boolKey: false },
+        input: { nullKey: null, boolKey: false },
         output: { nullKey: { NULL: true }, boolKey: { BOOL: false } },
       },
       {
-        input: <{ [key: string]: NativeAttributeValue }>{ stringKey: "one", numberKey: 1.01, bigintKey: BigInt(1) },
+        input: { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(1) },
         output: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "1" } },
       },
       {
-        input: <{ [key: string]: NativeAttributeValue }>{ uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
+        input: { uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
         output: { uint8ArrKey: { B: uint8Arr }, biguintArrKey: { B: biguintArr } },
       },
       {
-        input: <{ [key: string]: NativeAttributeValue }>{
+        input: {
           list1: [null, false],
           list2: ["one", 1.01, BigInt(9007199254740996)],
         },
@@ -246,7 +251,7 @@ describe("convertToAttr", () => {
         },
       },
       {
-        input: <{ [key: string]: NativeAttributeValue }>{
+        input: {
           numberSet: new Set([1, 2, 3]),
           bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
           binarySet: new Set([uint8Arr, biguintArr]),
@@ -259,11 +264,13 @@ describe("convertToAttr", () => {
           stringSet: { SS: ["one", "two", "three"] },
         },
       },
-    ].forEach(({ input, output }) => {
-      it(`testing map: ${input}`, () => {
-        expect(convertToAttr(input)).toEqual({ M: output });
-      });
-    });
+    ] as { input: { [key: string]: NativeAttributeValue }; output: { [key: string]: AttributeValue } }[]).forEach(
+      ({ input, output }) => {
+        it(`testing map: ${input}`, () => {
+          expect(convertToAttr(input)).toEqual({ M: output });
+        });
+      }
+    );
 
     it(`testing map with options.convertEmptyValues=true`, () => {
       const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
