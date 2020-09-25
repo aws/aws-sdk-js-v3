@@ -126,52 +126,51 @@ describe("convertToAttr", () => {
     const uint8Arr = new Uint32Array(arr);
     const biguintArr = new BigUint64Array(arr.map(BigInt));
     [
-      [
-        [null, false],
-        [{ NULL: true }, { BOOL: false }],
-      ],
-      [
-        [1.01, BigInt(1), "one"],
-        [{ N: "1.01" }, { N: "1" }, { S: "one" }],
-      ],
-      [
-        [uint8Arr, biguintArr],
-        [{ B: uint8Arr }, { B: biguintArr }],
-      ],
-      [
-        [
+      {
+        input: [null, false],
+        output: [{ NULL: true }, { BOOL: false }],
+      },
+      {
+        input: [1.01, BigInt(1), "one"],
+        output: [{ N: "1.01" }, { N: "1" }, { S: "one" }],
+      },
+      {
+        input: [uint8Arr, biguintArr],
+        output: [{ B: uint8Arr }, { B: biguintArr }],
+      },
+      {
+        input: [
           { nullKey: null, boolKey: false },
           { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
         ],
-        [
+        output: [
           { M: { nullKey: { NULL: true }, boolKey: { BOOL: false } } },
           { M: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } } },
         ],
-      ],
-      [
-        [
+      },
+      {
+        input: [
           new Set([1, 2, 3]),
           new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
           new Set([uint8Arr, biguintArr]),
           new Set(["one", "two", "three"]),
         ],
-        [
+        output: [
           { NS: ["1", "2", "3"] },
           { NS: ["9007199254740996", "-9007199254740996"] },
           { BS: [uint8Arr, biguintArr] },
           { SS: ["one", "two", "three"] },
         ],
-      ],
-    ].forEach(([input, output]) => {
+      },
+    ].forEach(({ input, output }) => {
       it(`testing list: ${input}`, () => {
-        // @ts-ignore
+        // @ts-expect-error Bug with complex types in TS https://github.com/microsoft/TypeScript/issues/40770
         expect(convertToAttr(input)).toEqual({ L: output });
       });
     });
 
     it(`testing list with options.convertEmptyValues=true`, () => {
-      const input = ["", new Uint8Array(), new Set()];
-      // @ts-ignore
+      const input = ["", new Uint8Array(), new Set([])];
       expect(convertToAttr(input, { convertEmptyValues: true })).toEqual({
         L: [{ NULL: true }, { NULL: true }, { NULL: true }],
       });
@@ -223,49 +222,48 @@ describe("convertToAttr", () => {
     const uint8Arr = new Uint32Array(arr);
     const biguintArr = new BigUint64Array(arr.map(BigInt));
     [
-      [
-        { nullKey: null, boolKey: false },
-        { nullKey: { NULL: true }, boolKey: { BOOL: false } },
-      ],
-      [
-        { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(1) },
-        { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "1" } },
-      ],
-      [
-        { uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
-        { uint8ArrKey: { B: uint8Arr }, biguintArrKey: { B: biguintArr } },
-      ],
-      [
-        { list1: [null, false], list2: ["one", 1.01, BigInt(9007199254740996)] },
-        {
+      {
+        input: { nullKey: null, boolKey: false },
+        output: { nullKey: { NULL: true }, boolKey: { BOOL: false } },
+      },
+      {
+        input: { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(1) },
+        output: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "1" } },
+      },
+      {
+        input: { uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
+        output: { uint8ArrKey: { B: uint8Arr }, biguintArrKey: { B: biguintArr } },
+      },
+      {
+        input: { list1: [null, false], list2: ["one", 1.01, BigInt(9007199254740996)] },
+        output: {
           list1: { L: [{ NULL: true }, { BOOL: false }] },
           list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
         },
-      ],
-      [
-        {
+      },
+      {
+        input: {
           numberSet: new Set([1, 2, 3]),
           bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
           binarySet: new Set([uint8Arr, biguintArr]),
           stringSet: new Set(["one", "two", "three"]),
         },
-        {
+        output: {
           numberSet: { NS: ["1", "2", "3"] },
           bigintSet: { NS: ["9007199254740996", "-9007199254740996"] },
           binarySet: { BS: [uint8Arr, biguintArr] },
           stringSet: { SS: ["one", "two", "three"] },
         },
-      ],
-    ].forEach(([input, output]) => {
+      },
+    ].forEach(({ input, output }) => {
       it(`testing map: ${input}`, () => {
-        // @ts-ignore
+        // @ts-expect-error Bug with complex types in TS https://github.com/microsoft/TypeScript/issues/40770
         expect(convertToAttr(input)).toEqual({ M: output });
       });
     });
 
     it(`testing map with options.convertEmptyValues=true`, () => {
-      const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set() };
-      // @ts-ignore
+      const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
       expect(convertToAttr(input, { convertEmptyValues: true })).toEqual({
         M: { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } },
       });
@@ -286,17 +284,14 @@ describe("convertToAttr", () => {
 
   describe(`unsupported type`, () => {
     class FooObj {
-      constructor() {
-        // @ts-ignore
-        this.foo = "foo";
-      }
+      constructor(private readonly foo: string) {}
     }
 
     // ToDo: Serialize ES6 class objects as string https://github.com/aws/aws-sdk-js-v3/issues/1535
-    [undefined, new Date(), new FooObj()].forEach((data) => {
+    [undefined, new Date(), new FooObj("foo")].forEach((data) => {
       it(`throws for: ${String(data)}`, () => {
         expect(() => {
-          // @ts-ignore Argument is not assignable to parameter of type 'NativeAttributeValue'
+          // @ts-expect-error Argument is not assignable to parameter of type 'NativeAttributeValue'
           convertToAttr(data);
         }).toThrowError(`Unsupported type passed: ${String(data)}`);
       });
