@@ -35,6 +35,7 @@ export const hostHeaderMiddleware = <Input extends object, Output extends object
 export const hostHeaderMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
   name: "hostHeaderMiddleware",
   step: "build",
+  priority: "low",
   tags: ["HOST"],
 };
 
