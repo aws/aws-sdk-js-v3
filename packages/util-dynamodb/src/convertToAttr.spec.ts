@@ -97,6 +97,7 @@ describe("convertToAttr", () => {
     const buffer = new ArrayBuffer(64);
     const arr = [...Array(64).keys()];
     const addPointOne = (num: number) => num + 0.1;
+
     [
       buffer,
       new Blob([new Uint8Array(buffer)]),
