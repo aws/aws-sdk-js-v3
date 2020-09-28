@@ -14,7 +14,7 @@ export type NativeAttributeValue =
   | NativeScalarAttributeValue
   | { [key: string]: NativeAttributeValue }
   | NativeAttributeValue[]
-  | Set<number | bigint | string | NativeAttributeBinary>;
+  | Set<number | bigint | NumberValue | string | NativeAttributeBinary>;
 
 export type NativeScalarAttributeValue =
   | null
