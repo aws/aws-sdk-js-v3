@@ -64,11 +64,11 @@ describe("convertToNative", () => {
         });
       });
 
-    [Number.MAX_SAFE_INTEGER + 1, Number.MAX_VALUE, Number.MIN_SAFE_INTEGER - 1]
+    [Number.MAX_SAFE_INTEGER + 1, Number.MIN_SAFE_INTEGER - 1]
       .map((num) => num.toString())
       .forEach((numString) => {
         it(`returns bigint for numbers outside SAFE_INTEGER range: ${numString}`, () => {
-          expect(convertToNative({ ...emptyAttr, N: numString })).toEqual(BigInt(Number(numString)));
+          expect(convertToNative({ ...emptyAttr, N: numString })).toEqual(BigInt(numString));
         });
 
         it(`throws error for numbers outside SAFE_INTEGER range when BigInt is not defined: ${numString}`, () => {
