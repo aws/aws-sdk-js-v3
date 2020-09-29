@@ -1,10 +1,29 @@
+/**
+ * A interface recognizable as a numeric value that stores the underlying number
+ * as a string.
+ *
+ * Intended to be a deserialization target for the DynamoDB Document Client when
+ * the `wrapNumbers` flag is set. This allows for numeric values that lose
+ * precision when converted to JavaScript's `number` type.
+ */
+export interface NumberValue {
+  readonly value: string;
+}
+
 export type NativeAttributeValue =
   | NativeScalarAttributeValue
   | { [key: string]: NativeAttributeValue }
   | NativeAttributeValue[]
-  | Set<number | bigint | string | NativeAttributeBinary>;
+  | Set<number | bigint | NumberValue | string | NativeAttributeBinary>;
 
-export type NativeScalarAttributeValue = null | boolean | number | bigint | NativeAttributeBinary | string;
+export type NativeScalarAttributeValue =
+  | null
+  | boolean
+  | number
+  | NumberValue
+  | bigint
+  | NativeAttributeBinary
+  | string;
 
 export type NativeAttributeBinary =
   | ArrayBuffer
