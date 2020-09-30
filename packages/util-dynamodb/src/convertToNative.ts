@@ -50,7 +50,7 @@ const convertNumber = (numString: string, options?: unmarshallOptions): number |
   const infinityValues = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
   if ((num > Number.MAX_SAFE_INTEGER || num < Number.MIN_SAFE_INTEGER) && !infinityValues.includes(num)) {
     if (typeof BigInt === "function") {
-      return BigInt(num);
+      return BigInt(numString);
     } else {
       throw new Error(`${numString} is outside SAFE_INTEGER bounds. Set options.wrapNumbers to get string value.`);
     }
