@@ -40,7 +40,7 @@ describe("convertToNative", () => {
         it(`returns for number (integer): ${numString}`, () => {
           expect(convertToNative({ ...emptyAttr, N: numString })).toEqual(Number(numString));
         });
-        it(`returns NumberValue for number (integer) with options.wrapNumbers set: ${numString}`, () => {
+        it(`returns NumberValue for number (integer) with options.wrapNumbers=true: ${numString}`, () => {
           expect(convertToNative({ ...emptyAttr, N: numString }, { wrapNumbers })).toEqual({ value: numString });
         });
       });
@@ -51,7 +51,7 @@ describe("convertToNative", () => {
         it(`returns for number (floating point): ${numString}`, () => {
           expect(convertToNative({ ...emptyAttr, N: numString })).toEqual(Number(numString));
         });
-        it(`returns NumberValue for number (floating point) with options.wrapNumbers set: ${numString}`, () => {
+        it(`returns NumberValue for number (floating point) with options.wrapNumbers=true: ${numString}`, () => {
           expect(convertToNative({ ...emptyAttr, N: numString }, { wrapNumbers })).toEqual({ value: numString });
         });
       });
@@ -80,7 +80,7 @@ describe("convertToNative", () => {
           BigInt = BigIntConstructor;
         });
 
-        it(`returns NumberValue for numbers outside SAFE_INTEGER range with options.wrapNumbers set: ${numString}`, () => {
+        it(`returns NumberValue for numbers outside SAFE_INTEGER range with options.wrapNumbers=true: ${numString}`, () => {
           expect(convertToNative({ ...emptyAttr, N: numString }, { wrapNumbers })).toEqual({ value: numString });
         });
       });
@@ -162,7 +162,7 @@ describe("convertToNative", () => {
       });
     });
 
-    it(`testing list with options.wrapNumbers`, () => {
+    it(`testing list with options.wrapNumbers=true`, () => {
       const input = [{ N: "1.01" }, { N: "9007199254740996" }];
       expect(convertToNative({ ...emptyAttr, L: input as AttributeValue[] }, { wrapNumbers: true })).toEqual(
         input.map((item) => ({ value: item.N }))
@@ -215,7 +215,7 @@ describe("convertToNative", () => {
       }
     );
 
-    it(`testing map with options.wrapNumbers`, () => {
+    it(`testing map with options.wrapNumbers=true`, () => {
       const input = { numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } };
       const output = { numberKey: { value: "1.01" }, bigintKey: { value: "9007199254740996" } };
       expect(convertToNative({ ...emptyAttr, M: input }, { wrapNumbers: true })).toEqual(output);
@@ -230,7 +230,7 @@ describe("convertToNative", () => {
         expect(convertToNative({ ...emptyAttr, NS: input })).toEqual(new Set([1, 2, BigInt(9007199254740996)]));
       });
 
-      it("with options.wrapNumbers", () => {
+      it("with options.wrapNumbers=true", () => {
         expect(convertToNative({ ...emptyAttr, NS: input }, { wrapNumbers: true })).toEqual(
           new Set(input.map((numString) => ({ value: numString })))
         );

@@ -18,15 +18,23 @@ describe("convertToAttrToNative", () => {
   });
 
   describe("number", () => {
+    const wrapNumbers = true;
+
     [1, Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER].forEach((num) => {
       it(`returns for number (integer): ${num}`, () => {
         expect(convertToNative(convertToAttr(num))).toEqual(num);
+      });
+      it(`returns NumberValue for number (integer) with options.wrapNumbers set: ${num}`, () => {
+        expect(convertToNative(convertToAttr(num), { wrapNumbers })).toEqual({ value: num.toString() });
       });
     });
 
     [1.01, Math.PI, Math.E, Number.MIN_VALUE, Number.EPSILON].forEach((num) => {
       it(`returns for number (floating point): ${num}`, () => {
         expect(convertToNative(convertToAttr(num))).toEqual(num);
+      });
+      it(`returns NumberValue for number (floating point) with options.wrapNumbers set: ${num}`, () => {
+        expect(convertToNative(convertToAttr(num), { wrapNumbers })).toEqual({ value: num.toString() });
       });
     });
   });
@@ -109,19 +117,44 @@ describe("convertToAttrToNative", () => {
       const input = ["", new Uint8Array(), new Set([])];
       expect(convertToNative(convertToAttr(input, { convertEmptyValues: true }))).toEqual([null, null, null]);
     });
+
+    it(`testing list with options.wrapNumbers=true`, () => {
+      const input = [1, 1.01, BigInt(9007199254740996)];
+      expect(convertToNative(convertToAttr(input), { wrapNumbers: true })).toEqual(
+        input.map((num) => ({ value: num.toString() }))
+      );
+    });
   });
 
   describe("set", () => {
-    it("number set", () => {
+    describe("number set", () => {
       const set = new Set([1, 2, 3]);
-      expect(convertToNative(convertToAttr(set))).toEqual(set);
+
+      it("without options.wrapNumbers", () => {
+        expect(convertToNative(convertToAttr(set))).toEqual(set);
+      });
+
+      it("with options.wrapNumbers=true", () => {
+        expect(convertToNative(convertToAttr(set), { wrapNumbers: true })).toEqual(
+          new Set(Array.from(set).map((num) => ({ value: num.toString() })))
+        );
+      });
     });
 
-    it("bigint set", () => {
+    describe("bigint set", () => {
       // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
       const bigNum = BigInt(Number.MAX_SAFE_INTEGER) + 2n;
       const set = new Set([bigNum, -bigNum]);
-      expect(convertToNative(convertToAttr(set))).toEqual(set);
+
+      it("without options.wrapNumbers", () => {
+        expect(convertToNative(convertToAttr(set))).toEqual(set);
+      });
+
+      it("with options.wrapNumbers=true", () => {
+        expect(convertToNative(convertToAttr(set), { wrapNumbers: true })).toEqual(
+          new Set(Array.from(set).map((num) => ({ value: num.toString() })))
+        );
+      });
     });
 
     it("binary set", () => {
@@ -171,6 +204,19 @@ describe("convertToAttrToNative", () => {
         binaryKey: null,
         setKey: null,
       });
+    });
+
+    it(`testing map with options.wrapNumbers=true`, () => {
+      const input = { numKey: 1, floatNumKey: 1.01, bigintKey: BigInt(9007199254740996) };
+      expect(convertToNative(convertToAttr(input), { wrapNumbers: true })).toEqual(
+        Object.entries(input).reduce(
+          (acc, [key, num]) => ({
+            ...acc,
+            [key]: { value: num.toString() },
+          }),
+          {}
+        )
+      );
     });
   });
 
