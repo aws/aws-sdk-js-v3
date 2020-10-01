@@ -19,6 +19,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/util-arn-parser": "1.0.0-gamma.3",
+    "@aws-sdk/protocol-http": "1.0.0-gamma.7",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

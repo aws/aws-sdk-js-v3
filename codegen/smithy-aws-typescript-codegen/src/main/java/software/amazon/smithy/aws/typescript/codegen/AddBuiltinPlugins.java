@@ -100,7 +100,12 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .servicePredicate((m, s) -> testServiceId(s, "API Gateway"))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.VALIDATE_BUCKET_NAME.dependency, "ValidateBucketName",
+                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "ValidateBucketName",
+                                         HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "UseRegionalEndpoint",
                                          HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "S3"))
                         .build(),
