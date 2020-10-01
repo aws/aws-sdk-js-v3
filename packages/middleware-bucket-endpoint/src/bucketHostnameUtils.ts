@@ -32,12 +32,17 @@ export const isBucketNameOptions = (
   options: BucketHostnameParams | ArnHostnameParams
 ): options is BucketHostnameParams => typeof options.bucketName === "string";
 
+/**
+ * Get pseudo region from supplied region. For example, if supplied with `fips-us-west-2`, it returns `us-west-2`.
+ * @internal
+ */
 export const getPseudoRegion = (region: string) => (isFipsRegion(region) ? region.replace(/fips-|-fips/, "") : region);
 
 /**
  * Determines whether a given string is DNS compliant per the rules outlined by
  * S3. Length, capitaization, and leading dot restrictions are enforced by the
  * DOMAIN_PATTERN regular expression.
+ * @internal
  *
  * @see https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html
  */
@@ -52,6 +57,12 @@ const getRegionalSuffix = (hostname: string): [string, string] => {
 export const getSuffix = (hostname: string): [string, string] =>
   S3_US_EAST_1_ALTNAME_PATTERN.test(hostname) ? ["us-east-1", AWS_PARTITION_SUFFIX] : getRegionalSuffix(hostname);
 
+/**
+ * Infer region and hostname suffix from a complete hostname
+ * @internal
+ * @param hostname - Hostname
+ * @returns [Region, Hostname suffix]
+ */
 export const getSuffixForArnEndpoint = (hostname: string): [string, string] =>
   S3_US_EAST_1_ALTNAME_PATTERN.test(hostname)
     ? [hostname.replace(`.${AWS_PARTITION_SUFFIX}`, ""), AWS_PARTITION_SUFFIX]
@@ -91,12 +102,22 @@ export const validateOutpostService = (service: string) => {
   }
 };
 
+/**
+ * Validate partition inferred from ARN is the same to `options.clientPartition`.
+ * @internal
+ */
 export const validatePartition = (partition: string, options: { clientPartition: string }) => {
   if (partition !== options.clientPartition) {
     throw new Error(`Partition in ARN is incompatible, got "${partition}" but expected "${options.clientPartition}"`);
   }
 };
 
+/**
+ * validate region value inferred from ARN. If `options.useArnRegion` is set, it validates the region is not a FIPS
+ * region. If `options.useArnRegion` is unset, it validates the region is equal to `options.clientRegion` or
+ * `options.clientSigningRegion`.
+ * @internal
+ */
 export const validateRegion = (
   region: string,
   options: {
@@ -125,12 +146,20 @@ const isFipsRegion = (region: string) => region.startsWith("fips-") || region.en
 const isEqualRegions = (regionA: string, regionB: string) =>
   regionA === regionB || getPseudoRegion(regionA) === regionB || regionA === getPseudoRegion(regionB);
 
+/**
+ * Validate an account ID
+ * @internal
+ */
 export const validateAccountId = (accountId: string) => {
   if (!/[0-9]{12}/.exec(accountId)) {
     throw new Error("Access point ARN accountID does not match regex '[0-9]{12}'");
   }
 };
 
+/**
+ * Validate a host label according to https://tools.ietf.org/html/rfc3986#section-3.2.2
+ * @internal
+ */
 export const validateDNSHostLabel = (label: string, options: { tlsCompatible?: boolean } = { tlsCompatible: true }) => {
   // reference: https://tools.ietf.org/html/rfc3986#section-3.2.2
   if (
@@ -144,6 +173,13 @@ export const validateDNSHostLabel = (label: string, options: { tlsCompatible?: b
   }
 };
 
+/**
+ * Validate and parse an Access Point ARN or Outposts ARN
+ * @internal
+ *
+ * @param resource - The resource section of an ARN
+ * @returns Access Point Name and optional Outpost ID.
+ */
 export const getArnResources = (
   resource: string
 ): {
@@ -172,10 +208,18 @@ export const getArnResources = (
   }
 };
 
+/**
+ * Throw if dual stack configuration is set to true.
+ * @internal
+ */
 export const validateNoDualstack = (dualstackEndpoint: boolean) => {
   if (dualstackEndpoint) throw new Error("Dualstack endpoint is not supported with Outpost");
 };
 
+/**
+ * Validate region is not appended or prepended with a `fips-`
+ * @internal
+ */
 export const validateNoFIPS = (region: string) => {
   if (isFipsRegion(region ?? "")) throw new Error(`FIPS region is not supported with Outpost, got ${region}`);
 };
