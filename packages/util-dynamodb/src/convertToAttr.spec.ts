@@ -136,8 +136,8 @@ describe("convertToAttr", () => {
         output: [{ NULL: true }, { BOOL: false }],
       },
       {
-        input: [1.01, BigInt(1), "one"],
-        output: [{ N: "1.01" }, { N: "1" }, { S: "one" }],
+        input: [1.01, BigInt(9007199254740996), "one"],
+        output: [{ N: "1.01" }, { N: "9007199254740996" }, { S: "one" }],
       },
       {
         input: [uint8Arr, biguintArr],
@@ -233,8 +233,8 @@ describe("convertToAttr", () => {
         output: { nullKey: { NULL: true }, boolKey: { BOOL: false } },
       },
       {
-        input: { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(1) },
-        output: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "1" } },
+        input: { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
+        output: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } },
       },
       {
         input: { uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
