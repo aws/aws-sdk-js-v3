@@ -5,22 +5,26 @@ import {
   BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
-  Endpoint,
   MetadataBearer,
   Pluggable,
   Provider,
 } from "@aws-sdk/types";
 
-export function useRegionalEndpointMiddleware(config: {
+type PreviouslyResolved = {
   region: Provider<string>;
-  endpoint: Provider<Endpoint>;
-}): BuildMiddleware<any, any> {
+  isCustomEndpoint: boolean;
+};
+
+export function useRegionalEndpointMiddleware(config: PreviouslyResolved): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
     const { request } = args;
-    if (HttpRequest.isInstance(request) && request.hostname === "s3.amazonaws.com") {
+    if (!HttpRequest.isInstance(request) || config.isCustomEndpoint) return next({ ...args });
+    if (request.hostname === "s3.amazonaws.com") {
       request.hostname = "s3.us-east-1.amazonaws.com";
+    } else if ("aws-global" === (await config.region())) {
+      request.hostname = "s3.amazonaws.com";
     }
     return next({ ...args });
   };
@@ -32,9 +36,8 @@ export const useRegionalEndpointMiddlewareOptions: BuildHandlerOptions = {
   name: "useRegionalEndpointMiddleware",
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const getUseRegionalEndpointPlugin = (unused: any): Pluggable<any, any> => ({
+export const getUseRegionalEndpointPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
-    clientStack.add(useRegionalEndpointMiddleware(), useRegionalEndpointMiddlewareOptions);
+    clientStack.add(useRegionalEndpointMiddleware(config), useRegionalEndpointMiddlewareOptions);
   },
 });
