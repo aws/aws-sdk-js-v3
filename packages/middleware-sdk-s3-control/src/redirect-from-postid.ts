@@ -10,6 +10,7 @@ type InputType = {
 };
 
 /**
+ * If OutpostId is set, redirect hostname to outpost one, and change signing service to `s3-outposts`.
  * Applied to S3Control.CreateBucket and S3Control.ListRegionalBuckets
  */
 export const redirectFromPostIdMiddleware: BuildMiddleware<InputType, any> = (next, context) => (args) => {

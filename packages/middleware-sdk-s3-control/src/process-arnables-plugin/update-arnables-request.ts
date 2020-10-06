@@ -7,6 +7,10 @@ const ACCOUNT_ID_HEADER = "x-amz-account-id";
 const OUTPOST_ID_HEADER = "x-amz-outpost-id";
 const REGEX_S3CONTROL_HOSTNAME = /^(.+\.)?s3-control[.-]([a-z0-9-]+)\./;
 
+/**
+ * After outpost request is constructed, redirect request to outpost endpoint and set `x-amz-account-id` and
+ * `x-amz-outpost-id` headers.
+ */
 export const updateArnablesRequestMiddleware: BuildMiddleware<any, any> = (next, context) => (args) => {
   const { request } = args;
   if (!HttpRequest.isInstance(request)) return next(args);

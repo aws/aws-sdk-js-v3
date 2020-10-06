@@ -20,6 +20,11 @@ type ArnableInput = {
   AccountId?: string;
 };
 
+/**
+ * Validate input `Name` or `Bucket` parameter is acceptable ARN format. If so, modify the input ARN to inferred
+ * resource identifier, notify later middleware to redirect request to Outpost endpoint, signing service and signing
+ * region.
+ */
 export const parseOutpostArnablesMiddleaware = (
   options: S3ControlResolvedConfig
 ): InitializeMiddleware<ArnableInput, any> => (next, context) => async (args) => {
