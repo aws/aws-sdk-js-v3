@@ -73,4 +73,22 @@ describe("Accesspoint ARN", async () => {
     // Sign request with us-west-2 region from bucket access point ARN
     expect(result.request.headers.authorization).to.contain("/us-west-2/s3/aws4_request, SignedHeaders=");
   });
+
+  it("should succeed with outposts ARN", async () => {
+    const OutpostId = "op-01234567890123456";
+    const AccountId = "123456789012";
+    const region = "us-west-2";
+    const credentials = { accessKeyId: "key", secretAccessKey: "secret" };
+    const client = new S3({ region: "us-east-1", credentials, useArnRegion: true });
+    client.middlewareStack.add(endpointValidator, { step: "finalizeRequest", priority: "low" });
+    const result: any = await client.putObject({
+      Bucket: `arn:aws:s3-outposts:${region}:${AccountId}:outpost/${OutpostId}/accesspoint/abc-111`,
+      Key: "key",
+      Body: "body",
+    });
+    expect(result.request.hostname).to.eql(`abc-111-${AccountId}.${OutpostId}.s3-outposts.us-west-2.amazonaws.com`);
+    expect(result.request.headers["authorization"]).contains(
+      `Credential=${credentials.accessKeyId}/20200928/${region}/s3-outposts/aws4_request`
+    );
+  });
 });
