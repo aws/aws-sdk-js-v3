@@ -87,6 +87,7 @@ type ValidateOutpostsArnOptions = {
   useArnRegion: boolean;
   useDualstackEndpoint: boolean;
 };
+
 /**
  * validate ARN with 's3-outposts' in the service section of the ARN:
  * ARN supplied to 'Name' parameter should comply template:

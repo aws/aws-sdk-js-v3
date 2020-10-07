@@ -3,5 +3,5 @@ export { parseOutpostArnablesMiddleaware, parseOutpostArnablesMiddleawareOptions
 export {
   updateArnablesRequestMiddleware,
   updateArnablesRequestMiddlewareOptions,
-  replaceHostname,
+  getOutpostEndpoint,
 } from "./update-arnables-request";

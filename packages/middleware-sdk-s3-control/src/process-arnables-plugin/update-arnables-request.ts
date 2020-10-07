@@ -17,12 +17,12 @@ export const updateArnablesRequestMiddleware: BuildMiddleware<any, any> = (next,
   if (context[CONTEXT_ACCOUNT_ID]) request.headers[ACCOUNT_ID_HEADER] = context[CONTEXT_ACCOUNT_ID];
   if (context[CONTEXT_OUTPOST_ID]) {
     request.headers[OUTPOST_ID_HEADER] = context[CONTEXT_OUTPOST_ID];
-    request.hostname = replaceHostname(request.hostname, context[CONTEXT_ARN_REGION]);
+    request.hostname = getOutpostEndpoint(request.hostname, context[CONTEXT_ARN_REGION]);
   }
   return next(args);
 };
 
-export const replaceHostname = (hostname: string, regionOverride?: string): string => {
+export const getOutpostEndpoint = (hostname: string, regionOverride?: string): string => {
   const [matched, prefix, region] = hostname.match(REGEX_S3CONTROL_HOSTNAME)!;
   // hostname prefix will be ignored even if presents
   return ["s3-outposts", regionOverride || region, hostname.replace(new RegExp(`^${matched}`), "")]
