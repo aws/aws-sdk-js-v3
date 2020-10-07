@@ -32,7 +32,7 @@ public enum AwsDependency implements SymbolDependencyContainer {
     MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing", "^1.0.0-beta.1"),
     CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/credential-provider-node", "^1.0.0-beta.1"),
     ACCEPT_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-api-gateway", "^1.0.0-beta.1"),
-    VALIDATE_BUCKET_NAME(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3", "^1.0.0-beta.1"),
+    S3_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3", "^1.0.0-beta.1"),
     ADD_EXPECT_CONTINUE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-expect-continue", "^1.0.0-beta.1"),
     GLACIER_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-glacier", "^1.0.0-beta.1"),
     MACHINELEARNING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-machinelearning", "^1.0.0-beta.1"),
