@@ -1,10 +1,10 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { UpdateJobStatusRequest, UpdateJobStatusResult } from "../models/models_0";
+import { ListRegionalBucketsRequest, ListRegionalBucketsResult } from "../models/models_0";
 import {
-  deserializeAws_restXmlUpdateJobStatusCommand,
-  serializeAws_restXmlUpdateJobStatusCommand,
+  deserializeAws_restXmlListRegionalBucketsCommand,
+  serializeAws_restXmlListRegionalBucketsCommand,
 } from "../protocols/Aws_restXml";
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
+import { getRedirectFromPostIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,18 +18,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateJobStatusCommandInput = UpdateJobStatusRequest;
-export type UpdateJobStatusCommandOutput = UpdateJobStatusResult & __MetadataBearer;
+export type ListRegionalBucketsCommandInput = ListRegionalBucketsRequest;
+export type ListRegionalBucketsCommandOutput = ListRegionalBucketsResult & __MetadataBearer;
 
-export class UpdateJobStatusCommand extends $Command<
-  UpdateJobStatusCommandInput,
-  UpdateJobStatusCommandOutput,
+export class ListRegionalBucketsCommand extends $Command<
+  ListRegionalBucketsCommandInput,
+  ListRegionalBucketsCommandOutput,
   S3ControlClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: UpdateJobStatusCommandInput) {
+  constructor(readonly input: ListRegionalBucketsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -39,17 +39,17 @@ export class UpdateJobStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput> {
+  ): Handler<ListRegionalBucketsCommandInput, ListRegionalBucketsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getProcessArnablesPlugin(configuration));
+    this.middlewareStack.use(getRedirectFromPostIdPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterSensitiveLog: UpdateJobStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobStatusResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRegionalBucketsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRegionalBucketsResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -59,12 +59,12 @@ export class UpdateJobStatusCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateJobStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateJobStatusCommand(input, context);
+  private serialize(input: ListRegionalBucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlListRegionalBucketsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobStatusCommandOutput> {
-    return deserializeAws_restXmlUpdateJobStatusCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegionalBucketsCommandOutput> {
+    return deserializeAws_restXmlListRegionalBucketsCommand(output, context);
   }
 
   // Start section: command_body_extra

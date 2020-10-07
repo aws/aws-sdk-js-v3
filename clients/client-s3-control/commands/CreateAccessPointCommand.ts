@@ -1,9 +1,10 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { CreateAccessPointRequest } from "../models/models_0";
+import { CreateAccessPointRequest, CreateAccessPointResult } from "../models/models_0";
 import {
   deserializeAws_restXmlCreateAccessPointCommand,
   serializeAws_restXmlCreateAccessPointCommand,
 } from "../protocols/Aws_restXml";
+import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -18,7 +19,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateAccessPointCommandInput = CreateAccessPointRequest;
-export type CreateAccessPointCommandOutput = __MetadataBearer;
+export type CreateAccessPointCommandOutput = CreateAccessPointResult & __MetadataBearer;
 
 export class CreateAccessPointCommand extends $Command<
   CreateAccessPointCommandInput,
@@ -40,6 +41,7 @@ export class CreateAccessPointCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAccessPointCommandInput, CreateAccessPointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getProcessArnablesPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -47,7 +49,7 @@ export class CreateAccessPointCommand extends $Command<
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       inputFilterSensitiveLog: CreateAccessPointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: CreateAccessPointResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

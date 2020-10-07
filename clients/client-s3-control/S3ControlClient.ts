@@ -1,10 +1,21 @@
 import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "./commands/CreateAccessPointCommand";
+import { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand";
 import {
   DeleteAccessPointPolicyCommandInput,
   DeleteAccessPointPolicyCommandOutput,
 } from "./commands/DeleteAccessPointPolicyCommand";
+import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand";
+import {
+  DeleteBucketLifecycleConfigurationCommandInput,
+  DeleteBucketLifecycleConfigurationCommandOutput,
+} from "./commands/DeleteBucketLifecycleConfigurationCommand";
+import { DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput } from "./commands/DeleteBucketPolicyCommand";
+import {
+  DeleteBucketTaggingCommandInput,
+  DeleteBucketTaggingCommandOutput,
+} from "./commands/DeleteBucketTaggingCommand";
 import { DeleteJobTaggingCommandInput, DeleteJobTaggingCommandOutput } from "./commands/DeleteJobTaggingCommand";
 import {
   DeletePublicAccessBlockCommandInput,
@@ -20,6 +31,13 @@ import {
   GetAccessPointPolicyStatusCommandInput,
   GetAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusCommand";
+import { GetBucketCommandInput, GetBucketCommandOutput } from "./commands/GetBucketCommand";
+import {
+  GetBucketLifecycleConfigurationCommandInput,
+  GetBucketLifecycleConfigurationCommandOutput,
+} from "./commands/GetBucketLifecycleConfigurationCommand";
+import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand";
+import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand";
 import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "./commands/GetJobTaggingCommand";
 import {
   GetPublicAccessBlockCommandInput,
@@ -28,9 +46,19 @@ import {
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
+  ListRegionalBucketsCommandInput,
+  ListRegionalBucketsCommandOutput,
+} from "./commands/ListRegionalBucketsCommand";
+import {
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput,
 } from "./commands/PutAccessPointPolicyCommand";
+import {
+  PutBucketLifecycleConfigurationCommandInput,
+  PutBucketLifecycleConfigurationCommandOutput,
+} from "./commands/PutBucketLifecycleConfigurationCommand";
+import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand";
+import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand";
 import { PutJobTaggingCommandInput, PutJobTaggingCommandOutput } from "./commands/PutJobTaggingCommand";
 import {
   PutPublicAccessBlockCommandInput,
@@ -56,7 +84,11 @@ import {
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
-import { getPrependAccountIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
+import {
+  S3ControlInputConfig,
+  S3ControlResolvedConfig,
+  resolveS3ControlConfig,
+} from "@aws-sdk/middleware-sdk-s3-control";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -90,20 +122,33 @@ import {
 
 export type ServiceInputTypes =
   | CreateAccessPointCommandInput
+  | CreateBucketCommandInput
   | CreateJobCommandInput
   | DeleteAccessPointCommandInput
   | DeleteAccessPointPolicyCommandInput
+  | DeleteBucketCommandInput
+  | DeleteBucketLifecycleConfigurationCommandInput
+  | DeleteBucketPolicyCommandInput
+  | DeleteBucketTaggingCommandInput
   | DeleteJobTaggingCommandInput
   | DeletePublicAccessBlockCommandInput
   | DescribeJobCommandInput
   | GetAccessPointCommandInput
   | GetAccessPointPolicyCommandInput
   | GetAccessPointPolicyStatusCommandInput
+  | GetBucketCommandInput
+  | GetBucketLifecycleConfigurationCommandInput
+  | GetBucketPolicyCommandInput
+  | GetBucketTaggingCommandInput
   | GetJobTaggingCommandInput
   | GetPublicAccessBlockCommandInput
   | ListAccessPointsCommandInput
   | ListJobsCommandInput
+  | ListRegionalBucketsCommandInput
   | PutAccessPointPolicyCommandInput
+  | PutBucketLifecycleConfigurationCommandInput
+  | PutBucketPolicyCommandInput
+  | PutBucketTaggingCommandInput
   | PutJobTaggingCommandInput
   | PutPublicAccessBlockCommandInput
   | UpdateJobPriorityCommandInput
@@ -111,20 +156,33 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | CreateAccessPointCommandOutput
+  | CreateBucketCommandOutput
   | CreateJobCommandOutput
   | DeleteAccessPointCommandOutput
   | DeleteAccessPointPolicyCommandOutput
+  | DeleteBucketCommandOutput
+  | DeleteBucketLifecycleConfigurationCommandOutput
+  | DeleteBucketPolicyCommandOutput
+  | DeleteBucketTaggingCommandOutput
   | DeleteJobTaggingCommandOutput
   | DeletePublicAccessBlockCommandOutput
   | DescribeJobCommandOutput
   | GetAccessPointCommandOutput
   | GetAccessPointPolicyCommandOutput
   | GetAccessPointPolicyStatusCommandOutput
+  | GetBucketCommandOutput
+  | GetBucketLifecycleConfigurationCommandOutput
+  | GetBucketPolicyCommandOutput
+  | GetBucketTaggingCommandOutput
   | GetJobTaggingCommandOutput
   | GetPublicAccessBlockCommandOutput
   | ListAccessPointsCommandOutput
   | ListJobsCommandOutput
+  | ListRegionalBucketsCommandOutput
   | PutAccessPointPolicyCommandOutput
+  | PutBucketLifecycleConfigurationCommandOutput
+  | PutBucketPolicyCommandOutput
+  | PutBucketTaggingCommandOutput
   | PutJobTaggingCommandOutput
   | PutPublicAccessBlockCommandOutput
   | UpdateJobPriorityCommandOutput
@@ -231,7 +289,8 @@ export type S3ControlClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   AwsAuthInputConfig &
   RetryInputConfig &
   UserAgentInputConfig &
-  HostHeaderInputConfig;
+  HostHeaderInputConfig &
+  S3ControlInputConfig;
 
 export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
@@ -240,7 +299,8 @@ export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   AwsAuthResolvedConfig &
   RetryResolvedConfig &
   UserAgentResolvedConfig &
-  HostHeaderResolvedConfig;
+  HostHeaderResolvedConfig &
+  S3ControlResolvedConfig;
 
 /**
  * <p>
@@ -266,13 +326,13 @@ export class S3ControlClient extends __Client<
     let _config_4 = resolveRetryConfig(_config_3);
     let _config_5 = resolveUserAgentConfig(_config_4);
     let _config_6 = resolveHostHeaderConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    let _config_7 = resolveS3ControlConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
-    this.middlewareStack.use(getPrependAccountIdPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
   }

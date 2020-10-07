@@ -1,8 +1,8 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { UpdateJobStatusRequest, UpdateJobStatusResult } from "../models/models_0";
+import { PutBucketPolicyRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlUpdateJobStatusCommand,
-  serializeAws_restXmlUpdateJobStatusCommand,
+  deserializeAws_restXmlPutBucketPolicyCommand,
+  serializeAws_restXmlPutBucketPolicyCommand,
 } from "../protocols/Aws_restXml";
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -18,18 +18,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateJobStatusCommandInput = UpdateJobStatusRequest;
-export type UpdateJobStatusCommandOutput = UpdateJobStatusResult & __MetadataBearer;
+export type PutBucketPolicyCommandInput = PutBucketPolicyRequest;
+export type PutBucketPolicyCommandOutput = __MetadataBearer;
 
-export class UpdateJobStatusCommand extends $Command<
-  UpdateJobStatusCommandInput,
-  UpdateJobStatusCommandOutput,
+export class PutBucketPolicyCommand extends $Command<
+  PutBucketPolicyCommandInput,
+  PutBucketPolicyCommandOutput,
   S3ControlClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: UpdateJobStatusCommandInput) {
+  constructor(readonly input: PutBucketPolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -39,7 +39,7 @@ export class UpdateJobStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput> {
+  ): Handler<PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getProcessArnablesPlugin(configuration));
 
@@ -48,8 +48,8 @@ export class UpdateJobStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterSensitiveLog: UpdateJobStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobStatusResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBucketPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -59,12 +59,12 @@ export class UpdateJobStatusCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateJobStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateJobStatusCommand(input, context);
+  private serialize(input: PutBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlPutBucketPolicyCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobStatusCommandOutput> {
-    return deserializeAws_restXmlUpdateJobStatusCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketPolicyCommandOutput> {
+    return deserializeAws_restXmlPutBucketPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

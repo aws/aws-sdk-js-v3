@@ -8,6 +8,7 @@ software.amazon.smithy.aws.typescript.codegen.AddMd5HashDependency
 software.amazon.smithy.aws.typescript.codegen.AddStreamHasherDependency
 software.amazon.smithy.aws.typescript.codegen.AddBodyChecksumGeneratorDependency
 software.amazon.smithy.aws.typescript.codegen.AddS3Config
+software.amazon.smithy.aws.typescript.codegen.AddS3ControlDependency
 software.amazon.smithy.aws.typescript.codegen.AddEventStreamHandlingDependency
 software.amazon.smithy.aws.typescript.codegen.AddHttp2Dependency
 software.amazon.smithy.aws.typescript.codegen.AddTranscribeStreamingDependency
