@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.9](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-bucket-endpoint@1.0.0-gamma.8...@aws-sdk/middleware-bucket-endpoint@1.0.0-gamma.9) (2020-10-07)
+
+
+### Features
+
+* **middleware-bucket-endpoint:** support Outposts buckets ([#1550](https://github.com/aws/aws-sdk-js-v3/issues/1550)) ([c7915d2](https://github.com/aws/aws-sdk-js-v3/commit/c7915d263821191236504c0f580c35da7a33ebad))
+
+
+
+
+
 # [1.0.0-gamma.8](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-bucket-endpoint@1.0.0-gamma.7...@aws-sdk/middleware-bucket-endpoint@1.0.0-gamma.8) (2020-09-15)
 
 **Note:** Version bump only for package @aws-sdk/middleware-bucket-endpoint

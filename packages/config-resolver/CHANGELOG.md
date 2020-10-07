@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.9](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/config-resolver@1.0.0-gamma.8...@aws-sdk/config-resolver@1.0.0-gamma.9) (2020-10-07)
+
+
+### Features
+
+* **config-resolver:** add isCustomEndpoint resolved config ([#1551](https://github.com/aws/aws-sdk-js-v3/issues/1551)) ([92e1fc4](https://github.com/aws/aws-sdk-js-v3/commit/92e1fc4939fda66b8aedb69b4a0ab498aca1ff23))
+
+
+
+
+
 # [1.0.0-gamma.8](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/config-resolver@1.0.0-gamma.7...@aws-sdk/config-resolver@1.0.0-gamma.8) (2020-09-15)
 
 **Note:** Version bump only for package @aws-sdk/config-resolver

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-cognito-identity",
-  "version": "1.0.0-gamma.10",
+  "version": "1.0.0-gamma.11",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -19,9 +19,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-cognito-identity": "1.0.0-gamma.10",
-    "@aws-sdk/property-provider": "1.0.0-gamma.7",
-    "@aws-sdk/types": "1.0.0-gamma.6",
+    "@aws-sdk/client-cognito-identity": "1.0.0-gamma.11",
+    "@aws-sdk/property-provider": "1.0.0-gamma.8",
+    "@aws-sdk/types": "1.0.0-gamma.7",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.11](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/client-s3@1.0.0-gamma.10...@aws-sdk/client-s3@1.0.0-gamma.11) (2020-10-07)
+
+
+### Features
+
+* **client-s3:** use regional endpoint by default and support aws-global region ([#1552](https://github.com/aws/aws-sdk-js-v3/issues/1552)) ([47c6599](https://github.com/aws/aws-sdk-js-v3/commit/47c6599ecc6863207438731c6af57de7891d341c))
+* **middleware-bucket-endpoint:** support Outposts buckets ([#1550](https://github.com/aws/aws-sdk-js-v3/issues/1550)) ([c7915d2](https://github.com/aws/aws-sdk-js-v3/commit/c7915d263821191236504c0f580c35da7a33ebad))
+
+
+
+
+
 # [1.0.0-gamma.10](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/client-s3@1.0.0-gamma.9...@aws-sdk/client-s3@1.0.0-gamma.10) (2020-09-29)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

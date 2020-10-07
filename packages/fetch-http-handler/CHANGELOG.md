@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.10](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/fetch-http-handler@1.0.0-gamma.9...@aws-sdk/fetch-http-handler@1.0.0-gamma.10) (2020-10-07)
+
+**Note:** Version bump only for package @aws-sdk/fetch-http-handler
+
+
+
+
+
 # [1.0.0-gamma.9](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/fetch-http-handler@1.0.0-gamma.8...@aws-sdk/fetch-http-handler@1.0.0-gamma.9) (2020-09-15)
 
 **Note:** Version bump only for package @aws-sdk/fetch-http-handler

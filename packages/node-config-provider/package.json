@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/node-config-provider",
-  "version": "1.0.0-gamma.3",
+  "version": "1.0.0-gamma.4",
   "description": "Load config default values from ini config files and environmental variable",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
@@ -20,9 +20,9 @@
   "module": "./dist/es/index.js",
   "types": "./dist/cjs/index.d.ts",
   "dependencies": {
-    "@aws-sdk/property-provider": "1.0.0-gamma.7",
-    "@aws-sdk/shared-ini-file-loader": "1.0.0-gamma.7",
-    "@aws-sdk/types": "1.0.0-gamma.6",
+    "@aws-sdk/property-provider": "1.0.0-gamma.8",
+    "@aws-sdk/shared-ini-file-loader": "1.0.0-gamma.8",
+    "@aws-sdk/types": "1.0.0-gamma.7",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

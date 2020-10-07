@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.8](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-s3@1.0.0-gamma.7...@aws-sdk/middleware-sdk-s3@1.0.0-gamma.8) (2020-10-07)
+
+
+### Features
+
+* **client-s3:** use regional endpoint by default and support aws-global region ([#1552](https://github.com/aws/aws-sdk-js-v3/issues/1552)) ([47c6599](https://github.com/aws/aws-sdk-js-v3/commit/47c6599ecc6863207438731c6af57de7891d341c))
+
+
+
+
+
 # [1.0.0-gamma.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-s3@1.0.0-gamma.6...@aws-sdk/middleware-sdk-s3@1.0.0-gamma.7) (2020-09-01)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-s3

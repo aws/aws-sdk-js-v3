@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-gamma.8](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-s3-control@1.0.0-gamma.7...@aws-sdk/middleware-sdk-s3-control@1.0.0-gamma.8) (2020-10-07)
+
+
+### Features
+
+* **s3-control:** support S3 Outposts control plane ([#1553](https://github.com/aws/aws-sdk-js-v3/issues/1553)) ([0439946](https://github.com/aws/aws-sdk-js-v3/commit/043994681b2d1d90a628797c48e752d522a64f24))
+
+
+
+
+
 # [1.0.0-gamma.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-s3-control@1.0.0-gamma.6...@aws-sdk/middleware-sdk-s3-control@1.0.0-gamma.7) (2020-09-01)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-s3-control
