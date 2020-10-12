@@ -37,5 +37,8 @@
       "/node_modules/",
       "<rootDir>/*.mock.ts"
     ]
+  },
+  "engines": {
+    "node": ">= 10.0.0"
   }
 }
