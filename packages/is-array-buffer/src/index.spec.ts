@@ -26,7 +26,7 @@ describe("isArrayBuffer", () => {
 
   it("should return true for ArrayBuffers created with a different instance of the ArrayBuffer constructor", () => {
     const buffer = new ArrayBuffer(0);
-    (ArrayBuffer as any) = () => buffer;
+    (ArrayBuffer as any) = jest.fn(() => buffer);
 
     expect(buffer).not.toBeInstanceOf(ArrayBuffer);
     expect(isArrayBuffer(buffer)).toBe(true);
