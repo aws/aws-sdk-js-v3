@@ -26,5 +26,8 @@
   },
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
-  "types": "./dist/cjs/index.d.ts"
+  "types": "./dist/cjs/index.d.ts",
+  "engines": {
+    "node": ">= 10.0.0"
+  }
 }

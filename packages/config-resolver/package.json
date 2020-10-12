@@ -28,5 +28,8 @@
     "@aws-sdk/signature-v4": "1.0.0-gamma.8",
     "@aws-sdk/types": "1.0.0-gamma.7",
     "tslib": "^1.8.0"
+  },
+  "engines": {
+    "node": ">= 10.0.0"
   }
 }

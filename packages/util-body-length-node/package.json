@@ -26,5 +26,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "tslib": "^1.8.0"
+  },
+  "engines": {
+    "node": ">= 10.0.0"
   }
 }
