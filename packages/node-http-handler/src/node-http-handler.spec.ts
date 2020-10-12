@@ -7,7 +7,13 @@ import https from "https";
 import { AddressInfo } from "net";
 
 import { NodeHttpHandler } from "./node-http-handler";
-import { createMockHttpServer, createMockHttpsServer, createResponseFunction } from "./server.mock";
+import { ReadFromBuffers } from "./readable.mock";
+import {
+  createContinueResponseFunction,
+  createMockHttpServer,
+  createMockHttpsServer,
+  createResponseFunction,
+} from "./server.mock";
 
 describe("NodeHttpHandler", () => {
   describe("constructor", () => {
@@ -35,10 +41,12 @@ describe("NodeHttpHandler", () => {
     afterAll(() => {
       mockHttpServer.close();
     });
+
     it("has metadata", () => {
       const nodeHttpHandler = new NodeHttpHandler();
       expect(nodeHttpHandler.metadata.handlerProtocol).toContain("http/1.1");
     });
+
     it("can send http requests", async () => {
       const mockResponse = {
         statusCode: 200,
@@ -64,6 +72,152 @@ describe("NodeHttpHandler", () => {
       expect(response.headers).toBeDefined();
       expect(response.headers).toMatchObject(mockResponse.headers);
       expect(response.body).toBeDefined();
+    });
+
+    it("can send requests with bodies", async () => {
+      const body = Buffer.from("test");
+      const mockResponse = {
+        statusCode: 200,
+        headers: {},
+      };
+      mockHttpServer.addListener("request", createResponseFunction(mockResponse));
+      const spy = jest.spyOn(http, "request").mockImplementationOnce(() => {
+        const calls = spy.mock.calls;
+        const currentIndex = calls.length - 1;
+        return http.request(calls[currentIndex][0], calls[currentIndex][1]);
+      });
+
+      const nodeHttpHandler = new NodeHttpHandler();
+      const { response } = await nodeHttpHandler.handle(
+        new HttpRequest({
+          hostname: "localhost",
+          method: "PUT",
+          port: (mockHttpServer.address() as AddressInfo).port,
+          protocol: "http:",
+          path: "/",
+          headers: {},
+          body,
+        }),
+        {}
+      );
+
+      expect(response.statusCode).toEqual(mockResponse.statusCode);
+      expect(response.headers).toBeDefined();
+      expect(response.headers).toMatchObject(mockResponse.headers);
+    });
+
+    it("can handle expect 100-continue", async () => {
+      const body = Buffer.from("test");
+      const mockResponse = {
+        statusCode: 200,
+        headers: {},
+      };
+
+      mockHttpServer.addListener("checkContinue", createContinueResponseFunction(mockResponse));
+      let endSpy: jest.SpyInstance<any>;
+      let continueWasTriggered = false;
+      const spy = jest.spyOn(http, "request").mockImplementationOnce(() => {
+        const calls = spy.mock.calls;
+        const currentIndex = calls.length - 1;
+        const request = http.request(calls[currentIndex][0], calls[currentIndex][1]);
+        request.on("continue", () => {
+          continueWasTriggered = true;
+        });
+        endSpy = jest.spyOn(request, "end");
+
+        return request;
+      });
+
+      const nodeHttpHandler = new NodeHttpHandler();
+      const { response } = await nodeHttpHandler.handle(
+        new HttpRequest({
+          hostname: "localhost",
+          method: "PUT",
+          port: (mockHttpServer.address() as AddressInfo).port,
+          protocol: "http:",
+          path: "/",
+          headers: {
+            Expect: "100-continue",
+          },
+          body,
+        }),
+        {}
+      );
+
+      expect(response.statusCode).toEqual(mockResponse.statusCode);
+      expect(response.headers).toBeDefined();
+      expect(response.headers).toMatchObject(mockResponse.headers);
+      expect(endSpy!.mock.calls.length).toBe(1);
+      expect(endSpy!.mock.calls[0][0]).toStrictEqual(body);
+      expect(continueWasTriggered).toBe(true);
+    });
+
+    it("can send requests with streaming bodies", async () => {
+      const body = new ReadFromBuffers({
+        buffers: [Buffer.from("t"), Buffer.from("e"), Buffer.from("s"), Buffer.from("t")],
+      });
+      const inputBodySpy = jest.spyOn(body, "pipe");
+      const mockResponse = {
+        statusCode: 200,
+        headers: {},
+      };
+      mockHttpServer.addListener("request", createResponseFunction(mockResponse));
+      const nodeHttpHandler = new NodeHttpHandler();
+
+      const { response } = await nodeHttpHandler.handle(
+        new HttpRequest({
+          hostname: "localhost",
+          method: "PUT",
+          port: (mockHttpServer.address() as AddressInfo).port,
+          protocol: "http:",
+          path: "/",
+          headers: {},
+          body,
+        }),
+        {}
+      );
+
+      expect(response.statusCode).toEqual(mockResponse.statusCode);
+      expect(response.headers).toBeDefined();
+      expect(response.headers).toMatchObject(mockResponse.headers);
+      expect(inputBodySpy.mock.calls.length).toBeTruthy();
+    });
+
+    it("can send requests with Uint8Array bodies", async () => {
+      const body = Buffer.from([0, 1, 2, 3]);
+      const mockResponse = {
+        statusCode: 200,
+        headers: {},
+      };
+      mockHttpServer.addListener("request", createResponseFunction(mockResponse));
+      let endSpy: jest.SpyInstance<any>;
+      const spy = jest.spyOn(http, "request").mockImplementationOnce(() => {
+        const calls = spy.mock.calls;
+        const currentIndex = calls.length - 1;
+        const request = http.request(calls[currentIndex][0], calls[currentIndex][1]);
+        endSpy = jest.spyOn(request, "end");
+        return request;
+      });
+
+      const nodeHttpHandler = new NodeHttpHandler();
+      const { response } = await nodeHttpHandler.handle(
+        new HttpRequest({
+          hostname: "localhost",
+          method: "PUT",
+          port: (mockHttpServer.address() as AddressInfo).port,
+          protocol: "http:",
+          path: "/",
+          headers: {},
+          body,
+        }),
+        {}
+      );
+
+      expect(response.statusCode).toEqual(mockResponse.statusCode);
+      expect(response.headers).toBeDefined();
+      expect(response.headers).toMatchObject(mockResponse.headers);
+      expect(endSpy!.mock.calls.length).toBe(1);
+      expect(endSpy!.mock.calls[0][0]).toStrictEqual(body);
     });
   });
 
