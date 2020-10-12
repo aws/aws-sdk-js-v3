@@ -6,7 +6,6 @@
     "downlevelIteration": true,
     "importHelpers": true,
     "noEmitHelpers": true,
-    "lib": ["dom"],
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "declarationDir": "./dist/cjs",

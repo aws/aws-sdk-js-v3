@@ -6,7 +6,6 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
-    "lib": ["dom", "es5", "es2015.collection"],
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "importHelpers": true,

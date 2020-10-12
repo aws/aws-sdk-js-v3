@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "lib": ["DOM"],
     "sourceMap": true,
     "strict": true,
     "stripInternal": true,

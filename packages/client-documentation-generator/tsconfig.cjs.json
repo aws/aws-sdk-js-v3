@@ -6,15 +6,13 @@
     "downlevelIteration": true,
     "importHelpers": true,
     "noEmitHelpers": true,
-    "lib": ["es2015"],
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "experimentalDecorators": true,
     "pretty": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "baseUrl": ".",
-    "target": "ES2015"
+    "baseUrl": "."
   },
   "extends": "../../tsconfig.cjs.json",
   "include": ["src/"]
