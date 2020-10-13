@@ -16,13 +16,13 @@ export function writeRequestBody(httpRequest: ClientRequest | ClientHttp2Stream,
 
 function writeBody(
   httpRequest: ClientRequest | ClientHttp2Stream,
-  body?: string | ArrayBuffer | ArrayBufferView | Readable
+  body?: string | ArrayBuffer | ArrayBufferView | Readable | Uint8Array
 ) {
   if (body instanceof Readable) {
     // pipe automatically handles end
     body.pipe(httpRequest);
   } else if (body) {
-    httpRequest.end(body);
+    httpRequest.end(Buffer.from(body));
   } else {
     httpRequest.end();
   }
