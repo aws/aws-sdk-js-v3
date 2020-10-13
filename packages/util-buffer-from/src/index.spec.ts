@@ -9,7 +9,7 @@ import { Buffer } from "buffer";
 import { fromArrayBuffer, fromString } from "./";
 
 describe("fromArrayBuffer", () => {
-  it("should throw if provided an argument that is not an ArrayBuffer", () => {
+  it("throws if argument is not an ArrayBuffer", () => {
     expect(() => fromArrayBuffer(255 as any)).toThrow();
   });
 
@@ -18,7 +18,7 @@ describe("fromArrayBuffer", () => {
       (Buffer.from as any).mockClear();
     });
 
-    it("should use Buffer.from if available", () => {
+    it("returns if argument is an ArrayBuffer", () => {
       const underlyingBuffer = new ArrayBuffer(0);
       const offsetArg = 12;
       const lengthArg = 13;
@@ -37,7 +37,7 @@ describe("fromArrayBuffer", () => {
 });
 
 describe("fromString", () => {
-  it("should throw if provided an argument that is not an ArrayBuffer", () => {
+  it("throws if argument is not an ArrayBuffer", () => {
     expect(() => fromString(255 as any)).toThrow();
   });
 
@@ -46,7 +46,7 @@ describe("fromString", () => {
       (Buffer.from as any).mockClear();
     });
 
-    it("should use Buffer.from if available", () => {
+    it("returns if argument is an ArrayBuffer", () => {
       const inputArg = "a string";
       const encodingArg = "utf16le";
       fromString(inputArg, encodingArg);
