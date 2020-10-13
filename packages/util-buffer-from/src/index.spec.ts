@@ -10,7 +10,11 @@ afterEach(() => {
 
 describe("fromArrayBuffer", () => {
   it("throws if argument is not an ArrayBuffer", () => {
-    expect(() => fromArrayBuffer(255 as any)).toThrow();
+    const input = 255;
+    // @ts-expect-error is not assignable to parameter of type 'ArrayBuffer'
+    expect(() => fromArrayBuffer(input)).toThrow(
+      new TypeError(`The "input" argument must be ArrayBuffer. Received type ${typeof input} (${input})`)
+    );
   });
 
   describe("returns if argument is an ArrayBuffer", () => {
@@ -41,7 +45,11 @@ describe("fromArrayBuffer", () => {
 
 describe("fromString", () => {
   it("throws if argument is not an ArrayBuffer", () => {
-    expect(() => fromString(255 as any)).toThrow();
+    const input = 255;
+    // @ts-expect-error is not assignable to parameter of type 'ArrayBuffer'
+    expect(() => fromString(input)).toThrow(
+      new TypeError(`The "input" argument must be of type string. Received type ${typeof input} (${input})`)
+    );
   });
 
   describe("returns if argument is an ArrayBuffer", () => {
