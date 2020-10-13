@@ -4,18 +4,8 @@ import { fromUtf8 as textEncoderFromUtf8, toUtf8 as textEncoderToUtf8 } from "./
 declare const TextDecoder: Function | undefined;
 declare const TextEncoder: Function | undefined;
 
-export function fromUtf8(input: string): Uint8Array {
-  if (typeof TextEncoder === "function") {
-    return textEncoderFromUtf8(input);
-  }
+export const fromUtf8 = (input: string): Uint8Array =>
+  typeof TextEncoder === "function" ? textEncoderFromUtf8(input) : jsFromUtf8(input);
 
-  return jsFromUtf8(input);
-}
-
-export function toUtf8(input: Uint8Array): string {
-  if (typeof TextDecoder === "function") {
-    return textEncoderToUtf8(input);
-  }
-
-  return jsToUtf8(input);
-}
+export const toUtf8 = (input: Uint8Array): string =>
+  typeof TextDecoder === "function" ? textEncoderToUtf8(input) : jsToUtf8(input);

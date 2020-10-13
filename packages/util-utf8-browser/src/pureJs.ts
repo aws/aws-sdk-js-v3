@@ -5,7 +5,7 @@
  * Cribbed from the `goog.crypt.stringToUtf8ByteArray` function in the Google
  * Closure library, though updated to use typed arrays.
  */
-export function fromUtf8(input: string): Uint8Array {
+export const fromUtf8 = (input: string): Uint8Array => {
   const bytes: Array<number> = [];
   for (let i = 0, len = input.length; i < len; i++) {
     const value = input.charCodeAt(i);
@@ -27,7 +27,7 @@ export function fromUtf8(input: string): Uint8Array {
   }
 
   return Uint8Array.from(bytes);
-}
+};
 
 /**
  * Converts a typed array of bytes containing UTF-8 data into a native JS
@@ -37,7 +37,7 @@ export function fromUtf8(input: string): Uint8Array {
  * Google Closure library, though updated to use typed arrays and to better
  * handle astral plane code points.
  */
-export function toUtf8(input: Uint8Array): string {
+export const toUtf8 = (input: Uint8Array): string => {
   let decoded = "";
   for (let i = 0, len = input.length; i < len; i++) {
     const byte = input[i];
@@ -58,4 +58,4 @@ export function toUtf8(input: Uint8Array): string {
   }
 
   return decoded;
-}
+};
