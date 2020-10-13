@@ -1,12 +1,5 @@
-export function escapeUri(uri: string): string {
-  let output = encodeURIComponent(uri);
-
+export const escapeUri = (uri: string): string =>
   // AWS percent-encodes some extra non-standard characters in a URI
-  output = output.replace(/[!'()*]/g, hexEncode);
+  encodeURIComponent(uri).replace(/[!'()*]/g, hexEncode);
 
-  return output;
-}
-
-function hexEncode(c: string) {
-  return `%${c.charCodeAt(0).toString(16).toUpperCase()}`;
-}
+const hexEncode = (c: string) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`;
