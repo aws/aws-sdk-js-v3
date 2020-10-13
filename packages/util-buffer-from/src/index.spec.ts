@@ -1,145 +1,71 @@
-jest.mock("buffer", () => {
-  const Buffer = jest.fn().mockReturnValue(new Uint8Array(0));
-  (Buffer as any).from = jest.fn().mockReturnValue(new Uint8Array(0));
-
-  return { Buffer };
-});
 import { Buffer } from "buffer";
 
 import { fromArrayBuffer, fromString } from "./";
 
+jest.mock("buffer");
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
 describe("fromArrayBuffer", () => {
-  it("should throw if provided an argument that is not an ArrayBuffer", () => {
-    expect(() => fromArrayBuffer(255 as any)).toThrow();
+  it("throws if argument is not an ArrayBuffer", () => {
+    const input = 255;
+    // @ts-expect-error is not assignable to parameter of type 'ArrayBuffer'
+    expect(() => fromArrayBuffer(input)).toThrow(
+      new TypeError(`The "input" argument must be ArrayBuffer. Received type ${typeof input} (${input})`)
+    );
   });
 
-  describe("Buffer.from", () => {
-    beforeEach(() => {
-      (Buffer.from as any).mockClear();
+  describe("returns if argument is an ArrayBuffer", () => {
+    const buffer = new ArrayBuffer(16);
+
+    it("with one arg", () => {
+      fromArrayBuffer(buffer);
+      expect(Buffer.from).toHaveBeenCalledTimes(1);
+      expect(Buffer.from).toHaveBeenCalledWith(buffer, 0, buffer.byteLength);
     });
 
-    it("should use Buffer.from if available", () => {
-      const underlyingBuffer = new ArrayBuffer(0);
-      const offsetArg = 12;
-      const lengthArg = 13;
-      fromArrayBuffer(underlyingBuffer, offsetArg, lengthArg);
-
-      const { calls } = (Buffer.from as any).mock;
-      expect(calls.length).toBe(1);
-      expect(calls[0].length).toBe(3);
-
-      const [buffer, offset, length] = calls[0];
-      expect(buffer).toBe(underlyingBuffer);
-      expect(offset).toBe(offsetArg);
-      expect(length).toBe(lengthArg);
-    });
-  });
-
-  describe("new Buffer", () => {
-    const bufferDotFrom = Buffer.from;
-
-    beforeEach(() => {
-      (Buffer as any).mockClear();
-      // @ts-ignore TODO: remove support as v3 is going to support Node.js v10+
-      delete Buffer.from;
+    it("with two args", () => {
+      const offset = 12;
+      fromArrayBuffer(buffer, offset);
+      expect(Buffer.from).toHaveBeenCalledTimes(1);
+      expect(Buffer.from).toHaveBeenCalledWith(buffer, offset, buffer.byteLength - offset);
     });
 
-    afterAll(() => {
-      Buffer.from = bufferDotFrom;
-    });
-
-    it("should use the Buffer constructor if Buffer.from is not defined", () => {
-      const underlyingBuffer = new ArrayBuffer(0);
-      fromArrayBuffer(underlyingBuffer);
-
-      const { calls } = (Buffer as any).mock;
-      expect(calls.length).toBe(1);
-      expect(calls[0].length).toBe(1);
-      expect(calls[0][0]).toBe(underlyingBuffer);
-    });
-
-    it("should use the Buffer constructor if Buffer.from is inherited from Uint8Array", () => {
-      Buffer.from = Uint8Array.from as any;
-      const underlyingBuffer = new ArrayBuffer(0);
-      fromArrayBuffer(underlyingBuffer);
-
-      const { calls } = (Buffer as any).mock;
-      expect(calls.length).toBe(1);
-      expect(calls[0].length).toBe(1);
-      expect(calls[0][0]).toBe(underlyingBuffer);
-    });
-
-    it("should throw if Buffer.from is undefined and a non-zero offset is provided", () => {
-      expect(() => fromArrayBuffer(new ArrayBuffer(0), 1)).toThrow();
-    });
-
-    it("should not throw if Buffer.from is undefined and an offset of 0 is provided", () => {
-      expect(() => fromArrayBuffer(new ArrayBuffer(0), 0)).not.toThrow();
-    });
-
-    it("should throw if Buffer.from is undefined and a length other than the length of the underlying buffer is provided", () => {
-      expect(() => fromArrayBuffer(new ArrayBuffer(10), 0, 9)).toThrow();
-    });
-
-    it("should not throw if Buffer.from is undefined and a length of the length of the underlying buffer is provided", () => {
-      expect(() => fromArrayBuffer(new ArrayBuffer(10), 0, 10)).not.toThrow();
+    it("with three args", () => {
+      const offset = 12;
+      const length = 13;
+      fromArrayBuffer(buffer, offset, length);
+      expect(Buffer.from).toHaveBeenCalledTimes(1);
+      expect(Buffer.from).toHaveBeenCalledWith(buffer, offset, length);
     });
   });
 });
 
 describe("fromString", () => {
-  it("should throw if provided an argument that is not an ArrayBuffer", () => {
-    expect(() => fromString(255 as any)).toThrow();
+  it("throws if argument is not an ArrayBuffer", () => {
+    const input = 255;
+    // @ts-expect-error is not assignable to parameter of type 'ArrayBuffer'
+    expect(() => fromString(input)).toThrow(
+      new TypeError(`The "input" argument must be of type string. Received type ${typeof input} (${input})`)
+    );
   });
 
-  describe("Buffer.from", () => {
-    beforeEach(() => {
-      (Buffer.from as any).mockClear();
+  describe("returns if argument is an ArrayBuffer", () => {
+    const input = "a string";
+
+    it("without explicit encoding", () => {
+      fromString(input);
+      expect(Buffer.from).toHaveBeenCalledTimes(1);
+      expect(Buffer.from).toHaveBeenCalledWith(input);
     });
 
-    it("should use Buffer.from if available", () => {
-      const inputArg = "a string";
-      const encodingArg = "utf16le";
-      fromString(inputArg, encodingArg);
-
-      const { calls } = (Buffer.from as any).mock;
-      expect(calls.length).toBe(1);
-      expect(calls[0].length).toBe(2);
-
-      const [input, encoding] = calls[0];
-      expect(input).toBe(inputArg);
-      expect(encoding).toBe(encodingArg);
-    });
-  });
-
-  describe("new Buffer", () => {
-    const bufferDotFrom = Buffer.from;
-
-    beforeEach(() => {
-      (Buffer as any).mockClear();
-      // @ts-ignore TODO: remove support as v3 is going to support Node.js v10+
-      delete Buffer.from;
-    });
-
-    afterAll(() => {
-      Buffer.from = bufferDotFrom;
-    });
-
-    it("should use the Buffer constructor if Buffer.from is not defined", () => {
-      fromString("string", "hex");
-
-      const { calls } = (Buffer as any).mock;
-      expect(calls.length).toBe(1);
-      expect(calls[0]).toEqual(["string", "hex"]);
-    });
-
-    it("should use the Buffer constructor if Buffer.from is inherited from Uint8Array", () => {
-      Buffer.from = Uint8Array.from as any;
-      fromString("string", "utf8");
-
-      const { calls } = (Buffer as any).mock;
-      expect(calls.length).toBe(1);
-      expect(calls[0]).toEqual(["string", "utf8"]);
+    it("with encoding", () => {
+      const encoding = "utf16le";
+      fromString(input, encoding);
+      expect(Buffer.from).toHaveBeenCalledTimes(1);
+      expect(Buffer.from).toHaveBeenCalledWith(input, encoding);
     });
   });
 });
