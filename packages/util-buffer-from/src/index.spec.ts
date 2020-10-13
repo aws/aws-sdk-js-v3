@@ -13,13 +13,29 @@ describe("fromArrayBuffer", () => {
     expect(() => fromArrayBuffer(255 as any)).toThrow();
   });
 
-  it("returns if argument is an ArrayBuffer", () => {
-    const underlyingBuffer = new ArrayBuffer(0);
-    const offsetArg = 12;
-    const lengthArg = 13;
-    fromArrayBuffer(underlyingBuffer, offsetArg, lengthArg);
-    expect(Buffer.from).toHaveBeenCalledTimes(1);
-    expect(Buffer.from).toHaveBeenCalledWith(underlyingBuffer, offsetArg, lengthArg);
+  describe("returns if argument is an ArrayBuffer", () => {
+    const buffer = new ArrayBuffer(16);
+
+    it("with one arg", () => {
+      fromArrayBuffer(buffer);
+      expect(Buffer.from).toHaveBeenCalledTimes(1);
+      expect(Buffer.from).toHaveBeenCalledWith(buffer, 0, buffer.byteLength);
+    });
+
+    it("with two args", () => {
+      const offset = 12;
+      fromArrayBuffer(buffer, offset);
+      expect(Buffer.from).toHaveBeenCalledTimes(1);
+      expect(Buffer.from).toHaveBeenCalledWith(buffer, offset, buffer.byteLength - offset);
+    });
+
+    it("with three args", () => {
+      const offset = 12;
+      const length = 13;
+      fromArrayBuffer(buffer, offset, length);
+      expect(Buffer.from).toHaveBeenCalledTimes(1);
+      expect(Buffer.from).toHaveBeenCalledWith(buffer, offset, length);
+    });
   });
 });
 
@@ -28,12 +44,20 @@ describe("fromString", () => {
     expect(() => fromString(255 as any)).toThrow();
   });
 
-  it("returns if argument is an ArrayBuffer", () => {
-    const inputArg = "a string";
-    const encodingArg = "utf16le";
-    fromString(inputArg, encodingArg);
+  describe("returns if argument is an ArrayBuffer", () => {
+    const input = "a string";
 
-    expect(Buffer.from).toHaveBeenCalledTimes(1);
-    expect(Buffer.from).toHaveBeenCalledWith(inputArg, encodingArg);
+    it("without explicit encoding", () => {
+      fromString(input);
+      expect(Buffer.from).toHaveBeenCalledTimes(1);
+      expect(Buffer.from).toHaveBeenCalledWith(input);
+    });
+
+    it("with encoding", () => {
+      const encoding = "utf16le";
+      fromString(input, encoding);
+      expect(Buffer.from).toHaveBeenCalledTimes(1);
+      expect(Buffer.from).toHaveBeenCalledWith(input, encoding);
+    });
   });
 });

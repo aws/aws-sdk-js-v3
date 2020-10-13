@@ -16,5 +16,5 @@ export const fromString = (input: string, encoding?: StringEncoding): Buffer => 
     throw new Error("argument passed to fromString was not a string");
   }
 
-  return Buffer.from(input, encoding as any);
+  return encoding ? Buffer.from(input, encoding) : Buffer.from(input);
 };
