@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-transcribe-streaming",
-  "version": "1.0.0-gamma.7",
+  "version": "1.0.0-rc.0",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
   "types": "./dist/cjs/index.d.ts",
@@ -18,12 +18,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/eventstream-serde-browser": "1.0.0-gamma.8",
-    "@aws-sdk/middleware-signing": "1.0.0-gamma.8",
-    "@aws-sdk/protocol-http": "1.0.0-gamma.8",
-    "@aws-sdk/signature-v4": "1.0.0-gamma.8",
-    "@aws-sdk/types": "1.0.0-gamma.7",
-    "@aws-sdk/util-format-url": "1.0.0-gamma.8",
+    "@aws-sdk/eventstream-serde-browser": "1.0.0-rc.0",
+    "@aws-sdk/middleware-signing": "1.0.0-rc.0",
+    "@aws-sdk/protocol-http": "1.0.0-rc.0",
+    "@aws-sdk/signature-v4": "1.0.0-rc.0",
+    "@aws-sdk/types": "1.0.0-rc.0",
+    "@aws-sdk/util-format-url": "1.0.0-rc.0",
     "react-native-get-random-values": "^1.4.0",
     "tslib": "^1.8.0",
     "uuid": "^3.0.0"

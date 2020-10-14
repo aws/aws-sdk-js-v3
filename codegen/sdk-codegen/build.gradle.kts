@@ -56,7 +56,7 @@ tasks.register("generate-smithy-build") {
                             .withMember("typescript-codegen", Node.objectNodeBuilder()
                                     .withMember("package", "@aws-sdk/client-" + sdkId.toLowerCase())
                                     // Note that this version is replaced by Lerna when publishing.
-                                    .withMember("packageVersion", "1.0.0-alpha.1")
+                                    .withMember("packageVersion", "1.0.0-rc.1")
                                     .withMember("packageJson", manifestOverwrites)
                                     .build()))
                     .build()
