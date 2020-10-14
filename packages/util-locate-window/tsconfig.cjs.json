@@ -6,7 +6,6 @@
     "strictNullChecks": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
-    "inlineSources": true,
     "baseUrl": "."
   },
   "extends": "../../tsconfig.cjs.json",

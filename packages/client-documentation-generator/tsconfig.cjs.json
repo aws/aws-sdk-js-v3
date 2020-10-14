@@ -6,7 +6,6 @@
     "outDir": "./dist/cjs",
     "experimentalDecorators": true,
     "pretty": true,
-    "inlineSources": true,
     "baseUrl": "."
   },
   "extends": "../../tsconfig.cjs.json",

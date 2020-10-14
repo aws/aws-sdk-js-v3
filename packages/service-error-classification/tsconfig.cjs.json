@@ -4,7 +4,6 @@
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "downlevelIteration": true,
-    "inlineSources": true,
     "baseUrl": "."
   },
   "extends": "../../tsconfig.cjs.json",
