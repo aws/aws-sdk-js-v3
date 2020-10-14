@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "declaration": true,
     "downlevelIteration": true,
     "noEmitHelpers": true,
     "importHelpers": true,

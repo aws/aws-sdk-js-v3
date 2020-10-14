@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "declaration": true,
     "downlevelIteration": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",

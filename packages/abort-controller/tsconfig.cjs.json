@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "declaration": true,
     "stripInternal": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",

@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "declaration": true,
     "noImplicitUseStrict": true,
     "noImplicitAny": true,
     "noImplicitThis": true,

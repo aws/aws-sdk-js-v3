@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "declaration": true,
     "noUnusedLocals": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
