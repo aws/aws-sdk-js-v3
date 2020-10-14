@@ -28,9 +28,10 @@ export const fooClient: Client<any, InputTypesUnion, OutputTypesUnion, any> = {
   destroy: () => {},
 };
 
-export const operationCommand: Command<InputTypesUnion, OutputTypesUnion, any, OperationInput, OperationOutput> = {
-  middlewareStack: constructStack<object, OutputTypesUnion>(),
+export const operationCommand: Command<InputTypesUnion, OutputTypesUnion, any, OperationInput, MetadataBearer> = {
+  middlewareStack: constructStack<OperationInput, OutputTypesUnion>(),
   input: {} as any,
+  // @ts-ignore
   resolveMiddleware: (stack: MiddlewareStack<InputTypesUnion, OutputTypesUnion>) => {
     const concatStack = stack.concat(operationCommand.middlewareStack);
     return concatStack.resolve(() => Promise.resolve({ output, response: {} }), {} as any);
