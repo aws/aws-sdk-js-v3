@@ -3,7 +3,6 @@
     "declaration": true,
     "sourceMap": false,
     "strict": true,
-    "lib": ["es5", "es2015.collection"],
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "importHelpers": true,

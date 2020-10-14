@@ -4,24 +4,20 @@ declare const global: any;
 
 describe("WHATWG encoding spec compliant environment UTF-8 handling", () => {
   it("should use the global TextDecoder to decode UTF-8", () => {
-    const textDecoderInstance = {
-      decode: jest.fn().mockReturnValue(""),
-    };
-    (global as any).TextDecoder = () => textDecoderInstance;
+    const decode = jest.fn().mockReturnValue("");
+    (global as any).TextDecoder = jest.fn(() => ({ decode }));
 
-    expect(textDecoderInstance.decode.mock.calls.length).toBe(0);
+    expect(decode.mock.calls.length).toBe(0);
     toUtf8(new Uint8Array(0));
-    expect(textDecoderInstance.decode.mock.calls.length).toBe(1);
+    expect(decode.mock.calls.length).toBe(1);
   });
 
   it("should use the global TextEncoder to encode UTF-8", () => {
-    const textEncoderInstance = {
-      encode: jest.fn().mockReturnValue(new Uint8Array(0)),
-    };
-    (global as any).TextEncoder = () => textEncoderInstance;
+    const encode = jest.fn().mockReturnValue(new Uint8Array(0));
+    (global as any).TextEncoder = jest.fn(() => ({ encode }));
 
-    expect(textEncoderInstance.encode.mock.calls.length).toBe(0);
+    expect(encode.mock.calls.length).toBe(0);
     fromUtf8("string");
-    expect(textEncoderInstance.encode.mock.calls.length).toBe(1);
+    expect(encode.mock.calls.length).toBe(1);
   });
 });

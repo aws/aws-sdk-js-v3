@@ -6,7 +6,6 @@
     "downlevelIteration": true,
     "importHelpers": true,
     "noEmitHelpers": true,
-    "lib": ["es2018.asynciterable", "DOM"],
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "inlineSourceMap": true,
