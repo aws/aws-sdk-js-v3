@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "strict": true,
     "sourceMap": true,
     "downlevelIteration": true,
     "importHelpers": true,
