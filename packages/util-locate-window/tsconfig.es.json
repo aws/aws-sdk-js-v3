@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": false,
     "noImplicitUseStrict": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
