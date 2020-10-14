@@ -6,7 +6,6 @@
     "outDir": "./dist/cjs",
     "experimentalDecorators": true,
     "pretty": true,
-    "inlineSourceMap": true,
     "inlineSources": true,
     "baseUrl": "."
   },
