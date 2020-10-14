@@ -1,14 +1,10 @@
 {
-  "version": "independent",
+  "version": "1.0.0-rc.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "command": {
-    "bootstrap": {
-      "nohoist": ["@types/*", "typedoc", "karma*"]
-    },
     "run": {
       "npmClient": "yarn"
     }
-  },
-  "nohoist": ["@types/*", "typedoc", "karma*"]
+  }
 }
