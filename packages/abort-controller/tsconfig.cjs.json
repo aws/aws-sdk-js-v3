@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "sourceMap": false,
     "declaration": true,
     "stripInternal": true,
     "rootDir": "./src",

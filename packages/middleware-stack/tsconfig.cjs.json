@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "sourceMap": false,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "importHelpers": true,
