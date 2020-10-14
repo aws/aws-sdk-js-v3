@@ -2,7 +2,6 @@
   "compilerOptions": {
     "downlevelIteration": true,
     "noEmitHelpers": true,
-    "importHelpers": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "inlineSourceMap": true,

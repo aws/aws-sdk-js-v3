@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "downlevelIteration": true,
-    "importHelpers": true,
     "noEmitHelpers": true,
     "noUnusedLocals": true,
     "rootDir": "./src",

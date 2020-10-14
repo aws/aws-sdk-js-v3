@@ -6,6 +6,7 @@
     "target": "ES2018",
     "strict": true,
     "sourceMap": false,
-    "declaration": true
+    "declaration": true,
+    "importHelpers": true
   }
 }

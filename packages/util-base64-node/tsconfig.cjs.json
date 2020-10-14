@@ -2,7 +2,6 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist/cjs",
-    "importHelpers": true,
     "noEmitHelpers": true,
     "inlineSourceMap": true,
     "inlineSources": true,

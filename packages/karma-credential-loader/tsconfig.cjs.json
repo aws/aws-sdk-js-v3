@@ -3,7 +3,6 @@
     "declaration": false,
     "strict": false,
     "downlevelIteration": true,
-    "importHelpers": true,
     "noEmitHelpers": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
