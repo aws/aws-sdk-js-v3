@@ -2,7 +2,6 @@
   "compilerOptions": {
     "declaration": false,
     "strict": false,
-    "downlevelIteration": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "baseUrl": "."

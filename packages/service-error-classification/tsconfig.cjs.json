@@ -3,7 +3,6 @@
     "noUnusedLocals": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
-    "downlevelIteration": true,
     "baseUrl": "."
   },
   "extends": "../../tsconfig.cjs.json",
