@@ -2,15 +2,9 @@
   "compilerOptions": {
     "declaration": false,
     "strict": false,
-    "sourceMap": false,
-    "downlevelIteration": true,
-    "importHelpers": true,
-    "noEmitHelpers": true,
     "lib": ["es2015"],
     "rootDir": "./src",
     "outDir": "./dist/es",
-    "inlineSourceMap": true,
-    "inlineSources": true,
     "baseUrl": "."
   },
   "extends": "../../tsconfig.es.json",
