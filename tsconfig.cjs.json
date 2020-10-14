@@ -8,6 +8,7 @@
     "declaration": true,
     "importHelpers": true,
     "noEmitHelpers": true,
+    "sourceMap": false,
     "inlineSourceMap": true,
     "inlineSources": true
   }
