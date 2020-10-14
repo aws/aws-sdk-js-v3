@@ -2,7 +2,6 @@
   "compilerOptions": {
     "sourceMap": true,
     "downlevelIteration": true,
-    "noEmitHelpers": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "declarationDir": "./dist/cjs",

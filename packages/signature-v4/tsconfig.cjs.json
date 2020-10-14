@@ -4,7 +4,6 @@
     "stripInternal": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
-    "noEmitHelpers": true,
     "noUnusedLocals": true,
     "baseUrl": "."
   },

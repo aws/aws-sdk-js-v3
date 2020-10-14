@@ -6,7 +6,6 @@
     "strictNullChecks": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
-    "noEmitHelpers": true,
     "inlineSourceMap": true,
     "inlineSources": true,
     "baseUrl": "."

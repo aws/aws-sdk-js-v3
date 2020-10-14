@@ -4,7 +4,6 @@
     "stripInternal": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
-    "noEmitHelpers": true,
     "baseUrl": "."
   },
   "extends": "../../tsconfig.cjs.json",

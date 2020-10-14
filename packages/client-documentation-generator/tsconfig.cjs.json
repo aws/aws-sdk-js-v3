@@ -2,7 +2,6 @@
   "compilerOptions": {
     "strict": false,
     "downlevelIteration": true,
-    "noEmitHelpers": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "experimentalDecorators": true,
