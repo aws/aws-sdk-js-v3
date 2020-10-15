@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "declaration": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "baseUrl": "."

@@ -106,7 +106,7 @@ describe("create-request", () => {
       }
     );
     const request = await createRequest(
-      fooClient as Client<any, InputTypesUnion, MetadataBearer, any>,
+      (fooClient as unknown) as Client<any, InputTypesUnion, MetadataBearer, any>,
       operationCommand
     );
     expect(request).toEqual({

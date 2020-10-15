@@ -3,6 +3,13 @@
   "compilerOptions": {
     "module": "commonjs",
     "moduleResolution": "node",
-    "target": "ES2018"
+    "target": "ES2018",
+    "strict": true,
+    "declaration": true,
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "sourceMap": false,
+    "inlineSourceMap": true,
+    "inlineSources": true
   }
 }

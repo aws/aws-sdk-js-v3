@@ -1,14 +1,7 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "sourceMap": false,
-    "declaration": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
-    "importHelpers": true,
-    "noEmitHelpers": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
     "baseUrl": "."
   },
   "extends": "../../tsconfig.cjs.json",

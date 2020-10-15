@@ -1,11 +1,5 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "strict": true,
-    "sourceMap": true,
-    "downlevelIteration": true,
-    "importHelpers": true,
-    "noEmitHelpers": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "declarationDir": "./dist/cjs",
