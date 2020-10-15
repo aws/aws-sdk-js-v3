@@ -86,8 +86,9 @@
   },
   "workspaces": {
     "packages": [
-      "packages/*",
       "clients/*",
+      "lib/*",
+      "packages/*",
       "protocol_tests/*"
     ],
     "nohoist": [
