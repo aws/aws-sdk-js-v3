@@ -11,7 +11,7 @@ Many aspects of the SDK have been refactored and cleaned up, in addition to gene
 
 ## Production Readiness
 
-This project is in Release Candidate(RC) state. We want feedback from you. Although unlikely, breaking changes in future releases may happen while the SDK is still in preview.
+This project is a Release Candidate (RC). We want feedback from you. We will avoid breaking changes unless absolutely necessary.
 
 The new AWS SDK for JavaScript will also be able to run alongside the version 2.x SDK in the same package to allow partial migration to the new product. As we get close to general availability for version 3, we’ll share a more detailed plan on how we’ll support the 2.x line.
 
