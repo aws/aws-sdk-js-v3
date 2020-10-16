@@ -25,14 +25,13 @@ export interface PartIdentity {
 }
 
 export abstract class Uploader extends EventEmitter {
-  uploadEvent = "httpUploadProgress";
-  data: AsyncGenerator<DataPart, void, unknown>;
-  uploadedParts: PartIdentity[];
-  dataBytesUploaded: number;
-  configuration: UploadType.Configuration;
+  static readonly uploadEvent = "httpUploadProgress";
+  private readonly data: AsyncGenerator<DataPart, void, unknown>;
+  private readonly configuration: UploadType.Configuration;
+  abstract readonly dataBytesTotal: number;
 
-  abstract dataBytesTotal: number;
-  abstract client: UploadType.ServiceClients;
+  private uploadedParts: PartIdentity[];
+  private dataBytesUploaded: number;
   abstract destination: MultiPartIdentity;
 
   constructor(data: AsyncGenerator<DataPart, void, unknown>, configuration: UploadType.Configuration) {
@@ -60,7 +59,7 @@ export abstract class Uploader extends EventEmitter {
   async upload() {
     const activeThreads = [];
     for (let threadId = 0; threadId < this.configuration.queueSize; threadId++) {
-      activeThreads.push(this._uploadThread(threadId));
+      activeThreads.push(this._uploadThread());
     }
     await Promise.all(activeThreads);
     return this.uploadedParts;
@@ -81,7 +80,7 @@ export abstract class Uploader extends EventEmitter {
     return this._abortUpload(this.destination);
   }
 
-  async _uploadThread(threadOrigin: number) {
+  private async _uploadThread() {
     let targetData = await this.data.next();
     while (!targetData.done) {
       const partNumber = targetData.value && targetData.value.PartNumber;
@@ -98,7 +97,7 @@ export abstract class Uploader extends EventEmitter {
 
       //progress update:
       this.dataBytesUploaded += byteLength(body);
-      this.emit(this.uploadEvent, {
+      this.emit(Uploader.uploadEvent, {
         loaded: this.dataBytesUploaded,
         total: this.dataBytesTotal,
         part: partNumber,
@@ -115,6 +114,6 @@ export abstract class Uploader extends EventEmitter {
   }
 }
 
-export function sortParts(parts: PartIdentity[]) {
+export const sortParts = (parts: PartIdentity[]) => {
   return parts.sort((a: PartIdentity, b: PartIdentity) => a.PartNumber - b.PartNumber);
-}
+};

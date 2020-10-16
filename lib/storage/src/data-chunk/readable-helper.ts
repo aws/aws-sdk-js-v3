@@ -28,6 +28,9 @@ export async function* chunkFromReadable(reader: Readable, chunkSize: number): A
       return;
     }
   }
+  if (partNumber >= DEFAULT.MAX_PART_NUMBER) {
+    throw `Exceeded ${DEFAULT.MAX_PART_NUMBER} parts, multipart upload failed`;
+  }
 }
 
 function _chunkFromStream(stream: Readable, chunkSize: number, oldBuffer: Buffer): Promise<StreamChunk> {

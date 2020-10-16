@@ -46,6 +46,9 @@ export async function* chunkFromReadableStream(
       }
       partNumber += 1;
     }
+    if (partNumber >= DEFAULT.MAX_PART_NUMBER) {
+      throw `Exceeded ${DEFAULT.MAX_PART_NUMBER} parts, multipart upload failed`;
+    }
   } finally {
     reader.releaseLock();
   }

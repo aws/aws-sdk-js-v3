@@ -15,7 +15,7 @@ import { UploadType } from "../Upload";
 import { MultiPartIdentity, Uploader } from "./Uploader";
 
 export class S3Uploader extends Uploader {
-  client: S3;
+  private readonly client: S3;
   destination: MultiPartIdentity;
   dataBytesTotal: number;
 

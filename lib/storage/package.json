@@ -13,6 +13,9 @@
     "build": "yarn build:es && yarn build:cjs",
     "test": "jest"
   },
+  "engines": {
+    "node": ">= 10.0.0"
+  },
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"

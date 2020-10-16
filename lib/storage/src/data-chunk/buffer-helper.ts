@@ -15,4 +15,7 @@ export async function* chunkFromBuffer(data: Buffer, chunkSize: number): AsyncGe
     endByte += chunkSize;
     part += 1;
   }
+  if (part >= DEFAULT.MAX_PART_NUMBER) {
+    throw `Exceeded ${DEFAULT.MAX_PART_NUMBER} parts, multipart upload failed`;
+  }
 }

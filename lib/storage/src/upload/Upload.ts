@@ -43,7 +43,7 @@ export class Upload extends EventEmitter {
       throw "Invalid client type";
     }
 
-    this.uploader.on(this.uploader.uploadEvent, (output: UploadType.Progress) => {
+    this.uploader.on(Uploader.uploadEvent, (output: UploadType.Progress) => {
       this.emit(this.uploadEvent, output);
       this.progress(output);
     });
@@ -60,10 +60,17 @@ export class Upload extends EventEmitter {
    * Initiates the managed upload for the payload.
    */
   async done(): Promise<ServiceOutputTypes> {
-    await this.uploader.intialize();
-    await this.uploader.upload();
-    const result = await this.uploader.complete();
-    return result;
+    try {
+      await this.uploader.intialize();
+      await this.uploader.upload();
+      const result = await this.uploader.complete();
+      return result;
+    } catch (error) {
+      if (this.configuration.leavePartsOnError) {
+        this.uploader.abort();
+      }
+      throw error;
+    }
   }
 
   /**
