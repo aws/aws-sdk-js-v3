@@ -3,14 +3,13 @@ import { Buffer } from "buffer";
 import { Readable } from "stream";
 import { ReadableStream } from "web-streams-polyfill";
 
-import { DEFAULT } from "../upload/defaults";
 import { chunkFromBuffer } from "./buffer-helper";
 import { chunkFromReadable } from "./readable-helper";
 import { chunkFromReadableStream } from "./readable-stream-helper";
 
 export interface DataPart {
   PartNumber: number;
-  Body: Buffer | Uint8Array;
+  Body: Buffer;
 }
 
 export function yieldChunk(data: PutObjectCommandInput["Body"], size: number): AsyncGenerator<DataPart, void, unknown> {

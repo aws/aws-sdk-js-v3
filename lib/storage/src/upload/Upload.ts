@@ -45,7 +45,6 @@ export class Upload extends EventEmitter {
 
     this.uploader.on(Uploader.uploadEvent, (output: UploadType.Progress) => {
       this.emit(this.uploadEvent, output);
-      this.progress(output);
     });
   }
 
@@ -81,6 +80,6 @@ export class Upload extends EventEmitter {
    */
   on(event: "httpUploadProgress", listener: (progress: UploadType.Progress) => void): any {
     this.uploadEvent = event;
-    this.progress = listener;
+    super.on(event, listener);
   }
 }

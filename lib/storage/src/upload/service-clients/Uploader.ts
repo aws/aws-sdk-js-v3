@@ -97,14 +97,14 @@ export abstract class Uploader extends EventEmitter {
 
       //progress update:
       this.dataBytesUploaded += byteLength(body);
-      this.emit(Uploader.uploadEvent, {
+      const progressUpdate = {
         loaded: this.dataBytesUploaded,
         total: this.dataBytesTotal,
         part: partNumber,
         Key: this.destination.Key,
         Bucket: this.destination.Bucket,
-      });
-
+      };
+      this.emit(Uploader.uploadEvent, progressUpdate);
       this.uploadedParts.push({
         PartNumber: partNumber,
         ETag: res.ETag || "",

@@ -14,7 +14,6 @@ export const byteLength = (input: any) => {
     return input.size;
   } else if (typeof input.path === "string") {
     return require("fs").lstatSync(input.path).size;
-  } else {
-    throw new Error(`Cannot determine length of ${input} \n ` + JSON.stringify(input));
   }
+  return undefined;
 };
