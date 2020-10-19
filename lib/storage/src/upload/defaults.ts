@@ -5,5 +5,5 @@ export const DEFAULT = {
   MAX_PART_NUMBER: 1000,
   MIN_PART_SIZE: MB_5,
   QUEUE_SIZE: 4,
-  ABORT_ON_FAILURE: false,
+  ABORT_ON_FAILURE: true,
 };

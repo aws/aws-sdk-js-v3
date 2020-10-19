@@ -29,7 +29,7 @@ export class Upload extends EventEmitter {
     const defaultOptions: UploadType.Configuration = {
       queueSize: DEFAULT.QUEUE_SIZE,
       partSize: DEFAULT.MIN_PART_SIZE,
-      leavePartsOnError: DEFAULT.ABORT_ON_FAILURE,
+      leavePartsOnError: !DEFAULT.ABORT_ON_FAILURE,
       tags: [],
     };
     this.configuration = { ...defaultOptions, ...options };
@@ -67,7 +67,7 @@ export class Upload extends EventEmitter {
       const result = await this.uploader.complete();
       return result;
     } catch (error) {
-      if (this.configuration.leavePartsOnError) {
+      if (!this.configuration.leavePartsOnError) {
         this.uploader.abort();
       }
       throw error;
