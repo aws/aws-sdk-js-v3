@@ -21,6 +21,9 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "peerDependencies": {
+    "@aws-sdk/client-s3": "^1.0.0-gamma.11"
+  },
   "dependencies": {
     "buffer": "^5.6.0",
     "stream-browserify": "^3.0.0",
