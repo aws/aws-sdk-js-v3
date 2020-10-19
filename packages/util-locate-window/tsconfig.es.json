@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "sourceMap": false,
+    "strict": false,
     "noImplicitUseStrict": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
@@ -9,10 +8,6 @@
     "lib": ["dom", "es5", "es2015.collection"],
     "rootDir": "./src",
     "outDir": "./dist/es",
-    "importHelpers": true,
-    "noEmitHelpers": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
     "baseUrl": "."
   },
   "extends": "../../tsconfig.es.json",

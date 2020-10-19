@@ -1,13 +1,8 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "sourceMap": true,
-    "strict": true,
     "stripInternal": true,
     "rootDir": "./src",
     "outDir": "./dist/es",
-    "importHelpers": true,
-    "noEmitHelpers": true,
     "noUnusedLocals": true,
     "baseUrl": ".",
     "target": "es5",

@@ -3,6 +3,14 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "strict": true,
+    "sourceMap": false,
+    "declaration": true,
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "downlevelIteration": true
   }
 }
