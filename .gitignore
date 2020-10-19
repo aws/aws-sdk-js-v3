@@ -41,5 +41,9 @@ protocol_tests/*/coverage
 protocol_tests/*/dist
 protocol_tests/*/types
 
+lib/*/coverage
+lib/*/dist
+lib/*/types
+
 /verdaccio/*
 !/verdaccio/config.yaml
