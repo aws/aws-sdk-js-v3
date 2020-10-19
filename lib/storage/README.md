@@ -6,7 +6,7 @@ Upload allows for easy and efficient uploading of buffers, blobs, or streams, us
 
 ```
   import { Upload } from "@aws-sdk/lib-storage";
-  let const = { Bucket, Key, Body };
+  const target = { Bucket, Key, Body };
   try {
     const paralellUploads3 = new Upload({
       client: new S3({}),
