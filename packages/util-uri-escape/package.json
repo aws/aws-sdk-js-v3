@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-uri-escape",
-  "version": "1.0.0-gamma.7",
+  "version": "1.0.0-rc.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",

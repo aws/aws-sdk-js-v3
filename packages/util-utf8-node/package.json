@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-utf8-node",
-  "version": "1.0.0-gamma.7",
+  "version": "1.0.0-rc.0",
   "description": "A Node.JS UTF-8 string <-> UInt8Array converter",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
@@ -18,7 +18,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/util-buffer-from": "1.0.0-gamma.7",
+    "@aws-sdk/util-buffer-from": "1.0.0-rc.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

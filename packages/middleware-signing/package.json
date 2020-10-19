@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-signing",
-  "version": "1.0.0-gamma.8",
+  "version": "1.0.0-rc.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -23,9 +23,9 @@
     "typescript": "~4.0.2"
   },
   "dependencies": {
-    "@aws-sdk/protocol-http": "1.0.0-gamma.8",
-    "@aws-sdk/signature-v4": "1.0.0-gamma.8",
-    "@aws-sdk/types": "1.0.0-gamma.7",
+    "@aws-sdk/protocol-http": "1.0.0-rc.0",
+    "@aws-sdk/signature-v4": "1.0.0-rc.0",
+    "@aws-sdk/types": "1.0.0-rc.0",
     "tslib": "^1.8.0"
   },
   "engines": {
