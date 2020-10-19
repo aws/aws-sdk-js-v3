@@ -33,7 +33,9 @@ export class Upload extends EventEmitter {
       tags: [],
     };
     this.configuration = { ...defaultOptions, ...options };
-    this.configuration.partSize = Math.max(this.configuration.partSize, DEFAULT.MIN_PART_SIZE);
+    if (this.configuration.partSize >= DEFAULT.MIN_PART_SIZE) {
+      throw `Part size must be larger than ${DEFAULT.MIN_PART_SIZE}`;
+    }
 
     if (this.client instanceof S3) {
       this.uploader = new S3Uploader(this.client, this.params, this.configuration);
