@@ -36,7 +36,7 @@ describe(chunkFromReadableStream.name, () => {
 
     it("should properly give the first chunk", async (done) => {
       expect(chunks[0].done).toEqual(false);
-      // expect(chunks[0].value.Body.toString()).toEqual("Farmer jack realized that big ");
+      expect(chunks[0].value.Body.toString()).toEqual("Farmer jack realized that big ");
       expect(chunks[0].value.Body.length).toEqual(30);
       expect(chunks[0].value.PartNumber).toEqual(1);
       done();
