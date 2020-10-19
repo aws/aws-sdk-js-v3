@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/smithy-client",
-  "version": "1.0.0-rc.0",
+  "version": "1.0.0-rc.1",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -18,8 +18,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-stack": "1.0.0-rc.0",
-    "@aws-sdk/types": "1.0.0-rc.0",
+    "@aws-sdk/middleware-stack": "1.0.0-rc.1",
+    "@aws-sdk/types": "1.0.0-rc.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
