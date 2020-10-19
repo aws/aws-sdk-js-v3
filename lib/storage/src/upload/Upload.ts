@@ -33,8 +33,8 @@ export class Upload extends EventEmitter {
       tags: [],
     };
     this.configuration = { ...defaultOptions, ...options };
-    if (this.configuration.partSize >= DEFAULT.MIN_PART_SIZE) {
-      throw `Part size must be larger than ${DEFAULT.MIN_PART_SIZE}`;
+    if (this.configuration.partSize < DEFAULT.MIN_PART_SIZE) {
+      throw `Part size must be larger than or equal to ${DEFAULT.MIN_PART_SIZE}`;
     }
 
     if (this.client instanceof S3) {

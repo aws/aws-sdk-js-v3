@@ -4,7 +4,7 @@ import { DataPart } from "../../src/data-chunk/yield-chunk";
 
 describe(chunkFromReadable.name, () => {
   const fs = require("fs");
-  const fileStream = fs.createReadStream("./test/data-chunk/sample.file");
+  const fileStream = fs.createReadStream(__dirname + "/sample.file");
   const INPUT_STRING = "Farmer jack realized that big yellow quilts were expensive";
 
   describe("Proper chunk creation", () => {

@@ -4,9 +4,9 @@ import { Readable } from "stream";
 import { ReadableStream } from "web-streams-polyfill";
 
 describe(yieldChunk.name, () => {
-  const fs = require("fs");
-  const fileStream = fs.createReadStream("./test/data-chunk/sample.file");
   const INPUT_STRING = "Farmer jack realized that big yellow quilts were expensive";
+  const fs = require("fs");
+  const fileStream = fs.createReadStream(__dirname + "/sample.file");
 
   const standardChunkTest = async (input: any) => {
     const chunker = yieldChunk(input, 30);
