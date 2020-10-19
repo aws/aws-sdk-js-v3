@@ -205,7 +205,7 @@ export const deserializeAws_restJson1DeleteObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteObjectCommandError(output, context);
   }
   const contents: DeleteObjectCommandOutput = {
@@ -272,7 +272,7 @@ export const deserializeAws_restJson1DescribeObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeObjectCommandError(output, context);
   }
   const contents: DescribeObjectCommandOutput = {
@@ -359,7 +359,7 @@ export const deserializeAws_restJson1GetObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetObjectCommandError(output, context);
   }
   const contents: GetObjectCommandOutput = {
@@ -460,7 +460,7 @@ export const deserializeAws_restJson1ListItemsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListItemsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListItemsCommandError(output, context);
   }
   const contents: ListItemsCommandOutput = {
@@ -527,7 +527,7 @@ export const deserializeAws_restJson1PutObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutObjectCommandError(output, context);
   }
   const contents: PutObjectCommandOutput = {

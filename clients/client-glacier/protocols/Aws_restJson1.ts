@@ -1528,7 +1528,7 @@ export const deserializeAws_restJson1AbortMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortMultipartUploadCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1AbortMultipartUploadCommandError(output, context);
   }
   const contents: AbortMultipartUploadCommandOutput = {
@@ -1603,7 +1603,7 @@ export const deserializeAws_restJson1AbortVaultLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortVaultLockCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1AbortVaultLockCommandError(output, context);
   }
   const contents: AbortVaultLockCommandOutput = {
@@ -1678,7 +1678,7 @@ export const deserializeAws_restJson1AddTagsToVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToVaultCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1AddTagsToVaultCommandError(output, context);
   }
   const contents: AddTagsToVaultCommandOutput = {
@@ -1761,7 +1761,7 @@ export const deserializeAws_restJson1CompleteMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteMultipartUploadCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CompleteMultipartUploadCommandError(output, context);
   }
   const contents: CompleteMultipartUploadCommandOutput = {
@@ -1848,7 +1848,7 @@ export const deserializeAws_restJson1CompleteVaultLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteVaultLockCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1CompleteVaultLockCommandError(output, context);
   }
   const contents: CompleteVaultLockCommandOutput = {
@@ -1923,7 +1923,7 @@ export const deserializeAws_restJson1CreateVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVaultCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateVaultCommandError(output, context);
   }
   const contents: CreateVaultCommandOutput = {
@@ -2002,7 +2002,7 @@ export const deserializeAws_restJson1DeleteArchiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteArchiveCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteArchiveCommandError(output, context);
   }
   const contents: DeleteArchiveCommandOutput = {
@@ -2077,7 +2077,7 @@ export const deserializeAws_restJson1DeleteVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVaultCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteVaultCommandError(output, context);
   }
   const contents: DeleteVaultCommandOutput = {
@@ -2152,7 +2152,7 @@ export const deserializeAws_restJson1DeleteVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVaultAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteVaultAccessPolicyCommandError(output, context);
   }
   const contents: DeleteVaultAccessPolicyCommandOutput = {
@@ -2227,7 +2227,7 @@ export const deserializeAws_restJson1DeleteVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVaultNotificationsCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteVaultNotificationsCommandError(output, context);
   }
   const contents: DeleteVaultNotificationsCommandOutput = {
@@ -2302,7 +2302,7 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeJobCommandError(output, context);
   }
   const contents: DescribeJobCommandOutput = {
@@ -2464,7 +2464,7 @@ export const deserializeAws_restJson1DescribeVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVaultCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeVaultCommandError(output, context);
   }
   const contents: DescribeVaultCommandOutput = {
@@ -2563,7 +2563,7 @@ export const deserializeAws_restJson1GetDataRetrievalPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataRetrievalPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDataRetrievalPolicyCommandError(output, context);
   }
   const contents: GetDataRetrievalPolicyCommandOutput = {
@@ -2634,7 +2634,7 @@ export const deserializeAws_restJson1GetJobOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJobOutputCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetJobOutputCommandError(output, context);
   }
   const contents: GetJobOutputCommandOutput = {
@@ -2731,7 +2731,7 @@ export const deserializeAws_restJson1GetVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVaultAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetVaultAccessPolicyCommandError(output, context);
   }
   const contents: GetVaultAccessPolicyCommandOutput = {
@@ -2808,7 +2808,7 @@ export const deserializeAws_restJson1GetVaultLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVaultLockCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetVaultLockCommandError(output, context);
   }
   const contents: GetVaultLockCommandOutput = {
@@ -2899,7 +2899,7 @@ export const deserializeAws_restJson1GetVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVaultNotificationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetVaultNotificationsCommandError(output, context);
   }
   const contents: GetVaultNotificationsCommandOutput = {
@@ -2976,7 +2976,7 @@ export const deserializeAws_restJson1InitiateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateJobCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1InitiateJobCommandError(output, context);
   }
   const contents: InitiateJobCommandOutput = {
@@ -3079,7 +3079,7 @@ export const deserializeAws_restJson1InitiateMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateMultipartUploadCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1InitiateMultipartUploadCommandError(output, context);
   }
   const contents: InitiateMultipartUploadCommandOutput = {
@@ -3162,7 +3162,7 @@ export const deserializeAws_restJson1InitiateVaultLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateVaultLockCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1InitiateVaultLockCommandError(output, context);
   }
   const contents: InitiateVaultLockCommandOutput = {
@@ -3241,7 +3241,7 @@ export const deserializeAws_restJson1ListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListJobsCommandError(output, context);
   }
   const contents: ListJobsCommandOutput = {
@@ -3324,7 +3324,7 @@ export const deserializeAws_restJson1ListMultipartUploadsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMultipartUploadsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListMultipartUploadsCommandError(output, context);
   }
   const contents: ListMultipartUploadsCommandOutput = {
@@ -3407,7 +3407,7 @@ export const deserializeAws_restJson1ListPartsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPartsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPartsCommandError(output, context);
   }
   const contents: ListPartsCommandOutput = {
@@ -3510,7 +3510,7 @@ export const deserializeAws_restJson1ListProvisionedCapacityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisionedCapacityCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProvisionedCapacityCommandError(output, context);
   }
   const contents: ListProvisionedCapacityCommandOutput = {
@@ -3584,7 +3584,7 @@ export const deserializeAws_restJson1ListTagsForVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForVaultCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForVaultCommandError(output, context);
   }
   const contents: ListTagsForVaultCommandOutput = {
@@ -3663,7 +3663,7 @@ export const deserializeAws_restJson1ListVaultsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVaultsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListVaultsCommandError(output, context);
   }
   const contents: ListVaultsCommandOutput = {
@@ -3746,7 +3746,7 @@ export const deserializeAws_restJson1PurchaseProvisionedCapacityCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseProvisionedCapacityCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1PurchaseProvisionedCapacityCommandError(output, context);
   }
   const contents: PurchaseProvisionedCapacityCommandOutput = {
@@ -3825,7 +3825,7 @@ export const deserializeAws_restJson1RemoveTagsFromVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromVaultCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1RemoveTagsFromVaultCommandError(output, context);
   }
   const contents: RemoveTagsFromVaultCommandOutput = {
@@ -3900,7 +3900,7 @@ export const deserializeAws_restJson1SetDataRetrievalPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDataRetrievalPolicyCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1SetDataRetrievalPolicyCommandError(output, context);
   }
   const contents: SetDataRetrievalPolicyCommandOutput = {
@@ -3967,7 +3967,7 @@ export const deserializeAws_restJson1SetVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVaultAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1SetVaultAccessPolicyCommandError(output, context);
   }
   const contents: SetVaultAccessPolicyCommandOutput = {
@@ -4042,7 +4042,7 @@ export const deserializeAws_restJson1SetVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVaultNotificationsCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1SetVaultNotificationsCommandError(output, context);
   }
   const contents: SetVaultNotificationsCommandOutput = {
@@ -4117,7 +4117,7 @@ export const deserializeAws_restJson1UploadArchiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadArchiveCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1UploadArchiveCommandError(output, context);
   }
   const contents: UploadArchiveCommandOutput = {
@@ -4212,7 +4212,7 @@ export const deserializeAws_restJson1UploadMultipartPartCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadMultipartPartCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UploadMultipartPartCommandError(output, context);
   }
   const contents: UploadMultipartPartCommandOutput = {

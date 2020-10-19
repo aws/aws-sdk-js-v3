@@ -1077,7 +1077,7 @@ export const deserializeAws_queryAbortEnvironmentUpdateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortEnvironmentUpdateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAbortEnvironmentUpdateCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1128,7 +1128,7 @@ export const deserializeAws_queryApplyEnvironmentManagedActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApplyEnvironmentManagedActionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryApplyEnvironmentManagedActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1190,7 +1190,7 @@ export const deserializeAws_queryAssociateEnvironmentOperationsRoleCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateEnvironmentOperationsRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAssociateEnvironmentOperationsRoleCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1241,7 +1241,7 @@ export const deserializeAws_queryCheckDNSAvailabilityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckDNSAvailabilityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCheckDNSAvailabilityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1287,7 +1287,7 @@ export const deserializeAws_queryComposeEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ComposeEnvironmentsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryComposeEnvironmentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1349,7 +1349,7 @@ export const deserializeAws_queryCreateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1403,7 +1403,7 @@ export const deserializeAws_queryCreateApplicationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateApplicationVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1489,7 +1489,7 @@ export const deserializeAws_queryCreateConfigurationTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateConfigurationTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1559,7 +1559,7 @@ export const deserializeAws_queryCreateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateEnvironmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1621,7 +1621,7 @@ export const deserializeAws_queryCreatePlatformVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlatformVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreatePlatformVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1691,7 +1691,7 @@ export const deserializeAws_queryCreateStorageLocationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStorageLocationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateStorageLocationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1761,7 +1761,7 @@ export const deserializeAws_queryDeleteApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteApplicationCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1812,7 +1812,7 @@ export const deserializeAws_queryDeleteApplicationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteApplicationVersionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1887,7 +1887,7 @@ export const deserializeAws_queryDeleteConfigurationTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteConfigurationTemplateCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1938,7 +1938,7 @@ export const deserializeAws_queryDeleteEnvironmentConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteEnvironmentConfigurationCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1981,7 +1981,7 @@ export const deserializeAws_queryDeletePlatformVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlatformVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeletePlatformVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2059,7 +2059,7 @@ export const deserializeAws_queryDescribeAccountAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeAccountAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2113,7 +2113,7 @@ export const deserializeAws_queryDescribeApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeApplicationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeApplicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2159,7 +2159,7 @@ export const deserializeAws_queryDescribeApplicationVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeApplicationVersionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeApplicationVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2205,7 +2205,7 @@ export const deserializeAws_queryDescribeConfigurationOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeConfigurationOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2259,7 +2259,7 @@ export const deserializeAws_queryDescribeConfigurationSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeConfigurationSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2313,7 +2313,7 @@ export const deserializeAws_queryDescribeEnvironmentHealthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentHealthCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEnvironmentHealthCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2375,7 +2375,7 @@ export const deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2432,7 +2432,7 @@ export const deserializeAws_queryDescribeEnvironmentManagedActionsCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentManagedActionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEnvironmentManagedActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2489,7 +2489,7 @@ export const deserializeAws_queryDescribeEnvironmentResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEnvironmentResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2546,7 +2546,7 @@ export const deserializeAws_queryDescribeEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEnvironmentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2592,7 +2592,7 @@ export const deserializeAws_queryDescribeEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2638,7 +2638,7 @@ export const deserializeAws_queryDescribeInstancesHealthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInstancesHealthCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeInstancesHealthCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2700,7 +2700,7 @@ export const deserializeAws_queryDescribePlatformVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePlatformVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribePlatformVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2762,7 +2762,7 @@ export const deserializeAws_queryDisassociateEnvironmentOperationsRoleCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateEnvironmentOperationsRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDisassociateEnvironmentOperationsRoleCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2813,7 +2813,7 @@ export const deserializeAws_queryListAvailableSolutionStacksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAvailableSolutionStacksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListAvailableSolutionStacksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2862,7 +2862,7 @@ export const deserializeAws_queryListPlatformBranchesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlatformBranchesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListPlatformBranchesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2908,7 +2908,7 @@ export const deserializeAws_queryListPlatformVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlatformVersionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListPlatformVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2970,7 +2970,7 @@ export const deserializeAws_queryListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3040,7 +3040,7 @@ export const deserializeAws_queryRebuildEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebuildEnvironmentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRebuildEnvironmentCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3091,7 +3091,7 @@ export const deserializeAws_queryRequestEnvironmentInfoCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RequestEnvironmentInfoCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRequestEnvironmentInfoCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3134,7 +3134,7 @@ export const deserializeAws_queryRestartAppServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestartAppServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRestartAppServerCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3177,7 +3177,7 @@ export const deserializeAws_queryRetrieveEnvironmentInfoCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetrieveEnvironmentInfoCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRetrieveEnvironmentInfoCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3223,7 +3223,7 @@ export const deserializeAws_querySwapEnvironmentCNAMEsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SwapEnvironmentCNAMEsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySwapEnvironmentCNAMEsCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3266,7 +3266,7 @@ export const deserializeAws_queryTerminateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TerminateEnvironmentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryTerminateEnvironmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3320,7 +3320,7 @@ export const deserializeAws_queryUpdateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3366,7 +3366,7 @@ export const deserializeAws_queryUpdateApplicationResourceLifecycleCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationResourceLifecycleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateApplicationResourceLifecycleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3423,7 +3423,7 @@ export const deserializeAws_queryUpdateApplicationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateApplicationVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3469,7 +3469,7 @@ export const deserializeAws_queryUpdateConfigurationTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateConfigurationTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3531,7 +3531,7 @@ export const deserializeAws_queryUpdateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateEnvironmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3593,7 +3593,7 @@ export const deserializeAws_queryUpdateTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateTagsForResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3676,7 +3676,7 @@ export const deserializeAws_queryValidateConfigurationSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateConfigurationSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryValidateConfigurationSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

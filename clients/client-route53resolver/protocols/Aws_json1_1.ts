@@ -434,7 +434,7 @@ export const deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateResolverEndpointIpAddressCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -537,7 +537,7 @@ export const deserializeAws_json1_1AssociateResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateResolverRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateResolverRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -640,7 +640,7 @@ export const deserializeAws_json1_1CreateResolverEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResolverEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateResolverEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -743,7 +743,7 @@ export const deserializeAws_json1_1CreateResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResolverRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateResolverRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -854,7 +854,7 @@ export const deserializeAws_json1_1DeleteResolverEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResolverEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteResolverEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -941,7 +941,7 @@ export const deserializeAws_json1_1DeleteResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResolverRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteResolverRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1028,7 +1028,7 @@ export const deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1123,7 +1123,7 @@ export const deserializeAws_json1_1DisassociateResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateResolverRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateResolverRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1202,7 +1202,7 @@ export const deserializeAws_json1_1GetResolverEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetResolverEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1281,7 +1281,7 @@ export const deserializeAws_json1_1GetResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetResolverRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1360,7 +1360,7 @@ export const deserializeAws_json1_1GetResolverRuleAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverRuleAssociationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetResolverRuleAssociationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1439,7 +1439,7 @@ export const deserializeAws_json1_1GetResolverRulePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverRulePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetResolverRulePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1510,7 +1510,7 @@ export const deserializeAws_json1_1ListResolverEndpointIpAddressesCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverEndpointIpAddressesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1597,7 +1597,7 @@ export const deserializeAws_json1_1ListResolverEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverEndpointsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListResolverEndpointsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1684,7 +1684,7 @@ export const deserializeAws_json1_1ListResolverRuleAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverRuleAssociationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListResolverRuleAssociationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1771,7 +1771,7 @@ export const deserializeAws_json1_1ListResolverRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolverRulesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListResolverRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1858,7 +1858,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1953,7 +1953,7 @@ export const deserializeAws_json1_1PutResolverRulePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResolverRulePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutResolverRulePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2032,7 +2032,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2127,7 +2127,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2206,7 +2206,7 @@ export const deserializeAws_json1_1UpdateResolverEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResolverEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateResolverEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2293,7 +2293,7 @@ export const deserializeAws_json1_1UpdateResolverRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResolverRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateResolverRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

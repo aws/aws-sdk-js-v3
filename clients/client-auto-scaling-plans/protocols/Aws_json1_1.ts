@@ -138,7 +138,7 @@ export const deserializeAws_json1_1CreateScalingPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateScalingPlanCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateScalingPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -217,7 +217,7 @@ export const deserializeAws_json1_1DeleteScalingPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScalingPlanCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteScalingPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -296,7 +296,7 @@ export const deserializeAws_json1_1DescribeScalingPlanResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalingPlanResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeScalingPlanResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -375,7 +375,7 @@ export const deserializeAws_json1_1DescribeScalingPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalingPlansCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeScalingPlansCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -454,7 +454,7 @@ export const deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetScalingPlanResourceForecastDataCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetScalingPlanResourceForecastDataCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -517,7 +517,7 @@ export const deserializeAws_json1_1UpdateScalingPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateScalingPlanCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateScalingPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

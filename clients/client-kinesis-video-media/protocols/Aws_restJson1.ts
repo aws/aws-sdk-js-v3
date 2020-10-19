@@ -49,7 +49,7 @@ export const deserializeAws_restJson1GetMediaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMediaCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMediaCommandError(output, context);
   }
   const contents: GetMediaCommandOutput = {

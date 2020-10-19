@@ -1582,7 +1582,7 @@ export const deserializeAws_restJson1CreateAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateAppCommandError(output, context);
   }
   const contents: CreateAppCommandOutput = {
@@ -1669,7 +1669,7 @@ export const deserializeAws_restJson1CreateBackendEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendEnvironmentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBackendEnvironmentCommandError(output, context);
   }
   const contents: CreateBackendEnvironmentCommandOutput = {
@@ -1756,7 +1756,7 @@ export const deserializeAws_restJson1CreateBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBranchCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBranchCommandError(output, context);
   }
   const contents: CreateBranchCommandOutput = {
@@ -1851,7 +1851,7 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDeploymentCommandError(output, context);
   }
   const contents: CreateDeploymentCommandOutput = {
@@ -1938,7 +1938,7 @@ export const deserializeAws_restJson1CreateDomainAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainAssociationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDomainAssociationCommandError(output, context);
   }
   const contents: CreateDomainAssociationCommandOutput = {
@@ -2033,7 +2033,7 @@ export const deserializeAws_restJson1CreateWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWebhookCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateWebhookCommandError(output, context);
   }
   const contents: CreateWebhookCommandOutput = {
@@ -2128,7 +2128,7 @@ export const deserializeAws_restJson1DeleteAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAppCommandError(output, context);
   }
   const contents: DeleteAppCommandOutput = {
@@ -2215,7 +2215,7 @@ export const deserializeAws_restJson1DeleteBackendEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackendEnvironmentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBackendEnvironmentCommandError(output, context);
   }
   const contents: DeleteBackendEnvironmentCommandOutput = {
@@ -2302,7 +2302,7 @@ export const deserializeAws_restJson1DeleteBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBranchCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBranchCommandError(output, context);
   }
   const contents: DeleteBranchCommandOutput = {
@@ -2389,7 +2389,7 @@ export const deserializeAws_restJson1DeleteDomainAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainAssociationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDomainAssociationCommandError(output, context);
   }
   const contents: DeleteDomainAssociationCommandOutput = {
@@ -2476,7 +2476,7 @@ export const deserializeAws_restJson1DeleteJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteJobCommandError(output, context);
   }
   const contents: DeleteJobCommandOutput = {
@@ -2563,7 +2563,7 @@ export const deserializeAws_restJson1DeleteWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWebhookCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteWebhookCommandError(output, context);
   }
   const contents: DeleteWebhookCommandOutput = {
@@ -2650,7 +2650,7 @@ export const deserializeAws_restJson1GenerateAccessLogsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateAccessLogsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GenerateAccessLogsCommandError(output, context);
   }
   const contents: GenerateAccessLogsCommandOutput = {
@@ -2729,7 +2729,7 @@ export const deserializeAws_restJson1GetAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAppCommandError(output, context);
   }
   const contents: GetAppCommandOutput = {
@@ -2808,7 +2808,7 @@ export const deserializeAws_restJson1GetArtifactUrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetArtifactUrlCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetArtifactUrlCommandError(output, context);
   }
   const contents: GetArtifactUrlCommandOutput = {
@@ -2899,7 +2899,7 @@ export const deserializeAws_restJson1GetBackendEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendEnvironmentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackendEnvironmentCommandError(output, context);
   }
   const contents: GetBackendEnvironmentCommandOutput = {
@@ -2978,7 +2978,7 @@ export const deserializeAws_restJson1GetBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBranchCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBranchCommandError(output, context);
   }
   const contents: GetBranchCommandOutput = {
@@ -3057,7 +3057,7 @@ export const deserializeAws_restJson1GetDomainAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainAssociationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDomainAssociationCommandError(output, context);
   }
   const contents: GetDomainAssociationCommandOutput = {
@@ -3136,7 +3136,7 @@ export const deserializeAws_restJson1GetJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetJobCommandError(output, context);
   }
   const contents: GetJobCommandOutput = {
@@ -3223,7 +3223,7 @@ export const deserializeAws_restJson1GetWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWebhookCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetWebhookCommandError(output, context);
   }
   const contents: GetWebhookCommandOutput = {
@@ -3310,7 +3310,7 @@ export const deserializeAws_restJson1ListAppsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAppsCommandError(output, context);
   }
   const contents: ListAppsCommandOutput = {
@@ -3385,7 +3385,7 @@ export const deserializeAws_restJson1ListArtifactsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListArtifactsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListArtifactsCommandError(output, context);
   }
   const contents: ListArtifactsCommandOutput = {
@@ -3468,7 +3468,7 @@ export const deserializeAws_restJson1ListBackendEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackendEnvironmentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListBackendEnvironmentsCommandError(output, context);
   }
   const contents: ListBackendEnvironmentsCommandOutput = {
@@ -3543,7 +3543,7 @@ export const deserializeAws_restJson1ListBranchesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBranchesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListBranchesCommandError(output, context);
   }
   const contents: ListBranchesCommandOutput = {
@@ -3618,7 +3618,7 @@ export const deserializeAws_restJson1ListDomainAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainAssociationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDomainAssociationsCommandError(output, context);
   }
   const contents: ListDomainAssociationsCommandOutput = {
@@ -3693,7 +3693,7 @@ export const deserializeAws_restJson1ListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListJobsCommandError(output, context);
   }
   const contents: ListJobsCommandOutput = {
@@ -3776,7 +3776,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -3847,7 +3847,7 @@ export const deserializeAws_restJson1ListWebhooksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWebhooksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListWebhooksCommandError(output, context);
   }
   const contents: ListWebhooksCommandOutput = {
@@ -3930,7 +3930,7 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeploymentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartDeploymentCommandError(output, context);
   }
   const contents: StartDeploymentCommandOutput = {
@@ -4017,7 +4017,7 @@ export const deserializeAws_restJson1StartJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartJobCommandError(output, context);
   }
   const contents: StartJobCommandOutput = {
@@ -4104,7 +4104,7 @@ export const deserializeAws_restJson1StopJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StopJobCommandError(output, context);
   }
   const contents: StopJobCommandOutput = {
@@ -4191,7 +4191,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -4258,7 +4258,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -4325,7 +4325,7 @@ export const deserializeAws_restJson1UpdateAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAppCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAppCommandError(output, context);
   }
   const contents: UpdateAppCommandOutput = {
@@ -4404,7 +4404,7 @@ export const deserializeAws_restJson1UpdateBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBranchCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateBranchCommandError(output, context);
   }
   const contents: UpdateBranchCommandOutput = {
@@ -4491,7 +4491,7 @@ export const deserializeAws_restJson1UpdateDomainAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainAssociationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDomainAssociationCommandError(output, context);
   }
   const contents: UpdateDomainAssociationCommandOutput = {
@@ -4578,7 +4578,7 @@ export const deserializeAws_restJson1UpdateWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWebhookCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateWebhookCommandError(output, context);
   }
   const contents: UpdateWebhookCommandOutput = {

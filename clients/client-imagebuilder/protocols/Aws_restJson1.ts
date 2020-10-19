@@ -1388,7 +1388,7 @@ export const deserializeAws_restJson1CancelImageCreationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelImageCreationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelImageCreationCommandError(output, context);
   }
   const contents: CancelImageCreationCommandOutput = {
@@ -1507,7 +1507,7 @@ export const deserializeAws_restJson1CreateComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateComponentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateComponentCommandError(output, context);
   }
   const contents: CreateComponentCommandOutput = {
@@ -1650,7 +1650,7 @@ export const deserializeAws_restJson1CreateDistributionConfigurationCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDistributionConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDistributionConfigurationCommandError(output, context);
   }
   const contents: CreateDistributionConfigurationCommandOutput = {
@@ -1793,7 +1793,7 @@ export const deserializeAws_restJson1CreateImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateImageCommandError(output, context);
   }
   const contents: CreateImageCommandOutput = {
@@ -1920,7 +1920,7 @@ export const deserializeAws_restJson1CreateImagePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImagePipelineCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateImagePipelineCommandError(output, context);
   }
   const contents: CreateImagePipelineCommandOutput = {
@@ -2055,7 +2055,7 @@ export const deserializeAws_restJson1CreateImageRecipeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImageRecipeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateImageRecipeCommandError(output, context);
   }
   const contents: CreateImageRecipeCommandOutput = {
@@ -2198,7 +2198,7 @@ export const deserializeAws_restJson1CreateInfrastructureConfigurationCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInfrastructureConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateInfrastructureConfigurationCommandError(output, context);
   }
   const contents: CreateInfrastructureConfigurationCommandOutput = {
@@ -2333,7 +2333,7 @@ export const deserializeAws_restJson1DeleteComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteComponentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteComponentCommandError(output, context);
   }
   const contents: DeleteComponentCommandOutput = {
@@ -2440,7 +2440,7 @@ export const deserializeAws_restJson1DeleteDistributionConfigurationCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDistributionConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDistributionConfigurationCommandError(output, context);
   }
   const contents: DeleteDistributionConfigurationCommandOutput = {
@@ -2547,7 +2547,7 @@ export const deserializeAws_restJson1DeleteImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteImageCommandError(output, context);
   }
   const contents: DeleteImageCommandOutput = {
@@ -2654,7 +2654,7 @@ export const deserializeAws_restJson1DeleteImagePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImagePipelineCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteImagePipelineCommandError(output, context);
   }
   const contents: DeleteImagePipelineCommandOutput = {
@@ -2761,7 +2761,7 @@ export const deserializeAws_restJson1DeleteImageRecipeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImageRecipeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteImageRecipeCommandError(output, context);
   }
   const contents: DeleteImageRecipeCommandOutput = {
@@ -2868,7 +2868,7 @@ export const deserializeAws_restJson1DeleteInfrastructureConfigurationCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInfrastructureConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteInfrastructureConfigurationCommandError(output, context);
   }
   const contents: DeleteInfrastructureConfigurationCommandOutput = {
@@ -2975,7 +2975,7 @@ export const deserializeAws_restJson1GetComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComponentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetComponentCommandError(output, context);
   }
   const contents: GetComponentCommandOutput = {
@@ -3074,7 +3074,7 @@ export const deserializeAws_restJson1GetComponentPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComponentPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetComponentPolicyCommandError(output, context);
   }
   const contents: GetComponentPolicyCommandOutput = {
@@ -3173,7 +3173,7 @@ export const deserializeAws_restJson1GetDistributionConfigurationCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDistributionConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDistributionConfigurationCommandError(output, context);
   }
   const contents: GetDistributionConfigurationCommandOutput = {
@@ -3275,7 +3275,7 @@ export const deserializeAws_restJson1GetImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetImageCommandError(output, context);
   }
   const contents: GetImageCommandOutput = {
@@ -3374,7 +3374,7 @@ export const deserializeAws_restJson1GetImagePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImagePipelineCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetImagePipelineCommandError(output, context);
   }
   const contents: GetImagePipelineCommandOutput = {
@@ -3473,7 +3473,7 @@ export const deserializeAws_restJson1GetImagePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImagePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetImagePolicyCommandError(output, context);
   }
   const contents: GetImagePolicyCommandOutput = {
@@ -3572,7 +3572,7 @@ export const deserializeAws_restJson1GetImageRecipeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImageRecipeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetImageRecipeCommandError(output, context);
   }
   const contents: GetImageRecipeCommandOutput = {
@@ -3671,7 +3671,7 @@ export const deserializeAws_restJson1GetImageRecipePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImageRecipePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetImageRecipePolicyCommandError(output, context);
   }
   const contents: GetImageRecipePolicyCommandOutput = {
@@ -3770,7 +3770,7 @@ export const deserializeAws_restJson1GetInfrastructureConfigurationCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInfrastructureConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetInfrastructureConfigurationCommandError(output, context);
   }
   const contents: GetInfrastructureConfigurationCommandOutput = {
@@ -3872,7 +3872,7 @@ export const deserializeAws_restJson1ImportComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportComponentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ImportComponentCommandError(output, context);
   }
   const contents: ImportComponentCommandOutput = {
@@ -4007,7 +4007,7 @@ export const deserializeAws_restJson1ListComponentBuildVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListComponentBuildVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListComponentBuildVersionsCommandError(output, context);
   }
   const contents: ListComponentBuildVersionsCommandOutput = {
@@ -4118,7 +4118,7 @@ export const deserializeAws_restJson1ListComponentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListComponentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListComponentsCommandError(output, context);
   }
   const contents: ListComponentsCommandOutput = {
@@ -4229,7 +4229,7 @@ export const deserializeAws_restJson1ListDistributionConfigurationsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDistributionConfigurationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDistributionConfigurationsCommandError(output, context);
   }
   const contents: ListDistributionConfigurationsCommandOutput = {
@@ -4343,7 +4343,7 @@ export const deserializeAws_restJson1ListImageBuildVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImageBuildVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListImageBuildVersionsCommandError(output, context);
   }
   const contents: ListImageBuildVersionsCommandOutput = {
@@ -4454,7 +4454,7 @@ export const deserializeAws_restJson1ListImagePipelineImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImagePipelineImagesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListImagePipelineImagesCommandError(output, context);
   }
   const contents: ListImagePipelineImagesCommandOutput = {
@@ -4573,7 +4573,7 @@ export const deserializeAws_restJson1ListImagePipelinesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImagePipelinesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListImagePipelinesCommandError(output, context);
   }
   const contents: ListImagePipelinesCommandOutput = {
@@ -4684,7 +4684,7 @@ export const deserializeAws_restJson1ListImageRecipesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImageRecipesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListImageRecipesCommandError(output, context);
   }
   const contents: ListImageRecipesCommandOutput = {
@@ -4798,7 +4798,7 @@ export const deserializeAws_restJson1ListImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImagesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListImagesCommandError(output, context);
   }
   const contents: ListImagesCommandOutput = {
@@ -4909,7 +4909,7 @@ export const deserializeAws_restJson1ListInfrastructureConfigurationsCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInfrastructureConfigurationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListInfrastructureConfigurationsCommandError(output, context);
   }
   const contents: ListInfrastructureConfigurationsCommandOutput = {
@@ -5026,7 +5026,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -5097,7 +5097,7 @@ export const deserializeAws_restJson1PutComponentPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutComponentPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutComponentPolicyCommandError(output, context);
   }
   const contents: PutComponentPolicyCommandOutput = {
@@ -5212,7 +5212,7 @@ export const deserializeAws_restJson1PutImagePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImagePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutImagePolicyCommandError(output, context);
   }
   const contents: PutImagePolicyCommandOutput = {
@@ -5327,7 +5327,7 @@ export const deserializeAws_restJson1PutImageRecipePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImageRecipePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutImageRecipePolicyCommandError(output, context);
   }
   const contents: PutImageRecipePolicyCommandOutput = {
@@ -5442,7 +5442,7 @@ export const deserializeAws_restJson1StartImagePipelineExecutionCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImagePipelineExecutionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartImagePipelineExecutionCommandError(output, context);
   }
   const contents: StartImagePipelineExecutionCommandOutput = {
@@ -5569,7 +5569,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -5636,7 +5636,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -5703,7 +5703,7 @@ export const deserializeAws_restJson1UpdateDistributionConfigurationCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDistributionConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDistributionConfigurationCommandError(output, context);
   }
   const contents: UpdateDistributionConfigurationCommandOutput = {
@@ -5830,7 +5830,7 @@ export const deserializeAws_restJson1UpdateImagePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateImagePipelineCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateImagePipelineCommandError(output, context);
   }
   const contents: UpdateImagePipelineCommandOutput = {
@@ -5949,7 +5949,7 @@ export const deserializeAws_restJson1UpdateInfrastructureConfigurationCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateInfrastructureConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateInfrastructureConfigurationCommandError(output, context);
   }
   const contents: UpdateInfrastructureConfigurationCommandOutput = {

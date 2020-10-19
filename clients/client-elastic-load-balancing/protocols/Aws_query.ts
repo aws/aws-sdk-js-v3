@@ -691,7 +691,7 @@ export const deserializeAws_queryAddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAddTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -761,7 +761,7 @@ export const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -834,7 +834,7 @@ export const deserializeAws_queryAttachLoadBalancerToSubnetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachLoadBalancerToSubnetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAttachLoadBalancerToSubnetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -912,7 +912,7 @@ export const deserializeAws_queryConfigureHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfigureHealthCheckCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryConfigureHealthCheckCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -966,7 +966,7 @@ export const deserializeAws_queryCreateAppCookieStickinessPolicyCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppCookieStickinessPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateAppCookieStickinessPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1047,7 +1047,7 @@ export const deserializeAws_queryCreateLBCookieStickinessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLBCookieStickinessPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateLBCookieStickinessPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1128,7 +1128,7 @@ export const deserializeAws_queryCreateLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoadBalancerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1270,7 +1270,7 @@ export const deserializeAws_queryCreateLoadBalancerListenersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoadBalancerListenersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateLoadBalancerListenersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1356,7 +1356,7 @@ export const deserializeAws_queryCreateLoadBalancerPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoadBalancerPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateLoadBalancerPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1442,7 +1442,7 @@ export const deserializeAws_queryDeleteLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1488,7 +1488,7 @@ export const deserializeAws_queryDeleteLoadBalancerListenersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerListenersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteLoadBalancerListenersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1542,7 +1542,7 @@ export const deserializeAws_queryDeleteLoadBalancerPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteLoadBalancerPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1604,7 +1604,7 @@ export const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1666,7 +1666,7 @@ export const deserializeAws_queryDescribeAccountLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeAccountLimitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1712,7 +1712,7 @@ export const deserializeAws_queryDescribeInstanceHealthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInstanceHealthCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeInstanceHealthCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1774,7 +1774,7 @@ export const deserializeAws_queryDescribeLoadBalancerAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeLoadBalancerAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1839,7 +1839,7 @@ export const deserializeAws_queryDescribeLoadBalancerPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeLoadBalancerPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1901,7 +1901,7 @@ export const deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1958,7 +1958,7 @@ export const deserializeAws_queryDescribeLoadBalancersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeLoadBalancersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2020,7 +2020,7 @@ export const deserializeAws_queryDescribeTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2074,7 +2074,7 @@ export const deserializeAws_queryDetachLoadBalancerFromSubnetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachLoadBalancerFromSubnetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2136,7 +2136,7 @@ export const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2201,7 +2201,7 @@ export const deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2255,7 +2255,7 @@ export const deserializeAws_queryModifyLoadBalancerAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyLoadBalancerAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyLoadBalancerAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2325,7 +2325,7 @@ export const deserializeAws_queryRegisterInstancesWithLoadBalancerCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterInstancesWithLoadBalancerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2387,7 +2387,7 @@ export const deserializeAws_queryRemoveTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemoveTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2441,7 +2441,7 @@ export const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2530,7 +2530,7 @@ export const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2603,7 +2603,7 @@ export const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

@@ -385,7 +385,7 @@ export const deserializeAws_restJson1AssociateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateRepositoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AssociateRepositoryCommandError(output, context);
   }
   const contents: AssociateRepositoryCommandOutput = {
@@ -472,7 +472,7 @@ export const deserializeAws_restJson1DescribeCodeReviewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCodeReviewCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeCodeReviewCommandError(output, context);
   }
   const contents: DescribeCodeReviewCommandOutput = {
@@ -559,7 +559,7 @@ export const deserializeAws_restJson1DescribeRecommendationFeedbackCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecommendationFeedbackCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeRecommendationFeedbackCommandError(output, context);
   }
   const contents: DescribeRecommendationFeedbackCommandOutput = {
@@ -649,7 +649,7 @@ export const deserializeAws_restJson1DescribeRepositoryAssociationCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRepositoryAssociationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeRepositoryAssociationCommandError(output, context);
   }
   const contents: DescribeRepositoryAssociationCommandOutput = {
@@ -736,7 +736,7 @@ export const deserializeAws_restJson1DisassociateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateRepositoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateRepositoryCommandError(output, context);
   }
   const contents: DisassociateRepositoryCommandOutput = {
@@ -831,7 +831,7 @@ export const deserializeAws_restJson1ListCodeReviewsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCodeReviewsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListCodeReviewsCommandError(output, context);
   }
   const contents: ListCodeReviewsCommandOutput = {
@@ -914,7 +914,7 @@ export const deserializeAws_restJson1ListRecommendationFeedbackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecommendationFeedbackCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRecommendationFeedbackCommandError(output, context);
   }
   const contents: ListRecommendationFeedbackCommandOutput = {
@@ -1008,7 +1008,7 @@ export const deserializeAws_restJson1ListRecommendationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecommendationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRecommendationsCommandError(output, context);
   }
   const contents: ListRecommendationsCommandOutput = {
@@ -1102,7 +1102,7 @@ export const deserializeAws_restJson1ListRepositoryAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRepositoryAssociationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRepositoryAssociationsCommandError(output, context);
   }
   const contents: ListRepositoryAssociationsCommandOutput = {
@@ -1180,7 +1180,7 @@ export const deserializeAws_restJson1PutRecommendationFeedbackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRecommendationFeedbackCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutRecommendationFeedbackCommandError(output, context);
   }
   const contents: PutRecommendationFeedbackCommandOutput = {

@@ -445,7 +445,7 @@ export const deserializeAws_json1_1AssociateDRTLogBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDRTLogBucketCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateDRTLogBucketCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -556,7 +556,7 @@ export const deserializeAws_json1_1AssociateDRTRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDRTRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateDRTRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -651,7 +651,7 @@ export const deserializeAws_json1_1AssociateHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateHealthCheckCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateHealthCheckCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -738,7 +738,7 @@ export const deserializeAws_json1_1AssociateProactiveEngagementDetailsCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateProactiveEngagementDetailsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateProactiveEngagementDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -825,7 +825,7 @@ export const deserializeAws_json1_1CreateProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProtectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateProtectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -928,7 +928,7 @@ export const deserializeAws_json1_1CreateSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -991,7 +991,7 @@ export const deserializeAws_json1_1DeleteProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProtectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteProtectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1062,7 +1062,7 @@ export const deserializeAws_json1_1DeleteSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1133,7 +1133,7 @@ export const deserializeAws_json1_1DescribeAttackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAttackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAttackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1196,7 +1196,7 @@ export const deserializeAws_json1_1DescribeDRTAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDRTAccessCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDRTAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1259,7 +1259,7 @@ export const deserializeAws_json1_1DescribeEmergencyContactSettingsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEmergencyContactSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEmergencyContactSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1322,7 +1322,7 @@ export const deserializeAws_json1_1DescribeProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProtectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProtectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1393,7 +1393,7 @@ export const deserializeAws_json1_1DescribeSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1456,7 +1456,7 @@ export const deserializeAws_json1_1DisableProactiveEngagementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableProactiveEngagementCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisableProactiveEngagementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1543,7 +1543,7 @@ export const deserializeAws_json1_1DisassociateDRTLogBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDRTLogBucketCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateDRTLogBucketCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1638,7 +1638,7 @@ export const deserializeAws_json1_1DisassociateDRTRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDRTRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateDRTRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1717,7 +1717,7 @@ export const deserializeAws_json1_1DisassociateHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateHealthCheckCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateHealthCheckCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1796,7 +1796,7 @@ export const deserializeAws_json1_1EnableProactiveEngagementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableProactiveEngagementCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableProactiveEngagementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1883,7 +1883,7 @@ export const deserializeAws_json1_1GetSubscriptionStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionStateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSubscriptionStateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1938,7 +1938,7 @@ export const deserializeAws_json1_1ListAttacksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttacksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAttacksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2009,7 +2009,7 @@ export const deserializeAws_json1_1ListProtectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProtectionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListProtectionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2080,7 +2080,7 @@ export const deserializeAws_json1_1UpdateEmergencyContactSettingsCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEmergencyContactSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateEmergencyContactSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2159,7 +2159,7 @@ export const deserializeAws_json1_1UpdateSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

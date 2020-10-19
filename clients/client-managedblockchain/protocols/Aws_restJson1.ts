@@ -873,7 +873,7 @@ export const deserializeAws_restJson1CreateMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateMemberCommandError(output, context);
   }
   const contents: CreateMemberCommandOutput = {
@@ -984,7 +984,7 @@ export const deserializeAws_restJson1CreateNetworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNetworkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateNetworkCommandError(output, context);
   }
   const contents: CreateNetworkCommandOutput = {
@@ -1083,7 +1083,7 @@ export const deserializeAws_restJson1CreateNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateNodeCommandError(output, context);
   }
   const contents: CreateNodeCommandOutput = {
@@ -1194,7 +1194,7 @@ export const deserializeAws_restJson1CreateProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProposalCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateProposalCommandError(output, context);
   }
   const contents: CreateProposalCommandOutput = {
@@ -1289,7 +1289,7 @@ export const deserializeAws_restJson1DeleteMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteMemberCommandError(output, context);
   }
   const contents: DeleteMemberCommandOutput = {
@@ -1380,7 +1380,7 @@ export const deserializeAws_restJson1DeleteNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteNodeCommandError(output, context);
   }
   const contents: DeleteNodeCommandOutput = {
@@ -1471,7 +1471,7 @@ export const deserializeAws_restJson1GetMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMemberCommandError(output, context);
   }
   const contents: GetMemberCommandOutput = {
@@ -1558,7 +1558,7 @@ export const deserializeAws_restJson1GetNetworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNetworkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetNetworkCommandError(output, context);
   }
   const contents: GetNetworkCommandOutput = {
@@ -1645,7 +1645,7 @@ export const deserializeAws_restJson1GetNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetNodeCommandError(output, context);
   }
   const contents: GetNodeCommandOutput = {
@@ -1732,7 +1732,7 @@ export const deserializeAws_restJson1GetProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProposalCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetProposalCommandError(output, context);
   }
   const contents: GetProposalCommandOutput = {
@@ -1819,7 +1819,7 @@ export const deserializeAws_restJson1ListInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListInvitationsCommandError(output, context);
   }
   const contents: ListInvitationsCommandOutput = {
@@ -1918,7 +1918,7 @@ export const deserializeAws_restJson1ListMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMembersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListMembersCommandError(output, context);
   }
   const contents: ListMembersCommandOutput = {
@@ -2001,7 +2001,7 @@ export const deserializeAws_restJson1ListNetworksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNetworksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListNetworksCommandError(output, context);
   }
   const contents: ListNetworksCommandOutput = {
@@ -2084,7 +2084,7 @@ export const deserializeAws_restJson1ListNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNodesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListNodesCommandError(output, context);
   }
   const contents: ListNodesCommandOutput = {
@@ -2167,7 +2167,7 @@ export const deserializeAws_restJson1ListProposalsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProposalsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProposalsCommandError(output, context);
   }
   const contents: ListProposalsCommandOutput = {
@@ -2258,7 +2258,7 @@ export const deserializeAws_restJson1ListProposalVotesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProposalVotesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProposalVotesCommandError(output, context);
   }
   const contents: ListProposalVotesCommandOutput = {
@@ -2341,7 +2341,7 @@ export const deserializeAws_restJson1RejectInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectInvitationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RejectInvitationCommandError(output, context);
   }
   const contents: RejectInvitationCommandOutput = {
@@ -2432,7 +2432,7 @@ export const deserializeAws_restJson1UpdateMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateMemberCommandError(output, context);
   }
   const contents: UpdateMemberCommandOutput = {
@@ -2515,7 +2515,7 @@ export const deserializeAws_restJson1UpdateNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateNodeCommandError(output, context);
   }
   const contents: UpdateNodeCommandOutput = {
@@ -2598,7 +2598,7 @@ export const deserializeAws_restJson1VoteOnProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VoteOnProposalCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1VoteOnProposalCommandError(output, context);
   }
   const contents: VoteOnProposalCommandOutput = {

@@ -312,7 +312,7 @@ export const deserializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2EmptyInputAndEmptyOutputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -358,7 +358,7 @@ export const deserializeAws_ec2GreetingWithErrorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GreetingWithErrorsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2GreetingWithErrorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -420,7 +420,7 @@ export const deserializeAws_ec2IgnoresWrappingXmlNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IgnoresWrappingXmlNameCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2IgnoresWrappingXmlNameCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -466,7 +466,7 @@ export const deserializeAws_ec2NestedStructuresCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NestedStructuresCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2NestedStructuresCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -509,7 +509,7 @@ export const deserializeAws_ec2NoInputAndOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NoInputAndOutputCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2NoInputAndOutputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -555,7 +555,7 @@ export const deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -598,7 +598,7 @@ export const deserializeAws_ec2QueryListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryListsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2QueryListsCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -641,7 +641,7 @@ export const deserializeAws_ec2QueryTimestampsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryTimestampsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2QueryTimestampsCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -684,7 +684,7 @@ export const deserializeAws_ec2RecursiveXmlShapesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RecursiveXmlShapesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2RecursiveXmlShapesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -730,7 +730,7 @@ export const deserializeAws_ec2SimpleInputParamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimpleInputParamsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2SimpleInputParamsCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -773,7 +773,7 @@ export const deserializeAws_ec2SimpleScalarXmlPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2SimpleScalarXmlPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -819,7 +819,7 @@ export const deserializeAws_ec2XmlBlobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlBlobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2XmlBlobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -865,7 +865,7 @@ export const deserializeAws_ec2XmlEnumsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlEnumsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2XmlEnumsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -911,7 +911,7 @@ export const deserializeAws_ec2XmlListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlListsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2XmlListsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -957,7 +957,7 @@ export const deserializeAws_ec2XmlNamespacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlNamespacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2XmlNamespacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1003,7 +1003,7 @@ export const deserializeAws_ec2XmlTimestampsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlTimestampsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_ec2XmlTimestampsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

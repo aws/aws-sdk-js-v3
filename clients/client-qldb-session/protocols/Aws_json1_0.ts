@@ -51,7 +51,7 @@ export const deserializeAws_json1_0SendCommandCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendCommandCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0SendCommandCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

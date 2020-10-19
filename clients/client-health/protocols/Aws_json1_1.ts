@@ -268,7 +268,7 @@ export const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -323,7 +323,7 @@ export const deserializeAws_json1_1DescribeAffectedEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAffectedEntitiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAffectedEntitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -386,7 +386,7 @@ export const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -449,7 +449,7 @@ export const deserializeAws_json1_1DescribeEntityAggregatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEntityAggregatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEntityAggregatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -496,7 +496,7 @@ export const deserializeAws_json1_1DescribeEventAggregatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventAggregatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEventAggregatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -551,7 +551,7 @@ export const deserializeAws_json1_1DescribeEventDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventDetailsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEventDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -606,7 +606,7 @@ export const deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventDetailsForOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -661,7 +661,7 @@ export const deserializeAws_json1_1DescribeEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -724,7 +724,7 @@ export const deserializeAws_json1_1DescribeEventsForOrganizationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsForOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEventsForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -787,7 +787,7 @@ export const deserializeAws_json1_1DescribeEventTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventTypesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEventTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -850,7 +850,7 @@ export const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -897,7 +897,7 @@ export const deserializeAws_json1_1DisableHealthServiceAccessForOrganizationComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -949,7 +949,7 @@ export const deserializeAws_json1_1EnableHealthServiceAccessForOrganizationComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommandError(output, context);
   }
   await collectBody(output.body, context);

@@ -1139,7 +1139,7 @@ export const deserializeAws_restJson1CreateDiscovererCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDiscovererCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDiscovererCommandError(output, context);
   }
   const contents: CreateDiscovererCommandOutput = {
@@ -1254,7 +1254,7 @@ export const deserializeAws_restJson1CreateRegistryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRegistryCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateRegistryCommandError(output, context);
   }
   const contents: CreateRegistryCommandOutput = {
@@ -1361,7 +1361,7 @@ export const deserializeAws_restJson1CreateSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSchemaCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateSchemaCommandError(output, context);
   }
   const contents: CreateSchemaCommandOutput = {
@@ -1468,7 +1468,7 @@ export const deserializeAws_restJson1DeleteDiscovererCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDiscovererCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDiscovererCommandError(output, context);
   }
   const contents: DeleteDiscovererCommandOutput = {
@@ -1559,7 +1559,7 @@ export const deserializeAws_restJson1DeleteRegistryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRegistryCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteRegistryCommandError(output, context);
   }
   const contents: DeleteRegistryCommandOutput = {
@@ -1650,7 +1650,7 @@ export const deserializeAws_restJson1DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteResourcePolicyCommandError(output, context);
   }
   const contents: DeleteResourcePolicyCommandOutput = {
@@ -1741,7 +1741,7 @@ export const deserializeAws_restJson1DeleteSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSchemaCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteSchemaCommandError(output, context);
   }
   const contents: DeleteSchemaCommandOutput = {
@@ -1832,7 +1832,7 @@ export const deserializeAws_restJson1DeleteSchemaVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSchemaVersionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteSchemaVersionCommandError(output, context);
   }
   const contents: DeleteSchemaVersionCommandOutput = {
@@ -1923,7 +1923,7 @@ export const deserializeAws_restJson1DescribeCodeBindingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCodeBindingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeCodeBindingCommandError(output, context);
   }
   const contents: DescribeCodeBindingCommandOutput = {
@@ -2030,7 +2030,7 @@ export const deserializeAws_restJson1DescribeDiscovererCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDiscovererCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeDiscovererCommandError(output, context);
   }
   const contents: DescribeDiscovererCommandOutput = {
@@ -2145,7 +2145,7 @@ export const deserializeAws_restJson1DescribeRegistryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRegistryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeRegistryCommandError(output, context);
   }
   const contents: DescribeRegistryCommandOutput = {
@@ -2252,7 +2252,7 @@ export const deserializeAws_restJson1DescribeSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSchemaCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeSchemaCommandError(output, context);
   }
   const contents: DescribeSchemaCommandOutput = {
@@ -2379,7 +2379,7 @@ export const deserializeAws_restJson1GetCodeBindingSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCodeBindingSourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetCodeBindingSourceCommandError(output, context);
   }
   const contents: GetCodeBindingSourceCommandOutput = {
@@ -2472,7 +2472,7 @@ export const deserializeAws_restJson1GetDiscoveredSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDiscoveredSchemaCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDiscoveredSchemaCommandError(output, context);
   }
   const contents: GetDiscoveredSchemaCommandOutput = {
@@ -2559,7 +2559,7 @@ export const deserializeAws_restJson1GetResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetResourcePolicyCommandError(output, context);
   }
   const contents: GetResourcePolicyCommandOutput = {
@@ -2658,7 +2658,7 @@ export const deserializeAws_restJson1ListDiscoverersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDiscoverersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDiscoverersCommandError(output, context);
   }
   const contents: ListDiscoverersCommandOutput = {
@@ -2749,7 +2749,7 @@ export const deserializeAws_restJson1ListRegistriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRegistriesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRegistriesCommandError(output, context);
   }
   const contents: ListRegistriesCommandOutput = {
@@ -2840,7 +2840,7 @@ export const deserializeAws_restJson1ListSchemasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSchemasCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSchemasCommandError(output, context);
   }
   const contents: ListSchemasCommandOutput = {
@@ -2931,7 +2931,7 @@ export const deserializeAws_restJson1ListSchemaVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSchemaVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSchemaVersionsCommandError(output, context);
   }
   const contents: ListSchemaVersionsCommandOutput = {
@@ -3030,7 +3030,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -3109,7 +3109,7 @@ export const deserializeAws_restJson1PutCodeBindingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutCodeBindingCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutCodeBindingCommandError(output, context);
   }
   const contents: PutCodeBindingCommandOutput = {
@@ -3224,7 +3224,7 @@ export const deserializeAws_restJson1PutResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutResourcePolicyCommandError(output, context);
   }
   const contents: PutResourcePolicyCommandOutput = {
@@ -3331,7 +3331,7 @@ export const deserializeAws_restJson1SearchSchemasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchSchemasCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SearchSchemasCommandError(output, context);
   }
   const contents: SearchSchemasCommandOutput = {
@@ -3422,7 +3422,7 @@ export const deserializeAws_restJson1StartDiscovererCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDiscovererCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartDiscovererCommandError(output, context);
   }
   const contents: StartDiscovererCommandOutput = {
@@ -3521,7 +3521,7 @@ export const deserializeAws_restJson1StopDiscovererCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDiscovererCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StopDiscovererCommandError(output, context);
   }
   const contents: StopDiscovererCommandOutput = {
@@ -3620,7 +3620,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -3695,7 +3695,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -3770,7 +3770,7 @@ export const deserializeAws_restJson1UpdateDiscovererCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDiscovererCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDiscovererCommandError(output, context);
   }
   const contents: UpdateDiscovererCommandOutput = {
@@ -3885,7 +3885,7 @@ export const deserializeAws_restJson1UpdateRegistryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRegistryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateRegistryCommandError(output, context);
   }
   const contents: UpdateRegistryCommandOutput = {
@@ -3992,7 +3992,7 @@ export const deserializeAws_restJson1UpdateSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSchemaCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateSchemaCommandError(output, context);
   }
   const contents: UpdateSchemaCommandOutput = {

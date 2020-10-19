@@ -2294,7 +2294,7 @@ export const deserializeAws_restXmlAssociateVPCWithHostedZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateVPCWithHostedZoneCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError(output, context);
   }
   const contents: AssociateVPCWithHostedZoneCommandOutput = {
@@ -2405,7 +2405,7 @@ export const deserializeAws_restXmlChangeResourceRecordSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ChangeResourceRecordSetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlChangeResourceRecordSetsCommandError(output, context);
   }
   const contents: ChangeResourceRecordSetsCommandOutput = {
@@ -2492,7 +2492,7 @@ export const deserializeAws_restXmlChangeTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ChangeTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlChangeTagsForResourceCommandError(output, context);
   }
   const contents: ChangeTagsForResourceCommandOutput = {
@@ -2575,7 +2575,7 @@ export const deserializeAws_restXmlCreateHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHealthCheckCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateHealthCheckCommandError(output, context);
   }
   const contents: CreateHealthCheckCommandOutput = {
@@ -2650,7 +2650,7 @@ export const deserializeAws_restXmlCreateHostedZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHostedZoneCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateHostedZoneCommandError(output, context);
   }
   const contents: CreateHostedZoneCommandOutput = {
@@ -2785,7 +2785,7 @@ export const deserializeAws_restXmlCreateQueryLoggingConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateQueryLoggingConfigCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateQueryLoggingConfigCommandError(output, context);
   }
   const contents: CreateQueryLoggingConfigCommandOutput = {
@@ -2884,7 +2884,7 @@ export const deserializeAws_restXmlCreateReusableDelegationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReusableDelegationSetCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateReusableDelegationSetCommandError(output, context);
   }
   const contents: CreateReusableDelegationSetCommandOutput = {
@@ -2991,7 +2991,7 @@ export const deserializeAws_restXmlCreateTrafficPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTrafficPolicyCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateTrafficPolicyCommandError(output, context);
   }
   const contents: CreateTrafficPolicyCommandOutput = {
@@ -3074,7 +3074,7 @@ export const deserializeAws_restXmlCreateTrafficPolicyInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTrafficPolicyInstanceCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError(output, context);
   }
   const contents: CreateTrafficPolicyInstanceCommandOutput = {
@@ -3168,7 +3168,7 @@ export const deserializeAws_restXmlCreateTrafficPolicyVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTrafficPolicyVersionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateTrafficPolicyVersionCommandError(output, context);
   }
   const contents: CreateTrafficPolicyVersionCommandOutput = {
@@ -3259,7 +3259,7 @@ export const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVPCAssociationAuthorizationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError(output, context);
   }
   const contents: CreateVPCAssociationAuthorizationCommandOutput = {
@@ -3350,7 +3350,7 @@ export const deserializeAws_restXmlDeleteHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHealthCheckCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteHealthCheckCommandError(output, context);
   }
   const contents: DeleteHealthCheckCommandOutput = {
@@ -3417,7 +3417,7 @@ export const deserializeAws_restXmlDeleteHostedZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHostedZoneCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteHostedZoneCommandError(output, context);
   }
   const contents: DeleteHostedZoneCommandOutput = {
@@ -3504,7 +3504,7 @@ export const deserializeAws_restXmlDeleteQueryLoggingConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteQueryLoggingConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteQueryLoggingConfigCommandError(output, context);
   }
   const contents: DeleteQueryLoggingConfigCommandOutput = {
@@ -3571,7 +3571,7 @@ export const deserializeAws_restXmlDeleteReusableDelegationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReusableDelegationSetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteReusableDelegationSetCommandError(output, context);
   }
   const contents: DeleteReusableDelegationSetCommandOutput = {
@@ -3646,7 +3646,7 @@ export const deserializeAws_restXmlDeleteTrafficPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTrafficPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteTrafficPolicyCommandError(output, context);
   }
   const contents: DeleteTrafficPolicyCommandOutput = {
@@ -3721,7 +3721,7 @@ export const deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTrafficPolicyInstanceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError(output, context);
   }
   const contents: DeleteTrafficPolicyInstanceCommandOutput = {
@@ -3788,7 +3788,7 @@ export const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVPCAssociationAuthorizationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError(output, context);
   }
   const contents: DeleteVPCAssociationAuthorizationCommandOutput = {
@@ -3871,7 +3871,7 @@ export const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateVPCFromHostedZoneCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError(output, context);
   }
   const contents: DisassociateVPCFromHostedZoneCommandOutput = {
@@ -3958,7 +3958,7 @@ export const deserializeAws_restXmlGetAccountLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountLimitCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetAccountLimitCommandError(output, context);
   }
   const contents: GetAccountLimitCommandOutput = {
@@ -4017,7 +4017,7 @@ export const deserializeAws_restXmlGetChangeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChangeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetChangeCommandError(output, context);
   }
   const contents: GetChangeCommandOutput = {
@@ -4080,7 +4080,7 @@ export const deserializeAws_restXmlGetCheckerIpRangesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCheckerIpRangesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetCheckerIpRangesCommandError(output, context);
   }
   const contents: GetCheckerIpRangesCommandOutput = {
@@ -4133,7 +4133,7 @@ export const deserializeAws_restXmlGetGeoLocationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGeoLocationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetGeoLocationCommandError(output, context);
   }
   const contents: GetGeoLocationCommandOutput = {
@@ -4196,7 +4196,7 @@ export const deserializeAws_restXmlGetHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHealthCheckCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetHealthCheckCommandError(output, context);
   }
   const contents: GetHealthCheckCommandOutput = {
@@ -4267,7 +4267,7 @@ export const deserializeAws_restXmlGetHealthCheckCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHealthCheckCountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetHealthCheckCountCommandError(output, context);
   }
   const contents: GetHealthCheckCountCommandOutput = {
@@ -4314,7 +4314,7 @@ export const deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHealthCheckLastFailureReasonCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError(output, context);
   }
   const contents: GetHealthCheckLastFailureReasonCommandOutput = {
@@ -4386,7 +4386,7 @@ export const deserializeAws_restXmlGetHealthCheckStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHealthCheckStatusCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetHealthCheckStatusCommandError(output, context);
   }
   const contents: GetHealthCheckStatusCommandOutput = {
@@ -4458,7 +4458,7 @@ export const deserializeAws_restXmlGetHostedZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHostedZoneCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetHostedZoneCommandError(output, context);
   }
   const contents: GetHostedZoneCommandOutput = {
@@ -4532,7 +4532,7 @@ export const deserializeAws_restXmlGetHostedZoneCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHostedZoneCountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetHostedZoneCountCommandError(output, context);
   }
   const contents: GetHostedZoneCountCommandOutput = {
@@ -4587,7 +4587,7 @@ export const deserializeAws_restXmlGetHostedZoneLimitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHostedZoneLimitCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetHostedZoneLimitCommandError(output, context);
   }
   const contents: GetHostedZoneLimitCommandOutput = {
@@ -4662,7 +4662,7 @@ export const deserializeAws_restXmlGetQueryLoggingConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetQueryLoggingConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetQueryLoggingConfigCommandError(output, context);
   }
   const contents: GetQueryLoggingConfigCommandOutput = {
@@ -4725,7 +4725,7 @@ export const deserializeAws_restXmlGetReusableDelegationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetReusableDelegationSetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetReusableDelegationSetCommandError(output, context);
   }
   const contents: GetReusableDelegationSetCommandOutput = {
@@ -4796,7 +4796,7 @@ export const deserializeAws_restXmlGetReusableDelegationSetLimitCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetReusableDelegationSetLimitCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetReusableDelegationSetLimitCommandError(output, context);
   }
   const contents: GetReusableDelegationSetLimitCommandOutput = {
@@ -4863,7 +4863,7 @@ export const deserializeAws_restXmlGetTrafficPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTrafficPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetTrafficPolicyCommandError(output, context);
   }
   const contents: GetTrafficPolicyCommandOutput = {
@@ -4926,7 +4926,7 @@ export const deserializeAws_restXmlGetTrafficPolicyInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTrafficPolicyInstanceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetTrafficPolicyInstanceCommandError(output, context);
   }
   const contents: GetTrafficPolicyInstanceCommandOutput = {
@@ -4992,7 +4992,7 @@ export const deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTrafficPolicyInstanceCountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError(output, context);
   }
   const contents: GetTrafficPolicyInstanceCountCommandOutput = {
@@ -5039,7 +5039,7 @@ export const deserializeAws_restXmlListGeoLocationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGeoLocationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListGeoLocationsCommandError(output, context);
   }
   const contents: ListGeoLocationsCommandOutput = {
@@ -5123,7 +5123,7 @@ export const deserializeAws_restXmlListHealthChecksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHealthChecksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListHealthChecksCommandError(output, context);
   }
   const contents: ListHealthChecksCommandOutput = {
@@ -5208,7 +5208,7 @@ export const deserializeAws_restXmlListHostedZonesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHostedZonesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListHostedZonesCommandError(output, context);
   }
   const contents: ListHostedZonesCommandOutput = {
@@ -5301,7 +5301,7 @@ export const deserializeAws_restXmlListHostedZonesByNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHostedZonesByNameCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListHostedZonesByNameCommandError(output, context);
   }
   const contents: ListHostedZonesByNameCommandOutput = {
@@ -5394,7 +5394,7 @@ export const deserializeAws_restXmlListHostedZonesByVPCCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHostedZonesByVPCCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListHostedZonesByVPCCommandError(output, context);
   }
   const contents: ListHostedZonesByVPCCommandOutput = {
@@ -5471,7 +5471,7 @@ export const deserializeAws_restXmlListQueryLoggingConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListQueryLoggingConfigsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListQueryLoggingConfigsCommandError(output, context);
   }
   const contents: ListQueryLoggingConfigsCommandOutput = {
@@ -5552,7 +5552,7 @@ export const deserializeAws_restXmlListResourceRecordSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceRecordSetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListResourceRecordSetsCommandError(output, context);
   }
   const contents: ListResourceRecordSetsCommandOutput = {
@@ -5641,7 +5641,7 @@ export const deserializeAws_restXmlListReusableDelegationSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReusableDelegationSetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListReusableDelegationSetsCommandError(output, context);
   }
   const contents: ListReusableDelegationSetsCommandOutput = {
@@ -5718,7 +5718,7 @@ export const deserializeAws_restXmlListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -5805,7 +5805,7 @@ export const deserializeAws_restXmlListTagsForResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourcesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListTagsForResourcesCommandError(output, context);
   }
   const contents: ListTagsForResourcesCommandOutput = {
@@ -5898,7 +5898,7 @@ export const deserializeAws_restXmlListTrafficPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTrafficPoliciesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListTrafficPoliciesCommandError(output, context);
   }
   const contents: ListTrafficPoliciesCommandOutput = {
@@ -5974,7 +5974,7 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTrafficPolicyInstancesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListTrafficPolicyInstancesCommandError(output, context);
   }
   const contents: ListTrafficPolicyInstancesCommandOutput = {
@@ -6066,7 +6066,7 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommandError(output, context);
   }
   const contents: ListTrafficPolicyInstancesByHostedZoneCommandOutput = {
@@ -6162,7 +6162,7 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandError(output, context);
   }
   const contents: ListTrafficPolicyInstancesByPolicyCommandOutput = {
@@ -6262,7 +6262,7 @@ export const deserializeAws_restXmlListTrafficPolicyVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTrafficPolicyVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListTrafficPolicyVersionsCommandError(output, context);
   }
   const contents: ListTrafficPolicyVersionsCommandOutput = {
@@ -6343,7 +6343,7 @@ export const deserializeAws_restXmlListVPCAssociationAuthorizationsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVPCAssociationAuthorizationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListVPCAssociationAuthorizationsCommandError(output, context);
   }
   const contents: ListVPCAssociationAuthorizationsCommandOutput = {
@@ -6425,7 +6425,7 @@ export const deserializeAws_restXmlTestDNSAnswerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestDNSAnswerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlTestDNSAnswerCommandError(output, context);
   }
   const contents: TestDNSAnswerCommandOutput = {
@@ -6514,7 +6514,7 @@ export const deserializeAws_restXmlUpdateHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHealthCheckCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateHealthCheckCommandError(output, context);
   }
   const contents: UpdateHealthCheckCommandOutput = {
@@ -6585,7 +6585,7 @@ export const deserializeAws_restXmlUpdateHostedZoneCommentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHostedZoneCommentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateHostedZoneCommentCommandError(output, context);
   }
   const contents: UpdateHostedZoneCommentCommandOutput = {
@@ -6648,7 +6648,7 @@ export const deserializeAws_restXmlUpdateTrafficPolicyCommentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTrafficPolicyCommentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError(output, context);
   }
   const contents: UpdateTrafficPolicyCommentCommandOutput = {
@@ -6719,7 +6719,7 @@ export const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTrafficPolicyInstanceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError(output, context);
   }
   const contents: UpdateTrafficPolicyInstanceCommandOutput = {

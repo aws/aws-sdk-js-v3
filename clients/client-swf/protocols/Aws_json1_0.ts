@@ -767,7 +767,7 @@ export const deserializeAws_json1_0CountClosedWorkflowExecutionsCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CountClosedWorkflowExecutionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0CountClosedWorkflowExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -830,7 +830,7 @@ export const deserializeAws_json1_0CountOpenWorkflowExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CountOpenWorkflowExecutionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0CountOpenWorkflowExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -893,7 +893,7 @@ export const deserializeAws_json1_0CountPendingActivityTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CountPendingActivityTasksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0CountPendingActivityTasksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -956,7 +956,7 @@ export const deserializeAws_json1_0CountPendingDecisionTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CountPendingDecisionTasksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0CountPendingDecisionTasksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1019,7 +1019,7 @@ export const deserializeAws_json1_0DeprecateActivityTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeprecateActivityTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DeprecateActivityTypeCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1087,7 +1087,7 @@ export const deserializeAws_json1_0DeprecateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeprecateDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DeprecateDomainCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1155,7 +1155,7 @@ export const deserializeAws_json1_0DeprecateWorkflowTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeprecateWorkflowTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DeprecateWorkflowTypeCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1223,7 +1223,7 @@ export const deserializeAws_json1_0DescribeActivityTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeActivityTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DescribeActivityTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1286,7 +1286,7 @@ export const deserializeAws_json1_0DescribeDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DescribeDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1349,7 +1349,7 @@ export const deserializeAws_json1_0DescribeWorkflowExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkflowExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DescribeWorkflowExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1412,7 +1412,7 @@ export const deserializeAws_json1_0DescribeWorkflowTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkflowTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DescribeWorkflowTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1475,7 +1475,7 @@ export const deserializeAws_json1_0GetWorkflowExecutionHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWorkflowExecutionHistoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0GetWorkflowExecutionHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1538,7 +1538,7 @@ export const deserializeAws_json1_0ListActivityTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListActivityTypesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListActivityTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1601,7 +1601,7 @@ export const deserializeAws_json1_0ListClosedWorkflowExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClosedWorkflowExecutionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListClosedWorkflowExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1664,7 +1664,7 @@ export const deserializeAws_json1_0ListDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListDomainsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1719,7 +1719,7 @@ export const deserializeAws_json1_0ListOpenWorkflowExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOpenWorkflowExecutionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListOpenWorkflowExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1782,7 +1782,7 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1853,7 +1853,7 @@ export const deserializeAws_json1_0ListWorkflowTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkflowTypesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListWorkflowTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1916,7 +1916,7 @@ export const deserializeAws_json1_0PollForActivityTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PollForActivityTaskCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0PollForActivityTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1987,7 +1987,7 @@ export const deserializeAws_json1_0PollForDecisionTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PollForDecisionTaskCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0PollForDecisionTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2058,7 +2058,7 @@ export const deserializeAws_json1_0RecordActivityTaskHeartbeatCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RecordActivityTaskHeartbeatCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0RecordActivityTaskHeartbeatCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2121,7 +2121,7 @@ export const deserializeAws_json1_0RegisterActivityTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterActivityTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0RegisterActivityTypeCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2197,7 +2197,7 @@ export const deserializeAws_json1_0RegisterDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0RegisterDomainCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2273,7 +2273,7 @@ export const deserializeAws_json1_0RegisterWorkflowTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterWorkflowTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0RegisterWorkflowTypeCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2349,7 +2349,7 @@ export const deserializeAws_json1_0RequestCancelWorkflowExecutionCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RequestCancelWorkflowExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0RequestCancelWorkflowExecutionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2409,7 +2409,7 @@ export const deserializeAws_json1_0RespondActivityTaskCanceledCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RespondActivityTaskCanceledCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0RespondActivityTaskCanceledCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2469,7 +2469,7 @@ export const deserializeAws_json1_0RespondActivityTaskCompletedCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RespondActivityTaskCompletedCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0RespondActivityTaskCompletedCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2529,7 +2529,7 @@ export const deserializeAws_json1_0RespondActivityTaskFailedCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RespondActivityTaskFailedCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0RespondActivityTaskFailedCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2589,7 +2589,7 @@ export const deserializeAws_json1_0RespondDecisionTaskCompletedCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RespondDecisionTaskCompletedCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0RespondDecisionTaskCompletedCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2649,7 +2649,7 @@ export const deserializeAws_json1_0SignalWorkflowExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SignalWorkflowExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0SignalWorkflowExecutionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2709,7 +2709,7 @@ export const deserializeAws_json1_0StartWorkflowExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartWorkflowExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0StartWorkflowExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2804,7 +2804,7 @@ export const deserializeAws_json1_0TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0TagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2880,7 +2880,7 @@ export const deserializeAws_json1_0TerminateWorkflowExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TerminateWorkflowExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0TerminateWorkflowExecutionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2940,7 +2940,7 @@ export const deserializeAws_json1_0UndeprecateActivityTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UndeprecateActivityTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0UndeprecateActivityTypeCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3008,7 +3008,7 @@ export const deserializeAws_json1_0UndeprecateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UndeprecateDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0UndeprecateDomainCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3076,7 +3076,7 @@ export const deserializeAws_json1_0UndeprecateWorkflowTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UndeprecateWorkflowTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0UndeprecateWorkflowTypeCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3144,7 +3144,7 @@ export const deserializeAws_json1_0UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0UntagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);

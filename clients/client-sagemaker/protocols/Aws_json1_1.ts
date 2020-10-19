@@ -2602,7 +2602,7 @@ export const deserializeAws_json1_1AddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2649,7 +2649,7 @@ export const deserializeAws_json1_1AssociateTrialComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateTrialComponentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateTrialComponentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2712,7 +2712,7 @@ export const deserializeAws_json1_1CreateAlgorithmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAlgorithmCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateAlgorithmCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2759,7 +2759,7 @@ export const deserializeAws_json1_1CreateAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateAppCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2822,7 +2822,7 @@ export const deserializeAws_json1_1CreateAutoMLJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAutoMLJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateAutoMLJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2885,7 +2885,7 @@ export const deserializeAws_json1_1CreateCodeRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCodeRepositoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateCodeRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2932,7 +2932,7 @@ export const deserializeAws_json1_1CreateCompilationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCompilationJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateCompilationJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2995,7 +2995,7 @@ export const deserializeAws_json1_1CreateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3058,7 +3058,7 @@ export const deserializeAws_json1_1CreateEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3113,7 +3113,7 @@ export const deserializeAws_json1_1CreateEndpointConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEndpointConfigCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateEndpointConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3168,7 +3168,7 @@ export const deserializeAws_json1_1CreateExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateExperimentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateExperimentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3223,7 +3223,7 @@ export const deserializeAws_json1_1CreateFlowDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFlowDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateFlowDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3286,7 +3286,7 @@ export const deserializeAws_json1_1CreateHumanTaskUiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHumanTaskUiCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateHumanTaskUiCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3349,7 +3349,7 @@ export const deserializeAws_json1_1CreateHyperParameterTuningJobCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHyperParameterTuningJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateHyperParameterTuningJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3412,7 +3412,7 @@ export const deserializeAws_json1_1CreateLabelingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLabelingJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateLabelingJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3475,7 +3475,7 @@ export const deserializeAws_json1_1CreateModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateModelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateModelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3530,7 +3530,7 @@ export const deserializeAws_json1_1CreateModelPackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateModelPackageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateModelPackageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3577,7 +3577,7 @@ export const deserializeAws_json1_1CreateMonitoringScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMonitoringScheduleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateMonitoringScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3640,7 +3640,7 @@ export const deserializeAws_json1_1CreateNotebookInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNotebookInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateNotebookInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3695,7 +3695,7 @@ export const deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNotebookInstanceLifecycleConfigCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3750,7 +3750,7 @@ export const deserializeAws_json1_1CreatePresignedDomainUrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePresignedDomainUrlCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePresignedDomainUrlCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3805,7 +3805,7 @@ export const deserializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePresignedNotebookInstanceUrlCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePresignedNotebookInstanceUrlCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3852,7 +3852,7 @@ export const deserializeAws_json1_1CreateProcessingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProcessingJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateProcessingJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3923,7 +3923,7 @@ export const deserializeAws_json1_1CreateTrainingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTrainingJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateTrainingJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3994,7 +3994,7 @@ export const deserializeAws_json1_1CreateTransformJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTransformJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateTransformJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4065,7 +4065,7 @@ export const deserializeAws_json1_1CreateTrialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTrialCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateTrialCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4128,7 +4128,7 @@ export const deserializeAws_json1_1CreateTrialComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTrialComponentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateTrialComponentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4183,7 +4183,7 @@ export const deserializeAws_json1_1CreateUserProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateUserProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4246,7 +4246,7 @@ export const deserializeAws_json1_1CreateWorkforceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkforceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateWorkforceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4293,7 +4293,7 @@ export const deserializeAws_json1_1CreateWorkteamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkteamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateWorkteamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4356,7 +4356,7 @@ export const deserializeAws_json1_1DeleteAlgorithmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAlgorithmCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteAlgorithmCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4400,7 +4400,7 @@ export const deserializeAws_json1_1DeleteAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteAppCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4460,7 +4460,7 @@ export const deserializeAws_json1_1DeleteCodeRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCodeRepositoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteCodeRepositoryCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4504,7 +4504,7 @@ export const deserializeAws_json1_1DeleteDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDomainCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4564,7 +4564,7 @@ export const deserializeAws_json1_1DeleteEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteEndpointCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4608,7 +4608,7 @@ export const deserializeAws_json1_1DeleteEndpointConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEndpointConfigCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteEndpointConfigCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4652,7 +4652,7 @@ export const deserializeAws_json1_1DeleteExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteExperimentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteExperimentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4707,7 +4707,7 @@ export const deserializeAws_json1_1DeleteFlowDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFlowDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteFlowDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4770,7 +4770,7 @@ export const deserializeAws_json1_1DeleteHumanTaskUiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHumanTaskUiCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteHumanTaskUiCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4825,7 +4825,7 @@ export const deserializeAws_json1_1DeleteModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteModelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteModelCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4869,7 +4869,7 @@ export const deserializeAws_json1_1DeleteModelPackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteModelPackageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteModelPackageCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4913,7 +4913,7 @@ export const deserializeAws_json1_1DeleteMonitoringScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMonitoringScheduleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteMonitoringScheduleCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4965,7 +4965,7 @@ export const deserializeAws_json1_1DeleteNotebookInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNotebookInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteNotebookInstanceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5009,7 +5009,7 @@ export const deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5053,7 +5053,7 @@ export const deserializeAws_json1_1DeleteTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5100,7 +5100,7 @@ export const deserializeAws_json1_1DeleteTrialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTrialCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteTrialCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5155,7 +5155,7 @@ export const deserializeAws_json1_1DeleteTrialComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTrialComponentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteTrialComponentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5210,7 +5210,7 @@ export const deserializeAws_json1_1DeleteUserProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteUserProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5270,7 +5270,7 @@ export const deserializeAws_json1_1DeleteWorkforceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkforceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteWorkforceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5317,7 +5317,7 @@ export const deserializeAws_json1_1DeleteWorkteamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkteamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteWorkteamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5372,7 +5372,7 @@ export const deserializeAws_json1_1DescribeAlgorithmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAlgorithmCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAlgorithmCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5419,7 +5419,7 @@ export const deserializeAws_json1_1DescribeAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAppCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAppCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5474,7 +5474,7 @@ export const deserializeAws_json1_1DescribeAutoMLJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAutoMLJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAutoMLJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5529,7 +5529,7 @@ export const deserializeAws_json1_1DescribeCodeRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCodeRepositoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCodeRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5576,7 +5576,7 @@ export const deserializeAws_json1_1DescribeCompilationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCompilationJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCompilationJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5631,7 +5631,7 @@ export const deserializeAws_json1_1DescribeDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5686,7 +5686,7 @@ export const deserializeAws_json1_1DescribeEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5733,7 +5733,7 @@ export const deserializeAws_json1_1DescribeEndpointConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEndpointConfigCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEndpointConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5780,7 +5780,7 @@ export const deserializeAws_json1_1DescribeExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExperimentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeExperimentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5835,7 +5835,7 @@ export const deserializeAws_json1_1DescribeFlowDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFlowDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeFlowDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5890,7 +5890,7 @@ export const deserializeAws_json1_1DescribeHumanTaskUiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHumanTaskUiCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeHumanTaskUiCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5945,7 +5945,7 @@ export const deserializeAws_json1_1DescribeHyperParameterTuningJobCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHyperParameterTuningJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeHyperParameterTuningJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6000,7 +6000,7 @@ export const deserializeAws_json1_1DescribeLabelingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLabelingJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeLabelingJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6055,7 +6055,7 @@ export const deserializeAws_json1_1DescribeModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeModelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeModelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6102,7 +6102,7 @@ export const deserializeAws_json1_1DescribeModelPackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeModelPackageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeModelPackageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6149,7 +6149,7 @@ export const deserializeAws_json1_1DescribeMonitoringScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMonitoringScheduleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeMonitoringScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6204,7 +6204,7 @@ export const deserializeAws_json1_1DescribeNotebookInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNotebookInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeNotebookInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6251,7 +6251,7 @@ export const deserializeAws_json1_1DescribeNotebookInstanceLifecycleConfigComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNotebookInstanceLifecycleConfigCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeNotebookInstanceLifecycleConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6298,7 +6298,7 @@ export const deserializeAws_json1_1DescribeProcessingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProcessingJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProcessingJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6353,7 +6353,7 @@ export const deserializeAws_json1_1DescribeSubscribedWorkteamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSubscribedWorkteamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeSubscribedWorkteamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6400,7 +6400,7 @@ export const deserializeAws_json1_1DescribeTrainingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrainingJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTrainingJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6455,7 +6455,7 @@ export const deserializeAws_json1_1DescribeTransformJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTransformJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTransformJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6510,7 +6510,7 @@ export const deserializeAws_json1_1DescribeTrialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrialCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTrialCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6565,7 +6565,7 @@ export const deserializeAws_json1_1DescribeTrialComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrialComponentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTrialComponentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6620,7 +6620,7 @@ export const deserializeAws_json1_1DescribeUserProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeUserProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6675,7 +6675,7 @@ export const deserializeAws_json1_1DescribeWorkforceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkforceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeWorkforceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6722,7 +6722,7 @@ export const deserializeAws_json1_1DescribeWorkteamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkteamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeWorkteamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6769,7 +6769,7 @@ export const deserializeAws_json1_1DisassociateTrialComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateTrialComponentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateTrialComponentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6824,7 +6824,7 @@ export const deserializeAws_json1_1GetSearchSuggestionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSearchSuggestionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSearchSuggestionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6871,7 +6871,7 @@ export const deserializeAws_json1_1ListAlgorithmsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAlgorithmsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAlgorithmsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6918,7 +6918,7 @@ export const deserializeAws_json1_1ListAppsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAppsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6965,7 +6965,7 @@ export const deserializeAws_json1_1ListAutoMLJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAutoMLJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAutoMLJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7012,7 +7012,7 @@ export const deserializeAws_json1_1ListCandidatesForAutoMLJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCandidatesForAutoMLJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListCandidatesForAutoMLJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7067,7 +7067,7 @@ export const deserializeAws_json1_1ListCodeRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCodeRepositoriesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListCodeRepositoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7114,7 +7114,7 @@ export const deserializeAws_json1_1ListCompilationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCompilationJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListCompilationJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7161,7 +7161,7 @@ export const deserializeAws_json1_1ListDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListDomainsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7208,7 +7208,7 @@ export const deserializeAws_json1_1ListEndpointConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEndpointConfigsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListEndpointConfigsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7255,7 +7255,7 @@ export const deserializeAws_json1_1ListEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEndpointsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListEndpointsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7302,7 +7302,7 @@ export const deserializeAws_json1_1ListExperimentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExperimentsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListExperimentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7349,7 +7349,7 @@ export const deserializeAws_json1_1ListFlowDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFlowDefinitionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListFlowDefinitionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7396,7 +7396,7 @@ export const deserializeAws_json1_1ListHumanTaskUisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHumanTaskUisCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListHumanTaskUisCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7443,7 +7443,7 @@ export const deserializeAws_json1_1ListHyperParameterTuningJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHyperParameterTuningJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListHyperParameterTuningJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7490,7 +7490,7 @@ export const deserializeAws_json1_1ListLabelingJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLabelingJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListLabelingJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7537,7 +7537,7 @@ export const deserializeAws_json1_1ListLabelingJobsForWorkteamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLabelingJobsForWorkteamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListLabelingJobsForWorkteamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7592,7 +7592,7 @@ export const deserializeAws_json1_1ListModelPackagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListModelPackagesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListModelPackagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7639,7 +7639,7 @@ export const deserializeAws_json1_1ListModelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListModelsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListModelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7686,7 +7686,7 @@ export const deserializeAws_json1_1ListMonitoringExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMonitoringExecutionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListMonitoringExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7733,7 +7733,7 @@ export const deserializeAws_json1_1ListMonitoringSchedulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMonitoringSchedulesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListMonitoringSchedulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7780,7 +7780,7 @@ export const deserializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7827,7 +7827,7 @@ export const deserializeAws_json1_1ListNotebookInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNotebookInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListNotebookInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7874,7 +7874,7 @@ export const deserializeAws_json1_1ListProcessingJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProcessingJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListProcessingJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7921,7 +7921,7 @@ export const deserializeAws_json1_1ListSubscribedWorkteamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscribedWorkteamsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSubscribedWorkteamsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7968,7 +7968,7 @@ export const deserializeAws_json1_1ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8015,7 +8015,7 @@ export const deserializeAws_json1_1ListTrainingJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTrainingJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTrainingJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8062,7 +8062,7 @@ export const deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTrainingJobsForHyperParameterTuningJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8117,7 +8117,7 @@ export const deserializeAws_json1_1ListTransformJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTransformJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTransformJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8164,7 +8164,7 @@ export const deserializeAws_json1_1ListTrialComponentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTrialComponentsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTrialComponentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8219,7 +8219,7 @@ export const deserializeAws_json1_1ListTrialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTrialsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTrialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8274,7 +8274,7 @@ export const deserializeAws_json1_1ListUserProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserProfilesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListUserProfilesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8321,7 +8321,7 @@ export const deserializeAws_json1_1ListWorkforcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkforcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListWorkforcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8368,7 +8368,7 @@ export const deserializeAws_json1_1ListWorkteamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkteamsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListWorkteamsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8415,7 +8415,7 @@ export const deserializeAws_json1_1RenderUiTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RenderUiTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RenderUiTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8470,7 +8470,7 @@ export const deserializeAws_json1_1SearchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8517,7 +8517,7 @@ export const deserializeAws_json1_1StartMonitoringScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMonitoringScheduleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartMonitoringScheduleCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -8569,7 +8569,7 @@ export const deserializeAws_json1_1StartNotebookInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartNotebookInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartNotebookInstanceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -8621,7 +8621,7 @@ export const deserializeAws_json1_1StopAutoMLJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopAutoMLJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopAutoMLJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -8673,7 +8673,7 @@ export const deserializeAws_json1_1StopCompilationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopCompilationJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopCompilationJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -8725,7 +8725,7 @@ export const deserializeAws_json1_1StopHyperParameterTuningJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopHyperParameterTuningJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopHyperParameterTuningJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -8777,7 +8777,7 @@ export const deserializeAws_json1_1StopLabelingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopLabelingJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopLabelingJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -8829,7 +8829,7 @@ export const deserializeAws_json1_1StopMonitoringScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopMonitoringScheduleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopMonitoringScheduleCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -8881,7 +8881,7 @@ export const deserializeAws_json1_1StopNotebookInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopNotebookInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopNotebookInstanceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -8925,7 +8925,7 @@ export const deserializeAws_json1_1StopProcessingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopProcessingJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopProcessingJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -8977,7 +8977,7 @@ export const deserializeAws_json1_1StopTrainingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopTrainingJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopTrainingJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -9029,7 +9029,7 @@ export const deserializeAws_json1_1StopTransformJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopTransformJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopTransformJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -9081,7 +9081,7 @@ export const deserializeAws_json1_1UpdateCodeRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCodeRepositoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateCodeRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9128,7 +9128,7 @@ export const deserializeAws_json1_1UpdateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9199,7 +9199,7 @@ export const deserializeAws_json1_1UpdateEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9254,7 +9254,7 @@ export const deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointWeightsAndCapacitiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9309,7 +9309,7 @@ export const deserializeAws_json1_1UpdateExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateExperimentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateExperimentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9372,7 +9372,7 @@ export const deserializeAws_json1_1UpdateMonitoringScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMonitoringScheduleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateMonitoringScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9435,7 +9435,7 @@ export const deserializeAws_json1_1UpdateNotebookInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNotebookInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateNotebookInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9490,7 +9490,7 @@ export const deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNotebookInstanceLifecycleConfigCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9545,7 +9545,7 @@ export const deserializeAws_json1_1UpdateTrialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTrialCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateTrialCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9608,7 +9608,7 @@ export const deserializeAws_json1_1UpdateTrialComponentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTrialComponentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateTrialComponentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9671,7 +9671,7 @@ export const deserializeAws_json1_1UpdateUserProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateUserProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9742,7 +9742,7 @@ export const deserializeAws_json1_1UpdateWorkforceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWorkforceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateWorkforceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9789,7 +9789,7 @@ export const deserializeAws_json1_1UpdateWorkteamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWorkteamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateWorkteamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

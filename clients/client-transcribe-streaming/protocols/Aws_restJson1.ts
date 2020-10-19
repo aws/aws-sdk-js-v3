@@ -73,7 +73,7 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<StartStreamTranscriptionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartStreamTranscriptionCommandError(output, context);
   }
   const contents: StartStreamTranscriptionCommandOutput = {

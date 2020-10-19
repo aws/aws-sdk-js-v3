@@ -329,7 +329,7 @@ export const deserializeAws_restJson1CreateSavingsPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSavingsPlanCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateSavingsPlanCommandError(output, context);
   }
   const contents: CreateSavingsPlanCommandOutput = {
@@ -408,7 +408,7 @@ export const deserializeAws_restJson1DescribeSavingsPlanRatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSavingsPlanRatesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeSavingsPlanRatesCommandError(output, context);
   }
   const contents: DescribeSavingsPlanRatesCommandOutput = {
@@ -479,7 +479,7 @@ export const deserializeAws_restJson1DescribeSavingsPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSavingsPlansCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeSavingsPlansCommandError(output, context);
   }
   const contents: DescribeSavingsPlansCommandOutput = {
@@ -546,7 +546,7 @@ export const deserializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeSavingsPlansOfferingRatesCommandError(output, context);
   }
   const contents: DescribeSavingsPlansOfferingRatesCommandOutput = {
@@ -613,7 +613,7 @@ export const deserializeAws_restJson1DescribeSavingsPlansOfferingsCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSavingsPlansOfferingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeSavingsPlansOfferingsCommandError(output, context);
   }
   const contents: DescribeSavingsPlansOfferingsCommandOutput = {
@@ -680,7 +680,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -751,7 +751,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -826,7 +826,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {

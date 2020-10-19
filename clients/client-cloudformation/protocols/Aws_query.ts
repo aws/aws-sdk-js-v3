@@ -1203,7 +1203,7 @@ export const deserializeAws_queryCancelUpdateStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelUpdateStackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCancelUpdateStackCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1254,7 +1254,7 @@ export const deserializeAws_queryContinueUpdateRollbackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ContinueUpdateRollbackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryContinueUpdateRollbackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1308,7 +1308,7 @@ export const deserializeAws_queryCreateChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChangeSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateChangeSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1378,7 +1378,7 @@ export const deserializeAws_queryCreateStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1456,7 +1456,7 @@ export const deserializeAws_queryCreateStackInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStackInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateStackInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1550,7 +1550,7 @@ export const deserializeAws_queryCreateStackSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStackSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateStackSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1620,7 +1620,7 @@ export const deserializeAws_queryDeleteChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChangeSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteChangeSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1674,7 +1674,7 @@ export const deserializeAws_queryDeleteStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteStackCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1725,7 +1725,7 @@ export const deserializeAws_queryDeleteStackInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStackInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteStackInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1811,7 +1811,7 @@ export const deserializeAws_queryDeleteStackSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStackSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteStackSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1873,7 +1873,7 @@ export const deserializeAws_queryDeregisterTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeregisterTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1935,7 +1935,7 @@ export const deserializeAws_queryDescribeAccountLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeAccountLimitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1981,7 +1981,7 @@ export const deserializeAws_queryDescribeChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChangeSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeChangeSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2035,7 +2035,7 @@ export const deserializeAws_queryDescribeStackDriftDetectionStatusCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStackDriftDetectionStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeStackDriftDetectionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2084,7 +2084,7 @@ export const deserializeAws_queryDescribeStackEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStackEventsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeStackEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2130,7 +2130,7 @@ export const deserializeAws_queryDescribeStackInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStackInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeStackInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2192,7 +2192,7 @@ export const deserializeAws_queryDescribeStackResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStackResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeStackResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2238,7 +2238,7 @@ export const deserializeAws_queryDescribeStackResourceDriftsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStackResourceDriftsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeStackResourceDriftsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2284,7 +2284,7 @@ export const deserializeAws_queryDescribeStackResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStackResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeStackResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2330,7 +2330,7 @@ export const deserializeAws_queryDescribeStacksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStacksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeStacksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2376,7 +2376,7 @@ export const deserializeAws_queryDescribeStackSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStackSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeStackSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2430,7 +2430,7 @@ export const deserializeAws_queryDescribeStackSetOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStackSetOperationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeStackSetOperationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2492,7 +2492,7 @@ export const deserializeAws_queryDescribeTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2554,7 +2554,7 @@ export const deserializeAws_queryDescribeTypeRegistrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTypeRegistrationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeTypeRegistrationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2608,7 +2608,7 @@ export const deserializeAws_queryDetectStackDriftCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectStackDriftCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDetectStackDriftCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2654,7 +2654,7 @@ export const deserializeAws_queryDetectStackResourceDriftCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectStackResourceDriftCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDetectStackResourceDriftCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2700,7 +2700,7 @@ export const deserializeAws_queryDetectStackSetDriftCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectStackSetDriftCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDetectStackSetDriftCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2770,7 +2770,7 @@ export const deserializeAws_queryEstimateTemplateCostCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EstimateTemplateCostCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryEstimateTemplateCostCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2816,7 +2816,7 @@ export const deserializeAws_queryExecuteChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteChangeSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryExecuteChangeSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2894,7 +2894,7 @@ export const deserializeAws_queryGetStackPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStackPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetStackPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2940,7 +2940,7 @@ export const deserializeAws_queryGetTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2994,7 +2994,7 @@ export const deserializeAws_queryGetTemplateSummaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTemplateSummaryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetTemplateSummaryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3048,7 +3048,7 @@ export const deserializeAws_queryListChangeSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChangeSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListChangeSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3094,7 +3094,7 @@ export const deserializeAws_queryListExportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExportsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListExportsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3140,7 +3140,7 @@ export const deserializeAws_queryListImportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImportsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListImportsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3186,7 +3186,7 @@ export const deserializeAws_queryListStackInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStackInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListStackInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3240,7 +3240,7 @@ export const deserializeAws_queryListStackResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStackResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListStackResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3286,7 +3286,7 @@ export const deserializeAws_queryListStacksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStacksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListStacksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3332,7 +3332,7 @@ export const deserializeAws_queryListStackSetOperationResultsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStackSetOperationResultsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListStackSetOperationResultsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3394,7 +3394,7 @@ export const deserializeAws_queryListStackSetOperationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStackSetOperationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListStackSetOperationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3448,7 +3448,7 @@ export const deserializeAws_queryListStackSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStackSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListStackSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3494,7 +3494,7 @@ export const deserializeAws_queryListTypeRegistrationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTypeRegistrationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListTypeRegistrationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3548,7 +3548,7 @@ export const deserializeAws_queryListTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTypesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3602,7 +3602,7 @@ export const deserializeAws_queryListTypeVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTypeVersionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListTypeVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3656,7 +3656,7 @@ export const deserializeAws_queryRecordHandlerProgressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RecordHandlerProgressCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRecordHandlerProgressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3718,7 +3718,7 @@ export const deserializeAws_queryRegisterTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRegisterTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3772,7 +3772,7 @@ export const deserializeAws_querySetStackPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetStackPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetStackPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3815,7 +3815,7 @@ export const deserializeAws_querySetTypeDefaultVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetTypeDefaultVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetTypeDefaultVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3877,7 +3877,7 @@ export const deserializeAws_querySignalResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SignalResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySignalResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3920,7 +3920,7 @@ export const deserializeAws_queryStopStackSetOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopStackSetOperationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryStopStackSetOperationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3990,7 +3990,7 @@ export const deserializeAws_queryUpdateStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4052,7 +4052,7 @@ export const deserializeAws_queryUpdateStackInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStackInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateStackInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4146,7 +4146,7 @@ export const deserializeAws_queryUpdateStackSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStackSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateStackSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4240,7 +4240,7 @@ export const deserializeAws_queryUpdateTerminationProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTerminationProtectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateTerminationProtectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4286,7 +4286,7 @@ export const deserializeAws_queryValidateTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryValidateTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

@@ -2955,7 +2955,7 @@ export const deserializeAws_queryAddRoleToDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddRoleToDBClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAddRoleToDBClusterCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3030,7 +3030,7 @@ export const deserializeAws_queryAddRoleToDBInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddRoleToDBInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAddRoleToDBInstanceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3105,7 +3105,7 @@ export const deserializeAws_queryAddSourceIdentifierToSubscriptionCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3170,7 +3170,7 @@ export const deserializeAws_queryAddTagsToResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAddTagsToResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3253,7 +3253,7 @@ export const deserializeAws_queryApplyPendingMaintenanceActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApplyPendingMaintenanceActionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryApplyPendingMaintenanceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3323,7 +3323,7 @@ export const deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AuthorizeDBSecurityGroupIngressCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAuthorizeDBSecurityGroupIngressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3404,7 +3404,7 @@ export const deserializeAws_queryBacktrackDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BacktrackDBClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryBacktrackDBClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3466,7 +3466,7 @@ export const deserializeAws_queryCancelExportTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelExportTaskCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCancelExportTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3528,7 +3528,7 @@ export const deserializeAws_queryCopyDBClusterParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCopyDBClusterParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3598,7 +3598,7 @@ export const deserializeAws_queryCopyDBClusterSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyDBClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCopyDBClusterSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3692,7 +3692,7 @@ export const deserializeAws_queryCopyDBParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCopyDBParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3762,7 +3762,7 @@ export const deserializeAws_queryCopyDBSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyDBSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCopyDBSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3848,7 +3848,7 @@ export const deserializeAws_queryCopyOptionGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyOptionGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCopyOptionGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3918,7 +3918,7 @@ export const deserializeAws_queryCreateCustomAvailabilityZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomAvailabilityZoneCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateCustomAvailabilityZoneCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3988,7 +3988,7 @@ export const deserializeAws_queryCreateDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDBClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateDBClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4178,7 +4178,7 @@ export const deserializeAws_queryCreateDBClusterEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDBClusterEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateDBClusterEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4272,7 +4272,7 @@ export const deserializeAws_queryCreateDBClusterParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateDBClusterParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4334,7 +4334,7 @@ export const deserializeAws_queryCreateDBClusterSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDBClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateDBClusterSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4420,7 +4420,7 @@ export const deserializeAws_queryCreateDBInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDBInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateDBInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4618,7 +4618,7 @@ export const deserializeAws_queryCreateDBInstanceReadReplicaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDBInstanceReadReplicaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateDBInstanceReadReplicaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4816,7 +4816,7 @@ export const deserializeAws_queryCreateDBParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateDBParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4878,7 +4878,7 @@ export const deserializeAws_queryCreateDBProxyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDBProxyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateDBProxyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4948,7 +4948,7 @@ export const deserializeAws_queryCreateDBSecurityGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDBSecurityGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateDBSecurityGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5018,7 +5018,7 @@ export const deserializeAws_queryCreateDBSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDBSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateDBSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5096,7 +5096,7 @@ export const deserializeAws_queryCreateDBSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDBSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateDBSubnetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5182,7 +5182,7 @@ export const deserializeAws_queryCreateEventSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEventSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateEventSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5284,7 +5284,7 @@ export const deserializeAws_queryCreateGlobalClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateGlobalClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5362,7 +5362,7 @@ export const deserializeAws_queryCreateOptionGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOptionGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateOptionGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5424,7 +5424,7 @@ export const deserializeAws_queryDeleteCustomAvailabilityZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomAvailabilityZoneCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteCustomAvailabilityZoneCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5486,7 +5486,7 @@ export const deserializeAws_queryDeleteDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDBClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteDBClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5572,7 +5572,7 @@ export const deserializeAws_queryDeleteDBClusterEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDBClusterEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteDBClusterEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5642,7 +5642,7 @@ export const deserializeAws_queryDeleteDBClusterParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteDBClusterParameterGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5701,7 +5701,7 @@ export const deserializeAws_queryDeleteDBClusterSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDBClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteDBClusterSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5763,7 +5763,7 @@ export const deserializeAws_queryDeleteDBInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDBInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteDBInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5857,7 +5857,7 @@ export const deserializeAws_queryDeleteDBInstanceAutomatedBackupCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDBInstanceAutomatedBackupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteDBInstanceAutomatedBackupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5922,7 +5922,7 @@ export const deserializeAws_queryDeleteDBParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteDBParameterGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5981,7 +5981,7 @@ export const deserializeAws_queryDeleteDBProxyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDBProxyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteDBProxyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6043,7 +6043,7 @@ export const deserializeAws_queryDeleteDBSecurityGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDBSecurityGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteDBSecurityGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6102,7 +6102,7 @@ export const deserializeAws_queryDeleteDBSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDBSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteDBSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6164,7 +6164,7 @@ export const deserializeAws_queryDeleteDBSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDBSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteDBSubnetGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6231,7 +6231,7 @@ export const deserializeAws_queryDeleteEventSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteEventSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6293,7 +6293,7 @@ export const deserializeAws_queryDeleteGlobalClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteGlobalClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6355,7 +6355,7 @@ export const deserializeAws_queryDeleteInstallationMediaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInstallationMediaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteInstallationMediaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6409,7 +6409,7 @@ export const deserializeAws_queryDeleteOptionGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOptionGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteOptionGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6468,7 +6468,7 @@ export const deserializeAws_queryDeregisterDBProxyTargetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterDBProxyTargetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeregisterDBProxyTargetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6546,7 +6546,7 @@ export const deserializeAws_queryDescribeAccountAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeAccountAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6592,7 +6592,7 @@ export const deserializeAws_queryDescribeCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeCertificatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6646,7 +6646,7 @@ export const deserializeAws_queryDescribeCustomAvailabilityZonesCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCustomAvailabilityZonesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeCustomAvailabilityZonesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6700,7 +6700,7 @@ export const deserializeAws_queryDescribeDBClusterBacktracksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBClusterBacktracksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBClusterBacktracksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6762,7 +6762,7 @@ export const deserializeAws_queryDescribeDBClusterEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBClusterEndpointsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBClusterEndpointsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6816,7 +6816,7 @@ export const deserializeAws_queryDescribeDBClusterParameterGroupsCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBClusterParameterGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBClusterParameterGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6870,7 +6870,7 @@ export const deserializeAws_queryDescribeDBClusterParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBClusterParametersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBClusterParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6924,7 +6924,7 @@ export const deserializeAws_queryDescribeDBClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBClustersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBClustersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6978,7 +6978,7 @@ export const deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBClusterSnapshotAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7035,7 +7035,7 @@ export const deserializeAws_queryDescribeDBClusterSnapshotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBClusterSnapshotsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBClusterSnapshotsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7089,7 +7089,7 @@ export const deserializeAws_queryDescribeDBEngineVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBEngineVersionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBEngineVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7135,7 +7135,7 @@ export const deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7192,7 +7192,7 @@ export const deserializeAws_queryDescribeDBInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7246,7 +7246,7 @@ export const deserializeAws_queryDescribeDBLogFilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBLogFilesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBLogFilesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7300,7 +7300,7 @@ export const deserializeAws_queryDescribeDBParameterGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBParameterGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBParameterGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7354,7 +7354,7 @@ export const deserializeAws_queryDescribeDBParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBParametersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7408,7 +7408,7 @@ export const deserializeAws_queryDescribeDBProxiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBProxiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBProxiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7462,7 +7462,7 @@ export const deserializeAws_queryDescribeDBProxyTargetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBProxyTargetGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBProxyTargetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7532,7 +7532,7 @@ export const deserializeAws_queryDescribeDBProxyTargetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBProxyTargetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBProxyTargetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7610,7 +7610,7 @@ export const deserializeAws_queryDescribeDBSecurityGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBSecurityGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBSecurityGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7664,7 +7664,7 @@ export const deserializeAws_queryDescribeDBSnapshotAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBSnapshotAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBSnapshotAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7718,7 +7718,7 @@ export const deserializeAws_queryDescribeDBSnapshotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBSnapshotsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBSnapshotsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7772,7 +7772,7 @@ export const deserializeAws_queryDescribeDBSubnetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDBSubnetGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDBSubnetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7826,7 +7826,7 @@ export const deserializeAws_queryDescribeEngineDefaultClusterParametersCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEngineDefaultClusterParametersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEngineDefaultClusterParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7875,7 +7875,7 @@ export const deserializeAws_queryDescribeEngineDefaultParametersCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEngineDefaultParametersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEngineDefaultParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7924,7 +7924,7 @@ export const deserializeAws_queryDescribeEventCategoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventCategoriesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEventCategoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7970,7 +7970,7 @@ export const deserializeAws_queryDescribeEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8016,7 +8016,7 @@ export const deserializeAws_queryDescribeEventSubscriptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventSubscriptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEventSubscriptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8070,7 +8070,7 @@ export const deserializeAws_queryDescribeExportTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExportTasksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeExportTasksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8124,7 +8124,7 @@ export const deserializeAws_queryDescribeGlobalClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGlobalClustersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeGlobalClustersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8178,7 +8178,7 @@ export const deserializeAws_queryDescribeInstallationMediaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInstallationMediaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeInstallationMediaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8232,7 +8232,7 @@ export const deserializeAws_queryDescribeOptionGroupOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOptionGroupOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeOptionGroupOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8278,7 +8278,7 @@ export const deserializeAws_queryDescribeOptionGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOptionGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeOptionGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8332,7 +8332,7 @@ export const deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeOrderableDBInstanceOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8381,7 +8381,7 @@ export const deserializeAws_queryDescribePendingMaintenanceActionsCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribePendingMaintenanceActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8438,7 +8438,7 @@ export const deserializeAws_queryDescribeReservedDBInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedDBInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeReservedDBInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8492,7 +8492,7 @@ export const deserializeAws_queryDescribeReservedDBInstancesOfferingsCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedDBInstancesOfferingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeReservedDBInstancesOfferingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8549,7 +8549,7 @@ export const deserializeAws_queryDescribeSourceRegionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSourceRegionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeSourceRegionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8595,7 +8595,7 @@ export const deserializeAws_queryDescribeValidDBInstanceModificationsCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeValidDBInstanceModificationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeValidDBInstanceModificationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8660,7 +8660,7 @@ export const deserializeAws_queryDownloadDBLogFilePortionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DownloadDBLogFilePortionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDownloadDBLogFilePortionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8722,7 +8722,7 @@ export const deserializeAws_queryFailoverDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FailoverDBClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryFailoverDBClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8792,7 +8792,7 @@ export const deserializeAws_queryImportInstallationMediaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportInstallationMediaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryImportInstallationMediaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8854,7 +8854,7 @@ export const deserializeAws_queryListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8940,7 +8940,7 @@ export const deserializeAws_queryModifyCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyCertificatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyCertificatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8994,7 +8994,7 @@ export const deserializeAws_queryModifyCurrentDBClusterCapacityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyCurrentDBClusterCapacityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyCurrentDBClusterCapacityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9064,7 +9064,7 @@ export const deserializeAws_queryModifyDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyDBClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyDBClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9206,7 +9206,7 @@ export const deserializeAws_queryModifyDBClusterEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyDBClusterEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyDBClusterEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9292,7 +9292,7 @@ export const deserializeAws_queryModifyDBClusterParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyDBClusterParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9354,7 +9354,7 @@ export const deserializeAws_queryModifyDBClusterSnapshotAttributeCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9427,7 +9427,7 @@ export const deserializeAws_queryModifyDBInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyDBInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyDBInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9625,7 +9625,7 @@ export const deserializeAws_queryModifyDBParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyDBParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9687,7 +9687,7 @@ export const deserializeAws_queryModifyDBProxyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyDBProxyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyDBProxyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9757,7 +9757,7 @@ export const deserializeAws_queryModifyDBProxyTargetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyDBProxyTargetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyDBProxyTargetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9827,7 +9827,7 @@ export const deserializeAws_queryModifyDBSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyDBSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyDBSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9881,7 +9881,7 @@ export const deserializeAws_queryModifyDBSnapshotAttributeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyDBSnapshotAttributeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyDBSnapshotAttributeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9951,7 +9951,7 @@ export const deserializeAws_queryModifyDBSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyDBSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyDBSubnetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10037,7 +10037,7 @@ export const deserializeAws_queryModifyEventSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyEventSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyEventSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10131,7 +10131,7 @@ export const deserializeAws_queryModifyGlobalClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyGlobalClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10193,7 +10193,7 @@ export const deserializeAws_queryModifyOptionGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyOptionGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyOptionGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10255,7 +10255,7 @@ export const deserializeAws_queryPromoteReadReplicaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PromoteReadReplicaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryPromoteReadReplicaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10317,7 +10317,7 @@ export const deserializeAws_queryPromoteReadReplicaDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PromoteReadReplicaDBClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryPromoteReadReplicaDBClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10379,7 +10379,7 @@ export const deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseReservedDBInstancesOfferingCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryPurchaseReservedDBInstancesOfferingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10452,7 +10452,7 @@ export const deserializeAws_queryRebootDBInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebootDBInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRebootDBInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10514,7 +10514,7 @@ export const deserializeAws_queryRegisterDBProxyTargetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterDBProxyTargetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRegisterDBProxyTargetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10624,7 +10624,7 @@ export const deserializeAws_queryRemoveFromGlobalClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFromGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemoveFromGlobalClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10694,7 +10694,7 @@ export const deserializeAws_queryRemoveRoleFromDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveRoleFromDBClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemoveRoleFromDBClusterCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10761,7 +10761,7 @@ export const deserializeAws_queryRemoveRoleFromDBInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveRoleFromDBInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemoveRoleFromDBInstanceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10828,7 +10828,7 @@ export const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10893,7 +10893,7 @@ export const deserializeAws_queryRemoveTagsFromResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemoveTagsFromResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10976,7 +10976,7 @@ export const deserializeAws_queryResetDBClusterParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryResetDBClusterParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11038,7 +11038,7 @@ export const deserializeAws_queryResetDBParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryResetDBParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11100,7 +11100,7 @@ export const deserializeAws_queryRestoreDBClusterFromS3Command = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreDBClusterFromS3CommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRestoreDBClusterFromS3CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11258,7 +11258,7 @@ export const deserializeAws_queryRestoreDBClusterFromSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreDBClusterFromSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRestoreDBClusterFromSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11440,7 +11440,7 @@ export const deserializeAws_queryRestoreDBClusterToPointInTimeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreDBClusterToPointInTimeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRestoreDBClusterToPointInTimeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11630,7 +11630,7 @@ export const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreDBInstanceFromDBSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11839,7 +11839,7 @@ export const deserializeAws_queryRestoreDBInstanceFromS3Command = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreDBInstanceFromS3CommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRestoreDBInstanceFromS3CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12021,7 +12021,7 @@ export const deserializeAws_queryRestoreDBInstanceToPointInTimeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreDBInstanceToPointInTimeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12246,7 +12246,7 @@ export const deserializeAws_queryRevokeDBSecurityGroupIngressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeDBSecurityGroupIngressCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRevokeDBSecurityGroupIngressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12316,7 +12316,7 @@ export const deserializeAws_queryStartActivityStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartActivityStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryStartActivityStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12410,7 +12410,7 @@ export const deserializeAws_queryStartDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDBClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryStartDBClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12480,7 +12480,7 @@ export const deserializeAws_queryStartDBInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDBInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryStartDBInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12614,7 +12614,7 @@ export const deserializeAws_queryStartExportTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartExportTaskCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryStartExportTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12732,7 +12732,7 @@ export const deserializeAws_queryStopActivityStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopActivityStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryStopActivityStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12818,7 +12818,7 @@ export const deserializeAws_queryStopDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDBClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryStopDBClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12888,7 +12888,7 @@ export const deserializeAws_queryStopDBInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDBInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryStopDBInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

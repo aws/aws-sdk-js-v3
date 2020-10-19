@@ -1669,7 +1669,7 @@ export const deserializeAws_restJson1AcceptInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptInvitationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AcceptInvitationCommandError(output, context);
   }
   const contents: AcceptInvitationCommandOutput = {
@@ -1768,7 +1768,7 @@ export const deserializeAws_restJson1BatchGetCustomDataIdentifiersCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetCustomDataIdentifiersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchGetCustomDataIdentifiersCommandError(output, context);
   }
   const contents: BatchGetCustomDataIdentifiersCommandOutput = {
@@ -1878,7 +1878,7 @@ export const deserializeAws_restJson1CreateClassificationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClassificationJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateClassificationJobCommandError(output, context);
   }
   const contents: CreateClassificationJobCommandOutput = {
@@ -1985,7 +1985,7 @@ export const deserializeAws_restJson1CreateCustomDataIdentifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomDataIdentifierCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateCustomDataIdentifierCommandError(output, context);
   }
   const contents: CreateCustomDataIdentifierCommandOutput = {
@@ -2088,7 +2088,7 @@ export const deserializeAws_restJson1CreateFindingsFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFindingsFilterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateFindingsFilterCommandError(output, context);
   }
   const contents: CreateFindingsFilterCommandOutput = {
@@ -2195,7 +2195,7 @@ export const deserializeAws_restJson1CreateInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInvitationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateInvitationsCommandError(output, context);
   }
   const contents: CreateInvitationsCommandOutput = {
@@ -2301,7 +2301,7 @@ export const deserializeAws_restJson1CreateMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateMemberCommandError(output, context);
   }
   const contents: CreateMemberCommandOutput = {
@@ -2404,7 +2404,7 @@ export const deserializeAws_restJson1CreateSampleFindingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSampleFindingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateSampleFindingsCommandError(output, context);
   }
   const contents: CreateSampleFindingsCommandOutput = {
@@ -2503,7 +2503,7 @@ export const deserializeAws_restJson1DeclineInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeclineInvitationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeclineInvitationsCommandError(output, context);
   }
   const contents: DeclineInvitationsCommandOutput = {
@@ -2609,7 +2609,7 @@ export const deserializeAws_restJson1DeleteCustomDataIdentifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomDataIdentifierCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteCustomDataIdentifierCommandError(output, context);
   }
   const contents: DeleteCustomDataIdentifierCommandOutput = {
@@ -2708,7 +2708,7 @@ export const deserializeAws_restJson1DeleteFindingsFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFindingsFilterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteFindingsFilterCommandError(output, context);
   }
   const contents: DeleteFindingsFilterCommandOutput = {
@@ -2807,7 +2807,7 @@ export const deserializeAws_restJson1DeleteInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInvitationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteInvitationsCommandError(output, context);
   }
   const contents: DeleteInvitationsCommandOutput = {
@@ -2913,7 +2913,7 @@ export const deserializeAws_restJson1DeleteMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteMemberCommandError(output, context);
   }
   const contents: DeleteMemberCommandOutput = {
@@ -3012,7 +3012,7 @@ export const deserializeAws_restJson1DescribeBucketsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBucketsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeBucketsCommandError(output, context);
   }
   const contents: DescribeBucketsCommandOutput = {
@@ -3119,7 +3119,7 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClassificationJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeClassificationJobCommandError(output, context);
   }
   const contents: DescribeClassificationJobCommandOutput = {
@@ -3282,7 +3282,7 @@ export const deserializeAws_restJson1DescribeOrganizationConfigurationCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOrganizationConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeOrganizationConfigurationCommandError(output, context);
   }
   const contents: DescribeOrganizationConfigurationCommandOutput = {
@@ -3389,7 +3389,7 @@ export const deserializeAws_restJson1DisableMacieCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableMacieCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisableMacieCommandError(output, context);
   }
   const contents: DisableMacieCommandOutput = {
@@ -3488,7 +3488,7 @@ export const deserializeAws_restJson1DisableOrganizationAdminAccountCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableOrganizationAdminAccountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisableOrganizationAdminAccountCommandError(output, context);
   }
   const contents: DisableOrganizationAdminAccountCommandOutput = {
@@ -3587,7 +3587,7 @@ export const deserializeAws_restJson1DisassociateFromMasterAccountCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateFromMasterAccountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateFromMasterAccountCommandError(output, context);
   }
   const contents: DisassociateFromMasterAccountCommandOutput = {
@@ -3686,7 +3686,7 @@ export const deserializeAws_restJson1DisassociateMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateMemberCommandError(output, context);
   }
   const contents: DisassociateMemberCommandOutput = {
@@ -3785,7 +3785,7 @@ export const deserializeAws_restJson1EnableMacieCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableMacieCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1EnableMacieCommandError(output, context);
   }
   const contents: EnableMacieCommandOutput = {
@@ -3884,7 +3884,7 @@ export const deserializeAws_restJson1EnableOrganizationAdminAccountCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableOrganizationAdminAccountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1EnableOrganizationAdminAccountCommandError(output, context);
   }
   const contents: EnableOrganizationAdminAccountCommandOutput = {
@@ -3983,7 +3983,7 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketStatisticsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBucketStatisticsCommandError(output, context);
   }
   const contents: GetBucketStatisticsCommandOutput = {
@@ -4127,7 +4127,7 @@ export const deserializeAws_restJson1GetClassificationExportConfigurationCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetClassificationExportConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetClassificationExportConfigurationCommandError(output, context);
   }
   const contents: GetClassificationExportConfigurationCommandOutput = {
@@ -4230,7 +4230,7 @@ export const deserializeAws_restJson1GetCustomDataIdentifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCustomDataIdentifierCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetCustomDataIdentifierCommandError(output, context);
   }
   const contents: GetCustomDataIdentifierCommandOutput = {
@@ -4373,7 +4373,7 @@ export const deserializeAws_restJson1GetFindingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFindingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFindingsCommandError(output, context);
   }
   const contents: GetFindingsCommandOutput = {
@@ -4476,7 +4476,7 @@ export const deserializeAws_restJson1GetFindingsFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFindingsFilterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFindingsFilterCommandError(output, context);
   }
   const contents: GetFindingsFilterCommandOutput = {
@@ -4607,7 +4607,7 @@ export const deserializeAws_restJson1GetFindingStatisticsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFindingStatisticsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFindingStatisticsCommandError(output, context);
   }
   const contents: GetFindingStatisticsCommandOutput = {
@@ -4710,7 +4710,7 @@ export const deserializeAws_restJson1GetInvitationsCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInvitationsCountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetInvitationsCountCommandError(output, context);
   }
   const contents: GetInvitationsCountCommandOutput = {
@@ -4813,7 +4813,7 @@ export const deserializeAws_restJson1GetMacieSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMacieSessionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMacieSessionCommandError(output, context);
   }
   const contents: GetMacieSessionCommandOutput = {
@@ -4932,7 +4932,7 @@ export const deserializeAws_restJson1GetMasterAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMasterAccountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMasterAccountCommandError(output, context);
   }
   const contents: GetMasterAccountCommandOutput = {
@@ -5035,7 +5035,7 @@ export const deserializeAws_restJson1GetMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMemberCommandError(output, context);
   }
   const contents: GetMemberCommandOutput = {
@@ -5166,7 +5166,7 @@ export const deserializeAws_restJson1GetUsageStatisticsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUsageStatisticsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetUsageStatisticsCommandError(output, context);
   }
   const contents: GetUsageStatisticsCommandOutput = {
@@ -5273,7 +5273,7 @@ export const deserializeAws_restJson1GetUsageTotalsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUsageTotalsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetUsageTotalsCommandError(output, context);
   }
   const contents: GetUsageTotalsCommandOutput = {
@@ -5376,7 +5376,7 @@ export const deserializeAws_restJson1ListClassificationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClassificationJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListClassificationJobsCommandError(output, context);
   }
   const contents: ListClassificationJobsCommandOutput = {
@@ -5483,7 +5483,7 @@ export const deserializeAws_restJson1ListCustomDataIdentifiersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCustomDataIdentifiersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListCustomDataIdentifiersCommandError(output, context);
   }
   const contents: ListCustomDataIdentifiersCommandOutput = {
@@ -5590,7 +5590,7 @@ export const deserializeAws_restJson1ListFindingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFindingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListFindingsCommandError(output, context);
   }
   const contents: ListFindingsCommandOutput = {
@@ -5697,7 +5697,7 @@ export const deserializeAws_restJson1ListFindingsFiltersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFindingsFiltersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListFindingsFiltersCommandError(output, context);
   }
   const contents: ListFindingsFiltersCommandOutput = {
@@ -5807,7 +5807,7 @@ export const deserializeAws_restJson1ListInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListInvitationsCommandError(output, context);
   }
   const contents: ListInvitationsCommandOutput = {
@@ -5914,7 +5914,7 @@ export const deserializeAws_restJson1ListMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMembersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListMembersCommandError(output, context);
   }
   const contents: ListMembersCommandOutput = {
@@ -6021,7 +6021,7 @@ export const deserializeAws_restJson1ListOrganizationAdminAccountsCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOrganizationAdminAccountsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListOrganizationAdminAccountsCommandError(output, context);
   }
   const contents: ListOrganizationAdminAccountsCommandOutput = {
@@ -6128,7 +6128,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -6175,7 +6175,7 @@ export const deserializeAws_restJson1PutClassificationExportConfigurationCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutClassificationExportConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutClassificationExportConfigurationCommandError(output, context);
   }
   const contents: PutClassificationExportConfigurationCommandOutput = {
@@ -6278,7 +6278,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -6321,7 +6321,7 @@ export const deserializeAws_restJson1TestCustomDataIdentifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestCustomDataIdentifierCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TestCustomDataIdentifierCommandError(output, context);
   }
   const contents: TestCustomDataIdentifierCommandOutput = {
@@ -6424,7 +6424,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -6467,7 +6467,7 @@ export const deserializeAws_restJson1UpdateClassificationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClassificationJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateClassificationJobCommandError(output, context);
   }
   const contents: UpdateClassificationJobCommandOutput = {
@@ -6566,7 +6566,7 @@ export const deserializeAws_restJson1UpdateFindingsFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFindingsFilterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateFindingsFilterCommandError(output, context);
   }
   const contents: UpdateFindingsFilterCommandOutput = {
@@ -6673,7 +6673,7 @@ export const deserializeAws_restJson1UpdateMacieSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMacieSessionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateMacieSessionCommandError(output, context);
   }
   const contents: UpdateMacieSessionCommandOutput = {
@@ -6772,7 +6772,7 @@ export const deserializeAws_restJson1UpdateMemberSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMemberSessionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateMemberSessionCommandError(output, context);
   }
   const contents: UpdateMemberSessionCommandOutput = {
@@ -6871,7 +6871,7 @@ export const deserializeAws_restJson1UpdateOrganizationConfigurationCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateOrganizationConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateOrganizationConfigurationCommandError(output, context);
   }
   const contents: UpdateOrganizationConfigurationCommandOutput = {

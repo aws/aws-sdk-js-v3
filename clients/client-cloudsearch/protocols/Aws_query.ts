@@ -588,7 +588,7 @@ export const deserializeAws_queryBuildSuggestersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BuildSuggestersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryBuildSuggestersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -658,7 +658,7 @@ export const deserializeAws_queryCreateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -728,7 +728,7 @@ export const deserializeAws_queryDefineAnalysisSchemeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DefineAnalysisSchemeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDefineAnalysisSchemeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -814,7 +814,7 @@ export const deserializeAws_queryDefineExpressionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DefineExpressionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDefineExpressionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -900,7 +900,7 @@ export const deserializeAws_queryDefineIndexFieldCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DefineIndexFieldCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDefineIndexFieldCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -986,7 +986,7 @@ export const deserializeAws_queryDefineSuggesterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DefineSuggesterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDefineSuggesterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1072,7 +1072,7 @@ export const deserializeAws_queryDeleteAnalysisSchemeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAnalysisSchemeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteAnalysisSchemeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1150,7 +1150,7 @@ export const deserializeAws_queryDeleteDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1212,7 +1212,7 @@ export const deserializeAws_queryDeleteExpressionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteExpressionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteExpressionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1290,7 +1290,7 @@ export const deserializeAws_queryDeleteIndexFieldCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIndexFieldCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteIndexFieldCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1368,7 +1368,7 @@ export const deserializeAws_queryDeleteSuggesterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSuggesterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteSuggesterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1446,7 +1446,7 @@ export const deserializeAws_queryDescribeAnalysisSchemesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAnalysisSchemesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeAnalysisSchemesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1516,7 +1516,7 @@ export const deserializeAws_queryDescribeAvailabilityOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAvailabilityOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeAvailabilityOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1610,7 +1610,7 @@ export const deserializeAws_queryDescribeDomainEndpointOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainEndpointOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDomainEndpointOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1699,7 +1699,7 @@ export const deserializeAws_queryDescribeDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeDomainsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1761,7 +1761,7 @@ export const deserializeAws_queryDescribeExpressionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExpressionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeExpressionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1831,7 +1831,7 @@ export const deserializeAws_queryDescribeIndexFieldsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIndexFieldsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeIndexFieldsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1901,7 +1901,7 @@ export const deserializeAws_queryDescribeScalingParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalingParametersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeScalingParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1971,7 +1971,7 @@ export const deserializeAws_queryDescribeServiceAccessPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceAccessPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeServiceAccessPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2044,7 +2044,7 @@ export const deserializeAws_queryDescribeSuggestersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSuggestersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeSuggestersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2114,7 +2114,7 @@ export const deserializeAws_queryIndexDocumentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IndexDocumentsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryIndexDocumentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2184,7 +2184,7 @@ export const deserializeAws_queryListDomainNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainNamesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListDomainNamesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2238,7 +2238,7 @@ export const deserializeAws_queryUpdateAvailabilityOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAvailabilityOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateAvailabilityOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2340,7 +2340,7 @@ export const deserializeAws_queryUpdateDomainEndpointOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainEndpointOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateDomainEndpointOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2442,7 +2442,7 @@ export const deserializeAws_queryUpdateScalingParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateScalingParametersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateScalingParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2528,7 +2528,7 @@ export const deserializeAws_queryUpdateServiceAccessPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceAccessPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateServiceAccessPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

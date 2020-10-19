@@ -528,7 +528,7 @@ export const deserializeAws_restJson1BatchGetChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchGetChannelCommandError(output, context);
   }
   const contents: BatchGetChannelCommandOutput = {
@@ -579,7 +579,7 @@ export const deserializeAws_restJson1BatchGetStreamKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetStreamKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchGetStreamKeyCommandError(output, context);
   }
   const contents: BatchGetStreamKeyCommandOutput = {
@@ -630,7 +630,7 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateChannelCommandError(output, context);
   }
   const contents: CreateChannelCommandOutput = {
@@ -713,7 +713,7 @@ export const deserializeAws_restJson1CreateStreamKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateStreamKeyCommandError(output, context);
   }
   const contents: CreateStreamKeyCommandOutput = {
@@ -800,7 +800,7 @@ export const deserializeAws_restJson1DeleteChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteChannelCommandError(output, context);
   }
   const contents: DeleteChannelCommandOutput = {
@@ -883,7 +883,7 @@ export const deserializeAws_restJson1DeleteStreamKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteStreamKeyCommandError(output, context);
   }
   const contents: DeleteStreamKeyCommandOutput = {
@@ -958,7 +958,7 @@ export const deserializeAws_restJson1GetChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetChannelCommandError(output, context);
   }
   const contents: GetChannelCommandOutput = {
@@ -1029,7 +1029,7 @@ export const deserializeAws_restJson1GetStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetStreamCommandError(output, context);
   }
   const contents: GetStreamCommandOutput = {
@@ -1108,7 +1108,7 @@ export const deserializeAws_restJson1GetStreamKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetStreamKeyCommandError(output, context);
   }
   const contents: GetStreamKeyCommandOutput = {
@@ -1179,7 +1179,7 @@ export const deserializeAws_restJson1ListChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListChannelsCommandError(output, context);
   }
   const contents: ListChannelsCommandOutput = {
@@ -1246,7 +1246,7 @@ export const deserializeAws_restJson1ListStreamKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamKeysCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListStreamKeysCommandError(output, context);
   }
   const contents: ListStreamKeysCommandOutput = {
@@ -1321,7 +1321,7 @@ export const deserializeAws_restJson1ListStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListStreamsCommandError(output, context);
   }
   const contents: ListStreamsCommandOutput = {
@@ -1380,7 +1380,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1455,7 +1455,7 @@ export const deserializeAws_restJson1PutMetadataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMetadataCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutMetadataCommandError(output, context);
   }
   const contents: PutMetadataCommandOutput = {
@@ -1538,7 +1538,7 @@ export const deserializeAws_restJson1StopStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StopStreamCommandError(output, context);
   }
   const contents: StopStreamCommandOutput = {
@@ -1621,7 +1621,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1688,7 +1688,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1755,7 +1755,7 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateChannelCommandError(output, context);
   }
   const contents: UpdateChannelCommandOutput = {

@@ -35,7 +35,7 @@ export const deserializeAws_json1_1SendSSHPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendSSHPublicKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SendSSHPublicKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

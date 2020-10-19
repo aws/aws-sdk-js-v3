@@ -190,7 +190,7 @@ export const deserializeAws_queryAssumeRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssumeRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAssumeRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -260,7 +260,7 @@ export const deserializeAws_queryAssumeRoleWithSAMLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssumeRoleWithSAMLCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAssumeRoleWithSAMLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -354,7 +354,7 @@ export const deserializeAws_queryAssumeRoleWithWebIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssumeRoleWithWebIdentityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAssumeRoleWithWebIdentityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -456,7 +456,7 @@ export const deserializeAws_queryDecodeAuthorizationMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecodeAuthorizationMessageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDecodeAuthorizationMessageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -510,7 +510,7 @@ export const deserializeAws_queryGetAccessKeyInfoCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessKeyInfoCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetAccessKeyInfoCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -556,7 +556,7 @@ export const deserializeAws_queryGetCallerIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCallerIdentityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetCallerIdentityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -602,7 +602,7 @@ export const deserializeAws_queryGetFederationTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFederationTokenCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetFederationTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -672,7 +672,7 @@ export const deserializeAws_queryGetSessionTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSessionTokenCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetSessionTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

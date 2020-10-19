@@ -1322,7 +1322,7 @@ export const deserializeAws_restJson1CreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateUserCommandError(output, context);
   }
   const contents: CreateUserCommandOutput = {
@@ -1429,7 +1429,7 @@ export const deserializeAws_restJson1DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteUserCommandError(output, context);
   }
   const contents: DeleteUserCommandOutput = {
@@ -1512,7 +1512,7 @@ export const deserializeAws_restJson1DescribeUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeUserCommandError(output, context);
   }
   const contents: DescribeUserCommandOutput = {
@@ -1599,7 +1599,7 @@ export const deserializeAws_restJson1DescribeUserHierarchyGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserHierarchyGroupCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeUserHierarchyGroupCommandError(output, context);
   }
   const contents: DescribeUserHierarchyGroupCommandOutput = {
@@ -1686,7 +1686,7 @@ export const deserializeAws_restJson1DescribeUserHierarchyStructureCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserHierarchyStructureCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeUserHierarchyStructureCommandError(output, context);
   }
   const contents: DescribeUserHierarchyStructureCommandOutput = {
@@ -1773,7 +1773,7 @@ export const deserializeAws_restJson1GetContactAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContactAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetContactAttributesCommandError(output, context);
   }
   const contents: GetContactAttributesCommandOutput = {
@@ -1844,7 +1844,7 @@ export const deserializeAws_restJson1GetCurrentMetricDataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCurrentMetricDataCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetCurrentMetricDataCommandError(output, context);
   }
   const contents: GetCurrentMetricDataCommandOutput = {
@@ -1939,7 +1939,7 @@ export const deserializeAws_restJson1GetFederationTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFederationTokenCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFederationTokenCommandError(output, context);
   }
   const contents: GetFederationTokenCommandOutput = {
@@ -2034,7 +2034,7 @@ export const deserializeAws_restJson1GetMetricDataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMetricDataCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMetricDataCommandError(output, context);
   }
   const contents: GetMetricDataCommandOutput = {
@@ -2125,7 +2125,7 @@ export const deserializeAws_restJson1ListContactFlowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListContactFlowsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListContactFlowsCommandError(output, context);
   }
   const contents: ListContactFlowsCommandOutput = {
@@ -2219,7 +2219,7 @@ export const deserializeAws_restJson1ListHoursOfOperationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHoursOfOperationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListHoursOfOperationsCommandError(output, context);
   }
   const contents: ListHoursOfOperationsCommandOutput = {
@@ -2313,7 +2313,7 @@ export const deserializeAws_restJson1ListPhoneNumbersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPhoneNumbersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPhoneNumbersCommandError(output, context);
   }
   const contents: ListPhoneNumbersCommandOutput = {
@@ -2407,7 +2407,7 @@ export const deserializeAws_restJson1ListQueuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListQueuesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListQueuesCommandError(output, context);
   }
   const contents: ListQueuesCommandOutput = {
@@ -2498,7 +2498,7 @@ export const deserializeAws_restJson1ListRoutingProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoutingProfilesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRoutingProfilesCommandError(output, context);
   }
   const contents: ListRoutingProfilesCommandOutput = {
@@ -2592,7 +2592,7 @@ export const deserializeAws_restJson1ListSecurityProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityProfilesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSecurityProfilesCommandError(output, context);
   }
   const contents: ListSecurityProfilesCommandOutput = {
@@ -2686,7 +2686,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -2773,7 +2773,7 @@ export const deserializeAws_restJson1ListUserHierarchyGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserHierarchyGroupsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListUserHierarchyGroupsCommandError(output, context);
   }
   const contents: ListUserHierarchyGroupsCommandOutput = {
@@ -2867,7 +2867,7 @@ export const deserializeAws_restJson1ListUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListUsersCommandError(output, context);
   }
   const contents: ListUsersCommandOutput = {
@@ -2958,7 +2958,7 @@ export const deserializeAws_restJson1ResumeContactRecordingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResumeContactRecordingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ResumeContactRecordingCommandError(output, context);
   }
   const contents: ResumeContactRecordingCommandOutput = {
@@ -3025,7 +3025,7 @@ export const deserializeAws_restJson1StartChatContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartChatContactCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartChatContactCommandError(output, context);
   }
   const contents: StartChatContactCommandOutput = {
@@ -3120,7 +3120,7 @@ export const deserializeAws_restJson1StartContactRecordingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartContactRecordingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartContactRecordingCommandError(output, context);
   }
   const contents: StartContactRecordingCommandOutput = {
@@ -3195,7 +3195,7 @@ export const deserializeAws_restJson1StartOutboundVoiceContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartOutboundVoiceContactCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartOutboundVoiceContactCommandError(output, context);
   }
   const contents: StartOutboundVoiceContactCommandOutput = {
@@ -3298,7 +3298,7 @@ export const deserializeAws_restJson1StopContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopContactCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StopContactCommandError(output, context);
   }
   const contents: StopContactCommandOutput = {
@@ -3381,7 +3381,7 @@ export const deserializeAws_restJson1StopContactRecordingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopContactRecordingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StopContactRecordingCommandError(output, context);
   }
   const contents: StopContactRecordingCommandOutput = {
@@ -3448,7 +3448,7 @@ export const deserializeAws_restJson1SuspendContactRecordingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SuspendContactRecordingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SuspendContactRecordingCommandError(output, context);
   }
   const contents: SuspendContactRecordingCommandOutput = {
@@ -3515,7 +3515,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -3598,7 +3598,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -3681,7 +3681,7 @@ export const deserializeAws_restJson1UpdateContactAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContactAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateContactAttributesCommandError(output, context);
   }
   const contents: UpdateContactAttributesCommandOutput = {
@@ -3756,7 +3756,7 @@ export const deserializeAws_restJson1UpdateUserHierarchyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserHierarchyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateUserHierarchyCommandError(output, context);
   }
   const contents: UpdateUserHierarchyCommandOutput = {
@@ -3839,7 +3839,7 @@ export const deserializeAws_restJson1UpdateUserIdentityInfoCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserIdentityInfoCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateUserIdentityInfoCommandError(output, context);
   }
   const contents: UpdateUserIdentityInfoCommandOutput = {
@@ -3922,7 +3922,7 @@ export const deserializeAws_restJson1UpdateUserPhoneConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserPhoneConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateUserPhoneConfigCommandError(output, context);
   }
   const contents: UpdateUserPhoneConfigCommandOutput = {
@@ -4005,7 +4005,7 @@ export const deserializeAws_restJson1UpdateUserRoutingProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserRoutingProfileCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateUserRoutingProfileCommandError(output, context);
   }
   const contents: UpdateUserRoutingProfileCommandOutput = {
@@ -4088,7 +4088,7 @@ export const deserializeAws_restJson1UpdateUserSecurityProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserSecurityProfilesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateUserSecurityProfilesCommandError(output, context);
   }
   const contents: UpdateUserSecurityProfilesCommandOutput = {

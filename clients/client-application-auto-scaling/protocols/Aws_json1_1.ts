@@ -218,7 +218,7 @@ export const deserializeAws_json1_1DeleteScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScalingPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -297,7 +297,7 @@ export const deserializeAws_json1_1DeleteScheduledActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScheduledActionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteScheduledActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -376,7 +376,7 @@ export const deserializeAws_json1_1DeregisterScalableTargetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterScalableTargetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeregisterScalableTargetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -455,7 +455,7 @@ export const deserializeAws_json1_1DescribeScalableTargetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalableTargetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeScalableTargetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -534,7 +534,7 @@ export const deserializeAws_json1_1DescribeScalingActivitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalingActivitiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeScalingActivitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -613,7 +613,7 @@ export const deserializeAws_json1_1DescribeScalingPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalingPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeScalingPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -700,7 +700,7 @@ export const deserializeAws_json1_1DescribeScheduledActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScheduledActionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeScheduledActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -779,7 +779,7 @@ export const deserializeAws_json1_1PutScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutScalingPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -874,7 +874,7 @@ export const deserializeAws_json1_1PutScheduledActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutScheduledActionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutScheduledActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -961,7 +961,7 @@ export const deserializeAws_json1_1RegisterScalableTargetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterScalableTargetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RegisterScalableTargetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

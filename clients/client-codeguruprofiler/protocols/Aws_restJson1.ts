@@ -521,7 +521,7 @@ export const deserializeAws_restJson1ConfigureAgentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfigureAgentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ConfigureAgentCommandError(output, context);
   }
   const contents: ConfigureAgentCommandOutput = {
@@ -598,7 +598,7 @@ export const deserializeAws_restJson1CreateProfilingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProfilingGroupCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateProfilingGroupCommandError(output, context);
   }
   const contents: CreateProfilingGroupCommandOutput = {
@@ -683,7 +683,7 @@ export const deserializeAws_restJson1DeleteProfilingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProfilingGroupCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteProfilingGroupCommandError(output, context);
   }
   const contents: DeleteProfilingGroupCommandOutput = {
@@ -758,7 +758,7 @@ export const deserializeAws_restJson1DescribeProfilingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProfilingGroupCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeProfilingGroupCommandError(output, context);
   }
   const contents: DescribeProfilingGroupCommandOutput = {
@@ -835,7 +835,7 @@ export const deserializeAws_restJson1ListProfilingGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProfilingGroupsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProfilingGroupsCommandError(output, context);
   }
   const contents: ListProfilingGroupsCommandOutput = {
@@ -906,7 +906,7 @@ export const deserializeAws_restJson1UpdateProfilingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProfilingGroupCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateProfilingGroupCommandError(output, context);
   }
   const contents: UpdateProfilingGroupCommandOutput = {
@@ -991,7 +991,7 @@ export const deserializeAws_restJson1GetPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetPolicyCommandError(output, context);
   }
   const contents: GetPolicyCommandOutput = {
@@ -1066,7 +1066,7 @@ export const deserializeAws_restJson1PutPermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutPermissionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutPermissionCommandError(output, context);
   }
   const contents: PutPermissionCommandOutput = {
@@ -1157,7 +1157,7 @@ export const deserializeAws_restJson1RemovePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemovePermissionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RemovePermissionCommandError(output, context);
   }
   const contents: RemovePermissionCommandOutput = {
@@ -1248,7 +1248,7 @@ export const deserializeAws_restJson1GetProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProfileCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetProfileCommandError(output, context);
   }
   const contents: GetProfileCommandOutput = {
@@ -1333,7 +1333,7 @@ export const deserializeAws_restJson1ListProfileTimesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProfileTimesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProfileTimesCommandError(output, context);
   }
   const contents: ListProfileTimesCommandOutput = {
@@ -1416,7 +1416,7 @@ export const deserializeAws_restJson1PostAgentProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostAgentProfileCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1PostAgentProfileCommandError(output, context);
   }
   const contents: PostAgentProfileCommandOutput = {
@@ -1491,7 +1491,7 @@ export const deserializeAws_restJson1RetrieveTimeSeriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetrieveTimeSeriesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RetrieveTimeSeriesCommandError(output, context);
   }
   const contents: RetrieveTimeSeriesCommandOutput = {

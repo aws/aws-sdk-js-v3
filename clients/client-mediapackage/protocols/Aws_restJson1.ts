@@ -668,7 +668,7 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateChannelCommandError(output, context);
   }
   const contents: CreateChannelCommandOutput = {
@@ -779,7 +779,7 @@ export const deserializeAws_restJson1CreateHarvestJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHarvestJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateHarvestJobCommandError(output, context);
   }
   const contents: CreateHarvestJobCommandOutput = {
@@ -906,7 +906,7 @@ export const deserializeAws_restJson1CreateOriginEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOriginEndpointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateOriginEndpointCommandError(output, context);
   }
   const contents: CreateOriginEndpointCommandOutput = {
@@ -1061,7 +1061,7 @@ export const deserializeAws_restJson1DeleteChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteChannelCommandError(output, context);
   }
   const contents: DeleteChannelCommandOutput = {
@@ -1152,7 +1152,7 @@ export const deserializeAws_restJson1DeleteOriginEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOriginEndpointCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteOriginEndpointCommandError(output, context);
   }
   const contents: DeleteOriginEndpointCommandOutput = {
@@ -1243,7 +1243,7 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeChannelCommandError(output, context);
   }
   const contents: DescribeChannelCommandOutput = {
@@ -1354,7 +1354,7 @@ export const deserializeAws_restJson1DescribeHarvestJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHarvestJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeHarvestJobCommandError(output, context);
   }
   const contents: DescribeHarvestJobCommandOutput = {
@@ -1481,7 +1481,7 @@ export const deserializeAws_restJson1DescribeOriginEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOriginEndpointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeOriginEndpointCommandError(output, context);
   }
   const contents: DescribeOriginEndpointCommandOutput = {
@@ -1636,7 +1636,7 @@ export const deserializeAws_restJson1ListChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListChannelsCommandError(output, context);
   }
   const contents: ListChannelsCommandOutput = {
@@ -1735,7 +1735,7 @@ export const deserializeAws_restJson1ListHarvestJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHarvestJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListHarvestJobsCommandError(output, context);
   }
   const contents: ListHarvestJobsCommandOutput = {
@@ -1834,7 +1834,7 @@ export const deserializeAws_restJson1ListOriginEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOriginEndpointsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListOriginEndpointsCommandError(output, context);
   }
   const contents: ListOriginEndpointsCommandOutput = {
@@ -1933,7 +1933,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1980,7 +1980,7 @@ export const deserializeAws_restJson1RotateChannelCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RotateChannelCredentialsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RotateChannelCredentialsCommandError(output, context);
   }
   const contents: RotateChannelCredentialsCommandOutput = {
@@ -2091,7 +2091,7 @@ export const deserializeAws_restJson1RotateIngestEndpointCredentialsCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RotateIngestEndpointCredentialsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RotateIngestEndpointCredentialsCommandError(output, context);
   }
   const contents: RotateIngestEndpointCredentialsCommandOutput = {
@@ -2202,7 +2202,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -2245,7 +2245,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -2288,7 +2288,7 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateChannelCommandError(output, context);
   }
   const contents: UpdateChannelCommandOutput = {
@@ -2399,7 +2399,7 @@ export const deserializeAws_restJson1UpdateOriginEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateOriginEndpointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateOriginEndpointCommandError(output, context);
   }
   const contents: UpdateOriginEndpointCommandOutput = {

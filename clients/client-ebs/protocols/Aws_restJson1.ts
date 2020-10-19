@@ -266,7 +266,7 @@ export const deserializeAws_restJson1CompleteSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteSnapshotCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1CompleteSnapshotCommandError(output, context);
   }
   const contents: CompleteSnapshotCommandOutput = {
@@ -361,7 +361,7 @@ export const deserializeAws_restJson1GetSnapshotBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSnapshotBlockCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSnapshotBlockCommandError(output, context);
   }
   const contents: GetSnapshotBlockCommandOutput = {
@@ -466,7 +466,7 @@ export const deserializeAws_restJson1ListChangedBlocksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChangedBlocksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListChangedBlocksCommandError(output, context);
   }
   const contents: ListChangedBlocksCommandOutput = {
@@ -577,7 +577,7 @@ export const deserializeAws_restJson1ListSnapshotBlocksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSnapshotBlocksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSnapshotBlocksCommandError(output, context);
   }
   const contents: ListSnapshotBlocksCommandOutput = {
@@ -688,7 +688,7 @@ export const deserializeAws_restJson1PutSnapshotBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSnapshotBlockCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutSnapshotBlockCommandError(output, context);
   }
   const contents: PutSnapshotBlockCommandOutput = {
@@ -787,7 +787,7 @@ export const deserializeAws_restJson1StartSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSnapshotCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartSnapshotCommandError(output, context);
   }
   const contents: StartSnapshotCommandOutput = {

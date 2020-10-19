@@ -152,7 +152,7 @@ export const deserializeAws_json1_1AnalyzeDocumentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AnalyzeDocumentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AnalyzeDocumentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -279,7 +279,7 @@ export const deserializeAws_json1_1DetectDocumentTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectDocumentTextCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DetectDocumentTextCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -398,7 +398,7 @@ export const deserializeAws_json1_1GetDocumentAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentAnalysisCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDocumentAnalysisCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -493,7 +493,7 @@ export const deserializeAws_json1_1GetDocumentTextDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentTextDetectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDocumentTextDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -588,7 +588,7 @@ export const deserializeAws_json1_1StartDocumentAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDocumentAnalysisCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartDocumentAnalysisCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -723,7 +723,7 @@ export const deserializeAws_json1_1StartDocumentTextDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDocumentTextDetectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartDocumentTextDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

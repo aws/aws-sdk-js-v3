@@ -414,7 +414,7 @@ export const deserializeAws_queryEmptyInputAndEmptyOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryEmptyInputAndEmptyOutputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -460,7 +460,7 @@ export const deserializeAws_queryFlattenedXmlMapCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FlattenedXmlMapCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryFlattenedXmlMapCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -506,7 +506,7 @@ export const deserializeAws_queryFlattenedXmlMapWithXmlNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FlattenedXmlMapWithXmlNameCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryFlattenedXmlMapWithXmlNameCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -552,7 +552,7 @@ export const deserializeAws_queryGreetingWithErrorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GreetingWithErrorsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGreetingWithErrorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -614,7 +614,7 @@ export const deserializeAws_queryIgnoresWrappingXmlNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IgnoresWrappingXmlNameCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryIgnoresWrappingXmlNameCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -660,7 +660,7 @@ export const deserializeAws_queryNestedStructuresCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NestedStructuresCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryNestedStructuresCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -703,7 +703,7 @@ export const deserializeAws_queryNoInputAndNoOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NoInputAndNoOutputCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryNoInputAndNoOutputCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -746,7 +746,7 @@ export const deserializeAws_queryNoInputAndOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NoInputAndOutputCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryNoInputAndOutputCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -789,7 +789,7 @@ export const deserializeAws_queryQueryIdempotencyTokenAutoFillCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryQueryIdempotencyTokenAutoFillCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -832,7 +832,7 @@ export const deserializeAws_queryQueryListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryListsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryQueryListsCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -875,7 +875,7 @@ export const deserializeAws_queryQueryMapsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryMapsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryQueryMapsCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -918,7 +918,7 @@ export const deserializeAws_queryQueryTimestampsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryTimestampsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryQueryTimestampsCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -961,7 +961,7 @@ export const deserializeAws_queryRecursiveXmlShapesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RecursiveXmlShapesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRecursiveXmlShapesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1007,7 +1007,7 @@ export const deserializeAws_querySimpleInputParamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimpleInputParamsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySimpleInputParamsCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1050,7 +1050,7 @@ export const deserializeAws_querySimpleScalarXmlPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySimpleScalarXmlPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1096,7 +1096,7 @@ export const deserializeAws_queryXmlBlobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlBlobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryXmlBlobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1142,7 +1142,7 @@ export const deserializeAws_queryXmlEnumsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlEnumsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryXmlEnumsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1188,7 +1188,7 @@ export const deserializeAws_queryXmlListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlListsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryXmlListsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1234,7 +1234,7 @@ export const deserializeAws_queryXmlMapsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlMapsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryXmlMapsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1280,7 +1280,7 @@ export const deserializeAws_queryXmlMapsXmlNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlMapsXmlNameCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryXmlMapsXmlNameCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1326,7 +1326,7 @@ export const deserializeAws_queryXmlNamespacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlNamespacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryXmlNamespacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1372,7 +1372,7 @@ export const deserializeAws_queryXmlTimestampsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlTimestampsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryXmlTimestampsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

@@ -2252,7 +2252,7 @@ export const deserializeAws_restJson1AssociateAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AssociateAssetsCommandError(output, context);
   }
   const contents: AssociateAssetsCommandOutput = {
@@ -2343,7 +2343,7 @@ export const deserializeAws_restJson1BatchAssociateProjectAssetsCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateProjectAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchAssociateProjectAssetsCommandError(output, context);
   }
   const contents: BatchAssociateProjectAssetsCommandOutput = {
@@ -2430,7 +2430,7 @@ export const deserializeAws_restJson1BatchDisassociateProjectAssetsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateProjectAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchDisassociateProjectAssetsCommandError(output, context);
   }
   const contents: BatchDisassociateProjectAssetsCommandOutput = {
@@ -2509,7 +2509,7 @@ export const deserializeAws_restJson1BatchPutAssetPropertyValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchPutAssetPropertyValueCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchPutAssetPropertyValueCommandError(output, context);
   }
   const contents: BatchPutAssetPropertyValueCommandOutput = {
@@ -2612,7 +2612,7 @@ export const deserializeAws_restJson1CreateAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateAccessPolicyCommandError(output, context);
   }
   const contents: CreateAccessPolicyCommandOutput = {
@@ -2703,7 +2703,7 @@ export const deserializeAws_restJson1CreateAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssetCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateAssetCommandError(output, context);
   }
   const contents: CreateAssetCommandOutput = {
@@ -2814,7 +2814,7 @@ export const deserializeAws_restJson1CreateAssetModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssetModelCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateAssetModelCommandError(output, context);
   }
   const contents: CreateAssetModelCommandOutput = {
@@ -2925,7 +2925,7 @@ export const deserializeAws_restJson1CreateDashboardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDashboardCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDashboardCommandError(output, context);
   }
   const contents: CreateDashboardCommandOutput = {
@@ -3016,7 +3016,7 @@ export const deserializeAws_restJson1CreateGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGatewayCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateGatewayCommandError(output, context);
   }
   const contents: CreateGatewayCommandOutput = {
@@ -3107,7 +3107,7 @@ export const deserializeAws_restJson1CreatePortalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePortalCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreatePortalCommandError(output, context);
   }
   const contents: CreatePortalCommandOutput = {
@@ -3210,7 +3210,7 @@ export const deserializeAws_restJson1CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateProjectCommandError(output, context);
   }
   const contents: CreateProjectCommandOutput = {
@@ -3301,7 +3301,7 @@ export const deserializeAws_restJson1DeleteAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAccessPolicyCommandError(output, context);
   }
   const contents: DeleteAccessPolicyCommandOutput = {
@@ -3376,7 +3376,7 @@ export const deserializeAws_restJson1DeleteAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssetCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAssetCommandError(output, context);
   }
   const contents: DeleteAssetCommandOutput = {
@@ -3463,7 +3463,7 @@ export const deserializeAws_restJson1DeleteAssetModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssetModelCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAssetModelCommandError(output, context);
   }
   const contents: DeleteAssetModelCommandOutput = {
@@ -3550,7 +3550,7 @@ export const deserializeAws_restJson1DeleteDashboardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDashboardCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDashboardCommandError(output, context);
   }
   const contents: DeleteDashboardCommandOutput = {
@@ -3625,7 +3625,7 @@ export const deserializeAws_restJson1DeleteGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteGatewayCommandError(output, context);
   }
   const contents: DeleteGatewayCommandOutput = {
@@ -3700,7 +3700,7 @@ export const deserializeAws_restJson1DeletePortalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePortalCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeletePortalCommandError(output, context);
   }
   const contents: DeletePortalCommandOutput = {
@@ -3787,7 +3787,7 @@ export const deserializeAws_restJson1DeleteProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteProjectCommandError(output, context);
   }
   const contents: DeleteProjectCommandOutput = {
@@ -3862,7 +3862,7 @@ export const deserializeAws_restJson1DescribeAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeAccessPolicyCommandError(output, context);
   }
   const contents: DescribeAccessPolicyCommandOutput = {
@@ -3965,7 +3965,7 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAssetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeAssetCommandError(output, context);
   }
   const contents: DescribeAssetCommandOutput = {
@@ -4076,7 +4076,7 @@ export const deserializeAws_restJson1DescribeAssetModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAssetModelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeAssetModelCommandError(output, context);
   }
   const contents: DescribeAssetModelCommandOutput = {
@@ -4187,7 +4187,7 @@ export const deserializeAws_restJson1DescribeAssetPropertyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAssetPropertyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeAssetPropertyCommandError(output, context);
   }
   const contents: DescribeAssetPropertyCommandOutput = {
@@ -4278,7 +4278,7 @@ export const deserializeAws_restJson1DescribeDashboardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDashboardCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeDashboardCommandError(output, context);
   }
   const contents: DescribeDashboardCommandOutput = {
@@ -4385,7 +4385,7 @@ export const deserializeAws_restJson1DescribeGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeGatewayCommandError(output, context);
   }
   const contents: DescribeGatewayCommandOutput = {
@@ -4491,7 +4491,7 @@ export const deserializeAws_restJson1DescribeGatewayCapabilityConfigurationComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGatewayCapabilityConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeGatewayCapabilityConfigurationCommandError(output, context);
   }
   const contents: DescribeGatewayCapabilityConfigurationCommandOutput = {
@@ -4582,7 +4582,7 @@ export const deserializeAws_restJson1DescribeLoggingOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoggingOptionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeLoggingOptionsCommandError(output, context);
   }
   const contents: DescribeLoggingOptionsCommandOutput = {
@@ -4661,7 +4661,7 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePortalCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribePortalCommandError(output, context);
   }
   const contents: DescribePortalCommandOutput = {
@@ -4784,7 +4784,7 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeProjectCommandError(output, context);
   }
   const contents: DescribeProjectCommandOutput = {
@@ -4887,7 +4887,7 @@ export const deserializeAws_restJson1DisassociateAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateAssetsCommandError(output, context);
   }
   const contents: DisassociateAssetsCommandOutput = {
@@ -4970,7 +4970,7 @@ export const deserializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssetPropertyAggregatesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAssetPropertyAggregatesCommandError(output, context);
   }
   const contents: GetAssetPropertyAggregatesCommandOutput = {
@@ -5061,7 +5061,7 @@ export const deserializeAws_restJson1GetAssetPropertyValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssetPropertyValueCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAssetPropertyValueCommandError(output, context);
   }
   const contents: GetAssetPropertyValueCommandOutput = {
@@ -5148,7 +5148,7 @@ export const deserializeAws_restJson1GetAssetPropertyValueHistoryCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssetPropertyValueHistoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAssetPropertyValueHistoryCommandError(output, context);
   }
   const contents: GetAssetPropertyValueHistoryCommandOutput = {
@@ -5242,7 +5242,7 @@ export const deserializeAws_restJson1ListAccessPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessPoliciesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAccessPoliciesCommandError(output, context);
   }
   const contents: ListAccessPoliciesCommandOutput = {
@@ -5317,7 +5317,7 @@ export const deserializeAws_restJson1ListAssetModelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssetModelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAssetModelsCommandError(output, context);
   }
   const contents: ListAssetModelsCommandOutput = {
@@ -5392,7 +5392,7 @@ export const deserializeAws_restJson1ListAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAssetsCommandError(output, context);
   }
   const contents: ListAssetsCommandOutput = {
@@ -5475,7 +5475,7 @@ export const deserializeAws_restJson1ListAssociatedAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAssociatedAssetsCommandError(output, context);
   }
   const contents: ListAssociatedAssetsCommandOutput = {
@@ -5558,7 +5558,7 @@ export const deserializeAws_restJson1ListDashboardsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDashboardsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDashboardsCommandError(output, context);
   }
   const contents: ListDashboardsCommandOutput = {
@@ -5633,7 +5633,7 @@ export const deserializeAws_restJson1ListGatewaysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGatewaysCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListGatewaysCommandError(output, context);
   }
   const contents: ListGatewaysCommandOutput = {
@@ -5708,7 +5708,7 @@ export const deserializeAws_restJson1ListPortalsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPortalsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPortalsCommandError(output, context);
   }
   const contents: ListPortalsCommandOutput = {
@@ -5783,7 +5783,7 @@ export const deserializeAws_restJson1ListProjectAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProjectAssetsCommandError(output, context);
   }
   const contents: ListProjectAssetsCommandOutput = {
@@ -5858,7 +5858,7 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProjectsCommandError(output, context);
   }
   const contents: ListProjectsCommandOutput = {
@@ -5933,7 +5933,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -6012,7 +6012,7 @@ export const deserializeAws_restJson1PutLoggingOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutLoggingOptionsCommandError(output, context);
   }
   const contents: PutLoggingOptionsCommandOutput = {
@@ -6095,7 +6095,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -6178,7 +6178,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -6253,7 +6253,7 @@ export const deserializeAws_restJson1UpdateAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAccessPolicyCommandError(output, context);
   }
   const contents: UpdateAccessPolicyCommandOutput = {
@@ -6328,7 +6328,7 @@ export const deserializeAws_restJson1UpdateAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssetCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAssetCommandError(output, context);
   }
   const contents: UpdateAssetCommandOutput = {
@@ -6423,7 +6423,7 @@ export const deserializeAws_restJson1UpdateAssetModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssetModelCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAssetModelCommandError(output, context);
   }
   const contents: UpdateAssetModelCommandOutput = {
@@ -6526,7 +6526,7 @@ export const deserializeAws_restJson1UpdateAssetPropertyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssetPropertyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAssetPropertyCommandError(output, context);
   }
   const contents: UpdateAssetPropertyCommandOutput = {
@@ -6609,7 +6609,7 @@ export const deserializeAws_restJson1UpdateDashboardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDashboardCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDashboardCommandError(output, context);
   }
   const contents: UpdateDashboardCommandOutput = {
@@ -6684,7 +6684,7 @@ export const deserializeAws_restJson1UpdateGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateGatewayCommandError(output, context);
   }
   const contents: UpdateGatewayCommandOutput = {
@@ -6767,7 +6767,7 @@ export const deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewayCapabilityConfigurationCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommandError(output, context);
   }
   const contents: UpdateGatewayCapabilityConfigurationCommandOutput = {
@@ -6866,7 +6866,7 @@ export const deserializeAws_restJson1UpdatePortalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePortalCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdatePortalCommandError(output, context);
   }
   const contents: UpdatePortalCommandOutput = {
@@ -6953,7 +6953,7 @@ export const deserializeAws_restJson1UpdateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateProjectCommandError(output, context);
   }
   const contents: UpdateProjectCommandOutput = {

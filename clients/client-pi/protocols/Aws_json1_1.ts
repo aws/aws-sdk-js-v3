@@ -59,7 +59,7 @@ export const deserializeAws_json1_1DescribeDimensionKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDimensionKeysCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDimensionKeysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -130,7 +130,7 @@ export const deserializeAws_json1_1GetResourceMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceMetricsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetResourceMetricsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

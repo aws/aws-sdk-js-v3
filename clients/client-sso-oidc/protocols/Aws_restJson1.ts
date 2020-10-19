@@ -114,7 +114,7 @@ export const deserializeAws_restJson1CreateTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTokenCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateTokenCommandError(output, context);
   }
   const contents: CreateTokenCommandOutput = {
@@ -265,7 +265,7 @@ export const deserializeAws_restJson1RegisterClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterClientCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RegisterClientCommandError(output, context);
   }
   const contents: RegisterClientCommandOutput = {
@@ -364,7 +364,7 @@ export const deserializeAws_restJson1StartDeviceAuthorizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeviceAuthorizationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartDeviceAuthorizationCommandError(output, context);
   }
   const contents: StartDeviceAuthorizationCommandOutput = {

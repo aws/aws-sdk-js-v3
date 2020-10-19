@@ -971,7 +971,7 @@ export const deserializeAws_json1_1CreateCapacityProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCapacityProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateCapacityProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1058,7 +1058,7 @@ export const deserializeAws_json1_1CreateClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1129,7 +1129,7 @@ export const deserializeAws_json1_1CreateServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1240,7 +1240,7 @@ export const deserializeAws_json1_1CreateTaskSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTaskSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateTaskSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1367,7 +1367,7 @@ export const deserializeAws_json1_1DeleteAccountSettingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccountSettingCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteAccountSettingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1438,7 +1438,7 @@ export const deserializeAws_json1_1DeleteAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1509,7 +1509,7 @@ export const deserializeAws_json1_1DeleteCapacityProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCapacityProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteCapacityProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1580,7 +1580,7 @@ export const deserializeAws_json1_1DeleteClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1691,7 +1691,7 @@ export const deserializeAws_json1_1DeleteServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1778,7 +1778,7 @@ export const deserializeAws_json1_1DeleteTaskSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTaskSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteTaskSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1897,7 +1897,7 @@ export const deserializeAws_json1_1DeregisterContainerInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterContainerInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeregisterContainerInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1976,7 +1976,7 @@ export const deserializeAws_json1_1DeregisterTaskDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterTaskDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeregisterTaskDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2047,7 +2047,7 @@ export const deserializeAws_json1_1DescribeCapacityProvidersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCapacityProvidersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCapacityProvidersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2118,7 +2118,7 @@ export const deserializeAws_json1_1DescribeClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClustersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeClustersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2189,7 +2189,7 @@ export const deserializeAws_json1_1DescribeContainerInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeContainerInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeContainerInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2268,7 +2268,7 @@ export const deserializeAws_json1_1DescribeServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServicesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeServicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2347,7 +2347,7 @@ export const deserializeAws_json1_1DescribeTaskDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTaskDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTaskDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2418,7 +2418,7 @@ export const deserializeAws_json1_1DescribeTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTasksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTasksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2497,7 +2497,7 @@ export const deserializeAws_json1_1DescribeTaskSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTaskSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTaskSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2608,7 +2608,7 @@ export const deserializeAws_json1_1DiscoverPollEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DiscoverPollEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DiscoverPollEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2671,7 +2671,7 @@ export const deserializeAws_json1_1ListAccountSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAccountSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2742,7 +2742,7 @@ export const deserializeAws_json1_1ListAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2805,7 +2805,7 @@ export const deserializeAws_json1_1ListClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListClustersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2876,7 +2876,7 @@ export const deserializeAws_json1_1ListContainerInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListContainerInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListContainerInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2955,7 +2955,7 @@ export const deserializeAws_json1_1ListServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServicesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListServicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3034,7 +3034,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3113,7 +3113,7 @@ export const deserializeAws_json1_1ListTaskDefinitionFamiliesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTaskDefinitionFamiliesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTaskDefinitionFamiliesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3184,7 +3184,7 @@ export const deserializeAws_json1_1ListTaskDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTaskDefinitionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTaskDefinitionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3255,7 +3255,7 @@ export const deserializeAws_json1_1ListTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTasksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTasksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3342,7 +3342,7 @@ export const deserializeAws_json1_1PutAccountSettingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountSettingCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutAccountSettingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3413,7 +3413,7 @@ export const deserializeAws_json1_1PutAccountSettingDefaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountSettingDefaultCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutAccountSettingDefaultCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3484,7 +3484,7 @@ export const deserializeAws_json1_1PutAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3563,7 +3563,7 @@ export const deserializeAws_json1_1PutClusterCapacityProvidersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutClusterCapacityProvidersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutClusterCapacityProvidersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3658,7 +3658,7 @@ export const deserializeAws_json1_1RegisterContainerInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterContainerInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RegisterContainerInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3729,7 +3729,7 @@ export const deserializeAws_json1_1RegisterTaskDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterTaskDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RegisterTaskDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3800,7 +3800,7 @@ export const deserializeAws_json1_1RunTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RunTaskCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RunTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3919,7 +3919,7 @@ export const deserializeAws_json1_1StartTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartTaskCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3998,7 +3998,7 @@ export const deserializeAws_json1_1StopTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopTaskCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4077,7 +4077,7 @@ export const deserializeAws_json1_1SubmitAttachmentStateChangesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SubmitAttachmentStateChangesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SubmitAttachmentStateChangesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4156,7 +4156,7 @@ export const deserializeAws_json1_1SubmitContainerStateChangeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SubmitContainerStateChangeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SubmitContainerStateChangeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4227,7 +4227,7 @@ export const deserializeAws_json1_1SubmitTaskStateChangeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SubmitTaskStateChangeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SubmitTaskStateChangeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4306,7 +4306,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4393,7 +4393,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4480,7 +4480,7 @@ export const deserializeAws_json1_1UpdateClusterSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClusterSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateClusterSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4559,7 +4559,7 @@ export const deserializeAws_json1_1UpdateContainerAgentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContainerAgentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateContainerAgentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4662,7 +4662,7 @@ export const deserializeAws_json1_1UpdateContainerInstancesStateCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContainerInstancesStateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateContainerInstancesStateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4741,7 +4741,7 @@ export const deserializeAws_json1_1UpdateServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4860,7 +4860,7 @@ export const deserializeAws_json1_1UpdateServicePrimaryTaskSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServicePrimaryTaskSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4979,7 +4979,7 @@ export const deserializeAws_json1_1UpdateTaskSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTaskSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateTaskSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

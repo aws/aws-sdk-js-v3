@@ -470,7 +470,7 @@ export const deserializeAws_restJson1ClaimDevicesByClaimCodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ClaimDevicesByClaimCodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ClaimDevicesByClaimCodeCommandError(output, context);
   }
   const contents: ClaimDevicesByClaimCodeCommandOutput = {
@@ -545,7 +545,7 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDeviceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeDeviceCommandError(output, context);
   }
   const contents: DescribeDeviceCommandOutput = {
@@ -616,7 +616,7 @@ export const deserializeAws_restJson1FinalizeDeviceClaimCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FinalizeDeviceClaimCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1FinalizeDeviceClaimCommandError(output, context);
   }
   const contents: FinalizeDeviceClaimCommandOutput = {
@@ -703,7 +703,7 @@ export const deserializeAws_restJson1GetDeviceMethodsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceMethodsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDeviceMethodsCommandError(output, context);
   }
   const contents: GetDeviceMethodsCommandOutput = {
@@ -774,7 +774,7 @@ export const deserializeAws_restJson1InitiateDeviceClaimCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateDeviceClaimCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1InitiateDeviceClaimCommandError(output, context);
   }
   const contents: InitiateDeviceClaimCommandOutput = {
@@ -853,7 +853,7 @@ export const deserializeAws_restJson1InvokeDeviceMethodCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeDeviceMethodCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1InvokeDeviceMethodCommandError(output, context);
   }
   const contents: InvokeDeviceMethodCommandOutput = {
@@ -948,7 +948,7 @@ export const deserializeAws_restJson1ListDeviceEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceEventsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDeviceEventsCommandError(output, context);
   }
   const contents: ListDeviceEventsCommandOutput = {
@@ -1031,7 +1031,7 @@ export const deserializeAws_restJson1ListDevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDevicesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDevicesCommandError(output, context);
   }
   const contents: ListDevicesCommandOutput = {
@@ -1106,7 +1106,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1169,7 +1169,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1236,7 +1236,7 @@ export const deserializeAws_restJson1UnclaimDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnclaimDeviceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UnclaimDeviceCommandError(output, context);
   }
   const contents: UnclaimDeviceCommandOutput = {
@@ -1307,7 +1307,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1374,7 +1374,7 @@ export const deserializeAws_restJson1UpdateDeviceStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeviceStateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDeviceStateCommandError(output, context);
   }
   const contents: UpdateDeviceStateCommandOutput = {

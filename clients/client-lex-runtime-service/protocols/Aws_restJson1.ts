@@ -316,7 +316,7 @@ export const deserializeAws_restJson1DeleteSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSessionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteSessionCommandError(output, context);
   }
   const contents: DeleteSessionCommandOutput = {
@@ -415,7 +415,7 @@ export const deserializeAws_restJson1GetSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSessionCommandError(output, context);
   }
   const contents: GetSessionCommandOutput = {
@@ -506,7 +506,7 @@ export const deserializeAws_restJson1PostContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostContentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PostContentCommandError(output, context);
   }
   const contents: PostContentCommandOutput = {
@@ -683,7 +683,7 @@ export const deserializeAws_restJson1PostTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostTextCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PostTextCommandError(output, context);
   }
   const contents: PostTextCommandOutput = {
@@ -830,7 +830,7 @@ export const deserializeAws_restJson1PutSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSessionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutSessionCommandError(output, context);
   }
   const contents: PutSessionCommandOutput = {
