@@ -2395,7 +2395,7 @@ export const deserializeAws_restJson1CreateConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateConfigurationSetCommandError(output, context);
   }
   const contents: CreateConfigurationSetCommandOutput = {
@@ -2486,7 +2486,7 @@ export const deserializeAws_restJson1CreateConfigurationSetEventDestinationComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError(output, context);
   }
   const contents: CreateConfigurationSetEventDestinationCommandOutput = {
@@ -2569,7 +2569,7 @@ export const deserializeAws_restJson1CreateCustomVerificationEmailTemplateComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomVerificationEmailTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateCustomVerificationEmailTemplateCommandError(output, context);
   }
   const contents: CreateCustomVerificationEmailTemplateCommandOutput = {
@@ -2652,7 +2652,7 @@ export const deserializeAws_restJson1CreateDedicatedIpPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDedicatedIpPoolCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDedicatedIpPoolCommandError(output, context);
   }
   const contents: CreateDedicatedIpPoolCommandOutput = {
@@ -2735,7 +2735,7 @@ export const deserializeAws_restJson1CreateDeliverabilityTestReportCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeliverabilityTestReportCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDeliverabilityTestReportCommandError(output, context);
   }
   const contents: CreateDeliverabilityTestReportCommandOutput = {
@@ -2858,7 +2858,7 @@ export const deserializeAws_restJson1CreateEmailIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEmailIdentityCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateEmailIdentityCommandError(output, context);
   }
   const contents: CreateEmailIdentityCommandOutput = {
@@ -2953,7 +2953,7 @@ export const deserializeAws_restJson1CreateEmailIdentityPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEmailIdentityPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateEmailIdentityPolicyCommandError(output, context);
   }
   const contents: CreateEmailIdentityPolicyCommandOutput = {
@@ -3036,7 +3036,7 @@ export const deserializeAws_restJson1CreateEmailTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEmailTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateEmailTemplateCommandError(output, context);
   }
   const contents: CreateEmailTemplateCommandOutput = {
@@ -3111,7 +3111,7 @@ export const deserializeAws_restJson1DeleteConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteConfigurationSetCommandError(output, context);
   }
   const contents: DeleteConfigurationSetCommandOutput = {
@@ -3186,7 +3186,7 @@ export const deserializeAws_restJson1DeleteConfigurationSetEventDestinationComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError(output, context);
   }
   const contents: DeleteConfigurationSetEventDestinationCommandOutput = {
@@ -3253,7 +3253,7 @@ export const deserializeAws_restJson1DeleteCustomVerificationEmailTemplateComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteCustomVerificationEmailTemplateCommandError(output, context);
   }
   const contents: DeleteCustomVerificationEmailTemplateCommandOutput = {
@@ -3320,7 +3320,7 @@ export const deserializeAws_restJson1DeleteDedicatedIpPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDedicatedIpPoolCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDedicatedIpPoolCommandError(output, context);
   }
   const contents: DeleteDedicatedIpPoolCommandOutput = {
@@ -3395,7 +3395,7 @@ export const deserializeAws_restJson1DeleteEmailIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailIdentityCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteEmailIdentityCommandError(output, context);
   }
   const contents: DeleteEmailIdentityCommandOutput = {
@@ -3470,7 +3470,7 @@ export const deserializeAws_restJson1DeleteEmailIdentityPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailIdentityPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteEmailIdentityPolicyCommandError(output, context);
   }
   const contents: DeleteEmailIdentityPolicyCommandOutput = {
@@ -3537,7 +3537,7 @@ export const deserializeAws_restJson1DeleteEmailTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteEmailTemplateCommandError(output, context);
   }
   const contents: DeleteEmailTemplateCommandOutput = {
@@ -3604,7 +3604,7 @@ export const deserializeAws_restJson1DeleteSuppressedDestinationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSuppressedDestinationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteSuppressedDestinationCommandError(output, context);
   }
   const contents: DeleteSuppressedDestinationCommandOutput = {
@@ -3671,7 +3671,7 @@ export const deserializeAws_restJson1GetAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAccountCommandError(output, context);
   }
   const contents: GetAccountCommandOutput = {
@@ -3758,7 +3758,7 @@ export const deserializeAws_restJson1GetBlacklistReportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlacklistReportsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBlacklistReportsCommandError(output, context);
   }
   const contents: GetBlacklistReportsCommandOutput = {
@@ -3829,7 +3829,7 @@ export const deserializeAws_restJson1GetConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationSetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetConfigurationSetCommandError(output, context);
   }
   const contents: GetConfigurationSetCommandOutput = {
@@ -3924,7 +3924,7 @@ export const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError(output, context);
   }
   const contents: GetConfigurationSetEventDestinationsCommandOutput = {
@@ -3995,7 +3995,7 @@ export const deserializeAws_restJson1GetCustomVerificationEmailTemplateCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCustomVerificationEmailTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetCustomVerificationEmailTemplateCommandError(output, context);
   }
   const contents: GetCustomVerificationEmailTemplateCommandOutput = {
@@ -4086,7 +4086,7 @@ export const deserializeAws_restJson1GetDedicatedIpCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDedicatedIpCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDedicatedIpCommandError(output, context);
   }
   const contents: GetDedicatedIpCommandOutput = {
@@ -4157,7 +4157,7 @@ export const deserializeAws_restJson1GetDedicatedIpsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDedicatedIpsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDedicatedIpsCommandError(output, context);
   }
   const contents: GetDedicatedIpsCommandOutput = {
@@ -4232,7 +4232,7 @@ export const deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeliverabilityDashboardOptionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommandError(output, context);
   }
   const contents: GetDeliverabilityDashboardOptionsCommandOutput = {
@@ -4325,7 +4325,7 @@ export const deserializeAws_restJson1GetDeliverabilityTestReportCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeliverabilityTestReportCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDeliverabilityTestReportCommandError(output, context);
   }
   const contents: GetDeliverabilityTestReportCommandOutput = {
@@ -4415,7 +4415,7 @@ export const deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainDeliverabilityCampaignCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDomainDeliverabilityCampaignCommandError(output, context);
   }
   const contents: GetDomainDeliverabilityCampaignCommandOutput = {
@@ -4489,7 +4489,7 @@ export const deserializeAws_restJson1GetDomainStatisticsReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainStatisticsReportCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDomainStatisticsReportCommandError(output, context);
   }
   const contents: GetDomainStatisticsReportCommandOutput = {
@@ -4564,7 +4564,7 @@ export const deserializeAws_restJson1GetEmailIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailIdentityCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetEmailIdentityCommandError(output, context);
   }
   const contents: GetEmailIdentityCommandOutput = {
@@ -4659,7 +4659,7 @@ export const deserializeAws_restJson1GetEmailIdentityPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailIdentityPoliciesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetEmailIdentityPoliciesCommandError(output, context);
   }
   const contents: GetEmailIdentityPoliciesCommandOutput = {
@@ -4730,7 +4730,7 @@ export const deserializeAws_restJson1GetEmailTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetEmailTemplateCommandError(output, context);
   }
   const contents: GetEmailTemplateCommandOutput = {
@@ -4805,7 +4805,7 @@ export const deserializeAws_restJson1GetSuppressedDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSuppressedDestinationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSuppressedDestinationCommandError(output, context);
   }
   const contents: GetSuppressedDestinationCommandOutput = {
@@ -4876,7 +4876,7 @@ export const deserializeAws_restJson1ListConfigurationSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListConfigurationSetsCommandError(output, context);
   }
   const contents: ListConfigurationSetsCommandOutput = {
@@ -4943,7 +4943,7 @@ export const deserializeAws_restJson1ListCustomVerificationEmailTemplatesCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListCustomVerificationEmailTemplatesCommandError(output, context);
   }
   const contents: ListCustomVerificationEmailTemplatesCommandOutput = {
@@ -5013,7 +5013,7 @@ export const deserializeAws_restJson1ListDedicatedIpPoolsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDedicatedIpPoolsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDedicatedIpPoolsCommandError(output, context);
   }
   const contents: ListDedicatedIpPoolsCommandOutput = {
@@ -5080,7 +5080,7 @@ export const deserializeAws_restJson1ListDeliverabilityTestReportsCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeliverabilityTestReportsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDeliverabilityTestReportsCommandError(output, context);
   }
   const contents: ListDeliverabilityTestReportsCommandOutput = {
@@ -5158,7 +5158,7 @@ export const deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommandError(output, context);
   }
   const contents: ListDomainDeliverabilityCampaignsCommandOutput = {
@@ -5236,7 +5236,7 @@ export const deserializeAws_restJson1ListEmailIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEmailIdentitiesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListEmailIdentitiesCommandError(output, context);
   }
   const contents: ListEmailIdentitiesCommandOutput = {
@@ -5303,7 +5303,7 @@ export const deserializeAws_restJson1ListEmailTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEmailTemplatesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListEmailTemplatesCommandError(output, context);
   }
   const contents: ListEmailTemplatesCommandOutput = {
@@ -5370,7 +5370,7 @@ export const deserializeAws_restJson1ListSuppressedDestinationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSuppressedDestinationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSuppressedDestinationsCommandError(output, context);
   }
   const contents: ListSuppressedDestinationsCommandOutput = {
@@ -5448,7 +5448,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -5519,7 +5519,7 @@ export const deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommandError(output, context);
   }
   const contents: PutAccountDedicatedIpWarmupAttributesCommandOutput = {
@@ -5578,7 +5578,7 @@ export const deserializeAws_restJson1PutAccountDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountDetailsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutAccountDetailsCommandError(output, context);
   }
   const contents: PutAccountDetailsCommandOutput = {
@@ -5645,7 +5645,7 @@ export const deserializeAws_restJson1PutAccountSendingAttributesCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountSendingAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutAccountSendingAttributesCommandError(output, context);
   }
   const contents: PutAccountSendingAttributesCommandOutput = {
@@ -5704,7 +5704,7 @@ export const deserializeAws_restJson1PutAccountSuppressionAttributesCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccountSuppressionAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutAccountSuppressionAttributesCommandError(output, context);
   }
   const contents: PutAccountSuppressionAttributesCommandOutput = {
@@ -5763,7 +5763,7 @@ export const deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommandError(output, context);
   }
   const contents: PutConfigurationSetDeliveryOptionsCommandOutput = {
@@ -5830,7 +5830,7 @@ export const deserializeAws_restJson1PutConfigurationSetReputationOptionsCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetReputationOptionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutConfigurationSetReputationOptionsCommandError(output, context);
   }
   const contents: PutConfigurationSetReputationOptionsCommandOutput = {
@@ -5897,7 +5897,7 @@ export const deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetSendingOptionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutConfigurationSetSendingOptionsCommandError(output, context);
   }
   const contents: PutConfigurationSetSendingOptionsCommandOutput = {
@@ -5964,7 +5964,7 @@ export const deserializeAws_restJson1PutConfigurationSetSuppressionOptionsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetSuppressionOptionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutConfigurationSetSuppressionOptionsCommandError(output, context);
   }
   const contents: PutConfigurationSetSuppressionOptionsCommandOutput = {
@@ -6031,7 +6031,7 @@ export const deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommandError(output, context);
   }
   const contents: PutConfigurationSetTrackingOptionsCommandOutput = {
@@ -6098,7 +6098,7 @@ export const deserializeAws_restJson1PutDedicatedIpInPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDedicatedIpInPoolCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutDedicatedIpInPoolCommandError(output, context);
   }
   const contents: PutDedicatedIpInPoolCommandOutput = {
@@ -6165,7 +6165,7 @@ export const deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommandError(output, context);
   }
   const contents: PutDedicatedIpWarmupAttributesCommandOutput = {
@@ -6232,7 +6232,7 @@ export const deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDeliverabilityDashboardOptionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutDeliverabilityDashboardOptionCommandError(output, context);
   }
   const contents: PutDeliverabilityDashboardOptionCommandOutput = {
@@ -6315,7 +6315,7 @@ export const deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityDkimAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutEmailIdentityDkimAttributesCommandError(output, context);
   }
   const contents: PutEmailIdentityDkimAttributesCommandOutput = {
@@ -6382,7 +6382,7 @@ export const deserializeAws_restJson1PutEmailIdentityDkimSigningAttributesComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommandError(output, context);
   }
   const contents: PutEmailIdentityDkimSigningAttributesCommandOutput = {
@@ -6457,7 +6457,7 @@ export const deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommandError(output, context);
   }
   const contents: PutEmailIdentityFeedbackAttributesCommandOutput = {
@@ -6524,7 +6524,7 @@ export const deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailIdentityMailFromAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommandError(output, context);
   }
   const contents: PutEmailIdentityMailFromAttributesCommandOutput = {
@@ -6591,7 +6591,7 @@ export const deserializeAws_restJson1PutSuppressedDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSuppressedDestinationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutSuppressedDestinationCommandError(output, context);
   }
   const contents: PutSuppressedDestinationCommandOutput = {
@@ -6650,7 +6650,7 @@ export const deserializeAws_restJson1SendBulkEmailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendBulkEmailCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SendBulkEmailCommandError(output, context);
   }
   const contents: SendBulkEmailCommandOutput = {
@@ -6764,7 +6764,7 @@ export const deserializeAws_restJson1SendCustomVerificationEmailCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendCustomVerificationEmailCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SendCustomVerificationEmailCommandError(output, context);
   }
   const contents: SendCustomVerificationEmailCommandOutput = {
@@ -6867,7 +6867,7 @@ export const deserializeAws_restJson1SendEmailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendEmailCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SendEmailCommandError(output, context);
   }
   const contents: SendEmailCommandOutput = {
@@ -6978,7 +6978,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -7053,7 +7053,7 @@ export const deserializeAws_restJson1TestRenderEmailTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestRenderEmailTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TestRenderEmailTemplateCommandError(output, context);
   }
   const contents: TestRenderEmailTemplateCommandOutput = {
@@ -7124,7 +7124,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -7199,7 +7199,7 @@ export const deserializeAws_restJson1UpdateConfigurationSetEventDestinationComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError(output, context);
   }
   const contents: UpdateConfigurationSetEventDestinationCommandOutput = {
@@ -7266,7 +7266,7 @@ export const deserializeAws_restJson1UpdateCustomVerificationEmailTemplateComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateCustomVerificationEmailTemplateCommandError(output, context);
   }
   const contents: UpdateCustomVerificationEmailTemplateCommandOutput = {
@@ -7333,7 +7333,7 @@ export const deserializeAws_restJson1UpdateEmailIdentityPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEmailIdentityPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateEmailIdentityPolicyCommandError(output, context);
   }
   const contents: UpdateEmailIdentityPolicyCommandOutput = {
@@ -7400,7 +7400,7 @@ export const deserializeAws_restJson1UpdateEmailTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEmailTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateEmailTemplateCommandError(output, context);
   }
   const contents: UpdateEmailTemplateCommandOutput = {

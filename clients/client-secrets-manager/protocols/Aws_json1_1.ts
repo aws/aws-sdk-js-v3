@@ -347,7 +347,7 @@ export const deserializeAws_json1_1CancelRotateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelRotateSecretCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CancelRotateSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -426,7 +426,7 @@ export const deserializeAws_json1_1CreateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSecretCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -545,7 +545,7 @@ export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -616,7 +616,7 @@ export const deserializeAws_json1_1DeleteSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSecretCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -695,7 +695,7 @@ export const deserializeAws_json1_1DescribeSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSecretCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -758,7 +758,7 @@ export const deserializeAws_json1_1GetRandomPasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRandomPasswordCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRandomPasswordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -829,7 +829,7 @@ export const deserializeAws_json1_1GetResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -900,7 +900,7 @@ export const deserializeAws_json1_1GetSecretValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSecretValueCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSecretValueCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -987,7 +987,7 @@ export const deserializeAws_json1_1ListSecretsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecretsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSecretsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1058,7 +1058,7 @@ export const deserializeAws_json1_1ListSecretVersionIdsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecretVersionIdsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSecretVersionIdsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1129,7 +1129,7 @@ export const deserializeAws_json1_1PutResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1224,7 +1224,7 @@ export const deserializeAws_json1_1PutSecretValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSecretValueCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutSecretValueCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1327,7 +1327,7 @@ export const deserializeAws_json1_1RestoreSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreSecretCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RestoreSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1406,7 +1406,7 @@ export const deserializeAws_json1_1RotateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RotateSecretCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RotateSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1485,7 +1485,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1561,7 +1561,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1637,7 +1637,7 @@ export const deserializeAws_json1_1UpdateSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecretCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateSecretCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1756,7 +1756,7 @@ export const deserializeAws_json1_1UpdateSecretVersionStageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecretVersionStageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateSecretVersionStageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1843,7 +1843,7 @@ export const deserializeAws_json1_1ValidateResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ValidateResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

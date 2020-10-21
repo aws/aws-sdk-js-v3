@@ -129,7 +129,7 @@ export const deserializeAws_restJson1SearchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SearchCommandError(output, context);
   }
   const contents: SearchCommandOutput = {
@@ -196,7 +196,7 @@ export const deserializeAws_restJson1SuggestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SuggestCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SuggestCommandError(output, context);
   }
   const contents: SuggestCommandOutput = {
@@ -255,7 +255,7 @@ export const deserializeAws_restJson1UploadDocumentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadDocumentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UploadDocumentsCommandError(output, context);
   }
   const contents: UploadDocumentsCommandOutput = {

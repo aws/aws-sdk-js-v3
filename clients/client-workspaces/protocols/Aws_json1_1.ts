@@ -816,7 +816,7 @@ export const deserializeAws_json1_1AssociateIpGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateIpGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateIpGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -911,7 +911,7 @@ export const deserializeAws_json1_1AuthorizeIpRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AuthorizeIpRulesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AuthorizeIpRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -998,7 +998,7 @@ export const deserializeAws_json1_1CopyWorkspaceImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyWorkspaceImageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CopyWorkspaceImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1101,7 +1101,7 @@ export const deserializeAws_json1_1CreateIpGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIpGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateIpGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1188,7 +1188,7 @@ export const deserializeAws_json1_1CreateTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1259,7 +1259,7 @@ export const deserializeAws_json1_1CreateWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkspacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateWorkspacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1322,7 +1322,7 @@ export const deserializeAws_json1_1DeleteIpGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIpGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteIpGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1401,7 +1401,7 @@ export const deserializeAws_json1_1DeleteTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1464,7 +1464,7 @@ export const deserializeAws_json1_1DeleteWorkspaceImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkspaceImageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteWorkspaceImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1535,7 +1535,7 @@ export const deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterWorkspaceDirectoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1622,7 +1622,7 @@ export const deserializeAws_json1_1DescribeAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1677,7 +1677,7 @@ export const deserializeAws_json1_1DescribeAccountModificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountModificationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAccountModificationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1732,7 +1732,7 @@ export const deserializeAws_json1_1DescribeClientPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClientPropertiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeClientPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1803,7 +1803,7 @@ export const deserializeAws_json1_1DescribeIpGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIpGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeIpGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1866,7 +1866,7 @@ export const deserializeAws_json1_1DescribeTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1921,7 +1921,7 @@ export const deserializeAws_json1_1DescribeWorkspaceBundlesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkspaceBundlesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeWorkspaceBundlesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1976,7 +1976,7 @@ export const deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkspaceDirectoriesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2031,7 +2031,7 @@ export const deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkspaceImagePermissionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2102,7 +2102,7 @@ export const deserializeAws_json1_1DescribeWorkspaceImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkspaceImagesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeWorkspaceImagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2157,7 +2157,7 @@ export const deserializeAws_json1_1DescribeWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkspacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeWorkspacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2220,7 +2220,7 @@ export const deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkspacesConnectionStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2275,7 +2275,7 @@ export const deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkspaceSnapshotsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2346,7 +2346,7 @@ export const deserializeAws_json1_1DisassociateIpGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateIpGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateIpGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2425,7 +2425,7 @@ export const deserializeAws_json1_1ImportWorkspaceImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportWorkspaceImageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ImportWorkspaceImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2520,7 +2520,7 @@ export const deserializeAws_json1_1ListAvailableManagementCidrRangesCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAvailableManagementCidrRangesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAvailableManagementCidrRangesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2583,7 +2583,7 @@ export const deserializeAws_json1_1MigrateWorkspaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MigrateWorkspaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1MigrateWorkspaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2678,7 +2678,7 @@ export const deserializeAws_json1_1ModifyAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2765,7 +2765,7 @@ export const deserializeAws_json1_1ModifyClientPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyClientPropertiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyClientPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2836,7 +2836,7 @@ export const deserializeAws_json1_1ModifySelfservicePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifySelfservicePermissionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifySelfservicePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2907,7 +2907,7 @@ export const deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2970,7 +2970,7 @@ export const deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyWorkspaceCreationPropertiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3041,7 +3041,7 @@ export const deserializeAws_json1_1ModifyWorkspacePropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyWorkspacePropertiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyWorkspacePropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3144,7 +3144,7 @@ export const deserializeAws_json1_1ModifyWorkspaceStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyWorkspaceStateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyWorkspaceStateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3215,7 +3215,7 @@ export const deserializeAws_json1_1RebootWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebootWorkspacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RebootWorkspacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3262,7 +3262,7 @@ export const deserializeAws_json1_1RebuildWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebuildWorkspacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RebuildWorkspacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3309,7 +3309,7 @@ export const deserializeAws_json1_1RegisterWorkspaceDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterWorkspaceDirectoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3420,7 +3420,7 @@ export const deserializeAws_json1_1RestoreWorkspaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreWorkspaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RestoreWorkspaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3491,7 +3491,7 @@ export const deserializeAws_json1_1RevokeIpRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeIpRulesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RevokeIpRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3570,7 +3570,7 @@ export const deserializeAws_json1_1StartWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartWorkspacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartWorkspacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3617,7 +3617,7 @@ export const deserializeAws_json1_1StopWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopWorkspacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopWorkspacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3664,7 +3664,7 @@ export const deserializeAws_json1_1TerminateWorkspacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TerminateWorkspacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TerminateWorkspacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3711,7 +3711,7 @@ export const deserializeAws_json1_1UpdateRulesOfIpGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRulesOfIpGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateRulesOfIpGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3798,7 +3798,7 @@ export const deserializeAws_json1_1UpdateWorkspaceImagePermissionCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWorkspaceImagePermissionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateWorkspaceImagePermissionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

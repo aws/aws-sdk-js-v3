@@ -234,7 +234,7 @@ export const deserializeAws_json1_1CopyBackupToRegionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyBackupToRegionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CopyBackupToRegionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -329,7 +329,7 @@ export const deserializeAws_json1_1CreateClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -424,7 +424,7 @@ export const deserializeAws_json1_1CreateHsmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHsmCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateHsmCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -511,7 +511,7 @@ export const deserializeAws_json1_1DeleteBackupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteBackupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -598,7 +598,7 @@ export const deserializeAws_json1_1DeleteClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -693,7 +693,7 @@ export const deserializeAws_json1_1DeleteHsmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHsmCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteHsmCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -780,7 +780,7 @@ export const deserializeAws_json1_1DescribeBackupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeBackupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -875,7 +875,7 @@ export const deserializeAws_json1_1DescribeClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClustersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeClustersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -962,7 +962,7 @@ export const deserializeAws_json1_1InitializeClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitializeClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1InitializeClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1049,7 +1049,7 @@ export const deserializeAws_json1_1ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1144,7 +1144,7 @@ export const deserializeAws_json1_1RestoreBackupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreBackupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RestoreBackupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1231,7 +1231,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1326,7 +1326,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

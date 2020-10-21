@@ -130,7 +130,7 @@ export const deserializeAws_restJson1GetScreenDataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetScreenDataCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetScreenDataCommandError(output, context);
   }
   const contents: GetScreenDataCommandOutput = {
@@ -241,7 +241,7 @@ export const deserializeAws_restJson1InvokeScreenAutomationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeScreenAutomationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1InvokeScreenAutomationCommandError(output, context);
   }
   const contents: InvokeScreenAutomationCommandOutput = {

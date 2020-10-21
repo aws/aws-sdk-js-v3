@@ -49,7 +49,7 @@ export const deserializeAws_restJson1GetRawMessageContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRawMessageContentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRawMessageContentCommandError(output, context);
   }
   const contents: GetRawMessageContentCommandOutput = {

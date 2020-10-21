@@ -1652,7 +1652,7 @@ export const deserializeAws_json1_1AcceptMatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptMatchCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AcceptMatchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1731,7 +1731,7 @@ export const deserializeAws_json1_1ClaimGameServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ClaimGameServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ClaimGameServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1826,7 +1826,7 @@ export const deserializeAws_json1_1CreateAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateAliasCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1921,7 +1921,7 @@ export const deserializeAws_json1_1CreateBuildCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBuildCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateBuildCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2008,7 +2008,7 @@ export const deserializeAws_json1_1CreateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2111,7 +2111,7 @@ export const deserializeAws_json1_1CreateGameServerGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGameServerGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateGameServerGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2198,7 +2198,7 @@ export const deserializeAws_json1_1CreateGameSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGameSessionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateGameSessionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2325,7 +2325,7 @@ export const deserializeAws_json1_1CreateGameSessionQueueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGameSessionQueueCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateGameSessionQueueCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2412,7 +2412,7 @@ export const deserializeAws_json1_1CreateMatchmakingConfigurationCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMatchmakingConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateMatchmakingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2507,7 +2507,7 @@ export const deserializeAws_json1_1CreateMatchmakingRuleSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMatchmakingRuleSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateMatchmakingRuleSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2586,7 +2586,7 @@ export const deserializeAws_json1_1CreatePlayerSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlayerSessionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePlayerSessionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2689,7 +2689,7 @@ export const deserializeAws_json1_1CreatePlayerSessionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlayerSessionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePlayerSessionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2792,7 +2792,7 @@ export const deserializeAws_json1_1CreateScriptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateScriptCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateScriptCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2879,7 +2879,7 @@ export const deserializeAws_json1_1CreateVpcPeeringAuthorizationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcPeeringAuthorizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateVpcPeeringAuthorizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2958,7 +2958,7 @@ export const deserializeAws_json1_1CreateVpcPeeringConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcPeeringConnectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateVpcPeeringConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3037,7 +3037,7 @@ export const deserializeAws_json1_1DeleteAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAliasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteAliasCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3121,7 +3121,7 @@ export const deserializeAws_json1_1DeleteBuildCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBuildCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteBuildCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3205,7 +3205,7 @@ export const deserializeAws_json1_1DeleteFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteFleetCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3297,7 +3297,7 @@ export const deserializeAws_json1_1DeleteGameServerGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGameServerGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteGameServerGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3376,7 +3376,7 @@ export const deserializeAws_json1_1DeleteGameSessionQueueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGameSessionQueueCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteGameSessionQueueCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3463,7 +3463,7 @@ export const deserializeAws_json1_1DeleteMatchmakingConfigurationCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMatchmakingConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3550,7 +3550,7 @@ export const deserializeAws_json1_1DeleteMatchmakingRuleSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMatchmakingRuleSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3637,7 +3637,7 @@ export const deserializeAws_json1_1DeleteScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScalingPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteScalingPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3713,7 +3713,7 @@ export const deserializeAws_json1_1DeleteScriptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScriptCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteScriptCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3797,7 +3797,7 @@ export const deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcPeeringAuthorizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3876,7 +3876,7 @@ export const deserializeAws_json1_1DeleteVpcPeeringConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcPeeringConnectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3955,7 +3955,7 @@ export const deserializeAws_json1_1DeregisterGameServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterGameServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeregisterGameServerCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4031,7 +4031,7 @@ export const deserializeAws_json1_1DescribeAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAliasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAliasCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4110,7 +4110,7 @@ export const deserializeAws_json1_1DescribeBuildCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBuildCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeBuildCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4189,7 +4189,7 @@ export const deserializeAws_json1_1DescribeEC2InstanceLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEC2InstanceLimitsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEC2InstanceLimitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4260,7 +4260,7 @@ export const deserializeAws_json1_1DescribeFleetAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeFleetAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4339,7 +4339,7 @@ export const deserializeAws_json1_1DescribeFleetCapacityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetCapacityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeFleetCapacityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4418,7 +4418,7 @@ export const deserializeAws_json1_1DescribeFleetEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetEventsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeFleetEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4497,7 +4497,7 @@ export const deserializeAws_json1_1DescribeFleetPortSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetPortSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeFleetPortSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4576,7 +4576,7 @@ export const deserializeAws_json1_1DescribeFleetUtilizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetUtilizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeFleetUtilizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4655,7 +4655,7 @@ export const deserializeAws_json1_1DescribeGameServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGameServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeGameServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4734,7 +4734,7 @@ export const deserializeAws_json1_1DescribeGameServerGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGameServerGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeGameServerGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4813,7 +4813,7 @@ export const deserializeAws_json1_1DescribeGameSessionDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGameSessionDetailsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeGameSessionDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4900,7 +4900,7 @@ export const deserializeAws_json1_1DescribeGameSessionPlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGameSessionPlacementCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeGameSessionPlacementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4979,7 +4979,7 @@ export const deserializeAws_json1_1DescribeGameSessionQueuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGameSessionQueuesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeGameSessionQueuesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5058,7 +5058,7 @@ export const deserializeAws_json1_1DescribeGameSessionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGameSessionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeGameSessionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5145,7 +5145,7 @@ export const deserializeAws_json1_1DescribeInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5224,7 +5224,7 @@ export const deserializeAws_json1_1DescribeMatchmakingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMatchmakingCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeMatchmakingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5295,7 +5295,7 @@ export const deserializeAws_json1_1DescribeMatchmakingConfigurationsCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMatchmakingConfigurationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeMatchmakingConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5366,7 +5366,7 @@ export const deserializeAws_json1_1DescribeMatchmakingRuleSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMatchmakingRuleSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeMatchmakingRuleSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5445,7 +5445,7 @@ export const deserializeAws_json1_1DescribePlayerSessionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePlayerSessionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribePlayerSessionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5524,7 +5524,7 @@ export const deserializeAws_json1_1DescribeRuntimeConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRuntimeConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeRuntimeConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5603,7 +5603,7 @@ export const deserializeAws_json1_1DescribeScalingPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScalingPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeScalingPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5682,7 +5682,7 @@ export const deserializeAws_json1_1DescribeScriptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeScriptCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeScriptCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5761,7 +5761,7 @@ export const deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVpcPeeringAuthorizationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5832,7 +5832,7 @@ export const deserializeAws_json1_1DescribeVpcPeeringConnectionsCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVpcPeeringConnectionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeVpcPeeringConnectionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5911,7 +5911,7 @@ export const deserializeAws_json1_1GetGameSessionLogUrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGameSessionLogUrlCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetGameSessionLogUrlCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5990,7 +5990,7 @@ export const deserializeAws_json1_1GetInstanceAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInstanceAccessCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetInstanceAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6069,7 +6069,7 @@ export const deserializeAws_json1_1ListAliasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAliasesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6140,7 +6140,7 @@ export const deserializeAws_json1_1ListBuildsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBuildsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListBuildsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6211,7 +6211,7 @@ export const deserializeAws_json1_1ListFleetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFleetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListFleetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6290,7 +6290,7 @@ export const deserializeAws_json1_1ListGameServerGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGameServerGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListGameServerGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6361,7 +6361,7 @@ export const deserializeAws_json1_1ListGameServersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGameServersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListGameServersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6432,7 +6432,7 @@ export const deserializeAws_json1_1ListScriptsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListScriptsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListScriptsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6503,7 +6503,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6582,7 +6582,7 @@ export const deserializeAws_json1_1PutScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutScalingPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6661,7 +6661,7 @@ export const deserializeAws_json1_1RegisterGameServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterGameServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RegisterGameServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6748,7 +6748,7 @@ export const deserializeAws_json1_1RequestUploadCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RequestUploadCredentialsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RequestUploadCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6827,7 +6827,7 @@ export const deserializeAws_json1_1ResolveAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResolveAliasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ResolveAliasCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6914,7 +6914,7 @@ export const deserializeAws_json1_1ResumeGameServerGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResumeGameServerGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ResumeGameServerGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6993,7 +6993,7 @@ export const deserializeAws_json1_1SearchGameSessionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchGameSessionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchGameSessionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7080,7 +7080,7 @@ export const deserializeAws_json1_1StartFleetActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFleetActionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartFleetActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7159,7 +7159,7 @@ export const deserializeAws_json1_1StartGameSessionPlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartGameSessionPlacementCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartGameSessionPlacementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7238,7 +7238,7 @@ export const deserializeAws_json1_1StartMatchBackfillCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMatchBackfillCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartMatchBackfillCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7317,7 +7317,7 @@ export const deserializeAws_json1_1StartMatchmakingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMatchmakingCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartMatchmakingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7396,7 +7396,7 @@ export const deserializeAws_json1_1StopFleetActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopFleetActionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopFleetActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7475,7 +7475,7 @@ export const deserializeAws_json1_1StopGameSessionPlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopGameSessionPlacementCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopGameSessionPlacementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7554,7 +7554,7 @@ export const deserializeAws_json1_1StopMatchmakingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopMatchmakingCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopMatchmakingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7633,7 +7633,7 @@ export const deserializeAws_json1_1SuspendGameServerGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SuspendGameServerGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SuspendGameServerGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7712,7 +7712,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7791,7 +7791,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7870,7 +7870,7 @@ export const deserializeAws_json1_1UpdateAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAliasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateAliasCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7949,7 +7949,7 @@ export const deserializeAws_json1_1UpdateBuildCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBuildCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateBuildCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8028,7 +8028,7 @@ export const deserializeAws_json1_1UpdateFleetAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFleetAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateFleetAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8131,7 +8131,7 @@ export const deserializeAws_json1_1UpdateFleetCapacityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFleetCapacityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateFleetCapacityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8234,7 +8234,7 @@ export const deserializeAws_json1_1UpdateFleetPortSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFleetPortSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateFleetPortSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8337,7 +8337,7 @@ export const deserializeAws_json1_1UpdateGameServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGameServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateGameServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8416,7 +8416,7 @@ export const deserializeAws_json1_1UpdateGameServerGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGameServerGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateGameServerGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8495,7 +8495,7 @@ export const deserializeAws_json1_1UpdateGameSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGameSessionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateGameSessionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8590,7 +8590,7 @@ export const deserializeAws_json1_1UpdateGameSessionQueueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGameSessionQueueCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateGameSessionQueueCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8669,7 +8669,7 @@ export const deserializeAws_json1_1UpdateMatchmakingConfigurationCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMatchmakingConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateMatchmakingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8748,7 +8748,7 @@ export const deserializeAws_json1_1UpdateRuntimeConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRuntimeConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateRuntimeConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8835,7 +8835,7 @@ export const deserializeAws_json1_1UpdateScriptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateScriptCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateScriptCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8914,7 +8914,7 @@ export const deserializeAws_json1_1ValidateMatchmakingRuleSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateMatchmakingRuleSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ValidateMatchmakingRuleSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

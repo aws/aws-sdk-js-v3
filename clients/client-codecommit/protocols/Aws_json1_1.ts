@@ -1625,7 +1625,7 @@ export const deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1768,7 +1768,7 @@ export const deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithReposit
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1895,7 +1895,7 @@ export const deserializeAws_json1_1BatchDescribeMergeConflictsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDescribeMergeConflictsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchDescribeMergeConflictsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2110,7 +2110,7 @@ export const deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2237,7 +2237,7 @@ export const deserializeAws_json1_1BatchGetCommitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetCommitsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchGetCommitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2364,7 +2364,7 @@ export const deserializeAws_json1_1BatchGetRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetRepositoriesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchGetRepositoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2475,7 +2475,7 @@ export const deserializeAws_json1_1CreateApprovalRuleTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApprovalRuleTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateApprovalRuleTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2578,7 +2578,7 @@ export const deserializeAws_json1_1CreateBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBranchCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateBranchCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2734,7 +2734,7 @@ export const deserializeAws_json1_1CreateCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCommitCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateCommitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3085,7 +3085,7 @@ export const deserializeAws_json1_1CreatePullRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePullRequestCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePullRequestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3332,7 +3332,7 @@ export const deserializeAws_json1_1CreatePullRequestApprovalRuleCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePullRequestApprovalRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3499,7 +3499,7 @@ export const deserializeAws_json1_1CreateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRepositoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3658,7 +3658,7 @@ export const deserializeAws_json1_1CreateUnreferencedMergeCommitCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUnreferencedMergeCommitCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3996,7 +3996,7 @@ export const deserializeAws_json1_1DeleteApprovalRuleTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApprovalRuleTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4067,7 +4067,7 @@ export const deserializeAws_json1_1DeleteBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBranchCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteBranchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4202,7 +4202,7 @@ export const deserializeAws_json1_1DeleteCommentContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCommentContentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteCommentContentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4281,7 +4281,7 @@ export const deserializeAws_json1_1DeleteFileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteFileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4504,7 +4504,7 @@ export const deserializeAws_json1_1DeletePullRequestApprovalRuleCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePullRequestApprovalRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4647,7 +4647,7 @@ export const deserializeAws_json1_1DeleteRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRepositoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4750,7 +4750,7 @@ export const deserializeAws_json1_1DescribeMergeConflictsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMergeConflictsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeMergeConflictsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4981,7 +4981,7 @@ export const deserializeAws_json1_1DescribePullRequestEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePullRequestEventsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribePullRequestEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5132,7 +5132,7 @@ export const deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositor
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5264,7 +5264,7 @@ export const deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EvaluatePullRequestApprovalRulesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5399,7 +5399,7 @@ export const deserializeAws_json1_1GetApprovalRuleTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApprovalRuleTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetApprovalRuleTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5470,7 +5470,7 @@ export const deserializeAws_json1_1GetBlobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetBlobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5613,7 +5613,7 @@ export const deserializeAws_json1_1GetBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBranchCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetBranchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5748,7 +5748,7 @@ export const deserializeAws_json1_1GetCommentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCommentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5867,7 +5867,7 @@ export const deserializeAws_json1_1GetCommentReactionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommentReactionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCommentReactionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5970,7 +5970,7 @@ export const deserializeAws_json1_1GetCommentsForComparedCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommentsForComparedCommitCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCommentsForComparedCommitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6121,7 +6121,7 @@ export const deserializeAws_json1_1GetCommentsForPullRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommentsForPullRequestCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCommentsForPullRequestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6304,7 +6304,7 @@ export const deserializeAws_json1_1GetCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCommitCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCommitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6439,7 +6439,7 @@ export const deserializeAws_json1_1GetDifferencesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDifferencesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDifferencesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6614,7 +6614,7 @@ export const deserializeAws_json1_1GetFileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetFileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6773,7 +6773,7 @@ export const deserializeAws_json1_1GetFolderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFolderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetFolderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6924,7 +6924,7 @@ export const deserializeAws_json1_1GetMergeCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMergeCommitCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetMergeCommitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7075,7 +7075,7 @@ export const deserializeAws_json1_1GetMergeConflictsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMergeConflictsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetMergeConflictsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7298,7 +7298,7 @@ export const deserializeAws_json1_1GetMergeOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMergeOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetMergeOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7473,7 +7473,7 @@ export const deserializeAws_json1_1GetPullRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPullRequestCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetPullRequestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7584,7 +7584,7 @@ export const deserializeAws_json1_1GetPullRequestApprovalStatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPullRequestApprovalStatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetPullRequestApprovalStatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7711,7 +7711,7 @@ export const deserializeAws_json1_1GetPullRequestOverrideStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPullRequestOverrideStateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetPullRequestOverrideStateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7838,7 +7838,7 @@ export const deserializeAws_json1_1GetRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRepositoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7949,7 +7949,7 @@ export const deserializeAws_json1_1GetRepositoryTriggersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRepositoryTriggersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRepositoryTriggersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8060,7 +8060,7 @@ export const deserializeAws_json1_1ListApprovalRuleTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApprovalRuleTemplatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListApprovalRuleTemplatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8123,7 +8123,7 @@ export const deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForReposit
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8250,7 +8250,7 @@ export const deserializeAws_json1_1ListBranchesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBranchesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListBranchesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8369,7 +8369,7 @@ export const deserializeAws_json1_1ListPullRequestsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPullRequestsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPullRequestsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8520,7 +8520,7 @@ export const deserializeAws_json1_1ListRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRepositoriesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRepositoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8591,7 +8591,7 @@ export const deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8718,7 +8718,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8797,7 +8797,7 @@ export const deserializeAws_json1_1MergeBranchesByFastForwardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergeBranchesByFastForwardCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1MergeBranchesByFastForwardCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8996,7 +8996,7 @@ export const deserializeAws_json1_1MergeBranchesBySquashCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergeBranchesBySquashCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1MergeBranchesBySquashCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9358,7 +9358,7 @@ export const deserializeAws_json1_1MergeBranchesByThreeWayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergeBranchesByThreeWayCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1MergeBranchesByThreeWayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9720,7 +9720,7 @@ export const deserializeAws_json1_1MergePullRequestByFastForwardCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergePullRequestByFastForwardCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1MergePullRequestByFastForwardCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9919,7 +9919,7 @@ export const deserializeAws_json1_1MergePullRequestBySquashCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergePullRequestBySquashCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1MergePullRequestBySquashCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10273,7 +10273,7 @@ export const deserializeAws_json1_1MergePullRequestByThreeWayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergePullRequestByThreeWayCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1MergePullRequestByThreeWayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10627,7 +10627,7 @@ export const deserializeAws_json1_1OverridePullRequestApprovalRulesCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OverridePullRequestApprovalRulesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1OverridePullRequestApprovalRulesCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10791,7 +10791,7 @@ export const deserializeAws_json1_1PostCommentForComparedCommitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostCommentForComparedCommitCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PostCommentForComparedCommitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11022,7 +11022,7 @@ export const deserializeAws_json1_1PostCommentForPullRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostCommentForPullRequestCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PostCommentForPullRequestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11285,7 +11285,7 @@ export const deserializeAws_json1_1PostCommentReplyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostCommentReplyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PostCommentReplyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11396,7 +11396,7 @@ export const deserializeAws_json1_1PutCommentReactionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutCommentReactionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutCommentReactionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -11496,7 +11496,7 @@ export const deserializeAws_json1_1PutFileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutFileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11783,7 +11783,7 @@ export const deserializeAws_json1_1PutRepositoryTriggersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRepositoryTriggersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutRepositoryTriggersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12004,7 +12004,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -12120,7 +12120,7 @@ export const deserializeAws_json1_1TestRepositoryTriggersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestRepositoryTriggersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TestRepositoryTriggersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12341,7 +12341,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -12457,7 +12457,7 @@ export const deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApprovalRuleTemplateContentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12552,7 +12552,7 @@ export const deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12631,7 +12631,7 @@ export const deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApprovalRuleTemplateNameCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12710,7 +12710,7 @@ export const deserializeAws_json1_1UpdateCommentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCommentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateCommentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12813,7 +12813,7 @@ export const deserializeAws_json1_1UpdateDefaultBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDefaultBranchCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDefaultBranchCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -12945,7 +12945,7 @@ export const deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -13120,7 +13120,7 @@ export const deserializeAws_json1_1UpdatePullRequestApprovalStateCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestApprovalStateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -13292,7 +13292,7 @@ export const deserializeAws_json1_1UpdatePullRequestDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestDescriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdatePullRequestDescriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -13379,7 +13379,7 @@ export const deserializeAws_json1_1UpdatePullRequestStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdatePullRequestStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -13514,7 +13514,7 @@ export const deserializeAws_json1_1UpdatePullRequestTitleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePullRequestTitleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdatePullRequestTitleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -13609,7 +13609,7 @@ export const deserializeAws_json1_1UpdateRepositoryDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRepositoryDescriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateRepositoryDescriptionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -13725,7 +13725,7 @@ export const deserializeAws_json1_1UpdateRepositoryNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRepositoryNameCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateRepositoryNameCommandError(output, context);
   }
   await collectBody(output.body, context);

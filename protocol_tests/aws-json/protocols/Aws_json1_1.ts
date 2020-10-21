@@ -71,7 +71,7 @@ export const deserializeAws_json1_1EmptyOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EmptyOperationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EmptyOperationCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -115,7 +115,7 @@ export const deserializeAws_json1_1KitchenSinkOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<KitchenSinkOperationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1KitchenSinkOperationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -178,7 +178,7 @@ export const deserializeAws_json1_1OperationWithOptionalInputOutputCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OperationWithOptionalInputOutputCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1OperationWithOptionalInputOutputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

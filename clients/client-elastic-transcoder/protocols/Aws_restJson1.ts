@@ -620,7 +620,7 @@ export const deserializeAws_restJson1CancelJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelJobCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelJobCommandError(output, context);
   }
   const contents: CancelJobCommandOutput = {
@@ -711,7 +711,7 @@ export const deserializeAws_restJson1CreateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJobCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateJobCommandError(output, context);
   }
   const contents: CreateJobCommandOutput = {
@@ -806,7 +806,7 @@ export const deserializeAws_restJson1CreatePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreatePipelineCommandError(output, context);
   }
   const contents: CreatePipelineCommandOutput = {
@@ -905,7 +905,7 @@ export const deserializeAws_restJson1CreatePresetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePresetCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreatePresetCommandError(output, context);
   }
   const contents: CreatePresetCommandOutput = {
@@ -996,7 +996,7 @@ export const deserializeAws_restJson1DeletePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeletePipelineCommandError(output, context);
   }
   const contents: DeletePipelineCommandOutput = {
@@ -1087,7 +1087,7 @@ export const deserializeAws_restJson1DeletePresetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePresetCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeletePresetCommandError(output, context);
   }
   const contents: DeletePresetCommandOutput = {
@@ -1170,7 +1170,7 @@ export const deserializeAws_restJson1ListJobsByPipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsByPipelineCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListJobsByPipelineCommandError(output, context);
   }
   const contents: ListJobsByPipelineCommandOutput = {
@@ -1261,7 +1261,7 @@ export const deserializeAws_restJson1ListJobsByStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsByStatusCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListJobsByStatusCommandError(output, context);
   }
   const contents: ListJobsByStatusCommandOutput = {
@@ -1352,7 +1352,7 @@ export const deserializeAws_restJson1ListPipelinesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPipelinesCommandError(output, context);
   }
   const contents: ListPipelinesCommandOutput = {
@@ -1435,7 +1435,7 @@ export const deserializeAws_restJson1ListPresetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPresetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPresetsCommandError(output, context);
   }
   const contents: ListPresetsCommandOutput = {
@@ -1518,7 +1518,7 @@ export const deserializeAws_restJson1ReadJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReadJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ReadJobCommandError(output, context);
   }
   const contents: ReadJobCommandOutput = {
@@ -1605,7 +1605,7 @@ export const deserializeAws_restJson1ReadPipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReadPipelineCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ReadPipelineCommandError(output, context);
   }
   const contents: ReadPipelineCommandOutput = {
@@ -1696,7 +1696,7 @@ export const deserializeAws_restJson1ReadPresetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReadPresetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ReadPresetCommandError(output, context);
   }
   const contents: ReadPresetCommandOutput = {
@@ -1783,7 +1783,7 @@ export const deserializeAws_restJson1TestRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestRoleCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TestRoleCommandError(output, context);
   }
   const contents: TestRoleCommandOutput = {
@@ -1874,7 +1874,7 @@ export const deserializeAws_restJson1UpdatePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdatePipelineCommandError(output, context);
   }
   const contents: UpdatePipelineCommandOutput = {
@@ -1973,7 +1973,7 @@ export const deserializeAws_restJson1UpdatePipelineNotificationsCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineNotificationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdatePipelineNotificationsCommandError(output, context);
   }
   const contents: UpdatePipelineNotificationsCommandOutput = {
@@ -2068,7 +2068,7 @@ export const deserializeAws_restJson1UpdatePipelineStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineStatusCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdatePipelineStatusCommandError(output, context);
   }
   const contents: UpdatePipelineStatusCommandOutput = {

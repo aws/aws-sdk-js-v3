@@ -1119,7 +1119,7 @@ export const deserializeAws_restJson1AssociateCustomerGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateCustomerGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AssociateCustomerGatewayCommandError(output, context);
   }
   const contents: AssociateCustomerGatewayCommandOutput = {
@@ -1225,7 +1225,7 @@ export const deserializeAws_restJson1AssociateLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateLinkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AssociateLinkCommandError(output, context);
   }
   const contents: AssociateLinkCommandOutput = {
@@ -1328,7 +1328,7 @@ export const deserializeAws_restJson1CreateDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeviceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDeviceCommandError(output, context);
   }
   const contents: CreateDeviceCommandOutput = {
@@ -1431,7 +1431,7 @@ export const deserializeAws_restJson1CreateGlobalNetworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGlobalNetworkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateGlobalNetworkCommandError(output, context);
   }
   const contents: CreateGlobalNetworkCommandOutput = {
@@ -1526,7 +1526,7 @@ export const deserializeAws_restJson1CreateLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLinkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateLinkCommandError(output, context);
   }
   const contents: CreateLinkCommandOutput = {
@@ -1629,7 +1629,7 @@ export const deserializeAws_restJson1CreateSiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSiteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateSiteCommandError(output, context);
   }
   const contents: CreateSiteCommandOutput = {
@@ -1732,7 +1732,7 @@ export const deserializeAws_restJson1DeleteDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeviceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDeviceCommandError(output, context);
   }
   const contents: DeleteDeviceCommandOutput = {
@@ -1827,7 +1827,7 @@ export const deserializeAws_restJson1DeleteGlobalNetworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGlobalNetworkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteGlobalNetworkCommandError(output, context);
   }
   const contents: DeleteGlobalNetworkCommandOutput = {
@@ -1922,7 +1922,7 @@ export const deserializeAws_restJson1DeleteLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLinkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteLinkCommandError(output, context);
   }
   const contents: DeleteLinkCommandOutput = {
@@ -2017,7 +2017,7 @@ export const deserializeAws_restJson1DeleteSiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSiteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteSiteCommandError(output, context);
   }
   const contents: DeleteSiteCommandOutput = {
@@ -2112,7 +2112,7 @@ export const deserializeAws_restJson1DeregisterTransitGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterTransitGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeregisterTransitGatewayCommandError(output, context);
   }
   const contents: DeregisterTransitGatewayCommandOutput = {
@@ -2210,7 +2210,7 @@ export const deserializeAws_restJson1DescribeGlobalNetworksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGlobalNetworksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeGlobalNetworksCommandError(output, context);
   }
   const contents: DescribeGlobalNetworksCommandOutput = {
@@ -2301,7 +2301,7 @@ export const deserializeAws_restJson1DisassociateCustomerGatewayCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateCustomerGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateCustomerGatewayCommandError(output, context);
   }
   const contents: DisassociateCustomerGatewayCommandOutput = {
@@ -2399,7 +2399,7 @@ export const deserializeAws_restJson1DisassociateLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateLinkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateLinkCommandError(output, context);
   }
   const contents: DisassociateLinkCommandOutput = {
@@ -2494,7 +2494,7 @@ export const deserializeAws_restJson1GetCustomerGatewayAssociationsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCustomerGatewayAssociationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetCustomerGatewayAssociationsCommandError(output, context);
   }
   const contents: GetCustomerGatewayAssociationsCommandOutput = {
@@ -2596,7 +2596,7 @@ export const deserializeAws_restJson1GetDevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDevicesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDevicesCommandError(output, context);
   }
   const contents: GetDevicesCommandOutput = {
@@ -2687,7 +2687,7 @@ export const deserializeAws_restJson1GetLinkAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLinkAssociationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetLinkAssociationsCommandError(output, context);
   }
   const contents: GetLinkAssociationsCommandOutput = {
@@ -2778,7 +2778,7 @@ export const deserializeAws_restJson1GetLinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLinksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetLinksCommandError(output, context);
   }
   const contents: GetLinksCommandOutput = {
@@ -2869,7 +2869,7 @@ export const deserializeAws_restJson1GetSitesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSitesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSitesCommandError(output, context);
   }
   const contents: GetSitesCommandOutput = {
@@ -2960,7 +2960,7 @@ export const deserializeAws_restJson1GetTransitGatewayRegistrationsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTransitGatewayRegistrationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetTransitGatewayRegistrationsCommandError(output, context);
   }
   const contents: GetTransitGatewayRegistrationsCommandOutput = {
@@ -3054,7 +3054,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -3141,7 +3141,7 @@ export const deserializeAws_restJson1RegisterTransitGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterTransitGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RegisterTransitGatewayCommandError(output, context);
   }
   const contents: RegisterTransitGatewayCommandOutput = {
@@ -3239,7 +3239,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -3338,7 +3338,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -3429,7 +3429,7 @@ export const deserializeAws_restJson1UpdateDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeviceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDeviceCommandError(output, context);
   }
   const contents: UpdateDeviceCommandOutput = {
@@ -3524,7 +3524,7 @@ export const deserializeAws_restJson1UpdateGlobalNetworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGlobalNetworkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateGlobalNetworkCommandError(output, context);
   }
   const contents: UpdateGlobalNetworkCommandOutput = {
@@ -3619,7 +3619,7 @@ export const deserializeAws_restJson1UpdateLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLinkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateLinkCommandError(output, context);
   }
   const contents: UpdateLinkCommandOutput = {
@@ -3722,7 +3722,7 @@ export const deserializeAws_restJson1UpdateSiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSiteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateSiteCommandError(output, context);
   }
   const contents: UpdateSiteCommandOutput = {

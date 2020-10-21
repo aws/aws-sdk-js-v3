@@ -1496,7 +1496,7 @@ export const deserializeAws_restXmlCreateAccessPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessPointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateAccessPointCommandError(output, context);
   }
   const contents: CreateAccessPointCommandOutput = {
@@ -1543,7 +1543,7 @@ export const deserializeAws_restXmlCreateBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBucketCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateBucketCommandError(output, context);
   }
   const contents: CreateBucketCommandOutput = {
@@ -1610,7 +1610,7 @@ export const deserializeAws_restXmlCreateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateJobCommandError(output, context);
   }
   const contents: CreateJobCommandOutput = {
@@ -1689,7 +1689,7 @@ export const deserializeAws_restXmlDeleteAccessPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessPointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteAccessPointCommandError(output, context);
   }
   const contents: DeleteAccessPointCommandOutput = {
@@ -1732,7 +1732,7 @@ export const deserializeAws_restXmlDeleteAccessPointPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessPointPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteAccessPointPolicyCommandError(output, context);
   }
   const contents: DeleteAccessPointPolicyCommandOutput = {
@@ -1775,7 +1775,7 @@ export const deserializeAws_restXmlDeleteBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketCommandError(output, context);
   }
   const contents: DeleteBucketCommandOutput = {
@@ -1818,7 +1818,7 @@ export const deserializeAws_restXmlDeleteBucketLifecycleConfigurationCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketLifecycleConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketLifecycleConfigurationCommandError(output, context);
   }
   const contents: DeleteBucketLifecycleConfigurationCommandOutput = {
@@ -1861,7 +1861,7 @@ export const deserializeAws_restXmlDeleteBucketPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketPolicyCommandError(output, context);
   }
   const contents: DeleteBucketPolicyCommandOutput = {
@@ -1904,7 +1904,7 @@ export const deserializeAws_restXmlDeleteBucketTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketTaggingCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketTaggingCommandError(output, context);
   }
   const contents: DeleteBucketTaggingCommandOutput = {
@@ -1947,7 +1947,7 @@ export const deserializeAws_restXmlDeleteJobTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJobTaggingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteJobTaggingCommandError(output, context);
   }
   const contents: DeleteJobTaggingCommandOutput = {
@@ -2014,7 +2014,7 @@ export const deserializeAws_restXmlDeletePublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePublicAccessBlockCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeletePublicAccessBlockCommandError(output, context);
   }
   const contents: DeletePublicAccessBlockCommandOutput = {
@@ -2057,7 +2057,7 @@ export const deserializeAws_restXmlDescribeJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDescribeJobCommandError(output, context);
   }
   const contents: DescribeJobCommandOutput = {
@@ -2136,7 +2136,7 @@ export const deserializeAws_restXmlGetAccessPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessPointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetAccessPointCommandError(output, context);
   }
   const contents: GetAccessPointCommandOutput = {
@@ -2206,7 +2206,7 @@ export const deserializeAws_restXmlGetAccessPointPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessPointPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetAccessPointPolicyCommandError(output, context);
   }
   const contents: GetAccessPointPolicyCommandOutput = {
@@ -2253,7 +2253,7 @@ export const deserializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessPointPolicyStatusCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetAccessPointPolicyStatusCommandError(output, context);
   }
   const contents: GetAccessPointPolicyStatusCommandOutput = {
@@ -2300,7 +2300,7 @@ export const deserializeAws_restXmlGetBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketCommandError(output, context);
   }
   const contents: GetBucketCommandOutput = {
@@ -2355,7 +2355,7 @@ export const deserializeAws_restXmlGetBucketLifecycleConfigurationCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketLifecycleConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketLifecycleConfigurationCommandError(output, context);
   }
   const contents: GetBucketLifecycleConfigurationCommandOutput = {
@@ -2405,7 +2405,7 @@ export const deserializeAws_restXmlGetBucketPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketPolicyCommandError(output, context);
   }
   const contents: GetBucketPolicyCommandOutput = {
@@ -2452,7 +2452,7 @@ export const deserializeAws_restXmlGetBucketTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketTaggingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketTaggingCommandError(output, context);
   }
   const contents: GetBucketTaggingCommandOutput = {
@@ -2502,7 +2502,7 @@ export const deserializeAws_restXmlGetJobTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJobTaggingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetJobTaggingCommandError(output, context);
   }
   const contents: GetJobTaggingCommandOutput = {
@@ -2576,7 +2576,7 @@ export const deserializeAws_restXmlGetPublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPublicAccessBlockCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetPublicAccessBlockCommandError(output, context);
   }
   const contents: GetPublicAccessBlockCommandOutput = {
@@ -2629,7 +2629,7 @@ export const deserializeAws_restXmlListAccessPointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessPointsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListAccessPointsCommandError(output, context);
   }
   const contents: ListAccessPointsCommandOutput = {
@@ -2686,7 +2686,7 @@ export const deserializeAws_restXmlListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListJobsCommandError(output, context);
   }
   const contents: ListJobsCommandOutput = {
@@ -2767,7 +2767,7 @@ export const deserializeAws_restXmlListRegionalBucketsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRegionalBucketsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListRegionalBucketsCommandError(output, context);
   }
   const contents: ListRegionalBucketsCommandOutput = {
@@ -2824,7 +2824,7 @@ export const deserializeAws_restXmlPutAccessPointPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccessPointPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutAccessPointPolicyCommandError(output, context);
   }
   const contents: PutAccessPointPolicyCommandOutput = {
@@ -2867,7 +2867,7 @@ export const deserializeAws_restXmlPutBucketLifecycleConfigurationCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketLifecycleConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketLifecycleConfigurationCommandError(output, context);
   }
   const contents: PutBucketLifecycleConfigurationCommandOutput = {
@@ -2910,7 +2910,7 @@ export const deserializeAws_restXmlPutBucketPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketPolicyCommandError(output, context);
   }
   const contents: PutBucketPolicyCommandOutput = {
@@ -2953,7 +2953,7 @@ export const deserializeAws_restXmlPutBucketTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketTaggingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketTaggingCommandError(output, context);
   }
   const contents: PutBucketTaggingCommandOutput = {
@@ -2996,7 +2996,7 @@ export const deserializeAws_restXmlPutJobTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutJobTaggingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutJobTaggingCommandError(output, context);
   }
   const contents: PutJobTaggingCommandOutput = {
@@ -3071,7 +3071,7 @@ export const deserializeAws_restXmlPutPublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutPublicAccessBlockCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutPublicAccessBlockCommandError(output, context);
   }
   const contents: PutPublicAccessBlockCommandOutput = {
@@ -3114,7 +3114,7 @@ export const deserializeAws_restXmlUpdateJobPriorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJobPriorityCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateJobPriorityCommandError(output, context);
   }
   const contents: UpdateJobPriorityCommandOutput = {
@@ -3197,7 +3197,7 @@ export const deserializeAws_restXmlUpdateJobStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJobStatusCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateJobStatusCommandError(output, context);
   }
   const contents: UpdateJobStatusCommandOutput = {

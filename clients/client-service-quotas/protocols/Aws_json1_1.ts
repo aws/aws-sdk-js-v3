@@ -331,7 +331,7 @@ export const deserializeAws_json1_1AssociateServiceQuotaTemplateCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateServiceQuotaTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -442,7 +442,7 @@ export const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplate
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -561,7 +561,7 @@ export const deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateServiceQuotaTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -672,7 +672,7 @@ export const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -783,7 +783,7 @@ export const deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAWSDefaultServiceQuotaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -870,7 +870,7 @@ export const deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRequestedServiceQuotaChangeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -957,7 +957,7 @@ export const deserializeAws_json1_1GetServiceQuotaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceQuotaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetServiceQuotaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1044,7 +1044,7 @@ export const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1163,7 +1163,7 @@ export const deserializeAws_json1_1ListAWSDefaultServiceQuotasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAWSDefaultServiceQuotasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1258,7 +1258,7 @@ export const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1353,7 +1353,7 @@ export const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuota
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1448,7 +1448,7 @@ export const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1559,7 +1559,7 @@ export const deserializeAws_json1_1ListServiceQuotasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceQuotasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListServiceQuotasCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1654,7 +1654,7 @@ export const deserializeAws_json1_1ListServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServicesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListServicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1741,7 +1741,7 @@ export const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1868,7 +1868,7 @@ export const deserializeAws_json1_1RequestServiceQuotaIncreaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RequestServiceQuotaIncreaseCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

@@ -429,7 +429,7 @@ export const deserializeAws_json1_1CreateCostCategoryDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCostCategoryDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateCostCategoryDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -492,7 +492,7 @@ export const deserializeAws_json1_1DeleteCostCategoryDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCostCategoryDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteCostCategoryDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -555,7 +555,7 @@ export const deserializeAws_json1_1DescribeCostCategoryDefinitionCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCostCategoryDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -618,7 +618,7 @@ export const deserializeAws_json1_1GetCostAndUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCostAndUsageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCostAndUsageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -705,7 +705,7 @@ export const deserializeAws_json1_1GetCostAndUsageWithResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCostAndUsageWithResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -792,7 +792,7 @@ export const deserializeAws_json1_1GetCostForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCostForecastCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCostForecastCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -855,7 +855,7 @@ export const deserializeAws_json1_1GetDimensionValuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDimensionValuesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDimensionValuesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -942,7 +942,7 @@ export const deserializeAws_json1_1GetReservationCoverageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetReservationCoverageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetReservationCoverageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1013,7 +1013,7 @@ export const deserializeAws_json1_1GetReservationPurchaseRecommendationCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetReservationPurchaseRecommendationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetReservationPurchaseRecommendationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1084,7 +1084,7 @@ export const deserializeAws_json1_1GetReservationUtilizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetReservationUtilizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetReservationUtilizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1155,7 +1155,7 @@ export const deserializeAws_json1_1GetRightsizingRecommendationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRightsizingRecommendationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRightsizingRecommendationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1218,7 +1218,7 @@ export const deserializeAws_json1_1GetSavingsPlansCoverageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSavingsPlansCoverageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSavingsPlansCoverageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1289,7 +1289,7 @@ export const deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1352,7 +1352,7 @@ export const deserializeAws_json1_1GetSavingsPlansUtilizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSavingsPlansUtilizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSavingsPlansUtilizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1415,7 +1415,7 @@ export const deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1486,7 +1486,7 @@ export const deserializeAws_json1_1GetTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1573,7 +1573,7 @@ export const deserializeAws_json1_1GetUsageForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUsageForecastCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetUsageForecastCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1644,7 +1644,7 @@ export const deserializeAws_json1_1ListCostCategoryDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCostCategoryDefinitionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListCostCategoryDefinitionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1699,7 +1699,7 @@ export const deserializeAws_json1_1UpdateCostCategoryDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCostCategoryDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

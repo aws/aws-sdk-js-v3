@@ -36,7 +36,7 @@ export const deserializeAws_json1_1GetEntitlementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEntitlementsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetEntitlementsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

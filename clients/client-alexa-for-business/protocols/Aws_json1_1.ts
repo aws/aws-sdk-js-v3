@@ -1697,7 +1697,7 @@ export const deserializeAws_json1_1ApproveSkillCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApproveSkillCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ApproveSkillCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1768,7 +1768,7 @@ export const deserializeAws_json1_1AssociateContactWithAddressBookCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateContactWithAddressBookCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateContactWithAddressBookCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1823,7 +1823,7 @@ export const deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDeviceWithNetworkProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1894,7 +1894,7 @@ export const deserializeAws_json1_1AssociateDeviceWithRoomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDeviceWithRoomCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateDeviceWithRoomCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1965,7 +1965,7 @@ export const deserializeAws_json1_1AssociateSkillGroupWithRoomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateSkillGroupWithRoomCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateSkillGroupWithRoomCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2020,7 +2020,7 @@ export const deserializeAws_json1_1AssociateSkillWithSkillGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateSkillWithSkillGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateSkillWithSkillGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2091,7 +2091,7 @@ export const deserializeAws_json1_1AssociateSkillWithUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateSkillWithUsersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateSkillWithUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2154,7 +2154,7 @@ export const deserializeAws_json1_1CreateAddressBookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAddressBookCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateAddressBookCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2217,7 +2217,7 @@ export const deserializeAws_json1_1CreateBusinessReportScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBusinessReportScheduleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateBusinessReportScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2272,7 +2272,7 @@ export const deserializeAws_json1_1CreateConferenceProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConferenceProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateConferenceProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2327,7 +2327,7 @@ export const deserializeAws_json1_1CreateContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateContactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateContactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2390,7 +2390,7 @@ export const deserializeAws_json1_1CreateGatewayGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGatewayGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateGatewayGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2453,7 +2453,7 @@ export const deserializeAws_json1_1CreateNetworkProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNetworkProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateNetworkProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2540,7 +2540,7 @@ export const deserializeAws_json1_1CreateProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2611,7 +2611,7 @@ export const deserializeAws_json1_1CreateRoomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRoomCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateRoomCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2674,7 +2674,7 @@ export const deserializeAws_json1_1CreateSkillGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSkillGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSkillGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2745,7 +2745,7 @@ export const deserializeAws_json1_1CreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2816,7 +2816,7 @@ export const deserializeAws_json1_1DeleteAddressBookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAddressBookCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteAddressBookCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2879,7 +2879,7 @@ export const deserializeAws_json1_1DeleteBusinessReportScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBusinessReportScheduleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteBusinessReportScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2942,7 +2942,7 @@ export const deserializeAws_json1_1DeleteConferenceProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConferenceProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteConferenceProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2997,7 +2997,7 @@ export const deserializeAws_json1_1DeleteContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteContactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteContactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3060,7 +3060,7 @@ export const deserializeAws_json1_1DeleteDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeviceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDeviceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3131,7 +3131,7 @@ export const deserializeAws_json1_1DeleteDeviceUsageDataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeviceUsageDataCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDeviceUsageDataCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3202,7 +3202,7 @@ export const deserializeAws_json1_1DeleteGatewayGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGatewayGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteGatewayGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3257,7 +3257,7 @@ export const deserializeAws_json1_1DeleteNetworkProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNetworkProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteNetworkProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3328,7 +3328,7 @@ export const deserializeAws_json1_1DeleteProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3391,7 +3391,7 @@ export const deserializeAws_json1_1DeleteRoomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRoomCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteRoomCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3454,7 +3454,7 @@ export const deserializeAws_json1_1DeleteRoomSkillParameterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRoomSkillParameterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteRoomSkillParameterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3509,7 +3509,7 @@ export const deserializeAws_json1_1DeleteSkillAuthorizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSkillAuthorizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSkillAuthorizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3572,7 +3572,7 @@ export const deserializeAws_json1_1DeleteSkillGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSkillGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSkillGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3635,7 +3635,7 @@ export const deserializeAws_json1_1DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3698,7 +3698,7 @@ export const deserializeAws_json1_1DisassociateContactFromAddressBookCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateContactFromAddressBookCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateContactFromAddressBookCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3745,7 +3745,7 @@ export const deserializeAws_json1_1DisassociateDeviceFromRoomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDeviceFromRoomCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateDeviceFromRoomCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3808,7 +3808,7 @@ export const deserializeAws_json1_1DisassociateSkillFromSkillGroupCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateSkillFromSkillGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateSkillFromSkillGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3871,7 +3871,7 @@ export const deserializeAws_json1_1DisassociateSkillFromUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateSkillFromUsersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateSkillFromUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3934,7 +3934,7 @@ export const deserializeAws_json1_1DisassociateSkillGroupFromRoomCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateSkillGroupFromRoomCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateSkillGroupFromRoomCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3989,7 +3989,7 @@ export const deserializeAws_json1_1ForgetSmartHomeAppliancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ForgetSmartHomeAppliancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ForgetSmartHomeAppliancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4044,7 +4044,7 @@ export const deserializeAws_json1_1GetAddressBookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAddressBookCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetAddressBookCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4099,7 +4099,7 @@ export const deserializeAws_json1_1GetConferencePreferenceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConferencePreferenceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetConferencePreferenceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4154,7 +4154,7 @@ export const deserializeAws_json1_1GetConferenceProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConferenceProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetConferenceProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4209,7 +4209,7 @@ export const deserializeAws_json1_1GetContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetContactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4264,7 +4264,7 @@ export const deserializeAws_json1_1GetDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDeviceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4319,7 +4319,7 @@ export const deserializeAws_json1_1GetGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGatewayCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetGatewayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4374,7 +4374,7 @@ export const deserializeAws_json1_1GetGatewayGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGatewayGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetGatewayGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4429,7 +4429,7 @@ export const deserializeAws_json1_1GetInvitationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInvitationConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetInvitationConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4484,7 +4484,7 @@ export const deserializeAws_json1_1GetNetworkProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNetworkProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetNetworkProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4547,7 +4547,7 @@ export const deserializeAws_json1_1GetProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4602,7 +4602,7 @@ export const deserializeAws_json1_1GetRoomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRoomCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRoomCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4657,7 +4657,7 @@ export const deserializeAws_json1_1GetRoomSkillParameterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRoomSkillParameterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRoomSkillParameterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4712,7 +4712,7 @@ export const deserializeAws_json1_1GetSkillGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSkillGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSkillGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4767,7 +4767,7 @@ export const deserializeAws_json1_1ListBusinessReportSchedulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBusinessReportSchedulesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListBusinessReportSchedulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4814,7 +4814,7 @@ export const deserializeAws_json1_1ListConferenceProvidersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConferenceProvidersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListConferenceProvidersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4861,7 +4861,7 @@ export const deserializeAws_json1_1ListDeviceEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceEventsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListDeviceEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4916,7 +4916,7 @@ export const deserializeAws_json1_1ListGatewayGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGatewayGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListGatewayGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4963,7 +4963,7 @@ export const deserializeAws_json1_1ListGatewaysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGatewaysCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListGatewaysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5010,7 +5010,7 @@ export const deserializeAws_json1_1ListSkillsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSkillsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSkillsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5057,7 +5057,7 @@ export const deserializeAws_json1_1ListSkillsStoreCategoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSkillsStoreCategoriesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSkillsStoreCategoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5104,7 +5104,7 @@ export const deserializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSkillsStoreSkillsByCategoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSkillsStoreSkillsByCategoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5151,7 +5151,7 @@ export const deserializeAws_json1_1ListSmartHomeAppliancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSmartHomeAppliancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSmartHomeAppliancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5206,7 +5206,7 @@ export const deserializeAws_json1_1ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5261,7 +5261,7 @@ export const deserializeAws_json1_1PutConferencePreferenceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConferencePreferenceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutConferencePreferenceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5316,7 +5316,7 @@ export const deserializeAws_json1_1PutInvitationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutInvitationConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutInvitationConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5379,7 +5379,7 @@ export const deserializeAws_json1_1PutRoomSkillParameterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRoomSkillParameterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutRoomSkillParameterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5434,7 +5434,7 @@ export const deserializeAws_json1_1PutSkillAuthorizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSkillAuthorizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutSkillAuthorizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5497,7 +5497,7 @@ export const deserializeAws_json1_1RegisterAVSDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterAVSDeviceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RegisterAVSDeviceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5576,7 +5576,7 @@ export const deserializeAws_json1_1RejectSkillCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectSkillCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RejectSkillCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5639,7 +5639,7 @@ export const deserializeAws_json1_1ResolveRoomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResolveRoomCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ResolveRoomCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5694,7 +5694,7 @@ export const deserializeAws_json1_1RevokeInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeInvitationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RevokeInvitationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5757,7 +5757,7 @@ export const deserializeAws_json1_1SearchAddressBooksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchAddressBooksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchAddressBooksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5804,7 +5804,7 @@ export const deserializeAws_json1_1SearchContactsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchContactsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchContactsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5851,7 +5851,7 @@ export const deserializeAws_json1_1SearchDevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchDevicesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchDevicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5898,7 +5898,7 @@ export const deserializeAws_json1_1SearchNetworkProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchNetworkProfilesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchNetworkProfilesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5945,7 +5945,7 @@ export const deserializeAws_json1_1SearchProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchProfilesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchProfilesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5992,7 +5992,7 @@ export const deserializeAws_json1_1SearchRoomsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchRoomsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchRoomsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6039,7 +6039,7 @@ export const deserializeAws_json1_1SearchSkillGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchSkillGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchSkillGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6086,7 +6086,7 @@ export const deserializeAws_json1_1SearchUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchUsersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6133,7 +6133,7 @@ export const deserializeAws_json1_1SendAnnouncementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendAnnouncementCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SendAnnouncementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6196,7 +6196,7 @@ export const deserializeAws_json1_1SendInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendInvitationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SendInvitationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6267,7 +6267,7 @@ export const deserializeAws_json1_1StartDeviceSyncCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeviceSyncCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartDeviceSyncCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6322,7 +6322,7 @@ export const deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSmartHomeApplianceDiscoveryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6377,7 +6377,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6432,7 +6432,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6487,7 +6487,7 @@ export const deserializeAws_json1_1UpdateAddressBookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAddressBookCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateAddressBookCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6558,7 +6558,7 @@ export const deserializeAws_json1_1UpdateBusinessReportScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBusinessReportScheduleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateBusinessReportScheduleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6621,7 +6621,7 @@ export const deserializeAws_json1_1UpdateConferenceProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConferenceProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateConferenceProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6676,7 +6676,7 @@ export const deserializeAws_json1_1UpdateContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateContactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6739,7 +6739,7 @@ export const deserializeAws_json1_1UpdateDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeviceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDeviceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6810,7 +6810,7 @@ export const deserializeAws_json1_1UpdateGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewayCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateGatewayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6873,7 +6873,7 @@ export const deserializeAws_json1_1UpdateGatewayGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewayGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateGatewayGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6936,7 +6936,7 @@ export const deserializeAws_json1_1UpdateNetworkProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNetworkProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateNetworkProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7023,7 +7023,7 @@ export const deserializeAws_json1_1UpdateProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7094,7 +7094,7 @@ export const deserializeAws_json1_1UpdateRoomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRoomCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateRoomCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7157,7 +7157,7 @@ export const deserializeAws_json1_1UpdateSkillGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSkillGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateSkillGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

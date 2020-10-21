@@ -309,7 +309,7 @@ export const deserializeAws_restJson1CreateLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLifecyclePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateLifecyclePolicyCommandError(output, context);
   }
   const contents: CreateLifecyclePolicyCommandOutput = {
@@ -380,7 +380,7 @@ export const deserializeAws_restJson1DeleteLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteLifecyclePolicyCommandError(output, context);
   }
   const contents: DeleteLifecyclePolicyCommandOutput = {
@@ -447,7 +447,7 @@ export const deserializeAws_restJson1GetLifecyclePoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePoliciesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetLifecyclePoliciesCommandError(output, context);
   }
   const contents: GetLifecyclePoliciesCommandOutput = {
@@ -526,7 +526,7 @@ export const deserializeAws_restJson1GetLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetLifecyclePolicyCommandError(output, context);
   }
   const contents: GetLifecyclePolicyCommandOutput = {
@@ -597,7 +597,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -668,7 +668,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -735,7 +735,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -802,7 +802,7 @@ export const deserializeAws_restJson1UpdateLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLifecyclePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateLifecyclePolicyCommandError(output, context);
   }
   const contents: UpdateLifecyclePolicyCommandOutput = {

@@ -1353,7 +1353,7 @@ export const deserializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptInboundCrossClusterSearchConnectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommandError(output, context);
   }
   const contents: AcceptInboundCrossClusterSearchConnectionCommandOutput = {
@@ -1427,7 +1427,7 @@ export const deserializeAws_restJson1AddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AddTagsCommandError(output, context);
   }
   const contents: AddTagsCommandOutput = {
@@ -1502,7 +1502,7 @@ export const deserializeAws_restJson1AssociatePackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociatePackageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AssociatePackageCommandError(output, context);
   }
   const contents: AssociatePackageCommandOutput = {
@@ -1597,7 +1597,7 @@ export const deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommandError(output, context);
   }
   const contents: CancelElasticsearchServiceSoftwareUpdateCommandOutput = {
@@ -1679,7 +1679,7 @@ export const deserializeAws_restJson1CreateElasticsearchDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateElasticsearchDomainCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateElasticsearchDomainCommandError(output, context);
   }
   const contents: CreateElasticsearchDomainCommandOutput = {
@@ -1782,7 +1782,7 @@ export const deserializeAws_restJson1CreateOutboundCrossClusterSearchConnectionC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOutboundCrossClusterSearchConnectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommandError(output, context);
   }
   const contents: CreateOutboundCrossClusterSearchConnectionCommandOutput = {
@@ -1880,7 +1880,7 @@ export const deserializeAws_restJson1CreatePackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePackageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreatePackageCommandError(output, context);
   }
   const contents: CreatePackageCommandOutput = {
@@ -1983,7 +1983,7 @@ export const deserializeAws_restJson1DeleteElasticsearchDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteElasticsearchDomainCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteElasticsearchDomainCommandError(output, context);
   }
   const contents: DeleteElasticsearchDomainCommandOutput = {
@@ -2062,7 +2062,7 @@ export const deserializeAws_restJson1DeleteElasticsearchServiceRoleCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteElasticsearchServiceRoleCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteElasticsearchServiceRoleCommandError(output, context);
   }
   const contents: DeleteElasticsearchServiceRoleCommandOutput = {
@@ -2129,7 +2129,7 @@ export const deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInboundCrossClusterSearchConnectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommandError(output, context);
   }
   const contents: DeleteInboundCrossClusterSearchConnectionCommandOutput = {
@@ -2195,7 +2195,7 @@ export const deserializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOutboundCrossClusterSearchConnectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCommandError(output, context);
   }
   const contents: DeleteOutboundCrossClusterSearchConnectionCommandOutput = {
@@ -2261,7 +2261,7 @@ export const deserializeAws_restJson1DeletePackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePackageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeletePackageCommandError(output, context);
   }
   const contents: DeletePackageCommandOutput = {
@@ -2356,7 +2356,7 @@ export const deserializeAws_restJson1DescribeElasticsearchDomainCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeElasticsearchDomainCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeElasticsearchDomainCommandError(output, context);
   }
   const contents: DescribeElasticsearchDomainCommandOutput = {
@@ -2435,7 +2435,7 @@ export const deserializeAws_restJson1DescribeElasticsearchDomainConfigCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeElasticsearchDomainConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeElasticsearchDomainConfigCommandError(output, context);
   }
   const contents: DescribeElasticsearchDomainConfigCommandOutput = {
@@ -2514,7 +2514,7 @@ export const deserializeAws_restJson1DescribeElasticsearchDomainsCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeElasticsearchDomainsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeElasticsearchDomainsCommandError(output, context);
   }
   const contents: DescribeElasticsearchDomainsCommandOutput = {
@@ -2585,7 +2585,7 @@ export const deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommandError(output, context);
   }
   const contents: DescribeElasticsearchInstanceTypeLimitsCommandOutput = {
@@ -2680,7 +2680,7 @@ export const deserializeAws_restJson1DescribeInboundCrossClusterSearchConnection
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInboundCrossClusterSearchConnectionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsCommandError(output, context);
   }
   const contents: DescribeInboundCrossClusterSearchConnectionsCommandOutput = {
@@ -2750,7 +2750,7 @@ export const deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectio
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOutboundCrossClusterSearchConnectionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommandError(output, context);
   }
   const contents: DescribeOutboundCrossClusterSearchConnectionsCommandOutput = {
@@ -2820,7 +2820,7 @@ export const deserializeAws_restJson1DescribePackagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePackagesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribePackagesCommandError(output, context);
   }
   const contents: DescribePackagesCommandOutput = {
@@ -2911,7 +2911,7 @@ export const deserializeAws_restJson1DescribeReservedElasticsearchInstanceOfferi
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsCommandError(output, context);
   }
   const contents: DescribeReservedElasticsearchInstanceOfferingsCommandOutput = {
@@ -3000,7 +3000,7 @@ export const deserializeAws_restJson1DescribeReservedElasticsearchInstancesComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedElasticsearchInstancesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeReservedElasticsearchInstancesCommandError(output, context);
   }
   const contents: DescribeReservedElasticsearchInstancesCommandOutput = {
@@ -3086,7 +3086,7 @@ export const deserializeAws_restJson1DissociatePackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DissociatePackageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DissociatePackageCommandError(output, context);
   }
   const contents: DissociatePackageCommandOutput = {
@@ -3181,7 +3181,7 @@ export const deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCompatibleElasticsearchVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommandError(output, context);
   }
   const contents: GetCompatibleElasticsearchVersionsCommandOutput = {
@@ -3271,7 +3271,7 @@ export const deserializeAws_restJson1GetUpgradeHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUpgradeHistoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetUpgradeHistoryCommandError(output, context);
   }
   const contents: GetUpgradeHistoryCommandOutput = {
@@ -3362,7 +3362,7 @@ export const deserializeAws_restJson1GetUpgradeStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUpgradeStatusCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetUpgradeStatusCommandError(output, context);
   }
   const contents: GetUpgradeStatusCommandOutput = {
@@ -3457,7 +3457,7 @@ export const deserializeAws_restJson1ListDomainNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainNamesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDomainNamesCommandError(output, context);
   }
   const contents: ListDomainNamesCommandOutput = {
@@ -3520,7 +3520,7 @@ export const deserializeAws_restJson1ListDomainsForPackageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainsForPackageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDomainsForPackageCommandError(output, context);
   }
   const contents: ListDomainsForPackageCommandOutput = {
@@ -3614,7 +3614,7 @@ export const deserializeAws_restJson1ListElasticsearchInstanceTypesCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListElasticsearchInstanceTypesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListElasticsearchInstanceTypesCommandError(output, context);
   }
   const contents: ListElasticsearchInstanceTypesCommandOutput = {
@@ -3700,7 +3700,7 @@ export const deserializeAws_restJson1ListElasticsearchVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListElasticsearchVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListElasticsearchVersionsCommandError(output, context);
   }
   const contents: ListElasticsearchVersionsCommandOutput = {
@@ -3786,7 +3786,7 @@ export const deserializeAws_restJson1ListPackagesForDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPackagesForDomainCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPackagesForDomainCommandError(output, context);
   }
   const contents: ListPackagesForDomainCommandOutput = {
@@ -3880,7 +3880,7 @@ export const deserializeAws_restJson1ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsCommandError(output, context);
   }
   const contents: ListTagsCommandOutput = {
@@ -3959,7 +3959,7 @@ export const deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferi
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommandError(output, context);
   }
   const contents: PurchaseReservedElasticsearchInstanceOfferingCommandOutput = {
@@ -4058,7 +4058,7 @@ export const deserializeAws_restJson1RejectInboundCrossClusterSearchConnectionCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectInboundCrossClusterSearchConnectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RejectInboundCrossClusterSearchConnectionCommandError(output, context);
   }
   const contents: RejectInboundCrossClusterSearchConnectionCommandOutput = {
@@ -4124,7 +4124,7 @@ export const deserializeAws_restJson1RemoveTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RemoveTagsCommandError(output, context);
   }
   const contents: RemoveTagsCommandOutput = {
@@ -4191,7 +4191,7 @@ export const deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommandError(output, context);
   }
   const contents: StartElasticsearchServiceSoftwareUpdateCommandOutput = {
@@ -4273,7 +4273,7 @@ export const deserializeAws_restJson1UpdateElasticsearchDomainConfigCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateElasticsearchDomainConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateElasticsearchDomainConfigCommandError(output, context);
   }
   const contents: UpdateElasticsearchDomainConfigCommandOutput = {
@@ -4368,7 +4368,7 @@ export const deserializeAws_restJson1UpgradeElasticsearchDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpgradeElasticsearchDomainCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpgradeElasticsearchDomainCommandError(output, context);
   }
   const contents: UpgradeElasticsearchDomainCommandOutput = {

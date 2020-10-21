@@ -344,7 +344,7 @@ export const deserializeAws_json1_1AddTagsToResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddTagsToResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -415,7 +415,7 @@ export const deserializeAws_json1_1CreateHapgCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHapgCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateHapgCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -486,7 +486,7 @@ export const deserializeAws_json1_1CreateHsmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHsmCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateHsmCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -557,7 +557,7 @@ export const deserializeAws_json1_1CreateLunaClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLunaClientCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateLunaClientCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -628,7 +628,7 @@ export const deserializeAws_json1_1DeleteHapgCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHapgCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteHapgCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -699,7 +699,7 @@ export const deserializeAws_json1_1DeleteHsmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHsmCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteHsmCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -770,7 +770,7 @@ export const deserializeAws_json1_1DeleteLunaClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLunaClientCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteLunaClientCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -841,7 +841,7 @@ export const deserializeAws_json1_1DescribeHapgCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHapgCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeHapgCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -912,7 +912,7 @@ export const deserializeAws_json1_1DescribeHsmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHsmCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeHsmCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -983,7 +983,7 @@ export const deserializeAws_json1_1DescribeLunaClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLunaClientCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeLunaClientCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1054,7 +1054,7 @@ export const deserializeAws_json1_1GetConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1125,7 +1125,7 @@ export const deserializeAws_json1_1ListAvailableZonesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAvailableZonesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAvailableZonesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1196,7 +1196,7 @@ export const deserializeAws_json1_1ListHapgsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHapgsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListHapgsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1267,7 +1267,7 @@ export const deserializeAws_json1_1ListHsmsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHsmsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListHsmsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1338,7 +1338,7 @@ export const deserializeAws_json1_1ListLunaClientsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLunaClientsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListLunaClientsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1409,7 +1409,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1480,7 +1480,7 @@ export const deserializeAws_json1_1ModifyHapgCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyHapgCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyHapgCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1551,7 +1551,7 @@ export const deserializeAws_json1_1ModifyHsmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyHsmCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyHsmCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1622,7 +1622,7 @@ export const deserializeAws_json1_1ModifyLunaClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyLunaClientCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyLunaClientCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1677,7 +1677,7 @@ export const deserializeAws_json1_1RemoveTagsFromResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RemoveTagsFromResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

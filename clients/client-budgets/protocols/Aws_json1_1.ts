@@ -265,7 +265,7 @@ export const deserializeAws_json1_1CreateBudgetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBudgetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateBudgetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -352,7 +352,7 @@ export const deserializeAws_json1_1CreateNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNotificationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateNotificationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -447,7 +447,7 @@ export const deserializeAws_json1_1CreateSubscriberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriberCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSubscriberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -542,7 +542,7 @@ export const deserializeAws_json1_1DeleteBudgetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBudgetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteBudgetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -621,7 +621,7 @@ export const deserializeAws_json1_1DeleteNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNotificationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteNotificationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -700,7 +700,7 @@ export const deserializeAws_json1_1DeleteSubscriberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubscriberCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSubscriberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -779,7 +779,7 @@ export const deserializeAws_json1_1DescribeBudgetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBudgetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeBudgetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -858,7 +858,7 @@ export const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBudgetPerformanceHistoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -953,7 +953,7 @@ export const deserializeAws_json1_1DescribeBudgetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBudgetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeBudgetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1048,7 +1048,7 @@ export const deserializeAws_json1_1DescribeNotificationsForBudgetCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNotificationsForBudgetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeNotificationsForBudgetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1143,7 +1143,7 @@ export const deserializeAws_json1_1DescribeSubscribersForNotificationCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSubscribersForNotificationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeSubscribersForNotificationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1238,7 +1238,7 @@ export const deserializeAws_json1_1UpdateBudgetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBudgetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateBudgetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1317,7 +1317,7 @@ export const deserializeAws_json1_1UpdateNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNotificationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateNotificationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1404,7 +1404,7 @@ export const deserializeAws_json1_1UpdateSubscriberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubscriberCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateSubscriberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

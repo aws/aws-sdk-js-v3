@@ -947,7 +947,7 @@ export const deserializeAws_json1_1AcceptHandshakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptHandshakeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AcceptHandshakeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1082,7 +1082,7 @@ export const deserializeAws_json1_1AttachPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AttachPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1230,7 +1230,7 @@ export const deserializeAws_json1_1CancelHandshakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelHandshakeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CancelHandshakeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1341,7 +1341,7 @@ export const deserializeAws_json1_1CreateAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1460,7 +1460,7 @@ export const deserializeAws_json1_1CreateGovCloudAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGovCloudAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateGovCloudAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1579,7 +1579,7 @@ export const deserializeAws_json1_1CreateOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1690,7 +1690,7 @@ export const deserializeAws_json1_1CreateOrganizationalUnitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOrganizationalUnitCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateOrganizationalUnitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1809,7 +1809,7 @@ export const deserializeAws_json1_1CreatePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1944,7 +1944,7 @@ export const deserializeAws_json1_1DeclineHandshakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeclineHandshakeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeclineHandshakeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2055,7 +2055,7 @@ export const deserializeAws_json1_1DeleteOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteOrganizationCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2155,7 +2155,7 @@ export const deserializeAws_json1_1DeleteOrganizationalUnitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOrganizationalUnitCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteOrganizationalUnitCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2263,7 +2263,7 @@ export const deserializeAws_json1_1DeletePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeletePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2379,7 +2379,7 @@ export const deserializeAws_json1_1DeregisterDelegatedAdministratorCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterDelegatedAdministratorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2503,7 +2503,7 @@ export const deserializeAws_json1_1DescribeAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2598,7 +2598,7 @@ export const deserializeAws_json1_1DescribeCreateAccountStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCreateAccountStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCreateAccountStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2701,7 +2701,7 @@ export const deserializeAws_json1_1DescribeEffectivePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEffectivePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEffectivePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2820,7 +2820,7 @@ export const deserializeAws_json1_1DescribeHandshakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHandshakeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeHandshakeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2915,7 +2915,7 @@ export const deserializeAws_json1_1DescribeOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3002,7 +3002,7 @@ export const deserializeAws_json1_1DescribeOrganizationalUnitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOrganizationalUnitCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeOrganizationalUnitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3097,7 +3097,7 @@ export const deserializeAws_json1_1DescribePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3200,7 +3200,7 @@ export const deserializeAws_json1_1DetachPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DetachPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3340,7 +3340,7 @@ export const deserializeAws_json1_1DisableAWSServiceAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableAWSServiceAccessCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisableAWSServiceAccessCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3448,7 +3448,7 @@ export const deserializeAws_json1_1DisablePolicyTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisablePolicyTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisablePolicyTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3583,7 +3583,7 @@ export const deserializeAws_json1_1EnableAllFeaturesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableAllFeaturesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableAllFeaturesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3686,7 +3686,7 @@ export const deserializeAws_json1_1EnableAWSServiceAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableAWSServiceAccessCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableAWSServiceAccessCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3794,7 +3794,7 @@ export const deserializeAws_json1_1EnablePolicyTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnablePolicyTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnablePolicyTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3937,7 +3937,7 @@ export const deserializeAws_json1_1InviteAccountToOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InviteAccountToOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1InviteAccountToOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4064,7 +4064,7 @@ export const deserializeAws_json1_1LeaveOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<LeaveOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1LeaveOrganizationCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4180,7 +4180,7 @@ export const deserializeAws_json1_1ListAccountsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAccountsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4267,7 +4267,7 @@ export const deserializeAws_json1_1ListAccountsForParentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountsForParentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAccountsForParentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4362,7 +4362,7 @@ export const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4465,7 +4465,7 @@ export const deserializeAws_json1_1ListChildrenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChildrenCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListChildrenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4560,7 +4560,7 @@ export const deserializeAws_json1_1ListCreateAccountStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCreateAccountStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListCreateAccountStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4655,7 +4655,7 @@ export const deserializeAws_json1_1ListDelegatedAdministratorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDelegatedAdministratorsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListDelegatedAdministratorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4758,7 +4758,7 @@ export const deserializeAws_json1_1ListDelegatedServicesForAccountCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDelegatedServicesForAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListDelegatedServicesForAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4877,7 +4877,7 @@ export const deserializeAws_json1_1ListHandshakesForAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHandshakesForAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListHandshakesForAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4964,7 +4964,7 @@ export const deserializeAws_json1_1ListHandshakesForOrganizationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHandshakesForOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListHandshakesForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5059,7 +5059,7 @@ export const deserializeAws_json1_1ListOrganizationalUnitsForParentCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOrganizationalUnitsForParentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListOrganizationalUnitsForParentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5154,7 +5154,7 @@ export const deserializeAws_json1_1ListParentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListParentsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListParentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5249,7 +5249,7 @@ export const deserializeAws_json1_1ListPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5344,7 +5344,7 @@ export const deserializeAws_json1_1ListPoliciesForTargetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesForTargetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPoliciesForTargetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5447,7 +5447,7 @@ export const deserializeAws_json1_1ListRootsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRootsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRootsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5534,7 +5534,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5629,7 +5629,7 @@ export const deserializeAws_json1_1ListTargetsForPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTargetsForPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTargetsForPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5732,7 +5732,7 @@ export const deserializeAws_json1_1MoveAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MoveAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1MoveAccountCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5856,7 +5856,7 @@ export const deserializeAws_json1_1RegisterDelegatedAdministratorCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterDelegatedAdministratorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RegisterDelegatedAdministratorCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5980,7 +5980,7 @@ export const deserializeAws_json1_1RemoveAccountFromOrganizationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAccountFromOrganizationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RemoveAccountFromOrganizationCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6096,7 +6096,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6204,7 +6204,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6312,7 +6312,7 @@ export const deserializeAws_json1_1UpdateOrganizationalUnitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateOrganizationalUnitCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateOrganizationalUnitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6423,7 +6423,7 @@ export const deserializeAws_json1_1UpdatePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdatePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

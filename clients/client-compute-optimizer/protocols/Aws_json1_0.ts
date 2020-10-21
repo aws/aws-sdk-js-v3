@@ -214,7 +214,7 @@ export const deserializeAws_json1_0DescribeRecommendationExportJobsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecommendationExportJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DescribeRecommendationExportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -325,7 +325,7 @@ export const deserializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportAutoScalingGroupRecommendationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ExportAutoScalingGroupRecommendationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -436,7 +436,7 @@ export const deserializeAws_json1_0ExportEC2InstanceRecommendationsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportEC2InstanceRecommendationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ExportEC2InstanceRecommendationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -547,7 +547,7 @@ export const deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAutoScalingGroupRecommendationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -658,7 +658,7 @@ export const deserializeAws_json1_0GetEC2InstanceRecommendationsCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEC2InstanceRecommendationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0GetEC2InstanceRecommendationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -769,7 +769,7 @@ export const deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -880,7 +880,7 @@ export const deserializeAws_json1_0GetEnrollmentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEnrollmentStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0GetEnrollmentStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -975,7 +975,7 @@ export const deserializeAws_json1_0GetRecommendationSummariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecommendationSummariesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0GetRecommendationSummariesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1078,7 +1078,7 @@ export const deserializeAws_json1_0UpdateEnrollmentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnrollmentStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0UpdateEnrollmentStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

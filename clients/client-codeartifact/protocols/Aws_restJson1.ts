@@ -1075,7 +1075,7 @@ export const deserializeAws_restJson1AssociateExternalConnectionCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateExternalConnectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AssociateExternalConnectionCommandError(output, context);
   }
   const contents: AssociateExternalConnectionCommandOutput = {
@@ -1178,7 +1178,7 @@ export const deserializeAws_restJson1CopyPackageVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyPackageVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CopyPackageVersionsCommandError(output, context);
   }
   const contents: CopyPackageVersionsCommandOutput = {
@@ -1288,7 +1288,7 @@ export const deserializeAws_restJson1CreateDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDomainCommandError(output, context);
   }
   const contents: CreateDomainCommandOutput = {
@@ -1391,7 +1391,7 @@ export const deserializeAws_restJson1CreateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRepositoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateRepositoryCommandError(output, context);
   }
   const contents: CreateRepositoryCommandOutput = {
@@ -1494,7 +1494,7 @@ export const deserializeAws_restJson1DeleteDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDomainCommandError(output, context);
   }
   const contents: DeleteDomainCommandOutput = {
@@ -1589,7 +1589,7 @@ export const deserializeAws_restJson1DeleteDomainPermissionsPolicyCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainPermissionsPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDomainPermissionsPolicyCommandError(output, context);
   }
   const contents: DeleteDomainPermissionsPolicyCommandOutput = {
@@ -1684,7 +1684,7 @@ export const deserializeAws_restJson1DeletePackageVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePackageVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeletePackageVersionsCommandError(output, context);
   }
   const contents: DeletePackageVersionsCommandOutput = {
@@ -1786,7 +1786,7 @@ export const deserializeAws_restJson1DeleteRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRepositoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteRepositoryCommandError(output, context);
   }
   const contents: DeleteRepositoryCommandOutput = {
@@ -1881,7 +1881,7 @@ export const deserializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRepositoryPermissionsPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteRepositoryPermissionsPolicyCommandError(output, context);
   }
   const contents: DeleteRepositoryPermissionsPolicyCommandOutput = {
@@ -1976,7 +1976,7 @@ export const deserializeAws_restJson1DescribeDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeDomainCommandError(output, context);
   }
   const contents: DescribeDomainCommandOutput = {
@@ -2063,7 +2063,7 @@ export const deserializeAws_restJson1DescribePackageVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePackageVersionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribePackageVersionCommandError(output, context);
   }
   const contents: DescribePackageVersionCommandOutput = {
@@ -2158,7 +2158,7 @@ export const deserializeAws_restJson1DescribeRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRepositoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeRepositoryCommandError(output, context);
   }
   const contents: DescribeRepositoryCommandOutput = {
@@ -2245,7 +2245,7 @@ export const deserializeAws_restJson1DisassociateExternalConnectionCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateExternalConnectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateExternalConnectionCommandError(output, context);
   }
   const contents: DisassociateExternalConnectionCommandOutput = {
@@ -2348,7 +2348,7 @@ export const deserializeAws_restJson1DisposePackageVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisposePackageVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisposePackageVersionsCommandError(output, context);
   }
   const contents: DisposePackageVersionsCommandOutput = {
@@ -2450,7 +2450,7 @@ export const deserializeAws_restJson1GetAuthorizationTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAuthorizationTokenCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAuthorizationTokenCommandError(output, context);
   }
   const contents: GetAuthorizationTokenCommandOutput = {
@@ -2541,7 +2541,7 @@ export const deserializeAws_restJson1GetDomainPermissionsPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainPermissionsPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDomainPermissionsPolicyCommandError(output, context);
   }
   const contents: GetDomainPermissionsPolicyCommandOutput = {
@@ -2628,7 +2628,7 @@ export const deserializeAws_restJson1GetPackageVersionAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPackageVersionAssetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetPackageVersionAssetCommandError(output, context);
   }
   const contents: GetPackageVersionAssetCommandOutput = {
@@ -2725,7 +2725,7 @@ export const deserializeAws_restJson1GetPackageVersionReadmeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPackageVersionReadmeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetPackageVersionReadmeCommandError(output, context);
   }
   const contents: GetPackageVersionReadmeCommandOutput = {
@@ -2832,7 +2832,7 @@ export const deserializeAws_restJson1GetRepositoryEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRepositoryEndpointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRepositoryEndpointCommandError(output, context);
   }
   const contents: GetRepositoryEndpointCommandOutput = {
@@ -2919,7 +2919,7 @@ export const deserializeAws_restJson1GetRepositoryPermissionsPolicyCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRepositoryPermissionsPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRepositoryPermissionsPolicyCommandError(output, context);
   }
   const contents: GetRepositoryPermissionsPolicyCommandOutput = {
@@ -3006,7 +3006,7 @@ export const deserializeAws_restJson1ListDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDomainsCommandError(output, context);
   }
   const contents: ListDomainsCommandOutput = {
@@ -3089,7 +3089,7 @@ export const deserializeAws_restJson1ListPackagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPackagesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPackagesCommandError(output, context);
   }
   const contents: ListPackagesCommandOutput = {
@@ -3180,7 +3180,7 @@ export const deserializeAws_restJson1ListPackageVersionAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPackageVersionAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPackageVersionAssetsCommandError(output, context);
   }
   const contents: ListPackageVersionAssetsCommandOutput = {
@@ -3291,7 +3291,7 @@ export const deserializeAws_restJson1ListPackageVersionDependenciesCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPackageVersionDependenciesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPackageVersionDependenciesCommandError(output, context);
   }
   const contents: ListPackageVersionDependenciesCommandOutput = {
@@ -3402,7 +3402,7 @@ export const deserializeAws_restJson1ListPackageVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPackageVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPackageVersionsCommandError(output, context);
   }
   const contents: ListPackageVersionsCommandOutput = {
@@ -3509,7 +3509,7 @@ export const deserializeAws_restJson1ListRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRepositoriesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRepositoriesCommandError(output, context);
   }
   const contents: ListRepositoriesCommandOutput = {
@@ -3592,7 +3592,7 @@ export const deserializeAws_restJson1ListRepositoriesInDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRepositoriesInDomainCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRepositoriesInDomainCommandError(output, context);
   }
   const contents: ListRepositoriesInDomainCommandOutput = {
@@ -3683,7 +3683,7 @@ export const deserializeAws_restJson1PutDomainPermissionsPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDomainPermissionsPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutDomainPermissionsPolicyCommandError(output, context);
   }
   const contents: PutDomainPermissionsPolicyCommandOutput = {
@@ -3786,7 +3786,7 @@ export const deserializeAws_restJson1PutRepositoryPermissionsPolicyCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRepositoryPermissionsPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutRepositoryPermissionsPolicyCommandError(output, context);
   }
   const contents: PutRepositoryPermissionsPolicyCommandOutput = {
@@ -3889,7 +3889,7 @@ export const deserializeAws_restJson1UpdatePackageVersionsStatusCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePackageVersionsStatusCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdatePackageVersionsStatusCommandError(output, context);
   }
   const contents: UpdatePackageVersionsStatusCommandOutput = {
@@ -3991,7 +3991,7 @@ export const deserializeAws_restJson1UpdateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRepositoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateRepositoryCommandError(output, context);
   }
   const contents: UpdateRepositoryCommandOutput = {

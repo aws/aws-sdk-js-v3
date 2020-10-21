@@ -76,7 +76,7 @@ export const deserializeAws_json1_1CreateHomeRegionControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHomeRegionControlCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateHomeRegionControlCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -171,7 +171,7 @@ export const deserializeAws_json1_1DescribeHomeRegionControlsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHomeRegionControlsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeHomeRegionControlsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -258,7 +258,7 @@ export const deserializeAws_json1_1GetHomeRegionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHomeRegionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetHomeRegionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

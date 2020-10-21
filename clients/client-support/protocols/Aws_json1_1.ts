@@ -290,7 +290,7 @@ export const deserializeAws_json1_1AddAttachmentsToSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddAttachmentsToSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddAttachmentsToSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -377,7 +377,7 @@ export const deserializeAws_json1_1AddCommunicationToCaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddCommunicationToCaseCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddCommunicationToCaseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -456,7 +456,7 @@ export const deserializeAws_json1_1CreateCaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCaseCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateCaseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -535,7 +535,7 @@ export const deserializeAws_json1_1DescribeAttachmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAttachmentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAttachmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -606,7 +606,7 @@ export const deserializeAws_json1_1DescribeCasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCasesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCasesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -669,7 +669,7 @@ export const deserializeAws_json1_1DescribeCommunicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCommunicationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCommunicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -732,7 +732,7 @@ export const deserializeAws_json1_1DescribeServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServicesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeServicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -787,7 +787,7 @@ export const deserializeAws_json1_1DescribeSeverityLevelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSeverityLevelsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeSeverityLevelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -842,7 +842,7 @@ export const deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -897,7 +897,7 @@ export const deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -952,7 +952,7 @@ export const deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorChecksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1007,7 +1007,7 @@ export const deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1062,7 +1062,7 @@ export const deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RefreshTrustedAdvisorCheckCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1117,7 +1117,7 @@ export const deserializeAws_json1_1ResolveCaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResolveCaseCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ResolveCaseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

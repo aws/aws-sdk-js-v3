@@ -4177,7 +4177,7 @@ export const deserializeAws_restXmlAbortMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortMultipartUploadCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlAbortMultipartUploadCommandError(output, context);
   }
   const contents: AbortMultipartUploadCommandOutput = {
@@ -4232,7 +4232,7 @@ export const deserializeAws_restXmlCompleteMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteMultipartUploadCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlCompleteMultipartUploadCommandError(output, context);
   }
   const contents: CompleteMultipartUploadCommandOutput = {
@@ -4311,7 +4311,7 @@ export const deserializeAws_restXmlCopyObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlCopyObjectCommandError(output, context);
   }
   const contents: CopyObjectCommandOutput = {
@@ -4400,7 +4400,7 @@ export const deserializeAws_restXmlCreateBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBucketCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateBucketCommandError(output, context);
   }
   const contents: CreateBucketCommandOutput = {
@@ -4463,7 +4463,7 @@ export const deserializeAws_restXmlCreateMultipartUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMultipartUploadCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateMultipartUploadCommandError(output, context);
   }
   const contents: CreateMultipartUploadCommandOutput = {
@@ -4550,7 +4550,7 @@ export const deserializeAws_restXmlDeleteBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketCommandError(output, context);
   }
   const contents: DeleteBucketCommandOutput = {
@@ -4593,7 +4593,7 @@ export const deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketAnalyticsConfigurationCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommandError(output, context);
   }
   const contents: DeleteBucketAnalyticsConfigurationCommandOutput = {
@@ -4636,7 +4636,7 @@ export const deserializeAws_restXmlDeleteBucketCorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketCorsCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketCorsCommandError(output, context);
   }
   const contents: DeleteBucketCorsCommandOutput = {
@@ -4679,7 +4679,7 @@ export const deserializeAws_restXmlDeleteBucketEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketEncryptionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketEncryptionCommandError(output, context);
   }
   const contents: DeleteBucketEncryptionCommandOutput = {
@@ -4722,7 +4722,7 @@ export const deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketInventoryConfigurationCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketInventoryConfigurationCommandError(output, context);
   }
   const contents: DeleteBucketInventoryConfigurationCommandOutput = {
@@ -4765,7 +4765,7 @@ export const deserializeAws_restXmlDeleteBucketLifecycleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketLifecycleCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketLifecycleCommandError(output, context);
   }
   const contents: DeleteBucketLifecycleCommandOutput = {
@@ -4808,7 +4808,7 @@ export const deserializeAws_restXmlDeleteBucketMetricsConfigurationCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketMetricsConfigurationCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketMetricsConfigurationCommandError(output, context);
   }
   const contents: DeleteBucketMetricsConfigurationCommandOutput = {
@@ -4851,7 +4851,7 @@ export const deserializeAws_restXmlDeleteBucketPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketPolicyCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketPolicyCommandError(output, context);
   }
   const contents: DeleteBucketPolicyCommandOutput = {
@@ -4894,7 +4894,7 @@ export const deserializeAws_restXmlDeleteBucketReplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketReplicationCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketReplicationCommandError(output, context);
   }
   const contents: DeleteBucketReplicationCommandOutput = {
@@ -4937,7 +4937,7 @@ export const deserializeAws_restXmlDeleteBucketTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketTaggingCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketTaggingCommandError(output, context);
   }
   const contents: DeleteBucketTaggingCommandOutput = {
@@ -4980,7 +4980,7 @@ export const deserializeAws_restXmlDeleteBucketWebsiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBucketWebsiteCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteBucketWebsiteCommandError(output, context);
   }
   const contents: DeleteBucketWebsiteCommandOutput = {
@@ -5023,7 +5023,7 @@ export const deserializeAws_restXmlDeleteObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteObjectCommandError(output, context);
   }
   const contents: DeleteObjectCommandOutput = {
@@ -5078,7 +5078,7 @@ export const deserializeAws_restXmlDeleteObjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteObjectsCommandError(output, context);
   }
   const contents: DeleteObjectsCommandOutput = {
@@ -5139,7 +5139,7 @@ export const deserializeAws_restXmlDeleteObjectTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectTaggingCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteObjectTaggingCommandError(output, context);
   }
   const contents: DeleteObjectTaggingCommandOutput = {
@@ -5186,7 +5186,7 @@ export const deserializeAws_restXmlDeletePublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePublicAccessBlockCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeletePublicAccessBlockCommandError(output, context);
   }
   const contents: DeletePublicAccessBlockCommandOutput = {
@@ -5229,7 +5229,7 @@ export const deserializeAws_restXmlGetBucketAccelerateConfigurationCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketAccelerateConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketAccelerateConfigurationCommandError(output, context);
   }
   const contents: GetBucketAccelerateConfigurationCommandOutput = {
@@ -5276,7 +5276,7 @@ export const deserializeAws_restXmlGetBucketAclCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketAclCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketAclCommandError(output, context);
   }
   const contents: GetBucketAclCommandOutput = {
@@ -5330,7 +5330,7 @@ export const deserializeAws_restXmlGetBucketAnalyticsConfigurationCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketAnalyticsConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketAnalyticsConfigurationCommandError(output, context);
   }
   const contents: GetBucketAnalyticsConfigurationCommandOutput = {
@@ -5375,7 +5375,7 @@ export const deserializeAws_restXmlGetBucketCorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketCorsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketCorsCommandError(output, context);
   }
   const contents: GetBucketCorsCommandOutput = {
@@ -5425,7 +5425,7 @@ export const deserializeAws_restXmlGetBucketEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketEncryptionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketEncryptionCommandError(output, context);
   }
   const contents: GetBucketEncryptionCommandOutput = {
@@ -5470,7 +5470,7 @@ export const deserializeAws_restXmlGetBucketInventoryConfigurationCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketInventoryConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketInventoryConfigurationCommandError(output, context);
   }
   const contents: GetBucketInventoryConfigurationCommandOutput = {
@@ -5515,7 +5515,7 @@ export const deserializeAws_restXmlGetBucketLifecycleConfigurationCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketLifecycleConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketLifecycleConfigurationCommandError(output, context);
   }
   const contents: GetBucketLifecycleConfigurationCommandOutput = {
@@ -5565,7 +5565,7 @@ export const deserializeAws_restXmlGetBucketLocationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketLocationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketLocationCommandError(output, context);
   }
   const contents: GetBucketLocationCommandOutput = {
@@ -5612,7 +5612,7 @@ export const deserializeAws_restXmlGetBucketLoggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketLoggingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketLoggingCommandError(output, context);
   }
   const contents: GetBucketLoggingCommandOutput = {
@@ -5659,7 +5659,7 @@ export const deserializeAws_restXmlGetBucketMetricsConfigurationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketMetricsConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketMetricsConfigurationCommandError(output, context);
   }
   const contents: GetBucketMetricsConfigurationCommandOutput = {
@@ -5704,7 +5704,7 @@ export const deserializeAws_restXmlGetBucketNotificationConfigurationCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketNotificationConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketNotificationConfigurationCommandError(output, context);
   }
   const contents: GetBucketNotificationConfigurationCommandOutput = {
@@ -5777,7 +5777,7 @@ export const deserializeAws_restXmlGetBucketPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketPolicyCommandError(output, context);
   }
   const contents: GetBucketPolicyCommandOutput = {
@@ -5824,7 +5824,7 @@ export const deserializeAws_restXmlGetBucketPolicyStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketPolicyStatusCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketPolicyStatusCommandError(output, context);
   }
   const contents: GetBucketPolicyStatusCommandOutput = {
@@ -5869,7 +5869,7 @@ export const deserializeAws_restXmlGetBucketReplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketReplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketReplicationCommandError(output, context);
   }
   const contents: GetBucketReplicationCommandOutput = {
@@ -5914,7 +5914,7 @@ export const deserializeAws_restXmlGetBucketRequestPaymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketRequestPaymentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketRequestPaymentCommandError(output, context);
   }
   const contents: GetBucketRequestPaymentCommandOutput = {
@@ -5961,7 +5961,7 @@ export const deserializeAws_restXmlGetBucketTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketTaggingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketTaggingCommandError(output, context);
   }
   const contents: GetBucketTaggingCommandOutput = {
@@ -6011,7 +6011,7 @@ export const deserializeAws_restXmlGetBucketVersioningCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketVersioningCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketVersioningCommandError(output, context);
   }
   const contents: GetBucketVersioningCommandOutput = {
@@ -6062,7 +6062,7 @@ export const deserializeAws_restXmlGetBucketWebsiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketWebsiteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetBucketWebsiteCommandError(output, context);
   }
   const contents: GetBucketWebsiteCommandOutput = {
@@ -6130,7 +6130,7 @@ export const deserializeAws_restXmlGetObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetObjectCommandError(output, context);
   }
   const contents: GetObjectCommandOutput = {
@@ -6308,7 +6308,7 @@ export const deserializeAws_restXmlGetObjectAclCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectAclCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetObjectAclCommandError(output, context);
   }
   const contents: GetObjectAclCommandOutput = {
@@ -6374,7 +6374,7 @@ export const deserializeAws_restXmlGetObjectLegalHoldCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectLegalHoldCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetObjectLegalHoldCommandError(output, context);
   }
   const contents: GetObjectLegalHoldCommandOutput = {
@@ -6419,7 +6419,7 @@ export const deserializeAws_restXmlGetObjectLockConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectLockConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetObjectLockConfigurationCommandError(output, context);
   }
   const contents: GetObjectLockConfigurationCommandOutput = {
@@ -6464,7 +6464,7 @@ export const deserializeAws_restXmlGetObjectRetentionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectRetentionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetObjectRetentionCommandError(output, context);
   }
   const contents: GetObjectRetentionCommandOutput = {
@@ -6509,7 +6509,7 @@ export const deserializeAws_restXmlGetObjectTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectTaggingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetObjectTaggingCommandError(output, context);
   }
   const contents: GetObjectTaggingCommandOutput = {
@@ -6563,7 +6563,7 @@ export const deserializeAws_restXmlGetObjectTorrentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectTorrentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetObjectTorrentCommandError(output, context);
   }
   const contents: GetObjectTorrentCommandOutput = {
@@ -6612,7 +6612,7 @@ export const deserializeAws_restXmlGetPublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPublicAccessBlockCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetPublicAccessBlockCommandError(output, context);
   }
   const contents: GetPublicAccessBlockCommandOutput = {
@@ -6657,7 +6657,7 @@ export const deserializeAws_restXmlHeadBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HeadBucketCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlHeadBucketCommandError(output, context);
   }
   const contents: HeadBucketCommandOutput = {
@@ -6708,7 +6708,7 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HeadObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlHeadObjectCommandError(output, context);
   }
   const contents: HeadObjectCommandOutput = {
@@ -6876,7 +6876,7 @@ export const deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBucketAnalyticsConfigurationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListBucketAnalyticsConfigurationsCommandError(output, context);
   }
   const contents: ListBucketAnalyticsConfigurationsCommandOutput = {
@@ -6941,7 +6941,7 @@ export const deserializeAws_restXmlListBucketInventoryConfigurationsCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBucketInventoryConfigurationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListBucketInventoryConfigurationsCommandError(output, context);
   }
   const contents: ListBucketInventoryConfigurationsCommandOutput = {
@@ -7006,7 +7006,7 @@ export const deserializeAws_restXmlListBucketMetricsConfigurationsCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBucketMetricsConfigurationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListBucketMetricsConfigurationsCommandError(output, context);
   }
   const contents: ListBucketMetricsConfigurationsCommandOutput = {
@@ -7071,7 +7071,7 @@ export const deserializeAws_restXmlListBucketsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBucketsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListBucketsCommandError(output, context);
   }
   const contents: ListBucketsCommandOutput = {
@@ -7125,7 +7125,7 @@ export const deserializeAws_restXmlListMultipartUploadsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMultipartUploadsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListMultipartUploadsCommandError(output, context);
   }
   const contents: ListMultipartUploadsCommandOutput = {
@@ -7225,7 +7225,7 @@ export const deserializeAws_restXmlListObjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListObjectsCommandError(output, context);
   }
   const contents: ListObjectsCommandOutput = {
@@ -7325,7 +7325,7 @@ export const deserializeAws_restXmlListObjectsV2Command = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectsV2CommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListObjectsV2CommandError(output, context);
   }
   const contents: ListObjectsV2CommandOutput = {
@@ -7433,7 +7433,7 @@ export const deserializeAws_restXmlListObjectVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListObjectVersionsCommandError(output, context);
   }
   const contents: ListObjectVersionsCommandOutput = {
@@ -7540,7 +7540,7 @@ export const deserializeAws_restXmlListPartsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPartsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListPartsCommandError(output, context);
   }
   const contents: ListPartsCommandOutput = {
@@ -7642,7 +7642,7 @@ export const deserializeAws_restXmlPutBucketAccelerateConfigurationCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketAccelerateConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketAccelerateConfigurationCommandError(output, context);
   }
   const contents: PutBucketAccelerateConfigurationCommandOutput = {
@@ -7685,7 +7685,7 @@ export const deserializeAws_restXmlPutBucketAclCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketAclCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketAclCommandError(output, context);
   }
   const contents: PutBucketAclCommandOutput = {
@@ -7728,7 +7728,7 @@ export const deserializeAws_restXmlPutBucketAnalyticsConfigurationCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketAnalyticsConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketAnalyticsConfigurationCommandError(output, context);
   }
   const contents: PutBucketAnalyticsConfigurationCommandOutput = {
@@ -7771,7 +7771,7 @@ export const deserializeAws_restXmlPutBucketCorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketCorsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketCorsCommandError(output, context);
   }
   const contents: PutBucketCorsCommandOutput = {
@@ -7814,7 +7814,7 @@ export const deserializeAws_restXmlPutBucketEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketEncryptionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketEncryptionCommandError(output, context);
   }
   const contents: PutBucketEncryptionCommandOutput = {
@@ -7857,7 +7857,7 @@ export const deserializeAws_restXmlPutBucketInventoryConfigurationCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketInventoryConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketInventoryConfigurationCommandError(output, context);
   }
   const contents: PutBucketInventoryConfigurationCommandOutput = {
@@ -7900,7 +7900,7 @@ export const deserializeAws_restXmlPutBucketLifecycleConfigurationCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketLifecycleConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketLifecycleConfigurationCommandError(output, context);
   }
   const contents: PutBucketLifecycleConfigurationCommandOutput = {
@@ -7943,7 +7943,7 @@ export const deserializeAws_restXmlPutBucketLoggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketLoggingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketLoggingCommandError(output, context);
   }
   const contents: PutBucketLoggingCommandOutput = {
@@ -7986,7 +7986,7 @@ export const deserializeAws_restXmlPutBucketMetricsConfigurationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketMetricsConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketMetricsConfigurationCommandError(output, context);
   }
   const contents: PutBucketMetricsConfigurationCommandOutput = {
@@ -8029,7 +8029,7 @@ export const deserializeAws_restXmlPutBucketNotificationConfigurationCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketNotificationConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketNotificationConfigurationCommandError(output, context);
   }
   const contents: PutBucketNotificationConfigurationCommandOutput = {
@@ -8072,7 +8072,7 @@ export const deserializeAws_restXmlPutBucketPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketPolicyCommandError(output, context);
   }
   const contents: PutBucketPolicyCommandOutput = {
@@ -8115,7 +8115,7 @@ export const deserializeAws_restXmlPutBucketReplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketReplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketReplicationCommandError(output, context);
   }
   const contents: PutBucketReplicationCommandOutput = {
@@ -8158,7 +8158,7 @@ export const deserializeAws_restXmlPutBucketRequestPaymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketRequestPaymentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketRequestPaymentCommandError(output, context);
   }
   const contents: PutBucketRequestPaymentCommandOutput = {
@@ -8201,7 +8201,7 @@ export const deserializeAws_restXmlPutBucketTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketTaggingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketTaggingCommandError(output, context);
   }
   const contents: PutBucketTaggingCommandOutput = {
@@ -8244,7 +8244,7 @@ export const deserializeAws_restXmlPutBucketVersioningCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketVersioningCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketVersioningCommandError(output, context);
   }
   const contents: PutBucketVersioningCommandOutput = {
@@ -8287,7 +8287,7 @@ export const deserializeAws_restXmlPutBucketWebsiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBucketWebsiteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutBucketWebsiteCommandError(output, context);
   }
   const contents: PutBucketWebsiteCommandOutput = {
@@ -8330,7 +8330,7 @@ export const deserializeAws_restXmlPutObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutObjectCommandError(output, context);
   }
   const contents: PutObjectCommandOutput = {
@@ -8409,7 +8409,7 @@ export const deserializeAws_restXmlPutObjectAclCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutObjectAclCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutObjectAclCommandError(output, context);
   }
   const contents: PutObjectAclCommandOutput = {
@@ -8464,7 +8464,7 @@ export const deserializeAws_restXmlPutObjectLegalHoldCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutObjectLegalHoldCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutObjectLegalHoldCommandError(output, context);
   }
   const contents: PutObjectLegalHoldCommandOutput = {
@@ -8511,7 +8511,7 @@ export const deserializeAws_restXmlPutObjectLockConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutObjectLockConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutObjectLockConfigurationCommandError(output, context);
   }
   const contents: PutObjectLockConfigurationCommandOutput = {
@@ -8558,7 +8558,7 @@ export const deserializeAws_restXmlPutObjectRetentionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutObjectRetentionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutObjectRetentionCommandError(output, context);
   }
   const contents: PutObjectRetentionCommandOutput = {
@@ -8605,7 +8605,7 @@ export const deserializeAws_restXmlPutObjectTaggingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutObjectTaggingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutObjectTaggingCommandError(output, context);
   }
   const contents: PutObjectTaggingCommandOutput = {
@@ -8652,7 +8652,7 @@ export const deserializeAws_restXmlPutPublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutPublicAccessBlockCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlPutPublicAccessBlockCommandError(output, context);
   }
   const contents: PutPublicAccessBlockCommandOutput = {
@@ -8695,7 +8695,7 @@ export const deserializeAws_restXmlRestoreObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlRestoreObjectCommandError(output, context);
   }
   const contents: RestoreObjectCommandOutput = {
@@ -8754,7 +8754,7 @@ export const deserializeAws_restXmlSelectObjectContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<SelectObjectContentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlSelectObjectContentCommandError(output, context);
   }
   const contents: SelectObjectContentCommandOutput = {
@@ -8813,7 +8813,7 @@ export const deserializeAws_restXmlUploadPartCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadPartCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUploadPartCommandError(output, context);
   }
   const contents: UploadPartCommandOutput = {
@@ -8880,7 +8880,7 @@ export const deserializeAws_restXmlUploadPartCopyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadPartCopyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUploadPartCopyCommandError(output, context);
   }
   const contents: UploadPartCopyCommandOutput = {

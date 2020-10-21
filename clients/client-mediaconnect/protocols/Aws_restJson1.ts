@@ -884,7 +884,7 @@ export const deserializeAws_restJson1AddFlowOutputsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowOutputsCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1AddFlowOutputsCommandError(output, context);
   }
   const contents: AddFlowOutputsCommandOutput = {
@@ -991,7 +991,7 @@ export const deserializeAws_restJson1AddFlowSourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowSourcesCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1AddFlowSourcesCommandError(output, context);
   }
   const contents: AddFlowSourcesCommandOutput = {
@@ -1090,7 +1090,7 @@ export const deserializeAws_restJson1AddFlowVpcInterfacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowVpcInterfacesCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1AddFlowVpcInterfacesCommandError(output, context);
   }
   const contents: AddFlowVpcInterfacesCommandOutput = {
@@ -1189,7 +1189,7 @@ export const deserializeAws_restJson1CreateFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFlowCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateFlowCommandError(output, context);
   }
   const contents: CreateFlowCommandOutput = {
@@ -1284,7 +1284,7 @@ export const deserializeAws_restJson1DeleteFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFlowCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteFlowCommandError(output, context);
   }
   const contents: DeleteFlowCommandOutput = {
@@ -1383,7 +1383,7 @@ export const deserializeAws_restJson1DescribeFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFlowCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeFlowCommandError(output, context);
   }
   const contents: DescribeFlowCommandOutput = {
@@ -1482,7 +1482,7 @@ export const deserializeAws_restJson1GrantFlowEntitlementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GrantFlowEntitlementsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GrantFlowEntitlementsCommandError(output, context);
   }
   const contents: GrantFlowEntitlementsCommandOutput = {
@@ -1589,7 +1589,7 @@ export const deserializeAws_restJson1ListEntitlementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitlementsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListEntitlementsCommandError(output, context);
   }
   const contents: ListEntitlementsCommandOutput = {
@@ -1672,7 +1672,7 @@ export const deserializeAws_restJson1ListFlowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFlowsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListFlowsCommandError(output, context);
   }
   const contents: ListFlowsCommandOutput = {
@@ -1755,7 +1755,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1826,7 +1826,7 @@ export const deserializeAws_restJson1RemoveFlowOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowOutputCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1RemoveFlowOutputCommandError(output, context);
   }
   const contents: RemoveFlowOutputCommandOutput = {
@@ -1925,7 +1925,7 @@ export const deserializeAws_restJson1RemoveFlowSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowSourceCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1RemoveFlowSourceCommandError(output, context);
   }
   const contents: RemoveFlowSourceCommandOutput = {
@@ -2024,7 +2024,7 @@ export const deserializeAws_restJson1RemoveFlowVpcInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowVpcInterfaceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RemoveFlowVpcInterfaceCommandError(output, context);
   }
   const contents: RemoveFlowVpcInterfaceCommandOutput = {
@@ -2130,7 +2130,7 @@ export const deserializeAws_restJson1RevokeFlowEntitlementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeFlowEntitlementCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1RevokeFlowEntitlementCommandError(output, context);
   }
   const contents: RevokeFlowEntitlementCommandOutput = {
@@ -2229,7 +2229,7 @@ export const deserializeAws_restJson1StartFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFlowCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartFlowCommandError(output, context);
   }
   const contents: StartFlowCommandOutput = {
@@ -2328,7 +2328,7 @@ export const deserializeAws_restJson1StopFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopFlowCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1StopFlowCommandError(output, context);
   }
   const contents: StopFlowCommandOutput = {
@@ -2427,7 +2427,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -2494,7 +2494,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -2561,7 +2561,7 @@ export const deserializeAws_restJson1UpdateFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateFlowCommandError(output, context);
   }
   const contents: UpdateFlowCommandOutput = {
@@ -2656,7 +2656,7 @@ export const deserializeAws_restJson1UpdateFlowEntitlementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowEntitlementCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateFlowEntitlementCommandError(output, context);
   }
   const contents: UpdateFlowEntitlementCommandOutput = {
@@ -2755,7 +2755,7 @@ export const deserializeAws_restJson1UpdateFlowOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowOutputCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateFlowOutputCommandError(output, context);
   }
   const contents: UpdateFlowOutputCommandOutput = {
@@ -2854,7 +2854,7 @@ export const deserializeAws_restJson1UpdateFlowSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowSourceCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateFlowSourceCommandError(output, context);
   }
   const contents: UpdateFlowSourceCommandOutput = {

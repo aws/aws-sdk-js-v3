@@ -70,7 +70,7 @@ export const deserializeAws_json1_1DescribeServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServicesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeServicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -157,7 +157,7 @@ export const deserializeAws_json1_1GetAttributeValuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAttributeValuesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetAttributeValuesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -244,7 +244,7 @@ export const deserializeAws_json1_1GetProductsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProductsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetProductsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

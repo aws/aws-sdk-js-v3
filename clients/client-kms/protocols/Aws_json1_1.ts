@@ -823,7 +823,7 @@ export const deserializeAws_json1_1CancelKeyDeletionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelKeyDeletionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CancelKeyDeletionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -910,7 +910,7 @@ export const deserializeAws_json1_1ConnectCustomKeyStoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConnectCustomKeyStoreCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ConnectCustomKeyStoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -997,7 +997,7 @@ export const deserializeAws_json1_1CreateAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateAliasCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1097,7 +1097,7 @@ export const deserializeAws_json1_1CreateCustomKeyStoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomKeyStoreCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateCustomKeyStoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1200,7 +1200,7 @@ export const deserializeAws_json1_1CreateGrantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGrantCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateGrantCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1311,7 +1311,7 @@ export const deserializeAws_json1_1CreateKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1438,7 +1438,7 @@ export const deserializeAws_json1_1DecryptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecryptCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DecryptCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1565,7 +1565,7 @@ export const deserializeAws_json1_1DeleteAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAliasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteAliasCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1641,7 +1641,7 @@ export const deserializeAws_json1_1DeleteCustomKeyStoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomKeyStoreCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteCustomKeyStoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1720,7 +1720,7 @@ export const deserializeAws_json1_1DeleteImportedKeyMaterialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImportedKeyMaterialCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteImportedKeyMaterialCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1812,7 +1812,7 @@ export const deserializeAws_json1_1DescribeCustomKeyStoresCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCustomKeyStoresCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCustomKeyStoresCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1875,7 +1875,7 @@ export const deserializeAws_json1_1DescribeKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1954,7 +1954,7 @@ export const deserializeAws_json1_1DisableKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisableKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2038,7 +2038,7 @@ export const deserializeAws_json1_1DisableKeyRotationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableKeyRotationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisableKeyRotationCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2138,7 +2138,7 @@ export const deserializeAws_json1_1DisconnectCustomKeyStoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisconnectCustomKeyStoreCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisconnectCustomKeyStoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2209,7 +2209,7 @@ export const deserializeAws_json1_1EnableKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2301,7 +2301,7 @@ export const deserializeAws_json1_1EnableKeyRotationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableKeyRotationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableKeyRotationCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2401,7 +2401,7 @@ export const deserializeAws_json1_1EncryptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EncryptCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EncryptCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2512,7 +2512,7 @@ export const deserializeAws_json1_1GenerateDataKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GenerateDataKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2623,7 +2623,7 @@ export const deserializeAws_json1_1GenerateDataKeyPairCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataKeyPairCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GenerateDataKeyPairCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2742,7 +2742,7 @@ export const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2861,7 +2861,7 @@ export const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataKeyWithoutPlaintextCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2972,7 +2972,7 @@ export const deserializeAws_json1_1GenerateRandomCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateRandomCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GenerateRandomCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3051,7 +3051,7 @@ export const deserializeAws_json1_1GetKeyPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetKeyPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetKeyPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3138,7 +3138,7 @@ export const deserializeAws_json1_1GetKeyRotationStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetKeyRotationStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetKeyRotationStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3233,7 +3233,7 @@ export const deserializeAws_json1_1GetParametersForImportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetParametersForImportCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetParametersForImportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3328,7 +3328,7 @@ export const deserializeAws_json1_1GetPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPublicKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetPublicKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3455,7 +3455,7 @@ export const deserializeAws_json1_1ImportKeyMaterialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportKeyMaterialCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ImportKeyMaterialCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3582,7 +3582,7 @@ export const deserializeAws_json1_1ListAliasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAliasesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3669,7 +3669,7 @@ export const deserializeAws_json1_1ListGrantsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGrantsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListGrantsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3764,7 +3764,7 @@ export const deserializeAws_json1_1ListKeyPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKeyPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListKeyPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3851,7 +3851,7 @@ export const deserializeAws_json1_1ListKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKeysCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListKeysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3922,7 +3922,7 @@ export const deserializeAws_json1_1ListResourceTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListResourceTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4001,7 +4001,7 @@ export const deserializeAws_json1_1ListRetirableGrantsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRetirableGrantsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRetirableGrantsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4088,7 +4088,7 @@ export const deserializeAws_json1_1PutKeyPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutKeyPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutKeyPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4196,7 +4196,7 @@ export const deserializeAws_json1_1ReEncryptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReEncryptCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ReEncryptCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4323,7 +4323,7 @@ export const deserializeAws_json1_1RetireGrantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetireGrantCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RetireGrantCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4423,7 +4423,7 @@ export const deserializeAws_json1_1RevokeGrantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeGrantCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RevokeGrantCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4515,7 +4515,7 @@ export const deserializeAws_json1_1ScheduleKeyDeletionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ScheduleKeyDeletionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ScheduleKeyDeletionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4602,7 +4602,7 @@ export const deserializeAws_json1_1SignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SignCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SignCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4713,7 +4713,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4805,7 +4805,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4889,7 +4889,7 @@ export const deserializeAws_json1_1UpdateAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAliasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateAliasCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4973,7 +4973,7 @@ export const deserializeAws_json1_1UpdateCustomKeyStoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCustomKeyStoreCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateCustomKeyStoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5084,7 +5084,7 @@ export const deserializeAws_json1_1UpdateKeyDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateKeyDescriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateKeyDescriptionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5168,7 +5168,7 @@ export const deserializeAws_json1_1VerifyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1VerifyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

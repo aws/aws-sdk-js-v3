@@ -37,7 +37,7 @@ export const deserializeAws_json1_1QueryForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryForecastCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1QueryForecastCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

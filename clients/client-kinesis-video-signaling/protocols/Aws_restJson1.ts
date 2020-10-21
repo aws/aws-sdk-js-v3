@@ -78,7 +78,7 @@ export const deserializeAws_restJson1GetIceServerConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIceServerConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetIceServerConfigCommandError(output, context);
   }
   const contents: GetIceServerConfigCommandOutput = {
@@ -173,7 +173,7 @@ export const deserializeAws_restJson1SendAlexaOfferToMasterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendAlexaOfferToMasterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SendAlexaOfferToMasterCommandError(output, context);
   }
   const contents: SendAlexaOfferToMasterCommandOutput = {

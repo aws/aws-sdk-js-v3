@@ -1540,7 +1540,7 @@ export const deserializeAws_restXmlAllQueryStringTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AllQueryStringTypesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlAllQueryStringTypesCommandError(output, context);
   }
   const contents: AllQueryStringTypesCommandOutput = {
@@ -1583,7 +1583,7 @@ export const deserializeAws_restXmlConstantAndVariableQueryStringCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConstantAndVariableQueryStringCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlConstantAndVariableQueryStringCommandError(output, context);
   }
   const contents: ConstantAndVariableQueryStringCommandOutput = {
@@ -1626,7 +1626,7 @@ export const deserializeAws_restXmlConstantQueryStringCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConstantQueryStringCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlConstantQueryStringCommandError(output, context);
   }
   const contents: ConstantQueryStringCommandOutput = {
@@ -1669,7 +1669,7 @@ export const deserializeAws_restXmlEmptyInputAndEmptyOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlEmptyInputAndEmptyOutputCommandError(output, context);
   }
   const contents: EmptyInputAndEmptyOutputCommandOutput = {
@@ -1712,7 +1712,7 @@ export const deserializeAws_restXmlFlattenedXmlMapCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FlattenedXmlMapCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlFlattenedXmlMapCommandError(output, context);
   }
   const contents: FlattenedXmlMapCommandOutput = {
@@ -1762,7 +1762,7 @@ export const deserializeAws_restXmlFlattenedXmlMapWithXmlNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FlattenedXmlMapWithXmlNameCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlFlattenedXmlMapWithXmlNameCommandError(output, context);
   }
   const contents: FlattenedXmlMapWithXmlNameCommandOutput = {
@@ -1815,7 +1815,7 @@ export const deserializeAws_restXmlGreetingWithErrorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GreetingWithErrorsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGreetingWithErrorsCommandError(output, context);
   }
   const contents: GreetingWithErrorsCommandOutput = {
@@ -1878,7 +1878,7 @@ export const deserializeAws_restXmlHttpPayloadTraitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadTraitsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlHttpPayloadTraitsCommandError(output, context);
   }
   const contents: HttpPayloadTraitsCommandOutput = {
@@ -1927,7 +1927,7 @@ export const deserializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommandError(output, context);
   }
   const contents: HttpPayloadTraitsWithMediaTypeCommandOutput = {
@@ -1976,7 +1976,7 @@ export const deserializeAws_restXmlHttpPayloadWithStructureCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadWithStructureCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlHttpPayloadWithStructureCommandError(output, context);
   }
   const contents: HttpPayloadWithStructureCommandOutput = {
@@ -2021,7 +2021,7 @@ export const deserializeAws_restXmlHttpPayloadWithXmlNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadWithXmlNameCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlHttpPayloadWithXmlNameCommandError(output, context);
   }
   const contents: HttpPayloadWithXmlNameCommandOutput = {
@@ -2066,7 +2066,7 @@ export const deserializeAws_restXmlHttpPayloadWithXmlNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadWithXmlNamespaceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlHttpPayloadWithXmlNamespaceCommandError(output, context);
   }
   const contents: HttpPayloadWithXmlNamespaceCommandOutput = {
@@ -2111,7 +2111,7 @@ export const deserializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadWithXmlNamespaceAndPrefixCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommandError(output, context);
   }
   const contents: HttpPayloadWithXmlNamespaceAndPrefixCommandOutput = {
@@ -2156,7 +2156,7 @@ export const deserializeAws_restXmlHttpPrefixHeadersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPrefixHeadersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlHttpPrefixHeadersCommandError(output, context);
   }
   const contents: HttpPrefixHeadersCommandOutput = {
@@ -2212,7 +2212,7 @@ export const deserializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlHttpRequestWithGreedyLabelInPathCommandError(output, context);
   }
   const contents: HttpRequestWithGreedyLabelInPathCommandOutput = {
@@ -2255,7 +2255,7 @@ export const deserializeAws_restXmlHttpRequestWithLabelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpRequestWithLabelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlHttpRequestWithLabelsCommandError(output, context);
   }
   const contents: HttpRequestWithLabelsCommandOutput = {
@@ -2298,7 +2298,7 @@ export const deserializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommandError(output, context);
   }
   const contents: HttpRequestWithLabelsAndTimestampFormatCommandOutput = {
@@ -2341,7 +2341,7 @@ export const deserializeAws_restXmlIgnoreQueryParamsInResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IgnoreQueryParamsInResponseCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlIgnoreQueryParamsInResponseCommandError(output, context);
   }
   const contents: IgnoreQueryParamsInResponseCommandOutput = {
@@ -2388,7 +2388,7 @@ export const deserializeAws_restXmlInputAndOutputWithHeadersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InputAndOutputWithHeadersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlInputAndOutputWithHeadersCommandError(output, context);
   }
   const contents: InputAndOutputWithHeadersCommandOutput = {
@@ -2501,7 +2501,7 @@ export const deserializeAws_restXmlNoInputAndNoOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NoInputAndNoOutputCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlNoInputAndNoOutputCommandError(output, context);
   }
   const contents: NoInputAndNoOutputCommandOutput = {
@@ -2544,7 +2544,7 @@ export const deserializeAws_restXmlNoInputAndOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NoInputAndOutputCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlNoInputAndOutputCommandError(output, context);
   }
   const contents: NoInputAndOutputCommandOutput = {
@@ -2587,7 +2587,7 @@ export const deserializeAws_restXmlNullAndEmptyHeadersClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NullAndEmptyHeadersClientCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlNullAndEmptyHeadersClientCommandError(output, context);
   }
   const contents: NullAndEmptyHeadersClientCommandOutput = {
@@ -2642,7 +2642,7 @@ export const deserializeAws_restXmlNullAndEmptyHeadersServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NullAndEmptyHeadersServerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlNullAndEmptyHeadersServerCommandError(output, context);
   }
   const contents: NullAndEmptyHeadersServerCommandOutput = {
@@ -2697,7 +2697,7 @@ export const deserializeAws_restXmlOmitsNullSerializesEmptyStringCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OmitsNullSerializesEmptyStringCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlOmitsNullSerializesEmptyStringCommandError(output, context);
   }
   const contents: OmitsNullSerializesEmptyStringCommandOutput = {
@@ -2740,7 +2740,7 @@ export const deserializeAws_restXmlQueryIdempotencyTokenAutoFillCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlQueryIdempotencyTokenAutoFillCommandError(output, context);
   }
   const contents: QueryIdempotencyTokenAutoFillCommandOutput = {
@@ -2783,7 +2783,7 @@ export const deserializeAws_restXmlRecursiveShapesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RecursiveShapesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlRecursiveShapesCommandError(output, context);
   }
   const contents: RecursiveShapesCommandOutput = {
@@ -2830,7 +2830,7 @@ export const deserializeAws_restXmlSimpleScalarPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimpleScalarPropertiesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlSimpleScalarPropertiesCommandError(output, context);
   }
   const contents: SimpleScalarPropertiesCommandOutput = {
@@ -2913,7 +2913,7 @@ export const deserializeAws_restXmlTimestampFormatHeadersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TimestampFormatHeadersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlTimestampFormatHeadersCommandError(output, context);
   }
   const contents: TimestampFormatHeadersCommandOutput = {
@@ -2984,7 +2984,7 @@ export const deserializeAws_restXmlXmlAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlXmlAttributesCommandError(output, context);
   }
   const contents: XmlAttributesCommandOutput = {
@@ -3035,7 +3035,7 @@ export const deserializeAws_restXmlXmlAttributesOnPayloadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlAttributesOnPayloadCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlXmlAttributesOnPayloadCommandError(output, context);
   }
   const contents: XmlAttributesOnPayloadCommandOutput = {
@@ -3080,7 +3080,7 @@ export const deserializeAws_restXmlXmlBlobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlBlobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlXmlBlobsCommandError(output, context);
   }
   const contents: XmlBlobsCommandOutput = {
@@ -3127,7 +3127,7 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlEnumsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlXmlEnumsCommandError(output, context);
   }
   const contents: XmlEnumsCommandOutput = {
@@ -3212,7 +3212,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlListsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlXmlListsCommandError(output, context);
   }
   const contents: XmlListsCommandOutput = {
@@ -3359,7 +3359,7 @@ export const deserializeAws_restXmlXmlMapsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlMapsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlXmlMapsCommandError(output, context);
   }
   const contents: XmlMapsCommandOutput = {
@@ -3412,7 +3412,7 @@ export const deserializeAws_restXmlXmlMapsXmlNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlMapsXmlNameCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlXmlMapsXmlNameCommandError(output, context);
   }
   const contents: XmlMapsXmlNameCommandOutput = {
@@ -3465,7 +3465,7 @@ export const deserializeAws_restXmlXmlNamespacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlNamespacesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlXmlNamespacesCommandError(output, context);
   }
   const contents: XmlNamespacesCommandOutput = {
@@ -3512,7 +3512,7 @@ export const deserializeAws_restXmlXmlTimestampsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlTimestampsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlXmlTimestampsCommandError(output, context);
   }
   const contents: XmlTimestampsCommandOutput = {

@@ -634,7 +634,7 @@ export const deserializeAws_restJson1AssociateDeviceWithPlacementCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDeviceWithPlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AssociateDeviceWithPlacementCommandError(output, context);
   }
   const contents: AssociateDeviceWithPlacementCommandOutput = {
@@ -709,7 +709,7 @@ export const deserializeAws_restJson1CreatePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreatePlacementCommandError(output, context);
   }
   const contents: CreatePlacementCommandOutput = {
@@ -784,7 +784,7 @@ export const deserializeAws_restJson1CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateProjectCommandError(output, context);
   }
   const contents: CreateProjectCommandOutput = {
@@ -851,7 +851,7 @@ export const deserializeAws_restJson1DeletePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeletePlacementCommandError(output, context);
   }
   const contents: DeletePlacementCommandOutput = {
@@ -926,7 +926,7 @@ export const deserializeAws_restJson1DeleteProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteProjectCommandError(output, context);
   }
   const contents: DeleteProjectCommandOutput = {
@@ -1001,7 +1001,7 @@ export const deserializeAws_restJson1DescribePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribePlacementCommandError(output, context);
   }
   const contents: DescribePlacementCommandOutput = {
@@ -1072,7 +1072,7 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeProjectCommandError(output, context);
   }
   const contents: DescribeProjectCommandOutput = {
@@ -1143,7 +1143,7 @@ export const deserializeAws_restJson1DisassociateDeviceFromPlacementCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDeviceFromPlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateDeviceFromPlacementCommandError(output, context);
   }
   const contents: DisassociateDeviceFromPlacementCommandOutput = {
@@ -1218,7 +1218,7 @@ export const deserializeAws_restJson1GetDevicesInPlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDevicesInPlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDevicesInPlacementCommandError(output, context);
   }
   const contents: GetDevicesInPlacementCommandOutput = {
@@ -1289,7 +1289,7 @@ export const deserializeAws_restJson1ListPlacementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlacementsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPlacementsCommandError(output, context);
   }
   const contents: ListPlacementsCommandOutput = {
@@ -1364,7 +1364,7 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProjectsCommandError(output, context);
   }
   const contents: ListProjectsCommandOutput = {
@@ -1431,7 +1431,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1502,7 +1502,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1569,7 +1569,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1636,7 +1636,7 @@ export const deserializeAws_restJson1UpdatePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdatePlacementCommandError(output, context);
   }
   const contents: UpdatePlacementCommandOutput = {
@@ -1711,7 +1711,7 @@ export const deserializeAws_restJson1UpdateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateProjectCommandError(output, context);
   }
   const contents: UpdateProjectCommandOutput = {

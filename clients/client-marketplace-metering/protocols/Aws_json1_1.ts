@@ -95,7 +95,7 @@ export const deserializeAws_json1_1BatchMeterUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchMeterUsageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchMeterUsageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -198,7 +198,7 @@ export const deserializeAws_json1_1MeterUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MeterUsageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1MeterUsageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -309,7 +309,7 @@ export const deserializeAws_json1_1RegisterUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterUsageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RegisterUsageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -420,7 +420,7 @@ export const deserializeAws_json1_1ResolveCustomerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResolveCustomerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ResolveCustomerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

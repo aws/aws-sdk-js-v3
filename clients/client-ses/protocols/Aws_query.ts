@@ -1576,7 +1576,7 @@ export const deserializeAws_queryCloneReceiptRuleSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CloneReceiptRuleSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCloneReceiptRuleSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1646,7 +1646,7 @@ export const deserializeAws_queryCreateConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateConfigurationSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1716,7 +1716,7 @@ export const deserializeAws_queryCreateConfigurationSetEventDestinationCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateConfigurationSetEventDestinationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1813,7 +1813,7 @@ export const deserializeAws_queryCreateConfigurationSetTrackingOptionsCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetTrackingOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1886,7 +1886,7 @@ export const deserializeAws_queryCreateCustomVerificationEmailTemplateCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomVerificationEmailTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1964,7 +1964,7 @@ export const deserializeAws_queryCreateReceiptFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReceiptFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateReceiptFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2026,7 +2026,7 @@ export const deserializeAws_queryCreateReceiptRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReceiptRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateReceiptRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2128,7 +2128,7 @@ export const deserializeAws_queryCreateReceiptRuleSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReceiptRuleSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateReceiptRuleSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2190,7 +2190,7 @@ export const deserializeAws_queryCreateTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2260,7 +2260,7 @@ export const deserializeAws_queryDeleteConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteConfigurationSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2314,7 +2314,7 @@ export const deserializeAws_queryDeleteConfigurationSetEventDestinationCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteConfigurationSetEventDestinationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2379,7 +2379,7 @@ export const deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetTrackingOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2444,7 +2444,7 @@ export const deserializeAws_queryDeleteCustomVerificationEmailTemplateCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteCustomVerificationEmailTemplateCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2487,7 +2487,7 @@ export const deserializeAws_queryDeleteIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIdentityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteIdentityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2533,7 +2533,7 @@ export const deserializeAws_queryDeleteIdentityPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIdentityPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteIdentityPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2579,7 +2579,7 @@ export const deserializeAws_queryDeleteReceiptFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReceiptFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteReceiptFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2625,7 +2625,7 @@ export const deserializeAws_queryDeleteReceiptRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReceiptRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteReceiptRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2679,7 +2679,7 @@ export const deserializeAws_queryDeleteReceiptRuleSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReceiptRuleSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteReceiptRuleSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2733,7 +2733,7 @@ export const deserializeAws_queryDeleteTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2779,7 +2779,7 @@ export const deserializeAws_queryDeleteVerifiedEmailAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVerifiedEmailAddressCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteVerifiedEmailAddressCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2822,7 +2822,7 @@ export const deserializeAws_queryDescribeActiveReceiptRuleSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeActiveReceiptRuleSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeActiveReceiptRuleSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2868,7 +2868,7 @@ export const deserializeAws_queryDescribeConfigurationSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeConfigurationSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2922,7 +2922,7 @@ export const deserializeAws_queryDescribeReceiptRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReceiptRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeReceiptRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2984,7 +2984,7 @@ export const deserializeAws_queryDescribeReceiptRuleSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReceiptRuleSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeReceiptRuleSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3038,7 +3038,7 @@ export const deserializeAws_queryGetAccountSendingEnabledCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountSendingEnabledCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetAccountSendingEnabledCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3084,7 +3084,7 @@ export const deserializeAws_queryGetCustomVerificationEmailTemplateCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCustomVerificationEmailTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetCustomVerificationEmailTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3144,7 +3144,7 @@ export const deserializeAws_queryGetIdentityDkimAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIdentityDkimAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetIdentityDkimAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3190,7 +3190,7 @@ export const deserializeAws_queryGetIdentityMailFromDomainAttributesCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIdentityMailFromDomainAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetIdentityMailFromDomainAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3239,7 +3239,7 @@ export const deserializeAws_queryGetIdentityNotificationAttributesCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIdentityNotificationAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetIdentityNotificationAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3288,7 +3288,7 @@ export const deserializeAws_queryGetIdentityPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIdentityPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetIdentityPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3334,7 +3334,7 @@ export const deserializeAws_queryGetIdentityVerificationAttributesCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIdentityVerificationAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetIdentityVerificationAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3383,7 +3383,7 @@ export const deserializeAws_queryGetSendQuotaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSendQuotaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetSendQuotaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3429,7 +3429,7 @@ export const deserializeAws_queryGetSendStatisticsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSendStatisticsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetSendStatisticsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3475,7 +3475,7 @@ export const deserializeAws_queryGetTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3529,7 +3529,7 @@ export const deserializeAws_queryListConfigurationSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListConfigurationSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3575,7 +3575,7 @@ export const deserializeAws_queryListCustomVerificationEmailTemplatesCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListCustomVerificationEmailTemplatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3624,7 +3624,7 @@ export const deserializeAws_queryListIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIdentitiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListIdentitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3670,7 +3670,7 @@ export const deserializeAws_queryListIdentityPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIdentityPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListIdentityPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3716,7 +3716,7 @@ export const deserializeAws_queryListReceiptFiltersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReceiptFiltersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListReceiptFiltersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3762,7 +3762,7 @@ export const deserializeAws_queryListReceiptRuleSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReceiptRuleSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListReceiptRuleSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3808,7 +3808,7 @@ export const deserializeAws_queryListTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListTemplatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3854,7 +3854,7 @@ export const deserializeAws_queryListVerifiedEmailAddressesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVerifiedEmailAddressesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListVerifiedEmailAddressesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3900,7 +3900,7 @@ export const deserializeAws_queryPutConfigurationSetDeliveryOptionsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3965,7 +3965,7 @@ export const deserializeAws_queryPutIdentityPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutIdentityPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryPutIdentityPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4019,7 +4019,7 @@ export const deserializeAws_queryReorderReceiptRuleSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReorderReceiptRuleSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryReorderReceiptRuleSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4081,7 +4081,7 @@ export const deserializeAws_querySendBounceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendBounceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySendBounceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4135,7 +4135,7 @@ export const deserializeAws_querySendBulkTemplatedEmailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendBulkTemplatedEmailCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySendBulkTemplatedEmailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4229,7 +4229,7 @@ export const deserializeAws_querySendCustomVerificationEmailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendCustomVerificationEmailCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySendCustomVerificationEmailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4318,7 +4318,7 @@ export const deserializeAws_querySendEmailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendEmailCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySendEmailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4404,7 +4404,7 @@ export const deserializeAws_querySendRawEmailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendRawEmailCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySendRawEmailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4490,7 +4490,7 @@ export const deserializeAws_querySendTemplatedEmailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTemplatedEmailCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySendTemplatedEmailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4584,7 +4584,7 @@ export const deserializeAws_querySetActiveReceiptRuleSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetActiveReceiptRuleSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetActiveReceiptRuleSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4638,7 +4638,7 @@ export const deserializeAws_querySetIdentityDkimEnabledCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetIdentityDkimEnabledCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetIdentityDkimEnabledCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4684,7 +4684,7 @@ export const deserializeAws_querySetIdentityFeedbackForwardingEnabledCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetIdentityFeedbackForwardingEnabledCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetIdentityFeedbackForwardingEnabledCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4733,7 +4733,7 @@ export const deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4782,7 +4782,7 @@ export const deserializeAws_querySetIdentityMailFromDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetIdentityMailFromDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetIdentityMailFromDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4828,7 +4828,7 @@ export const deserializeAws_querySetIdentityNotificationTopicCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetIdentityNotificationTopicCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetIdentityNotificationTopicCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4874,7 +4874,7 @@ export const deserializeAws_querySetReceiptRulePositionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetReceiptRulePositionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetReceiptRulePositionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4936,7 +4936,7 @@ export const deserializeAws_queryTestRenderTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestRenderTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryTestRenderTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5006,7 +5006,7 @@ export const deserializeAws_queryUpdateAccountSendingEnabledCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccountSendingEnabledCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateAccountSendingEnabledCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5049,7 +5049,7 @@ export const deserializeAws_queryUpdateConfigurationSetEventDestinationCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5138,7 +5138,7 @@ export const deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetReputationMetricsEnabledCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5189,7 +5189,7 @@ export const deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetSendingEnabledCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateConfigurationSetSendingEnabledCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5240,7 +5240,7 @@ export const deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetTrackingOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5313,7 +5313,7 @@ export const deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5383,7 +5383,7 @@ export const deserializeAws_queryUpdateReceiptRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateReceiptRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateReceiptRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5477,7 +5477,7 @@ export const deserializeAws_queryUpdateTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5539,7 +5539,7 @@ export const deserializeAws_queryVerifyDomainDkimCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifyDomainDkimCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryVerifyDomainDkimCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5585,7 +5585,7 @@ export const deserializeAws_queryVerifyDomainIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifyDomainIdentityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryVerifyDomainIdentityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5631,7 +5631,7 @@ export const deserializeAws_queryVerifyEmailAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifyEmailAddressCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryVerifyEmailAddressCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5674,7 +5674,7 @@ export const deserializeAws_queryVerifyEmailIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VerifyEmailIdentityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryVerifyEmailIdentityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

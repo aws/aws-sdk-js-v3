@@ -1072,7 +1072,7 @@ export const deserializeAws_restJson1AllQueryStringTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AllQueryStringTypesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AllQueryStringTypesCommandError(output, context);
   }
   const contents: AllQueryStringTypesCommandOutput = {
@@ -1115,7 +1115,7 @@ export const deserializeAws_restJson1ConstantAndVariableQueryStringCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConstantAndVariableQueryStringCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ConstantAndVariableQueryStringCommandError(output, context);
   }
   const contents: ConstantAndVariableQueryStringCommandOutput = {
@@ -1158,7 +1158,7 @@ export const deserializeAws_restJson1ConstantQueryStringCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConstantQueryStringCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ConstantQueryStringCommandError(output, context);
   }
   const contents: ConstantQueryStringCommandOutput = {
@@ -1201,7 +1201,7 @@ export const deserializeAws_restJson1EmptyInputAndEmptyOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1EmptyInputAndEmptyOutputCommandError(output, context);
   }
   const contents: EmptyInputAndEmptyOutputCommandOutput = {
@@ -1244,7 +1244,7 @@ export const deserializeAws_restJson1GreetingWithErrorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GreetingWithErrorsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GreetingWithErrorsCommandError(output, context);
   }
   const contents: GreetingWithErrorsCommandOutput = {
@@ -1315,7 +1315,7 @@ export const deserializeAws_restJson1HttpPayloadTraitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadTraitsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1HttpPayloadTraitsCommandError(output, context);
   }
   const contents: HttpPayloadTraitsCommandOutput = {
@@ -1364,7 +1364,7 @@ export const deserializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommandError(output, context);
   }
   const contents: HttpPayloadTraitsWithMediaTypeCommandOutput = {
@@ -1413,7 +1413,7 @@ export const deserializeAws_restJson1HttpPayloadWithStructureCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadWithStructureCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1HttpPayloadWithStructureCommandError(output, context);
   }
   const contents: HttpPayloadWithStructureCommandOutput = {
@@ -1458,7 +1458,7 @@ export const deserializeAws_restJson1HttpPrefixHeadersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPrefixHeadersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1HttpPrefixHeadersCommandError(output, context);
   }
   const contents: HttpPrefixHeadersCommandOutput = {
@@ -1514,7 +1514,7 @@ export const deserializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1HttpRequestWithGreedyLabelInPathCommandError(output, context);
   }
   const contents: HttpRequestWithGreedyLabelInPathCommandOutput = {
@@ -1557,7 +1557,7 @@ export const deserializeAws_restJson1HttpRequestWithLabelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpRequestWithLabelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1HttpRequestWithLabelsCommandError(output, context);
   }
   const contents: HttpRequestWithLabelsCommandOutput = {
@@ -1600,7 +1600,7 @@ export const deserializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatCommandError(output, context);
   }
   const contents: HttpRequestWithLabelsAndTimestampFormatCommandOutput = {
@@ -1643,7 +1643,7 @@ export const deserializeAws_restJson1IgnoreQueryParamsInResponseCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IgnoreQueryParamsInResponseCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1IgnoreQueryParamsInResponseCommandError(output, context);
   }
   const contents: IgnoreQueryParamsInResponseCommandOutput = {
@@ -1690,7 +1690,7 @@ export const deserializeAws_restJson1InputAndOutputWithHeadersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InputAndOutputWithHeadersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1InputAndOutputWithHeadersCommandError(output, context);
   }
   const contents: InputAndOutputWithHeadersCommandOutput = {
@@ -1803,7 +1803,7 @@ export const deserializeAws_restJson1JsonBlobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JsonBlobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1JsonBlobsCommandError(output, context);
   }
   const contents: JsonBlobsCommandOutput = {
@@ -1850,7 +1850,7 @@ export const deserializeAws_restJson1JsonEnumsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JsonEnumsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1JsonEnumsCommandError(output, context);
   }
   const contents: JsonEnumsCommandOutput = {
@@ -1917,7 +1917,7 @@ export const deserializeAws_restJson1JsonListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JsonListsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1JsonListsCommandError(output, context);
   }
   const contents: JsonListsCommandOutput = {
@@ -1992,7 +1992,7 @@ export const deserializeAws_restJson1JsonMapsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JsonMapsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1JsonMapsCommandError(output, context);
   }
   const contents: JsonMapsCommandOutput = {
@@ -2039,7 +2039,7 @@ export const deserializeAws_restJson1JsonTimestampsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<JsonTimestampsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1JsonTimestampsCommandError(output, context);
   }
   const contents: JsonTimestampsCommandOutput = {
@@ -2098,7 +2098,7 @@ export const deserializeAws_restJson1NoInputAndNoOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NoInputAndNoOutputCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1NoInputAndNoOutputCommandError(output, context);
   }
   const contents: NoInputAndNoOutputCommandOutput = {
@@ -2141,7 +2141,7 @@ export const deserializeAws_restJson1NoInputAndOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NoInputAndOutputCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1NoInputAndOutputCommandError(output, context);
   }
   const contents: NoInputAndOutputCommandOutput = {
@@ -2184,7 +2184,7 @@ export const deserializeAws_restJson1NullAndEmptyHeadersClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NullAndEmptyHeadersClientCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1NullAndEmptyHeadersClientCommandError(output, context);
   }
   const contents: NullAndEmptyHeadersClientCommandOutput = {
@@ -2239,7 +2239,7 @@ export const deserializeAws_restJson1NullAndEmptyHeadersServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NullAndEmptyHeadersServerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1NullAndEmptyHeadersServerCommandError(output, context);
   }
   const contents: NullAndEmptyHeadersServerCommandOutput = {
@@ -2294,7 +2294,7 @@ export const deserializeAws_restJson1OmitsNullSerializesEmptyStringCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OmitsNullSerializesEmptyStringCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1OmitsNullSerializesEmptyStringCommandError(output, context);
   }
   const contents: OmitsNullSerializesEmptyStringCommandOutput = {
@@ -2337,7 +2337,7 @@ export const deserializeAws_restJson1QueryIdempotencyTokenAutoFillCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1QueryIdempotencyTokenAutoFillCommandError(output, context);
   }
   const contents: QueryIdempotencyTokenAutoFillCommandOutput = {
@@ -2380,7 +2380,7 @@ export const deserializeAws_restJson1RecursiveShapesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RecursiveShapesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RecursiveShapesCommandError(output, context);
   }
   const contents: RecursiveShapesCommandOutput = {
@@ -2427,7 +2427,7 @@ export const deserializeAws_restJson1SimpleScalarPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimpleScalarPropertiesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SimpleScalarPropertiesCommandError(output, context);
   }
   const contents: SimpleScalarPropertiesCommandOutput = {
@@ -2510,7 +2510,7 @@ export const deserializeAws_restJson1TimestampFormatHeadersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TimestampFormatHeadersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TimestampFormatHeadersCommandError(output, context);
   }
   const contents: TimestampFormatHeadersCommandOutput = {

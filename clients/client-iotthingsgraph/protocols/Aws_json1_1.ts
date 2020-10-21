@@ -663,7 +663,7 @@ export const deserializeAws_json1_1AssociateEntityToThingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateEntityToThingCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateEntityToThingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -742,7 +742,7 @@ export const deserializeAws_json1_1CreateFlowTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFlowTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateFlowTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -829,7 +829,7 @@ export const deserializeAws_json1_1CreateSystemInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSystemInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSystemInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -916,7 +916,7 @@ export const deserializeAws_json1_1CreateSystemTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSystemTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSystemTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -995,7 +995,7 @@ export const deserializeAws_json1_1DeleteFlowTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFlowTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteFlowTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1074,7 +1074,7 @@ export const deserializeAws_json1_1DeleteNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNamespaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1137,7 +1137,7 @@ export const deserializeAws_json1_1DeleteSystemInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSystemInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSystemInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1216,7 +1216,7 @@ export const deserializeAws_json1_1DeleteSystemTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSystemTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSystemTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1295,7 +1295,7 @@ export const deserializeAws_json1_1DeploySystemInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeploySystemInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeploySystemInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1382,7 +1382,7 @@ export const deserializeAws_json1_1DeprecateFlowTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeprecateFlowTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeprecateFlowTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1461,7 +1461,7 @@ export const deserializeAws_json1_1DeprecateSystemTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeprecateSystemTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeprecateSystemTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1540,7 +1540,7 @@ export const deserializeAws_json1_1DescribeNamespaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNamespaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeNamespaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1619,7 +1619,7 @@ export const deserializeAws_json1_1DissociateEntityFromThingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DissociateEntityFromThingCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DissociateEntityFromThingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1698,7 +1698,7 @@ export const deserializeAws_json1_1GetEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEntitiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetEntitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1777,7 +1777,7 @@ export const deserializeAws_json1_1GetFlowTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFlowTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetFlowTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1856,7 +1856,7 @@ export const deserializeAws_json1_1GetFlowTemplateRevisionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFlowTemplateRevisionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetFlowTemplateRevisionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1935,7 +1935,7 @@ export const deserializeAws_json1_1GetNamespaceDeletionStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNamespaceDeletionStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetNamespaceDeletionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2006,7 +2006,7 @@ export const deserializeAws_json1_1GetSystemInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSystemInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSystemInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2085,7 +2085,7 @@ export const deserializeAws_json1_1GetSystemTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSystemTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSystemTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2164,7 +2164,7 @@ export const deserializeAws_json1_1GetSystemTemplateRevisionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSystemTemplateRevisionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSystemTemplateRevisionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2243,7 +2243,7 @@ export const deserializeAws_json1_1GetUploadStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUploadStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetUploadStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2322,7 +2322,7 @@ export const deserializeAws_json1_1ListFlowExecutionMessagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFlowExecutionMessagesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListFlowExecutionMessagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2401,7 +2401,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2480,7 +2480,7 @@ export const deserializeAws_json1_1SearchEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchEntitiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchEntitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2551,7 +2551,7 @@ export const deserializeAws_json1_1SearchFlowExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchFlowExecutionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchFlowExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2630,7 +2630,7 @@ export const deserializeAws_json1_1SearchFlowTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchFlowTemplatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchFlowTemplatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2701,7 +2701,7 @@ export const deserializeAws_json1_1SearchSystemInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchSystemInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchSystemInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2772,7 +2772,7 @@ export const deserializeAws_json1_1SearchSystemTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchSystemTemplatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchSystemTemplatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2843,7 +2843,7 @@ export const deserializeAws_json1_1SearchThingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchThingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchThingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2922,7 +2922,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3001,7 +3001,7 @@ export const deserializeAws_json1_1UndeploySystemInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UndeploySystemInstanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UndeploySystemInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3088,7 +3088,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3167,7 +3167,7 @@ export const deserializeAws_json1_1UpdateFlowTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateFlowTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3246,7 +3246,7 @@ export const deserializeAws_json1_1UpdateSystemTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSystemTemplateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateSystemTemplateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3325,7 +3325,7 @@ export const deserializeAws_json1_1UploadEntityDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadEntityDefinitionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UploadEntityDefinitionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

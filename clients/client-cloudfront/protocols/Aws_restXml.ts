@@ -2241,7 +2241,7 @@ export const deserializeAws_restXmlCreateCachePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCachePolicyCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateCachePolicyCommandError(output, context);
   }
   const contents: CreateCachePolicyCommandOutput = {
@@ -2358,7 +2358,7 @@ export const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError(output, context);
   }
   const contents: CreateCloudFrontOriginAccessIdentityCommandOutput = {
@@ -2451,7 +2451,7 @@ export const deserializeAws_restXmlCreateDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDistributionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateDistributionCommandError(output, context);
   }
   const contents: CreateDistributionCommandOutput = {
@@ -2905,7 +2905,7 @@ export const deserializeAws_restXmlCreateDistributionWithTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDistributionWithTagsCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateDistributionWithTagsCommandError(output, context);
   }
   const contents: CreateDistributionWithTagsCommandOutput = {
@@ -3367,7 +3367,7 @@ export const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFieldLevelEncryptionConfigCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError(output, context);
   }
   const contents: CreateFieldLevelEncryptionConfigCommandOutput = {
@@ -3484,7 +3484,7 @@ export const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFieldLevelEncryptionProfileCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError(output, context);
   }
   const contents: CreateFieldLevelEncryptionProfileCommandOutput = {
@@ -3601,7 +3601,7 @@ export const deserializeAws_restXmlCreateInvalidationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInvalidationCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateInvalidationCommandError(output, context);
   }
   const contents: CreateInvalidationCommandOutput = {
@@ -3706,7 +3706,7 @@ export const deserializeAws_restXmlCreateOriginRequestPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOriginRequestPolicyCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateOriginRequestPolicyCommandError(output, context);
   }
   const contents: CreateOriginRequestPolicyCommandOutput = {
@@ -3823,7 +3823,7 @@ export const deserializeAws_restXmlCreatePublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePublicKeyCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreatePublicKeyCommandError(output, context);
   }
   const contents: CreatePublicKeyCommandOutput = {
@@ -3900,7 +3900,7 @@ export const deserializeAws_restXmlCreateStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamingDistributionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateStreamingDistributionCommandError(output, context);
   }
   const contents: CreateStreamingDistributionCommandOutput = {
@@ -4049,7 +4049,7 @@ export const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamingDistributionWithTagsCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError(output, context);
   }
   const contents: CreateStreamingDistributionWithTagsCommandOutput = {
@@ -4206,7 +4206,7 @@ export const deserializeAws_restXmlDeleteCachePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCachePolicyCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteCachePolicyCommandError(output, context);
   }
   const contents: DeleteCachePolicyCommandOutput = {
@@ -4297,7 +4297,7 @@ export const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError(output, context);
   }
   const contents: DeleteCloudFrontOriginAccessIdentityCommandOutput = {
@@ -4380,7 +4380,7 @@ export const deserializeAws_restXmlDeleteDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDistributionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteDistributionCommandError(output, context);
   }
   const contents: DeleteDistributionCommandOutput = {
@@ -4463,7 +4463,7 @@ export const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError(output, context);
   }
   const contents: DeleteFieldLevelEncryptionConfigCommandOutput = {
@@ -4546,7 +4546,7 @@ export const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError(output, context);
   }
   const contents: DeleteFieldLevelEncryptionProfileCommandOutput = {
@@ -4629,7 +4629,7 @@ export const deserializeAws_restXmlDeleteOriginRequestPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOriginRequestPolicyCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteOriginRequestPolicyCommandError(output, context);
   }
   const contents: DeleteOriginRequestPolicyCommandOutput = {
@@ -4720,7 +4720,7 @@ export const deserializeAws_restXmlDeletePublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePublicKeyCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeletePublicKeyCommandError(output, context);
   }
   const contents: DeletePublicKeyCommandOutput = {
@@ -4803,7 +4803,7 @@ export const deserializeAws_restXmlDeleteStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamingDistributionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlDeleteStreamingDistributionCommandError(output, context);
   }
   const contents: DeleteStreamingDistributionCommandOutput = {
@@ -4886,7 +4886,7 @@ export const deserializeAws_restXmlGetCachePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCachePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetCachePolicyCommandError(output, context);
   }
   const contents: GetCachePolicyCommandOutput = {
@@ -4951,7 +4951,7 @@ export const deserializeAws_restXmlGetCachePolicyConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCachePolicyConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetCachePolicyConfigCommandError(output, context);
   }
   const contents: GetCachePolicyConfigCommandOutput = {
@@ -5016,7 +5016,7 @@ export const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError(output, context);
   }
   const contents: GetCloudFrontOriginAccessIdentityCommandOutput = {
@@ -5081,7 +5081,7 @@ export const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError(output, context);
   }
   const contents: GetCloudFrontOriginAccessIdentityConfigCommandOutput = {
@@ -5149,7 +5149,7 @@ export const deserializeAws_restXmlGetDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDistributionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetDistributionCommandError(output, context);
   }
   const contents: GetDistributionCommandOutput = {
@@ -5214,7 +5214,7 @@ export const deserializeAws_restXmlGetDistributionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDistributionConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetDistributionConfigCommandError(output, context);
   }
   const contents: GetDistributionConfigCommandOutput = {
@@ -5279,7 +5279,7 @@ export const deserializeAws_restXmlGetFieldLevelEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFieldLevelEncryptionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetFieldLevelEncryptionCommandError(output, context);
   }
   const contents: GetFieldLevelEncryptionCommandOutput = {
@@ -5344,7 +5344,7 @@ export const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFieldLevelEncryptionConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError(output, context);
   }
   const contents: GetFieldLevelEncryptionConfigCommandOutput = {
@@ -5409,7 +5409,7 @@ export const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFieldLevelEncryptionProfileCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError(output, context);
   }
   const contents: GetFieldLevelEncryptionProfileCommandOutput = {
@@ -5474,7 +5474,7 @@ export const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError(output, context);
   }
   const contents: GetFieldLevelEncryptionProfileConfigCommandOutput = {
@@ -5539,7 +5539,7 @@ export const deserializeAws_restXmlGetInvalidationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInvalidationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetInvalidationCommandError(output, context);
   }
   const contents: GetInvalidationCommandOutput = {
@@ -5608,7 +5608,7 @@ export const deserializeAws_restXmlGetOriginRequestPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOriginRequestPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetOriginRequestPolicyCommandError(output, context);
   }
   const contents: GetOriginRequestPolicyCommandOutput = {
@@ -5673,7 +5673,7 @@ export const deserializeAws_restXmlGetOriginRequestPolicyConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOriginRequestPolicyConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetOriginRequestPolicyConfigCommandError(output, context);
   }
   const contents: GetOriginRequestPolicyConfigCommandOutput = {
@@ -5738,7 +5738,7 @@ export const deserializeAws_restXmlGetPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPublicKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetPublicKeyCommandError(output, context);
   }
   const contents: GetPublicKeyCommandOutput = {
@@ -5803,7 +5803,7 @@ export const deserializeAws_restXmlGetPublicKeyConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPublicKeyConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetPublicKeyConfigCommandError(output, context);
   }
   const contents: GetPublicKeyConfigCommandOutput = {
@@ -5868,7 +5868,7 @@ export const deserializeAws_restXmlGetStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamingDistributionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetStreamingDistributionCommandError(output, context);
   }
   const contents: GetStreamingDistributionCommandOutput = {
@@ -5933,7 +5933,7 @@ export const deserializeAws_restXmlGetStreamingDistributionConfigCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamingDistributionConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlGetStreamingDistributionConfigCommandError(output, context);
   }
   const contents: GetStreamingDistributionConfigCommandOutput = {
@@ -5998,7 +5998,7 @@ export const deserializeAws_restXmlListCachePoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCachePoliciesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListCachePoliciesCommandError(output, context);
   }
   const contents: ListCachePoliciesCommandOutput = {
@@ -6067,7 +6067,7 @@ export const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError(output, context);
   }
   const contents: ListCloudFrontOriginAccessIdentitiesCommandOutput = {
@@ -6120,7 +6120,7 @@ export const deserializeAws_restXmlListDistributionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDistributionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListDistributionsCommandError(output, context);
   }
   const contents: ListDistributionsCommandOutput = {
@@ -6173,7 +6173,7 @@ export const deserializeAws_restXmlListDistributionsByCachePolicyIdCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDistributionsByCachePolicyIdCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListDistributionsByCachePolicyIdCommandError(output, context);
   }
   const contents: ListDistributionsByCachePolicyIdCommandOutput = {
@@ -6242,7 +6242,7 @@ export const deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDistributionsByOriginRequestPolicyIdCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommandError(output, context);
   }
   const contents: ListDistributionsByOriginRequestPolicyIdCommandOutput = {
@@ -6311,7 +6311,7 @@ export const deserializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDistributionsByWebACLIdCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListDistributionsByWebACLIdCommandError(output, context);
   }
   const contents: ListDistributionsByWebACLIdCommandOutput = {
@@ -6372,7 +6372,7 @@ export const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFieldLevelEncryptionConfigsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError(output, context);
   }
   const contents: ListFieldLevelEncryptionConfigsCommandOutput = {
@@ -6425,7 +6425,7 @@ export const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFieldLevelEncryptionProfilesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError(output, context);
   }
   const contents: ListFieldLevelEncryptionProfilesCommandOutput = {
@@ -6478,7 +6478,7 @@ export const deserializeAws_restXmlListInvalidationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInvalidationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListInvalidationsCommandError(output, context);
   }
   const contents: ListInvalidationsCommandOutput = {
@@ -6547,7 +6547,7 @@ export const deserializeAws_restXmlListOriginRequestPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOriginRequestPoliciesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListOriginRequestPoliciesCommandError(output, context);
   }
   const contents: ListOriginRequestPoliciesCommandOutput = {
@@ -6616,7 +6616,7 @@ export const deserializeAws_restXmlListPublicKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPublicKeysCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListPublicKeysCommandError(output, context);
   }
   const contents: ListPublicKeysCommandOutput = {
@@ -6669,7 +6669,7 @@ export const deserializeAws_restXmlListStreamingDistributionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamingDistributionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListStreamingDistributionsCommandError(output, context);
   }
   const contents: ListStreamingDistributionsCommandOutput = {
@@ -6722,7 +6722,7 @@ export const deserializeAws_restXmlListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -6799,7 +6799,7 @@ export const deserializeAws_restXmlTagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlTagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -6874,7 +6874,7 @@ export const deserializeAws_restXmlUntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restXmlUntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -6949,7 +6949,7 @@ export const deserializeAws_restXmlUpdateCachePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCachePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateCachePolicyCommandError(output, context);
   }
   const contents: UpdateCachePolicyCommandOutput = {
@@ -7086,7 +7086,7 @@ export const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError(output, context);
   }
   const contents: UpdateCloudFrontOriginAccessIdentityCommandOutput = {
@@ -7199,7 +7199,7 @@ export const deserializeAws_restXmlUpdateDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDistributionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateDistributionCommandError(output, context);
   }
   const contents: UpdateDistributionCommandOutput = {
@@ -7649,7 +7649,7 @@ export const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFieldLevelEncryptionConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError(output, context);
   }
   const contents: UpdateFieldLevelEncryptionConfigCommandOutput = {
@@ -7786,7 +7786,7 @@ export const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError(output, context);
   }
   const contents: UpdateFieldLevelEncryptionProfileCommandOutput = {
@@ -7931,7 +7931,7 @@ export const deserializeAws_restXmlUpdateOriginRequestPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateOriginRequestPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateOriginRequestPolicyCommandError(output, context);
   }
   const contents: UpdateOriginRequestPolicyCommandOutput = {
@@ -8068,7 +8068,7 @@ export const deserializeAws_restXmlUpdatePublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePublicKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdatePublicKeyCommandError(output, context);
   }
   const contents: UpdatePublicKeyCommandOutput = {
@@ -8173,7 +8173,7 @@ export const deserializeAws_restXmlUpdateStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStreamingDistributionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restXmlUpdateStreamingDistributionCommandError(output, context);
   }
   const contents: UpdateStreamingDistributionCommandOutput = {

@@ -343,7 +343,7 @@ export const deserializeAws_restJson1DeleteLexiconCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLexiconCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteLexiconCommandError(output, context);
   }
   const contents: DeleteLexiconCommandOutput = {
@@ -402,7 +402,7 @@ export const deserializeAws_restJson1DescribeVoicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVoicesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeVoicesCommandError(output, context);
   }
   const contents: DescribeVoicesCommandOutput = {
@@ -469,7 +469,7 @@ export const deserializeAws_restJson1GetLexiconCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLexiconCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetLexiconCommandError(output, context);
   }
   const contents: GetLexiconCommandOutput = {
@@ -536,7 +536,7 @@ export const deserializeAws_restJson1GetSpeechSynthesisTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSpeechSynthesisTaskCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSpeechSynthesisTaskCommandError(output, context);
   }
   const contents: GetSpeechSynthesisTaskCommandOutput = {
@@ -607,7 +607,7 @@ export const deserializeAws_restJson1ListLexiconsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLexiconsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListLexiconsCommandError(output, context);
   }
   const contents: ListLexiconsCommandOutput = {
@@ -674,7 +674,7 @@ export const deserializeAws_restJson1ListSpeechSynthesisTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSpeechSynthesisTasksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSpeechSynthesisTasksCommandError(output, context);
   }
   const contents: ListSpeechSynthesisTasksCommandOutput = {
@@ -741,7 +741,7 @@ export const deserializeAws_restJson1PutLexiconCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLexiconCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutLexiconCommandError(output, context);
   }
   const contents: PutLexiconCommandOutput = {
@@ -840,7 +840,7 @@ export const deserializeAws_restJson1StartSpeechSynthesisTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSpeechSynthesisTaskCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartSpeechSynthesisTaskCommandError(output, context);
   }
   const contents: StartSpeechSynthesisTaskCommandOutput = {
@@ -983,7 +983,7 @@ export const deserializeAws_restJson1SynthesizeSpeechCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SynthesizeSpeechCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SynthesizeSpeechCommandError(output, context);
   }
   const contents: SynthesizeSpeechCommandOutput = {

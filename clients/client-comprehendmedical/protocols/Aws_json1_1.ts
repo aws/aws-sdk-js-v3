@@ -423,7 +423,7 @@ export const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEntitiesDetectionV2JobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -502,7 +502,7 @@ export const deserializeAws_json1_1DescribeICD10CMInferenceJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeICD10CMInferenceJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeICD10CMInferenceJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -581,7 +581,7 @@ export const deserializeAws_json1_1DescribePHIDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePHIDetectionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribePHIDetectionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -660,7 +660,7 @@ export const deserializeAws_json1_1DescribeRxNormInferenceJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRxNormInferenceJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeRxNormInferenceJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -739,7 +739,7 @@ export const deserializeAws_json1_1DetectEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectEntitiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DetectEntitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -834,7 +834,7 @@ export const deserializeAws_json1_1DetectEntitiesV2Command = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectEntitiesV2CommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DetectEntitiesV2CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -929,7 +929,7 @@ export const deserializeAws_json1_1DetectPHICommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectPHICommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DetectPHICommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1024,7 +1024,7 @@ export const deserializeAws_json1_1InferICD10CMCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InferICD10CMCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1InferICD10CMCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1119,7 +1119,7 @@ export const deserializeAws_json1_1InferRxNormCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InferRxNormCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1InferRxNormCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1214,7 +1214,7 @@ export const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitiesDetectionV2JobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1293,7 +1293,7 @@ export const deserializeAws_json1_1ListICD10CMInferenceJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListICD10CMInferenceJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListICD10CMInferenceJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1372,7 +1372,7 @@ export const deserializeAws_json1_1ListPHIDetectionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPHIDetectionJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPHIDetectionJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1451,7 +1451,7 @@ export const deserializeAws_json1_1ListRxNormInferenceJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRxNormInferenceJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRxNormInferenceJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1530,7 +1530,7 @@ export const deserializeAws_json1_1StartEntitiesDetectionV2JobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartEntitiesDetectionV2JobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1609,7 +1609,7 @@ export const deserializeAws_json1_1StartICD10CMInferenceJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartICD10CMInferenceJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartICD10CMInferenceJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1688,7 +1688,7 @@ export const deserializeAws_json1_1StartPHIDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartPHIDetectionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartPHIDetectionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1767,7 +1767,7 @@ export const deserializeAws_json1_1StartRxNormInferenceJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartRxNormInferenceJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartRxNormInferenceJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1846,7 +1846,7 @@ export const deserializeAws_json1_1StopEntitiesDetectionV2JobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopEntitiesDetectionV2JobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1917,7 +1917,7 @@ export const deserializeAws_json1_1StopICD10CMInferenceJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopICD10CMInferenceJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopICD10CMInferenceJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1988,7 +1988,7 @@ export const deserializeAws_json1_1StopPHIDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopPHIDetectionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopPHIDetectionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2059,7 +2059,7 @@ export const deserializeAws_json1_1StopRxNormInferenceJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopRxNormInferenceJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopRxNormInferenceJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

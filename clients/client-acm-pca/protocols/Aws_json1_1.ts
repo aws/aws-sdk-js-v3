@@ -391,7 +391,7 @@ export const deserializeAws_json1_1CreateCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCertificateAuthorityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateCertificateAuthorityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -470,7 +470,7 @@ export const deserializeAws_json1_1CreateCertificateAuthorityAuditReportCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCertificateAuthorityAuditReportCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateCertificateAuthorityAuditReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -565,7 +565,7 @@ export const deserializeAws_json1_1CreatePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePermissionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePermissionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -657,7 +657,7 @@ export const deserializeAws_json1_1DeleteCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCertificateAuthorityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteCertificateAuthorityCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -733,7 +733,7 @@ export const deserializeAws_json1_1DeletePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePermissionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeletePermissionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -809,7 +809,7 @@ export const deserializeAws_json1_1DescribeCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificateAuthorityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCertificateAuthorityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -872,7 +872,7 @@ export const deserializeAws_json1_1DescribeCertificateAuthorityAuditReportComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificateAuthorityAuditReportCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCertificateAuthorityAuditReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -943,7 +943,7 @@ export const deserializeAws_json1_1GetCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1030,7 +1030,7 @@ export const deserializeAws_json1_1GetCertificateAuthorityCertificateCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCertificateAuthorityCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCertificateAuthorityCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1101,7 +1101,7 @@ export const deserializeAws_json1_1GetCertificateAuthorityCsrCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCertificateAuthorityCsrCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCertificateAuthorityCsrCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1188,7 +1188,7 @@ export const deserializeAws_json1_1ImportCertificateAuthorityCertificateCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportCertificateAuthorityCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ImportCertificateAuthorityCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1304,7 +1304,7 @@ export const deserializeAws_json1_1IssueCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IssueCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1IssueCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1399,7 +1399,7 @@ export const deserializeAws_json1_1ListCertificateAuthoritiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCertificateAuthoritiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListCertificateAuthoritiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1454,7 +1454,7 @@ export const deserializeAws_json1_1ListPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPermissionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1541,7 +1541,7 @@ export const deserializeAws_json1_1ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1612,7 +1612,7 @@ export const deserializeAws_json1_1RestoreCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreCertificateAuthorityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RestoreCertificateAuthorityCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1680,7 +1680,7 @@ export const deserializeAws_json1_1RevokeCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RevokeCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1796,7 +1796,7 @@ export const deserializeAws_json1_1TagCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagCertificateAuthorityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagCertificateAuthorityCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1880,7 +1880,7 @@ export const deserializeAws_json1_1UntagCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagCertificateAuthorityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagCertificateAuthorityCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1956,7 +1956,7 @@ export const deserializeAws_json1_1UpdateCertificateAuthorityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCertificateAuthorityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateCertificateAuthorityCommandError(output, context);
   }
   await collectBody(output.body, context);

@@ -449,7 +449,7 @@ export const deserializeAws_json1_1CreateMedicalVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMedicalVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateMedicalVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -528,7 +528,7 @@ export const deserializeAws_json1_1CreateVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -607,7 +607,7 @@ export const deserializeAws_json1_1CreateVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVocabularyFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateVocabularyFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -686,7 +686,7 @@ export const deserializeAws_json1_1DeleteMedicalTranscriptionJobCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMedicalTranscriptionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteMedicalTranscriptionJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -754,7 +754,7 @@ export const deserializeAws_json1_1DeleteMedicalVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMedicalVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteMedicalVocabularyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -830,7 +830,7 @@ export const deserializeAws_json1_1DeleteTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTranscriptionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteTranscriptionJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -898,7 +898,7 @@ export const deserializeAws_json1_1DeleteVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteVocabularyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -974,7 +974,7 @@ export const deserializeAws_json1_1DeleteVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVocabularyFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteVocabularyFilterCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1050,7 +1050,7 @@ export const deserializeAws_json1_1GetMedicalTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMedicalTranscriptionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetMedicalTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1129,7 +1129,7 @@ export const deserializeAws_json1_1GetMedicalVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMedicalVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetMedicalVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1208,7 +1208,7 @@ export const deserializeAws_json1_1GetTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTranscriptionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1287,7 +1287,7 @@ export const deserializeAws_json1_1GetVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1366,7 +1366,7 @@ export const deserializeAws_json1_1GetVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVocabularyFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetVocabularyFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1445,7 +1445,7 @@ export const deserializeAws_json1_1ListMedicalTranscriptionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMedicalTranscriptionJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListMedicalTranscriptionJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1516,7 +1516,7 @@ export const deserializeAws_json1_1ListMedicalVocabulariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMedicalVocabulariesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListMedicalVocabulariesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1587,7 +1587,7 @@ export const deserializeAws_json1_1ListTranscriptionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTranscriptionJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTranscriptionJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1658,7 +1658,7 @@ export const deserializeAws_json1_1ListVocabulariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVocabulariesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListVocabulariesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1729,7 +1729,7 @@ export const deserializeAws_json1_1ListVocabularyFiltersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVocabularyFiltersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListVocabularyFiltersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1800,7 +1800,7 @@ export const deserializeAws_json1_1StartMedicalTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMedicalTranscriptionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartMedicalTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1879,7 +1879,7 @@ export const deserializeAws_json1_1StartTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartTranscriptionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1958,7 +1958,7 @@ export const deserializeAws_json1_1UpdateMedicalVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMedicalVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateMedicalVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2045,7 +2045,7 @@ export const deserializeAws_json1_1UpdateVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2132,7 +2132,7 @@ export const deserializeAws_json1_1UpdateVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVocabularyFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateVocabularyFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

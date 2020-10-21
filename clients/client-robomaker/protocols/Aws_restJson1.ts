@@ -1267,7 +1267,7 @@ export const deserializeAws_restJson1BatchDescribeSimulationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDescribeSimulationJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchDescribeSimulationJobCommandError(output, context);
   }
   const contents: BatchDescribeSimulationJobCommandOutput = {
@@ -1350,7 +1350,7 @@ export const deserializeAws_restJson1CancelDeploymentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelDeploymentJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelDeploymentJobCommandError(output, context);
   }
   const contents: CancelDeploymentJobCommandOutput = {
@@ -1425,7 +1425,7 @@ export const deserializeAws_restJson1CancelSimulationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelSimulationJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelSimulationJobCommandError(output, context);
   }
   const contents: CancelSimulationJobCommandOutput = {
@@ -1500,7 +1500,7 @@ export const deserializeAws_restJson1CancelSimulationJobBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelSimulationJobBatchCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelSimulationJobBatchCommandError(output, context);
   }
   const contents: CancelSimulationJobBatchCommandOutput = {
@@ -1575,7 +1575,7 @@ export const deserializeAws_restJson1CreateDeploymentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDeploymentJobCommandError(output, context);
   }
   const contents: CreateDeploymentJobCommandOutput = {
@@ -1713,7 +1713,7 @@ export const deserializeAws_restJson1CreateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateFleetCommandError(output, context);
   }
   const contents: CreateFleetCommandOutput = {
@@ -1804,7 +1804,7 @@ export const deserializeAws_restJson1CreateRobotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRobotCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateRobotCommandError(output, context);
   }
   const contents: CreateRobotCommandOutput = {
@@ -1911,7 +1911,7 @@ export const deserializeAws_restJson1CreateRobotApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRobotApplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateRobotApplicationCommandError(output, context);
   }
   const contents: CreateRobotApplicationCommandOutput = {
@@ -2034,7 +2034,7 @@ export const deserializeAws_restJson1CreateRobotApplicationVersionCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRobotApplicationVersionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateRobotApplicationVersionCommandError(output, context);
   }
   const contents: CreateRobotApplicationVersionCommandOutput = {
@@ -2145,7 +2145,7 @@ export const deserializeAws_restJson1CreateSimulationApplicationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSimulationApplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateSimulationApplicationCommandError(output, context);
   }
   const contents: CreateSimulationApplicationCommandOutput = {
@@ -2279,7 +2279,7 @@ export const deserializeAws_restJson1CreateSimulationApplicationVersionCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSimulationApplicationVersionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateSimulationApplicationVersionCommandError(output, context);
   }
   const contents: CreateSimulationApplicationVersionCommandOutput = {
@@ -2401,7 +2401,7 @@ export const deserializeAws_restJson1CreateSimulationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSimulationJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateSimulationJobCommandError(output, context);
   }
   const contents: CreateSimulationJobCommandOutput = {
@@ -2575,7 +2575,7 @@ export const deserializeAws_restJson1DeleteFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteFleetCommandError(output, context);
   }
   const contents: DeleteFleetCommandOutput = {
@@ -2642,7 +2642,7 @@ export const deserializeAws_restJson1DeleteRobotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRobotCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteRobotCommandError(output, context);
   }
   const contents: DeleteRobotCommandOutput = {
@@ -2709,7 +2709,7 @@ export const deserializeAws_restJson1DeleteRobotApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRobotApplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteRobotApplicationCommandError(output, context);
   }
   const contents: DeleteRobotApplicationCommandOutput = {
@@ -2776,7 +2776,7 @@ export const deserializeAws_restJson1DeleteSimulationApplicationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSimulationApplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteSimulationApplicationCommandError(output, context);
   }
   const contents: DeleteSimulationApplicationCommandOutput = {
@@ -2843,7 +2843,7 @@ export const deserializeAws_restJson1DeregisterRobotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterRobotCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeregisterRobotCommandError(output, context);
   }
   const contents: DeregisterRobotCommandOutput = {
@@ -2926,7 +2926,7 @@ export const deserializeAws_restJson1DescribeDeploymentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDeploymentJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeDeploymentJobCommandError(output, context);
   }
   const contents: DescribeDeploymentJobCommandOutput = {
@@ -3047,7 +3047,7 @@ export const deserializeAws_restJson1DescribeFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeFleetCommandError(output, context);
   }
   const contents: DescribeFleetCommandOutput = {
@@ -3154,7 +3154,7 @@ export const deserializeAws_restJson1DescribeRobotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRobotCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeRobotCommandError(output, context);
   }
   const contents: DescribeRobotCommandOutput = {
@@ -3269,7 +3269,7 @@ export const deserializeAws_restJson1DescribeRobotApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRobotApplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeRobotApplicationCommandError(output, context);
   }
   const contents: DescribeRobotApplicationCommandOutput = {
@@ -3376,7 +3376,7 @@ export const deserializeAws_restJson1DescribeSimulationApplicationCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSimulationApplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeSimulationApplicationCommandError(output, context);
   }
   const contents: DescribeSimulationApplicationCommandOutput = {
@@ -3494,7 +3494,7 @@ export const deserializeAws_restJson1DescribeSimulationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSimulationJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeSimulationJobCommandError(output, context);
   }
   const contents: DescribeSimulationJobCommandOutput = {
@@ -3656,7 +3656,7 @@ export const deserializeAws_restJson1DescribeSimulationJobBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSimulationJobBatchCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeSimulationJobBatchCommandError(output, context);
   }
   const contents: DescribeSimulationJobBatchCommandOutput = {
@@ -3771,7 +3771,7 @@ export const deserializeAws_restJson1ListDeploymentJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDeploymentJobsCommandError(output, context);
   }
   const contents: ListDeploymentJobsCommandOutput = {
@@ -3854,7 +3854,7 @@ export const deserializeAws_restJson1ListFleetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFleetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListFleetsCommandError(output, context);
   }
   const contents: ListFleetsCommandOutput = {
@@ -3937,7 +3937,7 @@ export const deserializeAws_restJson1ListRobotApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRobotApplicationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRobotApplicationsCommandError(output, context);
   }
   const contents: ListRobotApplicationsCommandOutput = {
@@ -4015,7 +4015,7 @@ export const deserializeAws_restJson1ListRobotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRobotsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRobotsCommandError(output, context);
   }
   const contents: ListRobotsCommandOutput = {
@@ -4098,7 +4098,7 @@ export const deserializeAws_restJson1ListSimulationApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSimulationApplicationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSimulationApplicationsCommandError(output, context);
   }
   const contents: ListSimulationApplicationsCommandOutput = {
@@ -4176,7 +4176,7 @@ export const deserializeAws_restJson1ListSimulationJobBatchesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSimulationJobBatchesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSimulationJobBatchesCommandError(output, context);
   }
   const contents: ListSimulationJobBatchesCommandOutput = {
@@ -4246,7 +4246,7 @@ export const deserializeAws_restJson1ListSimulationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSimulationJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSimulationJobsCommandError(output, context);
   }
   const contents: ListSimulationJobsCommandOutput = {
@@ -4324,7 +4324,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -4403,7 +4403,7 @@ export const deserializeAws_restJson1RegisterRobotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterRobotCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RegisterRobotCommandError(output, context);
   }
   const contents: RegisterRobotCommandOutput = {
@@ -4494,7 +4494,7 @@ export const deserializeAws_restJson1RestartSimulationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestartSimulationJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RestartSimulationJobCommandError(output, context);
   }
   const contents: RestartSimulationJobCommandOutput = {
@@ -4577,7 +4577,7 @@ export const deserializeAws_restJson1StartSimulationJobBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSimulationJobBatchCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartSimulationJobBatchCommandError(output, context);
   }
   const contents: StartSimulationJobBatchCommandOutput = {
@@ -4704,7 +4704,7 @@ export const deserializeAws_restJson1SyncDeploymentJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SyncDeploymentJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SyncDeploymentJobCommandError(output, context);
   }
   const contents: SyncDeploymentJobCommandOutput = {
@@ -4838,7 +4838,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -4913,7 +4913,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -4988,7 +4988,7 @@ export const deserializeAws_restJson1UpdateRobotApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRobotApplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateRobotApplicationCommandError(output, context);
   }
   const contents: UpdateRobotApplicationCommandOutput = {
@@ -5099,7 +5099,7 @@ export const deserializeAws_restJson1UpdateSimulationApplicationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSimulationApplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateSimulationApplicationCommandError(output, context);
   }
   const contents: UpdateSimulationApplicationCommandOutput = {

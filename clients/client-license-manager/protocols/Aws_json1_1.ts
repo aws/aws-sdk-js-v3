@@ -335,7 +335,7 @@ export const deserializeAws_json1_1CreateLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLicenseConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateLicenseConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -430,7 +430,7 @@ export const deserializeAws_json1_1DeleteLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLicenseConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteLicenseConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -517,7 +517,7 @@ export const deserializeAws_json1_1GetLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLicenseConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetLicenseConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -604,7 +604,7 @@ export const deserializeAws_json1_1GetServiceSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetServiceSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -683,7 +683,7 @@ export const deserializeAws_json1_1ListAssociationsForLicenseConfigurationComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociationsForLicenseConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -778,7 +778,7 @@ export const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperations
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -865,7 +865,7 @@ export const deserializeAws_json1_1ListLicenseConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicenseConfigurationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListLicenseConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -960,7 +960,7 @@ export const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicenseSpecificationsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1047,7 +1047,7 @@ export const deserializeAws_json1_1ListResourceInventoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceInventoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListResourceInventoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1150,7 +1150,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1237,7 +1237,7 @@ export const deserializeAws_json1_1ListUsageForLicenseConfigurationCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsageForLicenseConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1332,7 +1332,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1419,7 +1419,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1506,7 +1506,7 @@ export const deserializeAws_json1_1UpdateLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLicenseConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateLicenseConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1593,7 +1593,7 @@ export const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1696,7 +1696,7 @@ export const deserializeAws_json1_1UpdateServiceSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateServiceSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

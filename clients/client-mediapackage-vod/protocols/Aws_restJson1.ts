@@ -570,7 +570,7 @@ export const deserializeAws_restJson1CreateAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateAssetCommandError(output, context);
   }
   const contents: CreateAssetCommandOutput = {
@@ -697,7 +697,7 @@ export const deserializeAws_restJson1CreatePackagingConfigurationCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePackagingConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreatePackagingConfigurationCommandError(output, context);
   }
   const contents: CreatePackagingConfigurationCommandOutput = {
@@ -820,7 +820,7 @@ export const deserializeAws_restJson1CreatePackagingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePackagingGroupCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreatePackagingGroupCommandError(output, context);
   }
   const contents: CreatePackagingGroupCommandOutput = {
@@ -931,7 +931,7 @@ export const deserializeAws_restJson1DeleteAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssetCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAssetCommandError(output, context);
   }
   const contents: DeleteAssetCommandOutput = {
@@ -1022,7 +1022,7 @@ export const deserializeAws_restJson1DeletePackagingConfigurationCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePackagingConfigurationCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeletePackagingConfigurationCommandError(output, context);
   }
   const contents: DeletePackagingConfigurationCommandOutput = {
@@ -1113,7 +1113,7 @@ export const deserializeAws_restJson1DeletePackagingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePackagingGroupCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeletePackagingGroupCommandError(output, context);
   }
   const contents: DeletePackagingGroupCommandOutput = {
@@ -1204,7 +1204,7 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAssetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeAssetCommandError(output, context);
   }
   const contents: DescribeAssetCommandOutput = {
@@ -1331,7 +1331,7 @@ export const deserializeAws_restJson1DescribePackagingConfigurationCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePackagingConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribePackagingConfigurationCommandError(output, context);
   }
   const contents: DescribePackagingConfigurationCommandOutput = {
@@ -1454,7 +1454,7 @@ export const deserializeAws_restJson1DescribePackagingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePackagingGroupCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribePackagingGroupCommandError(output, context);
   }
   const contents: DescribePackagingGroupCommandOutput = {
@@ -1565,7 +1565,7 @@ export const deserializeAws_restJson1ListAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAssetsCommandError(output, context);
   }
   const contents: ListAssetsCommandOutput = {
@@ -1664,7 +1664,7 @@ export const deserializeAws_restJson1ListPackagingConfigurationsCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPackagingConfigurationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPackagingConfigurationsCommandError(output, context);
   }
   const contents: ListPackagingConfigurationsCommandOutput = {
@@ -1766,7 +1766,7 @@ export const deserializeAws_restJson1ListPackagingGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPackagingGroupsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPackagingGroupsCommandError(output, context);
   }
   const contents: ListPackagingGroupsCommandOutput = {
@@ -1865,7 +1865,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1912,7 +1912,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1955,7 +1955,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1998,7 +1998,7 @@ export const deserializeAws_restJson1UpdatePackagingGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePackagingGroupCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdatePackagingGroupCommandError(output, context);
   }
   const contents: UpdatePackagingGroupCommandOutput = {

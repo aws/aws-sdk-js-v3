@@ -117,7 +117,7 @@ export const deserializeAws_restJson1DeleteConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteConnectionCommandError(output, context);
   }
   const contents: DeleteConnectionCommandOutput = {
@@ -184,7 +184,7 @@ export const deserializeAws_restJson1GetConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetConnectionCommandError(output, context);
   }
   const contents: GetConnectionCommandOutput = {
@@ -263,7 +263,7 @@ export const deserializeAws_restJson1PostToConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostToConnectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PostToConnectionCommandError(output, context);
   }
   const contents: PostToConnectionCommandOutput = {

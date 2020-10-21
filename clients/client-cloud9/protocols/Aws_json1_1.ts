@@ -258,7 +258,7 @@ export const deserializeAws_json1_1CreateEnvironmentEC2Command = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentEC2CommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateEnvironmentEC2CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -361,7 +361,7 @@ export const deserializeAws_json1_1CreateEnvironmentMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentMembershipCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateEnvironmentMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -464,7 +464,7 @@ export const deserializeAws_json1_1DeleteEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteEnvironmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -567,7 +567,7 @@ export const deserializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentMembershipCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -670,7 +670,7 @@ export const deserializeAws_json1_1DescribeEnvironmentMembershipsCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentMembershipsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -773,7 +773,7 @@ export const deserializeAws_json1_1DescribeEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEnvironmentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -876,7 +876,7 @@ export const deserializeAws_json1_1DescribeEnvironmentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEnvironmentStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -979,7 +979,7 @@ export const deserializeAws_json1_1ListEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnvironmentsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListEnvironmentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1082,7 +1082,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1153,7 +1153,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1224,7 +1224,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1295,7 +1295,7 @@ export const deserializeAws_json1_1UpdateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateEnvironmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1398,7 +1398,7 @@ export const deserializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentMembershipCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
